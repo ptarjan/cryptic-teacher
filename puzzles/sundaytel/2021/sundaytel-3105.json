@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,43 @@
     "text": "Bottle — what could be in it?",
     "enumeration": "6"
    },
-   "solution": "SPIRIT"
+   "solution": "SPIRIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPIRIT",
+    "definitions": [
+     {
+      "text": "Bottle",
+      "at": 0
+     },
+     {
+      "text": "what could be in it",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bottle",
+      "note": "first meaning: courage, nerve, in British slang"
+     },
+     {
+      "clueFragment": "what could be in it",
+      "note": "second meaning: a strong alcoholic drink, the sort of thing kept in a bottle"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Bottle' looks like the container whose contents are asked about, but it is a definition in its own right: in British slang, bottle is courage.",
+     "definitionFit": "Spirit means courage or pluck, matching slang bottle, and is also distilled liquor such as whisky or gin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bottle"
+    }
+   }
   },
   {
    "number": 2,
@@ -43,10 +82,51 @@
    },
    "length": 5,
    "clue": {
-    "text": "Sauce pots Epicurean’s holding up",
+    "text": "Sauce pots Epicurean's holding up",
     "enumeration": "5"
    },
-   "solution": "PESTO"
+   "solution": "PESTO",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "PESTO",
+    "definitions": [
+     {
+      "text": "Sauce",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "hidden_word",
+      "note": "the words hold the answer within their joined letters"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the letters read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pots Epicurean's",
+      "gives": "OTSEP",
+      "note": "letters running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Pans of sauce held up by a gourmet's hands.",
+     "definitionFit": "Pesto is an Italian sauce of basil, pine nuts, garlic, cheese and olive oil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "holding"
+    }
+   }
   },
   {
    "number": 3,
@@ -57,10 +137,50 @@
    },
    "length": 9,
    "clue": {
-    "text": "Expression of derision that’s fruity?",
+    "text": "Expression of derision that's fruity?",
     "enumeration": "9"
    },
-   "solution": "RASPBERRY"
+   "solution": "RASPBERRY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RASPBERRY",
+    "definitions": [
+     {
+      "text": "Expression of derision",
+      "at": 0
+     },
+     {
+      "text": "fruity",
+      "at": 30,
+      "note": "an adjective; the answer is the fruit itself"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Expression of derision",
+      "note": "first meaning: a rude noise blown with the tongue"
+     },
+     {
+      "clueFragment": "fruity",
+      "note": "second meaning: a soft red berry"
+     }
+    ],
+    "explanation": {
+     "surface": "A rude jeer that also happens to be somewhat fruity.",
+     "walkthrough": "Blowing a raspberry is making a rude spluttering noise with the tongue; it comes from rhyming slang, raspberry tart.",
+     "definitionFit": "A raspberry is both a mocking noise made with the lips and a red soft fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +194,66 @@
     "text": "Decrease power in adjustment of rate",
     "enumeration": "5"
    },
-   "solution": "TAPER"
+   "solution": "TAPER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TAPER",
+    "definitions": [
+     {
+      "text": "Decrease",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "adjustment of",
+      "for": "anagram",
+      "note": "an adjustment changes the arrangement of what follows"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rate",
+      "gives": "RATE",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the symbol for power in physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "P",
+      "ER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RATE",
+       "gives": "TAER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An adjustment to a tariff that reduces the electricity supplied.",
+     "definitionFit": "To taper is to grow gradually smaller or thinner, so it means to decrease."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "power"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +267,54 @@
     "text": "Exploit is defended by creative influence",
     "enumeration": "6"
    },
-   "solution": "MISUSE"
+   "solution": "MISUSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MISUSE",
+    "definitions": [
+     {
+      "text": "Exploit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "defended by",
+      "for": "container",
+      "note": "something defended is guarded on all sides, so one word sits inside the protecting other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "creative influence",
+      "gives": "MUSE",
+      "note": "a muse inspires an artist"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "IS",
+      "USE"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist's inspiring presence is accused of taking advantage while guarded by their muse.",
+     "definitionFit": "To exploit something, in the unfair sense, is to put it to wrong or improper use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "defended"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,10 +325,57 @@
    },
    "length": 9,
    "clue": {
-    "text": "Old player, fellow’s on pitch",
+    "text": "Old player, fellow's on pitch",
     "enumeration": "9"
    },
-   "solution": "MANSFIELD"
+   "solution": "MANSFIELD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MANSFIELD",
+    "definitions": [
+     {
+      "text": "Old player",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue, on means placed above, so the first piece is written on top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fellow's",
+      "gives": "MANS",
+      "note": "fellow is man, with the 's kept"
+     },
+     {
+      "clueFragment": "pitch",
+      "gives": "FIELD",
+      "note": "a sports pitch is a field"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MANS",
+      "FIELD"
+     ]
+    },
+    "explanation": {
+     "surface": "A veteran footballer: that's the man out on the pitch.",
+     "walkthrough": "'Player' suggests a sportsman on the pitch, but it is an actor: Jayne Mansfield was a 1950s Hollywood star.",
+     "definitionFit": "Player is an old word for actor, and Jayne Mansfield was a mid-century film actress, now long dead."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "player"
+    }
+   }
   },
   {
    "number": 6,
@@ -116,7 +389,42 @@
     "text": "Healthy also underneath masks",
     "enumeration": "5"
    },
-   "solution": "SOUND"
+   "solution": "SOUND",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SOUND",
+    "definitions": [
+     {
+      "text": "Healthy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "masks",
+      "for": "hidden_word",
+      "note": "masks means conceals, so the answer lies concealed in the preceding words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "also underneath",
+      "gives": "SOUND",
+      "note": "letters running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone looks fit, but also has something hidden under a mask.",
+     "definitionFit": "Sound means in good condition, as in sound in mind and body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "masks"
+    }
+   }
   },
   {
    "number": 7,
@@ -130,7 +438,55 @@
     "text": "Focus weak around corporation",
     "enumeration": "9"
    },
-   "solution": "SPOTLIGHT"
+   "solution": "SPOTLIGHT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPOTLIGHT",
+    "definitions": [
+     {
+      "text": "Focus",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means encircling, so the word before it wraps the one after"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weak",
+      "gives": "SLIGHT",
+      "note": "slight means frail"
+     },
+     {
+      "clueFragment": "corporation",
+      "gives": "POT",
+      "note": "corporation is old jokey slang for a big belly, a pot belly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "POT",
+      "LIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A company is accused of feeble focus.",
+     "walkthrough": "'Corporation' looks like a business, but in old British humour it is a paunch, so it gives POT.",
+     "definitionFit": "A spotlight is a beam focused on one spot, and to spotlight something is to put focus on it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "corporation"
+    }
+   }
   },
   {
    "number": 8,
@@ -144,7 +500,60 @@
     "text": "Item attached to boot to walk uphill",
     "enumeration": "6"
    },
-   "solution": "TOECAP"
+   "solution": "TOECAP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TOECAP",
+    "definitions": [
+     {
+      "text": "Item attached to boot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uphill",
+      "for": "reversal",
+      "note": "in a down clue, going uphill means the letters run from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "walk",
+      "gives": "PACE",
+      "note": "to pace is to walk steadily"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "ECAP"
+     ],
+     "reversals": [
+      {
+       "from": "PACE",
+       "to": "ECAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something fixed to your boot so you can hike up a hill.",
+     "definitionFit": "A toecap is the reinforced covering fixed over the front of a boot or shoe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "uphill"
+    }
+   }
   },
   {
    "number": 9,
@@ -158,7 +567,46 @@
     "text": "Adrift, like carrier",
     "enumeration": "6"
    },
-   "solution": "ASTRAY"
+   "solution": "ASTRAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASTRAY",
+    "definitions": [
+     {
+      "text": "Adrift",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like",
+      "gives": "AS",
+      "note": "like and as are interchangeable"
+     },
+     {
+      "clueFragment": "carrier",
+      "gives": "TRAY",
+      "note": "a tray carries plates and cups"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "TRAY"
+     ]
+    },
+    "explanation": {
+     "surface": "Floating loose, like an aircraft carrier cut free.",
+     "definitionFit": "Astray means off course or wandering, just as something adrift has lost its way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "carrier"
+    }
+   }
   },
   {
    "number": 10,
@@ -172,7 +620,76 @@
     "text": "Spring is ending obviously, and summer starts",
     "enumeration": "5"
    },
-   "solution": "OASIS"
+   "solution": "OASIS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OASIS",
+    "definitions": [
+     {
+      "text": "Spring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts",
+      "for": "letter_selection",
+      "note": "the starts of words are their opening letters, taken from each of the three words before it"
+     },
+     {
+      "text": "ending",
+      "for": "charade",
+      "note": "says the word is comes at the end, after the other letters are in place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "obviously",
+      "gives": "O",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "summer",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "A",
+      "S",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "A remark on the change of seasons: spring is over and summer begins.",
+     "walkthrough": "'Spring' reads as the season next to summer, but here it is a water source in the desert.",
+     "definitionFit": "An oasis is a fertile desert spot fed by a spring of fresh water, so the word stands for the water source."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Spring"
+    }
+   }
   },
   {
    "number": 11,
@@ -186,7 +703,66 @@
     "text": "Suspended hammers used upon about fifty",
     "enumeration": "9"
    },
-   "solution": "PENDULOUS"
+   "solution": "PENDULOUS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PENDULOUS",
+    "definitions": [
+     {
+      "text": "Suspended",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hammers",
+      "for": "anagram",
+      "note": "to hammer is to beat into a new shape, so the letters before it are battered into another order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the rearranged letters go around what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "used upon",
+      "gives": "USEDUPON",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "fifty",
+      "gives": "L",
+      "note": "L is the Roman numeral for fifty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PENDU",
+      "L",
+      "OUS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "USEDUPON",
+       "gives": "PENDUOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something hanging up, with hammers having been used on roughly fifty of them.",
+     "definitionFit": "Pendulous describes something hanging down loosely and swinging, like a pendulum, so it means suspended."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hammers"
+    }
+   }
   },
   {
    "number": 12,
@@ -200,7 +776,41 @@
     "text": "Hit things",
     "enumeration": "7"
    },
-   "solution": "CLOBBER"
+   "solution": "CLOBBER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CLOBBER",
+    "definitions": [
+     {
+      "text": "Hit",
+      "at": 0
+     },
+     {
+      "text": "things",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hit",
+      "note": "first meaning: to strike hard"
+     },
+     {
+      "clueFragment": "things",
+      "note": "second meaning: British slang for one's gear, clothes or belongings"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Clobber in British slang is also one's stuff or gear, as in 'pack up your clobber'.",
+     "definitionFit": "To clobber is to beat someone heavily, and as a noun it is informal British for possessions or clothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -214,7 +824,42 @@
     "text": "Musician, untrustworthy type",
     "enumeration": "7"
    },
-   "solution": "FIDDLER"
+   "solution": "FIDDLER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FIDDLER",
+    "definitions": [
+     {
+      "text": "Musician",
+      "at": 0
+     },
+     {
+      "text": "untrustworthy type",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Musician",
+      "note": "first meaning: a violin player"
+     },
+     {
+      "clueFragment": "untrustworthy type",
+      "note": "second meaning: a cheat or swindler"
+     }
+    ],
+    "explanation": {
+     "surface": "A violinist who cannot be trusted.",
+     "definitionFit": "A fiddler plays the violin, and someone who fiddles accounts or figures is a cheat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 14,
@@ -228,7 +873,49 @@
     "text": "Separate escarpment for bird",
     "enumeration": "9"
    },
-   "solution": "PARTRIDGE"
+   "solution": "PARTRIDGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARTRIDGE",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Separate",
+      "gives": "PART",
+      "note": "to separate is to part"
+     },
+     {
+      "clueFragment": "escarpment",
+      "gives": "RIDGE",
+      "note": "an escarpment is a long steep ridge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PART",
+      "RIDGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A birdwatcher sets aside a stretch of steep ridge as habitat for a bird.",
+     "definitionFit": "The partridge is a plump game bird of farmland, shot in season in Britain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Separate"
+    }
+   }
   },
   {
    "number": 15,
@@ -242,7 +929,59 @@
     "text": "Bird breeds with rat, bizarrely",
     "enumeration": "9"
    },
-   "solution": "REDBREAST"
+   "solution": "REDBREAST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REDBREAST",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bizarrely",
+      "for": "anagram",
+      "note": "something done bizarrely is done strangely, so the letters come out in an odd order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "breeds",
+      "gives": "BREEDS",
+      "note": "the first set of letters to be rearranged"
+     },
+     {
+      "clueFragment": "rat",
+      "gives": "RAT",
+      "note": "the rest of the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BREEDSRAT",
+       "gives": "REDBREAST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strange tale of a bird that mates with a rodent.",
+     "definitionFit": "Redbreast is the traditional name for the robin, the small bird with a red-orange chest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "breeds"
+    }
+   }
   },
   {
    "number": 16,
@@ -256,7 +995,79 @@
     "text": "Woman making first appearance badly taunted about errand boy, initially",
     "enumeration": "9"
    },
-   "solution": "DEBUTANTE"
+   "solution": "DEBUTANTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "DEBUTANTE",
+    "definitions": [
+     {
+      "text": "Woman making first appearance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "badly means in a poor way, so the word is made into a jumble"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the jumble goes around the next letters"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so the opening letters of the two words before it are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taunted",
+      "gives": "TAUNTED",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "errand",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "B",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "EB",
+      "UTANTE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TAUNTED",
+       "gives": "DUTANTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman on her first appearance is cruelly mocked about a messenger boy.",
+     "definitionFit": "A debutante is a young woman making her formal entrance into society, her debut, so a first appearance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "badly"
+    }
+   }
   },
   {
    "number": 17,
@@ -270,7 +1081,42 @@
     "text": "Cart infested with insects",
     "enumeration": "5"
    },
-   "solution": "BUGGY"
+   "solution": "BUGGY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BUGGY",
+    "definitions": [
+     {
+      "text": "Cart",
+      "at": 0
+     },
+     {
+      "text": "infested with insects",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cart",
+      "note": "first meaning: a light carriage or small wheeled vehicle"
+     },
+     {
+      "clueFragment": "infested with insects",
+      "note": "second meaning: full of bugs"
+     }
+    ],
+    "explanation": {
+     "surface": "A cart crawling with insects.",
+     "definitionFit": "A buggy is a light horse-drawn vehicle or small cart, and the adjective buggy means overrun by bugs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 17,
@@ -284,7 +1130,50 @@
     "text": "Short suit in item of luggage",
     "enumeration": "9"
    },
-   "solution": "BRIEFCASE"
+   "solution": "BRIEFCASE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRIEFCASE",
+    "definitions": [
+     {
+      "text": "item of luggage",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Short",
+      "gives": "BRIEF",
+      "note": "brief means short"
+     },
+     {
+      "clueFragment": "suit",
+      "gives": "CASE",
+      "note": "a suit at law is a case"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRIEF",
+      "CASE"
+     ]
+    },
+    "explanation": {
+     "surface": "A short suit packed in a piece of luggage.",
+     "walkthrough": "'Suit' reads as clothing to be packed; it is a lawsuit, a case.",
+     "definitionFit": "A briefcase is a flat case carried by hand for papers, a small piece of luggage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suit"
+    }
+   }
   },
   {
    "number": 18,
@@ -298,7 +1187,43 @@
     "text": "Assistant on course leaves here?",
     "enumeration": "5"
    },
-   "solution": "CADDY"
+   "solution": "CADDY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CADDY",
+    "definitions": [
+     {
+      "text": "Assistant on course",
+      "at": 0
+     },
+     {
+      "text": "leaves here",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Assistant on course",
+      "note": "first meaning: a golfer's helper who carries the clubs"
+     },
+     {
+      "clueFragment": "leaves here",
+      "note": "second meaning: a small tin where tea leaves are kept"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Leaves' looks like a verb, someone departing; it is the noun, tea leaves, and the question mark flags the trick.",
+     "definitionFit": "A caddie or caddy carries a golfer's clubs round the course, and a tea caddy is a container for loose tea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 18,
@@ -312,7 +1237,44 @@
     "text": "Cross, as one scuttling off?",
     "enumeration": "6"
    },
-   "solution": "CRABBY"
+   "solution": "CRABBY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CRABBY",
+    "definitions": [
+     {
+      "text": "Cross",
+      "at": 0
+     },
+     {
+      "text": "as one scuttling off",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cross",
+      "note": "first meaning: bad-tempered"
+     },
+     {
+      "clueFragment": "as one scuttling off",
+      "note": "second meaning: like a crab, which scuttles sideways"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone in a bad mood, hurrying away in a huff.",
+     "walkthrough": "The question mark marks the jokey second sense: crab-like.",
+     "definitionFit": "Crabby means irritable or grumpy, and playfully also like a crab, the sideways-scuttling crustacean."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "scuttling"
+    }
+   }
   },
   {
    "number": 19,
@@ -326,7 +1288,54 @@
     "text": "China behind shocking sport",
     "enumeration": "9"
    },
-   "solution": "BADMINTON"
+   "solution": "BADMINTON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BADMINTON",
+    "definitions": [
+     {
+      "text": "sport",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind places the first-named word after the next, reversing their clue order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shocking",
+      "gives": "BAD",
+      "note": "shocking means very poor"
+     },
+     {
+      "clueFragment": "China",
+      "gives": "MINTON",
+      "note": "Minton is a famous English make of porcelain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAD",
+      "MINTON"
+     ]
+    },
+    "explanation": {
+     "surface": "A comment that the country China lags behind in some awful sport.",
+     "walkthrough": "'China' looks like the country, but it is porcelain: Minton is a Staffordshire pottery firm.",
+     "definitionFit": "Badminton is a racket game played over a high net with a shuttlecock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 20,
@@ -340,7 +1349,44 @@
     "text": "Taunt that may be on record?",
     "enumeration": "6"
    },
-   "solution": "NEEDLE"
+   "solution": "NEEDLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NEEDLE",
+    "definitions": [
+     {
+      "text": "Taunt",
+      "at": 0
+     },
+     {
+      "text": "that may be on record",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Taunt",
+      "note": "first meaning: to provoke or goad"
+     },
+     {
+      "clueFragment": "that may be on record",
+      "note": "second meaning: the stylus that rests on a spinning gramophone disc"
+     }
+    ],
+    "explanation": {
+     "surface": "An insult that might be noted in an official record.",
+     "walkthrough": "'On record' suggests something documented; it is a vinyl record played by a needle.",
+     "definitionFit": "To needle is to irritate with jibes, and a needle is the gramophone stylus resting on a record."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 21,
@@ -354,7 +1400,61 @@
     "text": "Performer, a jazz fan downing mug",
     "enumeration": "7"
    },
-   "solution": "ACROBAT"
+   "solution": "ACROBAT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ACROBAT",
+    "definitions": [
+     {
+      "text": "Performer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "downing",
+      "for": "container",
+      "note": "downing means swallowing, so one word takes the other inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "jazz fan",
+      "gives": "CAT",
+      "note": "cat is old slang for a jazz enthusiast"
+     },
+     {
+      "clueFragment": "mug",
+      "gives": "ROB",
+      "note": "to mug someone is to rob them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "C",
+      "ROB",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "An entertainer, a jazz lover, knocking back a mugful of something.",
+     "walkthrough": "'Mug' looks like a drinking vessel being downed; it is the verb, to rob in the street.",
+     "definitionFit": "An acrobat is a circus or stage performer of tumbling and balancing feats."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mug"
+    }
+   }
   },
   {
    "number": 22,
@@ -368,7 +1468,56 @@
     "text": "Fish in river caught by William",
     "enumeration": "5"
    },
-   "solution": "BRILL"
+   "solution": "BRILL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BRILL",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caught by",
+      "for": "container",
+      "note": "something caught by another is trapped inside it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "William",
+      "gives": "BILL",
+      "note": "Bill is short for William"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "R",
+      "ILL"
+     ]
+    },
+    "explanation": {
+     "surface": "An angler named William lands a fish in the river.",
+     "definitionFit": "Brill is a European flatfish related to the turbot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -379,10 +1528,70 @@
    },
    "length": 7,
    "clue": {
-    "text": "Pleasant, a story capturing Kafka’s heart",
+    "text": "Pleasant, a story capturing Kafka's heart",
     "enumeration": "7"
    },
-   "solution": "AFFABLE"
+   "solution": "AFFABLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AFFABLE",
+    "definitions": [
+     {
+      "text": "Pleasant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capturing",
+      "for": "container",
+      "note": "capturing means taking prisoner, so one piece holds another within it"
+     },
+     {
+      "text": "heart",
+      "for": "letter_selection",
+      "note": "the heart of a word is its central letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "story",
+      "gives": "FABLE",
+      "note": "a fable is a short moral tale"
+     },
+     {
+      "clueFragment": "Kafka's",
+      "gives": "F",
+      "select": "middle",
+      "note": "the middle of the five letters of Kafka"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "F",
+      "F",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pleasant tale that somehow gets to the core of Kafka's writing.",
+     "definitionFit": "Affable means friendly and easy to talk to, a synonym for pleasant in manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 23,
@@ -396,7 +1605,47 @@
     "text": "Character sometimes dropped, a sensation",
     "enumeration": "5"
    },
-   "solution": "AITCH"
+   "solution": "AITCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AITCH",
+    "definitions": [
+     {
+      "text": "Character sometimes dropped",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sensation",
+      "gives": "ITCH",
+      "note": "an itch is a tickling sensation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "ITCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A person who sometimes falls, but it causes a thrill.",
+     "walkthrough": "'Character' suggests a person; it is a letter, H, whose sound many British speakers drop.",
+     "definitionFit": "Aitch is the name of the letter H, famously dropped in Cockney and other accents."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Character"
+    }
+   }
   },
   {
    "number": 24,
@@ -410,7 +1659,43 @@
     "text": "Stop holiday, did you say?",
     "enumeration": "5"
    },
-   "solution": "BRAKE"
+   "solution": "BRAKE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BRAKE",
+    "definitions": [
+     {
+      "text": "Stop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "did you say",
+      "for": "homophone",
+      "note": "asking what was said points to the sound of a word rather than its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "holiday",
+      "gives": "BRAKE",
+      "soundsLike": "BREAK",
+      "note": "a short holiday is a break"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks whether a holiday has been cancelled.",
+     "definitionFit": "To brake is to slow or halt a vehicle, so it means to stop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "holiday"
+    }
+   }
   },
   {
    "number": 25,
@@ -430,7 +1715,62 @@
      }
     ]
    },
-   "solution": "BRAZILNUT"
+   "solution": "BRAZILNUT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BRAZIL NUT",
+    "definitions": [
+     {
+      "text": "hard to swallow",
+      "at": 51,
+      "note": "an adjectival phrase; the answer is the hard thing hard to swallow"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "misrepresented",
+      "for": "anagram",
+      "note": "something misrepresented is distorted, so its letters are given a false arrangement"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "is that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Last character",
+      "gives": "Z",
+      "note": "the last letter of the alphabet"
+     },
+     {
+      "clueFragment": "tribunal",
+      "gives": "TRIBUNAL",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ZTRIBUNAL",
+       "gives": "BRAZILNUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The final witness at a tribunal was misrepresented, which is hard to accept.",
+     "walkthrough": "'Hard to swallow' looks like unbelievable testimony; the question mark says take it literally, a very hard shelled nut.",
+     "definitionFit": "The Brazil nut has a notoriously tough shell and a large kernel, so it is literally hard to swallow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 26,
@@ -450,7 +1790,46 @@
      }
     ]
    },
-   "solution": "ATALL"
+   "solution": "ATALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AT ALL",
+    "definitions": [
+     {
+      "text": "Ever",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "giant",
+      "gives": "TALL",
+      "note": "giant as an adjective: huge, very tall"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TALL"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Giant' reads as a noun, but it is the adjective, very big.",
+     "definitionFit": "In questions such as 'did you ever see it?' the phrase at all can stand in, meaning in any way or at any time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "giant"
+    }
+   }
   },
   {
    "number": 27,
@@ -464,7 +1843,70 @@
     "text": "PM in general beyond a gutless twit",
     "enumeration": "6"
    },
-   "solution": "ATTLEE"
+   "solution": "ATTLEE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ATTLEE",
+    "definitions": [
+     {
+      "text": "PM",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beyond",
+      "for": "charade",
+      "note": "beyond puts the first-named word after the rest, in reading order"
+     },
+     {
+      "text": "gutless",
+      "for": "letter_selection",
+      "note": "gutless means with the insides removed, keeping only the outer letters"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "twit",
+      "gives": "TT",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "general",
+      "gives": "LEE",
+      "note": "Robert E. Lee, Confederate general in the American Civil War"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TT",
+      "LEE"
+     ]
+    },
+    "explanation": {
+     "surface": "A prime minister in charge who is something beyond a cowardly fool.",
+     "walkthrough": "Clement Attlee was the British Labour prime minister from 1945 to 1951.",
+     "definitionFit": "PM is the standard abbreviation for Prime Minister, and Attlee held that office after the Second World War."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "general"
+    }
+   }
   },
   {
    "number": 28,
@@ -478,7 +1920,43 @@
     "text": "Listed, as are stilettos?",
     "enumeration": "6"
    },
-   "solution": "HEELED"
+   "solution": "HEELED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HEELED",
+    "definitions": [
+     {
+      "text": "Listed",
+      "at": 0
+     },
+     {
+      "text": "as are stilettos",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Listed",
+      "note": "first meaning: leaned over, as a ship does"
+     },
+     {
+      "clueFragment": "as are stilettos",
+      "note": "second meaning: having heels, which stiletto shoes do"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Listed' looks like put on a list; it is the nautical sense, tilted to one side.",
+     "definitionFit": "A ship that heels over is tilting, the same as listing; and stilettos are shoes with tall narrow heels attached."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Listed"
+    }
+   }
   }
  ]
 }
