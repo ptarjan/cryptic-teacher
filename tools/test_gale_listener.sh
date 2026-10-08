@@ -163,6 +163,22 @@ check("a one-figure number after a restart gap not made 60 (mirror)",
 check("a one-figure number far past or below its run's last kept (mirror)",
       False, g.lost_zero(58, 5) or g.lost_zero(51, 6) or g.lost_zero(9, 6) or g.lost_zero(13, 2))
 
+# No 3's "Indian servant looks forward to." under the full 45A line, its
+# box stretched left over a speck to where the numbers stand, runs on 45A;
+# a line there opening on a misread number ("4S.") runs on nothing.
+def no3_45(second):
+    return (line("ACROSS", 200, 100) + line("43. The name of a town in Sind.", 100, 130)
+            + line("45. Insert an A and this is what every", 100, 160) + line(second, 104, 190)
+            + line("46. Part of 7 down.", 100, 220) + line("50. A place in the hills.", 100, 250)
+            + line("1. A pass", 600, 130) + line("2. An exclamation", 600, 160)
+            + line("3. An association", 600, 190))
+check("a line stretched over a speck to the numbers runs on the full line above",
+      ["43.", "45.", "Indian", "46.", "50."],
+      [l[4].split()[0] for l in g.page_columns(no3_45("Indian servant looks forward to."))[0]])
+check("a line there opening on a misread number does not (mirror)",
+      ["43.", "45.", "46.", "50."],
+      [l[4].split()[0] for l in g.page_columns(no3_45("4S. A fairly frequent thing."))[0]])
+
 # Old-style figures read as letters open a clue all the same.
 for text, want in [("I.", "1."), ("II. See 13.", "11. See 13."),
                    ("I3. Garden", "13. Garden"), ("O. Wonder", "O. Wonder"), ("Oo.", "Oo."),
