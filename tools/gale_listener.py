@@ -292,9 +292,20 @@ def words_only(words):
 
 def page_columns(words):
     """[across lines, down lines], each [(y0, y1, x0, x1, text)], for a page
-    laid out any way: headed_columns when both headings are read and give
-    two lists, else numbered_columns."""
-    return headed_columns(words) or numbered_columns(words)
+    laid out any way: of headed_columns (both headings read) and
+    numbered_columns, the one holding more numbered clue lines, headed_columns
+    on a tie. Under a low ACROSS, headed_columns sees only the lists' first
+    band (No 3's run on at the top of the next column)."""
+    found = [c for c in (headed_columns(words), numbered_columns(words)) if c]
+    return max(found, key=lambda c: sum(bool(al.LINE_CLUE.match(line[4])) for lst in c for line in lst), default=None)
+
+
+def headings(words):
+    """The words that are a list's heading alone on their line (ALONE): a
+    report's prose quoting "for 1 Across (see notes)" heads no list."""
+    return [w for w in words if fa.heading_of(w[4]) and not any(
+        o is not w and abs((o[1] + o[3]) / 2 - (w[1] + w[3]) / 2) < (w[3] - w[1]) / 2
+        and min(abs(o[0] - w[2]), abs(w[0] - o[2])) < ALONE for o in words)]
 
 
 def headed_columns(words):
@@ -303,8 +314,9 @@ def headed_columns(words):
     may be up to CENTRED left of it), each from the lists' top; the lines before
     DOWN are the across clues, those after it the down. None without both
     headings."""
-    across = al.heading_word(words, "ACROSS")
-    down = across and next((w for w in sorted(words, key=lambda w: (w[0] // 200, w[1]))
+    heads = headings(words)
+    across = al.heading_word(heads, "ACROSS")
+    down = across and next((w for w in sorted(heads, key=lambda w: (w[0] // 200, w[1]))
                             if fa.heading_of(w[4]) == "DOWN"
                             and (w[1] > across[3] or w[0] > across[2])), None)
     if not across or not down:
@@ -321,12 +333,25 @@ def headed_columns(words):
             spans[-1][1] = max(spans[-1][1], x1)
         else:
             spans.append([x0, x1])
+    # A gutter a long clue line or a speck bridges (No 88's lists beside the
+    # report) still parts two columns where the next one's numbers line up.
+    # A word across such a cut is a title over both (No 17's "Points from
+    # Letters"), no clue's.
+    cuts = [x - GUTTER for x in column_lefts(below) if x > left]
+    body = [w for w in body if not any(w[0] < x < w[2] - GUTTER for x in cuts)]
+    spans = [[max(x0, a), min(x1, b - 1)] for x0, x1 in spans
+             for a, b in zip([x0] + cuts, cuts + [x1 + 1]) if max(x0, a) < min(x1, b - 1)]
     lines = {"ACROSS": [], "DOWN": []}
     side = "ACROSS"
-    for x0, x1 in spans:
+    for i, (x0, x1) in enumerate(spans):
         col = [(w[1], w[3], w[0], w[2], w[4]) for w in body if x0 <= w[0] <= x1]
+        rows = fa.merge_rows(col)
+        if i and not any(al.LINE_CLUE.match(r[4]) or fa.heading_of(r[4]) for r in rows[:2]):
+            # A column opening on prose (No 88's report beside its lists)
+            # holds no more of them.
+            break
         last = None
-        for line in fa.merge_rows(col):
+        for line in rows:
             if last is not None and line[0] - last > 2 * fa.GAP or al.END.match(line[4]):
                 break
             last = line[1]
@@ -428,9 +453,7 @@ def numbered_columns(words):
     none. The first list is the one its
     heading names. None without two lists."""
     lefts = column_lefts(words)
-    heads = [w for w in words if fa.heading_of(w[4]) and not any(
-        o is not w and abs((o[1] + o[3]) / 2 - (w[1] + w[3]) / 2) < (w[3] - w[1]) / 2
-        and min(abs(o[0] - w[2]), abs(w[0] - o[2])) < ALONE for o in words)]
+    heads = headings(words)
     if not lefts or not heads:
         return None
     start = min(heads, key=lambda w: (sum(x <= w[0] for x in lefts), w[1]))
