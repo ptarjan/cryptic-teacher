@@ -117,6 +117,8 @@ got = {(0, 0): 23, (0, 3): 24, (0, 5): 75, (1, 0): 26, (1, 2): 27, (2, 0): 2, (2
 check("in_order keeps the run rising in reading order",
       {(0, 0): 23, (0, 3): 24, (1, 0): 26, (1, 2): 27, (2, 4): 28}, lg.in_order(got, 60))
 check("in_order drops numbers above the most lights", {(0, 0): 23}, lg.in_order({(0, 0): 23, (0, 1): 61}, 60))
+check("in_order keeps neither cell of a number read twice (No 17's 40 read 41)",
+      {(10, 3): 37, (12, 0): 42}, lg.in_order({(10, 3): 37, (11, 0): 41, (11, 6): 41, (12, 0): 42}, 100))
 
 # A row and a column mostly blocks (No 15's last row is 9 blocks of 13):
 # the band of blocks covers as much as a rule, and its edges are the rules.

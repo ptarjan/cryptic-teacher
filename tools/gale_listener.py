@@ -280,7 +280,7 @@ def words_only(words):
     for w in words:
         if re.fullmatch(r"\W*\d{1,3}\W*", w[4]) and not any(
                 o is not w and not re.fullmatch(r"\W*\d{1,3}\W*", o[4])
-                and 0 <= o[0] - w[2] <= max(40, BESIDE * (w[3] - w[1]))
+                and w[0] < o[0] and o[0] - w[2] <= max(40, BESIDE * (w[3] - w[1]))
                 and abs((o[1] + o[3]) / 2 - (w[1] + w[3]) / 2) < (w[3] - w[1]) for o in words):
             continue
         out.append(w)
@@ -361,6 +361,12 @@ RESTART = 20
 FULL = 0.6
 #: A list's footnote, under its last clue: "*One letter missing."
 FOOTNOTE = re.compile(r"^\W{0,2}[*\u2020\u2021#]\s*[A-Z]")
+#: A line ending its sentence: "Lenten.", "Why did this aspirated this?".
+SENTENCE_END = re.compile(r"[.?!][\u2019'\")]?\s*$")
+#: A clue's number stands within this of its column's left edge.
+NUMBER_EDGE = 60
+#: A speck read where a clue's number is lost: "+ Why did this".
+SPECK = re.compile(r"^[^\w\s*\u2020\u2021'\"\u2018\u201c(]{1,2}\s+(?=[A-Z])")
 #: A heading stands alone on its line: no word this near either side
 #: ("8 Down should have had an asterisk" is prose). A word is on its line
 #: when their centres are under half its height apart: No 97's centred
@@ -407,11 +413,19 @@ def numbered_columns(words):
         return None
     start = min(heads, key=lambda w: (sum(x <= w[0] for x in lefts), w[1]))
     runs = []
+    # A grid's cell numbers beside a column (No 17's) would run into its
+    # lines: a bare number past where the clue numbers stand, with no words
+    # beside it, goes.
+    kept = set(words_only(words))
     for x0, x1 in zip(lefts, lefts[1:] + [float("inf")]):
-        col = [(w[1], w[3], w[0], w[2], w[4]) for w in words if x0 <= w[0] < x1]
-        run, last_y = [], None
+        col = [(w[1], w[3], w[0], w[2], w[4]) for w in words if x0 <= w[0] < x1 and (
+            w in kept or w[0] - x0 < NUMBER_EDGE or not re.fullmatch(r"\d{1,2}", w[4]))]
+        run, last_y, last_x = [], None, x0
         rows = fa.merge_rows(col)
-        right = max((line[3] for line in rows if OPENS.match(line[4])), default=x0)
+        # The column's right edge: where its clue lines end, but for one
+        # run into the grid or form beside it (No 17's "less'. NAME....").
+        ends = sorted(line[3] for line in rows if OPENS.match(line[4]))
+        right = ends[int(0.9 * (len(ends) - 1))] if ends else x0
         for line in rows:
             if REPORT_HEAD.match(line[4]):
                 # A report's prose ("solving 38 Down") is no clue list.
@@ -421,23 +435,33 @@ def numbered_columns(words):
                 # it: the grid, the preamble, another article.
                 continue
             m = al.LINE_CLUE.match(line[4])
-            if m and line[2] - x0 < 60 and WORDY.search(m.group(2)) and not fa.heading_of(line[4]):
+            if run and (speck := SPECK.match(line[4])) and WORDY.search(line[4]):
+                # A speck where the number was ("+ Why did ..."): the words
+                # start at the indent.
+                line = (line[0], line[1], last_x + RUN_ON + 1, line[3], line[4][speck.end():])
+            under = (run and last_y is not None and line[0] - last_y < fa.GAP / 2 and line[2] > last_x + RUN_ON
+                     and not fa.heading_of(line[4]) and not FOOTNOTE.match(line[4]))
+            if m and line[2] - x0 < NUMBER_EDGE and WORDY.search(m.group(2)) and not fa.heading_of(line[4]):
                 n = int(m.group(1))
+                run = numbered(run, n)
                 if run and (line[0] - last_y > fa.GAP / 2 or n < run[-1][0] and line[0] - last_y > RESTART):
                     runs.append(run)
                     run = []
                 run.append((n, [line]))
                 last_x, last_y = line[2], line[1]
-            elif (run and last_y is not None and line[0] - last_y < fa.GAP / 2 and line[2] > last_x + RUN_ON
-                  and run[-1][1][-1][3] - x0 >= FULL * (right - x0)
-                  and not fa.heading_of(line[4]) and not FOOTNOTE.match(line[4])):
+            elif under and run[-1][1][-1][3] - x0 >= FULL * (right - x0):
                 run[-1][1].append(line)
                 last_y = line[1]
+            elif under and WORDY.search(line[4]):
+                # Under a line that ended its clue: the next clue, its
+                # number lost (numbered() puts it back or drops it).
+                run.append((None, [line]))
+                last_y = line[1]
             else:
-                if run:
+                if run := numbered(run, None):
                     runs.append(run)
                 run, last_y = [], None
-        if run:
+        if run := numbered(run, None):
             runs.append(run)
     lists = [[], []]
     for run in runs:
@@ -458,6 +482,29 @@ def numbered_columns(words):
     return lines if fa.heading_of(start[4]) == "ACROSS" else lines[::-1]
 
 
+def numbered(run, n):
+    """`run` ([(number or None, lines)]) with the clues whose number the
+    reading lost before clue `n` numbered: when as many as the numbers
+    between the clue before them and `n` (No 97's DOWN 4-8, under 3 and over
+    9, read with no figures), they take those numbers in turn; else (or with
+    `n` None, the run's end) they run on from a clue that ended mid-sentence
+    (No 97's verse), and are dropped after one that ended its sentence
+    ("6. Lenten." over "park")."""
+    lost = 0
+    while lost < len(run) and run[len(run) - 1 - lost][0] is None:
+        lost += 1
+    if not lost:
+        return run
+    kept, gone = run[:len(run) - lost], run[len(run) - lost:]
+    if kept and n is not None and n - kept[-1][0] - 1 == lost:
+        return kept + [(k, [(*ls[0][:4], f"{k}. {ls[0][4]}"), *ls[1:]])
+                       for k, (_, ls) in zip(range(kept[-1][0] + 1, n), gone)]
+    if kept and not SENTENCE_END.search(kept[-1][1][-1][4]):
+        # Mid-sentence ("His poser guessed by means unfair,"): it runs on.
+        return kept[:-1] + [(kept[-1][0], kept[-1][1] + [line for _, ls in gone for line in ls])]
+    return kept
+
+
 #: A clue number in the 1930s' old-style figures, read as letters: "I."
 #: for 1, "II." for 11, "Io." for 10, "I3." for 13 (No 97's, No 103's).
 FIGURES = re.compile(r"^(\W{0,2})([IlO\d]?[IloO\d])([.,:])(?=\s|[A-Z]|$)")
@@ -465,25 +512,33 @@ AS_DIGIT = str.maketrans("IlOo", "1100")
 
 
 #: A clue number run into its first word, as the "ch" reader drops the
-#: space: "1.An African bird".
-GLUED = re.compile(r"^(\W{0,2}\d{1,2}[.,:])(?=[A-Za-z*\u2020\u2021'\"\u2018\u201c])")
+#: space: "1.An African bird", or its stop and a dagger lost too: "29A town".
+GLUED = re.compile(r"^(\W{0,2}\d{1,2}[.,:])(?=[A-Za-z*\u2020\u2021'\"\u2018\u201c])"
+                   r"|^(\W{0,2}\d{1,2})(?=[A-Z][a-z]|[AI]\s)")
 #: A footnote's dagger opening a clue ("28.\u2020Not far from 13"), read as
-#: a small t or f run into the clue's capital ("tNot", "fA famous").
-DAGGER = re.compile(r"^(\W{0,2}\d{1,2}[.,:] )?[tf](?=[A-Z](?:[a-z]|\s|$))")
+#: a small t or f run into the clue's capital ("tNot", "fA famous"), or
+#: run into its number ("29tA town").
+DAGGER = re.compile(r"^(\W{0,2}\d{1,2}[.,:]? ?)?[tf\u2020](?=[A-Z](?:[a-z]|\s|$))")
 
 
 def figures(words):
     """The words with a line's opening clue number read as letters put back
     in digits (a number cannot open on 0, so "O." and "Oo." stay words),
     parted from a first word run into it, and a footnote's dagger read as a
-    letter (DAGGER) put back."""
+    letter (DAGGER) put back; a speck's box taller than a line goes."""
     out = []
+    tall = 1.5 * sorted(w[3] - w[1] for w in words)[len(words) // 2] if words else 0
     for w in words:
+        if re.fullmatch(r"\W{1,2}", w[4]) and w[3] - w[1] > tall:
+            # A speck's box over several lines ("+" for No 97's lost "4."):
+            # merge_rows would take it for one row and drop the lines in it.
+            continue
         m = FIGURES.match(w[4])
         n = m and m.group(2).translate(AS_DIGIT)
         if m and n.isdigit() and n[0] != "0" and not m.group(2).isdigit():
             w = (*w[:4], m.group(1) + n + m.group(3) + w[4][m.end():])
-        w = (*w[:4], DAGGER.sub("\\1\u2020", GLUED.sub(r"\1 ", w[4])))
+        w = (*w[:4], DAGGER.sub(lambda m: (m.group(1) or "").rstrip() + (" " if m.group(1) else "") + "\u2020",
+                                GLUED.sub(lambda m: (m.group(1) or m.group(2)) + " ", w[4])))
         out.append(w)
     return out
 

@@ -51,6 +51,14 @@ check("a count the light does not have is a disagreement", "count disagrees for 
       f.lights_fit(OPEN, {f"{n}-{d}": {"text": "x", "enumeration": "5" if (n, d) == (1, "across") else None}
                           for n, d in lts}))
 
+# A blocked grid whose unnumbered 2-cell runs are barred shut (No 17's):
+# its blocks are no bars.
+built = f.build({"number": 17, "name": "Listener crossword No 17: Test", "date": "1930-07-23", "clues": {},
+                 "source": {"url": "u"}}, ["r.#.", "....", "#...", "...."])
+check("a blocked grid's bars hold no block", ["r...", "....", "....", "...."], built.get("bars"))
+check("and its blocks are no light's cell (mirror)", False,
+      any((e["position"]["y"], e["position"]["x"]) == (0, 2) for e in built["entries"]))
+
 # Crossings: r0c0 unread, both its lights read whole as C...; r3c3 nothing settles.
 sure = {(r, c): SQUARE[r][c] for r in range(4) for c in range(4) if (r, c) not in {(0, 0), (3, 3)}}
 full = {(n, d): {"".join(SQUARE[r][c] for r, c in cells)} for (n, d), cells in lts.items()}

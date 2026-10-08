@@ -423,8 +423,12 @@ def in_order(got, most):
     """The reads of `got` ({(r, c): number}) that can be printed numbers:
     none above `most` (the grid's open cells, more than it can have lights), and the longest run that
     rises in reading order, as a grid numbers its cells. A stray "1" off a
-    rule remnant, or 75 read for 25, falls out of that run."""
-    cells = sorted(c for c, n in got.items() if 0 < n <= most)
+    rule remnant, or 75 read for 25, falls out of that run; a number read
+    in two cells is kept in neither."""
+    # A number read in two cells is misread in one of them, and which
+    # cannot be told (No 17's 40 and 41 both read 41): neither is kept.
+    twice = {n for n in got.values() if list(got.values()).count(n) > 1}
+    cells = sorted(c for c, n in got.items() if 0 < n <= most and n not in twice)
     # Longest strictly rising run, also no number below its place in it.
     best = []  # best[i]: the longest rising run ending at cells[i]
     for i, c in enumerate(cells):
