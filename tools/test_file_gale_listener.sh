@@ -230,5 +230,17 @@ report["entries"][[f"{e['number']}-{e['direction']}" for e in report["entries"]]
 verdicts, _ = f.cv.majority(solved, [(f.cv.ListenerReport(), report)])
 check("a report disagreeing with a model's solve is a split, not applied", [("ANSWER", "split", False)],
       [(v["class"], v["kind"], v["fixed"]) for v in verdicts])
+# A page numbering a cell that starts no light (fit "stray") is read by its
+# own numbers; a clue bearing the stray number means a light starts there,
+# a bar we misread, and is refused.
+STRAY = ["....", "....", "#..#"]
+fit = {"rows": STRAY, "exact": True, "stray": [1, 2]}
+listed = {k: {"text": k} for k in ("1-across", "5-across", "7-across", "1-down", "2-down", "3-down", "4-down")}
+laid, notes, why = f.unstrayed(fit, listed)
+check("a stray number's tail is read one back", (set(f.light_ids(STRAY)), None, {"6-across": "printed as 7-across: the page numbers [1, 2] 6, a cell starting no light"}),
+      (set(laid), why, notes))
+check("the lights then fit the list", None, f.lights_fit(STRAY, laid))
+laid, _, why = f.unstrayed(fit, {**listed, "6-down": {"text": "a clue at the stray number"}})
+check("a clue numbered at the stray cell refuses it: a misread bar (mirror)", (None, True), (laid, bool(why)))
 sys.exit(1 if fails else 0)
 PY
