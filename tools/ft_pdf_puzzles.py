@@ -569,7 +569,7 @@ SECTION = re.compile(r"(?i)(acr[o0]ss|d[o0]wn)")
 
 
 def parse_clues(text):
-    """{number, setter, clues: [{lights, clue, enumeration}]} off the PDF's text.
+    """{number, setter, preamble, clues: [{lights, clue, enumeration}]} off the PDF's text.
 
     A line opening with a number opens a clue only once the clue before it is
     finished (ends in its enumeration, or is a "See N"), and only with a
@@ -581,7 +581,7 @@ def parse_clues(text):
     number = int(m.group(1).replace(",", "")) if m else None
     setter = m and m.group(2).strip()
     setter = setter.title() if setter and setter.isupper() else setter
-    clues, direction, last, current = [], None, 0, None
+    clues, direction, last, current, note = [], None, 0, None, None
 
     def finished(c):
         return c is None or ENUM.search(c["clue"]) or SEE.match(c["clue"])
@@ -592,6 +592,10 @@ def parse_clues(text):
             direction, last, current = ln.lower().replace("0", "o"), 0, None
             continue
         if direction is None:
+            # Above the first section, past the header and the grid's numbers
+            # (no lowercase letter), is the puzzle's note: its preamble.
+            if not clues and re.search(r"[a-z]", ln) and not HEADER.search(ln):
+                note = join_lines(note, ln) if note else ln
             continue
         h = CLUE_HEAD.match(ln)
         lights = heads(h.group(1), direction) if h else None
@@ -606,7 +610,7 @@ def parse_clues(text):
     for c in clues:
         e = ENUM.search(c["clue"])
         c["enumeration"] = e.group(1).strip() if e else None
-    return {"number": number, "setter": setter, "clues": clues}
+    return {"number": number, "setter": setter, "clues": clues, "preamble": note}
 
 
 def read_pdf(path_or_bytes):
@@ -791,6 +795,8 @@ def assemble(number, pdf, post, date, pdf_url, how):
     puzzle, why = file_blog_puzzles.build(rec, row, SERIES, date, pdf["setter"])
     if why:
         return None, why
+    if pdf.get("preamble"):
+        puzzle["preamble"] = pdf["preamble"]
     puzzle["source"] = {"url": pdf_url,
                         "gridOrigin": "reconstructed" if backsolved else "published"}
     if unsolved:
