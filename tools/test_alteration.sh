@@ -20,7 +20,7 @@ same() { if [ "$2" = "$3" ]; then echo "  ok: $1"; else
 out=$(PYTHONPATH=tools python3 - <<'PY'
 import copy
 import fetch_puzzle as fetcher
-import puzzle_integrity, puzzle_schema
+import puzzle_integrity, puzzle_schema, quotes
 import validate_annotations as va
 
 OPS = puzzle_integrity.ALTERATION_OPS
@@ -45,7 +45,7 @@ g["alteration"] = {"from": e["solution"][::-1], "steps": [{"op": "reversal"}]}
 
 def verdict(p):
     try:
-        puzzle_integrity.refuse_bad_write(puzzle_schema.order(p))
+        puzzle_integrity.refuse_bad_write(puzzle_schema.order(quotes.straighten(p)))
         return "accepted"
     except ValueError as err:
         return " | ".join(f"{k}" for k, _, w in err.flags)
