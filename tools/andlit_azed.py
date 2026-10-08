@@ -641,6 +641,26 @@ def run_together(word):
     return None
 
 
+def split_run(word):
+    """`word` spaced where every reader ran two words together ("thesound",
+    "Jackmaybe"), else None: only a token no lexicon holds and the corpus's
+    clues never print, with one split alone into two words commoner than
+    RUN_TOGETHER_COMMON the corpus prints as a pair RUN_TOGETHER_PAIRS
+    times. A dropped g ("climbin", "Seein") is no pair."""
+    import ocr_clues
+    low = word.lower()
+    if len(low) < 4 or not low.isalpha() or ocr_clues.known(low) or ocr_clues.clue_lm()[0].get(low) \
+            or low.endswith("in") and ocr_clues.known(low + "g"):
+        return None
+    pairs = ocr_clues.clue_lm()[1]
+
+    def common(w):
+        return (ocr_clues.rank(w) or math.inf) <= RUN_TOGETHER_COMMON
+    cuts = [k for k in range(1, len(low)) if common(low[:k]) and common(low[k:])
+            and pairs.get(f"{low[:k]} {low[k:]}", 0) >= RUN_TOGETHER_PAIRS]
+    return f"{word[:cuts[0]]} {word[cuts[0]:]}" if len(cuts) == 1 else None
+
+
 def light_lengths(rows):
     """{"<n>-<across|down>": cells} of each light of `rows`, as the vote keys them."""
     return {f"{n}-{d}": len(cells) for (n, d), cells in rg.light_cells(rows).items()}
@@ -667,6 +687,7 @@ def scan_copy(got):
             # words another light's clue has, it holds nothing back.
             continue
         text = FOOTER.sub("", text or "").strip()
+        text = re.sub(r"[A-Za-z]+", lambda m: split_run(m.group(0)) or m.group(0), text)
         if ENUM_END.search(text):
             enum = None     # the count stayed in the text
         elif not enum and light in lengths:
