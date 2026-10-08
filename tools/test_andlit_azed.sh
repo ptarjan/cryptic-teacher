@@ -111,6 +111,13 @@ print("scan-blank", A.assemble(1800, A.scan_copy(blanked), "u", None, None, "Pla
 joined = dict(stored, clues=dict(voted, **{"2-down": ["Mineral instorexq", "3"]}))
 print("scan-no-clues", A.assemble(1800, A.scan_copy(dict(stored, clues={})), "u", None, None, "Plain")[1])
 print("scan-suspect", A.assemble(1800, A.scan_copy(joined), "u", None, None, "Plain")[1])
+# A number the fitted grid has no light for (No 1823's "83" for 8 Down,
+# No 1835's "1" for 11 Down): empty, or another light's clue again, it is
+# a misread number and dropped; with words of its own it is a lost clue.
+phantom = dict(voted, **{"83-down": ["", "3"], "11-down": ["Mineral in store", None]})
+print("scan-phantom", A.assemble(1800, A.scan_copy(dict(stored, clues=phantom)), "u", None, None, "Plain")[1])
+own = dict(voted, **{"11-down": ["Wholly another clue", None]})
+print("scan-phantom-own", A.assemble(1800, A.scan_copy(dict(stored, clues=own)), "u", None, None, "Plain")[1])
 # Two words a reader ran together pass the lexicon ("maybe"+"heard", the
 # rare "undertime" whose pair the corpus prints): held. A real compound
 # ("afresh") and a dialect "climbin'" are no such pair, nor are No 1822's
@@ -156,6 +163,8 @@ check "a scan whose clues all agree files" \
 check "a scan with a clue unagreed is held" "ocr-blank" "$(line scan-blank)"
 check "a scan cut off above its clues is held as such" "scan-no-clues" "$(line scan-no-clues)"
 check "a scan clue OCR wrote is held" "ocr-blank" "$(line scan-suspect)"
+check "an empty or copied clue on a light the grid lacks is dropped" "None" "$(line scan-phantom)"
+check "a clue of its own on a light the grid lacks holds (mirror)" "clues-differ" "$(line scan-phantom-own)"
 check "a scan clue with two words run together is held" "ocr-blank" "$(line ran-together)"
 check "a rare lexicon word that is two common ones is held" "ocr-blank" "$(line ran-together-rare)"
 check "a compound is no words run together" "None" "$(line not-ran-together)"
