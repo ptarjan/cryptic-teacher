@@ -1290,14 +1290,19 @@ def last_render(path=CHECKLIST):
 
 
 @contextlib.contextmanager
-def locked():
+def locked(wait=True):
     """Held while a mirror is written: the tick and the full pass's syncs
-    take turns."""
+    take turns. With `wait` False, yields False at once when another holds
+    it, else True."""
     import fcntl
     LOCK.parent.mkdir(parents=True, exist_ok=True)
     with open(LOCK, "w") as lock:
-        fcntl.flock(lock, fcntl.LOCK_EX)
-        yield
+        try:
+            fcntl.flock(lock, fcntl.LOCK_EX | (0 if wait else fcntl.LOCK_NB))
+        except BlockingIOError:
+            yield False
+            return
+        yield True
 
 
 def sync(out=sys.stdout, force=False):
@@ -1306,9 +1311,14 @@ def sync(out=sys.stdout, force=False):
     checklist; publish its status file either way, so an open page knows
     when the inbox was last looked at; then the Listener's
     (gale_listener.tick); then start the reads of the editions just laid
-    out (start_reads)."""
+    out (start_reads). Skipped when another sync is running."""
     import gale_listener  # imports this module, so not at the top
-    with locked():
+    with locked(wait=False) as mine:
+        if not mine:
+            # Another sync is doing this same work: waiting behind it ran a
+            # tick past its 900 s limit.
+            print("another sync holds the lock; this one skips", file=out)
+            return
         moved = collect(out)
         changed = mirror(out)
         ask = gale_due()
