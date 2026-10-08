@@ -2247,8 +2247,9 @@
       const li = $("clue-" + entryId(e));
       if (!li) return;
       const holder = holderOf(e);
-      li.querySelector(".clue-text").innerHTML = (holder === e) ? clueHTML(e) : plainClueHTML(e);
       const solved = isEntrySolved(e);
+      li.querySelector(".clue-text").innerHTML = ((holder === e) ? clueHTML(e) : plainClueHTML(e))
+        + (solved && holder === e ? hiddenLetterHTML(e) : "");
       // Nothing to tell you about a clue you have finished — the row greys out
       // and a full row of dots would just be noise on every solved line.
       li.querySelector(".checkers").innerHTML = (solved || jigsaw) ? "" : checkerDots(e);
@@ -2259,6 +2260,51 @@
       // never ran celebrateSolve() at all.
       li.classList.toggle("no-hints", solved && noHintsSolve(e));
     });
+    renderHiddenMessage();
+  }
+
+  // A hidden-letter device (tools/hidden_messages.py): the letter a clue's
+  // wordplay adds, omits or misprints, shown on the clue once it is solved and
+  // never before, since it narrows the answer.
+  const HIDDEN_KIND = { extra: "extra letter", omitted: "omitted letter",
+    misprint: "misprint, corrected", clue: "letter from the clue" };
+  function hiddenLetterOf(e) {
+    const h = (e.annotation || {}).hiddenLetter;
+    return h && h.letter ? h : null;
+  }
+  function hiddenLetterHTML(e) {
+    const h = hiddenLetterOf(e);
+    if (!h) return "";
+    const what = h.kind === "misprint" ? `${esc(h.printed)}→${esc(h.letter)}` : esc(h.letter);
+    return ` <span class="hidden-letter" title="${esc(HIDDEN_KIND[h.kind] || "")}">${what}</span>`;
+  }
+
+  // The phrase the hidden letters spell (P.messages), built under the grid one
+  // letter per solved clue, in the message's order; spaces and hyphens show
+  // from the start so the solver sees the phrase's shape.
+  function renderHiddenMessage() {
+    const el = $("hidden-message");
+    if (!el) return;
+    const msgs = (P && P.messages) || [];
+    el.classList.toggle("hidden", !msgs.length || paperHides());
+    el.innerHTML = msgs.map((m) => {
+      const givers = entries.filter((e) => holderOf(e) === e
+        && (!m.direction || e.direction === m.direction)
+        && (hiddenLetterOf(e) || {}).kind === m.kind);
+      const letterOf = (e) => (m.printed ? hiddenLetterOf(e).printed : hiddenLetterOf(e).letter);
+      const solved = givers.filter(isEntrySolved);
+      // Unordered letters fill left to right as they come; ordered ones take
+      // their own clue's place.
+      const queue = m.order === "unordered" ? solved.map(letterOf) : null;
+      let i = 0;
+      const slots = [...m.text].map((ch) => {
+        if (!/[A-Z]/.test(ch)) return `<span class="hm-gap">${esc(ch)}</span>`;
+        const e = givers[i++];
+        const got = queue ? queue.shift() : (e && isEntrySolved(e) ? letterOf(e) : "");
+        return got ? `<span class="hm-letter">${esc(got)}</span>` : `<span class="hm-slot"></span>`;
+      }).join("");
+      return `<span class="hm-row">${slots}</span>`;
+    }).join("");
   }
 
   // ---------- selection & movement ----------
