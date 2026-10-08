@@ -6,7 +6,7 @@
 # this drives it with a fake `claude`: the retry loop is READ OUT OF
 # daily_update.sh by its own first and last lines rather than copied here, and
 # it calls the real tools/puzzle_worker.sh, so a copy cannot drift away from the
-# thing that runs at 04:45.
+# thing the nightly's annotate units run.
 #
 #     bash tools/test_annotate_retry.sh
 #

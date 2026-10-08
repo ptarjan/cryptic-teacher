@@ -199,7 +199,7 @@ Terms used below:
 - **It says whose marks they are.** The title, the picker row and the archive
   row read "hints via <blog>" in place of "answers only", the meter badges the clue, and the escape row links to the
   post ("Full explanation on <blog> →") on every clue we have not annotated.
-- **The nightly refreshes it** (`tools/daily_update.sh`, step 1d) with
+- **The nightly refreshes it** (`tools/daily_update.sh`, unit `blog-facts`, after any blog unit) with
   `--if-changed`, which skips the ~5-minute parse when the digest in
   `tools/data/blog_facts/inputs.sha256` still matches the cached posts, the
   clues and the parser. By hand, `python3 tools/blog_facts.py --measure`
@@ -647,9 +647,9 @@ The two jobs are `tools/daily_update.sh` and `tools/prereset_backfill.sh` (see
     stops early when the weekly meter is exhausted. The reset time is a
     timestamp from `GET /api/oauth/usage`, read through
     `weekly_usage.py --resets-in`. A fire that finds a run going is a no-op.
-  - `daily_update.sh` re-reads the five-hour session window between puzzles,
-    not once at the start (when it always reads near zero). A budget is re-read
-    between the things that spend it.
+  - `daily_update.sh` re-reads the five-hour session window at every tick and
+    as each puzzle's unit starts, not once a day (at 04:45 it always read near
+    zero). A budget is re-read between the things that spend it.
 - **The spend gate fails closed.** `gate()` in `tools/weekly_usage.py` returns
   `spend`, `skip` or `unknown`, never a bare number that an empty string could
   turn into "go". `unknown` skips. A stale reading is still used as a floor:

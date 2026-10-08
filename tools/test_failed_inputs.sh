@@ -140,13 +140,18 @@ check "and the backlog still gets its two" "$(queue)" "old-1 old-2"
 index "nw-1:$(ago 3):no" old-1:2020-01-03:no
 check "three days old is backlog" "$(fresh_q)" ""
 
-echo "a puzzle whose official key landed tonight is a new arrival too"
+echo "a puzzle whose official key landed in the last two days is a new arrival too"
+# The unit that refetched it notes it (daily_units.py keyed --record, from its
+# tree's diff against HEAD); the tick reads the note.
+export UNIT_QUEUE_STATE="$sand/state"
 git -C "$sand" init -q
 puzzle old-1 ""
 git -C "$sand" add puzzles/old/undated/old-1.json
 git -C "$sand" -c user.name=t -c user.email=t@t commit -qm keyless
 puzzle old-1 CAT
 index old-1:2020-01-03:no old-2:2020-01-02:no old-3:2020-01-01:no
+check "a keyless queue has no new arrival" "$(fresh_q)" ""
+check "the refetch notes the key" "$(cd "$sand" && python3 tools/daily_units.py keyed --record)" "keyed: old-1"
 check "old-1 jumps the cap" "$(fresh_q)" "old-1"
 check "and the backlog is the rest" "$(queue)" "old-2 old-3"
 rm -rf "$sand/.git"

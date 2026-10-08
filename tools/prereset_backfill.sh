@@ -52,7 +52,7 @@ if (( BASH_VERSINFO[0] * 100 + BASH_VERSINFO[1] < 501 )); then
   exit 1
 fi
 # A checkout of its own, so days of unmetered annotation cannot collide with
-# the 04:45 job or with somebody editing the repo. See tools/nightly_worktree.sh.
+# the nightly's units or with somebody editing the repo. See tools/nightly_worktree.sh.
 # A commit a dropped run could not push yet is pushed by the next start.
 # shellcheck disable=SC2034  # read by the sourced nightly_worktree.sh
 CT_SALVAGE_PATHS=""
