@@ -293,7 +293,7 @@ check("a render's status names the page and its arrived rows", (True, ["1988-01-
       (status["page"] > 0, status["in"]))
 check("and the count, which the page's poll writes into its progress bar and number", ((3, 6), True),
       ((status["done"], status["total"]), all(w in html for w in ('<progress id="prog"', '<b id="count">',
-                                                                    'galeStatus(s){IN=new Set(s.in);AT=s.at*1000;count(s)'))))
+                                                                    'galeStatus(s){IN=new Set(s.in);AT=s.at*1000;BASE=s'))))
 published = []
 g.publish = lambda path, host_inbox=None: published.append(path.name)
 page_path = Path(sys.argv[1]) / "Checklist.html"
@@ -440,6 +440,61 @@ tpage = g.checklist([(D(1988, 1, 12), "no-scan"), (D(1988, 1, 13), "no-scan")], 
 tnext = re.findall(r"<tr data-k.*?</tr>", tpage.split('<table id="next">')[1].split("</table>")[0], re.S)
 check("a Times one the same", ["1988-01-13", True, False],
       [re.search(r'data-k="([^"]*)"', tnext[0]).group(1), 'class="dl"' in tnext[0], 'class="dl"' in tnext[1]])
+# The Mac's arrival watcher (tools/gale_arrived.py): a file named for a
+# row's document marks that row downloaded within seconds, no sync; any
+# other file changes nothing.
+import gale_arrived as ga, plistlib, time as _t
+drop, arr = Path(sys.argv[1]) / "chrome", Path(sys.argv[1]) / "Arrived.js"
+drop.mkdir()
+(drop / "holiday.pdf").write_bytes(b"x")
+(drop / "GM2500000001.crdownload").write_bytes(b"x")
+check("an unknown file, or one still downloading, marks nothing", ([], {}), (ga.scan([drop], arr), ga.read(arr)))
+(drop / "GM2500000001 (2).pdf").write_bytes(b"x")
+check("a file named for a known document marks it arrived without a sync", (["GM2500000001"], ["GM2500000001"]),
+      ([d for d, _, _ in ga.scan([drop, Path(sys.argv[1]) / "missing"], arr)], list(ga.read(arr))))
+check("as a script call the page loads", True, arr.read_text().startswith("galeArrived("))
+_before = arr.stat().st_mtime_ns
+(drop / "notes.pdf").write_bytes(b"x")
+check("a later unknown file leaves the arrivals file untouched", ([], _before), (ga.scan([drop], arr), arr.stat().st_mtime_ns))
+(drop / "GM2500000001 (2).pdf").unlink()
+ga.scan([drop], arr)
+check("the mark outlives the sync's sweep of the file, and goes after KEEP", (["GM2500000001"], {}),
+      (list(ga.read(arr)), (ga.scan([drop], arr, now=_t.time() + ga.KEEP + 1), ga.read(arr))[1]))
+(drop / "IF0500375892.pdf").write_bytes(b"x")
+check("a file older than KEEP is not marked", [], ga.scan([drop], Path(sys.argv[1]) / "old.js", now=_t.time() + ga.KEEP + 1))
+check("a row carries the documents its links name", (True, []),
+      ('data-doc="GM2500000001"' in tnext[0], g.row_docs({"dl": None, "search": g.search_url(D(1988, 1, 12))})))
+check("the page loads the watcher's file with its status, every 5 s", (True, True, 5),
+      ('ASRC="Arrived.js"' in tpage, "function poll(){load(SRC);load(ASRC)}" in tpage, g.POLL_SECONDS))
+if _sh.which("node"):
+    # The page's own script on a stub DOM: the row whose document arrived
+    # says so and is counted at once; the other is untouched.
+    (Path(sys.argv[1]) / "rows.js").write_text("""
+const el=()=>({dataset:{},classList:{toggle(){}},querySelector(){return null},textContent:'',hidden:false});
+const row=(k,doc)=>{const b=el();b.dataset={};const r=el();r.dataset={k,doc};r.badge=b;
+  r.querySelector=q=>q==='.st'?b:null;return r};
+const rows=[row('1988-01-13','GM2500000001'),row('1988-01-12','')],ids={count:el(),prog:el(),togo:el()};
+globalThis.document={querySelectorAll:q=>q==='tr[data-k]'?rows:[],getElementById:i=>ids[i]||null,head:{appendChild(){}},
+  createElement:()=>({remove(){}})};
+const store={};globalThis.localStorage={getItem:k=>store[k]??null,setItem:(k,v)=>{store[k]=v}};
+globalThis.sessionStorage=localStorage;globalThis.addEventListener=()=>{};globalThis.setInterval=()=>{};
+globalThis.location={reload(){}};
+""" + tpage[tpage.index("<script>") + 8:tpage.index("</script>")] + """
+galeStatus({page:0,at:Date.now()/1000,in:[],done:3,total:6});
+galeArrived({GM2500000001:1});
+console.log(JSON.stringify([rows.map(r=>r.dataset.s),rows[0].badge.innerHTML,ids.count.textContent]));
+""")
+    _r = subprocess.run(["node", str(Path(sys.argv[1]) / "rows.js")], capture_output=True, text=True)
+    check("on the page, the arrived row says downloaded and the count moves",
+          [["got", ""], "&#10003; downloaded, checking&hellip;", "4 of 6"], json.loads(_r.stdout or "null") or _r.stderr)
+_calls, _st = [], Path(sys.argv[1]) / "watcher.sha"
+_run = lambda c, input=None: _calls.append(c)
+check("the sync installs the watcher once, then leaves it until it changes", (True, False, 2),
+      (g.install_watcher(io.StringIO(), _run, _st), g.install_watcher(io.StringIO(), _run, _st), len(_calls)))
+_job = plistlib.loads(ga.plist(g.WATCHER_PYTHON, g.WATCHER, g.WATCHED, "/x/Arrived.js", g.WATCHER_LOG).encode())
+check("its job watches the download folders and runs the installed script on them",
+      (ga.LABEL, list(g.WATCHED), [g.WATCHER_PYTHON, g.WATCHER, "--out", "/x/Arrived.js", *g.WATCHED]),
+      (_job["Label"], _job["WatchPaths"], _job["ProgramArguments"]))
 stamp = Path(sys.argv[1]) / "looked_up"
 check("Gale is asked at most every LOOKUP_EVERY, however often the tick runs", [True, False, False, True],
       [g.gale_due(t, stamp) for t in (1000, 1060, 1120, 1000 + g.LOOKUP_EVERY)])
