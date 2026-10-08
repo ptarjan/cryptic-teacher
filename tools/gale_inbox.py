@@ -319,6 +319,22 @@ def title_number(img, key):
     return None
 
 
+def doc_id(name, cite=""):
+    """The Gale document a saved file is, off its name (DOC_ID, BARE_DOC) or
+    its citation's permalink (CITED_DOC), upper-cased; None when neither
+    names one."""
+    m = DOC_ID.search(name) or CITED_DOC.search(cite or "") or BARE_DOC.fullmatch(Path(name).stem)
+    return m.group(1).upper() if m else None
+
+
+def edition_url(ms):
+    """A laid-out edition's pages.json "url": its first named document's
+    page at Gale (a match made before doc_id read bare names is named off
+    its file now), else the portal."""
+    doc = next((d for m in ms if (d := m.get("docId") or doc_id(m["file"]))), None)
+    return DOC_URL.format(doc) if doc else PORTAL
+
+
 def match(path, by_number):
     """{"date", "number", "how", "page", "docId", "pages": [image]} for a
     saved file; "date" None (and "why") when nothing names its edition."""
@@ -329,8 +345,7 @@ def match(path, by_number):
     pages = out["pages"] = [page for page, _ in laid]
     out["grid"] = any(found for _, found in laid)
     cite = read[0][1] if read else ""
-    doc = DOC_ID.search(name) or CITED_DOC.search(cite or "") or BARE_DOC.fullmatch(path.stem)
-    out["docId"] = doc.group(1).upper() if doc else None
+    out["docId"] = doc_id(name, cite)
     day, number = name_date(name), name_number(name)
     if day:
         out.update(date=day, how="file name date")
@@ -424,7 +439,8 @@ def stage(inbox=MIRROR, cache=CACHE, out=sys.stdout, unmatched=UNMATCHED, matche
         d = cache / ITEM.format(day.year) / day.isoformat()
         staged.add(d)
         key = source_key([m["path"] for m in ms])
-        if (d / f"sources-{key}.json").exists():
+        url = edition_url(ms)
+        if (d / f"sources-{key}.json").exists() and json.loads((d / "pages.json").read_text()).get("url") == url:
             continue
         # Laid out beside it and swapped in, so a reader of the edition sees
         # the old one or the new, not half of each.
@@ -441,11 +457,10 @@ def stage(inbox=MIRROR, cache=CACHE, out=sys.stdout, unmatched=UNMATCHED, matche
                 leaf = len(leaves)
                 img.save(tmp / f"leaf_{leaf:04d}.jpg", quality=92)
                 leaves.append({"leaf": leaf, "width": img.width, "height": img.height, "file": m["file"]})
-        doc = next((m["docId"] for m in ms if m.get("docId")), None)
         item = ITEM.format(day.year)
         (tmp / "pages.json").write_text(json.dumps({
             "item": item, "edition": day.isoformat(), "date": day.isoformat(), "leaves": len(leaves),
-            "crossword_pages": leaves, "url": DOC_URL.format(doc) if doc else PORTAL}, indent=1))
+            "crossword_pages": leaves, "url": url}, indent=1))
         (tmp / f"sources-{key}.json").write_text(json.dumps(
             [{k: (v.isoformat() if isinstance(v, datetime.date) else v) for k, v in m.items()
               if k not in ("pages", "path")} for m in ms], indent=1))
