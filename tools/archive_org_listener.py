@@ -222,6 +222,10 @@ LINE_CLUE = re.compile(r"^\W{0,2}(\d{1,2})\W{0,2}\s+(\S.*)$")
 #: One clue for two lights, the first entered reversed: "20 rev., 24.
 #: Charade: ..." (No 97). The words after LINE_CLUE's number.
 LINKED = re.compile(r"^(rev\.)\s*,\s*(\d{1,2})\W{0,2}\s+(\S.*)$")
+#: A reversed light's head with its stop voted to another mark: "rev, Its".
+REV_MARK = re.compile(r"^rev[,;:]?\s+(?=[A-Z\"'\u2018])")
+#: A comma or colon the vote left before a clue's final stop: "kind,.".
+END_MARKS = re.compile(r"[,;:]\.$")
 LINKED_HEAD = re.compile(r"^(\W{0,2}\d{1,2}\W{0,2}\s+rev\.)\s*,\s*\d{1,2}\W{0,2}\s+", re.MULTILINE)
 
 
@@ -413,6 +417,11 @@ def vote(words, verdict, cols=None):
     # The 1930s lists print no counts: a clue is then read without one.
     uncounted = not any(c["enums"] for cs in tried[0][3].values() for c in cs)
     laid, blank = ocr_clues.reconcile(laid, stream, lengths, uncounted=uncounted)
+    # A reversed light's head prints "rev." and a clue ends on one mark: a
+    # reader taking stops for commas (No 97's Tesseract "34 rev, ... kind,")
+    # outvotes neither.
+    laid = {lid: (REV_MARK.sub("rev. ", END_MARKS.sub(".", t)) if t else t, e, g)
+            for lid, (t, e, g) in laid.items()}
     # Each filed clue as the readings print it: its count's shape, each
     # word's capital, hyphen and spelling.
     laid, blank = ocr_clues.as_printed(texts, laid, blank, parse, lengths, uncounted=uncounted)
