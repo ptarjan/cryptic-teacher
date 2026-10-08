@@ -455,6 +455,22 @@ check("an opening the readings print after the number is still put back (mirror)
       ({"23-down": ("Most wonderful 25.", None, None)}, {}),
       oc.reconcile({"23-down": ("Wonderful 25.", None, None)}, [LOST, LOST], {}, uncounted=True))
 
+check("a double quote opening an elision is a single misread (No 97 46A)",
+      "His poser guessed by means unfair, 'Tis said this hero lost his hair.",
+      oc.paired('His poser guessed by means unfair, "Tis said this hero lost his hair.'))
+check("a double quote a double closes stays, 'Tis inside it too (mirror)",
+      'He said, "\'Tis I."', oc.paired('He said, "\'Tis I."'))
+check("a double opening only a single closes was a single (No 103 18A)",
+      "'That's a wonder . . .'s.", oc.paired('"That\'s a wonder . . .\'s.'))
+check("a quote after a stop before a possessive s closes the quotation (No 103 18A)",
+      None, oc.unclosed_quote("'That's a day longer than a wonder . . .'s."))
+check("an apostrophe inside a word closes nothing (mirror)", 0, oc.unclosed_quote("'That's a day longer"))
+check("an unclosed quotation takes back the closing one reading prints after its last words (No 103 18A)",
+      "'That's a day longer than a wonder . . .'s.",
+      oc.reclosed('"That\'s a day longer than a wonder. ..', ["", "a day longer than a wonder .. 's.\nake entitled"]))
+check("no reading printing a closing there puts none back (mirror)", None,
+      oc.reclosed('"That\'s a day longer than a wonder. ..', ["a day longer than a wonder.\n19. Cake"]))
+
 print(f"FAILS {fails}")
 EOF
 )

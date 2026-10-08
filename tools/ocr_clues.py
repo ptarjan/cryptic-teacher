@@ -2175,6 +2175,56 @@ QUOTE_OPEN = re.compile(r"(?:^|(?<=[\s,;:(\u2014*\u2020\u2021]))(['\u2018\"\u201
                         r"(?=[A-Z]|\.\s*\.)")
 
 
+#: A single quote that closes: one no letter follows (an apostrophe inside
+#: a word is none), or one after a stop before a possessive's s
+#: ("a wonder . . .'s.").
+CLOSE_SINGLE = r"['\u2019](?![A-Za-z])|(?<=[.!?,;:])['\u2019](?=s\b)"
+#: An elided word a quote mark opens: "'Tis", "'Twas".
+ELISION = r"T(?:is|was|were|would|will)\b"
+
+
+def paired(text):
+    """`text` with each double quote mark that pairs with nothing made the
+    single quote readers misread it for: one opening an elision ('"Tis
+    said' for "'Tis said"), and a quotation's opening that only a single
+    quote closes ('"That's ... wonder . . .'s.'). A double quote a double
+    closes stays."""
+    if not text:
+        return text
+    doubles = [m for m in re.finditer(r"[\"“”]", text)]
+    if len(doubles) % 2 and (m := re.search(r"(?:^|(?<=[\s,;:(]))[\"“](?=" + ELISION + ")", text)):
+        return paired(text[:m.start()] + "'" + text[m.end():])
+    for m in QUOTE_OPEN.finditer(text):
+        rest = text[m.end():]
+        if m.group(1) in "\"“" and not re.search(r"[\"”]", rest) \
+                and re.search(r"(?<![A-Za-z\s])['\u2019]", rest):
+            return text[:m.start()] + "'" + rest
+    return text
+
+
+def reclosed(text, readings):
+    """`text`, a clue whose quotation opens and never closes, with the
+    closing a reading (`readings`, each reading's text, whole or for the
+    light) prints after the clue's last three words put back: a run of
+    stops (an ellipsis, written ". . .") and a closing single quote, with
+    a possessive's s and a stop ("wonder .. 's." where the vote kept
+    "wonder. .."). None when no reading prints one, or it leaves the clue
+    unclosed."""
+    last = re.findall(r"[A-Za-z]+", text or "")[-3:]
+    if len(last) < 3:
+        return None
+    find = re.compile(r"\b" + r"\W+".join(last) + r"((?:\s*\.){0,3}\s*['\u2019](?:s\b)?[.,;:!?]?)(?=\s|$)")
+    for r in readings:
+        if not r or not (m := find.search(r)):
+            continue
+        tail = re.sub(r"\s+(?=['\u2019])", "", re.sub(r"^(?:\s*\.){2,3}", " . . .", m.group(1)))
+        at = text.rfind(last[-1]) + len(last[-1])
+        got = paired(text[:at] + tail)
+        if unclosed_quote(got) is None:
+            return got
+    return None
+
+
 def unclosed_quote(text):
     """The index of a quotation `text` opens and never closes, or closes
     and never opened, or None: its end, a blank the readers cannot see
@@ -2183,7 +2233,7 @@ def unclosed_quote(text):
     double."""
     for m in QUOTE_OPEN.finditer(text or ""):
         rest = text[m.end():]
-        shut = r"[\"\u201d]" if m.group(1) in "\"\u201c" else r"['\u2019](?![A-Za-z])"
+        shut = r"[\"\u201d]" if m.group(1) in "\"\u201c" else CLOSE_SINGLE
         if not re.search(shut, rest):
             return m.start()
     # A single quote shut after a word not ending in s (no plural's
