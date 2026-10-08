@@ -1546,11 +1546,9 @@ tools/ocr_full_pass.sh                        the one standing corpus job: read 
                                               read before REREAD_BEFORE) and the re-reads
                                               annotation asked for, to the end: the editions
                                               through tools/edition_queue.py's per-edition
-                                              units, the Trove articles' reads and the
-                                              archive.org and Trove fetches units of that queue
-                                              too, then stop; the Gale Listener pages saved
-                                              since are read beside it, started at its start
-                                              and before every slice
+                                              units, the Trove articles' and Gale Listener
+                                              pages' reads and the archive.org and Trove
+                                              fetches units of that queue too, then stop
 tools/edition_queue.py                        the archive.org and Gale editions as a queue of
                                               small units: one edition's scan or read each, in
                                               its own forked process with its own time limit
@@ -1698,8 +1696,9 @@ tools/gale_listener.py                        the Listener crosswords of 1930-91
                                               lists read once (a ledger keyed by file hash)
                                               with ocr_clues' readers and
                                               archive_org_listener's vote into a clues-only
-                                              reading, then file_gale_listener.py run, at the
-                                              full pass's start and before every slice; the
+                                              reading, then file_gale_listener.py run, each
+                                              page a unit of the full pass's edition queue
+                                              (read_unit, its ledger rows appended); the
                                               checklist asks for a saved puzzle's solution
                                               report and links each next puzzle to Gale's
                                               Download (gale_docs.py)

@@ -25,10 +25,13 @@ the index puts on that issue. A page may also print a past puzzle's
 solution, "Report on Crossword No. 16" with the filled grid, about two
 issues later: the citation or the page's words name it, the ledger keeps it
 as the file's "reports", and the checklist asks for that page while a
-saved puzzle has none. Each file is read once: STORE/ledger.json is keyed
-by the file's sha256 (and VERSION), so a re-run reads only files new or
-changed. tools/ocr_full_pass.sh runs `sync` at its start and before every
-slice, so a page is read within about a slice of landing.
+saved puzzle has none. Each file is read once: STORE/ledger.jsonl is keyed
+by the file's sha256 (and VERSION), one row appended a read, so a re-run
+reads only files new or changed. The standing pass reads each new page as
+a unit of its own (tools/edition_queue.py, plan() and read_unit(): its own
+process, time limit and lock), planned every minute from the mirror the
+every-3-minute gale_inbox tick keeps, so a page is read within minutes of
+landing; `sync` does the same as one batch.
 
 What a page gives is its clues: STORE/listener-N.json, the reading
 tools/archive_org_listener.py writes (clue text and count by light, the
@@ -639,9 +642,88 @@ def file_hash(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+#: The ledger: one row a read, appended ({"sha": the file's sha256, ...});
+#: the last row a file standing. LEGACY is the whole-file ledger it grew
+#: from, read beneath it.
+LEDGER = "ledger.jsonl"
+LEGACY = "ledger.json"
+
+
 def load_ledger(store):
-    path = store / "ledger.json"
-    return json.loads(path.read_text()) if path.exists() else {}
+    """{file sha256: its last entry}."""
+    import scan_queue
+    path = store / LEGACY
+    out = json.loads(path.read_text()) if path.exists() else {}
+    for sha, row in scan_queue.ledger_rows(store / LEDGER, "sha").items():
+        out[sha] = {k: v for k, v in row.items() if k != "sha"}
+    return out
+
+
+def read_one(p, h, idx, rows, store, out=sys.stdout, reader=read_file):
+    """Read the saved file `p` (sha256 `h`), write its puzzle's reading to
+    `store` when it is the fullest yet, and append its ledger row. Returns
+    the entry, or None when the read timed out (not ledgered: read again)."""
+    import scan_queue
+    entry = {"file": p.name, "version": VERSION, "readOn": datetime.datetime.now().astimezone().date().isoformat()}
+    m = None
+    try:
+        try:
+            m = match(p, idx)
+        except (OSError, ValueError) as e:  # reported in the ledger and the checklist
+            m = {"file": p.name, "number": None, "why": f"unreadable: {type(e).__name__}: {e}", "pages": [],
+                 "reports": []}
+        verdict, laid = reader(m) if m["number"] is not None else ({}, None)
+    except subprocess.TimeoutExpired as e:
+        # A loaded host's Tesseract: not the page's fault, so it is not
+        # ledgered, and the next run reads it again.
+        print(f"{p.name}: OCR timed out after {e.timeout:.0f} s; read again next run", file=out)
+        return None
+    except Exception as e:  # noqa: BLE001 -- one page's failure must not stop the pages after it
+        # Ledgered with its error, so the checklist shows it and the
+        # pages after it are read; a VERSION bump reads it again.
+        print(f"{p.name}: read failed:\n{traceback.format_exc()}", file=out)
+        why = f"read failed: {type(e).__name__}: {e}"
+        if m is None:
+            m = {"file": p.name, "number": None, "why": why, "pages": [], "reports": []}
+        verdict, laid = {"refused": why}, None
+    entry.update(number=m["number"], how=m.get("how"), why=m.get("why"), reports=m["reports"])
+    if m["number"] is None and m["reports"]:
+        entry["why"] = None
+    if m["number"] is not None:
+        if laid is None:
+            entry["why"] = verdict.get("refused", "no reading")
+        else:
+            entry.update(clues=verdict["clues"], agreed=verdict["agreed"])
+            dest = store / f"listener-{m['number']}.json"
+            # Two pages of one puzzle read at once: the fuller wins either way.
+            with scan_queue.lock(dest, wait_for_it=True):
+                old = json.loads(dest.read_text()) if dest.exists() else None
+                if old is None or old["verdict"].get("agreed", 0) <= verdict["agreed"]:
+                    dest.write_text(json.dumps(reading(m, rows[m["number"]], verdict, laid), indent=1,
+                                               ensure_ascii=False) + "\n")
+                    entry["reading"] = dest.name
+    scan_queue.append(store / LEDGER, [{"sha": h, **entry}])
+    print(f"{p.name}: " + (f"No {m['number']} ({m['how']}), " if m["number"] is not None else "")
+          + (f"{entry['agreed']}/{entry['clues']} clues read" if "agreed" in entry else entry["why"] or "")
+          + "".join(f", the solution of No {n}" for n in m["reports"]), file=out)
+    return entry
+
+
+def page_files(inbox):
+    return sorted(p for p in Path(inbox).iterdir() if p.is_file() and p.suffix.lower() in gi.PAGES) \
+        if Path(inbox).exists() else []
+
+
+_HASHES = {}
+
+
+def hash_of(p):
+    """file_hash(p), worked out again only when its size or mtime moved."""
+    st = p.stat()
+    key = (p.name, st.st_size, st.st_mtime_ns)
+    if key not in _HASHES:
+        _HASHES[key] = file_hash(p)
+    return _HASHES[key]
 
 
 def run(inbox=MIRROR, store=STORE, idx=None, out=sys.stdout, reader=read_file):
@@ -652,54 +734,51 @@ def run(inbox=MIRROR, store=STORE, idx=None, out=sys.stdout, reader=read_file):
     rows = {r["number"]: r for r in idx}
     store.mkdir(parents=True, exist_ok=True)
     ledger = load_ledger(store)
-    files = sorted(p for p in Path(inbox).iterdir() if p.is_file() and p.suffix.lower() in gi.PAGES) \
-        if Path(inbox).exists() else []
-    for p in files:
+    for p in page_files(inbox):
         h = file_hash(p)
         if ledger.get(h, {}).get("version") == VERSION:
             continue
-        entry = {"file": p.name, "version": VERSION, "readOn": datetime.datetime.now().astimezone().date().isoformat()}
-        m = None
-        try:
-            try:
-                m = match(p, idx)
-            except (OSError, ValueError) as e:  # reported in the ledger and the checklist
-                m = {"file": p.name, "number": None, "why": f"unreadable: {type(e).__name__}: {e}", "pages": [],
-                     "reports": []}
-            verdict, laid = reader(m) if m["number"] is not None else ({}, None)
-        except subprocess.TimeoutExpired as e:
-            # A loaded host's Tesseract: not the page's fault, so it is not
-            # ledgered, and the next run reads it again.
-            print(f"{p.name}: OCR timed out after {e.timeout:.0f} s; read again next run", file=out)
-            continue
-        except Exception as e:  # noqa: BLE001 -- one page's failure must not stop the pages after it
-            # Ledgered with its error, so the checklist shows it and the
-            # pages after it are read; a VERSION bump reads it again.
-            print(f"{p.name}: read failed:\n{traceback.format_exc()}", file=out)
-            why = f"read failed: {type(e).__name__}: {e}"
-            if m is None:
-                m = {"file": p.name, "number": None, "why": why, "pages": [], "reports": []}
-            verdict, laid = {"refused": why}, None
-        entry.update(number=m["number"], how=m.get("how"), why=m.get("why"), reports=m["reports"])
-        if m["number"] is None and m["reports"]:
-            entry["why"] = None
-        if m["number"] is not None:
-            if laid is None:
-                entry["why"] = verdict.get("refused", "no reading")
-            else:
-                entry.update(clues=verdict["clues"], agreed=verdict["agreed"])
-                dest = store / f"listener-{m['number']}.json"
-                old = json.loads(dest.read_text()) if dest.exists() else None
-                if old is None or old["verdict"].get("agreed", 0) <= verdict["agreed"]:
-                    dest.write_text(json.dumps(reading(m, rows[m["number"]], verdict, laid), indent=1,
-                                               ensure_ascii=False) + "\n")
-                    entry["reading"] = dest.name
-        ledger[h] = entry
-        print(f"{p.name}: " + (f"No {m['number']} ({m['how']}), " if m["number"] is not None else "")
-              + (f"{entry['agreed']}/{entry['clues']} clues read" if "agreed" in entry else entry["why"] or "")
-              + "".join(f", the solution of No {n}" for n in m["reports"]), file=out)
-        (store / "ledger.json").write_text(json.dumps(ledger, indent=1, ensure_ascii=False) + "\n")
+        entry = read_one(p, h, idx, rows, store, out, reader)
+        if entry is not None:
+            ledger[h] = entry
     return ledger
+
+
+def plan(inbox=MIRROR, store=STORE):
+    """The saved pages not read at this VERSION, one read unit each
+    (tools/edition_queue.py), the earliest saved first: rank 0, saved by
+    hand like the Gale Times pages."""
+    ledger = load_ledger(store)
+    todo = [p for p in page_files(inbox) if ledger.get(hash_of(p), {}).get("version") != VERSION]
+    return [{"rel": p.name, "rank": 0, "reason": "saved by hand", "needs": []}
+            for p in sorted(todo, key=lambda p: p.stat().st_mtime)]
+
+
+def read_unit(name, inbox=MIRROR, store=STORE, reader=read_file, out=sys.stdout, file_it=True):
+    """Read one saved page (tools/edition_queue.py's unit), under its own
+    lock, its ledger row appended; then file what the readings now give
+    (file_gale_listener.run, one at a time) and publish the checklist.
+    Returns "read", "current", "busy" or "failed" (its OCR timed out)."""
+    import scan_queue
+    p = Path(inbox) / name
+    if not p.exists():
+        return "current"
+    h = file_hash(p)
+    store.mkdir(parents=True, exist_ok=True)
+    with scan_queue.source_lock(store / LEDGER, h) as mine:
+        if not mine:
+            return "busy"
+        if load_ledger(store).get(h, {}).get("version") == VERSION:
+            return "current"
+        idx = index()
+        if read_one(p, h, idx, {r["number"]: r for r in idx}, store, out, reader) is None:
+            return "failed"
+    if file_it:
+        import file_gale_listener  # it imports this module
+        with scan_queue.lock(store / "filing", wait_for_it=True):
+            file_gale_listener.run(store, inbox, out=out)
+            render(idx, out=out)
+    return "read"
 
 
 # ------------------------------------------------------------ the checklist
@@ -915,8 +994,10 @@ def main(argv=None):
     run(a.inbox if a.cmd == "read" else MIRROR, a.store if a.cmd == "read" else STORE)
     if a.cmd == "sync":
         import file_gale_listener  # it imports this module
-        file_gale_listener.run()
-        render()
+        import scan_queue
+        with scan_queue.lock(STORE / "filing", wait_for_it=True):
+            file_gale_listener.run()
+            render()
     return 0
 
 
