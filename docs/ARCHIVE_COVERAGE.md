@@ -75,18 +75,20 @@ runs each scan filer over its whole cache. The filers decide what is due
 - read without the VLM, and the VLM answers now;
 - read before `REREAD_BEFORE` in `ocr_full_pass.sh`.
 
-The desktop VLM reads only in a filer's reads, never in a fetch or a scan,
-so the pass puts that work first. It reads every paper's due editions whose
-scans stand (`file_archive_org_puzzles.py --no-scan`: an edition whose own
-scan, or a scan in the week after it where its solution prints, is stale
-waits). Then it scans each paper and reads what the scans made due (the
-never-read editions), then the due Trove articles, then the sources
-annotation asked to have read again (`tools/scan_queue.py requested`), and
-ends. The fetchers (archive.org, and Trove's clue zones then articles) run
-beside all of that from the pass's start, in hour slices until their
-backlog is fetched, since they use only the network and the desktop's CPU;
-a filer sees an edition only once its `pages.json` lands. Running it again
-is always safe: a pass with nothing due ends in minutes.
+The pass is one queue of small units (`tools/edition_queue.py`), each its
+own process with its own time limit, lock and appended ledger row: an
+edition's scan, an edition's, Trove article's or saved Listener page's
+read, and an archive.org edition's or Trove article's (or its clue zones')
+fetch. Each kind runs in a pool of its own, so fetches (network and the
+desktop's CPU) never wait on reads (the desktop VLM) nor reads on them;
+within a pool the most urgent go first (pages Paul saved by hand, then
+never read and the sources annotation asked to have read again, then
+inputs moved, then `REREAD_BEFORE`), and the queue is planned again every
+minute, so what a fetch lands is read minutes later. A read waits only on
+the scans its solution needs, and scans run above reads on the desktop.
+The pass runs in hour slices; a slice hands its running units to the next
+rather than waiting for them. Running it again is always safe: a pass with
+nothing due ends in minutes.
 
 So nothing is ever queued by hand:
 
