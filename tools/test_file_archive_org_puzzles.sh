@@ -467,6 +467,20 @@ check("across a gap, a number out of date order is refused and one in order kept
       [None, 18875], [f.placed(18890, D("1992-03-25"), gap)[0], f.placed(18875, D("1992-03-25"), gap)[0]])
 check("a number filed for another day is refused",
       None, f.placed(18880, D("1992-03-25"), {18880: D("1992-04-02")})[0])
+# mended_digit(): the 1983 FT's "1" read as "4" ("5,401" on 1983-02-18, when
+# the date implies 5,099) is mended by the number its filed neighbours imply,
+# or with none, by the one digit worth 100 or more that brings it near the
+# date's number. Anything else stays refused.
+check("a number one digit off what its unbroken neighbours imply is theirs",
+      5101, f.mended_digit(5401, D("1983-02-18"), 5099, {5100: D("1983-02-17"), 5102: D("1983-02-19")}))
+check("(mirror) neighbours implying a number two digits off mend nothing",
+      None, f.mended_digit(5421, D("1983-02-18"), 5099, {5100: D("1983-02-17"), 5102: D("1983-02-19")}))
+check("with no neighbours, the hundreds digit that brings it near the date's number is mended",
+      5101, f.mended_digit(5401, D("1983-02-18"), 5099, {}))
+check("(mirror) a number two digits from the date's, or only its units digit, is not mended",
+      [None, None, None], [f.mended_digit(5481, D("1983-02-18"), 5099, {}),
+                           f.mended_digit(20212, D("1965-07-05"), 10914, {}),
+                           f.mended_digit(200, D("1930-10-03"), 209, {})])
 check("six issues a week, none on Sunday", [1, 6, 7], [f.issues_between(D("1992-03-21"), D("1992-03-23")),
       f.issues_between(D("1992-03-21"), D("1992-03-28")), f.issues_between(D("1992-03-21"), D("1992-03-30"))])
 
@@ -1559,6 +1573,10 @@ check("a misread 1930 number (200 for 209) is the page's solution's next",
 found30["solutions"] = []
 check("with no solution heading to say so it is refused",
       (None, True), (lambda r: (r[0], bool(r[2])))(f.filed_number(d1930, found30, {"number": 200, "leaf": 4})))
+ft83 = {"date": "1983-02-18", "puzzles": [{"number": 5401, "leaf": 1}], "solutions": []}
+check("an FT title read 5,401 on 1983-02-18 files as 5,101, not refused as misdated",
+      (5101, None), f.filed_number(Path("x/FinancialTimes1983UKEnglish/1983-02-18_29003"), ft83,
+                                   {"number": 5401, "leaf": 1})[::2])
 # Four columns under the grid: ACROSS down the first two over the DOWN
 # heading, DOWN under it and on down the third and fourth, which stop at the
 # previous solution's heading.
