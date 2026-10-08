@@ -294,7 +294,8 @@ def blank_strokes(img, lines, words, h):
                                 # word over it is one whose box took it in.
                                 and not (run_in and not w[1] + 0.25 * (w[3] - w[1]) <= y <= w[3] - 0.25 * (w[3] - w[1]))
                                 for w in words):
-                found.append((x0, y0, x1, y1, BLANK + ("'" if quoted(ink, x1, y0, y1, h) else "")))
+                found.append((x0, y0, x1, y1, ("'" if run_in and opened(ink, x0, y0, y1, h) else "")
+                              + BLANK + ("'" if quoted(ink, x1, y0, y1, h) else "")))
     return found
 
 
@@ -333,6 +334,14 @@ def placed(stroke, lines, h):
     if any(l[1] - 0.3 * h <= y <= l[3] + 0.3 * h and min(l[2], x1) > max(l[0], x0) for l in lines):
         return False
     return any(0.3 * h <= y - l[3] <= 1.2 * h and l[0] <= x0 < l[2] for l in lines)
+
+
+def opened(ink, x0, y0, y1, h):
+    """Whether an opening quote stands just before a rule starting at x0:
+    ink within BLANK_QUOTE of a word's height to its left, over the rule,
+    and none beside it (No 4 9D's "'——and")."""
+    left = ink[:, max(0, int(x0 - BLANK_QUOTE * h)):max(0, x0 - 1)]
+    return bool(left[max(0, int(y0 - BLANK_QUOTE * h)):max(0, y0 - 1)].any()) and not left[max(0, y0 - 1):y1 + 1].any()
 
 
 def quoted(ink, x1, y0, y1, h):
@@ -1381,6 +1390,10 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=()):
             pick = words_[0]
             if pick != a or votes[a] == 1:
                 how = "settled by the dictionary"
+        elif len(votes) == 1 and votes[a] >= 3 and len(a) > 2 and i not in specked:
+            # Three readings or more, every one, print the same non-word:
+            # the print's own (No 4 15D's Elizabethan "busie", not "susie").
+            pick = a
         elif not known(a) and not (i and w[0].isupper()) and mend(read, before, after):
             # No reading a known word: the known word they all misspell (a
             # capital inside the clue is a name the corpus may not know).
@@ -2445,7 +2458,7 @@ def suspect(text, vouched=(), printed=()):
 #: or a mark, before a capital ("'Resting weary", "say, 'Give") or an
 #: elided start ("'. . . is a monster"); not an elision ("'Tis", "'Twas").
 QUOTE_OPEN = re.compile(r"(?:^|(?<=[\s,;:(\u2014*\u2020\u2021]))(['\u2018\"\u201c])(?!T(?:is|was|were|would|will)\b)"
-                        r"(?=[A-Z]|\.\s*\.)")
+                        r"(?=[A-Z]|\.\s*\.|\u2014\u2014)")
 
 
 #: A single quote that closes: one no letter follows (an apostrophe inside
@@ -2522,7 +2535,7 @@ def unclosed_quote(text):
     # A single quote shut after a word not ending in s (no plural's
     # apostrophe: "the lyre'.") that nothing opened: its start is lost.
     m = re.search(r"(?<=[A-Za-z][a-rt-zA-RT-Z])['\u2019](?![A-Za-z])", text or "")
-    if m and not re.search(r"(?:^|(?<=[\s,;:(\u2014*\u2020\u2021]))['\"\u201c](?=[A-Za-z]|\.\s*\.)|\u2018", text[:m.start()]):
+    if m and not re.search(r"(?:^|(?<=[\s,;:(\u2014*\u2020\u2021]))['\"\u201c](?=[A-Za-z]|\.\s*\.|\u2014\u2014)|\u2018", text[:m.start()]):
         return m.start()
     return None
 

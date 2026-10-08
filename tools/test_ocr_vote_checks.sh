@@ -434,8 +434,10 @@ quote_mark = lambda d: d.rectangle((395, 42, 397, 47), fill=0)
 letters = lambda x: (lambda d: [d.rectangle((x + k, 44, x + k, 58), fill=0) for k in range(0, 31, 6)])
 run_in = lambda d: (d.rectangle((400, 50, 442, 52), fill=0), letters(443)(d))
 check("a two-em rule run into the word after it, an opening quote above, is a blank (No 4 9D)",
-      [(400, 50, 444, 53, "——")],
+      [(400, 50, 444, 53, "'——")],
       oc.blank_strokes(page(text, quote_mark, run_in), [LINE], WORDS + [(390, 10, 450, 52, "England.")], H))
+check("with no quote before it, no quote is put in (mirror)", [(400, 50, 444, 53, "——")],
+      oc.blank_strokes(page(text, run_in), [LINE], WORDS, H))
 check("a one-em dash run into a word is none (mirror)", [],
       oc.blank_strokes(page(text, lambda d: (d.rectangle((400, 50, 422, 52), fill=0), letters(423)(d))),
                        [LINE], WORDS, H))
@@ -635,6 +637,16 @@ check("a quotation closing mid-clue that a reading prints is closed there (No 4 
       oc.reclosed(london, ["8. 'London's lasting shame,' but\nnevertheless part of our history."]))
 check("not where no reading closes it (mirror)", None,
       oc.reclosed(london, ["8. 'London's lasting shame, but\nnevertheless part of our history."]))
+check("a quotation opening on a printed blank is closed by its end quote (No 4 9D)", None,
+      oc.unclosed_quote("'—— and here's a marvellous convenient place for our rehearsal'."))
+check("one whose end quote is lost is open (mirror)", 0,
+      oc.unclosed_quote("'—— and here's a marvellous convenient place for our rehearsal."))
+check("a non-word every reading prints alike stands (No 4 15D \"busie\")", "The drones from busie bee no could draw.",
+      oc.agree("The drones from busie bee no could draw.",
+               [mark("15 The drones from busie bee no could draw. 16 A")] * 3)[0])
+check("one reading's non-word alone is mended (mirror)", True,
+      oc.agree("The drones from busie bee no could draw.",
+               [mark("15 The drones from busy bee no could draw. 16 A")] * 3)[0] != "The drones from busie bee no could draw.")
 days = {"5-down": ("St. George's Day, 1918.", None, None), "11-down": ("St. George's Day, 1915.", None, None)}
 check("words after a stop another clue prints with other figures stay (No 4 30A)",
       "St. George's Day, 1564.", oc.run_on("St. George's Day, 1564.", "30-across", days))
