@@ -1894,5 +1894,7 @@ tools/commit_subject.py                       a commit subject naming the puzzle
                                               jobs that commit as they go
 tools/mem_gate.py                             memory gate: a queue starts a unit only while
                                               available RAM stays above a floor
+tools/test_hidden_message.js                  a solved clue shows its hidden letter, and the
+                                              message fills in under the grid
 ```
 <!-- LAYOUT-END -->
