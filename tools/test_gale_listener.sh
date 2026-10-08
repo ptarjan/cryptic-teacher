@@ -348,6 +348,21 @@ cols = g.page_columns(g.figures(no3(False)))
 check("one band: the headings' lists (mirror)", (["1", "5", "6"], ["1", "2", "3"]),
       tuple([l[4].split(".")[0] for l in c] for c in cols) if cols else None)
 
+# No 197's ACROSS heading is "CLUES—ACROSS", read as two words ("CLUF",
+# "ACROSS"): the CLUES word is the heading's own. Prose beside a heading
+# still makes it no heading (mirror).
+def no197(beside):
+    return ([beside, (1550, 657, 1650, 675, "ACROSS")] + line("1. The mistletoe hung.", 1100, 680)
+            + line("3. A blind beggar.", 1100, 720) + line("5. Beverage.", 1100, 760)
+            + [(1510, 800, 1590, 817, "DOWN")] + line("1. Their tops are off.", 1100, 830)
+            + line("2. The old wish.", 1100, 870) + line("3. The grave voice.", 1100, 910))
+for what, beside, want in (("a CLUES word left of ACROSS heads it too", (1436, 656, 1499, 673, "CLUF"),
+                            ["ACROSS", "DOWN"]),
+                           ("prose left of ACROSS still unheads it (mirror)", (1436, 656, 1499, 673, "for"), None)):
+    heads = g.list_heads(g.figures(no197(beside)))
+    check(f"No 197: {what}", want, heads and [h[4] for h in heads])
+check("No 197: a CLUES word opening a line is the heading's", "ACROSS", g.heading("CLUES—ACROSS"))
+
 cols = g.page_columns(g.figures(no9(900)))
 check("No 9: capitals above the lists end no column",
       ["1", "2", "3", "9", "10"], [l[4].split(".")[0] for l in cols[1]] if cols else None)
