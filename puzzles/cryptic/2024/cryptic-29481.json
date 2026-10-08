@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,63 @@
     "text": "Essayist beginning to draft a letter",
     "enumeration": "6"
    },
-   "solution": "LAMBDA"
+   "solution": "LAMBDA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LAMBDA",
+    "definitions": [
+     {
+      "text": "letter",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, so only the start of the next word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Essayist",
+      "gives": "LAMB",
+      "note": "Charles Lamb, the English essayist who wrote as Elia"
+     },
+     {
+      "clueFragment": "draft",
+      "gives": "D",
+      "select": "first",
+      "note": "the opening letter of draft"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAMB",
+      "D",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer is just starting to draft a letter to someone.",
+     "walkthrough": "'Letter' looks like correspondence being drafted, but it is the Greek letter LAMBDA.",
+     "definitionFit": "Lambda is the eleventh character of the Greek alphabet, so it is one alphabetic symbol."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "letter"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +106,44 @@
     "text": "In carnival, a certain group of stars",
     "enumeration": "7"
    },
-   "solution": "LACERTA"
+   "solution": "LACERTA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LACERTA",
+    "definitions": [
+     {
+      "text": "group of stars",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the run of words that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "carnival, a certain",
+      "gives": "LACERTA",
+      "note": "spans the end of carnival, all of a and the start of certain"
+     }
+    ],
+    "explanation": {
+     "surface": "At a carnival, a particular band of star performers appears.",
+     "walkthrough": "'Group of stars' suggests celebrities at a carnival, but it is a constellation.",
+     "definitionFit": "Lacerta, the Lizard, is a small northern constellation, a named cluster of stars in the sky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stars"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +157,43 @@
     "text": "Comes across certain foods in broadcast",
     "enumeration": "5"
    },
-   "solution": "MEETS"
+   "solution": "MEETS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MEETS",
+    "definitions": [
+     {
+      "text": "Comes across",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in broadcast",
+      "for": "homophone",
+      "note": "something broadcast is heard rather than read, so the spelling follows the sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "certain foods",
+      "gives": "MEETS",
+      "soundsLike": "MEATS",
+      "note": "beef, pork and lamb are meats"
+     }
+    ],
+    "explanation": {
+     "surface": "A viewer stumbles on some particular foods in a TV programme.",
+     "definitionFit": "To meet someone is to encounter them, as when one comes across them by chance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +207,71 @@
     "text": "Grass turns up to be probed by detectives – that settles things",
     "enumeration": "7"
    },
-   "solution": "DECIDER"
+   "solution": "DECIDER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DECIDER",
+    "definitions": [
+     {
+      "text": "that settles things",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turns up",
+      "for": "reversal",
+      "note": "in a down clue, turning up means the word is read from bottom to top"
+     },
+     {
+      "text": "probed by",
+      "for": "container",
+      "note": "to be probed is to have something pushed inside, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grass",
+      "gives": "REED",
+      "note": "a reed is a tall grass"
+     },
+     {
+      "clueFragment": "detectives",
+      "gives": "CID",
+      "note": "the CID is the Criminal Investigation Department of British police"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "CID",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "REED",
+       "to": "DEER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An informer goes over to the police and is questioned by detectives in a case-closing moment.",
+     "walkthrough": "'Grass' looks like the British slang for an informer, but it is the plant. Detectives go inside the reversed grass.",
+     "definitionFit": "A decider is the final game or goal that determines the result, so it settles matters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Grass"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +285,48 @@
     "text": "Bishop blessing one at the pet service?",
     "enumeration": "6"
    },
-   "solution": "BASSET"
+   "solution": "BASSET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BASSET",
+    "definitions": [
+     {
+      "text": "one at the pet service?",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bishop",
+      "gives": "B",
+      "note": "B is the chess notation for bishop"
+     },
+     {
+      "clueFragment": "blessing",
+      "gives": "ASSET",
+      "note": "a blessing is something valuable to have, an asset"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ASSET"
+     ]
+    },
+    "explanation": {
+     "surface": "A bishop gives his blessing to the animals at a church service for pets.",
+     "walkthrough": "Some churches hold services where pets are blessed; a basset is a short-legged hound that might be brought along.",
+     "definitionFit": "A basset is a breed of dog, an example of an animal taken to a blessing of pets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "blessing"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +340,53 @@
     "text": "Capital city surmounted by gold stars",
     "enumeration": "6"
    },
-   "solution": "AURIGA"
+   "solution": "AURIGA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AURIGA",
+    "definitions": [
+     {
+      "text": "stars",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surmounted by",
+      "for": "charade",
+      "note": "in a down clue, being surmounted means having something placed on top, so it is written first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "Capital city",
+      "gives": "RIGA",
+      "note": "Riga is the capital of Latvia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AU",
+      "RIGA"
+     ]
+    },
+    "explanation": {
+     "surface": "A capital whose skyline is topped by golden stars.",
+     "definitionFit": "Auriga, the Charioteer, is a northern constellation, a pattern formed by bright stars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "surmounted"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +400,39 @@
     "text": "Flight path keeps going round it",
     "enumeration": "9"
    },
-   "solution": "STAIRWELL"
+   "solution": "STAIRWELL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "STAIRWELL",
+    "definitions": [
+     {
+      "text": "Flight path keeps going round it",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flight path keeps going round it",
+      "note": "surface reading: an aircraft's route keeps circling something, like a plane in a holding pattern"
+     },
+     {
+      "clueFragment": "Flight path keeps going round it",
+      "note": "setter's reading: a flight of steps winds round a vertical shaft in a building"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Flight' suggests aircraft circling an airport, but it is a flight of stairs spiralling round the space that holds it.",
+     "definitionFit": "The answer is the shaft in a building where a staircase climbs, often winding around an open centre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Flight"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +452,60 @@
      }
     ]
    },
-   "solution": "THEBEST"
+   "solution": "THEBEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THE BEST",
+    "definitions": [
+     {
+      "text": "No. 1",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says the first-named item is placed behind what follows it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "goddess of youth’s",
+      "gives": "HEBES",
+      "note": "Hebe is the Greek goddess of youth, plus the possessive s"
+     },
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HEBES",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Again and again, the goddess of youth comes out on top.",
+     "walkthrough": "'Time after time' reads as 'repeatedly', but it is two separate time abbreviations, one placed after the goddess.",
+     "definitionFit": "Number one means the top or finest, the one rated above all others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "after"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +519,63 @@
     "text": "Supporting friend taking hold of the dream for now",
     "enumeration": "13"
    },
-   "solution": "PROVISIONALLY"
+   "solution": "PROVISIONALLY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PROVISIONALLY",
+    "definitions": [
+     {
+      "text": "for now",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking hold of",
+      "for": "container",
+      "note": "taking hold of something means gripping it inside, so one piece surrounds another"
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Supporting",
+      "gives": "PRO",
+      "note": "pro means in favour of"
+     },
+     {
+      "clueFragment": "dream",
+      "gives": "VISION",
+      "note": "a vision is a dream or imagined sight"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "ALLY",
+      "note": "an ally is a friend or supporter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "VISION",
+      "ALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A supportive friend backs someone's dream for the present.",
+     "walkthrough": "The supporting word and the friend are joined, and together they hold the dream between them.",
+     "definitionFit": "Provisionally means temporarily, pending something permanent, which is what 'for now' says."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Supporting"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +589,50 @@
     "text": "Fighter going by Circle Line",
     "enumeration": "4"
    },
-   "solution": "OCHE"
+   "solution": "OCHE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OCHE",
+    "definitions": [
+     {
+      "text": "Line",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "going by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Circle",
+      "gives": "O",
+      "note": "a circle has the shape of the letter O"
+     },
+     {
+      "clueFragment": "Fighter",
+      "gives": "CHE",
+      "note": "Che Guevara, the revolutionary guerrilla fighter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "CHE"
+     ]
+    },
+    "explanation": {
+     "surface": "A fighter travels on the Circle Line of the London Underground.",
+     "walkthrough": "'Circle Line' reads as one London Tube line, but Circle gives a letter and Line is the definition. The circle letter comes first, beside the fighter.",
+     "definitionFit": "The oche is the line on the floor behind which a darts player must stand to throw."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Circle"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +652,44 @@
      }
     ]
    },
-   "solution": "CARDREADER"
+   "solution": "CARDREADER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CARD READER",
+    "definitions": [
+     {
+      "text": "One maybe looking at club’s",
+      "at": 0
+     },
+     {
+      "text": "IT device",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One maybe looking at club’s",
+      "note": "first meaning: a fortune teller who reads playing cards, clubs being one suit"
+     },
+     {
+      "clueFragment": "IT device",
+      "note": "second meaning: a machine that reads data from a bank or swipe card"
+     }
+    ],
+    "explanation": {
+     "surface": "Somebody examining a club's computer equipment.",
+     "walkthrough": "Club looks like a society owning an IT device, but it is the card suit, so one looking at clubs reads cards.",
+     "definitionFit": "A fortune teller reading cards and a gadget scanning plastic cards share the same two-word name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "club’s"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +703,64 @@
     "text": "Some of the French are about to be eliminated",
     "enumeration": "6"
    },
-   "solution": "ERASED"
+   "solution": "ERASED",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ERASED",
+    "definitions": [
+     {
+      "text": "eliminated",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned round, so the joined words are read from the end back to the start"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Some of the French",
+      "gives": "DES",
+      "note": "des is French for 'some of the'"
+     },
+     {
+      "clueFragment": "are",
+      "gives": "ARE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERA",
+      "SED"
+     ],
+     "reversals": [
+      {
+       "from": "DESARE",
+       "to": "ERASED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Part of the French population is about to be wiped out.",
+     "walkthrough": "'Some of the' looks like a partial selection from 'the French', but the whole phrase translates into French as des.",
+     "definitionFit": "Something erased has been rubbed out or removed completely, so it is eliminated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +774,55 @@
     "text": "Fluctuations in very small silver sign",
     "enumeration": "8"
    },
-   "solution": "VAGARIES"
+   "solution": "VAGARIES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VAGARIES",
+    "definitions": [
+     {
+      "text": "Fluctuations",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very small",
+      "gives": "V",
+      "note": "very is abbreviated, made small, to V"
+     },
+     {
+      "clueFragment": "silver",
+      "gives": "AG",
+      "note": "Ag is the chemical symbol for silver"
+     },
+     {
+      "clueFragment": "sign",
+      "gives": "ARIES",
+      "note": "Aries is a sign of the zodiac"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "AG",
+      "ARIES"
+     ]
+    },
+    "explanation": {
+     "surface": "Tiny movements in some small silver symbol.",
+     "definitionFit": "Vagaries are unpredictable changes or whims, so they are erratic ups and downs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "small"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +836,62 @@
     "text": "Repeated prohibition is applied to male for bad behaviour",
     "enumeration": "9"
    },
-   "solution": "BARBARISM"
+   "solution": "BARBARISM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BARBARISM",
+    "definitions": [
+     {
+      "text": "bad behaviour",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Repeated",
+      "for": "charade",
+      "note": "repeated says the word that follows is written down twice in a row"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prohibition",
+      "gives": "BARBAR",
+      "note": "a bar is a ban, given twice"
+     },
+     {
+      "clueFragment": "is applied to",
+      "gives": "IS",
+      "note": "is taken as written; applied to places it next"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BARBAR",
+      "IS",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A man keeps getting banned for behaving badly.",
+     "definitionFit": "Barbarism is savage or uncivilised conduct, a strong term for very bad behaviour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "applied"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +905,54 @@
     "text": "Somehow strengthened, a bed is not falling apart",
     "enumeration": "9"
    },
-   "solution": "BASTIONED"
+   "solution": "BASTIONED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BASTIONED",
+    "definitions": [
+     {
+      "text": "Somehow strengthened",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "falling apart",
+      "for": "anagram",
+      "note": "something falling apart loses its shape, so these letters break up and re-form"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a bed is not",
+      "gives": "ABEDISNOT",
+      "note": "the letters of these three words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ABEDISNOT",
+       "gives": "BASTIONED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rickety bed has been reinforced in some way, yet it is not coming to pieces.",
+     "walkthrough": "The first word could be taken as the anagram signal, but it belongs to the definition: the fortification is of a particular kind.",
+     "definitionFit": "Bastioned means fortified with bastions, projecting defensive works, so it is reinforced in a particular way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +966,54 @@
     "text": "First appearance not top-class – a liability!",
     "enumeration": "4"
    },
-   "solution": "DEBT"
+   "solution": "DEBT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DEBT",
+    "definitions": [
+     {
+      "text": "a liability!",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means without, so the following item is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "First appearance",
+      "gives": "DEBUT",
+      "note": "a debut is someone's first public appearance"
+     },
+     {
+      "clueFragment": "top-class",
+      "gives": "U",
+      "note": "U is the old British label for upper-class, top-drawer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEB",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A first performance that is below the best is a liability.",
+     "walkthrough": "U means upper class in old British slang, as in Nancy Mitford's U and non-U.",
+     "definitionFit": "A debt is money owed, which an accountant would list as a liability."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "top-class"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1027,44 @@
     "text": "My children’s hospital initially",
     "enumeration": "4"
    },
-   "solution": "GOSH"
+   "solution": "GOSH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GOSH",
+    "definitions": [
+     {
+      "text": "My",
+      "at": 0
+     },
+     {
+      "text": "children’s hospital initially",
+      "at": 3
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "My",
+      "note": "first meaning: an exclamation of surprise"
+     },
+     {
+      "clueFragment": "children’s hospital initially",
+      "note": "second meaning: the initials of Great Ormond Street Hospital, the famous London children's hospital"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone speaks of their own child's hospital, giving just its initials.",
+     "walkthrough": "'My' looks like a possessive, but it is the exclamation 'My!'.",
+     "definitionFit": "As an interjection of astonishment the word is a mild substitute for an oath, just like 'My!'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "My"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1078,53 @@
     "text": "City girl trailing after family member",
     "enumeration": "7"
    },
-   "solution": "GRANADA"
+   "solution": "GRANADA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRANADA",
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trailing after",
+      "for": "charade",
+      "note": "trailing after something means coming behind it, so this word is placed second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "family member",
+      "gives": "GRAN",
+      "note": "a gran is a grandmother"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "ADA",
+      "note": "Ada is a girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRAN",
+      "ADA"
+     ]
+    },
+    "explanation": {
+     "surface": "A city girl follows a relative around.",
+     "definitionFit": "Granada is a city in Andalusia in southern Spain, home of the Alhambra palace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "City"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1144,55 @@
      }
     ]
    },
-   "solution": "COMEALIVE"
+   "solution": "COMEALIVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COME ALIVE",
+    "definitions": [
+     {
+      "text": "livened up",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "After"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "Co is the abbreviation for company"
+     },
+     {
+      "clueFragment": "banquet maybe",
+      "gives": "MEAL",
+      "note": "a banquet is an example of a meal"
+     },
+     {
+      "clueFragment": "I have",
+      "gives": "IVE",
+      "note": "the contraction I've"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "MEAL",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone says they perked up after a company dinner.",
+     "definitionFit": "To come alive is to become lively or animated, which is to liven up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "banquet"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1206,70 @@
     "text": "Rome is transformed with introduction of a dictator?",
     "enumeration": "7"
    },
-   "solution": "EMPEROR"
+   "solution": "EMPEROR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EMPEROR",
+    "definitions": [
+     {
+      "text": "dictator?",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "transformed",
+      "for": "anagram",
+      "note": "transformed means changed in form, so these letters are rearranged"
+     },
+     {
+      "text": "with introduction of",
+      "for": "container",
+      "note": "an introduction here is a putting in, so another piece is inserted into the rearranged word"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rome",
+      "gives": "ROME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "PER",
+      "note": "per means a, as in so much a day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "PER",
+      "OR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROME",
+       "gives": "EMOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rome was changed when a dictator was installed.",
+     "walkthrough": "The surface recalls Rome passing from republic to empire under Augustus. Per for a is a crossword staple.",
+     "definitionFit": "An emperor holds absolute power, so he may well be a dictator, hence the question mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "a"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1283,55 @@
     "text": "Least clear, opposing a visiting speaker maybe",
     "enumeration": "7"
    },
-   "solution": "VAGUEST"
+   "solution": "VAGUEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VAGUEST",
+    "definitions": [
+     {
+      "text": "Least clear",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "opposing",
+      "gives": "V",
+      "note": "v is short for versus, against"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "visiting speaker maybe",
+      "gives": "GUEST",
+      "note": "a visiting speaker is an example of a guest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "A",
+      "GUEST"
+     ]
+    },
+    "explanation": {
+     "surface": "The most muddled argument comes from a guest speaker taking the opposing side.",
+     "definitionFit": "Vague means unclear or imprecise, so the superlative is the most unclear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opposing"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1345,46 @@
     "text": "Queen isn’t twee",
     "enumeration": "6"
    },
-   "solution": "QUAINT"
+   "solution": "QUAINT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "QUAINT",
+    "definitions": [
+     {
+      "text": "twee",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Queen",
+      "gives": "QU",
+      "note": "Qu is a standard abbreviation for queen"
+     },
+     {
+      "clueFragment": "isn’t",
+      "gives": "AINT",
+      "note": "ain't is the colloquial form of isn't"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QU",
+      "AINT"
+     ]
+    },
+    "explanation": {
+     "surface": "A declaration that the Queen is not sickly sweet.",
+     "definitionFit": "Quaint means old-fashioned in an attractive way, and twee is its over-sweet, chintzy synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "isn’t"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1398,78 @@
     "text": "18? Peace is truncated by one that’s sacked Gaul",
     "enumeration": "8"
    },
-   "solution": "CALIGULA"
+   "solution": "CALIGULA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "CALIGULA",
+    "definitions": [
+     {
+      "text": "18?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "truncated",
+      "for": "deletion",
+      "note": "truncated means cut short, so the last letter is lopped off"
+     },
+     {
+      "text": "sacked",
+      "for": "anagram",
+      "note": "a sacked city is plundered and wrecked, so these letters are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "is",
+     "by",
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Peace",
+      "gives": "CALM",
+      "note": "calm is peace and quiet"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "Gaul",
+      "gives": "GAUL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAL",
+      "I",
+      "GULA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GAUL",
+       "gives": "GULA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Calm is cut short by a conqueror who has ravaged Gaul.",
+     "walkthrough": "The definition is the answer to 18 down, EMPEROR. The surface suggests a Roman general such as Caesar sacking Gaul.",
+     "definitionFit": "Caligula was the third Roman emperor, an example of the ruler named at 18."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sacked"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1483,56 @@
     "text": "Servant absorbing scripture – one laps it up?",
     "enumeration": "6"
    },
-   "solution": "POTAGE"
+   "solution": "POTAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "POTAGE",
+    "definitions": [
+     {
+      "text": "one laps it up?",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absorbing",
+      "for": "container",
+      "note": "absorbing means taking in, so one piece is held inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Servant",
+      "gives": "PAGE",
+      "note": "a page is a young servant or attendant"
+     },
+     {
+      "clueFragment": "scripture",
+      "gives": "OT",
+      "note": "OT is the Old Testament, part of scripture"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "OT",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A servant soaks up holy writ, eagerly lapping up every word.",
+     "walkthrough": "The definition reads 'one' as the thing, the soup, that 'it' refers to: what you lap up from a bowl.",
+     "definitionFit": "Potage is a thick soup, something a hungry diner would lap up with a spoon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "laps"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1546,63 @@
     "text": "It’s hot in Pacific location – you must discard a bit of clothing",
     "enumeration": "5"
    },
-   "solution": "THONG"
+   "solution": "THONG",
+   "annotation": {
+    "type": [
+     "container",
+     "deletion"
+    ],
+    "answer": "THONG",
+    "definitions": [
+     {
+      "text": "bit of clothing",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another"
+     },
+     {
+      "text": "you must discard a",
+      "for": "deletion",
+      "note": "discarding means throwing away, so the named letter a is dropped"
+     }
+    ],
+    "linkWords": [
+     "It’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the abbreviation for hot, as on taps"
+     },
+     {
+      "clueFragment": "Pacific location",
+      "gives": "TONGA",
+      "note": "Tonga is a Polynesian island kingdom in the Pacific"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "H",
+      "ONG"
+     ]
+    },
+    "explanation": {
+     "surface": "It is so hot on a Pacific island that you need to shed some clothes.",
+     "definitionFit": "A thong is a skimpy undergarment or swimsuit bottom, a small item of clothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "discard"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1616,71 @@
     "text": "Dad taking coloured liquid with hesitation, swallowing bad medicine?",
     "enumeration": "10"
    },
-   "solution": "PAINKILLER"
+   "solution": "PAINKILLER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PAINKILLER",
+    "definitions": [
+     {
+      "text": "medicine?",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallowing",
+      "for": "container",
+      "note": "swallowing means taking something down inside, so one part is placed within the rest"
+     }
+    ],
+    "linkWords": [
+     "taking",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dad",
+      "gives": "PA",
+      "note": "pa is an informal word for father"
+     },
+     {
+      "clueFragment": "coloured liquid",
+      "gives": "INK",
+      "note": "ink is a coloured liquid for writing"
+     },
+     {
+      "clueFragment": "bad",
+      "gives": "ILL",
+      "note": "ill means bad, as in ill effects"
+     },
+     {
+      "clueFragment": "hesitation",
+      "gives": "ER",
+      "note": "er is the sound of hesitating"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "INK",
+      "ILL",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Father hesitantly swallows a coloured liquid that turns out to be nasty medicine.",
+     "walkthrough": "The first three pieces join, and that whole string swallows ILL just before its last two letters.",
+     "definitionFit": "A painkiller is an analgesic drug, one type of medicine, hence the question mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "swallowing"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1694,50 @@
     "text": "German composer’s last quartet – it contains some hot stuff?",
     "enumeration": "4"
    },
-   "solution": "OVEN"
+   "solution": "OVEN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "OVEN",
+    "definitions": [
+     {
+      "text": "it contains some hot stuff?",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last quartet",
+      "for": "letter_selection",
+      "note": "a quartet is a group of four, and last says it is the four at the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German composer’s",
+      "gives": "OVEN",
+      "select": "last",
+      "note": "the final four letters of Beethoven, the German composer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A remark about the final string quartet written by a German composer, which has some passionate music.",
+     "walkthrough": "Beethoven's late string quartets are famous, so 'last quartet' looks musical; it means the last four letters.",
+     "definitionFit": "An oven is an enclosed space for cooking or baking, so it holds hot food inside it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "quartet"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1751,59 @@
     "text": "Checks car, needing test regularly",
     "enumeration": "6"
    },
-   "solution": "AUDITS"
+   "solution": "AUDITS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "AUDITS",
+    "definitions": [
+     {
+      "text": "Checks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "car",
+      "gives": "AUDI",
+      "note": "Audi is a make of car"
+     },
+     {
+      "clueFragment": "test",
+      "gives": "TS",
+      "select": "alternate",
+      "note": "the first and third letters of test"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUDI",
+      "TS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone inspects a car that needs its regular test.",
+     "walkthrough": "The surface suggests a routine car inspection, such as the British annual MOT test.",
+     "definitionFit": "Audits are official examinations, especially of accounts, so they are inspections or checks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1817,50 @@
     "text": "Female, just a grotesque person?",
     "enumeration": "6"
    },
-   "solution": "FRIGHT"
+   "solution": "FRIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FRIGHT",
+    "definitions": [
+     {
+      "text": "a grotesque person?",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "just",
+      "gives": "RIGHT",
+      "note": "just and right both mean fair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders whether a woman is merely a grotesque figure.",
+     "walkthrough": "'Just' looks like 'merely' but means fair or right.",
+     "definitionFit": "Informally a fright is someone of shocking or ridiculous appearance, as in 'she looked a fright'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "just"
+    }
+   }
   }
  ]
 }
