@@ -223,7 +223,7 @@ check("a list running on at the next column's top is still read (mirror)",
 # half's notice still ends that column. The preamble's "No prizes will be
 # offered" above the lists and a clue "A prize" inside them end nothing
 # (mirrors).
-def no2(right=("68 Essex Road,", "prize of Half-a-Guinea"), clue2="2. A basic volcanic rock."):
+def no2(right=("68 Essex Road,", "prize of Half-a-Guinea"), clue2="2. A basic volcanic rock.", apart=0):
     return (line("Crossword No. 2. No prizes will be offered,", 100, 900)
             + line("but any reader who sends a solution", 100, 930)
             + [(300, 1000, 400, 1016, "ACROSS")] + line("1. A covering.", 100, 1030)
@@ -231,9 +231,12 @@ def no2(right=("68 Essex Road,", "prize of Half-a-Guinea"), clue2="2. A basic vo
             + line("Mr. A. R. Morton, c/o Mrs.", 100, 1140) + line("is invited to apply to us", 100, 1170)
             + [(800, 1000, 880, 1016, "DOWN")] + line("1. A covering.", 600, 1030)
             + line(clue2, 600, 1060) + line("35. A waterfall.", 600, 1090)
-            + line(right[0], 640, 1140) + (line(right[1], 600, 1170) if right[1] else []))
+            + line(right[0], 640, 1140) + (line(right[1], 600, 1170 + apart) if right[1] else []))
+# One reading sets "68 Essex I" further over its "prize" line than the
+# notice's pitch: the paragraph still starts where the left half's does.
 for what, page in (("the notice's words in both halves", no2()),
-                   ("one reading lost the right half's notice words", no2(("68 Essex I", None)))):
+                   ("one reading lost the right half's notice words", no2(("68 Essex I", None))),
+                   ("one reading set the right half's first notice line apart", no2(("68 Essex I", "prize of Half-a-Guinea"), apart=25))):
     cols = g.page_columns(g.figures(page))
     check(f"No 2: a prize notice under the lists ends them ({what})",
           (["1", "33", "34"], ["1", "2", "35"]),

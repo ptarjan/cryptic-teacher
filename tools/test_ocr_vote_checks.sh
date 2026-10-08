@@ -152,6 +152,20 @@ check("two readings' different words among three lose the start (mirror)",
 check("two readings' same words among seven lose the start (mirror)",
       None, oc.agree("This man gets sat on", [clean_("12 Long goad This man gets sat on (4) 13 X")] * 2 + [plain] * 5)[0])
 
+# No 2's 7D: a mark alone after the clue's last word sees no words there,
+# so one reading running on into the next clue ("privilege. . A bleaching
+# vat.", 8D's number lost) and one reading a comma lose no end; two
+# readings with different words there do (mirror).
+plain = clean_("7 Most scientists can exercise this privilege. 8 X")
+comma = clean_("7 Most scientists can exercise this privilege, 8 X")
+runon = clean_("7 Most scientists can exercise this privilege. . A bleaching vat. 9 X")
+check("a comma and one run-on reading among three lose no end",
+      "Most scientists can exercise this privilege.",
+      oc.agree("Most scientists can exercise this privilege.", [comma, plain, runon])[0])
+other = clean_("7 Most scientists can exercise this privilege. . A dyeing tub. 9 X")
+check("two readings' different words among three lose the end (mirror)",
+      None, oc.agree("Most scientists can exercise this privilege.", [comma, other, runon])[0])
+
 # A clue the vote left blank is laid again from a reading that printed it
 # whole, when that reading's count fills the light and the rest agree; a
 # reading whose count does not fill the light, or that the rest do not

@@ -267,6 +267,9 @@ def tidy(text):
     text = re.sub(r"\((\d) (\d)\)", r"(\1\2)", text)
     # A speck read as a middle dot ("study·money") is a space.
     text = text.replace("\u00b7", " ")
+    # A backtick is an opening quote read ("a`squatter's right'."); glued
+    # to the word before, the space before it was lost.
+    text = re.sub(r"(?<=\w)`", " `", text).replace("`", "\u2018")
     # Specks the scan left before a clue number (". 11", ":. 11").
     text = re.sub(r"^[.:;,'`\u2018\u2019 ]+(?=[\dIl])", "", text, flags=re.MULTILINE)
     text = re.sub(r"^(\d) (\d) (?=\S)", r"\1\2 ", text, flags=re.MULTILINE)

@@ -1163,10 +1163,12 @@ def agree(clue, others, keep_known=False, families=None, rates=None):
         if len(seen_ends) < 2:
             continue
         top = max(seen_ends, key=seen_ends.count)
-        if seen_ends.count(top) < 2 and len(seen_ends) * 2 < len(others):
+        worded = [e for e in seen_ends if any(t not in MARKS for t in e)]
+        if seen_ends.count(top) < 2 and len(worded) * 2 < len(others):
             # Specks a few of many readings each see apart (a second copy's
             # readings vote too): no end is lost unless half the readings
-            # see words there, or two see the same ones.
+            # see words there (a mark alone is none: "privilege," against
+            # "privilege."), or two see the same ones.
             continue
         words_at = [t for t in top if t not in MARKS]
         if side == "start" and len(words_at) == 1 and len(words_at[0]) == 1:
