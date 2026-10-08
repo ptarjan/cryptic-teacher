@@ -2281,6 +2281,19 @@ def letter_lost(word):
     return not known(flat) and any(known(flat.replace("'", c)) for c in APOSTROPHE_FOR)
 
 
+def letter_put_back(text):
+    """`text` with each word letter_lost() finds mended: the apostrophe made
+    the one letter of APOSTROPHE_FOR that gives a known word ("r'ddled" is
+    "riddled"). A word two letters would mend stays as read."""
+    def mend_one(m):
+        w = m.group()
+        if not letter_lost(w):
+            return w
+        got = [c for c in APOSTROPHE_FOR if known(plain(w).lower().replace("'", c))]
+        return w.replace("'", got[0]) if len(got) == 1 else w
+    return re.sub(r"[A-Za-z]+'[A-Za-z]+", mend_one, text or "")
+
+
 def suspect(text, vouched=(), printed=()):
     """[(token, why)] for each word of a clue's text that OCR, not the setter,
     wrote. `vouched` holds lower-case words every reading spelt alike, which

@@ -538,6 +538,12 @@ check("a ligature word whose letters are a known word is no misread (No 9 6D)",
       [], oc.suspect("A mediæval weapon."))
 check("a ligature in no known word is (mirror)", [("mædixval", "not a word")], oc.suspect("A mædixval weapon."))
 
+# No 97 6D: a broken "i" read as an apostrophe by both RapidOCR readers.
+check("an apostrophe one letter mends into a known word is that letter (No 97 6D)",
+      "He riddled very prettily.", oc.letter_put_back("He r'ddled very prettily."))
+check("a poet's elision and a contraction stay (mirror)",
+      "The wand'ring heav'n you'll see.", oc.letter_put_back("The wand'ring heav'n you'll see."))
+
 print(f"FAILS {fails}")
 EOF
 )
