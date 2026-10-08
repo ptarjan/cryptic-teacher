@@ -325,7 +325,10 @@ check("an unread start takes no number a later start prints", {(0, 0): 1, (0, 1)
 odd = {**page, (1, 0): 5, (2, 0): 4}
 f = lg.fit(certain(OPEN), {"ch": odd, "en5": odd})
 check("two pairs swapped are no fit (mirror)", (False, None), (f["exact"], f.get("numbering")))
-check("a number printed in a cell starting no light contradicts the lights (mirror)", None,
+check("a number in its place in a cell starting no light is a stray no light takes, and 5 is skipped",
+      {(0, 0): 1, (0, 1): 2, (0, 2): 3, (1, 0): 4, (2, 0): 7},
+      lg.as_printed(OPEN, {(0, 0): 1, (0, 1): 2, (0, 2): 3, (1, 0): 4, (1, 1): 6, (2, 0): 7}))
+check("a stray out of reading order contradicts the lights (mirror)", None,
       lg.as_printed(OPEN, {(0, 0): 1, (1, 1): 2}))
 check("one number printed twice is no numbering (mirror)", None, lg.as_printed(OPEN, {(0, 0): 1, (0, 1): 1}))
 sys.exit(1 if fails else 0)

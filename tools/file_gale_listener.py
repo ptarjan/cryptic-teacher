@@ -20,7 +20,10 @@ read agree, and is checked against a third:
     them agree (one side of any, or up to MOST_FLIPS of the NEAR nearest
     the bar width: No 4's four faint bars), it is flipped; otherwise the
     grid is not used. A page numbering its lights as printed (No 4 trades
-    3 and 4 and skips 32) has its list read by those numbers. Before that the
+    3 and 4 and skips 32) has its list read by those numbers. Failing all
+    that, the grid as its widths read it is used when, numbered as the page
+    prints (a number in a cell starting no light, one skipped: No 3's 27
+    and 47), its lights are the clue list's (as_read). Before that the
     list is mended() where the page itself errs: a line read twice, a
     clue number misprinted, a light printed with no clue;
   - its report's answers, the check: the filled grid of the "Report on
@@ -289,6 +292,28 @@ def as_page(rows, fit, clues):
     return out, notes
 
 
+def as_read(g, clues):
+    """The fit of `g` ({"grid", "fit"}) whose rows are each side as its
+    width says, numbered as the page prints (lg.as_printed: strays and
+    skips), with "laid" (rows, clues, notes), when those lights are the
+    clue list's; else None. The fit chases every printed number with the
+    unsure sides, so a page printing a number in a cell starting no light
+    and skipping another loses a real bar and gains a false one (No 3's
+    27|28 bar and a bar over 47-down); the clue list, naming neither
+    light, says the widths were right."""
+    fit = {**g["fit"], "rows": g["grid"]["rows"], "numbering": "printed", "asRead": True,
+           "stray": None, "moved": []}
+    if not fit.get("printed"):
+        return None
+    got = as_page(fit["rows"], fit, clues)
+    if got is None:
+        return None
+    laid, notes = mended(fit["rows"], got[0])
+    if lights_fit(fit["rows"], laid) is not None:
+        return None
+    return {**fit, "laid": (fit["rows"], laid, {**got[1], **notes})}
+
+
 def order(lid):
     n, d = lid.split("-")
     return d != "across", int(n)
@@ -477,26 +502,27 @@ def join(reading, grids, reports, read_letters):
         return None, verdict, None
     whys = []
     for g in exact:
+        fit = g["fit"]
         page, shifted, why = unstrayed(g["fit"], renumbered(g["fit"], clues))
-        if page is None:
-            whys.append(why)
-            continue
+        rows = sides = None
+        if page is not None:
+            def lay(rows, fit=g["fit"], page=page, shifted=shifted):
+                # The page's own errors are mended on the fitted grid: a faint
+                # bar flipped must fit the list as mended there. A page
+                # numbering its lights as printed is read again on each grid.
+                got = as_page(rows if fit.get("numbering") == "printed" else fit["rows"], fit, page)
+                if got is None:
+                    return None
+                laid, notes = mended(rows if fit.get("numbering") == "printed" else fit["rows"], got[0])
+                return laid, {**shifted, **got[1], **notes}
 
-        def lay(rows, fit=g["fit"], page=page, shifted=shifted):
-            # The page's own errors are mended on the fitted grid: a faint
-            # bar flipped must fit the list as mended there. A page
-            # numbering its lights as printed is read again on each grid.
-            got = as_page(rows if fit.get("numbering") == "printed" else fit["rows"], fit, page)
-            if got is None:
-                return None
-            laid, notes = mended(rows if fit.get("numbering") == "printed" else fit["rows"], got[0])
-            return laid, {**shifted, **got[1], **notes}
-
-        rows, sides, laid, notes, why, mends = fit_to_clues(g["grid"], g["fit"], lay)
-        if not rows and not mends and (got := lay(g["fit"]["rows"])):
-            skip, note = skipped(g["fit"]["rows"], got[0])
-            if skip and lights_fit(g["fit"]["rows"], skip) is None:
-                rows, sides, laid, notes = g["fit"]["rows"], [], skip, {**got[1], **note}
+            rows, sides, laid, notes, why, mends = fit_to_clues(g["grid"], g["fit"], lay)
+            if not rows and not mends and (got := lay(g["fit"]["rows"])):
+                skip, note = skipped(g["fit"]["rows"], got[0])
+                if skip and lights_fit(g["fit"]["rows"], skip) is None:
+                    rows, sides, laid, notes = g["fit"]["rows"], [], skip, {**got[1], **note}
+        if not rows and (got := as_read(g, clues)):
+            fit, (rows, laid, notes), sides = got, got["laid"], []
         if rows:
             clues = laid
             reading = {**reading, "clues": laid}
@@ -509,11 +535,13 @@ def join(reading, grids, reports, read_letters):
         verdict["flipped"] = [list(side) for side in sides]
     if notes:
         verdict["mended"] = notes
-    if g["fit"].get("moved"):
-        verdict["numberMoved"] = [list(c) for c in g["fit"]["moved"]]
-    if g["fit"].get("stray"):
-        verdict["strayNumber"] = g["fit"]["stray"]
-    if g["fit"].get("numbering") == "printed":
+    if fit.get("moved"):
+        verdict["numberMoved"] = [list(c) for c in fit["moved"]]
+    if fit.get("stray"):
+        verdict["strayNumber"] = fit["stray"]
+    if fit.get("asRead"):
+        verdict["asRead"] = True
+    if fit.get("numbering") == "printed":
         verdict["numbering"] = "printed"
     # One clue read onto two lights has lost the other's: both go blank
     # unless one light's count picks it (ocr_clues.one_light_each).

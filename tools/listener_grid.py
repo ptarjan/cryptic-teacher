@@ -535,7 +535,7 @@ def in_order(got, most):
 
 
 def fit(grid, printed):
-    """{"rows", "shortest", "exact", "agreed", "disagree", "moved"}: the grid with each
+    """{"rows", "shortest", "exact", "agreed", "disagree", "moved", "printed"}: the grid with each
     unsure side (UNSURE) set so its numbering agrees with the printed numbers
     (`printed` as printed_numbers gives them), flipping the side the width
     says least, one at a time while that lowers the disagreements. Light
@@ -543,7 +543,8 @@ def fit(grid, printed):
     numbers out of place. When the numbers leave 2-cell runs unnumbered
     ("shortest" 3; else 2), "rows" has them barred shut (closed()), so
     light_cells numbers "rows" as the page does either way. "moved" are the
-    read numbers printed a cell off their light's start."""
+    read numbers printed a cell off their light's start; "printed" [[r, c, n]]
+    the numbers both readers read alike."""
     import math
     thin = max(grid["thin"], 1.0)
     q = {k: v / thin for k, v in grid["sides"].items()}
@@ -609,8 +610,9 @@ def fit(grid, printed):
             moved.append(c)
         else:
             disagree.append(c)
+    printed = [[r, c, n] for (r, c), n in sorted(agreed.items())]
     out = {"rows": rows, "shortest": shortest, "agreed": len(agreed), "disagree": disagree,
-           "moved": moved, "exact": not disagree and len(agreed) >= EXACT_COVER * len(st)}
+           "moved": moved, "exact": not disagree and len(agreed) >= EXACT_COVER * len(st), "printed": printed}
     if not out["exact"] and (by_place := positional(grid["rows"], raw, len(st))):
         # The numbers say nothing of the bars here: each side as its width says.
         return {"rows": with_bars(grid["rows"], {k: x >= BAR_RATIO for k, x in q.items()}), "shortest": 2,
@@ -621,13 +623,13 @@ def fit(grid, printed):
     if not out["exact"] and shortest == 2 and (got := next(
             (x for b in tries for x in [stray(with_bars(grid["rows"], b), agreed)] if x), None)):
         return {"rows": got[0], "shortest": 2, "agreed": len(agreed), "disagree": [], "moved": [],
-                "exact": True, "stray": list(got[1])}
+                "exact": True, "stray": list(got[1]), "printed": printed}
     # The page's own numbering, one pair traded (No 4's 3 and 4); a number
     # skipped is no slip the numbers alone can tell from a misread one.
     if (not out["exact"] and shortest == 2 and len(agreed) >= EXACT_COVER * len(st)
-            and (page := as_printed(rows, agreed)) and sorted(page.values()) == sorted(st.values())):
-        return {**out, "disagree": [], "exact": True, "numbering": "printed",
-                "printed": [[r, c, n] for (r, c), n in sorted(agreed.items())]}
+            and set(agreed) <= set(st) and (page := as_printed(rows, agreed))
+            and sorted(page.values()) == sorted(st.values())):
+        return {**out, "disagree": [], "exact": True, "numbering": "printed"}
     return out
 
 
@@ -636,25 +638,30 @@ def as_printed(rows, agreed):
     slips: each start takes its number read (`agreed` {cell: n}), each
     unread start in reading order the least number nothing takes above the
     start's before, or the least of all, whichever puts fewer reads out of
-    order (the first; the second when it falls in a traded pair). No 4
-    prints 4 left of 3 and skips 32. None when a read lies in a cell
-    starting no light, two cells share a number, or the numbers fall in
-    reading order more than once (one pair traded)."""
-    st = sorted(starts(rows))
+    order (the first; the second when it falls in a traded pair). A read in
+    a cell starting no light is a stray the page numbers in its place and
+    no light takes. No 4 prints 4 left of 3 and skips 32; No 3 prints 27 and
+    61 in cells inside lights and skips 47. None when two cells share a
+    number, the numbers fall in reading order more than once (one pair
+    traded), or a stray's falls out of it."""
+    st = set(starts(rows))
     taken = set(agreed.values())
-    if not set(agreed) <= set(st) or len(taken) != len(agreed):
+    if len(taken) != len(agreed):
         return None
-    out, last = {}, 0
-    for c in st:
+    out, seq, last = {}, [], 0
+    for c in sorted(st | set(agreed)):
         n = agreed.get(c)
         if n is None:
             free = sorted(set(range(1, len(st) + len(taken) + 2)) - taken)
             n = min((next(m for m in free if m > last), free[0]), key=lambda m: sum(
                 1 for cell, read in agreed.items() if (cell < c and read > m) or (cell > c and read < m)))
             taken.add(n)
-        out[c] = last = n
-    nums = list(out.values())
-    if sum(a > b for i, a in enumerate(nums) for b in nums[i + 1:]) > 1:
+        if c in st:
+            out[c] = n
+        seq.append((n, c in st))
+        last = n
+    out_of_order = [(a, b) for i, a in enumerate(seq) for b in seq[i + 1:] if a[0] > b[0]]
+    if len(out_of_order) > 1 or any(not (a[1] and b[1]) for a, b in out_of_order):
         return None
     return out
 
