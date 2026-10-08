@@ -95,6 +95,21 @@ texts = ["ACROSS\nA tree that grows in Burma.\n", "A tree that grows in Burma.\n
 check("a clue unlike its number's other-way clue is laid (mirror)", "A tree that grows in Burma.",
       al.pick([a, b], texts)["28-across"][0])
 
+# Readings parsing as many clues: the one with more known words leads.
+check("a reading running words together knows fewer of them", True,
+      al.spaced("Indian servant looks forward to.") > al.spaced("Indian servantlooksforwardto."))
+
+# No 3's "India's greatest neighbour": en5 numbers it 42, ch 40, Tesseract 2
+# (out of order, guessed): the figure a third reading keeps names the light.
+a = {"39-across": ("Junction for Dehra Dun.", None, None), "42-across": ("India's greatest neighbour", None, None)}
+b = {"39-across": ("Junction for Dehra Dun.", None, None), "40-across": ("India's greatest neighbour", None, None)}
+c = {"39-across": ("Junction for Dehra Dun.", None, None), "2-across": ("India's greatest neighbour,", None, None)}
+got = al.pick([a, b, c], guessed=[set(), set(), {"2-across"}])
+check("a clue two readings number apart goes where a third reading's figures end",
+      ("India's greatest neighbour", ""), (got["42-across"][0], got["40-across"][0]))
+got = al.pick([a, b, {"39-across": ("Junction for Dehra Dun.", None, None)}])
+check("without a third reading's figures neither is laid (mirror)", ("", ""), (got["42-across"][0], got["40-across"][0]))
+
 # A number out of order whose last figure is its lookalike's (old-style 8
 # read "3", 9 read "0") is the one number between its neighbours it gives;
 # none, or two, and it is a misread number left unlaid.

@@ -699,6 +699,18 @@ check("words run together over an apostrophe this clue prints stay one (mirror)"
 check("a contraction is not parted into the stray letter another reading left (mirror, Canberra 14 July 1967 6D)",
       ["Rumour", "that's", "hardly"], oc.unglued(["Rumour", "that's", "hardly"], ["rumour", "that", "s", "hardly"]))
 
+check("four words run together with one letter misread are parted (No 3 18D)",
+      ["of", "the", "Moghul", "Empire", "foi", "many"],
+      oc.unglued(["of", "theMoghulEmpirefoi", "many"], ["of", "the", "moghul", "empire", "fot", "many"]))
+check("a token two letters from a run stays one (mirror)", ["theMoghulEmpirefxi"],
+      oc.unglued(["theMoghulEmpirefxi"], ["the", "moghul", "empire", "fot"]))
+check("a word another reading reads as a number pairs with it, the words after too (No 3 36A)",
+      [(0, 1), (1, 2), (2, 3)], oc.align(["occurrence", "in", "india"], ["#", "occurrence", "#", "india", "#", "a"]))
+check("a clue's last word is not paired with the next clue's number (mirror)",
+      [(0, 1), (1, None)], oc.align(["occurrence", "india"], ["#", "occurrence", "#", "a"]))
+check("No 3 36A, its 'in' read '111' by ch, agrees", "A not infrequent occurrence in India.",
+      oc.agree("A not infrequent occurrence in India.", [mark("36 A not infrequent occurrence 111 India. 37 A town")])[0])
+
 print(f"FAILS {fails}")
 EOF
 )

@@ -185,7 +185,8 @@ for text, want in [("I.", "1."), ("II. See 13.", "11. See 13."),
                    ("I am here", "I am here"), ("12. A tree", "12. A tree"), ("1.An African bird", "1. An African bird"),
                    ("Io.Last two", "10. Last two"), ("at 8.15p.m.", "at 8.15p.m."),
                    ("20rev.,24.Charade:", "20 rev., 24. Charade:"), ("23rev.He'd", "23 rev. He'd"),
-                   ("27rev.", "27 rev."), ("12. Revel", "12. Revel"), ("12 revels", "12 revels")]:
+                   ("27rev.", "27 rev."), ("12. Revel", "12. Revel"), ("12 revels", "12 revels"),
+                   ("4S.A fairly", "48. A fairly"), ("S. America", "S. America"), ("SS. Ship", "SS. Ship")]:
     check(f"figures: {text!r}", want, g.figures([(0, 0, 10, 16, text)])[0][4])
 
 # No 97's page: the clue number set wide of its words (more than 40 px, under

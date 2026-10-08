@@ -1219,13 +1219,14 @@ def check_curly_quotes(puzzle, flags):
 
 def check_duplicated_clues(puzzle, flags):
     """An OCR-read puzzle (provenance.OCR_CHANNELS) holds no clue on two
-    lights (fetch_puzzle.duplicated_clues), where it is a misread that lost the
-    others' clues, unless fetch_puzzle.SOURCE_CLUE_WRONG prints one of them.
-    Elsewhere each light's clue is served as text, and a clue on two lights
-    is the setter's."""
+    lights of one list (fetch_puzzle.duplicated_clues, `one_list`), where it
+    is a misread that lost the others' clues, unless
+    fetch_puzzle.SOURCE_CLUE_WRONG prints one of them; one clue under ACROSS
+    and DOWN is printed in each list. Elsewhere each light's clue is served
+    as text, and a clue on two lights is the setter's."""
     if (puzzle.get("source") or {}).get("retrievedFrom") not in provenance.OCR_CHANNELS:
         return
-    for ids in duplicated_clues(puzzle.get("entries") or []):
+    for ids in duplicated_clues(puzzle.get("entries") or [], one_list=True):
         if any(corrected_clue(puzzle.get("id"), i) is not None for i in ids):
             continue
         flags.append(("SHAPE", puzzle.get("id"), f"{', '.join(ids)}: one clue read onto "
