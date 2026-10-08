@@ -18,12 +18,42 @@
   "gridOrigin": "reconstructed"
  },
  "solutions": {
-  "origin": "writeup",
-  "blog": "timesforthetimes",
-  "url": "https://timesforthetimes.co.uk/tls-crossword-1130-by-myrtilus-june-17-2016",
-  "date": "2016-07-08",
-  "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-08",
+  "check": "28 entries, 54 crossings, 0 conflicts, agrees with the 26 answers the paper printed",
+  "printed": {
+   "2-down": "BATESMOTEL",
+   "3-down": "DRACULA",
+   "4-across": "HOTELDULAC",
+   "4-down": "HOARD",
+   "5-down": "TRAFFIC",
+   "6-down": "LIMOUSINE",
+   "7-down": "UNTWIST",
+   "8-down": "ARGO",
+   "9-across": "ITHACA",
+   "11-across": "SOUNDOFMUSIC",
+   "12-down": "ANNABELLEE",
+   "13-across": "ROMANTIC",
+   "14-down": "THESHADOW",
+   "15-across": "INTENT",
+   "16-across": "BERTIE",
+   "17-down": "THERMAE",
+   "18-across": "THESPIAN",
+   "18-down": "TEMPLAR",
+   "19-down": "PHILEAS",
+   "20-across": "NEWHAMPSHIRE",
+   "21-down": "SWORD",
+   "22-down": "DIDO",
+   "23-across": "FILMIDOL",
+   "24-across": "ONEILL",
+   "25-across": "HOTELWORLD",
+   "26-across": "SLED"
+  }
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -34,8 +64,62 @@
    },
    "length": 4,
    "clue": {
-    "text": "Shakespeare’s tucked up in Lincoln then back to Stratford",
+    "text": "Shakespeare's tucked up in Lincoln then back to Stratford",
     "enumeration": "4"
+   },
+   "solution": "ABED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ABED",
+    "definitions": [
+     {
+      "text": "Shakespeare's tucked up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back to",
+      "for": "letter_selection",
+      "note": "the back of a word is its tail end, so only the closing letter of the place name is wanted"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lincoln",
+      "gives": "ABE",
+      "note": "Abe is the familiar name of President Abraham Lincoln"
+     },
+     {
+      "clueFragment": "Stratford",
+      "gives": "D",
+      "select": "last",
+      "note": "the final letter of Stratford"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Shakespeare, having travelled up to Lincoln, heads home to Stratford.",
+     "walkthrough": "'Shakespeare's' looks like the subject of a journey, but it marks the definition as an archaic word of his era.",
+     "definitionFit": "Abed is the old, Shakespearean form meaning in bed, so someone tucked up for the night."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Lincoln"
+    }
    }
   },
   {
@@ -47,7 +131,7 @@
    },
    "length": 10,
    "clue": {
-    "text": "Mary Crane’s final resting place",
+    "text": "Mary Crane's final resting place",
     "enumeration": "5,5",
     "separators": [
      {
@@ -56,7 +140,39 @@
      }
     ]
    },
-   "solution": "BATESMOTEL"
+   "solution": "BATESMOTEL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BATES MOTEL",
+    "definitions": [
+     {
+      "text": "Mary Crane's final resting place",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mary Crane's final resting place",
+      "note": "surface reading: the grave or cemetery where a woman lies buried"
+     },
+     {
+      "clueFragment": "final resting place",
+      "note": "setter's reading: the roadside lodging where the heroine of Robert Bloch's Psycho stops for her last night and is murdered"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Mary Crane is the name of the victim in Bloch's novel Psycho, renamed Marion in Hitchcock's film; she rests at the motel and never leaves it.",
+     "definitionFit": "The Bates Motel is the lodging run by Norman Bates where the heroine of Psycho stays and is killed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "resting"
+    }
+   }
   },
   {
    "number": 3,
@@ -70,7 +186,66 @@
     "text": "A voyager from Varna, a copper, left a medic up top",
     "enumeration": "7"
    },
-   "solution": "DRACULA"
+   "solution": "DRACULA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRACULA",
+    "definitions": [
+     {
+      "text": "A voyager from Varna",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up top",
+      "for": "charade",
+      "note": "in a down entry the top is the start, so the medic goes ahead of everything else"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "medic",
+      "gives": "DR",
+      "note": "DR is the abbreviation for doctor"
+     },
+     {
+      "clueFragment": "a copper",
+      "gives": "ACU",
+      "note": "a, then Cu, the chemical symbol for copper"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     },
+     {
+      "clueFragment": "a medic",
+      "gives": "A",
+      "note": "the article before medic, taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "ACU",
+      "L",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor out of Varna, a policeman and a doctor in some shipboard scene.",
+     "walkthrough": "In Bram Stoker's novel the count sails from the Black Sea port of Varna to Whitby aboard the Demeter.",
+     "definitionFit": "Count Dracula travels from Varna to England by ship in Stoker's novel, making him a seafarer from there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 4,
@@ -94,7 +269,52 @@
      }
     ]
    },
-   "solution": "HOTELDULAC"
+   "solution": "HOTELDULAC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HOTEL DU LAC",
+    "definitions": [
+     {
+      "text": "Book",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not exactly",
+      "for": "anagram",
+      "note": "something not exactly so is not quite as stated, so the letters before it are not in their right order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loud chalet",
+      "gives": "LOUDCHALET",
+      "note": "the fodder, taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LOUDCHALET",
+       "gives": "HOTELDULAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller wonders whether a noisy Alpine chalet counts as a booking.",
+     "walkthrough": "'Book' looks like a verb about reserving a holiday chalet, but it is a noun: Anita Brookner's Booker-winning novel set in a Swiss hotel.",
+     "definitionFit": "Hotel du Lac is a 1984 novel by Anita Brookner, which won the Booker Prize."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Book"
+    }
+   }
   },
   {
    "number": 4,
@@ -108,7 +328,63 @@
     "text": "Rider trading a horse for old treasure",
     "enumeration": "5"
    },
-   "solution": "HOARD"
+   "solution": "HOARD",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "HOARD",
+    "definitions": [
+     {
+      "text": "treasure",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trading",
+      "for": "substitution",
+      "note": "to trade one thing for another is to exchange them, so one piece is swapped out for the next"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rider",
+      "gives": "HAGGARD",
+      "note": "H Rider Haggard wrote King Solomon's Mines"
+     },
+     {
+      "clueFragment": "a horse",
+      "gives": "AGG",
+      "note": "a, then GG, a gee-gee or horse"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "O",
+      "ARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A horseman swaps his mount for some ancient riches.",
+     "walkthrough": "'Rider' looks like a horseman, but it is the novelist H Rider Haggard, whose books are full of buried treasure.",
+     "definitionFit": "A hoard is a stockpile of valuables, often buried, the sense of treasure here."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rider"
+    }
+   }
   },
   {
    "number": 5,
@@ -122,7 +398,43 @@
     "text": "Vehicles they toured with far from home",
     "enumeration": "7"
    },
-   "solution": "TRAFFIC"
+   "solution": "TRAFFIC",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TRAFFIC",
+    "definitions": [
+     {
+      "text": "Vehicles",
+      "at": 0
+     },
+     {
+      "text": "they toured with far from home",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vehicles",
+      "note": "first meaning: the cars and lorries on a road"
+     },
+     {
+      "clueFragment": "they toured with far from home",
+      "note": "second meaning: the rock band who took their 1994 album Far from Home on tour"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Far from home' reads as a description of travel, but it is the title of the album Steve Winwood's band toured in 1994.",
+     "definitionFit": "Traffic is the collective word for road vehicles and the name of Steve Winwood's band."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "far"
+    }
+   }
   },
   {
    "number": 6,
@@ -136,7 +448,73 @@
     "text": "Story about America penned by a novelist in a vehicle",
     "enumeration": "9"
    },
-   "solution": "LIMOUSINE"
+   "solution": "LIMOUSINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LIMOUSINE",
+    "definitions": [
+     {
+      "text": "a vehicle",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to go about something is to go round it, so the story's letters enclose the rest"
+     },
+     {
+      "text": "penned by",
+      "for": "container",
+      "note": "a penned animal is shut in, so the country is fenced in by the pieces around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Story",
+      "gives": "LIE",
+      "note": "a lie is a made-up story"
+     },
+     {
+      "clueFragment": "novelist",
+      "gives": "MO",
+      "note": "Timothy Mo is a British novelist"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "US is the United States"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "MO",
+      "US",
+      "IN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A tale about America written by a novelist while being driven somewhere.",
+     "walkthrough": "Timothy Mo, three times Booker-shortlisted, supplies the short novelist name; America sits between him and 'in', and the story wraps the lot.",
+     "definitionFit": "A limousine is a large luxurious car, often chauffeur-driven, so a kind of vehicle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Story"
+    }
+   }
   },
   {
    "number": 7,
@@ -150,7 +528,65 @@
     "text": "Straighten out books on whiskey, visiting Scottish islands",
     "enumeration": "7"
    },
-   "solution": "UNTWIST"
+   "solution": "UNTWIST",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "UNTWIST",
+    "definitions": [
+     {
+      "text": "Straighten out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "visiting",
+      "for": "container",
+      "note": "a visitor goes into a place, so these pieces go inside the islands' name"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scottish islands",
+      "gives": "UIST",
+      "note": "North and South Uist are islands of the Outer Hebrides"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "NT is the New Testament, a set of books"
+     },
+     {
+      "clueFragment": "whiskey",
+      "gives": "W",
+      "note": "whiskey is the radio alphabet word for W"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "NT",
+      "W",
+      "IST"
+     ]
+    },
+    "explanation": {
+     "surface": "A tidy reader sorts their books on whisky while touring the Hebrides.",
+     "walkthrough": "In a down clue 'books on whiskey' puts the books above the W.",
+     "definitionFit": "To untwist something is to undo its twists, making it straight again."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "whiskey"
+    }
+   }
   },
   {
    "number": 8,
@@ -164,7 +600,56 @@
     "text": "A journey by river vessel",
     "enumeration": "4"
    },
-   "solution": "ARGO"
+   "solution": "ARGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ARGO",
+    "definitions": [
+     {
+      "text": "vessel",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     },
+     {
+      "clueFragment": "journey",
+      "gives": "GO",
+      "note": "a go is a turn or trip, as in have a go"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "A trip taken by a riverboat.",
+     "walkthrough": "The Argo was the ship of Jason and the Argonauts in their quest for the Golden Fleece.",
+     "definitionFit": "Argo is the legendary ship that carried Jason in Greek myth, so a famous vessel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "journey"
+    }
+   }
   },
   {
    "number": 9,
@@ -178,7 +663,43 @@
     "text": "The end of a voyage on board with a castaway",
     "enumeration": "6"
    },
-   "solution": "ITHACA"
+   "solution": "ITHACA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ITHACA",
+    "definitions": [
+     {
+      "text": "The end of a voyage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on board",
+      "for": "hidden_word",
+      "note": "what is on board a ship is carried inside it, so the letters sit within the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with a castaway",
+      "gives": "ITHACA",
+      "note": "the run of letters starting after the W of with"
+     }
+    ],
+    "explanation": {
+     "surface": "A voyage ends with a shipwrecked survivor taken aboard.",
+     "walkthrough": "Odysseus reached home as a castaway brought by Phaeacian sailors, so the surface fits the definition too.",
+     "definitionFit": "Ithaca is the island home Odysseus sails towards throughout the Odyssey, the goal of his long voyage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "with"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,6 +712,70 @@
    "clue": {
     "text": "He collected Travelling Songs from a jolly time touring Italy",
     "enumeration": "8"
+   },
+   "solution": "ARMITAGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ARMITAGE",
+    "definitions": [
+     {
+      "text": "He collected Travelling Songs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "to tour a place is to go all round it, so the surrounding letters circle the country"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "jolly",
+      "gives": "RM",
+      "note": "a jolly is old slang for a Royal Marine, abbreviated RM"
+     },
+     {
+      "clueFragment": "Italy",
+      "gives": "IT",
+      "note": "IT is the international vehicle code for Italy"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "AGE",
+      "note": "an age is a long period of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "RM",
+      "IT",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A folk collector gathered travelling songs during a happy Italian tour.",
+     "walkthrough": "'He collected' suggests a folk-song collector, but Travelling Songs is a 2002 book of poems by Simon Armitage, now Poet Laureate.",
+     "definitionFit": "Simon Armitage published the poetry collection Travelling Songs, so he is the man who gathered it together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "jolly"
+    }
    }
   },
   {
@@ -202,7 +787,7 @@
    },
    "length": 12,
    "clue": {
-    "text": "Crouse and Lindsay’s book has sun, food, travelling and tunes",
+    "text": "Crouse and Lindsay's book has sun, food, travelling and tunes",
     "enumeration": "5,2,5",
     "separators": [
      {
@@ -215,7 +800,65 @@
      }
     ]
    },
-   "solution": "SOUNDOFMUSIC"
+   "solution": "SOUNDOFMUSIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SOUND OF MUSIC",
+    "definitions": [
+     {
+      "text": "Crouse and Lindsay's book",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "travelling",
+      "for": "anagram",
+      "note": "letters that are travelling move about from their starting places into a new order"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sun, food",
+      "gives": "SUNFOOD",
+      "note": "the fodder, taken letter for letter"
+     },
+     {
+      "clueFragment": "tunes",
+      "gives": "MUSIC",
+      "note": "tunes are music"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOUNDOF",
+      "MUSIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SUNFOOD",
+       "gives": "SOUNDOF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A travel guide promises sunshine, good food, journeys and songs.",
+     "walkthrough": "'Book' here is the spoken script of a musical, which Howard Lindsay and Russel Crouse wrote for Rodgers and Hammerstein.",
+     "definitionFit": "Lindsay and Crouse wrote the libretto, or book, of the 1959 stage musical The Sound of Music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "book"
+    }
+   }
   },
   {
    "number": 12,
@@ -235,7 +878,62 @@
      }
     ]
    },
-   "solution": "ANNABELLEE"
+   "solution": "ANNABELLEE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ANNABEL LEE",
+    "definitions": [
+     {
+      "text": "who lived in a kingdom by the sea",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "a thing in another sits inside it, so the girl goes within the sister's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a Brontë",
+      "gives": "ANNE",
+      "note": "Anne Brontë, youngest of the three novelist sisters"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pretty girl",
+      "gives": "BELLE",
+      "note": "a belle is a beautiful girl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANN",
+      "A",
+      "BELLE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A pretty girl in a Brontë novel who lived beside the sea.",
+     "walkthrough": "The definition quotes Poe's poem: 'It was many and many a year ago, In a kingdom by the sea'.",
+     "definitionFit": "Annabel Lee is the girl of Edgar Allan Poe's last poem, who lived in a kingdom by the sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Brontë"
+    }
+   }
   },
   {
    "number": 13,
@@ -246,10 +944,72 @@
    },
    "length": 8,
    "clue": {
-    "text": "Like Princess Ann’s holiday and short city breaks?",
+    "text": "Like Princess Ann's holiday and short city breaks?",
     "enumeration": "8"
    },
-   "solution": "ROMANTIC"
+   "solution": "ROMANTIC",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "charade",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ROMANTIC",
+    "definitions": [
+     {
+      "text": "Like Princess Ann's holiday and short city breaks?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "a short version of a word is cut down, so its final letter is dropped"
+     },
+     {
+      "text": "breaks",
+      "for": "anagram",
+      "note": "something that breaks falls to pieces, and the pieces are put back in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like Princess Ann's holiday",
+      "gives": "ROMAN",
+      "note": "Princess Ann is Audrey Hepburn's character in the film Roman Holiday"
+     },
+     {
+      "clueFragment": "city",
+      "gives": "CITY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROMAN",
+      "TIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CIT",
+       "gives": "TIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Princess Ann's Roman escapade and weekend city trips share a quality.",
+     "walkthrough": "The whole clue defines: Princess Ann's Roman Holiday was a love story, and short city breaks are sold as romantic getaways.",
+     "definitionFit": "Roman Holiday is a romance, and city breaks are marketed to couples as romantic, so both share the quality of love."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "breaks"
+    }
+   }
   },
   {
    "number": 14,
@@ -269,7 +1029,71 @@
      }
     ]
    },
-   "solution": "THESHADOW"
+   "solution": "THESHADOW",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "THE SHADOW",
+    "definitions": [
+     {
+      "text": "a roving vigilante",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Most of",
+      "for": "deletion",
+      "note": "most of a thing is all but a bit, so the last letter of the word goes"
+     },
+     {
+      "text": "early parts for",
+      "for": "letter_selection",
+      "note": "the early part of a name is its beginning, so each name gives its opening letter"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "these",
+      "gives": "THESE",
+      "note": "taken as written before it is cut"
+     },
+     {
+      "clueFragment": "had",
+      "gives": "HAD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Orson Welles",
+      "gives": "OW",
+      "select": "first",
+      "note": "the opening letters of Orson and Welles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THES",
+      "HAD",
+      "OW"
+     ]
+    },
+    "explanation": {
+     "surface": "These radio shows gave Orson Welles some of his first roles.",
+     "walkthrough": "Welles really did voice this crimefighter on the radio in 1937, so the surface tells the truth about the answer.",
+     "definitionFit": "The Shadow is a pulp and radio crimefighter who roams the city fighting crime outside the law."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "parts"
+    }
+   }
   },
   {
    "number": 15,
@@ -283,7 +1107,44 @@
     "text": "Will some holiday-makers sleep here?",
     "enumeration": "6"
    },
-   "solution": "INTENT"
+   "solution": "INTENT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INTENT",
+    "definitions": [
+     {
+      "text": "Will",
+      "at": 0
+     },
+     {
+      "text": "some holiday-makers sleep here?",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Will",
+      "note": "first meaning: purpose or determination"
+     },
+     {
+      "clueFragment": "some holiday-makers sleep here?",
+      "note": "second meaning, split in two: inside a canvas shelter, where campers spend the night"
+     }
+    ],
+    "explanation": {
+     "surface": "A camper wonders whether holiday-makers will sleep in this spot.",
+     "walkthrough": "'Will' reads as the future auxiliary, but it is a noun meaning resolve; the question mark flags the second half as a split reading, IN TENT.",
+     "definitionFit": "Intent is a noun for purpose or resolve, the same sense as will in 'against her will'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Will"
+    }
+   }
   },
   {
    "number": 16,
@@ -297,7 +1158,60 @@
     "text": "A visitor to Brinkley Court put up with missing a connection",
     "enumeration": "6"
    },
-   "solution": "BERTIE"
+   "solution": "BERTIE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BERTIE",
+    "definitions": [
+     {
+      "text": "A visitor to Brinkley Court",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "a thing missing something lacks it, so the single letter named next is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "put up with",
+      "gives": "BEAR",
+      "note": "to put up with something is to bear it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter removed"
+     },
+     {
+      "clueFragment": "connection",
+      "gives": "TIE",
+      "note": "a tie is a link or connection"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BER",
+      "TIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A guest at a country house tolerates a missed train connection.",
+     "walkthrough": "Brinkley Court is Aunt Dahlia's house in P G Wodehouse's stories, where her nephew Bertie Wooster often stays.",
+     "definitionFit": "Bertie Wooster, Wodehouse's narrator, is a frequent guest at his Aunt Dahlia's country seat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "connection"
+    }
+   }
   },
   {
    "number": 17,
@@ -308,10 +1222,62 @@
    },
    "length": 7,
    "clue": {
-    "text": "An article about Bombeck’s spa facilities",
+    "text": "An article about Bombeck's spa facilities",
     "enumeration": "7"
    },
-   "solution": "THERMAE"
+   "solution": "THERMAE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THERMAE",
+    "definitions": [
+     {
+      "text": "spa facilities",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "something about another goes round it, so the article encloses the name"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "An article",
+      "gives": "THE",
+      "note": "the is the definite article"
+     },
+     {
+      "clueFragment": "Bombeck",
+      "gives": "ERMA",
+      "note": "Erma Bombeck was an American humorist and newspaper columnist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "ERMA",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A magazine piece on a columnist's favourite spa treatments.",
+     "walkthrough": "'An article about' reads as a piece of writing on a subject, but the article is the word the, which surrounds the columnist's first name.",
+     "definitionFit": "Thermae were the public baths of ancient Rome, built around hot springs and bathing rooms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1291,60 @@
     "text": "The holiday destination where one swaps places with a performer",
     "enumeration": "8"
    },
-   "solution": "THESPIAN"
+   "solution": "THESPIAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "THESPIAN",
+    "definitions": [
+     {
+      "text": "performer",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "where one swaps places",
+      "for": "anagram",
+      "note": "one letter trading position with a neighbour reorders the word, here the I for one moving"
+     }
+    ],
+    "linkWords": [
+     "with a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "holiday destination",
+      "gives": "SPAIN",
+      "note": "Spain is a favourite holiday destination"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THESPAIN",
+       "gives": "THESPIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holiday resort where a guest trades rooms with a visiting entertainer.",
+     "walkthrough": "One means the letter I, which swaps places with the A beside it.",
+     "definitionFit": "A thespian is an actor, named after Thespis, the first actor of Greek drama."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 18,
@@ -339,7 +1358,59 @@
     "text": "The saint seen in almost all church paintings",
     "enumeration": "7"
    },
-   "solution": "TEMPLAR"
+   "solution": "TEMPLAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TEMPLAR",
+    "definitions": [
+     {
+      "text": "The saint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost all",
+      "for": "deletion",
+      "note": "almost all of something is short of complete, so each word loses its last letter"
+     }
+    ],
+    "linkWords": [
+     "seen in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "TEMPLE",
+      "note": "a temple is a place of worship"
+     },
+     {
+      "clueFragment": "paintings",
+      "gives": "ART",
+      "note": "paintings are art"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEMPL",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "A saint who appears in nearly every church painting.",
+     "walkthrough": "'The saint' looks like any holy figure, but The Saint is Leslie Charteris's gentleman adventurer, whose real name is Simon Templar.",
+     "definitionFit": "Simon Templar is the hero of Charteris's stories, known by the nickname The Saint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "saint"
+    }
+   }
   },
   {
    "number": 19,
@@ -353,7 +1424,70 @@
     "text": "A ship at sea carrying the French circumnavigator",
     "enumeration": "7"
    },
-   "solution": "PHILEAS"
+   "solution": "PHILEAS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PHILEAS",
+    "definitions": [
+     {
+      "text": "circumnavigator",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "being at sea means confused and adrift, so these letters are scrambled"
+     },
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "a ship carrying cargo holds it inside, so the word goes within the jumbled letters"
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A ship",
+      "gives": "ASHIP",
+      "note": "the fodder, taken letter for letter"
+     },
+     {
+      "clueFragment": "French",
+      "gives": "LE",
+      "note": "le is French for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PHI",
+      "LE",
+      "AS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ASHIP",
+       "gives": "PHIAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vessel at sea with a French sailor aboard who has gone round the world.",
+     "walkthrough": "'The French' reads as a nationality, but French gives the article le; Phileas Fogg is Jules Verne's hero of Around the World in Eighty Days.",
+     "definitionFit": "Phileas Fogg goes round the globe on a wager in Verne's novel, making him a famous circumnavigator."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 20,
@@ -364,7 +1498,7 @@
    },
    "length": 12,
    "clue": {
-    "text": "The state of the Berrys’ hotel",
+    "text": "The state of the Berrys' hotel",
     "enumeration": "3,9",
     "separators": [
      {
@@ -373,7 +1507,47 @@
      }
     ]
    },
-   "solution": "NEWHAMPSHIRE"
+   "solution": "NEWHAMPSHIRE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NEW HAMPSHIRE",
+    "definitions": [
+     {
+      "text": "The state",
+      "at": 0
+     },
+     {
+      "text": "the Berrys' hotel",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The state",
+      "note": "first meaning: a state in New England"
+     },
+     {
+      "clueFragment": "the Berrys' hotel",
+      "note": "second meaning: the hotel run by the Berry family in John Irving's novel"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone remarks on how run-down a family's hotel has become.",
+     "walkthrough": "'The state of' reads as a comment on condition, but it is a US state; John Irving's novel The Hotel New Hampshire follows the Berry family.",
+     "definitionFit": "New Hampshire is a US state and also the name of the Berry family's hotel in Irving's novel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 21,
@@ -384,10 +1558,69 @@
    },
    "length": 5,
    "clue": {
-    "text": "Unferth gave Beowulf one choice between Cornwall generally and Land’s End",
+    "text": "Unferth gave Beowulf one choice between Cornwall generally and Land's End",
     "enumeration": "5"
    },
-   "solution": "SWORD"
+   "solution": "SWORD",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SWORD",
+    "definitions": [
+     {
+      "text": "Unferth gave Beowulf one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "End",
+      "for": "letter_selection",
+      "note": "the end of a word is its final position, so only the closing letter is wanted"
+     }
+    ],
+    "linkWords": [
+     "between",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cornwall generally",
+      "gives": "SW",
+      "note": "Cornwall lies in England's South West, generally speaking"
+     },
+     {
+      "clueFragment": "choice",
+      "gives": "OR",
+      "note": "or is the word that offers a choice"
+     },
+     {
+      "clueFragment": "Land",
+      "gives": "D",
+      "select": "last",
+      "note": "the final letter of Land"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SW",
+      "OR",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "An Old English warrior hands a hero a choice of routes through Cornwall to Land's End.",
+     "walkthrough": "Land's End is Cornwall's westernmost tip, so the phrase reads as one place name; here it means only the end of the word Land.",
+     "definitionFit": "In the Old English poem, Unferth lends Beowulf the blade Hrunting for his fight with Grendel's mother."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "End"
+    }
+   }
   },
   {
    "number": 22,
@@ -401,7 +1634,48 @@
     "text": "A voyager from Tyre sat back?",
     "enumeration": "4"
    },
-   "solution": "DIDO"
+   "solution": "DIDO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIDO",
+    "definitions": [
+     {
+      "text": "A voyager from Tyre",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sat back",
+      "gives": "DID",
+      "note": "to sit back is to do nothing, so the first part is did"
+     },
+     {
+      "clueFragment": "sat back?",
+      "gives": "O",
+      "note": "the nothing that is done, O being the round nought"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DID",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller from the Phoenician city who just relaxed.",
+     "walkthrough": "To have sat back is to have done nothing: DID plus O for nothing. The question mark warns of the stretch.",
+     "definitionFit": "Dido, queen of Carthage, fled by sea from her home city of Tyre to found Carthage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sat"
+    }
+   }
   },
   {
    "number": 23,
@@ -421,7 +1695,86 @@
      }
     ]
    },
-   "solution": "FILMIDOL"
+   "solution": "FILMIDOL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FILM IDOL",
+    "definitions": [
+     {
+      "text": "Cruise for one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "a short version of a word is cut down, so its final letter is dropped"
+     },
+     {
+      "text": "crisis",
+      "for": "anagram",
+      "note": "a crisis throws things into turmoil, so the letters are thrown into disorder"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points at the very end, so only the closing letter is wanted"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "the pieces named first are placed after the rest, setting the order of joining"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "midlife",
+      "gives": "MIDLIFE",
+      "note": "taken as written before it is cut"
+     },
+     {
+      "clueFragment": "who",
+      "gives": "O",
+      "select": "last",
+      "note": "the final letter of who"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FILMID",
+      "O",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MIDLIF",
+       "gives": "FILMID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cruise passenger walked out after a brief midlife crisis.",
+     "walkthrough": "'Cruise' suggests a sea voyage, but it is Tom Cruise; 'for one' says he is an example.",
+     "definitionFit": "Tom Cruise is a Hollywood star, an example of a screen idol adored by fans."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cruise"
+    }
+   }
   },
   {
    "number": 24,
@@ -435,7 +1788,48 @@
     "text": "A sick person who made the long voyage home",
     "enumeration": "6"
    },
-   "solution": "ONEILL"
+   "solution": "ONEILL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ONEILL",
+    "definitions": [
+     {
+      "text": "person who made the long voyage home",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "ONE",
+      "note": "a and one both mean a single thing"
+     },
+     {
+      "clueFragment": "sick",
+      "gives": "ILL",
+      "note": "sick means ill"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONE",
+      "ILL"
+     ]
+    },
+    "explanation": {
+     "surface": "An invalid who finally sailed back home after a long voyage.",
+     "walkthrough": "'A sick person' reads naturally as one unit, but the person belongs to the definition: Eugene O'Neill wrote the sea play The Long Voyage Home.",
+     "definitionFit": "Eugene O'Neill, the American playwright, wrote the one-act play The Long Voyage Home, so he made it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "made"
+    }
+   }
   },
   {
    "number": 25,
@@ -455,7 +1849,62 @@
      }
     ]
    },
-   "solution": "HOTELWORLD"
+   "solution": "HOTELWORLD",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "HOTEL WORLD",
+    "definitions": [
+     {
+      "text": "book",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "intros to",
+      "for": "letter_selection",
+      "note": "an intro is the opening part, so each following word gives just its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Passionate",
+      "gives": "HOT",
+      "note": "passionate means hot, as in hot-blooded"
+     },
+     {
+      "clueFragment": "every Lonely",
+      "gives": "EL",
+      "select": "first",
+      "note": "the opening letters of every and Lonely"
+     },
+     {
+      "clueFragment": "Planet",
+      "gives": "WORLD",
+      "note": "a planet is a world"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOT",
+      "EL",
+      "WORLD"
+     ]
+    },
+    "explanation": {
+     "surface": "An enthusiastic reader praises the introductions to every Lonely Planet travel guide.",
+     "walkthrough": "'Lonely Planet book' looks like a single travel guide, but book stands alone as the definition: Ali Smith's novel.",
+     "definitionFit": "Hotel World is a 2001 novel by Ali Smith, shortlisted for the Booker Prize."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Planet"
+    }
+   }
   },
   {
    "number": 26,
@@ -466,10 +1915,56 @@
    },
    "length": 4,
    "clue": {
-    "text": "Ethan and Mattie’s vehicle gave the wrong indication leaving a motorway",
+    "text": "Ethan and Mattie's vehicle gave the wrong indication leaving a motorway",
     "enumeration": "4"
    },
-   "solution": "SLED"
+   "solution": "SLED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SLED",
+    "definitions": [
+     {
+      "text": "Ethan and Mattie's vehicle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "when something is leaving, it departs, so those letters go out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gave the wrong indication",
+      "gives": "MISLED",
+      "note": "to mislead is to point someone the wrong way"
+     },
+     {
+      "clueFragment": "a motorway",
+      "gives": "MI",
+      "note": "the M1 is Britain's first motorway, written MI"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLED"
+     ]
+    },
+    "explanation": {
+     "surface": "A driver signalled the wrong way while coming off a motorway.",
+     "walkthrough": "Ethan Frome and Mattie Silver crash their sled in Edith Wharton's novel Ethan Frome.",
+     "definitionFit": "In Wharton's Ethan Frome, the couple ride a sledge downhill into a tree, so it is their conveyance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "motorway"
+    }
+   }
   }
  ]
 }
