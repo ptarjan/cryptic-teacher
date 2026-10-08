@@ -132,6 +132,12 @@ DOC_URL = "https://go.gale.com/ps/retrieve.do?docId=GALE%7C{}&prodId=TTDA&userGr
 #: containing the word, published On the date (dateMode 2, era 1 = AD).
 SEARCH = "https://go.gale.com/ps/advancedSearch.do"
 DOC_ID = re.compile(r"GALE[\W_]{0,3}([A-Z]{2}\d{8,12})", re.IGNORECASE)
+#: Where else a saved file names its document: the permalink its PDF's
+#: citation prints ("link.gale.com/apps/doc/IF0500468517/"), and Gale's own
+#: download name, the bare number ("IF0500468517.pdf", a second copy
+#: "IF0500254930 (1).pdf").
+CITED_DOC = re.compile(r"link\.gale\.com/apps/doc/([A-Z]{2}\d{8,12})\b", re.IGNORECASE)
+BARE_DOC = re.compile(r"([A-Z]{2}\d{8,12})(?:\s*\(\d+\))?", re.IGNORECASE)
 #: Text only a Gale download's citation page prints.
 GALE_TEXT = re.compile(r"Gale Document Number|link\.gale\.com|Gale Primary Sources|Gale, a Cengage"
                        r"|Times Digital Archive|Listener Historical Archive", re.IGNORECASE)
@@ -317,13 +323,14 @@ def match(path, by_number):
     """{"date", "number", "how", "page", "docId", "pages": [image]} for a
     saved file; "date" None (and "why") when nothing names its edition."""
     name = path.name
-    doc = DOC_ID.search(name)
-    out = {"file": name, "docId": doc.group(1).upper() if doc else None, "page": None}
+    out = {"file": name, "page": None}
     read = images(path)
     laid = [scaled(img) for img, _ in read]
     pages = out["pages"] = [page for page, _ in laid]
     out["grid"] = any(found for _, found in laid)
     cite = read[0][1] if read else ""
+    doc = DOC_ID.search(name) or CITED_DOC.search(cite or "") or BARE_DOC.fullmatch(path.stem)
+    out["docId"] = doc.group(1).upper() if doc else None
     day, number = name_date(name), name_number(name)
     if day:
         out.update(date=day, how="file name date")
@@ -995,10 +1002,27 @@ def search_url(day, prod="TTDA", title="crossword"):
     return f"{SEARCH}?{urllib.parse.urlencode(q)}"
 
 
-def problems(rows, by_number, staged, unmatched=UNMATCHED):
+def titleless(staged, ledger):
+    """{date: [file name]} of the staged editions the filer scanned and found
+    no Times Crossword title on: a page with some other grid saved for it
+    (1987-01-13's Concise page)."""
+    out = {}
+    for day, files in staged.items():
+        row = ledger.get(f"{ITEM.format(day.year)}/{day.isoformat()}") or {}
+        if "scan" in row and not row["scan"].get("puzzles"):
+            out[day] = files
+    return out
+
+
+def problems(rows, by_number, staged, unmatched=UNMATCHED, untitled=None):
     """[(file, what to do)] of the inbox files that are not a wanted page:
-    no edition named, no grid on it, or a date the list does not ask for."""
+    no edition named, no grid on it, no cryptic's title on it (`untitled`,
+    titleless()), or a date the list does not ask for."""
     out = []
+    for day, files in sorted((untitled or {}).items()):
+        out += [(f, f"read as {day:%a %d %b %Y}, but no \"The Times Crossword Puzzle No\" title was found on it "
+                    "(the Concise's page?). Download the cryptic's page for that date, and delete this file.")
+                for f in files]
     for m in (json.loads(unmatched.read_text()) if unmatched.exists() else []):
         if m.get("date"):
             out.append((m["file"], (f"read as {m['date']}, but no crossword grid was found on it. If it is not the "
@@ -1036,15 +1060,18 @@ def next_up(rows, staged, n=POOL):
     return [(d, c) for d, c in order if d not in staged][:n]
 
 
-def checklist(rows=None, cache=CACHE, unmatched=UNMATCHED, docs=None, status=None):
+def checklist(rows=None, cache=CACHE, unmatched=UNMATCHED, docs=None, status=None, ledger=None):
     """The Times checklist (page): progress, any page that needs redoing,
     the next editions to fetch with what to search for, then every wanted
-    edition by year, the worst year first."""
+    edition by year, the worst year first. An edition whose saved page holds
+    no cryptic's title (titleless) is still to fetch."""
     rows = wanted() if rows is None else rows
     by_number = held()
     pages = usual_pages()
-    ledger = archive_coverage.ledger()
-    staged = staged_files(cache)
+    ledger = archive_coverage.ledger() if ledger is None else ledger
+    every = staged_files(cache)
+    untitled = titleless(every, ledger)
+    staged = {day: files for day, files in every.items() if day not in untitled}
     docs = gale_docs.load() if docs is None else docs
     years = collections.defaultdict(list)
     for day, cls in rows:
@@ -1075,7 +1102,7 @@ def checklist(rows=None, cache=CACHE, unmatched=UNMATCHED, docs=None, status=Non
 
     return page(
         paper="Times", prod="TTDA", name=CHECKLIST_NAME, store="galeCopied", done=done, total=total,
-        done_word="arrived", folder=SHARE + "\\Times", redo=problems(rows, by_number, staged, unmatched),
+        done_word="arrived", folder=SHARE + "\\Times", redo=problems(rows, by_number, every, unmatched, untitled),
         steps=STEPS,
         order=ORDER, what="editions", next_rows=[row(d, c) for d, c in next_up(rows, staged)],
         years_note="The worst year first. An edition leaves this list once its puzzle is filed.",

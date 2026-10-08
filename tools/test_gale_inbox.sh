@@ -181,6 +181,19 @@ arrived = next(r for r in html.split("\n") if 'data-k="1988-01-12"' in r)
 check("an arrived row says so and offers no Download", (True, True, False, False),
       ('data-in="1"' in arrived, "in the inbox" in arrived, 'class="dl"' in arrived, "Open in Gale" in arrived))
 check("Download is a big button", True, all(w in g.CSS for w in ("a.dl{display:inline-block;padding:8px 18px;font-size:17px",)))
+# A page saved for a date but holding no cryptic's title (1987-01-13's was
+# the Concise's page): listed to redo, and the edition still to fetch.
+scanned = {"GaleTimes1988UKEnglish/1988-01-12": {"edition": "GaleTimes1988UKEnglish/1988-01-12",
+                                                  "scan": {"puzzles": [], "solutions": []}}}
+html2 = g.checklist(rows, cache, un, ledger=scanned)
+bad2 = html2[html2.index("Check these files"):html2.index('<div class="how">')]
+nxt2 = html2[html2.index("<h2>Next up"):html2.index("<h2>Everything")]
+check("a page with no cryptic's title is listed to redo, its edition next up again, not counted arrived",
+      (True, True, True), ("(the Concise" in bad2, "Tue 12 Jan 1988" in nxt2, "<b>0 of 4</b> arrived" in html2))
+html2 = g.checklist(rows, cache, un, ledger={k: {**v, "scan": {"puzzles": [{"number": 17564}], "solutions": []}}
+                                             for k, v in scanned.items()})
+check("(mirror) one with a title is not", (False, False),
+      ("(the Concise" in html2, "Tue 12 Jan 1988" in html2[html2.index("<h2>Next up"):html2.index("<h2>Everything")]))
 status = {}
 g.checklist(rows, cache, un, status=status)
 check("a render's status names the page and its arrived rows", (True, ["1988-01-12"]),
@@ -268,6 +281,22 @@ w.write(gale)
 m = g.match(gale, held)
 check("a Gale download is dated by its citation page", (D(1987, 1, 3), "PDF citation", 20, True),
       (m["date"], m["how"], m["page"], m["grid"]))
+# Its document, so a puzzle filed off it names the page at Gale (and its
+# provenance says so: an OCR'd newspaper page, which annotation can ask to
+# have read again), off its citation's permalink or Gale's own file name.
+check("its document is named by its citation's permalink, renamed or not", ["IF0500004465"] * 2,
+      [g.match(gale, held)["docId"], g.match(gale.rename(gale.with_name("times page.pdf")), held)["docId"]])
+gale = gale.with_name("times page.pdf").rename(gale)
+bare = Path(sys.argv[1]) / "IF0500254930 (1).png"
+Image.new("RGB", (400, 300), "white").save(bare)
+check("and by Gale's bare download name, a second copy's too", "IF0500254930", g.match(bare, held)["docId"])
+bare.unlink()
+import provenance
+check("a Times puzzle filed off a Gale page, by its document or the portal, is an OCR'd newspaper page "
+      "filed by the archive filer", [("newspaper", fa.TOOL)] * 2,
+      [(s_["retrievedFrom"], s_["acquiredBy"]) for s_ in
+       (provenance.derive({"id": "times-17246", "number": 17246, "source": {"url": u}}, fa.TOOL, None)["source"]
+        for u in (g.DOC_URL.format("IF0500004465"), g.PORTAL))])
 
 times = g.pdf_text(pdf("The Times, 12 Jan. 1988, p. 18. The Times Digital Archive. Gale Document Number: GALE|IF0503151598"))
 listener = g.pdf_text(pdf("The Listener, 5 Feb. 1970, p. 190. The Listener Historical Archive. link.gale.com/apps/doc/X"))

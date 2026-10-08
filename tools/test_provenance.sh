@@ -400,5 +400,24 @@ PY
 same "a write keeps source.reprintOf" "$(field REPRINT_OF "$out9")" "times-14510"
 same "every schema source key is derived or in SOURCE_CARRIED" "$(field LOST "$out9")" "0"
 
+echo "a filer's page at a host the table has no row for is refused, not stamped unknown"
+out10=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
+import provenance as p
+def stamped(url, tool="tools/file_archive_org_puzzles.py", held=None):
+    source = {"url": url, **({"acquiredBy": held} if held else {})}
+    try:
+        s = p.stamp({"id": "times-17246", "number": 17246, "entries": [], "source": source}, tool)["source"]
+        return s["retrievedFrom"]
+    except ValueError as e:
+        return "refused" if "ACQUISITION_BY_SOURCE" in str(e) else repr(e)
+print("GALE", stamped("https://go.gale.com/ps/retrieve.do?docId=GALE%7CIF0500004465&prodId=TTDA"))
+print("NEW_HOST", stamped("https://example.org/page"))
+print("OTHERS_FILE", stamped("https://example.org/page", held="tools/fetch_puzzle.py"))
+PY
+)
+same "a Gale Times page is an OCR'd newspaper page" "$(field GALE "$out10")" "newspaper"
+same "a filer's first write from a host with no row is refused" "$(field NEW_HOST "$out10")" "refused"
+same "another tool's file is left to derive as before" "$(field OTHERS_FILE "$out10")" "unknown"
+
 [ "$fails" = 0 ] && echo "provenance: all checks passed" || echo "provenance: $fails FAILED"
 exit $((fails > 0))
