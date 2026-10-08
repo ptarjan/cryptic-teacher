@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,52 @@
     "text": "I clear up sloshed rum",
     "enumeration": "8"
    },
-   "solution": "PECULIAR"
+   "solution": "PECULIAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PECULIAR",
+    "definitions": [
+     {
+      "text": "rum",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sloshed",
+      "for": "anagram",
+      "note": "sloshed means drunk, so the letters lurch about into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I clear up",
+      "gives": "ICLEARUP",
+      "note": "eight letters taken as written for the shuffle"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ICLEARUP",
+       "gives": "PECULIAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tidies away the mess after a drunken night on the rum.",
+     "walkthrough": "'rum' looks like the drink being spilt, but it is the definition in its old sense of odd.",
+     "definitionFit": "Rum is an old-fashioned British adjective meaning strange or odd, a synonym here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rum"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +94,53 @@
     "text": "Voted for drunk student getting expelled",
     "enumeration": "6"
    },
-   "solution": "PICKED"
+   "solution": "PICKED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PICKED",
+    "definitions": [
+     {
+      "text": "Voted for",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting expelled",
+      "for": "deletion",
+      "note": "someone expelled is thrown out, so that letter is removed from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drunk",
+      "gives": "PICKLED",
+      "note": "pickled is slang for drunk"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L for learner, as on a learner driver's plate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PICKED"
+     ]
+    },
+    "explanation": {
+     "surface": "A tipsy student is thrown out of college after an election.",
+     "walkthrough": "PICKLED loses its L to leave PICKED.",
+     "definitionFit": "To pick a candidate is to choose them, which is what voting for them does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "student"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +154,51 @@
     "text": "Speech about sounds of birds",
     "enumeration": "6"
    },
-   "solution": "CHEEPS"
+   "solution": "CHEEPS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHEEPS",
+    "definitions": [
+     {
+      "text": "sounds of birds",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests turning round and moving around, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Speech",
+      "gives": "SPEECH",
+      "note": "six letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SPEECH",
+       "gives": "CHEEPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lecturer gives a talk on birdsong.",
+     "walkthrough": "The surface reads as a talk on birdsong, but 'about' is the shuffle signal acting on the first word.",
+     "definitionFit": "Cheeps are the thin high calls made by small birds and chicks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +212,57 @@
     "text": "Language picked up in Italy, to an extent",
     "enumeration": "5"
    },
-   "solution": "LATIN"
+   "solution": "LATIN",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "LATIN",
+    "definitions": [
+     {
+      "text": "Language",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up",
+      "for": "reversal",
+      "note": "in a down clue, picking something up lifts it, so the letters read from the bottom upward"
+     },
+     {
+      "text": "to an extent",
+      "for": "hidden_word",
+      "note": "only partly present, so the letters are a run lying inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in Italy",
+      "gives": "NITAL",
+      "note": "a run of letters straddling the two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "NITAL",
+       "to": "LATIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tourist picks up a bit of the local language while in Italy.",
+     "walkthrough": "The run sits across 'iN ITALy' and must be read upward to give LATIN.",
+     "definitionFit": "Latin is the ancient tongue of Rome, the forerunner of Italian."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "picked"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +276,63 @@
     "text": "Sailor with oldish daughter ignored ban",
     "enumeration": "7"
    },
-   "solution": "ABOLISH"
+   "solution": "ABOLISH",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ABOLISH",
+    "definitions": [
+     {
+      "text": "ban",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignored",
+      "for": "deletion",
+      "note": "something ignored is left out of account, so that letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailor",
+      "gives": "AB",
+      "note": "AB, able-bodied seaman"
+     },
+     {
+      "clueFragment": "oldish",
+      "gives": "OLDISH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "OLISH"
+     ]
+    },
+    "explanation": {
+     "surface": "An old sailor's grown-up daughter takes no notice of a prohibition.",
+     "walkthrough": "AB, the able seaman, is the usual crossword sailor; 'ban' looks like a noun but is the verb.",
+     "definitionFit": "To abolish something is to outlaw it formally, the verb sense of ban."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ban"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +346,43 @@
     "text": "Book reviews",
     "enumeration": "6"
    },
-   "solution": "JUDGES"
+   "solution": "JUDGES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "JUDGES",
+    "definitions": [
+     {
+      "text": "Book",
+      "at": 0
+     },
+     {
+      "text": "reviews",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Book",
+      "note": "first meaning: a book of the Old Testament"
+     },
+     {
+      "clueFragment": "reviews",
+      "note": "second meaning: assesses or forms an opinion of"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests literary criticism; 'Book' is a book of the Bible.",
+     "definitionFit": "Judges is the seventh book of the Bible, and to judge something is to assess it critically."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Book"
+    }
+   }
   },
   {
    "number": 6,
@@ -116,7 +396,50 @@
     "text": "Tune in car playing? Not sure",
     "enumeration": "9"
    },
-   "solution": "UNCERTAIN"
+   "solution": "UNCERTAIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNCERTAIN",
+    "definitions": [
+     {
+      "text": "Not sure",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "the letters are being played with, rearranged like notes into a new run"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tune in car",
+      "gives": "TUNEINCAR",
+      "note": "nine letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TUNEINCAR",
+       "gives": "UNCERTAIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A driver hears a song on the car radio and can't place it.",
+     "definitionFit": "Being uncertain means lacking confidence or knowledge, a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tune"
+    }
+   }
   },
   {
    "number": 7,
@@ -130,7 +453,63 @@
     "text": "Is our goal avoiding a wicked wizard?",
     "enumeration": "8"
    },
-   "solution": "GLORIOUS"
+   "solution": "GLORIOUS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "GLORIOUS",
+    "definitions": [
+     {
+      "text": "wizard",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "avoiding",
+      "for": "deletion",
+      "note": "the letters steer clear of that word, so it is removed from the set"
+     },
+     {
+      "text": "wicked",
+      "for": "anagram",
+      "note": "wicked means twisted or perverse, so the remaining letters are bent into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is our goal",
+      "gives": "ISOURGOAL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter to be avoided"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISOURGOL",
+       "gives": "GLORIOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quest for something magical asks whether the aim is to keep clear of an evil sorcerer.",
+     "walkthrough": "Both 'wicked' and 'wizard' can mean excellent; the last word is the definition, the other twists the letters.",
+     "definitionFit": "Wizard is dated British slang for marvellous, so it means wonderful or splendid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wizard"
+    }
+   }
   },
   {
    "number": 8,
@@ -144,7 +523,71 @@
     "text": "South American writer’s ending in essence showing excitement",
     "enumeration": "8"
    },
-   "solution": "SUSPENSE"
+   "solution": "SUSPENSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SUSPENSE",
+    "definitions": [
+     {
+      "text": "excitement",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending",
+      "for": "letter_selection",
+      "note": "the end of the word is its final letter, the one kept"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South",
+      "gives": "S",
+      "note": "compass abbreviation"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "abbreviation for the United States"
+     },
+     {
+      "clueFragment": "writer’s",
+      "gives": "PENS",
+      "note": "a pen is a writer, plus the S of the possessive"
+     },
+     {
+      "clueFragment": "essence",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "US",
+      "PENS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A South American author's closing chapter is packed with thrills.",
+     "walkthrough": "'South American' looks like one description of the writer but splits into two abbreviations.",
+     "definitionFit": "Suspense is the tense state of anxious excitement while waiting to learn what happens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "writer’s"
+    }
+   }
   },
   {
    "number": 9,
@@ -158,7 +601,60 @@
     "text": "Something that’s made Conservative response less cold",
     "enumeration": "8"
    },
-   "solution": "CREATION"
+   "solution": "CREATION",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CREATION",
+    "definitions": [
+     {
+      "text": "Something that’s made",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "less",
+      "for": "deletion",
+      "note": "less means minus, so that letter is taken away from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "response",
+      "gives": "REACTION",
+      "note": "a reaction is a response"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C for cold, as on a tap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "REATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory politician gives a warmer response than usual.",
+     "walkthrough": "REACTION loses its C, and another C for Conservative goes in front.",
+     "definitionFit": "A creation is a thing brought into being, an artefact produced by someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cold"
+    }
+   }
   },
   {
    "number": 10,
@@ -172,7 +668,48 @@
     "text": "A snappy sort of crossword clue",
     "enumeration": "6"
    },
-   "solution": "ACROSS"
+   "solution": "ACROSS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACROSS",
+    "definitions": [
+     {
+      "text": "sort of crossword clue",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "snappy",
+      "gives": "CROSS",
+      "note": "snappy means irritable, and so does cross"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CROSS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes a curt, bad-tempered crossword clue.",
+     "walkthrough": "The definition is self-referential: this very clue is one of its kind.",
+     "definitionFit": "Crossword clues come in two directions, horizontal and vertical, and this names the horizontal kind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "snappy"
+    }
+   }
   },
   {
    "number": 11,
@@ -186,7 +723,56 @@
     "text": "Coming over, look in castle tower",
     "enumeration": "4"
    },
-   "solution": "KEEP"
+   "solution": "KEEP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "KEEP",
+    "definitions": [
+     {
+      "text": "castle tower",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Coming over",
+      "for": "reversal",
+      "note": "coming over suggests turning or flipping, so the word reads the other way"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "look",
+      "gives": "PEEK",
+      "note": "a peek is a quick look"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KEEP"
+     ],
+     "reversals": [
+      {
+       "from": "PEEK",
+       "to": "KEEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A visitor drops in to have a look round a castle tower.",
+     "definitionFit": "The keep is the strongest central tower of a medieval castle, the last line of defence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Coming"
+    }
+   }
   },
   {
    "number": 12,
@@ -200,7 +786,66 @@
     "text": "Introspective after wife’s last kiss, dear?",
     "enumeration": "9"
    },
-   "solution": "EXPENSIVE"
+   "solution": "EXPENSIVE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EXPENSIVE",
+    "definitions": [
+     {
+      "text": "dear",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter, the one kept"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wife’s",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter of wife"
+     },
+     {
+      "clueFragment": "kiss",
+      "gives": "X",
+      "note": "X is the cross for a kiss at the end of a letter"
+     },
+     {
+      "clueFragment": "Introspective",
+      "gives": "PENSIVE",
+      "note": "pensive means thoughtful and inward-looking"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "X",
+      "PENSIVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A thoughtful husband, after his wife's farewell kiss, says 'Darling?'",
+     "walkthrough": "'dear' looks like an endearment but means costly; 'after' puts the thoughtful word behind the other pieces.",
+     "definitionFit": "Dear in British usage means costly, a synonym for high-priced."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dear"
+    }
+   }
   },
   {
    "number": 13,
@@ -214,7 +859,43 @@
     "text": "Mention sunshine on the radio",
     "enumeration": "5"
    },
-   "solution": "RAISE"
+   "solution": "RAISE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "RAISE",
+    "definitions": [
+     {
+      "text": "Mention",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the radio",
+      "for": "homophone",
+      "note": "things on the radio are only heard, so the word is judged by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sunshine",
+      "gives": "RAISE",
+      "soundsLike": "RAYS",
+      "note": "sunshine comes as rays of light"
+     }
+    ],
+    "explanation": {
+     "surface": "A broadcaster brings up the sunny weather during a radio show.",
+     "definitionFit": "To raise a subject is to bring it up in conversation, the verb sense of mention."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sunshine"
+    }
+   }
   },
   {
    "number": 14,
@@ -228,7 +909,49 @@
     "text": "Tickling female dog with no lead",
     "enumeration": "4"
    },
-   "solution": "ITCH"
+   "solution": "ITCH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ITCH",
+    "definitions": [
+     {
+      "text": "Tickling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no lead",
+      "for": "deletion",
+      "note": "the lead is the front, so the first letter is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female dog",
+      "gives": "BITCH",
+      "note": "a bitch is a female dog"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ITCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tickles a female dog that is off its leash.",
+     "walkthrough": "'lead' looks like a dog's leash but means the leading letter.",
+     "definitionFit": "An itch is a tickling sensation on the skin that makes one want to scratch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 15,
@@ -242,7 +965,61 @@
     "text": "Tense French composer heads out of Lyon, escaping rude tourist",
     "enumeration": "9"
    },
-   "solution": "TRAVELLER"
+   "solution": "TRAVELLER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TRAVELLER",
+    "definitions": [
+     {
+      "text": "tourist",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heads out of",
+      "for": "letter_selection",
+      "note": "heads are the tops of words, so the first letter of each is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tense",
+      "gives": "T",
+      "note": "T is the grammatical abbreviation for tense"
+     },
+     {
+      "clueFragment": "French composer",
+      "gives": "RAVEL",
+      "note": "Maurice Ravel, composer of Boléro"
+     },
+     {
+      "clueFragment": "Lyon, escaping rude",
+      "gives": "LER",
+      "select": "first",
+      "note": "first letters of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RAVEL",
+      "LER"
+     ]
+    },
+    "explanation": {
+     "surface": "A nervous French composer flees Lyon to get away from an ill-mannered visitor.",
+     "definitionFit": "A traveller is someone on a journey, and a tourist is one travelling for pleasure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tense"
+    }
+   }
   },
   {
    "number": 16,
@@ -256,7 +1033,66 @@
     "text": "Dad secures eastern bats for very little money",
     "enumeration": "7"
    },
-   "solution": "PEANUTS"
+   "solution": "PEANUTS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PEANUTS",
+    "definitions": [
+     {
+      "text": "very little money",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "secures",
+      "for": "container",
+      "note": "to secure something is to hold it fast, so one piece is held inside the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dad",
+      "gives": "PA",
+      "note": "Pa is an informal word for father"
+     },
+     {
+      "clueFragment": "eastern",
+      "gives": "E",
+      "note": "E is the abbreviation for eastern"
+     },
+     {
+      "clueFragment": "bats",
+      "gives": "NUTS",
+      "note": "bats and nuts both mean crazy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "E",
+      "A",
+      "NUTS"
+     ]
+    },
+    "explanation": {
+     "surface": "A father buys some bats from the East for a pittance.",
+     "walkthrough": "'bats' looks like animals or cricket bats but is slang for mad.",
+     "definitionFit": "Peanuts is an idiom for a trivially small sum, as in being paid next to nothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bats"
+    }
+   }
   },
   {
    "number": 17,
@@ -270,7 +1106,46 @@
     "text": "Offers for models",
     "enumeration": "8"
    },
-   "solution": "PROPOSES"
+   "solution": "PROPOSES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROPOSES",
+    "definitions": [
+     {
+      "text": "Offers",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "PRO",
+      "note": "pro means in favour of"
+     },
+     {
+      "clueFragment": "models",
+      "gives": "POSES",
+      "note": "a model poses for a picture"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "POSES"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'models' looks like a noun but is the verb, as models do for an artist.",
+     "definitionFit": "To propose is to put forward a plan or suggestion, the verb sense of offer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "models"
+    }
+   }
   },
   {
    "number": 18,
@@ -284,7 +1159,77 @@
     "text": "Swede, perhaps, with no herb served up, eating legume",
     "enumeration": "8"
    },
-   "solution": "EUROPEAN"
+   "solution": "EUROPEAN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "EUROPEAN",
+    "definitions": [
+     {
+      "text": "Swede, perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "served up",
+      "for": "reversal",
+      "note": "in a down clue, served up means brought upward, so the words read from the bottom"
+     },
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "eating takes something inside, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "herb",
+      "gives": "RUE",
+      "note": "rue is a bitter-leaved herb"
+     },
+     {
+      "clueFragment": "legume",
+      "gives": "PEA",
+      "note": "a pea is a legume"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EUR",
+      "O",
+      "PEA",
+      "N"
+     ],
+     "reversals": [
+      {
+       "from": "NORUE",
+       "to": "EURON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A swede is served without herbs alongside some beans or peas.",
+     "walkthrough": "'Swede' looks like the vegetable, fitting the dinner surface, but it is a person from Sweden.",
+     "definitionFit": "A Swede is a person from Sweden, an example of someone from the continent, hence the 'perhaps'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Swede"
+    }
+   }
   },
   {
    "number": 19,
@@ -298,7 +1243,43 @@
     "text": "Stalks of plant rot",
     "enumeration": "7"
    },
-   "solution": "RHUBARB"
+   "solution": "RHUBARB",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RHUBARB",
+    "definitions": [
+     {
+      "text": "Stalks of plant",
+      "at": 0
+     },
+     {
+      "text": "rot",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stalks of plant",
+      "note": "first meaning: a plant grown for its edible pink stalks"
+     },
+     {
+      "clueFragment": "rot",
+      "note": "second meaning: nonsense, and the word actors murmur to sound like crowd chatter"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a plant's stems decaying; 'rot' is the British exclamation for nonsense.",
+     "definitionFit": "The plant is eaten for its tart stems, and the word also means meaningless talk, as rot does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rot"
+    }
+   }
   },
   {
    "number": 20,
@@ -312,7 +1293,50 @@
     "text": "Insect on top of fellow’s food",
     "enumeration": "4"
    },
-   "solution": "BEEF"
+   "solution": "BEEF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEEF",
+    "definitions": [
+     {
+      "text": "food",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "on top of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Insect",
+      "gives": "BEE",
+      "note": "a bee is an insect"
+     },
+     {
+      "clueFragment": "fellow’s",
+      "gives": "F",
+      "note": "F is the abbreviation for fellow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEE",
+      "F"
+     ]
+    },
+    "explanation": {
+     "surface": "A fly lands on a man's dinner plate.",
+     "walkthrough": "In a down clue, 'on top of' puts the insect above the fellow.",
+     "definitionFit": "Beef is the meat of cattle, a common foodstuff."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Insect"
+    }
+   }
   },
   {
    "number": 21,
@@ -326,7 +1350,53 @@
     "text": "Criticises photograph taken backwards",
     "enumeration": "4"
    },
-   "solution": "PANS"
+   "solution": "PANS",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "PANS",
+    "definitions": [
+     {
+      "text": "Criticises",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken backwards",
+      "for": "reversal",
+      "note": "something taken backwards runs in the opposite direction, right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "photograph",
+      "gives": "SNAP",
+      "note": "a snap is a photograph"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PANS"
+     ],
+     "reversals": [
+      {
+       "from": "SNAP",
+       "to": "PANS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reviewer slates a picture that was shot the wrong way round.",
+     "definitionFit": "To pan a show or book is to review it harshly, so pans means criticises."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "photograph"
+    }
+   }
   },
   {
    "number": 21,
@@ -340,7 +1410,62 @@
     "text": "In tree, around third of squirrels",
     "enumeration": "7"
    },
-   "solution": "POPULAR"
+   "solution": "POPULAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "POPULAR",
+    "definitions": [
+     {
+      "text": "In",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "third of",
+      "for": "letter_selection",
+      "note": "the third of a word is its third letter, the one taken"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tree",
+      "gives": "POPLAR",
+      "note": "a poplar is a tall tree"
+     },
+     {
+      "clueFragment": "squirrels",
+      "gives": "U",
+      "select": 3,
+      "note": "third letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POP",
+      "U",
+      "LAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A tree is full of squirrels.",
+     "walkthrough": "'In' opens the clue as if a preposition, but it is the definition, the adjective meaning fashionable.",
+     "definitionFit": "Something that is in is fashionable and widely liked, an informal synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "In"
+    }
+   }
   },
   {
    "number": 22,
@@ -354,7 +1479,51 @@
     "text": "Large car’s electronic flap",
     "enumeration": "6"
    },
-   "solution": "ESTATE"
+   "solution": "ESTATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ESTATE",
+    "definitions": [
+     {
+      "text": "Large car",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "electronic",
+      "gives": "E",
+      "note": "E is the abbreviation for electronic, as in e-mail"
+     },
+     {
+      "clueFragment": "flap",
+      "gives": "STATE",
+      "note": "a flap and a state both mean a fluster"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "STATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A big car has an electronic panel or flap.",
+     "walkthrough": "A flap here is a panic, as in being in a state; an estate car is the British name for a station wagon.",
+     "definitionFit": "An estate car is a large car with an extended rear load space, called a station wagon elsewhere."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flap"
+    }
+   }
   },
   {
    "number": 23,
@@ -368,7 +1537,57 @@
     "text": "Small coin found underneath a bank",
     "enumeration": "6"
    },
-   "solution": "ASCENT"
+   "solution": "ASCENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASCENT",
+    "definitions": [
+     {
+      "text": "bank",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "found underneath"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "coin",
+      "gives": "CENT",
+      "note": "a cent is a coin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "S",
+      "CENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A little coin turns up beneath a bank.",
+     "walkthrough": "'bank' looks like a financial bank, matching the coin, but is a slope; in a down clue the coin goes below A.",
+     "definitionFit": "A bank is a slope of ground, and an ascent is an upward slope."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 24,
@@ -382,7 +1601,46 @@
     "text": "Call papa perfect",
     "enumeration": "5"
    },
-   "solution": "PHONE"
+   "solution": "PHONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PHONE",
+    "definitions": [
+     {
+      "text": "Call",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "papa",
+      "gives": "P",
+      "note": "Papa is P in the NATO alphabet"
+     },
+     {
+      "clueFragment": "perfect",
+      "gives": "HONE",
+      "note": "to hone is to perfect or sharpen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "HONE"
+     ]
+    },
+    "explanation": {
+     "surface": "Phoning one's father would be ideal.",
+     "definitionFit": "To phone someone is to call them on the telephone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "perfect"
+    }
+   }
   },
   {
    "number": 25,
@@ -396,7 +1654,55 @@
     "text": "Communicates explicit extremes of emotions",
     "enumeration": "9"
    },
-   "solution": "EXPRESSES"
+   "solution": "EXPRESSES",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EXPRESSES",
+    "definitions": [
+     {
+      "text": "Communicates",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremes of",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, the first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "explicit",
+      "gives": "EXPRESS",
+      "note": "express means clear and explicit, as in express instructions"
+     },
+     {
+      "clueFragment": "emotions",
+      "gives": "ES",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXPRESS",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone conveys their feelings very openly.",
+     "definitionFit": "To express a thought or feeling is to communicate it in words or gestures."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "explicit"
+    }
+   }
   },
   {
    "number": 26,
@@ -410,7 +1716,57 @@
     "text": "Old mint is regularly dropping leaves",
     "enumeration": "5"
    },
-   "solution": "EXITS"
+   "solution": "EXITS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EXITS",
+    "definitions": [
+     {
+      "text": "leaves",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly dropping",
+      "for": "letter_selection",
+      "note": "dropping every other letter in turn leaves only the alternate ones"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "EX",
+      "note": "an ex is a former partner, hence old"
+     },
+     {
+      "clueFragment": "mint is",
+      "gives": "ITS",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "ITS"
+     ]
+    },
+    "explanation": {
+     "surface": "An old mint plant keeps shedding its leaves.",
+     "walkthrough": "'leaves' looks like foliage on the mint but is the verb meaning goes out.",
+     "definitionFit": "Exits as a verb means goes out of a place, the same as leaves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 27,
@@ -424,7 +1780,55 @@
     "text": "Pirates duck inside ship",
     "enumeration": "6"
    },
-   "solution": "STEALS"
+   "solution": "STEALS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STEALS",
+    "definitions": [
+     {
+      "text": "Pirates",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside means placed within, so one piece goes into the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ship",
+      "gives": "SS",
+      "note": "SS is steamship"
+     },
+     {
+      "clueFragment": "duck",
+      "gives": "TEAL",
+      "note": "a teal is a small duck"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TEAL",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Buccaneers crouch down below deck aboard a vessel.",
+     "walkthrough": "'Pirates' looks like a noun but is the verb: to pirate is to copy or take illegally.",
+     "definitionFit": "To pirate goods is to take them unlawfully, so pirates means steals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Pirates"
+    }
+   }
   },
   {
    "number": 28,
@@ -438,7 +1842,51 @@
     "text": "Badly mutilate key",
     "enumeration": "8"
    },
-   "solution": "ULTIMATE"
+   "solution": "ULTIMATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ULTIMATE",
+    "definitions": [
+     {
+      "text": "key",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Badly",
+      "for": "anagram",
+      "note": "something done badly is botched, so the letters come out in a wrong order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mutilate",
+      "gives": "MUTILATE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MUTILATE",
+       "gives": "ULTIMATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has badly damaged a key.",
+     "walkthrough": "'key' looks like a door key but is the adjective meaning crucial.",
+     "definitionFit": "Key as an adjective means most important or fundamental, which ultimate also means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 29,
@@ -452,7 +1900,55 @@
     "text": "Various newspaper conclusions in tabloid appear silly",
     "enumeration": "6"
    },
-   "solution": "SUNDRY"
+   "solution": "SUNDRY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SUNDRY",
+    "definitions": [
+     {
+      "text": "Various",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "conclusions in",
+      "for": "letter_selection",
+      "note": "conclusions are the ends of words, so the final letter of each is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "newspaper",
+      "gives": "SUN",
+      "note": "The Sun is a British tabloid newspaper"
+     },
+     {
+      "clueFragment": "tabloid appear silly",
+      "gives": "DRY",
+      "select": "last",
+      "note": "last letters of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUN",
+      "DRY"
+     ]
+    },
+    "explanation": {
+     "surface": "Various tabloid stories turn out to look ridiculous by the end.",
+     "definitionFit": "Sundry means assorted or miscellaneous, several different kinds, as various does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "conclusions"
+    }
+   }
   },
   {
    "number": 30,
@@ -466,7 +1962,54 @@
     "text": "The woman’s interrupting precocious child? Most arrogant",
     "enumeration": "8"
    },
-   "solution": "BRASHEST"
+   "solution": "BRASHEST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BRASHEST",
+    "definitions": [
+     {
+      "text": "Most arrogant",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupting",
+      "for": "container",
+      "note": "to interrupt is to break into the middle of something, so one piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "precocious child",
+      "gives": "BRAT",
+      "note": "a brat is a badly behaved child"
+     },
+     {
+      "clueFragment": "The woman’s",
+      "gives": "SHES",
+      "note": "she plus the S of the possessive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRA",
+      "SHES",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman keeps cutting in on a cheeky child, asking who is the haughtiest.",
+     "definitionFit": "Brash means bold and self-assertive, so the superlative is the most arrogant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "interrupting"
+    }
+   }
   }
  ]
 }
