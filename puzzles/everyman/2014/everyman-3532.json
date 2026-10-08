@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,40 @@
      }
     ]
    },
-   "solution": "BEERPUMP"
+   "solution": "BEERPUMP",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BEER PUMP",
+    "definitions": [
+     {
+      "text": "One may get bitter if one is used",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One may get bitter if one is used",
+      "note": "surface reading: someone exploited by others may grow resentful"
+     },
+     {
+      "clueFragment": "bitter",
+      "note": "setter's reading: bitter is a British style of draught ale, drawn by the device used at a bar"
+     }
+    ],
+    "explanation": {
+     "surface": "A warning that being exploited by others leaves a person resentful.",
+     "walkthrough": "'Bitter' is not a mood but a pint: bitter is a hoppy British ale, pulled at the bar with a hand-operated device.",
+     "definitionFit": "A barman works this hand-operated lever to draw cask ale such as bitter up from the cellar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bitter"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +89,43 @@
     "text": "Grow into suit",
     "enumeration": "6"
    },
-   "solution": "BECOME"
+   "solution": "BECOME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BECOME",
+    "definitions": [
+     {
+      "text": "Grow into",
+      "at": 0
+     },
+     {
+      "text": "suit",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grow into",
+      "note": "first meaning: develop into, turn into over time"
+     },
+     {
+      "clueFragment": "suit",
+      "note": "second meaning: look good on, flatter"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a child growing into a hand-me-down suit; the two words are separate meanings.",
+     "definitionFit": "The verb means both to develop into something and to flatter or look right on someone, as a hat might."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "suit"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +139,62 @@
     "text": "Make possible arrest, breaking Helen's heart",
     "enumeration": "6"
    },
-   "solution": "ENABLE"
+   "solution": "ENABLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ENABLE",
+    "definitions": [
+     {
+      "text": "Make possible",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heart",
+      "for": "letter_selection",
+      "note": "the heart of a name is its inside, so the outer letters of the name are dropped"
+     },
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "one word breaking another splits it open and sits in the gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Helen's",
+      "gives": "ELE",
+      "select": "middle",
+      "note": "the name without its first and last letters"
+     },
+     {
+      "clueFragment": "arrest",
+      "gives": "NAB",
+      "note": "to nab is to catch or arrest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "NAB",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told that a police arrest breaking Helen's heart will make something possible.",
+     "walkthrough": "'Heart' reads as emotion in the surface, but here it trims the name down to its inner letters, which the arrest then splits.",
+     "definitionFit": "To enable something is to give the means or opportunity for it to happen, a straight synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +208,50 @@
     "text": "Nut, as I chop it, changes shape",
     "enumeration": "9"
    },
-   "solution": "PISTACHIO"
+   "solution": "PISTACHIO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PISTACHIO",
+    "definitions": [
+     {
+      "text": "Nut",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changes shape",
+      "for": "anagram",
+      "note": "the phrase that changes shape is remoulded, so its letters take a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as I chop it",
+      "gives": "ASICHOPIT",
+      "note": "the fodder, taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASICHOPIT",
+       "gives": "PISTACHIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook watches a nut alter as they chop it up.",
+     "definitionFit": "The pistachio is a green-kernelled nut from a tree native to western Asia, so it is an example of the category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chop"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +265,67 @@
     "text": "Famous sculptor I challenge, unwisely, in Missouri",
     "enumeration": "12"
    },
-   "solution": "MICHELANGELO"
+   "solution": "MICHELANGELO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MICHELANGELO",
+    "definitions": [
+     {
+      "text": "Famous sculptor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unwisely",
+      "for": "anagram",
+      "note": "something done unwisely is done badly, so the letters come out in a muddled order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the shuffled words are placed inside the abbreviation that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Missouri",
+      "gives": "MO",
+      "note": "MO is the postal abbreviation for the US state of Missouri"
+     },
+     {
+      "clueFragment": "I challenge",
+      "gives": "ICHALLENGE",
+      "note": "the fodder, taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ICHELANGEL",
+      "O"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ICHALLENGE",
+       "gives": "ICHELANGEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone foolishly picks a fight with a celebrated sculptor in the American state of Missouri.",
+     "walkthrough": "The shuffled letters sit between the M and O of the state abbreviation.",
+     "definitionFit": "Michelangelo carved the David and the Pietà, making him one of the best-known sculptors of the Renaissance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "challenge"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +339,65 @@
     "text": "Mischievous member - is husband following one?",
     "enumeration": "6"
    },
-   "solution": "IMPISH"
+   "solution": "IMPISH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPISH",
+    "definitions": [
+     {
+      "text": "Mischievous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following tells us the earlier words come after the one named last, fixing the order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "member",
+      "gives": "MP",
+      "note": "a Member of Parliament"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the standard abbreviation for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MP",
+      "IS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a mischievous family member is the husband trailing after someone else.",
+     "definitionFit": "An impish child behaves like a little imp, playfully naughty, so the two adjectives are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "member"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +411,50 @@
     "text": "Fruit - piece to be consumed",
     "enumeration": "5"
    },
-   "solution": "MANGO"
+   "solution": "MANGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MANGO",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "-"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piece",
+      "gives": "MAN",
+      "note": "a chess or draughts piece is a man"
+     },
+     {
+      "clueFragment": "to be consumed",
+      "gives": "GO",
+      "note": "to go is to be used up, as money goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of fruit is set out ready to be eaten.",
+     "walkthrough": "'Piece' looks like a slice of the fruit but is a game piece; 'go' means be used up, as in 'the food will soon go'.",
+     "definitionFit": "The mango is a sweet tropical stone fruit, so it is an instance of the general word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "piece"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +474,48 @@
      }
     ]
    },
-   "solution": "INSPADES"
+   "solution": "INSPADES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IN SPADES",
+    "definitions": [
+     {
+      "text": "Decidedly",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trendy",
+      "gives": "IN",
+      "note": "what is in is fashionable"
+     },
+     {
+      "clueFragment": "black suit",
+      "gives": "SPADES",
+      "note": "spades is one of the two black suits in a pack of cards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "SPADES"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion verdict that a black suit is definitely in style.",
+     "walkthrough": "'Suit' is clothing on the surface but a card suit in the wordplay.",
+     "definitionFit": "Having something in spades is having it in abundance, an idiom meaning to a marked or decided degree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "suit"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +529,60 @@
     "text": "Impeded female deer, wild deer",
     "enumeration": "8"
    },
-   "solution": "HINDERED"
+   "solution": "HINDERED",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "HINDERED",
+    "definitions": [
+     {
+      "text": "Impeded",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "a wild animal runs loose, so its letters run out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female deer",
+      "gives": "HIND",
+      "note": "a hind is a female red deer"
+     },
+     {
+      "clueFragment": "deer",
+      "gives": "DEER",
+      "note": "the fodder, taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIND",
+      "ERED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DEER",
+       "gives": "ERED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doe and a wild stag get in each other's way.",
+     "definitionFit": "To hinder is to obstruct or hold back, so the past tense matches the past participle of impede."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wild"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +602,61 @@
      }
     ]
    },
-   "solution": "CLASSACT"
+   "solution": "CLASSACT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "CLASS ACT",
+    "definitions": [
+     {
+      "text": "Outstanding performer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring us",
+      "for": "deletion",
+      "note": "ignoring two letters means leaving them out of the word they belong to"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the first word is placed inside the trimmed word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plant",
+      "gives": "CACTUS",
+      "note": "a cactus is a desert plant"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "LASS",
+      "note": "a lass is a girl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LASS",
+      "ACT"
+     ]
+    },
+    "explanation": {
+     "surface": "A star performer and a girl are found among plants, with the rest of us left out.",
+     "walkthrough": "'Ignoring us' is literal: the two letters U and S are dropped from the plant before the girl goes inside.",
+     "definitionFit": "A class act is someone of real quality, especially an excellent entertainer or sports player."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +670,55 @@
     "text": "Son appearing in club concert",
     "enumeration": "6"
    },
-   "solution": "UNISON"
+   "solution": "UNISON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "UNISON",
+    "definitions": [
+     {
+      "text": "concert",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "appearing in",
+      "for": "container",
+      "note": "something appearing in another thing turns up inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "club",
+      "gives": "UNION",
+      "note": "a union is a club or association"
+     },
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the standard abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNI",
+      "S",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A son plays a club gig.",
+     "walkthrough": "'Concert' looks like a musical event, but it means agreement, as in 'acting in concert'.",
+     "definitionFit": "Acting in concert and acting in unison both mean doing things together in agreement, so the nouns are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "concert"
+    }
+   }
   },
   {
    "number": 11,
@@ -215,7 +742,51 @@
      }
     ]
    },
-   "solution": "MANABOUTTOWN"
+   "solution": "MANABOUTTOWN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MAN ABOUT TOWN",
+    "definitions": [
+     {
+      "text": "Fashionable sophisticate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surprisingly",
+      "for": "anagram",
+      "note": "an outcome that comes surprisingly is unexpected, so the letters land in an unexpected order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "but not a woman",
+      "gives": "BUTNOTAWOMAN",
+      "note": "the fodder, taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BUTNOTAWOMAN",
+       "gives": "MANABOUTTOWN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stylish sophisticate turns out, to everyone's surprise, not to be female.",
+     "walkthrough": "The fodder neatly hints at the answer's first word, since a man is not a woman.",
+     "definitionFit": "A man about town is a worldly socialite seen at every fashionable venue, an idiom for an urbane gentleman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "surprisingly"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +800,58 @@
     "text": "Country producing whisky, Africa's first",
     "enumeration": "5"
    },
-   "solution": "MALTA"
+   "solution": "MALTA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MALTA",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first means only the opening letter of the continent's name is wanted"
+     }
+    ],
+    "linkWords": [
+     "producing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "whisky",
+      "gives": "MALT",
+      "note": "a malt is a malt whisky"
+     },
+     {
+      "clueFragment": "Africa's",
+      "gives": "A",
+      "select": "first",
+      "note": "the opening letter of the continent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MALT",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A nation that makes whisky is named as Africa's leading producer.",
+     "definitionFit": "Malta is an island nation in the Mediterranean, south of Sicily, so it is an example of a country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Africa's"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +865,56 @@
     "text": "Complex lecture by the Spanish sailor",
     "enumeration": "9"
    },
-   "solution": "ELABORATE"
+   "solution": "ELABORATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELABORATE",
+    "definitions": [
+     {
+      "text": "Complex",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Spanish",
+      "gives": "EL",
+      "note": "el is Spanish for the"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "AB",
+      "note": "an AB is an able seaman"
+     },
+     {
+      "clueFragment": "lecture",
+      "gives": "ORATE",
+      "note": "to orate is to make a formal speech"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EL",
+      "AB",
+      "ORATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A complicated lecture is given by a sailor from Spain.",
+     "walkthrough": "The pieces appear in the clue as lecture, then the Spanish sailor; 'by' places the lecture after them.",
+     "definitionFit": "Something elaborate has many detailed parts, so it is intricate or complicated, a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lecture"
+    }
+   }
   },
   {
    "number": 14,
@@ -263,7 +934,62 @@
      }
     ]
    },
-   "solution": "PHEASANTSEYE"
+   "solution": "PHEASANTSEYE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PHEASANTS EYE",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "one word going round another wraps it, holding it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Country folk",
+      "gives": "PEASANTS",
+      "note": "peasants are rural labourers"
+     },
+     {
+      "clueFragment": "hydrogen",
+      "gives": "H",
+      "note": "H is the chemical symbol for hydrogen"
+     },
+     {
+      "clueFragment": "look",
+      "gives": "EYE",
+      "note": "to eye is to look at"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "H",
+      "EASANTS",
+      "EYE"
+     ]
+    },
+    "explanation": {
+     "surface": "Rural people inspect a hydrogen plant, a factory making the gas.",
+     "walkthrough": "'Plant' reads as an industrial works but is the flower; H sits after the P of PEASANTS.",
+     "definitionFit": "Pheasant's eye is a flowering plant, the name used for a red-flowered adonis and for a narcissus, so it is an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 15,
@@ -283,7 +1009,47 @@
      }
     ]
    },
-   "solution": "TINOPENER"
+   "solution": "TINOPENER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TIN-OPENER",
+    "definitions": [
+     {
+      "text": "kitchen item",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Loaf of bread",
+      "gives": "TIN",
+      "note": "a tin is a loaf baked in an oblong tin"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "OPENER",
+      "note": "a key is something that opens a lock"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIN",
+      "OPENER"
+     ]
+    },
+    "explanation": {
+     "surface": "Bread is named as an essential in the kitchen.",
+     "walkthrough": "In Britain a tin, or tin loaf, is a rectangular loaf of bread. The question mark flags the playful reading of key.",
+     "definitionFit": "A tin-opener is a hand tool kept in a kitchen drawer for cutting the lids off cans."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 16,
@@ -297,7 +1063,62 @@
     "text": "Female's stretching across bed with cold drinks",
     "enumeration": "8"
    },
-   "solution": "SCOTCHES"
+   "solution": "SCOTCHES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SCOTCHES",
+    "definitions": [
+     {
+      "text": "drinks",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stretching across",
+      "for": "container",
+      "note": "something stretching across another spans it, so it sits on both sides of it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Female's",
+      "gives": "SHES",
+      "note": "she's, a female's"
+     },
+     {
+      "clueFragment": "bed",
+      "gives": "COT",
+      "note": "a cot is a small bed"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the standard abbreviation for cold, as on taps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "COT",
+      "C",
+      "HES"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman lies sprawled across a bed with some chilled drinks.",
+     "walkthrough": "The apostrophe in 'Female's' hides 'she is', which splits after its first letter to wrap the bed and the cold.",
+     "definitionFit": "Scotches are measures of whisky distilled in Scotland, so each is an example of an alcoholic drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stretching"
+    }
+   }
   },
   {
    "number": 17,
@@ -311,7 +1132,47 @@
     "text": "Negligence round embassy",
     "enumeration": "8"
    },
-   "solution": "OMISSION"
+   "solution": "OMISSION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OMISSION",
+    "definitions": [
+     {
+      "text": "Negligence",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "the letter O is round in shape"
+     },
+     {
+      "clueFragment": "embassy",
+      "gives": "MISSION",
+      "note": "a diplomatic mission is an embassy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "MISSION"
+     ]
+    },
+    "explanation": {
+     "surface": "Carelessness is alleged around a foreign embassy.",
+     "walkthrough": "'Round' looks like a container signal but simply supplies the round letter.",
+     "definitionFit": "An omission is a failure to do something, so it is a near synonym for neglect or negligence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 18,
@@ -331,7 +1192,49 @@
      }
     ]
    },
-   "solution": "COMMONGROUND"
+   "solution": "COMMONGROUND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COMMON GROUND",
+    "definitions": [
+     {
+      "text": "Shared views",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "popular",
+      "gives": "COMMON",
+      "note": "common means widespread or of the people"
+     },
+     {
+      "clueFragment": "stadium",
+      "gives": "GROUND",
+      "note": "a sports ground is a stadium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COMMON",
+      "GROUND"
+     ]
+    },
+    "explanation": {
+     "surface": "Fans in a well-loved stadium find they agree.",
+     "definitionFit": "Common ground is the area of opinion two sides agree on, an idiom for beliefs held jointly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "views"
+    }
+   }
   },
   {
    "number": 19,
@@ -345,7 +1248,55 @@
     "text": "Station American in English college",
     "enumeration": "6"
    },
-   "solution": "EUSTON"
+   "solution": "EUSTON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EUSTON",
+    "definitions": [
+     {
+      "text": "Station",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the first part is put inside the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English college",
+      "gives": "ETON",
+      "note": "Eton College is a famous English public school"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US, as in United States"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "US",
+      "TON"
+     ]
+    },
+    "explanation": {
+     "surface": "An American student is placed at a college in England.",
+     "walkthrough": "EUSTON is a London railway terminus.",
+     "definitionFit": "Euston is one of London's main railway terminals, serving trains to the north-west, so it is an example of a station."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Station"
+    }
+   }
   },
   {
    "number": 20,
@@ -359,7 +1310,50 @@
     "text": "Ms du Maurier had pen repaired?",
     "enumeration": "6"
    },
-   "solution": "DAPHNE"
+   "solution": "DAPHNE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DAPHNE",
+    "definitions": [
+     {
+      "text": "Ms du Maurier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "repaired",
+      "for": "anagram",
+      "note": "something repaired has been put back together, so the letters are reassembled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "had pen",
+      "gives": "HADPEN",
+      "note": "the fodder, taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HADPEN",
+       "gives": "DAPHNE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders whether the novelist had her pen mended.",
+     "definitionFit": "Daphne du Maurier was the English novelist who wrote Rebecca, so the given name fits the title and surname."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pen"
+    }
+   }
   },
   {
    "number": 21,
@@ -379,7 +1373,39 @@
      }
     ]
    },
-   "solution": "TESTPILOT"
+   "solution": "TESTPILOT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TEST PILOT",
+    "definitions": [
+     {
+      "text": "Airman up for trial?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Airman up for trial?",
+      "note": "surface reading: an air force man facing a court case"
+     },
+     {
+      "clueFragment": "up for trial",
+      "note": "setter's reading: a flier whose job is trying out new aircraft, up in the air"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Up for trial' suggests a courtroom; read literally, the airman is up in the sky, flying for trials of a plane.",
+     "definitionFit": "This kind of pilot flies new or modified aircraft to assess their performance and safety."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trial"
+    }
+   }
   },
   {
    "number": 22,
@@ -393,7 +1419,55 @@
     "text": "Gather fuel around lake",
     "enumeration": "5"
    },
-   "solution": "PLEAT"
+   "solution": "PLEAT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PLEAT",
+    "definitions": [
+     {
+      "text": "Gather",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "one word placed around another encloses it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fuel",
+      "gives": "PEAT",
+      "note": "peat is dug and burnt as fuel"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the map abbreviation for lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "L",
+      "EAT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone collects fuel from around a lake.",
+     "walkthrough": "'Gather' is a dressmaking term here, not collecting.",
+     "definitionFit": "In sewing, to gather fabric is to draw it into folds, as one does when making a pleat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gather"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1481,65 @@
     "text": "Friend describing university to a girl",
     "enumeration": "5"
    },
-   "solution": "PAULA"
+   "solution": "PAULA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PAULA",
+    "definitions": [
+     {
+      "text": "girl",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "describing",
+      "for": "container",
+      "note": "to describe a circle is to draw round, so this word goes round the next"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Friend",
+      "gives": "PAL",
+      "note": "a pal is a friend"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the standard abbreviation for university"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "U",
+      "L",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A friend tells a girl all about university.",
+     "walkthrough": "'Describing' is used in its geometric sense of drawing around.",
+     "definitionFit": "Paula is a woman's first name, and crosswords use girl to define any female given name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "describing"
+    }
+   }
   },
   {
    "number": 24,
@@ -421,7 +1553,66 @@
     "text": "Young cow provided that in here somehow",
     "enumeration": "6"
    },
-   "solution": "HEIFER"
+   "solution": "HEIFER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "HEIFER",
+    "definitions": [
+     {
+      "text": "Young cow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "done somehow means done in some unspecified way, so the word's letters are rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the first part is put inside the scrambled word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "here",
+      "gives": "HERE",
+      "note": "the fodder, taken letter for letter"
+     },
+     {
+      "clueFragment": "provided that",
+      "gives": "IF",
+      "note": "if means on condition that"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "IF",
+      "ER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HERE",
+       "gives": "HEER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young cow is said to be around here somewhere, provided that someone looks.",
+     "definitionFit": "A heifer is a young female bovine that has not yet had a calf, the farming term for this animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "somehow"
+    }
+   }
   },
   {
    "number": 25,
@@ -441,7 +1632,49 @@
      }
     ]
    },
-   "solution": "TOPNOTCH"
+   "solution": "TOPNOTCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOP-NOTCH",
+    "definitions": [
+     {
+      "text": "excellent",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "To better",
+      "gives": "TOP",
+      "note": "to top is to beat or outdo"
+     },
+     {
+      "clueFragment": "score",
+      "gives": "NOTCH",
+      "note": "to score is to cut a notch, and a notch is a tally mark"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOP",
+      "NOTCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A boast that beating a score would be excellent.",
+     "definitionFit": "Top-notch is an informal adjective for first-rate or of the highest quality, a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "score"
+    }
+   }
   },
   {
    "number": 26,
@@ -455,7 +1688,42 @@
     "text": "Piece of classical music from Brahms on at arena",
     "enumeration": "6"
    },
-   "solution": "SONATA"
+   "solution": "SONATA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SONATA",
+    "definitions": [
+     {
+      "text": "Piece of classical music",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "from says the letters are taken straight out of the run of words after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brahms on at arena",
+      "gives": "SONATA",
+      "note": "the letters run across the end of the composer's name and the next three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A Brahms work is being played at an arena concert.",
+     "definitionFit": "A sonata is a classical composition for one or two instruments in several movements, a type of musical piece."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Brahms"
+    }
+   }
   },
   {
    "number": 27,
@@ -469,7 +1737,43 @@
     "text": "Charm one's way in?",
     "enumeration": "8"
    },
-   "solution": "ENTRANCE"
+   "solution": "ENTRANCE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ENTRANCE",
+    "definitions": [
+     {
+      "text": "Charm",
+      "at": 0
+     },
+     {
+      "text": "one's way in",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charm",
+      "note": "first meaning, a verb stressed on the second syllable: to delight or bewitch"
+     },
+     {
+      "clueFragment": "one's way in",
+      "note": "second meaning, a noun stressed on the first syllable: a door or gateway"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests charming one's way into somewhere; the two halves are separate meanings, said differently.",
+     "definitionFit": "The word is both a verb meaning to fill with wonder and a noun for the opening through which one enters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Charm"
+    }
+   }
   }
  ]
 }
