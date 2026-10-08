@@ -343,11 +343,16 @@ unit_ft() {
 # first), starting none past AZED_FETCH_SECONDS, then files every cached copy
 # whose grid and clue list agree. One that stopped with copies left to fetch
 # runs again at the next tick (backlog_left) until andlit's index is drained.
+# Scanned copies are read by the shared OCR on the desktop (OCR_REMOTE= keeps
+# them here), starting none past AZED_SCAN_SECONDS.
 AZED_FETCH_SECONDS="${AZED_FETCH_SECONDS:-900}"
+AZED_SCAN_SECONDS="${AZED_SCAN_SECONDS:-1200}"
 unit_azed() {
   local azed_out rc=0
   azed_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-azed.XXXXXX")"
-  if python3 tools/andlit_azed.py nightly --budget-seconds "$AZED_FETCH_SECONDS" >"$azed_out" 2>&1; then
+  if OCR_REMOTE="${OCR_REMOTE-micro@100.68.145.15,micro@192.168.1.198}" \
+      python3 tools/andlit_azed.py nightly --budget-seconds "$AZED_FETCH_SECONDS" \
+      --scan-seconds "$AZED_SCAN_SECONDS" >"$azed_out" 2>&1; then
     grep -v '^  No ' "$azed_out"
   else
     rc=1
