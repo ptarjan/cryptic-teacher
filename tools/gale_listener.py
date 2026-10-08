@@ -1261,7 +1261,7 @@ def checklist(idx=None, store=STORE, root=ROOT, arrivals=None, docs=None, status
         notes=[(a["file"], UNKNOWN) for a in unnamed if a["file"] not in read]
               + [(m["file"], f"matched no puzzle ({m.get('why') or ''}); left in the inbox") for m in lost],
         steps=STEPS,
-        order=ORDER, what="pages", next_rows=[row(r) for r in idx if r["number"] in want][:gi.POOL],
+        order=ORDER, what="pages", next_rows=[row(r) for r in idx if r["number"] in want],
         years_note="Earliest first.",
         years=[(y, f"{sum(1 for r in rs if r['number'] not in held)} of {len(rs)} to save",
                 [row(r) for r in rs]) for y, rs in sorted(years.items())],
