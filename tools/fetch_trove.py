@@ -17,6 +17,12 @@ Usage:
                 started are counted "left for the next run" (tools/ocr_full_pass.sh
                 runs both this way, so the corpus queue fetches in bounded slices)
 
+The standing pass fetches through tools/edition_queue.py instead, one
+unit an article or an article's zones (plan(), fetch_unit()), several at
+once: every request any process sends waits until --delay has passed since
+the last one started (pace(), <out>/pace under a lock), so Trove still sees
+at most one request a second.
+
 Layout under --out:
   jar.txt                 cookies (the Anubis pass lasts ~7 days)
   index/<year>.jsonl      one search hit per line (id, date, page, title, snippet,
@@ -67,6 +73,8 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
+from pathlib import Path
+
 import downloads
 
 
@@ -120,9 +128,7 @@ class Trove:
         self.deadline = float("inf")
 
     def _open(self, url, headers):
-        wait = self.last + self.delay - time.time()
-        if wait > 0:
-            time.sleep(wait)
+        self.pace()
         t = time.time()
         try:
             r = self.op.open(urllib.request.Request(url, headers=headers), timeout=60)
@@ -133,6 +139,33 @@ class Trove:
         self.requests += 1
         self.seconds += self.last - t
         return status, body
+
+    def pace(self):
+        """Wait until `delay` seconds have passed since the last request any
+        process sending to Trove from this cache started (<out>/pace, its
+        time under a lock), and mark this one started: the fetch units run
+        at once but ask Trove at most one request a `delay` between them."""
+        import fcntl
+        with open(os.path.join(self.out, "pace"), "a+") as f:
+            fcntl.flock(f, fcntl.LOCK_EX)
+            f.seek(0)
+            try:
+                last = float(f.read().strip() or 0)
+            except ValueError:
+                last = 0.0
+            wait = max(last, self.last) + self.delay - time.time()
+            if wait > 0:
+                time.sleep(min(wait, self.delay))
+            f.seek(0)
+            f.truncate()
+            f.write(f"{time.time():.3f}")
+            f.flush()
+
+    def save_jar(self):
+        """Save the cookies whole or not at all: units save it at once."""
+        part = f"{self.jar.filename}.{os.getpid()}.part"
+        self.jar.save(part, ignore_discard=True, ignore_expires=True)
+        os.replace(part, self.jar.filename)
 
     def _open_retry(self, url, headers):
         """_open, retried with backoff on timeouts, resets and HTTP 5xx."""
@@ -185,14 +218,14 @@ class Trove:
         q = urllib.parse.urlencode({"id": c["id"], "response": h, "nonce": n,
                                     "redir": url, "elapsedTime": ms})
         self._open(f"{BASE}/.within.website/x/cmd/anubis/api/pass-challenge?{q}", {})
-        self.jar.save(ignore_discard=True, ignore_expires=True)
+        self.save_jar()
         print(f"anubis: solved difficulty {c['difficulty']} in {ms} ms", file=sys.stderr)
 
     def apikey(self):
         ctx = next((c.value for c in self.jar if c.name == "x-ctx"), None)
         if ctx is None:
             self.get("/search/category/newspapers")
-            self.jar.save(ignore_discard=True, ignore_expires=True)
+            self.save_jar()
             ctx = next((c.value for c in self.jar if c.name == "x-ctx"), "")
         return hashlib.md5(f"Wonder{ctx}".encode()).hexdigest().lstrip("0")
 
@@ -303,12 +336,10 @@ def fetch_zones(tv, out, zones, aid):
 
 
 def pending_zones(out, zones):
-    """Article ids the filing ledger leaves pending whose zones are not cached."""
-    ledger = os.path.join(out, "filed.jsonl")
-    if not os.path.exists(ledger):
-        return []
-    with open(ledger) as f:
-        rows = [json.loads(line) for line in f if line.strip()]
+    """Article ids the filing ledger leaves pending whose zones are not cached
+    (its last row an article standing: the ledger is appended to)."""
+    import scan_queue
+    rows = scan_queue.ledger_rows(Path(out) / "filed.jsonl", "article").values()
     return sorted(r["article"] for r in rows
                   if r.get("pending") and not zone_images(zones, r["article"])
                   and os.path.exists(os.path.join(out, r["article"], "meta.json")))
@@ -351,6 +382,62 @@ def fetch_all_zones(tv, out, zones, ids, limit=None, stop_at=float("inf")):
         fetch_zones(tv, out, zones, aid)
         return f"{aid}: {len(zone_images(zones, aid))} zones"
     return each_article(tv, ids[:limit], one, "zones", stop_at)
+
+
+def plan(out=str(downloads.TROVE), zones=ZONES_DIR):
+    """The fetch units due (tools/edition_queue.py), most urgent first, off
+    the caches alone: the clue zones of each article the filer left pending
+    ({"zones": id}; it files once they land), then each indexed article not
+    yet cached ({"article": id}), the latest index year's last."""
+    units = [{"zones": aid, "rel": f"zones/{aid}", "reason": "clue zones pending"} for aid in pending_zones(out, zones)]
+    ids = []
+    for p in sorted(glob.glob(os.path.join(out, "index", "*.jsonl"))):
+        with open(p) as f:
+            ids += [str(json.loads(line)["id"]) for line in f if line.strip()]
+    units += [{"article": aid, "rel": f"article/{aid}", "reason": "not fetched"} for aid in dict.fromkeys(ids)
+              if not os.path.exists(os.path.join(out, aid, "meta.json"))]
+    return units
+
+
+def fetch_unit(unit, out=str(downloads.TROVE), zones=ZONES_DIR, delay=1.0, grid_width=600):
+    """In a queue unit's own process: fetch one article or its clue zones,
+    under the article's own lock, Trove paced across every unit (pace()).
+    Returns "fetched", "current" (nothing left to do), "busy" (another unit
+    has it), "failed" (logged) or "outage" (Trove timed out or answered
+    5xx through ITEM_SECONDS of retries)."""
+    import scan_queue
+    aid = unit.get("zones") or unit["article"]
+    with scan_queue.source_lock(Path(out) / "fetch", unit["rel"]) as mine:
+        if not mine:
+            return "busy"
+        if unit.get("zones"):
+            if zone_images(zones, aid):
+                return "current"
+            tv = Trove(out, delay, ZONE_WIDTH)
+
+            def run():
+                fetch_zones(tv, out, zones, aid)
+                return f"{aid}: {len(zone_images(zones, aid))} zones"
+        else:
+            if os.path.exists(os.path.join(out, aid, "meta.json")):
+                return "current"
+            tv = Trove(out, delay, grid_width)
+
+            def run():
+                m = tv.fetch_article(aid)
+                g = f"grid {m['grid_px'][0]}x{m['grid_px'][1]}" if m.get("grid") else "NO GRID ZONE"
+                return f"{aid} {m['title']}: {len(m['zones'])} zones, {g}"
+        tv.deadline = time.time() + ITEM_SECONDS
+        t = time.time()
+        try:
+            print(run(), flush=True)
+        except Exception as e:  # noqa: BLE001 -- the unit's failure is its exit, logged
+            print(f"FAILED {unit['rel']} after {time.time() - t:.0f}s, left for the next run: "
+                  f"{type(e).__name__}: {e}", flush=True)
+            return "outage" if isinstance(e, Transient) else "failed"
+        finally:
+            tv.save_jar()
+        return "fetched"
 
 
 def main():
@@ -412,7 +499,7 @@ def main():
             g = f"grid {m['grid_px'][0]}x{m['grid_px'][1]}" if m.get("grid") else "NO GRID ZONE"
             return f"{aid} {m['title']}: {len(m['zones'])} zones, {g}, {time.time() - t:.1f}s"
         failed, stopped = each_article(tv, ids[:a.limit], one, "article", stop_at)
-    tv.jar.save(ignore_discard=True, ignore_expires=True)
+    tv.save_jar()
     if failed:
         print(f"{failed} article(s) failed; rerun to retry them", file=sys.stderr)
     print(f"{tv.requests} requests, {tv.seconds:.1f}s in HTTP, {time.time() - t0:.1f}s wall",

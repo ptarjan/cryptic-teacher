@@ -45,6 +45,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 import archive_coverage
 import downloads
 import file_trove_puzzles
+import scan_queue
 import series as series_meta
 
 HOME = Path.home()
@@ -412,7 +413,7 @@ def trove():
     led.filed = {p.stem for p in (ROOT / "puzzles" / "canberra").glob("*/canberra-*.json")}
     read = set()
     zones = file_trove_puzzles.zones_of(TROVE)
-    for r in jsonl(TROVE / "filed.jsonl"):
+    for r in scan_queue.ledger_rows(TROVE / "filed.jsonl", "article").values():
         art = str(r.get("article"))
         read.add(art)
         if r.get("skip"):

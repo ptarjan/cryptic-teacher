@@ -249,6 +249,65 @@ check("a 429 lowers the pool; FETCH_OUTAGES down in a row stop the source for th
       ("at most 1 fetches at once" in err.getvalue(), "no more fetches this run" in err.getvalue(),
        "start fetch e5" in log.read_text()))
 
+# ---- Trove articles: one read unit each, appended rows, its own lock
+import file_trove_puzzles as ftp
+tc = T / "trove"
+for a in ("101", "102"):
+    (tc / a).mkdir(parents=True)
+    (tc / a / "meta.json").write_text("{}")
+tled = tc / "filed.jsonl"
+ftp.held_files = lambda puzzles=None: {}
+ftp.inputs_of = lambda d, held=None: "h"
+read_calls = []
+def fake_consider(d):
+    read_calls.append(d.name)
+    return {"skip": "not a cryptic"}, None, None, False
+ftp.consider_article = fake_consider
+q.append(tled, [{"article": "102", "inputs": "h", "readAt": "2026-01-01T00:00:00+00:00"}])
+units_ = ftp.plan(tc, reread=q.when("2026-06-01T00:00:00+00:00"))
+check("trove plan: never read first, then --reread", [("101", "never read", 1), ("102", "--reread", 3)],
+      [(u["rel"], u["reason"], u["rank"]) for u in units_])
+check("annotation's ask is rank 1, forced", [("102", 1, True)],
+      [(u["rel"], u["rank"], u["force"]) for u in ftp.plan(tc, asked={"102"}) if u["rel"] == "102"])
+with contextlib.redirect_stderr(io.StringIO()):
+    got = ftp.read_unit("101", tc)
+check("a trove unit reads its article and appends one row", ("read", ["101"], 2, "not a cryptic"),
+      (got, read_calls, len(tled.read_text().splitlines()), q.ledger_rows(tled, "article")["101"]["skip"]))
+with contextlib.redirect_stderr(io.StringIO()):
+    check("read, it is current", ("current", ["101"]), (ftp.read_unit("101", tc), read_calls))
+with q.source_lock(tled, "102"):
+    pid = os.fork()
+    if pid == 0:
+        os._exit(0 if ftp.read_unit("102", tc, reread=q.when("now")) == "busy" else 1)
+    check("an article another unit holds is busy", 0, os.waitstatus_to_exitcode(os.waitpid(pid, 0)[1]))
+with q.lock(tled):
+    pid = os.fork()
+    if pid == 0:
+        os._exit(0 if ftp.read_unit("102", tc, reread=q.when("now")) == "held" else 1)
+    check("a ledger a batch run holds: the unit is held", 0, os.waitstatus_to_exitcode(os.waitpid(pid, 0)[1]))
+
+# ---- Trove's pace: units at once still ask at most once a `delay`
+import fetch_trove
+pace_dir = T / "pace"
+pace_dir.mkdir()
+stamps = T / "stamps"
+kids = []
+for _ in range(3):
+    pid = os.fork()
+    if pid == 0:
+        tv = fetch_trove.Trove(str(pace_dir), 0.3, 600)
+        for _ in range(3):
+            tv.pace()
+            with open(stamps, "a") as fh:
+                fh.write(f"{time.time()}\n")
+        os._exit(0)
+    kids.append(pid)
+for pid in kids:
+    os.waitpid(pid, 0)
+ts = sorted(float(x) for x in stamps.read_text().split())
+check("three processes' nine requests are paced 0.3s apart between them", (9, True),
+      (len(ts), min(b - a for a, b in zip(ts, ts[1:])) >= 0.29))
+
 print("FAILS", fails)
 sys.exit(1 if fails else 0)
 EOF

@@ -3,16 +3,17 @@
 # filers find due, to the end: never read, inputs changed, read without the
 # VLM that now answers, or read before REREAD_BEFORE (each filer's
 # due_reason), and the sources annotation asked to be read again; and,
-# beside the reads from the start, fetch what the scan fetchers find
-# missing, archive.org and Trove at once, for the reads to take up.
+# beside the reads from the start, fetch what is missing from archive.org
+# and Trove, for the reads to take up.
 #
-# The editions are a queue of small units (tools/edition_queue.py): one
-# edition's scan, or one edition's read and filing, each with its own time
-# limit and lock, the most urgent first (Gale pages saved by hand, then the
+# All of it is one queue of small units (tools/edition_queue.py): an
+# edition's scan, an edition's or a Trove article's read and filing, an
+# archive.org edition's or a Trove article's (or its clue zones') fetch,
+# each with its own time limit and lock and its own ledger row, in pools of
+# their own, the most urgent first (Gale pages saved by hand, then the
 # never-read, then the re-reads) and planned again every minute, so new
-# input waits minutes, not behind hours of re-reads, and a slow edition
-# holds up only its own slot. The Trove filer runs beside the units. The
-# fetch never waits on a read nor a read on it.
+# input waits minutes, not behind hours of re-reads, and a slow unit holds
+# up only its own slot. A fetch never waits on a read nor a read on it.
 #
 #     (started by: python3 tools/corpus_queue.py tick, hourly, whenever no
 #     corpus job runs; `corpus_queue.py adopt PID` claims one started by hand)
@@ -33,25 +34,20 @@
 # doubled word, a stray letter): the read mends or blanks it (mend_held),
 # and the same for a Trove article (file_trove_puzzles.inputs_of).
 #
-# The archive.org scans are fetched by the same queue, one unit an edition
-# (tools/fetch_archive_org_editions.py fetch_unit: an edition not in done.tsv
-# at the current DETECTOR_VERSION, so bumping it makes the editions due by
-# itself), each with its own time limit and lock, in a pool of their own
-# beside the scans and reads (--fetch archive.org); an edition fetched is
-# scanned and read from the next plan, a minute later. Trove's are fetched
-# beside the pass in FETCH_SECONDS slices until its backlog is fetched (at
-# most FETCH_SLICES) and resumable: tools/fetch_trove.py fetch (every
-# listed article not yet cached) and fetch_trove.py zones (the clue columns
-# of the articles the Trove filer left pending; a pending article is read
-# again once its zones land, so the next pass files it). A Trove fetcher
-# already running (a hand run) is skipped, not doubled. The filers only
-# read caches. A pass that ends having fetched something starts the next
+# The fetches are units of the same queue (--fetch): an archive.org
+# edition not in done.tsv at the current DETECTOR_VERSION, so bumping it
+# makes the editions due by itself (fetch_archive_org_editions.fetch_unit);
+# the clue zones of a Trove article the filer left pending, then a listed
+# Trove article not yet cached (fetch_trove.fetch_unit, every unit pacing
+# Trove to one request a second between them). What a fetch lands is
+# scanned and read from the next plan, a minute later. The filers only read
+# caches. A pass that ends having fetched something starts the next
 # one at once (tools/corpus_queue.py chain), which reads what it fetched, so
 # a backlog does not wait for the hourly tick.
-# Resumable: each edition unit appends its own ledger row as it ends
-# (filed.jsonl, filed-gale.jsonl in tools/downloads.py's ARCHIVE_ORG), the
-# Trove filer saves its ledger after every article, and a rerun picks up
-# where a killed one stopped.
+# Resumable: each unit appends its own ledger row as it ends (filed.jsonl,
+# filed-gale.jsonl in tools/downloads.py's ARCHIVE_ORG, the Trove filer's
+# filed.jsonl, archive.org's done.tsv), and a rerun picks up where a killed
+# one stopped.
 # A ledger row marks its source read, so the puzzles it filed must reach git
 # or they are never filed again: each filer runs under tools/durable.sh,
 # which commits and pushes them every DURABLE_EVERY seconds while it reads,
@@ -138,27 +134,6 @@ slices() {  # slices <what> <filer command...>: run the filer until nothing is l
   done
 }
 
-FETCH_SECONDS="${OCR_FULL_PASS_FETCH_SECONDS:-3600}"
-# The most FETCH_SECONDS slices one fetcher runs in a pass.
-FETCH_SLICES="${OCR_FULL_PASS_FETCH_SLICES:-12}"
-fetch() {  # fetch <what> <process regex> <fetcher command...>: FETCH_SECONDS slices until its backlog is fetched
-  local what="$1" running="$2" out rc n
-  shift 2
-  if pgrep -f "$running" >/dev/null; then
-    echo "=== $what: skipped, a fetch is already running: $(pgrep -af "$running" | head -1 | cut -c1-200)"
-    return 0
-  fi
-  out=$(mktemp) || return 1
-  for ((n = 1; n <= FETCH_SLICES; n++)); do
-    echo "=== $what: slice $n from $(date '+%F %T'), at most ${FETCH_SECONDS}s ==="
-    timeout "$((FETCH_SECONDS + GRACE))" nice -n 19 "$@" --seconds "$FETCH_SECONDS" 2>&1 | tee "$out"
-    rc=${PIPESTATUS[0]}
-    [ "$rc" -eq 0 ] || { echo "$what failed (rc=$rc); the next pass fetches again"; break; }
-    # Both fetchers say "--seconds [N] reached" when they stop with work left.
-    grep -qE -- '--seconds( [0-9]+)? reached' "$out" || break
-  done
-  rm -f "$out"
-}
 
 mkdir -p "$HOME/.cache/archive_org_crops/unfiled"
 # The Times pages Paul downloads by hand from Gale's Times Digital Archive
@@ -169,49 +144,30 @@ mkdir -p "$HOME/.cache/archive_org_crops/unfiled"
 python3 tools/gale_inbox.py sync ||
   echo "gale_inbox sync failed (rc=$?); the Gale pages staged before stand, the checklist is not refreshed"
 listener
-# The Trove fetches use only the network and the desktop's CPU, never the
-# VLM or a ledger, so they run beside the reads from the start. A filer sees
-# an edition only once its pages.json lands (written last), so it never
-# reads a half fetch; what lands mid-pass joins the queue at its next plan
-# (a minute). Trove's clue zones go before its new articles: a pending
-# article files once its zones land, while most new articles are not
-# puzzles.
-{
-  fetch "Trove clue zones" '^python3 (-u )?\S*fetch_trove\.py' python3 tools/fetch_trove.py zones
-  fetch "Trove fetch" '^python3 (-u )?\S*fetch_trove\.py' python3 tools/fetch_trove.py fetch
-} &
-finish() {  # finish <rc>: let the fetchers and the Listener sync end, commit what they filed, exit
+finish() {  # finish <rc>: let the Listener sync end, commit what it filed, exit
   wait
   publish "Listener pages read" || echo "commit failed for the Listener pages; the next start salvages them"
   echo "=== full pass done $(date '+%F %T') (rc=$1) ==="
   exit "$1"
 }
-# Every edition, one unit each (tools/edition_queue.py): an edition's scan
-# or its read and filing, each in a process of its own with its own time
-# limit and lock, adding its own ledger row, the most urgent first: the
-# Gale pages Paul saved, then the never-read editions and the re-reads
-# annotation asked for, then those whose inputs moved, then the re-reads
-# REREAD_BEFORE makes due. The queue is planned again every minute, so an
-# edition that lands mid-slice is read within minutes, and a read waits only
-# on the scans its solution needs. archive.org's fetches are units of their
-# own in a pool beside them (--fetch). The Trove filer runs beside the units
-# (--beside, each run its own time limit), never after them. Each slice
-# starts nothing after CHUNK seconds, lets its units finish, and the tree
-# moves to origin/master before the next.
+# Every edition and Trove article, one unit each (tools/edition_queue.py):
+# an edition's scan, an edition's or article's read and filing, or a fetch,
+# each in a process of its own with its own time limit and lock, adding its
+# own ledger row, the most urgent first: the Gale pages Paul saved, then
+# the never-read and the re-reads annotation asked for, then those whose
+# inputs moved, then the re-reads REREAD_BEFORE makes due. The queue is
+# planned again every minute, so a source that lands mid-slice is read
+# within minutes, and a read waits only on the scans its solution needs.
+# Each slice starts nothing after CHUNK seconds, lets its units finish, and
+# the tree moves to origin/master before the next.
 TROVE_WORKERS="${OCR_FULL_PASS_TROVE_WORKERS:-6}"
-slices "editions off archive.org and Gale, Trove beside" python3 tools/edition_queue.py run \
-  --reread "$REREAD_BEFORE" --out "$HOME/.cache/archive_org_crops/unfiled" --fetch archive.org \
-  --beside "nice -n 19 python3 tools/file_trove_puzzles.py --reread $REREAD_BEFORE --workers $TROVE_WORKERS --wait" ||
-  finish 1
-# The Trove articles annotation asked to have read again, having met a
-# misread clue on a puzzle filed from them (tools/scan_queue.py
-# request_reread): each read closes its request. The archive.org and Gale
-# ones are units of the queue above.
-asked=()
-while read -r src; do asked+=(--article "$src"); done < <(python3 tools/scan_queue.py requested trove)
-if [ "${#asked[@]}" -gt 0 ]; then
-  slices "Trove re-reads annotation asked for" python3 tools/file_trove_puzzles.py "${asked[@]}" || finish 1
-fi
+slices "editions off archive.org and Gale, Trove articles, and their fetches" python3 tools/edition_queue.py run \
+  --reread "$REREAD_BEFORE" --out "$HOME/.cache/archive_org_crops/unfiled" --trove-workers "$TROVE_WORKERS" \
+  --fetch archive.org --fetch trove || finish 1
+# Fill the canberra files' empty answers from solution grids fetched since
+# they were filed (a puzzle's solution prints in a later article).
+nice -n 19 python3 tools/trove_solution_ocr.py --fill ||
+  echo "trove_solution_ocr --fill failed (rc=$?); the answers read before stand"
 # Name the London Times puzzle each canberra file reprints (source.reprintOf).
 # The Times reads match too, but before this pass's canberra files exist.
 nice -n 19 python3 tools/file_archive_org_puzzles.py --match-canberra ||

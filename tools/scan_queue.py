@@ -304,13 +304,13 @@ def jsonl_rows(path):
 def sources():
     """{puzzle id: (filer, source key, ledger row)} for every puzzle a scan
     filer's ledger says it read: an archive.org edition's verdicts, a Trove
-    article's id."""
+    article's id (its last row: the Trove ledger is appended to)."""
     out = {}
     for row in [r for key in ("archive", "gale") if key in LEDGERS for r in jsonl_rows(LEDGERS[key])]:
         for v in row.get("verdicts") or ():
             if v.get("id"):
                 out[v["id"]] = ("archive", row["edition"], row)
-    for row in jsonl_rows(LEDGERS["trove"]):
+    for row in ledger_rows(LEDGERS["trove"], "article").values():
         if row.get("id"):
             out[row["id"]] = ("trove", row["article"], row)
     return out
