@@ -304,6 +304,10 @@ check("and over a word with an apostrophe", "Fruit's counterpart in bottles",
       oc.parted("Fruit'scounterpartinbottles", [mark("4 Fruit's counterpart in bottles 5 A")]))
 check("a run-together no reading prints apart stays as read (mirror)", "Paintedbrown restaurant",
       oc.parted("Paintedbrown restaurant", [mark("12 Painted crown restaurant 13 A")]))
+check("a short word one reading has and the other dropped stands when the corpus prints it there (No 1880)",
+      "Come to see me", oc.agree("Come to see me", [mark("6 Come see me 7 A")])[0])
+check("not where the corpus prints its neighbours together as often (mirror)",
+      (None, "no other reading has 'a'"), oc.agree("Sit in a car now", [mark("6 Sit in car now 7 A")]))
 check("a dictionary word another reading split stays whole (mirror)",
       "Somewhere to go.", oc.agree("Somewhere to go.", [mark("4 Some where to go. 5 A"), mark("4 Somewhere to go. 5 A")])[0])
 check("a dictionary word a reading broke over a line end stays whole",

@@ -933,6 +933,26 @@ def ends_joined(theirs, low):
     return out
 
 
+#: The most letters of a word only one reading has that the corpus may put
+#: in (lone_word_fits), and how many times more often the corpus's clues
+#: must print it beside each neighbour than the neighbours side by side.
+LONE_WORD_LETTERS = 3
+LONE_WORD_RATIO = 2
+
+
+def lone_word_fits(word, before, after):
+    """Whether a short known `word` one reading has and the others dropped
+    belongs between `before` and `after`: the corpus's clues print each
+    pair it makes LONE_WORD_RATIO times as often as the two neighbours
+    together ("come to see": 350 and 1,757 against "come see"'s 0; not
+    "in a car": 201 against 327). At a clue's end it is not decided."""
+    if len(word) > LONE_WORD_LETTERS or not is_word(word) or not before or not after:
+        return False
+    _, pairs, _ = clue_lm()
+    w, b, a = word.lower(), before.lower(), after.lower()
+    return min(pairs.get(f"{b} {w}", 0), pairs.get(f"{w} {a}", 0)) > LONE_WORD_RATIO * pairs.get(f"{b} {a}", 0)
+
+
 #: The fewest letters a word all readings print alike needs to stand
 #: against a commoner slip (agree).
 UNANIMOUS_LETTERS = 4
@@ -1097,6 +1117,11 @@ def agree(clue, others, keep_known=False):
         if not got and len(a) == 1 and a not in "ai":
             # A lone letter no other reading has is a speck.
             drop.add(i)
+            continue
+        if not got and lone_word_fits(a, before, after):
+            # A short word only this reading saw ("come to see", the others
+            # read "come see"): the corpus's clues decide.
+            how = "settled by the corpus"
             continue
         if not got:
             return None, f"no other reading has {w!r}"
