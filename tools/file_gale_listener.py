@@ -235,6 +235,28 @@ def renumbered(fit, clues):
             for lid, c in clues.items()}
 
 
+def unstrayed(fit, clues):
+    """(clues keyed by the lights' own numbers, notes, why not): a page
+    printing a number in a cell that starts no light (fit "stray", No 3's
+    61) runs one ahead of its lights from there, and its clue list follows
+    the page. None, with why, when a clue bears the stray number: a light
+    does start there, so a bar was misread."""
+    if not fit.get("stray"):
+        return clues, {}, None
+    at = tuple(fit["stray"])
+    n = 1 + sum(1 for c in lg.starts(fit["rows"]) if c < at)
+    if any(number_of(lid)[0] == n for lid in clues):
+        return None, {}, f"a clue is numbered {n}, which the grid prints in a cell starting no light {list(at)}"
+    out, notes = {}, {}
+    for lid, c in clues.items():
+        m, d = number_of(lid)
+        mine = f"{m - 1 if m > n else m}-{d}"
+        out[mine] = c
+        if m > n:
+            notes[mine] = f"printed as {lid}: the page numbers {list(at)} {n}, a cell starting no light"
+    return out, notes, None
+
+
 def order(lid):
     n, d = lid.split("-")
     return d != "across", int(n)
@@ -376,7 +398,12 @@ def join(reading, grids, reports, read_letters):
         return None, verdict, None
     whys = []
     for g in exact:
-        laid, notes = mended(g["fit"]["rows"], renumbered(g["fit"], clues))
+        page, shifted, why = unstrayed(g["fit"], renumbered(g["fit"], clues))
+        if page is None:
+            whys.append(why)
+            continue
+        laid, notes = mended(g["fit"]["rows"], page)
+        notes = {**shifted, **notes}
         rows, side, why = fit_to_clues(g["grid"], g["fit"], laid)
         if not rows and not flips(g["grid"], g["fit"]["rows"], laid):
             skip, note = skipped(g["fit"]["rows"], laid)
@@ -396,6 +423,8 @@ def join(reading, grids, reports, read_letters):
         verdict["mended"] = notes
     if g["fit"].get("moved"):
         verdict["numberMoved"] = [list(c) for c in g["fit"]["moved"]]
+    if g["fit"].get("stray"):
+        verdict["strayNumber"] = g["fit"]["stray"]
     # One clue read onto two lights has lost the other's: both go blank
     # unless one light's count picks it (ocr_clues.one_light_each).
     lengths = {f"{n}-{d}": len(c) for (n, d), c in rg.light_cells(rows).items()}

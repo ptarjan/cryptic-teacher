@@ -285,5 +285,15 @@ OPEN = ["...", "...", "..."]
 starts_only = {(0, 0): 1, (0, 1): 2, (0, 2): 3, (1, 0): 4}
 check("light-start numbers that equal their places are no positional fit (mirror)", 0,
       lg.positional(OPEN, {"ch": starts_only, "en5": starts_only}, 5))
+# No 3 prints a number in a cell inside a light, so its tail runs one ahead
+# of its lights: no bar mends that, but the count with that cell put in does.
+STRAY = ["....", "....", "#..#"]
+page = {(0, 0): 1, (0, 1): 2, (0, 2): 3, (0, 3): 4, (1, 0): 5, (1, 2): 6, (2, 1): 7}
+f = lg.fit(certain(STRAY), {"ch": page, "en5": page})
+check("a number in a cell starting no light, the rest one ahead, is a stray", (True, [1, 2], STRAY),
+      (f["exact"], f.get("stray"), f["rows"]))
+odd = {**page, (2, 1): 8}
+f = lg.fit(certain(STRAY), {"ch": odd, "en5": odd})
+check("a stray that leaves another number off is no fit (mirror)", (False, None), (f["exact"], f.get("stray")))
 sys.exit(1 if fails else 0)
 PY

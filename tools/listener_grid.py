@@ -598,7 +598,31 @@ def fit(grid, printed):
         # The numbers say nothing of the bars here: each side as its width says.
         return {"rows": with_bars(grid["rows"], {k: x >= BAR_RATIO for k, x in q.items()}), "shortest": 2,
                 "agreed": by_place, "disagree": [], "moved": [], "exact": True, "numbering": "position"}
+    # A stray number: the fitted bars, or them with one flip back to the
+    # width's reading (the search may flip a side chasing the stray).
+    tries = [bars] + [{**bars, k: q[k] >= BAR_RATIO} for k in unsure if bars[k] != (q[k] >= BAR_RATIO)]
+    if not out["exact"] and shortest == 2 and (got := next(
+            (x for b in tries for x in [stray(with_bars(grid["rows"], b), agreed)] if x), None)):
+        return {"rows": got[0], "shortest": 2, "agreed": len(agreed), "disagree": [], "moved": [],
+                "exact": True, "stray": list(got[1])}
     return out
+
+
+def stray(rows, agreed):
+    """(rows, cell) when the page numbers one cell that starts no light of
+    `rows` (each side as its width says) and every agreed number is the
+    page's once that cell takes its place in the count: No 3 prints 61 in
+    a cell inside 59-down, so its tail runs one ahead of its lights. The
+    filer then reads the clue list by the page's numbers, and refuses when
+    a clue bears the stray number, which a misread bar would have."""
+    if len(agreed) < EXACT_COVER * len(starts(rows)):
+        return None
+    st = set(starts(rows))
+    for c in sorted(set(agreed) - st):
+        page = {cell: i + 1 for i, cell in enumerate(sorted(st | {c}))}
+        if all(page.get(cell) == n for cell, n in agreed.items()):
+            return rows, c
+    return None
 
 
 def positional(rows, printed, lights):
