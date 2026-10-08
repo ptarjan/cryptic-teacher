@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,47 @@
     "text": "Statement about Felixstowe, say",
     "enumeration": "6"
    },
-   "solution": "REPORT"
+   "solution": "REPORT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REPORT",
+    "definitions": [
+     {
+      "text": "Statement",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "RE is a short word meaning concerning or about"
+     },
+     {
+      "clueFragment": "Felixstowe, say",
+      "gives": "PORT",
+      "note": "Felixstowe is an example of a port, the 'say' marking it as an example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "PORT"
+     ]
+    },
+    "explanation": {
+     "surface": "A press release or official statement concerning the container port at Felixstowe.",
+     "walkthrough": "Felixstowe is a major container port on England's east coast; 'say' tells you it stands for the general class.",
+     "definitionFit": "A report is an account given out formally, a synonym for a statement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +90,54 @@
     "text": "Buy small bag containing tea",
     "enumeration": "8"
    },
-   "solution": "PURCHASE"
+   "solution": "PURCHASE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PURCHASE",
+    "definitions": [
+     {
+      "text": "Buy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means one item holds the other inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small bag",
+      "gives": "PURSE",
+      "note": "a purse is a small bag for money"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "CHA",
+      "note": "cha is an informal word for tea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUR",
+      "CHA",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to buy a little bag with some tea in it.",
+     "walkthrough": "CHA, sometimes spelt char, is British slang for tea.",
+     "definitionFit": "Purchase as a verb is a more formal synonym for acquiring by paying, that is, to buy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +151,71 @@
     "text": "Fit of pique about a pound left in straw mattress",
     "enumeration": "6"
    },
-   "solution": "PALLET"
+   "solution": "PALLET",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PALLET",
+    "definitions": [
+     {
+      "text": "straw mattress",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about here means going around, so one part wraps round the others"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fit of pique",
+      "gives": "PET",
+      "note": "a pet is an old word for a sulk or fit of pique"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pound",
+      "gives": "L",
+      "note": "L is the abbreviation for a pound sterling"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "A",
+      "L",
+      "L",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in a sulk over losing a pound somewhere in the straw bedding.",
+     "walkthrough": "'In a pet' is an old phrase for being in a huff.",
+     "definitionFit": "A pallet is a crude bed or mattress filled with straw, an older sense of the word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pound"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +229,64 @@
     "text": "Woman getting Dan drunk in porch",
     "enumeration": "7"
    },
-   "solution": "VERANDA"
+   "solution": "VERANDA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "VERANDA",
+    "definitions": [
+     {
+      "text": "porch",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "a drunk is unsteady and muddled, so the letters stagger into a new order"
+     }
+    ],
+    "linkWords": [
+     "getting",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Woman",
+      "gives": "VERA",
+      "note": "Vera is a woman's name"
+     },
+     {
+      "clueFragment": "Dan",
+      "gives": "NDA",
+      "note": "the three letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VERA",
+      "NDA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DAN",
+       "gives": "NDA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman plies Dan with drink out on the porch.",
+     "definitionFit": "A veranda is a roofed open gallery along the front of a house, much the same as a porch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +300,54 @@
     "text": "Each excellent dish eaten",
     "enumeration": "6"
    },
-   "solution": "APIECE"
+   "solution": "APIECE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "APIECE",
+    "definitions": [
+     {
+      "text": "Each",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eaten",
+      "for": "container",
+      "note": "something eaten ends up inside, so one word goes into the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "excellent",
+      "gives": "ACE",
+      "note": "ace is slang for excellent"
+     },
+     {
+      "clueFragment": "dish",
+      "gives": "PIE",
+      "note": "a pie is a dish of food"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PIE",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A restaurant review: every excellent dish was eaten up.",
+     "definitionFit": "Apiece means for each one, as in 'a pound apiece', so it swaps for each."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "eaten"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +361,61 @@
     "text": "Largest secondary route set to be redeveloped",
     "enumeration": "8"
    },
-   "solution": "BROADEST"
+   "solution": "BROADEST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "BROADEST",
+    "definitions": [
+     {
+      "text": "Largest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be redeveloped",
+      "for": "anagram",
+      "note": "redeveloping something rebuilds it in a different form, so the letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secondary route",
+      "gives": "BROAD",
+      "note": "a B road is a British secondary road, below an A road"
+     },
+     {
+      "clueFragment": "set",
+      "gives": "EST",
+      "note": "the three letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BROAD",
+      "EST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SET",
+       "gives": "EST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A planning notice: the biggest minor road is due for redevelopment.",
+     "walkthrough": "British roads are classed as A roads (main) and B roads (secondary).",
+     "definitionFit": "Broadest is the superlative of broad, meaning widest, so it stands for largest in extent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "secondary"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +429,81 @@
     "text": "Jack certain to return badly cooked meal in old city",
     "enumeration": "9"
    },
-   "solution": "JERUSALEM"
+   "solution": "JERUSALEM",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "JERUSALEM",
+    "definitions": [
+     {
+      "text": "old city",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to return",
+      "for": "reversal",
+      "note": "to return is to go back, so the word is read in the opposite direction"
+     },
+     {
+      "text": "badly cooked",
+      "for": "anagram",
+      "note": "something badly cooked is a mess, so the letters come out jumbled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jack",
+      "gives": "J",
+      "note": "J is the abbreviation for jack in a pack of cards"
+     },
+     {
+      "clueFragment": "certain",
+      "gives": "SURE",
+      "note": "sure means certain"
+     },
+     {
+      "clueFragment": "meal",
+      "gives": "ALEM",
+      "note": "the four letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "ERUS",
+      "ALEM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MEAL",
+       "gives": "ALEM"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "SURE",
+       "to": "ERUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Jack is sure to send back a badly cooked dinner while dining in an ancient city.",
+     "definitionFit": "Jerusalem is one of the world's oldest cities, so it fits the description of an ancient city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Jack"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +517,54 @@
     "text": "Type to adopt quiet pastime?",
     "enumeration": "5"
    },
-   "solution": "SPORT"
+   "solution": "SPORT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPORT",
+    "definitions": [
+     {
+      "text": "pastime",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to adopt",
+      "for": "container",
+      "note": "to adopt is to take in, so one word takes the other inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Type",
+      "gives": "SORT",
+      "note": "a sort is a type or kind"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "P",
+      "note": "p (piano) is the musical marking for quiet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "ORT"
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether a kind of person would take up a peaceful hobby.",
+     "definitionFit": "A sport is a game or physical activity done for enjoyment, which makes it a pastime."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Type"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +584,65 @@
      }
     ]
    },
-   "solution": "DOGCOLLAR"
+   "solution": "DOGCOLLAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DOG COLLAR",
+    "definitions": [
+     {
+      "text": "neckwear",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "invested in",
+      "for": "container",
+      "note": "money invested in something is put inside it, so these letters go into the other word"
+     }
+    ],
+    "linkWords": [
+     "to produce"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US currency",
+      "gives": "DOLLAR",
+      "note": "the dollar is the currency of the United States"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G is the abbreviation for German"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "Co is the abbreviation for company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "G",
+      "CO",
+      "LLAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A German firm puts money into American dollars to make clothing accessories.",
+     "walkthrough": "The financial surface of investing and currency hides the container signal.",
+     "definitionFit": "A dog collar is the stiff white collar worn by clergy, an item of neckwear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "invested"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +656,53 @@
     "text": "Plane crash in mountainous country",
     "enumeration": "5"
    },
-   "solution": "NEPAL"
+   "solution": "NEPAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEPAL",
+    "definitions": [
+     {
+      "text": "mountainous country",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crash",
+      "for": "anagram",
+      "note": "a crash smashes things up, so the letters end in a wreckage of a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plane",
+      "gives": "NEPAL",
+      "note": "the five letters rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PLANE",
+       "gives": "NEPAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A news report of an aircraft coming down in the Himalayas.",
+     "definitionFit": "Nepal is a Himalayan nation containing Everest, a textbook example of a mountainous country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crash"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +716,45 @@
     "text": "Sound of fruit peel",
     "enumeration": "4"
    },
-   "solution": "PARE"
+   "solution": "PARE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PARE",
+    "definitions": [
+     {
+      "text": "peel",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sound of",
+      "for": "homophone",
+      "note": "sound of means we want a word that is said the same as another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fruit",
+      "gives": "PARE",
+      "soundsLike": "PEAR",
+      "note": "a pear is a fruit, and spoken it matches a different spelling"
+     }
+    ],
+    "explanation": {
+     "surface": "Reads like the noise you make peeling fruit.",
+     "walkthrough": "'Peel' looks like a noun going with fruit, but it is a verb.",
+     "definitionFit": "To pare is to trim away the outer skin with a knife, a synonym for peel as a verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "peel"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +768,47 @@
     "text": "Son's characteristic water passage",
     "enumeration": "6"
    },
-   "solution": "STRAIT"
+   "solution": "STRAIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRAIT",
+    "definitions": [
+     {
+      "text": "water passage",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "characteristic",
+      "gives": "TRAIT",
+      "note": "a trait is a characteristic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRAIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy's distinctive feature.",
+     "walkthrough": "The apostrophe-s reads as possessive, but it just joins the two pieces.",
+     "definitionFit": "A strait is a narrow channel of sea joining two larger bodies of water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Son's"
+    }
+   }
   },
   {
    "number": 13,
@@ -207,7 +822,53 @@
     "text": "Beat side suffering from medical condition",
     "enumeration": "8"
    },
-   "solution": "DIABETES"
+   "solution": "DIABETES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DIABETES",
+    "definitions": [
+     {
+      "text": "medical condition",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suffering",
+      "for": "anagram",
+      "note": "suffering suggests being in a bad way, so the letters are knocked out of order"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beat side",
+      "gives": "DIABETES",
+      "note": "the eight letters rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BEATSIDE",
+       "gives": "DIABETES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A team that won despite players struggling with an illness.",
+     "definitionFit": "Diabetes is a chronic disorder of blood sugar regulation, a well-known medical condition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suffering"
+    }
+   }
   },
   {
    "number": 14,
@@ -221,7 +882,55 @@
     "text": "Strong drink put in rest of soft drink",
     "enumeration": "7"
    },
-   "solution": "LIMEADE"
+   "solution": "LIMEADE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LIMEADE",
+    "definitions": [
+     {
+      "text": "soft drink",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put in",
+      "for": "container",
+      "note": "put in means placed inside, so one word goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rest",
+      "gives": "LIE",
+      "note": "to lie is to rest"
+     },
+     {
+      "clueFragment": "Strong drink",
+      "gives": "MEAD",
+      "note": "mead is an alcoholic drink made from honey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "MEAD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spikes the remainder of a non-alcoholic drink with liquor.",
+     "walkthrough": "'Rest' seems to mean the remainder, but here it is the verb lie, as in lie down.",
+     "definitionFit": "Limeade is a non-alcoholic beverage of lime juice and sweetened water, a soft drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rest"
+    }
+   }
   },
   {
    "number": 15,
@@ -235,7 +944,56 @@
     "text": "Pub taking old money is blameless",
     "enumeration": "8"
    },
-   "solution": "INNOCENT"
+   "solution": "INNOCENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INNOCENT",
+    "definitions": [
+     {
+      "text": "blameless",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "taking",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pub",
+      "gives": "INN",
+      "note": "an inn is a pub"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "CENT",
+      "note": "a cent is a unit of money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INN",
+      "O",
+      "CENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A pub that accepts antique coins is beyond reproach.",
+     "definitionFit": "Innocent means free from guilt or wrongdoing, a direct synonym of blameless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "taking"
+    }
+   }
   },
   {
    "number": 16,
@@ -249,7 +1007,44 @@
     "text": "Bogarde's knife?",
     "enumeration": "4"
    },
-   "solution": "DIRK"
+   "solution": "DIRK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DIRK",
+    "definitions": [
+     {
+      "text": "Bogarde's",
+      "at": 0,
+      "note": "possessive; the answer is the name itself"
+     },
+     {
+      "text": "knife",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bogarde's",
+      "note": "first meaning: the first name of the British film actor Bogarde"
+     },
+     {
+      "clueFragment": "knife",
+      "note": "second meaning: a short Scottish dagger"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Dirk Bogarde was a British film star of the 1950s to 70s; the question mark flags that his knife is a play on his first name.",
+     "definitionFit": "A dirk is a long-bladed dagger traditionally carried by Scottish Highlanders, a kind of knife."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bogarde's"
+    }
+   }
   },
   {
    "number": 17,
@@ -263,7 +1058,55 @@
     "text": "Inferior education's received by those insisting on strict adherence to rules",
     "enumeration": "7"
    },
-   "solution": "PEDANTS"
+   "solution": "PEDANTS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PEDANTS",
+    "definitions": [
+     {
+      "text": "those insisting on strict adherence to rules",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "received by",
+      "for": "container",
+      "note": "something received by another is taken in by it, so it goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Inferior",
+      "gives": "PANTS",
+      "note": "pants is British slang for rubbish or of poor quality"
+     },
+     {
+      "clueFragment": "education",
+      "gives": "ED",
+      "note": "Ed is the abbreviation for education"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ED",
+      "ANTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Sticklers for the rules are handed a second-rate schooling.",
+     "walkthrough": "In British slang, 'pants' means rubbish or poor. The 's in education's is 'is'.",
+     "definitionFit": "Pedants are people overly concerned with formal rules and minor details, so the long phrase describes them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Inferior"
+    }
+   }
   },
   {
    "number": 18,
@@ -283,7 +1126,72 @@
      }
     ]
    },
-   "solution": "ARMCANDY"
+   "solution": "ARMCANDY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "ARM CANDY",
+    "definitions": [
+     {
+      "text": "someone attractive to be seen out with",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end of the preceding word"
+     },
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "carrying means holding, so the soldiers hold the other letters inside"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldiers",
+      "gives": "ARMY",
+      "note": "an army is a body of soldiers"
+     },
+     {
+      "clueFragment": "tin",
+      "gives": "CAN",
+      "note": "a can is a tin container"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "D",
+      "select": "last",
+      "note": "the last letter of gold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARM",
+      "CAN",
+      "D",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Troops loaded with tin and gold end up finding a glamorous companion.",
+     "definitionFit": "Arm candy is slang for an attractive partner taken along to social events mainly to be shown off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "tin"
+    }
+   }
   },
   {
    "number": 19,
@@ -297,7 +1205,54 @@
     "text": "Head ill-prepared for biblical temptress",
     "enumeration": "7"
    },
-   "solution": "DELILAH"
+   "solution": "DELILAH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DELILAH",
+    "definitions": [
+     {
+      "text": "biblical temptress",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "something prepared has been made ready in a new form, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Head ill",
+      "gives": "DELILAH",
+      "note": "the seven letters rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HEADILL",
+       "gives": "DELILAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A headmaster badly unready to face a seductress.",
+     "walkthrough": "The hyphen in ill-prepared hides the split: ill belongs to the fodder and prepared alone is the signal.",
+     "definitionFit": "Delilah in the Book of Judges seduced Samson and betrayed his secret, the archetypal biblical seductress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ill"
+    }
+   }
   },
   {
    "number": 20,
@@ -311,7 +1266,50 @@
     "text": "Sinful Eve ruins God's creation!",
     "enumeration": "8"
    },
-   "solution": "UNIVERSE"
+   "solution": "UNIVERSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNIVERSE",
+    "definitions": [
+     {
+      "text": "God's creation",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sinful",
+      "for": "anagram",
+      "note": "sinful means gone astray from the right path, so the letters stray from their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eve ruins",
+      "gives": "UNIVERSE",
+      "note": "the eight letters rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EVERUINS",
+       "gives": "UNIVERSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Eve's sin in Eden spoils everything God made.",
+     "definitionFit": "In religious belief the whole cosmos was made by God, so the universe is his creation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Sinful"
+    }
+   }
   },
   {
    "number": 21,
@@ -325,7 +1323,42 @@
     "text": "Silver mine infested with rats",
     "enumeration": "6"
    },
-   "solution": "VERMIN"
+   "solution": "VERMIN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "VERMIN",
+    "definitions": [
+     {
+      "text": "rats",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "infested with",
+      "for": "hidden_word",
+      "note": "something infested has things lurking inside it, so the answer sits inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Silver mine",
+      "gives": "VERMIN",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A disused silver mine overrun by rats.",
+     "definitionFit": "Vermin are wild animals regarded as pests, and rats are the classic example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "infested"
+    }
+   }
   },
   {
    "number": 22,
@@ -339,7 +1372,42 @@
     "text": "Impede progress of picnic basket",
     "enumeration": "6"
    },
-   "solution": "HAMPER"
+   "solution": "HAMPER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HAMPER",
+    "definitions": [
+     {
+      "text": "Impede progress of",
+      "at": 0
+     },
+     {
+      "text": "picnic basket",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Impede progress of",
+      "note": "first meaning: a verb, to hinder"
+     },
+     {
+      "clueFragment": "picnic basket",
+      "note": "second meaning: a large wicker basket with a lid"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as one phrase about a basket's progress; it is two separate meanings.",
+     "definitionFit": "The word is both a verb for obstructing movement and a noun for a lidded wicker basket for food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "progress"
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1421,63 @@
     "text": "Unpleasant old woman with deformed leg, offering to negotiate price",
     "enumeration": "6"
    },
-   "solution": "HAGGLE"
+   "solution": "HAGGLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "HAGGLE",
+    "definitions": [
+     {
+      "text": "negotiate price",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "deformed",
+      "for": "anagram",
+      "note": "deformed means twisted out of shape, so the letters are twisted into a new order"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "offering to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unpleasant old woman",
+      "gives": "HAG",
+      "note": "a hag is an ugly or unpleasant old woman"
+     },
+     {
+      "clueFragment": "leg",
+      "gives": "GLE",
+      "note": "the three letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAG",
+      "GLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEG",
+       "gives": "GLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crone with a twisted leg at a market stall, ready to bargain.",
+     "definitionFit": "To haggle is to bargain persistently over the cost of something, which is what negotiating price means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -367,7 +1491,61 @@
     "text": "English league's first regular football team?",
     "enumeration": "6"
    },
-   "solution": "ELEVEN"
+   "solution": "ELEVEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ELEVEN",
+    "definitions": [
+     {
+      "text": "football team",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first points to the opening letter of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "league's",
+      "gives": "L",
+      "select": "first",
+      "note": "the opening letter of league"
+     },
+     {
+      "clueFragment": "regular",
+      "gives": "EVEN",
+      "note": "even means regular or uniform"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "L",
+      "EVEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether a top English club is a regular side.",
+     "definitionFit": "A football side fields eleven players, so an eleven is the usual name for a team."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regular"
+    }
+   }
   },
   {
    "number": 24,
@@ -381,7 +1559,49 @@
     "text": "Soprano taking central part in musical arrangement",
     "enumeration": "5"
    },
-   "solution": "SCORE"
+   "solution": "SCORE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCORE",
+    "definitions": [
+     {
+      "text": "musical arrangement",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soprano",
+      "gives": "S",
+      "note": "S is the abbreviation for soprano"
+     },
+     {
+      "clueFragment": "central part",
+      "gives": "CORE",
+      "note": "the core is the central part of something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CORE"
+     ]
+    },
+    "explanation": {
+     "surface": "A soprano takes the lead role in a musical production.",
+     "definitionFit": "A score is the written arrangement of a piece of music for its performers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "central"
+    }
+   }
   },
   {
    "number": 25,
@@ -395,7 +1615,84 @@
     "text": "Humiliated, when grids are reworked by a crossword's first editor",
     "enumeration": "9"
    },
-   "solution": "DISGRACED"
+   "solution": "DISGRACED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DISGRACED",
+    "definitions": [
+     {
+      "text": "Humiliated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "are reworked",
+      "for": "anagram",
+      "note": "reworked means made over again in a new form, so the letters are reordered"
+     },
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first points to the opening letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "when",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grids",
+      "gives": "DISGR",
+      "note": "the five letters rearranged"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "crossword's",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter of crossword"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ed is the abbreviation for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISGR",
+      "A",
+      "C",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GRIDS",
+       "gives": "DISGR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A setter is shamed when the first crossword editor rewrites their grids.",
+     "walkthrough": "'First' looks like it describes the editor, but it takes the opening letter of crossword.",
+     "definitionFit": "Disgraced means brought into shame or dishonour, the same as being humiliated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 26,
@@ -409,7 +1706,41 @@
     "text": "Blacksmith's tool found in Tuscan villages",
     "enumeration": "5"
    },
-   "solution": "ANVIL"
+   "solution": "ANVIL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ANVIL",
+    "definitions": [
+     {
+      "text": "Blacksmith's tool",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "hidden_word",
+      "note": "found in means the answer is sitting inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tuscan villages",
+      "gives": "ANVIL",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A smith's tool turns up in Italian country villages.",
+     "definitionFit": "An anvil is the heavy iron block on which a blacksmith hammers metal into shape."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -423,7 +1754,67 @@
     "text": "Booze claiming a large young male singer",
     "enumeration": "9"
    },
-   "solution": "BALLADEER"
+   "solution": "BALLADEER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BALLADEER",
+    "definitions": [
+     {
+      "text": "singer",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "claiming",
+      "for": "container",
+      "note": "claiming means taking hold of, so the first word takes the others inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Booze",
+      "gives": "BEER",
+      "note": "beer is a kind of booze"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     },
+     {
+      "clueFragment": "young male",
+      "gives": "LAD",
+      "note": "a lad is a young man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "A",
+      "L",
+      "LAD",
+      "EER"
+     ]
+    },
+    "explanation": {
+     "surface": "Drink takes hold of a big young man who becomes a singer.",
+     "definitionFit": "A balladeer is someone who sings ballads, so the word names a kind of singer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "claiming"
+    }
+   }
   }
  ]
 }
