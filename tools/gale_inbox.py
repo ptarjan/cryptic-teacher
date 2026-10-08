@@ -60,6 +60,7 @@ TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
 import archive_coverage
 import file_archive_org_puzzles as fa
+import gale_arrived
 import gale_docs
 import pypdf
 
@@ -113,7 +114,7 @@ READ_JOB = TOOLS / "gale_read.sh"
 READ_LOG = Path(os.path.expanduser("~/.cache/gale_read.log"))
 CACHE = fa.CACHE
 ITEM = "GaleTimes{}UKEnglish"
-PAGES = (".pdf", ".jpg", ".jpeg", ".png", ".tif", ".tiff", ".gif", ".webp")
+PAGES = gale_arrived.PAGES
 YEARS = range(1974, 2000)
 #: The classes of an edition the checklist asks for: no archive.org scan.
 WANTED = ("no-scan", "canberra-reprint")
@@ -131,13 +132,10 @@ DOC_URL = "https://go.gale.com/ps/retrieve.do?docId=GALE%7C{}&prodId=TTDA&userGr
 #: Gale's advanced search as a GET (its own form's fields): document title
 #: containing the word, published On the date (dateMode 2, era 1 = AD).
 SEARCH = "https://go.gale.com/ps/advancedSearch.do"
-DOC_ID = re.compile(r"GALE[\W_]{0,3}([A-Z]{2}\d{8,12})", re.IGNORECASE)
+DOC_ID, BARE_DOC = gale_arrived.DOC_ID, gale_arrived.BARE_DOC
 #: Where else a saved file names its document: the permalink its PDF's
-#: citation prints ("link.gale.com/apps/doc/IF0500468517/"), and Gale's own
-#: download name, the bare number ("IF0500468517.pdf", a second copy
-#: "IF0500254930 (1).pdf").
+#: citation prints ("link.gale.com/apps/doc/IF0500468517/").
 CITED_DOC = re.compile(r"link\.gale\.com/apps/doc/([A-Z]{2}\d{8,12})\b", re.IGNORECASE)
-BARE_DOC = re.compile(r"([A-Z]{2}\d{8,12})(?:\s*\(\d+\))?", re.IGNORECASE)
 #: Text only a Gale download's citation page prints.
 GALE_TEXT = re.compile(r"Gale Document Number|link\.gale\.com|Gale Primary Sources|Gale, a Cengage"
                        r"|Times Digital Archive|Listener Historical Archive", re.IGNORECASE)
@@ -326,8 +324,8 @@ def doc_id(name, cite=""):
     """The Gale document a saved file is, off its name (DOC_ID, BARE_DOC) or
     its citation's permalink (CITED_DOC), upper-cased; None when neither
     names one."""
-    m = DOC_ID.search(name) or CITED_DOC.search(cite or "") or BARE_DOC.fullmatch(Path(name).stem)
-    return m.group(1).upper() if m else None
+    m = CITED_DOC.search(cite or "")
+    return gale_arrived.name_doc(name) or (m.group(1).upper() if m else None)
 
 
 def edition_url(ms):
@@ -553,9 +551,48 @@ def mirror(out=sys.stdout, host_inbox=HOST_INBOX, into=MIRROR):
 
 
 def publish(path=CHECKLIST, host_inbox=GALE_ROOT):
-    """Copy a checklist into the Mac folder, under its own name."""
-    ssh(f"mkdir -p {shlex.quote(host_inbox)} && cat > {shlex.quote(host_inbox + '/' + path.name)}",
+    """Copy a checklist into the Mac folder, under its own name, whole or
+    not at all: an open page loads its status file every POLL_SECONDS."""
+    q = shlex.quote
+    tmp = f"{host_inbox}/.{path.name}.tmp"
+    ssh(f"mkdir -p {q(host_inbox)} && cat > {q(tmp)} && mv -f {q(tmp)} {q(host_inbox + '/' + path.name)}",
         input=path.read_bytes())
+
+
+#: The Mac's arrival watcher (tools/gale_arrived.py): its copy of the
+#: script, its launchd job and log. The sync installs them, and again
+#: whenever this tree's script or job differs from what it last installed.
+MAC_HOME = "/Users/pt"
+WATCHER = f"{MAC_HOME}/.local/lib/gale-arrived/gale_arrived.py"
+WATCHER_PLIST = f"{MAC_HOME}/Library/LaunchAgents/{gale_arrived.LABEL}.plist"
+WATCHER_LOG = f"{MAC_HOME}/Library/Logs/gale-arrived.log"
+WATCHER_PYTHON = "/usr/local/bin/python3"
+#: The folders a Gale download lands in on the Mac (collect sweeps them).
+WATCHED = (CHROME, f"{MAC_HOME}/Downloads")
+WATCHER_STAMP = MIRROR.parent / "watcher.sha"
+
+
+def install_watcher(out=sys.stdout, run=None, stamp=WATCHER_STAMP):
+    """Install the arrival watcher on the Mac when what this tree would
+    install differs from the last install; reload its job only when the job
+    itself changed. Whether it installed."""
+    code = (TOOLS / "gale_arrived.py").read_bytes()
+    job = gale_arrived.plist(WATCHER_PYTHON, WATCHER, WATCHED, f"{GALE_ROOT}/{gale_arrived.NAME}", WATCHER_LOG)
+    want = hashlib.sha256(code + job.encode()).hexdigest()
+    if load(stamp, None) == want:
+        return False
+    q, run, label = shlex.quote, run or ssh, f"gui/$(id -u)/{gale_arrived.LABEL}"
+    run(f"mkdir -p {q(str(Path(WATCHER).parent))} && cat > {q(WATCHER + '.tmp')} && mv -f {q(WATCHER + '.tmp')} {q(WATCHER)}",
+        input=code)
+    # bootout returns before the job is gone, so bootstrap waits for it.
+    new = q(WATCHER_PLIST + ".new")
+    run(f"cat > {new} && if cmp -s {new} {q(WATCHER_PLIST)} && launchctl print {label} >/dev/null 2>&1; "
+        f"then rm -f {new}; else mv -f {new} {q(WATCHER_PLIST)}; launchctl bootout {label} 2>/dev/null; "
+        f"for i in $(seq 40); do launchctl print {label} >/dev/null 2>&1 || break; sleep 0.25; done; "
+        f"launchctl bootstrap gui/$(id -u) {q(WATCHER_PLIST)}; fi", input=job.encode())
+    save_json(stamp, want)
+    print(f"installed the arrival watcher ({gale_arrived.LABEL}) on the Mac", file=out)
+    return True
 
 
 # ------------------------------------------------------------ picking Gale files up
@@ -839,21 +876,24 @@ LATE_MINUTES = 15
 #: the next row takes its place.
 MOVE_SECONDS = 3
 #: How often an open checklist reads its status file (status_js).
-POLL_SECONDS = 15
+POLL_SECONDS = 5
 #: A status file older than this is not being written: the page falls back
 #: to reloading itself every RELOAD_SECONDS.
 STALE_SECONDS = 240
 RELOAD_SECONDS = 180
 
 
-def script(store, status_src, stamp):
+def script(store, status_src, stamp, arrived_src=gale_arrived.NAME):
     """The checklists' row state. A row is one of: to fetch (its Download
     button), clicked and waiting for its file ("downloading... clicked
     HH:MM", an undo, no Download), clicked LATE_MINUTES ago with no file
-    (amber, a retry), or arrived ("in the inbox"). Clicks are kept in the
+    (amber, a retry), downloaded (a document its row's links name is in
+    `arrived_src`, the Mac's arrival watcher's, tools/gale_arrived.py:
+    seconds after the file lands, and counted then), or arrived ("in the
+    inbox", the sync's). Clicks are kept in the
     browser (localStorage `store`, key: when) so a reload keeps them; what
     arrived is the page's own data-in and its status file (status_js),
-    read every POLL_SECONDS by a script tag, which a file:// page may load
+    read with `arrived_src` every POLL_SECONDS by a script tag, which a file:// page may load
     where it may not fetch. A status naming a newer page reloads it once;
     a status that stops coming reloads the page every RELOAD_SECONDS. #next
     shows the first BATCH rows not clicked: a row clicked MOVE_SECONDS ago
@@ -862,48 +902,53 @@ def script(store, status_src, stamp):
     to fetch is a click on its Download (a.dl). A middle click on a link opens a tab
     without a click event, so it runs the link's onclick (the mark) itself."""
     js = """<script>
-const S=STORE,C=S+'At',BATCH=SIZE,MOVE=MOVESEC*1e3,LATE=LATEMIN*60e3,PAGE=STAMP,SRC=SOURCE,LOADED=Date.now();
-let IN=new Set(),AT=PAGE*1000;
+const S=STORE,C=S+'At',BATCH=SIZE,MOVE=MOVESEC*1e3,LATE=LATEMIN*60e3,PAGE=STAMP,SRC=SOURCE,ASRC=ARRIVALS,
+  LOADED=Date.now();
+let IN=new Set(),AT=PAGE*1000,ARR={},BASE=null,GOT=0;
 function get(n){return JSON.parse(localStorage.getItem(n)||'[]')}
 function clicks(){const v=localStorage.getItem(C);if(v)return JSON.parse(v);const m={};get(S).forEach(k=>m[k]=0);return m}
 function keep(m){localStorage.setItem(C,JSON.stringify(Object.fromEntries(
   Object.entries(m).sort((a,b)=>a[1]-b[1]).slice(-5000))))}
 function hm(t){return t?new Date(t).toTimeString().slice(0,5):'earlier'}
 function state(r,m,now){const k=r.dataset.k;if(r.dataset.in||IN.has(k))return'in';
+  if((r.dataset.doc||'').split(' ').some(d=>d&&d in ARR))return'got';
   return k in m?(now-m[k]>LATE?'late':'wait'):''}
 function badge(r,s,t){const b=r.querySelector('.st');if(!b||b.dataset.s===s+t)return;b.dataset.s=s+t;b.className='st '+s;
   const k=r.dataset.k,u=' <a href="#" onclick="unmark(\\''+k+'\\');return false">undo</a>',
     a=r.querySelector('a.dl')||r.querySelector('a.go');
-  b.innerHTML=s==='in'?'&#10003; in the inbox':s==='wait'?'downloading&hellip; clicked '+hm(t)+u
+  b.innerHTML=s==='in'?'&#10003; in the inbox':s==='got'?'&#10003; downloaded, checking&hellip;':s==='wait'?'downloading&hellip; clicked '+hm(t)+u
     :s==='late'?'clicked '+hm(t)+', not arrived: <a class="retry" target="gale" onclick="mark(\\''+k+'\\')">retry?</a>'+u:'';
   const x=b.querySelector('a.retry');if(x&&a)x.href=a.href}
-function show(){const m=clicks(),now=Date.now();let n=0,c=0,lit=false;
-  document.querySelectorAll('tr[data-k]').forEach(r=>{const s=state(r,m,now);r.dataset.s=s;
-    for(const c of['wait','late','in'])r.classList.toggle('s-'+c,s===c);
+function show(){const m=clicks(),now=Date.now(),got=new Set();let n=0,c=0,lit=false;
+  document.querySelectorAll('tr[data-k]').forEach(r=>{const s=state(r,m,now);r.dataset.s=s;if(s==='got')got.add(r.dataset.k);
+    for(const c of['wait','late','got','in'])r.classList.toggle('s-'+c,s===c);
     badge(r,s,m[r.dataset.k]||0);r.classList.toggle('dlrow',!s&&!!r.querySelector('a.dl'))});
   const nx=document.getElementById('next'),dn=document.getElementById('done');
   if(nx&&dn){[...document.querySelectorAll('tr[data-i]')].sort((a,b)=>a.dataset.i-b.dataset.i).forEach(r=>{
-    const s=r.dataset.s,gone=!!s&&(s==='in'||now-(m[r.dataset.k]||0)>=MOVE);
+    const s=r.dataset.s,gone=!!s&&(s==='in'||s==='got'||now-(m[r.dataset.k]||0)>=MOVE);
     (gone?dn:nx).tBodies[0].appendChild(r);
     if(gone){c++;r.hidden=false;r.classList.remove('next');return}
     const on=n<BATCH;if(on)n++;r.hidden=!on;const x=on&&!lit&&!s;r.classList.toggle('next',x);if(x)lit=true});
     document.getElementById('clicked').hidden=!c}
-  const mo=document.getElementById('more');if(mo)mo.hidden=n>0;
+  GOT=got.size;count();const mo=document.getElementById('more');if(mo)mo.hidden=n>0;
   const a=document.getElementById('age'),old=now-AT>STALE*1e3;
   if(a){a.textContent='Arrivals last checked '+hm(AT)+' ('+Math.round((now-AT)/60e3)+' min ago)'
     +(old?': the status file is not updating, so this page reloads itself every 3 minutes':'; this page updates itself.');
     a.classList.toggle('old',old)}}
 function mark(k){const m=clicks();m[k]=Date.now();keep(m);show();setTimeout(show,MOVE+50)}
 function unmark(k){const m=clicks();delete m[k];keep(m);show()}
-function count(s){if(s.done==null)return;const p=document.getElementById('prog'),f=n=>n.toLocaleString('en');
-  if(p){p.value=s.done;p.max=Math.max(s.total,1)}
-  const c=document.getElementById('count');if(c)c.textContent=f(s.done)+' of '+f(s.total);
-  const t=document.getElementById('togo');if(t)t.textContent=f(s.total-s.done)}
-function galeStatus(s){IN=new Set(s.in);AT=s.at*1000;count(s);
+function count(){const s=BASE;if(!s||s.done==null)return;const d=Math.min(s.done+GOT,s.total),
+  p=document.getElementById('prog'),f=n=>n.toLocaleString('en');
+  if(p){p.value=d;p.max=Math.max(s.total,1)}
+  const c=document.getElementById('count');if(c)c.textContent=f(d)+' of '+f(s.total);
+  const t=document.getElementById('togo');if(t)t.textContent=f(s.total-d)}
+function galeArrived(a){ARR=a||{};show()}
+function galeStatus(s){IN=new Set(s.in);AT=s.at*1000;BASE=s;
   if(s.page>PAGE&&sessionStorage.getItem(S+'Page')!==String(s.page)){
     sessionStorage.setItem(S+'Page',s.page);location.reload()}else show()}
-function poll(){const x=document.createElement('script');x.src=SRC+'?'+Date.now();
+function load(u){const x=document.createElement('script');x.src=u+'?'+Date.now();
   x.onload=x.onerror=()=>x.remove();document.head.appendChild(x)}
+function poll(){load(SRC);load(ASRC)}
 function cp(b,t){const done=()=>{b.textContent='Copied'};
   const fb=()=>{const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();
   document.execCommand('copy');a.remove();done()};
@@ -915,7 +960,7 @@ addEventListener('click',ev=>{const r=ev.target.closest('tr.dlrow');
   if(r&&!ev.target.closest('a,button,summary'))r.querySelector('a.dl').click()})
 addEventListener('auxclick',ev=>{const a=ev.button===1&&ev.target.closest('a[target=gale][onclick]');if(a)a.onclick()})
 </script>"""
-    for k, v in (("STORE", json.dumps(store)), ("SOURCE", json.dumps(status_src)), ("SIZE", str(BATCH)),
+    for k, v in (("STORE", json.dumps(store)), ("SOURCE", json.dumps(status_src)), ("ARRIVALS", json.dumps(arrived_src)), ("SIZE", str(BATCH)),
                  ("LATEMIN", str(LATE_MINUTES)), ("STAMP", str(stamp)), ("STALE", str(STALE_SECONDS)),
                  ("RELOAD", str(RELOAD_SECONDS)), ("POLL", str(POLL_SECONDS)), ("MOVESEC", str(MOVE_SECONDS))):
         js = js.replace(k, v)
@@ -933,8 +978,8 @@ button{font-size:14px;padding:2px 10px;cursor:pointer}.batch button{font-size:15
 a.dl{display:inline-block;padding:8px 18px;font-size:17px;font-weight:bold;color:#fff;background:#0a66c2;
 border-radius:6px;text-decoration:none;margin:2px .8em 2px 0}a.dl:hover{background:#084f96}a.go{margin-right:.6em}
 .st{display:inline-block;padding:6px 12px;border-radius:6px;font-weight:bold}.st:empty{display:none}
-.st.wait{background:#dde8f6;color:#123}.st.late{background:#ffc24d;color:#4a2c00}.st.in{background:#17803a;color:#fff}
-.st a{color:inherit}tr.s-wait .acts,tr.s-late .acts,tr.s-in .acts{display:none}tr.s-in td{color:#777}
+.st.wait{background:#dde8f6;color:#123}.st.got{background:#bfe6c8;color:#063}.st.late{background:#ffc24d;color:#4a2c00}.st.in{background:#17803a;color:#fff}
+.st a{color:inherit}tr.s-wait .acts,tr.s-late .acts,tr.s-got .acts,tr.s-in .acts{display:none}tr.s-in td{color:#777}
 tr.next td{background:#fff3b0}tr.next td:first-child{border-left:4px solid #e0a800}
 tr.dlrow{cursor:pointer}tr.dlrow:hover td{background:#dcebff}"""
 
@@ -966,6 +1011,19 @@ def _parts(cell):
     return " ".join(f'<span class="{c}">{html.escape(t)}</span>' if c else html.escape(t) for t, c in cell)
 
 
+def row_docs(r):
+    """The Gale documents a row's links name (its Downloads' dl, its Open in
+    Gale permalink's): a file named for any of them is that row's."""
+    out = []
+    for u in [r.get("dl"), *(u for _, u in r.get("more") or ()), r.get("search")]:
+        if u:
+            m = CITED_DOC.search(u)
+            for d in urllib.parse.parse_qs(urllib.parse.urlsplit(u).query).get("dl", []) + ([m.group(1)] if m else []):
+                if d.upper() not in out:
+                    out.append(d.upper())
+    return out
+
+
 def _row(r):
     """One row: {"date", "cells", "status", and, for one to fetch, "key",
     "search" (Open in Gale), "dl" (Download, or None), "label", "more" ([(label,
@@ -984,7 +1042,9 @@ def _row(r):
                + (f' <button onclick="cp(this,{e(json.dumps(r["copy"]))})">Copy</button> <code>{e(r["copy"])}</code>'
                   if r.get("copy") else "")
                + '</span><span class="st"></span>')
+    docs = row_docs(r)
     attrs = (f' data-k="{k}"' + (f' data-i="{r["i"]}"' if "i" in r else "")
+             + (f' data-doc="{" ".join(docs)}"' if docs else "")
              + (' data-in="1" class="s-in"' if r.get("arrived") else "")) if k else ""
     return (f'<tr{attrs}><td>{r["date"]:%a %d %b %Y}</td><td>{get}</td>'
             + "".join(f"<td>{_parts(c)}</td>" for c in r["cells"]) + f"<td>{_parts(r['status'])}</td></tr>")
@@ -1026,8 +1086,8 @@ Updated {datetime.datetime.fromtimestamp(stamp).astimezone():%a %d %b %H:%M}. <s
     out.append(f"""<div class="how"><p class="start">1. <a href="{SESSION.format(prod)}" target="gale">Start Gale session</a>
 (once per sitting, on an Alberta connection such as home Wi-Fi; no login)</p>
 <ol start="2"><li>Click <b>Download</b> on the highlighted row: Gale saves the page as a PDF, and it is moved from
-Downloads into <code>{e(folder)}</code> for you. The row says <i>downloading&hellip;</i> until the file arrives,
-then <b>&#10003; in the inbox</b>, usually within a minute or two. A row whose file has not come {LATE_MINUTES} minutes
+Downloads into <code>{e(folder)}</code> for you. The row says <i>downloading&hellip;</i> until the file lands,
+<b>&#10003; downloaded</b> within seconds of it, then <b>&#10003; in the inbox</b> once it is sorted, within a few minutes. A row whose file has not come {LATE_MINUTES} minutes
 after its click turns amber: retry it.</li>
 {"".join(f"<li>{s}</li>" for s in steps)}</ol>
 <p>If Gale asks for a password, start from <a href="{PORTAL}">the Alberta Research Portal</a> (choose
@@ -1327,7 +1387,8 @@ def sync(out=sys.stdout, force=False):
     checklist; publish its status file either way, so an open page knows
     when the inbox was last looked at; then the Listener's
     (gale_listener.tick); then start the reads of the editions just laid
-    out (start_reads). Skipped when another sync is running."""
+    out (start_reads), and keep the Mac's arrival watcher installed
+    (install_watcher). Skipped when another sync is running."""
     import gale_listener  # imports this module, so not at the top
     with locked(wait=False) as mine:
         if not mine:
@@ -1356,6 +1417,7 @@ def sync(out=sys.stdout, force=False):
         publish_status(CHECKLIST, status)
         gale_listener.tick(out, force, ask, time.monotonic() + GALE_SECONDS)
     start_reads(out)
+    install_watcher(out)
 
 
 def main(argv=None):

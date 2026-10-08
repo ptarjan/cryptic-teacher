@@ -1931,5 +1931,7 @@ tools/test_blocks_link_word.sh                when a clue's blocks are short by 
                                               make
 tools/test_reprints.js                        a paper that reprints another's puzzle is listed,
                                               and every way in opens the original
+tools/gale_arrived.py                         mark a Gale download arrived on the checklists
+                                              within seconds of it landing
 ```
 <!-- LAYOUT-END -->
