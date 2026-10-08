@@ -90,6 +90,10 @@ cd "$REPO" || exit 1
 # A dropped unit's commits are pushed by the next unit to take its tree; its
 # uncommitted annotation is not, since it is validated against that unit's
 # HEAD and may be one it was rejecting.
+# A tick rebuilds only the index, itself, below (CT_GENERATED=none): it reads
+# nothing else generated, and every tick finds HEAD moved.
+# shellcheck disable=SC2034  # read by the sourced nightly_worktree.sh
+[ $# -eq 0 ] && CT_GENERATED=none
 # shellcheck disable=SC2034  # read by the sourced nightly_worktree.sh
 CT_SALVAGE_PATHS=""
 . "$(dirname "$0")/nightly_worktree.sh"
@@ -268,7 +272,7 @@ unit_fetch() {  # fetcher: the newest puzzle of its series (exit 3 = nothing new
 # whose failure only means the cache is as it was last night. The Times's
 # second fetch is its own puzzle listing, as the Wayback Machine keeps it,
 # which is what dates the prize puzzles the blog writes up a week late.
-# The filers do not reindex; unit_commit does, before the commit.
+# The filers do not reindex; the next tick does, before it chooses.
 # Both rebuilds are bounded by wall clock, newest due first: times_grids
 # starts no post once its budget is spent, and the rest stay due for the next
 # run. A parser change that makes hundreds of old posts due again (a changed
@@ -381,7 +385,7 @@ unit_ratings() {
   # refetched, and the comment table rebuilt from the whole cache.
   # The table feeds the Times badges, which blend in the solve times commenters
   # state (tools/difficulty.py blend()), so a puzzle re-rates as its post gains
-  # comments at the --reindex below. It leaves the committed table alone when the
+  # comments at the next reindex. It leaves the committed table alone when the
   # cache is absent. The report is written to tools/data/snitch_report.txt, whose
   # history is the record of how the numbers move.
   python3 tools/fetch_wp_blog.py timesforthetimes --comments || echo "fetch_wp_blog --comments failed (rc=$?); the badges blend the comments already cached"
@@ -810,7 +814,8 @@ $bad_hints"
   return 0
 }
 
-# Reindex, commit what the unit changed, and push. The unit's tree started at
+# Commit what the unit changed, and push. (The index is untracked: the tree's
+# was rebuilt at the unit's start, and the site's is built by CI.) The unit's tree started at
 # origin/master and holds nothing else, so whatever is modified or new here
 # was made by this unit. A unit that filed puzzles first puts every copy of
 # them we hold to a vote (tools/cross_validate.py all): a majority of three
@@ -823,7 +828,6 @@ unit_commit() {  # subject
   if git status --porcelain -- puzzles | grep -q .; then
     blog_chain Corroboration "cross_validate.py all --new --apply"
   fi
-  python3 tools/fetch_puzzle.py --reindex
   # The annotation payloads apply_annotations.py consumed. Gitignored (tools/_*),
   # so this is housekeeping rather than safety — but nothing else clears them.
   rm -f "$REPO/tools/_ann_"*.json "$REPO/tools/_puzzle_"*.json
@@ -1027,7 +1031,8 @@ echo "=== cryptic-teacher tick $(date '+%Y-%m-%d %H:%M') ==="
 # written by whatever code ran last, not by this checkout's. Both queues read
 # fields off it and read a missing field as a puzzle with nothing wrong, so an
 # index older than a field silently answers "fine" for every puzzle.
-# Nine seconds over the whole corpus; the rest of the script reindexes anyway.
+# The tick's only rebuild of it (CT_GENERATED=none above): seconds on a quiet
+# machine, minutes beside the corpus job.
 python3 tools/fetch_puzzle.py --reindex
 annotate_blocked=$(python3 tools/failed_inputs.py skipped annotate)
 { read -r fresh; read -r pending; } < <(python3 - "$ANNOTATE_MAX" "$annotate_blocked" "$(python3 tools/daily_units.py keyed --recent)" <<'EOF'

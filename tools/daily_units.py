@@ -35,7 +35,8 @@ from unit_queue import STATE, Unit, main_checkout
 
 LOG = ".update.log"
 #: Trees daily_unit-1 .. daily_unit-SLOTS: at most this many units at once.
-SLOTS = 4
+#: Each start rebuilds its tree's index, one at a time (nightly_worktree.sh).
+SLOTS = 3
 TREE = "daily_unit"
 #: Model runs (annotate, miss, reports) at once.
 LIMITS = {"claude": 2}
