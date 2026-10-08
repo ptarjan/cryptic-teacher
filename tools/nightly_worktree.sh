@@ -280,6 +280,11 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
     if [ "${CT_GENERATED:-}" = none ]; then
       :
     elif [ "$(cat "$_ct_stamp" 2>/dev/null)" != "$_ct_head" ] || [ ! -e "$_ct_tree/puzzles/index.json" ]; then
+      # One rebuild at a time across every tree: each reads the whole corpus
+      # into memory in several processes, and the unit queues start several
+      # trees at once.
+      exec 6>"$(git -C "$_ct_tree" rev-parse --path-format=absolute --git-common-dir)/ct-generated.lock"
+      flock 6
       rm -f "$_ct_stamp"
       _ct_ok=1
       (cd "$_ct_tree" && python3 tools/fetch_puzzle.py --reindex >/dev/null) ||
@@ -287,6 +292,7 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
       (cd "$_ct_tree" && python3 tools/build_abbreviations.py >/dev/null) ||
         { _ct_ok=0; echo "WORKTREE: could not rebuild abbreviations.js in $_ct_tree — every tool that stamps a page referencing it will stop" >&2; }
       [ "$_ct_ok" = 1 ] && printf '%s\n' "$_ct_head" >"$_ct_stamp"
+      exec 6>&-
     fi
     # One copy of each, in the main checkout, reached from everywhere.
     # tools/data/minutecryptic/ is the Minute Cryptic archive: its daily
