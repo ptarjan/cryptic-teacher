@@ -390,6 +390,21 @@ def save_json(path, value):
     tmp.replace(path)
 
 
+def relink(pages, url):
+    """Set a laid-out edition's pages.json "url" to `url` (an edition laid out
+    before its document was named off its file), whole or not at all, its
+    mtime kept: that is when the edition was laid out (staged_at), and an
+    edition only relinked is no fresh page for tools/gale_read.sh."""
+    row = json.loads(pages.read_text())
+    if row.get("url") == url:
+        return
+    st = pages.stat()
+    tmp = pages.with_name(pages.name + ".tmp")
+    tmp.write_text(json.dumps({**row, "url": url}, indent=1))
+    os.utime(tmp, ns=(st.st_atime_ns, st.st_mtime_ns))
+    tmp.replace(pages)
+
+
 def stage(inbox=MIRROR, cache=CACHE, out=sys.stdout, unmatched=UNMATCHED, matches=MATCHES,
           seconds=MATCH_SECONDS):
     """Lay each date's pages in `inbox` out as one edition directory under
@@ -439,8 +454,8 @@ def stage(inbox=MIRROR, cache=CACHE, out=sys.stdout, unmatched=UNMATCHED, matche
         d = cache / ITEM.format(day.year) / day.isoformat()
         staged.add(d)
         key = source_key([m["path"] for m in ms])
-        url = edition_url(ms)
-        if (d / f"sources-{key}.json").exists() and json.loads((d / "pages.json").read_text()).get("url") == url:
+        if (d / f"sources-{key}.json").exists():
+            relink(d / "pages.json", edition_url(ms))
             continue
         # Laid out beside it and swapped in, so a reader of the edition sees
         # the old one or the new, not half of each.
@@ -460,7 +475,7 @@ def stage(inbox=MIRROR, cache=CACHE, out=sys.stdout, unmatched=UNMATCHED, matche
         item = ITEM.format(day.year)
         (tmp / "pages.json").write_text(json.dumps({
             "item": item, "edition": day.isoformat(), "date": day.isoformat(), "leaves": len(leaves),
-            "crossword_pages": leaves, "url": url}, indent=1))
+            "crossword_pages": leaves, "url": edition_url(ms)}, indent=1))
         (tmp / f"sources-{key}.json").write_text(json.dumps(
             [{k: (v.isoformat() if isinstance(v, datetime.date) else v) for k, v in m.items()
               if k not in ("pages", "path")} for m in ms], indent=1))
@@ -1035,8 +1050,8 @@ def problems(rows, by_number, staged, unmatched=UNMATCHED, untitled=None):
     titleless()), or a date the list does not ask for."""
     out = []
     for day, files in sorted((untitled or {}).items()):
-        out += [(f, f"read as {day:%a %d %b %Y}, but no \"The Times Crossword Puzzle No\" title was found on it "
-                    "(the Concise's page?). Download the cryptic's page for that date, and delete this file.")
+        out += [(f, (f"read as {day:%a %d %b %Y}, but no \"The Times Crossword Puzzle No\" title was found on "
+                     "it (the Concise's page?). Download the cryptic's page for that date, and delete this file."))
                 for f in files]
     for m in (json.loads(unmatched.read_text()) if unmatched.exists() else []):
         if m.get("date"):
