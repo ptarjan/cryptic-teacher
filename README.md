@@ -623,6 +623,12 @@ rebuilds from these (crops, OCR and VLM readings, ledgers of job state) in
 
 Puzzle grids and clues remain the copyright of their publishers. The
 publishers are listed per series in `tools/series.py`. Puzzles are fetched from
-the publishers' own sites, archives and books for personal study. All
-annotations, hints and tutorial content are original to this project. This
+the publishers' own sites, archives and books. Each clue is reproduced
+alongside original commentary that explains how it works: hints, a
+walkthrough of its wordplay and tutorials. That is use for criticism,
+review, teaching and research, which we believe is fair use under US law
+and fair dealing under Canadian and UK law. All annotations, hints and
+tutorial content are original to this project. A rights holder who would
+rather their puzzles were not included can open an issue on this
+repository, and they will be taken down. This
 project is not affiliated with any publisher.
