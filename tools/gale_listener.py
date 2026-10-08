@@ -593,9 +593,11 @@ def figures(words):
     out = []
     tall = 1.5 * sorted(w[3] - w[1] for w in words)[len(words) // 2] if words else 0
     for w in words:
-        if re.fullmatch(r"\W{1,2}", w[4]) and w[3] - w[1] > tall:
-            # A speck's box over several lines ("+" for No 97's lost "4."):
-            # merge_rows would take it for one row and drop the lines in it.
+        if re.fullmatch(r"\W{1,2}|\d{3,}\W{0,2}", w[4]) and w[3] - w[1] > tall:
+            # A speck's box over several lines, or several lines' numbers
+            # read as one (No 97's lost DOWN "4."-"8.", read "+" or "450";
+            # no clue number has three figures): merge_rows would take it
+            # for one row and drop the lines in it.
             continue
         if BARE_NUMBER.fullmatch(w[4]) and w[2] - w[0] > len(w[4]) * (w[3] - w[1]):
             # A clue number's box wider than its characters can print: specks
@@ -668,9 +670,12 @@ def read_page(img, key):
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(got))
         words[which] = figures(got)
-    for which in ocr_clues.READERS:
-        if which not in ocr_clues.TESS_MODELS:
-            words[which] = figures(reread_lines(img, key, which, [tuple(w) for w in words[which]], located))
+    # A line any reading numbers is a line every RapidOCR reading reads; a
+    # line one reads again alone may number one for the other, so twice.
+    rapid = [w for w in ocr_clues.READERS if w not in ocr_clues.TESS_MODELS]
+    for which in rapid * 2:
+        words[which] = figures(reread_lines(img, key, which, [tuple(w) for w in words[which]],
+                                            [located] + [words[o] for o in rapid if o != which]))
     if blanks := page_blanks(img, located):
         verdict["blanks"] = len(blanks)
         words = {k: ocr_clues.with_blanks(w, blanks) for k, w in words.items()}
@@ -699,22 +704,30 @@ def read_box(img, key, box, which):
     return got
 
 
-def reread_lines(img, key, which, words, located):
+def reread_lines(img, key, which, words, anchors):
     """`words` (a RapidOCR reader's, read band by band) with each clue line
-    whose number it lost read again alone: where the page's words
-    (`located`) open a line on a clue number and words that this reading
-    has nothing over, the line is cropped from its number to its last word
-    and read by itself. Over a whole band the detector can keep a line's
-    end and drop its start (No 15's "8. A park." read as "park"); alone,
-    it reads it whole."""
+    whose number it lost read again alone: where another reading (each of
+    `anchors`: the page's words, the other RapidOCR readings) opens a line
+    on a clue number and words that this reading has nothing over, the line
+    is cropped from its number to its last word and read by itself. Over a
+    whole band the detector can keep a line's end and drop its start (No
+    15's "8. A park." read as "park") or drop whole lines (No 97's DOWN
+    5-8); alone, it reads it whole."""
     out = list(words)
+    for located in anchors:
+        out = reread_from(img, key, which, out, located)
+    return out
+
+
+def reread_from(img, key, which, out, located):
+    """reread_lines for one anchor reading's words (`located`)."""
     for n in located:
         if not OPENS.match(n[4]):
             continue
         h = n[3] - n[1]
         mid = (n[1] + n[3]) / 2
-        if any(w[0] < n[2] and n[0] < w[2] and w[1] < mid < w[3] for w in out):
-            continue
+        if any(w[0] < n[2] and n[0] < w[2] and w[1] < mid < w[3] and OPENS.match(w[4]) for w in out):
+            continue  # this reading has the number ("DI." for "11." has not)
         row = sorted((w for w in located if abs((w[1] + w[3]) / 2 - mid) < h / 2 and w[0] >= n[0]),
                      key=lambda w: w[0])
         x1 = n[2]
