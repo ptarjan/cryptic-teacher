@@ -642,7 +642,10 @@ sync_wave() {
     return 0
   fi
   local out
-  out=$(sync_tree 2>&1) && return 0
+  if out=$(sync_tree 2>&1); then
+    echo "sync: tree at $(git rev-parse --short HEAD), ${#POOL_RUNS[@]} runs in flight"
+    return 0
+  fi
   # With runs in flight a refusal names a puzzle one of them is writing, and the
   # next sync, after it is committed, gets through. With none, nothing will
   # clear it by itself.
