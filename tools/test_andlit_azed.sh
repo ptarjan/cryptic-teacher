@@ -136,6 +136,12 @@ for name, text in (("ran-together", "Mineral maybeheard in store"), ("ran-togeth
 for name, text in (("split-run", "Mineral stuckinto store"), ("split-run-mirror", "Mineral climbin store")):
     got = A.scan_copy(dict(stored, clues=dict(voted, **{"2-down": [text, "3"]})))
     print(name, A.assemble(1800, got, "u", None, None, "Plain")[1], got["clues"][(2, "down")])
+# The voted count's tail glued to the last word, its bracket lost (No
+# 1769's "centrepiece(10,3words"): put back as the count. A tail whose
+# number is not the voted count stays, and holds.
+for name, text in (("glued-count", "Mineral in(3,2words"), ("glued-count-mirror", "Mineral in(4,2words")):
+    got = A.scan_copy(dict(stored, clues=dict(voted, **{"2-down": [text, "3"]})))
+    print(name, A.assemble(1800, got, "u", None, None, "Plain")[1], got["clues"][(2, "down")])
 print("dropped-g", A.run_together("climbin'"), A.run_together("climbin"))
 
 # A PDF that is one page image goes to the scan reader, not "not text".
@@ -173,6 +179,8 @@ check "an empty or copied clue on a light the grid lacks is dropped" "None" "$(l
 check "a clue of its own on a light the grid lacks holds (mirror)" "clues-differ" "$(line scan-phantom-own)"
 check "two words every reader ran together are spaced and filed" "None Mineral stuck into store (3)" "$(line split-run)"
 check "a dropped g is not split, and holds (mirror)" "ocr-blank " "$(line split-run-mirror)"
+check "a count glued to the last word is put back" "None Mineral in (3, 2 words)" "$(line glued-count)"
+check "a glued tail that is not the voted count holds (mirror)" "ocr-blank " "$(line glued-count-mirror)"
 check "a scan clue with two words run together is held" "ocr-blank" "$(line ran-together)"
 check "a rare lexicon word that is two common ones is held" "ocr-blank" "$(line ran-together-rare)"
 check "a compound is no words run together" "None" "$(line not-ran-together)"

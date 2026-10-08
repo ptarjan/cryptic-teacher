@@ -2696,6 +2696,11 @@ def printed_words(text, theirs, broken=()):
             if key in broken:
                 continue
             n = sum(1 for t in theirs if re.search(rf"\b{head}-{key[len(head):]}\b", t, re.IGNORECASE))
+            # The halves apart round a dash ("in - cosmetician's"): a dash, not a hyphen.
+            apart = sum(1 for t in theirs if re.search(rf"\b{head}\s+[-\u2013\u2014]\s+{key[len(head):]}\b", t, re.IGNORECASE))
+            if apart > n:
+                out = re.sub(rf"\b({head})-({key[len(head):]})\b", r"\1 - \2", out, flags=re.IGNORECASE)
+                continue
             if n >= joined.get(key, 0):
                 out = re.sub(rf"\b({head})({key[len(head):]})\b", r"\1-\2", out, flags=re.IGNORECASE)
     # A word split at a line end, the hyphen read as a mark ("Words, worth"):
