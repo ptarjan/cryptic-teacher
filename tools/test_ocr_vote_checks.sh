@@ -399,6 +399,12 @@ check("a quotation the vote kept shut but not open takes the mark a reading open
 check("none when no reading opens it, or it opens on another word (mirror)", [None, None],
       [oc.reopened("And the —— is heard above the lyre'.", ["And the —— is heard above the lyre'."]),
        oc.reopened("And the —— is heard above the lyre'.", ["'The —— is heard above the lyre'."])])
+check("No 103: a stop left alone before the first word is an elided start, opened there",
+      "rev. '. . . is a monster of so frightful mien'.",
+      oc.reopened("rev. . is a monster of so frightful mien'.", ["rev. is a monster of so frightful mien'."]))
+check("no stop before it, or one ending a word: nothing put back (mirror)", [None, None],
+      [oc.reopened("rev. is a monster of so frightful mien'.", ["rev. is a monster of so frightful mien'."]),
+       oc.reopened("A. B. is a monster of so frightful mien'.", [])])
 check("a quotation parted from the comma before it, and a dash after a colon spaced",
       ["A printer might say, 'Give me a", "Charade: — components I postpone."],
       [oc.clean("A printer might say,'Give me a"), oc.clean("Charade: -components I postpone.")])
