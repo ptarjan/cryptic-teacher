@@ -2194,8 +2194,9 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       const def = registry["hint-next"].children.find((b) => /Where is the definition/.test(b.textContent));
       if (assert(def, `${target.id} ${entryId(e)}: has a definition rung: ${btnNames()}`)) {
         takeRung(def);
-        assert(registry["hint-body"].innerHTML.includes(`<mark class="def">${e.blog.definitions[0].text}</mark>`)
-          || registry["hint-body"].innerHTML.includes(e.blog.definitions[0].text.replace(/&/g, "&amp;")),
+        const shown = CTQuotes.curl(e.blog.definitions[0].text);
+        assert(registry["hint-body"].innerHTML.includes(`<mark class="def">${shown}</mark>`)
+          || registry["hint-body"].innerHTML.includes(shown.replace(/&/g, "&amp;")),
           `${target.id} ${entryId(e)}: the definition rung names the blog's definition`);
         assert(registry["hint-clue"].innerHTML.includes('class="def'),
           `${target.id} ${entryId(e)}: the definition is marked in the clue`);
