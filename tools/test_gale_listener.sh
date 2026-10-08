@@ -189,11 +189,27 @@ check("a line under a short one is no run-on, nor is a footnote",
       ["5. A musical direction for the band to play", "loud", "6. Lenten.",
        "9. A Scottish island off the west coast here", "36. A blood fine paid by a murderer in", "Ireland."],
       [l[4] for l in cols[1]] if cols else None)
-for text, want in [("28.tNot far", "28. \u2020Not far"), ("fA", "\u2020A"), ("28.\u2020Not", "28. \u2020Not"),
+for text, want in [("28.tNot far", "28. \u2020Not far"), ("fA", "\u2020A"), ("29tA town", "29 \u2020A town"), ("29A town", "29 A town"), ("3D film", "3D film"), ("28.\u2020Not", "28. \u2020Not"),
                    ("tRNA", "tRNA"), ("Then", "Then"), ("TA", "TA")]:
     check(f"a footnote's dagger: {text!r}", want, g.figures([(0, 0, 10, 16, text)])[0][4])
 check("a clue opening on a footnote's mark is one clue", (True, True, False),
       (al.sound("*God."), al.sound("\u2020Not far from 13"), al.sound("*one 12 Two")))
+
+# No 97's down list: the numbers of 4-8 lost (one read as a speck whose
+# box spans three lines), as many lines as numbers between 3 and 7 here; No 17's
+# grid numbers beside the list; one line lost between 10 and 13 of two
+# numbers is no clue.
+words = (line("DOWN", 300, 1000) + line("2. Add head and turn about you get here", 100, 1030) + line("3. A riddle", 100, 1060)
+         + [(100, 1085, 112, 1140, "+")] + line("Why did", 160, 1090) + line("In sol", 160, 1120)
+         + line("He rid", 160, 1150) + line("7. Half sort of Scottish guillotine here", 100, 1180) + line("21", 700, 1180)
+         + line("22", 790, 1180) + line("10. Oxen.", 100, 1210) + line("Lost one", 160, 1240)
+         + line("13. Last", 100, 1270)
+         + line("ACROSS", 300, 1400) + line("1. A flying monkey", 100, 1430) + line("2. Spoken here", 100, 1460)
+         + line("3. The sort of name", 100, 1490))
+cols = g.page_columns(g.figures(words))
+check("lost numbers put back when the gap counts them; grid numbers and an uncounted line left out",
+      ["2. Add head and turn about you get here", "3. A riddle", "4. Why did", "5. In sol", "6. He rid",
+       "7. Half sort of Scottish guillotine here", "10. Oxen.", "13. Last"], [l[4] for l in cols[1]] if cols else None)
 
 # A page that prints the clues or the diagram on another page says which.
 check("the pages it sends to, over a line break; a report's page is none",

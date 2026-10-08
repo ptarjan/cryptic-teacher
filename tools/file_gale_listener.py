@@ -227,8 +227,10 @@ def build(reading, rows):
         puzzle["setter"] = reading["setter"]
     puzzle["date"] = reading["date"]
     puzzle["dimensions"] = {"cols": len(rows[0]), "rows": len(rows)}
-    if any(set(r) - {"."} for r in rows):
-        puzzle["bars"] = rows
+    # A block is no light's cell (the entries say so); "bars" holds bars only.
+    bars = [r.replace("#", ".") for r in rows]
+    if any(set(r) - {"."} for r in bars):
+        puzzle["bars"] = bars
     # provenance.stamp() derives the rest of source and solutions on write.
     puzzle["source"] = {"url": reading["source"]["url"], "gridOrigin": "published"}
     puzzle["entries"] = entries

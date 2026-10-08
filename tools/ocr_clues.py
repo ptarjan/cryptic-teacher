@@ -670,6 +670,30 @@ def prints(pairs, low, theirs):
     return hit * 2 > letters
 
 
+def parted(clue, others):
+    """`clue` with a non-word in it that another reading prints as two to
+    four words ("theplant", "favouriteVictorian") parted as they are."""
+    apart = {}
+    for theirs in others:
+        for n in (2, 3, 4):
+            for i in range(len(theirs) - n + 1):
+                ws = theirs[i:i + n]
+                if all(w.isalpha() for w in ws):
+                    apart.setdefault("".join(ws).lower(), [len(w) for w in ws])
+
+    def part(m):
+        w = m.group()
+        sizes = apart.get(w.lower())
+        if not sizes or is_word(w.lower()):
+            return w
+        out, k = [], 0
+        for size in sizes:
+            out.append(w[k:k + size])
+            k += size
+        return " ".join(out)
+    return re.sub(r"[A-Za-z]{4,}", part, clue)
+
+
 def unglued(theirs, low):
     """Another reading's tokens with two to four of this clue's words it
     ran together ("eatsjunkets", "laidyoursoul") parted again."""
@@ -748,6 +772,7 @@ def agree(clue, others, keep_known=False):
         others = [others]
     if not tokens(clue):
         return clue, "no words"
+    clue = parted(clue, others)
     mine, spans = [], []  # spans: each token's (start, text) in the clue
     k = 0
     for t in marked(clue, breaks=True):

@@ -283,6 +283,11 @@ check("a figure every reading sees as a number stays (mirror)", "Map 10 East",
 check("words another reading ran together count as its",
       "She eats junkets.", oc.agree("She eats junkets.", [mark("4 She eatsjunkets. 5 A"),
                                                           mark("2 called this enamelled 3 the name")])[0])
+check("words this reading ran together that another prints apart are parted",
+      "A starch from the roots of the plant.", oc.agree("A starch from the roots of theplant.",
+                                                       [mark("36 A starch from the roots of the plant. 37 Your")])[0])
+check("a dictionary word another reading split stays whole (mirror)",
+      "Somewhere to go.", oc.agree("Somewhere to go.", [mark("4 Some where to go. 5 A"), mark("4 Somewhere to go. 5 A")])[0])
 check("a word no reading prints apart is still lost (mirror)",
       None, oc.agree("She eats junkets.", [mark("4 She junkets. 5 A"), mark("4 She junkets. 5 A")])[0])
 
