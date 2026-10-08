@@ -111,7 +111,12 @@ _memo = {}
 def deletions(root, prefix):
     """{path: [commits that deleted it, newest first]} as seen from root's HEAD."""
     root = str(root)
-    head = _git(root, "rev-parse", "HEAD").stdout.strip()
+    # A root with no HEAD (a copy outside any repository, or one with no
+    # commits) has deleted nothing.
+    rev = _git(root, "rev-parse", "--verify", "-q", "HEAD", check=False)
+    if rev.returncode != 0:
+        return {}
+    head = rev.stdout.strip()
     key = (root, prefix, head)
     if key in _memo:
         return _memo[key]
