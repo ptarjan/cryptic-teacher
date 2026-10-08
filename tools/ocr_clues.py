@@ -1234,6 +1234,12 @@ def agree(clue, others, keep_known=False, families=None, rates=None):
             # A lone letter no other reading has is a speck.
             drop.add(i)
             continue
+        if not got and len(a) <= 2 and is_word(a) and any(
+                seen[i].get(k) == BREAK or (k not in seen[i] and k in extra[i].get(BREAK, set()) | extra[i + 1].get(BREAK, set()))
+                for k in range(len(others))):
+            # A short word another reading reads as a figure in its place
+            # (No 8's worn old-style "a" read "2") is seen by that reading.
+            continue
         if not got and lone_word_fits(a, before, after):
             # A short word only this reading saw ("come to see", the others
             # read "come see"): the corpus's clues decide.
