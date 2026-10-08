@@ -1344,9 +1344,9 @@ def checklist(rows=None, cache=CACHE, unmatched=UNMATCHED, docs=None, status=Non
 #: the tick's own schedule: the pace Paul allowed.
 LOOKUP_EVERY = 180
 #: Each paper's Gale lookups in a tick start within this long of its own
-#: start (the Times' use of its does not shorten the Listener's); the
-#: plugin's 900 s timeout covers both with room.
-GALE_SECONDS = 240
+#: start (the Times' use of its does not shorten the Listener's). Short,
+#: because the next tick's sweep of the download folder waits on them.
+GALE_SECONDS = 60
 LOOKED_UP = MIRROR.parent / "looked_up"
 
 
