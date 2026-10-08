@@ -126,6 +126,26 @@ check("a centred heading's list read from its clue numbers",
       (["1", "7", "10"], ["1", "2", "3"]),
       tuple([l[4].split(".")[0] for l in c] for c in g.page_columns(words) or ([], [])))
 
+check("a DOWN set a little left under ACROSS is still read in its column (mirror)",
+      (["1", "7", "10"], ["1", "2", "3"]),
+      tuple([l[4].split(".")[0] for l in c] for c in g.page_columns(
+          [w if w[4] != "DOWN" else (670, 530, 710, 546, "DOWN") for w in words]) or ([], [])))
+
+# No 4's lists either side of its map: ACROSS centred over two columns at
+# the top right, DOWN under the map in the left column, centred over two
+# columns of its own, an article's prose beside it.
+words = (line("St. Cross", 400, 1320) + line("ACROSS", 1970, 1300)
+         + line("3. Add an E", 1450, 1340) + line("6. A king", 1450, 1370) + line("8. A shame", 1450, 1400)
+         + line("18. Found in England", 2080, 1340) + line("22. An eagle", 2080, 1370)
+         + line("The Scientific Crossword Solution", 1450, 1800)
+         + line("DOWN", 743, 3326) + line("1. Our subject", 220, 3370) + line("2. An Englishman", 220, 3400)
+         + line("4. A family", 220, 3430)
+         + line("20. Add an M", 830, 3370) + line("26. A form", 830, 3400)
+         + line("Writers and readers alike will say", 1450, 3330) + line("that prose is no clue", 1450, 3360))
+check("lists either side of a map, each read from its own heading's column",
+      (["3", "6", "8", "18", "22"], ["1", "2", "4", "20", "26"]),
+      tuple([l[4].split(".")[0] for l in c] for c in g.page_columns(words) or ([], [])))
+
 # Old-style figures read as letters open a clue all the same.
 for text, want in [("I.", "1."), ("II. See 13.", "11. See 13."),
                    ("I3. Garden", "13. Garden"), ("O. Wonder", "O. Wonder"), ("Oo.", "Oo."),

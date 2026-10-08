@@ -622,7 +622,27 @@ def fit(grid, printed):
             (x for b in tries for x in [stray(with_bars(grid["rows"], b), agreed)] if x), None)):
         return {"rows": got[0], "shortest": 2, "agreed": len(agreed), "disagree": [], "moved": [],
                 "exact": True, "stray": list(got[1])}
+    if not out["exact"] and shortest == 2 and (pair := swapped(rows, agreed)):
+        return {**out, "disagree": [], "exact": True, "swap": [list(c) for c in pair]}
     return out
+
+
+def swapped(rows, agreed):
+    """(cell, cell) when the page prints two consecutive lights' start
+    numbers each in the other's cell (No 4 prints 4 left of 3) and every
+    agreed number is the page's once they trade: the filer reads the clue
+    list by the page's numbers. Else None."""
+    st = starts(rows)
+    if len(agreed) < EXACT_COVER * len(st):
+        return None
+    at = {n: c for c, n in st.items()}
+    for c, n in sorted(agreed.items()):
+        if c not in st or abs(st[c] - n) != 1 or (other := at.get(n)) is None:
+            continue
+        page = {**st, c: n, other: st[c]}
+        if all(page.get(cell) == m for cell, m in agreed.items()):
+            return tuple(sorted((c, other)))
+    return None
 
 
 def stray(rows, agreed):

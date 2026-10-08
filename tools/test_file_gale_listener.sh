@@ -242,5 +242,13 @@ check("a stray number's tail is read one back", (set(f.light_ids(STRAY)), None, 
 check("the lights then fit the list", None, f.lights_fit(STRAY, laid))
 laid, _, why = f.unstrayed(fit, {**listed, "6-down": {"text": "a clue at the stray number"}})
 check("a clue numbered at the stray cell refuses it: a misread bar (mirror)", (None, True), (laid, bool(why)))
+# A page printing two numbers each in the other's start (fit "swap", No 4's
+# 3 and 4) numbers its clue list as printed: each clue goes to its light.
+OPEN = ["...", "...", "..."]
+listed = {k: {"text": k} for k in ("1-across", "4-across", "5-across", "1-down", "2-down", "3-down")}
+laid, notes = f.unswapped({"rows": OPEN, "exact": True, "swap": [[0, 1], [0, 2]]}, listed)
+check("a swapped pair's clues trade lights", ("3-down", "2-down", "1-across", ["2-down", "3-down"]),
+      (laid["2-down"]["text"], laid["3-down"]["text"], laid["1-across"]["text"], sorted(notes)))
+check("no swap leaves the list as printed (mirror)", (listed, {}), f.unswapped({"rows": OPEN, "exact": True}, listed))
 sys.exit(1 if fails else 0)
 PY
