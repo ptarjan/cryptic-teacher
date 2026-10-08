@@ -390,6 +390,18 @@ _, laid = al.vote({k: linked_page("20. revels in it.") for k in "abc"}, {}, cols
 check("a clue that opens mid-word is still blank, with no light laid after it (mirror)",
       ("", None), (laid["20-across"][0], laid.get("24-across")))
 
+# No 97's 34D: two readers take its stops for commas ("34 rev, ... kind,"),
+# outvoting "rev." and leaving "kind,."; that is no run-on.
+_, laid = al.vote({"a": linked_page("23 rev. Its rite's of a deceptive kind."),
+                   "b": linked_page("23 rev. Its rite's of a deceptive kind."),
+                   "c": linked_page("23 rev, Its rite's of a deceptive kind,"),
+                   "d": linked_page("23 rev, Its rite's of a deceptive kind,")}, {}, cols=g.page_columns)
+check("a reversed light's stops voted to commas: still its rev. and one end mark",
+      "rev. Its rite's of a deceptive kind.", laid.get("23-across", ("MISSING",))[0])
+_, laid = al.vote({k: linked_page("23. Revel, Its rite's of a deceptive kind.") for k in "abcd"}, {}, cols=g.page_columns)
+check("a word opening on rev is no reversed light's head (mirror)",
+      "Revel, Its rite's of a deceptive kind.", laid.get("23-across", ("MISSING",))[0])
+
 # A page that prints the clues or the diagram on another page says which.
 check("the pages it sends to, over a line break; a report's page is none",
       [675, 885, 1057], g.elsewhere(line("Closing date: Tuesday. Diagram", 100, 100) + line("and rules on page 885.", 100, 120)
