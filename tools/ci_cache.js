@@ -76,7 +76,7 @@ const SMOKE_DEPS = [
     "tools/og_page_card.html", "tools/page_card.py", "tools/parallel.py", "tools/parse_penguin_book.py",
     "tools/prereset_backfill.sh", "tools/provenance.py", "tools/push_puzzle_commit.sh",
     "tools/puzzle_integrity.py", "tools/puzzle_paths.js", "tools/puzzle_paths.py",
-    "tools/puzzle_schema.py", "tools/puzzle_tags.py", "tools/reconstruct_grid.py",
+    "tools/puzzle_schema.py", "tools/puzzle_tags.py", "tools/reconstruct_grid.py", "tools/reprints.py",
     "tools/reindex.js", "tools/scan_crop.py", "tools/scan_queue.py", "tools/series.py",
     "tools/showcase.py", "tools/smoke_test.js", "tools/stamp_assets.py",
     "tools/test_alert_claimed.sh", "tools/test_nightly_worktree.sh",
