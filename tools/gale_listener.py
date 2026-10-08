@@ -81,7 +81,7 @@ YEARS = lp.CACHE / "years"
 #: The Listener magazine's last issue; the puzzle moved to The Times after it.
 FIRST_YEAR, LAST_ISSUE = 1930, datetime.date(1991, 1, 3)
 #: Bumped when the reading changes, so every file is read again.
-VERSION = 11
+VERSION = 12
 PORTAL = gi.PORTAL
 DOC_URL = "https://go.gale.com/ps/retrieve.do?docId=GALE%7C{}&prodId=LSNR&userGroupName=alberta_portal"
 
@@ -612,10 +612,12 @@ def notice_top(rows):
     """The top (y) of the first notice in a column's lines (`rows`,
     fa.merge_rows' (y0, y1, x0, x1, text)), or None: a line with NOTICE's
     words, with the lines just above it at the column's own pitch, the
-    paragraph starting after a gap of over NOTICE_GAP pitches under a clue
-    line (the preamble's "No prizes will be offered" is above the lists)
-    and holding no clue number ("68 Essex Road," has no stop; "12. A
-    prize" is a clue)."""
+    paragraph starting after a gap of over NOTICE_GAP pitches under a
+    list (at least COLUMN_MIN clue lines: the preamble's "No prizes will be
+    offered" is above the lists, as is No 8's "Solutions should be
+    addressed" under a letter's "23, about scientific experiments") and
+    holding no clue number ("68 Essex Road," has no stop; "12. A prize" is
+    a clue)."""
     if len(rows) < 3:
         return None
     steps = sorted(b[0] - a[0] for a, b in itertools.pairwise(rows) if b[0] > a[0])
@@ -628,7 +630,7 @@ def notice_top(rows):
         top = i
         while top and rows[top][0] - rows[top - 1][0] <= NOTICE_GAP * pitch:
             top -= 1
-        if any(OPENS.match(r[4]) for r in rows[:top]) and not any(OPENS.match(r[4]) for r in rows[top:i + 1]):
+        if sum(bool(OPENS.match(r[4])) for r in rows[:top]) >= COLUMN_MIN and not any(OPENS.match(r[4]) for r in rows[top:i + 1]):
             return rows[top][0]
     return None
 

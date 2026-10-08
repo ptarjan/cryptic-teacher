@@ -246,6 +246,34 @@ check("a clue naming a prize, and the preamble's prizes, end nothing (mirror)",
       (["1", "33", "34"], ["1", "2", "35"], "2. A prize for writing."),
       (*(tuple([l[4].split(".")[0] for l in c] for c in cols)), cols[1][1][4]) if cols else None)
 
+# No 8's page: a letter above the puzzle in the first column, one of its
+# lines opening on a date's "23," (a clue number's shape), then the
+# preamble ("Solutions should be addressed"), then ACROSS low in that
+# column. One numbered line is no list for the preamble to be a notice
+# under: the column's clues are read. With the lists above it, the same
+# paragraph still ends them (mirror).
+def no8(lists_above=False):
+    across = line("1. A tiny wild flower.", 100, 1030) + line("9. First three letters.", 100, 1060) \
+        + line("12. A shrub used for perfumes.", 100, 1090)
+    down = line("1. Takes its name from the chessboard.", 600, 1030) + line("2. This King.", 600, 1060) \
+        + line("3. Half of a plant.", 600, 1090)
+    letter = (line("work of equal merit in this view", 100, 600) + line("23, about scientific experiments in", 100, 630)
+              + line("vinced that they are not a waste", 100, 660))
+    preamble = (line("This week we are offering a copy", 100, 760)
+                + line("Solutions should be addressed to The Editor", 100, 790))
+    heads = [(300, 1000, 400, 1016, "ACROSS"), (800, 1000, 880, 1016, "DOWN")]
+    if lists_above:
+        return heads + across + down + line("Solutions should be addressed to The Editor", 100, 1140) \
+            + line("of the Listener at Savoy Hill", 100, 1170)
+    return letter + preamble + heads + across + down
+for what, page, want in (("a letter's \"23,\" over the preamble cuts nothing", no8(), ["1", "9", "12"]),
+                         ("the same paragraph under the lists ends them (mirror)", no8(True), ["1", "9", "12"])):
+    cols = g.page_columns(g.figures(page))
+    check(f"No 8: {what}", (want, ["1", "2", "3"]),
+          tuple([l[4].split(".")[0] for l in c] for c in cols) if cols else None)
+check("No 8: a notice under one prose line opening \"23,\" is no notice under a list", None,
+      g.notice_top(al.fa.merge_rows([(w[1], w[3], w[0], w[2], w[4]) for w in no8() if w[0] < 500])))
+
 # No 3's page: ACROSS and DOWN low on the left under the grid, both lists
 # running on at the top of the right half. The headings give only the
 # first band; the clue numbers give all of it, so they are taken. Without
