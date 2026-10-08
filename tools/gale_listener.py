@@ -556,6 +556,10 @@ GLUED = re.compile(r"^(\W{0,2}\d{1,2}[.,:])(?=[A-Za-z*\u2020\u2021'\"\u2018\u201
 DAGGER = re.compile(r"^(\W{0,2}\d{1,2}[.,:]? ?)?[tf\u2020](?=[A-Z](?:[a-z]|\s|$))")
 
 
+#: A clue number glued to "rev." (and to a linked light's number).
+REV_GLUED = re.compile(r"^(\W{0,2}\d{1,2})\s*rev\.\s*(?:,\s*(\d{1,2})\.)?\s*")
+
+
 def figures(words):
     """The words with a line's opening clue number read as letters put back
     in digits (a number cannot open on 0, so "O." and "Oo." stay words),
@@ -578,6 +582,10 @@ def figures(words):
         n = m and m.group(2).translate(AS_DIGIT)
         if m and n.isdigit() and n[0] != "0" and not m.group(2).isdigit():
             w = (*w[:4], m.group(1) + n + m.group(3) + w[4][m.end():])
+        # A reversed light's number run into "rev." and its linked light's
+        # ("20rev.,24.Charade:" for "20 rev., 24. Charade:").
+        w = (*w[:4], REV_GLUED.sub(lambda m: f"{m.group(1)} rev." + (f", {m.group(2)}." if m.group(2) else "") + " ",
+                                   w[4]).rstrip())
         w = (*w[:4], DAGGER.sub(lambda m: (m.group(1) or "").rstrip() + (" " if m.group(1) else "") + "\u2020",
                                 GLUED.sub(lambda m: (m.group(1) or m.group(2)) + " ", w[4])))
         out.append(w)
