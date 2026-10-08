@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,43 @@
     "text": "Dismiss employee taking money?",
     "enumeration": "7"
    },
-   "solution": "CASHIER"
+   "solution": "CASHIER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CASHIER",
+    "definitions": [
+     {
+      "text": "Dismiss",
+      "at": 0
+     },
+     {
+      "text": "employee taking money",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dismiss",
+      "note": "first meaning: to discharge someone in disgrace, especially from the armed forces"
+     },
+     {
+      "clueFragment": "employee taking money",
+      "note": "second meaning: the person at a bank or shop counter who handles payments"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark hints that one word serves two unrelated senses: a verb of dismissal and a noun for a till worker.",
+     "definitionFit": "To cashier an officer is to sack them, and a cashier is the staff member who receives payments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dismiss"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +85,39 @@
     "text": "Repairman found at last?",
     "enumeration": "7"
    },
-   "solution": "COBBLER"
+   "solution": "COBBLER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "COBBLER",
+    "definitions": [
+     {
+      "text": "Repairman found at last?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Repairman found at last?",
+      "note": "surface reading: a tradesman who has finally been tracked down"
+     },
+     {
+      "clueFragment": "at last",
+      "note": "setter's reading: a last is the foot-shaped block on which shoes are mended, so this repairer works at one"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'At last' reads as finally, but a last is a shoemaker's form, so the repairman is a mender of shoes.",
+     "definitionFit": "A cobbler repairs shoes, shaping them over a wooden or iron foot-shaped form."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "last"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +131,51 @@
     "text": "Squabble and spank being disciplined",
     "enumeration": "7"
    },
-   "solution": "SPARTAN"
+   "solution": "SPARTAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPARTAN",
+    "definitions": [
+     {
+      "text": "disciplined",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "and",
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Squabble",
+      "gives": "SPAR",
+      "note": "to spar is to argue"
+     },
+     {
+      "clueFragment": "spank",
+      "gives": "TAN",
+      "note": "to tan someone's hide is to give them a beating"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPAR",
+      "TAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A child fights and gets smacked as punishment.",
+     "walkthrough": "'Disciplined' tempts as the punishment in the scene, but it is the adjective meaning austere and strict.",
+     "definitionFit": "Spartan means austere and rigorously self-controlled, after the strict regime of ancient Sparta."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "disciplined"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +189,56 @@
     "text": "Individual doing little except relax initially",
     "enumeration": "5"
    },
-   "solution": "IDLER"
+   "solution": "IDLER",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "IDLER",
+    "definitions": [
+     {
+      "text": "Individual doing little except relax initially",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening of each word, so only first letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Individual",
+      "gives": "I",
+      "note": "I is the Roman numeral one, an individual"
+     },
+     {
+      "clueFragment": "doing little except relax",
+      "gives": "DLER",
+      "select": "first",
+      "note": "the first letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "DLER"
+     ]
+    },
+    "explanation": {
+     "surface": "A person who does very little apart from lounging around.",
+     "walkthrough": "The whole clue is both the wordplay and a description of the answer.",
+     "definitionFit": "An idler is a lazy person who passes time without working, doing little but relaxing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +252,58 @@
     "text": "To get flexible tries line dancing",
     "enumeration": "9"
    },
-   "solution": "RESILIENT"
+   "solution": "RESILIENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RESILIENT",
+    "definitions": [
+     {
+      "text": "flexible",
+      "at": 7
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dancing",
+      "for": "anagram",
+      "note": "dancers move about and change places, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "To get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tries",
+      "gives": "TRIES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "LINE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRIESLINE",
+       "gives": "RESILIENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone attempts line dancing to become more supple.",
+     "definitionFit": "Something resilient springs back into shape, the pliant quality of a flexible material."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +317,63 @@
     "text": "Passed sweetheart drinks, occasionally heady",
     "enumeration": "7"
    },
-   "solution": "ELAPSED"
+   "solution": "ELAPSED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ELAPSED",
+    "definitions": [
+     {
+      "text": "Passed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "something done only now and then skips in between, so every other letter of the next word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sweetheart",
+      "gives": "E",
+      "select": "middle",
+      "note": "the heart of the word sweet is its central letter"
+     },
+     {
+      "clueFragment": "drinks",
+      "gives": "LAPS",
+      "note": "a cat laps, or drinks, its milk"
+     },
+     {
+      "clueFragment": "heady",
+      "gives": "ED",
+      "select": "alternate",
+      "note": "the second and fourth letters of heady"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LAPS",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone handed their beloved some strong drinks.",
+     "walkthrough": "'Sweetheart' looks like a lover but supplies only the middle of sweet.",
+     "definitionFit": "Time that has elapsed has gone by, the intransitive sense of passed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sweetheart"
+    }
+   }
   },
   {
    "number": 5,
@@ -116,7 +387,64 @@
     "text": "Vacant European politician with hollow travesty",
     "enumeration": "5"
    },
-   "solution": "EMPTY"
+   "solution": "EMPTY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EMPTY",
+    "definitions": [
+     {
+      "text": "Vacant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hollow",
+      "for": "letter_selection",
+      "note": "a hollow thing has its inside removed, so only the outer letters stay"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "an MP is a Member of Parliament"
+     },
+     {
+      "clueFragment": "travesty",
+      "gives": "TY",
+      "select": "outer",
+      "note": "the first and last letters of travesty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MP",
+      "TY"
+     ]
+    },
+    "explanation": {
+     "surface": "A blank-faced Euro-politician presides over a sham.",
+     "definitionFit": "Empty and vacant both describe a space or seat with nothing in it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hollow"
+    }
+   }
   },
   {
    "number": 6,
@@ -130,7 +458,44 @@
     "text": "Lass is tantalisingly holding accessory",
     "enumeration": "9"
    },
-   "solution": "ASSISTANT"
+   "solution": "ASSISTANT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ASSISTANT",
+    "definitions": [
+     {
+      "text": "accessory",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "hidden_word",
+      "note": "the words hold the answer inside them, so it is found across their letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lass is tantalisingly",
+      "gives": "ASSISTANT",
+      "note": "a run of consecutive letters spanning the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A girl teasingly clutches a fashion item.",
+     "walkthrough": "'Accessory' suggests a handbag or scarf, but it is the legal sense of an accomplice.",
+     "definitionFit": "An accessory to a crime is a helper, someone who aids the main offender."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "accessory"
+    }
+   }
   },
   {
    "number": 7,
@@ -144,7 +509,51 @@
     "text": "Affair with that woman? Absolutely",
     "enumeration": "7"
    },
-   "solution": "SHEBANG"
+   "solution": "SHEBANG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHEBANG",
+    "definitions": [
+     {
+      "text": "Affair",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that woman",
+      "gives": "SHE",
+      "note": "she is the pronoun for that woman"
+     },
+     {
+      "clueFragment": "Absolutely",
+      "gives": "BANG",
+      "note": "bang means exactly, as in bang on time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHE",
+      "BANG"
+     ]
+    },
+    "explanation": {
+     "surface": "Was there an affair with her? Definitely.",
+     "walkthrough": "'Affair' suggests romance, but here it means a whole business, as in 'the whole shebang'.",
+     "definitionFit": "A shebang is an informal word for a matter or business, used in 'the whole shebang'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Affair"
+    }
+   }
   },
   {
    "number": 8,
@@ -158,7 +567,51 @@
     "text": "Detectives are liable for stretch",
     "enumeration": "7"
    },
-   "solution": "DISTEND"
+   "solution": "DISTEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISTEND",
+    "definitions": [
+     {
+      "text": "stretch",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Detectives",
+      "gives": "DIS",
+      "note": "DIs are Detective Inspectors"
+     },
+     {
+      "clueFragment": "are liable",
+      "gives": "TEND",
+      "note": "people who tend to do something are liable to do it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "TEND"
+     ]
+    },
+    "explanation": {
+     "surface": "Police officers who may face a prison sentence.",
+     "walkthrough": "'Stretch' looks like slang for a prison term, but it is the verb meaning swell.",
+     "definitionFit": "To distend is to swell or expand outward under pressure, a kind of stretching."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stretch"
+    }
+   }
   },
   {
    "number": 9,
@@ -172,7 +625,58 @@
     "text": "Dogs start to bark facing birds",
     "enumeration": "7"
    },
-   "solution": "BEAGLES"
+   "solution": "BEAGLES",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BEAGLES",
+    "definitions": [
+     {
+      "text": "Dogs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only that is kept"
+     }
+    ],
+    "linkWords": [
+     "facing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bark",
+      "gives": "B",
+      "select": "first",
+      "note": "the opening letter of bark"
+     },
+     {
+      "clueFragment": "birds",
+      "gives": "EAGLES",
+      "note": "eagles are large birds of prey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "EAGLES"
+     ]
+    },
+    "explanation": {
+     "surface": "Hounds begin barking when confronted by birds.",
+     "definitionFit": "Beagles are a breed of small scent hound, so the plural fits the plural dogs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "facing"
+    }
+   }
   },
   {
    "number": 10,
@@ -186,7 +690,59 @@
     "text": "Looks around street for hounds",
     "enumeration": "7"
    },
-   "solution": "PESTERS"
+   "solution": "PESTERS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PESTERS",
+    "definitions": [
+     {
+      "text": "hounds",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "one thing placed around another encloses it, so the first word wraps the second"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Looks",
+      "gives": "PEERS",
+      "note": "to peer is to look closely"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "St is the standard abbreviation for street"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "ST",
+      "ERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone glances about the road for some dogs.",
+     "walkthrough": "'Hounds' is a verb here, not the dogs the surface suggests.",
+     "definitionFit": "To hound someone is to harass them persistently, which is what one who pesters does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hounds"
+    }
+   }
   },
   {
    "number": 11,
@@ -200,7 +756,53 @@
     "text": "Get better following diet strictly",
     "enumeration": "9"
    },
-   "solution": "LITERALLY"
+   "solution": "LITERALLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LITERALLY",
+    "definitions": [
+     {
+      "text": "strictly",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "coming after something means this piece is written second, behind the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "diet",
+      "gives": "LITE",
+      "note": "lite describes a reduced-calorie diet version of a food"
+     },
+     {
+      "clueFragment": "Get better",
+      "gives": "RALLY",
+      "note": "a patient who rallies recovers strength"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LITE",
+      "RALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to recover by keeping to a diet.",
+     "definitionFit": "Taking words literally means reading them in their strict, exact sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "diet"
+    }
+   }
   },
   {
    "number": 12,
@@ -214,7 +816,43 @@
     "text": "Fish go on ice?",
     "enumeration": "5"
    },
-   "solution": "SKATE"
+   "solution": "SKATE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SKATE",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     },
+     {
+      "text": "go on ice",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fish",
+      "note": "first meaning: a flat sea fish related to the ray"
+     },
+     {
+      "clueFragment": "go on ice",
+      "note": "second meaning: to glide on blades over a frozen surface"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read as one phrase it sounds like an order to chill the catch; the question mark warns the words split into two meanings.",
+     "definitionFit": "The noun names a ray-like flatfish, and the verb is to glide on blades across a frozen rink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ice"
+    }
+   }
   },
   {
    "number": 13,
@@ -228,7 +866,65 @@
     "text": "Celeb taking note about tirades",
     "enumeration": "5"
    },
-   "solution": "RANTS"
+   "solution": "RANTS",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "RANTS",
+    "definitions": [
+     {
+      "text": "tirades",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "the first word takes in the second, holding it inside"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turned about means facing the other way, so the combined letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Celeb",
+      "gives": "STAR",
+      "note": "a celebrity is a star"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "N",
+      "note": "N is the abbreviation for note"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RANTS"
+     ],
+     "reversals": [
+      {
+       "from": "STNAR",
+       "to": "RANTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A famous person jots something down regarding outbursts.",
+     "walkthrough": "N sits inside STAR to make STNAR, and the whole reads backwards as RANTS.",
+     "definitionFit": "Rants and tirades are both long angry speeches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "taking"
+    }
+   }
   },
   {
    "number": 14,
@@ -242,7 +938,69 @@
     "text": "Small Conservative deceit concealing new plot",
     "enumeration": "9"
    },
-   "solution": "STORYLINE"
+   "solution": "STORYLINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "STORYLINE",
+    "definitions": [
+     {
+      "text": "plot",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "concealing",
+      "for": "container",
+      "note": "something concealed is hidden inside another thing, so one piece wraps the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "TORY",
+      "note": "a Tory is a member of the UK Conservative Party"
+     },
+     {
+      "clueFragment": "deceit",
+      "gives": "LIE",
+      "note": "a lie is a deceit"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TORY",
+      "LI",
+      "N",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A minor political lie hides a fresh scheme.",
+     "walkthrough": "'Plot' could be a conspiracy fitting the political surface, but here it is the plot of a story.",
+     "definitionFit": "The plot of a novel or film is its storyline, the sequence of events it tells."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "plot"
+    }
+   }
   },
   {
    "number": 15,
@@ -256,7 +1014,59 @@
     "text": "Being divorced ends with great upset",
     "enumeration": "9"
    },
-   "solution": "ESTRANGED"
+   "solution": "ESTRANGED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ESTRANGED",
+    "definitions": [
+     {
+      "text": "Being divorced",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "something upset is knocked over and disordered, so these letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ends",
+      "gives": "ENDS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "great",
+      "gives": "GREAT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ENDSGREAT",
+       "gives": "ESTRANGED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A divorce concludes in great distress.",
+     "walkthrough": "'Being divorced' is adjectival here: estranged describes the condition of a separated spouse.",
+     "definitionFit": "An estranged couple are separated and alienated, the state of a marriage being dissolved."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ends"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,10 +1077,66 @@
    },
    "length": 9,
    "clue": {
-    "text": "Sensational tweeting about hashtag’s opening",
+    "text": "Sensational tweeting about hashtag's opening",
     "enumeration": "9"
    },
-   "solution": "THRILLING"
+   "solution": "THRILLING",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "THRILLING",
+    "definitions": [
+     {
+      "text": "Sensational",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one thing about another goes round it, so the first word encloses the next"
+     },
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "the opening of a word is its first letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tweeting",
+      "gives": "TRILLING",
+      "note": "a bird tweeting is singing, or trilling"
+     },
+     {
+      "clueFragment": "hashtag's",
+      "gives": "H",
+      "select": "first",
+      "note": "the first letter of hashtag"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "H",
+      "RILLING"
+     ]
+    },
+    "explanation": {
+     "surface": "A sensational social media post about a trending tag.",
+     "walkthrough": "'Tweeting' and 'hashtag' point to social media, but tweeting is birdsong; H goes in after the T.",
+     "definitionFit": "Something thrilling is exciting and stirring, the sense of sensational meaning spectacular."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tweeting"
+    }
+   }
   },
   {
    "number": 17,
@@ -284,7 +1150,55 @@
     "text": "Top copper arresting booze fan",
     "enumeration": "9"
    },
-   "solution": "SUPPORTER"
+   "solution": "SUPPORTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SUPPORTER",
+    "definitions": [
+     {
+      "text": "fan",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arresting",
+      "for": "container",
+      "note": "a police officer arresting someone takes them into custody, so the first word holds the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Top copper",
+      "gives": "SUPER",
+      "note": "a super is a police superintendent, a senior officer"
+     },
+     {
+      "clueFragment": "booze",
+      "gives": "PORT",
+      "note": "port is a fortified wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUP",
+      "PORT",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A senior police officer detains a drinker.",
+     "walkthrough": "'Fan' is the definition, not a cooling device; the copper's rank is the British superintendent.",
+     "definitionFit": "A fan of a team is one of its supporters, a follower who backs it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fan"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,10 +1209,60 @@
    },
    "length": 7,
    "clue": {
-    "text": "Wooden ship’s prow heeled over",
+    "text": "Wooden ship's prow heeled over",
     "enumeration": "7"
    },
-   "solution": "STILTED"
+   "solution": "STILTED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "STILTED",
+    "definitions": [
+     {
+      "text": "Wooden",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prow",
+      "for": "letter_selection",
+      "note": "a prow is the front of a vessel, so only the first letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ship's",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of ship"
+     },
+     {
+      "clueFragment": "heeled over",
+      "gives": "TILTED",
+      "note": "a ship that heels over tilts to one side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TILTED"
+     ]
+    },
+    "explanation": {
+     "surface": "A timber vessel's bow leaning to one side.",
+     "walkthrough": "'Wooden' suggests timber, but it means stiff in manner.",
+     "definitionFit": "A wooden performance is stiff and awkward, which is what stilted speech or acting is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Wooden"
+    }
+   }
   },
   {
    "number": 18,
@@ -312,7 +1276,44 @@
     "text": "Reported predictors of future benefits",
     "enumeration": "7"
    },
-   "solution": "PROFITS"
+   "solution": "PROFITS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PROFITS",
+    "definitions": [
+     {
+      "text": "benefits",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reported",
+      "for": "homophone",
+      "note": "something reported is spoken out, so the sound of the word matters, not its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "predictors of future",
+      "gives": "PROFITS",
+      "soundsLike": "PROPHETS",
+      "note": "prophets foretell what is to come"
+     }
+    ],
+    "explanation": {
+     "surface": "News that fortune-tellers gain from their work.",
+     "definitionFit": "Profits are gains or advantages, and benefits are the advantages one gets from something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "predictors"
+    }
+   }
   },
   {
    "number": 19,
@@ -326,7 +1327,48 @@
     "text": "Weeping heard leading to rows",
     "enumeration": "5"
    },
-   "solution": "TIERS"
+   "solution": "TIERS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TIERS",
+    "definitions": [
+     {
+      "text": "rows",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heard",
+      "for": "homophone",
+      "note": "something heard reaches us by ear, so what counts is how the word is spoken"
+     }
+    ],
+    "linkWords": [
+     "leading to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Weeping",
+      "gives": "TIERS",
+      "soundsLike": "TEARS",
+      "note": "weeping produces tears"
+     }
+    ],
+    "explanation": {
+     "surface": "Crying that was overheard ends in quarrels.",
+     "walkthrough": "'Rows' tempts you to read it as arguments, but it means lines or levels.",
+     "definitionFit": "Tiers are layers or ranks arranged one above another, like rows of seats."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rows"
+    }
+   }
   },
   {
    "number": 20,
@@ -340,7 +1382,56 @@
     "text": "English Literature First for snob",
     "enumeration": "7"
    },
-   "solution": "ELITIST"
+   "solution": "ELITIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELITIST",
+    "definitions": [
+     {
+      "text": "snob",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "Literature",
+      "gives": "LIT",
+      "note": "Lit is the short form of literature"
+     },
+     {
+      "clueFragment": "First",
+      "gives": "IST",
+      "note": "1st is the abbreviation for first, with the numeral 1 read as the letter I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LIT",
+      "IST"
+     ]
+    },
+    "explanation": {
+     "surface": "A top degree in English Literature suits a superior type.",
+     "walkthrough": "A First is the top grade of a British university degree, so 'English Literature First' reads as a qualification.",
+     "definitionFit": "An elitist believes a select group is superior, the outlook of a snob who looks down on others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "First"
+    }
+   }
   },
   {
    "number": 21,
@@ -354,7 +1445,55 @@
     "text": "Devout following catching Queen",
     "enumeration": "7"
    },
-   "solution": "SINCERE"
+   "solution": "SINCERE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SINCERE",
+    "definitions": [
+     {
+      "text": "Devout",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "catching",
+      "for": "container",
+      "note": "something caught is held fast inside, so the first word encloses the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "following",
+      "gives": "SINCE",
+      "note": "since means after or following, as in since the war"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SINC",
+      "ER",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A pious believer who follows the monarch.",
+     "walkthrough": "ER, Elizabeth Regina, is the crossword's usual Queen; 'following' is the time sense, as in ever after.",
+     "definitionFit": "Sincere means genuinely and earnestly felt, as devout wishes or devout hopes are."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "following"
+    }
+   }
   },
   {
    "number": 22,
@@ -368,7 +1507,59 @@
     "text": "Press beginning to yearn for sarcasm",
     "enumeration": "5"
    },
-   "solution": "IRONY"
+   "solution": "IRONY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "IRONY",
+    "definitions": [
+     {
+      "text": "sarcasm",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter, so only that is kept"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Press",
+      "gives": "IRON",
+      "note": "to iron clothes is to press them"
+     },
+     {
+      "clueFragment": "yearn",
+      "gives": "Y",
+      "select": "first",
+      "note": "the first letter of yearn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRON",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "The newspapers are starting to long for mockery.",
+     "walkthrough": "'Press' looks like the newspapers but is the verb for smoothing clothes.",
+     "definitionFit": "Irony is mocking speech saying the opposite of what is meant, close kin to sarcasm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Press"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,10 +1570,62 @@
    },
    "length": 9,
    "clue": {
-    "text": "It’s so valiant mobilising rescue",
+    "text": "It's so valiant mobilising rescue",
     "enumeration": "9"
    },
-   "solution": "SALVATION"
+   "solution": "SALVATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SALVATION",
+    "definitions": [
+     {
+      "text": "rescue",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mobilising",
+      "for": "anagram",
+      "note": "mobilising sets troops moving into new positions, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "so",
+      "gives": "SO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "valiant",
+      "gives": "VALIANT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SOVALIANT",
+       "gives": "SALVATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Calling up such brave forces is a rescue mission.",
+     "walkthrough": "'It’s' looks like fodder but only links; the nine letters of 'so valiant' are the anagram.",
+     "definitionFit": "Salvation is deliverance from danger or harm, which is what a rescue provides."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mobilising"
+    }
+   }
   },
   {
    "number": 23,
@@ -396,7 +1639,63 @@
     "text": "Crack opening round top of pants",
     "enumeration": "5"
    },
-   "solution": "SPLIT"
+   "solution": "SPLIT",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "SPLIT",
+    "definitions": [
+     {
+      "text": "Crack",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "something going round another encloses it, so the first word wraps the letter"
+     },
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a word in a down clue is its first letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "opening",
+      "gives": "SLIT",
+      "note": "a slit is a narrow opening"
+     },
+     {
+      "clueFragment": "pants",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of pants"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "LIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A tear appears in the seat of someone's trousers.",
+     "walkthrough": "P goes inside SLIT after the S.",
+     "definitionFit": "A split is a crack or fissure, a break running along a surface."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "pants"
+    }
+   }
   },
   {
    "number": 24,
@@ -410,7 +1709,74 @@
     "text": "Oscar interrupts a flipping weird romance",
     "enumeration": "5"
    },
-   "solution": "AMOUR"
+   "solution": "AMOUR",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "AMOUR",
+    "definitions": [
+     {
+      "text": "romance",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupts",
+      "for": "container",
+      "note": "something that interrupts breaks into the middle of another, so it sits inside it"
+     },
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "flipping something turns it over, so the next word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "weird",
+      "gives": "RUM",
+      "note": "rum is British slang for odd or strange"
+     },
+     {
+      "clueFragment": "Oscar",
+      "gives": "O",
+      "note": "Oscar is O in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "M",
+      "O",
+      "UR"
+     ],
+     "reversals": [
+      {
+       "from": "RUOM",
+       "to": "MOUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Academy Award winner breaks up a strange love affair.",
+     "walkthrough": "RUM reversed gives MUR, and O goes in after the M.",
+     "definitionFit": "An amour is a love affair, borrowed from French, matching romance in its sense of a relationship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Oscar"
+    }
+   }
   },
   {
    "number": 25,
@@ -424,7 +1790,55 @@
     "text": "Minor test with intravenous injection?",
     "enumeration": "7"
    },
-   "solution": "TRIVIAL"
+   "solution": "TRIVIAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRIVIAL",
+    "definitions": [
+     {
+      "text": "Minor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with",
+      "for": "container",
+      "note": "a test given with an injection has that dose put into it, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "test",
+      "gives": "TRIAL",
+      "note": "a trial is a test"
+     },
+     {
+      "clueFragment": "intravenous injection",
+      "gives": "IV",
+      "note": "IV is the medical abbreviation for intravenous; injection says it is put in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "IV",
+      "IAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A small drug trial using a drip.",
+     "walkthrough": "'Injection' does double duty: it names the medical setting and tells you the abbreviation is put inside.",
+     "definitionFit": "Something trivial is of small importance, just as a minor matter is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "test"
+    }
+   }
   },
   {
    "number": 26,
@@ -438,7 +1852,67 @@
     "text": "Love single measure swallowing large one",
     "enumeration": "7"
    },
-   "solution": "IDOLISE"
+   "solution": "IDOLISE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IDOLISE",
+    "definitions": [
+     {
+      "text": "Love",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallowing",
+      "for": "container",
+      "note": "what is swallowed ends up inside, so the measure word wraps the following pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "single",
+      "gives": "I",
+      "note": "I is the Roman numeral one, a single"
+     },
+     {
+      "clueFragment": "measure",
+      "gives": "DOSE",
+      "note": "a dose is a measured amount of medicine"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "DO",
+      "L",
+      "I",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone loves a solo drink that contains a big one.",
+     "walkthrough": "Both 'single' and 'one' give the Roman numeral I, one at the front and one swallowed with the large L.",
+     "definitionFit": "To idolise someone is to adore them excessively, a strong form of loving."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "measure"
+    }
+   }
   },
   {
    "number": 27,
@@ -452,7 +1926,53 @@
     "text": "Fool possibly from south in wasteland",
     "enumeration": "7"
    },
-   "solution": "DESSERT"
+   "solution": "DESSERT",
+   "annotation": {
+    "type": [
+     "double_definition",
+     "container"
+    ],
+    "answer": "DESSERT",
+    "definitions": [
+     {
+      "text": "Fool possibly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing being in another places it inside, so the letter sits within the wasteland word"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "south",
+      "gives": "S",
+      "note": "S is the compass abbreviation for south"
+     },
+     {
+      "clueFragment": "wasteland",
+      "gives": "DESERT",
+      "note": "a desert is an arid, barren wasteland"
+     }
+    ],
+    "explanation": {
+     "surface": "An idiot who perhaps came from the south and is lost in the desert.",
+     "walkthrough": "A fool is a British pudding of fruit folded into cream; 'possibly' marks it as one example.",
+     "definitionFit": "Fool is a kind of dessert, a chilled sweet course, so it is an example rather than a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fool"
+    }
+   }
   },
   {
    "number": 28,
@@ -466,7 +1986,49 @@
     "text": "Strangle some abettor a gang rejected",
     "enumeration": "7"
    },
-   "solution": "GAROTTE"
+   "solution": "GAROTTE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "GAROTTE",
+    "definitions": [
+     {
+      "text": "Strangle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some of a phrase is only part of it, so the letters lie within these words"
+     },
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the letters are read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "abettor a gang",
+      "gives": "ETTORAG",
+      "note": "a run of consecutive letters spanning the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "An accomplice that a criminal gang turned away commits murder.",
+     "walkthrough": "Reading 'abettor a gang' backwards gives gnagarottebba, with the answer in the middle.",
+     "definitionFit": "A garotte is a wire or cord used to strangle, and the word is also the verb for killing that way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rejected"
+    }
+   }
   }
  ]
 }
