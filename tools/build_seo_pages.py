@@ -77,6 +77,7 @@ import clue_types  # noqa: E402 — the one list of clue types, their labels and
 import difficulty  # noqa: E402 — the weights, bands and constants /difficulty/ quotes
 import difficulty_check  # noqa: E402 — the held-out scorecard /difficulty/ quotes
 import provenance  # noqa: E402 — solution_detail(), source_url()
+import quotes  # noqa: E402 — curl(): clue text is stored straight, shown curled
 import series as series_meta  # noqa: E402 — what each series IS; see tools/series.py
 import showcase  # noqa: E402 — which puzzles /showcase/ picks, and why
 from fetch_puzzle import (  # noqa: E402 — one glob, one reader for every tool
@@ -125,8 +126,13 @@ def asset(rel):
 # italics are code-point ranges beside it (clue.italics [{at, length}]), so the
 # page escapes the text and wraps exactly those ranges in <i>, the way app.js's
 # markUp does.
+def cesc(s):
+    """esc() for words taken from a clue: stored straight, shown curled."""
+    return esc(quotes.curl(s or ""))
+
+
 def clue_html_text(clue):
-    text = clue.get("text", "")
+    text = quotes.curl(clue.get("text", ""))   # one for one, so italics offsets hold
     cuts = sorted({0, len(text)} | {p for r in clue.get("italics", ())
                                    for p in (r["at"], r["at"] + r["length"])
                                    if 0 <= p <= len(text)})
@@ -435,7 +441,7 @@ def clue_html(e, blog_note=True):
         kind = clue_types.labels(ann.get("type"))
         # The type is a word from the lesson ("charade", "container"), so its
         # label is the way to the lesson that defines it.
-        dfns = " and ".join(f'<dfn>{esc(d["text"])}</dfn>' for d in ann["definitions"])
+        dfns = " and ".join(f'<dfn>{cesc(d["text"])}</dfn>' for d in ann["definitions"])
         bits.append(f'<p>Definition: {dfns}'
                     + (' <span class="s-note">worked out from the letters</span>' if "definitions" in inferred else "")
                     + (f' · <span class="s-type"><a href="{BASE}/learn/">Clue type</a>: '
@@ -450,7 +456,7 @@ def clue_html(e, blog_note=True):
     blocks = ann.get("blocks") or []
     if blocks:
         rows = "".join(
-            f"<li><mark>{esc(b.get('clueFragment'))}</mark> "
+            f"<li><mark>{cesc(b.get('clueFragment'))}</mark> "
             + (f"→ {esc(b['soundsLike'])} said aloud " if b.get("soundsLike") else "")
             + f"→ <strong>{esc(b.get('gives'))}</strong>"
             + (f" <span class=\"s-note\">{esc(b.get('note'))}</span>" if b.get("note") else "")
@@ -461,13 +467,13 @@ def clue_html(e, blog_note=True):
     # Skip any indicator without a written note rather than print an empty one.
     noted = [i for i in ann.get("indicators") or () if i.get("note")]
     if noted:
-        rows = "".join(f'<li><mark>{esc(i["text"])}</mark> — {esc(i["note"])}</li>' for i in noted)
+        rows = "".join(f'<li><mark>{cesc(i["text"])}</mark> — {esc(i["note"])}</li>' for i in noted)
         bits.append(f'<p><em>Indicators:</em></p><ul>{rows}</ul>')
     # A blog's marked indicators carry no note of their own; the app lists them
     # bare too.
     if ann.get("fromBlog") and ann.get("indicators"):
         bits.append('<p><em>Indicators:</em> '
-                    + build_abbreviations.LIST_SEP.join(f'<mark>{esc(i["text"])}</mark>' for i in ann["indicators"])
+                    + build_abbreviations.LIST_SEP.join(f'<mark>{cesc(i["text"])}</mark>' for i in ann["indicators"])
                     + (' <span class="s-note">worked out from the letters</span>' if "indicators" in inferred else "")
                     + "</p>")
     if ann.get("fromBlog"):

@@ -2,49 +2,39 @@
 
      node tools/test_quotes.js
 
-   1. quotes.js's curl, case by case: apostrophes, opening and closing quotes,
+   1. quotes.js's curl, and tools/quotes.py's, over one table of cases
+      (tools/quotes_cases.json), case by case: apostrophes, opening and closing quotes,
       leading elisions, and one character for one so offsets survive.
    2. The page: a clue stored with straight quotes shows curled ones, in the
       clue list and in the clue being solved. */
 "use strict";
+const fs = require("fs");
+const path = require("path");
+const { execFileSync } = require("child_process");
 const { curl } = require("../quotes.js");
 
 let failures = 0;
 const check = (ok, msg) => { console.log((ok ? "ok   " : "FAIL ") + msg); if (!ok) failures++; };
 
-const CASES = [
-  ["Man's familiar name", "Man’s familiar name"],
-  ["Dogs' home", "Dogs’ home"],
-  ["'Hello,' she said", "‘Hello,’ she said"],
-  ["He said \"stop\" twice", "He said “stop” twice"],
-  ["\"Stop!\"", "“Stop!”"],
-  ["Run ('quickly')", "Run (‘quickly’)"],
-  ["Out—'now'", "Out—‘now’"],
-  ["\"'Tis said\"", "“’Tis said”"],
-  ["'Tis the season", "’Tis the season"],
-  ["Give 'em hell", "Give ’em hell"],
-  ["Rock 'n' roll", "Rock ’n’ roll"],
-  ["Hit of the '60s", "Hit of the ’60s"],
-  ["'Emma' by Austen", "‘Emma’ by Austen"],
-  ["'Tisane' is tea", "‘Tisane’ is tea"],
-  ["Ma'loula", "Ma’loula"],
-  ["Is it? 'Yes.'", "Is it? ‘Yes.’"],
-  ["No quotes here", "No quotes here"],
-  ["", ""],
-];
+// One table for both implementations: tools/quotes.py's curl must agree.
+const CASES = JSON.parse(fs.readFileSync(path.join(__dirname, "quotes_cases.json"), "utf8"));
 console.log("curl");
 for (const [given, want] of CASES) {
   const got = curl(given);
   check(got === want, `${JSON.stringify(given)} -> ${JSON.stringify(got)}${got === want ? "" : ` (want ${JSON.stringify(want)})`}`);
   check(got.length === given.length, `${JSON.stringify(given)} keeps its length`);
 }
+const py = JSON.parse(execFileSync("python3", ["-I", "-c",
+  "import json,sys; sys.path.insert(0, sys.argv[1]); import quotes\n" +
+  "print(json.dumps([quotes.curl(g) for g, _ in json.load(open(sys.argv[2], encoding='utf-8'))], ensure_ascii=False))",
+  __dirname, path.join(__dirname, "quotes_cases.json")], { encoding: "utf8" }));
+CASES.forEach(([given, want], i) =>
+  check(py[i] === want, `quotes.py curl agrees on ${JSON.stringify(given)} -> ${JSON.stringify(py[i])}`));
 check(curl(curl("'Tis Man's \"word\"")) === curl("'Tis Man's \"word\""), "curling curled text changes nothing");
 
 console.log("the page");
 const ID = "cryptic-24104";
 const { boot } = require("./fake_dom.js");
-const fs = require("fs");
-const path = require("path");
 const dir = path.join(__dirname, "..", "puzzles", "cryptic");
 const file = fs.readdirSync(dir).map((y) => path.join(dir, y, ID + ".json")).find(fs.existsSync);
 const puz = JSON.parse(fs.readFileSync(file, "utf8"));

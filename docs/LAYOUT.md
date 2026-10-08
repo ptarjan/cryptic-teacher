@@ -233,7 +233,10 @@ tools/puzzle_integrity.py                     checks the puzzles themselves: two
                                               its clue’s printed length, two entries that cross
                                               and disagree
 tools/quotes.py                               clue text is stored with straight quotes:
-                                              straightens every write, and converts held files
+                                              straightens every write, converts held files, and
+                                              curls for the static pages and social cards
+tools/quotes_cases.json                       the one table of curl cases that quotes.js and
+                                              tools/quotes.py are both run over
 tools/test_quotes.js                          a clue stored with straight quotes shows curled
                                               ones, apostrophes and leading elisions included
 tools/test_puzzle_integrity.sh                proves the two LENGTH exception tables match by

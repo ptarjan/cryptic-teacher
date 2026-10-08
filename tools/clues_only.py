@@ -103,6 +103,8 @@ def write(record, root=None):
     already filed with a grid; the first day held is kept across re-reads."""
     import puzzle_integrity
     import puzzle_schema
+    import quotes
+    record = quotes.straighten_clues_only(record)   # stored straight, like puzzles/
     old = read(record["id"], root)
     if old:
         first = min(old["source"]["acquiredOn"], record["source"]["acquiredOn"])
