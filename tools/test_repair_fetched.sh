@@ -81,7 +81,7 @@ def write(series, number, date, entries):
     puzzle = {"id": pid, "number": number, "series": series,
               "name": f"Fixture {number}", "setter": "Nobody", "date": date.isoformat(),
               "dimensions": {"cols": 15, "rows": 15},
-              "source": {"url": f"https://example.invalid/{pid}"}, "entries": entries}
+              "source": {"url": f"https://www.theguardian.com/crosswords/{series}/{number}"}, "entries": entries}
     fetcher.write_puzzle_file(puzzle_paths.PUZZLE_DIR / f"{pid}.json", puzzle)
 
 base = date(2020, 9, 13)
