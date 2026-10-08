@@ -551,6 +551,7 @@ LAYOUT = [
     ("fetching", "tools/test_file_gale_listener.sh", "does the Gale Listener filer put back a faint bar the numbering hides, file the puzzle unsolved through the validators (with no report too), find the report by its bars, settle a cell from its crossings and leave a cell nothing settles unanswered, keep the report's answers as listenerreport's copy and never in the file, and say what a puzzle short of a step lacks (with the page its page sends the grid to), and are a blocked grid's blocks no bars?"),
     ("fetching", "tools/test_listener_letters.sh", "does trove_solution_ocr.read_grid_letters read the letters of a drawn, filled Listener report grid back through listener_grid's lattice?"),
     ("fetching", "tools/test_ann_layout.sh", "annotate_check's fix-ups rewrite only the values they change in tools/_ann_<ID>.json, so the run's next Edit of text it wrote still matches"),
+    ("fetching", "tools/commit_subject.py", "a commit subject naming the puzzles staged, for jobs that commit as they go"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

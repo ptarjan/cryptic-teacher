@@ -46,6 +46,7 @@ durable_checkpoint() {  # durable_checkpoint <what>: commit what is filed, push 
   fi
   ct_unstage_unparsable .
   if ! git diff --cached --quiet; then
+    what="$(git diff --cached --name-status -M -- puzzles | python3 "$_durable_dir/commit_subject.py" "$what")"
     git commit -q -m "$(printf '%s\n\n%s' "$what" "$(python3 "$_durable_dir/provenance.py" trailer 2>/dev/null)")" ||
       return 1
   fi

@@ -1877,5 +1877,7 @@ tools/test_listener_letters.sh                does trove_solution_ocr.read_grid_
 tools/test_ann_layout.sh                      annotate_check's fix-ups rewrite only the values
                                               they change in tools/_ann_<ID>.json, so the run's
                                               next Edit of text it wrote still matches
+tools/commit_subject.py                       a commit subject naming the puzzles staged, for
+                                              jobs that commit as they go
 ```
 <!-- LAYOUT-END -->
