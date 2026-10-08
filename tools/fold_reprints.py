@@ -87,8 +87,10 @@ def rekey(pairs):
     if not pairs:
         return
     root = TOOLS.parent
-    pattern = re.compile(r'"(%s)"' % "|".join(map(re.escape, pairs)))
-    sub = lambda text: pattern.sub(lambda m: f'"{pairs[m.group(1)]}"', text)  # noqa: E731
+    # An id is a whole string ("globeandmail-3334") or leads one
+    # ("globeandmail-3334 2-down MOSS").
+    pattern = re.compile(r'"(%s)(?=[" ])' % "|".join(map(re.escape, pairs)))
+    sub = lambda text: pattern.sub(lambda m: f'"{pairs[m.group(1)]}', text)  # noqa: E731
     for name in REKEYED:
         path = root / name
         path.write_text(sub(path.read_text(encoding="utf-8")), encoding="utf-8")
