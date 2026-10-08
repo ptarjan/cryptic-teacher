@@ -345,6 +345,11 @@ def ink_in(img, crop, fixed=()):
     return page_box if shaped_on(img, page_box) or shaped is None else shaped
 
 
+#: How far over its title a grid printed over it may end (the 1980s Times'
+#: touches it).
+ABOVE_GAP = 80
+
+
 def locate_grid(img, title):
     """(box, side) of the grid a title heads: the largest ink under it, else
     over it (the 1980s Times prints its title under the grid), else left of
@@ -368,11 +373,13 @@ def locate_grid(img, title):
         if crop[2] - crop[0] < 2 or crop[3] - crop[1] < 2:
             continue
         box = footed(img, ink_in(img, crop, fixed))
-        # A grid under its title clears the title's line, one left of it
-        # ends short of the title's middle, and one right of it starts past
-        # it: other ink is something else's.
+        # A grid under its title clears the title's line, one over it ends
+        # within ABOVE_GAP of it, one left of it ends short of the title's
+        # middle, and one right of it starts past it: other ink is something
+        # else's (an article over the 1983 FT's title beside its grid).
         clear = box is not None and (side != "below" or box[1] > crop[1] + 2
                                      or starts_under(img, box, crop[1])) \
+            and (side != "above" or box[3] >= y0 - ABOVE_GAP) \
             and (side != "left" or box[2] < cx) and (side != "right" or box[0] > cx)
         if clear and shaped_on(img, box):
             return box, side

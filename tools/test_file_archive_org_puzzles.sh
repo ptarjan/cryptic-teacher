@@ -1275,6 +1275,13 @@ check("a grid left of its title is found, not ink under the title (FT Monday Pri
 side, shaped, _ = located("ftcryptic-5607-right")
 check("a grid right of its title, the title's box past the page's left edge (FT 1985-01-02, 5,607)",
       ("right", True), (side, shaped))
+side, shaped, box = located("ftcryptic-5101-article-above")
+check("an article's ink far over the title is no grid over it: the grid right of it is (FT 1983-02-18, 5,101)",
+      ("right", True, True), (side, shaped, box[0] > cases["ftcryptic-5101-article-above"]["title"][2] - 300))
+f.ABOVE_GAP, saved_gap = 10 ** 6, f.ABOVE_GAP
+check("(mirror) with no bound on the gap, the article is taken for the grid", "above",
+      located("ftcryptic-5101-article-above")[0])
+f.ABOVE_GAP = saved_gap
 lines = [[tuple(w) for w in ws] for ws in cases["ftcryptic-8649-left"]["lines"]]
 text = f.column_text(f.columns(lines, gbox, left=f.left_columns(lines, gbox)))
 check("the clue columns left of the grid are read, across then down",
