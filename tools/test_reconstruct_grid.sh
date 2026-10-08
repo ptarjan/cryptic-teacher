@@ -238,7 +238,23 @@ for path in list(puzzle_files())[::int(os.environ["STEP"])]:
     gap_row += no_two_bare(lines)
     gap_col += no_two_bare(columns)
 print("TOTAL", total)
-print("SYMMETRIC", sym)
+print("ASYMMETRIC", total - sym)
+# The floor is 99.5% symmetric. Over the whole corpus that is a count; over a
+# sample it is the most asymmetric grids a corpus exactly at the floor yields
+# but for one draw in a million (binomial upper tail), so only a sample that
+# proves the corpus below the floor fails.
+p, step = 0.005, int(os.environ["STEP"])
+if step == 1:
+    allowed = int(total * p)
+else:
+    pmf, below, allowed = (1 - p) ** total, 0.0, 0
+    while True:
+        below += pmf
+        if 1 - below < 1e-6:
+            break
+        pmf *= (total - allowed) / (allowed + 1) * p / (1 - p)
+        allowed += 1
+print("ASYMMETRIC_ALLOWED", allowed)
 print("ROWS_AT_LEAST_TWO_WHITE", min2_row)
 print("COLS_AT_LEAST_TWO_WHITE", min2_col)
 print("NO_TWO_BARE_ROWS", gap_row)
@@ -261,8 +277,8 @@ same "nor two adjacent columns without a down light" \
 # Symmetry is the one assumption known to have exceptions, so it is asserted as
 # a floor rather than as all of them: some puzzles are not symmetric and the
 # default pass cannot reconstruct them.
-least "at least 99.5% of grids are 180-degree symmetric" \
-  "$(( $(field SYMMETRIC "$out1") * 1000 / n_total ))" "995"
+most "at least 99.5% of grids are 180-degree symmetric (asymmetric within what that allows)" \
+  "$(field ASYMMETRIC "$out1")" "$(field ASYMMETRIC_ALLOWED "$out1")"
 # The mirror image of the rules above: two rules the tool deliberately does
 # not enforce, held out of it because this corpus breaks them. The day the
 # corpus stops breaking them is the day that sentence needs rewriting.
