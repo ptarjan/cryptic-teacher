@@ -95,12 +95,27 @@ the grid is under them (clues_above); the previous puzzle's grid prints
 under "SOLUTION No. 18,339". Its numbers run on into our telegraph series
 (No 25,846 in Feb 2009), so a puzzle files as telegraph-N.
 
+--paper gale reads the Times pages Paul saves from Gale's Times Digital
+Archive (tools/gale_inbox.py lays each date out as
+GaleTimes<year>UKEnglish/<date>; tools/gale_read.sh reads them minutes
+after they land), under a ledger of its own (downloads.GALE_LEDGER). A Gale
+page has no archive.org text, so READERS read its whole ink for the title
+(ocr_headings); each solution heading is read again in its own band
+(solution_bands: from each "Solution" word any reader read, and over each
+solution-sized grid), where half the readers must read its number. Its
+puzzles' source.url is the Gale document's page (pages.json "url"), which
+provenance files as an OCR'd newspaper page, so annotation can ask for one
+to be read again (tools/scan_queue.py). A Monday prints no solution, and a
+Saturday prize's solution prints the next Saturday.
+
 Resumable: downloads.ARCHIVE_ORG/filed.jsonl records each edition's
 headings and verdicts against its inputs (its files, the solutions seen,
 whether the VLM read it), after each edition. Editions never read go first, then the stale by when they were read
 (tools/scan_queue.py), so a capped run (--limit, --seconds) never starts over.
 --workers N reads N editions at once (one's VLM wait overlaps another's OCR).
-A change to this code or the VLM model makes nothing due: whoever makes it
+A change to the heading code (scan_code: every name scan() reaches) makes
+each edition's scan stale, so it is scanned again on its next read. Any
+other change to this code or the VLM model makes nothing due: whoever makes it
 runs the re-read once, `--reread [BEFORE]` (every edition last read before
 BEFORE, an ISO time, default now; slices of one re-read share a BEFORE).
 --no-scan reads only the due editions whose scans stand, and the scans of the
