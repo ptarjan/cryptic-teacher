@@ -305,4 +305,62 @@ want="[('GREATDANE', 'Great Dane', 'anagrammed')] []"
 if [ "$caps" = "$want" ]; then echo "ok   fodder printed in capitals is an anagram's, a reversal's is not"; else
   echo "FAIL fodder in capitals: expected [$want], got [$caps]"; fails=$((fails + 1)); fi
 
+# A timed step prints a heartbeat while it runs and its wall and CPU time when
+# it ends; a step that ends before the first beat prints only its end.
+beats=$(cd "$REPO/tools" && python3 -c '
+import time, letter_facts as l
+l.HEARTBEAT = 0.1
+with l.timed("slow"):
+    time.sleep(0.35)
+with l.timed("quick"):
+    pass
+' 2>&1 | sed -E "s/^[0-9:]+ //; s/[0-9]+s/Ns/g" | sort | uniq -c | sed -E "s/^ +//")
+want="1 quick: done in Ns wall, Ns CPU
+1 slow: done in Ns wall, Ns CPU
+3 slow: running, Ns wall, Ns CPU"
+if [ "$beats" = "$want" ]; then echo "ok   a long step beats while it runs, a short one only reports its end"; else
+  echo "FAIL timed: expected [$want], got [$beats]"; fails=$((fails + 1)); fi
+
+# The desktop watchdog fires after a silence, not after a total: results
+# coming steadily past the limit keep it quiet, and a gap past it fires it.
+silence=$(cd "$REPO/tools" && python3 -c '
+import time, letter_facts as l
+steady = l._Silence(0.3, lambda: None)
+for _ in range(8):
+    time.sleep(0.1)
+    steady.reset()
+steady.cancel()
+quiet = l._Silence(0.3, lambda: None)
+time.sleep(0.5)
+print(steady.fired, quiet.fired)')
+if [ "$silence" = "False True" ]; then echo "ok   the desktop is given up on after a silence, not a total"; else
+  echo "FAIL _Silence: expected [False True], got [$silence]"; fails=$((fails + 1)); fi
+
+# The local pool exits naming the stall when no result comes in LOCAL_SILENCE,
+# and reads every puzzle in order when results come.
+pool=$(cd "$REPO/tools" && python3 -c '
+import time, letter_facts as l
+l.LOCAL_SILENCE = 1
+def stand_in(f):  # the forked pool inherits it
+    l._puzzle_facts = f
+stand_in(lambda item: (item[0], {}))
+corpus = [(f"p{i}", "e", "c", "A", {}) for i in range(40)]
+print([p for p, _ in l._read_clues(corpus, {}, 2)] == [f"p{i}" for i in range(40)])
+stand_in(lambda item: time.sleep(3))
+try:
+    list(l._read_clues(corpus, {}, 2))
+except SystemExit as e:
+    print("nothing in 1s" in str(e))' 2>/dev/null)
+if [ "$pool" = "True
+True" ]; then echo "ok   the local pool reads in order, and exits on a stall"; else
+  echo "FAIL local pool: expected [True True], got [$pool]"; fails=$((fails + 1)); fi
+
+# blog_facts runs at NICE from a lower niceness, and never lowers a higher one.
+nice=$(cd "$REPO/tools" && python3 -c '
+import os, blog_facts as b
+b.renice(b.NICE); a = os.nice(0)
+b.renice(b.NICE - 5); print(a == max(b.NICE, a), os.nice(0) == a)')
+if [ "$nice" = "True True" ]; then echo "ok   blog_facts renices up to NICE and never down"; else
+  echo "FAIL renice: expected [True True], got [$nice]"; fails=$((fails + 1)); fi
+
 [ "$fails" -eq 0 ] && echo "all letter_facts checks passed" || { echo "$fails failed"; exit 1; }
