@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,47 @@
     "text": "Phone feature increases values",
     "enumeration": "9"
    },
-   "solution": "APPRAISES"
+   "solution": "APPRAISES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APPRAISES",
+    "definitions": [
+     {
+      "text": "values",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Phone feature",
+      "gives": "APP",
+      "note": "an app is a program that runs on a smartphone"
+     },
+     {
+      "clueFragment": "increases",
+      "gives": "RAISES",
+      "note": "to raise something is to increase it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APP",
+      "RAISES"
+     ]
+    },
+    "explanation": {
+     "surface": "A new smartphone function pushes up prices or worth.",
+     "walkthrough": "'Values' reads as a plural noun after 'increases', but it is a verb meaning assesses the worth of.",
+     "definitionFit": "To appraise something is to estimate its worth, which is what valuing it means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "values"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +90,48 @@
     "text": "Very pale, like a bird?",
     "enumeration": "5"
    },
-   "solution": "ASHEN"
+   "solution": "ASHEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASHEN",
+    "definitions": [
+     {
+      "text": "Very pale",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like",
+      "gives": "AS",
+      "note": "'as' means 'like', in a comparison"
+     },
+     {
+      "clueFragment": "a bird",
+      "gives": "HEN",
+      "note": "a hen is a female bird, typically a chicken"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "HEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone looks white-faced, perhaps as pale as a feathered creature.",
+     "walkthrough": "Read 'like a bird' as two words joined: AS + HEN makes ASHEN.",
+     "definitionFit": "Ashen describes a face grey-white like ash, drained of colour from shock or illness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "like"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +145,46 @@
     "text": "Piano finale up in the air",
     "enumeration": "7"
    },
-   "solution": "PENDING"
+   "solution": "PENDING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PENDING",
+    "definitions": [
+     {
+      "text": "up in the air",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Piano",
+      "gives": "P",
+      "note": "p is the musical abbreviation for piano, meaning soft"
+     },
+     {
+      "clueFragment": "finale",
+      "gives": "ENDING",
+      "note": "a finale is the ending of a piece or show"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ENDING"
+     ]
+    },
+    "explanation": {
+     "surface": "The last movement of a piano work is still undecided.",
+     "definitionFit": "Something pending is awaiting a decision, as an unresolved matter is said to be up in the air."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Piano"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +198,43 @@
     "text": "Choir members in cathedral to sing",
     "enumeration": "5"
    },
-   "solution": "ALTOS"
+   "solution": "ALTOS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ALTOS",
+    "definitions": [
+     {
+      "text": "Choir members",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the wanted letters sit inside the run of words that follows, spanning their boundaries"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cathedral to sing",
+      "gives": "ALTOS",
+      "note": "the letters run across the end of the first word, the whole second word and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "Singers in a cathedral choir are ready to perform.",
+     "walkthrough": "'Choir members in cathedral' reads as one phrase, but 'in' is the signal: cathedrAL TO Sing.",
+     "definitionFit": "Altos are singers of the part below soprano, one of the standard voice sections in a choir."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +248,43 @@
     "text": "Terminal position in society?",
     "enumeration": "7"
    },
-   "solution": "STATION"
+   "solution": "STATION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STATION",
+    "definitions": [
+     {
+      "text": "Terminal",
+      "at": 0
+     },
+     {
+      "text": "position in society",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Terminal",
+      "note": "first meaning: a stop where trains or buses end their journey"
+     },
+     {
+      "clueFragment": "position in society",
+      "note": "second meaning: one's rank or standing"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Terminal' looks like an adjective describing the position (final), but it is a noun on its own.",
+     "definitionFit": "A railway terminus is a station, and one's social rank is also called one's station in life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Terminal"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +298,58 @@
     "text": "Dramatist playing polo and chess",
     "enumeration": "9"
    },
-   "solution": "SOPHOCLES"
+   "solution": "SOPHOCLES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOPHOCLES",
+    "definitions": [
+     {
+      "text": "Dramatist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing with something means moving it about, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "polo",
+      "gives": "POLO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "chess",
+      "gives": "CHESS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "POLOCHESS",
+       "gives": "SOPHOCLES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A playwright spends leisure time on horseback games and at the chessboard.",
+     "definitionFit": "Sophocles was an ancient Greek tragedian, author of Oedipus Rex, so a writer of plays."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +363,52 @@
     "text": "Second-rate auction item — dry piece of writing",
     "enumeration": "4"
    },
-   "solution": "BLOT"
+   "solution": "BLOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLOT",
+    "definitions": [
+     {
+      "text": "dry piece of writing",
+      "at": 27,
+      "note": "a verb phrase: to dry wet ink on a written page"
+     }
+    ],
+    "linkWords": [
+     "—"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second-rate",
+      "gives": "B",
+      "note": "B grade means second class"
+     },
+     {
+      "clueFragment": "auction item",
+      "gives": "LOT",
+      "note": "each item sold at an auction is a numbered lot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A mediocre item at a sale is described as a dull piece of prose.",
+     "walkthrough": "'Dry piece of writing' suggests a boring text; here it is an instruction, to dry what has been written.",
+     "definitionFit": "To blot is to soak up excess ink with blotting paper, drying a freshly written page."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dry"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +422,50 @@
     "text": "Advantageous purchase provides pub with profit",
     "enumeration": "7"
    },
-   "solution": "BARGAIN"
+   "solution": "BARGAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BARGAIN",
+    "definitions": [
+     {
+      "text": "Advantageous purchase",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "provides",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "BAR",
+      "note": "a bar is a pub or drinking place"
+     },
+     {
+      "clueFragment": "profit",
+      "gives": "GAIN",
+      "note": "a gain is a profit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "GAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Buying wisely gives a pub owner a healthy return.",
+     "definitionFit": "A bargain is something bought cheaply for its worth, a purchase that works in the buyer's favour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "provides"
+    }
+   }
   },
   {
    "number": 7,
@@ -155,7 +489,67 @@
      }
     ]
    },
-   "solution": "ONTHEMEND"
+   "solution": "ONTHEMEND",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ON THE MEND",
+    "definitions": [
+     {
+      "text": "Getting better",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "'possibly' says the letters might be some other arrangement than the one shown"
+     },
+     {
+      "text": "include",
+      "for": "container",
+      "note": "to include something is to take it inside, so one set of letters goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "don't",
+      "gives": "DONT",
+      "note": "the word's letters, apostrophe dropped"
+     },
+     {
+      "clueFragment": "macho types",
+      "gives": "HEMEN",
+      "note": "he-men are muscular, macho men"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONT",
+      "HEMEN",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DONT",
+       "gives": "ONTD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recovering patient is told to avoid hanging around with tough guys.",
+     "walkthrough": "The apostrophe in don't is ignored; only its four letters are mixed, and the macho men sit between the third and fourth.",
+     "definitionFit": "On the mend is an idiom for recovering from illness, steadily improving in health."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "possibly"
+    }
+   }
   },
   {
    "number": 8,
@@ -175,7 +569,50 @@
      }
     ]
    },
-   "solution": "CHINATEA"
+   "solution": "CHINATEA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHINA TEA",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ruined",
+      "for": "anagram",
+      "note": "something ruined is wrecked and broken up, so the letters fall into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a nice hat",
+      "gives": "ANICEHAT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANICEHAT",
+       "gives": "CHINATEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spilt beverage has spoilt someone's smart headwear.",
+     "definitionFit": "China tea is tea from China, such as lapsang souchong, a hot beverage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ruined"
+    }
+   }
   },
   {
    "number": 9,
@@ -189,7 +626,55 @@
     "text": "Talk too much about one buccaneer",
     "enumeration": "6"
    },
-   "solution": "PIRATE"
+   "solution": "PIRATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PIRATE",
+    "definitions": [
+     {
+      "text": "buccaneer",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' means around, so the first set of letters goes round the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Talk too much",
+      "gives": "PRATE",
+      "note": "to prate is to chatter on foolishly"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "I",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A seafaring rogue is a terrible chatterbox.",
+     "walkthrough": "PRATE goes round I: PR + I + ATE gives PIRATE.",
+     "definitionFit": "A buccaneer was a sea robber of the Caribbean, so a pirate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +688,55 @@
     "text": "Tomfoolery? Not for Civil Service leaders",
     "enumeration": "6"
    },
-   "solution": "ANTICS"
+   "solution": "ANTICS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ANTICS",
+    "definitions": [
+     {
+      "text": "Tomfoolery",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders",
+      "for": "letter_selection",
+      "note": "the leaders of words are the letters at their head, so only first letters count"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not for",
+      "gives": "ANTI",
+      "note": "to be anti something is to be against it, not for it"
+     },
+     {
+      "clueFragment": "Civil Service",
+      "gives": "CS",
+      "select": "first",
+      "note": "the opening letters of the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANTI",
+      "CS"
+     ]
+    },
+    "explanation": {
+     "surface": "Clowning around is frowned upon by the heads of government departments.",
+     "definitionFit": "Antics are foolish or playful capers, the same silly behaviour as tomfoolery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leaders"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +750,50 @@
     "text": "Oldies at dance left alone",
     "enumeration": "8"
    },
-   "solution": "ISOLATED"
+   "solution": "ISOLATED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ISOLATED",
+    "definitions": [
+     {
+      "text": "left alone",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dance",
+      "for": "anagram",
+      "note": "dancing letters move around the floor and end up in a different arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oldies at",
+      "gives": "OLDIESAT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OLDIESAT",
+       "gives": "ISOLATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Elderly people at a social dance were ignored and abandoned.",
+     "definitionFit": "To be isolated is to be cut off from others, set apart or left on one's own."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dance"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +807,46 @@
     "text": "Type of shoe, in a manner of speaking",
     "enumeration": "6"
    },
-   "solution": "BROGUE"
+   "solution": "BROGUE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BROGUE",
+    "definitions": [
+     {
+      "text": "Type of shoe",
+      "at": 0
+     },
+     {
+      "text": "a manner of speaking",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Type of shoe",
+      "note": "first meaning: a sturdy leather shoe with decorative punched holes"
+     },
+     {
+      "clueFragment": "a manner of speaking",
+      "note": "second meaning: a strong regional accent, especially Irish or Scottish"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'In a manner of speaking' is a stock phrase meaning 'so to speak'; here it is a second meaning in its own right.",
+     "definitionFit": "A brogue is both a heavy perforated shoe and a lilting regional accent, a way of pronouncing words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "manner"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +860,46 @@
     "text": "What agents do about gift",
     "enumeration": "9"
    },
-   "solution": "REPRESENT"
+   "solution": "REPRESENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REPRESENT",
+    "definitions": [
+     {
+      "text": "What agents do",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re is Latin for 'concerning', used as in business letters"
+     },
+     {
+      "clueFragment": "gift",
+      "gives": "PRESENT",
+      "note": "a present is a gift"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "PRESENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Talent agents fuss over the gifts they bring clients.",
+     "definitionFit": "An agent acts on behalf of a client, and acting for someone is to represent them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +913,54 @@
     "text": "Wrong, or sure one's wrong",
     "enumeration": "9"
    },
-   "solution": "ERRONEOUS"
+   "solution": "ERRONEOUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ERRONEOUS",
+    "definitions": [
+     {
+      "text": "Wrong",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrong",
+      "for": "anagram",
+      "note": "letters that are wrong are out of their proper order and must be put right"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "or sure one",
+      "gives": "ORSUREONE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ORSUREONE",
+       "gives": "ERRONEOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Either you are mistaken, or the confident person is.",
+     "walkthrough": "The 's reads as 'is', joining fodder to indicator; the same word, wrong, serves once as definition and once as anagram signal.",
+     "definitionFit": "Erroneous means containing an error, mistaken or incorrect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sure"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +980,43 @@
      }
     ]
    },
-   "solution": "NOLONGER"
+   "solution": "NOLONGER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NO LONGER",
+    "definitions": [
+     {
+      "text": "Unstretched",
+      "at": 0
+     },
+     {
+      "text": "Not any more",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unstretched",
+      "note": "first meaning, read whimsically: not made any longer in length"
+     },
+     {
+      "clueFragment": "Not any more",
+      "note": "second meaning: the everyday phrase for something that has ceased"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first meaning splits the phrase literally into 'no' and 'longer', of something not lengthened.",
+     "definitionFit": "The phrase is the standard idiom for 'not any more', and taken literally it describes something not stretched out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Unstretched"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1030,53 @@
     "text": "Gourmets prepared to give us recipe",
     "enumeration": "8"
    },
-   "solution": "EPICURES"
+   "solution": "EPICURES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EPICURES",
+    "definitions": [
+     {
+      "text": "Gourmets",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "food that is prepared is chopped and mixed, so the letters are worked into a new order"
+     }
+    ],
+    "linkWords": [
+     "to give"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "us recipe",
+      "gives": "USRECIPE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "USRECIPE",
+       "gives": "EPICURES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Food lovers are willing to share their cooking instructions with us.",
+     "definitionFit": "An epicure is a person of refined taste in food and drink, the same as a gourmet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prepared"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1090,50 @@
     "text": "Bird with Kelly hit on the head",
     "enumeration": "7"
    },
-   "solution": "CROWNED"
+   "solution": "CROWNED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CROWNED",
+    "definitions": [
+     {
+      "text": "hit on the head",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bird",
+      "gives": "CROW",
+      "note": "a crow is a black bird"
+     },
+     {
+      "clueFragment": "Kelly",
+      "gives": "NED",
+      "note": "Ned Kelly was a famous nineteenth-century Australian outlaw"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CROW",
+      "NED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone with a bird struck an outlaw on the skull.",
+     "walkthrough": "Kelly needs a first name, and the best-known Kelly in crosswords is the bushranger Ned.",
+     "definitionFit": "To crown someone is informal slang for striking them on the top of the skull."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Kelly"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1147,47 @@
     "text": "Under fire, as nuts may be",
     "enumeration": "7"
    },
-   "solution": "SHELLED"
+   "solution": "SHELLED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SHELLED",
+    "definitions": [
+     {
+      "text": "Under fire",
+      "at": 0
+     },
+     {
+      "text": "as nuts may be",
+      "at": 12,
+      "note": "describes nuts with their husks removed"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Under fire",
+      "note": "first meaning: bombarded by artillery shells"
+     },
+     {
+      "clueFragment": "as nuts may be",
+      "note": "second meaning: with the hard outer casing removed"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A wartime meaning and a kitchen meaning share the same word.",
+     "definitionFit": "Troops under bombardment have been shelled, and nuts sold out of their husks are also described as shelled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nuts"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1201,58 @@
     "text": "Dubious about name for mixed drink",
     "enumeration": "6"
    },
-   "solution": "SHANDY"
+   "solution": "SHANDY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHANDY",
+    "definitions": [
+     {
+      "text": "mixed drink",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' means surrounding, so the first word's letters wrap round the second"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dubious",
+      "gives": "SHADY",
+      "note": "shady means of questionable honesty"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "n is the standard abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHA",
+      "N",
+      "DY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is suspicious about what a cocktail is called.",
+     "walkthrough": "A shandy is beer mixed with lemonade, a popular British pub drink.",
+     "definitionFit": "Shandy is a blend of beer with lemonade or ginger beer, so a mixed beverage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dubious"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1266,55 @@
     "text": "Space — it could be germ-free",
     "enumeration": "7"
    },
-   "solution": "ASEPTIC"
+   "solution": "ASEPTIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASEPTIC",
+    "definitions": [
+     {
+      "text": "germ-free",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "could be",
+      "for": "anagram",
+      "note": "'could be' suggests the letters may become something else once rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Space",
+      "gives": "SPACE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SPACEIT",
+       "gives": "ASEPTIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Outer space, perhaps, is a place without microbes.",
+     "definitionFit": "Aseptic means free from bacteria and other contaminating microorganisms, as in surgery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Space"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1328,66 @@
     "text": "Condemn poor scholar holding one back",
     "enumeration": "8"
    },
-   "solution": "DENOUNCE"
+   "solution": "DENOUNCE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DENOUNCE",
+    "definitions": [
+     {
+      "text": "Condemn",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling the other way, so these letters are read from right to left"
+     },
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "to hold something is to keep it inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poor scholar",
+      "gives": "DUNCE",
+      "note": "a dunce is a slow or poor pupil"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ENO",
+      "UNCE"
+     ],
+     "reversals": [
+      {
+       "from": "ONE",
+       "to": "ENO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A teacher criticises a weak student for keeping someone behind.",
+     "definitionFit": "To denounce is to publicly declare something wrong or evil, which is to condemn it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "holding"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1401,53 @@
     "text": "Phrase translated for mountain guide",
     "enumeration": "6"
    },
-   "solution": "SHERPA"
+   "solution": "SHERPA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SHERPA",
+    "definitions": [
+     {
+      "text": "mountain guide",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "translated",
+      "for": "anagram",
+      "note": "translating turns words into another form, so the letters are changed into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Phrase",
+      "gives": "PHRASE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PHRASE",
+       "gives": "SHERPA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A climber needs an expression put into the local language for their guide.",
+     "definitionFit": "Sherpas are a Himalayan people famed as guides and porters on Everest expeditions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "translated"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1461,46 @@
     "text": "Drug found in fishing vessel",
     "enumeration": "5"
    },
-   "solution": "SMACK"
+   "solution": "SMACK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SMACK",
+    "definitions": [
+     {
+      "text": "Drug",
+      "at": 0
+     },
+     {
+      "text": "fishing vessel",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "found in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drug",
+      "note": "first meaning: a slang name for heroin"
+     },
+     {
+      "clueFragment": "fishing vessel",
+      "note": "second meaning: a small single-masted sailing boat used for fishing"
+     }
+    ],
+    "explanation": {
+     "surface": "Narcotics are discovered aboard a trawler in a smuggling raid.",
+     "walkthrough": "'Found in' sounds like a hidden-word signal, but it only links two meanings.",
+     "definitionFit": "Smack is street slang for heroin, and also the name of a traditional coastal fishing boat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "found"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1514,63 @@
     "text": "Turning up with mother's cats",
     "enumeration": "5"
    },
-   "solution": "PUMAS"
+   "solution": "PUMAS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PUMAS",
+    "definitions": [
+     {
+      "text": "cats",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Turning",
+      "for": "reversal",
+      "note": "turning something round makes it face the other way, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "up",
+      "gives": "UP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mother's",
+      "gives": "MAS",
+      "note": "ma is an informal word for mother, here with the possessive s"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PU",
+      "MAS"
+     ],
+     "reversals": [
+      {
+       "from": "UP",
+       "to": "PU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mum's pets show up at the door.",
+     "definitionFit": "Pumas are large wild American felines, also called cougars or mountain lions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Turning"
+    }
+   }
   },
   {
    "number": 24,
@@ -425,7 +1590,55 @@
      }
     ]
    },
-   "solution": "LEANTO"
+   "solution": "LEANTO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LEAN-TO",
+    "definitions": [
+     {
+      "text": "sort of shed",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going round",
+      "for": "container",
+      "note": "going round something means encircling it, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slowly",
+      "gives": "LENTO",
+      "note": "lento is the musical direction for a slow tempo"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "A",
+      "NTO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone strolls lazily around a garden outbuilding.",
+     "walkthrough": "Tempo markings in music are Italian words, and 'slowly' is one a solver should recognise.",
+     "definitionFit": "A lean-to is a simple shed or shelter whose roof rests against an existing wall."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Slowly"
+    }
+   }
   },
   {
    "number": 25,
@@ -445,7 +1658,62 @@
      }
     ]
    },
-   "solution": "LEADTIME"
+   "solution": "LEADTIME",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "LEAD TIME",
+    "definitions": [
+     {
+      "text": "Wait for delivery",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "damaged",
+      "for": "anagram",
+      "note": "something damaged is knocked out of shape, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Heavy metal",
+      "gives": "LEAD",
+      "note": "lead is a famously heavy metal"
+     },
+     {
+      "clueFragment": "item",
+      "gives": "ITEM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEAD",
+      "TIME"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITEM",
+       "gives": "TIME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rock fan's broken purchase means a long delay before a replacement arrives.",
+     "walkthrough": "'Heavy metal' suggests the music genre, but it is the element.",
+     "definitionFit": "Lead time is the period between placing an order and receiving the goods, the wait a customer endures."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Heavy"
+    }
+   }
   },
   {
    "number": 26,
@@ -459,7 +1727,48 @@
     "text": "Endlessly examine poker",
     "enumeration": "4"
    },
-   "solution": "STUD"
+   "solution": "STUD",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STUD",
+    "definitions": [
+     {
+      "text": "poker",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endlessly",
+      "for": "deletion",
+      "note": "without an end, the word loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "examine",
+      "gives": "STUDY",
+      "note": "to study something is to examine it closely"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STUD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone scrutinises a card game without stopping.",
+     "walkthrough": "'Poker' could be a fireside iron, but it is the card game: stud is a form of poker.",
+     "definitionFit": "Stud poker is a variant in which some cards are dealt face up, often just called stud."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "poker"
+    }
+   }
   },
   {
    "number": 27,
@@ -473,7 +1782,46 @@
     "text": "Team thrills close friends",
     "enumeration": "9"
    },
-   "solution": "SIDEKICKS"
+   "solution": "SIDEKICKS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SIDEKICKS",
+    "definitions": [
+     {
+      "text": "close friends",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Team",
+      "gives": "SIDE",
+      "note": "a side is a sports team"
+     },
+     {
+      "clueFragment": "thrills",
+      "gives": "KICKS",
+      "note": "kicks are thrills, as in 'doing it for kicks'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIDE",
+      "KICKS"
+     ]
+    },
+    "explanation": {
+     "surface": "A sports team excites a bunch of loyal companions.",
+     "definitionFit": "A sidekick is a constant companion or assistant, a close friend who tags along."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "thrills"
+    }
+   }
   }
  ]
 }
