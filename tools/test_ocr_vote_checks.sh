@@ -686,6 +686,16 @@ check("a non-word every reading prints, a worn letter from a far commoner word, 
                [mark("22 Possible initials cf a telegraph company. 23 A")] * 2)[0])
 check("a worn letter is not put back where two words are about as common (mirror)", (None, None),
       (oc.worn("rcd"), oc.worn("tcn")))
+check("two words run together over the quote opening the second are parted (No 3 44D)",
+      ["#", "Hindustani", "for", "red", "#"], oc.unglued(mark("44 Hindustani for'red. 49"), ["hindustani", "for", "red"]))
+check("a reading aligned on another laid clue's words lost this one: no vote (No 3 44D)", True,
+      oc.another_clue(oc.align(["hindustani", "for", "red"], ["hindustani", "for", "cupboard"]), ["hindustani", "for", "red"],
+                      ["Hindustani", "for", "cupboard"], [["hindustani", "for", "cupboard"]]))
+check("a reading printing this clue's own words, the same as another's, still votes (mirror)", False,
+      oc.another_clue(oc.align(["an", "exclamation"], ["an", "exclamation"]), ["an", "exclamation"],
+                      ["An", "exclamation"], [["an", "exclamation"]]))
+check("words run together over an apostrophe this clue prints stay one (mirror)", ["don't"],
+      oc.unglued(["don't"], ["don't", "go"]))
 
 print(f"FAILS {fails}")
 EOF
