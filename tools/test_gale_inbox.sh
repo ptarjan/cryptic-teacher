@@ -422,6 +422,12 @@ check("the inboxes share one root on the Media share", (True, True),
 stamp = Path(sys.argv[1]) / "looked_up"
 check("Gale is asked at most every LOOKUP_EVERY, however often the tick runs", [True, False, False, True],
       [g.gale_due(t, stamp) for t in (1000, 1060, 1120, 1000 + g.LOOKUP_EVERY)])
+g.LOCK = Path(sys.argv[1]) / "sync.lock"
+with g.locked():
+    buf = io.StringIO()
+    g.sync(out=buf)
+check("a sync while another holds the lock skips at once, not waits", "another sync holds the lock; this one skips\n",
+      buf.getvalue())
 print("FAILS", fails)
 sys.exit(1 if fails else 0)
 PY
