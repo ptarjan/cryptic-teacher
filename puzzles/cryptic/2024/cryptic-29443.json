@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,72 @@
     "text": "Copier, first character in school to cheat and first in exam",
     "enumeration": "6"
    },
-   "solution": "SCRIBE"
+   "solution": "SCRIBE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCRIBE",
+    "definitions": [
+     {
+      "text": "Copier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first character in",
+      "for": "letter_selection",
+      "note": "the opening character of the following word is the only one kept"
+     },
+     {
+      "text": "first in",
+      "for": "letter_selection",
+      "note": "again only the opening letter of the next word is taken"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "S",
+      "select": "first",
+      "note": "opening letter of school"
+     },
+     {
+      "clueFragment": "cheat",
+      "gives": "CRIB",
+      "note": "to crib is to copy dishonestly"
+     },
+     {
+      "clueFragment": "exam",
+      "gives": "E",
+      "select": "first",
+      "note": "opening letter of exam"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CRIB",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A pupil caught copying in a school exam, cribbing from a neighbour.",
+     "walkthrough": "S + CRIB + E gives SCRIBE; the cheating schoolchild is a copier too, which ties the surface to the definition.",
+     "definitionFit": "A scribe was a person employed to copy manuscripts by hand before printing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cheat"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +115,46 @@
     "text": "What NI cartographer will do in confrontation?",
     "enumeration": "8"
    },
-   "solution": "SHOWDOWN"
+   "solution": "SHOWDOWN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SHOWDOWN",
+    "definitions": [
+     {
+      "text": "What NI cartographer will do",
+      "at": 0
+     },
+     {
+      "text": "confrontation",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What NI cartographer will do",
+      "note": "first meaning, read in two words: a mapmaker in Northern Ireland will display the county of that name"
+     },
+     {
+      "clueFragment": "confrontation",
+      "note": "second meaning: a decisive face-off"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "NI is Northern Ireland, and Down is one of its six counties, which a local mapmaker would show.",
+     "definitionFit": "A showdown is a final decisive clash between opponents, as at the end of a Western."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cartographer"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +168,77 @@
     "text": "Mark again sees stars, being confused combatant finally knocked out",
     "enumeration": "8"
    },
-   "solution": "REASSESS"
+   "solution": "REASSESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "REASSESS",
+    "definitions": [
+     {
+      "text": "Mark again",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word before it"
+     },
+     {
+      "text": "knocked out",
+      "for": "deletion",
+      "note": "a piece knocked out is removed from the rest"
+     },
+     {
+      "text": "being confused",
+      "for": "anagram",
+      "note": "confused things are mixed up, so the letters are put in a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sees",
+      "gives": "SEES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "stars",
+      "gives": "STARS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "combatant",
+      "gives": "T",
+      "select": "last",
+      "note": "closing letter of combatant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REASSESS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEESSARS",
+       "gives": "REASSESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boxer knocked out sees stars, dazed, and the bout is scored again.",
+     "walkthrough": "Remove the T from SEESSTARS, then rearrange the remaining eight letters.",
+     "definitionFit": "To reassess is to evaluate or grade something a second time, as an examiner re-marks a script."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stars"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +252,63 @@
     "text": "British graduate goes round old city in old country",
     "enumeration": "5"
    },
-   "solution": "BURMA"
+   "solution": "BURMA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BURMA",
+    "definitions": [
+     {
+      "text": "old country",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "goes round",
+      "for": "container",
+      "note": "going round something means encircling it, so one piece wraps another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "abbreviation for British"
+     },
+     {
+      "clueFragment": "graduate",
+      "gives": "MA",
+      "note": "Master of Arts"
+     },
+     {
+      "clueFragment": "old city",
+      "gives": "UR",
+      "note": "Ur is the ancient Sumerian city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "UR",
+      "MA"
+     ]
+    },
+    "explanation": {
+     "surface": "A British graduate tours an ancient city in a former nation.",
+     "definitionFit": "Burma is the former name of Myanmar, the Southeast Asian state renamed in 1989."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "graduate"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +322,43 @@
     "text": "Reprimanded for not having bare floorboards?",
     "enumeration": "8"
    },
-   "solution": "CARPETED"
+   "solution": "CARPETED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CARPETED",
+    "definitions": [
+     {
+      "text": "Reprimanded",
+      "at": 0
+     },
+     {
+      "text": "for not having bare floorboards?",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reprimanded",
+      "note": "first meaning: called in to be told off by the boss"
+     },
+     {
+      "clueFragment": "for not having bare floorboards?",
+      "note": "second meaning, read literally: with a floor covering laid"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Being 'carpeted' is British slang for being summoned before a superior for a dressing-down, from standing on the boss's carpet; the question mark flags the literal reading.",
+     "definitionFit": "To carpet someone is a colloquial way of saying to rebuke them formally; a carpeted room is one with a rug-like floor covering."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "floorboards"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +372,70 @@
     "text": "Appraiser of work, awfully nice tat, welcomed by writer",
     "enumeration": "13"
    },
-   "solution": "AUTHENTICATOR"
+   "solution": "AUTHENTICATOR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "AUTHENTICATOR",
+    "definitions": [
+     {
+      "text": "Appraiser of work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awfully",
+      "for": "anagram",
+      "note": "doing something awfully means doing it badly, so the letters are put wrong"
+     },
+     {
+      "text": "welcomed by",
+      "for": "container",
+      "note": "a guest welcomed by a host is taken inside, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "writer",
+      "gives": "AUTHOR",
+      "note": "an author is a writer"
+     },
+     {
+      "clueFragment": "nice tat",
+      "gives": "NICETAT",
+      "note": "letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUTH",
+      "ENTICAT",
+      "OR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NICETAT",
+       "gives": "ENTICAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An art valuer greets a writer's nice bit of junk, a nice tat.",
+     "walkthrough": "Tat is British slang for cheap, tasteless goods; the jumbled letters sit inside AUTHOR.",
+     "definitionFit": "An authenticator examines a work, such as a painting, to establish that it is genuine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tat"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +449,66 @@
     "text": "Had to do with red tape awkwardly restricting home",
     "enumeration": "9"
    },
-   "solution": "PERTAINED"
+   "solution": "PERTAINED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PERTAINED",
+    "definitions": [
+     {
+      "text": "Had to do with",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awkwardly",
+      "for": "anagram",
+      "note": "done awkwardly means done clumsily, so the letters end up out of order"
+     },
+     {
+      "text": "restricting",
+      "for": "container",
+      "note": "restricting means hemming in, so one piece is enclosed by the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "red tape",
+      "gives": "REDTAPE",
+      "note": "letters to rearrange"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "at home is in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PERTA",
+      "IN",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REDTAPE",
+       "gives": "PERTAED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bureaucracy has been hampering a household's affairs.",
+     "definitionFit": "To pertain to something is to relate or belong to it, to be concerned with it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +528,59 @@
      }
     ]
    },
-   "solution": "THEEND"
+   "solution": "THEEND",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "THE END",
+    "definitions": [
+     {
+      "text": "No more after this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having missed",
+      "for": "deletion",
+      "note": "something missed is left out, so a letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "you",
+      "gives": "THEE",
+      "note": "archaic form of you"
+     },
+     {
+      "clueFragment": "show agreement",
+      "gives": "NOD",
+      "note": "a nod signals assent"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THEE",
+      "ND"
+     ]
+    },
+    "explanation": {
+     "surface": "After you agree, nothing more is to follow.",
+     "definitionFit": "The end is the closing point of a story or film, after which nothing further comes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "nothing"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +594,54 @@
     "text": "Thought this person would get caught in the act",
     "enumeration": "6"
    },
-   "solution": "DEEMED"
+   "solution": "DEEMED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEEMED",
+    "definitions": [
+     {
+      "text": "Thought",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "would get caught in",
+      "for": "container",
+      "note": "being caught in something means being trapped inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "this person",
+      "gives": "ME",
+      "note": "the setter referring to himself"
+     },
+     {
+      "clueFragment": "the act",
+      "gives": "DEED",
+      "note": "a deed is an act"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEE",
+      "ME",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reckoned he'd be caught red-handed.",
+     "definitionFit": "Deemed is a past tense verb for judged or considered, matching thought as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Thought"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +661,47 @@
      }
     ]
    },
-   "solution": "ONAIR"
+   "solution": "ONAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ON AIR",
+    "definitions": [
+     {
+      "text": "Very happy",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "performing",
+      "gives": "ON",
+      "note": "an actor who is performing is on stage"
+     },
+     {
+      "clueFragment": "song",
+      "gives": "AIR",
+      "note": "an air is a tune or song"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "AIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A singer is delighted to be performing a favourite song.",
+     "walkthrough": "ON + AIR; the definition is from 'walking on air', meaning elated.",
+     "definitionFit": "To be on air, as in walking on air, is an idiom for being elated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "performing"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +715,66 @@
     "text": "Pray during early hour of prayer (half dead!)",
     "enumeration": "9"
    },
-   "solution": "INTERCEDE"
+   "solution": "INTERCEDE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "INTERCEDE",
+    "definitions": [
+     {
+      "text": "Pray",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "charade",
+      "note": "the Latin-derived prefix meaning between or amid supplies the opening piece"
+     },
+     {
+      "text": "half",
+      "for": "deletion",
+      "note": "only one of the two halves of the word survives, the rest is cut away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "during",
+      "gives": "INTER",
+      "note": "inter- means between or amid"
+     },
+     {
+      "clueFragment": "early hour of prayer",
+      "gives": "TERCE",
+      "note": "Terce is the canonical office said at the third hour of the day"
+     },
+     {
+      "clueFragment": "dead",
+      "gives": "DEAD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTER",
+      "CE",
+      "DE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone prays at an early service while feeling half dead with tiredness.",
+     "walkthrough": "TERCE overlaps INTER: the shared TER means INTER + CE, then the first half of DEAD. Terce is a church office of the morning.",
+     "definitionFit": "To intercede is to plead with someone, such as God, on behalf of another."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dead"
+    }
+   }
   },
   {
    "number": 10,
@@ -213,7 +802,53 @@
      }
     ]
    },
-   "solution": "INTHESAMEBOAT"
+   "solution": "INTHESAMEBOAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IN THE SAME BOAT",
+    "definitions": [
+     {
+      "text": "Like a couple suffering together",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "distraught",
+      "for": "anagram",
+      "note": "distraught means deeply agitated, so these letters are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bohemian state",
+      "gives": "BOHEMIANSTATE",
+      "note": "thirteen letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BOHEMIANSTATE",
+       "gives": "INTHESAMEBOAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pair of unconventional types are both upset.",
+     "definitionFit": "In the same boat is an idiom for sharing a difficult situation with others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bohemian"
+    }
+   }
   },
   {
    "number": 11,
@@ -224,10 +859,73 @@
    },
    "length": 9,
    "clue": {
-    "text": "Princess’s hubby let loose to destroy?",
+    "text": "Princess's hubby let loose to destroy?",
     "enumeration": "9"
    },
-   "solution": "DISMANTLE"
+   "solution": "DISMANTLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "DISMANTLE",
+    "definitions": [
+     {
+      "text": "destroy",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loose",
+      "for": "anagram",
+      "note": "something let loose runs about freely, so its letters scatter into a new order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Princess's",
+      "gives": "DIS",
+      "note": "Di, short for Diana, with the possessive s"
+     },
+     {
+      "clueFragment": "hubby",
+      "gives": "MAN",
+      "note": "one's man is one's husband"
+     },
+     {
+      "clueFragment": "let",
+      "gives": "LET",
+      "note": "taken as written before rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "MAN",
+      "TLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LET",
+       "gives": "TLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A princess's husband is let loose to wreck things.",
+     "walkthrough": "Di is the familiar name of Diana, Princess of Wales; 'let' is part of the fodder, not a verb meaning allow.",
+     "definitionFit": "To dismantle something is to take it apart, effectively destroying it as a working whole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "let"
+    }
+   }
   },
   {
    "number": 12,
@@ -241,7 +939,55 @@
     "text": "Woman with gun? Princess is holding one",
     "enumeration": "5"
    },
-   "solution": "ANNIE"
+   "solution": "ANNIE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ANNIE",
+    "definitions": [
+     {
+      "text": "Woman with gun?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is holding",
+      "for": "container",
+      "note": "holding something means keeping it inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Princess",
+      "gives": "ANNE",
+      "note": "Princess Anne, the Princess Royal"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANN",
+      "I",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman armed with a gun, and a princess holding one too.",
+     "walkthrough": "The definition refers to the musical Annie Get Your Gun, about the sharpshooter Annie Oakley.",
+     "definitionFit": "Annie Oakley, heroine of the musical Annie Get Your Gun, is the famous female sharpshooter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 13,
@@ -261,7 +1007,55 @@
      }
     ]
    },
-   "solution": "WESSTREETING"
+   "solution": "WESSTREETING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WES STREETING",
+    "definitions": [
+     {
+      "text": "Cabinet member",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Across",
+      "for": "container",
+      "note": "lying across something means spanning its middle, so one piece is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "you and I celebrate",
+      "gives": "WESING",
+      "note": "we sing: you and I are we, and to sing is to celebrate"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "STREET",
+      "note": "a street is a road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WES",
+      "STREET",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "Crossing the road, we sing in celebration of a government minister.",
+     "walkthrough": "'Across' looks like a direction for crossing the road but means the road spans the middle of the celebration phrase. Wes Streeting is a British Labour politician who became Health Secretary in 2024.",
+     "definitionFit": "Wes Streeting serves in the UK Labour government Cabinet as Health Secretary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Across"
+    }
+   }
   },
   {
    "number": 14,
@@ -275,7 +1069,39 @@
     "text": "Move to see somewhere else?",
     "enumeration": "9"
    },
-   "solution": "TRANSLATE"
+   "solution": "TRANSLATE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TRANSLATE",
+    "definitions": [
+     {
+      "text": "Move to see somewhere else?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Move to see somewhere else?",
+      "note": "surface reading: travel to view a different place"
+     },
+     {
+      "clueFragment": "see",
+      "note": "setter's reading: a see is a bishop's diocese, and shifting a bishop to another diocese has its own churchy verb"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'See' is not the verb but the noun for a bishop's seat; moving a bishop to a new see is translating him.",
+     "definitionFit": "In church usage, to translate a bishop is to transfer them from one diocese to another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "see"
+    }
+   }
   },
   {
    "number": 15,
@@ -289,7 +1115,50 @@
     "text": "A lab I run badly, as one who should be doubly listening?",
     "enumeration": "8"
    },
-   "solution": "BINAURAL"
+   "solution": "BINAURAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BINAURAL",
+    "definitions": [
+     {
+      "text": "as one who should be doubly listening?",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "something run badly is a muddle, so these letters are disordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A lab I run",
+      "gives": "ALABIRUN",
+      "note": "letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALABIRUN",
+       "gives": "BINAURAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scientist confesses to managing a laboratory poorly and wonders about being a better listener.",
+     "definitionFit": "Binaural means using or involving both ears, so a person with that hearing listens twice over."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "lab"
+    }
+   }
   },
   {
    "number": 16,
@@ -303,7 +1172,57 @@
     "text": "Flag in vessel crossing river",
     "enumeration": "8"
    },
-   "solution": "STREAMER"
+   "solution": "STREAMER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STREAMER",
+    "definitions": [
+     {
+      "text": "Flag",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "a ship crossing water has it inside its path, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vessel",
+      "gives": "STEAMER",
+      "note": "a steamer is a steamship"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "R",
+      "EAMER"
+     ]
+    },
+    "explanation": {
+     "surface": "A flag flies on a boat crossing a river.",
+     "definitionFit": "A streamer is a long narrow flag or pennant flown from a mast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Flag"
+    }
+   }
   },
   {
    "number": 17,
@@ -323,7 +1242,53 @@
      }
     ]
    },
-   "solution": "BALANCEDDIET"
+   "solution": "BALANCEDDIET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BALANCED DIET",
+    "definitions": [
+     {
+      "text": "healthy food and drink",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to reform",
+      "for": "anagram",
+      "note": "reforming something remakes it, so the letters are rebuilt in another order"
+     }
+    ],
+    "linkWords": [
+     "needed"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Enable addict",
+      "gives": "ENABLEADDICT",
+      "note": "the twelve letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ENABLEADDICT",
+       "gives": "BALANCEDDIET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Helping an addict recover requires proper nutrition.",
+     "definitionFit": "A balanced diet is a nourishing mix of foods and drinks in sensible proportions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reform"
+    }
+   }
   },
   {
    "number": 18,
@@ -337,7 +1302,61 @@
     "text": "Managed to perform music initially disorganised",
     "enumeration": "6"
    },
-   "solution": "RANDOM"
+   "solution": "RANDOM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RANDOM",
+    "definitions": [
+     {
+      "text": "disorganised",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Managed",
+      "gives": "RAN",
+      "note": "to run a business is to manage it"
+     },
+     {
+      "clueFragment": "to perform",
+      "gives": "DO",
+      "note": "to do is to perform"
+     },
+     {
+      "clueFragment": "music",
+      "gives": "M",
+      "select": "first",
+      "note": "opening letter of music"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAN",
+      "DO",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone managed to put on a musical performance that started off chaotic.",
+     "definitionFit": "Random means haphazard, lacking any plan or order."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Managed"
+    }
+   }
   },
   {
    "number": 19,
@@ -348,10 +1367,55 @@
    },
    "length": 6,
    "clue": {
-    "text": "Yesteryear’s traitor not popular",
+    "text": "Yesteryear's traitor not popular",
     "enumeration": "6"
    },
-   "solution": "FORMER"
+   "solution": "FORMER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "FORMER",
+    "definitions": [
+     {
+      "text": "Yesteryear's",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not tells us a word is to be taken away from the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "traitor",
+      "gives": "INFORMER",
+      "note": "an informer betrays others to the authorities"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "what is in is fashionable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FORMER"
+     ]
+    },
+    "explanation": {
+     "surface": "An old turncoat who has fallen out of favour.",
+     "definitionFit": "Former describes something belonging to an earlier time, of days gone by."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "popular"
+    }
+   }
   },
   {
    "number": 20,
@@ -362,10 +1426,52 @@
    },
    "length": 5,
    "clue": {
-    "text": "What ’oly people ’ave – bitter drug",
+    "text": "What 'oly people 'ave – bitter drug",
     "enumeration": "5"
    },
-   "solution": "ALOES"
+   "solution": "ALOES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ALOES",
+    "definitions": [
+     {
+      "text": "bitter drug",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'ave",
+      "for": "deletion",
+      "note": "the apostrophe for a dropped aitch, Cockney style, shows the opening letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What 'oly people",
+      "gives": "HALOES",
+      "note": "holy people, saints, have halos around their heads"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALOES"
+     ]
+    },
+    "explanation": {
+     "surface": "A Cockney describes what saints possess, then names a bitter medicine.",
+     "walkthrough": "The clue drops its aitches, so the halo word is said without its first letter too.",
+     "definitionFit": "Aloes is a bitter purgative medicine made from the juice of aloe plants."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "people"
+    }
+   }
   },
   {
    "number": 21,
@@ -379,7 +1485,70 @@
     "text": "Old lover on horrible trip had to pull up",
     "enumeration": "9"
    },
-   "solution": "EXTIRPATE"
+   "solution": "EXTIRPATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "EXTIRPATE",
+    "definitions": [
+     {
+      "text": "pull up",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "horrible",
+      "for": "anagram",
+      "note": "something horrible is a mess, so these letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old lover",
+      "gives": "EX",
+      "note": "a former partner"
+     },
+     {
+      "clueFragment": "trip",
+      "gives": "TRIP",
+      "note": "letters for rearranging"
+     },
+     {
+      "clueFragment": "had",
+      "gives": "ATE",
+      "note": "to have a meal is to eat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "TIRP",
+      "ATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRIP",
+       "gives": "TIRP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former partner on a dreadful journey had to stop the car.",
+     "definitionFit": "To extirpate is to root out or uproot completely, as weeds are torn from the ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "had"
+    }
+   }
   },
   {
    "number": 22,
@@ -393,7 +1562,51 @@
     "text": "Go wrong again with sticky stuff?",
     "enumeration": "5"
    },
-   "solution": "RESIN"
+   "solution": "RESIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RESIN",
+    "definitions": [
+     {
+      "text": "sticky stuff?",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "again",
+      "gives": "RE",
+      "note": "the prefix meaning again"
+     },
+     {
+      "clueFragment": "Go wrong",
+      "gives": "SIN",
+      "note": "to sin is to do wrong"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "SIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Messing up a second time with something gooey.",
+     "walkthrough": "Read as RE-SIN, sinning once more; the pieces come in reverse order of the clue.",
+     "definitionFit": "Resin is the viscous substance exuded by trees such as pines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Go"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1620,43 @@
     "text": "Behaviour of fourth character less generous, we hear",
     "enumeration": "9"
    },
-   "solution": "DEMEANOUR"
+   "solution": "DEMEANOUR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "DEMEANOUR",
+    "definitions": [
+     {
+      "text": "Behaviour",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is spoken, so the result goes by sound not spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fourth character less generous",
+      "gives": "DEMEANOUR",
+      "soundsLike": "DEE MEANER",
+      "note": "D is the fourth letter of the alphabet, and less generous is meaner"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone's conduct is judged as being rather stingier.",
+     "definitionFit": "Demeanour is outward bearing or conduct, the way someone carries themselves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 24,
@@ -421,7 +1670,42 @@
     "text": "Material concealed by this criminal",
     "enumeration": "5"
    },
-   "solution": "SCRIM"
+   "solution": "SCRIM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SCRIM",
+    "definitions": [
+     {
+      "text": "Material",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "concealed by",
+      "for": "hidden_word",
+      "note": "something concealed is tucked inside, here within the run of letters that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "this criminal",
+      "gives": "SCRIM",
+      "note": "runs across the gap between the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Fabric is hidden away by a crook.",
+     "definitionFit": "Scrim is a coarse open-weave cotton or linen fabric, used in theatre and upholstery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 25,
@@ -435,7 +1719,54 @@
     "text": "Manuscript containing silver edges",
     "enumeration": "8"
    },
-   "solution": "MARGENTS"
+   "solution": "MARGENTS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MARGENTS",
+    "definitions": [
+     {
+      "text": "edges",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding inside, so one piece is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Manuscript",
+      "gives": "MS",
+      "note": "standard abbreviation for manuscript"
+     },
+     {
+      "clueFragment": "silver",
+      "gives": "ARGENT",
+      "note": "argent is silver in heraldry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ARGENT",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "An old manuscript with silver gilding.",
+     "walkthrough": "Margent is an old poetic word for margin, so manuscripts also have margents, which suits the surface.",
+     "definitionFit": "Margent is an archaic form of margin, a border or edge, especially of a page."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -449,7 +1780,55 @@
     "text": "Natural weapon of mammal? Insect left with little hesitation",
     "enumeration": "6"
    },
-   "solution": "ANTLER"
+   "solution": "ANTLER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANTLER",
+    "definitions": [
+     {
+      "text": "Natural weapon of mammal?",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Insect",
+      "gives": "ANT",
+      "note": "an ant is an insect"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "little hesitation",
+      "gives": "ER",
+      "note": "er is a short sound of hesitation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANT",
+      "L",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering what weapon nature gave an animal, with a bit of hesitation about an insect.",
+     "definitionFit": "A deer's antler is a branched horn used for fighting rivals, a weapon grown by the animal itself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Insect"
+    }
+   }
   }
  ]
 }
