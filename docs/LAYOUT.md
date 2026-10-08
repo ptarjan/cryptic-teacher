@@ -1854,6 +1854,10 @@ tools/test_canberra_reprint_vote.sh           does a Canberra Times reprint vote
                                               the Times series, and does a reprint downloaded
                                               or read later make that edition due again, and no
                                               other?
+tools/test_fold_reprints.sh                   does fold_reprints.rekeyer rename a folded id
+                                              both as a whole JSON string and as the lead of
+                                              one, and leave a longer number, a mid-string
+                                              mention and other ids alone?
 tools/test_ocr_vote_checks.sh                 does the clue vote file each word, count, capital
                                               and hyphen as the readings print them, and settle
                                               a word they all misread on the known word their

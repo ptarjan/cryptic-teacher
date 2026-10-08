@@ -78,19 +78,24 @@ REKEYED = ("tools/data/yt_solvers/cryptics_uncovered_moments.json",
            "tools/blog_facts_gold.jsonl")
 
 
+def rekeyer(pairs):
+    """The text substitution that renames {reprint id: original id}: an id is
+    a whole string ("globeandmail-3334") or leads one
+    ("globeandmail-3334 2-down MOSS")."""
+    import re
+    pattern = re.compile(r'"(%s)(?=[" ])' % "|".join(map(re.escape, pairs)))
+    return lambda text: pattern.sub(lambda m: f'"{pairs[m.group(1)]}', text)
+
+
 def rekey(pairs):
     """Move every table row keyed by a folded id onto its original's id:
     {reprint id: original id}."""
-    import re
     import blog_facts as bf
     import validate_annotations as va
     if not pairs:
         return
     root = TOOLS.parent
-    # An id is a whole string ("globeandmail-3334") or leads one
-    # ("globeandmail-3334 2-down MOSS").
-    pattern = re.compile(r'"(%s)(?=[" ])' % "|".join(map(re.escape, pairs)))
-    sub = lambda text: pattern.sub(lambda m: f'"{pairs[m.group(1)]}', text)  # noqa: E731
+    sub = rekeyer(pairs)
     for name in REKEYED:
         path = root / name
         path.write_text(sub(path.read_text(encoding="utf-8")), encoding="utf-8")
