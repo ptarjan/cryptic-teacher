@@ -112,9 +112,14 @@ joined = dict(stored, clues=dict(voted, **{"2-down": ["Mineral instorexq", "3"]}
 print("scan-no-clues", A.assemble(1800, A.scan_copy(dict(stored, clues={})), "u", None, None, "Plain")[1])
 print("scan-suspect", A.assemble(1800, A.scan_copy(joined), "u", None, None, "Plain")[1])
 # Two words a reader ran together pass the lexicon ("maybe"+"heard", the
-# rare "rulering" for "ruler in"): held. A real compound ("afresh") and a
-# dialect "climbin'" are no such pair.
-for name, text in (("ran-together", "Mineral maybeheard in store"), ("ran-together-rare", "Black rulering a store"),
+# rare "undertime" whose pair the corpus prints): held. A real compound
+# ("afresh") and a dialect "climbin'" are no such pair, nor are No 1822's
+# "cookroom" and "rodmen" (rare lexicon words whose halves the corpus never
+# prints as a pair), No 1839's "inbuilt" (the corpus prints it whole) or
+# the name "Notus".
+print("real-words", [A.run_together(w) for w in ("cookroom", "rodmen", "inbuilt", "Notus")])
+print("real-words-mirror", [A.run_together(w) for w in ("undertime", "notus")])
+for name, text in (("ran-together", "Mineral maybeheard in store"), ("ran-together-rare", "Black undertime a store"),
                    ("not-ran-together", "Mineral afresh in store")):
     print(name, A.assemble(1800, A.scan_copy(dict(stored, clues=dict(voted, **{"2-down": [text, "3"]}))),
                            "u", None, None, "Plain")[1])
@@ -154,6 +159,8 @@ check "a scan clue OCR wrote is held" "ocr-blank" "$(line scan-suspect)"
 check "a scan clue with two words run together is held" "ocr-blank" "$(line ran-together)"
 check "a rare lexicon word that is two common ones is held" "ocr-blank" "$(line ran-together-rare)"
 check "a compound is no words run together" "None" "$(line not-ran-together)"
+check "real words run_together once held are words" "[None, None, None, None]" "$(line real-words)"
+check "a rare word whose pair the corpus prints, or a small notus, is still two (mirror)" "['under time', 'not us']" "$(line real-words-mirror)"
 check "a dropped g is none either, though its letters are" "None climb in" "$(line dropped-g)"
 check "an image-only PDF is a scan, not not-text" "scan (40, 40)" "$(line scan-routed)"
 

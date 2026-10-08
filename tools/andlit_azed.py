@@ -521,7 +521,7 @@ def blog_records():
 #: Voted readings of the scanned copies, one {number}.json each, keyed by the
 #: copy's sha and SCAN_VERSION: bump it when the reading below changes.
 SCAN_STORE = CACHE / "scans"
-SCAN_VERSION = 2
+SCAN_VERSION = 3
 #: The 2006-08 scans are ~750px wide, too small for the readers' detector:
 #: upscaled 2x, the vote agrees on 32 of No 1820's 36 clues, not 21.
 SCAN_SCALE = 2
@@ -596,12 +596,16 @@ def read_scan(path, number, ocr=True):
 #: often than the pair) is two words when the corpus's clues print the pair
 #: at least RUN_TOGETHER_PAIRS times; a word the lexicon holds only past
 #: RUN_TOGETHER_RARE ("rulering", read for "ruler in") is two when it is
-#: two of the lexicon's RUN_TOGETHER_COMMON commonest words. On the corpus's
-#: filed Azed clues these trip 77 of 21,478, several of them misreads.
+#: two of the lexicon's RUN_TOGETHER_COMMON commonest words and the corpus's
+#: clues print that pair at all. A word the corpus's clues print whole
+#: RUN_TOGETHER_SEEN times ("inbuilt") and a name the lexicon knows ("Notus")
+#: are words. On the corpus's filed Azed clues
+#: these trip 77 of 21,478, several of them misreads.
 RUN_TOGETHER_RANK = 100_000
 RUN_TOGETHER_PAIRS = 3
 RUN_TOGETHER_RARE = 200_000
 RUN_TOGETHER_COMMON = 10_000
+RUN_TOGETHER_SEEN = 2
 
 
 def run_together(word):
@@ -612,17 +616,21 @@ def run_together(word):
     if len(low) < 4 or not low.isalpha():
         return None
     rank = ocr_clues.rank(low)
-    if rank is not None and (rank <= RUN_TOGETHER_RANK or word[0].isupper()):
+    if rank is not None and rank <= RUN_TOGETHER_RANK:
+        return None
+    if word[0].isupper() and ocr_clues.known(low):
         return None
     uni, pairs, _ = ocr_clues.clue_lm()
     seen = uni.get(low, 0)
+    if seen >= RUN_TOGETHER_SEEN:
+        return None
     for k in range(1, len(low)):
         a, b = low[:k], low[k:]
         if not (ocr_clues.is_word(a) and ocr_clues.is_word(b)):
             continue
         if pairs.get(f"{a} {b}", 0) >= max(RUN_TOGETHER_PAIRS, seen + 1):
             return f"{a} {b}"
-        if (rank or 0) > RUN_TOGETHER_RARE and not seen and min(len(a), len(b)) >= 3 \
+        if (rank or 0) > RUN_TOGETHER_RARE and not seen and min(len(a), len(b)) >= 3 and pairs.get(f"{a} {b}") \
                 and max(ocr_clues.rank(a) or math.inf, ocr_clues.rank(b) or math.inf) <= RUN_TOGETHER_COMMON:
             return f"{a} {b}"
     return None
