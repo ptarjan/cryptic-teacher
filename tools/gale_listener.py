@@ -346,6 +346,12 @@ REPORT_HEAD = re.compile(r"^\W*report\s+on\b", re.IGNORECASE)
 #: A clue number as the 1930s lists print it, "12.": where they line up
 #: is a clue column (a bare "12" may be a grid's or a sentence's).
 OPENS = re.compile(r"^\W{0,2}\d{1,2}[.,:](?![\d.])")
+#: Words this many line heights apart are no one clue line's.
+LINE_GAP = 5
+#: A clue number alone in its box, and how wide each of its characters
+#: prints at most, in the box's height (old-style figures run ~0.6).
+BARE_NUMBER = re.compile(r"\W{0,2}\d{1,2}[.,:]")
+NUMBER_WIDTH = 0.75
 #: Clue numbers this far apart (in x) open different columns; a column is
 #: one where at least COLUMN_MIN clues open, and a list has at least as many.
 COLUMN_STEP, COLUMN_MIN = 40, 3
@@ -362,6 +368,13 @@ RESTART = 20
 #: much of its column's width: a short one ended its clue ("6. Lenten."),
 #: and the line under it is the next clue, its number lost ("park").
 FULL = 0.6
+#: A line this many times as tall as the clue line over it is set in
+#: bigger type: the next article's title ("Points from Letters" under No
+#: 15's 22 across), never the clue running on.
+TALLER = 1.8
+#: A word starting this much of its column's width past where the clue
+#: lines end is no clue's: the grid's or the entry form's beside it.
+BEYOND = 0.2
 #: A list's footnote, under its last clue: "*One letter missing."
 FOOTNOTE = re.compile(r"^\W{0,2}[*\u2020\u2021#]\s*[A-Z]")
 #: A line ending its sentence: "Lenten.", "Why did this aspirated this?".
@@ -429,6 +442,12 @@ def numbered_columns(words):
         # run into the grid or form beside it (No 17's "less'. NAME....").
         ends = sorted(line[3] for line in rows if OPENS.match(line[4]))
         right = ends[int(0.9 * (len(ends) - 1))] if ends else x0
+        if ends and any(w[2] > right + BEYOND * (right - x0) for w in col):
+            # Words starting well past that edge are the grid's or the
+            # form's beside the column ("NAME...."): a box of theirs as
+            # tall as two lines joined No 17's "less'." to 34 down's line.
+            col = [w for w in col if w[2] <= right + BEYOND * (right - x0)]
+            rows = fa.merge_rows(col)
         for line in rows:
             if REPORT_HEAD.match(line[4]):
                 # A report's prose ("solving 38 Down") is no clue list.
@@ -443,7 +462,8 @@ def numbered_columns(words):
                 # start at the indent.
                 line = (line[0], line[1], last_x + RUN_ON + 1, line[3], line[4][speck.end():])
             under = (run and last_y is not None and line[0] - last_y < fa.GAP / 2 and line[2] > last_x + RUN_ON
-                     and not fa.heading_of(line[4]) and not FOOTNOTE.match(line[4]))
+                     and not fa.heading_of(line[4]) and not FOOTNOTE.match(line[4])
+                     and line[1] - line[0] <= TALLER * (run[-1][1][-1][1] - run[-1][1][-1][0]))
             if m and line[2] - x0 < NUMBER_EDGE and WORDY.search(m.group(2)) and not fa.heading_of(line[4]):
                 n = int(m.group(1))
                 run = numbered(run, n)
@@ -528,7 +548,8 @@ def figures(words):
     """The words with a line's opening clue number read as letters put back
     in digits (a number cannot open on 0, so "O." and "Oo." stay words),
     parted from a first word run into it, and a footnote's dagger read as a
-    letter (DAGGER) put back; a speck's box taller than a line goes."""
+    letter (DAGGER) put back; a speck's box taller than a line goes, and a
+    bare number's box too wide for it is cut to its right end."""
     out = []
     tall = 1.5 * sorted(w[3] - w[1] for w in words)[len(words) // 2] if words else 0
     for w in words:
@@ -536,6 +557,11 @@ def figures(words):
             # A speck's box over several lines ("+" for No 97's lost "4."):
             # merge_rows would take it for one row and drop the lines in it.
             continue
+        if BARE_NUMBER.fullmatch(w[4]) and w[2] - w[0] > len(w[4]) * (w[3] - w[1]):
+            # A clue number's box wider than its characters can print: specks
+            # or the gutter read into it (No 17's "7." from x 784, where the
+            # column's numbers start at ~864). The number ends where it does.
+            w = (int(w[2] - NUMBER_WIDTH * len(w[4]) * (w[3] - w[1])), *w[1:])
         m = FIGURES.match(w[4])
         n = m and m.group(2).translate(AS_DIGIT)
         if m and n.isdigit() and n[0] != "0" and not m.group(2).isdigit():
@@ -598,7 +624,65 @@ def read_page(img, key):
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(got))
         words[which] = figures(got)
+    for which in ocr_clues.READERS:
+        if which not in ocr_clues.TESS_MODELS:
+            words[which] = figures(reread_lines(img, key, which, [tuple(w) for w in words[which]], located))
     return al.vote(words, verdict, cols=page_columns)
+
+
+def read_box(img, key, box, which):
+    """[(x0, y0, x1, y1, text)] reader `which` reads in `box` of the page,
+    in page coordinates; cached in OCR_CACHE by the box."""
+    path = OCR_CACHE / f"{key}.{'-'.join(map(str, box))}.{ocr_clues.reader_key(which)}.json"
+    if path.exists():
+        return [tuple(w) for w in json.loads(path.read_text())]
+    got = [(x0 + box[0], y0 + box[1], x1 + box[0], y1 + box[1], t)
+           for x0, y0, x1, y1, t in ocr_clues.read_words(img.crop(box), which)]
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(got))
+    return got
+
+
+def reread_lines(img, key, which, words, located):
+    """`words` (a RapidOCR reader's, read band by band) with each clue line
+    whose number it lost read again alone: where the page's words
+    (`located`) open a line on a clue number and words that this reading
+    has nothing over, the line is cropped from its number to its last word
+    and read by itself. Over a whole band the detector can keep a line's
+    end and drop its start (No 15's "8. A park." read as "park"); alone,
+    it reads it whole."""
+    out = list(words)
+    for n in located:
+        if not OPENS.match(n[4]):
+            continue
+        h = n[3] - n[1]
+        mid = (n[1] + n[3]) / 2
+        if any(w[0] < n[2] and n[0] < w[2] and w[1] < mid < w[3] for w in out):
+            continue
+        row = sorted((w for w in located if abs((w[1] + w[3]) / 2 - mid) < h / 2 and w[0] >= n[0]),
+                     key=lambda w: w[0])
+        x1 = n[2]
+        for w in row:
+            if w[0] - x1 > LINE_GAP * h:
+                # The next column's words: a number stands up to ~3.7
+                # heights from its words (No 97's wide-set "36.").
+                break
+            x1 = max(x1, w[2])
+        if x1 == n[2]:
+            continue  # a number with no words beside it: no clue line
+        # The detector reads nothing in a crop much tighter than the line.
+        box = (max(0, n[0] - h), max(0, n[1] - h // 2), min(img.width, x1 + h), min(img.height, n[3] + h // 2))
+        band = (n[1] - h / 4, n[3] + h / 4)
+        got = sorted((w for w in read_box(img, key, box, which) if band[0] <= (w[1] + w[3]) / 2 <= band[1]),
+                     key=lambda w: w[0])
+        if not got or not (OPENS.match(got[0][4]) or re.fullmatch(r"\d{1,2}", got[0][4])):
+            continue
+        if got[0][4] == re.match(r"\W{0,2}(\d{1,2})", n[4]).group(1):
+            # Read alone, a number often loses its stop ("8" for "8.").
+            got[0] = (*got[0][:4], got[0][4] + ".")
+        out = [w for w in out if not (box[0] <= (w[0] + w[2]) / 2 <= box[2] and band[0] <= (w[1] + w[3]) / 2 <= band[1])]
+        out += got
+    return out
 
 
 def see_pages(pages):
@@ -620,7 +704,8 @@ def read_file(m):
 
 def reading(m, row, verdict, laid):
     """The reading written to STORE: archive_org_listener.reading's shape."""
-    suspects = {lid: s for lid, (t, _, _) in laid.items() if t and (s := ocr_clues.suspect(t))}
+    alike = verdict.get("asPrinted", {})
+    suspects = {lid: s for lid, (t, _, _) in laid.items() if t and (s := ocr_clues.suspect(t, printed=alike.get(lid, ())))}
     if suspects:
         verdict["suspect"] = {lid: [tok for tok, _ in s] for lid, s in suspects.items()}
     return {
@@ -634,7 +719,9 @@ def reading(m, row, verdict, laid):
                    "url": DOC_URL.format(m["docId"]) if m.get("docId") else PORTAL},
         "unfiled": "clues only: the grid and answers are still to be rebuilt",
         "verdict": verdict,
-        "clues": {lid: {"text": t, "enumeration": e} for lid, (t, e, _) in laid.items()},
+        "clues": {lid: {"text": t, "enumeration": e, **({"asPrinted": alike[lid]} if lid in alike else {}),
+                        **({"group": grp} if grp else {})}
+                  for lid, (t, e, grp) in laid.items()},
     }
 
 

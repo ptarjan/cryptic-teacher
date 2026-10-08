@@ -211,6 +211,62 @@ check("lost numbers put back when the gap counts them; grid numbers and an uncou
       ["2. Add head and turn about you get here", "3. A riddle", "4. Why did", "5. In sol", "6. He rid",
        "7. Half sort of Scottish guillotine here", "10. Oxen.", "13. Last"], [l[4] for l in cols[1]] if cols else None)
 
+# No 17's down list: a clue number whose box ran left over specks ("7."
+# from x 784) set the column's edge into the across column; the entry
+# form beside the list ("NAME....", two lines tall) joined 33's last line
+# to 34's. No 15's 22 across ran on into the next article's title.
+words = (line("ACROSS", 300, 1000) + line("1. Are acquired characteristics in-", 250, 1030)
+         + line("11. Red.", 250, 1060) + line("12. A hairy caterpillar.", 250, 1090)
+         + line("DOWN.", 1100, 1000) + line("1. A Mediterranean shrub.", 880, 1030)
+         + line("2. An antidote to poison.", 880, 1060) + line("3. An astronomical term.", 880, 1090)
+         + [(784, 1120, 903, 1138, "7.")] + line("Anag. of a lovely word", 920, 1120)
+         + line("33. One shade the more, one ray the", 864, 1150) + line("less'.", 920, 1175)
+         + [(1814, 1170, 2004, 1220, "NAME....")]
+         + line("34. An anatomatical adjective of the", 864, 1200) + line("depression at the place", 920, 1225)
+         + line("13. A rope stretched to prevent gear", 250, 1120) + line("from getting fouled.", 300, 1145)
+         + [(330, 1175, 900, 1240, "Points from Letters")])
+cols = g.page_columns(g.figures(words))
+check("a number's box run left over specks sets no column edge; the form and a title stay out",
+      (["1. Are acquired characteristics in-", "11. Red.", "12. A hairy caterpillar.",
+        "13. A rope stretched to prevent gear", "from getting fouled."],
+       ["1. A Mediterranean shrub.", "2. An antidote to poison.", "3. An astronomical term.",
+        "7. Anag. of a lovely word", "33. One shade the more, one ray the", "less'.",
+        "34. An anatomatical adjective of the", "depression at the place"]),
+      tuple([l[4] for l in c] for c in cols) if cols else None)
+check("a number's box too wide for it is cut to its right end (mirror: one that fits stays)",
+      [(876, 1120, 903, 1138, "7."), (864, 1150, 900, 1170, "33.")],
+      [w[:5] for w in g.figures([(784, 1120, 903, 1138, "7."), (864, 1150, 900, 1170, "33.")])])
+
+# A clue line a RapidOCR reading lost its number on (No 15's "8. A park."
+# read as "park") is read again alone, from the page words' number.
+reads = []
+def read_box(img, key, box, which):
+    reads.append(box)
+    return [(box[0] + 17, 848, box[0] + 30, 865, "8"), (1095, 848, 1112, 864, "A"), (1122, 848, 1181, 872, "park.")]
+g.read_box, real_read_box = read_box, g.read_box
+PAGE = type("Page", (), {"width": 3000, "height": 4000})()
+page = [(1063, 828, 1080, 843, "6."), (1095, 827, 1175, 844, "Lenten."), (1064, 848, 1081, 865, "8."),
+        (1095, 848, 1112, 864, "A"), (1122, 848, 1181, 872, "park.")]
+mine = [(1058, 823, 1179, 846, "6. Lenten."), (1108, 849, 1170, 868, "park")]
+got = sorted(w[4] for w in g.reread_lines(PAGE, "k", "ch", mine, page))
+check("a line whose number a reading lost is read again alone, its stop put back",
+      (["6. Lenten.", "8.", "A", "park."], 1), (got, len(reads)))
+check("a line the reading has whole is not (mirror)", (["6. Lenten."], 1),
+      (sorted(w[4] for w in g.reread_lines(PAGE, "k", "ch", mine[:1], page[:2])), len(reads)))
+g.read_box = real_read_box
+
+# No 97's "20 rev., 24.": one clue for two lights, the first reversed, laid
+# in the corpus's linked form; a reversed light alone keeps its "rev.".
+parsed = al.by_lines("ACROSS\n19. See 1 across.\n20 rev., 24. Charade: components I postpone.\n"
+                     "21. An African for riddles known.\nDOWN\n23 rev. He'd nothing solve.\n26. This, how to pay.")
+laid = al.lay(parsed)
+check("one clue for two lights: the group on the first, the clue its words",
+      ("rev. Charade: components I postpone.", ["20-across", "24-across"]),
+      laid["20-across"][::2])
+check("a reversed light alone is a sound clue with its rev.", (True, "rev. He'd nothing solve."),
+      (al.sound(laid["23-down"][0]), laid["23-down"][0]))
+check("a plain clue has no group (mirror)", None, laid["21-across"][2])
+
 # A page that prints the clues or the diagram on another page says which.
 check("the pages it sends to, over a line break; a report's page is none",
       [675, 885, 1057], g.elsewhere(line("Closing date: Tuesday. Diagram", 100, 100) + line("and rules on page 885.", 100, 120)

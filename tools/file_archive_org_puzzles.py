@@ -2777,9 +2777,11 @@ def destination(puzzles, complete=True):
 
 def complete(puzzle):
     """Whether every clue of a puzzle has text, none with a word OCR made
-    up (ocr_clues.suspect) or unfit to file (faults)."""
+    up (ocr_clues.suspect; a token its `asPrinted` keeps is the print's) or
+    unfit to file (faults)."""
     return filled(puzzle)[0] == len(puzzle["entries"]) and not any(
-        suspect((e.get("clue") or {}).get("text", "")) for e in puzzle["entries"]) and not faults(puzzle)
+        suspect((e.get("clue") or {}).get("text", ""), printed=(e.get("clue") or {}).get("asPrinted") or ())
+        for e in puzzle["entries"]) and not faults(puzzle)
 
 
 def unfit_blanked(laid, blank, lengths):
@@ -2816,7 +2818,7 @@ def faults(puzzle):
     for e in puzzle["entries"]:
         clue = e.get("clue") or {}
         cells = sum(length.get(i) or 0 for i in e.get("group") or [lid(e)])
-        why = ocr_clues.fault(clue.get("text"), clue.get("enumeration"), cells)
+        why = ocr_clues.fault(clue.get("text"), clue.get("enumeration"), cells, clue.get("asPrinted") or ())
         if why:
             out[lid(e)] = why
     return out
