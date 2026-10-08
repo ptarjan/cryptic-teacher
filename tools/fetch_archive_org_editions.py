@@ -250,14 +250,35 @@ def scan_aligned(xml):
     return xml if not parts else b"".join(parts) + xml[at:]
 
 
+def memo(path, fn):
+    """fn(path), worked out again only when the file at `path` changed (its
+    mtime or size): the queue plans every minute off the same caches."""
+    try:
+        st = os.stat(path)
+    except FileNotFoundError:
+        return fn(path)
+    key = (st.st_mtime_ns, st.st_size)
+    hit = _MEMO.get((fn, path))
+    if hit is None or hit[0] != key:
+        hit = _MEMO[(fn, path)] = (key, fn(path))
+    return hit[1]
+
+
+_MEMO = {}
+
+
+def _misplaced_file(xml_path):
+    with gzip.open(xml_path) as f:
+        return misplaced(f.read())
+
+
 def words_misplaced(d):
     """Whether an edition dir's per-page words were stored on another leaf
     than the one they belong to (misplaced)."""
     xml_path = os.path.join(d, "djvu.xml.gz")
     if not (os.path.exists(os.path.join(d, "pagetext.json.gz")) and os.path.exists(xml_path)):
         return False
-    with gzip.open(xml_path) as f:
-        return misplaced(f.read())
+    return memo(xml_path, _misplaced_file)
 
 
 class Fetcher:
@@ -273,6 +294,9 @@ class Fetcher:
         self.refresh_lock = threading.Lock()
         self.refreshed = {}
         self.moved = {}
+        #: Whether archive.org answered a request 429 (a queue unit says so
+        #: in its exit, and the queue lowers its fetches in flight).
+        self.throttled = False
 
     @property
     def deadline(self):
@@ -283,6 +307,7 @@ class Fetcher:
         self.local.deadline = value
 
     def _throttled(self):
+        self.throttled = True
         with self.cond:
             if self.allowed > 1:
                 self.allowed -= 1
@@ -747,15 +772,29 @@ def fetch_pdf_edition(fx, item, name, d, bases):
     return hits
 
 
-def items_of(fx, group):
-    _, query, title_re, since = next(g for g in GROUPS if g[0] == group)
-    path = os.path.join(fx.out, "items", f"_group_{group}.json")
-    if os.path.exists(path) and time.time() - os.path.getmtime(path) < 7 * 86400:
+#: How long a group's cached item listing stands before it is searched again.
+LISTING_SECONDS = 7 * 86400
+
+
+def listing_path(out, group):
+    return os.path.join(out, "items", f"_group_{group}.json")
+
+
+def items_of(fx, group, refresh=False):
+    """The group's items, from its cached listing while that is under
+    LISTING_SECONDS old (and not `refresh`), else searched afresh."""
+    path = listing_path(fx.out, group)
+    if not refresh and os.path.exists(path) and time.time() - os.path.getmtime(path) < LISTING_SECONDS:
         with open(path) as f:
             docs = json.load(f)
     else:
-        docs = fx.search(query)
+        docs = fx.search(next(g for g in GROUPS if g[0] == group)[1])
         write_atomic(path, json.dumps(docs).encode())
+    return kept_items(group, docs)
+
+
+def kept_items(group, docs):
+    _, _, title_re, since = next(g for g in GROUPS if g[0] == group)
     keep = []
     for doc in docs:
         if not re.search(title_re, doc.get("title") or ""):
@@ -799,7 +838,16 @@ class Run:
         self.exit_code = 4
 
     def edition(self, fx, item, meta, name):
-        """Fetch one edition and log it; True when it was done."""
+        """Fetch one edition and log it; True when it was done, None when
+        another process is fetching it (its lock beside done.tsv)."""
+        import scan_queue  # here: the desktop imports this module for pdf_pages alone
+        with scan_queue.source_lock(Path(self.out) / "done.tsv", f"{item}/{name}") as mine:
+            if not mine:
+                log(f"  {name}: another fetch has it; skipped")
+                return None
+            return self._edition(fx, item, meta, name)
+
+    def _edition(self, fx, item, meta, name):
         t = time.monotonic()
         fx.deadline = t + ITEM_SECONDS
         try:
@@ -833,6 +881,100 @@ class Run:
             append(self.out, "done.tsv", [item, name, DETECTOR_VERSION])
             log(f"  {name}: leaves {[h['leaf'] for h in hits]} {heads[:120]} ({time.monotonic() - t:.0f}s)")
         return True
+
+
+def cached_meta(out, item):
+    """The item's editions from its cached metadata, or None when it has none
+    cached; reads no network."""
+    path = os.path.join(out, "items", item + ".json")
+    if not os.path.exists(path):
+        return None
+    return memo(path, lambda p: editions_of(json.loads(Path(p).read_bytes())))
+
+
+def plan(out, groups=None):
+    """The fetch units due (tools/edition_queue.py), most urgent first, off
+    the caches alone, no network: a group whose item listing is missing or
+    over LISTING_SECONDS old is listed first ({"group": g}); then, in
+    by_editions order, each item with no cached metadata ({"item": it},
+    its metadata fetched and, when it holds one edition, that edition) and
+    each edition not in done.tsv ({"item": it, "name": edition}), the
+    groups taking turns an edition each, so none starves the rest.""" 
+    done = load_done(out)
+    units, lists = [], []
+    for group in groups or [g[0] for g in GROUPS]:
+        path = listing_path(out, group)
+        fresh = os.path.exists(path) and time.time() - os.path.getmtime(path) < LISTING_SECONDS
+        if not fresh:
+            units.append({"group": group, "rel": f"_group_{group}", "reason": "item listing stale"})
+        if not os.path.exists(path):
+            lists.append([])
+            continue
+        lists.append([(group, it) for it in memo(path, lambda p, g=group: kept_items(g, json.loads(Path(p).read_bytes())))])
+    per_group = []
+    for row in lists:
+        per_group.append([])
+        for _, item in row:
+            names = cached_meta(out, item)
+            if names is None:
+                per_group[-1].append({"item": item, "rel": item, "reason": "metadata not cached"})
+            else:
+                per_group[-1] += [{"item": item, "name": x, "rel": f"{item}/{x}", "reason": "not fetched"}
+                                  for x in names if (item, x) not in done]
+    return units + by_editions(per_group, lambda u: 1)
+
+
+def fetch_unit(out, unit, min_free_gb=30):
+    """In a queue unit's own process: fetch what plan()'s `unit` names, one
+    connection at --delay 1. Returns "fetched", "current" (nothing left to
+    do), "busy" (another fetch has it), "failed" (the edition's own fault,
+    logged to failures.tsv), "outage" (archive.org looks down: outage()),
+    "throttled" (fetched, but archive.org answered 429) or "disk" (under
+    `min_free_gb` free)."""
+    fx = Fetcher(out, 1.0, 1)
+    if "group" in unit:
+        try:
+            items_of(fx, unit["group"], refresh=True)
+        except (urllib.error.URLError, OSError, ValueError, KeyError) as e:
+            log(f"{unit['group']}: item listing failed, left for the next run: {type(e).__name__}: {e}")
+            return "outage" if outage(e) else "failed"
+        return "fetched"
+    if shutil.disk_usage(out).free / 1e9 < min_free_gb:
+        log(f"under {min_free_gb} GB free in {out}; no fetch")
+        return "disk"
+    item = unit["item"]
+    fx.deadline = time.monotonic() + ITEM_SECONDS
+    try:
+        meta = fx.metadata(item)
+    except (urllib.error.URLError, RuntimeError, OSError, ValueError) as e:
+        log(f"{item}: metadata failed, left for the next run: {e}")
+        append(out, "failures.tsv", [time.strftime("%F %T"), item, "", f"metadata: {e}"])
+        return "outage" if outage(e) else "failed"
+    names = [unit["name"]] if unit.get("name") else editions_of(meta)
+    if len(names) != 1:
+        # Several editions: the next plan lists each as a unit of its own.
+        return "fetched"
+    if edition_done(out, item, names[0]):
+        return "current"
+    run = Run(out)
+    ok = run.edition(fx, item, meta, names[0])
+    if ok is None:
+        return "busy"
+    if ok:
+        return "throttled" if fx.throttled else "fetched"
+    return "outage" if run.in_a_row else "failed"
+
+
+def edition_done(out, item, name):
+    """Whether done.tsv holds this one edition as load_done would."""
+    want = f"{item}\t{name}\t{DETECTOR_VERSION}"
+    try:
+        with open(os.path.join(out, "done.tsv")) as f:
+            if not any(line.rstrip("\n") == want for line in f):
+                return False
+    except FileNotFoundError:
+        return False
+    return not words_misplaced(os.path.join(out, item, slug_of(item, name)))
 
 
 def main():

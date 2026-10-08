@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """The archive.org and Gale editions' read queue: one small unit per edition.
 
-    python3 tools/edition_queue.py run [--paper P ...] [--reread BEFORE] [--seconds N] [--workers N]
-    python3 tools/edition_queue.py plan [--paper P ...] [--reread BEFORE]   # what is due, by rank; reads nothing
+    python3 tools/edition_queue.py run [--paper P ...] [--reread BEFORE] [--seconds N] [--workers N] [--fetch SRC]
+    python3 tools/edition_queue.py plan [--paper P ...] [--reread BEFORE] [--fetch SRC]  # what is due; reads nothing
 
 Each unit is one edition's scan (file_archive_org_puzzles.scan_unit) or one
 edition's read and filing (read_unit), run in a process of its own, forked
@@ -23,7 +23,10 @@ it, where its solution prints) are made; those scans take the read's rank.
 Scans run in SCAN_WORKERS slots (this host's CPU), reads in --workers slots
 (mostly a wait on the desktop VLM).
 
-A unit is tried once a run: one that runs out of time or fails is left for
+--fetch SOURCE adds a fetcher's units (FETCHERS: archive.org, one edition
+each, fetch_archive_org_editions.fetch_unit) in a pool of their own, its
+plan() made with the rest; what a fetch lands is scanned and read from the
+next plan on. A unit is tried once a run: one that runs out of time or fails is left for
 the next run. --seconds stops starting units after N seconds and lets those
 running finish, then prints "left for the next run" when anything due was
 not started, as the batch filers do, so tools/ocr_full_pass.sh runs it in
@@ -44,6 +47,7 @@ from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
+import fetch_archive_org_editions as fetch_ao  # noqa: E402
 import file_archive_org_puzzles as fa  # noqa: E402
 import scan_queue  # noqa: E402
 
@@ -58,8 +62,22 @@ READ_SECONDS = 1200
 REPLAN = 60
 #: How long a stop waits for the units it TERMed before it KILLs them.
 STOP_GRACE = 30
-#: A unit's exit status: what read_unit/scan_unit returned.
-EXITS = {"read": 0, "scanned": 0, "current": 0, "busy": 3, "held": 4}
+#: A unit's exit status: what read_unit/scan_unit/a fetcher's unit returned.
+EXITS = {"read": 0, "scanned": 0, "current": 0, "fetched": 0, "busy": 3, "held": 4, "outage": 5,
+         "throttled": 6, "disk": 7}
+
+#: The fetch units (--fetch SOURCE): each source's plan() of units, its unit
+#: runner, how many run at once and each one's time limit. archive.org
+#: throttles each connection (~100 KB/s), not the client, so its units run
+#: in parallel, one connection each; an answer 429 lowers its slots by one,
+#: and FETCH_OUTAGES units in a row finding it down stop its fetches for
+#: the run (fetch_archive_org_editions.outage).
+FETCHERS = {
+    "archive.org": {"plan": lambda: fetch_ao.plan(fetch_ao.downloads.ARCHIVE_ORG),
+                    "run": lambda u: fetch_ao.fetch_unit(fetch_ao.downloads.ARCHIVE_ORG, u),
+                    "workers": 12, "seconds": 1200},
+}
+FETCH_OUTAGES = fetch_ao.FAILURES_IN_A_ROW
 
 
 def log(line):
@@ -102,8 +120,23 @@ def key_of(unit):
     return unit["kind"], unit["paper"], unit["rel"]
 
 
+def slot_of(unit):
+    """The pool a unit runs in: "scan", "read", or its fetch source."""
+    return unit["paper"] if unit["kind"] == "fetch" else unit["kind"]
+
+
+def plan_fetches(sources):
+    """Every fetch source's units, each source's in its plan's order."""
+    out = []
+    for src in sources:
+        out += [{**u, "kind": "fetch", "paper": src, "rank": 1} for u in FETCHERS[src]["plan"]()]
+    return out
+
+
 def run_unit(unit, cache, puzzles, reread):
     """In the forked child: the unit's outcome (EXITS)."""
+    if unit["kind"] == "fetch":
+        return FETCHERS[unit["paper"]]["run"](unit)
     paper = fa.FILERS[unit["paper"]]
     if unit["kind"] == "scan":
         return fa.scan_unit(paper, unit["rel"], cache)
@@ -175,10 +208,11 @@ class Beside:
 
 def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=None, workers=WORKERS,
              scan_workers=SCAN_WORKERS, newer=None, beside=None, read_seconds=READ_SECONDS,
-             scan_seconds=SCAN_SECONDS, replan=REPLAN):
+             scan_seconds=SCAN_SECONDS, replan=REPLAN, fetch=()):
     """Run the queue until nothing due is left to start (or `seconds` have
-    passed, or a TERM), then wait for the units running. Returns the
-    exit status: 0, or 143 after a TERM."""
+    passed, or a TERM), then wait for the units running. `fetch` names the
+    FETCHERS whose units run too, in pools of their own. Returns the exit
+    status: 0, or 143 after a TERM."""
     stop = []
     signal.signal(signal.SIGTERM, lambda *_: stop.append(signal.SIGTERM))
     signal.signal(signal.SIGINT, lambda *_: stop.append(signal.SIGINT))
@@ -188,9 +222,17 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     finished = {}
     outcomes = {}
     beside = [Beside(argv) for argv in beside or ()]
-    scans = reads = []
+    scans = reads = fetches = []
     planned = None
     left = 0
+    pools = {"scan": scan_workers, "read": workers, **{src: FETCHERS[src]["workers"] for src in fetch}}
+    outages = dict.fromkeys(fetch, 0)
+    stopped = set()  # fetch sources started no more this run
+
+    def replan_all(notes=None):
+        sc, rd = plan(papers, cache, reread, newer, notes)
+        live = [s for s in fetch if s not in stopped]
+        return sc, rd, plan_fetches(live) if live else []
 
     def may_start():
         return not stop and (seconds is None or time.monotonic() - begun < seconds)
@@ -229,13 +271,24 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             unit, t0 = running.pop(pid)
             finished[key_of(unit)] = time.monotonic()
             rc = os.waitstatus_to_exitcode(status)
-            what = {0: "done", 3: "busy (another unit has it)", 4: "held (a run holds the ledger)"}.get(rc, f"failed (rc={rc})")
+            what = {0: "done", 3: "busy (another unit has it)", 4: "held (a run holds the ledger)",
+                    5: "failed, the source looks down", 6: "done, but throttled (429)",
+                    7: "not started: the disk is full"}.get(rc, f"failed (rc={rc})")
+            if unit["kind"] == "fetch":
+                src = unit["paper"]
+                outages[src] = outages[src] + 1 if rc == 5 else 0
+                if rc == 6 and pools[src] > 1:
+                    pools[src] -= 1
+                    log(f"{src}: answered 429; at most {pools[src]} fetches at once from now on")
+                if (rc == 7 or outages[src] >= FETCH_OUTAGES) and src not in stopped:
+                    stopped.add(src)
+                    log(f"{src}: no more fetches this run ({'disk full' if rc == 7 else f'{outages[src]} in a row found it down'})")
             outcomes[what.split(" ")[0]] = outcomes.get(what.split(" ")[0], 0) + 1
             log(f"end {unit['kind']} {unit['rel']}: {what} in {time.monotonic() - t0:.0f}s")
 
     def overdue():
         for pid, (unit, t0) in list(running.items()):
-            limit = read_seconds if unit["kind"] == "read" else scan_seconds
+            limit = {"read": read_seconds, "scan": scan_seconds}.get(unit["kind"]) or FETCHERS[unit["paper"]]["seconds"]
             if time.monotonic() - t0 > limit:
                 log(f"{unit['kind']} {unit['rel']} ran past {limit}s; killed, left for the next run")
                 try:
@@ -250,40 +303,43 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             b.poll(may_start(), None if seconds is None else seconds - (time.monotonic() - begun))
         if may_start() and (planned is None or time.monotonic() - planned >= replan):
             notes = []
-            scans, reads = plan(papers, cache, reread, newer, notes)
+            scans, reads, fetches = replan_all(notes)
             planned = time.monotonic()
             for n in notes:
                 log(n)
-            log(f"planned: {len(scans)} scans, {len(reads)} reads due; running {len(running)}")
+            log(f"planned: {len(scans)} scans, {len(reads)} reads" + (f", {len(fetches)} fetches" if fetch else "")
+                + f" due; running {len(running)}")
+        fetches = [u for u in fetches if u["paper"] not in stopped]
         busy = {key_of(u) for u, _ in running.values()}
         # A read of an edition read before, waiting only on a new scan, starts
         # after the plan that follows its scans: the scan may leave it not due.
         rescanned = {(p, r) for (k, p, r), t in finished.items() if k == "scan" and t > (planned or 0)}
         pending = {(u["paper"], u["rel"]) for u in scans if key_of(u) not in tried or key_of(u) in busy}
-        free = {"scan": scan_workers, "read": workers}
+        free = dict(pools)
         for u, _ in running.values():
-            free[u["kind"]] -= 1
-        for u in scans + reads:
-            if not may_start() or free[u["kind"]] <= 0 or key_of(u) in tried:
+            free[slot_of(u)] -= 1
+        for u in scans + reads + fetches:
+            if not may_start() or free[slot_of(u)] <= 0 or key_of(u) in tried:
                 continue
             if u["kind"] == "read" and any((u["paper"], r) in pending for r in u["needs"]):
                 continue
             if u["reason"] == "scan stale" and any((u["paper"], r) in rescanned for r in u["needs"]):
                 continue
             start(u)
-            free[u["kind"]] -= 1
+            free[slot_of(u)] -= 1
         if stop:
             break
         if not running and not any(b.busy() for b in beside):
-            untried = sum(key_of(u) not in tried for u in scans + reads)
+            untried = sum(key_of(u) not in tried for u in scans + reads + fetches)
             if not may_start():
                 left = untried + sum(b.again and not b.done for b in beside)
                 break
             if not untried:
                 # Nothing left to start: one more plan, in case something landed.
-                scans, reads = plan(papers, cache, reread, newer)
+                scans, reads, fetches = replan_all()
+                fetches = [u for u in fetches if u["paper"] not in stopped]
                 planned = time.monotonic()
-                if all(key_of(u) in tried for u in scans + reads) and not any(b.again and not b.done
+                if all(key_of(u) in tried for u in scans + reads + fetches) and not any(b.again and not b.done
                                                                              for b in beside):
                     break
                 continue
@@ -326,6 +382,8 @@ def main(argv=None):
         p.add_argument("--reread", metavar="BEFORE", help="re-read every edition last read before BEFORE (ISO)")
         p.add_argument("--newer-than", type=float, metavar="SECONDS",
                        help="only the editions laid out in the last SECONDS (and the scans they need)")
+        p.add_argument("--fetch", action="append", default=[], choices=sorted(FETCHERS),
+                       help="this source's fetch units too, each source in a pool of its own")
     r = sub.choices["run"]
     r.add_argument("--out", type=Path, help="where a puzzle with a blank clue goes (file_archive_org_puzzles --out)")
     r.add_argument("--seconds", type=float, help="start no unit after this many seconds")
@@ -351,6 +409,14 @@ def main(argv=None):
             print(f"{len(units)} {kind} due")
             for (rank, paper, reason), n in sorted(counts.items()):
                 print(f"  rank {rank}  {paper:9s} {reason:22s} {n:6d}")
+        fetches = plan_fetches(args.fetch)
+        if args.fetch:
+            print(f"{len(fetches)} fetches due")
+        counts = {}
+        for u in fetches:
+            counts[(u["paper"], u["reason"])] = counts.get((u["paper"], u["reason"]), 0) + 1
+        for (src, reason), n in sorted(counts.items()):
+            print(f"  {src:11s} {reason:22s} {n:6d}")
         return 0
     for key in papers:
         ledger = fa.ledger_of(args.cache, fa.FILERS[key])
@@ -358,7 +424,7 @@ def main(argv=None):
         if folded and folded[0] != folded[1]:
             log(f"{ledger.name}: {folded[0]} rows folded to {folded[1]}")
     return dispatch(papers, args.cache, args.out, reread, args.seconds, args.workers, args.scan_workers, newer,
-                    [shlex.split(b) for b in args.beside])
+                    [shlex.split(b) for b in args.beside], fetch=args.fetch)
 
 
 if __name__ == "__main__":
