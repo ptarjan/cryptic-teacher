@@ -2089,16 +2089,57 @@ def same_scan(number, url, day, series):
     return None
 
 
+def neighbours(day, held):
+    """(before, after): the nearest filed (date, number) either side of
+    `day` in `held` ({number: date}), each None when there is none."""
+    return (max(((d, m) for m, d in held.items() if d < day), default=None),
+            min(((d, m) for m, d in held.items() if d > day), default=None))
+
+
+def implied(day, held):
+    """The number `day`'s puzzle has when its nearest filed neighbours
+    either side run unbroken, one number an issue; else None."""
+    before, after = neighbours(day, held)
+    if before and after and after[1] - before[1] == issues_between(before[0], after[0]):
+        return before[1] + issues_between(before[0], day)
+    return None
+
+
+#: How near the number its date implies a title's number, one digit worth
+#: 100 or more mended, must lie (mended_digit): those digits' variants lie
+#: 100 apart, so at most one is this near.
+DIGIT_SLACK = 10
+
+
+def mended_digit(n, day, expected, held):
+    """The number a title read as `n`, far from the `expected` its date
+    implies, names with one digit misread (the 1983 FT's "5,401" for 5,101):
+    the one its filed neighbours imply (implied) when that differs from `n`
+    in one digit, else, with no such neighbours, the one a digit worth 100
+    or more mended puts within DIGIT_SLACK of `expected`; None when neither."""
+    text = str(n)
+    fixed = implied(day, held)
+    if fixed is not None:
+        other = str(fixed)
+        return fixed if len(other) == len(text) and sum(a != b for a, b in zip(text, other)) == 1 else None
+    for k in range(len(text) - 2):
+        for digit in "0123456789":
+            m = int(text[:k] + digit + text[k + 1:])
+            if digit != text[k] and abs(m - expected) <= DIGIT_SLACK:
+                return m
+    return None
+
+
 def placed(n, day, held):
     """(number, None) that an edition of `day` read as No `n` files as, or
     (None, why) it cannot file. The edition's date is trusted over a number
     OCR read: when the nearest filed puzzles either side run unbroken, one
-    number an issue, the date fixes the number; otherwise No `n` must sit in
-    date order among them and not be filed for another day."""
-    before = max(((d, m) for m, d in held.items() if d < day), default=None)
-    after = min(((d, m) for m, d in held.items() if d > day), default=None)
-    if before and after and after[1] - before[1] == issues_between(before[0], after[0]):
-        return before[1] + issues_between(before[0], day), None
+    number an issue, the date fixes the number (implied); otherwise No `n`
+    must sit in date order among them and not be filed for another day."""
+    before, after = neighbours(day, held)
+    fixed = implied(day, held)
+    if fixed is not None:
+        return fixed, None
     if n in held and held[n] != day:
         return None, f"No {n} is already filed for {held[n]}, not {day}"
     if before and n <= before[1] or after and n >= after[1]:
@@ -2135,10 +2176,13 @@ def filed_number(d, found, hit):
         # heading names the day before's.
         sols = [s["number"] + 1 for s in found["solutions"] if s["leaf"] == hit["leaf"]]
         n = next((m for m in sols if abs(m - paper.expected(day)) <= paper.slack), n)
+    held = held_dates(paper.series)
+    if abs(n - paper.expected(day)) > paper.slack:
+        n = mended_digit(n, day, paper.expected(day), held) or n
     if abs(n - paper.expected(day)) > paper.slack:
         return None, day, (f"No {n} is not near the {paper.expected(day)} the date "
                            f"{day} implies: the item's date is wrong")
-    number, why = placed(n, day, held_dates(paper.series))
+    number, why = placed(n, day, held)
     if number is not None:
         why = same_scan(number, page_url(d, found, hit["leaf"]), day, paper.series)
     return number, day, why
