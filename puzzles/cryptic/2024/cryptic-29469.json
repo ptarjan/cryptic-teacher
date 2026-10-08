@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -47,7 +50,70 @@
    "group": [
     "1-across",
     "11-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "RAGS TO RICHES",
+    "definitions": [
+     {
+      "text": "Cash (both extremes) described by newspaper articles – like so?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "both extremes",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its first and last letters, so only those two are kept"
+     },
+     {
+      "text": "described by",
+      "for": "container",
+      "note": "to describe is to draw a line around, so the cash letters sit inside the articles"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cash",
+      "gives": "CH",
+      "select": "outer",
+      "note": "first and last letters of cash"
+     },
+     {
+      "clueFragment": "newspaper",
+      "gives": "RAG",
+      "note": "rag is slang for a low-grade newspaper"
+     },
+     {
+      "clueFragment": "articles",
+      "gives": "STORIES",
+      "note": "newspaper articles are stories"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAG",
+      "STORI",
+      "CH",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper feature about money, presented with a wink as an example of itself.",
+     "walkthrough": "The clue is its own definition: tabloid stories about someone suddenly coming into money are the classic rags-to-riches tale.",
+     "definitionFit": "A rags-to-riches tale is the classic story of sudden wealth, exactly what newspaper pieces about cash coming into a life describe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Cash"
+    }
+   }
   },
   {
    "number": 1,
@@ -61,7 +127,69 @@
     "text": "Another hearing it, rare rare owl’s back",
     "enumeration": "7"
    },
-   "solution": "RETRIAL"
+   "solution": "RETRIAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "RETRIAL",
+    "definitions": [
+     {
+      "text": "Another hearing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rare",
+      "for": "anagram",
+      "note": "the second rare is read as unusual, telling us the preceding letters come out in an unusual order"
+     },
+     {
+      "text": "back",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter, so only that one is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it, rare",
+      "gives": "IT RARE",
+      "note": "taken as written, the anagram fodder"
+     },
+     {
+      "clueFragment": "owl’s",
+      "gives": "L",
+      "select": "last",
+      "note": "last letter of owl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RETRIA",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITRARE",
+       "gives": "RETRIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at a hearing reports an owl's rear end, absurdly rare twice over.",
+     "walkthrough": "The doubled 'rare' looks like a typo or stutter; the first is fodder, the second the signal to rearrange.",
+     "definitionFit": "A retrial is a second trial of the same case, so it is another hearing in court."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "rare"
+    }
+   }
   },
   {
    "number": 2,
@@ -75,7 +203,50 @@
     "text": "Measure of corporation in hindsight, rightfully upset",
     "enumeration": "5"
    },
-   "solution": "GIRTH"
+   "solution": "GIRTH",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "GIRTH",
+    "definitions": [
+     {
+      "text": "Measure of corporation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in tells us the letters sit inside the words that follow"
+     },
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue upset means turned upside down, so the letters read from the bottom up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hindsight, rightfully",
+      "gives": "HTRIG",
+      "note": "the end of hindsight running into the start of rightfully"
+     }
+    ],
+    "explanation": {
+     "surface": "A company's size judged in hindsight, and the verdict rightly overturned.",
+     "walkthrough": "Corporation is the jokey word for a big belly, not a company.",
+     "definitionFit": "Girth is the measurement around the middle, so it is how a paunch, or corporation, is sized up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "corporation"
+    }
+   }
   },
   {
    "number": 3,
@@ -95,7 +266,51 @@
      }
     ]
    },
-   "solution": "TIDYSUM"
+   "solution": "TIDYSUM",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "TIDY SUM",
+    "definitions": [
+     {
+      "text": "Killing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for the dictator",
+      "for": "homophone",
+      "note": "a dictator here is someone dictating out loud, so the word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in order",
+      "gives": "TIDY",
+      "note": "neat and in order"
+     },
+     {
+      "clueFragment": "not everyone",
+      "gives": "SUM",
+      "soundsLike": "SOME",
+      "note": "some means not all"
+     }
+    ],
+    "explanation": {
+     "surface": "A tyrant sets out a killing list neatly, though not everyone is on it.",
+     "walkthrough": "Dictator is not a tyrant but someone dictating a letter, so a spoken word is wanted.",
+     "definitionFit": "Making a killing is earning a big profit, and a tidy sum is a large amount of money."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dictator"
+    }
+   }
   },
   {
    "number": 4,
@@ -109,7 +324,46 @@
     "text": "Body, jeepers, exuded fluid!",
     "enumeration": "6"
    },
-   "solution": "CORPUS"
+   "solution": "CORPUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CORPUS",
+    "definitions": [
+     {
+      "text": "Body",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jeepers",
+      "gives": "COR",
+      "note": "cor is a British exclamation of surprise, like jeepers"
+     },
+     {
+      "clueFragment": "exuded fluid",
+      "gives": "PUS",
+      "note": "fluid oozing from an infection"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COR",
+      "PUS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone exclaims in disgust at a body oozing fluid.",
+     "definitionFit": "Corpus is Latin for body and is used in English for a body of writings or a physical body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Body"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +377,68 @@
     "text": "Number one in head after zero",
     "enumeration": "6"
    },
-   "solution": "OPIATE"
+   "solution": "OPIATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OPIATE",
+    "definitions": [
+     {
+      "text": "Number",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the one letter inside the word for head"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says the head piece follows the zero piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "zero",
+      "gives": "O",
+      "note": "zero looks like the letter O"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "PATE",
+      "note": "pate is an old word for the head"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "P",
+      "I",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Being number one but coming after a zero.",
+     "walkthrough": "Number is read as something that numbs, not a figure.",
+     "definitionFit": "An opiate dulls pain and feeling, so it is a drug that numbs: a number."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Number"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +452,70 @@
     "text": "Game of cards, simple game where hand thrown in",
     "enumeration": "9"
    },
-   "solution": "PELMANISM"
+   "solution": "PELMANISM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PELMANISM",
+    "definitions": [
+     {
+      "text": "Game of cards",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "game",
+      "for": "anagram",
+      "note": "game can mean lame or damaged, as in a game leg, so the letters are out of shape"
+     },
+     {
+      "text": "thrown in",
+      "for": "container",
+      "note": "something thrown in goes into the middle of the other letters"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "simple",
+      "gives": "SIMPLE",
+      "note": "taken as written, the anagram fodder"
+     },
+     {
+      "clueFragment": "hand",
+      "gives": "MAN",
+      "note": "a hand is a worker, and to man something is to staff it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEL",
+      "MAN",
+      "ISM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SIMPLE",
+       "gives": "PELISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A simple card game where players throw in their hands.",
+     "walkthrough": "PELMANISM is the memory game of turning up cards to find pairs, also called pairs or concentration.",
+     "definitionFit": "Pelmanism is a card game in which face-down cards are turned over two at a time to find matching pairs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +529,60 @@
     "text": "Shriek having lost a companion – it sounds like it sucks",
     "enumeration": "7"
    },
-   "solution": "SQUELCH"
+   "solution": "SQUELCH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SQUELCH",
+    "definitions": [
+     {
+      "text": "it sounds like it sucks",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having lost",
+      "for": "deletion",
+      "note": "having lost says a letter goes missing from the shriek word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shriek",
+      "gives": "SQUEAL",
+      "note": "a high-pitched cry"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter that is lost"
+     },
+     {
+      "clueFragment": "companion",
+      "gives": "CH",
+      "note": "Companion of Honour, a British order, abbreviated CH"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SQUEL",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A scream after a friend is lost, and a sucking noise.",
+     "walkthrough": "The definition sounds like a homophone signal, but it is describing a noise.",
+     "definitionFit": "A squelch is the wet sucking noise of boots in mud, a sound that suggests suction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sounds"
+    }
+   }
   },
   {
    "number": 8,
@@ -180,7 +611,59 @@
     "8-down",
     "15-across",
     "25-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FRAGILE HANDLE WITH CARE",
+    "definitions": [
+     {
+      "text": "that cargo needs protection!",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trips",
+      "for": "anagram",
+      "note": "trips means stumbles, so the letters tumble into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Whitehall greed",
+      "gives": "WHITEHALLGREED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "African",
+      "gives": "AFRICAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WHITEHALLGREEDAFRICAN",
+       "gives": "FRAGILEHANDLEWITHCARE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Greedy civil servants on African jaunts, with a warning about precious freight.",
+     "walkthrough": "Whitehall is the London street of government ministries, standing for the civil service.",
+     "definitionFit": "This is the label stuck on breakable freight, warning carriers to treat the load gently."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "trips"
+    }
+   }
   },
   {
    "number": 9,
@@ -194,7 +677,51 @@
     "text": "Sun with dawn briefly seen",
     "enumeration": "4"
    },
-   "solution": "STAR"
+   "solution": "STAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STAR",
+    "definitions": [
+     {
+      "text": "Sun",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the word loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "seen"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dawn",
+      "gives": "START",
+      "note": "the dawn of something is its start"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR"
+     ]
+    },
+    "explanation": {
+     "surface": "The sun appearing at daybreak.",
+     "definitionFit": "The sun is a star, the nearest one to Earth, so it is an example of the class."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dawn"
+    }
+   }
   },
   {
    "number": 10,
@@ -208,7 +735,66 @@
     "text": "Mechanism on bike all rider has used, oddly, when changing",
     "enumeration": "10"
    },
-   "solution": "DERAILLEUR"
+   "solution": "DERAILLEUR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "DERAILLEUR",
+    "definitions": [
+     {
+      "text": "Mechanism on bike",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly keeps the letters in odd-numbered positions of the word before"
+     },
+     {
+      "text": "when changing",
+      "for": "anagram",
+      "note": "changing means altering, so the gathered letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "all rider",
+      "gives": "ALLRIDER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "used",
+      "gives": "UE",
+      "select": "alternate",
+      "note": "first and third letters of used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALLRIDERUE",
+       "gives": "DERAILLEUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Every cyclist relies on this part when changing gear.",
+     "walkthrough": "The surface 'changing' fits gears perfectly, hiding its job as the rearrangement signal.",
+     "definitionFit": "A derailleur is the gear-shifting device on a bicycle that moves the chain between sprockets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "changing"
+    }
+   }
   },
   {
    "number": 11,
@@ -235,7 +821,46 @@
     "text": "Take a seat in restaurant, perhaps, not beyond solver?",
     "enumeration": "8"
    },
-   "solution": "GETTABLE"
+   "solution": "GETTABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GETTABLE",
+    "definitions": [
+     {
+      "text": "not beyond solver?",
+      "at": 36
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Take",
+      "gives": "GET",
+      "note": "to take is to get"
+     },
+     {
+      "clueFragment": "a seat in restaurant, perhaps",
+      "gives": "TABLE",
+      "note": "in a restaurant you sit at a table"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GET",
+      "TABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Booking a seat at a restaurant, and wondering if the solver can manage it.",
+     "definitionFit": "Something gettable can be obtained or understood, so a clue that is not beyond the solver is within reach."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "seat"
+    }
+   }
   },
   {
    "number": 13,
@@ -255,7 +880,64 @@
      }
     ]
    },
-   "solution": "ALPHAMALE"
+   "solution": "ALPHAMALE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALPHA MALE",
+    "definitions": [
+     {
+      "text": "chest-beating primate",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scrapping",
+      "for": "anagram",
+      "note": "scrapping means fighting, and brawling animals end up in a jumble"
+     }
+    ],
+    "linkWords": [
+     "in goes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Llama",
+      "gives": "LLAMA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ape",
+      "gives": "APE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil abbreviation for hard"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LLAMAAPEH",
+       "gives": "ALPHAMALE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A llama and an ape fighting, and a gorilla barges in thumping its chest.",
+     "definitionFit": "The alpha male is the dominant animal in a primate group, the one that beats its chest to assert power."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "scrapping"
+    }
+   }
   },
   {
    "number": 14,
@@ -275,7 +957,49 @@
      }
     ]
    },
-   "solution": "HIDDENGEM"
+   "solution": "HIDDENGEM",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "charade"
+    ],
+    "answer": "HIDDEN GEM",
+    "definitions": [
+     {
+      "text": "Wonder if not immediately apparent in fridge magnet?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "if not immediately apparent",
+      "gives": "HIDDEN",
+      "note": "something not obvious at first is concealed"
+     },
+     {
+      "clueFragment": "Wonder",
+      "gives": "GEM",
+      "note": "a gem is a marvel, a treasure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIDDEN",
+      "GEM"
+     ]
+    },
+    "explanation": {
+     "surface": "Pondering whether a fridge magnet hides something wonderful.",
+     "walkthrough": "The clue demonstrates itself: the word for a wonder really is concealed across the end of fridge and the start of magnet.",
+     "definitionFit": "A hidden gem is an excellent thing that few people notice, a marvel not obvious at first."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "magnet"
+    }
+   }
   },
   {
    "number": 15,
@@ -308,7 +1032,42 @@
     "text": "Wait, POTU?",
     "enumeration": "4"
    },
-   "solution": "BIDE"
+   "solution": "BIDE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BIDE",
+    "definitions": [
+     {
+      "text": "Wait",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "POTU",
+      "gives": "BIDEN",
+      "note": "POTUS, the US president's title, cut short: so the then president's name is cut short too"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Waiting on the US president, misspelt.",
+     "walkthrough": "POTUS (President of the United States) appears without its last letter, so the president of 2024, Biden, loses his last letter too.",
+     "definitionFit": "To bide is to wait, as in biding your time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "POTU"
+    }
+   }
   },
   {
    "number": 16,
@@ -322,7 +1081,69 @@
     "text": "Action that brings up taste in food?",
     "enumeration": "7"
    },
-   "solution": "BURPING"
+   "solution": "BURPING",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "container",
+     "reversal"
+    ],
+    "answer": "BURPING",
+    "definitions": [
+     {
+      "text": "Action that brings up taste in food?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the taste word inside the food word"
+     },
+     {
+      "text": "brings up",
+      "for": "reversal",
+      "note": "in a down clue bringing up raises the letters so they read from the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "food",
+      "gives": "GRUB",
+      "note": "grub is informal for food"
+     },
+     {
+      "clueFragment": "taste",
+      "gives": "NIP",
+      "note": "a nip is a small taste of drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUR",
+      "PIN",
+      "G"
+     ],
+     "reversals": [
+      {
+       "from": "GNIPRUB",
+       "to": "BURPING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A food critic's habit of raising the matter of flavour.",
+     "walkthrough": "The whole clue is the definition: belching brings the taste of a meal back up.",
+     "definitionFit": "Belching after a meal releases gas and with it a reminder of the food's flavour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "brings"
+    }
+   }
   },
   {
    "number": 17,
@@ -342,7 +1163,71 @@
      }
     ]
    },
-   "solution": "AHAMOMENT"
+   "solution": "AHAMOMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "AHA MOMENT",
+    "definitions": [
+     {
+      "text": "eureka!",
+      "at": 65
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points at the last letter of the word before"
+     }
+    ],
+    "linkWords": [
+     "being completed by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "of the swine",
+      "gives": "HAM",
+      "note": "ham comes from the pig"
+     },
+     {
+      "clueFragment": "sign",
+      "gives": "OMEN",
+      "note": "an omen is a sign of things to come"
+     },
+     {
+      "clueFragment": "cruciverbalist",
+      "gives": "T",
+      "select": "last",
+      "note": "last letter of cruciverbalist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "HAM",
+      "OMEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A crossword setter finally cracks a pig-related clue and shouts eureka.",
+     "walkthrough": "A cruciverbalist is a crossword enthusiast. 'Of the swine' gives the meat that comes before the sign in the answer.",
+     "definitionFit": "Eureka is the cry of sudden discovery, and an aha moment is that instant of insight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sign"
+    }
+   }
   },
   {
    "number": 18,
@@ -362,7 +1247,44 @@
      }
     ]
    },
-   "solution": "MINDYOU"
+   "solution": "MINDYOU",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "MIND YOU",
+    "definitions": [
+     {
+      "text": "however",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "declared",
+      "for": "homophone",
+      "note": "declared means spoken out, so the words are taken by sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bomb owed",
+      "gives": "MINDYOU",
+      "soundsLike": "MINE DUE",
+      "note": "a mine is a buried bomb, and what is owed is due"
+     }
+    ],
+    "explanation": {
+     "surface": "A bomb that someone was owed, announced with a qualification.",
+     "definitionFit": "Mind you is a spoken qualifier introducing a contrast, just as however does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bomb"
+    }
+   }
   },
   {
    "number": 19,
@@ -382,7 +1304,57 @@
      }
     ]
    },
-   "solution": "NOTTRUE"
+   "solution": "NOTTRUE",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram"
+    ],
+    "answer": "NOT TRUE",
+    "definitions": [
+     {
+      "text": "Turn to specious note – that’s what it is?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "specious",
+      "for": "anagram",
+      "note": "specious means falsely plausible, so the letters are presented in a misleading order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turn to",
+      "gives": "TURNTO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "E",
+      "note": "E is a musical note"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TURNTOE",
+       "gives": "NOTTRUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning against relying on a misleading memo.",
+     "walkthrough": "The definition is the whole clue: something specious is, by definition, false, so 'that's what it is'.",
+     "definitionFit": "Specious means plausible but false, so what a specious note says is false."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "specious"
+    }
+   }
   },
   {
    "number": 20,
@@ -396,7 +1368,76 @@
     "text": "Intended to give tips on cabriole after simple lifts",
     "enumeration": "6"
    },
-   "solution": "FIANCE"
+   "solution": "FIANCE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FIANCÉ",
+    "definitions": [
+     {
+      "text": "Intended",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lifts",
+      "for": "reversal",
+      "note": "in a down clue lifts means raised, so the word reads from the bottom up"
+     },
+     {
+      "text": "tips on",
+      "for": "letter_selection",
+      "note": "the tips of a word are its two ends"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the tips behind the raised word"
+     }
+    ],
+    "linkWords": [
+     "to give"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "simple",
+      "gives": "NAIF",
+      "note": "naif means naive or unsophisticated"
+     },
+     {
+      "clueFragment": "cabriole",
+      "gives": "CE",
+      "select": "outer",
+      "note": "first and last letters of cabriole"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIAN",
+      "CE"
+     ],
+     "reversals": [
+      {
+       "from": "NAIF",
+       "to": "FIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ballet dancer's intended cabriole leap after simple lifts.",
+     "walkthrough": "A cabriole is a ballet jump, so lifts look like part of the dance.",
+     "definitionFit": "One's intended is the person one plans to marry, which is what a fiancé is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "lifts"
+    }
+   }
   },
   {
    "number": 21,
@@ -410,7 +1451,56 @@
     "text": "Ears ain’t in need of treatment – so well?",
     "enumeration": "8"
    },
-   "solution": "ARTESIAN"
+   "solution": "ARTESIAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ARTESIAN",
+    "definitions": [
+     {
+      "text": "well",
+      "at": 37,
+      "note": "adjective describing a well; 'so' says the answer is a kind of well"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in need of treatment",
+      "for": "anagram",
+      "note": "something needing treatment is in poor shape, so the letters must be put right"
+     }
+    ],
+    "linkWords": [
+     "so"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ears ain’t",
+      "gives": "EARSAINT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EARSAINT",
+       "gives": "ARTESIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone insists their ears don't need treatment, so they're fine.",
+     "walkthrough": "'Well' reads as healthy, but it is a hole in the ground.",
+     "definitionFit": "An artesian well is a bored well where water rises under its own natural pressure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "well"
+    }
+   }
   },
   {
    "number": 22,
@@ -424,7 +1514,44 @@
     "text": "Exposure of song just written for the radio?",
     "enumeration": "6"
    },
-   "solution": "NUDITY"
+   "solution": "NUDITY",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "NUDITY",
+    "definitions": [
+     {
+      "text": "Exposure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for the radio",
+      "for": "homophone",
+      "note": "on the radio words are only heard, so the sound is what counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "song just written",
+      "gives": "NUDITY",
+      "soundsLike": "NEW DITTY",
+      "note": "a ditty is a short song, and one just written is new"
+     }
+    ],
+    "explanation": {
+     "surface": "A fresh song written for broadcast, with a scandalous exposure.",
+     "definitionFit": "Indecent exposure is the showing of the naked body, and nudity is that state of nakedness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Exposure"
+    }
+   }
   },
   {
    "number": 23,
@@ -438,7 +1565,43 @@
     "text": "Ailing – like a detective?",
     "enumeration": "5"
    },
-   "solution": "DICKY"
+   "solution": "DICKY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DICKY",
+    "definitions": [
+     {
+      "text": "Ailing",
+      "at": 0
+     },
+     {
+      "text": "like a detective?",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ailing",
+      "note": "first meaning: British slang for weak or unsound, as in a dodgy heart"
+     },
+     {
+      "clueFragment": "like a detective?",
+      "note": "second meaning: a dick is slang for a detective, so this is a jokey adjective from it"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Dicky is informal British for poorly or unreliable, as in a dicky tummy; the question mark flags the invented sense.",
+     "definitionFit": "Dicky is British slang for unwell or faulty, and the pun links it to dick, an American word for private eye."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "detective"
+    }
+   }
   },
   {
    "number": 24,
@@ -452,7 +1615,73 @@
     "text": "Flirt cut by villain with end of weapon – as slash seen?",
     "enumeration": "10"
    },
-   "solution": "DIAGONALLY"
+   "solution": "DIAGONALLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DIAGONALLY",
+    "definitions": [
+     {
+      "text": "as slash seen?",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut by",
+      "for": "container",
+      "note": "cut by means split open by, so the flirting word is broken apart with letters inside"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "end of takes just the final letter of the next word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flirt",
+      "gives": "DALLY",
+      "note": "to dally is to toy amorously"
+     },
+     {
+      "clueFragment": "villain",
+      "gives": "IAGO",
+      "note": "Iago, the schemer in Shakespeare's Othello"
+     },
+     {
+      "clueFragment": "weapon",
+      "gives": "N",
+      "select": "last",
+      "note": "last letter of weapon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IAGO",
+      "N",
+      "ALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A flirt slashed by a knife-wielding villain.",
+     "walkthrough": "Slash is the punctuation mark, not a knife wound.",
+     "definitionFit": "The slash punctuation mark is a stroke that leans at an angle, running on a slant across the line."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "slash"
+    }
+   }
   },
   {
    "number": 25,
@@ -479,7 +1708,56 @@
     "text": "Boring thing, jacketed male?",
     "enumeration": "6"
    },
-   "solution": "GIMLET"
+   "solution": "GIMLET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GIMLET",
+    "definitions": [
+     {
+      "text": "Boring thing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "jacketed",
+      "for": "container",
+      "note": "something jacketed is wrapped in an outer garment"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     },
+     {
+      "clueFragment": "jacketed",
+      "gives": "GILET",
+      "note": "a gilet is a sleeveless jacket"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GI",
+      "M",
+      "LET"
+     ]
+    },
+    "explanation": {
+     "surface": "A dull man in a smart jacket.",
+     "walkthrough": "Jacketed both supplies the garment and says it goes round.",
+     "definitionFit": "A gimlet is a small hand tool for drilling holes, so it bores, which makes it a boring thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Boring"
+    }
+   }
   },
   {
    "number": 27,
@@ -493,7 +1771,45 @@
     "text": "Veep unfamiliar with King Edward, game for the reporter?",
     "enumeration": "6"
    },
-   "solution": "QUAYLE"
+   "solution": "QUAYLE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "QUAYLE",
+    "definitions": [
+     {
+      "text": "Veep unfamiliar with King Edward",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for the reporter",
+      "for": "homophone",
+      "note": "a reporter speaks the story, so the word is chosen by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game",
+      "gives": "QUAYLE",
+      "soundsLike": "QUAIL",
+      "note": "quail is a game bird"
+     }
+    ],
+    "explanation": {
+     "surface": "A US vice president who doesn't know a British monarch, game for a press interview.",
+     "walkthrough": "King Edward is a British potato variety; Dan Quayle, US vice president, famously misspelt potato as 'potatoe' in 1992.",
+     "definitionFit": "Dan Quayle was the American vice president, or veep, mocked for his blunder spelling the vegetable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Edward"
+    }
+   }
   }
  ]
 }
