@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,49 @@
     "text": "Complaint made by Master of Arts, woman",
     "enumeration": "6"
    },
-   "solution": "MALADY"
+   "solution": "MALADY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MALADY",
+    "definitions": [
+     {
+      "text": "Complaint",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "made by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Master of Arts",
+      "gives": "MA",
+      "note": "MA is the abbreviation for Master of Arts"
+     },
+     {
+      "clueFragment": "woman",
+      "gives": "LADY",
+      "note": "a lady is a woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "LADY"
+     ]
+    },
+    "explanation": {
+     "surface": "A grievance lodged by a female graduate with a master's degree.",
+     "definitionFit": "A complaint can mean an illness or ailment, which is what a malady is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Complaint"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +92,68 @@
     "text": "Thin, a Guides' leader plunging into lake",
     "enumeration": "6"
    },
-   "solution": "MEAGRE"
+   "solution": "MEAGRE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MEAGRE",
+    "definitions": [
+     {
+      "text": "Thin",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "leader means the one at the front, so only the first letter is used"
+     },
+     {
+      "text": "plunging into",
+      "for": "container",
+      "note": "plunging into means diving inside, so these letters go within the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lake",
+      "gives": "MERE",
+      "note": "a mere is a lake"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Guides'",
+      "gives": "G",
+      "select": "first",
+      "note": "the first letter of Guides'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "A",
+      "G",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "A slim Girl Guide leader dives into a lake.",
+     "walkthrough": "A and G go inside MERE after its first two letters.",
+     "definitionFit": "Meagre means lacking in quantity or flesh, so scanty or thin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +167,57 @@
     "text": "Priest entertaining Bachelor of Divinity, a Greek character",
     "enumeration": "6"
    },
-   "solution": "LAMBDA"
+   "solution": "LAMBDA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LAMBDA",
+    "definitions": [
+     {
+      "text": "a Greek character",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "to entertain is to host someone in your home, so the guest letters sit inside"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Priest",
+      "gives": "LAMA",
+      "note": "a lama is a Tibetan Buddhist priest"
+     },
+     {
+      "clueFragment": "Bachelor of Divinity",
+      "gives": "BD",
+      "note": "BD is the abbreviation for Bachelor of Divinity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAM",
+      "BD",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman hosts a divinity graduate who turns out to be Greek.",
+     "definitionFit": "Lambda is the eleventh letter of the Greek alphabet, and a letter is a character."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +237,69 @@
      }
     ]
    },
-   "solution": "DESERTRAT"
+   "solution": "DESERTRAT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DESERT RAT",
+    "definitions": [
+     {
+      "text": "Soldier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue turned up means read from bottom to top, so the word runs backwards"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places one piece behind the other in the answer"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leave",
+      "gives": "DESERT",
+      "note": "to desert is to leave"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "TAR",
+      "note": "a tar is a sailor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DESERT",
+      "RAT"
+     ],
+     "reversals": [
+      {
+       "from": "TAR",
+       "to": "RAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier and a sailor return after their shore leave.",
+     "walkthrough": "The Desert Rats were the British 7th Armoured Division in the North African campaign of the Second World War.",
+     "definitionFit": "A Desert Rat is a soldier of that British armoured division, so the answer names a kind of soldier."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leave"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +313,54 @@
     "text": "Twist almost all of the backbone",
     "enumeration": "6"
    },
-   "solution": "SPINAL"
+   "solution": "SPINAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SPINAL",
+    "definitions": [
+     {
+      "text": "of the backbone",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite the whole word, so its final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Twist",
+      "gives": "SPIN",
+      "note": "to spin is to twist or turn"
+     },
+     {
+      "clueFragment": "all",
+      "gives": "AL",
+      "note": "the word all with its last letter dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPIN",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to twist nearly the whole of the spine, like a chiropractor at work.",
+     "definitionFit": "Spinal is the adjective relating to the spine, the anatomical column of vertebrae."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Twist"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +374,43 @@
     "text": "Poet's pen",
     "enumeration": "5"
    },
-   "solution": "POUND"
+   "solution": "POUND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POUND",
+    "definitions": [
+     {
+      "text": "Poet",
+      "at": 0
+     },
+     {
+      "text": "pen",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poet",
+      "note": "first meaning: Ezra, the American modernist writer"
+     },
+     {
+      "clueFragment": "pen",
+      "note": "second meaning: an enclosure for animals"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a writer's pen, but the 's is just 'is' and pen is an animal enclosure.",
+     "definitionFit": "Ezra Pound was a major twentieth-century poet, and a pound is also a fenced enclosure for stray animals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pen"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +424,55 @@
     "text": "Pest is hidden by shade",
     "enumeration": "8"
    },
-   "solution": "NUISANCE"
+   "solution": "NUISANCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NUISANCE",
+    "definitions": [
+     {
+      "text": "Pest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hidden by",
+      "for": "container",
+      "note": "hidden by means concealed within, so these letters sit inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shade",
+      "gives": "NUANCE",
+      "note": "a shade of meaning is a nuance"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NU",
+      "IS",
+      "ANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A garden pest lurks in the shade.",
+     "walkthrough": "'shade' suggests shadow, but here it means a subtle variation in meaning.",
+     "definitionFit": "A pest is an annoying person or thing, which is what a nuisance is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shade"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +486,66 @@
     "text": "Led across Niger, struggling - hung on",
     "enumeration": "8"
    },
-   "solution": "LINGERED"
+   "solution": "LINGERED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LINGERED",
+    "definitions": [
+     {
+      "text": "hung on",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "struggling",
+      "for": "anagram",
+      "note": "struggling suggests twisting about, so these letters get rearranged"
+     },
+     {
+      "text": "across",
+      "for": "container",
+      "note": "across means spanning or straddling, so one word wraps round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Led",
+      "gives": "LED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Niger",
+      "gives": "INGER",
+      "note": "the letters of Niger rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "INGER",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NIGER",
+       "gives": "INGER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An expedition led across the Niger river struggled but held on.",
+     "definitionFit": "To linger is to stay on or remain longer than expected, which is to hang on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Niger"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +559,46 @@
     "text": "Lack of interest in controversy",
     "enumeration": "12"
    },
-   "solution": "INDIFFERENCE"
+   "solution": "INDIFFERENCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INDIFFERENCE",
+    "definitions": [
+     {
+      "text": "Lack of interest",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "controversy",
+      "gives": "DIFFERENCE",
+      "note": "a difference is a disagreement or dispute"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "DIFFERENCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Apathy shown during a heated public dispute.",
+     "definitionFit": "Indifference is a state of unconcern or apathy, a lack of interest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +612,50 @@
     "text": "Notice embassy's entrance",
     "enumeration": "9"
    },
-   "solution": "ADMISSION"
+   "solution": "ADMISSION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADMISSION",
+    "definitions": [
+     {
+      "text": "entrance",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Notice",
+      "gives": "AD",
+      "note": "an ad is a notice or advertisement"
+     },
+     {
+      "clueFragment": "embassy",
+      "gives": "MISSION",
+      "note": "a diplomatic mission is an embassy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "MISSION"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spots the front door of a foreign embassy.",
+     "walkthrough": "The 's is read as 'is', joining the wordplay to the definition rather than marking possession.",
+     "definitionFit": "Admission is the act of being let in, so it serves as a synonym for entry or entrance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "entrance"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +669,53 @@
     "text": "Camp internee beaten for drunkenness",
     "enumeration": "12"
    },
-   "solution": "INTEMPERANCE"
+   "solution": "INTEMPERANCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INTEMPERANCE",
+    "definitions": [
+     {
+      "text": "drunkenness",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beaten",
+      "for": "anagram",
+      "note": "beaten means battered out of shape, so these letters are knocked into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Camp internee",
+      "gives": "CAMPINTERNEE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CAMPINTERNEE",
+       "gives": "INTEMPERANCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prisoner in a camp is beaten for being drunk.",
+     "definitionFit": "Intemperance is a lack of moderation, especially in drinking alcohol, so it covers drunkenness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beaten"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +729,56 @@
     "text": "A Parisian, one working for Equity, perhaps",
     "enumeration": "5"
    },
-   "solution": "UNION"
+   "solution": "UNION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNION",
+    "definitions": [
+     {
+      "text": "Equity, perhaps",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A Parisian",
+      "gives": "UN",
+      "note": "un is the French word for a"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is working is on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "I",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A Paris resident has a job with Equity, perhaps as an actor.",
+     "walkthrough": "Equity is the British actors' trade union; the capital letter disguises it as the legal or financial term.",
+     "definitionFit": "Equity is an example of a trade union, hence the 'perhaps' marking a definition by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Equity"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +792,57 @@
     "text": "Jockey's attacker article cleared",
     "enumeration": "5"
    },
-   "solution": "RIDER"
+   "solution": "RIDER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RIDER",
+    "definitions": [
+     {
+      "text": "Jockey",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cleared",
+      "for": "deletion",
+      "note": "cleared means removed or taken away, so that letter goes out of the word"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attacker",
+      "gives": "RAIDER",
+      "note": "a raider is an attacker"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "IDER"
+     ]
+    },
+    "explanation": {
+     "surface": "The man who assaulted a jockey has been acquitted of the charge.",
+     "walkthrough": "The 's stands for 'is'; 'article cleared' tells you to take the A out of the attacker word.",
+     "definitionFit": "A jockey is a person who rides racehorses, a professional horse rider."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cleared"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +862,56 @@
      }
     ]
    },
-   "solution": "THIRDRATE"
+   "solution": "THIRDRATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THIRD-RATE",
+    "definitions": [
+     {
+      "text": "Mediocre",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "failed",
+      "for": "anagram",
+      "note": "something that failed has broken down, so these letters fall apart and re-form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "12",
+      "gives": "RIDER",
+      "note": "the answer to 12 across"
+     },
+     {
+      "clueFragment": "that",
+      "gives": "THAT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RIDERTHAT",
+       "gives": "THIRDRATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poor jockey who failed is dismissed as mediocre.",
+     "walkthrough": "The cross-reference brings in the answer to 12 across, which is combined with 'that' as the letters to rearrange.",
+     "definitionFit": "Something third-rate is of poor or ordinary quality, matching mediocre."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "failed"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +931,54 @@
      }
     ]
    },
-   "solution": "CREMEFRAICHE"
+   "solution": "CREMEFRAICHE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CREME FRAICHE",
+    "definitions": [
+     {
+      "text": "topping",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "prepared suggests ingredients made ready and worked into a new form, so the letters get rearranged"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'm career chef",
+      "gives": "IMCAREERCHEF",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IMCAREERCHEF",
+       "gives": "CREMEFRAICHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A professional cook boasts of having made a dessert topping.",
+     "walkthrough": "Crème fraîche is a thick soured cream often spooned on puddings.",
+     "definitionFit": "Crème fraîche is commonly served as a topping on desserts and fruit, a definition by function."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prepared"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +992,70 @@
     "text": "Get better soldiers in a time for change",
     "enumeration": "9"
    },
-   "solution": "AMENDMENT"
+   "solution": "AMENDMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AMENDMENT",
+    "definitions": [
+     {
+      "text": "change",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the preceding words inside the following ones"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Get better",
+      "gives": "MEND",
+      "note": "to mend is to recover or get better"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "MEN",
+      "note": "soldiers are men in the ranks"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MEND",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers recovering in time for a change of orders.",
+     "walkthrough": "'in a time' looks like 'in time', but the 'a' and the 'time' are the outer pieces wrapped round the first two.",
+     "definitionFit": "An amendment is an alteration, especially to a text or law, a kind of change."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Get"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1069,49 @@
     "text": "I kill two turkeys at home",
     "enumeration": "8"
    },
-   "solution": "ASSASSIN"
+   "solution": "ASSASSIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASSASSIN",
+    "definitions": [
+     {
+      "text": "I kill",
+      "at": 0,
+      "note": "a clause in the voice of the answer rather than a noun; the answer is the one saying it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two turkeys",
+      "gives": "ASSASS",
+      "note": "a turkey is a failure or fool, as is an ass; two of them"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASSASS",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook confesses to slaughtering a pair of turkeys in the kitchen.",
+     "walkthrough": "The definition is spoken by the answer itself: the one who says 'I kill' is a murderer.",
+     "definitionFit": "An assassin is a killer, typically of a prominent person, so 'I kill' is the assassin's self-description."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "turkeys"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1125,52 @@
     "text": "Specific Cape on Mediterranean island",
     "enumeration": "8"
    },
-   "solution": "CONCRETE"
+   "solution": "CONCRETE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONCRETE",
+    "definitions": [
+     {
+      "text": "Specific",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cape",
+      "gives": "C",
+      "note": "C is the map abbreviation for cape"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Mediterranean island",
+      "gives": "CRETE",
+      "note": "Crete is a large Greek island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ON",
+      "CRETE"
+     ]
+    },
+    "explanation": {
+     "surface": "A particular headland on a Mediterranean island is being pointed out.",
+     "definitionFit": "Concrete as an adjective means definite or particular, the opposite of abstract, so specific."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cape"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1184,62 @@
     "text": "Valiant, began carrying out high explosive",
     "enumeration": "12"
    },
-   "solution": "STOUTHEARTED"
+   "solution": "STOUTHEARTED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "STOUTHEARTED",
+    "definitions": [
+     {
+      "text": "Valiant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "carrying means holding something within, so one word sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "began",
+      "gives": "STARTED",
+      "note": "started means began"
+     },
+     {
+      "clueFragment": "out",
+      "gives": "OUT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "high explosive",
+      "gives": "HE",
+      "note": "HE is the abbreviation for high explosive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "OUT",
+      "HE",
+      "ARTED"
+     ]
+    },
+    "explanation": {
+     "surface": "A brave soldier who set off taking explosives along.",
+     "walkthrough": "The two inserted pieces go in after the first two letters of the 'began' word, not at its centre.",
+     "definitionFit": "Stout-hearted means brave and courageous, a synonym of valiant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "carrying"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1253,56 @@
     "text": "Popular female, girl of ill repute",
     "enumeration": "6"
    },
-   "solution": "INFAMY"
+   "solution": "INFAMY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INFAMY",
+    "definitions": [
+     {
+      "text": "ill repute",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "something popular is in"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "AMY",
+      "note": "a girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "F",
+      "AMY"
+     ]
+    },
+    "explanation": {
+     "surface": "A well-liked woman turns out to be a girl with a bad reputation.",
+     "walkthrough": "'girl of ill repute' reads as one phrase, but 'of' is the link and only 'ill repute' defines.",
+     "definitionFit": "Infamy is notoriety, being well known for something bad, so a state of ill repute."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "girl"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1316,56 @@
     "text": "Bird in apartment close to river",
     "enumeration": "6"
    },
-   "solution": "CONDOR"
+   "solution": "CONDOR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CONDOR",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "close means the end, so only the final letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "apartment",
+      "gives": "CONDO",
+      "note": "a condo is a condominium, an apartment"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONDO",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird is nesting in a flat near the river.",
+     "walkthrough": "'close to' looks like 'near' but means the last letter.",
+     "definitionFit": "The condor is a large vulture of the Americas, a kind of bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1379,46 @@
     "text": "Find out when positive",
     "enumeration": "9"
    },
-   "solution": "ASCERTAIN"
+   "solution": "ASCERTAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASCERTAIN",
+    "definitions": [
+     {
+      "text": "Find out",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as can mean when, as in 'as I left'"
+     },
+     {
+      "clueFragment": "positive",
+      "gives": "CERTAIN",
+      "note": "positive means sure or certain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "CERTAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Discover the moment you are sure of something.",
+     "definitionFit": "To ascertain is to discover or establish something for sure, the same as finding it out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "when"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1432,61 @@
     "text": "Member of monarchy runs old American university? Not quite",
     "enumeration": "5"
    },
-   "solution": "ROYAL"
+   "solution": "ROYAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ROYAL",
+    "definitions": [
+     {
+      "text": "Member of monarchy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not quite",
+      "for": "deletion",
+      "note": "not quite means falling short of the whole, so the final letter is left off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "American university",
+      "gives": "YAL",
+      "note": "Yale with its last letter dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "O",
+      "YAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A royal is running an old Ivy League university, or nearly.",
+     "walkthrough": "Yale is the Ivy League university in Connecticut.",
+     "definitionFit": "A royal is a member of a royal family, a person belonging to the monarchy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1500,54 @@
     "text": "Wild dog shot following row",
     "enumeration": "5"
    },
-   "solution": "DINGO"
+   "solution": "DINGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DINGO",
+    "definitions": [
+     {
+      "text": "Wild dog",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so the second piece is placed behind the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "row",
+      "gives": "DIN",
+      "note": "a row is a loud noise, a din"
+     },
+     {
+      "clueFragment": "shot",
+      "gives": "GO",
+      "note": "to have a shot at something is to have a go"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIN",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "A feral dog is shot dead after a noisy disturbance.",
+     "walkthrough": "'shot' looks like gunfire but means an attempt.",
+     "definitionFit": "The dingo is the wild dog native to Australia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1561,55 @@
     "text": "Top-class player, last to play, sickly",
     "enumeration": "5"
    },
-   "solution": "SEEDY"
+   "solution": "SEEDY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SEEDY",
+    "definitions": [
+     {
+      "text": "sickly",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last to",
+      "for": "letter_selection",
+      "note": "last to points at the final letter of the following word only"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Top-class player",
+      "gives": "SEED",
+      "note": "a seed is a top-ranked player in a tennis tournament"
+     },
+     {
+      "clueFragment": "play",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of play"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEED",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "The top seed is scheduled last on court and is feeling unwell.",
+     "definitionFit": "Seedy can mean unwell or poorly, a colloquial synonym for sickly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 25,
@@ -401,7 +1623,61 @@
     "text": "CND includes even a past president",
     "enumeration": "9"
    },
-   "solution": "CLEVELAND"
+   "solution": "CLEVELAND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLEVELAND",
+    "definitions": [
+     {
+      "text": "a past president",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "includes",
+      "for": "container",
+      "note": "includes means takes in, so the other letters are placed inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "CND",
+      "gives": "CND",
+      "note": "taken as written; the Campaign for Nuclear Disarmament"
+     },
+     {
+      "clueFragment": "even",
+      "gives": "LEVEL",
+      "note": "even means flat or level"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LEVEL",
+      "A",
+      "ND"
+     ]
+    },
+    "explanation": {
+     "surface": "The disarmament campaign's membership contains a former president.",
+     "walkthrough": "CND is the Campaign for Nuclear Disarmament, a British anti-nuclear group; the 'a' belongs to the wordplay, not the definition.",
+     "definitionFit": "Grover Cleveland served twice as US president in the nineteenth century."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "even"
+    }
+   }
   },
   {
    "number": 26,
@@ -415,7 +1691,70 @@
     "text": "Pointer in joint with no lead, led off",
     "enumeration": "6"
    },
-   "solution": "NEEDLE"
+   "solution": "NEEDLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "NEEDLE",
+    "definitions": [
+     {
+      "text": "Pointer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no lead",
+      "for": "deletion",
+      "note": "no lead means the leading letter is removed from the front"
+     },
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off suggests something gone wrong, so these letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "joint",
+      "gives": "NEE",
+      "note": "the joint knee without its first letter"
+     },
+     {
+      "clueFragment": "led",
+      "gives": "DLE",
+      "note": "the letters of led rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEE",
+      "DLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LED",
+       "gives": "DLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog's pointer, unleashed with a sore joint, goes trotting off.",
+     "walkthrough": "The joint is KNEE, whose silent K goes; 'lead' and 'led' look like a dog's leash and its past tense but do separate jobs.",
+     "definitionFit": "A needle is the indicator on a dial or compass, which points to a reading."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 27,
@@ -429,7 +1768,54 @@
     "text": "Celebrity impressing you, one having stamina",
     "enumeration": "6"
    },
-   "solution": "STAYER"
+   "solution": "STAYER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STAYER",
+    "definitions": [
+     {
+      "text": "one having stamina",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "impressing",
+      "for": "container",
+      "note": "impressing means pressing into, so one word is set inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Celebrity",
+      "gives": "STAR",
+      "note": "a star is a celebrity"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "YE",
+      "note": "ye is the old form of you"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STA",
+      "YE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A famous person wins you over with their endurance.",
+     "definitionFit": "A stayer is a racehorse or runner with the endurance for long distances."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "impressing"
+    }
+   }
   }
  ]
 }
