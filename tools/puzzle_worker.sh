@@ -62,10 +62,16 @@ worker_annotate() {   # id log sidfile task [note] [fill]
     fi
   fi
   [ "$kind" = solve ] || tools="$tools,WebSearch,WebFetch"
+  # --tools and --disable-slash-commands fix the cached prefix (system prompt,
+  # tool definitions, skill and agent listings) to the same bytes for every
+  # puzzle and both kinds of run, and drop the tools, skills and agents these
+  # runs never use. --allowedTools, not --tools, decides what a run may call.
   # shellcheck disable=SC2086 # $WORKER_WRAP is a command and its arguments, or nothing
   $WORKER_WRAP claude -p "$prompt" "${sess[@]}" "${CLAUDE_HEADLESS[@]}" \
     --append-system-prompt-file tools/annotate_prompt.md \
     --exclude-dynamic-system-prompt-sections \
+    --tools Read,Write,Edit,Bash,WebSearch,WebFetch \
+    --disable-slash-commands \
     --model "$WORKER_MODEL" \
     --effort "$WORKER_EFFORT" \
     --allowedTools "$tools" \

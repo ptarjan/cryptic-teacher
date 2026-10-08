@@ -84,6 +84,8 @@ trap 'rm -rf "$stub" tools/_ann_pw-test-$$.json tools/_puzzle_pw-test-$$.json' E
 cat >"$stub/claude" <<'STUB'
 #!/bin/bash
 printf '%s\n' "$*" >>"$CALLS"
+# Everything after `-p <task>`, one argument per line, for the prefix check.
+[ -n "${PREFIX:-}" ] && printf '%s\n' "${@:3}" >"$PREFIX"
 # A run that solved: its fill is where its task said.
 fill=$(sed -n 's/.*writing your fill to \([^;]*\);.*/\1/p' <<<"$*")
 [ -n "$fill" ] && [ -n "${WRITE_FILL:-}" ] && echo '{"1-across": {"answer": "X", "definition": "x"}}' >"$fill"
@@ -137,7 +139,8 @@ check "its task sends it to the solve method, then the annotation" \
   "$(grep -c 'Read tools/solve_prompt.md.*this task: Annotate it' <<<"$argv")" "1"
 check "on the annotation's system prompt" \
   "$(sed -n 's/.*--append-system-prompt-file \([^ ]*\).*/\1/p' <<<"$argv")" "tools/annotate_prompt.md"
-check "with no web, since it solves" "$(grep -c 'WebSearch\|WebFetch' <<<"$argv")" "0"
+check "with no web, since it solves" \
+  "$(grep -o -- '--allowedTools [^ ]*' <<<"$argv" | grep -c 'WebSearch\|WebFetch')" "0"
 check "its conversation is marked as a solve's" "$(got sid)" "sid-1 solve"
 check "the fill is applied from the committed puzzle, then the hints put back" \
   "$(grep -o 'git checkout\|tools/apply_solution.py [^ ]* --fill\|tools/solve_misses.py keep-log\|tools/annotate_check.py' <<<"$events" | tr '\n' '|')" \
@@ -168,6 +171,29 @@ check "a run that wrote no fill is rejected" "$(got applied)" "1"
 check "recorded unjudged, for the ledger to tell a lockout from a verdict" \
   "$(grep -c 'failed_inputs.py record solve pw-test-[0-9]* --reason done' <<<"$events")" "1"
 check "without asking the applier" "$(grep -c 'apply_solution' <<<"$events")" "0"
+
+echo "every run sends the same cached prefix; only the task differs"
+# The system prompt, tool definitions and skill/agent listings come from these
+# flags, so a flag that varied by puzzle or by kind of run would make every
+# run write its own cache. --session-id, --allowedTools and --max-turns are
+# not in the prompt and are masked.
+prefix_args() (   # id fill
+  PATH="$stub:$PATH" CALLS="$stub/calls" PREFIX="$stub/prefix"
+  export CALLS PREFIX
+  # shellcheck disable=SC2034  # read by the sourced worker
+  CLAUDE_HEADLESS=(--strict-mcp-config) WORKER_MODEL=opus WORKER_EFFORT=medium WORKER_WRAP="" WORKER_JOB=test
+  . tools/puzzle_worker.sh
+  session_id() { echo sid-x; }
+  session_exists() { false; }
+  worker_annotate "$1" "$stub/log" "$stub/sid-$1" "Annotate $1." "" "$2" >/dev/null
+  awk 'm { m = 0; print "<masked>"; next }
+       /^--(session-id|allowedTools|max-turns)$/ { m = 1 } { print }' "$PREFIX"
+)
+keyed=$(prefix_args times-1 "")
+solve=$(prefix_args guardian-2 "$stub/fill2")
+check "a keyed run and a cold solve of another puzzle send identical prompt flags" \
+  "$([ -n "$keyed" ] && [ "$keyed" = "$solve" ] && echo same || diff <(echo "$keyed") <(echo "$solve"))" "same"
+check "the tool list is fixed by --tools" "$(grep -c -- '^--tools$' <<<"$keyed")" "1"
 
 [ "$fails" = 0 ] && echo "puzzle worker: all checks passed" || echo "puzzle worker: $fails FAILED"
 exit $((fails > 0))
