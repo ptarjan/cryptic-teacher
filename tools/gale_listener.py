@@ -1044,7 +1044,7 @@ def tick(out=sys.stdout, force=False, ask=True):
     changed = gi.mirror(out, host_inbox=gi.LISTENER_INBOX, into=MIRROR)
     idx = index()
     linked = ask and gale_docs.resolve("LSNR", [(r["date"], r["number"]) for r in to_save(idx)], out,
-                                       reports=[(r["date"], r["number"]) for r in unsolved(idx)])
+                                       reports=[(r["date"], r["number"]) for r in report_lookups(idx)])
     last = CHECKLIST.stat().st_mtime if CHECKLIST.exists() else 0
     if force or changed or linked or time.time() - last > gi.RENDER_EVERY:
         render(idx, out=out)
@@ -1065,24 +1065,27 @@ def to_save(idx, store=STORE, root=ROOT, arrivals=None):
 
 
 def solutions(store=STORE, arrivals=None):
-    """{number} of the puzzles a saved page reports on, and whether a saved
-    file still waits to be read."""
+    """{number} of the puzzles a page in the inbox, read or not, or a saved
+    page reports on."""
     arrivals = list(gi.load(ARRIVED, {}).values()) if arrivals is None else arrivals
-    ledger = load_ledger(store)
-    read = {e["file"] for e in ledger.values()}
-    return ({n for e in [*ledger.values(), *arrivals] for n in e.get("reports") or ()},
-            any(a["file"] not in read for a in arrivals))
+    return {n for e in [*load_ledger(store).values(), *arrivals] for n in e.get("reports") or ()}
 
 
 def unsolved(idx, store=STORE, arrivals=None):
-    """The printed puzzles saved whose report page is still to save; none while a saved file waits to be read (a report is often found
-    by the page's words, not its citation)."""
-    solved, waiting = solutions(store, arrivals)
-    if waiting:
-        return []
+    """The printed puzzles saved whose report page has not arrived."""
+    solved = solutions(store, arrivals)
     saved = {e["number"] for e in load_ledger(store).values() if e.get("number") is not None} | {
         json.loads(p.read_text())["number"] for p in store.glob("listener-*.json")}
     return [r for r in idx if printed(r) and r["number"] in saved - solved]
+
+
+def report_lookups(idx, store=STORE, root=ROOT, arrivals=None):
+    """The rows whose report link Gale is asked for, earliest first: every
+    saved puzzle and every one still to save (the rows that get a Download
+    link) whose report page has not arrived."""
+    arrivals = list(gi.load(ARRIVED, {}).values()) if arrivals is None else arrivals
+    want = {r["number"] for r in [*unsolved(idx, store, arrivals), *to_save(idx, store, root, arrivals)]}
+    return [r for r in idx if printed(r) and r["number"] in want - solutions(store, arrivals)]
 
 
 def elsewhere_wanted(ledger, got, arrivals, filed):
@@ -1140,7 +1143,7 @@ def checklist(idx=None, store=STORE, root=ROOT, arrivals=None, docs=None, status
         if e.get("number") is not None:
             tried.setdefault(e["number"], []).append(e)
     lost = [e for e in ledger.values() if e.get("number") is None and not e.get("reports")]
-    solved, _ = solutions(store, arrivals)
+    solved = solutions(store, arrivals)
     got = {}
     for p in store.glob("listener-*.json"):
         r = json.loads(p.read_text())

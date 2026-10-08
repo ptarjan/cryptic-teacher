@@ -517,7 +517,7 @@ page2 = g.checklist(rows, store2, Path(sys.argv[1]) / "none", arrivals=[])
 check("a read puzzle's missing solution is asked for", True,
       "save its solution too: “Report on Crossword No. 2”" in page2)
 check("and offers its solution as the row's job", True, 'data-k="r2"' in page2)
-check("not while a saved file waits to be read", False, "save its solution too:" in g.checklist(
+check("still asked for while an unrelated saved file waits to be read", True, "save its solution too:" in g.checklist(
     rows, store2, Path(sys.argv[1]) / "none", arrivals=[{"file": "new.pdf", "number": 1}]))
 check("earliest first", True, page.index("Wed 02 Apr 1930") < page.index("Wed 09 Apr 1930"))
 # A page that sends its grid or clues to another page (No 24's "see page
@@ -682,6 +682,19 @@ with tempfile.TemporaryDirectory() as tmp:
     planned = [u["rel"] for u in g.plan(inbox, store)]
     check("a page read at an older VERSION is read again", True, "a.pdf" in planned)
     check("a page read at this VERSION is not (mirror)", False, "b.pdf" in planned)
+
+# Report lookups: a saved puzzle is asked for while a file is unread; an
+# upcoming one too; a puzzle whose report arrived, read or not, is not.
+with tempfile.TemporaryDirectory() as tmp:
+    store, root = Path(tmp) / "store", Path(tmp) / "root"
+    store.mkdir(); root.mkdir()
+    idx = [{"number": n, "title": "T", "setter": None, "date": D(1930, 4, 2) + datetime.timedelta(days=7 * n)}
+           for n in (1, 2, 3, 4)]
+    (store / "listener-2.json").write_text(json.dumps({"number": 2, "verdict": {}}))
+    arrivals = [{"file": "unread.pdf", "number": 3, "reports": [1]}]
+    got = [r["number"] for r in g.report_lookups(idx, store, root, arrivals)]
+    check("reports looked up for a saved and an upcoming row, not one whose report arrived unread", [2, 4], got)
+    check("unsolved lists a saved puzzle though a file is unread", [2], [r["number"] for r in g.unsolved(idx, store, arrivals)])
 
 print(f"FAILS {fails}")
 sys.exit(1 if fails else 0)
