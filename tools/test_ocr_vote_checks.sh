@@ -446,6 +446,15 @@ check("a reading that prints known words there still wins (mirror)", "Five-seven
       oc.agree("Five-sevenths of a spongecake.", [["five", "-", "sevenths", "of", "a", "spongecake", "."],
                                                    ["five", "sevenths", "of", "a", "sponge", "cake", "."]])[0])
 
+NO_103 = "42. This belongs to a wonderful 25.\n43. Wrote the 19.\nDOWN\n21. Medium.\n23. Wonderful 25.\n26. This way."
+check("a short clue is put to the text after its own number, not another clue's (No 103 23D)",
+      ({"23-down": ("Wonderful 25.", None, None)}, {}),
+      oc.reconcile({"23-down": ("Wonderful 25.", None, None)}, [NO_103, NO_103], {}, uncounted=True))
+LOST = "42. This belongs to a wonderful 25.\n23. Most wonderful 25.\n26. This way."
+check("an opening the readings print after the number is still put back (mirror)",
+      ({"23-down": ("Most wonderful 25.", None, None)}, {}),
+      oc.reconcile({"23-down": ("Wonderful 25.", None, None)}, [LOST, LOST], {}, uncounted=True))
+
 print(f"FAILS {fails}")
 EOF
 )
