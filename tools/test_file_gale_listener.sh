@@ -76,6 +76,18 @@ check("and is filed as a clue the page leaves out", {"missing": True},
       next(e["clue"] for e in built["entries"] if (e["number"], e["direction"]) == (4, "down")))
 got, notes = f.mended(OPEN, {k: v for k, v in named.items() if k != "4-down"} | {"2-down": {"text": "See 4 across."}})
 check("one cited in the other direction stays unclued (mirror)", ({}, "no clue for 4-down"), (notes, f.lights_fit(OPEN, got)))
+# The list running past a light (No 8's 55 to 57 across) skips it: no reading has a line for it.
+skip = lambda *gone: {k: v for k, v in named.items() if k not in gone}
+got, notes = f.skipped(OPEN, skip("6-across"))
+check("the one light no reading has, between two the list prints, is printed with no clue",
+      (None, {"6-across": "printed with no clue: the list runs 5 to 7 across"}, {"text": "", "noCluePrinted": True}),
+      (got and f.lights_fit(OPEN, got), notes, got and got.get("6-across")))
+check("not the first light of a list: nothing printed before it (mirror)", {}, f.skipped(OPEN, skip("1-across"))[1])
+check("not when two lights lack a line (mirror)", {}, f.skipped(OPEN, skip("6-across", "3-down"))[1])
+check("not when a clue is off any light (mirror)", {},
+      f.skipped(OPEN, skip("6-across") | {"9-across": {"text": "its own words"}})[1])
+check("a clue read blank has its line, so is no skip (mirror)", {},
+      f.skipped(OPEN, skip("6-across") | {"6-across": {"text": ""}})[1])
 
 # A blocked grid whose unnumbered 2-cell runs are barred shut (No 17's):
 # its blocks are no bars.
@@ -188,6 +200,25 @@ check("with no report saved, No 1 files all the same, unsolved", (True, None, "n
 _, v, _ = f.join({**reading(9, TEXT), "verdict": {"seePages": [885]}}, [], [], read_letters)
 check("no grid on its pages, and the page it sends to", "grid: no unfilled grid read on its pages (it sends to p. 885)",
       v.get("lacks"))
+
+# join() files the skipped light unclued, but flips a faint stray bar first.
+puzzle, v, _ = f.join(reading(8, {k: t for k, t in TEXT.items() if k != "6-across"}), [{"grid": grid, "fit": exact}],
+                      [], read_letters)
+check("a light the list skips files as a clue the page leaves out",
+      ({"6-across": "printed with no clue: the list runs 5 to 7 across"}, {"missing": True}, None),
+      (v.get("mended"), next(e["clue"] for e in puzzle["entries"] if (e["number"], e["direction"]) == (6, "across")),
+       v.get("lacks")))
+# A stray bar r0c1 splits 1A, its far half a light no clue has: never filed unclued.
+stray = [".r..", "....", "....", "...."]
+one = {**sides, (0, 1, "r"): 1.5, (0, 2, "r"): 0.5}
+puzzle, v, _ = f.join(reading(8, TEXT), [{"grid": {**grid, "sides": one}, "fit": {**exact, "rows": stray}}],
+                      [], read_letters)
+check("the one faint bar whose flip mends it is flipped (mirror)",
+      ([0, 1, "r"], None, 8), (v.get("flipped"), v.get("mended"), puzzle and len(puzzle["entries"])))
+_, v, _ = f.join(reading(8, TEXT), [{"grid": {**grid, "sides": {**one, (0, 2, "r"): 1.3}}, "fit": {**exact, "rows": stray}}],
+                 [], read_letters)
+check("two flips that would each mend it leave the grid unused, no light called skipped (mirror)", (None, True),
+      (v.get("mended"), v.get("lacks", "").startswith("grid: ")))
 
 # The report's copy against a solve: the misread word is a lead, never a fix.
 solved = json.loads(json.dumps(filed))

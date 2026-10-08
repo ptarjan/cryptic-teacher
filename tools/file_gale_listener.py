@@ -19,7 +19,7 @@ read agree, and is checked against a third:
     and exactly one unsure side (listener_grid.UNSURE) flipped makes them
     agree, it is flipped; otherwise the grid is not used. Before that the
     list is mended() where the page itself errs: a line read twice, a
-    clue number misprinted, a theme light printed with no clue;
+    clue number misprinted, a light printed with no clue;
   - its report's answers, the check: the filled grid of the "Report on
     Crossword No. N" printed about two issues later, found on any saved page as the filled grid whose
     blocks and bars agree with the puzzle's on REPORT_AGREE of the cells
@@ -197,6 +197,27 @@ def mended(rows, clues):
     return clues, notes
 
 
+def skipped(rows, clues):
+    """(clues, notes) with the light the clue list skips printed with no
+    clue, else (None, {}). It is the grid's one light no reading has a line
+    for (pick lays every light any reading numbers), the list printing the
+    lights either side of it in its direction, and no clue off any light:
+    No 8's list runs 55 to 57 across. join() asks only of a grid no faint
+    bar's flip (flips) would mend, so a light the grid has wrong is never
+    called unclued."""
+    have = {f"{n}-{d}" for n, d in rg.light_cells(rows)}
+    bare = sorted(have - set(clues))
+    if len(bare) != 1 or any((c.get("text") or "").strip() for lid, c in clues.items() if lid not in have):
+        return None, {}
+    n, d = number_of(bare[0])
+    mine = sorted(number_of(lid)[0] for lid in have if lid.endswith("-" + d))
+    below, above = [m for m in mine if m < n], [m for m in mine if m > n]
+    if not (below and above and f"{below[-1]}-{d}" in clues and f"{above[0]}-{d}" in clues):
+        return None, {}
+    return ({**clues, bare[0]: {"text": "", "noCluePrinted": True}},
+            {bare[0]: f"printed with no clue: the list runs {below[-1]} to {above[0]} {d}"})
+
+
 def renumbered(fit, clues):
     """`clues` keyed by the lights' numbers as light_cells gives them for
     `fit`'s rows: a page numbering every square by its place (fit
@@ -219,6 +240,15 @@ def order(lid):
     return d != "across", int(n)
 
 
+def flips(grid, rows, clues):
+    """[(side, rows)] of each unsure side of `grid` whose flip in `rows`
+    makes the lights the clue list's."""
+    thin = max(grid["thin"], 1.0)
+    return [(side, alt) for side, width in grid["sides"].items()
+            if lg.UNSURE[0] <= width / thin <= lg.UNSURE[1]
+            for alt in [flipped(rows, side)] if lights_fit(alt, clues) is None]
+
+
 def fit_to_clues(grid, fit, clues):
     """(rows, flipped side or None, why): the fitted grid when its lights
     are the clue list's, else the one unsure side whose flip makes them so,
@@ -227,10 +257,7 @@ def fit_to_clues(grid, fit, clues):
     why = lights_fit(rows, clues)
     if why is None:
         return rows, None, None
-    thin = max(grid["thin"], 1.0)
-    fixes = [(side, alt) for side, width in grid["sides"].items()
-             if lg.UNSURE[0] <= width / thin <= lg.UNSURE[1]
-             for alt in [flipped(rows, side)] if lights_fit(alt, clues) is None]
+    fixes = flips(grid, rows, clues)
     if len(fixes) == 1:
         return fixes[0][1], fixes[0][0], None
     return None, None, f"the grid's lights are not the clue list's: {why}" + (
@@ -351,6 +378,10 @@ def join(reading, grids, reports, read_letters):
     for g in exact:
         laid, notes = mended(g["fit"]["rows"], renumbered(g["fit"], clues))
         rows, side, why = fit_to_clues(g["grid"], g["fit"], laid)
+        if not rows and not flips(g["grid"], g["fit"]["rows"], laid):
+            skip, note = skipped(g["fit"]["rows"], laid)
+            if skip and lights_fit(g["fit"]["rows"], skip) is None:
+                rows, side, laid, notes = g["fit"]["rows"], None, skip, {**notes, **note}
         if rows:
             clues = laid
             reading = {**reading, "clues": laid}
