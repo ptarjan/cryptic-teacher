@@ -284,6 +284,13 @@ for text, want in [("28.tNot far", "28. \u2020Not far"), ("fA", "\u2020A"), ("29
 check("a clue opening on a footnote's mark is one clue", (True, True, False),
       (al.sound("*God."), al.sound("\u2020Not far from 13"), al.sound("*one 12 Two")))
 
+check("numbers read into one box over three lines go, as a speck's does (No 97's ch \"450\")",
+      ["Why did"], [w[4] for w in g.figures([(100, 1085, 130, 1155, "450"), (160, 1090, 260, 1110, "Why did"),
+                                 (160, 1115, 260, 1135, "In sol"), (160, 1140, 260, 1160, "He rid")])][:1])
+check("a number one line tall stays (mirror)", ["450", "12."],
+      [w[4] for w in g.figures([(100, 1085, 130, 1105, "450"), (100, 1110, 130, 1130, "12."),
+                                 (160, 1140, 260, 1160, "He rid")])][:2])
+
 # No 97's down list: the numbers of 4-8 lost (one read as a speck whose
 # box spans three lines), as many lines as numbers between 3 and 7 here; No 17's
 # grid numbers beside the list; one line lost between 10 and 13 of two
@@ -337,11 +344,28 @@ PAGE = type("Page", (), {"width": 3000, "height": 4000})()
 page = [(1063, 828, 1080, 843, "6."), (1095, 827, 1175, 844, "Lenten."), (1064, 848, 1081, 865, "8."),
         (1095, 848, 1112, 864, "A"), (1122, 848, 1181, 872, "park.")]
 mine = [(1058, 823, 1179, 846, "6. Lenten."), (1108, 849, 1170, 868, "park")]
-got = sorted(w[4] for w in g.reread_lines(PAGE, "k", "ch", mine, page))
+got = sorted(w[4] for w in g.reread_lines(PAGE, "k", "ch", mine, [page]))
 check("a line whose number a reading lost is read again alone, its stop put back",
       (["6. Lenten.", "8.", "A", "park."], 1), (got, len(reads)))
 check("a line the reading has whole is not (mirror)", (["6. Lenten."], 1),
-      (sorted(w[4] for w in g.reread_lines(PAGE, "k", "ch", mine[:1], page[:2])), len(reads)))
+      (sorted(w[4] for w in g.reread_lines(PAGE, "k", "ch", mine[:1], [page[:2]])), len(reads)))
+# No 97's DOWN 4-8: the page words lost the numbers and ch the lines, but
+# en5 numbers them, so ch reads the line alone from en5's number.
+reads.clear()
+lost = [(1095, 827, 1175, 844, "Lenten."), (1095, 848, 1112, 864, "A"), (1122, 848, 1181, 872, "park.")]
+en5 = [(1063, 828, 1080, 843, "6."), (1095, 827, 1175, 844, "Lenten."), (1064, 848, 1081, 865, "8."),
+       (1095, 848, 1112, 864, "A"), (1122, 848, 1181, 872, "park.")]
+check("a line only another reading numbers is read again alone",
+      (["6. Lenten.", "8.", "A", "park."], 1),
+      (sorted(w[4] for w in g.reread_lines(PAGE, "k", "ch", mine[:1], [lost, en5])), len(reads)))
+reads.clear()
+check("a number misread as letters (No 97's \"DI.\" for \"11.\") is no number: the line is read again",
+      (["6. Lenten.", "8.", "A", "park."], 1),
+      (sorted(w[4] for w in g.reread_lines(PAGE, "k", "ch", mine[:1] + [(1064, 848, 1081, 865, "DI.")], [en5])),
+       len(reads)))
+reads.clear()
+check("a line no reading numbers is not (mirror)", (["6. Lenten."], 0),
+      (sorted(w[4] for w in g.reread_lines(PAGE, "k", "ch", mine[:1], [lost])), len(reads)))
 g.read_box = real_read_box
 
 # No 97's "20 rev., 24.": one clue for two lights, the first reversed, laid
