@@ -6680,16 +6680,25 @@
   // its name: "times" as a search term is inside "times quick" and "sunday
   // times", and a filter must not be.
   const titleCase = (s) => s.replace(/(^|\s)\S/g, (c) => c.toUpperCase());
-  // What the picker searches and files under papers: every listed puzzle, then
-  // a row per reprint, which is the original's row under the reprinting
-  // paper's series, number, date and id, and opens the original.
+  // What the picker searches and files under papers: every listed puzzle and a
+  // row per reprint, which is the original's row under the reprinting paper's
+  // series, number, date and id, and opens the original. Both lists are
+  // newest-first, so the reprints merge in by date and sit among their paper's
+  // own puzzles where its print date puts them.
   let pickable = null;
   function pickerPuzzles() {
     if (pickable) return pickable;
-    pickable = INDEX.puzzles.concat((INDEX.reprints || []).filter((r) => BY_ID[r.reprintOf])
+    const reprints = (INDEX.reprints || []).filter((r) => BY_ID[r.reprintOf])
       .map((r) => Object.assign({}, BY_ID[r.reprintOf], {
         id: r.id, series: r.series, number: r.number, date: r.date, name: r.name,
-        reprintOf: r.reprintOf })));
+        reprintOf: r.reprintOf }));
+    pickable = [];
+    let i = 0;
+    INDEX.puzzles.forEach((p) => {
+      while (i < reprints.length && reprints[i].date > (p.date || "")) pickable.push(reprints[i++]);
+      pickable.push(p);
+    });
+    pickable.push(...reprints.slice(i));
     return pickable;
   }
   function paperGroups() {
