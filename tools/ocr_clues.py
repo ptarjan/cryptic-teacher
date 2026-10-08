@@ -788,6 +788,11 @@ def ends_joined(theirs, low):
     return out
 
 
+#: The fewest letters a word all readings print alike needs to stand
+#: against a commoner slip (agree).
+UNANIMOUS_LETTERS = 4
+
+
 def agree(clue, others, keep_known=False):
     """(text or None, how) for one clue against the other readings' words
     and marks (`others`: one list per reading, or one list alone). Each word
@@ -1063,8 +1068,10 @@ def agree(clue, others, keep_known=False):
                           else f"readings differ: {w} / {' / '.join(got.values())}")
         # A dictionary word at least three readings print alike, with none
         # dissenting, stands: no slip or corpus fit outvotes them (No 17's
-        # "starling", not "starting").
-        unanimous = pick == a and known(a) and len(got) >= 2 and all(v.lower() == a for v in got.values())
+        # "starling", not "starting"). Not a short one: readers share the
+        # slip of a two-letter word ("ot" for "of", "ou" for "on").
+        unanimous = (pick == a and len(a) >= UNANIMOUS_LETTERS and is_word(a) and len(got) >= 2
+                     and all(v.lower() == a for v in got.values()))
         slip = None if (keep_known and pick == a) or unanimous else common_slip(pick)
         if slip:
             # Every reader can share the slip: the commoner spelling stands
