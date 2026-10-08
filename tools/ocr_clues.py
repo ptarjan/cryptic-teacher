@@ -2072,9 +2072,10 @@ def suspect(text, vouched=(), printed=()):
 
 
 #: A quotation opening: a quote mark at the clue's start or after a space
-#: or a mark, before a capital ("'Resting weary", "say, 'Give"); not an
-#: elision ("'Tis", "'Twas").
-QUOTE_OPEN = re.compile(r"(?:^|(?<=[\s,;:(\u2014*\u2020\u2021]))(['\u2018\"\u201c])(?!T(?:is|was|were|would|will)\b)(?=[A-Z])")
+#: or a mark, before a capital ("'Resting weary", "say, 'Give") or an
+#: elided start ("'. . . is a monster"); not an elision ("'Tis", "'Twas").
+QUOTE_OPEN = re.compile(r"(?:^|(?<=[\s,;:(\u2014*\u2020\u2021]))(['\u2018\"\u201c])(?!T(?:is|was|were|would|will)\b)"
+                        r"(?=[A-Z]|\.\s*\.)")
 
 
 def unclosed_quote(text):
@@ -2091,9 +2092,14 @@ def unclosed_quote(text):
     # A single quote shut after a word not ending in s (no plural's
     # apostrophe: "the lyre'.") that nothing opened: its start is lost.
     m = re.search(r"(?<=[A-Za-z][a-rt-zA-RT-Z])['\u2019](?![A-Za-z])", text or "")
-    if m and not re.search(r"(?:^|(?<=[\s,;:(\u2014*\u2020\u2021]))['\"\u201c](?=[A-Za-z])|\u2018", text[:m.start()]):
+    if m and not re.search(r"(?:^|(?<=[\s,;:(\u2014*\u2020\u2021]))['\"\u201c](?=[A-Za-z]|\.\s*\.)|\u2018", text[:m.start()]):
         return m.start()
     return None
+
+
+#: A quotation whose start is elided, its opening mark and most of the
+#: stops lost: "rev. . is a monster" for "rev. \u2018. . . is a monster".
+ELIDED = re.compile(r"^((?:rev[.,]\s+)?)\.(?:\s*\.)*\s+(?=\w)", re.IGNORECASE)
 
 
 def reopened(text, readings):
@@ -2101,10 +2107,14 @@ def reopened(text, readings):
     opening mark put back that a reading of it (`readings`) prints before
     the same first word ("\u2018And the ..." where the vote kept "And the
     ... lyre'."); a reader drops a faint mark far oftener than it makes one.
-    None when no reading opens it so, or the mark leaves it unclosed."""
+    A stop standing alone before the first word (ELIDED) is what is left of
+    an elided start, so the quotation opens there ("'. . . is a monster").
+    None when neither puts the mark back, or it leaves the clue unclosed."""
     first = (text or "").split(None, 1)[:1]
     if not first or text[0] in "'\u2018\"\u201c":
         return None
+    if (m := ELIDED.match(text)) and unclosed_quote(got := m.group(1) + "'. . . " + text[m.end():]) is None:
+        return got
     for r in readings:
         m = re.match(r"\s*(['\u2018\"\u201c])(\S+)", r or "")
         if m and m.group(2).strip(EDGE) == first[0].strip(EDGE):
