@@ -465,12 +465,15 @@ def run(store=gl.STORE, inbox=gl.MIRROR, puzzles=None, write=True, out=sys.stdou
             Path(reports_to).mkdir(parents=True, exist_ok=True)
             (Path(reports_to) / f"{printed['id']}.json").write_text(json.dumps(printed, indent=1) + "\n")
         if puzzle is not None and "lacks" not in verdict:
-            whole = fa.complete(puzzle)
+            # build() files a light the page prints with no clue as just
+            # {"missing": true}; a clue unread keeps its empty text.
+            unclued = {f"{e['number']}-{e['direction']}" for e in puzzle["entries"] if e["clue"] == {"missing": True}}
+            whole = fa.complete(puzzle, unclued)
             if not whole:
                 verdict["lacks"] = "clues: " + (", ".join(sorted(
                     (f"{e['number']}-{e['direction']}" for e in puzzle["entries"]
-                     if not e["clue"].get("text")
-                     or ocr_clues.suspect(e["clue"]["text"], printed=e["clue"].get("asPrinted") or ())), key=order))
+                     if not e["clue"].get("text") and f"{e['number']}-{e['direction']}" not in unclued
+                     or ocr_clues.suspect(e["clue"].get("text", ""), printed=e["clue"].get("asPrinted") or ())), key=order))
                     or "a clue is unfit to file")
             # Only a puzzle whose every clue reads true goes to the corpus;
             # --out takes every puzzle, one short of that too.

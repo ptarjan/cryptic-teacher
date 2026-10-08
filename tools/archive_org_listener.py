@@ -219,14 +219,17 @@ def parse(text):
 
 #: A line that starts a clue: its number, then its words.
 LINE_CLUE = re.compile(r"^\W{0,2}(\d{1,2})\W{0,2}\s+(\S.*)$")
-#: One clue for two lights, the first entered reversed: "20 rev., 24.
-#: Charade: ..." (No 97). The words after LINE_CLUE's number.
-LINKED = re.compile(r"^(rev\.)\s*,\s*(\d{1,2})\W{0,2}\s+(\S.*)$")
+#: One clue for two lights, the first entered reversed or not: "20 rev.,
+#: 24. Charade: ..." (No 97), "29, 39. In wonderful poem" (No 103). The
+#: words after LINE_CLUE's number.
+LINKED = re.compile(r"^(?:(rev\.)\s*)?,\s*(\d{1,2})\W{0,2}\s+(\S.*)$")
 #: A reversed light's head with its stop voted to another mark: "rev, Its".
 REV_MARK = re.compile(r"^rev[,;:]?\s+(?=[A-Z\"'\u2018])")
 #: A comma or colon the vote left before a clue's final stop: "kind,.".
 END_MARKS = re.compile(r"[,;:]\.$")
-LINKED_HEAD = re.compile(r"^(\W{0,2}\d{1,2}\W{0,2}\s+rev\.)\s*,\s*\d{1,2}\W{0,2}\s+", re.MULTILINE)
+#: LINKED's plain head, the whole line: "29, 39. In wonderful poem".
+LINKED_PLAIN = re.compile(r"^\W{0,2}\d{1,2}\s*(),\s*(\d{1,2})\W{0,2}\s+(\S.*)$")
+LINKED_HEAD = re.compile(r"^(\W{0,2}\d{1,2}(?:\W{0,2}\s+rev\.)?)\s*,\s*\d{1,2}\W{0,2}\s+", re.MULTILINE)
 
 
 def by_lines(text):
@@ -239,11 +242,13 @@ def by_lines(text):
             side = head.lower()
             continue
         m = LINE_CLUE.match(line)
-        if side and m and (linked := LINKED.match(m.group(2))):
+        linked = m and (LINKED.match(m.group(2)) or LINKED_PLAIN.match(line))
+        if side and m and linked:
             # The clue is the first light's, reversed as printed ("rev."),
             # its answer running on into the second.
+            words = " ".join(filter(None, (linked.group(1), linked.group(3).strip())))
             out[side].append({"tokens": [{int(m.group(1))}, {int(linked.group(2))}],
-                              "text": f"{linked.group(1)} {linked.group(3).strip()}", "enums": set(), "see": None})
+                              "text": words, "enums": set(), "see": None})
         elif side and m:
             see = ocr_clues.SEE_RE.match(m.group(2))
             out[side].append({"tokens": [{int(m.group(1))}], "text": m.group(2).strip(), "enums": set(),
@@ -266,6 +271,10 @@ def tidy(text):
     text = re.sub(r"^[.:;,'`\u2018\u2019 ]+(?=[\dIl])", "", text, flags=re.MULTILINE)
     text = re.sub(r"^(\d) (\d) (?=\S)", r"\1\2 ", text, flags=re.MULTILINE)
     text = re.sub(r"^(\d{1,2})(?=[A-Z]{2})", r"\1 ", text, flags=re.MULTILINE)
+    # A reversed light's "rev." read "rey." or glued to its number ("5rey.Last").
+    text = re.sub(r"^(\d{1,2})\s?re[vy][.,]?\s*(?=[A-Z\"'\u2018])", r"\1 rev. ", text, flags=re.MULTILINE)
+    # A cross-reference's number glued on, its 1 read as I or l ("SeeI3.").
+    text = re.sub(r"\bSee\s?[Il]?(?=\d)", lambda m: "See 1" if m.group(0)[-1] in "Il" else "See ", text)
     return WORDS.sub(r"(\1)", text)
 
 
@@ -273,16 +282,23 @@ def tidy(text):
 RUN_ON = re.compile(r"\(\s*[\dSIl,.\- ]*\)\s*\S")
 
 
-def lay(parsed):
+def lay(parsed, guessed=None):
     """{light: (text, enumeration or None, None)} by each clue's own number:
-    the reading above the last number laid, else the smallest."""
+    the reading above the last number laid, else the smallest. A number not
+    above the last is a misread one ("10." for 40): it never displaces a
+    light laid in order, and is added to `guessed` (a set) when given. A
+    cross-reference ("See 13.") is laid as its own clue."""
     out = {}
     for direction in ("across", "down"):
         last = 0
         for clue in parsed[direction]:
-            nums = sorted(n for n in clue["tokens"][0] if n > last) or sorted(clue["tokens"][0])
-            if not nums or clue["see"] is not None:
-                continue
+            nums = sorted(n for n in clue["tokens"][0] if n > last)
+            if not nums:
+                nums = sorted(clue["tokens"][0])
+                if not nums or f"{nums[0]}-{direction}" in out:
+                    continue
+                if guessed is not None:
+                    guessed.add(f"{nums[0]}-{direction}")
             last = nums[0]
             enums = sorted(clue["enums"])
             # One clue for two lights (LINKED): the corpus's linked form,
@@ -309,10 +325,18 @@ def sound(text):
                 and not RUN_ON.search(text) and not NEXT_NUMBER.search(text))
 
 
-def pick(lays):
+def pick(lays, texts=(), guessed=()):
     """Every light any reading laid, each from the first reading (fullest
     first) whose text for it is sound and which another reading laid on the
-    same light alike; a light no two readings agree on is filed blank."""
+    same light alike; a light no two readings agree on is filed blank. A
+    light one reading numbers in order (not in its `guessed` set) is also
+    taken when another reading's whole text (`texts`) prints its words on a
+    line of their own, unless a reading numbers those words in order as a
+    light outside the clue's group: the number is the one reader's, the
+    words every reader's ("40. Often forbidden" read "4", "10." and with no
+    number)."""
+    guessed = list(guessed) or [set() for _ in lays]
+    lines = [[LINE_CLUE.sub(r"\2", ln).strip().lower() for ln in t.splitlines() if ln.strip()] for t in texts]
     out = {}
     order = sorted({lid for laid in lays for lid in laid},
                    key=lambda lid: (lid.split("-")[1] != "across", int(lid.split("-")[0])))
@@ -322,8 +346,41 @@ def pick(lays):
         good = [v for k, v in enumerate(have) if sound(v[0]) and any(
             j != k and ocr_clues.similar(texts[k], t) >= CORROBORATE for j, t in enumerate(texts))]
         enum = next((v[1] for v in have if v[1]), None)
+        if not good and len(have) == 1:
+            good = [v for k, laid in enumerate(lays) if lid in laid and lid not in guessed[k]
+                    and (v := laid[lid]) and sound(v[0]) and printed_elsewhere(v, lid, k, lays, lines, guessed)]
         out[lid] = good[0] if good else ("", enum, None)
     return out
+
+
+#: How near in length (a share of the clue's) another light's text must be
+#: to rival a clue printed_elsewhere: a run-on is longer by a line.
+RIVAL_LENGTH = 0.15
+
+
+def printed_elsewhere(v, lid, k, lays, lines, guessed):
+    """Whether reading k's clue `v` for `lid` is printed as a line of another
+    reading's text (`lines`, each reading's lines without numbers), and no
+    reading lays those words in order on a light outside its group."""
+    text, group = v[0].lower(), set(v[2] or ()) | {lid}
+    for j, laid in enumerate(lays):
+        # A light whose text runs on into these words (No 103's 43A taking
+        # 44A's unnumbered line) is no rival: only one of about this length.
+        if any(other not in group and other not in guessed[j] and abs(len(t[0]) - len(text)) <= len(text) * RIVAL_LENGTH
+               and ocr_clues.similar(text, t[0].lower()) >= CORROBORATE for other, t in laid.items() if t[0]):
+            return False
+    for j, ls in enumerate(lines):
+        if j == k:
+            continue
+        for i in range(len(ls)):
+            got = ls[i]
+            for more in ls[i + 1:i + 4]:
+                if len(got) >= len(text):
+                    break
+                got += " " + more
+            if ocr_clues.similar(text, got) >= CORROBORATE:
+                return True
+    return False
 
 
 def ocr_words(img, box, which, cache_path):
@@ -387,6 +444,32 @@ def read_box(d, leaf, img, box, key, verdict, split=None):
     return vote(words, verdict)
 
 
+#: The most words a run-together token is split into (No 9's ch reads
+#: "usedtoaddcolourtobutterand" for 7).
+JOINED_WORDS = 8
+
+
+def unjoined(texts):
+    """Each reading's text ({reader: text}) with a token no lexicon knows
+    split where another reading prints its letters as consecutive words
+    ("ofa" where another has "of a", "usedto" where another has "used to")."""
+    runs = {}
+    for k, t in texts.items():
+        toks = re.findall(r"[A-Za-z']+", t)
+        for i in range(len(toks)):
+            for n in range(2, JOINED_WORDS + 1):
+                if i + n <= len(toks):
+                    runs.setdefault("".join(toks[i:i + n]).lower(), {})[k] = " ".join(toks[i:i + n])
+
+    def split(k, m):
+        word = m.group(0)
+        if len(word) < 3 or ocr_clues.known(word):
+            return word
+        got = max((v for o, v in runs.get(word.lower(), {}).items() if o != k), key=lambda v: v.count(" "), default=None)
+        return got if got and got.lower().replace(" ", "") == word.lower() and got[0].isupper() == word[0].isupper() else word
+    return {k: re.sub(r"[A-Za-z]+", lambda m, k=k: split(k, m), t) for k, t in texts.items()}
+
+
 def vote(words, verdict, cols=None, lengths=None):
     """(verdict, {light: (text, enumeration, None)} or None) from each
     reader's words ({reader: [(x0, y0, x1, y1, text)]}): each reading's
@@ -396,7 +479,7 @@ def vote(words, verdict, cols=None, lengths=None):
     whose count no reading read. Shared by every Listener page reader
     (tools/gale_listener.py's too)."""
     cols = cols or columns
-    texts = {k: tidy(fa.tidy(text_of(cols(w)))) for k, w in words.items()}
+    texts = unjoined({k: tidy(fa.tidy(text_of(cols(w)))) for k, w in words.items()})
     tried = []
     for k, t in texts.items():
         parsed, why = parse(t) if t.strip() else (None, "no words")
@@ -410,8 +493,9 @@ def vote(words, verdict, cols=None, lengths=None):
     tried.sort(reverse=True)
     best = tried[0][2]
     verdict["reading"] = best
-    lays = [lay(t[3]) for t in tried]
-    laid = pick(lays)
+    guessed = [set() for _ in tried]
+    lays = [lay(t[3], guessed[k]) for k, t in enumerate(tried)]
+    laid = pick(lays, [texts[t[2]] for t in tried], guessed)
     lengths = dict(lengths or {}) | {lid: ftp.count(e) for lid, (_, e, _) in laid.items() if e}
     # A linked clue's second number ("20 rev., 24. Charade:") is no part of
     # the clue's words the readings are put to.
@@ -446,10 +530,14 @@ def vote(words, verdict, cols=None, lengths=None):
              if t and (got := ocr_clues.printed_alike(t, [(ly.get(lid) or ("",))[0] for ly in lays]))}
     if alike:
         verdict["asPrinted"] = alike
+    # A light two heads link ("29, 39." and "32, 39") refers to both.
+    heads = {}
     for lid, (t, e, g) in list(laid.items()):
         for tail in (g or [])[1:] if t else ():
-            laid[tail] = (f"See {lid.split('-')[0]}", None, None)
-            blank.pop(tail, None)
+            heads.setdefault(tail, []).append(lid.split("-")[0])
+    for tail, nums in heads.items():
+        laid[tail] = (f"See {', '.join(nums)}", None, None)
+        blank.pop(tail, None)
     verdict["clues"] = len(laid)
     verdict["agreed"] = sum(1 for t, _, _ in laid.values() if t)
     if blank:

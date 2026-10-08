@@ -2788,11 +2788,14 @@ def destination(puzzles, complete=True):
     return puzzles or False
 
 
-def complete(puzzle):
+def complete(puzzle, unclued=()):
     """Whether every clue of a puzzle has text, none with a word OCR made
     up (ocr_clues.suspect; a token its `asPrinted` keeps is the print's) or
-    unfit to file (faults)."""
-    return filled(puzzle)[0] == len(puzzle["entries"]) and not any(
+    unfit to file (faults). An entry `unclued` names ("25-down") is one the
+    page prints with no clue: its `{"missing": true}` is the print's."""
+    blank = sum(1 for e in puzzle["entries"]
+                if f"{e['number']}-{e['direction']}" in unclued and e.get("clue") == {"missing": True})
+    return filled(puzzle)[0] + blank == len(puzzle["entries"]) and not any(
         suspect((e.get("clue") or {}).get("text", ""), printed=(e.get("clue") or {}).get("asPrinted") or ())
         for e in puzzle["entries"]) and not faults(puzzle)
 

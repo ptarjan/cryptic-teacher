@@ -484,6 +484,12 @@ def known(word, stem=True):
                 and known(low[:-2], stem=False)))
 
 
+def closed_compound(word):
+    """Whether a word no lexicon knows is two known words of 3+ letters
+    closed up ("spongecake")."""
+    return any(is_word(word[:k]) and is_word(word[k:]) for k in range(3, len(word) - 2))
+
+
 def fit(word, before, after):
     """How well `word` reads between the words `before` and `after` (None at
     a clue's end), by the corpus's clues: the log count of each pair it
@@ -1225,9 +1231,13 @@ def agree(clue, others, keep_known=False):
             how = "settled by the lexicon"
         elif max(votes.values()) > 1 and votes[a] == 1 and len(a) > 3 and w[0].islower():
             return None, f"two readings agree on a non-word: {w} / {' / '.join(got.values())}"
-        elif len(a) > 3 and votes[a] > 1 and len(votes) == 1 and i not in specked:
+        elif len(a) > 3 and votes[a] > 1 and i not in specked and (
+                len(votes) == 1 or (votes[a] * 2 > sum(votes.values()) and closed_compound(a)
+                                    and not any(map(known, set(votes) - {a})))):
             # Every reading that sees a word here spells it alike, letter
-            # for letter, and no known word mends it: the print's own
+            # for letter, or most do, it is two known words closed up, and
+            # the rest spell no word ("spongecake" against "spongecalke"),
+            # and no known word mends it: the print's own
             # spelling (No 17's misprinted "elecampeae", "anatomatical"),
             # filed as printed: printed_alike() records it as the clue's
             # asPrinted, which suspect() then takes.
@@ -1300,6 +1310,7 @@ def is_word_only_capital(word, seen):
 
 
 FULL_WIDTH = {c: c - 0xfee0 for c in range(0xff01, 0xff5f)}
+LIGATURES = str.maketrans({"\u00e6": "ae", "\u00c6": "Ae", "\u0153": "oe", "\u0152": "Oe"})
 #: Abbreviations a clue prints with a stop before a lower-case word (the
 #: 1930s Listener's "Anag. of", "20 rev."), each a lookbehind of its own
 #: width.
@@ -1326,7 +1337,12 @@ def clean(text):
     a word is no part of it, and a comma or exclamation mark misread as a
     full stop or an I is put back."""
     text = re.sub(r"\s*[*•|]+(?=\s|$)", "", re.sub(r"(?<=[a-z])¬\s*(?=[a-z])", "", text))
+    # An opening quote glued to the word before it opens the next word
+    # ("this\u2018enamelled'"): kept as the straight quote below, it would close.
+    text = re.sub(r"(?<=[a-z]{2})[\u2018\u201c](?=[A-Za-z])", lambda m: " " + m.group(0), text)
     text = text.replace("\u2019", "'").replace("\u2018", "'")
+    # A ligature is its two letters, as readers that lack it read it ("medi\u00e6val").
+    text = text.translate(LIGATURES)
     text = unspecked(text)
     # A recogniser's full-width mark is the ASCII one ("\uff1f" for "?").
     text = text.translate(FULL_WIDTH)
