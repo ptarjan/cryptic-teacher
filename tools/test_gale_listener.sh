@@ -285,6 +285,16 @@ check("one clue for two lights: the group on the first, the clue its words",
 check("a reversed light alone is a sound clue with its rev.", (True, "rev. He'd nothing solve."),
       (al.sound(laid["23-down"][0]), laid["23-down"][0]))
 check("a plain clue has no group (mirror)", None, laid["21-across"][2])
+def linked_page(c20):
+    return (line("ACROSS", 100, 100) + line("19. See 1 across.", 100, 130) + line(c20, 100, 160)
+            + line("21. An African for riddles known.", 100, 190) + line("DOWN", 100, 230)
+            + line("1. The carousing of seamen.", 100, 260) + line("2. Potbellied.", 100, 290))
+_, laid = al.vote({k: linked_page("20 rev., 24. Charade: components I postpone.") for k in "abc"}, {}, cols=g.page_columns)
+check("the vote keeps a linked clue's words, and lays See 20 on its second light",
+      ("rev. Charade: components I postpone.", ("See 20", None, None)), (laid["20-across"][0], laid.get("24-across")))
+_, laid = al.vote({k: linked_page("20. revels in it.") for k in "abc"}, {}, cols=g.page_columns)
+check("a clue that opens mid-word is still blank, with no light laid after it (mirror)",
+      ("", None), (laid["20-across"][0], laid.get("24-across")))
 
 # A page that prints the clues or the diagram on another page says which.
 check("the pages it sends to, over a line break; a report's page is none",

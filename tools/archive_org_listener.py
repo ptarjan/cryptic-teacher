@@ -222,6 +222,7 @@ LINE_CLUE = re.compile(r"^\W{0,2}(\d{1,2})\W{0,2}\s+(\S.*)$")
 #: One clue for two lights, the first entered reversed: "20 rev., 24.
 #: Charade: ..." (No 97). The words after LINE_CLUE's number.
 LINKED = re.compile(r"^(rev\.)\s*,\s*(\d{1,2})\W{0,2}\s+(\S.*)$")
+LINKED_HEAD = re.compile(r"^(\W{0,2}\d{1,2}\W{0,2}\s+rev\.)\s*,\s*\d{1,2}\W{0,2}\s+", re.MULTILINE)
 
 
 def by_lines(text):
@@ -406,7 +407,9 @@ def vote(words, verdict, cols=None):
     lays = [lay(t[3]) for t in tried]
     laid = pick(lays)
     lengths = {lid: ftp.count(e) for lid, (_, e, _) in laid.items() if e}
-    stream = [t for k, t in texts.items() if k != best and t.strip()]
+    # A linked clue's second number ("20 rev., 24. Charade:") is no part of
+    # the clue's words the readings are put to.
+    stream = [LINKED_HEAD.sub(r"\1 ", t) for k, t in texts.items() if k != best and t.strip()]
     # The 1930s lists print no counts: a clue is then read without one.
     uncounted = not any(c["enums"] for cs in tried[0][3].values() for c in cs)
     laid, blank = ocr_clues.reconcile(laid, stream, lengths, uncounted=uncounted)
@@ -415,9 +418,11 @@ def vote(words, verdict, cols=None):
     laid, blank = ocr_clues.as_printed(texts, laid, blank, parse, lengths, uncounted=uncounted)
     for lid, (t, e, g) in laid.items():
         if t and ocr_clues.unclosed_quote(t) is not None:
+            if got := ocr_clues.reopened(t, [(ly.get(lid) or ("",))[0] for ly in lays]):
+                laid[lid] = (got, e, g)
+                continue
             # A quotation's end or start lost: a printed blank ("——'") no
-            # reader sees, or a mark the vote dropped (No 15's 30 across,
-            # "And the-is heard above the lyre'." for "'And the — is ...").
+            # reader sees, or a mark the vote dropped that no reading kept.
             laid[lid] = ("", e, g)
             blank[lid] = "a quotation it never closes: its end is lost"
         elif t and not sound(t):
