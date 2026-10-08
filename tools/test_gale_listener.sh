@@ -655,6 +655,13 @@ runon = [{"44-across": ("rev. Its waters credited with powers.", None, None)},
 check("a run-on into the words is no rival (No 103 44A)", "rev. Its waters credited with powers.",
       al.pick(runon, ["44 rev. Its waters credited with powers.",
                       "43. Wrote the 19.\nrev. Its waters credited with powers."])["44-across"][0])
+short = [{"38-down": ("God,", None, None)}, {}]
+check("a word or two one reading numbers is no clue another reading vouches for (No 15 38D)", "",
+      al.pick(short, ["38. God,", "God, and man."])["38-down"][0])
+two = [{"58-down": ("The top of the head. Italian police.", None, None)},
+       {"56-down": ("The top of the head.", None, None)}]
+check("a clue holding another light's whole clue is a run-on, no clue (No 17 58D)", "",
+      al.pick(two, ["58. The top of the head. Italian police.", "56. The top of the head.\nItalian police."])["58-down"][0])
 check("words run together are split where another reading parts them (No 9 39A)",
       "of a reddish pulp used to add colour",
       al.unjoined({"a": "ofa reddish pulp usedtoaddcolour", "b": "of a reddish pulp usedto add colour",
