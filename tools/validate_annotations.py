@@ -3256,7 +3256,7 @@ def explain_matches(name, named, lines):
     (`double_definition`). A refusal costs them a turn, so the name is taken
     as exact, then as part of a name, then as words every one of which the
     check's source contains."""
-    key = re.sub(r"[-\s]+", "_", name.strip()).strip("_")
+    key = re.sub(r"[-\s]+", "_", re.sub(r"([a-z])([A-Z])", r"\1_\2", name.strip())).strip("_")
     for exact in (name, key, f"check_{key}", f"check_{key.lower()}"):
         if exact in named:
             return [exact]
@@ -3264,7 +3264,7 @@ def explain_matches(name, named, lines):
     part = [k for k in checks if key.lower() in k.lower()]
     if part:
         return sorted(part, key=len)
-    words = [w.lower().rstrip("s") for w in re.split(r"[_\W]+", re.sub(r"([a-z])([A-Z])", r"\1_\2", key)) if w]
+    words = [w.lower().rstrip("s") for w in re.split(r"[_\W]+", key) if w]
     words = [w for w in words if w != "check"]
     if not words:
         return []
