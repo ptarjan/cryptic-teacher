@@ -49,15 +49,21 @@
 # checkout, found through the shared .git from any tree. fd 9 survives the exec,
 # so a run that inherits it already holds the lease and keeps it until the run
 # and every child it started have exited.
+# CT_JOB names the tree instead of the script: tools/unit_queue.py runs each
+# unit of a queue in one of its trees (<job>-1, <job>-2 ...), holding that
+# tree's lease on fd 9 when it starts the unit. Read here and again after the
+# re-exec below, then kept from the job's children, which choose their own.
+_ct_job="${CT_JOB:-$(basename "$0" .sh)}"
 _ct_lease="$(cd "$(dirname "${BASH_SOURCE[0]}")" &&
-  dirname "$(git rev-parse --path-format=absolute --git-common-dir)")/.$(basename "$0" .sh).tree.lock"
+  dirname "$(git rev-parse --path-format=absolute --git-common-dir)")/.$_ct_job.tree.lock"
 if [ "$(readlink "/proc/$$/fd/9" 2>/dev/null)" != "$_ct_lease" ]; then
   exec 9>"$_ct_lease"
 fi
 if ! flock -n 9; then
-  echo "another $(basename "$0" .sh) run holds its tree — leaving it alone"
-  exit 0
+  echo "another $_ct_job run holds its tree — leaving it alone"
+  exit "${CT_LEASE_BUSY_RC:-0}"
 fi
+if [ "${CT_IN_WORKTREE:-0}" = 1 ]; then export -n CT_JOB CT_LEASE_BUSY_RC; fi
 
 # The merge driver and clean filter .gitattributes names for the keyed JSON
 # data files. Repo config is shared by every worktree of the checkout, so
@@ -192,7 +198,6 @@ _ct_salvage() {
 
 if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
   _ct_main="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-  _ct_job="$(basename "$0" .sh)"
   _ct_tree="${CT_WORKTREE_ROOT:-$HOME/.cryptic-teacher}/$_ct_job"
 
   # Trim the jobs' logs before the run writes to them. They all live in the
@@ -284,8 +289,11 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
       [ "$_ct_ok" = 1 ] && printf '%s\n' "$_ct_head" >"$_ct_stamp"
     fi
     # One copy of each, in the main checkout, reached from everywhere.
-    for _ct_share in .claude .alert-state .usage_cache.json; do
-      [ -e "$_ct_tree/$_ct_share" ] && continue
+    # tools/data/minutecryptic/ is the Minute Cryptic archive: its daily
+    # clue is offered only on the day, so every tree a daily unit runs in
+    # must write to the one copy.
+    for _ct_share in .claude .alert-state .usage_cache.json tools/data/minutecryptic; do
+      { [ -e "$_ct_tree/$_ct_share" ] || [ -L "$_ct_tree/$_ct_share" ]; } && continue
       [ -e "$_ct_main/$_ct_share" ] || continue
       ln -s "$_ct_main/$_ct_share" "$_ct_tree/$_ct_share"
     done

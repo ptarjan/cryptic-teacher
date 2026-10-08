@@ -26,7 +26,7 @@ fails=0
 check() { if [ "$2" = "$3" ]; then echo "  ok: $1"; else
   echo "  FAIL: $1"$'\n'"    expected: $3"$'\n'"    got:      $2"; fails=$((fails + 1)); fi; }
 
-fn=$(awk '/^  rebuild_generated_conflicts\(\) \{$/,/^  \}$/' tools/daily_update.sh)
+fn=$(awk '/^    rebuild_generated_conflicts\(\) \{$/,/^    \}$/' tools/daily_update.sh)
 [ -n "$fn" ] ||
   { echo "FAIL: rebuild_generated_conflicts is no longer where this test reads it from"; exit 1; }
 

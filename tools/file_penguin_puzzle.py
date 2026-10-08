@@ -331,7 +331,7 @@ def main(argv=None):
     ap.add_argument("--model", default="opus", help="the model that solved it")
     ap.add_argument("--unsolved", action="store_true",
                     help="file the grid and clues with no answers at all, for the "
-                         "nightly cold solve to finish (daily_update.sh, step 3a)")
+                         "nightly cold solve to finish (daily_update.sh, an annotate unit)")
     args = ap.parse_args(argv)
 
     record = json.loads(Path(args.record).read_text(encoding="utf-8"))
@@ -343,7 +343,7 @@ def main(argv=None):
     if args.unsolved:
         print(f"wrote {path} — {len(puzzle['entries'])} entries, dated "
               f"{puzzle['year']}, NO ANSWERS: "
-              f"it is now the cold-solve queue's problem (daily_update.sh, step 3a)")
+              f"it is now the cold-solve queue's problem (daily_update.sh, an annotate unit)")
         coarse = coarse_continuations(record)
         if coarse:
             print(f"  {len(coarse)} light(s) the book printed no count over, enumerated "

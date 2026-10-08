@@ -1,22 +1,20 @@
-about    = "Read the next archive.org crossword book nobody has read yet, one loan at a time"
+about    = "Tick of the archive.org books' unit queue: one loan or one book's read a unit (tools/book_units.py), each its own detached process"
 room     = "cryptic-crosswords"
-# Hourly, and usually a few seconds: registered books holding no puzzle wait
-# only on archive.org's lending limit. That limit counts loans TAKEN over a
-# period archive.org does not publish and is not cleared by returning
-# anything, so asking is the only way to find it; a refusal costs one request,
-# takes no loan and exits 0. Twice a day was lent a book every run from 09-25
-# to 10-05, so on 2026-10-05 Paul asked to go hourly until the refusals show
-# where the limit sits (.books.log has the time of every loan and refusal).
-schedule = "40 * * * *"
+# Every ten minutes, and usually a few seconds: a tick plans and starts what is
+# due. Loans wait on archive.org's lending limit, which counts loans TAKEN over
+# a period archive.org does not publish and is not cleared by returning
+# anything, so asking is the only way to find it; after a refusal
+# tools/book_units.py asks again an hour later (REFUSAL_WAIT), as the hourly
+# schedule Paul asked for on 2026-10-05 did. A book borrowed is read at the
+# next tick, beside any other read (.books.log has every loan and refusal).
+schedule = "*/10 * * * *"
 where    = "container"
 run      = "/Users/pt/github/cryptic-teacher/tools/acquire_books.sh"
-# The transcript is how a night that went wrong is read back; the scheduler's
+# The transcript is how a run that went wrong is read back; the scheduler's
 # own stdout goes to `docker logs`, where nothing looks for it.
 log      = "/Users/pt/github/cryptic-teacher/.books.log"
-# Three hours, not unlimited. One book is minutes of fetching and CPU, so this
-# only ever fires on a wedged run — and a wedged run under a no-limit timeout
-# holds the lock forever, which is this job silently never running again.
-timeout  = 10800
+# The tick only plans; the units' limits are their own (tools/book_units.py).
+timeout  = 600
 
 # Both pin this job's state to the volume, agreeing with $HOME rather than
 # overriding it — spelled out because the job is also run by hand, and a shell

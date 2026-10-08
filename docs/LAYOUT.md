@@ -886,8 +886,26 @@ sw.js                                         the service worker: it exists so a
                                               caches nothing
 
 scheduling
-tools/daily_update.sh                         daily script: fetch latest, annotate backlog,
-                                              validate, commit
+tools/daily_update.sh                         the nightly as a queue of units: a tick every ten
+                                              minutes chooses the puzzles to annotate under the
+                                              usage gates and starts what is due; `unit <key>`
+                                              is one fetcher, blog chain, filer, check, graded
+                                              miss or puzzle's annotation, run in a tree of its
+                                              own and committing and pushing its own work
+tools/unit_queue.py                           scheduled work as small units: a tick starts each
+                                              due unit detached, each with its own lock, time
+                                              limit, ledger row and tree slot; cadence, retry
+                                              with backoff, `after` and `trigger` dependencies
+                                              and per-class caps; `status` and `plan` show it
+tools/daily_units.py                          the nightly's units for tools/unit_queue.py:
+                                              their cadences, limits and dependencies, the
+                                              day's backlog budget, and the puzzles a refetch
+                                              gave a key (`keyed`)
+tools/test_unit_queue.sh                      drives a fake queue through tools/unit_queue.py:
+                                              a tick returns at once, an overrun is killed and
+                                              alerted, a failure waits out its retry, a class
+                                              cap and a running unit hold starts back, `after`
+                                              and `trigger` order them
 tools/nightly_worktree.sh                     sourced first: re-execs a scheduled job in its
                                               own worktree, never the editor’s
 tools/durable.sh                              sourced by a long job that files into git:
@@ -981,10 +999,6 @@ tools/own_rows.py                             a burn puzzle's commit stages its 
                                               sibling's; its discard puts them back
 tools/test_own_rows.sh                        two puzzles in flight: one commits only its own
                                               rows, the other's discard leaves the tree clean
-tools/test_sources_baseline.sh                runs daily_update.sh's commit_sources in a
-                                              scratch repo: a refile that rewords a clue is
-                                              HEAD before annotation, so its fresh annotation
-                                              validates and a rejected one reverts to the refile
 tools/test_alert_claimed.sh                   runs a real failing run past alert.sh, so the
                                               catch-all cannot report a failure somebody
                                               already alerted on a second time
@@ -1282,11 +1296,17 @@ tools/rank_book_candidates.py                 judge each candidate archive.org c
                                               from one short loan and a sample of its leaves,
                                               rank the ones worth acquiring in full, and record
                                               why each refusal is one
-tools/acquire_books.sh                        read the next archive.org crossword books nobody
-                                              has read yet — up to three loans a run, then
-                                              every book due; first turns any held book file
-                                              that reprints a held newspaper puzzle into a
-                                              reading of it (fetch_puzzle.py --supersede-books)
+tools/acquire_books.sh                        the archive.org books as a queue of units: a tick
+                                              every ten minutes; `unit borrow:<id>` takes one
+                                              loan and fetches its text, `unit read:<id>` reads
+                                              one book from disk, `unit supersede` turns a held
+                                              book file that reprints a held newspaper puzzle
+                                              into a reading of it (fetch_puzzle.py
+                                              --supersede-books)
+tools/book_units.py                           the books' units for tools/unit_queue.py: the
+                                              next loan (one at a time, an hour after a
+                                              refusal, three an hour), each due book's read,
+                                              two at once
 tools/book_queue.py                           which registered archive.org books have not been
                                               read yet, best first
 tools/test_book_queue.sh                      does tools/book_queue.py still offer the right

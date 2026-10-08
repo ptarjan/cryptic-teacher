@@ -296,7 +296,10 @@ LAYOUT = [
     ("syncing between devices and telling them about new puzzles, with no login and no accounts",
      "sw.js", "the service worker: it exists so a push has somewhere to be delivered, and deliberately caches nothing"),
 
-    ("scheduling", "tools/daily_update.sh", "daily script: fetch latest, annotate backlog, validate, commit"),
+    ("scheduling", "tools/daily_update.sh", "the nightly as a queue of units: a tick every ten minutes chooses the puzzles to annotate under the usage gates and starts what is due; `unit <key>` is one fetcher, blog chain, filer, check, graded miss or puzzle's annotation, run in a tree of its own and committing and pushing its own work"),
+    ("scheduling", "tools/unit_queue.py", "scheduled work as small units: a tick starts each due unit detached, each with its own lock, time limit, ledger row and tree slot; cadence, retry with backoff, `after` and `trigger` dependencies and per-class caps; `status` and `plan` show it"),
+    ("scheduling", "tools/daily_units.py", "the nightly's units for tools/unit_queue.py: their cadences, limits and dependencies, the day's backlog budget, and the puzzles a refetch gave a key (`keyed`)"),
+    ("scheduling", "tools/test_unit_queue.sh", "drives a fake queue through tools/unit_queue.py: a tick returns at once, an overrun is killed and alerted, a failure waits out its retry, a class cap and a running unit hold starts back, `after` and `trigger` order them"),
     ("scheduling", "tools/nightly_worktree.sh", "sourced first: re-execs a scheduled job in its own worktree, never the editor’s"),
     ("scheduling", "tools/durable.sh", "sourced by a long job that files into git: commits and pushes what it filed every few minutes, and on SIGTERM ends the job and commits first; nightly_worktree.sh's CT_SALVAGE_PATHS pushes what a SIGKILL left"),
     ("scheduling", "tools/json_merge.py", "git merge driver: the keyed JSON data files several writers append to merge per key, so a rebase never stops on a ledger row"),
@@ -327,7 +330,6 @@ LAYOUT = [
     ("scheduling", "tools/test_discard_clue_rows.sh", "a discarded run takes its SOURCE_CLUE_WRONG rows with it, and the table agrees with the file"),
     ("scheduling", "tools/own_rows.py", "a burn puzzle's commit stages its own rows of fetch_puzzle.py's SOURCE_* tables and no sibling's; its discard puts them back"),
     ("scheduling", "tools/test_own_rows.sh", "two puzzles in flight: one commits only its own rows, the other's discard leaves the tree clean"),
-    ("scheduling", "tools/test_sources_baseline.sh", "runs daily_update.sh's commit_sources in a scratch repo: a refile that rewords a clue is HEAD before annotation, so its fresh annotation validates and a rejected one reverts to the refile"),
     ("scheduling", "tools/test_alert_claimed.sh", "runs a real failing run past alert.sh, so the catch-all cannot report a failure somebody already alerted on a second time"),
 
     ("finding out whether any of it is working", "tools/reports.py", "reads and clears the bad-hint reports solvers sent in"),
@@ -420,7 +422,8 @@ LAYOUT = [
     ("tables everything else reads", "tools/test_provenance.sh", "does provenance actually REFUSE a puzzle that lies about where it came from?"),
     ("tables everything else reads", "tools/test_puzzle_source.sh", "holds where a puzzle came from to `source`, whose answers it holds to `solutions` and who wrote its hints to `annotatedBy`: a write lands all three and nothing that repeats them, the detail keys decide the origin, a key printed later replaces a model fill and remembers it, and provenance.check refuses detail that does not back its origin"),
     ("tables everything else reads", "tools/rank_book_candidates.py", "judge each candidate archive.org crossword book from one short loan and a sample of its leaves, rank the ones worth acquiring in full, and record why each refusal is one"),
-    ("tables everything else reads", "tools/acquire_books.sh", "read the next archive.org crossword books nobody has read yet \u2014 up to three loans a run, then every book due; first turns any held book file that reprints a held newspaper puzzle into a reading of it (fetch_puzzle.py --supersede-books)"),
+    ("tables everything else reads", "tools/acquire_books.sh", "the archive.org books as a queue of units: a tick every ten minutes; `unit borrow:<id>` takes one loan and fetches its text, `unit read:<id>` reads one book from disk, `unit supersede` turns a held book file that reprints a held newspaper puzzle into a reading of it (fetch_puzzle.py --supersede-books)"),
+    ("tables everything else reads", "tools/book_units.py", "the books' units for tools/unit_queue.py: the next loan (one at a time, an hour after a refusal, three an hour), each due book's read, two at once"),
     ("tables everything else reads", "tools/book_queue.py", "which registered archive.org books have not been read yet, best first"),
     ("tables everything else reads", "tools/test_book_queue.sh", "does tools/book_queue.py still offer the right book to tools/acquire_books.sh?"),
     ("tables everything else reads", "tools/test_build_readme.sh", "does tools/build_readme.py still read the header of every file it is asked about?"),
@@ -893,12 +896,12 @@ def add_missing_layout_rows():
 
 def build_knobs(k):
     return (
-        f"The two scheduled jobs split the quota deliberately: the 04:45 one "
-        f"annotates every puzzle from the last two days plus at most "
-        f"{k['ANNOTATE_MAX']} from the backlog, and only below "
-        f"{k['ANNOTATE_MAX_WEEKLY_PCT']}% of the week (and "
-        f"{k['ANNOTATE_MAX_SESSION_PCT']}% of the rolling five-hour window, "
-        f"re-checked between puzzles), while the hourly one spends everything "
+        f"The two scheduled jobs split the quota deliberately: the nightly's "
+        f"units, started by a tick every ten minutes, annotate every puzzle from "
+        f"the last two days plus at most {k['ANNOTATE_MAX']} a day from the "
+        f"backlog, and only below {k['ANNOTATE_MAX_WEEKLY_PCT']}% of the week "
+        f"(and {k['ANNOTATE_MAX_SESSION_PCT']}% of the rolling five-hour window, "
+        f"re-checked as each puzzle starts), while the hourly one spends everything "
         f"else with no gate: as many runs as land the weekly meter at its limit "
         f"right at the weekly reset, net of the bridge's own spend, waiting out "
         f"any five-hour lockout, until the weekly meter is spent or the week "

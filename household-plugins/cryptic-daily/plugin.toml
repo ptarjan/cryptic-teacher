@@ -1,15 +1,18 @@
-about    = "Fetch the day's cryptics, annotate the newest un-annotated ones under a usage gate, and push; CI builds and deploys"
+about    = "Tick of the nightly's unit queue: start each due fetch, filing, check and annotation unit (tools/daily_units.py) as its own detached process, under the usage gates; each commits and pushes its own work, CI builds and deploys"
 room     = "cryptic-crosswords"
-schedule = "45 4 * * *"
+# Every ten minutes: a tick plans and starts what is due and returns in about a
+# minute; the units run detached, each with its own lock and time limit
+# (tools/unit_queue.py), so a puzzle that appears mid-morning is fetched within
+# the hour and annotated at the tick after, not at the next 04:45.
+schedule = "*/10 * * * *"
 where    = "container"
 run      = "/Users/pt/github/cryptic-teacher/tools/daily_update.sh"
-# The run's whole transcript is how a night that went wrong is read back the
-# next morning, and the scheduler's own stdout goes to `docker logs`, where
-# nothing looks for it.
+# The run's whole transcript is how a day that went wrong is read back, each
+# unit's lines under its key, and the scheduler's own stdout goes to `docker
+# logs`, where nothing looks for it.
 log      = "/Users/pt/github/cryptic-teacher/.update.log"
-# No limit, as the crontab line this replaces had none. It annotates until the
-# usage gate stops it, which is legitimately hours; the lock stops a pile-up.
-timeout  = 0
+# The tick only plans; one still going after this is wedged.
+timeout  = 600
 
 # Both pin this job's state to the volume. $HOME points there too, so these
 # agree with the default rather than overriding it — spelled out because the
