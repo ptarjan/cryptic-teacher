@@ -242,7 +242,7 @@ check "the filer's ledger records each row's cause as a key" "1:filed,2:filed,3:
 check "a mistyped title is renumbered only onto one free slot that fits" \
   "5045 None None" "$(got RETYPED)"
 check "the clue keeps its enumeration" "Two words (2,3)" "$(got CLUE_KEEPS_COUNT)"
-check "markup and lost bytes are stripped from a clue" "Say “it” quietly (2)" "$(got CLEAN)"
+check "markup and lost bytes are stripped from a clue" 'Say "it" quietly (2)' "$(got CLEAN)"
 check "a count in words with no breaks to read is filed as printed" "Worded (5, two words)" "$(got WORDED)"
 check "a blogger's \"should say\" note becomes the answer's breaks" "Noted (2,3)" "$(got NOTED)"
 check "word breaks come from the enumeration" '[{"at": 2, "mark": ","}]' "$(got SEPARATORS)"

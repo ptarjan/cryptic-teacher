@@ -17,7 +17,7 @@ same() { if [ "$2" = "$3" ]; then echo "  ok: $1"; else
 out=$(PYTHONPATH=tools python3 - <<'PY'
 import copy
 import fetch_puzzle as fetcher
-import puzzle_integrity, puzzle_schema
+import puzzle_integrity, puzzle_schema, quotes
 from reconstruct_grid import grid_of
 
 real = fetcher.read_puzzle_file(fetcher.resolve_puzzle("cryptic-30066"))
@@ -37,7 +37,7 @@ good["printed"] = [{**black, "letter": "Q"}, {**own[0], "letter": e["solution"][
 
 def verdict(p):
     try:
-        puzzle_integrity.refuse_bad_write(puzzle_schema.order(p))
+        puzzle_integrity.refuse_bad_write(puzzle_schema.order(quotes.straighten(p)))
         return "accepted"
     except ValueError as err:
         return " | ".join(f"{k} {w}" for k, _, w in err.flags)
