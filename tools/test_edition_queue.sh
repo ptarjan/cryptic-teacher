@@ -164,6 +164,12 @@ with q.lock(tl):
         os._exit(0 if f.scan_unit(f.TIMES, "NewsUK1980UKEnglish/1980-01-02_2", cache) == "held" else 1)
     check("a ledger a batch run holds is held: the unit adds nothing", 0, os.waitstatus_to_exitcode(os.waitpid(pid, 0)[1]))
 
+# ---- a scan made under the old whole-name key is re-keyed, not rescanned
+rk = T / "rekey.jsonl"
+q.append(rk, [{"edition": "a", "scanKey": f.whole_name_scan_key()}, {"edition": "b", "scanKey": "older"}])
+check("rows under the old key take the narrowed one; others stay stale; once", (1, [f.scan_key(), "older"], 0),
+      (f.rekey_scans(rk), [r["scanKey"] for r in q.jsonl_rows(rk)], f.rekey_scans(rk)))
+
 # ---- the dispatcher: order, gating, limits, --seconds, TERM
 log = T / "units.log"
 def fake_unit(unit, cache, puzzles, reread):

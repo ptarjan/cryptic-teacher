@@ -119,7 +119,8 @@ headings and verdicts against its inputs (its files, the solutions seen,
 whether the VLM read it), after each edition. Editions never read go first, then the stale by when they were read
 (tools/scan_queue.py), so a capped run (--limit, --seconds) never starts over.
 --workers N reads N editions at once (one's VLM wait overlaps another's OCR).
-A change to the heading code (scan_code: every name scan() reaches) makes
+A change to the heading code (scan_key: the code scan() reaches, method by
+method and across modules, tools/code_reach.py) makes
 each edition's scan stale, so it is scanned again on its next read. Any
 other change to this code or the VLM model makes nothing due: whoever makes it
 runs the re-read once, `--reread [BEFORE]` (every edition last read before
@@ -2031,7 +2032,7 @@ PAPERS = {p.key: p for p in (TIMES, FT, GUARDIAN, TELEGRAPH)}
 #: Every --paper a run can read: each ledger's editions.
 FILERS = {**PAPERS, GALE.key: GALE}
 #: Each run's ledger in the cache, filed.jsonl unless named here. Kept off
-#: Paper, whose source is in the scan key (scan_code).
+#: Paper, whose code is in the scan key (scan_key).
 LEDGER_NAMES = {GALE.key: downloads.GALE_LEDGER.name}
 #: The runs whose never-read editions are read latest laid out first (pages
 #: saved by hand, whose saver waits to see them filed), not a year at a time.
@@ -2680,13 +2681,26 @@ WORKERS = 2
 SAVE_EVERY = 300
 
 
-def scan_code(text=None):
-    """The module-level names whose code scan() runs: those it names, and
-    theirs in turn (a function, class or assignment of this file naming
-    another), read off the file, so new heading code joins the scan key
-    without a list to keep."""
+def scan_key():
+    """A hash of the code that finds an edition's titles and solution
+    headings: what scan() reaches, here and in this repo's other modules
+    (tools/code_reach.py: a method only when called, comments and
+    docstrings left out), past the desktop transport. A scan made by other code is
+    made again; an edit to code scan() never runs changes nothing."""
+    if not _SCAN_KEY:
+        import code_reach
+        _SCAN_KEY.append(code_reach.key("file_archive_org_puzzles", SCAN_ROOTS))
+    return _SCAN_KEY[0]
+
+
+def whole_name_scan_key(text=None):
+    """The scan key ledger rows were written under before scan_key(): every
+    whole definition of this file scan()'s names reach. A row under the
+    one this file gives now is re-keyed to scan_key() (rekey_scans), not
+    scanned again."""
     import ast
-    tree = ast.parse(text if text is not None else Path(__file__).read_text())
+    text = text if text is not None else Path(__file__).read_text()
+    tree = ast.parse(text)
     defs = {}
     for node in tree.body:
         if isinstance(node, (ast.FunctionDef, ast.ClassDef)):
@@ -2702,28 +2716,38 @@ def scan_code(text=None):
             continue
         seen.add(name)
         todo += [n.id for node in defs[name] for n in ast.walk(node) if isinstance(n, ast.Name)]
-    return seen
+    h = hashlib.sha256()
+    for node in tree.body:
+        names = ([node.name] if isinstance(node, (ast.FunctionDef, ast.ClassDef)) else
+                 [t.id for t in node.targets if isinstance(t, ast.Name)] if isinstance(node, ast.Assign) else [])
+        if set(names) & seen:
+            h.update(ast.get_source_segment(text, node).encode())
+    return h.hexdigest()[:16]
 
 
-def scan_key():
-    """A hash of this file's code that finds an edition's titles and solution
-    headings (scan_code(), read from the file): a scan made by other code is
-    made again."""
-    if not _SCAN_KEY:
-        import ast
-        text = Path(__file__).read_text()
-        code = scan_code(text)
-        h = hashlib.sha256()
-        for node in ast.parse(text).body:
-            names = ([node.name] if isinstance(node, (ast.FunctionDef, ast.ClassDef)) else
-                     [t.id for t in node.targets if isinstance(t, ast.Name)] if isinstance(node, ast.Assign) else [])
-            if set(names) & code:
-                h.update(ast.get_source_segment(text, node).encode())
-        _SCAN_KEY.append(h.hexdigest()[:16])
-    return _SCAN_KEY[0]
+def rekey_scans(ledger):
+    """Re-key the rows of `ledger` scanned under whole_name_scan_key() to
+    scan_key(), unless a run holds it; how many."""
+    import fcntl
+    old, new = whole_name_scan_key(), scan_key()
+    if old == new or not ledger.exists():
+        return 0
+    with open(ledger.with_suffix(".lock"), "w") as f:
+        try:
+            fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            return 0
+        rows = scan_queue.jsonl_rows(ledger)
+        n = sum(r.get("scanKey") == old for r in rows)
+        if n:
+            tmp = ledger.with_suffix(".tmp")
+            tmp.write_text("".join(json.dumps({**r, "scanKey": new} if r.get("scanKey") == old else r) + "\n"
+                                   for r in rows), encoding="utf-8")
+            tmp.replace(ledger)
+        return n
 
 
-#: Where scan_code() starts.
+#: Where scan_key() starts.
 SCAN_ROOTS = {"scan"}
 _SCAN_KEY = []
 
