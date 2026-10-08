@@ -730,6 +730,15 @@
   });
   // Opened only by ?p=<id>: resolvable here, in INDEX.puzzles nowhere.
   (INDEX.unlisted || []).forEach((p) => { IS_ID[p.id] = 1; BY_ID[p.id] = p; });
+  // A reprint is the original under another paper's number and date, so its id
+  // opens the original, and progress saved under it moves there. REPRINTS_OF
+  // holds each original's reprints, newest first, for the line saying so.
+  const REPRINTS_OF = {};
+  (INDEX.reprints || []).forEach((r) => {
+    if (!BY_ID[r.reprintOf]) return;
+    ALIAS[r.id] = r.reprintOf;
+    (REPRINTS_OF[r.reprintOf] = REPRINTS_OF[r.reprintOf] || []).push(r);
+  });
   // Whether /puzzles/<id>/ exists: build_seo_pages.py writes one for every
   // listed puzzle with answers.
   const hasPage = (p) => !!(p && p.hasSolutions && !p.unlisted);
@@ -6503,8 +6512,9 @@
   // the check buttons are for that, and a row in the picker is not the place to
   // tell someone their grid is broken.
   function pickerStatus(p) {
-    const prog = savedProgress()[p.id];
-    const puz = window.CRYPTIC_PUZZLES[p.id];
+    const id = p.reprintOf || p.id;
+    const prog = savedProgress()[id];
+    const puz = window.CRYPTIC_PUZZLES[id];
     const letters = (prog && (!puz || fitsGrid(prog, puz)) && prog.letters) || {};
     const filled = Object.keys(letters).length;
     if (!filled || !puz) return { filled, total: 0, done: false };
@@ -6523,7 +6533,7 @@
     // letters[k] is "A" or "A!" — a revealed letter still counts as done. You
     // used the escape hatch; the scorebar inside the puzzle is where that costs
     // you something.
-    const done = squares.length > 0 && !onPaper(p.id)
+    const done = squares.length > 0 && !onPaper(id)
       && squares.every((k) => want[k] && letters[k] && letters[k][0] === want[k]);
     return { filled, total: squares.length, done };
   }
@@ -6603,7 +6613,7 @@
   // the cache above — and only for the puzzles that have letters saved, which is
   // a handful, rather than asked of every puzzle in the index.
   function pickerHaystack(p) {
-    if (!savedProgress()[p.id]) return pickerStaticHay(p);
+    if (!savedProgress()[p.reprintOf || p.id]) return pickerStaticHay(p);
     const st = pickerStatus(p);
     return pickerStaticHay(p) + (st.done ? " solved done" : " started unfinished");
   }
@@ -6670,10 +6680,22 @@
   // its name: "times" as a search term is inside "times quick" and "sunday
   // times", and a filter must not be.
   const titleCase = (s) => s.replace(/(^|\s)\S/g, (c) => c.toUpperCase());
+  // What the picker searches and files under papers: every listed puzzle, then
+  // a row per reprint, which is the original's row under the reprinting
+  // paper's series, number, date and id, and opens the original.
+  let pickable = null;
+  function pickerPuzzles() {
+    if (pickable) return pickable;
+    pickable = INDEX.puzzles.concat((INDEX.reprints || []).filter((r) => BY_ID[r.reprintOf])
+      .map((r) => Object.assign({}, BY_ID[r.reprintOf], {
+        id: r.id, series: r.series, number: r.number, date: r.date, name: r.name,
+        reprintOf: r.reprintOf })));
+    return pickable;
+  }
   function paperGroups() {
     const papers = INDEX.groups || {};
     const n = {};
-    INDEX.puzzles.forEach((p) => { const s = p.series || "cryptic"; n[s] = (n[s] || 0) + 1; });
+    pickerPuzzles().forEach((p) => { const s = p.series || "cryptic"; n[s] = (n[s] || 0) + 1; });
     const size = (keys) => keys.reduce((t, s) => t + n[s], 0);
     const biggest = (a, b) => size(b) - size(a);
     const byPub = {};
@@ -6742,7 +6764,7 @@
       // "imogen" inside a setter's name is exactly what a search is for.
       const matchers = terms.map((t) => (/^\d+$/.test(t)
         ? new RegExp("(^|[^\\d])" + t) : null));
-      const hits = INDEX.puzzles.filter((p) => {
+      const hits = pickerPuzzles().filter((p) => {
         if (keep && !keep(p)) return false;
         const hay = pickerHaystack(p);
         return terms.every((t, i) => (matchers[i] ? matchers[i].test(hay)
@@ -6791,7 +6813,8 @@
   // time rather than all at once.
   function pickerRow(p) {
     const li = document.createElement("li");
-    if (P && p.id === P.id) li.className = "current";
+    const opens = p.reprintOf || p.id;
+    if (P && opens === P.id) li.className = "current";
     const st = pickerStatus(p);
     const dd = puzzleDate(p);
     // Abbreviated, and the weekday leads. The row is tight — see the note
@@ -6823,7 +6846,7 @@
         location.href = DIFFICULTY_PAGE;
         return;
       }
-      openPuzzle(p.id); togglePicker(false);
+      openPuzzle(opens); togglePicker(false);
     };
     li.appendChild(btn);
     return li;
@@ -6885,7 +6908,7 @@
     // count would tell a solver who can see 24 of thousands of matching puzzles
     // that the undrawn ones "don’t match", which is a lie.
     const sayRest = () => {
-      const unmatched = INDEX.puzzles.length - rows.length;
+      const unmatched = pickerPuzzles().length - rows.length;
       const below = rows.length - drawn;
       const bits = [];
       if (below) bits.push(`${below} more match${below > 1 ? "es" : ""} — keep scrolling.`);
@@ -7087,6 +7110,19 @@
       ? new URL(`puzzles/${p.id}/`, homeUrl()).href : homeUrl();
   }
 
+  // "The Globe and Mail printed this as No 3,146 on 10 July 2026: it is the
+  // Times quick cryptic crossword No 3,146, from the Times of 22 May 2026."
+  // One sentence per paper that reprinted the puzzle, all from the index.
+  const thePaper = (s, the) => { const name = (INDEX.papers || {})[s] || ""; return /^the /i.test(name) ? name : `${the} ${name}`; };
+  function reprintNote(id) {
+    const p = BY_ID[id];
+    return (REPRINTS_OF[id] || []).map((r) => {
+      const when = puzzleDate(p).words;
+      return `${thePaper(r.series, "The")} printed this as ${displayNumber(r)} on ${puzzleDate(r).words}: `
+        + `it is the ${p.name}${when ? `, from ${thePaper(p.series, "the")} of ${when}` : ""}.`;
+    }).join(" ");
+  }
+
   function openPuzzle(id, chosen = true) {
     const puzzle = window.CRYPTIC_PUZZLES[id];
     // Not fetched yet: fetch it and come back. Once. If it still isn't here the
@@ -7157,6 +7193,9 @@
     // paper prints them: some answers are defined by nothing else.
     $("puzzle-preamble").textContent = P.preamble || "";
     $("puzzle-preamble").classList.toggle("hidden", !P.preamble);
+    const reprinted = reprintNote(id);
+    $("puzzle-reprint").textContent = reprinted;
+    $("puzzle-reprint").classList.toggle("hidden", !reprinted);
     renderGrid();
     renderClues();
     const checkable = canCheck();

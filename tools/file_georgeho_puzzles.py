@@ -343,7 +343,6 @@ def file_all(write=True):
             for line in (CACHE / "parsed.jsonl").open(encoding="utf-8")}
     rows = [json.loads(line) for line in (CACHE / "grids.jsonl").open(encoding="utf-8")]
     held = held_numbers()
-    reprints = fbp.reprinted_from()
     typed = fbp.typed_counts(recs.values())
     filed, skipped, compared = collections.Counter(), collections.Counter(), collections.Counter()
     unnamed = [recs[r["post_id"]] for r in rows
@@ -365,10 +364,6 @@ def file_all(write=True):
             if differ:
                 compared["answers differ"] += len(differ)
                 print(f"  {rec['post_id']}: georgeho differs at " + ", ".join(differ))
-            continue
-        by = fbp.reprinted_by(reprints, series, number)
-        if by:
-            skipped[f"{by} reprints it"] += 1
             continue
         if fetch_telegraph.served(series, number):
             skipped["the paper's own feed files it"] += 1

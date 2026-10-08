@@ -6,7 +6,8 @@
 # Each series has a landing page at /puzzles/series/<series>/ that leads with
 # its newest puzzle ("today's No 29" only when it is dated today, else
 # "latest"), and the hub and the year listings link to it; and the site
-# stages with /puzzles/series/ in it.
+# stages with /puzzles/series/ in it. A reprinting paper is listed by its
+# reprint rows, which link to the originals.
 #
 #     bash tools/test_series_hub.sh
 #
@@ -95,10 +96,23 @@ print("COUNTS", not re.search(r'class="muted[^"]*">\{[^}]*:,\}', src))
 print("NOTE", '<span class="badge feature">65 letters</span>' in B.hub_row(ps[0], "65 letters")
       and 'class="badge feature"' in app)
 print("CHIPS", bool(chips) and all(S.badge(k) == v for k, v in chips.items()))
+# A reprinting paper keeps its series page, listed by its reprint rows, each
+# linking to the original's answer page; a reprint of a puzzle without answers
+# is not listed.
+rp = {"puzzles": ps, "reprints": [
+    {"id": "globeandmail-3146", "series": "globeandmail", "number": 3146, "date": "2025-03-01",
+     "name": "Globe and Mail cryptic crossword No 3,146", "reprintOf": ps[0]["id"]},
+    {"id": "globeandmail-3147", "series": "globeandmail", "number": 3147, "date": "2025-03-02",
+     "name": "x", "reprintOf": "times-999"}]}
+gm = B.listings(rp).get("globeandmail", {})
+gpage = B.listing_page("globeandmail", "2025", gm.get("2025", []), None, None)
+print("REPRINT", [p["number"] for ps_ in gm.values() for p in ps_] == [3146]
+      and f'{B.BASE}/puzzles/{ps[0]["id"]}/' in gpage and "No 3,146" in gpage
+      and sum(map(len, B.listings(rp)["times"].values())) == len(ps))
 PY
 )
 echo "$out"
-for k in COUNT GRID APP NOTOTAL STRIP FEW TODAY LATEST LEADS NOCOUNT YEARCOUNTS PATHS STAGE LINKED LEGEND YEARSTRIP HUBLINK ONEWAY COUNTS NOTE CHIPS; do
+for k in COUNT GRID APP NOTOTAL STRIP FEW TODAY LATEST LEADS NOCOUNT YEARCOUNTS PATHS STAGE LINKED LEGEND YEARSTRIP HUBLINK ONEWAY COUNTS NOTE CHIPS REPRINT; do
   grep -qx "$k True" <<<"$out" || { echo "FAIL: $k"; exit 1; }
 done
 echo "PASS"

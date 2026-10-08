@@ -97,8 +97,10 @@ tools/test_fetch_telegraph.sh                 proves the bucket parser files a S
 tools/fetch_observer.py                       the Observer’s Everyman
 tools/fetch_wayback.py                        recovers Guardian puzzles older than the live
                                               site keeps, out of the Wayback Machine’s captures
-tools/fetch_globeandmail.py                   the Globe and Mail’s cryptic, a Times of London
-                                              syndication, decoded from its Amuse Labs player
+tools/fetch_globeandmail.py                   the Globe and Mail’s cryptic, its reprint of the
+                                              Times Quick Cryptic, decoded from its Amuse Labs
+                                              player and recorded on the Quick it reprints
+                                              (tools/reprints.py)
 tools/fetch_times_feed.py                     the Times Quick Cryptic from the Times’s own web
                                               player feed, grids and answers as printed, back
                                               to No 1; fills the numbers the blog wrote no
@@ -1165,6 +1167,26 @@ tools/data/ctc_reasons.json                   the judge's verdict, reasons and t
                                               words for each reacted-to clue
 tools/series.py                               the one table of facts about each series:
                                               publisher, naming, URL shape
+
+fetching
+tools/fold_reprints.py                        folds each held Globe and Mail file into the
+                                              Times Quick it reprints: its grid, clues and
+                                              annotations under timesquick-N, dated off the
+                                              timesforthetimes blog and checked against the
+                                              blog's answers, shrinking
+                                              tools/data/reprints_pending.json as it goes
+
+tables everything else reads
+tools/data/reprints_pending.json              the reprint files held before tools/reprints.py's
+                                              rule, still to fold into their originals;
+                                              puzzle_integrity.py's REPRINT check forgives
+                                              these alone, and the list only shrinks
+tools/reprints.py                             a reprint is filed as its original: the
+                                              reprinting paper's number and print date go on
+                                              the original as source.reprintedIn, and
+                                              puzzle_integrity.py refuses a reprint file
+                                              (tools/data/reprints_pending.json lists the held
+                                              ones still to fold)
 tools/kv.py                                   the one helper for reaching the sync KV namespace
                                               through wrangler
 tools/vote_tally_backfill.py                  rebuilds each puzzle's `t:` vote tally, which GET
@@ -1900,5 +1922,7 @@ tools/test_blocks_link_word.sh                when a clue's blocks are short by 
                                               letters of a word filed under linkWords, that
                                               word is fodder, and the warning says the edit to
                                               make
+tools/test_reprints.js                        a paper that reprints another's puzzle is listed,
+                                              and every way in opens the original
 ```
 <!-- LAYOUT-END -->

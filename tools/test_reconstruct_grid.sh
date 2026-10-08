@@ -108,16 +108,19 @@ for direction in ("across", "down"):
 print("BLANK_ONE_LENGTH", survives)
 
 # Two real grids recovered from the number-less form, which is the form the
-# book scans are in. everyman-3082 is an ordinary 15x15; globeandmail-3146 is
+# book scans are in. everyman-3082 is an ordinary 15x15; timesquick-3146 is
 # a 13x13 its setter drew without symmetry, so it only comes back at all
-# through the fallback, and it is here to keep that path alive.
-for pid, loose in (("everyman-3082", False), ("globeandmail-3146", True)):
+# through the fallback, and it is here to keep that path alive. Its file is
+# the Globe and Mail's print until tools/fold_reprints.py folds it.
+import puzzle_paths
+quick = next(p for p in ("timesquick-3146", "globeandmail-3146") if puzzle_paths.find(p))
+for name, pid, loose in (("EVERYMAN", "everyman-3082", False), ("TIMESQUICK", quick, True)):
     puz = read_puzzle_file(resolve_puzzle(pid))
     found, info = R.reconstruct(
         R.lights_of(puz, numbered=False),
         cols=puz["dimensions"]["cols"], rows=puz["dimensions"]["rows"],
         fallback=loose)
-    print(f"REAL_{pid.split('-')[0].upper()}",
+    print(f"REAL_{name}",
           len(found) == 1 and found[0] == R.grid_of(puz))
 
 # And the sentence a miss is explained by has to name a real fault. These two
@@ -150,7 +153,7 @@ same "a clue list no grid could print yields no grid" "$(field IMPOSSIBLE "$out0
 same "a real 15x15 comes back uniquely from lengths alone, no clue numbers" \
   "$(field REAL_EVERYMAN "$out0")" "True"
 same "and so does a 13x13 its setter drew without symmetry" \
-  "$(field REAL_GLOBEANDMAIL "$out0")" "True"
+  "$(field REAL_TIMESQUICK "$out0")" "True"
 same "any one length left unknown still recovers the 5x5" \
   "$(field BLANK_ONE_LENGTH "$out0")" "True"
 check "$out0" "NAMES_ASYMMETRY ['not 180-degree symmetric']" \

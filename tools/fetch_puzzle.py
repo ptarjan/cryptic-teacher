@@ -2711,7 +2711,37 @@ def index_row(path):
         # needs the whole series, from `area`, and drops `area`.
         **({"tags": tags} if (tags := puzzle_tags.tags(p)) else {}),
         "area": puzzle_tags.grid_area(p),
+        # The papers that printed this puzzle again under their own numbers;
+        # reindex() turns each into a `reprints` row and drops this.
+        "reprintedIn": p.get("source", {}).get("reprintedIn", []),
     }
+
+
+def reprint_name(series, number):
+    """"Globe and Mail cryptic crossword No 3,146": the name the reprinting
+    paper printed over the puzzle, in the shape its own feed's names take."""
+    pub, kind = series_meta.publisher(series), series_meta.kind(series)
+    lead = pub if kind.lower() == pub.lower() else f"{pub} {kind.lower()}"
+    return f"{lead} crossword {series_meta.display_number(series, number)}"
+
+
+def reprint_rows(puzzles):
+    """One row per paper that reprinted a puzzle, newest reprint first, taking
+    each row's `reprintedIn` off it.
+
+    The corpus holds the original only; a reprint row names the reprinting
+    paper's own number and date and points at the original by id, so the paper
+    stays listed while every link to it opens the one copy."""
+    rows = []
+    for p in puzzles:
+        for r in p.pop("reprintedIn"):
+            rows.append({"id": series_meta.puzzle_id(r["series"], r["number"]),
+                         "series": r["series"], "number": r["number"],
+                         "date": r["date"],
+                         "name": reprint_name(r["series"], r["number"]),
+                         "reprintOf": p["id"], "originalDate": p.get("date")})
+    rows.sort(key=lambda r: (r["date"], r["number"]), reverse=True)
+    return rows
 
 
 def reindex():
@@ -2739,6 +2769,7 @@ def reindex():
     import parallel
     puzzles = parallel.pmap(index_row, puzzle_files())
     big = puzzle_tags.big_grids([(row["id"], row["series"], row.pop("area")) for row in puzzles])
+    reprints = reprint_rows(puzzles)
     for row in puzzles:
         if row["id"] in big:
             row["tags"] = [k for k in puzzle_tags.TAGS if k in row.get("tags", []) or k == "big-grid"]
@@ -2772,8 +2803,10 @@ def reindex():
     # nothing.
     unlisted = [dict(p, unlisted=True) for p in puzzles if series_meta.unlisted(p["series"])]
     puzzles = [p for p in puzzles if not series_meta.unlisted(p["series"])]
+    # A reprint series is listed by its `reprints` rows alone, and is a paper
+    # in the picker all the same.
     papers = {s: series_meta.publisher(s)
-              for s in sorted({p["series"] for p in puzzles})}
+              for s in sorted({p["series"] for p in puzzles + reprints})}
     # The picker's heading for each series, beside `papers` rather than in it:
     # `papers` names the paper in a notification title, and "Times" is not the
     # Sunday Times' name.
@@ -2793,7 +2826,8 @@ def reindex():
     index = {"latest": puzzles[0]["id"] if puzzles else None,
              "papers": papers, "groups": groups, "books": books, "dateNumbered": dated,
              "clueTypes": clue_types.DATA, "tags": puzzle_tags.TAGS,
-             "snitchRanges": snitch, "puzzles": puzzles, "unlisted": unlisted}
+             "snitchRanges": snitch, "puzzles": puzzles, "reprints": reprints,
+             "unlisted": unlisted}
     compact = json.dumps(index, ensure_ascii=False, separators=COMPACT)
     (puzzle_paths.PUZZLE_DIR / "index.json").write_text(compact + "\n", encoding="utf-8")
     (puzzle_paths.PUZZLE_DIR / "index.js").write_text(

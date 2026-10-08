@@ -651,6 +651,9 @@ def puzzle_page(puz, meta, prev_p, next_p):
         "<main class=\"static-main\">",
         f"<h1>{pk} Crossword" + (f", {dw}" if day else f" No {pretty}") + "</h1>",
         f'<p class="s-facts">{build_abbreviations.LIST_SEP.join(facts)}</p>',
+        *(f'<p class="s-reprint">Reprinted in the {esc(series_meta.publisher(r["series"], r["number"]))}'
+          f' as No {r["number"]:,}' + (f', {date.fromisoformat(r["date"]):%A %-d %B %Y}' if r.get("date") else "")
+          + '.</p>' for r in puz.get("source", {}).get("reprintedIn", ())),
         f'<p class="s-cta"><a class="cta" href="{solve_url(puz["id"])}">Solve it yourself, '
         f'with hints one step at a time &rarr;</a></p>',
     ]
@@ -870,11 +873,23 @@ def series_path(series):
     return f"/puzzles/series/{series}/"
 
 
+def reprint_rows(idx):
+    """A row per reprint (the index's `reprints`) whose original has answers:
+    the original's row under the reprinting paper's series, number, date and
+    name, so it lists under that paper and links to the original's pages."""
+    by_id = {p["id"]: p for p in idx["puzzles"]}
+    return [dict(by_id[r["reprintOf"]], series=r["series"], number=r["number"],
+                 date=r["date"], name=r["name"])
+            for r in idx.get("reprints", ())
+            if by_id.get(r["reprintOf"], {}).get("hasSolutions")]
+
+
 def listings(idx):
     """{series: {year: [rows' puzzles, newest first]}}, busiest series first,
-    newest year first, undated last."""
+    newest year first, undated last. A reprinting paper is listed by its
+    reprint rows."""
     out = {}
-    for p in idx["puzzles"]:
+    for p in idx["puzzles"] + reprint_rows(idx):
         if p.get("hasSolutions"):
             s, y = listing_key(p)
             out.setdefault(s, {}).setdefault(y, []).append(p)

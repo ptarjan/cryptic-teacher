@@ -20,8 +20,7 @@ own links to the feed give for the fortnight ahead, until it finds the next. Onl
 downloads.TIMES_FEED.
 
 Filing goes through write_puzzle_file like any fetcher; a number already on
-disk (rebuilt from the timesforthetimes blog) is never rewritten, and a number
-the Globe and Mail reprints is left to it (series.py `reprints`).
+disk (rebuilt from the timesforthetimes blog) is never rewritten.
 """
 import argparse
 import concurrent.futures
@@ -297,20 +296,14 @@ def convert(data, date):
 
 
 def file_all(write=True, log=print, only=None):
-    import file_blog_puzzles
     from fetch_puzzle import puzzle_path, write_puzzle_file
 
-    reprints = file_blog_puzzles.reprinted_from()
     filed, held, skipped = 0, 0, {}
     for date, _, data in cached():
         if data["copy"].get("crosswordtype") != QUICK:
             continue
         number = number_of(data)
         if only is not None and number != only:
-            continue
-        by = number and file_blog_puzzles.reprinted_by(reprints, "timesquick", number)
-        if by:
-            skipped[f"{by} reprints it"] = skipped.get(f"{by} reprints it", 0) + 1
             continue
         if number and puzzle_path("timesquick", number).exists():
             held += 1

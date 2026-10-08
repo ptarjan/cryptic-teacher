@@ -3495,6 +3495,7 @@ def match_canberra(source=SOURCE, write=True, out=sys.stdout, canberra=ROOT / "p
     MATCH_SHARE of them, leads the runner-up MATCH_LEAD times over, was
     printed in London first, and the grids are the same. Returns
     {canberra id: times id}."""
+    import puzzle_integrity  # it imports the write path, so not at the top
     from fetch_puzzle import read_puzzle_file, write_puzzle_file
     readings, index = {}, {}
     for p in sorted(source.glob("times-*.json")):
@@ -3526,7 +3527,12 @@ def match_canberra(source=SOURCE, write=True, out=sys.stdout, canberra=ROOT / "p
         print(f"{c['id']} reprints {tid}: {n} clue word triples shared ({share:.0%})", file=out)
         if write and (c.get("source") or {}).get("reprintOf") != tid:
             c["source"] = {**c["source"], "reprintOf": tid}
-            write_puzzle_file(path, c)
+            # A reprint outside reprints_pending.json is refused
+            # (puzzle_integrity.check_reprint): it waits for its fold.
+            try:
+                write_puzzle_file(path, c)
+            except puzzle_integrity.RefusedWrite as e:
+                print(f"{c['id']}: skipped, {e}", file=out)
     print(f"{len(found)} canberra files matched to a Times reading", file=out)
     return found
 

@@ -210,7 +210,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # The flags, in the order they are reported. One tuple, read by both the
 # per-finding listing and the tally, so a check cannot be added to one and
 # missed from the other.
-FLAGS = ("LENGTH", "ORDER", "APOSTROPHE", "CROSS", "CELLS", "ALTERED", "GRID", "NUMBER", "DATE", "SETTER", "SHAPE", "PROV", "QUOTE", "FILED", "NEARDUP")
+FLAGS = ("LENGTH", "ORDER", "APOSTROPHE", "CROSS", "CELLS", "ALTERED", "GRID", "NUMBER", "DATE", "SETTER", "SHAPE", "PROV", "QUOTE", "FILED", "NEARDUP", "REPRINT")
 
 # No cryptic crossword in this corpus predates the Guardian's, which began in 1929.
 # A date below this is a page the publisher mis-filed or a fetcher that lost one,
@@ -1151,6 +1151,18 @@ def check_puzzle(puzzle, today, flags):
     check_preamble(puzzle, flags)
     check_duplicated_clues(puzzle, flags)
     check_annotation_quotes(puzzle, flags)
+    check_reprint(puzzle, flags)
+
+
+def check_reprint(puzzle, flags):
+    """REPRINT: a reprint whose original is identified, filed as a puzzle of
+    its own. It is filed as the original, with its own print in the
+    original's source.reprintedIn (tools/reprints.py)."""
+    import reprints  # noqa: PLC0415 — only this check reads it
+    original = reprints.original_of(puzzle)
+    if original and puzzle["id"] not in reprints.pending():
+        flags.append(("REPRINT", puzzle["id"], f"reprints {original}: file it as {original}, "
+                      "with this print in its source.reprintedIn (tools/reprints.py)"))
 
 
 def annotation_quotes(ann):

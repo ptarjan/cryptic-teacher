@@ -355,7 +355,8 @@ ACQUISITION_BY_SOURCE = {
     ("toughie", "www.telegraph.co.uk"): ("tools/fetch_telegraph.py",),
     ("sundaytel", "www.telegraph.co.uk"): ("tools/fetch_telegraph.py",),
     ("sundaytough", "www.telegraph.co.uk"): ("tools/fetch_telegraph.py",),
-    ("globeandmail", "www.theglobeandmail.com"): ("tools/fetch_globeandmail.py",),
+    # The Globe's print of the Quick (series.py `reprints`), filed as the Quick.
+    ("timesquick", "www.theglobeandmail.com"): ("tools/fetch_globeandmail.py",),
     # The Quicks the blog wrote no clues for, from the Times's own player feed.
     ("timesquick", "feeds.thetimes.co.uk"): ("tools/fetch_times_feed.py",),
     ("metro", "metro.co.uk"): ("tools/fetch_metro.py",
@@ -667,9 +668,10 @@ def channel_of(tool):
 
 
 #: The `source` keys derive() cannot work out and carries from the file as they
-#: are: a Metro puzzle's PuzzleMe id, and the London Times puzzle a Canberra
-#: Times one reprints. Every other key in the schema's `source` is derived.
-SOURCE_CARRIED = ("feedId", "reprintOf")
+#: are: a Metro puzzle's PuzzleMe id, the London Times puzzle a Canberra Times
+#: one reprints, and the other papers' prints of this one. Every other key in
+#: the schema's `source` is derived.
+SOURCE_CARRIED = ("feedId", "reprintOf", "reprintedIn")
 
 
 def derive(puzzle, claimed, acquired_on, previously=None):

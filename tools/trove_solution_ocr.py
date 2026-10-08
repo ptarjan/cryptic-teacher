@@ -840,6 +840,7 @@ def fill_corpus(cache=CACHE, write=True, ledger=None):
     The ledger (<cache>/ocr_answers.jsonl) names the solution article each
     puzzle was read from, so a puzzle is read once; one still unpaired is
     tried again, since its solution may arrive with a later fetch."""
+    import puzzle_integrity  # it imports the write path, so not at the top
     from fetch_puzzle import read_puzzle_file, write_puzzle_file
     ledger = Path(ledger or cache / "ocr_answers.jsonl")
     done = {}
@@ -860,7 +861,11 @@ def fill_corpus(cache=CACHE, write=True, ledger=None):
         print(f"{p['id']}: {n} answers read; {json.dumps(info)}")
         if write:
             if n:
-                write_puzzle_file(path, p)
+                try:
+                    write_puzzle_file(path, p)
+                except puzzle_integrity.RefusedWrite as e:
+                    print(f"{p['id']}: skipped, {e}")
+                    continue
             if info.get("ocr", "").startswith("solution article"):
                 done[p["id"]] = {"id": p["id"], "filled": n, **info}
         total += n
