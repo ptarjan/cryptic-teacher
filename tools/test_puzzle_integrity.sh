@@ -549,6 +549,15 @@ print("OCR", dups(ocr))
 fetch_puzzle.SOURCE_CLUE_WRONG[("cryptic-23115", "17-down")] = ("Big hitting", "Printed clue", "evidence")
 print("FIXED", dups(ocr))
 del fetch_puzzle.SOURCE_CLUE_WRONG[("cryptic-23115", "17-down")]
+# Listener No 3 prints "An exclamation." for 32 across and 2 down: one clue
+# in both lists is printed twice, no misread.
+lists = copy.deepcopy(ocr)
+across = next(e for e in lists["entries"] if e["direction"] == "across")
+for e in lists["entries"]:
+    if (e["number"], e["direction"]) == (17, "down"):
+        e["clue"] = {"text": "Another clue"}
+across["clue"] = {"text": "Big hitting"}
+print("LISTS", dups(lists))
 blanked = copy.deepcopy(ocr)
 for e in blanked["entries"]:
     if (e["number"], e["direction"]) in ((16, "down"), (1, "down")):
@@ -568,6 +577,7 @@ PY
 same "a feed's clue on two lights is the setter's" "$(field FEED "$out9")" "0"
 same "an OCR reading's clue on two lights is refused" "$(field OCR "$out9")" "1"
 same "unless SOURCE_CLUE_WRONG prints one of them" "$(field FIXED "$out9")" "0"
+same "one clue in the ACROSS and DOWN lists is printed in each" "$(field LISTS "$out9")" "0"
 same "blanking an OCR reading's clue on two lights loses nothing, any other clue is kept" \
   "$(field REWRITE_OCR "$out9")" "1-down"
 same "a feed's clue on two lights is a clue a rewrite keeps" "$(field REWRITE_FEED "$out9")" "1-down,16-down"

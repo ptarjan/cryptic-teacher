@@ -729,9 +729,10 @@ def numbered(run, n):
 
 
 #: A clue number in the 1930s' old-style figures, read as letters: "I."
-#: for 1, "II." for 11, "Io." for 10, "I3." for 13 (No 97's, No 103's).
-FIGURES = re.compile(r"^(\W{0,2})([IlO\d]?[IloO\d])([.,:])(?=\s|[A-Z]|$)")
-AS_DIGIT = str.maketrans("IlOo", "1100")
+#: for 1, "II." for 11, "Io." for 10, "I3." for 13 (No 97's, No 103's),
+#: "4S." for 48 (No 3's); a lone "S." is a word.
+FIGURES = re.compile(r"^(\W{0,2})([IlO\d]?[IloO\d]|\dS)([.,:])(?=\s|[A-Z]|$)")
+AS_DIGIT = str.maketrans("IlOoS", "11008")
 
 
 #: A clue number run into its first word, as the "ch" reader drops the

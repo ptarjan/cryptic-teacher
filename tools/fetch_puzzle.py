@@ -1879,16 +1879,20 @@ def corrected_clue(pid, eid):
     return SOURCE_CLUE_WRONG.get((pid, eid), (None, None, None))[1]
 
 
-def duplicated_clues(entries):
+def duplicated_clues(entries, one_list=False):
     """[[entry id, ...]] of lights served the same clue words, "See N" stubs
     and clues with no letters aside. A source serving one clue on two lights has lost
-    one of them; SOURCE_CLUE_WRONG is where the printed one goes."""
+    one of them; SOURCE_CLUE_WRONG is where the printed one goes.
+    With `one_list`, only lights in the same direction count: a reading lays
+    each printed line in its own list, so the same words under ACROSS and
+    under DOWN are printed twice (Listener No 3's 32A and 2D, "An
+    exclamation.")."""
     seen = {}
     for e in entries:
         text = (e.get("clue") or {}).get("text") or ""
         words = clue_words(text)
         if words and not is_continuation(text):
-            seen.setdefault(words, []).append(entry_id(e))
+            seen.setdefault((e.get("direction") if one_list else None, words), []).append(entry_id(e))
     return [ids for ids in seen.values() if len(ids) > 1]
 
 

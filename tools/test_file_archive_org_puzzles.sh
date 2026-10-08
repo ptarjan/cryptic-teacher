@@ -691,6 +691,15 @@ rows = f.merge_rows([(4264, 4302, 2279, 2590, "3 The friends got sea sick in"), 
 check("a short line under an overhanging box kept, a copy dropped, a number beside joined",
       ["5 3 The friends got sea sick in", "turn (6)"], [r[4] for r in rows])
 
+# ch's and en5's boxes off Listener No 3: the first box ends inside "this",
+# reading its "t" again, and the next box reads the whole word.
+rows = f.merge_rows([(1770, 1811, 1455, 1775, "45. Insert an A and t"), (1776, 1806, 1761, 2024, "this is what every")])
+check("a box's end cut through the next box's first word is dropped",
+      ["45. Insert an A and this is what every"], [r[4] for r in rows])
+rows = f.merge_rows([(1770, 1811, 1455, 1740, "45. Insert an A and t"), (1776, 1806, 1761, 2024, "this is what every")])
+check("a short word before a box it does not overlap stays",
+      ["45. Insert an A and t this is what every"], [r[4] for r in rows])
+
 # RapidOCR's boxes off 1975-06-06 (times-14013): "Am-" sits a little above
 # "understood", and both above "1 Fistorlan", all one printed row.
 rows = f.merge_rows([(4188, 4211, 232, 351, "understood"), (4188, 4205, 363, 409, "Am-"),
@@ -1287,6 +1296,10 @@ laid, blank = f.one_light_each(laid_13998, {}, fits={"18-across"})
 check("one clue on two lights its count fills one of: kept there, the other read again",
       (["15-across"], "", "Occasional raid cops turn out for"),
       (sorted(blank), laid["15-across"][0], laid["18-across"][0]))
+# Listener No 3 prints "An exclamation." under both lists, for 32A and 2D.
+laid, blank = f.one_light_each({"32-across": ("An exclamation.", None, None), "2-down": ("An exclamation.", None, None)}, {})
+check("one clue in both lists is printed twice: kept on both",
+      ({}, "An exclamation.", "An exclamation."), (blank, laid["32-across"][0], laid["2-down"][0]))
 
 # A held filing with one clue on two lights takes this reading's clue for
 # each of them, blank where it has none; the rest of the file stands.

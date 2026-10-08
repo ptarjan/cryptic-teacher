@@ -429,6 +429,10 @@ def similar(a, b):
 MARK_GAP = 0.5
 #: Pairing a digit glued to a word with another reading's mark there.
 DIGIT_MARK = 0.4
+#: Pairing a word with a number another reading reads in its place (No 3's
+#: ch reads "in" as "111"): just under a word lost on each side, so the
+#: words after it pair rather than the clue ending there.
+WORD_FIGURE = 1.9
 
 
 def align(mine, theirs):
@@ -450,7 +454,8 @@ def align(mine, theirs):
         for j in range(1, m + 1):
             glued = mine[i - 1].isdigit()  # a number glued to a word ("WW2", "know7")
             pair = cost[i - 1][j - 1] + (0.0 if mine[i - 1] == theirs[j - 1] or (
-                                             glued and theirs[j - 1] == BREAK) else inf
+                                             glued and theirs[j - 1] == BREAK) else
+                                         WORD_FIGURE if theirs[j - 1] == BREAK and mine[i - 1].isalpha() else inf
                                          if theirs[j - 1] == BREAK
                                          # A mark misread as a digit ("know7"), dearer
                                          # than a number but less than a mark lost.
@@ -977,7 +982,9 @@ def unglued(theirs, low):
     """Another reading's tokens with two to four of this clue's words it
     ran together ("eatsjunkets", "laidyoursoul") parted again, or over
     the quote that opens the second (No 3's "for'red" for "for 'red'"); an
-    apostrophe before a contraction's ending ("that's") opens no quote."""
+    apostrophe before a contraction's ending ("that's") opens no quote. A
+    run of three or four words is parted too with one letter misread
+    (No 3's "theMoghulEmpirefoi" for "the Moghul Empire fot")."""
     runs = {"".join(low[i:i + n]): low[i:i + n] for n in (2, 3, 4) for i in range(len(low) - n + 1)
             if all(w.isalpha() for w in low[i:i + n])}
     out = []
@@ -986,8 +993,13 @@ def unglued(theirs, low):
                 and not CONTRACTED.fullmatch(m[2]) and runs.get((m[1] + m[2]).lower()) == [m[1].lower(), m[2].lower()]:
             out += [m[1], m[2]]
             continue
+        run = runs.get(t.lower())
+        if run is None and t.isalpha():
+            near = [r for j, r in runs.items() if len(r) > 2 and len(j) == len(t)
+                    and sum(a != b for a, b in zip(j, t.lower())) == 1]
+            run = near[0] if len(near) == 1 else None
         k = 0
-        for w in runs.get(t.lower(), [t]):
+        for w in run or [t]:
             out.append(t[k:k + len(w)])
             k += len(w)
     return out
@@ -2946,12 +2958,14 @@ def one_light_each(laid, blank, fits=()):
     two lights (a reading's misread number, a lost one filled by position)
     has lost the other light's clue: it stays on the one light in `fits`
     (the lights whose printed count fills them) when exactly one of them is,
-    and every other light it sits on is filed blank, to be read again."""
+    and every other light it sits on is filed blank, to be read again. The
+    same words in both lists are two printed clues (duplicated_clues'
+    `one_list`)."""
     from fetch_puzzle import duplicated_clues
     laid, blank = dict(laid), dict(blank)
     entries = [{"number": int(lid.split("-")[0]), "direction": lid.split("-")[1], "clue": {"text": t}}
                for lid, (t, _, _) in laid.items() if t]
-    for ids in duplicated_clues(entries):
+    for ids in duplicated_clues(entries, one_list=True):
         keep = [lid for lid in ids if lid in fits]
         keep = keep[0] if len(keep) == 1 else None
         for lid in ids:

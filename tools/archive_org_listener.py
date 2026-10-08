@@ -375,6 +375,37 @@ def pick(lays, texts=(), guessed=()):
             good = [v for k, laid in enumerate(lays) if lid in laid and lid not in guessed[k]
                     and (v := laid[lid]) and sound(v[0]) and printed_elsewhere(v, lid, k, lays, lines, guessed)]
         out[lid] = good[0] if good else ("", enum, None)
+    return by_lost_figure(out, lays, guessed)
+
+
+def by_lost_figure(out, lays, guessed):
+    """`out` with a clue two readings each number in order on a different
+    light, both left blank, laid on the one whose number ends in the figures
+    a third reading reads for those words (No 3's "India's greatest
+    neighbour", "42" to en5, "40" to ch and "2" to Tesseract: a figure lost,
+    not a figure misread)."""
+    out = dict(out)
+
+    def alike(a, b):
+        return ocr_clues.similar(a.lower(), b.lower()) >= CORROBORATE
+
+    for lid, (text, _, _) in list(out.items()):
+        n, direction = lid.split("-")
+        mine = [k for k, laid in enumerate(lays) if laid.get(lid, ("",))[0] and lid not in guessed[k]]
+        if text or len(mine) != 1:
+            continue
+        clue = lays[mine[0]][lid]
+        rivals = {(j, other) for j, laid in enumerate(lays) if j != mine[0]
+                  for other, t in laid.items() if other != lid and other.endswith("-" + direction)
+                  and other not in guessed[j] and t[0] and not out.get(other, ("",))[0] and alike(t[0], clue[0])}
+        if len({o for _, o in rivals}) != 1:
+            continue
+        j, other = next(iter(rivals))
+        m = other.split("-")[0]
+        ends = {c.split("-")[0] for k, laid in enumerate(lays) if k not in (mine[0], j)
+                for c, t in laid.items() if c.endswith("-" + direction) and t[0] and alike(t[0], clue[0])}
+        if any(n.endswith(e) and n != e for e in ends) and not any(m.endswith(e) for e in ends):
+            out[lid] = clue
     return out
 
 
@@ -551,6 +582,11 @@ def end_stops(laid, lays, readers):
     return out
 
 
+def spaced(text):
+    """How many of a reading's words the lexicon knows."""
+    return sum(ocr_clues.known(w.lower()) for w in re.findall(r"[A-Za-z]+", text))
+
+
 def vote(words, verdict, cols=None, lengths=None):
     """(verdict, {light: (text, enumeration, None)} or None) from each
     reader's words ({reader: [(x0, y0, x1, y1, text)]}): each reading's
@@ -567,11 +603,13 @@ def vote(words, verdict, cols=None, lengths=None):
         if parsed is None:
             verdict.setdefault("unparsed", {})[k] = why
             continue
-        tried.append((sum(len(v) for v in parsed.values()), -len(tried), k, parsed))
+        tried.append((sum(len(v) for v in parsed.values()), spaced(t), -len(tried), k, parsed))
     if not tried:
         verdict["refused"] = "no reading parses"
         return verdict, None
-    tried.sort(reverse=True)
+    # Of readings parsing as many clues, the one printing more known words:
+    # ch runs words together ("servantlooksforwardto", No 3).
+    tried = [(n, order, k, parsed) for n, _, order, k, parsed in sorted(tried, reverse=True)]
     best = tried[0][2]
     verdict["reading"] = best
     guessed = [set() for _ in tried]

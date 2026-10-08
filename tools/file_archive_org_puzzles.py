@@ -1274,8 +1274,18 @@ def merge_rows(col):
     out = []
     for r in rows:
         r.sort(key=lambda l: l[2])
+        texts = [l[4] for l in r]
+        for k in range(len(r) - 1):
+            # A box cut through a word reads its first letters again at its
+            # end, where the next box reads the whole word (No 3's "45.
+            # Insert an A and t" beside "this is what every"): dropped.
+            head, _, last = texts[k].rpartition(" ")
+            first = r[k + 1][4].split(" ", 1)[0]
+            if (head and r[k][3] > r[k + 1][2] and last.isalpha() and first.isalpha()
+                    and len(last) < len(first) and first.lower().startswith(last.lower())):
+                texts[k] = head
         out.append((min(l[0] for l in r), max(l[1] for l in r), r[0][2], max(l[3] for l in r),
-                    " ".join(l[4] for l in r)))
+                    " ".join(texts)))
     return out
 
 
