@@ -343,6 +343,12 @@ def headed_columns(words):
 #: A report's heading, "Report on Crossword No. 13", "Report on the
 #: Crossword of May 14": its prose quotes clue numbers ("solving 38 Down").
 REPORT_HEAD = re.compile(r"^\W*report\s+on\b", re.IGNORECASE)
+#: The setter's note under a list ("NOTE.--Clue for 3 down is in italics.",
+#: read "NorE.-" too): no clue's words.
+NOTE_HEAD = re.compile(r"^\W*N[oO0][tTrR][eE]\s*[.:\u2014\u2013-]")
+#: Capitals with no small letter, two words or more ("B.B.C. SYMPHONY
+#: CONCERT"): an advert's or article's heading below a list.
+CAPITALS = re.compile(r"^[^a-z]*[A-Z]{3,}[^a-z]*[A-Z]{3,}[^a-z]*$")
 #: A clue number as the 1930s lists print it, "12.": where they line up
 #: is a clue column (a bare "12" may be a grid's or a sentence's).
 OPENS = re.compile(r"^\W{0,2}\d{1,2}[.,:](?![\d.])")
@@ -456,6 +462,12 @@ def numbered_columns(words):
                 # Above the first heading, in its columns or those left of
                 # it: the grid, the preamble, another article.
                 continue
+            if (NOTE_HEAD.match(line[4]) or CAPITALS.match(line[4]) and not al.LINE_CLUE.match(line[4])
+                    ) and not fa.heading_of(line[4]):
+                # Under the lists, the setter's note or an advert's heading
+                # (No 97's, under 42 down and 46 across): the column's
+                # lists are over.
+                break
             m = al.LINE_CLUE.match(line[4])
             if run and (speck := SPECK.match(line[4])) and WORDY.search(line[4]):
                 # A speck where the number was ("+ Why did ..."): the words

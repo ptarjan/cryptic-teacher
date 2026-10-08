@@ -327,6 +327,23 @@ check("a quotation never closed: its end lost; an elision, a closed one, a plura
                                       "*'One shade the more, one ray the less'.", "'Tis true",
                                       "In the soldiers' tea", "And the-is heard above the lyre'.", "rock 'n' roll",
                                       "Hindustani for 'that much'.", "Hindustani for\u2018red'.")])
+starling = "Anag. of the first syllable of a starling."
+check("a dictionary word three readings print alike stands against a commoner slip (No 17 43A)",
+      starling, oc.agree(starling, [mark("43 " + starling + " 44 The")] * 2)[0])
+check("but a reading that dissents, or two readings alone, leave it to the corpus (mirror)",
+      [starling.replace("starling", "starting")] * 2,
+      [oc.agree(starling, [mark("43 " + starling + " 44 The"),
+                           mark("43 " + starling.replace("starling", "starting") + " 44 The")])[0],
+       oc.agree(starling, [mark("43 " + starling + " 44 The")])[0]])
+tea = "in the soldiers'tea for this purpose."
+check("an apostrophe glued between two words another reading parts stays a possessive (No 15 39A)",
+      "in the soldiers' tea for this purpose.",
+      oc.agree(tea, [mark("39 in the soldiers' tea for this purpose. 40 The"),
+                     mark("39 in the soldiers tea for this purpose. 40 The")])[0])
+check("or opens a quotation; a known contraction stays whole (mirror)",
+      ["A printer might say 'Give me", "they're here"],
+      [oc.parted("A printer might say'Give me", [["A", "printer", "might", "say", "Give", "me"]]),
+       oc.parted("they're here", [["they", "re", "here"]])])
 check("a word no reading prints apart is still lost (mirror)",
       None, oc.agree("She eats junkets.", [mark("4 She junkets. 5 A"), mark("4 She junkets. 5 A")])[0])
 

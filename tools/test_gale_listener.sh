@@ -155,6 +155,23 @@ check("No 97's across list: wide-set numbers, a centred heading touching it",
 check("No 97's down list over its gap, the report's notes left out",
       ["1", "2", "3", "9", "10", "12"], [l[4].split(".")[0] for l in cols[1]] if cols else None)
 
+# No 97's setter's note under DOWN 12 and a concert advert's heading under
+# ACROSS 13 are no clue text: the column's lists end there.
+words = ([(600, 1000, 700, 1024, "ACROSS")] + wide("I.", "Puzzler of one", 250, 1020)
+         + wide("9.", "Such question", 250, 1050) + wide("II.", "To do this", 250, 1080)
+         + wide("13.", "Of question", 250, 1110) + line("B.B.C. SYMPHONY CONCERT", 400, 1140)
+         + line("In the Queen's Hall", 330, 1170)
+         + [(1500, 300, 1600, 324, "DOWN.")] + wide("I.", "This foreign boaster", 1150, 340)
+         + wide("2.", "Add head", 1150, 370) + wide("3.", "A riddle", 1150, 400)
+         + wide("9.", "Half sort", 1150, 430) + wide("10.", "UNPLEASANT JESTER", 1150, 460)
+         + wide("12.", "A word for palm", 1150, 490) + line("NoTE.--Clue for 3 down is in italics.", 1420, 515))
+cols = g.page_columns(g.figures(words))
+check("No 97: an advert's capitals and the setter's NOTE end the column's list",
+      (True, True), (cols[0][-1][4].endswith("Of question"), cols[1][-1][4].endswith("A word for palm"))
+      if cols else None)
+check("a clue printed in capitals stays (mirror)", "10. UNPLEASANT JESTER",
+      cols and next((l[4] for l in cols[1] if l[4].startswith("10")), None))
+
 # No 15's page: ACROSS under the grid, its list running on at the top of the
 # next two columns over a centred DOWN; DOWN 22 straight under ACROSS 34 in
 # the last column, a heading's space between; a report's prose quoting
