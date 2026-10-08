@@ -41,6 +41,7 @@ import urllib.parse
 import urllib.request
 from dataclasses import dataclass
 from datetime import UTC, date, datetime
+
 import downloads
 
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
@@ -210,8 +211,10 @@ def fetch_category(blog, cid, name, since=None, pages_cap=None, full=False):
             break
         fresh = [p for p in posts if p["id"] not in have]
         for p in fresh:
-            (blog.posts / f"{p['id']}.json").write_text(
-                json.dumps(p, ensure_ascii=False), encoding="utf-8")
+            # Written aside and renamed in: blog_facts reads posts while this runs.
+            part = blog.posts / f".{p['id']}.json.part"
+            part.write_text(json.dumps(p, ensure_ascii=False), encoding="utf-8")
+            part.replace(blog.posts / f"{p['id']}.json")
         new += len(fresh)
         if not fresh and not full:
             break
