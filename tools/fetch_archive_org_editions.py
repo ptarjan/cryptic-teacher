@@ -152,6 +152,8 @@ DENSE_ENUMS = 10
 UNIT_TRUST = re.compile(r"(?i)unit\s+trust\s+information\s+service")
 RETRY_WAITS = (5, 15, 45, 120)
 ITEM_SECONDS = 300
+#: Least gap between refetches of one item's metadata after a 404 (refresh_metadata).
+REFRESH_SECONDS = 600
 FAILURES_IN_A_ROW = 10
 
 # (group, advancedsearch query, title regex that keeps an item, first date kept)
@@ -267,6 +269,9 @@ class Fetcher:
         self.allowed = jobs
         self.cond = threading.Condition()
         self.in_flight = 0
+        self.refresh_lock = threading.Lock()
+        self.refreshed = {}
+        self.moved = {}
 
     @property
     def deadline(self):
@@ -340,6 +345,24 @@ class Fetcher:
             raise RuntimeError(f"/metadata/{item} has no files (dark or missing item)")
         write_atomic(path, json.dumps(meta).encode())
         return meta
+
+    def refresh_metadata(self, item, meta):
+        """Update the cached `meta` in place from archive.org when the item has
+        moved servers (its cached server/dir then 404 for every page image).
+        True when the server or directory changed. At most one refetch an item
+        every REFRESH_SECONDS, however many editions fail at once."""
+        with self.refresh_lock:
+            now = time.monotonic()
+            if now - self.refreshed.get(item, -REFRESH_SECONDS) < REFRESH_SECONDS:
+                return self.moved.get(item, False)
+            self.refreshed[item] = now
+            live = json.loads(self.get("https://archive.org/metadata/" + item, "metadata " + item))
+            keys = ("server", "d1", "d2", "dir")
+            self.moved[item] = bool(live.get("files")) and any(live.get(k) != meta.get(k) for k in keys)
+            if self.moved[item]:
+                meta.update(live)
+                write_atomic(os.path.join(self.out, "items", item + ".json"), json.dumps(meta).encode())
+            return self.moved[item]
 
 
 def log(msg):
@@ -779,7 +802,15 @@ class Run:
         t = time.monotonic()
         fx.deadline = t + ITEM_SECONDS
         try:
-            hits = fetch_edition(fx, item, meta, name)
+            try:
+                hits = fetch_edition(fx, item, meta, name)
+            except urllib.error.HTTPError as e:
+                # The cached metadata names the server the item lived on; a 404
+                # after the item moved is cured by the live metadata.
+                if e.code != 404 or not fx.refresh_metadata(item, meta):
+                    raise
+                log(f"  {name}: {item} moved servers; metadata refreshed, trying again")
+                hits = fetch_edition(fx, item, meta, name)
         except (urllib.error.HTTPError, urllib.error.URLError, RuntimeError, OSError,
                 ET.ParseError, EOFError, ValueError, KeyError) as e:
             with self.lock:
