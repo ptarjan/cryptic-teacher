@@ -149,6 +149,38 @@ check("a grid with a row of blocks is found", 1, len(grids))
 if grids:
     check("its rows, the band of blocks one row", list(BANDED), grids[0]["rows"])
 
+# A map-shaped grid (No 3's India, No 4's England): cells inside a stepped
+# outline, paper around it. Few rules cross the whole box, so they are
+# measured against the outline's own width; the cells off it are blocks.
+MAP = ("##...###",
+       "#.r...##",
+       "........",
+       "...b....",
+       "##.....#",
+       "###..###",
+       "###r.###")
+img = Image.new("L", (1400, 1400), 235)
+d = ImageDraw.Draw(img)
+for y in range(1050, 1300, 40):                    # prose, so the page has its ink levels
+    for x in range(100, 1200, 70):
+        d.text((x, y), "word", fill=30)
+for r, row in enumerate(MAP):
+    for c, ch in enumerate(row):
+        if ch == "#":
+            continue
+        x, y = X0 + c * P, 200 + r * P
+        d.rectangle((x, y, x + P, y + P), outline=25, width=3)
+        if ch in "r+":
+            d.rectangle((x + P - 5, y, x + P + 5, y + P), fill=25)
+        if ch in "b+":
+            d.rectangle((x, y + P - 5, x + P, y + P + 5), fill=25)
+img = img.rotate(0.3, fillcolor=235)
+grids = [g for g in lg.find_grids(np.asarray(img, dtype=np.uint8)) if g["rows"]]
+check("a map-shaped grid is found", 1, len(grids))
+if grids:
+    check("its cells read back, those off the outline blocks", list(MAP), grids[0]["rows"])
+    check("its numbers are light_cells'", lg.numbers(list(MAP)), lg.numbers(grids[0]["rows"]))
+
 # A small scan's two-digit number fills most of its corner: only the rules
 # along the corner's edges are painted out, never a stroke of the number.
 tile = np.full((40, 60), 235, np.uint8)
