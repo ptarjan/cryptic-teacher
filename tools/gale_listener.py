@@ -46,9 +46,9 @@ import json
 import os
 import re
 import subprocess
-import traceback
 import sys
 import time
+import traceback
 from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
@@ -77,7 +77,7 @@ YEARS = lp.CACHE / "years"
 #: The Listener magazine's last issue; the puzzle moved to The Times after it.
 FIRST_YEAR, LAST_ISSUE = 1930, datetime.date(1991, 1, 3)
 #: Bumped when the reading changes, so every file is read again.
-VERSION = 2
+VERSION = 3
 PORTAL = gi.PORTAL
 DOC_URL = "https://go.gale.com/ps/retrieve.do?docId=GALE%7C{}&prodId=LSNR&userGroupName=alberta_portal"
 
@@ -261,8 +261,16 @@ def match(path, idx, read_title=True):
 
 #: A gap this wide with no word in it, down the clue lists, parts two columns.
 GUTTER = 25
+#: A heading centred over its column stands at most this far right of
+#: the column's clue numbers.
+CENTRED = 500
 #: RapidOCR reads at most this tall a band (after ocr_clues.UPSCALE) unshrunk.
 BAND = 900
+
+
+#: A clue's words start within this many of its number's heights right of
+#: it (Gale's 1932 scans set them 43 px, under two heights, apart).
+BESIDE = 2.5
 
 
 def words_only(words):
@@ -271,7 +279,8 @@ def words_only(words):
     out = []
     for w in words:
         if re.fullmatch(r"\W*\d{1,3}\W*", w[4]) and not any(
-                o is not w and not re.fullmatch(r"\W*\d{1,3}\W*", o[4]) and 0 <= o[0] - w[2] <= 40
+                o is not w and not re.fullmatch(r"\W*\d{1,3}\W*", o[4])
+                and 0 <= o[0] - w[2] <= max(40, BESIDE * (w[3] - w[1]))
                 and abs((o[1] + o[3]) / 2 - (w[1] + w[3]) / 2) < (w[3] - w[1]) for o in words):
             continue
         out.append(w)
@@ -287,7 +296,8 @@ def page_columns(words):
 
 def headed_columns(words):
     """[across lines, down lines] cut at the gutters, read left to right
-    from the column ACROSS heads, each from the lists' top; the lines before
+    from the column the ACROSS heading is in (its clue numbers' edge, which
+    may be up to CENTRED left of it), each from the lists' top; the lines before
     DOWN are the across clues, those after it the down. None without both
     headings."""
     across = al.heading_word(words, "ACROSS")
@@ -297,7 +307,11 @@ def headed_columns(words):
     if not across or not down:
         return None
     top = across[1] - 20
-    body = [w for w in words_only(words) if (w[1] + w[3]) / 2 >= top and w[0] >= across[0] - 40]
+    below = [w for w in words if (w[1] + w[3]) / 2 >= top]
+    # A heading may be centred over its column (No 103's), its clue numbers
+    # far left of it: the column starts where they line up.
+    left = max((x for x in column_lefts(below) if across[0] - CENTRED <= x <= across[0]), default=across[0] - 40)
+    body = [w for w in words_only(below) if w[0] >= left]
     spans = []
     for x0, _, x1, _, _ in sorted(body):
         if spans and x0 <= spans[-1][1] + GUTTER:
@@ -339,7 +353,9 @@ RUN_ON = 20
 #: misread "32.".
 RESTART = 20
 #: A heading stands alone on its line: no word this near either side
-#: ("8 Down should have had an asterisk" is prose).
+#: ("8 Down should have had an asterisk" is prose). A word is on its line
+#: when their centres are under half its height apart: No 97's centred
+#: ACROSS overlaps the first clue's line below it by a few pixels.
 ALONE = 100
 
 
@@ -366,13 +382,14 @@ def numbered_columns(words):
     after a higher one, below a heading's space, ends the run (a bracketed pair, "4.} 29.}", does not). The
     runs, in column order, are chained into two lists by their first
     numbers: a run starting at 1 or 2 opens the second list, and any other
-    run goes on whichever list's last run it follows closest, so a band's
+    run goes on whichever list's last clue it follows closest (No 97's
+    DOWN 9 follows DOWN 3, not ACROSS 46), so a band's
     right half finds its list and prose beside the lists (a report) fits
     none. The first list is the one its
     heading names. None without two lists."""
     lefts = column_lefts(words)
     heads = [w for w in words if fa.heading_of(w[4]) and not any(
-        o is not w and abs((o[1] + o[3]) / 2 - (w[1] + w[3]) / 2) < w[3] - w[1]
+        o is not w and abs((o[1] + o[3]) / 2 - (w[1] + w[3]) / 2) < (w[3] - w[1]) / 2
         and min(abs(o[0] - w[2]), abs(w[0] - o[2])) < ALONE for o in words)]
     if not lefts or not heads:
         return None
@@ -404,7 +421,7 @@ def numbered_columns(words):
                 run, last_y = [], None
         if run:
             runs.append(run)
-    lists, starts = [[], []], [[], []]
+    lists = [[], []]
     for run in runs:
         first = run[0][0]
         if not lists[0]:
@@ -412,16 +429,34 @@ def numbered_columns(words):
         elif not lists[1] and first <= 2:
             side = 1
         else:
-            fits = [(first - ls[-1], i) for i, ls in enumerate(starts) if ls and first > ls[-1]]
+            fits = [(first - ls[-1][0], i) for i, ls in enumerate(lists) if ls and first > ls[-1][0]]
             if not fits:
                 continue
             side = min(fits)[1]
         lists[side] += run
-        starts[side].append(first)
     if min(map(len, lists)) < COLUMN_MIN:
         return None
     lines = [[line for _, ls in lst for line in ls] for lst in lists]
     return lines if fa.heading_of(start[4]) == "ACROSS" else lines[::-1]
+
+
+#: A clue number in the 1930s' old-style figures, read as letters: "I."
+#: for 1, "II." for 11, "Io." for 10, "I3." for 13 (No 97's, No 103's).
+FIGURES = re.compile(r"^(\W{0,2})([IlO\d]?[IloO\d])([.,:])(?=\s|[A-Z]|$)")
+AS_DIGIT = str.maketrans("IlOo", "1100")
+
+
+def figures(words):
+    """The words with a line's opening clue number read as letters put back
+    in digits; a number cannot open on 0, so "O." and "Oo." stay words."""
+    out = []
+    for w in words:
+        m = FIGURES.match(w[4])
+        n = m and m.group(2).translate(AS_DIGIT)
+        if m and n.isdigit() and n[0] != "0" and not m.group(2).isdigit():
+            w = (*w[:4], m.group(1) + n + m.group(3) + w[4][m.end():])
+        out.append(w)
+    return out
 
 
 def bands(box, located):
@@ -439,6 +474,16 @@ def bands(box, located):
     return out
 
 
+#: A page that prints a puzzle's clues or diagram elsewhere says where:
+#: "(For clues see page 1057)", "Diagram and rules on page 885".
+ELSEWHERE = re.compile(r"\b(?:clues?|diagram)\b[^.]{0,40}?\bpage\s+(\d{2,4})\b", re.IGNORECASE)
+
+
+def elsewhere(words):
+    """The magazine pages the page's words send its clues or diagram to."""
+    return sorted({int(n) for n in ELSEWHERE.findall(" ".join(ocr_clues.lines_of(words).split()))})
+
+
 def read_page(img, key):
     """(verdict, {light: (text, enumeration, None)} or None) for one page:
     the whole page read by every ocr_clues.READERS reader band by band, each
@@ -446,16 +491,18 @@ def read_page(img, key):
     1930s lists run on above their heading in the next column, so no box
     under a heading holds them all."""
     verdict = {}
-    located = page_words(img, key)
+    located = figures(page_words(img, key))
+    if pages := elsewhere(located):
+        verdict["seePages"] = pages
     if not any(fa.heading_of(w[4]) for w in located) and not column_lefts(located):
-        verdict["refused"] = "no clue list on the page"
+        verdict["refused"] = "no clue list on the page" + see_pages(pages)
         return verdict, None
     box = (0, 0, img.width, img.height)
     words = {"page": located}
     for which in ocr_clues.READERS:
         path = OCR_CACHE / f"{key}.{'-'.join(map(str, box))}.{ocr_clues.reader_key(which)}.json"
         if path.exists():
-            words[which] = [tuple(w) for w in json.loads(path.read_text())]
+            words[which] = figures([tuple(w) for w in json.loads(path.read_text())])
             continue
         got = []
         for b in bands(box, located):
@@ -463,8 +510,13 @@ def read_page(img, key):
                     for x0, y0, x1, y1, t in ocr_clues.read_words(img.crop(b), which)]
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(got))
-        words[which] = got
+        words[which] = figures(got)
     return al.vote(words, verdict, cols=page_columns)
+
+
+def see_pages(pages):
+    """A refusal's note of where the page sends the puzzle's rest."""
+    return f" (it sends to p. {', '.join(map(str, pages))})" if pages else ""
 
 
 def read_file(m):
@@ -536,7 +588,7 @@ def run(inbox=MIRROR, store=STORE, idx=None, out=sys.stdout, reader=read_file):
             # ledgered, and the next run reads it again.
             print(f"{p.name}: OCR timed out after {e.timeout:.0f} s; read again next run", file=out)
             continue
-        except Exception as e:  # one page's failure must not stop the pages after it
+        except Exception as e:  # noqa: BLE001 -- one page's failure must not stop the pages after it
             # Ledgered with its error, so the checklist shows it and the
             # pages after it are read; a VERSION bump reads it again.
             print(f"{p.name}: read failed:\n{traceback.format_exc()}", file=out)

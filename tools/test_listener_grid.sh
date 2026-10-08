@@ -117,5 +117,59 @@ got = {(0, 0): 23, (0, 3): 24, (0, 5): 75, (1, 0): 26, (1, 2): 27, (2, 0): 2, (2
 check("in_order keeps the run rising in reading order",
       {(0, 0): 23, (0, 3): 24, (1, 0): 26, (1, 2): 27, (2, 4): 28}, lg.in_order(got, 60))
 check("in_order drops numbers above the most lights", {(0, 0): 23}, lg.in_order({(0, 0): 23, (0, 1): 61}, 60))
+
+# A row and a column mostly blocks (No 15's last row is 9 blocks of 13):
+# the band of blocks covers as much as a rule, and its edges are the rules.
+BANDED = (".....#.",
+          ".#.#...",
+          ".......",
+          "#.#.#.#",
+          ".......",
+          "##.###.")
+img = Image.new("L", (1400, 1400), 235)
+d = ImageDraw.Draw(img)
+for y in range(1000, 1300, 40):                    # prose, so the page has its ink levels
+    for x in range(100, 1200, 70):
+        d.text((x, y), "word", fill=30)
+nr, nc = len(BANDED), len(BANDED[0])
+for i in range(nr + 1):
+    d.line((X0, 200 + i * P, X0 + nc * P, 200 + i * P), fill=25, width=3)
+for j in range(nc + 1):
+    d.line((X0 + j * P, 200, X0 + j * P, 200 + nr * P), fill=25, width=3)
+for r, row in enumerate(BANDED):
+    for c, ch in enumerate(row):
+        if ch == "#":
+            d.rectangle((X0 + c * P, 200 + r * P, X0 + (c + 1) * P, 200 + (r + 1) * P), fill=20)
+grids = [g for g in lg.find_grids(np.asarray(img, dtype=np.uint8)) if g["rows"]]
+check("a grid with a row of blocks is found", 1, len(grids))
+if grids:
+    check("its rows, the band of blocks one row", list(BANDED), grids[0]["rows"])
+
+# A small scan's two-digit number fills most of its corner: only the rules
+# along the corner's edges are painted out, never a stroke of the number.
+tile = np.full((40, 60), 235, np.uint8)
+tile[0:3, :] = 20                                  # the rule above
+tile[:, 0:3] = 20                                  # the rule left
+tile[12, 8:48] = 20                                # the tops of "75", 2/3 of the width
+tile[12:30, 30] = 20
+got = lg.corner(tile, [0, 80], [0, 97], 0, 0, 128)
+check("the rules are painted out", (False, False), (bool((got[0:3, 10:] < 128).any()), bool((got[10:, 0:3] < 128).any())))
+check("the number's stroke is kept", True, bool((got[12, 8:48] < 128).all()))
+
+# A grid whose two-letter runs go unnumbered (No 15, "no clues are given for
+# words of two letters"): the fit bars them shut, so light_cells numbers
+# the rows it gives as the page does.
+SHORT = ["#...#",
+         "..#..",
+         "....."]
+grid = {"rows": SHORT, "thin": 1.0,
+        "sides": {(r, c, d): 1.0 for r in range(3) for c in range(5) for d in "rb"
+                  if SHORT[r][c] != "#" and ((d == "r" and c < 4 and SHORT[r][c + 1] != "#")
+                                             or (d == "b" and r < 2 and SHORT[r + 1][c] != "#"))}}
+printed = lg.starts(SHORT, 3)
+f = lg.fit(grid, {"ch": printed, "en5": printed})
+check("unnumbered two-letter runs fit exactly", (3, True), (f["shortest"], f["exact"]))
+check("and are barred shut, so light_cells numbers as printed", printed, lg.starts(f["rows"]))
+check("no light of two is left", [], [k for k, cells in lg.rg.light_cells(f["rows"]).items() if len(cells) < 3])
 sys.exit(1 if fails else 0)
 PY
