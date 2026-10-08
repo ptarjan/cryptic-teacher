@@ -143,6 +143,7 @@ import json
 import math
 import os
 import re
+import subprocess
 import sys
 import time
 import urllib.parse
@@ -220,11 +221,11 @@ NUMBER = r"(\d{2}[,.\s]?\d{3})"
 #: Listener or a solution heading (none of those words before "Crossword").
 #: The OCR garbles the words before "Crossword" ("Tfee Th:es", "THETIMES",
 #: "I he l imes"), puts a mark before or after it ("Crossword . No."), runs
-#: "No" on ("PuzzleNo"), drops "No", splits the number ("1 8,862", "17,1 11"),
+#: "No" on ("PuzzleNo") and "Times" into it ("TimesCrossword"), drops "No", splits the number ("1 8,862", "17,1 11"),
 #: reads its comma as any mark ("21*065") and its 1 as i ("i.5,543");
 #: read_puzzle checks the number against the date.
 TITLE = re.compile(r"^\W*(?:(?!(?:sunday|conc\w*|jumbo|two|quick|\w*stener|solutions?|to|of)\b)\S{1,8}\s+){0,4}?"
-                   r"\W{0,3}crossword\W{0,3}(?:puzzle\W{0,3})?(?:n[o0]\W{0,3})?\s*"
+                   r"(?:(?:the)?\s?t[il1]mes)?\W{0,3}crossword\W{0,3}(?:puzzle\W{0,3})?(?:n[o0]\W{0,3})?\s*"
                    r"([\dTIil][.,]?\s?\d[^\w\s]{0,2}\s?\d\s?\d\s?\d)(?!\d)", re.IGNORECASE)
 #: The previous puzzle's solution, printed under the clues ("to" read "tn").
 SOLUTION = re.compile(r"^\W*solution\s+(?:t[o0n]|o[fl])\s+puzzle\s+n[o0]\.?\s*" + NUMBER, re.I)
@@ -1457,7 +1458,12 @@ def _scan(d):
     text = leaf_lines(d / "djvu.xml.gz", leaves)
     for leaf in sorted(leaves):
         if leaf not in text:
-            titles, sols = ocr_headings(page(d, leaf), paper, f"{d.parent.name}_{d.name}_{leaf}")
+            img = page(d, leaf)
+            titles, sols = ocr_headings(img, paper, f"{d.parent.name}_{d.name}_{leaf}")
+            # A whole-page read runs a title into the column beside it; the
+            # bands round each grid read it alone.
+            titles = titles or ocr_titles(img, paper, datetime.date.fromisoformat(pages["date"]),
+                                          f"{d.parent.name}_{d.name}_{leaf}", far=True)
         else:
             titles, sols = paper.headings(text[leaf])
             titles = [(n, box, setter, None) for n, box, setter in titles] or \
@@ -1496,16 +1502,19 @@ def grids_on(img, step=2, shaped=grid_shaped):
     return out
 
 
-def title_bands(img, grid):
+def title_bands(img, grid, far=False):
     """The crops a grid's title is read in, in turn: over and under it,
     TITLE_REACH deep, half the grid's width wider each side (the Guardian's
     title runs left of its grid); then a grid's width left of it, from its
     top down TITLE_REACH (the 1983-86 FT's "F.T. CROSSWORD" over "PUZZLE
-    No. 5,607" heads the clue column beside the grid)."""
+    No. 5,607" heads the clue column beside the grid); with `far`, last, a
+    grid's height over it (a Gale page's Saturday prize title, over its
+    entry form)."""
     x0, y0, x1, y1 = grid
     xa, xb = max(0, x0 - (x1 - x0) // 2), min(img.width, x1 + (x1 - x0) // 2)
     return ((xa, max(0, y0 - TITLE_REACH), xb, y0), (xa, y1, xb, min(img.height, y1 + TITLE_REACH)),
-            (max(0, x0 - (x1 - x0)), y0, x0, min(img.height, y0 + TITLE_REACH)))
+            (max(0, x0 - (x1 - x0)), y0, x0, min(img.height, y0 + TITLE_REACH))) \
+        + (((x0, max(0, y0 - (y1 - y0)), x1, y0),) if far else ())
 
 
 def printed_lines(words):
@@ -1549,15 +1558,16 @@ def band_words(img, band, which, cache_path):
     return words
 
 
-def ocr_titles(img, paper, day, key):
+def ocr_titles(img, paper, day, key, far=False):
     """[(number, box, setter, readers)] of the titles our own readers
     (READERS) find over or under each grid on a page whose archive.org text
     has none: per band, the number most readers read (a tie to the one
     nearest the date's), with the box and setter of the first reader that
-    read it. read_puzzle still holds the number to the date."""
+    read it; `far`, title_bands' far band too. read_puzzle still holds the
+    number to the date."""
     found = []
     for g in grids_on(img):
-        for band in title_bands(img, g):
+        for band in title_bands(img, g, far):
             reads = {}
             for which in READERS:
                 path = CROPS / "titles" / f"{key}_{'_'.join(map(str, band))}.{reader_key(which)}.json"
@@ -1668,7 +1678,10 @@ def ocr_headings(img, paper, key):
     titles, page_words = {}, []
     for which in READERS:
         path = CROPS / "titles" / f"{key}_page.{reader_key(which)}.json"
-        words = [(*w[:4], mend_misreads(w[4])) for w in band_words(img, box, which, path)]
+        try:
+            words = [(*w[:4], mend_misreads(w[4])) for w in band_words(img, box, which, path)]
+        except subprocess.TimeoutExpired:  # this reader read nothing; the vote still needs half of READERS
+            words = []
         page_words += words
         lines = printed_lines(words)
         lines += [ln[k:] for ln in lines for k in range(1, len(ln)) if HEADING_START.match(ln[k][4])]

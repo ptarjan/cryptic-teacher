@@ -165,6 +165,9 @@ NUMBER = re.compile(r"(?<![\d,.])(1[3-9]|2[01])[,.]?(\d{3})(?![\d,])")
 #: '"The Times Crossword Puzzle No 17,244." Times, 3 Jan. 1987, p. 20.'
 CITED = re.compile(r'(?:"[^"]{0,200}"\s*(?:The\s+)?Times|The Times[^,]{0,40}),\s*(?:\w+,\s*)?([0-3]?\d)\s+' + MON
                    + r"\s*(19[789]\d)(?:,\s*p\.?\s*(\d+))?", re.IGNORECASE)
+#: The article title a Gale download's citation page quotes: '"Concise
+#: Crossword No 1154." Times, 13 Jan. 1987'.
+CITED_TITLE = re.compile(r'"([^"]{1,200}?)\.?"\s*(?:The\s+)?Times,')
 
 
 # ------------------------------------------------------------ numbers and dates
@@ -346,6 +349,8 @@ def match(path, by_number):
     out["grid"] = any(found for _, found in laid)
     cite = read[0][1] if read else ""
     out["docId"] = doc_id(name, cite)
+    t = CITED_TITLE.search(cite or "")
+    out["cited"] = t and t.group(1).strip()
     day, number = name_date(name), name_number(name)
     if day:
         out.update(date=day, how="file name date")
@@ -800,25 +805,33 @@ def start_reads(out=sys.stdout, job=READ_JOB, log=READ_LOG):
     return p
 
 
+def staged_matches(cache=CACHE):
+    """{date: [match]} of the inbox pages staged as editions (stage's
+    sources-*.json)."""
+    return {datetime.date.fromisoformat(src.parent.name): json.loads(src.read_text())
+            for src in cache.glob(ITEM.format("*") + "/*/sources-*.json")}
+
+
 def staged_files(cache=CACHE):
     """{date: [file name]} of the inbox pages staged as editions."""
-    out = {}
-    for src in cache.glob(ITEM.format("*") + "/*/sources-*.json"):
-        out[datetime.date.fromisoformat(src.parent.name)] = [m["file"] for m in json.loads(src.read_text())]
-    return out
+    return {day: [m["file"] for m in ms] for day, ms in staged_matches(cache).items()}
 
 
-#: The checklist's "next up": BATCH rows shown at a time, from a POOL
-#: rendered so the next batch needs no new render; links are looked up for
-#: the first LOOKAHEAD.
+#: The checklist's "next up": BATCH rows shown at a time, refilled from a
+#: POOL rendered so a click needs no new render; Download links are looked
+#: up (gale_docs.resolve, at its pace) for every wanted edition, in next-up
+#: order (LOOKAHEAD None: all), so every row has one, not just next up's.
 BATCH = 15
 POOL = 60
-LOOKAHEAD = 200
+LOOKAHEAD = None
 
 
 #: A row clicked this long ago whose file has not arrived turns amber: the
 #: download may have failed.
 LATE_MINUTES = 15
+#: How long a clicked row stays in next up before it moves to Clicked and
+#: the next row takes its place.
+MOVE_SECONDS = 3
 #: How often an open checklist reads its status file (status_js).
 POLL_SECONDS = 15
 #: A status file older than this is not being written: the page falls back
@@ -836,16 +849,16 @@ def script(store, status_src, stamp):
     arrived is the page's own data-in and its status file (status_js),
     read every POLL_SECONDS by a script tag, which a file:// page may load
     where it may not fetch. A status naming a newer page reloads it once;
-    a status that stops coming reloads the page every RELOAD_SECONDS. "Next
-    batch" hides the clicked rows of #next and shows the next BATCH; the
-    first one to fetch is highlighted. A click anywhere on a row to fetch is
-    a click on its Download (a.dl). A middle click on a link opens a tab
+    a status that stops coming reloads the page every RELOAD_SECONDS. #next
+    shows the first BATCH rows not clicked: a row clicked MOVE_SECONDS ago
+    (or arrived) moves to #done, under "Clicked", and the next takes its
+    place; the first one to fetch is highlighted. A click anywhere on a row
+    to fetch is a click on its Download (a.dl). A middle click on a link opens a tab
     without a click event, so it runs the link's onclick (the mark) itself."""
     js = """<script>
-const S=STORE,H=S+'Hidden',C=S+'At',BATCH=SIZE,LATE=LATEMIN*60e3,PAGE=STAMP,SRC=SOURCE,LOADED=Date.now();
+const S=STORE,C=S+'At',BATCH=SIZE,MOVE=MOVESEC*1e3,LATE=LATEMIN*60e3,PAGE=STAMP,SRC=SOURCE,LOADED=Date.now();
 let IN=new Set(),AT=PAGE*1000;
 function get(n){return JSON.parse(localStorage.getItem(n)||'[]')}
-function put(n,s){localStorage.setItem(n,JSON.stringify([...new Set(s)].slice(-5000)))}
 function clicks(){const v=localStorage.getItem(C);if(v)return JSON.parse(v);const m={};get(S).forEach(k=>m[k]=0);return m}
 function keep(m){localStorage.setItem(C,JSON.stringify(Object.fromEntries(
   Object.entries(m).sort((a,b)=>a[1]-b[1]).slice(-5000))))}
@@ -858,23 +871,29 @@ function badge(r,s,t){const b=r.querySelector('.st');if(!b||b.dataset.s===s+t)re
   b.innerHTML=s==='in'?'&#10003; in the inbox':s==='wait'?'downloading&hellip; clicked '+hm(t)+u
     :s==='late'?'clicked '+hm(t)+', not arrived: <a class="retry" target="gale" onclick="mark(\\''+k+'\\')">retry?</a>'+u:'';
   const x=b.querySelector('a.retry');if(x&&a)x.href=a.href}
-function show(){const m=clicks(),h=new Set(get(H)),now=Date.now();let n=0,lit=false;
+function show(){const m=clicks(),now=Date.now();let n=0,c=0,lit=false;
   document.querySelectorAll('tr[data-k]').forEach(r=>{const s=state(r,m,now);r.dataset.s=s;
     for(const c of['wait','late','in'])r.classList.toggle('s-'+c,s===c);
     badge(r,s,m[r.dataset.k]||0);r.classList.toggle('dlrow',!s&&!!r.querySelector('a.dl'))});
-  document.querySelectorAll('#next tr[data-k]').forEach(r=>{const on=!h.has(r.dataset.k)&&n<BATCH;
-    if(on)n++;r.hidden=!on;const nx=on&&!lit&&!r.dataset.s;r.classList.toggle('next',nx);if(nx)lit=true});
+  const nx=document.getElementById('next'),dn=document.getElementById('done');
+  if(nx&&dn){[...document.querySelectorAll('tr[data-i]')].sort((a,b)=>a.dataset.i-b.dataset.i).forEach(r=>{
+    const s=r.dataset.s,gone=!!s&&(s==='in'||now-(m[r.dataset.k]||0)>=MOVE);
+    (gone?dn:nx).tBodies[0].appendChild(r);
+    if(gone){c++;r.hidden=false;r.classList.remove('next');return}
+    const on=n<BATCH;if(on)n++;r.hidden=!on;const x=on&&!lit&&!s;r.classList.toggle('next',x);if(x)lit=true});
+    document.getElementById('clicked').hidden=!c}
   const mo=document.getElementById('more');if(mo)mo.hidden=n>0;
   const a=document.getElementById('age'),old=now-AT>STALE*1e3;
   if(a){a.textContent='Arrivals last checked '+hm(AT)+' ('+Math.round((now-AT)/60e3)+' min ago)'
     +(old?': the status file is not updating, so this page reloads itself every 3 minutes':'; this page updates itself.');
     a.classList.toggle('old',old)}}
-function mark(k){const m=clicks();m[k]=Date.now();keep(m);show()}
-function unmark(k){const m=clicks();delete m[k];keep(m);put(H,get(H).filter(x=>x!==k));show()}
-function nextBatch(){const h=get(H);
-  document.querySelectorAll('#next tr[data-k]').forEach(r=>{if(!r.hidden&&r.dataset.s)h.push(r.dataset.k)});
-  put(H,h);show()}
-function galeStatus(s){IN=new Set(s.in);AT=s.at*1000;
+function mark(k){const m=clicks();m[k]=Date.now();keep(m);show();setTimeout(show,MOVE+50)}
+function unmark(k){const m=clicks();delete m[k];keep(m);show()}
+function count(s){if(s.done==null)return;const p=document.getElementById('prog'),f=n=>n.toLocaleString('en');
+  if(p){p.value=s.done;p.max=Math.max(s.total,1)}
+  const c=document.getElementById('count');if(c)c.textContent=f(s.done)+' of '+f(s.total);
+  const t=document.getElementById('togo');if(t)t.textContent=f(s.total-s.done)}
+function galeStatus(s){IN=new Set(s.in);AT=s.at*1000;count(s);
   if(s.page>PAGE&&sessionStorage.getItem(S+'Page')!==String(s.page)){
     sessionStorage.setItem(S+'Page',s.page);location.reload()}else show()}
 function poll(){const x=document.createElement('script');x.src=SRC+'?'+Date.now();
@@ -892,7 +911,7 @@ addEventListener('auxclick',ev=>{const a=ev.button===1&&ev.target.closest('a[tar
 </script>"""
     for k, v in (("STORE", json.dumps(store)), ("SOURCE", json.dumps(status_src)), ("SIZE", str(BATCH)),
                  ("LATEMIN", str(LATE_MINUTES)), ("STAMP", str(stamp)), ("STALE", str(STALE_SECONDS)),
-                 ("RELOAD", str(RELOAD_SECONDS)), ("POLL", str(POLL_SECONDS))):
+                 ("RELOAD", str(RELOAD_SECONDS)), ("POLL", str(POLL_SECONDS)), ("MOVESEC", str(MOVE_SECONDS))):
         js = js.replace(k, v)
     return js
 
@@ -902,7 +921,7 @@ CSS = """body{font:15px -apple-system,Segoe UI,sans-serif;margin:1.5em;max-width
 td,th{padding:4px 8px;text-align:left;vertical-align:middle}tr:nth-child(even){background:#f4f4f4}
 h2{margin-top:1.4em}summary{font-size:16px;margin:.4em 0;cursor:pointer}
 .got{color:#070}.bad{color:#a00}.est{color:#a60;font-size:90%}#age.old{color:#a00;font-weight:bold}
-.redo{background:#fee;border:2px solid #c00;padding:.5em 1em}.how{background:#eef6ff;padding:.5em 1em}
+.notes{color:#555;font-size:90%}.how{background:#eef6ff;padding:.5em 1em}
 .start{font-size:17px;font-weight:bold}progress{width:20em;height:1.2em;vertical-align:middle}
 button{font-size:14px;padding:2px 10px;cursor:pointer}.batch button{font-size:15px;margin-right:.6em}
 a.dl{display:inline-block;padding:8px 18px;font-size:17px;font-weight:bold;color:#fff;background:#0a66c2;
@@ -957,12 +976,13 @@ def _row(r):
                + (f' <button onclick="cp(this,{e(json.dumps(r["copy"]))})">Copy</button> <code>{e(r["copy"])}</code>'
                   if r.get("copy") else "")
                + '</span><span class="st"></span>')
-    attrs = (f' data-k="{k}"' + (' data-in="1" class="s-in"' if r.get("arrived") else "")) if k else ""
+    attrs = (f' data-k="{k}"' + (f' data-i="{r["i"]}"' if "i" in r else "")
+             + (' data-in="1" class="s-in"' if r.get("arrived") else "")) if k else ""
     return (f'<tr{attrs}><td>{r["date"]:%a %d %b %Y}</td><td>{get}</td>'
             + "".join(f"<td>{_parts(c)}</td>" for c in r["cells"]) + f"<td>{_parts(r['status'])}</td></tr>")
 
 
-def page(*, paper, prod, name, store, done, total, done_word, folder, steps, redo, order, what, next_rows,
+def page(*, paper, prod, name, store, done, total, done_word, folder, steps, notes, order, what, next_rows,
          years_note, years, columns, status=None):
     """A checklist page, either paper's: progress, the files to check, how to
     save one, the next `next_rows` in batches, then `years` [(year, summary,
@@ -974,7 +994,8 @@ def page(*, paper, prod, name, store, done, total, done_word, folder, steps, red
     stamp = int(time.time())
     every = [r for r in next_rows] + [r for _, _, rs in years for r in rs]
     if status is not None:
-        status.update(page=stamp, **{"in": sorted({r["key"] for r in every if r.get("key") and r.get("arrived")})})
+        status.update(page=stamp, done=done, total=total,
+                      **{"in": sorted({r["key"] for r in every if r.get("key") and r.get("arrived")})})
     head = ("<tr><th>Date</th><th>Get it</th>" + "".join(f"<th>{e(c)}</th>" for c in columns)
             + "<th>Status</th></tr>")
     title = f"{paper} crosswords from Gale"
@@ -984,12 +1005,12 @@ def page(*, paper, prod, name, store, done, total, done_word, folder, steps, red
 <style>{CSS}</style>
 {script(store, urllib.parse.quote(status_js(Path(name)).name), stamp)}
 <h1>{e(title)}</h1>
-<p><progress value="{done}" max="{max(total, 1)}"></progress> <b>{done:,} of {total:,}</b> {e(done_word)}, {total - done:,} to go.
+<p><progress id="prog" value="{done}" max="{max(total, 1)}"></progress> <b id="count">{done:,} of {total:,}</b> {e(done_word)}, <span id="togo">{total - done:,}</span> to go.
 Updated {datetime.datetime.fromtimestamp(stamp).astimezone():%a %d %b %H:%M}. <span id="age"></span></p>"""]
-    if redo:
-        out.append('<div class="redo"><h2 style="margin-top:0">Check these files</h2><ul>')
-        out += [f"<li><b>{e(f)}</b>: {e(why)}</li>" for f, why in redo]
-        out.append("</ul></div>")
+    if notes:
+        out.append(f'<details class="notes"><summary>Sorted automatically ({len(notes)} file(s)); nothing to do</summary><ul>')
+        out += [f"<li><b>{e(f)}</b>: {e(why)}</li>" for f, why in notes]
+        out.append("</ul></details>")
     out.append(f"""<div class="how"><p class="start">1. <a href="{SESSION.format(prod)}" target="gale">Start Gale session</a>
 (once per sitting, on an Alberta connection such as home Wi-Fi; no login)</p>
 <ol start="2"><li>Click <b>Download</b> on the highlighted row: Gale saves the page as a PDF, and it is moved from
@@ -998,16 +1019,18 @@ then <b>&#10003; in the inbox</b>, usually within a minute or two. A row whose f
 after its click turns amber: retry it.</li>
 {"".join(f"<li>{s}</li>" for s in steps)}</ol>
 <p>If Gale asks for a password, start from <a href="{PORTAL}">the Alberta Research Portal</a> (choose
-<i>{e(archive)}</i>), then come back here. Gale allows 50 downloads a session.</p></div>""")
+<i>{e(archive)}</i>), then come back here.</p></div>""")
     if next_rows:
         out.append(f"""<h2>Next up</h2><p>{order}</p>
-<p class="batch"><button onclick="nextBatch()">Next batch</button><button onclick="location.reload()">Refresh</button>
-Showing {min(BATCH, len(next_rows))} of the next {len(next_rows)} {e(what)}. <b>Next batch</b> hides the rows you clicked and shows the next
-ones. The highlighted row is the one to do next.</p>
+<p class="batch"><button onclick="location.reload()">Refresh</button>
+Showing {min(BATCH, len(next_rows))} of the next {len(next_rows)} {e(what)}. A row you click moves down to <i>Clicked</i>
+a moment later and the next one takes its place. The highlighted row is the one to do next.</p>
 <p id="more" hidden>All of these are clicked: <b>Refresh</b> once they arrive for more.</p>
 <table id="next">{head}""")
-        out += [_row(r) for r in next_rows]
-        out.append("</table>")
+        out += [_row(dict(r, i=i)) for i, r in enumerate(next_rows)]
+        out.append(f"""</table>
+<div id="clicked" hidden><h3>Clicked</h3><p>Downloading or already in the inbox.</p>
+<table id="done">{head}</table></div>""")
     out.append(f"<h2>Everything, by year</h2><p>{e(years_note)}</p>")
     for y, summary, rs in years:
         out.append(f"<details><summary><b>{y}</b>: {e(summary)}</summary><table>{head}")
@@ -1022,49 +1045,134 @@ def search_for(n):
 
 def search_url(day, prod="TTDA", title="crossword"):
     """Gale's results for `title` in a document title of the `day` issue of
-    archive `prod`: the day's crossword pages, one click from the page."""
+    archive `prod`: the day's crossword pages, one click from the page. It
+    names the portal's location as the working Download link does (u, p),
+    besides the search form's own userGroupName and prodId."""
     q = [("inputFieldNames[0]", "TI"), ("inputFieldValues[0]", title), ("dateIndices", "DA"),
          ("dateLimiterValues[DA].dateMode", "2"), ("dateLimiterValues[DA].fromYear", f"{day.year}"),
          ("dateLimiterValues[DA].fromMonth", f"{day.month:02}"), ("dateLimiterValues[DA].fromDay", f"{day.day:02}"),
          ("dateLimiterValues[DA].fromEra", "1"), ("searchType", "AdvancedSearchForm"), ("method", "doSearch"),
          ("searchMethod", "advanced"), ("searchResultsType", "SingleTab"), ("prodId", prod),
-         ("userGroupName", "alberta_portal")]
+         ("userGroupName", "alberta_portal"), ("u", "alberta_portal"), ("p", prod)]
     return f"{SEARCH}?{urllib.parse.urlencode(q)}"
 
 
-def titleless(staged, ledger):
-    """{date: [file name]} of the staged editions the filer scanned and found
-    no Times Crossword title on: a page with some other grid saved for it
-    (1987-01-13's Concise page)."""
+def cryptic_cited(m):
+    """Does a staged file's Gale citation name the day's cryptic ("The
+    Times Crossword Puzzle No 17,257"), the article gale_docs links?"""
+    return bool(m.get("cited")) and gale_docs.crossword("TTDA", [m["cited"]]) == 0
+
+
+def titleless(staged, ledger, cache=CACHE):
+    """{date: [match]} of the staged editions whose current files
+    (input_hash) the filer's current scan code (scan_current) scanned and
+    read no Times Crossword title on; a scan that failed is no reading.
+    `staged` is staged_matches'."""
     out = {}
-    for day, files in staged.items():
-        row = ledger.get(f"{ITEM.format(day.year)}/{day.isoformat()}") or {}
-        if "scan" in row and not row["scan"].get("puzzles"):
-            out[day] = files
+    for day, ms in staged.items():
+        d = cache / ITEM.format(day.year) / day.isoformat()
+        row = ledger.get(f"{d.parent.name}/{d.name}") or {}
+        scan = row.get("scan") or {}
+        if d.exists() and fa.scan_current(row, fa.input_hash(d)) and "failed" not in scan and not scan.get("puzzles"):
+            out[day] = ms
     return out
 
 
-def problems(rows, by_number, staged, unmatched=UNMATCHED, untitled=None):
-    """[(file, what to do)] of the inbox files that are not a wanted page:
-    no edition named, no grid on it, no cryptic's title on it (`untitled`,
-    titleless()), or a date the list does not ask for."""
-    out = []
-    for day, files in sorted((untitled or {}).items()):
-        out += [(f, (f"read as {day:%a %d %b %Y}, but no \"The Times Crossword Puzzle No\" title was found on "
-                     "it (the Concise's page?). Download the cryptic's page for that date, and delete this file."))
-                for f in files]
-    for m in (json.loads(unmatched.read_text()) if unmatched.exists() else []):
-        if m.get("date"):
-            out.append((m["file"], (f"read as {m['date']}, but no crossword grid was found on it. If it is not the "
-                                    "crossword page, delete it and download the right page.")))
-        else:
-            out.append((m["file"], (f"no edition found ({m.get('why', '')}). Rename it with the date, "
-                                    "e.g. 1988-01-12, or delete it.")))
+def to_set_aside(staged, rows, by_number, untitled):
+    """[(file, date, why)] of the inbox files that are not a page the list
+    wants, each with the reason it is moved out (set_aside): a second copy
+    of a Gale document the inbox holds; a page Gale's citation names as
+    another article (the Concise's); a page for an edition the list does
+    not ask for; and, unless its citation names the cryptic, a page with no
+    grid on it or none of whose titles our readers read (`untitled`,
+    titleless()), once the matcher has read its citation. A page whose
+    citation names the cryptic stays: Gale's cryptic page is the one to
+    read, whatever our readers make of it."""
     asked, filed = {d for d, _ in rows}, set(by_number.values())
-    for day, files in sorted(staged.items()):
-        if day not in asked and day not in filed:
-            out += [(f, f"read as {day:%a %d %b %Y}, which is not on the list: the wrong issue? Delete it if so.")
-                    for f in files]
+    out = []
+    for day, ms in sorted(staged.items()):
+        by_doc = collections.defaultdict(list)
+        for m in ms:
+            by_doc[m.get("docId") or doc_id(m["file"]) or m["file"]].append(m)
+        for doc, copies in by_doc.items():
+            keep = min(copies, key=lambda m: (not cryptic_cited(m), len(m["file"]), m["file"]))
+            out += [(m["file"], day, f"a second copy of Gale document {doc}") for m in copies if m is not keep]
+            if keep.get("cited") and not cryptic_cited(keep):
+                out.append((keep["file"], day, f"Gale's citation names it \"{keep['cited']}\", not the cryptic"))
+            elif day not in asked and day not in filed:
+                out.append((keep["file"], day, f"read as {day:%a %d %b %Y}, an edition the list does not ask for"))
+            elif cryptic_cited(keep) or "cited" not in keep:
+                continue  # Gale's cryptic page; or matched before citations were read: next tick
+            elif keep.get("grid") is False:
+                out.append((keep["file"], day, "no crossword grid on it"))
+            elif day in untitled:
+                out.append((keep["file"], day, "no Times Crossword title read on it"))
+    return out
+
+
+#: Where set_aside moves a file, in its inbox: the sweep and mirror look
+#: only at the inbox's own files, so it is out of every count.
+ASIDE = "Set aside"
+#: Each file set aside: {file: {"date", "why", "at"}}.
+SET_ASIDE = MIRROR.parent / "set_aside.json"
+#: How long a file set aside is listed on the page.
+ASIDE_DAYS = 7
+
+
+def set_aside(plan, out=sys.stdout, host_inbox=HOST_INBOX, log=SET_ASIDE, run=None):
+    """Move each file of `plan` (to_set_aside) into the inbox's ASIDE
+    folder on the Mac, a name it already holds kept, and log it. How many."""
+    if not plan:
+        return 0
+    q = shlex.quote
+    dest = f"{host_inbox}/{ASIDE}"
+    (run or ssh)(f"mkdir -p {q(dest)} && " + " && ".join(f"mv -n {q(host_inbox + '/' + f)} {q(dest + '/')}"
+                                                          for f, _, _ in plan))
+    kept = load(log, {})
+    at = datetime.datetime.now().astimezone().isoformat(timespec="seconds")
+    for f, day, why in plan:
+        kept[f] = {"date": day and day.isoformat(), "why": why, "at": at}
+        print(f"set aside {f}: {why}", file=out)
+    save_json(log, kept)
+    return len(plan)
+
+
+def aside_days(log=SET_ASIDE):
+    """{date: [why]} of the dates a file was set aside for."""
+    out = collections.defaultdict(list)
+    for e in load(log, {}).values():
+        if e.get("date"):
+            out[datetime.date.fromisoformat(e["date"])].append(e["why"])
+    return out
+
+
+def not_on_gale(day, docs, aside):
+    """Why Gale has no cryptic to fetch for `day`, or None: no issue that
+    day, or an issue whose contents list no crossword and whose page saved
+    for the day was set aside as another article."""
+    e = docs.get(f"TTDA/{day.isoformat()}") or {}
+    if e.get("why") == "Gale has no issue that day":
+        return "Gale has no issue that day"
+    if e.get("why") == "no crossword in the issue's contents" and any("citation names" in w for w in aside.get(day, ())):
+        return "Gale's contents list no cryptic that day, and the page found for it was another puzzle"
+    return None
+
+
+def notes(staged, untitled, unmatched=UNMATCHED, log=SET_ASIDE, now=None):
+    """[(file, what happened)] for the page: the files set aside in the last
+    ASIDE_DAYS, Gale's cryptic pages our readers read no title on, and the
+    files nothing names an edition of. Nothing here asks anything."""
+    now = now or datetime.datetime.now().astimezone()
+    out = []
+    for f, e in sorted(load(log, {}).items(), key=lambda kv: kv[1]["at"], reverse=True):
+        if now - datetime.datetime.fromisoformat(e["at"]) <= datetime.timedelta(days=ASIDE_DAYS):
+            out.append((f, f"set aside into {ASIDE}: {e['why']}"))
+    for day, ms in sorted(untitled.items()):
+        out += [(m["file"], f"Gale's cryptic page for {day:%a %d %b %Y}; our readers read no title on it yet")
+                for m in ms if cryptic_cited(m)]
+    for m in (json.loads(unmatched.read_text()) if unmatched.exists() else []):
+        if not m.get("date"):
+            out.append((m["file"], f"no edition named on it ({m.get('why', '')}); left in the inbox"))
     return out
 
 
@@ -1090,25 +1198,33 @@ def next_up(rows, staged, n=POOL):
     return [(d, c) for d, c in order if d not in staged][:n]
 
 
-def checklist(rows=None, cache=CACHE, unmatched=UNMATCHED, docs=None, status=None, ledger=None):
-    """The Times checklist (page): progress, any page that needs redoing,
-    the next editions to fetch with what to search for, then every wanted
-    edition by year, the worst year first. An edition whose saved page holds
-    no cryptic's title (titleless) is still to fetch."""
+def checklist(rows=None, cache=CACHE, unmatched=UNMATCHED, docs=None, status=None, ledger=None, log=SET_ASIDE):
+    """The Times checklist (page): progress, what was sorted automatically
+    (notes), the next editions to fetch with what to search for, then every
+    wanted edition by year, the worst year first. An edition whose saved
+    page holds no cryptic's title (titleless) is still to fetch, unless
+    Gale's citation names it the cryptic; one Gale has no cryptic for
+    (not_on_gale) leaves next up, its row saying why."""
     rows = wanted() if rows is None else rows
     by_number = held()
     pages = usual_pages()
     ledger = archive_coverage.ledger() if ledger is None else ledger
-    every = staged_files(cache)
-    untitled = titleless(every, ledger)
-    staged = {day: files for day, files in every.items() if day not in untitled}
+    matches = staged_matches(cache)
+    untitled = titleless(matches, ledger, cache)
+    staged = {day: [m["file"] for m in ms] for day, ms in matches.items()
+              if day not in untitled or any(cryptic_cited(m) for m in ms)}
     docs = gale_docs.load() if docs is None else docs
+    aside = aside_days(log)
+    gone = {day: why for day, _ in rows if (why := not_on_gale(day, docs, aside))}
     years = collections.defaultdict(list)
     for day, cls in rows:
         years[day.year].append((day, cls))
     filed = set(by_number.values())
-    done = len(staged)
-    total = done + sum(day not in staged for day, _ in rows)
+    # Counted by the files downloaded: each page file in the inbox (one set
+    # aside is not), and each wanted edition none has come for yet.
+    done = sum(len(ms) for ms in matches.values()) + sum(
+        1 for m in (json.loads(unmatched.read_text()) if unmatched.exists() else []) if not m.get("date"))
+    total = done + sum(day not in staged and day not in gone for day, _ in rows)
 
     def page_of(y):
         lo, hi, most = nearest(pages, y) or (None, None, None)
@@ -1123,18 +1239,21 @@ def checklist(rows=None, cache=CACHE, unmatched=UNMATCHED, docs=None, status=Non
             status = [(f"arrived, read: {archive_coverage.verdict_class(st, {})}", "got")]
         elif day in staged:
             status = [(f"arrived ({', '.join(staged[day])})", "got")]
+        elif day in gone:
+            status = [(gone[day], "bad")]
         else:
             status = "Canberra reprint only" if cls == "canberra-reprint" else ""
         return {"key": day.isoformat(), "date": day, "arrived": day in staged, "dl": gale_docs.link("TTDA", day, docs),
-                "search": search_url(day), "copy": search_for(n), "status": status,
+                "search": gale_docs.permalink("TTDA", day, docs) or search_url(day), "copy": search_for(n),
+                "status": status,
                 "cells": [[(f"{n:,}", "")] + ([] if sure else [("number estimated: check the date", "est")]),
                           page_of(day.year)]}
 
     return page(
         paper="Times", prod="TTDA", name=CHECKLIST_NAME, store="galeCopied", done=done, total=total,
-        done_word="arrived", folder=SHARE + "\\Times", redo=problems(rows, by_number, every, unmatched, untitled),
+        done_word="files downloaded", folder=SHARE + "\\Times", notes=notes(matches, untitled, unmatched, log),
         steps=STEPS,
-        order=ORDER, what="editions", next_rows=[row(d, c) for d, c in next_up(rows, staged)],
+        order=ORDER, what="editions", next_rows=[row(d, c) for d, c in next_up(rows, {**staged, **gone})],
         years_note="The worst year first. An edition leaves this list once its puzzle is filed.",
         years=[(y, f"{len(ds)} missing, {sum(d in staged for d, _ in ds)} arrived", [row(d, c) for d, c in sorted(ds)])
                for y, ds in sorted(years.items(), key=lambda kv: (-len(kv[1]), kv[0]))],
@@ -1156,6 +1275,14 @@ def gale_due(now=None, path=LOOKED_UP):
     path.touch()
     os.utime(path, (now, now))
     return True
+
+
+def tidy(out=sys.stdout, cache=CACHE, ledger=None):
+    """Set aside (set_aside) every staged file that is not a page the list
+    wants (to_set_aside). How many."""
+    matches = staged_matches(cache)
+    ledger = archive_coverage.ledger() if ledger is None else ledger
+    return set_aside(to_set_aside(matches, wanted(), held(), titleless(matches, ledger, cache)), out)
 
 
 def last_render(path=CHECKLIST):
@@ -1191,6 +1318,9 @@ def sync(out=sys.stdout, force=False):
         status = None
         if force or moved or changed or linked or time.time() - last_render() > RENDER_EVERY:
             stage(MIRROR, out=out)
+            if tidy(out):
+                mirror(out)
+                stage(MIRROR, out=out)
             CHECKLIST.parent.mkdir(parents=True, exist_ok=True)
             status = {}
             CHECKLIST.write_text(checklist(status=status))

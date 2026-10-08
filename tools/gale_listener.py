@@ -995,10 +995,9 @@ STEPS = (
     ("Once the full pass has read a page (at its next slice, within about an hour), its status says how"
      " many clues read."),
 )
-RENAME = "Rename it with its issue date (e.g. 1930-04-09)."
 #: What the checklist says of a file whose puzzle the tick could not name.
 UNKNOWN = ("arrived, puzzle not yet known: the name and citation name no puzzle, and the full pass reads the title"
-           f" at its next slice. To be sure now: {RENAME}")
+           " at its next slice")
 
 
 def checklist(idx=None, store=STORE, root=ROOT, arrivals=None, docs=None, status=None):
@@ -1044,7 +1043,8 @@ def checklist(idx=None, store=STORE, root=ROOT, arrivals=None, docs=None, status
         elif n in asks:
             about = r["date"] + datetime.timedelta(days=14)
             status.append((f"save its solution too: “Report on Crossword No. {n}”, about {about:%d %b %Y}", "bad"))
-        out = {"date": r["date"], "search": gi.search_url(r["date"], "LSNR"), "status": status,
+        out = {"date": r["date"], "search": gale_docs.permalink("LSNR", r["date"], docs) or gi.search_url(r["date"], "LSNR"),
+               "status": status,
                "cells": [str(n), r["title"], r.get("setter") or ""]}
         if n in asks:
             out.update(key=f"r{n}", dl=gale_docs.report_link("LSNR", n, docs), label="Download solution")
@@ -1058,10 +1058,10 @@ def checklist(idx=None, store=STORE, root=ROOT, arrivals=None, docs=None, status
     for r in idx:
         years.setdefault(r["date"].year, []).append(r)
     return gi.page(
-        paper="Listener", prod="LSNR", name=CHECKLIST_NAME, store="listenerCopied", done=len(idx) - len(todo),
-        total=len(idx), done_word="saved or filed", folder=gi.SHARE + "\\Listener",
-        redo=[(a["file"], UNKNOWN) for a in unnamed if a["file"] not in read]
-             + [(m["file"], f"matched no puzzle ({m.get('why') or ''}). {RENAME}") for m in lost],
+        paper="Listener", prod="LSNR", name=CHECKLIST_NAME, store="listenerCopied", done=len(arrivals),
+        total=len(arrivals) + len(todo), done_word="files downloaded", folder=gi.SHARE + "\\Listener",
+        notes=[(a["file"], UNKNOWN) for a in unnamed if a["file"] not in read]
+              + [(m["file"], f"matched no puzzle ({m.get('why') or ''}); left in the inbox") for m in lost],
         steps=STEPS,
         order=ORDER, what="pages", next_rows=[row(r) for r in idx if r["number"] in want][:gi.POOL],
         years_note="Earliest first.",
