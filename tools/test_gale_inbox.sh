@@ -69,6 +69,13 @@ pages = json.loads((d / "pages.json").read_text())
 check("a dated page is staged as that date's Times edition", (True, "1988-01-12", 1),
       ((d / "leaf_0000.jpg").exists(), pages["date"], pages["leaves"]))
 check("its source link is the Gale document's", g.DOC_URL.format("IF0503151598"), fa.page_url(d, {}, 0))
+# One laid out under the portal's link, before its document was read off
+# its name, is laid out again with the document's; then left alone.
+pages["url"] = g.PORTAL
+(d / "pages.json").write_text(json.dumps(pages))
+g.stage(inbox, cache, io.StringIO(), un, g.MATCHES)
+check("an edition laid out under the portal's link is re-laid with its document's",
+      g.DOC_URL.format("IF0503151598"), fa.page_url(d, {}, 0))
 check("a page set on an archive.org-wide page", fa.SCAN_WIDTH, Image.open(d / "leaf_0000.jpg").width)
 check("a file that names no edition is listed, not staged", ["holiday snap.jpg"],
       [m["file"] for m in json.loads(un.read_text()) if not m.get("date")])
