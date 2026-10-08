@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,73 @@
     "text": "Being shelled, company ultimately surrendered, utterly beaten",
     "enumeration": "6"
    },
-   "solution": "TURTLE"
+   "solution": "TURTLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "TURTLE",
+    "definitions": [
+     {
+      "text": "Being shelled",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "deletion",
+      "note": "ultimately points at the final letter of the word before it, the one that gets given up"
+     },
+     {
+      "text": "surrendered",
+      "for": "deletion",
+      "note": "something surrendered is handed over and lost, so a letter leaves the fodder"
+     },
+     {
+      "text": "beaten",
+      "for": "anagram",
+      "note": "beaten as in whisked, as eggs are, so the letters are mixed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "Y",
+      "select": "last",
+      "note": "the last letter of company, taken away"
+     },
+     {
+      "clueFragment": "utterly",
+      "gives": "UTTERLY",
+      "note": "the anagram fodder, before losing a letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TURTLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UTTERL",
+       "gives": "TURTLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A company under shellfire gives in, thoroughly defeated.",
+     "walkthrough": "UTTERLY loses its Y, and UTTERL is rearranged into TURTLE. The surface is military shelling; the definition is a creature that lives inside a shell.",
+     "definitionFit": "A turtle is a reptile protected by a hard carapace, so it is a creature literally encased in shell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shelled"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +116,65 @@
     "text": "Charity event on the tiles is cancelled unfortunately",
     "enumeration": "8"
    },
-   "solution": "TELETHON"
+   "solution": "TELETHON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "TELETHON",
+    "definitions": [
+     {
+      "text": "Charity event",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is cancelled",
+      "for": "deletion",
+      "note": "cancelled means struck out, so the word is is removed from the fodder"
+     },
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "something gone unfortunately has gone wrong, so the remaining letters are disordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on the tiles",
+      "gives": "ONTHETILES",
+      "note": "the phrase taken letter for letter as fodder"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the two letters that are cancelled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TELETHON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONTHETLE",
+       "gives": "TELETHON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A night out on the tiles has been called off, much to everyone's regret.",
+     "walkthrough": "Taking IS out of ONTHETILES leaves ONTHETLE, which rearranges to the answer. 'On the tiles' is British slang for a night of carousing.",
+     "definitionFit": "A telethon is a long televised broadcast raising money for good causes, a fundraising occasion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tiles"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +188,46 @@
     "text": "Paper finished with further edits",
     "enumeration": "9"
    },
-   "solution": "REAMENDED"
+   "solution": "REAMENDED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REAMENDED",
+    "definitions": [
+     {
+      "text": "with further edits",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paper",
+      "gives": "REAM",
+      "note": "a ream is a standard quantity of paper, 500 sheets"
+     },
+     {
+      "clueFragment": "finished",
+      "gives": "ENDED",
+      "note": "finished means came to a close"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REAM",
+      "ENDED"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper has been completed with yet more revisions.",
+     "definitionFit": "Something reamended has been amended again, that is, corrected or revised a second time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Paper"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +241,47 @@
     "text": "Male variant of chromosome or female?",
     "enumeration": "4"
    },
-   "solution": "LADY"
+   "solution": "LADY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LADY",
+    "definitions": [
+     {
+      "text": "female",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Male",
+      "gives": "LAD",
+      "note": "a lad is a boy or young man"
+     },
+     {
+      "clueFragment": "variant of chromosome",
+      "gives": "Y",
+      "note": "the Y chromosome is one of the two kinds of sex chromosome"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAD",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A biology question: is the Y chromosome the male variant, or the female one?",
+     "walkthrough": "The surface reads 'Male variant of chromosome' as one phrase, but Male is a separate piece. Ladies dancing belong to The Twelve Days of Christmas, the puzzle's theme.",
+     "definitionFit": "A lady is a woman, so the word stands for a female person; the question mark admits the noun-for-adjective looseness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Male"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +301,49 @@
      }
     ]
    },
-   "solution": "ADDINGUP"
+   "solution": "ADDINGUP",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ADDING UP",
+    "definitions": [
+     {
+      "text": "Reckoning",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opener's out",
+      "for": "deletion",
+      "note": "the opener is the first letter, and being out it is dropped from the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "preparing to bat",
+      "gives": "PADDINGUP",
+      "note": "a cricketer pads up, straps on leg pads, before going in to bat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADDINGUP"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket scene: the opening batsman is out, and the next one is getting ready.",
+     "walkthrough": "PADDING UP loses its first letter. In cricket an opener is a batsman who starts the innings, which makes 'opener's out' look like match commentary.",
+     "definitionFit": "Adding up figures is totting them up, which is calculating or computing a total."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "opener's"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +357,68 @@
     "text": "One beating master in gruesome murder",
     "enumeration": "7"
    },
-   "solution": "DRUMMER"
+   "solution": "DRUMMER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DRUMMER",
+    "definitions": [
+     {
+      "text": "One beating",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gruesome",
+      "for": "anagram",
+      "note": "gruesome suggests a body left mangled, so these letters are mangled into another order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "master",
+      "gives": "M",
+      "note": "M is a standard abbreviation for master"
+     },
+     {
+      "clueFragment": "murder",
+      "gives": "DRUMER",
+      "note": "the letters rearranged around the inserted letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRUM",
+      "M",
+      "ER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MURDER",
+       "gives": "DRUMER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crime story: someone thrashing their boss in a grisly killing.",
+     "walkthrough": "MURDER rearranges to DRUMER and takes M inside. Drummers drumming are one of The Twelve Days of Christmas gifts.",
+     "definitionFit": "A drummer is a percussionist who strikes, or beats, a drum."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "beating"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +432,68 @@
     "text": "Identifier of books switching focus, collecting European playwright",
     "enumeration": "5"
    },
-   "solution": "IBSEN"
+   "solution": "IBSEN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "IBSEN",
+    "definitions": [
+     {
+      "text": "playwright",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "switching focus",
+      "for": "anagram",
+      "note": "switching the letters at the centre of the word swaps their order"
+     },
+     {
+      "text": "collecting",
+      "for": "container",
+      "note": "collecting means gathering in, so one piece takes another inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Identifier of books",
+      "gives": "ISBN",
+      "note": "the International Standard Book Number printed on every book"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the standard abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IB",
+      "S",
+      "E",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISBN",
+       "gives": "IBSN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cataloguing code is changed in emphasis and picks up a European entry.",
+     "walkthrough": "The middle two letters of ISBN swap places to give IBSN, and E goes in before the N.",
+     "definitionFit": "Henrik Ibsen was the Norwegian dramatist who wrote A Doll's House and Hedda Gabler."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "focus"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +507,61 @@
     "text": "They're a-laying Easter eggs, oddly from the bottom",
     "enumeration": "5"
    },
-   "solution": "GEESE"
+   "solution": "GEESE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "GEESE",
+    "definitions": [
+     {
+      "text": "They're a-laying",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly means take the letters in the odd-numbered positions only"
+     },
+     {
+      "text": "from the bottom",
+      "for": "reversal",
+      "note": "in a down entry, reading from the bottom means reading upwards, the wrong way round"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Easter eggs",
+      "gives": "ESEEG",
+      "select": "alternate",
+      "note": "first, third, fifth, seventh and ninth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEESE"
+     ],
+     "reversals": [
+      {
+       "from": "ESEEG",
+       "to": "GEESE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hens busy producing Easter eggs, laid in an odd fashion from underneath.",
+     "walkthrough": "The odd letters of Easter eggs are read upwards. 'A-laying' quotes the carol The Twelve Days of Christmas: six geese a-laying.",
+     "definitionFit": "Geese are the birds in the carol's line about six of them laying eggs, so they are the ones a-laying."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "bottom"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +575,39 @@
     "text": "Scottish drone operators?",
     "enumeration": "6"
    },
-   "solution": "PIPERS"
+   "solution": "PIPERS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PIPERS",
+    "definitions": [
+     {
+      "text": "Scottish drone operators?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scottish drone operators?",
+      "note": "surface reading: people in Scotland flying unmanned aircraft"
+     },
+     {
+      "clueFragment": "drone",
+      "note": "setter's reading: the drone is the pipe of a bagpipe sounding one continuous note, played by Highland musicians"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A drone today suggests a remote-controlled aircraft, but the bagpipe's bass pipes are also drones. Pipers piping are another gift from the carol.",
+     "definitionFit": "Bagpipe players work an instrument whose drones hum under the melody, and the bagpipe is Scotland's emblematic instrument."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drone"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +621,71 @@
     "text": "University's invested in property attracting American capital",
     "enumeration": "6"
    },
-   "solution": "LUANDA"
+   "solution": "LUANDA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "LUANDA",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "invested in",
+      "for": "container",
+      "note": "money invested in something is put inside it, so one piece goes within another"
+     },
+     {
+      "text": "attracting",
+      "for": "charade",
+      "note": "attracting means drawing something along, so a further piece is attached"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "property",
+      "gives": "LAND",
+      "note": "land is real estate, property"
+     },
+     {
+      "clueFragment": "University",
+      "gives": "U",
+      "note": "U is the usual abbreviation for university"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is a standard abbreviation for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "U",
+      "AND",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A university has put money into real estate and drawn American capital.",
+     "walkthrough": "'Capital' looks like money in this financial surface, but it is the definition, a capital city.",
+     "definitionFit": "Luanda is the capital city of Angola, on the Atlantic coast of southern Africa."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +699,51 @@
     "text": "Snooze more than refreshed upset Leo",
     "enumeration": "8"
    },
-   "solution": "OUTSLEEP"
+   "solution": "OUTSLEEP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OUTSLEEP",
+    "definitions": [
+     {
+      "text": "Snooze more than",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "refreshed",
+      "for": "anagram",
+      "note": "refreshed means made anew, so the letters are rebuilt in fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "upset Leo",
+      "gives": "UPSETLEO",
+      "note": "the eight letters taken as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UPSETLEO",
+       "gives": "OUTSLEEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries to out-nap a lion-starred friend who is grumpy after resting.",
+     "walkthrough": "'Upset' looks like the anagram signal, but it is part of the fodder; refreshed does the stirring.",
+     "definitionFit": "To outsleep someone is to sleep longer than them, to keep dozing after they wake."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +757,39 @@
     "text": "Ruler being lengthened at either end",
     "enumeration": "4"
    },
-   "solution": "LORD"
+   "solution": "LORD",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LORD",
+    "definitions": [
+     {
+      "text": "Ruler",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ruler being lengthened at either end",
+      "note": "surface reading: a measuring rule being extended at both ends"
+     },
+     {
+      "clueFragment": "Ruler",
+      "note": "setter's reading: a nobleman or sovereign, whose title grows at both ends in the carol's line about ten of them leaping"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The ruler looks like a measuring stick, but it is a nobleman. The wordplay is unclear: the outer letters of lengthened frame the word, with OR in the middle unaccounted for.",
+     "definitionFit": "A lord is a nobleman or feudal master holding power over others, a sovereign or governor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ruler"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +803,48 @@
     "text": "Greek goddess rejecting wings immediately",
     "enumeration": "4"
    },
-   "solution": "THEN"
+   "solution": "THEN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "THEN",
+    "definitions": [
+     {
+      "text": "immediately",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejecting wings",
+      "for": "deletion",
+      "note": "the wings are the two outermost letters, and rejecting them throws both away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek goddess",
+      "gives": "ATHENE",
+      "note": "Athene, also Athena, Greek goddess of wisdom"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek goddess spurns her wings at once.",
+     "walkthrough": "ATHENE loses its first and last letters.",
+     "definitionFit": "Then can mean straight after that, next in time, close to the sense of promptly following."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wings"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +858,48 @@
     "text": "When podcasting, usual browser is appropriate",
     "enumeration": "10"
    },
-   "solution": "COMMANDEER"
+   "solution": "COMMANDEER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "COMMANDEER",
+    "definitions": [
+     {
+      "text": "appropriate",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "When podcasting",
+      "for": "homophone",
+      "note": "a podcast is heard rather than read, so the words are taken by their sound"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "usual browser",
+      "gives": "COMMANDEER",
+      "soundsLike": "COMMON DEER",
+      "note": "a deer browses on shoots and leaves, and a usual one is common"
+     }
+    ],
+    "explanation": {
+     "surface": "A tech tip: the default web browser is fine to use while making a podcast.",
+     "walkthrough": "'Browser' is not software but a grazing animal. 'Appropriate' is the verb, to seize.",
+     "definitionFit": "To commandeer is to seize property for one's own use, which is what appropriate means as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "browser"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +913,58 @@
     "text": "Without 4 iron making longest par on course",
     "enumeration": "4"
    },
-   "solution": "FIVE"
+   "solution": "FIVE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FIVE",
+    "definitions": [
+     {
+      "text": "longest par on course",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Without",
+      "for": "container",
+      "note": "without in its old sense of outside, so one piece wraps round the other"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "iron",
+      "gives": "FE",
+      "note": "Fe is the chemical symbol for iron"
+     },
+     {
+      "clueFragment": "4",
+      "gives": "IV",
+      "note": "four in Roman numerals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "IV",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer without the four-iron tackles the course's longest hole.",
+     "walkthrough": "The surface is all golf, where a 4 iron is a club; here 4 is a Roman numeral and iron its chemical symbol.",
+     "definitionFit": "Golf holes are par three, four or five, so a par five is the longest kind on a standard course."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "iron"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +984,43 @@
      }
     ]
    },
-   "solution": "OLDBIRD"
+   "solution": "OLDBIRD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OLD BIRD",
+    "definitions": [
+     {
+      "text": "Passenger pigeon or dodo?",
+      "at": 0
+     },
+     {
+      "text": "Certainly no spring chicken!",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Passenger pigeon or dodo?",
+      "note": "first meaning: an avian species long gone, extinct for centuries"
+     },
+     {
+      "clueFragment": "Certainly no spring chicken!",
+      "note": "second meaning: a slangy phrase for an older woman or person"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Both halves sound like birds, but the second is the idiom for someone no longer young. 'Bird' is British slang for a woman.",
+     "definitionFit": "Extinct species are ancient avian types, and 'no spring chicken' describes someone well past youth, a familiar idiom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "chicken"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1034,60 @@
     "text": "Prolific poster heartlessly lying about plans again",
     "enumeration": "6"
    },
-   "solution": "REMAPS"
+   "solution": "REMAPS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "REMAPS",
+    "definitions": [
+     {
+      "text": "plans again",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartlessly",
+      "for": "deletion",
+      "note": "without a heart, the central letter is cut out"
+     },
+     {
+      "text": "lying about",
+      "for": "reversal",
+      "note": "about means turned round, so the letters are read the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prolific poster",
+      "gives": "SPAMMER",
+      "note": "a spammer sends out masses of unwanted messages"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REMAPS"
+     ],
+     "reversals": [
+      {
+       "from": "SPAMER",
+       "to": "REMAPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cynical picture of a relentless online poster who lies without a heart.",
+     "walkthrough": "SPAMMER loses its middle M to give SPAMER, read backwards.",
+     "definitionFit": "To remap is to chart or lay out again, so remaps fits the verb plans again."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "poster"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1101,54 @@
     "text": "Dresser from Kentish Town discounted by nearly fifteen pounds",
     "enumeration": "4"
    },
-   "solution": "MAID"
+   "solution": "MAID",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MAID",
+    "definitions": [
+     {
+      "text": "Dresser",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discounted by",
+      "for": "deletion",
+      "note": "discounted means reduced, so a chunk of letters is taken off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kentish Town",
+      "gives": "MAIDSTONE",
+      "note": "Maidstone is the county town of Kent"
+     },
+     {
+      "clueFragment": "nearly fifteen pounds",
+      "gives": "STONE",
+      "note": "a stone is a British weight of fourteen pounds, one short of fifteen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAID"
+     ]
+    },
+    "explanation": {
+     "surface": "A sideboard from a London district is marked down by almost fifteen quid.",
+     "walkthrough": "Kentish Town is a real London district, which hides the Kent town in the wordplay. 'Pounds' suggests money but means weight. Maids a-milking are carol gifts.",
+     "definitionFit": "A lady's maid helps her mistress dress, so she is a dresser in the sense of an attendant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dresser"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1162,55 @@
     "text": "Game character atop Crib Goch?",
     "enumeration": "9"
    },
-   "solution": "PARTRIDGE"
+   "solution": "PARTRIDGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARTRIDGE",
+    "definitions": [
+     {
+      "text": "Game",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "atop",
+      "for": "charade",
+      "note": "atop means sitting above, and in a down entry the higher piece comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "character",
+      "gives": "PART",
+      "note": "a part is a character or role played by an actor"
+     },
+     {
+      "clueFragment": "Crib Goch",
+      "gives": "RIDGE",
+      "note": "Crib Goch is a famous knife-edge mountain crest in Snowdonia, Wales"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PART",
+      "RIDGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A video-game character standing on top of a Welsh mountain crest.",
+     "walkthrough": "'Game character' reads as one phrase, but Game is the definition, meaning birds shot for sport. The partridge in a pear tree opens the carol.",
+     "definitionFit": "A partridge is a plump bird shot for sport, and game is the collective term for such quarry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1224,54 @@
     "text": "Cuckoo ensnared as source of paté",
     "enumeration": "8"
    },
-   "solution": "ARDENNES"
+   "solution": "ARDENNES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ARDENNES",
+    "definitions": [
+     {
+      "text": "source of paté",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cuckoo",
+      "for": "anagram",
+      "note": "cuckoo means crazy, so the letters go haywire into a new order"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ensnared",
+      "gives": "ENSNARED",
+      "note": "the eight letters taken as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ENSNARED",
+       "gives": "ARDENNES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cuckoo is trapped and ends up in paté.",
+     "walkthrough": "'Cuckoo' looks like the bird caught in a trap; it is the anagram signal.",
+     "definitionFit": "Pâté ardennais is a coarse pork pâté named after the Ardennes, the forested region where it originates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cuckoo"
+    }
+   }
   },
   {
    "number": 20,
@@ -325,7 +1285,56 @@
     "text": "Daughter hiding inside to avoid notice",
     "enumeration": "6"
    },
-   "solution": "ADVERT"
+   "solution": "ADVERT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ADVERT",
+    "definitions": [
+     {
+      "text": "notice",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding inside",
+      "for": "container",
+      "note": "something hiding inside is tucked within another piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to avoid",
+      "gives": "AVERT",
+      "note": "to avert is to ward off or avoid"
+     },
+     {
+      "clueFragment": "Daughter",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "D",
+      "VERT"
+     ]
+    },
+    "explanation": {
+     "surface": "A daughter hides indoors so nobody spots her.",
+     "walkthrough": "'Notice' reads as attention in the surface, but it is a noun meaning a public announcement.",
+     "definitionFit": "An advert is a printed or broadcast announcement, a notice in the sense of a published advertisement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "notice"
+    }
+   }
   },
   {
    "number": 21,
@@ -339,7 +1348,68 @@
     "text": "Dressing easy as ABC to nurses",
     "enumeration": "7"
    },
-   "solution": "TABASCO"
+   "solution": "TABASCO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TABASCO",
+    "definitions": [
+     {
+      "text": "Dressing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "easy",
+      "for": "anagram",
+      "note": "easy suggests loose and relaxed, so the letters are freed to rearrange"
+     },
+     {
+      "text": "nurses",
+      "for": "container",
+      "note": "to nurse is to hold close, so one piece cradles the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written, the outer piece"
+     },
+     {
+      "clueFragment": "as ABC",
+      "gives": "ABASC",
+      "note": "the five letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ABASC",
+      "O"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ASABC",
+       "gives": "ABASC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Applying a wound dressing is as easy as ABC for nurses.",
+     "walkthrough": "The surface pictures a nurse bandaging a wound; dressing is a sauce for food.",
+     "definitionFit": "Tabasco is a fiery chilli sauce used as a condiment, the culinary kind of dressing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dressing"
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1423,59 @@
     "text": "Troublemaker out of prison finally for impeccable behaviour",
     "enumeration": "7"
    },
-   "solution": "STIRRER"
+   "solution": "STIRRER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STIRRER",
+    "definitions": [
+     {
+      "text": "Troublemaker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally picks the closing letter of each of the words that follow"
+     }
+    ],
+    "linkWords": [
+     "out of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prison",
+      "gives": "STIR",
+      "note": "stir is slang for prison"
+     },
+     {
+      "clueFragment": "for impeccable behaviour",
+      "gives": "RER",
+      "select": "last",
+      "note": "last letters of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STIR",
+      "RER"
+     ]
+    },
+    "explanation": {
+     "surface": "A troublemaker is released early from jail for good conduct.",
+     "walkthrough": "'Out of prison' sounds like release, but 'out of' just means made from.",
+     "definitionFit": "A stirrer is someone who deliberately causes discord or mischief among others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1489,54 @@
     "text": "Where dam's found scrubbing a pen?",
     "enumeration": "4"
    },
-   "solution": "SWAN"
+   "solution": "SWAN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SWAN",
+    "definitions": [
+     {
+      "text": "pen?",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scrubbing",
+      "for": "deletion",
+      "note": "scrubbing something means cancelling it, so a letter is struck off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where dam's found",
+      "gives": "ASWAN",
+      "note": "the Aswan High Dam crosses the Nile in Egypt"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle about where a mother animal lives, minus a writing pen.",
+     "walkthrough": "A dam is also a mother animal and a pen a writing tool, but here pen is a female of the answer bird, hence the question mark. Swans a-swimming are carol gifts.",
+     "definitionFit": "A pen is the female of the swan, so pen is an example of the bird, flagged by the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pen"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1550,59 @@
     "text": "Ditch foxtrot for tango from Paris, perhaps",
     "enumeration": "6"
    },
-   "solution": "FRENCH"
+   "solution": "FRENCH",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "FRENCH",
+    "definitions": [
+     {
+      "text": "from Paris, perhaps",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "one thing for another means swapping it in its place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ditch",
+      "gives": "TRENCH",
+      "note": "a trench is a ditch"
+     },
+     {
+      "clueFragment": "foxtrot",
+      "gives": "F",
+      "note": "Foxtrot is F in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "tango",
+      "gives": "T",
+      "note": "Tango is T in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RENCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A dancer from Paris drops the foxtrot for the tango.",
+     "walkthrough": "'Ditch' looks like a verb meaning drop; it is the noun. French hens are the third gift in the carol.",
+     "definitionFit": "Parisians are French, and the question mark marks Paris as one example of the nationality's places."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ditch"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1622,59 @@
      }
     ]
    },
-   "solution": "RUPERTBEAR"
+   "solution": "RUPERTBEAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "RUPERT BEAR",
+    "definitions": [
+     {
+      "text": "daily strip",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caught",
+      "for": "homophone",
+      "note": "caught as in heard, so the next word is taken by its sound"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rugby",
+      "gives": "RU",
+      "note": "RU is short for Rugby Union"
+     },
+     {
+      "clueFragment": "forward",
+      "gives": "PERT",
+      "note": "forward in the sense of cheeky or bold"
+     },
+     {
+      "clueFragment": "naked",
+      "gives": "BEAR",
+      "soundsLike": "BARE",
+      "note": "naked means uncovered"
+     }
+    ],
+    "explanation": {
+     "surface": "A rugby forward is snapped unclothed in a newspaper, or stripping on the pitch.",
+     "walkthrough": "'Forward' is a rugby position in the surface but an adjective here. The answer is a cartoon bear in checked trousers, running in the Daily Express since 1920.",
+     "definitionFit": "Rupert Bear is a long-running children's comic strip printed in a British newspaper every day."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "strip"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1688,62 @@
     "text": "Small gem lettuce's beginning to bear fruit",
     "enumeration": "5"
    },
-   "solution": "PEARL"
+   "solution": "PEARL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PEARL",
+    "definitions": [
+     {
+      "text": "Small gem",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning",
+      "for": "letter_selection",
+      "note": "beginning points to the opening letter of the word it is attached to"
+     },
+     {
+      "text": "to bear",
+      "for": "charade",
+      "note": "to bear is to carry, so one piece carries the other along at its tail"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fruit",
+      "gives": "PEAR",
+      "note": "a pear is a fruit"
+     },
+     {
+      "clueFragment": "lettuce's",
+      "gives": "L",
+      "select": "first",
+      "note": "the beginning of lettuce"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEAR",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A Little Gem lettuce is starting to produce fruit.",
+     "walkthrough": "'Small gem' looks like the lettuce variety Little Gem, but it is the definition. The pear tree is from the carol.",
+     "definitionFit": "A pearl is a small lustrous bead from an oyster, prized as a precious jewel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gem"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1757,68 @@
     "text": "New charging equipment introducing special tolls",
     "enumeration": "5"
    },
-   "solution": "RINGS"
+   "solution": "RINGS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "RINGS",
+    "definitions": [
+     {
+      "text": "tolls",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "charging",
+      "for": "container",
+      "note": "charging means rushing in, so a letter drives into another piece"
+     },
+     {
+      "text": "introducing",
+      "for": "charade",
+      "note": "introducing means bringing in next, so a further piece follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "equipment",
+      "gives": "RIG",
+      "note": "a rig is a set of equipment"
+     },
+     {
+      "clueFragment": "New",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     },
+     {
+      "clueFragment": "special",
+      "gives": "S",
+      "note": "S is an abbreviation for special"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RI",
+      "N",
+      "G",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A new electric-car charger brings in special road charges.",
+     "walkthrough": "'Tolls' looks like road fees, but it is the verb for bells. Gold rings are the carol's fifth gift.",
+     "definitionFit": "A bell tolls when it sounds slowly, and rings is the general verb for a bell sounding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tolls"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1832,60 @@
     "text": "Cadet wanting adult in plane?",
     "enumeration": "4"
    },
-   "solution": "TREE"
+   "solution": "TREE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TREE",
+    "definitions": [
+     {
+      "text": "plane?",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wanting",
+      "for": "deletion",
+      "note": "wanting means lacking, so the following letters are left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cadet",
+      "gives": "TRAINEE",
+      "note": "a cadet is a trainee in the services"
+     },
+     {
+      "clueFragment": "adult",
+      "gives": "A",
+      "note": "A is the film-rating abbreviation for adult"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "EE"
+     ]
+    },
+    "explanation": {
+     "surface": "A young cadet in an aircraft without a grown-up on board.",
+     "walkthrough": "'In plane' looks like a flight, but 'in' belongs to the letters removed and plane is the tree. The pear tree completes the carol's first line.",
+     "definitionFit": "The plane is a broad-leaved tree common in London streets, so it is one example of the answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plane"
+    }
+   }
   },
   {
    "number": 28,
@@ -457,7 +1899,44 @@
     "text": "One might want to settle in Andover",
     "enumeration": "4"
    },
-   "solution": "DOVE"
+   "solution": "DOVE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DOVE",
+    "definitions": [
+     {
+      "text": "One might want to settle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in means the letters are found inside the place name that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Andover",
+      "gives": "DOVE",
+      "note": "the middle four letters"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone thinking about moving to the Hampshire town of Andover.",
+     "walkthrough": "Andover is a market town in Hampshire, England. Settle means resolve a dispute; turtle doves are carol gifts.",
+     "definitionFit": "A dove is a political moderate who seeks peace, so it is someone keen to resolve a conflict."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "settle"
+    }
+   }
   },
   {
    "number": 29,
@@ -471,7 +1950,63 @@
     "text": "Dine with head following name order",
     "enumeration": "8"
    },
-   "solution": "NEATNESS"
+   "solution": "NEATNESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NEATNESS",
+    "definitions": [
+     {
+      "text": "order",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so the earlier pieces trail behind a lead piece"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is an abbreviation for name"
+     },
+     {
+      "clueFragment": "Dine",
+      "gives": "EAT",
+      "note": "to dine is to eat"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "NESS",
+      "note": "a ness is a headland, as in Loch Ness or Dungeness"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "EAT",
+      "NESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for dining: sit at the head of the table after the name card.",
+     "walkthrough": "'Head' suggests the top of the table but is a headland, a ness.",
+     "definitionFit": "Neatness is tidiness, the state of things arranged in good order."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 30,
@@ -485,7 +2020,62 @@
     "text": "Turn 50 with day at space fair",
     "enumeration": "6"
    },
-   "solution": "GOLDEN"
+   "solution": "GOLDEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GOLDEN",
+    "definitions": [
+     {
+      "text": "fair",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turn",
+      "gives": "GO",
+      "note": "a go is a turn in a game"
+     },
+     {
+      "clueFragment": "50",
+      "gives": "L",
+      "note": "fifty in Roman numerals"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D is an abbreviation for day"
+     },
+     {
+      "clueFragment": "space",
+      "gives": "EN",
+      "note": "an en is a printer's unit of space"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "L",
+      "D",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "Celebrating a fiftieth birthday with a day out at a space-themed fair.",
+     "walkthrough": "'Turn 50' looks like reaching an age; turn and 50 are separate pieces. An en is a typesetter's space half an em wide.",
+     "definitionFit": "Golden describes blond hair, and fair also means light-haired, so the adjectives are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Turn"
+    }
+   }
   },
   {
    "number": 31,
@@ -499,7 +2089,70 @@
     "text": "Hard base pilot's exploited as landing pad",
     "enumeration": "8"
    },
-   "solution": "HELISTOP"
+   "solution": "HELISTOP",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "HELISTOP",
+    "definitions": [
+     {
+      "text": "landing pad",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exploited",
+      "for": "anagram",
+      "note": "exploited means worked over and used, so the letters are manipulated into a new order"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hard",
+      "gives": "H",
+      "note": "H is the pencil-grade abbreviation for hard"
+     },
+     {
+      "clueFragment": "base",
+      "gives": "E",
+      "note": "e is the base of natural logarithms"
+     },
+     {
+      "clueFragment": "pilot's",
+      "gives": "LISTOP",
+      "note": "the six letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "E",
+      "LISTOP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PILOTS",
+       "gives": "LISTOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tough military base is used by its pilot as a landing site.",
+     "walkthrough": "'Hard base' reads as a fortified site, but it splits into two single letters.",
+     "definitionFit": "A helistop is a small helipad where helicopters set down, a place for touching down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "base"
+    }
+   }
   },
   {
    "number": 32,
@@ -513,7 +2166,63 @@
     "text": "Note saints when checking church alcove",
     "enumeration": "6"
    },
-   "solution": "RECESS"
+   "solution": "RECESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RECESS",
+    "definitions": [
+     {
+      "text": "alcove",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "checking",
+      "for": "container",
+      "note": "checking means holding back, so the outer letters hold another piece in"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "RE",
+      "note": "re is the second note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     },
+     {
+      "clueFragment": "saints",
+      "gives": "SS",
+      "note": "SS is the abbreviation for saints"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "CE",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notes saints' statues while looking over a church.",
+     "walkthrough": "'Checking' suggests inspecting the church; here it means restraining, the outer pair holding the church abbreviation in.",
+     "definitionFit": "A recess is a niche set back into a wall, the same thing as an alcove."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "checking"
+    }
+   }
   }
  ]
 }
