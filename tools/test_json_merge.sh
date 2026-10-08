@@ -21,7 +21,8 @@ git init -q -b master repo && cd repo || exit 1
 git config user.email nobody@example.com
 git config user.name test
 mkdir -p tools/data
-cp "$ROOT/tools/json_merge.py" "$ROOT/.gitattributes" tools/ 2>/dev/null
+cp "$ROOT/tools/json_merge.py" "$ROOT/tools/puzzle_schema.py" "$ROOT/.gitattributes" tools/ 2>/dev/null
+cp "$ROOT/tools/data/puzzle.schema.json" tools/data/
 mv tools/.gitattributes .
 _ct_cfg() { git config "$1" "$2"; }
 eval "$(grep -E "^_ct_cfg (merge|filter)\.(json-keys|puzzle-json)" "$ROOT/tools/nightly_worktree.sh")"
@@ -144,6 +145,15 @@ check "rebase over a puzzle both sides annotated completes" "$(git ls-files -u |
 check "origin's annotation is kept whole, the update's data too" \
   "$(python3 -c 'import json; d=json.load(open("puzzles/x/x-1.json")); print([e["annotation"]["by"] for e in d["entries"]], d["date"], d["annotatedBy"])')" \
   "['burn', 'burn'] 2026-10-04 ['burn', 'update']"
+# The replayed side adds annotatedBy, the upstream side changed the date: the
+# merged file keeps the schema's key order (annotatedBy before entries), as
+# book-17010 did not.
+git checkout -q master; puzzle date=2026-03-03; git commit -qam d0
+git checkout -q update; git reset -q --hard master~1; puzzle 0=late; git commit -qam late
+git rebase -q master >/dev/null 2>&1
+check "a merged puzzle's keys are in the schema's order" \
+  "$(python3 -c 'import json; d=list(json.load(open("puzzles/x/x-1.json"))); print(d.index("annotatedBy") < d.index("entries"))')" True
+git rebase --abort 2>/dev/null
 git checkout -q master; puzzle date=2026-01-01; git commit -qam d1
 git checkout -q update; puzzle date=2026-02-02; git commit -qam d2
 git rebase -q master >/dev/null 2>&1
