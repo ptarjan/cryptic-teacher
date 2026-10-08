@@ -55,6 +55,10 @@ step = next(a for e in broken["entries"] for a in ((e.get("annotation") or {}).g
 step["fodder"] = "QQQ" + step["fodder"]
 path.write_text(json.dumps(broken))
 check("fodder that cannot give its letters is a misread", ["check_anagram_letters"], AC.misread(path)[1])
+lost = copy.deepcopy(puzzle)
+lost["entries"][0]["annotation"] = None
+path.write_text(json.dumps(lost))
+check("a clue the run left null is a misread", ["lostClue"], AC.misread(path)[1])
 
 # The filers' ledgers: the archive.org edition this puzzle was filed from.
 q.LEDGERS = {"archive": tmp / "a.jsonl", "trove": tmp / "t.jsonl"}

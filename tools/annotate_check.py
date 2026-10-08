@@ -40,7 +40,7 @@ is wrong, so this says all of it at once and asks for one edit back.
 commits or discards it, asks the scan filer to read an OCR'd puzzle's source
 again (scan_queue.request_reread) when the run met a misread clue: it filed
 a printedClue row HEAD does not have, or check_clue_unchanged or
-check_anagram_letters fails. Exit 0 when a re-read was queued.
+check_anagram_letters fails, or it left a clue null. Exit 0 when a re-read was queued.
 
 Exit code is the validator's: 0 when the puzzle is publishable. Warnings and
 audit hits are worth fixing and do not fail the build. 2 when the annotations
@@ -799,7 +799,9 @@ def misread(path):
     reading), [what met a misread]) for the puzzle at `path`: "printedClue"
     for a source_clue_wrong.json row HEAD lacks, and each misread check that
     fails: check_clue_unchanged (the run rewrote the clue to fit its parse) and
-    check_anagram_letters (the clue's fodder cannot give the answer's letters)."""
+    check_anagram_letters (the clue's fodder cannot give the answer's letters),
+    and "lostClue" for an entry the run left null (a clue it could not parse,
+    which on a scan is most often a garbled reading)."""
     puzzle = read_puzzle_file(path)
     pid = puzzle["id"]
     committed = validate_annotations.committed_entries(path)
@@ -825,6 +827,8 @@ def misread(path):
         if errors:
             why.append("check_anagram_letters")
             break
+    if any("annotation" in e and e["annotation"] is None for e in puzzle["entries"]):
+        why.append("lostClue")
     return clues, why
 
 
