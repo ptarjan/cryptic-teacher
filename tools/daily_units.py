@@ -75,21 +75,24 @@ FRESH_DAYS = 2
 
 #: (key, every, timeout seconds, trigger) of the phases that run on a cadence.
 #: The filers' per-run limits (daily_update.sh) are their old nightly budgets
-#: divided by how often they now run.
+#: divided by how often they now run. A limit covers the unit's tree setup
+#: too, which waits its turn to rebuild the index (nightly_worktree.sh), and
+#: is set from the old nightly's phase times on a busy machine (2026-10-07:
+#: the Telegraph filer 45m, blog_facts 28-57m), with room to spare.
 PHASES = [
-    *[(f"fetch:{f}", HOUR, 20 * 60, ()) for f in FETCHERS],
-    ("solutions", 3 * HOUR, 40 * 60, ()),
-    ("blog:times", 3 * HOUR, 45 * 60, ()),
-    ("blog:telegraph", 3 * HOUR, 45 * 60, ()),
-    ("bucket:telegraph", DAY, 45 * 60, ()),
-    ("ft", 6 * HOUR, 45 * 60, ()),
-    ("azed", DAY, 20 * 60, ()),
-    ("xval:globe", DAY, 30 * 60, ()),
-    ("blog-facts", DAY, 40 * 60, ("blog:times", "blog:telegraph", "bucket:telegraph", "ft")),
-    ("ratings", DAY, 40 * 60, ()),
-    ("checks", DAY, 20 * 60, ()),
-    ("minute", 6 * HOUR, 10 * 60, ()),
-    ("reports", 2 * HOUR, 60 * 60, ()),
+    *[(f"fetch:{f}", HOUR, 45 * 60, ()) for f in FETCHERS],
+    ("solutions", 3 * HOUR, 60 * 60, ()),
+    ("blog:times", 3 * HOUR, 120 * 60, ()),
+    ("blog:telegraph", 3 * HOUR, 120 * 60, ()),
+    ("bucket:telegraph", DAY, 60 * 60, ()),
+    ("ft", 6 * HOUR, 60 * 60, ()),
+    ("azed", DAY, 45 * 60, ()),
+    ("xval:globe", DAY, 60 * 60, ()),
+    ("blog-facts", DAY, 120 * 60, ("blog:times", "blog:telegraph", "bucket:telegraph", "ft")),
+    ("ratings", DAY, 60 * 60, ()),
+    ("checks", DAY, 45 * 60, ()),
+    ("minute", 6 * HOUR, 30 * 60, ()),
+    ("reports", 2 * HOUR, 90 * 60, ()),
 ]
 
 
