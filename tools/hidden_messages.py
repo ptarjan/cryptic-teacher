@@ -169,7 +169,8 @@ DEVICE_PATTERNS = {
               r"|\bletters?\s+(superfluous|to\s+be\s+(disregarded|ignored|discarded))\b"
               r"|\bdiscarded\s+letters\b|\bletter\s+too\s+many\b|\bone\s+letter\s+more\b"
               r"|\bwordplay\b[^.]{0,60}\b(an?|one)\s+(extra|additional)\b"),
-    "omitted": (r"\bomi(t|ts|tted|ssion|ssions)\b|\bmissing\s+letters?\b"
+    "omitted": (r"\bomi(t|ts|tted)\s+(a|one|an?\s+\w+)\s+letter\b|\bletters?\s+omitted\b|\bomissions?\b"
+                r"|\bmissing\s+letters?\b"
                 r"|\bletters?\s+(missing|short|lacking)\b|\bone\s+letter\s+(short|fewer)\b"
                 r"|\bwordplay\b[^.]{0,60}\b(lacks|leaves\s+out|excludes)\b"),
     "clue": (r"\b(first|initial|last|final)\s+letters?\s+of\s+(the\s+|each\s+|these\s+|all\s+)?"
