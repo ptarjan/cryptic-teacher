@@ -376,6 +376,29 @@ check("and offers its solution as the row's job", True, 'data-k="r2"' in page2)
 check("not while a saved file waits to be read", False, "save its solution too:" in g.checklist(
     rows, store2, Path(sys.argv[1]) / "none", arrivals=[{"file": "new.pdf", "number": 1}]))
 check("earliest first", True, page.index("Wed 02 Apr 1930") < page.index("Wed 09 Apr 1930"))
+# A page that sends its grid or clues to another page (No 24's "see page
+# 381") files only with that page too: the checklist asks for it in next up.
+inbox3, store3 = Path(sys.argv[1]) / "inbox3", Path(sys.argv[1]) / "store3"
+inbox3.mkdir()
+Image.new("RGB", (300, 204), "white").save(inbox3 / "1930-04-09.png")
+g.run(inbox3, store3, rows, out=out, reader=lambda m: ({"clues": 1, "agreed": 1, "seePages": [381]},
+                                                       {"1-across": ("Spanish for aubade", None, None)}))
+page3 = g.checklist(rows, store3, Path(sys.argv[1]) / "none", arrivals=[])
+next3 = page3.split('<table id="next">')[1].split("</table>")[0]
+check("a read page's other page is asked for in next up, as the row's job", (True, True),
+      ("save p. 381 of this issue too" in next3, 'data-k="e2"' in next3))
+check("mirror: a read page that sends nowhere asks for no other page", False, "of this issue too" in page2)
+Image.new("RGB", (300, 205), "white").save(inbox3 / "1930-04-09 p381.png")
+g.run(inbox3, store3, rows, out=out, reader=lambda m: ({"refused": "no clue list on the page"}, None))
+check("mirror: once a second page of the puzzle is saved, it is not asked for", False,
+      "of this issue too" in g.checklist(rows, store3, Path(sys.argv[1]) / "none", arrivals=[]))
+inbox4, store4 = Path(sys.argv[1]) / "inbox4", Path(sys.argv[1]) / "store4"
+inbox4.mkdir()
+Image.new("RGB", (300, 206), "white").save(inbox4 / "1930-04-09.png")
+g.run(inbox4, store4, rows, out=out, reader=lambda m: ({"refused": "no clue list on the page (it sends to p. 1057)",
+                                                        "seePages": [1057]}, None))
+check("a refused page's other page is asked for too (the ledger keeps where it sends)", True,
+      "save p. 1057 of this issue too" in g.checklist(rows, store4, Path(sys.argv[1]) / "none", arrivals=[]))
 
 # The 3-minute tick: a page matched by its name alone is ticked off as
 # arrived before the full pass reads it; one naming no puzzle waits for it.

@@ -806,6 +806,8 @@ def read_one(p, h, idx, rows, store, out=sys.stdout, reader=read_file):
             m = {"file": p.name, "number": None, "why": why, "pages": [], "reports": []}
         verdict, laid = {"refused": why}, None
     entry.update(number=m["number"], how=m.get("how"), why=m.get("why"), reports=m["reports"])
+    if verdict.get("seePages"):
+        entry["seePages"] = verdict["seePages"]
     if m["number"] is None and m["reports"]:
         entry["why"] = None
     if m["number"] is not None:
@@ -989,6 +991,22 @@ def unsolved(idx, store=STORE, arrivals=None):
     return [r for r in idx if printed(r) and r["number"] in saved - solved]
 
 
+def elsewhere_wanted(ledger, got, arrivals, filed):
+    """{number: [page]} of the puzzles not filed whose one saved page sends
+    its clues or diagram to another page of the issue ("For clues see page
+    1057"), the ledger's or reading's seePages: no puzzle files without
+    both. A second file of the puzzle saved is taken for that page."""
+    pages, files = {}, {}
+    for e in [*ledger.values(), *arrivals]:
+        if e.get("number") is not None:
+            files.setdefault(e["number"], set()).add(e["file"])
+    for n, see in [*((e.get("number"), e.get("seePages")) for e in ledger.values()),
+                   *((n, v.get("seePages")) for n, v in got.items())]:
+        if n is not None and see:
+            pages.setdefault(n, set()).update(see)
+    return {n: sorted(ps) for n, ps in pages.items() if n not in filed and len(files.get(n, ())) < 2}
+
+
 #: How the Listener's next up orders, said on the page.
 ORDER = ("Order: earliest issue first, a puzzle's page and its solution page alike; a row leaves the list "
          "once its file arrives. Numbers, titles and dates are the Listener Team's index (listenercrossword.com).")
@@ -1037,6 +1055,7 @@ def checklist(idx=None, store=STORE, root=ROOT, arrivals=None, docs=None, status
     todo = to_save(idx, store, root, arrivals)
     read = {e_["file"] for e_ in ledger.values()}
     asks = {r["number"] for r in unsolved(idx, store, arrivals)}
+    sends = elsewhere_wanted(ledger, got, arrivals, filed)
 
     def row(r):
         n = r["number"]
@@ -1050,6 +1069,9 @@ def checklist(idx=None, store=STORE, root=ROOT, arrivals=None, docs=None, status
             status = [("arrived: the full pass reads it at its next slice", "got")]
         else:
             status = []
+        if n in sends:
+            pages = ", ".join(map(str, sends[n]))
+            status.append((f"save p. {pages} of this issue too: the page sends its clues or diagram there", "bad"))
         if n in solved:
             status.append(("solution saved", "got"))
         elif n in asks:
@@ -1058,13 +1080,16 @@ def checklist(idx=None, store=STORE, root=ROOT, arrivals=None, docs=None, status
         out = {"date": r["date"], "search": gale_docs.permalink("LSNR", r["date"], docs) or gi.search_url(r["date"], "LSNR"),
                "status": status,
                "cells": [str(n), r["title"], r.get("setter") or ""]}
-        if n in asks:
+        if n in sends:
+            # The other page is a document of its own: the issue's search finds it.
+            out.update(key=f"e{n}", dl=None)
+        elif n in asks:
             out.update(key=f"r{n}", dl=gale_docs.report_link("LSNR", n, docs), label="Download solution")
         elif n not in filed and n not in got:
             out.update(key=f"p{n}", dl=gale_docs.link("LSNR", r["date"], docs), arrived=n in came or n in tried)
         return out
 
-    want = asks | {r["number"] for r in todo}
+    want = asks | set(sends) | {r["number"] for r in todo}
     held = filed | set(got) | came
     years = {}
     for r in idx:
