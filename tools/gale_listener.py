@@ -741,7 +741,10 @@ def reread_from(img, key, which, out, located):
             continue  # a number with no words beside it: no clue line
         # The detector reads nothing in a crop much tighter than the line.
         box = (max(0, n[0] - h), max(0, n[1] - h // 2), min(img.width, x1 + h), min(img.height, n[3] + h // 2))
-        band = (n[1] - h / 4, n[3] + h / 4)
+        # The number's own rows: lines set tighter than a number's box is
+        # tall (No 97's 46A, 21 px apart) put the next line's centre within
+        # a quarter height of it, and that line was taken and lost.
+        band = (n[1], n[3])
         got = sorted((w for w in read_box(img, key, box, which) if band[0] <= (w[1] + w[3]) / 2 <= band[1]),
                      key=lambda w: w[0])
         if not got or not (OPENS.match(got[0][4]) or re.fullmatch(r"\d{1,2}", got[0][4])):
