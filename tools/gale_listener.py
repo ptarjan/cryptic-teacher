@@ -308,27 +308,55 @@ def headings(words):
         and min(abs(o[0] - w[2]), abs(w[0] - o[2])) < ALONE for o in words)]
 
 
+def list_heads(words):
+    """(ACROSS, DOWN) heading words heading the lists, DOWN under ACROSS or
+    in a column right of it; None without both."""
+    heads = headings(words)
+    across = al.heading_word(heads, "ACROSS")
+    down = across and next((w for w in sorted(heads, key=lambda w: (w[0] // 200, w[1]))
+                            if fa.heading_of(w[4]) == "DOWN"
+                            and (w[1] > across[3] or w[0] > across[2])), None)
+    return (across, down) if across and down else None
+
+
+def lend_heads(words):
+    """{reader: words} with a reading that misreads a list heading ("DOW",
+    "OWN", "ACIOSS") given the headings another reading reads alone,
+    its own words there replaced: a heading is the page's layout, no
+    clue's text."""
+    lent = next((p for w in words.values() if (p := list_heads(w))), None)
+    if not lent:
+        return words
+    out = {}
+    for k, w in words.items():
+        if list_heads(w):
+            out[k] = w
+            continue
+        out[k] = [o for o in w if not any(h[0] - 10 <= (o[0] + o[2]) / 2 <= h[2] + 10
+                                           and h[1] - 10 <= (o[1] + o[3]) / 2 <= h[3] + 10 for h in lent)]
+        out[k] += list(lent)
+    return out
+
+
 def headed_columns(words):
     """[across lines, down lines] cut at the gutters, read left to right
     from the column the ACROSS heading is in (its clue numbers' edge, which
     may be up to CENTRED left of it), each from the lists' top; the lines before
     DOWN are the across clues, those after it the down. None without both
     headings."""
-    heads = headings(words)
-    across = al.heading_word(heads, "ACROSS")
-    down = across and next((w for w in sorted(heads, key=lambda w: (w[0] // 200, w[1]))
-                            if fa.heading_of(w[4]) == "DOWN"
-                            and (w[1] > across[3] or w[0] > across[2])), None)
-    if not across or not down:
+    if not (pair := list_heads(words)):
         return None
-    top = across[1] - 20
+    across, down = pair
+    # A DOWN level with ACROSS may be read a little above it.
+    top = min(across[1], down[1]) - 20
     below = [w for w in words if (w[1] + w[3]) / 2 >= top]
     # A heading may be centred over its column (No 103's), its clue numbers
     # far left of it: the column starts where they line up.
     left = max((x for x in column_lefts(below) if across[0] - CENTRED <= x <= across[0]), default=across[0] - 40)
     body = [w for w in words_only(below) if w[0] >= left]
     spans = []
-    for x0, _, x1, _, _ in sorted(body):
+    # A speck ("|", "-") prints no word: one in the gutter bridges it.
+    for x0, _, x1, _, _ in sorted(w for w in body if re.search(r"\w", w[4])):
         if spans and x0 <= spans[-1][1] + GUTTER:
             spans[-1][1] = max(spans[-1][1], x1)
         else:
@@ -338,6 +366,9 @@ def headed_columns(words):
     # A word across such a cut is a title over both (No 17's "Points from
     # Letters"), no clue's.
     cuts = [x - GUTTER for x in column_lefts(below) if x > left]
+    if down[0] > across[2] and (x := down_left(below, across, down)) and not any(
+            abs(c - x) < 2 * GUTTER for c in cuts + [a for a, _ in spans]):
+        cuts = sorted(cuts + [x])
     body = [w for w in body if not any(w[0] < x < w[2] - GUTTER for x in cuts)]
     spans = [[max(x0, a), min(x1, b - 1)] for x0, x1 in spans
              for a, b in zip([x0] + cuts, cuts + [x1 + 1]) if max(x0, a) < min(x1, b - 1)]
@@ -375,8 +406,9 @@ NOTE_HEAD = re.compile(r"^\W*N[oO0][tTrR][eE]\s*[.:\u2014\u2013-]")
 #: CONCERT"): an advert's or article's heading below a list.
 CAPITALS = re.compile(r"^[^a-z]*[A-Z]{3,}[^a-z]*[A-Z]{3,}[^a-z]*$")
 #: A clue number as the 1930s lists print it, "12.": where they line up
-#: is a clue column (a bare "12" may be a grid's or a sentence's).
-OPENS = re.compile(r"^\W{0,2}\d{1,2}[.,:](?![\d.])")
+#: is a clue column (a bare "12" may be a grid's or a sentence's). A
+#: bracket opens a count run on to its own line ("(12, 3 words)"), never one.
+OPENS = re.compile(r"^[^\w(]{0,2}\d{1,2}[.,:](?![\d.])")
 #: Words this many line heights apart are no one clue line's.
 LINE_GAP = 5
 #: A clue number alone in its box, and how wide each of its characters
@@ -419,6 +451,23 @@ SPECK = re.compile(r"^[^\w\s*\u2020\u2021'\"\u2018\u201c(]{1,2}\s+(?=[A-Z])")
 #: when their centres are under half its height apart: No 97's centred
 #: ACROSS overlaps the first clue's line below it by a few pixels.
 ALONE = 100
+
+
+def down_left(words, across, down):
+    """Where the DOWN list's column starts when DOWN heads a column right of
+    ACROSS: just left of the clue numbers lined up nearest under it (a
+    centred heading stands up to CENTRED right of them), else None. A
+    narrow gutter a reader's words bridge still parts the lists there."""
+    xs = sorted(w[0] for w in words_only(words) if w[1] > down[1] and BARE_NUMBER.fullmatch(w[4] + ".")
+                and max(across[2], down[0] - CENTRED) < w[0] <= down[0] + COLUMN_STEP)
+    runs = []
+    for x in xs:
+        if runs and x - runs[-1][-1] <= COLUMN_STEP // 4:
+            runs[-1].append(x)
+        else:
+            runs.append([x])
+    runs = [r for r in runs if len(r) >= COLUMN_MIN]
+    return runs[-1][0] - 5 if runs else None
 
 
 def column_lefts(words):
@@ -676,6 +725,7 @@ def read_page(img, key):
     for which in rapid * 2:
         words[which] = figures(reread_lines(img, key, which, [tuple(w) for w in words[which]],
                                             [located] + [words[o] for o in rapid if o != which]))
+    words = lend_heads(words)
     if blanks := page_blanks(img, located):
         verdict["blanks"] = len(blanks)
         words = {k: ocr_clues.with_blanks(w, blanks) for k, w in words.items()}

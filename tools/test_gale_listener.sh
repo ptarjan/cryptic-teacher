@@ -571,6 +571,34 @@ check("and one script, but for the paper's store and status file", True,
       == re.sub(r'const S=.*?,SRC=[^,]*,|PAGE=\d+', "", re.search(r"<script>.*?</script>", listener, re.S).group(0)))
 check("each paper's status file is its own", True,
       'SRC="Checklist.status.js"' in times and 'SRC="Listener%20checklist.status.js"' in listener)
+# The Guardian's Azed scans (tools/andlit_azed.py): ACROSS and DOWN level,
+# bare clue numbers, a gutter of ~50px a reader's words may bridge.
+def azed(down_y=100, down="DOWN", gutter=50, extra=()):
+    right = 10 + 360 + gutter
+    words = line("ACROSS", 10, 100) + line(down, right, down_y)
+    for k, n in enumerate((1, 7, 10)):
+        words += line(f"{n} Clue words set wide right up to here", 10, 130 + 30 * k)
+    for k, n in enumerate((1, 2, 3)):
+        words += line(f"{n} Down clue", right, 130 + 30 * k)
+    return words + list(extra)
+def heads(words):
+    cols = g.page_columns(words)
+    return cols and tuple([l[4].split()[0] for l in c] for c in cols)
+want = (["1", "7", "10"], ["1", "2", "3"])
+check("Azed: both lists", want, heads(azed()))
+check("Azed: a speck in the gutter parts no list", want, heads(azed(extra=[(400, 160, 406, 176, "|")])))
+check("Azed: a DOWN read above ACROSS still heads its list", want, heads(azed(down_y=70)))
+words = line("ACROSS", 10, 100) + line("DOWN", 420, 100)
+for k, n in enumerate((1, 7, 10)):
+    words += line(f"{n} Clue words set wide to here", 10, 130 + 60 * k) + line("(12, 3 words)", 200, 160 + 60 * k)
+for k, n in enumerate((1, 2, 3)):
+    words += line(f"{n} Down clue", 420, 130 + 30 * k)
+check("Azed: counts run on to their own lines are no clue column",
+      (["1", "(12,", "7", "(12,", "10", "(12,"], ["1", "2", "3"]), heads(words))
+check("Azed: a gutter too narrow to see parts the lists at DOWN's numbers", want, heads(azed(gutter=20)))
+lent = g.lend_heads({"a": azed(), "b": azed(down="DOVVN")})
+check("Azed: a reading misreading DOWN is lent the other's", want, heads(lent["b"]))
+check("Azed: and keeps no word of its own there", False, any(w[4] == "DOVVN" for w in lent["b"]))
 print(f"FAILS {fails}")
 sys.exit(1 if fails else 0)
 PY
