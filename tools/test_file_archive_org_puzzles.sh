@@ -902,6 +902,10 @@ held = answered(["BAY", None, None, None])
 check("a held answer read otherwise now takes the new read, its annotation dropped",
       ({"1-across": "BAT"}, None), (f.merge_answers(held, answered(["BAT", None, None, None])),
                                    held["entries"][0].get("annotation")))
+held = answered(["BAY", "BAD", None, None])
+check("a re-read of the solution grid drops each held answer it did not read again",
+      ({"1-across": None, "1-down": None, "4-across": "DOE"}, [None, None, None, "DOE"]),
+      (f.merge_answers(held, answered([None, None, None, "DOE"]), reread=True), [e["solution"] for e in held["entries"]]))
 check("another tool's filing takes no answers", {},
       f.merge_answers(answered([None] * 4, tool="other"), answered(["BAT", None, None, None])))
 

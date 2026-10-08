@@ -89,7 +89,7 @@ WORKERS="${OCR_FULL_PASS_WORKERS:-20}"
 # printed solution grid read on its own rules, its numbered and unsure
 # cells matched to its own letters (trove_solution_ocr.read_framed), and a
 # re-read's answers merged into the held filing.
-REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-08T02:46:05+00:00}"
+REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-08T02:56:21+00:00}"
 
 # The Listener pages Paul saves from Gale's Listener Historical Archive: each
 # new file's clues read once (ledger by file hash), each puzzle whose grid
