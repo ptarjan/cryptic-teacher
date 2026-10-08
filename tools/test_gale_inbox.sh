@@ -25,6 +25,10 @@ import file_archive_org_puzzles as fa
 import gale_inbox as g
 # The Mac's own document cache must not leak in; CI has none.
 g.gale_docs.load = lambda cache=None: {}
+# Nothing here may reach the Mac; CI has none.
+def _no_mac(command, **kw):
+    raise AssertionError(f"the test ran ssh on the Mac: {command[:80]}")
+g.ssh = _no_mac
 
 fails = 0
 def check(what, want, got):
@@ -516,17 +520,17 @@ def fake_resolve(prod, rows, out=None, **kw):
     if prod == "TTDA":
         clock[0] += g.GALE_SECONDS
 real = (_time.monotonic, g.collect, g.mirror, g.gale_due, g.held, g.number_on, g.next_up, g.wanted, g.staged_files,
-        g.last_render, g.publish_status, g.start_reads, g.gale_docs.resolve, gl2.tick, g.LOCK)
+        g.last_render, g.publish_status, g.start_reads, g.install_watcher, g.gale_docs.resolve, gl2.tick, g.LOCK)
 _time.monotonic = lambda: clock[0]
 g.collect = g.mirror = lambda *a, **k: False
 g.gale_due, g.held, g.number_on, g.next_up = (lambda: True), (lambda: {}), (lambda d, b: (None,)), (lambda *a: [])
 g.wanted, g.staged_files, g.last_render, g.publish_status, g.start_reads = (lambda: {}), (lambda: []), (lambda: _time.time() + 10**9), (lambda *a: published.append((a[0].name, clock[0]))), (lambda *a: None)
-g.gale_docs.resolve = fake_resolve
+g.gale_docs.resolve, g.install_watcher = fake_resolve, (lambda *a: None)
 gl2.tick = lambda out, force, ask, until, changed: asked.update(LSNR=until - clock[0])
 g.LOCK = Path(sys.argv[1]) / "sync2.lock"
 g.sync(out=io.StringIO())
 (_time.monotonic, g.collect, g.mirror, g.gale_due, g.held, g.number_on, g.next_up, g.wanted, g.staged_files,
- g.last_render, g.publish_status, g.start_reads, g.gale_docs.resolve, gl2.tick, g.LOCK) = real
+ g.last_render, g.publish_status, g.start_reads, g.install_watcher, g.gale_docs.resolve, gl2.tick, g.LOCK) = real
 check("the Listener gets a full allowance when the Times used all of its own", [g.GALE_SECONDS, g.GALE_SECONDS],
       [asked["TTDA"], asked["LSNR"]])
 check("both pages' status files are published before any Gale lookup",
