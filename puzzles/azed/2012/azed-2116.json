@@ -39,6 +39,9 @@
   "date": "2013-01-06",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -52,7 +55,40 @@
     "text": "Many birds will be flying south with wing",
     "enumeration": "8"
    },
-   "solution": "INTERCOM"
+   "solution": "INTERCOM",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "INTERCOM",
+    "definitions": [
+     {
+      "text": "Many birds will be flying south with wing",
+      "at": 0,
+      "note": "Printer's Devilry: no definition; the sentence, once the answer is put back, is what points to it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Many birds will be flying south with wing",
+      "note": "as printed, birds fly south with the help of a wing"
+     },
+     {
+      "clueFragment": "wing",
+      "note": "the setter's reading: the gap falls after the w, and the restored words say when the birds will leave"
+     }
+    ],
+    "explanation": {
+     "surface": "Birds are migrating south on the wing.",
+     "walkthrough": "Printer's Devilry: put the answer back after the w of 'wing' and the sentence reads 'Many birds will be flying south with winter coming'.",
+     "definitionFit": "An intercom is an internal telephone or loudspeaker system for talking between rooms of a building."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wing"
+    }
+   }
   },
   {
    "number": 1,
@@ -66,7 +102,51 @@
     "text": "Pigment boiling duct – mine ore after crushing",
     "enumeration": "10"
    },
-   "solution": "INDIGOBLUE"
+   "solution": "INDIGOBLUE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INDIGO BLUE",
+    "definitions": [
+     {
+      "text": "Pigment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after crushing",
+      "for": "anagram",
+      "note": "crushed things lose their shape, so the letters before this phrase are to be broken up and remade"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boiling duct – mine ore",
+      "gives": "BOILINGDUE",
+      "note": "the jumble ct mine or (1 Across scrambled) is cut out, leaving boiling due"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BOILINGDUE",
+       "gives": "INDIGOBLUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pigment comes from boiling and crushing mined ore.",
+     "walkthrough": "Strike out the intrusive 'ct mine or', the letters of INTERCOM, and the clue reads 'Pigment boiling due after crushing'.",
+     "definitionFit": "Indigo blue is a deep violet-blue dye, so it is a type of colouring matter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crushing"
+    }
+   }
   },
   {
    "number": 2,
@@ -80,7 +160,55 @@
     "text": "Granny's snaffling first bit of peasants' bread",
     "enumeration": "4"
    },
-   "solution": "NAAN"
+   "solution": "NAAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NAAN",
+    "definitions": [
+     {
+      "text": "bread",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "snaffling",
+      "for": "container",
+      "note": "to snaffle is to grab and pocket, so one part takes the other inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Granny's",
+      "gives": "NAN",
+      "note": "nan is a familiar name for a grandmother"
+     },
+     {
+      "clueFragment": "first bit of peasants'",
+      "gives": "A",
+      "note": "cut the jumble peas (7 Across scrambled) and this reads first bit of ants', its opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "A",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "Grandma pinches a piece of the peasants' loaf.",
+     "walkthrough": "Strike out 'peas', the letters of APSE, and the clue reads 'Granny's snaffling first bit of ants' bread'; Granny's means Granny is.",
+     "definitionFit": "Naan is a flat leavened bread from South Asian cooking, baked in a tandoor oven."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "peasants'"
+    }
+   }
   },
   {
    "number": 3,
@@ -94,7 +222,65 @@
     "text": "Insect: end one on hollow treille (a trade)",
     "enumeration": "7"
    },
-   "solution": "TERMITE"
+   "solution": "TERMITE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TERMITE",
+    "definitions": [
+     {
+      "text": "Insect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hollow",
+      "for": "letter_selection",
+      "note": "a hollow thing has had its inside scooped out, leaving only the outside letters"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "end",
+      "gives": "TERM",
+      "note": "a term is an end or limit, as in the term of a lease"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "treille (a trade)",
+      "gives": "TE",
+      "select": "outer",
+      "note": "cut the jumble ille a trad (10 Across scrambled) and tree is left, whose outer letters are kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TERM",
+      "I",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "An insect sits on a trellis in a trade context, garbled.",
+     "walkthrough": "Strike out 'ille (a trad', the letters of LARDALITE, and the clue reads 'Insect: end one on hollow tree'. In a down clue, 'on' puts the first pieces above the last.",
+     "definitionFit": "A termite is a pale, social insect that eats wood, often called a white ant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "end"
+    }
+   }
   },
   {
    "number": 4,
@@ -108,7 +294,64 @@
     "text": "Most crawled slowly uphill for a writer's fad: cairns",
     "enumeration": "6"
    },
-   "solution": "ELIANS"
+   "solution": "ELIANS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "ELIANS",
+    "definitions": [
+     {
+      "text": "a writer's fad: cairns",
+      "at": 31,
+      "note": "once the jumble is cut, this reads a writer's fans, plural like the answer"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Most",
+      "for": "deletion",
+      "note": "most of a word is all but its last letter"
+     },
+     {
+      "text": "uphill",
+      "for": "reversal",
+      "note": "in a down clue, going uphill means reading from the bottom upwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crawled slowly",
+      "gives": "SNAILED",
+      "note": "to snail is to move at a snail's pace"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELIANS"
+     ],
+     "reversals": [
+      {
+       "from": "SNAILE",
+       "to": "ELIANS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer climbs a hill slowly in pursuit of cairns.",
+     "walkthrough": "Strike out 'd: cair', the letters of DARIC, and the clue reads 'Most crawled slowly uphill for a writer's fans'. Elia was the pen name of the essayist Charles Lamb.",
+     "definitionFit": "Elians are admirers of Elia, Charles Lamb's essay persona, so they are fans of that author."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crawled"
+    }
+   }
   },
   {
    "number": 5,
@@ -122,7 +365,53 @@
     "text": "Small poet, a sort that'll do for ships' companies in sound",
     "enumeration": "5"
    },
-   "solution": "CRUSE"
+   "solution": "CRUSE",
+   "annotation": {
+    "type": [
+     "double_definition",
+     "homophone"
+    ],
+    "answer": "CRUSE",
+    "definitions": [
+     {
+      "text": "Small poet",
+      "at": 0,
+      "note": "once the jumble is cut, this reads small pot"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in sound",
+      "for": "homophone",
+      "note": "in sound means as heard, so the word is judged by how it is spoken rather than spelt"
+     }
+    ],
+    "linkWords": [
+     "a sort that'll do for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small poet",
+      "note": "first meaning, after cutting the jumble et, a sor (12 Across scrambled): small pot"
+     },
+     {
+      "clueFragment": "ships' companies",
+      "gives": "CRUSE",
+      "soundsLike": "CREWS",
+      "note": "a ship's company is its crew"
+     }
+    ],
+    "explanation": {
+     "surface": "A minor poet suits sailors' tastes in verse.",
+     "walkthrough": "Strike out 'et, a sor', the letters of ORATES, and the clue reads 'Small pot that'll do for ships' companies in sound'.",
+     "definitionFit": "A cruse is a small earthenware jar or pot, as in the biblical widow's cruse of oil."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "poet"
+    }
+   }
   },
   {
    "number": 6,
@@ -136,7 +425,64 @@
     "text": "Market raised toast in Marne for French inventor",
     "enumeration": "8"
    },
-   "solution": "MARTENOT"
+   "solution": "MARTENOT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MARTENOT",
+    "definitions": [
+     {
+      "text": "French inventor",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "raised in a down clue means lifted upwards, so read the word from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Market",
+      "gives": "MART",
+      "note": "a mart is a market"
+     },
+     {
+      "clueFragment": "toast in Marne",
+      "gives": "TONE",
+      "note": "the jumble ast in Mar (14 Across scrambled) is cut, leaving tone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MART",
+      "ENOT"
+     ],
+     "reversals": [
+      {
+       "from": "TONE",
+       "to": "ENOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French inventor is toasted at a market by the Marne river.",
+     "walkthrough": "Strike out 'ast in Mar', the letters of INMARSAT, and the clue reads 'Market raised tone for French inventor'.",
+     "definitionFit": "Maurice Martenot was the French musician who invented the ondes Martenot, an early electronic instrument."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "toast"
+    }
+   }
   },
   {
    "number": 7,
@@ -150,7 +496,40 @@
     "text": "As soldiers, chat in a mess",
     "enumeration": "4"
    },
-   "solution": "APSE"
+   "solution": "APSE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "APSE",
+    "definitions": [
+     {
+      "text": "As soldiers, chat in a mess",
+      "at": 0,
+      "note": "Printer's Devilry: no definition; the sentence, once the answer is put back, is what points to it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "As soldiers, chat in a mess",
+      "note": "as printed, soldiers chatter together in their dining hall"
+     },
+     {
+      "clueFragment": "chat",
+      "note": "the setter's reading: the gap falls after ch, and the restored words say what the soldiers do in the mess"
+     }
+    ],
+    "explanation": {
+     "surface": "Soldiers gossip in the mess hall.",
+     "walkthrough": "Printer's Devilry: put the answer back after the ch of 'chat' and the sentence reads 'As soldiers, chaps eat in a mess'.",
+     "definitionFit": "An apse is the rounded or vaulted recess at the east end of a church, usually behind the altar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chat"
+    }
+   }
   },
   {
    "number": 7,
@@ -164,7 +543,72 @@
     "text": "Maybe Peter or vet found with air swirling around, under shelter",
     "enumeration": "6"
    },
-   "solution": "ALABRI"
+   "solution": "ALABRI",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "A L'ABRI",
+    "definitions": [
+     {
+      "text": "under shelter",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swirling",
+      "for": "anagram",
+      "note": "swirling air is churned about, so its letters are mixed"
+     },
+     {
+      "text": "found with",
+      "for": "container",
+      "note": "the pet is found with the air wrapped around it, one inside the other"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around signals that one part encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "air",
+      "gives": "AIR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Maybe Peter or vet",
+      "gives": "LAB",
+      "note": "after cutting the jumble eter or ve (17 Across scrambled), Maybe Pet is left: a Labrador, lab for short, is an example of a pet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LAB",
+      "RI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AIR",
+       "gives": "ARI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Peter or the vet is found sheltering from a gale.",
+     "walkthrough": "Strike out 'eter or ve', the letters of EVERTOR, and the clue reads 'Maybe Pet found with air swirling around, under shelter'.",
+     "definitionFit": "A l'abri is a French phrase in Chambers meaning sheltered or under cover."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Peter"
+    }
+   }
   },
   {
    "number": 8,
@@ -178,7 +622,45 @@
     "text": "It's topping for those in the sun, a certain coast, outré",
     "enumeration": "4"
    },
-   "solution": "PITH"
+   "solution": "PITH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PITH",
+    "definitions": [
+     {
+      "text": "It's topping for those in the sun",
+      "at": 0
+     },
+     {
+      "text": "a certain coast, outré",
+      "at": 35,
+      "note": "once the jumble is cut, this reads a certain core"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It's topping for those in the sun",
+      "note": "first meaning: a ... helmet is a sun hat, so ... tops heads in hot climates"
+     },
+     {
+      "clueFragment": "a certain coast, outré",
+      "note": "second meaning, after cutting the jumble ast, out (18 Across scrambled): a certain core"
+     }
+    ],
+    "explanation": {
+     "surface": "Something is the height of fashion for sunbathers on an exotic coast.",
+     "walkthrough": "Strike out 'ast, out', the letters of OUTSAT, and the clue reads 'It's topping for those in the sun, a certain core'. Topping means a hat here, not excellent.",
+     "definitionFit": "Pith is the spongy central tissue of a plant stem, hence the core or essence of anything."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "topping"
+    }
+   }
   },
   {
    "number": 9,
@@ -192,7 +674,52 @@
     "text": "Do resist mixing compounds e.g. in bun ICI file",
     "enumeration": "8"
    },
-   "solution": "STEROIDS"
+   "solution": "STEROIDS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STEROIDS",
+    "definitions": [
+     {
+      "text": "compounds e.g. in bun ICI file",
+      "at": 17,
+      "note": "once the jumble is cut, this reads compounds e.g. in bile"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixing",
+      "for": "anagram",
+      "note": "mixing stirs the letters together into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Do resist",
+      "gives": "DORESIST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DORESIST",
+       "gives": "STEROIDS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone resists mixing chemicals for ICI, the old British chemicals firm.",
+     "walkthrough": "Strike out 'un ICI f', the letters of UNIFIC, and the clue reads 'Do resist mixing compounds e.g. in bile'.",
+     "definitionFit": "Steroids are a class of organic compounds that includes the bile acids, sterols and many hormones."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "resist"
+    }
+   }
   },
   {
    "number": 10,
@@ -206,7 +733,40 @@
     "text": "To buy are guns, of thousands – won't seem excessive to collectors",
     "enumeration": "9"
    },
-   "solution": "LARDALITE"
+   "solution": "LARDALITE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LARDALITE",
+    "definitions": [
+     {
+      "text": "To buy are guns, of thousands – won't seem excessive to collectors",
+      "at": 0,
+      "note": "Printer's Devilry: no definition; the sentence, once the answer is put back, is what points to it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "To buy are guns, of thousands – won't seem excessive to collectors",
+      "note": "as printed, it seems to be about collectors buying thousands of guns"
+     },
+     {
+      "clueFragment": "are guns",
+      "note": "the setter's reading: the gap falls after the re of 'are guns' re-spaced, and the restored words name a painter and a price"
+     }
+    ],
+    "explanation": {
+     "surface": "Collectors don't mind paying for arms by the thousand.",
+     "walkthrough": "Printer's Devilry: put the answer back after 'a regu' and the sentence reads 'To buy a regular Dalí, tens of thousands won't seem excessive to collectors'. The spaces and comma have been moved.",
+     "definitionFit": "Lardalite is a coarse-grained igneous rock found in Norway, named after the Lardal district, listed in Chambers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "guns"
+    }
+   }
   },
   {
    "number": 11,
@@ -220,7 +780,40 @@
     "text": "Some fine puddings – too much after a big main course?",
     "enumeration": "5"
    },
-   "solution": "DARIC"
+   "solution": "DARIC",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DARIC",
+    "definitions": [
+     {
+      "text": "Some fine puddings – too much after a big main course?",
+      "at": 0,
+      "note": "Printer's Devilry: no definition; the sentence, once the answer is put back, is what points to it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Some fine puddings – too much after a big main course?",
+      "note": "as printed, good desserts are too much after a heavy meal"
+     },
+     {
+      "clueFragment": "fine puddings",
+      "note": "the setter's reading: the gap falls after fin, and the restored words name one particular pudding"
+     }
+    ],
+    "explanation": {
+     "surface": "Even a good dessert is too much after a huge main course.",
+     "walkthrough": "Printer's Devilry: put the answer back after 'fin' and the sentence reads 'Some find a rice pudding's too much after a big main course?'.",
+     "definitionFit": "A daric was a gold coin of ancient Persia, named after King Darius."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fine"
+    }
+   }
   },
   {
    "number": 12,
@@ -234,7 +827,40 @@
     "text": "He's rather unfit, soft, must train extra-hard",
     "enumeration": "6"
    },
-   "solution": "ORATES"
+   "solution": "ORATES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ORATES",
+    "definitions": [
+     {
+      "text": "He's rather unfit, soft, must train extra-hard",
+      "at": 0,
+      "note": "Printer's Devilry: no definition; the sentence, once the answer is put back, is what points to it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He's rather unfit, soft, must train extra-hard",
+      "note": "as printed, a flabby man needs to work harder in the gym"
+     },
+     {
+      "clueFragment": "soft",
+      "note": "the setter's reading: the gap falls after so f, and the restored words give a reason for the training"
+     }
+    ],
+    "explanation": {
+     "surface": "A flabby, out-of-shape man has to train harder.",
+     "walkthrough": "Printer's Devilry: put the answer back after the f of 'soft' and the sentence reads 'He's rather unfit so, for a test, must train extra-hard'.",
+     "definitionFit": "To orate is to make a formal speech, often pompously, so this is the verb's third-person form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "soft"
+    }
+   }
   },
   {
    "number": 13,
@@ -248,7 +874,68 @@
     "text": "Doctoring scares about measure: muscle cell parley (Barts)",
     "enumeration": "10"
    },
-   "solution": "SARCOMERES"
+   "solution": "SARCOMERES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SARCOMERES",
+    "definitions": [
+     {
+      "text": "muscle cell parley (Barts)",
+      "at": 32,
+      "note": "once the jumble is cut, this reads muscle cell parts"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctoring",
+      "for": "anagram",
+      "note": "doctoring something means tampering with it, so its letters are rearranged"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece goes round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scares",
+      "gives": "SCARES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "measure",
+      "gives": "OMER",
+      "note": "an omer is an ancient Hebrew dry measure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SARC",
+      "OMER",
+      "ES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SCARES",
+       "gives": "SARCES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Doctors at Barts hospital, a London teaching hospital, hold a meeting about muscle cells.",
+     "walkthrough": "Strike out 'arley (B', the letters of BLEARY, and the clue reads 'Doctoring scares about measure: muscle cell parts'.",
+     "definitionFit": "Sarcomeres are the repeating contractile units of a muscle fibre, so they are structural pieces within it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctoring"
+    }
+   }
   },
   {
    "number": 14,
@@ -262,7 +949,40 @@
     "text": "The traffic's down as environment for residents",
     "enumeration": "8"
    },
-   "solution": "INMARSAT"
+   "solution": "INMARSAT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "INMARSAT",
+    "definitions": [
+     {
+      "text": "The traffic's down as environment for residents",
+      "at": 0,
+      "note": "Printer's Devilry: no definition; the sentence, once the answer is put back, is what points to it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The traffic's down as environment for residents",
+      "note": "as printed, falling traffic seems to be good news for locals"
+     },
+     {
+      "clueFragment": "down",
+      "note": "the setter's reading: the gap falls after the d, and the restored words make the traffic a nuisance"
+     }
+    ],
+    "explanation": {
+     "surface": "Less traffic means a better environment for residents.",
+     "walkthrough": "Printer's Devilry: put the answer back after the d of 'down' and the sentence reads 'The traffic's din mars a town as environment for residents'.",
+     "definitionFit": "Inmarsat is the abbreviation for the International Maritime Satellite Organization, which runs satellite communications for ships."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "down"
+    }
+   }
   },
   {
    "number": 15,
@@ -276,7 +996,32 @@
     "text": "See preamble",
     "enumeration": "8"
    },
-   "solution": "YULETIDE"
+   "solution": "YULETIDE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "YULETIDE",
+    "definedByPreamble": true,
+    "blocks": [
+     {
+      "clueFragment": "See preamble",
+      "note": "no clue is printed for this light; the instruction only points to the preamble"
+     },
+     {
+      "clueFragment": "preamble",
+      "note": "the preamble says the answer may be defined as part of the puzzle's title, Christmas Devilry, and asks competitors to write its clue"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "This light is unclued: solvers get it from the crossings and the title, and competitors write a clue in the style of the downs, with the jumble of 23 Across (COMEDO) inside it.",
+     "definitionFit": "Yuletide is the Christmas season, so it can stand for the first word of the puzzle's title."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -290,7 +1035,56 @@
     "text": "Warbler (MO) ogles about me: bonbons rarely",
     "enumeration": "8"
    },
-   "solution": "CAROMELS"
+   "solution": "CAROMELS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CAROMELS",
+    "definitions": [
+     {
+      "text": "bonbons rarely",
+      "at": 29,
+      "note": "rarely flags an uncommon spelling of caramels"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the singing goes round the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Warbler (MO) ogles",
+      "gives": "CAROLS",
+      "note": "after cutting the jumble r (MO) ogle (25 Across scrambled), Warbles is left: to carol is to warble or sing"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARO",
+      "ME",
+      "LS"
+     ]
+    },
+    "explanation": {
+     "surface": "A singer leers at the speaker and hands out sweets.",
+     "walkthrough": "Strike out 'r (MO) ogle', the letters of LEGROOM, and the clue reads 'Warbles about me: bonbons rarely'.",
+     "definitionFit": "Caromels is a rare spelling of caramels, chewy toffee sweets of the bonbon kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Warbler"
+    }
+   }
   },
   {
    "number": 17,
@@ -304,7 +1098,40 @@
     "text": "You don't have to be clear, children, just loving and patient",
     "enumeration": "7"
    },
-   "solution": "EVERTOR"
+   "solution": "EVERTOR",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EVERTOR",
+    "definitions": [
+     {
+      "text": "You don't have to be clear, children, just loving and patient",
+      "at": 0,
+      "note": "Printer's Devilry: no definition; the sentence, once the answer is put back, is what points to it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You don't have to be clear, children, just loving and patient",
+      "note": "as printed, someone tells children clarity matters less than kindness"
+     },
+     {
+      "clueFragment": "clear",
+      "note": "the setter's reading: the gap falls after cl, and the restored words are advice on bringing up children"
+     }
+    ],
+    "explanation": {
+     "surface": "Advice to children that love and patience count for more than clarity.",
+     "walkthrough": "Printer's Devilry: put the answer back after the cl of 'clear' and the sentence reads 'You don't have to be clever to rear children, just loving and patient'.",
+     "definitionFit": "An evertor is a muscle that turns a body part, such as the foot, outwards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clear"
+    }
+   }
   },
   {
    "number": 18,
@@ -318,7 +1145,40 @@
     "text": "A bad-tempered teacher, clot in class, at his peril",
     "enumeration": "6"
    },
-   "solution": "OUTSAT"
+   "solution": "OUTSAT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "OUTSAT",
+    "definitions": [
+     {
+      "text": "A bad-tempered teacher, clot in class, at his peril",
+      "at": 0,
+      "note": "Printer's Devilry: no definition; the sentence, once the answer is put back, is what points to it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A bad-tempered teacher, clot in class, at his peril",
+      "note": "as printed, a cranky teacher is called a fool"
+     },
+     {
+      "clueFragment": "clot",
+      "note": "the setter's reading: the gap falls after cl, and the restored words describe the teacher striking a child"
+     }
+    ],
+    "explanation": {
+     "surface": "A grumpy teacher is labelled a clot, and pays for it.",
+     "walkthrough": "Printer's Devilry: put the answer back after the cl of 'clot' and the sentence reads 'A bad-tempered teacher clouts a tot in class at his peril'. A clout is a blow.",
+     "definitionFit": "To outsit is to sit longer than another, so the past tense means stayed seated beyond someone else."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clot"
+    }
+   }
   },
   {
    "number": 19,
@@ -332,7 +1192,40 @@
     "text": "A plain sponge is OK, but many think it more, fed",
     "enumeration": "6"
    },
-   "solution": "UNIFIC"
+   "solution": "UNIFIC",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "UNIFIC",
+    "definitions": [
+     {
+      "text": "A plain sponge is OK, but many think it more, fed",
+      "at": 0,
+      "note": "Printer's Devilry: no definition; the sentence, once the answer is put back, is what points to it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A plain sponge is OK, but many think it more, fed",
+      "note": "as printed, a garbled remark about a plain cake"
+     },
+     {
+      "clueFragment": "more, fed",
+      "note": "the setter's reading: the gap falls after the f, and the restored words say how the sponge can be improved"
+     }
+    ],
+    "explanation": {
+     "surface": "A plain sponge cake is fine, but many prefer it dressed up.",
+     "walkthrough": "Printer's Devilry: put the answer back after the f of 'fed' and the sentence reads 'A plain sponge is OK, but many think it more fun if iced'.",
+     "definitionFit": "Unific is a rare adjective meaning making one, or producing unity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fed"
+    }
+   }
   },
   {
    "number": 20,
@@ -346,7 +1239,55 @@
     "text": "One of old accomplices as a team fête tailless gazelle",
     "enumeration": "7"
    },
-   "solution": "FEDARIE"
+   "solution": "FEDARIE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "FEDARIE",
+    "definitions": [
+     {
+      "text": "One of old accomplices",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tailless",
+      "for": "deletion",
+      "note": "without a tail, the final letter is cut off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as a team fête",
+      "gives": "FED",
+      "note": "after cutting the jumble s a team fê (28 Across scrambled), ate is left: fed means ate"
+     },
+     {
+      "clueFragment": "gazelle",
+      "gives": "ARIEL",
+      "note": "an ariel is an Arabian gazelle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FED",
+      "ARIE"
+     ]
+    },
+    "explanation": {
+     "surface": "An old accomplice of a team at a fête meets a gazelle.",
+     "walkthrough": "Strike out 's a team fê', the letters of MEATSAFE, and the clue reads 'One of old accomplices ate tailless gazelle'.",
+     "definitionFit": "Fedarie is an obsolete Scots word, used by Scott, for a confederate or partner in crime."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "team"
+    }
+   }
   },
   {
    "number": 21,
@@ -360,7 +1301,40 @@
     "text": "The concept of humans was not part of Hitler's philosophy",
     "enumeration": "6"
    },
-   "solution": "BLEARY"
+   "solution": "BLEARY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BLEARY",
+    "definitions": [
+     {
+      "text": "The concept of humans was not part of Hitler's philosophy",
+      "at": 0,
+      "note": "Printer's Devilry: no definition; the sentence, once the answer is put back, is what points to it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The concept of humans was not part of Hitler's philosophy",
+      "note": "as printed, a bleak statement about Nazi thinking"
+     },
+     {
+      "clueFragment": "humans",
+      "note": "the setter's reading: the gap falls after hum, and the restored words qualify which people are meant"
+     }
+    ],
+    "explanation": {
+     "surface": "Nazi ideology did not recognise common humanity.",
+     "walkthrough": "Printer's Devilry: put the answer back after the hum of 'humans' and the sentence reads 'The concept of humble Aryans was not part of Hitler's philosophy'.",
+     "definitionFit": "Bleary describes eyes that are dim, watery or unfocused, as from tiredness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "humans"
+    }
+   }
   },
   {
    "number": 22,
@@ -374,7 +1348,63 @@
     "text": "Fibre from Moroccan tree having hart, i.e. herd, inside",
     "enumeration": "6"
    },
-   "solution": "ARGHAN"
+   "solution": "ARGHAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ARGHAN",
+    "definitions": [
+     {
+      "text": "Fibre",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having",
+      "for": "container",
+      "note": "having something inside means holding it within"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside places one piece within the other"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Moroccan tree",
+      "gives": "ARGAN",
+      "note": "the argan is a thorny tree of Morocco, known for its oil"
+     },
+     {
+      "clueFragment": "hart, i.e. herd",
+      "gives": "H",
+      "note": "after cutting the jumble t, i.e. her (30 Across scrambled), hard is left, abbreviated H as on pencils"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARG",
+      "H",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A Moroccan tree shelters a deer from a herd.",
+     "walkthrough": "Strike out 't, i.e. her', the letters of EITHER, and the clue reads 'Fibre from Moroccan tree having hard inside'.",
+     "definitionFit": "Arghan is the fibre of a pineapple-family plant, used for cordage and textiles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hart"
+    }
+   }
   },
   {
    "number": 23,
@@ -388,7 +1418,40 @@
     "text": "It's hard to communicate with grandpa, now he has Betty",
     "enumeration": "6"
    },
-   "solution": "COMEDO"
+   "solution": "COMEDO",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "COMEDO",
+    "definitions": [
+     {
+      "text": "It's hard to communicate with grandpa, now he has Betty",
+      "at": 0,
+      "note": "Printer's Devilry: no definition; the sentence, once the answer is put back, is what points to it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It's hard to communicate with grandpa, now he has Betty",
+      "note": "as printed, grandpa has a new companion called Betty"
+     },
+     {
+      "clueFragment": "Betty",
+      "note": "the setter's reading: the gap falls after be, and the restored words explain why talking to him is hard"
+     }
+    ],
+    "explanation": {
+     "surface": "Grandpa has a new lady friend and is harder to reach.",
+     "walkthrough": "Printer's Devilry: put the answer back after the be of 'Betty' and the sentence reads 'It's hard to communicate with grandpa, now he has become dotty'.",
+     "definitionFit": "A comedo is the medical term for a blackhead, a plug of sebum blocking a skin pore."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Betty"
+    }
+   }
   },
   {
    "number": 24,
@@ -402,7 +1465,56 @@
     "text": "Abrus reuse is accepted in contemplation",
     "enumeration": "6"
    },
-   "solution": "MISUSE"
+   "solution": "MISUSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MISUSE",
+    "definitions": [
+     {
+      "text": "Abrus reuse",
+      "at": 0,
+      "note": "once the jumble is cut, this reads Abuse"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepted in",
+      "for": "container",
+      "note": "something accepted into another is taken inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "contemplation",
+      "gives": "MUSE",
+      "note": "to muse is to contemplate, and a muse is a fit of contemplation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "IS",
+      "USE"
+     ]
+    },
+    "explanation": {
+     "surface": "Reusing abrus, a tropical climbing plant, is thought over.",
+     "walkthrough": "Strike out 'rus re', the letters of SURER, and the clue reads 'Abuse is accepted in contemplation'.",
+     "definitionFit": "To misuse something is to treat it wrongly, which is a synonym of abuse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reuse"
+    }
+   }
   },
   {
    "number": 25,
@@ -416,7 +1528,40 @@
     "text": "Best men should know how to, hands being ready at all times",
     "enumeration": "7"
    },
-   "solution": "LEGROOM"
+   "solution": "LEGROOM",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LEGROOM",
+    "definitions": [
+     {
+      "text": "Best men should know how to, hands being ready at all times",
+      "at": 0,
+      "note": "Printer's Devilry: no definition; the sentence, once the answer is put back, is what points to it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Best men should know how to, hands being ready at all times",
+      "note": "as printed, best men must keep their hands at the ready"
+     },
+     {
+      "clueFragment": "hands",
+      "note": "the setter's reading: the gap falls after hand, and the restored words say what a best man must manage"
+     }
+    ],
+    "explanation": {
+     "surface": "Best men must always be on hand at a wedding.",
+     "walkthrough": "Printer's Devilry: put the answer back after 'hand' and the sentence reads 'Best men should know how to handle grooms, being ready at all times'.",
+     "definitionFit": "Legroom is the space available for a seated person's legs, as in a car or aircraft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hands"
+    }
+   }
   },
   {
    "number": 26,
@@ -430,7 +1575,61 @@
     "text": "Expert chaps, one verse sale idly involved",
     "enumeration": "5"
    },
-   "solution": "MAVEN"
+   "solution": "MAVEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MAVEN",
+    "definitions": [
+     {
+      "text": "Expert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved",
+      "for": "container",
+      "note": "involved means wrapped up inside, so the pair goes within the men"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chaps",
+      "gives": "MEN",
+      "note": "chaps are men"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "verse sale idly",
+      "gives": "V",
+      "note": "after cutting the jumble se sale idl (32 Across scrambled), very is left, abbreviated V"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AV",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "Expert men are idly caught up in a sale of poetry.",
+     "walkthrough": "Strike out 'se sale idl', the letters of IDEALLESS, and the clue reads 'Expert chaps, one very involved'.",
+     "definitionFit": "A maven, from Yiddish, is a connoisseur or someone with great knowledge of a subject."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sale"
+    }
+   }
   },
   {
    "number": 27,
@@ -444,7 +1643,70 @@
     "text": "With news broadcast (English, not international) in state of agitation",
     "enumeration": "4"
    },
-   "solution": "STEW"
+   "solution": "STEW",
+   "annotation": {
+    "type": [
+     "substitution",
+     "anagram"
+    ],
+    "answer": "STEW",
+    "definitions": [
+     {
+      "text": "in state of agitation",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast means scattered widely, so the letters are strewn into a new order"
+     },
+     {
+      "text": "English, not international",
+      "for": "substitution",
+      "note": "the abbreviation for English is to stand in the place where the abbreviation for international was"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "With news",
+      "gives": "WITS",
+      "note": "after cutting the jumble h new (33 Across scrambled), Wits is left"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "international",
+      "gives": "I",
+      "note": "I is the abbreviation for international"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEW"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WETS",
+       "gives": "STEW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "News coverage, English rather than international, leaves people agitated.",
+     "walkthrough": "Strike out 'h new', the letters of HEWN, and the clue reads 'Wits broadcast (English, not international) in state of agitation'.",
+     "definitionFit": "To be in a stew is an idiom for being anxious or flustered, so the noun names that worried condition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "news"
+    }
+   }
   },
   {
    "number": 28,
@@ -458,7 +1720,40 @@
     "text": "Our young one not keen on jaw? Marmite sandwiches for tea",
     "enumeration": "8"
    },
-   "solution": "MEATSAFE"
+   "solution": "MEATSAFE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "MEATSAFE",
+    "definitions": [
+     {
+      "text": "Our young one not keen on jaw? Marmite sandwiches for tea",
+      "at": 0,
+      "note": "Printer's Devilry: no definition; the sentence, once the answer is put back, is what points to it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Our young one not keen on jaw? Marmite sandwiches for tea",
+      "note": "as printed, a child dislikes being lectured and gets Marmite sandwiches"
+     },
+     {
+      "clueFragment": "jaw",
+      "note": "the setter's reading: the gap falls after ja, and the restored words are about the child's eating"
+     }
+    ],
+    "explanation": {
+     "surface": "A child who hates being told off is given Marmite sandwiches.",
+     "walkthrough": "Printer's Devilry: put the answer back after the ja of 'jaw' and the sentence reads 'Our young one, not keen on jam, eats a few Marmite sandwiches for tea'. Marmite is a British yeast spread.",
+     "definitionFit": "A meat safe is a ventilated cupboard with mesh sides for storing meat before refrigerators."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "jaw"
+    }
+   }
   },
   {
    "number": 29,
@@ -472,7 +1767,47 @@
     "text": "Was she lass ended in upland tract?",
     "enumeration": "4"
    },
-   "solution": "FELL"
+   "solution": "FELL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FELL",
+    "definitions": [
+     {
+      "text": "Was she lass ended",
+      "at": 0,
+      "note": "once the jumble is cut, this reads Was shed"
+     },
+     {
+      "text": "upland tract",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Was she lass ended",
+      "note": "first meaning, after cutting the jumble e lass end (34 Across scrambled): was shed, as leaves fall"
+     },
+     {
+      "clueFragment": "upland tract",
+      "note": "second meaning: a stretch of high moorland, as in the Lake District"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks whether a girl came to grief in the hills.",
+     "walkthrough": "Strike out 'e lass end', the letters of SANDEELS, and the clue reads 'Was shed in upland tract?'.",
+     "definitionFit": "Fell is the past tense of fall, as leaves drop, and also a northern English noun for a hill or moor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lass"
+    }
+   }
   },
   {
    "number": 30,
@@ -486,7 +1821,40 @@
     "text": "Why bother with other resorts I like?",
     "enumeration": "6"
    },
-   "solution": "EITHER"
+   "solution": "EITHER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EITHER",
+    "definitions": [
+     {
+      "text": "Why bother with other resorts I like?",
+      "at": 0,
+      "note": "Printer's Devilry: no definition; the sentence, once the answer is put back, is what points to it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Why bother with other resorts I like?",
+      "note": "as printed, someone asks why to visit other resorts they like"
+     },
+     {
+      "clueFragment": "like",
+      "note": "the setter's reading: the gap falls after lik, and the restored words praise the present place"
+     }
+    ],
+    "explanation": {
+     "surface": "A holidaymaker wonders why to try other resorts.",
+     "walkthrough": "Printer's Devilry: put the answer back after the lik of 'like' and the sentence reads 'Why bother with other resorts? I like it here'.",
+     "definitionFit": "Either is a determiner or pronoun meaning one or the other of two."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "like"
+    }
+   }
   },
   {
    "number": 31,
@@ -500,7 +1868,40 @@
     "text": "As a result of the economic present, charges will rise",
     "enumeration": "5"
    },
-   "solution": "SURER"
+   "solution": "SURER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SURER",
+    "definitions": [
+     {
+      "text": "As a result of the economic present, charges will rise",
+      "at": 0,
+      "note": "Printer's Devilry: no definition; the sentence, once the answer is put back, is what points to it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "As a result of the economic present, charges will rise",
+      "note": "as printed, current economics will push charges up"
+     },
+     {
+      "clueFragment": "present",
+      "note": "the setter's reading: the gap falls after pres, and the restored words say which charges rise and why"
+     }
+    ],
+    "explanation": {
+     "surface": "Charges will go up because of the current economy.",
+     "walkthrough": "Printer's Devilry: put the answer back after the pres of 'present' and the sentence reads 'As a result of the economic pressure, rent charges will rise'.",
+     "definitionFit": "Surer is the comparative of sure, meaning more certain or more reliable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "present"
+    }
+   }
   },
   {
    "number": 32,
@@ -514,7 +1915,40 @@
     "text": "Some people suppress any sign of emotion and hence of humanity",
     "enumeration": "9"
    },
-   "solution": "IDEALLESS"
+   "solution": "IDEALLESS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "IDEALLESS",
+    "definitions": [
+     {
+      "text": "Some people suppress any sign of emotion and hence of humanity",
+      "at": 0,
+      "note": "Printer's Devilry: no definition; the sentence, once the answer is put back, is what points to it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Some people suppress any sign of emotion and hence of humanity",
+      "note": "as printed, hiding feelings is said to suppress humanity as a consequence"
+     },
+     {
+      "clueFragment": "hence",
+      "note": "the setter's reading: the gap falls after the h, and the restored words add a second thing such people conceal"
+     }
+    ],
+    "explanation": {
+     "surface": "Some people bottle up their feelings and so lose their humanity.",
+     "walkthrough": "Printer's Devilry: put the answer back after the h of 'hence' and the sentence reads 'Some people suppress any sign of emotion and hide all essence of humanity'.",
+     "definitionFit": "Idealless means having no ideals or lofty principles; Chambers lists it under ideal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hence"
+    }
+   }
   },
   {
    "number": 33,
@@ -528,7 +1962,40 @@
     "text": "It's irritating seeing many cuts throughout the film",
     "enumeration": "4"
    },
-   "solution": "HEWN"
+   "solution": "HEWN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HEWN",
+    "definitions": [
+     {
+      "text": "It's irritating seeing many cuts throughout the film",
+      "at": 0,
+      "note": "Printer's Devilry: no definition; the sentence, once the answer is put back, is what points to it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It's irritating seeing many cuts throughout the film",
+      "note": "as printed, a viewer complains about choppy editing"
+     },
+     {
+      "clueFragment": "cuts",
+      "note": "the setter's reading: the gap falls after the c, and the restored words describe noisy snacking in the cinema"
+     }
+    ],
+    "explanation": {
+     "surface": "A film-goer is annoyed by heavy editing in a movie.",
+     "walkthrough": "Printer's Devilry: put the answer back after the c of 'cuts' and the sentence reads 'It's irritating seeing many chew nuts throughout the film'.",
+     "definitionFit": "Hewn is the past participle of hew, meaning chopped or shaped with an axe or similar blade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cuts"
+    }
+   }
   },
   {
    "number": 34,
@@ -542,7 +2009,40 @@
     "text": "Fishermen lay sea nets to trap their catch",
     "enumeration": "8"
    },
-   "solution": "SANDEELS"
+   "solution": "SANDEELS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SAND EELS",
+    "definitions": [
+     {
+      "text": "Fishermen lay sea nets to trap their catch",
+      "at": 0,
+      "note": "Printer's Devilry: no definition; the sentence, once the answer is put back, is what points to it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fishermen lay sea nets to trap their catch",
+      "note": "as printed, a plain statement about fishing"
+     },
+     {
+      "clueFragment": "sea nets",
+      "note": "the setter's reading: the gap falls after sean, re-spaced, and the restored words name two kinds of fishing net"
+     }
+    ],
+    "explanation": {
+     "surface": "Fishermen set nets in the sea to catch fish.",
+     "walkthrough": "Printer's Devilry: put the answer back after 'sean' and the sentence reads 'Fishermen lay seans and eel-sets to trap their catch'. A sean is a seine net; an eel-set is a net across a river.",
+     "definitionFit": "Sand eels are small slender fish that burrow in sand, often used as bait or eaten by seabirds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nets"
+    }
+   }
   }
  ]
 }
