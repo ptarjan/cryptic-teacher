@@ -363,6 +363,9 @@ ACQUISITION_BY_SOURCE = {
                                "tools/fetch_metro.py --wayback"),
     ("canberra", "trove.nla.gov.au"): ("tools/file_trove_puzzles.py",),
     ("times", "archive.org"): ("tools/file_archive_org_puzzles.py",),
+    # A Times cryptic held only as the Canberra Times' reprint of it
+    # (tools/fold_reprints.py files it under its original's id).
+    ("times", "trove.nla.gov.au"): ("tools/file_trove_puzzles.py",),
     # The Times pages Paul saves from Gale (tools/gale_inbox.py): the
     # document's page there, or the library portal where none is named.
     ("times", "go.gale.com"): ("tools/file_archive_org_puzzles.py",),
