@@ -146,6 +146,23 @@ check("lists either side of a map, each read from its own heading's column",
       (["3", "6", "8", "18", "22"], ["1", "2", "4", "20", "26"]),
       tuple([l[4].split(".")[0] for l in c] for c in g.page_columns(words) or ([], [])))
 
+# No 3's "6o. A resin." read "6." under 58 across, DOWN's heading unread:
+# the small-o 0 put back;
+# a "6." after a list's restart gap, or one standing for a number more
+# than ZERO_STEP past the clue before it, is read as printed.
+def no3(gap, n="6"):
+    return (line("ACROSS", 200, 100) + line("56. A small coin.", 100, 130) + line("57. A great part", 100, 160)
+            + line("58. A large number.", 100, 190) + line(f"{n}. A resin.", 100, 220 + gap)
+            + line("62. A fairly common ending", 100, 250 + gap)
+            + line("1. A pass", 600, 130) + line("2. An exclamation", 600, 160)
+            + line("3. An association", 600, 190))
+check("a clue number's lost old-style 0 put back",
+      ["56", "57", "58", "60", "62"], [l[4].split(".")[0] for l in g.page_columns(no3(0))[0]])
+check("a one-figure number after a restart gap not made 60 (mirror)",
+      [], [l[4] for c in g.page_columns(no3(60)) for l in c if l[4].startswith("60.")])
+check("a one-figure number far past or below its run's last kept (mirror)",
+      False, g.lost_zero(58, 5) or g.lost_zero(51, 6) or g.lost_zero(9, 6) or g.lost_zero(13, 2))
+
 # Old-style figures read as letters open a clue all the same.
 for text, want in [("I.", "1."), ("II. See 13.", "11. See 13."),
                    ("I3. Garden", "13. Garden"), ("O. Wonder", "O. Wonder"), ("Oo.", "Oo."),

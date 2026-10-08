@@ -584,6 +584,9 @@ def numbered_columns(words):
                      and line[1] - line[0] <= TALLER * (run[-1][1][-1][1] - run[-1][1][-1][0]))
             if m and line[2] - x0 < NUMBER_EDGE and WORDY.search(m.group(2)) and not fa.heading_of(line[4]):
                 n = int(m.group(1))
+                if run and run[-1][0] and line[0] - last_y <= RESTART and lost_zero(run[-1][0], n):
+                    n *= 10
+                    line = (*line[:4], f"{line[4][:m.start(1)]}{n}{line[4][m.end(1):]}")
                 run = numbered(run, n)
                 if run and (line[0] - last_y > fa.GAP / 2 or n < run[-1][0] and line[0] - last_y > RESTART):
                     runs.append(run)
@@ -667,6 +670,20 @@ def notice_cuts(columns):
             top = below[0][0]
         out.append(top)
     return out
+
+
+def lost_zero(before, n):
+    """Whether clue number `n`, read just under clue `before` in its run,
+    is a number ending in an old-style 0 (a small o) that the reading
+    dropped: No 3's "6o. A resin." read "6." under 58. One digit, below
+    `before`, and ten times it at most ZERO_STEP past `before`: further
+    on, a dropped first figure is as likely ("2." under 13 for 32)."""
+    return n < 10 <= before < 10 * n <= before + ZERO_STEP
+
+
+#: How far past the clue before it a clue whose old-style 0 was lost
+#: may be numbered (lost_zero).
+ZERO_STEP = 3
 
 
 def numbered(run, n):

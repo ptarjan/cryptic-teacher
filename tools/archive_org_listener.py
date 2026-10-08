@@ -289,13 +289,19 @@ def lay(parsed, guessed=None):
     """{light: (text, enumeration or None, None)} by each clue's own number:
     the reading above the last number laid, else the smallest. A number not
     above the last is a misread one ("10." for 40): it never displaces a
-    light laid in order, and is added to `guessed` (a set) when given. A
+    light laid in order, and is added to `guessed` (a set) when given;
+    unless its last figure read as its lookalike (slipped) gives the one
+    number between the clues either side of it, which it is. A
     cross-reference ("See 13.") is laid as its own clue."""
     out = {}
     for direction in ("across", "down"):
         last = 0
-        for clue in parsed[direction]:
+        clues_ = parsed[direction]
+        for i, clue in enumerate(clues_):
             nums = sorted(n for n in clue["tokens"][0] if n > last)
+            after = min((n for n in clues_[i + 1]["tokens"][0] if n > last), default=None) if i + 1 < len(clues_) else None
+            if not nums and (m := slipped(clue["tokens"][0], last, after)) and f"{m}-{direction}" not in out:
+                nums = [m]
             if not nums:
                 nums = sorted(clue["tokens"][0])
                 if not nums or f"{nums[0]}-{direction}" in out:
@@ -311,6 +317,22 @@ def lay(parsed, guessed=None):
             out[f"{last}-{direction}"] = (clue["text"], enums[0] if len(enums) == 1 else None, group)
     return out
 
+
+def slipped(nums, last, after):
+    """The clue number a misread one (`nums`, not above `last`) stands for:
+    its last figure swapped for its lookalike (FIGURE_SLIPS), when that is
+    above `last` and below `after` (the next clue's number). None when
+    nothing bounds it from above or it is no such number."""
+    if after is None:
+        return None
+    got = {int(str(n)[:-1] + FIGURE_SLIPS[str(n)[-1]]) for n in nums if n >= 10 and str(n)[-1] in FIGURE_SLIPS}
+    got = {m for m in got if last < m < after}
+    return got.pop() if len(got) == 1 else None
+
+
+#: A clue number's last figure and the one of like shape a reading takes it
+#: for: the old-style 8 read "3" (No 3's "48." read "43."), 9 read "0".
+FIGURE_SLIPS = {"3": "8", "8": "3", "0": "9", "9": "0"}
 
 #: The next clue's number (">0" for a misread 10) and first word inside a
 #: clue's text.
@@ -367,10 +389,20 @@ RIVAL_LENGTH = 0.15
 def printed_elsewhere(v, lid, k, lays, lines, guessed):
     """Whether reading k's clue `v` for `lid` is printed as a line of another
     reading's text (`lines`, each reading's lines without numbers), and no
-    reading lays those words in order on a light outside its group."""
+    reading lays those words in order on a light outside its group, nor
+    another reading the clue its number has the other way, as this one
+    starts: a reading that runs one list into the other (No 3's "28. A
+    junction on the East" read under ACROSS) lays that clue the wrong way."""
     text, group = v[0].lower(), set(v[2] or ()) | {lid}
     if len(text.split()) < PRINTED_WORDS:
         return False
+    n, direction = lid.split("-")
+    twin = f"{n}-{'down' if direction == 'across' else 'across'}"
+    for j, laid in enumerate(lays):
+        if j != k and laid.get(twin, ("",))[0]:
+            size = min(len(text), len(laid[twin][0]))
+            if ocr_clues.similar(text[:size], laid[twin][0].lower()[:size]) >= CORROBORATE:
+                return False
     for j, laid in enumerate(lays):
         # Another light's whole clue inside this one, a footnote mark before
         # it or not ("*The top of the head."): this is two clues run together.
