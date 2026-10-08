@@ -1782,15 +1782,13 @@ def write(corpus, votes, said=None, jobs=None):
     blog_facts.write lays it out, one file at a time. `corpus` is rows() in
     their order, iterable more than once (Packed); `said`, read_leads, joined
     in here where the rows lack their leads; `jobs`, the processes reading the
-    clues once the lexicons are built (default one a CPU). {field: clues it was inferred in}."""
-    with timed("indicator lexicon"):
-        ours = list(annotation_rows())
-        ilex = Indicators(corpus, extra=ours)
-    with timed("block lexicon, exported"):
-        n = collections.Counter(export_lexicons(Lexicon(corpus, extra=ours), ilex))
-    del ours
-    with timed("blog-only lexicons"):
-        lex, dlex = Lexicon(corpus), Definitions(corpus)
+    clues once the lexicons are built (default one a CPU) and, unset, on the
+    desktop while one answers, the lexicons too. {field: clues it was inferred in}."""
+    with timed("lexicons built"):
+        ilex, both, lex, dlex = _lexicons(corpus, list(annotation_rows()), jobs)
+    with timed("lexicons exported"):
+        n = collections.Counter(export_lexicons(both, ilex))
+    del both
     _WORKER.update(votes=votes, lex=lex, ilex=ilex, dlex=dlex)
     with timed("clues read and written"):
         done = _read_clues(corpus, said or {}, jobs)
@@ -1924,11 +1922,60 @@ class _Unavailable(Exception):
     """Why the desktop read none or not all of the clues."""
 
 
+#: The lexicons write() reads: name -> (class, whether our annotations count too).
+LEXICONS = {"ilex": (Indicators, True), "both": (Lexicon, True), "lex": (Lexicon, False), "dlex": (Definitions, False)}
+#: What serve_lexicons sends while it builds, so the desktop's silence limit
+#: measures a dead desktop, not a long build.
+BEAT = "beat"
+
+
+def _build_lexicon(name):
+    """LEXICONS[name] of _WORKER's corpus."""
+    cls, with_ours = LEXICONS[name]
+    return cls(_WORKER["corpus"], extra=_WORKER["ours"]) if with_ours else cls(_WORKER["corpus"])
+
+
+def _lexicons(corpus, ours, jobs):
+    """LEXICONS of `corpus` in their order, `ours` (annotation_rows) counted
+    where they take it: with `jobs` unset, on the desktop while one answers;
+    else here, one process each, so each step's share of a loaded machine
+    is four processes', not one's."""
+    if jobs is None:
+        try:
+            return _desktop_lexicons(corpus, ours)
+        except _Unavailable as e:
+            print(f"letter_facts.write: {e}; building the lexicons here", file=sys.stderr)
+    _WORKER.update(corpus=corpus, ours=ours)
+    try:
+        if jobs == 1:
+            return tuple(map(_build_lexicon, LEXICONS))
+        with multiprocessing.get_context("fork").Pool(len(LEXICONS)) as pool:
+            return tuple(pool.map(_build_lexicon, LEXICONS))
+    finally:
+        _WORKER.clear()
+
+
+def _desktop_lexicons(corpus, ours):
+    """_lexicons built on the desktop, by serve_lexicons."""
+    got = [g for g in _desktop("--serve-lexicons", [(corpus.pickled(), ours)]) if g != BEAT]
+    if len(got) != 1:
+        raise _Unavailable(f"the desktop sent {len(got)} results, not the lexicons")
+    return got[0]
+
+
 def _desktop_clues(puzzles):
-    """_puzzle_facts for each of `puzzles` read on the first desktop that
-    takes them (tools/ocr_remote.py ships the code), DESKTOP_JOBS at a time
-    there at idle priority, by serve_clues; _Unavailable when none answers,
-    it is busy (tools/desktop_busy.py), or it stops partway."""
+    """_puzzle_facts for each of `puzzles` read on the desktop, DESKTOP_JOBS
+    at a time there, by serve_clues."""
+    lexicons = pickle.dumps({k: _WORKER[k] for k in ("votes", "lex", "ilex", "dlex")}, pickle.HIGHEST_PROTOCOL)
+    yield from _desktop("--serve-clues", itertools.chain([lexicons], puzzles))
+
+
+def _desktop(flag, request):
+    """What `letter_facts.py flag` sends back, object by object, on the first
+    desktop that takes `request` (tools/ocr_remote.py ships the code): this
+    Python's minor version, then each of `request`, then None, pickled to it,
+    to run at idle priority; _Unavailable when none answers, it is busy
+    (tools/desktop_busy.py), or it stops partway."""
     import subprocess
 
     import desktop_busy
@@ -1950,13 +1997,11 @@ def _desktop_clues(puzzles):
         raise _Unavailable("no desktop answers (" + "; ".join(reasons) + ")")
     with tempfile.TemporaryFile() as sent, tempfile.TemporaryFile() as err:
         pickle.dump(tuple(sys.version_info[:2]), sent)
-        pickle.dump(pickle.dumps({k: _WORKER[k] for k in ("votes", "lex", "ilex", "dlex")}, pickle.HIGHEST_PROTOCOL),
-                    sent, pickle.HIGHEST_PROTOCOL)
-        for p in puzzles:
+        for p in request:
             pickle.dump(p, sent, pickle.HIGHEST_PROTOCOL)
         pickle.dump(None, sent)
         sent.seek(0)
-        cmd = rf"{ocr_remote.HOME}\venv\Scripts\python.exe {ocr_remote.code_dir()}\tools\letter_facts.py --serve-clues"
+        cmd = rf"{ocr_remote.HOME}\venv\Scripts\python.exe {ocr_remote.code_dir()}\tools\letter_facts.py {flag}"
         proc = subprocess.Popen([*desktop_busy.SSH, host, cmd], stdin=sent, stdout=subprocess.PIPE, stderr=err)
         watchdog = _Silence(DESKTOP_SILENCE, proc.kill)
         try:
@@ -2004,12 +2049,7 @@ def serve_clues():
     """--serve-clues, on the desktop: _desktop_clues' request off stdin (this
     Python's minor version, the pickled lexicons, then each puzzle), each
     _puzzle_facts pickled to stdout in order, then None."""
-    import ocr_remote
-    ocr_remote.full_speed()
-    inp, out = sys.stdin.buffer, sys.stdout.buffer
-    version = pickle.load(inp)
-    if version != tuple(sys.version_info[:2]):
-        sys.exit(f"this is Python {sys.version_info[0]}.{sys.version_info[1]}, the request's {version}")
+    inp, out = _served()
     with tempfile.TemporaryDirectory() as d:
         state = Path(d) / "lexicons.pkl"
         state.write_bytes(pickle.load(inp))
@@ -2023,6 +2063,46 @@ def serve_clues():
                 pickle.dump(got, out, pickle.HIGHEST_PROTOCOL)
         pickle.dump(None, out)
         out.flush()
+
+
+def _served():
+    """A desktop server's (stdin, stdout), at full speed and idle priority,
+    once the request's Python is this one."""
+    import ocr_remote
+    ocr_remote.full_speed()
+    inp, out = sys.stdin.buffer, sys.stdout.buffer
+    version = pickle.load(inp)
+    if version != tuple(sys.version_info[:2]):
+        sys.exit(f"this is Python {sys.version_info[0]}.{sys.version_info[1]}, the request's {version}")
+    return inp, out
+
+
+def serve_lexicons():
+    """--serve-lexicons, on the desktop: _desktop_lexicons' request off stdin
+    (the Python, then the corpus's pickled rows and our annotation rows),
+    LEXICONS built one process each and pickled to stdout as a tuple, a BEAT
+    every HEARTBEAT seconds before it, then None."""
+    inp, out = _served()
+    with tempfile.TemporaryDirectory() as d:
+        state = Path(d) / "corpus.pkl"
+        state.write_bytes(pickle.dumps(pickle.load(inp), pickle.HIGHEST_PROTOCOL))
+        with multiprocessing.get_context("spawn").Pool(len(LEXICONS), _lexicon_worker, (str(state),)) as pool:
+            got = pool.map_async(_build_lexicon, LEXICONS)
+            while not got.ready():
+                got.wait(HEARTBEAT)
+                pickle.dump(BEAT, out)
+                out.flush()
+            pickle.dump(tuple(got.get()), out, pickle.HIGHEST_PROTOCOL)
+    pickle.dump(None, out)
+    out.flush()
+
+
+def _lexicon_worker(state):
+    """A serve_lexicons worker: at full speed and idle priority, the corpus loaded."""
+    import ocr_remote
+    ocr_remote.full_speed()
+    rows_, ours = pickle.loads(Path(state).read_bytes())
+    _WORKER.update(corpus=Packed.of(rows_), ours=ours)
 
 
 def _serve_worker(state):
@@ -2042,6 +2122,17 @@ class Packed:
 
     def __iter__(self):
         return map(pickle.loads, self._rows)
+
+    def pickled(self):
+        """The rows as kept, for Packed.of."""
+        return self._rows
+
+    @classmethod
+    def of(cls, pickled):
+        """A Packed of rows another's pickled() gave."""
+        new = cls(())
+        new._rows = pickled
+        return new
 
     def __len__(self):
         return len(self._rows)
@@ -2630,9 +2721,13 @@ def main():
     ap.add_argument("--definition", action="append", default=[])
     ap.add_argument("--block", action="append", default=[], help="LETTERS=clue words")
     ap.add_argument("--serve-clues", action="store_true", help=argparse.SUPPRESS)
+    ap.add_argument("--serve-lexicons", action="store_true", help=argparse.SUPPRESS)
     args = ap.parse_args()
     if args.serve_clues:
         serve_clues()
+        return
+    if args.serve_lexicons:
+        serve_lexicons()
         return
     if args.clue:
         known = {"definition": args.definition, "blocks": [b.split("=", 1) for b in args.block]}
