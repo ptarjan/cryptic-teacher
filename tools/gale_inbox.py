@@ -878,8 +878,10 @@ MOVE_SECONDS = 3
 #: How often an open checklist reads its status file (status_js).
 POLL_SECONDS = 5
 #: A status file older than this is not being written: the page falls back
-#: to reloading itself every RELOAD_SECONDS.
-STALE_SECONDS = 240
+#: to reloading itself every RELOAD_SECONDS. A sync publishes it at its start
+#: and end, and between them spends up to two Gale allowances (GALE_SECONDS
+#: each) plus staging, so this must exceed that.
+STALE_SECONDS = 720
 RELOAD_SECONDS = 180
 
 
@@ -1384,8 +1386,8 @@ def locked(wait=True):
 def sync(out=sys.stdout, force=False):
     """One tick: sweep Gale files into their inboxes; mirror the Times inbox
     and, when it moved (or RENDER_EVERY passed), stage it and publish the
-    checklist; publish its status file either way, so an open page knows
-    when the inbox was last looked at; then the Listener's
+    checklist; publish its status file before the Gale lookups and again
+    after, so an open page knows when the inbox was last looked at; then the Listener's
     (gale_listener.tick); then start the reads of the editions just laid
     out (start_reads), and keep the Mac's arrival watcher installed
     (install_watcher). Skipped when another sync is running."""
@@ -1398,6 +1400,10 @@ def sync(out=sys.stdout, force=False):
             return
         moved = collect(out)
         changed = mirror(out)
+        # The arrivals are known now; the Gale lookups and staging below can
+        # take minutes.
+        publish_status(CHECKLIST)
+        listener_changed = gale_listener.arrivals(out)
         ask = gale_due()
         by_number = held()
         linked = ask and gale_docs.resolve(
@@ -1415,7 +1421,7 @@ def sync(out=sys.stdout, force=False):
             publish()
             print(f"checklist published to {GALE_ROOT}/{CHECKLIST_NAME}", file=out)
         publish_status(CHECKLIST, status)
-        gale_listener.tick(out, force, ask, time.monotonic() + GALE_SECONDS)
+        gale_listener.tick(out, force, ask, time.monotonic() + GALE_SECONDS, listener_changed)
     start_reads(out)
     install_watcher(out)
 
