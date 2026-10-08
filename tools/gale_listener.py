@@ -354,7 +354,7 @@ def headed_columns(words):
         # DOWN under the left column, ACROSS over the right (No 4's lists
         # either side of a map), each centred over its list's two columns:
         # each list is read from its own heading's column, under it.
-        a, d = (sum(list_lines(words, h, h, 2 * CENTRED).values(), []) for h in pair)
+        a, d = ([line for side in list_lines(words, h, h, 2 * CENTRED).values() for line in side] for h in pair)
         return [a, d] if a and d else None
     lines = list_lines(words, across, down, CENTRED)
     return [lines["ACROSS"], lines["DOWN"]] if lines["ACROSS"] and lines["DOWN"] else None
