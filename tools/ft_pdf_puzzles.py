@@ -517,10 +517,14 @@ HEADER = re.compile(r"(?:No\.?|Crossword)\s*(\d{1,2},?\d{3})\s*(?:Set by|by)\s+(
 WAY = r"(?:across|down|ac|dn|a|d)"
 #: The PDF spells a light's direction out ("4, 15 down") or leaves it to the
 #: section; "2 A manner people..." is 2 in the section's direction, never 2a.
+#: A linked clue's head can fill its line, its clue starting on the next
+#: ("13, 20, 27, 7, 23, 19, 4, 12"); a lone number never opens an empty clue.
 FULL_WAY = r"(?:across|down)"
-CLUE_HEAD = re.compile(rf"^(\d{{1,2}}(?:\s*{FULL_WAY}\b)?(?:\s*[,/&]\s*\d{{1,2}}(?:\s*{FULL_WAY}\b)?)*)\s+(\S.*)$", re.I)
-ENUM = re.compile(r"\(\s*(\d{1,2}(?:\s*[,\-–.'’\s]\s*\d{1,2})*(?:\s*words?)?)\s*\)\s*$")
-SEE = re.compile(r"^See\s+\d+", re.I)
+CLUE_HEAD = re.compile(rf"^(\d{{1,2}}(?:\s*{FULL_WAY}\b)?(?:\s*[,/&]\s*\d{{1,2}}(?:\s*{FULL_WAY}\b)?)*)(?:\s+(\S.*))?$", re.I)
+#: "(9’s 7)": an enumeration may own an unentered "'s" (BEETHOVEN'S SEVENTH
+#: written BEETHOVEN SEVENTH).
+ENUM = re.compile(r"\(\s*(\d{1,2}(?:['’]s)?(?:\s*[,\-–.'’\s]\s*\d{1,2}(?:['’]s)?)*(?:\s*words?)?)\s*\)\s*$")
+SEE = re.compile(r"^See\s+(\d+)", re.I)
 
 
 def heads(spec, direction):
@@ -553,6 +557,8 @@ def join_lines(a, b):
     either half is not one; a compound of two words that is not itself a word
     keeps its hyphen. A word's frequency against its halves' says nothing:
     SHADOWED is rarer than SHAD."""
+    if re.search(r"\d[-–]$", a) and b[:1].isdigit():
+        return a + b        # an enumeration broken at its hyphen, "(4,7-" "3,4)"
     m, n = re.search(r"([A-Za-z]+)-$", a), re.match(r"([A-Za-z]+)", b)
     if not m:
         return f"{a} {b}"
@@ -598,19 +604,40 @@ def parse_clues(text):
                 note = join_lines(note, ln) if note else ln
             continue
         h = CLUE_HEAD.match(ln)
+        if h and h.group(2) is None and not re.search(r"[,/&]", h.group(1)):
+            h = None
         lights = heads(h.group(1), direction) if h else None
         if lights and finished(current) and lights[0][0] > last:
-            current = {"lights": lights, "clue": h.group(2)}
+            said = [bool(p.group(2)) for p in tftt.LINK_PART.finditer(h.group(1))]
+            current = {"lights": lights, "clue": h.group(2) or "", "said": said}
             clues.append(current)
             last = lights[0][0]
         elif current is not None and not finished(current):
-            current["clue"] = join_lines(current["clue"], ln)
+            current["clue"] = join_lines(current["clue"], ln) if current["clue"] else ln
         else:
             direction = None        # the footer
+    unsaid_to_stub(clues)
     for c in clues:
         e = ENUM.search(c["clue"])
         c["enumeration"] = e.group(1).strip() if e else None
     return {"number": number, "setter": setter, "clues": clues, "preamble": note}
+
+
+def unsaid_to_stub(clues):
+    """A linked clue's later light with no direction of its own ("7, 10" under
+    DOWN) takes the direction of its "See" stub: "10 See 7" under ACROSS
+    makes it 10 across. With no one stub to say, the section's stands."""
+    stubs = collections.defaultdict(list)
+    for c in clues:
+        if (s := SEE.match(c["clue"])):
+            stubs[(c["lights"][0][0], int(s.group(1)))].append(c["lights"][0][1])
+    for c in clues:
+        said = c.pop("said")
+        lead = c["lights"][0][0]
+        for i in range(1, len(c["lights"])):
+            ways = stubs.get((c["lights"][i][0], lead), [])
+            if not said[i] and len(ways) == 1:
+                c["lights"][i] = (c["lights"][i][0], ways[0])
 
 
 def read_pdf(path_or_bytes):
