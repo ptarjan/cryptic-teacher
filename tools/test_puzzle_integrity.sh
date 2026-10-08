@@ -121,6 +121,35 @@ while read -r _ flag raised; do
 done < <(grep '^FLAG ' <<<"$out1")
 same "every flag in FLAGS has a fixture" "$(field UNCOVERED "$out1")" "none"
 
+echo "a clue that says 'See preamble' cannot be written without the preamble"
+out_pre=$(PYTHONPATH="$REPO/tools" python3 - 2>&1 <<'PY'
+import copy
+from datetime import date
+import puzzle_integrity as pi
+
+real = pi.read_puzzle_file(pi.puzzle_paths.find("cryptic-24104"))
+for name, pre in (("BARE", None), ("WITH", "1 Across is unclued.")):
+    p = copy.deepcopy(real)
+    p["entries"][0]["clue"]["text"] = "See preamble"
+    if pre:
+        p["preamble"] = pre
+    flags = []
+    pi.check_puzzle(p, date(2026, 10, 5), flags)
+    print(name, any("no preamble" in f[2] for f in flags))
+try:
+    p = copy.deepcopy(real)
+    p["entries"][0]["clue"]["text"] = "Unclued (see the preamble)"
+    pi.refuse_bad_write(p)
+    print("WRITE allowed")
+except pi.RefusedWrite as e:
+    print("WRITE", "refused" if "no preamble" in str(e) else f"refused for another reason: {e}")
+PY
+)
+died "$out_pre" "the see-preamble fixture"
+same "'See preamble' with no preamble is flagged" "$(field BARE "$out_pre")" "True"
+same "'See preamble' with a preamble is not" "$(field WITH "$out_pre")" "False"
+same "the write path refuses it" "$(field WRITE "$out_pre")" "refused"
+
 echo "the CLI on a scratch corpus: clean exits 0; DUPLICATE, NEARDUP and DATE across files exit 1"
 out2=$(PYTHONPATH="$REPO/tools" SCRATCH="$scratch/cli" python3 - 2>&1 <<'PY'
 import contextlib, copy, io, json, os, re

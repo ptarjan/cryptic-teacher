@@ -1119,10 +1119,22 @@ def _alpha(s):
     return re.sub(r"[^A-Z]", "", unicodedata.normalize("NFD", str(s or "")).upper())
 
 
+#: A clue that sends the solver to the preamble: "See preamble", "(see the preamble)".
+SEE_PREAMBLE = re.compile(r"(?i)\bsee (?:the )?preamble\b")
+
+
 def check_preamble(puzzle, flags):
-    """A preamble holds no erratum and no publishing boilerplate: errata.apply
-    and boilerplate.apply take them out on every write, so one still there was
-    written past that."""
+    """A clue that says "see preamble" needs the preamble it points to; a
+    source that does not carry it cannot file the puzzle. A preamble holds no
+    erratum and no publishing boilerplate: errata.apply and boilerplate.apply
+    take them out on every write, so one still there was written past that."""
+    if not puzzle.get("preamble"):
+        for e in puzzle.get("entries") or []:
+            text = (e.get("clue") or {}).get("text") or ""
+            if SEE_PREAMBLE.search(text):
+                flags.append(("SHAPE", puzzle.get("id"), (
+                    f"{e.get('number')}-{e.get('direction')}: the clue says {text[:60]!r}, "
+                    f"but the puzzle has no preamble (file it from a source that prints one)")))
     for found in errata.find(puzzle.get("preamble")):
         flags.append(("SHAPE", puzzle.get("id"), f"preamble holds an erratum, not "
                       f"instructions: {found[:120]!r} (tools/errata.py applies it)"))

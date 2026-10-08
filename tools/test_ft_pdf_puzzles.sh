@@ -106,6 +106,11 @@ print("JOINRARE", F.join_lines("despite shad-", "owed"), "|", F.join_lines("do i
 zero = F.parse_clues("ACROSS\n1 Fabric (5)\n4 Show (5)\n5 Gear (5)\nD0WN\n"
                      "1 Fire (5)\n2 Child (5)\n3 Gets closer (5)\n")
 print("ZERO", " ".join(f"{n}{d[0]}" for c in zero["clues"] for n, d in c["lights"]))
+# No. 13,833 prints its note under the grid's numbers, above ACROSS.
+noted = F.parse_clues("CROSSWORD\nNo. 13,833 Set by GAFF\n1 2 3\n4\n10 solutions are connected to 11\n"
+                      "across, which is unclued and 50\ntoday\nACROSS\n1 Fabric (5)\n4 See preamble (5)\n"
+                      "5 Gear (5)\nDOWN\n1 Fire (5)\n2 Child (5)\n3 Gets closer (5)\n")
+print("NOTE", noted["preamble"], "|", p["preamble"])
 
 IDX = {"100": {"date": "2010-06-11"}, "103": {"date": "2010-06-15"}, "110": {"date": "2010-07-01"}}
 print("NEIGHBOUR", F.neighbour_date(101, IDX), F.neighbour_date(102, IDX), F.neighbour_date(105, IDX))
@@ -154,6 +159,8 @@ check "white lights on a black square" "...../.#.#./...../.#.#./....." "$(g INVE
 check "ink tints, a block drawn as a path, a grid ruled with no frame square" \
   "...../.#.#./...../.#.#./....." "$(g INK)"
 check "header: number and setter, capitals title-cased" "13412 Crux 6" "$(g HEAD)"
+check "the note above ACROSS is the preamble; grid numbers and header are not" \
+  "10 solutions are connected to 11 across, which is unclued and 50 today | None" "$(g NOTE)"
 check "a clue broken at a hyphen keeps it, no space" \
   "1a Fabric in a far-reaching finish (5) | 5" "$(echo "$out" | grep '^CLUE 1a' | cut -d' ' -f2-)"
 check "an unfinished clue's next line opening with a number is its next line" \
