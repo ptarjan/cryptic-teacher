@@ -794,7 +794,10 @@ def read_page(img, key, lengths=None):
     if blanks := page_blanks(img, located):
         verdict["blanks"] = len(blanks)
         words = {k: ocr_clues.with_blanks(w, blanks) for k, w in words.items()}
-    return al.vote(words, verdict, cols=page_columns, lengths=lengths)
+    verdict, laid = al.vote(words, verdict, cols=page_columns, lengths=lengths)
+    if laid and not all(t for t, _, _ in laid.values()):
+        laid = greek_mended(img, key, words, verdict, laid)
+    return verdict, laid
 
 
 def page_blanks(img, located):
@@ -871,6 +874,153 @@ def reread_from(img, key, which, out, located):
         out = [w for w in out if not (box[0] <= (w[0] + w[2]) / 2 <= box[2] and band[0] <= (w[1] + w[3]) / 2 <= band[1])]
         out += got
     return out
+
+
+#: Tesseract's polytonic Greek model, beside the installed eng: it reads
+#: the Greek words a 1930s clue quotes (No 10's "φλογὸς μέγαν") letter for
+#: letter, at GREEK_UPSCALE (at ocr_clues.UPSCALE it reads "φλογὺς").
+GREEK = "grc"
+GREEK_UPSCALE = 3
+#: A letter of the Greek script, and a Greek word as the Greek model prints
+#: one: lowercase letters, accents and breathings, an elision's mark.
+GREEK_LETTER = re.compile(r"[Ͱ-Ͽἀ-῿]")
+GREEK_WORD = re.compile(r"[Ͱ-Ͽἀ-῿]+['’᾽]?")
+#: The fewest Greek letters the RapidOCR readings print on a clue's lines
+#: for the line to be read for Greek at all: their dictionaries hold the
+#: Greek letters, so a quoted Greek word comes out part Greek ("μéyav").
+GREEK_SEEN = 2
+DASHES = re.compile(r"[-–—]+")
+
+
+def greek_box(img, key, box):
+    """[(x0, y0, x1, y1, text)] the Greek model reads in `box` of the page,
+    one line (psm 7: over a looser crop it reads the neighbouring lines'
+    edges as words), in page coordinates; cached in OCR_CACHE by the box."""
+    path = OCR_CACHE / f"{key}.{'-'.join(map(str, box))}.{GREEK}.json"
+    if path.exists():
+        return [tuple(w) for w in json.loads(path.read_text())]
+    crop = img.crop(box).convert("RGB")
+    crop = crop.resize((crop.width * GREEK_UPSCALE, crop.height * GREEK_UPSCALE))
+    model = Path(ocr_clues.tesseract()).resolve().parent.parent / "share" / "tessdata" / f"{GREEK}.traineddata"
+    got = [(x0 // GREEK_UPSCALE + box[0], y0 // GREEK_UPSCALE + box[1], x1 // GREEK_UPSCALE + box[0],
+            y1 // GREEK_UPSCALE + box[1], t) for x0, y0, x1, y1, t in ocr_clues.tesseract_words(crop, model, psm=7)]
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(got))
+    return got
+
+
+def clue_lines(img, words, lid):
+    """The page boxes of light `lid`'s clue lines, from the first reading
+    (`words`, {reader: words}) whose lists (page_columns) number it: its
+    numbered line and the lines run on under it, each padded to hold its
+    letters whole. [] when none does."""
+    n, way = lid.split("-")
+    for which in ["page", *ocr_clues.READERS]:
+        cols = page_columns(words.get(which) or [])
+        lines = cols[way == "down"] if cols else []
+        at = next((i for i, ln in enumerate(lines) if (m := al.LINE_CLUE.match(ln[4])) and m.group(1) == n), None)
+        if at is None:
+            continue
+        end = next((j for j in range(at + 1, len(lines)) if al.LINE_CLUE.match(lines[j][4])), len(lines))
+        out = []
+        for y0, y1, x0, x1, _ in lines[at:end]:
+            h = y1 - y0
+            out.append((max(0, x0 - h), max(0, y0 - h // 4), min(img.width, x1 + h), min(img.height, y1 + h // 4)))
+        return out
+    return []
+
+
+def pieces(ws):
+    """[(x0, y0, x1, y1, text, dash_before)]: `ws`'s words cut at their
+    dashes ("μέγαν—Aeschylus."), each piece's box its share of the word's
+    width by its letters."""
+    out = []
+    for x0, y0, x1, y1, t in ws:
+        parts = DASHES.split(t)
+        at, width = 0, max(1, len(t))
+        for k, p in enumerate(parts):
+            if p:
+                out.append((x0 + (x1 - x0) * at / width, y0, x0 + (x1 - x0) * (at + len(p)) / width, y1, p, k > 0))
+            at += len(p) + 1
+    return out
+
+
+def letters(t):
+    return re.sub(r"\W|\d|_", "", t).lower()
+
+
+def over(p, w):
+    """Whether piece `p`'s centre falls inside box `w`."""
+    cx, cy = (p[0] + p[2]) / 2, (p[1] + p[3]) / 2
+    return w[0] <= cx <= w[2] and w[1] <= cy <= w[3]
+
+
+def greek_text(img, key, words, boxes):
+    """A clue's text with its Greek words read by the Greek model, or None.
+    Each piece of the Greek model's reading (pieces) is Greek when it
+    prints as a Greek word (GREEK_WORD, lowercase: that model reads Latin
+    capitals as Greek ones, "Ηογηςῖ" for "Homer") and the English readers
+    garble it: a RapidOCR reading prints a Greek letter there, or no two
+    Tesseract readings agree there on a known word. Any other piece is
+    English, taken from a Tesseract reading of it that is a known word or
+    that two of them agree on; a piece neither way gives None."""
+    inside = lambda w: any(over(w, b) for b in boxes)
+    rapid = [w for which in ocr_clues.READERS if which not in ocr_clues.TESS_MODELS
+             for w in words.get(which, ()) if inside(w)]
+    if sum(len(GREEK_LETTER.findall(w[4])) for w in rapid) < GREEK_SEEN:
+        return None
+    tess = [pieces([w for w in words.get(k, ()) if inside(w)]) for k in ("page", *ocr_clues.TESS_MODELS)]
+    tess.append(pieces([w for b in boxes for w in read_box(img, key, b, next(iter(ocr_clues.TESS_MODELS)))]))
+    greek = pieces([w for b in boxes for w in greek_box(img, key, b)])
+    out, any_greek = "", False
+    used = set()
+    for p in greek:
+        near = [[q for q in t if over(q, p[:4]) or over(p, q[:4])] for t in tess]
+        there = [[q[4] for q in t] for t in near]
+        if any(t and all(re.fullmatch(r"\W{0,2}\d{1,2}\W{0,2}", q) for q in t) for t in there):
+            continue  # the clue's number
+        said = [letters(" ".join(t)) for t in there if t]
+        agreed = next((s for s in said if said.count(s) > 1 and ocr_clues.known(s)), None)
+        hinted = False
+        for w in rapid:
+            if w[1] <= (p[1] + p[3]) / 2 <= w[3] and w[0] <= (p[0] + p[2]) / 2 <= w[2]:
+                at = int(((p[0] + p[2]) / 2 - w[0]) / max(1, w[2] - w[0]) * len(w[4]))
+                tok = re.search(r"\S*$", w[4][:at]).group() + re.match(r"\S*", w[4][at:]).group()
+                hinted |= bool(GREEK_LETTER.search(tok))
+        word = p[4].rstrip(".,;:")
+        if GREEK_WORD.fullmatch(word) and word.islower() and (hinted or not agreed):
+            text, any_greek = p[4], True
+        else:
+            found = [" ".join(t) for t in there if t]
+            pick = next((k for k, f in enumerate(found) if ocr_clues.known(letters(f)) or
+                         sum(letters(o) == letters(f) for o in found) > 1), None)
+            if pick is None:
+                return None
+            # Two Greek-model pieces over one English word ("ΑΘΞοΗν 5." for
+            # "Aeschylus.") give it once.
+            source = {q[:4] for q in [t for t in near if t][pick]}
+            if source <= used:
+                continue
+            used |= source
+            text = found[pick]
+        out += ("—" if p[5] else (" " if out else "")) + text
+    return out.strip() if any_greek else None
+
+
+def greek_mended(img, key, words, verdict, laid):
+    """`laid` with each light the vote left blank whose clue quotes Greek
+    (greek_text) read with its Greek words; each noted in the verdict's
+    "greek", with the vote's reason for the blank."""
+    for lid, (t, e, g) in list(laid.items()):
+        if t or not (boxes := clue_lines(img, words, lid)):
+            continue
+        if text := greek_text(img, key, words, boxes):
+            laid[lid] = (text, e, g)
+            verdict.setdefault("greek", {})[lid] = verdict.get("blank", {}).pop(lid, "blank")
+    if not verdict.get("blank"):
+        verdict.pop("blank", None)
+    verdict["agreed"] = sum(1 for t, _, _ in laid.values() if t)
+    return laid
 
 
 def see_pages(pages):
