@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "Depressed facing autumn in America, and heavy rain",
     "enumeration": "8"
    },
-   "solution": "DOWNFALL"
+   "solution": "DOWNFALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOWNFALL",
+    "definitions": [
+     {
+      "text": "heavy rain",
+      "at": 40
+     }
+    ],
+    "linkWords": [
+     "facing",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Depressed",
+      "gives": "DOWN",
+      "note": "depressed as in pushed down, or feeling low"
+     },
+     {
+      "clueFragment": "autumn in America",
+      "gives": "FALL",
+      "note": "Americans call autumn the fall"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOWN",
+      "FALL"
+     ]
+    },
+    "explanation": {
+     "surface": "A gloomy autumn in the States, made worse by a downpour.",
+     "definitionFit": "A downfall is a heavy shower of rain or snow, a sudden fall of precipitation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Depressed"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +93,67 @@
     "text": "Tame code broken, broken by the Italian",
     "enumeration": "6"
    },
-   "solution": "DOCILE"
+   "solution": "DOCILE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DOCILE",
+    "definitions": [
+     {
+      "text": "Tame",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken,",
+      "for": "anagram",
+      "note": "a broken thing is in pieces, so the letters before it are reassembled"
+     },
+     {
+      "text": "broken by",
+      "for": "container",
+      "note": "split open by something, so another piece is pushed into the middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "code",
+      "gives": "CODE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the Italian",
+      "gives": "IL",
+      "note": "il is Italian for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOC",
+      "IL",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CODE",
+       "gives": "DOCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cipher is cracked, by an Italian codebreaker.",
+     "walkthrough": "The repeated 'broken' does two jobs: first it jumbles the code, then the second breaks it open to admit IL.",
+     "definitionFit": "Docile means submissive and easily handled, which is what a tame animal is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "code"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +167,43 @@
     "text": "Victor, film director",
     "enumeration": "6"
    },
-   "solution": "WINNER"
+   "solution": "WINNER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WINNER",
+    "definitions": [
+     {
+      "text": "Victor",
+      "at": 0
+     },
+     {
+      "text": "film director",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Victor",
+      "note": "first meaning: one who wins"
+     },
+     {
+      "clueFragment": "film director",
+      "note": "second meaning: Michael, the British director of Death Wish"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Victor looks like a first name, as if naming a director; it is the common noun.",
+     "definitionFit": "A victor is one who triumphs; Michael Winner was a well-known British filmmaker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Victor"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +223,46 @@
      }
     ]
    },
-   "solution": "FULLHOUSE"
+   "solution": "FULLHOUSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FULL HOUSE",
+    "definitions": [
+     {
+      "text": "Rather good hand",
+      "at": 0
+     },
+     {
+      "text": "capacity crowd",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rather good hand",
+      "note": "first meaning: a poker hand of three of a kind plus a pair"
+     },
+     {
+      "clueFragment": "capacity crowd",
+      "note": "second meaning: a theatre or venue with every seat taken"
+     }
+    ],
+    "explanation": {
+     "surface": "A performer gets a decent round of applause from a sell-out audience.",
+     "definitionFit": "In poker this hand ranks high, and in the theatre the phrase means every seat is sold."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hand"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +276,59 @@
     "text": "Explorer from Scottish town close to shore",
     "enumeration": "11"
    },
-   "solution": "LIVINGSTONE"
+   "solution": "LIVINGSTONE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LIVINGSTONE",
+    "definitions": [
+     {
+      "text": "Explorer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so its final letter is taken"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scottish town",
+      "gives": "LIVINGSTON",
+      "note": "Livingston is a new town in West Lothian, Scotland"
+     },
+     {
+      "clueFragment": "shore",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of shore"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIVINGSTON",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An explorer sets out from a Scottish town on the coast.",
+     "walkthrough": "'Close to shore' reads as near the coast; it means the last letter of shore.",
+     "definitionFit": "David Livingstone was the Scottish missionary famous for exploring Africa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +342,55 @@
     "text": "First aid received by soldiers",
     "enumeration": "6"
    },
-   "solution": "MAIDEN"
+   "solution": "MAIDEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MAIDEN",
+    "definitions": [
+     {
+      "text": "First",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "received by",
+      "for": "container",
+      "note": "something received by a group is taken in among them, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldiers",
+      "gives": "MEN",
+      "note": "soldiers are men in crossword shorthand"
+     },
+     {
+      "clueFragment": "aid",
+      "gives": "AID",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AID",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers being handed first aid in the field.",
+     "walkthrough": "'First aid' looks like one phrase; 'First' is the definition, peeled off the front.",
+     "definitionFit": "Maiden as an adjective means earliest or inaugural, as in a maiden voyage or maiden speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "First"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +404,46 @@
     "text": "A fraction to one side",
     "enumeration": "5"
    },
-   "solution": "APART"
+   "solution": "APART",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APART",
+    "definitions": [
+     {
+      "text": "to one side",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fraction",
+      "gives": "PART",
+      "note": "a part is a fraction of the whole"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PART"
+     ]
+    },
+    "explanation": {
+     "surface": "A small amount shifted sideways.",
+     "definitionFit": "Apart can mean aside or separately placed, as in setting something apart from the rest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fraction"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +463,52 @@
      }
     ]
    },
-   "solution": "DOGEARED"
+   "solution": "DOGEARED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOG-EARED",
+    "definitions": [
+     {
+      "text": "Shabby",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "magistrate",
+      "gives": "DOGE",
+      "note": "the Doge was the chief magistrate of Venice or Genoa"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Communist",
+      "gives": "RED",
+      "note": "red is the colour, and nickname, of communists"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOGE",
+      "A",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "A scruffy local judge turns out to be a Red.",
+     "definitionFit": "Dog-eared describes pages with turned-down corners, and by extension anything worn and scruffy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "magistrate"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +522,70 @@
     "text": "Around noon, son seen playing in folly",
     "enumeration": "8"
    },
-   "solution": "NONSENSE"
+   "solution": "NONSENSE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NONSENSE",
+    "definitions": [
+     {
+      "text": "folly",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Around",
+      "for": "container",
+      "note": "the jumbled words go around the other piece, enclosing it"
+     },
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing suggests moving about freely, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son seen",
+      "gives": "SONSEEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "note": "N is short for noon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "N",
+      "SENSE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SONSEEN",
+       "gives": "NOSENSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "At midday a boy is spotted larking about foolishly.",
+     "walkthrough": "N for noon is the convention from times of day.",
+     "definitionFit": "Folly is foolishness or silly behaviour, which is what nonsense means as a noun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +599,72 @@
     "text": "Secret meeting about chapter in a novel badly written",
     "enumeration": "8"
    },
-   "solution": "CONCLAVE"
+   "solution": "CONCLAVE",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram",
+     "charade"
+    ],
+    "answer": "CONCLAVE",
+    "definitions": [
+     {
+      "text": "Secret meeting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one letter sits inside the following words before they are rearranged"
+     },
+     {
+      "text": "badly written",
+      "for": "anagram",
+      "note": "something badly written has its letters jumbled out of their proper order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c. is the abbreviation for circa, about"
+     },
+     {
+      "clueFragment": "chapter",
+      "gives": "C",
+      "note": "C is the abbreviation for chapter"
+     },
+     {
+      "clueFragment": "a novel",
+      "gives": "ANOVEL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ONCLAVE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANOVCEL",
+       "gives": "ONCLAVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reviewer grumbles about one chapter in a poorly written novel.",
+     "walkthrough": "The first C comes from 'about' (circa); the second C sits among the jumbled letters of A NOVEL.",
+     "definitionFit": "A conclave is a private, closed assembly, most famously the cardinals gathered to elect a pope."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +678,50 @@
     "text": "Bound to spoil alcoholic drink",
     "enumeration": "6"
    },
-   "solution": "MARGIN"
+   "solution": "MARGIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MARGIN",
+    "definitions": [
+     {
+      "text": "Bound",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spoil",
+      "gives": "MAR",
+      "note": "to mar is to spoil"
+     },
+     {
+      "clueFragment": "alcoholic drink",
+      "gives": "GIN",
+      "note": "gin is an alcoholic drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAR",
+      "GIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is determined to ruin a drink.",
+     "walkthrough": "'Bound to' reads as 'certain to'; Bound is really a noun, a limit or edge.",
+     "definitionFit": "A bound is a boundary or limit, and a margin is the edge or border of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bound"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +735,49 @@
     "text": "Hanger-on given refuge by church",
     "enumeration": "5"
    },
-   "solution": "LEECH"
+   "solution": "LEECH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEECH",
+    "definitions": [
+     {
+      "text": "Hanger-on",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "refuge",
+      "gives": "LEE",
+      "note": "the lee is the sheltered side, a place of refuge from wind"
+     },
+     {
+      "clueFragment": "by church",
+      "gives": "CH",
+      "note": "CH is the abbreviation for church, placed by the first piece"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEE",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A parasitic person takes sanctuary in a church.",
+     "definitionFit": "A leech is a person who clings to others for gain, a parasite or sponger."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "refuge"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +797,75 @@
      }
     ]
    },
-   "solution": "NIGHTSAFE"
+   "solution": "NIGHTSAFE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "NIGHT SAFE",
+    "definitions": [
+     {
+      "text": "In which to deposit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left out",
+      "for": "deletion",
+      "note": "a thing left out is omitted, so one letter is dropped from the word beside it"
+     },
+     {
+      "text": "odd",
+      "for": "anagram",
+      "note": "odd means strange or out of order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "things",
+      "gives": "THINGS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "few",
+      "gives": "FEW",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIGHTSAFE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THINGSAFE",
+       "gives": "NIGHTSAFE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stashes a few odd items, keeping them from the wife.",
+     "walkthrough": "W comes out of FEW to leave FE, then THINGS, A and FE are rearranged together.",
+     "definitionFit": "A night safe is a bank's wall slot where customers can lodge money after hours, so it is something you put deposits into."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "odd"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +879,67 @@
     "text": "Worthiest novel written in Greek? I may get a little credit",
     "enumeration": "11"
    },
-   "solution": "GHOSTWRITER"
+   "solution": "GHOSTWRITER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GHOSTWRITER",
+    "definitions": [
+     {
+      "text": "I may get a little credit",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new, so the letters before it take a new arrangement"
+     },
+     {
+      "text": "written in",
+      "for": "container",
+      "note": "set down inside something, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek",
+      "gives": "GR",
+      "note": "Gr is the abbreviation for Greek"
+     },
+     {
+      "clueFragment": "Worthiest",
+      "gives": "WORTHIEST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "HOSTWRITE",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WORTHIEST",
+       "gives": "HOSTWRITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grand novel in Greek, and someone wonders about recognition.",
+     "walkthrough": "'Novel' looks like a book; it is the anagram signal. The definition is in the first person, as if the answer were speaking.",
+     "definitionFit": "A ghostwriter produces books published under another's name, so receives little or no public acknowledgement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +959,44 @@
      }
     ]
    },
-   "solution": "RUBSHOULDERS"
+   "solution": "RUBSHOULDERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RUB SHOULDERS",
+    "definitions": [
+     {
+      "text": "Masseurs may",
+      "at": 0,
+      "note": "a cryptic hint completed by the answer, not a synonym"
+     },
+     {
+      "text": "mix socially",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Masseurs may",
+      "note": "first meaning, literal: what a masseur might do to a client's upper back"
+     },
+     {
+      "clueFragment": "mix socially",
+      "note": "second meaning: to associate with people, especially those of higher status"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The sentence reads straight through; the first half is completed by the answer taken literally, the second half is the idiom's meaning.",
+     "definitionFit": "To rub shoulders with people is an idiom for meeting and mingling with them socially."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Masseurs"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +1016,62 @@
      }
     ]
    },
-   "solution": "LORDBYRON"
+   "solution": "LORDBYRON",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "LORD BYRON",
+    "definitions": [
+     {
+      "text": "Poet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in speech",
+      "for": "homophone",
+      "note": "in speech means as spoken, so a word is matched by its sound rather than spelling"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "praise",
+      "gives": "LORD",
+      "soundsLike": "LAUD",
+      "note": "to laud is to praise; said in a non-rhotic accent it matches a nobleman's title"
+     },
+     {
+      "clueFragment": "by",
+      "gives": "BY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R is short for rex, Latin for king"
+     },
+     {
+      "clueFragment": "taking place",
+      "gives": "ON",
+      "note": "an event that is on is taking place"
+     }
+    ],
+    "explanation": {
+     "surface": "A poet wins acclaim for a speech given beside the monarch.",
+     "definitionFit": "Lord Byron was the English Romantic poet, author of Don Juan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "king"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1091,46 @@
      }
     ]
    },
-   "solution": "CHOPCHOP"
+   "solution": "CHOPCHOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHOP CHOP",
+    "definitions": [
+     {
+      "text": "quickly",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cut",
+      "gives": "CHOP",
+      "note": "to chop is to cut"
+     },
+     {
+      "clueFragment": "slice of meat",
+      "gives": "CHOP",
+      "note": "a chop is a cut of meat, such as a pork chop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHOP",
+      "CHOP"
+     ]
+    },
+    "explanation": {
+     "surface": "A butcher's instruction: cut a slice of meat fast.",
+     "definitionFit": "Chop-chop is an informal exclamation meaning hurry up, do it at speed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cut"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1144,56 @@
     "text": "Insult about a French port?",
     "enumeration": "8"
    },
-   "solution": "SUNLIGHT"
+   "solution": "SUNLIGHT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SUNLIGHT",
+    "definitions": [
+     {
+      "text": "port?",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "a word placed about another wraps around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Insult",
+      "gives": "SLIGHT",
+      "note": "a slight is an insult or snub"
+     },
+     {
+      "clueFragment": "a French",
+      "gives": "UN",
+      "note": "un is French for a"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "UN",
+      "LIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "An affront delivered about a harbour town in France.",
+     "walkthrough": "Port Sunlight is a model village on the Wirral, near Liverpool, so Sunlight is a 'port' in name only, hence the question mark. 'French port' wants to be one phrase.",
+     "definitionFit": "The village is called Port Sunlight, so the clue treats Sunlight as a kind of port, flagged playfully."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 18,
@@ -327,7 +1213,71 @@
      }
     ]
    },
-   "solution": "HAUTECOUTURE"
+   "solution": "HAUTECOUTURE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "HAUTE COUTURE",
+    "definitions": [
+     {
+      "text": "classy gear",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "showed off",
+      "for": "anagram",
+      "note": "off suggests things knocked out of place, so the preceding letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "-"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A cut he",
+      "gives": "ACUTHE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "out",
+      "gives": "OUT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Wensleydale river",
+      "gives": "URE",
+      "note": "the Ure is the river flowing through Wensleydale in Yorkshire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAUTEC",
+      "OUT",
+      "URE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ACUTHE",
+       "gives": "HAUTEC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man shows off a smart cut while out in the Yorkshire Dales.",
+     "walkthrough": "The Ure is a river in North Yorkshire whose valley is Wensleydale.",
+     "definitionFit": "Haute couture is high fashion, exclusive designer clothing made to measure by leading fashion houses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 19,
@@ -341,7 +1291,55 @@
     "text": "One name certain to give cover",
     "enumeration": "6"
    },
-   "solution": "INSURE"
+   "solution": "INSURE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INSURE",
+    "definitions": [
+     {
+      "text": "give cover",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     },
+     {
+      "clueFragment": "certain",
+      "gives": "SURE",
+      "note": "to be sure is to be certain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "N",
+      "SURE"
+     ]
+    },
+    "explanation": {
+     "surface": "A person is named who is sure to provide protection.",
+     "definitionFit": "To insure is to provide financial protection against loss, which is what an insurance policy's cover means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "name"
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1353,45 @@
     "text": "Premium for naval ship . . .",
     "enumeration": "6"
    },
-   "solution": "BOUNTY"
+   "solution": "BOUNTY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOUNTY",
+    "definitions": [
+     {
+      "text": "Premium",
+      "at": 0
+     },
+     {
+      "text": "naval ship",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Premium",
+      "note": "first meaning: a bonus or reward payment"
+     },
+     {
+      "clueFragment": "naval ship",
+      "note": "second meaning: HMS ..., scene of the famous mutiny"
+     }
+    ],
+    "explanation": {
+     "surface": "A bonus is offered for a warship, its sense running on into the next clue.",
+     "definitionFit": "A bounty is a reward or bonus payment, and HMS Bounty was the ship whose crew mutinied against Captain Bligh."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Premium"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1411,68 @@
      }
     ]
    },
-   "solution": "POLARBEAR"
+   "solution": "POLARBEAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "POLAR BEAR",
+    "definitions": [
+     {
+      "text": "a big brute",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fired",
+      "for": "deletion",
+      "note": "something fired is dismissed, so those letters are sacked from the word before"
+     },
+     {
+      "text": "in front of",
+      "for": "charade",
+      "note": "this places one piece directly ahead of the next in the answer"
+     }
+    ],
+    "linkWords": [
+     "-"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Missile",
+      "gives": "POLARIS",
+      "note": "Polaris was a submarine-launched nuclear missile"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written, the letters to be removed"
+     },
+     {
+      "clueFragment": "stand",
+      "gives": "BEAR",
+      "note": "to bear something is to stand it, tolerate it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POLAR",
+      "BEAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A rocket is launched in front of the grandstand, a huge spectacle.",
+     "walkthrough": "'Missile is fired' reads as a launch; really IS is fired from POLARIS.",
+     "definitionFit": "The polar bear is the largest land carnivore, a huge Arctic animal, so a big brute fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fired"
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1486,46 @@
     "text": ". . . put up - extra is excusable, partly",
     "enumeration": "5"
    },
-   "solution": "RAISE"
+   "solution": "RAISE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RAISE",
+    "definitions": [
+     {
+      "text": "put up",
+      "at": 6
+     }
+    ],
+    "indicators": [
+     {
+      "text": "partly",
+      "for": "hidden_word",
+      "note": "partly means only a portion of the words before it is used, a run of letters inside them"
+     }
+    ],
+    "linkWords": [
+     "-"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extra is excusable",
+      "gives": "RAISE",
+      "note": "the run of letters straddling the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "Continuing the previous clue: a naval ship is put up, and the extra cost is excused.",
+     "walkthrough": "The leading dots join this clue to 20 down for the surface only; the wordplay stands alone.",
+     "definitionFit": "To raise something is to lift it or put it up, as with a flag or a building."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "excusable"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1539,52 @@
     "text": "Bishop elected to start game",
     "enumeration": "5"
    },
-   "solution": "BINGO"
+   "solution": "BINGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BINGO",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     },
+     {
+      "clueFragment": "elected",
+      "gives": "IN",
+      "note": "a candidate elected is voted in"
+     },
+     {
+      "clueFragment": "to start",
+      "gives": "GO",
+      "note": "to go is to begin or start"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "IN",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "A newly chosen bishop is about to begin a match.",
+     "definitionFit": "Bingo is a numbers game of chance, played by marking off called numbers on a card."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "start"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1598,73 @@
     "text": "Close to Edinburgh, soldier's after a good Scottish dish",
     "enumeration": "6"
    },
-   "solution": "HAGGIS"
+   "solution": "HAGGIS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HAGGIS",
+    "definitions": [
+     {
+      "text": "Scottish dish",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its final letter is used"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "this puts the soldiers' piece behind the pieces that come before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Edinburgh",
+      "gives": "H",
+      "select": "last",
+      "note": "the final letter of Edinburgh"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "soldier's",
+      "gives": "GIS",
+      "note": "GIs are American soldiers; the 's is read as a plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "A",
+      "G",
+      "GIS"
+     ]
+    },
+    "explanation": {
+     "surface": "Near Edinburgh, a soldier is after a decent traditional meal.",
+     "walkthrough": "'Close to Edinburgh' looks like a location, but it means the last letter of the city.",
+     "definitionFit": "Haggis is the traditional Scottish pudding of sheep's offal, oatmeal and suet cooked in a casing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Close"
+    }
+   }
   },
   {
    "number": 25,
@@ -437,7 +1684,50 @@
      }
     ]
    },
-   "solution": "STARTURN"
+   "solution": "STARTURN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STAR TURN",
+    "definitions": [
+     {
+      "text": "Top of the bill",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "set off",
+      "gives": "START",
+      "note": "to set off is to start out"
+     },
+     {
+      "clueFragment": "vessel",
+      "gives": "URN",
+      "note": "an urn is a vessel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "START",
+      "URN"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller sets off aboard a ship.",
+     "walkthrough": "'Vessel' suggests a boat; here it is a container.",
+     "definitionFit": "The star turn is the main act, the performer billed first and most prominently on a variety programme."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 26,
@@ -451,7 +1741,46 @@
     "text": "Wizard dramatist and author of children's books",
     "enumeration": "6"
    },
-   "solution": "POTTER"
+   "solution": "POTTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POTTER",
+    "definitions": [
+     {
+      "text": "Wizard",
+      "at": 0
+     },
+     {
+      "text": "dramatist and author of children's books",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wizard",
+      "note": "first meaning: Harry, the boy wizard of J. K. Rowling's novels"
+     },
+     {
+      "clueFragment": "dramatist",
+      "note": "second meaning: Dennis, British television playwright"
+     },
+     {
+      "clueFragment": "author of children's books",
+      "note": "third meaning: Beatrix, creator of Peter Rabbit"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Three famous people share one surname: Harry the wizard, Dennis the dramatist, Beatrix the children's writer.",
+     "definitionFit": "Each is a well-known bearer of the surname, so the name identifies all three figures."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wizard"
+    }
+   }
   },
   {
    "number": 27,
@@ -465,7 +1794,61 @@
     "text": "Place for fruit, old variety, extremely ruddy",
     "enumeration": "8"
    },
-   "solution": "ORANGERY"
+   "solution": "ORANGERY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ORANGERY",
+    "definitions": [
+     {
+      "text": "Place for fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only first and last letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "variety",
+      "gives": "RANGE",
+      "note": "a range is a variety, an assortment"
+     },
+     {
+      "clueFragment": "ruddy",
+      "gives": "RY",
+      "select": "outer",
+      "note": "the first and last letters of ruddy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "RANGE",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "Describing an apple: an old variety, very red.",
+     "definitionFit": "An orangery is a glasshouse built for growing citrus trees, a building where such crops are raised."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "variety"
+    }
+   }
   }
  ]
 }
