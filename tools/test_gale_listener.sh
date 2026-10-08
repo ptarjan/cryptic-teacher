@@ -186,6 +186,57 @@ def no9(advert_y):
             + wide("2.", "Add head", 1150, 370) + line("B.B.C. SYMPHONY CONCERT", 1300, advert_y)
             + wide("3.", "A riddle", 1150, 400) + wide("9.", "Half sort", 1150, 490)
             + wide("10.", "Unpleasant jester", 1150, 520))
+# No 88's page: both lists in the left column, a report beside them whose
+# prose quotes "for 1 Across (see notes)" and whose NOTES carry their own
+# ACROSS and DOWN; a long clue line all but closes the gutter.
+def no88(beside, notes=True):
+    return ([(646, 1795, 747, 1812, "ACROSS")] + line("1. Her image.", 234, 1830)
+            + line("14. Why hast thou nothing in thy face.", 234, 1860)
+            + line("15. Four pounds of prunes and as many of the sun.", 234, 1890)
+            + line("16. Found in arithmetic books.", 234, 1920)
+            + [(654, 1960, 736, 1977, "DOWN")] + line("1. Accompaniment to dancing.", 234, 1990)
+            + line("2. Infidels were blinded by the sight of it.", 234, 2020)
+            + line("5. For whereso-e'er thou art in this world's globe, I'll have an", 234, 2050)
+            + line("6. New.", 234, 2080)
+            + beside + (notes and
+            line("NOTES", 1500, 2200) + [(1360, 2240, 1462, 2257, "ACROSS")]
+            + line("1. Lating night.", 1193, 2270) + line("5. Milton.", 1193, 2300)
+            + [(1840, 2240, 1924, 2257, "DOWN")] + line("6. Burns.", 1668, 2270)
+            + line("25. Gay.", 1668, 2300) + line("31. Keats.", 1668, 2330) or []))
+cols = g.page_columns(g.figures(no88(
+    line("wise correct. It was thought", 1176, 1795) + line("for 1 Across (see notes) in", 1176, 1825)
+    + line("prominence given by some of", 1176, 1855) + line("the daily papers to the", 1176, 1885))))
+check("No 88: the lists beside a report, its prose and NOTES left out",
+      (["1", "14", "15", "16"], ["1", "2", "5", "6"]),
+      tuple([l[4].split(".")[0] for l in c] for c in cols) if cols else None)
+cols = g.page_columns(g.figures(no88(
+    line("7. All downward to the banks of the river.", 1193, 1795)
+    + line("8. rev. Would this be an accurate one?", 1193, 1825)
+    + line("9. Turn to the left.", 1193, 1855), notes=False)))
+check("a list running on at the next column's top is still read (mirror)",
+      ["1", "2", "5", "6", "7", "8", "9"], [l[4].split(".")[0] for l in cols[1]] if cols else None)
+
+# No 3's page: ACROSS and DOWN low on the left under the grid, both lists
+# running on at the top of the right half. The headings give only the
+# first band; the clue numbers give all of it, so they are taken. Without
+# the right half the two agree (mirror).
+def no3(right_half):
+    return ([(300, 1000, 400, 1016, "ACROSS")] + line("1. Hunted in India.", 100, 1030)
+            + line("5. A town in the Punjab.", 100, 1060) + line("6. Site of an old town.", 100, 1090)
+            + [(800, 1000, 880, 1016, "DOWN")] + line("1. A famous pass.", 600, 1030)
+            + line("2. An exclamation.", 600, 1060) + line("3. Army Temperance.", 600, 1090)
+            + (line("36. A not infrequent occurrence.", 1100, 200) + line("37. A town in Baltistan.", 1100, 230)
+               + line("39. Junction for Dehra Dun.", 1100, 260) + line("16. Termination meaning meadow.", 1600, 200)
+               + line("17. A town in Assam.", 1600, 230) + line("18. A capital of the Moghul Empire.", 1600, 260)
+               if right_half else []))
+cols = g.page_columns(g.figures(no3(True)))
+check("No 3: the lists' second band, beyond the headings' reach",
+      (["1", "5", "6", "36", "37", "39"], ["1", "2", "3", "16", "17", "18"]),
+      tuple([l[4].split(".")[0] for l in c] for c in cols) if cols else None)
+cols = g.page_columns(g.figures(no3(False)))
+check("one band: the headings' lists (mirror)", (["1", "5", "6"], ["1", "2", "3"]),
+      tuple([l[4].split(".")[0] for l in c] for c in cols) if cols else None)
+
 cols = g.page_columns(g.figures(no9(900)))
 check("No 9: capitals above the lists end no column",
       ["1", "2", "3", "9", "10"], [l[4].split(".")[0] for l in cols[1]] if cols else None)
