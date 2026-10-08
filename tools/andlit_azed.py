@@ -524,7 +524,7 @@ def blog_records():
 #: Voted readings of the scanned copies, one {number}.json each, keyed by the
 #: copy's sha and SCAN_VERSION: bump it when the reading below changes.
 SCAN_STORE = CACHE / "scans"
-SCAN_VERSION = 3
+SCAN_VERSION = 4
 #: The 2006-08 scans are ~750px wide, too small for the readers' detector:
 #: upscaled 2x, the vote agrees on 32 of No 1820's 36 clues, not 21.
 SCAN_SCALE = 2
