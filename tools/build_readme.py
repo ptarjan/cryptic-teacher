@@ -552,6 +552,7 @@ LAYOUT = [
     ("fetching", "tools/test_listener_letters.sh", "does trove_solution_ocr.read_grid_letters read the letters of a drawn, filled Listener report grid back through listener_grid's lattice?"),
     ("fetching", "tools/test_ann_layout.sh", "annotate_check's fix-ups rewrite only the values they change in tools/_ann_<ID>.json, so the run's next Edit of text it wrote still matches"),
     ("fetching", "tools/commit_subject.py", "a commit subject naming the puzzles staged, for jobs that commit as they go"),
+    ("fetching", "tools/mem_gate.py", "memory gate: a queue starts a unit only while available RAM stays above a floor"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

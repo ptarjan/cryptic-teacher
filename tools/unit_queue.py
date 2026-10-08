@@ -52,6 +52,8 @@ import threading
 import time
 from pathlib import Path
 
+import mem_gate
+
 TOOLS = Path(__file__).resolve().parent
 QUEUES = {"daily": "daily_units", "books": "book_units"}
 STATE = Path(os.environ.get("UNIT_QUEUE_STATE")
@@ -267,6 +269,10 @@ def spawn(queue, unit, logfile):
                          cwd=str(main_checkout()), start_new_session=True, close_fds=True)
 
 
+#: What the memory gate reads (tests swap it); None is mem_gate.available.
+MEM_READER = None
+
+
 def tick(queue, dry=False):
     mod = queue_module(queue)
     STATE.mkdir(parents=True, exist_ok=True)
@@ -284,10 +290,18 @@ def tick(queue, dry=False):
         per_cls[r.get("cls", "")] = per_cls.get(r.get("cls", ""), 0) + 1
     free = getattr(mod, "SLOTS", 0) - len(running) if getattr(mod, "SLOTS", 0) else None
     started, waiting = [], []
+    memory_bound = False
     for unit, why in due_units(mod, ledger, now):
         cap = mod.LIMITS.get(unit.cls)
         if (free is not None and free <= 0) or (cap is not None and per_cls.get(unit.cls, 0) >= cap):
             waiting.append(unit.key)
+            continue
+        if not mem_gate.room(len(started), MEM_READER):
+            waiting.append(unit.key)
+            if not memory_bound:
+                memory_bound = True
+                print(f"{queue}: memory-bound: under {(mem_gate.FLOOR + mem_gate.UNIT) >> 20} MB available; "
+                      "due units wait for the next tick")
             continue
         print(f"{'[dry run] would start' if dry else 'start'} {unit.key} ({why})")
         if not dry:

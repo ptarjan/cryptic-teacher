@@ -365,6 +365,56 @@ ts = sorted(float(x) for x in stamps.read_text().split())
 check("three processes' nine requests are paced 0.3s apart between them", (9, True),
       (len(ts), ts[-1] - ts[0] >= 8 * 0.3 - 0.05))
 
+# ---- the memory gate: no start without room, running units untouched
+import mem_gate as mg
+G = 1 << 30
+check("room: plenty available starts", True, mg.room(0, lambda: 16 * G))
+check("room: below floor plus a unit does not", False, mg.room(0, lambda: 3 * G))
+check("room: units begun this pass count against it", (True, True, False),
+      tuple(mg.room(n, lambda: mg.FLOOR + int(2.5 * mg.UNIT)) for n in (0, 1, 2)))
+check("room: an unreadable figure gates nothing", True, mg.room(0, lambda: None))
+check("available() reads this host", True, (mg.available() or 1) > 0)
+log.unlink(missing_ok=True)
+eq.plan = units([], [(f"m{k}", []) for k in range(3)])
+eq.mem_gate_reader = lambda: 1 * G
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, seconds=2.2, replan=0.5)
+check("short of memory nothing starts, and it says so once", (False, 1),
+      (log.exists(), err.getvalue().count("memory-bound")))
+# mirror: the same plan with room starts every unit and never says memory-bound
+eq.mem_gate_reader = lambda: 16 * G
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, replan=0.5)
+check("with room every unit starts, no memory-bound line", (3, 0),
+      (sum(" start " in l for l in log.read_text().splitlines()), err.getvalue().count("memory-bound")))
+eq.mem_gate_reader = None
+
+# unit_queue.tick shares the gate: short of memory it starts nothing, with room it starts all
+import types
+import unit_queue as uq
+class _Ledger:
+    def __init__(self, queue): pass
+    def compact(self): pass
+    def running_units(self): return {}
+stub = types.SimpleNamespace(LIMITS={}, SLOTS=0, LOG="x.log")
+uq.queue_module = lambda name: stub
+uq.Ledger = _Ledger
+uq.STATE = T / "uq-state"
+uq.main_checkout = lambda: T
+uq.due_units = lambda mod, ledger, now: [(types.SimpleNamespace(key=f"k{i}", cls=""), "due") for i in range(3)]
+spawned = []
+uq.spawn = lambda queue, unit, logfile: spawned.append(unit.key)
+for reader, want in ((lambda: 1 * G, (0, 1)), (lambda: 16 * G, (3, 0))):
+    uq.MEM_READER = reader
+    spawned.clear()
+    out = io.StringIO()
+    with contextlib.redirect_stdout(out):
+        uq.tick("fake")
+    check("tick: units started / memory-bound lines", want, (len(spawned), out.getvalue().count("memory-bound")))
+uq.MEM_READER = None
+
 print("FAILS", fails)
 sys.exit(1 if fails else 0)
 EOF
