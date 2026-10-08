@@ -459,6 +459,9 @@ def sections(lines):
 # ------------------------------------------------------------------ the clues
 
 CLUE_START = re.compile(r"^\*?(\d{1,2})\s*(?![\d,.;])(\S.*)$")
+#: A count read glued to the clue's last word, its bracket unclosed:
+#: "centrepiece(10,3words".
+GLUED_COUNT = re.compile(r"\s*\((\d+),\s*(\d)\s*words?\)?\s*$")
 ENUM_END = re.compile(r"\(([^()]*\d[^()]*)\)\s*$")
 
 
@@ -688,6 +691,10 @@ def scan_copy(got):
             continue
         text = FOOTER.sub("", text or "").strip()
         text = re.sub(r"[A-Za-z]+", lambda m: split_run(m.group(0)) or m.group(0), text)
+        if enum and (m := GLUED_COUNT.search(text)) and m.group(1) == enum:
+            # The voted count's words-tail run onto the clue's last word,
+            # its bracket lost ("centrepiece(10,3words").
+            text = f"{text[:m.start()].rstrip()} ({enum}, {m.group(2)} words)"
         if ENUM_END.search(text):
             enum = None     # the count stayed in the text
         elif not enum and light in lengths:

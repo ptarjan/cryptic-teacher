@@ -75,6 +75,12 @@ check("a word split at a line end, the hyphen read as a mark, is joined (times-1
                         "Mike Valon whom Wordsworth loved and left"]))
 check("mirror: two words a reading prints apart stay apart",
       "Put in to land", oc.printed_words("Put in to land", ["Put into land", "Put in to land"]))
+check("halves most readings print apart round a dash keep the dash (Azed scan)",
+      "Hid in - cosmetician's case", oc.printed_words("Hid in-cosmetician's case",
+                                                      ["Hid in - cosmetician's case"] * 3 + ["Hid in-cosmetician's case"]))
+check("mirror: a hyphen more readings print than a dash stays a hyphen",
+      "Ice does, when it re-forms - see!", oc.printed_words("Ice does, when it re-forms - see!",
+                                                          ["Ice does, when it re-forms - see!"] * 2 + ["Ice does, when it re - forms - see!"]))
 texts = {"en5": "ACROSS\n1 What Cleopatra did to the en-\nclosed reptile? (7)\nDOWN\n2 Pet (3)",
          "vlm": "ACROSS\n1 What Cleopatra did to the en-\nclosed reptile? (7)\nDOWN\n2 Pet (3)"}
 laid, _ = oc.as_printed(texts, {"1-across": ("What Cleopatra did to the enclosed reptile?", "7", None)}, {},
