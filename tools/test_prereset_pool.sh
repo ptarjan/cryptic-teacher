@@ -13,7 +13,8 @@
 #   - every id is handled exactly once, the failing one through the failure path;
 #   - a width change at a checkpoint takes effect, growing and shrinking;
 #   - at width 0 nothing starts, and the pool naps and resumes when it grows;
-#   - the tree is only synced with nothing in flight;
+#   - the tree is synced mid-pool with runs still in flight, and the pool
+#     keeps starting runs after it rather than draining for it;
 #   - each checkpoint is handed the average in flight, measured;
 #   - a puzzle without all its answers is solved and annotated by one run, its
 #     fill applied again from the committed puzzle before it is committed;
@@ -35,7 +36,7 @@ WIDTH_FILE="$tree/width"
 
 export POOL_LAUNCH_GAP=0.1
 POOL_CHECK_SECS=0   # a checkpoint after every run, so a width change lands at once
-POOL_SYNC_SECS=2    # and a mid-run drain for the sync, at least once
+POOL_SYNC_SECS=2    # and a mid-pool sync, at least once
 eval "$(grep -E '^(declare -A )?POOL_[A-Z_]+=' "$SCRIPT")"
 for fn in pool_mark pool_launch pool_reap pool_drain pool_interval_start pool_checkpoint run_pool \
           needs_solve solve_applied; do
@@ -128,7 +129,8 @@ verdicts=$(awk -v gap="$POOL_LAUNCH_GAP" -v n="${#ids[@]}" '
   $1 == "end" { inflight--; older = inflight }
   $1 == "ok" || $1 == "fail" { handled[$2]++; kind[$1]++ }
   $1 == "solve" { solved[$2] = 1 }
-  $1 == "sync" && $2 != "inflight=0" { dirty_sync++ }
+  $1 == "sync" && $2 != "inflight=0" { inflight_sync++; synced = 1 }
+  $1 == "start" && synced { started_after_sync++ }
   $1 == "sync" { syncs++ }
   $1 == "after" && $2 == "failed=1" { failure_checkpoints++ }
   $1 == "after" {
@@ -144,7 +146,7 @@ verdicts=$(awk -v gap="$POOL_LAUNCH_GAP" -v n="${#ids[@]}" '
     print "spacing=" close_launch + 0
     print "handled=" length(handled) " ok=" kind["ok"] + 0 " fail=" kind["fail"] + 0 " twice=" twice + 0
     print "peak4=" peak[4] + 0 " peak1=" peak[1] + 0
-    print "syncs=" (syncs >= 2) " dirty=" dirty_sync + 0
+    print "syncs=" (syncs >= 2) " inflight=" (inflight_sync > 0) " started_after=" (started_after_sync > 0)
     print "failure_checkpoint=" failure_checkpoints + 0
     print "avg=" bad_avg + 0 " concurrent=" (concurrent > 0)
   }' "$EVENTS")
@@ -157,7 +159,8 @@ check "every id handled exactly once, one through the failure path" \
   "16 ok=15 fail=1 twice=0" "$(get handled)"
 check "the width growing to 4 fills four slots" 4 "$(get peak4 | cut -d' ' -f1)"
 check "the width shrinking to 1 runs one at a time" "peak1=1" "$(get peak4 | cut -d' ' -f2)"
-check "the tree is synced, and only with nothing in flight" "1 dirty=0" "$(get syncs)"
+check "the tree is synced mid-pool with runs in flight, and runs still start after it" \
+  "1 inflight=1 started_after=1" "$(get syncs)"
 check "a failed run is judged at a checkpoint of its own" 1 "$(get failure_checkpoint)"
 check "each checkpoint logs a measured average in flight, within the width" \
   "0 concurrent=1" "$(get avg)"

@@ -529,7 +529,7 @@ LAYOUT = [
     ("fetching", "tools/test_placeholder_clues.sh", "a puzzle whose clues are pointers at clues printed elsewhere has no clues"),
     ("fetching", "tools/sweep_series.py", "probe every number of a Guardian series between two bounds, file what is served"),
     ("fetching", "tools/ocr_remote.py", "the clue OCR, whole scan editions, image-PDF page searches and Trove grid searches run on Paul's desktop over ssh; what runs here instead shares LOCAL_SLOTS"),
-    ("fetching", "tools/test_sync_skip_published.sh", "sync_attempt drops a conflicting commit whose puzzle origin/master already holds, and aborts cleanly on any other conflict"),
+    ("fetching", "tools/test_sync_skip_published.sh", "the burn's sync with runs in flight: publishes or drops each local commit, brings origin's code in, keeps a run's uncommitted edit, and refuses whole over a file origin changed"),
     ("fetching", "tools/scan_crop.py", "the printed clues of an archive.org scan, cut out for the annotator"),
     ("fetching", "tools/test_scan_crop.sh", "does the annotator get the printed clues of a puzzle filed off a scan?"),
     ("fetching", "tools/test_ocr_remote.sh", "does tools/ocr_remote.py compare every reader model a read can load, send back an edition whose read on the desktop opened a file it was not sent, give the same grids from a search run there, and cap reads here at LOCAL_SLOTS?"),

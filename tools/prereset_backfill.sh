@@ -355,8 +355,7 @@ POOL_LAUNCH_GAP_US=$(awk -v s="${POOL_LAUNCH_GAP:-5}" 'BEGIN{printf "%d", s * 10
 # width and re-plans the queue. It runs this often, and at once after any failed
 # run, so a lockout stops the refilling within one run.
 POOL_CHECK_SECS="${POOL_CHECK_SECS:-300}"
-# The rebase that brings in origin's changes needs a tree no annotator is writing
-# (sync_wave), so this often the pool stops refilling, drains and syncs.
+# This often the tree is synced with origin (sync_wave), runs still in flight.
 POOL_SYNC_SECS="${POOL_SYNC_SECS:-3600}"
 declare -A POOL_RUNS=()  # pid -> puzzle id, every run in flight
 declare -A POOL_SOLVING=()  # pid -> 1 for each of those that solves its puzzle first
@@ -449,7 +448,7 @@ pool_reap() {
   fi
 }
 
-# Let every run in flight finish, then sync the quiet tree.
+# Let every run in flight finish, then sync.
 pool_drain() {
   while [ ${#POOL_RUNS[@]} -gt 0 ]; do pool_reap; done
   sync_wave
@@ -529,9 +528,8 @@ run_pool() {
     if [ "$stop" = 0 ] && past_deadline; then echo "deadline reached — stopping"; stop=1; fi
     if [ "$stop" = 0 ] &&
        [ $(( ${EPOCHREALTIME/[.,]/} - POOL_SYNCED_US )) -ge $(( POOL_SYNC_SECS * 1000000 )) ]; then
-      pool_drain
-      if [ "$POOL_DONE" -gt 0 ]; then pool_checkpoint || stop=1; fi
-      continue
+      sync_wave
+      POOL_SYNCED_US=${EPOCHREALTIME/[.,]/}
     fi
     while [ "$stop" = 0 ] && [ ${#POOL_RUNS[@]} -lt "$wide" ] && [ "$at" -lt "${#queue[@]}" ]; do
       pool_launch "${queue[$at]}"
@@ -563,45 +561,43 @@ run_pool() {
   return $stop
 }
 
-# One try at rebasing this tree onto origin/master and pushing whatever it then
-# holds that origin does not, run through push_race_retry. Only on a quiet tree
-# (see sync_wave). --autostash for what is left uncommitted. HEAD is detached in
-# this worktree, so master is named on both sides of the push.
+# One try at publishing every commit of this tree origin/master lacks, run
+# through push_race_retry. Each goes by tools/push_puzzle_commit.sh, which
+# replays it onto origin in memory, so the working tree is never touched and
+# runs in flight cannot make it fail. A commit that will not replay is skipped
+# when origin/master already holds its puzzle files byte for byte (published by
+# another path: a hand rebuild, a sibling's merge); any other stops the attempt.
 sync_attempt() {
+  local c paths
   git fetch -q origin master || return
-  git rebase -q --no-keep-empty --autostash origin/master || skip_published_conflicts || return
-  if [ -n "$(git rev-list origin/master..HEAD)" ]; then push_or_raced; fi
+  for c in $(git cherry origin/master HEAD | sed -n 's/^+ //p'); do
+    tools/push_puzzle_commit.sh "$c" && continue
+    paths=$(git diff-tree --no-commit-id --name-only -r "$c" -- 'puzzles/*.json')
+    if [ -n "$paths" ] && git diff --quiet origin/master "$c" -- $paths; then
+      echo "sync: dropping $(git log -1 --format='%h %s' "$c") — origin/master already has its puzzle" >&2
+      continue
+    fi
+    echo "sync: $(git log -1 --format='%h %s' "$c") does not apply to origin/master" >&2
+    return 1
+  done
 }
 
-# A rebase stopped on a conflict. A commit whose puzzle files origin/master
-# already holds byte for byte was published by another path (a hand rebuild,
-# push_puzzle_commit's own merge), so it is skipped, side files and all: the
-# copy on master carries them. Any other conflict aborts, leaving the tree as
-# it was rather than unmerged.
-skip_published_conflicts() {
-  local c paths
-  while [ -d "$(git rev-parse --git-path rebase-merge)" ]; do
-    c=$(git rev-parse -q --verify REBASE_HEAD) || break
-    paths=$(git diff-tree --no-commit-id --name-only -r "$c" -- 'puzzles/*.json')
-    if [ -z "$paths" ] || ! git diff --quiet origin/master "$c" -- $paths; then
-      echo "sync: $(git log -1 --format='%h %s' "$c") conflicts and is not on origin/master; aborting the rebase" >&2
-      git rebase --abort
-      return 1
-    fi
-    echo "sync: dropping $(git log -1 --format='%h %s' "$c") — origin/master already has its puzzle" >&2
-    git rebase --skip >/dev/null 2>&1 ||
-      [ "$(git rev-parse -q --verify REBASE_HEAD)" != "$c" ] || { git rebase --abort; return 1; }
-  done
-  [ -z "$(git ls-files -u)" ]
+# Move this tree to origin/master once sync_attempt has published everything
+# HEAD holds. reset --keep updates only the files that differ between HEAD and
+# origin/master, keeps every local edit to the rest, and refuses as a whole,
+# touching nothing, when a file it would update has local edits or an untracked
+# file sits in its way: a run in flight writing a puzzle origin also changed.
+# Prints git's refusal and returns non-zero.
+sync_tree() {
+  git reset -q --keep origin/master
 }
 
 # Every shared data file the runs wrote, committed and pushed the way a puzzle
 # is, so safe with runs in flight: the corroboration ledger extend_archive.py's
 # fetches write, for one. The directory, not a list, so the next such file is
-# covered too. None may ride the sync's --autostash: other writers append to
-# these files all day, and a stash pop that conflicts leaves an unmerged index that stops the burn.
-# Committed, the keyed ones merge per key in the rebase (.gitattributes,
-# tools/json_merge.py). Published at every checkpoint rather than at the
+# covered too. Left uncommitted, a ledger origin also moved would make every
+# sync_tree refuse. Committed, the keyed ones merge per key on the way to origin
+# (.gitattributes, tools/json_merge.py). Published at every checkpoint rather than at the
 # republish, so the puzzles already pushed validate on master, and a burn that
 # is killed does not lose them to nightly_worktree.sh's reset --hard.
 # The source-correction tables are left out (tools/own_rows.py paths): their
@@ -621,41 +617,39 @@ publish_shared_data() {
   worker_commit "Shared data from the pre-reset backfill" "$@" || true
 }
 
-# Bring this tree up to origin/master, and publish anything the per-puzzle
-# pushes could not. Only with no run in flight (pool_drain): a rebase with an
-# annotator still writing fails on its clean-tree check, and an autostash taken
-# then holds that sibling's finished puzzle hostage. Planner and code changes
-# reach the burn through this rebase, and the local copies of puzzles
-# push_puzzle_commit.sh already published drop out as patch-identical.
+# Publish what the per-puzzle pushes could not, and bring this tree up to
+# origin/master, with runs in flight: nothing here touches a file a run writes.
+# Planner and code changes reach the burn this way.
 sync_wave() {
   [ "$DRY_RUN" = 1 ] && return 0
   publish_shared_data
-  # Nothing generated survives the rebase, because nothing generated is worth
-  # carrying: the republish step rewrites every one of these files wholesale
-  # from the puzzle sources, so the copy sitting in the tree right now is
-  # already garbage. Carried across in the --autostash, it conflicts the first
-  # time origin rebuilt the same pages, and an unmerged index fails every later
-  # `git commit` and every later autostash in the run.
+  # Nothing generated is worth carrying: the republish step rewrites every one
+  # of these files wholesale from the puzzle sources. A stale copy left modified
+  # would make sync_tree refuse the first time origin rebuilt the same page.
   #
   # Exclusions, not a list of what to drop, for the reason the republish `add
   # -A` gives: a named list of generated paths is incomplete the day someone
-  # adds a generated path. What is excluded is what a run actually authors —
-  # a puzzle kept after a cut-off run, and shared data under tools/, which
-  # publish_shared_data has just committed.
-  git checkout -q -- . ':(exclude)puzzles/*.json' ':(exclude)tools/'
+  # adds a generated path. What is excluded is what a run authors, in flight or
+  # kept after a cut-off: its puzzle, the clues-only file its solve removes, and
+  # shared data under tools/, which publish_shared_data has just committed.
+  git checkout -q -- . ':(exclude)puzzles/*.json' ':(exclude)clues_only/' ':(exclude)tools/'
   # checkout only restores files git is tracking HERE. A generated page for a
-  # puzzle this worktree's HEAD predates is untracked, so it survives, and the
-  # moment origin commits that same path, rebase refuses to check out over it
-  # ("untracked working tree files would be overwritten").
-  git clean -qfd -e 'puzzles/**/*.json' -e 'tools/'
-  push_race_retry sync_attempt ||
-    alert "pre-reset backfill could not bring its worktree up to origin/master or push what it holds — see .prereset.log."
-  # An unmerged file is the rest of the night's problem: every commit and every
-  # autostash from here on fails, so the job would keep buying annotations it
-  # cannot save. Stop while the alert still names one cause.
-  if [ -n "$(git ls-files -u)" ]; then
-    alert "pre-reset backfill wedged its worktree — a rebase left these unmerged: $(git diff --name-only --diff-filter=U | tr '\n' ' '). Nothing more can commit, so the run stopped rather than spend on work it cannot save. Resolve in $PWD, then push."
-    exit 1
+  # puzzle this worktree's HEAD predates is untracked, and the moment origin
+  # commits that same path, sync_tree refuses to write over it.
+  git clean -qfd -e 'puzzles/**/*.json' -e 'clues_only/' -e 'tools/'
+  if ! push_race_retry sync_attempt; then
+    alert "pre-reset backfill could not push what its worktree holds onto origin/master, so it stays where it is and runs old code — see .prereset.log."
+    return 0
+  fi
+  local out
+  out=$(sync_tree 2>&1) && return 0
+  # With runs in flight a refusal names a puzzle one of them is writing, and the
+  # next sync, after it is committed, gets through. With none, nothing will
+  # clear it by itself.
+  if [ ${#POOL_RUNS[@]} -gt 0 ]; then
+    echo "sync: tree stays at $(git rev-parse --short HEAD) until the next sync, ${#POOL_RUNS[@]} runs in flight: $out"
+  else
+    alert "pre-reset backfill could not move its worktree to origin/master, so it runs old code: $out"
   fi
 }
 
@@ -705,7 +699,7 @@ after_wave() {
   # guessed: a nap shorter than the lockout spends a nap on runs that were
   # always going to fail. The runs still in flight finish first (into the
   # lockout, so they mostly fail and are requeued with the rest), because a nap
-  # with runs going would leave them unreaped and the tree unsynced.
+  # with runs going would leave them unreaped.
   pool_drain
   local nap room left_min
   left_min=$(session_left_min)
@@ -774,7 +768,7 @@ python3 tools/fetch_puzzle.py --reindex >/dev/null
 #
 # Never fatal. A paper being down is a smaller problem than not annotating.
 # Through publish_fetched.sh, which commits and pushes what was fetched before
-# any annotator starts: an untracked fetched file blocks the sync's rebase the
+# any annotator starts: an untracked fetched file blocks the sync (sync_tree) the
 # moment origin commits the same path.
 if [ "$DRY_RUN" = 1 ]; then
   python3 tools/extend_archive.py --dry-run || true
@@ -932,7 +926,6 @@ if [ -n "$(git status --porcelain)" ]; then
   git commit -q -m "$(printf 'Republish after pre-reset backfill\n\n%s' "$(python3 tools/provenance.py trailer)")"
   left=$(git status --porcelain | cut -c4- | tr '\n' ' ')
   [ -n "$left" ] && alert "the pre-reset backfill committed, and left these behind in its own worktree: $left"
-  # No annotator is running any more, so the rebase is safe here.
   push_race_retry sync_attempt ||
     alert "pre-reset backfill could not push its republish commit — the built pages are committed locally only. See .prereset.log."
 fi

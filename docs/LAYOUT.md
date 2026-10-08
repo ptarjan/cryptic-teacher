@@ -1729,9 +1729,10 @@ tools/ocr_remote.py                           the clue OCR, whole scan editions,
                                               searches and Trove grid searches run on Paul's
                                               desktop over ssh; what runs here instead shares
                                               LOCAL_SLOTS
-tools/test_sync_skip_published.sh             sync_attempt drops a conflicting commit whose
-                                              puzzle origin/master already holds, and aborts
-                                              cleanly on any other conflict
+tools/test_sync_skip_published.sh             the burn's sync with runs in flight: publishes or
+                                              drops each local commit, brings origin's code in,
+                                              keeps a run's uncommitted edit, and refuses whole
+                                              over a file origin changed
 tools/scan_crop.py                            the printed clues of an archive.org scan, cut out
                                               for the annotator
 tools/test_scan_crop.sh                       does the annotator get the printed clues of a
