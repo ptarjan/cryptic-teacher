@@ -46,13 +46,18 @@ NewsUK19xxUKEnglish, and files each "Times Crossword Puzzle No N" as times-N:
     is filed blank (its count kept) when no spelling wins, when its count
     was lost, or when it holds another clue's number.
   - The answers come from the solution grid a later edition prints under
-    "Solution to Puzzle No N", read by tools/trove_solution_ocr.py: a light
-    only when every letter is read surely and no crossing disagrees, and the
-    whole solution only when its blocks are the puzzle's.
+    "Solution to Puzzle No N", read by tools/trove_solution_ocr.py's
+    read_framed (each cell between its own rules; a numbered or unsure cell
+    matched to the grid's own letters, settled by its lights' words): a
+    light only when every letter is read and it is a word, and the whole
+    solution only when its blocks are the puzzle's.
   - Only a puzzle whose every clue has text goes into puzzles/times: one
     with a blank clue goes to --out (or nowhere without it).
   - A number already held is not written (unless this tool filed it and the
-    new reading beats it on clues or answers, improves): the reading goes to
+    new reading beats it on clues or answers, improves), but takes the
+    reading's answers when this tool filed it (merge_answers: a new answer
+    replaces the held one, and a held answer a new one crosses on another
+    letter goes); the reading goes to
     downloads.ARCHIVE_ORG_SOURCE, where tools/cross_validate.py's
     `archiveorg` adapter votes with it. Every reading goes there, filed or not.
 
@@ -2652,7 +2657,8 @@ def read_solution(sol, grid, above=False):
         sol = img.crop((crop[0] + box[0], crop[1] + box[1], crop[0] + box[2], crop[1] + box[3]))
         # The recogniser reads the ~23px cells far surer at three times the size.
         sol.resize((sol.width * 3, sol.height * 3), Image.BICUBIC).save(path)
-    answers, stats = trove_solution_ocr.read_answers(path, grid)
+    # The crop is the grid, frame to frame: read on its own rules.
+    answers, stats = trove_solution_ocr.read_answers(path, grid, tight=True)
     if stats["blocks"] < SOLUTION_BLOCKS:
         return {}, {**stats, "refused": "its blocks are not the puzzle's"}
     return {f"{n}-{d}": w for (n, d), w in answers.items()}, stats
@@ -3043,6 +3049,9 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
                 mended = mend_held(puzzle, held_path) if held_path.exists() else None
                 if mended is not None:
                     verdict["mended"] = mended[1]
+                    answered = merge_answers(mended[0], puzzle)
+                    if answered:
+                        verdict["answered"] = answered
                     if write:
                         scan_queue.file_puzzle(write_puzzle_file, TOOL, held_path, mended[0], verdict)
                     verdicts.append(verdict)
@@ -3055,7 +3064,13 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
                 path = (Path(dest) / f"{puzzle['id']}.json" if dest
                         else puzzle_path(paper.series, puzzle["number"]))
                 better = path.exists() and improves(puzzle, path)
-                if hit_number in held and not dest and not better:
+                old = json.loads(path.read_text()) if path.exists() and not better else None
+                answered = old is not None and merge_answers(old, puzzle)
+                if answered:
+                    verdict["answered"] = answered
+                    if write:
+                        scan_queue.file_puzzle(write_puzzle_file, TOOL, path, old, verdict)
+                elif hit_number in held and not dest and not better:
                     verdict["skip"] = "already held: the reading votes in cross_validate.py"
                 elif write and (better or not path.exists()) and scan_queue.file_puzzle(
                         write_puzzle_file, TOOL, path, puzzle, verdict):
@@ -3202,6 +3217,34 @@ def mend_held(puzzle, path, tool=TOOL):
         if entry_id(e) in changed:
             e.pop("annotation", None)
     return old, {entry_id(e): text(e["clue"]) for e in old["entries"] if entry_id(e) in lost}
+
+
+def merge_answers(old, puzzle, tool=TOOL):
+    """{light: its answer now (None: dropped)} after taking `puzzle`'s
+    answers into the held filing `old` (in place): each light this reading
+    answers takes its answer, and a held answer a new one crosses on
+    another letter is dropped. A light whose answer changes loses its
+    annotation, written against the old answer. {} when `old` is not
+    `tool`'s or lies on another grid."""
+    if (old.get("source") or {}).get("acquiredBy") != tool \
+            or trove_solution_ocr.puzzle_grid(old) != trove_solution_ocr.puzzle_grid(puzzle):
+        return {}
+    def cells(e):
+        x, y, across = e["position"]["x"], e["position"]["y"], e["direction"] == "across"
+        return [(x + i * across, y + i * (not across)) for i in range(e["length"])]
+    new = {entry_id(e): e["solution"] for e in puzzle["entries"] if e.get("solution")}
+    letters = {rc: ch for e in puzzle["entries"] if e.get("solution") for rc, ch in zip(cells(e), e["solution"])}
+    changed = {}
+    for e in old["entries"]:
+        lid, was = entry_id(e), e.get("solution")
+        now = new.get(lid, was)
+        if lid not in new and was and any(letters.get(rc, ch) != ch for rc, ch in zip(cells(e), was)):
+            now = None
+        if now != was:
+            e["solution"] = now
+            e.pop("annotation", None)
+            changed[lid] = now
+    return changed
 
 
 def save(ledger, known):

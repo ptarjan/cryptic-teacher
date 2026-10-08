@@ -5,8 +5,8 @@
 #
 #     bash tools/test_file_archive_org_puzzles.sh
 #
-# Pure functions on made-up words and puzzles: no scan, no RapidOCR, nothing
-# written outside a temp dir.
+# Pure functions on made-up words and puzzles, nothing written outside a
+# temp dir; one solution grid fixture is read by RapidOCR where installed.
 set -uo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 tmp=$(mktemp -d)
@@ -882,6 +882,61 @@ check("a reprint matched through a misread; another grid, or a print before the 
 got = f.match_canberra(src, write=False, out=io.StringIO(), canberra=can)
 check("two readings sharing the clue list alike name neither: the best must lead MATCH_LEAD times over", {}, got)
 
+# merge_answers(): a re-read's answers go into the held filing (17246's two
+# answers were lost when its "_" mend wrote the held file back), replace a
+# held answer read otherwise (17247 20a BAYED, now DATED), and drop a held
+# answer a new one crosses on another letter; another tool's file is left.
+def answered(sols, tool=f.TOOL):
+    lights = [(1, "across", 0, 0, 3), (1, "down", 0, 0, 3), (2, "down", 2, 0, 3), (4, "across", 0, 2, 3)]
+    return {"source": {"acquiredBy": tool}, "dimensions": {"cols": 3, "rows": 3},
+            "entries": [{"number": n, "direction": d, "position": {"x": x, "y": y}, "length": k,
+                         "clue": {"text": "c", "enumeration": str(k)}, "solution": s,
+                         **({"annotation": {"definitions": []}} if s else {})}
+                        for (n, d, x, y, k), s in zip(lights, sols)]}
+held = answered([None, "BAD", "YES", None])
+got = f.merge_answers(held, answered(["BAT", None, None, "DOE"]))
+check("a re-read's answers merge into the held filing: new ones in, a crossed one out, the rest kept",
+      ({"1-across": "BAT", "2-down": None, "4-across": "DOE"}, ["BAT", "BAD", None, "DOE"], None),
+      (got, [e["solution"] for e in held["entries"]], held["entries"][2].get("annotation")))
+held = answered(["BAY", None, None, None])
+check("a held answer read otherwise now takes the new read, its annotation dropped",
+      ({"1-across": "BAT"}, None), (f.merge_answers(held, answered(["BAT", None, None, None])),
+                                   held["entries"][0].get("annotation")))
+check("another tool's filing takes no answers", {},
+      f.merge_answers(answered([None] * 4, tool="other"), answered(["BAT", None, None, None])))
+
+# rules(): a printed solution grid's rules lie unevenly and its rows shear
+# against its columns (Gale's 1987-01-07, ~1px a cell, 8px over the grid);
+# straightened() squares them and rules() finds each one where it lies.
+import numpy as np
+import trove_solution_ocr as tso
+grid17246 = ["..........#....", ".#.#.#.#.#.#.#.", ".......#.......", ".#.#.#.#.#.#.#.",
+             ".........#.....", "##.#.#.#.#.###.", ".....#.........", ".#.#.#####.#.#.",
+             ".........#.....", ".###.#.#.#.#.##", ".....#.........", ".#.#.#.#.#.#.#.",
+             ".......#.......", ".#.#.#.#.#.#.#.", "....#.........."]
+step = [46, 49, 44, 47, 45, 50, 43, 46, 48, 45, 47, 44, 49, 46, 45]
+edges = [0] + list(np.cumsum(step))
+side = edges[-1] + 1
+ink = np.zeros((side, side), bool)
+for k, e in enumerate(edges):
+    w = 4 if k in (0, len(edges) - 1) else 2
+    ink[:, max(0, e - w):e + w + 1] = True
+    ink[max(0, e - w):e + w + 1, :] = True
+for r, row in enumerate(grid17246):
+    for c, ch in enumerate(row):
+        if ch == "#":
+            ink[edges[r]:edges[r + 1] + 1, edges[c]:edges[c + 1] + 1] = True
+        else:
+            # A letter's upright, a fifth of a cell from its left rule.
+            ink[edges[r] + 12:edges[r + 1] - 12, edges[c] + 9:edges[c] + 13] = True
+drawn = Image.fromarray(np.where(ink, 0, 255).astype(np.uint8))
+sheared = tso.sheared(drawn, 0, 0.012)
+ys, xs = tso.rules(np.asarray(tso.straightened(sheared)), grid17246)
+inner = edges[1:-1]
+check("each inner rule of an uneven, sheared grid found within 2px",
+      (True, True), (max(abs(a - b) for a, b in zip(xs[1:-1], inner)) <= 2,
+                     max(abs(a - b) for a, b in zip(ys[1:-1], inner)) <= 2))
+
 # read_solution(): the solution grid under its heading, answers keyed as
 # trove_solution_ocr.fill() looks them up, nothing from a grid of other blocks.
 from PIL import Image, ImageDraw
@@ -892,15 +947,15 @@ im.save(ed / "leaf_0003.jpg")
 f.CROPS = Path(os.environ["TMP"]) / "crops"
 import trove_solution_ocr
 seen = []
-def fake(path, grid):
-    seen.append(Image.open(path).size)
+def fake(path, grid, tight=False):
+    seen.append((Image.open(path).size, tight))
     return {(1, "across"): "ABC"}, {"blocks": stats_blocks}
 trove_solution_ocr.read_answers = fake
 sol = {"dir": ed, "leaf": 3, "number": 7, "box": (100, 100, 400, 140)}
 stats_blocks = 1.0
 got, _ = f.read_solution(sol, ["..."])
-check("solution answers keyed as fill() reads them, the grid cropped tight at 3x",
-      ({"1-across": "ABC"}, (352 * 3, 352 * 3)), (got, seen[0]))
+check("solution answers keyed as fill() reads them, the grid cropped tight at 3x and read on its own rules",
+      ({"1-across": "ABC"}, ((352 * 3, 352 * 3), True)), (got, seen[0]))
 stats_blocks = 0.9
 got, info = f.read_solution(sol, ["..."])
 check("a solution grid whose blocks are not the puzzle's gives no answers", ({}, True), (got, "refused" in info))
@@ -1709,6 +1764,41 @@ check("a number above a gap is not a later issue",
 print(f"FAILS {fails}")
 EOF
 )
+# Gale's 1987-01-07 solution grid (No 17,246, at the page's scale): clean,
+# but its rules lie unevenly, its rows shear and its clue numbers run into
+# the letters, and every light was refused but 2 of 30. Read now, most
+# lights are accepted and each is the answer a person reads off the scan.
+# Skipped where the OCR engine is not installed (CI's test job).
+ocr=$(cd "$REPO/tools" && TMP="$tmp" python3 - <<'EOF'
+import os
+from pathlib import Path
+from PIL import Image
+import trove_solution_ocr as tso
+if tso.available():
+    print("skip")
+    raise SystemExit
+hand = ["BEDOFROSES#AGED", "A#O#I#N#A#O#R#I", "BROWNIE#REPRESS", "E#N#D#R#L#E#E#P", "LIEGELORD#RANGE",
+        "##S#R#U#O#A###R", "EMBUS#SOMETIMES", "N#I#K#####I#U#A", "WITNESSED#OFFAL", "R###E#C#U#N#F##",
+        "EQUIP#ASSESSING", "A#N#E#N#T#R#N#O", "TUTORED#BLOOMER", "H#I#S#A#I#O#A#G", "EVEN#BLANCMANGE"]
+grid = ["".join("#" if ch == "#" else "." for ch in row) for row in hand]
+small = Image.open("fixtures/archive-org-grids/gale-times-17246-solution.png")
+path = Path(os.environ["TMP"]) / "sol.png"
+small.resize((small.width * 3, small.height * 3), Image.BICUBIC).save(path)
+got, stats = tso.read_answers(path, grid, tight=True)
+lts = tso.lights(grid)
+wrong = {k: w for k, w in got.items() if w != "".join(hand[r][c] for r, c in lts[k])}
+print("ok" if len(got) >= 15 and not wrong and stats["blocks"] == 1 else (len(got), wrong, stats))
+EOF
+)
+if [ "$ocr" = skip ]; then
+  echo "skip solution grid letters: rapidocr-onnxruntime not installed"
+elif [ "$ocr" = ok ]; then
+  echo "ok   Gale 1987-01-07's solution grid: 15+ of 30 lights read (was 2), each as a person reads it"
+else
+  echo "FAIL Gale 1987-01-07's solution grid: $ocr"
+  out="$out
+FAILS 1"
+fi
 echo "$out"
-echo "$out" | grep -q '^FAILS 0$' || { echo "test_file_archive_org_puzzles: failed"; exit 1; }
+echo "$out" | grep -q '^FAILS 0$' && ! echo "$out" | grep -q '^FAILS [1-9]' || { echo "test_file_archive_org_puzzles: failed"; exit 1; }
 echo "test_file_archive_org_puzzles: all passed"
