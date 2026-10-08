@@ -509,6 +509,9 @@ function boot(opts) {
   // the bare name exactly as the page does.
   new Function("window", fs.readFileSync(path.join(ROOT, "sync/merge.js"), "utf8"))(global.window);
   global.window.CTMerge = global.CTMerge;
+  // quotes.js the same way: app.js curls every clue it shows through CTQuotes.
+  new Function("window", fs.readFileSync(path.join(ROOT, "quotes.js"), "utf8"))(global.window);
+  global.window.CTQuotes = global.CTQuotes;
   // The manifest is generated and untracked, so it is rebuilt from the puzzle
   // files before it is read — in a fresh clone there is no index.js at all, and
   // in a working tree there is whatever the last rebuild left. Memoised, so

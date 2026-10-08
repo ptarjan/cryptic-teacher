@@ -99,6 +99,8 @@ MUTATIONS = {
     # The clue cleaned in place and its annotation left quoting the old words.
     # A known copy of another puzzle, filed under its own id.
     "REPRINT": ("cryptic-24104", lambda p, by: p["source"].update(reprintOf="times-1")),
+    "CURLY": ("cryptic-24104", lambda p, by: by["2-down"]["clue"].update(
+        text=by["2-down"]["clue"]["text"] + " \u2018it\u2019s\u2019")),
     "QUOTE": ("times-29329", lambda p, by: by["20-down"]["clue"].update(
         text=by["20-down"]["clue"]["text"].replace("Dip ", "Plunge "))),
 }

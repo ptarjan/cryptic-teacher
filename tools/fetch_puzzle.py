@@ -68,6 +68,7 @@ import definitions  # where each definition sits in its clue; see tools/definiti
 import enumeration  # a clue's printed letter counts; see tools/enumeration.py
 import boilerplate  # the paper's publishing notes in the preamble; see tools/boilerplate.py
 import errata  # a paper's corrections in the preamble; see tools/errata.py
+import quotes  # clue text is stored with straight quotes; see tools/quotes.py
 import puzzle_tags  # what is unusual about a puzzle; see tools/puzzle_tags.py
 from puzzle_paths import (  # noqa: E402, F401 — re-exported for the tools that ask here
     puzzle_path, puzzle_files, resolve_puzzle, shim_path)
@@ -986,6 +987,8 @@ def write_puzzle_file(path, puzzle, generator=None):
     # corroborated reading above), an annotation written for the old words
     # does not reach disk on the new ones.
     puzzle = drop_stale_annotations(puzzle, *written)
+    # Clue text is stored with straight quotes, whoever served it curled.
+    puzzle = quotes.straighten(puzzle)
     # A puzzle built fresh from a page names only its url; the file's own
     # source says when it was acquired, and re-fetching it does not change
     # that. The old answers' origin is carried under whatever solutions the
@@ -1874,7 +1877,7 @@ def source_clue(pid, eid, text):
         return text
     if not served.strip():
         return printed if not (text or "").strip() else text
-    return printed if (text or "").startswith(served) else text
+    return printed if quotes.straight(text or "").startswith(quotes.straight(served)) else text
 
 
 def corrected_clue(pid, eid):

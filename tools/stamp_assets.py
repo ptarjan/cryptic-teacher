@@ -35,7 +35,7 @@ INDEX_HTML = ROOT / "index.html"
 SITE = "https://cryptic.paultarjan.com/"
 # The generated pages write these as absolute URLs and index.html as relative
 # ones; both forms are stamped, so the same file is one cache entry either way.
-ASSETS = ["style.css", "app.js", "analytics.js", "abbreviations.js", "qr.js", "sync/merge.js",
+ASSETS = ["style.css", "app.js", "analytics.js", "abbreviations.js", "qr.js", "quotes.js", "sync/merge.js",
           "sync/events.js",
           "puzzles/index.js",
           "og.png", "favicon.svg", "favicon.ico", "apple-touch-icon.png"]

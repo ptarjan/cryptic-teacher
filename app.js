@@ -6,6 +6,8 @@
   const $ = (id) => document.getElementById(id);
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) =>
     ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  // Words of a clue, as shown: stored straight, curled for the page (quotes.js).
+  const escClue = (s) => esc(CTQuotes.curl(s));
   const letterOf = (s) => (s || "").toUpperCase().replace(/[^A-Z]/g, "");
 
   const store = {
@@ -2071,6 +2073,8 @@
   // to know which pieces are the ends, because the pieces paint as one band and
   // only a band's ends are rounded.
   function markUp(text, marks, italics, edges) {
+    // Curled whole, before it is cut, so each quote is read in context.
+    text = CTQuotes.curl(text);
     const cuts = [0, text.length];
     marks.forEach((m) => cuts.push(m.i, m.i + m.len));
     italics.forEach((r) => cuts.push(r.at, r.at + r.length));
@@ -3901,12 +3905,12 @@
       // A blog fact with a type and no clean underline: no definition rung.
     } else if (isDD && defs.length === 2) {
       const senses = senseBlocks(ann).map((b) =>
-        `<li>“${esc(b.clueFragment)}” <span class="muted">— ${esc(b.note)}</span></li>`).join("");
+        `<li>“${escClue(b.clueFragment)}” <span class="muted">— ${esc(b.note)}</span></li>`).join("");
       steps.push({
         key: "definition",
         label: LABELS.definition,
-        html: `<p>It splits between <mark class="def">${esc(defs[0].text)}</mark> and
-          <mark class="def2">${esc(defs[1].text)}</mark> — two unrelated meanings of the same
+        html: `<p>It splits between <mark class="def">${escClue(defs[0].text)}</mark> and
+          <mark class="def2">${escClue(defs[1].text)}</mark> — two unrelated meanings of the same
           answer. The clue reads like one sentence so that you don't notice it is two definitions side by side.</p>` +
           (senses ? `<ul>${senses}</ul>` : "")
       });
@@ -3914,14 +3918,14 @@
       steps.push({
         key: "definition",
         label: LABELS.definition,
-        html: `<p>Read <mark class="def">${esc(defs[0].text)}</mark> straight through as a
+        html: `<p>Read <mark class="def">${escClue(defs[0].text)}</mark> straight through as a
           description of the answer, then read the very same words again as wordplay.</p>`
       });
     } else if (isCD && !ann.fromBlog) {
       steps.push({
         key: "definition",
         label: LABELS.definition,
-        html: `<p>There's no separate wordplay here: <mark class="def">${esc(defs[0].text)}</mark>
+        html: `<p>There's no separate wordplay here: <mark class="def">${escClue(defs[0].text)}</mark>
           is a whole-clue description of the answer, worded to make you picture something else at first.</p>`
       });
     } else {
@@ -3931,7 +3935,7 @@
       steps.push({
         key: "definition",
         label: LABELS.definition,
-        html: `<p>The definition is <mark class="def">${esc(defs[0].text)}</mark>${defPlace(clue, defs[0], ann.linkWords)}</p>`
+        html: `<p>The definition is <mark class="def">${escClue(defs[0].text)}</mark>${defPlace(clue, defs[0], ann.linkWords)}</p>`
       });
     }
 
@@ -3948,7 +3952,7 @@
     // on the table.
     const defStep = steps[steps.length - 1];
     if ((ann.linkWords || []).length && defStep) {
-      const lw = ann.linkWords.map((w) => `<mark class="link">${esc(w)}</mark>`).join(LIST_SEP);
+      const lw = ann.linkWords.map((w) => `<mark class="link">${escClue(w)}</mark>`).join(LIST_SEP);
       defStep.html += `<p class="muted">${lw} ${ann.linkWords.length > 1 ? "are" : "is"}
         just a link — words that join the definition to the wordplay and add
         no letters of their own.</p>`;
@@ -3959,7 +3963,7 @@
       // A blog marks its indicators and credits them to a mechanism only when
       // it names a single type, so pairing its words with operations would guess.
       const ops = ann.fromBlog ? [] : indicatorOps(t, ann.blocks || []);
-      const marks = inds.map((i) => `<mark class="ind">${esc(i.text)}</mark>`).join(LIST_SEP);
+      const marks = inds.map((i) => `<mark class="ind">${escClue(i.text)}</mark>`).join(LIST_SEP);
       // What is only true of THIS clue comes first: an indicator's `note` says
       // why these words signal their mechanism here, and failing that its `for`
       // names the operation it asks for. Where every indicator has one of the
@@ -3973,7 +3977,7 @@
       };
       const written = inds.filter(said);
       const noteList = `<ul class="ind-notes">${written.map((i) =>
-        `<li><mark class="ind">${esc(i.text)}</mark> — ${esc(said(i))}</li>`).join("")}</ul>`;
+        `<li><mark class="ind">${escClue(i.text)}</mark> — ${esc(said(i))}</li>`).join("")}</ul>`;
       let html;
       if (written.length === inds.length) {
         html = noteList;
@@ -4041,7 +4045,7 @@
       };
       const pieces = blocks.map((b) => {
         let s = "<li>";
-        if (b.clueFragment) s += `“${esc(b.clueFragment)}”`;
+        if (b.clueFragment) s += `“${escClue(b.clueFragment)}”`;
         // A homophone's whole mechanism is the word you say aloud: “Cockney mob”
         // → OARED needs HORDE and the dropped aitch shown. So the sounded form
         // gets its own arrow, ahead of the letters it turns into, and the
@@ -4092,7 +4096,7 @@
       ? `<p class="def-fit"><b class="wt-part">Why that's the answer</b>the preamble → <span class="gives">${esc(ann.answer)}</span>: ${esc(prose.definitionFit)}</p>`
       : prose.definitionFit
       ? `<p class="def-fit"><b class="wt-part">Why that's the answer</b>${(ann.definitions || []).map((d, k) =>
-          `<mark class="${k ? "def2" : "def"}">${esc(d.text)}</mark>`).join(" and ")
+          `<mark class="${k ? "def2" : "def"}">${escClue(d.text)}</mark>`).join(" and ")
         } → <span class="gives">${esc(ann.answer)}</span>: ${esc(prose.definitionFit)}</p>`
       : "";
     // Why the definition may fairly disagree with the answer in number or part of
@@ -4476,9 +4480,9 @@
     // by name from a test. A settled word gets no id and no button: it cannot be
     // picked, so it must not look pickable and must not answer to a tap.
     const words = tokens.map((t, i) => (mk || settled.indexOf(i) >= 0)
-      ? `<span class="gw${settled.indexOf(i) >= 0 ? " known" : cls(i)}">${esc(t.text)}</span>`
+      ? `<span class="gw${settled.indexOf(i) >= 0 ? " known" : cls(i)}">${escClue(t.text)}</span>`
       : `<button type="button" id="gw-${i}" class="gw${cls(i)}${
-          nuxPointsWord({ target: target }, i, picked) ? " walk-point" : ""}">${esc(t.text)}</button>`);
+          nuxPointsWord({ target: target }, i, picked) ? " walk-point" : ""}">${escClue(t.text)}</button>`);
     // "ask" while it is the question, "mk" once it has been graded. The two are
     // the same words in two places, and flipCapture/flipPlay use the pair to
     // measure the journey between them.
@@ -4519,7 +4523,9 @@
     // markUp clips its own cut points to the slice and asks only whether a range
     // covers a position, so a mark that starts before this slice or ends after it
     // needs shifting and nothing else.
-    const slice = (a, b) => markUp(clueText(e).slice(a, b),
+    // Curled before it is sliced, so a quote at a slice's edge keeps its context.
+    const shown = CTQuotes.curl(clueText(e));
+    const slice = (a, b) => markUp(shown.slice(a, b),
       marks.map((m) => ({ i: m.i - a, len: m.len, cls: m.cls })),
       italics.map((r) => ({ at: r.at - a, length: r.length })), true);
     const tokens = ask ? ask.tokens : clueTokens(clueText(e));

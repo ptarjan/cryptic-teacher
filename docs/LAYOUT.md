@@ -27,6 +27,9 @@ does not match the table.
 index.html, style.css, app.js                 the app (vanilla HTML/CSS/JS)
 analytics.js                                  the one shared GA snippet every page loads, so
                                               there is exactly one id
+quotes.js                                     curls the straight quotes clue text is stored
+                                              with, for display (tools/quotes.py stores them
+                                              straight)
 qr.js                                         the QR encoder, drawn in the page: the sync code
                                               is the account, so it is never handed to an image
                                               service
@@ -229,6 +232,10 @@ tools/puzzle_integrity.py                     checks the puzzles themselves: two
                                               are the same puzzle, an answer that does not fit
                                               its clue’s printed length, two entries that cross
                                               and disagree
+tools/quotes.py                               clue text is stored with straight quotes:
+                                              straightens every write, and converts held files
+tools/test_quotes.js                          a clue stored with straight quotes shows curled
+                                              ones, apostrophes and leading elisions included
 tools/test_puzzle_integrity.sh                proves the two LENGTH exception tables match by
                                               nothing looser than the exact sentence they’re
                                               keyed on, and that baselining one finding never
