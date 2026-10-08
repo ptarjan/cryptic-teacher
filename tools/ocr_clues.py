@@ -888,6 +888,19 @@ def prints(pairs, low, theirs):
     return hit * 2 > letters
 
 
+def another_clue(pairs, low, theirs, clues):
+    """Whether the words align put the clue `low` on in the other reading
+    `theirs` differ from it and are word for word another laid clue's
+    (`clues`, each its lower-case words): No 3's times reading, which lost
+    44D's "Hindustani for 'red'", aligns it on 14D's "Hindustani for
+    'cupboard'"."""
+    hit = [(i, j) for i, j in pairs if i is not None and j is not None]
+    if not hit or all(similar(low[i], theirs[j].lower()) >= PRINTS_SIMILAR for i, j in hit):
+        return False
+    span = [w.lower() for w in theirs[hit[0][1]:hit[-1][1] + 1] if w not in MARKS and w != BREAK]
+    return any(len(c) == len(span) and all(similar(a, b) >= PRINTS_SIMILAR for a, b in zip(c, span)) for c in clues)
+
+
 def parted(clue, others):
     """`clue` with a non-word in it that another reading prints as two or
     more words ("theplant", "favouriteVictorian", a whole clue
@@ -962,11 +975,16 @@ def parted(clue, others):
 
 def unglued(theirs, low):
     """Another reading's tokens with two to four of this clue's words it
-    ran together ("eatsjunkets", "laidyoursoul") parted again."""
+    ran together ("eatsjunkets", "laidyoursoul") parted again, or over
+    the quote that opens the second (No 3's "for'red" for "for 'red'")."""
     runs = {"".join(low[i:i + n]): low[i:i + n] for n in (2, 3, 4) for i in range(len(low) - n + 1)
             if all(w.isalpha() for w in low[i:i + n])}
     out = []
     for t in theirs:
+        if (m := re.fullmatch(r"([A-Za-z]+)['‘’]([A-Za-z]+)", t)) and m[0].lower() not in low \
+                and runs.get((m[1] + m[2]).lower()) == [m[1].lower(), m[2].lower()]:
+            out += [m[1], m[2]]
+            continue
         k = 0
         for w in runs.get(t.lower(), [t]):
             out.append(t[k:k + len(w)])
@@ -1211,7 +1229,7 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=()):
         theirs = ends_joined(rejoin(unglued(theirs, low), low), low)
         at = 0
         pairs = align(low, [w.lower() for w in theirs])
-        if not prints(pairs, low, theirs):
+        if not prints(pairs, low, theirs) or another_clue(pairs, low, theirs, clues):
             # This reading lost the clue: its words where align put it are
             # another clue's, no vote on this one's.
             leads.append(None)
