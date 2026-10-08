@@ -158,35 +158,39 @@ def message_problems(puzzle):
 
 # --- preamble detection ------------------------------------------------------
 #
-# A preamble names a device when it says a letter per clue is extra, omitted or
-# misprinted, or read off the clue, AND that those letters spell something. The
+# A preamble names a device when it says a letter per clue is extra, omitted,
+# misprinted or read off the clue, AND reads those letters together. The
 # second half keeps out puzzles whose extra letters are only discarded
 # ("answers lose a letter before entry") and errata.
 
 DEVICE_PATTERNS = {
     "misprint": r"\bmisprint",
-    "extra": (r"\b(extra|surplus|redundant|superfluous|spare|additional)\s+(letter|word)s?\b"
-              r"|\bletter\s+too\s+many\b|\bone\s+letter\s+more\b"
+    "extra": (r"\b(extra|surplus|redundant|superfluous|spare|additional|unwanted)\s+(letter|word)s?\b"
+              r"|\bletters?\s+(superfluous|to\s+be\s+(disregarded|ignored|discarded))\b"
+              r"|\bdiscarded\s+letters\b|\bletter\s+too\s+many\b|\bone\s+letter\s+more\b"
               r"|\bwordplay\b[^.]{0,60}\b(an?|one)\s+(extra|additional)\b"),
     "omitted": (r"\bomi(t|ts|tted|ssion|ssions)\b|\bmissing\s+letters?\b"
-                r"|\bletter\s+(missing|short)\b|\bone\s+letter\s+(short|fewer)\b"
+                r"|\bletters?\s+(missing|short|lacking)\b|\bone\s+letter\s+(short|fewer)\b"
                 r"|\bwordplay\b[^.]{0,60}\b(lacks|leaves\s+out|excludes)\b"),
     "clue": (r"\b(first|initial|last|final)\s+letters?\s+of\s+(the\s+|each\s+|these\s+|all\s+)?"
-             r"(clues|extra\s+words|superfluous\s+words|redundant\s+words)\b"),
+             r"(clues|extra\s+words|superfluous\s+words|redundant\s+words)\b"
+             r"|\bletter\s+has\s+(somehow\s+)?moved\b"),
 }
-SPELLS = re.compile(
-    r"\b(spell|spells|spelt|spelled|spelling|form|forms|forming|give|gives|giving"
-    r"|reveal|reveals|produce|produces|yield|yields|read|reads|make|makes|provide|provides)\b"
-    r"[^.]{0,80}?\b(message|phrase|quotation|quote|instruction|instructions|hint|title"
-    r"|name|names|saying|proverb|motto|line|lines|words|clue|question|answer|theme|comment)\b",
-    re.I)
+#: The letters are read together: "in clue order", "these letters", "the
+#: omissions". Without it a device word only discards letters ("answers lose a
+#: letter before entry").
+READ_TOGETHER = re.compile(
+    r"\bin\s+(clue\s+)?order\b|\bclue\s+by\s+clue\b"
+    r"|\b(these|such|the|discarded|extra|superfluous|additional|omitted|surplus)\s+(letters|omissions)\b"
+    r"|\bfirst\s+letters\b|\bthese\s+(spell|form|give|generate|indicate|suggest|can)\b"
+    r"|\b(spell|spells|spelt|spelled)\b", re.I)
 
 
 def device_kinds(preamble):
     """The hidden-letter kinds a preamble names, in KINDS order; [] when it names
-    none or never says the letters spell anything."""
+    none or never reads the letters together."""
     text = preamble or ""
-    if not SPELLS.search(text):
+    if not READ_TOGETHER.search(text):
         return []
     return [k for k in KINDS if re.search(DEVICE_PATTERNS[k], text, re.I)]
 
@@ -262,7 +266,7 @@ DIRECTION_RE = {"across": re.compile(r"\bacross\b", re.I), "down": re.compile(r"
 def spelling_directions(preamble):
     """The directions the preamble's spelling sentence names, or [None] for both."""
     for sentence in re.split(r"(?<=[.;])\s+", preamble or ""):
-        if SPELLS.search(sentence):
+        if READ_TOGETHER.search(sentence):
             named = [d for d, r in DIRECTION_RE.items() if r.search(sentence)]
             if len(named) == 1:
                 return named
