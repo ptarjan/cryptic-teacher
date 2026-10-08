@@ -2,7 +2,8 @@
 # Does tools/archive_org_listener.py find the Listener's own heading (not the
 # coupon's), split the clue columns at DOWN (not the title's "8 DOWN"), carry
 # across clues that run into the second column, read a list past a line that
-# does not parse, and blank a clue no two readings agree on or that runs on?
+# does not parse, read an uncounted list a clue a line past a stray count,
+# and blank a clue no two readings agree on or that runs on?
 #
 #     bash tools/test_archive_org_listener.sh
 #
@@ -92,6 +93,17 @@ lengths = {"1-across": 9, "10-across": 4, "2-down": 3}
 got, blank = al.ocr_clues.as_printed(texts, laid, {}, al.parse, lengths)
 check("a Listener clue takes the count and hyphen its readings print", ("Shoddy re-forms", "5-4"), got["1-across"][:2])
 check("a Listener clue printed as laid is left alone", (("Hill", "4", None), {}), (got["10-across"], blank))
+
+# An uncounted 1930s list with one bracket misread as a count is still read a
+# clue a line (No 9's "(Pope)" ran 14 downs into 2); a counted list is not.
+text = ("ACROSS\n12. Metallic of a kind.\n13. A very modern type.\n14. Milton called this.\n"
+        "DOWN\n1. An African bird.\n2. A fungus.\n9. Or whirl the (7)\n10. A drink.\n11. A golfer.")
+parsed, _ = al.parse(text)
+check("an uncounted list with a stray count, a clue a line", ([12, 13, 14], [1, 2, 9, 10, 11]),
+      tuple([min(c["tokens"][0]) for c in parsed[d]] for d in ("across", "down")))
+parsed, _ = al.parse("ACROSS\n1 Fish (4)\n5 Bird of\n3 prey (5)\nDOWN\n2 Tree (3)\n4 Shrub (6)")
+check("a counted list ends its clues at the counts", ["Fish", "Bird of 3 prey"],
+      [c["text"] for c in parsed["across"]] if parsed else None)
 
 print("FAILS", fails)
 EOF

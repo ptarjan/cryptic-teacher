@@ -446,15 +446,22 @@ FIGURES = re.compile(r"^(\W{0,2})([IlO\d]?[IloO\d])([.,:])(?=\s|[A-Z]|$)")
 AS_DIGIT = str.maketrans("IlOo", "1100")
 
 
+#: A clue number run into its first word, as the "ch" reader drops the
+#: space: "1.An African bird".
+GLUED = re.compile(r"^(\W{0,2}\d{1,2}[.,:])(?=[A-Za-z*'\"\u2018\u201c])")
+
+
 def figures(words):
     """The words with a line's opening clue number read as letters put back
-    in digits; a number cannot open on 0, so "O." and "Oo." stay words."""
+    in digits (a number cannot open on 0, so "O." and "Oo." stay words), and
+    parted from a first word run into it."""
     out = []
     for w in words:
         m = FIGURES.match(w[4])
         n = m and m.group(2).translate(AS_DIGIT)
         if m and n.isdigit() and n[0] != "0" and not m.group(2).isdigit():
             w = (*w[:4], m.group(1) + n + m.group(3) + w[4][m.end():])
+        w = (*w[:4], GLUED.sub(r"\1 ", w[4]))
         out.append(w)
     return out
 

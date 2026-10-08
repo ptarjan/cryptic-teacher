@@ -127,9 +127,10 @@ check("a centred heading's list read from its clue numbers",
       tuple([l[4].split(".")[0] for l in c] for c in g.page_columns(words) or ([], [])))
 
 # Old-style figures read as letters open a clue all the same.
-for text, want in [("I.", "1."), ("II. See 13.", "11. See 13."), ("Io.Last two", "10.Last two"),
+for text, want in [("I.", "1."), ("II. See 13.", "11. See 13."),
                    ("I3. Garden", "13. Garden"), ("O. Wonder", "O. Wonder"), ("Oo.", "Oo."),
-                   ("I am here", "I am here"), ("12. A tree", "12. A tree")]:
+                   ("I am here", "I am here"), ("12. A tree", "12. A tree"), ("1.An African bird", "1. An African bird"),
+                   ("Io.Last two", "10. Last two"), ("at 8.15p.m.", "at 8.15p.m.")]:
     check(f"figures: {text!r}", want, g.figures([(0, 0, 10, 16, text)])[0][4])
 
 # No 97's page: the clue number set wide of its words (more than 40 px, under
