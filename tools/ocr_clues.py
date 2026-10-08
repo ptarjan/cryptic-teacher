@@ -241,6 +241,9 @@ BLANK_QUOTE = 0.4
 #: in a word's height.
 BLANK_APART = 0.2
 BLANK_WALL = 1.8
+#: A rule run into the word after it (No 4 9D's "'——and") is a blank this
+#: long at least, in a word's height: two ems, where a dash is one.
+BLANK_RUN_IN = 1.8
 BLANK = "——"
 DASHES = re.compile(r"\s*[-‐-―_~=]+\s*")
 
@@ -265,7 +268,15 @@ def blank_strokes(img, lines, words, h):
         xs = np.flatnonzero(ink[y])
         for run in np.split(xs, np.flatnonzero(np.diff(xs) > BLANK_GAP * h) + 1):
             x0, x1 = int(run[0]), int(run[-1]) + 1
-            if not BLANK_LONG * h <= x1 - x0 <= BLANK_LONGEST * h or len(run) < 0.75 * (x1 - x0):
+            run_in = False
+            if BLANK_LONG * h <= x1 - x0 <= BLANK_LONGEST * h and len(run) < 0.75 * (x1 - x0):
+                # The rule unbroken from the run's start, the word after it
+                # touching it.
+                solid = np.split(run, np.flatnonzero(np.diff(run) > 1) + 1)[0]
+                if len(solid) < BLANK_RUN_IN * h:
+                    continue
+                x0, x1, run_in = int(solid[0]), int(solid[-1]) + 1, True
+            elif not BLANK_LONG * h <= x1 - x0 <= BLANK_LONGEST * h:
                 continue
             span = ink[:, x0:x1].mean(axis=1)
             y0, y1 = y, y + 1
@@ -277,23 +288,28 @@ def blank_strokes(img, lines, words, h):
                     or span[y1 + 1:y1 + 3].max(initial=0) > 0.15:
                 continue
             seen.update(range(y0, y1))
-            if apart(ink, x0, y0, x1, y1, h) and placed((x0, (y0 + y1) / 2, x1), lines, h) \
+            if apart(ink, x0, y0, x1, y1, h, run_in) and placed((x0, (y0 + y1) / 2, x1), lines, h) \
                     and not any(w[1] - 0.2 * h <= y <= w[3] + 0.2 * h and min(w[2], x1) - max(w[0], x0) > 0.3 * (x1 - x0)
+                                # A rule run into a word is no underline: a
+                                # word over it is one whose box took it in.
+                                and not (run_in and not w[1] + 0.25 * (w[3] - w[1]) <= y <= w[3] - 0.25 * (w[3] - w[1]))
                                 for w in words):
                 found.append((x0, y0, x1, y1, BLANK + ("'" if quoted(ink, x1, y0, y1, h) else "")))
     return found
 
 
-def apart(ink, x0, y0, x1, y1, h):
+def apart(ink, x0, y0, x1, y1, h, run_in=False):
     """Whether a rule stands apart as a blank does: a space before it at any
     height (a dash after a mark, "NOTE.\u2014Clues", "competitors:\u2014",
     is punctuation; a colon's dots miss the rule's own rows), a space after
     it at its height (a stop, comma or closing quote may follow), and no
     stroke taller than BLANK_WALL words near it (a grid's line or bar
-    between its walls)."""
+    between its walls). A rule `run_in` to the word after it has the space
+    before it from its own rows down: an opening quote stands above them
+    ("'——and")."""
     gap = max(3, int(BLANK_APART * h))
-    before = ink[max(0, int(y0 - 0.45 * h)):int(y1 + 0.45 * h), max(0, x0 - 1 - gap):max(0, x0 - 1)]
-    if before.any() or ink[y0:y1, x1 + 1:x1 + 1 + 2 * gap].any():
+    before = ink[max(0, int(y0 - (1 if run_in else 0.45 * h))):int(y1 + 0.45 * h), max(0, x0 - 1 - gap):max(0, x0 - 1)]
+    if before.any() or not run_in and ink[y0:y1, x1 + 1:x1 + 1 + 2 * gap].any():
         return False
     near = ink[max(0, int(y0 - 2 * h)):int(y1 + 2 * h), max(0, int(x0 - h)):int(x1 + h)]
     for col in near.T:
@@ -819,8 +835,9 @@ PRINTS_SIMILAR = 0.8
 
 def prints(pairs, low, theirs):
     """Whether the other reading `theirs` prints the clue `low` where align
-    put it: words alike, or run into the next ("eatsjunkets"), hold more
-    than half the clue's letters. One that lost the clue still aligns it somewhere ("stop" on
+    put it: words alike, or run into the next ("eatsjunkets"), or the
+    clue's own run together (No 4 21D's "featureofEngland'snationai" holding
+    "feature"), hold more than half the clue's letters. One that lost the clue still aligns it somewhere ("stop" on
     "supposed"), and its words there are another clue's: no vote on this
     one's words or ends."""
     letters = sum(len(w) for w in low if w not in MARKS and w != BREAK)
@@ -828,8 +845,10 @@ def prints(pairs, low, theirs):
     for i, j in pairs:
         if i is not None and j is not None and low[i] not in MARKS and low[i] != BREAK:
             theirs_j = theirs[j].lower()
-            hit += len(low[i]) if (similar(low[i], theirs_j) >= PRINTS_SIMILAR
-                                   or len(low[i]) > 2 and low[i] in theirs_j) else 0
+            if similar(low[i], theirs_j) >= PRINTS_SIMILAR or len(low[i]) > 2 and low[i] in theirs_j:
+                hit += len(low[i])
+            elif len(theirs_j) > 2 and theirs_j in low[i]:
+                hit += len(theirs_j)
     return hit * 2 > letters
 
 
@@ -862,6 +881,13 @@ def parted(clue, others):
     def part(m):
         w = m.group()
         sizes = apart.get(w.lower())
+        if not sizes:
+            # Three words or more run together with a letter misread in
+            # them (No 4 21D's "featureofEngland'snationai" for "feature of
+            # England's national") part as another reading prints them.
+            near = [z for j, z in apart.items() if len(z) >= 3 and len(j) == len(w)
+                    and sum(a != b for a, b in zip(j, w.lower())) == 1]
+            sizes = near[0] if len(near) == 1 else None
         if not sizes:
             return w
         if is_word(w.lower()):
@@ -1052,13 +1078,17 @@ def run_on(text, lid, laid):
     legend test of fidelity,", the line "12. In legend wonderful test of
     fidelity." read without "12. In"): after a stop (".", "?", "!", or the
     "," or ";" Tesseract reads one as), words that print most of another
-    laid clue (`laid`, {light: (text, ...)}) and it them. Else `text` as
-    it is."""
+    laid clue (`laid`, {light: (text, ...)}) and it them, and no other
+    figures (No 4's "St. George's Day, 1564." is no 5D "St. George's Day,
+    1918." run on). Else `text` as it is."""
     for m in re.finditer(r"[.?!,;](?=\s+\S)", text or ""):
         tail = [w.lower() for w in marked(clean(text[m.end():])) if w not in MARKS]
         if len(tail) < 2 or sum(map(len, tail)) < RUN_ON_LETTERS:
             continue
+        figures = re.findall(r"\d+", text[m.end():])
         for k, (t, _, _) in laid.items():
+            if figures and re.findall(r"\d+", t or "") != figures:
+                continue
             theirs = [w for w in marked(clean(t or "")) if w not in MARKS]
             low = [w.lower() for w in theirs]
             # Both ways: a tag many clues end on ("Two letters missing.") or
@@ -1069,7 +1099,26 @@ def run_on(text, lid, laid):
     return text
 
 
-def agree(clue, others, keep_known=False, families=None, rates=None):
+def elsewhere_run(end, side, clues):
+    """Whether `end` (a reading's words past a clue's end, `side` "end", or
+    before its start, "start") opens (or closes) on RUN_ON_LETTERS letters
+    of words another laid clue (`clues`, each a list of its lower-case
+    words) prints in a row: the reading lost the number between (No 4's
+    22A "The name of an eagle." running on into 23A's "english of
+    islands"), and no word of this clue is lost there."""
+    words = [t for t in end if t not in MARKS]
+    if side == "start":
+        words = words[::-1]
+    for n in range(2, len(words) + 1):
+        run = words[:n] if side == "end" else words[:n][::-1]
+        if sum(map(len, run)) < RUN_ON_LETTERS:
+            continue
+        return any(all(similar(a, b) >= PRINTS_SIMILAR for a, b in zip(run, c[i:i + n]))
+                   for c in clues for i in range(len(c) - n + 1))
+    return False
+
+
+def agree(clue, others, keep_known=False, families=None, rates=None, clues=()):
     """(text or None, how) for one clue against the other readings' words
     and marks (`others`: one list per reading, or one list alone). Each word
     stands when another reading has it too; else it takes the spelling the
@@ -1083,7 +1132,9 @@ def agree(clue, others, keep_known=False, families=None, rates=None):
     "he").
     `families` names the engine of this reading and of each other reading
     in turn, and `rates` each engine's slips on the page (family_rates): a
-    tie the readings split by engine goes to the far better one (by_family)."""
+    tie the readings split by engine goes to the far better one (by_family).
+    `clues` holds the other laid clues' lower-case words: a reading's end
+    that runs on into one of them is no end lost (elsewhere_run)."""
     if others and isinstance(others[0], str):
         others = [others]
     if not tokens(clue):
@@ -1157,6 +1208,7 @@ def agree(clue, others, keep_known=False, families=None, rates=None):
     # or between its last word and its count, were lost from this reading:
     # put in when most readings have the same ones, else no reading wins.
     for side, got_ends in (("start", leads), ("end", trails)):
+        got_ends = [None if e and elsewhere_run(e, side, clues) else e for e in got_ends]
         # A lone letter after the clue's last word is its count misread ("(s)").
         seen_ends = [e for e in (tuple(t for t in e if (side == "end" or t not in MARKS)
                                        and not (side == "end" and len(t) == 1 and t not in MARKS))
@@ -1510,8 +1562,8 @@ def clean(text):
     # So is any dash after a colon ("Charade:—components", read ": -components").
     text = re.sub(r"(?<=[a-z]:)[ \t]*(?:—|--?|–)[ \t]*(?=[A-Za-z])", " — ", text)
     # The space after a comma, semicolon or colon between two words lost
-    # ("rum,as", "usage:acceptable", "knot,I'm"), or before a quotation ("say,'Give").
-    text = re.sub(r"(?<=[a-z]{2})([,;:])(?=[a-z]{2}|[A-Z][a-z']|['\u2018\"\u201c][A-Z])", r"\1 ", text)
+    # ("rum,as", "usage:acceptable", "knot,I'm", "a T:an"), or before a quotation ("say,'Give").
+    text = re.sub(r"(?:(?<=[a-z]{2})|(?<=\b[A-Z]))([,;:])(?=[a-z]{2}|[A-Z][a-z']|['\u2018\"\u201c][A-Z])", r"\1 ", text)
     # An exclamation mark read as a capital I or a one, last before the count.
     text = re.sub(r"(?<=[a-z]) [I1l](?=\s*(?:\(\s*\d|$))", "!", text)
     text = re.sub(r"(?<![\d(])\b1(?=[a-z]*\b)(?![a-z]*\s+(?:and|or|&)\s+\d)([a-z]*)", one_for_i, text)
@@ -1929,6 +1981,7 @@ def reconcile(laid, streams, lengths=None, keep_known=False, uncounted=False, na
     order = ([n for s, n in zip(streams, names) if isinstance(s, str)]
              + [n for s, n in zip(streams, names) if isinstance(s, dict)])
     out, blank, heard = {}, {}, {}
+    words_of = {lid: [w.lower() for w in marked(clean(t or "")) if w not in MARKS] for lid, (t, _, _) in laid.items()}
     for lid, (text, enum, group) in laid.items():
         own = int(re.match(r"\d+", lid).group())
         put = [numbered_at(s, own, text) for s in whole] + [p.get(lid, []) for p in per]
@@ -2004,7 +2057,7 @@ def reconcile(laid, streams, lengths=None, keep_known=False, uncounted=False, na
         if lead and lead.group(1) in lid.split("-")[0]:
             text = text[lead.end():]
         text = join_split(numbers_joined(text, streams), other)
-        got, how = agree(text, other, keep_known, engines, rates)
+        got, how = agree(text, other, keep_known, engines, rates, [w for k, w in words_of.items() if k != lid])
         got = trimmed(cut_at_count(got, enum), lid)
         if got is not None and merged(got):
             got, how = None, merged(got)
@@ -2428,8 +2481,10 @@ def reclosed(text, readings):
     light) prints after the clue's last three words put back: a run of
     stops (an ellipsis, written ". . .") and a closing single quote, with
     a possessive's s and a stop ("wonder .. 's." where the vote kept
-    "wonder. .."). None when no reading prints one, or it leaves the clue
-    unclosed."""
+    "wonder. .."); else a closing quote a reading prints between two of
+    the clue's words side by side (No 4 8A's "'London's lasting shame,'
+    but", the vote keeping "shame, but"). None when no reading prints one,
+    or it leaves the clue unclosed."""
     last = re.findall(r"[A-Za-z]+", text or "")[-3:]
     if len(last) < 3:
         return None
@@ -2442,6 +2497,14 @@ def reclosed(text, readings):
         got = paired(text[:at] + tail)
         if unclosed_quote(got) is None:
             return got
+    words = list(re.finditer(r"[A-Za-z]+", text))
+    for r in readings:
+        for a, b, c in zip(words, words[1:], words[2:]):
+            m = re.search(rf"\b{a.group()}\W+{b.group()}([.,;:!?]?['\u2019][.,;:!?]?)\s+{c.group()}\b", r or "")
+            if m and "'" not in text[b.end():c.start()] and "\u2019" not in text[b.end():c.start()]:
+                got = paired(text[:b.end()] + m.group(1) + " " + text[c.start():])
+                if unclosed_quote(got) is None:
+                    return got
     return None
 
 

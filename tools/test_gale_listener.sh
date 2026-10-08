@@ -514,6 +514,34 @@ check("a line read again whose number reads as letters (\"II.\") is put in as 11
 reads.clear()
 check("a line no reading numbers is not (mirror)", (["6. Lenten."], 0),
       (sorted(w[4] for w in g.reread_lines(PAGE, "k", "ch", mine[:1], [lost])), len(reads)))
+# No 4's DOWN "1. Our subject.": ch reads ".Our subject.", and alone
+# "Our subject.": a thin number lost again; the anchor's number stands.
+def read_box(img, key, box, which):
+    reads.append(box)
+    return [(1095, 848, 1112, 864, "A"), (1122, 848, 1181, 872, "park.")]
+g.read_box = read_box
+check("a line read again alone that loses its number again takes the anchor's (No 4 1D)",
+      ["6. Lenten.", "8.", "A", "park."],
+      sorted(w[4] for w in g.reread_lines(PAGE, "k", "ch", mine[:1] + [(1064, 848, 1181, 868, ".A park.")], [en5])))
+def read_box(img, key, box, which):
+    reads.append(box)
+    return [(1066, 848, 1112, 864, "SA"), (1122, 848, 1181, 872, "park.")]
+g.read_box = read_box
+check("words read alone over the anchor's number are no clue line (mirror)", ["6. Lenten.", "park"],
+      sorted(w[4] for w in g.reread_lines(PAGE, "k", "ch", mine, [en5])))
+# No 4's "38. 'or as a moat defensive to a house'.": the anchor's row ends
+# at "a", and ch holds the line whole past it: the crop reads it whole.
+reads.clear()
+def read_box(img, key, box, which):
+    reads.append(box)
+    return [(1064, 848, 1081, 865, "8."), (1095, 848, 1400, 868, "A park by the house.")]
+g.read_box = read_box
+whole = mine[:1] + [(1060, 848, 1081, 865, "B."), (1095, 849, 1400, 868, "A park by the house.")]
+g.reread_lines(PAGE, "k", "ch", whole, [en5])
+check("a crop reaches the end of a word of the reading it would cut (No 4 38A)", 1400 + 17, reads[-1][2])
+reads.clear()
+g.reread_lines(PAGE, "k", "ch", mine[:1] + [(1060, 848, 1081, 865, "B."), (1095, 900, 1400, 920, "A park.")], [en5])
+check("a word on another line leaves the crop (mirror)", 1181 + 17, reads[-1][2])
 g.read_box = real_read_box
 
 # No 97's "20 rev., 24.": one clue for two lights, the first reversed, laid
