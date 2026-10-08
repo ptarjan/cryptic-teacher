@@ -419,6 +419,9 @@ mixed = {"page": tess_line, "times": tess_line, "ch": [(110, 105, 400, 135, "7.A
          "en5": [(110, 105, 400, 135, "7. Add —μos and")]}
 check("a known word the English readers agree on is Greek where RapidOCR prints a Greek letter in it",
       "Add—μος and", g.greek_text(None, "k", mixed, LINE))
+check("a reader's Latin lookalikes of a Greek word show it", (True, True, False),
+      (g.lookalike("αἰετὸς", "aletòs"), g.lookalike("χλωρὸν", "xAwpov"), g.lookalike("χλωρὸν", "Homer")))
+check("a box tightened by an eighth top and bottom", (0, 106, 50, 142), g.tighter((0, 100, 50, 148)))
 g.greek_box, g.read_box = real_greek_box, real_read_box
 
 # A clue line a RapidOCR reading lost its number on (No 15's "8. A park."

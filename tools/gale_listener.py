@@ -43,6 +43,7 @@ report's letters are kept as a check on the solve, never filed.
 """
 import argparse
 import datetime
+import difflib
 import hashlib
 import html
 import itertools
@@ -53,6 +54,7 @@ import subprocess
 import sys
 import time
 import traceback
+import unicodedata
 from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
@@ -889,6 +891,20 @@ GREEK_WORD = re.compile(r"[Ͱ-Ͽἀ-῿]+['’᾽]?")
 #: for the line to be read for Greek at all: their dictionaries hold the
 #: Greek letters, so a quoted Greek word comes out part Greek ("μéyav").
 GREEK_SEEN = 2
+#: The Latin letters a Greek one prints as to a reader without Greek
+#: ("aletòs" for "αἰετὸς", "xAwpov" for "χλωρὸν"), and how closely a
+#: RapidOCR word must match a Greek word so spelt to show it there.
+LOOKALIKE = str.maketrans("αβγδεζηικλμνξοπρστυφχψω", "abydezniklmvzonpstuoxyw")
+LOOKALIKE_RATIO = 0.6
+
+
+def lookalike(greek, latin):
+    """Whether `latin`, a reader's word, is `greek` printed in Latin
+    lookalike letters (LOOKALIKE), accents aside."""
+    plain = lambda t: "".join(c for c in unicodedata.normalize("NFD", t.lower())
+                              if not unicodedata.combining(c))
+    g, l = plain(greek).translate(LOOKALIKE), plain(letters(latin))
+    return len(g) >= 3 and difflib.SequenceMatcher(None, g, l).ratio() >= LOOKALIKE_RATIO
 DASHES = re.compile(r"[-–—]+")
 
 
@@ -963,16 +979,22 @@ def greek_text(img, key, words, boxes):
     garble it: a RapidOCR reading prints a Greek letter there, or no two
     Tesseract readings agree there on a known word. Any other piece is
     English, taken from a Tesseract reading of it that is a known word or
-    that two of them agree on; a piece neither way gives None."""
+    that two of them agree on; a piece neither way gives None. The clue
+    quotes Greek when its RapidOCR readings print GREEK_SEEN Greek letters
+    or a Greek word it takes is printed there in Latin lookalikes
+    ("aletòs" for "αἰετὸς") that are no word. A line the Greek model reads
+    nothing on over its padded box is read over a tighter one (the pad
+    takes in the edges of the lines around it), and failing that is
+    English: its pieces are the eng model's."""
     inside = lambda w: any(over(w, b) for b in boxes)
     rapid = [w for which in ocr_clues.READERS if which not in ocr_clues.TESS_MODELS
              for w in words.get(which, ()) if inside(w)]
-    if sum(len(GREEK_LETTER.findall(w[4])) for w in rapid) < GREEK_SEEN:
-        return None
+    seen = sum(len(GREEK_LETTER.findall(w[4])) for w in rapid) >= GREEK_SEEN
     tess = [pieces([w for w in words.get(k, ()) if inside(w)]) for k in ("page", *ocr_clues.TESS_MODELS)]
     tess.append(pieces([w for b in boxes for w in read_box(img, key, b, next(iter(ocr_clues.TESS_MODELS)))]))
-    greek = pieces([w for b in boxes for w in greek_box(img, key, b)])
-    out, any_greek = "", False
+    greek = pieces([w for b in boxes for w in greek_box(img, key, b) or greek_box(img, key, tighter(b))
+                    or read_box(img, key, b, next(iter(ocr_clues.TESS_MODELS)))])
+    out, any_greek, looked = "", False, False
     used = set()
     for p in greek:
         near = [[q for q in t if over(q, p[:4]) or over(p, q[:4])] for t in tess]
@@ -981,15 +1003,16 @@ def greek_text(img, key, words, boxes):
             continue  # the clue's number
         said = [letters(" ".join(t)) for t in there if t]
         agreed = next((s for s in said if said.count(s) > 1 and ocr_clues.known(s)), None)
-        hinted = False
+        word = p[4].rstrip(".,;:")
+        hinted = alike = False
         for w in rapid:
             if w[1] <= (p[1] + p[3]) / 2 <= w[3] and w[0] <= (p[0] + p[2]) / 2 <= w[2]:
                 at = int(((p[0] + p[2]) / 2 - w[0]) / max(1, w[2] - w[0]) * len(w[4]))
                 tok = re.search(r"\S*$", w[4][:at]).group() + re.match(r"\S*", w[4][at:]).group()
                 hinted |= bool(GREEK_LETTER.search(tok))
-        word = p[4].rstrip(".,;:")
-        if GREEK_WORD.fullmatch(word) and word.islower() and (hinted or not agreed):
-            text, any_greek = p[4], True
+                alike |= lookalike(word, tok) and not ocr_clues.known(letters(tok))
+        if GREEK_WORD.fullmatch(word) and word.islower() and (hinted or alike or not agreed):
+            text, any_greek, looked = p[4], True, looked or alike
         else:
             found = [" ".join(t) for t in there if t]
             pick = next((k for k, f in enumerate(found) if ocr_clues.known(letters(f)) or
@@ -1004,17 +1027,29 @@ def greek_text(img, key, words, boxes):
             used |= source
             text = found[pick]
         out += ("—" if p[5] else (" " if out else "")) + text
-    return out.strip() if any_greek else None
+    return out.strip() if any_greek and (seen or looked) else None
+
+
+def tighter(box):
+    """`box` with an eighth of its height off its top and its bottom."""
+    cut = (box[3] - box[1]) // 8
+    return (box[0], box[1] + cut, box[2], box[3] - cut)
 
 
 def greek_mended(img, key, words, verdict, laid):
     """`laid` with each light the vote left blank whose clue quotes Greek
     (greek_text) read with its Greek words; each noted in the verdict's
-    "greek", with the vote's reason for the blank."""
+    "greek", with the vote's reason for the blank; a line is mended into
+    one light only."""
+    taken = []
     for lid, (t, e, g) in list(laid.items()):
         if t or not (boxes := clue_lines(img, words, lid)):
             continue
+        # A line another light's mend read is that light's, not this one's.
+        if any(over(b, o) or over(o, b) for b in boxes for o in taken):
+            continue
         if text := greek_text(img, key, words, boxes):
+            taken += boxes
             laid[lid] = (text, e, g)
             verdict.setdefault("greek", {})[lid] = verdict.get("blank", {}).pop(lid, "blank")
     if not verdict.get("blank"):
