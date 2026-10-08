@@ -87,6 +87,6 @@ out="$out
 $mirror"
 echo "$out"
 for k in SOME PAGES PLAIN MIRROR; do
-  echo "$out" | grep -qx "$k True" || { echo "FAIL: $k"; exit 1; }
+  grep -qx "$k True" <<<"$out" || { echo "FAIL: $k"; exit 1; }
 done
 echo "PASS"

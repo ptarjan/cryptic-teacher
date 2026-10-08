@@ -239,5 +239,5 @@ print(f"FAILS {fails}")
 EOF
 )
 echo "$out"
-echo "$out" | grep -q '^FAILS 0$' || { echo "test_scan_queue: failed"; exit 1; }
+grep -q '^FAILS 0$' <<<"$out" || { echo "test_scan_queue: failed"; exit 1; }
 echo "test_scan_queue: all passed"

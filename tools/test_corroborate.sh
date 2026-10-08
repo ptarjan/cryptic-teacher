@@ -256,7 +256,7 @@ print("BLOG_ROWS", sorted(f"{n}-{d}" for r in c.fifteensquared(blog_grid) for (n
 print("GRIDLESS", c.corroborate(gridless, [source("f", "fifteensquared", setter="Tramp")]) is gridless)
 PY
 )
-echo "$out" | grep -q GRIDLESS || { echo "the script died:"; cat "$TMP/stderr"; exit 1; }
+grep -q GRIDLESS <<<"$out" || { echo "the script died:"; cat "$TMP/stderr"; exit 1; }
 
 echo "the rules, each deciding a case"
 same "grid: the source's answer that agrees with its crossers wins" "$(field GRID "$out")" "grid CAR"
