@@ -523,8 +523,11 @@ def vote(words, verdict, cols=None, lengths=None):
     # word's capital, hyphen and spelling.
     laid, blank = ocr_clues.as_printed(texts, laid, blank, parse, lengths, uncounted=uncounted)
     for lid, (t, e, g) in laid.items():
+        t = ocr_clues.paired(t)
+        laid[lid] = (t, e, g)
         if t and ocr_clues.unclosed_quote(t) is not None:
-            if got := ocr_clues.reopened(t, [(ly.get(lid) or ("",))[0] for ly in lays]):
+            own = [(ly.get(lid) or ("",))[0] for ly in lays]
+            if got := ocr_clues.reopened(t, own) or ocr_clues.reclosed(t, own + list(texts.values())):
                 laid[lid] = (got, e, g)
                 continue
             # A quotation's end or start lost: a printed blank ("——'") no
