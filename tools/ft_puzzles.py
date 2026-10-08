@@ -3,6 +3,7 @@
 
     python3 tools/ft_puzzles.py                  # parse, rebuild, file what is new
     python3 tools/ft_puzzles.py --limit 50       # the newest 50 not yet tried
+    python3 tools/ft_puzzles.py --budget-seconds 1800   # start no rebuild after 30 minutes
     python3 tools/ft_puzzles.py --dry-run        # count, write no puzzle
 
 The FT's own site answers a script with a Cloudflare challenge, so the grid is
@@ -40,7 +41,14 @@ import parse_timesforthetimes as tftt
 import puzzle_integrity
 import series as series_meta
 import times_grids as tg
-from fetch_puzzle import correct_source_answers, puzzle_files, puzzle_path, read_puzzle_file, write_puzzle_file
+from fetch_puzzle import (
+    correct_source_answers,
+    puzzle_files,
+    puzzle_path,
+    read_puzzle_file,
+    write_puzzle_file,
+)
+from unit_queue import backlog_left
 
 SERIES = "ftcryptic"
 #: The blog's category, and the label its records carry into times_grids.
@@ -354,8 +362,8 @@ def parse(write=True):
 
 # ------------------------------------------------------------------ grids
 
-def grids(limit=None, max_nodes=tg.DEFAULT_MAX_NODES):
-    return tg.run(limit, CATEGORY, max_nodes=max_nodes, where=CACHE)
+def grids(limit=None, max_nodes=tg.DEFAULT_MAX_NODES, budget_seconds=None):
+    return tg.run(limit, CATEGORY, max_nodes=max_nodes, where=CACHE, budget_seconds=budget_seconds)
 
 
 # ------------------------------------------------------------------ file
@@ -493,12 +501,15 @@ def main(argv=None):
     ap.add_argument("--limit", type=int, help="rebuild and file at most N puzzles")
     ap.add_argument("--dry-run", action="store_true", help="file nothing")
     ap.add_argument("--max-nodes", type=int, default=tg.DEFAULT_MAX_NODES)
+    ap.add_argument("--budget-seconds", type=float, help="start no rebuild once this many seconds have passed")
     a = ap.parse_args(argv)
     recs, odd = parse()
     print(f"parsed {len(recs)} FT post(s); {len(odd)} more with an implausible light count")
-    r = grids(a.limit, a.max_nodes)
+    r = grids(a.limit, a.max_nodes, a.budget_seconds)
     if r:
         tg.report(r)
+        if r["left"] and not a.dry_run:
+            backlog_left()
     filed, skipped = file(write=not a.dry_run, limit=a.limit)
     print(f"{'would file' if a.dry_run else 'filed'} {len(filed)}: {' '.join(filed[:20])}"
           + (" ..." if len(filed) > 20 else ""))

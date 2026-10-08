@@ -534,7 +534,8 @@ tools/andlit_azed.py                          files the Azed from the Guardian's
                                               lines, checks the numbering against the numbers
                                               printed in the grid and the clue list, and takes
                                               fifteensquared's answers where a post has them;
-                                              the nightly fetches a bounded slice
+                                              the azed unit fetches until andlit's index is
+                                              drained
 tools/test_andlit_azed.sh                     holds that reader to hand-drawn lattices, stroked
                                               and filled, beside a smaller solution grid, a
                                               bordered HTML table, cell numbers run together,
@@ -899,8 +900,10 @@ tools/unit_queue.py                           scheduled work as small units: a t
                                               and per-class caps; `status` and `plan` show it
 tools/daily_units.py                          the nightly's units for tools/unit_queue.py:
                                               their cadences, limits and dependencies, the
-                                              day's backlog budget, and the puzzles a refetch
-                                              gave a key (`keyed`)
+                                              day's backlog budget, the backfills that rerun
+                                              until drained, the job name in a unit's commit
+                                              subject (`job`), and the puzzles a refetch gave a
+                                              key (`keyed`)
 tools/test_unit_queue.sh                      drives a fake queue through tools/unit_queue.py:
                                               a tick returns at once, an overrun is killed and
                                               alerted, a failure waits out its retry, a class

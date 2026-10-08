@@ -3,6 +3,7 @@
 
     python3 tools/daily_units.py keyed --record   # note the puzzles whose official key this tree just gained
     python3 tools/daily_units.py keyed --recent   # those noted within FRESH_DAYS, for the annotation queue
+    python3 tools/daily_units.py job <key>        # the unit's name in its commit subject
 
 tools/daily_update.sh with no argument is the tick: it chooses the puzzles to
 annotate (its selection blocks, under the usage gates) and hands them here in
@@ -36,10 +37,13 @@ from unit_queue import STATE, Unit, main_checkout
 LOG = ".update.log"
 #: Trees daily_unit-1 .. daily_unit-SLOTS: at most this many units at once.
 #: Each start rebuilds its tree's index, one at a time (nightly_worktree.sh).
-SLOTS = 3
+SLOTS = 5
 TREE = "daily_unit"
-#: Model runs (annotate, miss, reports) at once.
-LIMITS = {"claude": 2}
+#: Model runs (annotate, miss, reports) at once, and backfills draining at
+#: once: so a backfill that reruns until its backlog is done leaves at least
+#: SLOTS - 2 trees for the fetchers and the annotations.
+LIMITS = {"claude": 2, "backfill": 2}
+BACKFILLS = ("bucket:telegraph", "ft", "azed")
 #: Started from the main checkout, as the scheduler starts the tick:
 #: tools/nightly_worktree.sh takes the checkout a script runs from as the one
 #: whose state (CT_MAIN_CHECKOUT, the shared files) every tree links to.
@@ -74,8 +78,11 @@ KEYED = STATE / "daily-keyed.jsonl"
 FRESH_DAYS = 2
 
 #: (key, every, timeout seconds, trigger) of the phases that run on a cadence.
-#: The filers' per-run limits (daily_update.sh) are their old nightly budgets
-#: divided by how often they now run. A limit covers the unit's tree setup
+#: A backfill (bucket:telegraph, ft, azed) has no per-run cap: it works to a
+#: wall-clock budget (daily_update.sh) at its source's own request pace, and
+#: one that stopped with backlog left runs again at the next tick
+#: (unit_queue.backlog_left), so `every` is only how often it looks for new
+#: work once drained. A limit covers the unit's tree setup
 #: too, which waits its turn to rebuild the index (nightly_worktree.sh), and
 #: is set from the old nightly's phase times on a busy machine (2026-10-07:
 #: the Telegraph filer 45m, blog_facts 28-57m), with room to spare.
@@ -85,8 +92,8 @@ PHASES = [
     ("blog:times", 3 * HOUR, 120 * 60, ()),
     ("blog:telegraph", 3 * HOUR, 120 * 60, ()),
     ("bucket:telegraph", DAY, 60 * 60, ()),
-    ("ft", 6 * HOUR, 60 * 60, ()),
-    ("azed", DAY, 45 * 60, ()),
+    ("ft", 6 * HOUR, 75 * 60, ()),
+    ("azed", DAY, 75 * 60, ()),
     ("xval:globe", DAY, 60 * 60, ()),
     ("blog-facts", DAY, 120 * 60, ("blog:times", "blog:telegraph", "bucket:telegraph", "ft")),
     ("ratings", DAY, 60 * 60, ()),
@@ -131,7 +138,7 @@ def plan(ledger, now):
             out.append(u)
     for key, every, timeout, trigger in PHASES:
         out.append(unit(key, timeout=timeout, every=every, trigger=trigger, after=trigger,
-                        cls="claude" if key == "reports" else ""))
+                        cls="claude" if key == "reports" else "backfill" if key in BACKFILLS else ""))
     return out
 
 
@@ -191,7 +198,15 @@ def recent_keyed():
     return out
 
 
+def job(key):
+    """The unit as its commit subject names it (tools/commit_subject.py)."""
+    return f"{key} backfill" if key in BACKFILLS else f"Daily update: {key}"
+
+
 def main(argv):
+    if argv[:1] == ["job"] and len(argv) == 2:
+        print(job(argv[1]))
+        return 0
     if argv[:2] == ["keyed", "--record"]:
         record_keyed()
         return 0

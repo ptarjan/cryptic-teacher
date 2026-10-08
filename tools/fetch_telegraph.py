@@ -2,6 +2,7 @@
 """Fetch Telegraph puzzles from the paper's own puzzle data bucket.
 
     python3 tools/fetch_telegraph.py --holes 200     # up to 200 the bucket has and puzzles/ lacks
+    python3 tools/fetch_telegraph.py --holes all --budget-seconds 2400   # all of them, starting none after 40m
     python3 tools/fetch_telegraph.py --holes 0       # count them, fetch nothing
     python3 tools/fetch_telegraph.py --holes 20 --reindex   # and rebuild the index after
     python3 tools/fetch_telegraph.py SLUG...         # one puzzle, e.g. toughie-crossword-93439
@@ -49,9 +50,9 @@ import urllib.request
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import downloads
 import enumeration
 import puzzle_paths
-import downloads
 import series as series_meta
 from fetch_puzzle import (
     duplicated_clues,
@@ -64,6 +65,7 @@ from fetch_puzzle import (
     source_clue,
     write_puzzle_file,
 )
+from unit_queue import backlog_left
 
 TOOL = "tools/fetch_telegraph.py"
 BUCKET = "https://puzzlesdata.telegraph.co.uk"
@@ -515,9 +517,10 @@ def holes(rows):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--holes", type=int, metavar="N",
+    ap.add_argument("--holes", type=lambda v: None if v == "all" else int(v), metavar="N|all", default=False,
                     help="fetch up to N puzzles the bucket has and puzzles/ lacks, oldest first")
     ap.add_argument("--reindex", action="store_true", help="rebuild the index after the walk")
+    ap.add_argument("--budget-seconds", type=float, help="start no fetch once this many seconds have passed")
     ap.add_argument("slugs", nargs="*", help="bucket slugs, e.g. cryptic-crossword-37195")
     args = ap.parse_args(argv)
     if args.slugs:
@@ -525,8 +528,8 @@ def main(argv=None):
             if fetch(variant_of(slug), slug)[1]:
                 time.sleep(DELAY)
         return 0
-    if args.holes is None:
-        ap.error("give --holes N or slugs")
+    if args.holes is False:
+        ap.error("give --holes N|all or slugs")
     todo = holes(calendar(range(FIRST_YEAR, datetime.date.today().year + 1)))
     todo.sort(key=lambda r: r[2])
     by = {}
@@ -536,7 +539,12 @@ def main(argv=None):
           + ", ".join(f"{s} {n}" for s, n in sorted(by.items())))
     done = failed = 0
     setters = blog_setters()
-    for series, number, day, variant, slug in todo[:args.holes]:
+    start, walk = time.monotonic(), todo[:args.holes]
+    for i, (series, number, day, variant, slug) in enumerate(walk):
+        if args.budget_seconds is not None and time.monotonic() - start >= args.budget_seconds:
+            print(f"budget of {args.budget_seconds:g}s spent: {len(walk) - i} left for the next run")
+            backlog_left()
+            break
         asked = True
         try:
             written, asked = fetch(variant, slug, expect=(series, number), setters=setters)

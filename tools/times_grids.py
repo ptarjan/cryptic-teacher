@@ -1028,7 +1028,7 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
     that many seconds have passed, so a backlog drains as fast as the time
     allows and a parser change that makes hundreds due cannot stretch the
     run. A puzzle already started runs to its own `max_nodes`; the rest stay
-    due for the next run.
+    due for the next run, counted in the result's "left".
     `where` is another blog's cache directory, holding its own parsed.jsonl,
     grids.jsonl and attempts.jsonl; the answers settled for this blog's posts
     are not applied there. `solver` stands in for solve()."""
@@ -1113,7 +1113,7 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
         out.close()
     if log:
         log.close()
-    return {"n": tried, "how": how, "by_series": by_series, "holes": holes}
+    return {"n": tried, "left": due - tried, "how": how, "by_series": by_series, "holes": holes}
 
 
 def report(r):

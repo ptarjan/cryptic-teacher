@@ -61,10 +61,11 @@ for f in tools/daily_update.sh tools/prereset_backfill.sh; do
     "$(grep -c '^[^#]*tools/validate_annotations\.py "\$' "$f")" "0"
   check "$f does not apply a fill itself" "$(grep -c '^[^#]*python3 tools/apply_solution\.py' "$f")" "0"
   # Each script's own commits are its run's: the nightly's fetched puzzles
-  # (committed and pushed as HEAD before anything annotates) and closing sweep,
-  # the burn's republish. Anything else is a puzzle's.
+  # (committed and pushed as HEAD before anything annotates, its subject from
+  # tools/commit_subject.py) and closing sweep, the burn's republish. Anything
+  # else is a puzzle's.
   check "$f does not commit or push one puzzle itself" \
-    "$(grep '^[^#]*push_puzzle_commit\|^[^#]*git commit' "$f" | grep -vc "Daily update: \|Republish after \|push_puzzle_commit\.sh HEAD ||$")" "0"
+    "$(grep '^[^#]*push_puzzle_commit\|^[^#]*git commit' "$f" | grep -vc "| python3 tools/commit_subject\.py \|Republish after \|push_puzzle_commit\.sh HEAD ||$")" "0"
   check "$f does not reopen answers itself" "$(grep -c '^[^#]*tools/reopen_answers\.py' "$f")" "0"
   check "$f defines none of the worker's functions" \
     "$(grep -oE '^(worker_[a-z_]+|puzzle_spec|clues_spec|index_lock|index_unlock|discard_puzzle|stage_puzzle)\(\)' "$f" | tr '\n' ' ')" ""
