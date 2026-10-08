@@ -387,12 +387,14 @@ def read_box(d, leaf, img, box, key, verdict, split=None):
     return vote(words, verdict)
 
 
-def vote(words, verdict, cols=None):
+def vote(words, verdict, cols=None, lengths=None):
     """(verdict, {light: (text, enumeration, None)} or None) from each
     reader's words ({reader: [(x0, y0, x1, y1, text)]}): each reading's
     ACROSS and DOWN lists (`cols` of its words, else columns) parsed, laid by
     number (pick) and voted on (ocr_clues.reconcile, ocr_clues.as_printed).
-    Shared by every Listener page reader (tools/gale_listener.py's too)."""
+    `lengths` ({light: cells}, from a grid read off the page) counts a light
+    whose count no reading read. Shared by every Listener page reader
+    (tools/gale_listener.py's too)."""
     cols = cols or columns
     texts = {k: tidy(fa.tidy(text_of(cols(w)))) for k, w in words.items()}
     tried = []
@@ -410,7 +412,7 @@ def vote(words, verdict, cols=None):
     verdict["reading"] = best
     lays = [lay(t[3]) for t in tried]
     laid = pick(lays)
-    lengths = {lid: ftp.count(e) for lid, (_, e, _) in laid.items() if e}
+    lengths = dict(lengths or {}) | {lid: ftp.count(e) for lid, (_, e, _) in laid.items() if e}
     # A linked clue's second number ("20 rev., 24. Charade:") is no part of
     # the clue's words the readings are put to.
     stream = [LINKED_HEAD.sub(r"\1 ", t) for k, t in texts.items() if k != best and t.strip()]

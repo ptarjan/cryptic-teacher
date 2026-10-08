@@ -418,6 +418,28 @@ _, laid = al.vote({k: linked_page("23. Revel, Its rite's of a deceptive kind.") 
 check("a word opening on rev is no reversed light's head (mirror)",
       "Revel, Its rite's of a deceptive kind.", laid.get("23-across", ("MISSING",))[0])
 
+# Azed 1874's readers lost 8 down's count: the scan's grid counts each
+# light, so the vote is given the grid's lengths and such a clue is voted
+# on (reconcile counts it), not held for "no count read".
+seen_lengths = []
+real_reconcile = al.ocr_clues.reconcile
+def spy(laid, streams, lengths=None, **kw):
+    seen_lengths.append(dict(lengths or {}))
+    return real_reconcile(laid, streams, lengths, **kw)
+al.ocr_clues.reconcile = spy
+al.vote({k: linked_page("20. A fine bust, trembling?") for k in "abc"}, {}, cols=g.page_columns,
+        lengths={"20-across": 7})
+al.vote({k: linked_page("20. A fine bust, trembling?") for k in "abc"}, {}, cols=g.page_columns)
+al.ocr_clues.reconcile = real_reconcile
+check("the grid's lengths reach the vote", 7, seen_lengths[0].get("20-across"))
+check("with no grid the vote has none (mirror)", None, seen_lengths[1].get("20-across"))
+check("reconcile counts a clue no reading counted by its light", ("A fine bust, trembling?", "7"),
+      al.ocr_clues.reconcile({"2-across": ("A fine bust, trembling?", None, None)},
+                             ["2 A fine bust, trembling? 3 Next"], {"2-across": 7})[0]["2-across"][:2])
+check("and holds it with no length (mirror)", "no count read",
+      al.ocr_clues.reconcile({"2-across": ("A fine bust, trembling?", None, None)},
+                             ["2 A fine bust, trembling? 3 Next"], {})[1].get("2-across"))
+
 # A page that prints the clues or the diagram on another page says which.
 check("the pages it sends to, over a line break; a report's page is none",
       [675, 885, 1057], g.elsewhere(line("Closing date: Tuesday. Diagram", 100, 100) + line("and rules on page 885.", 100, 120)
