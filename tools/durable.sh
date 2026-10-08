@@ -108,8 +108,12 @@ durable_run() {  # durable_run <what> <command...>: its exit status; DURABLE_TEE
   return "$rc"
 }
 
-durable_resync() {  # move the tree to origin/master once the job is quiet; nothing is lost if it cannot
+durable_resync() {  # move the tree to origin/master; nothing is lost if it cannot (status 1)
   git fetch -q origin master 2>/dev/null
-  git rebase -q origin/master 2>/dev/null || { git rebase --abort 2>/dev/null; echo "durable: tree left where it is (rebase failed); its commits are pushed"; }
+  if ! git rebase -q origin/master 2>/dev/null; then
+    git rebase --abort 2>/dev/null
+    echo "durable: tree left where it is (rebase failed); its commits are pushed"
+    return 1
+  fi
   _durable_pushed=""
 }
