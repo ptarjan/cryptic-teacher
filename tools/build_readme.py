@@ -556,6 +556,7 @@ LAYOUT = [
     ("fetching", "tools/commit_subject.py", "a commit subject naming the puzzles staged, for jobs that commit as they go"),
     ("fetching", "tools/mem_gate.py", "memory gate: a queue starts a unit only while available RAM stays above a floor"),
     ("fetching", "tools/test_hidden_message.js", "a solved clue shows its hidden letter, and the message fills in under the grid"),
+    ("fetching", "tools/test_blocks_link_word.sh", "when a clue's blocks are short by exactly the letters of a word filed under linkWords, that word is fodder, and the warning says the edit to make"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

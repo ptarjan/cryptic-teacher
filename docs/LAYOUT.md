@@ -1896,5 +1896,9 @@ tools/mem_gate.py                             memory gate: a queue starts a unit
                                               available RAM stays above a floor
 tools/test_hidden_message.js                  a solved clue shows its hidden letter, and the
                                               message fills in under the grid
+tools/test_blocks_link_word.sh                when a clue's blocks are short by exactly the
+                                              letters of a word filed under linkWords, that
+                                              word is fodder, and the warning says the edit to
+                                              make
 ```
 <!-- LAYOUT-END -->
