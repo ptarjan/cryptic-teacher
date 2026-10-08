@@ -2071,25 +2071,36 @@ def issues_between(a, b):
     return weeks * 6 + sum((a + datetime.timedelta(days=i)).weekday() != 6 for i in range(1, rest + 1))
 
 
-#: {path: ((mtime_ns, size), date or None)} of each puzzle file held_dates
-#: has read: a file is read again only when its stat moves, so a worker's
-#: every title costs a stat of the series, not a parse of it.
-_DATES = {}
+#: {path: ((mtime_ns, size), (date or None, source.url, date's first 10
+#: characters))} of each puzzle file held_files has read: a file is read
+#: again only when its stat moves, so a worker's every title costs a stat of
+#: the series, not a parse of it. held_dates and held_scans share it, so
+#: plan()'s warming of it in the queue's process serves both in every unit
+#: forked after.
+_HELD = {}
+
+
+def held_files(series):
+    """[(number, (date or None, source url, date text))] of every puzzle
+    filed in a series, each file parsed once a process and again only when
+    its stat moves."""
+    out = []
+    for p in (ROOT / "puzzles" / series).glob("*/*.json"):
+        st = p.stat()
+        stamp = (st.st_mtime_ns, st.st_size)
+        seen = _HELD.get(p)
+        if seen is None or seen[0] != stamp:
+            d = json.loads(p.read_text())
+            date = d.get("date")
+            seen = _HELD[p] = (stamp, (date and datetime.date.fromisoformat(date[:10]),
+                                       (d.get("source") or {}).get("url"), (date or "")[:10]))
+        out.append((int(p.stem.split("-")[1]), seen[1]))
+    return out
 
 
 def held_dates(series):
     """{number: date} of every dated puzzle filed in a series."""
-    out = {}
-    for p in (ROOT / "puzzles" / series).glob("*/*.json"):
-        st = p.stat()
-        stamp = (st.st_mtime_ns, st.st_size)
-        seen = _DATES.get(p)
-        if seen is None or seen[0] != stamp:
-            date = json.loads(p.read_text()).get("date")
-            seen = _DATES[p] = (stamp, date and datetime.date.fromisoformat(date[:10]))
-        if seen[1]:
-            out[int(p.stem.split("-")[1])] = seen[1]
-    return out
+    return {n: day for n, (day, _, _) in held_files(series) if day}
 
 
 #: Where the Canberra Times reprints of London Times puzzles are cached:
@@ -2185,23 +2196,13 @@ def reprint_key(numbers, series=REPRINTED):
     return h.hexdigest()[:16]
 
 
-#: {path: ((mtime_ns, size), (url, date))} of each puzzle file held_scans has read.
-_SCANS = {}
-
-
 def held_scans(series):
     """{(source.url, date): [numbers]} of every filed puzzle in a series that
     names a scan page: one page on one day is one puzzle."""
     out = {}
-    for p in (ROOT / "puzzles" / series).glob("*/*.json"):
-        st = p.stat()
-        stamp = (st.st_mtime_ns, st.st_size)
-        seen = _SCANS.get(p)
-        if seen is None or seen[0] != stamp:
-            d = json.loads(p.read_text())
-            seen = _SCANS[p] = (stamp, ((d.get("source") or {}).get("url"), (d.get("date") or "")[:10]))
-        if seen[1][0]:
-            out.setdefault(seen[1], []).append(int(p.stem.split("-")[1]))
+    for n, (_, url, day) in held_files(series):
+        if url:
+            out.setdefault((url, day), []).append(n)
     return out
 
 
@@ -3040,7 +3041,7 @@ def plan(paper, cache=CACHE, ledger=None, reread=None, asked=(), dirs=None):
     ledger = ledger_of(cache, paper, ledger)
     known = load_known(ledger)
     every = _PLANNED_DIRS[(str(cache), paper.key)] = edition_dirs(cache, paper)
-    held_dates(paper.series)  # cached here, so each unit forked after this reads only what changed
+    held_files(paper.series)  # cached here, so each unit forked after this reads only what changed
     dirs = every if dirs is None else [d for d in every if d in set(dirs)]
     rels = {d: f"{d.parent.name}/{d.name}" for d in every}
     seen_by = vlm.version() if vlm.reachable() else None

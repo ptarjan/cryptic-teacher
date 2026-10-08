@@ -539,6 +539,21 @@ check("a scan page held under another number that day is refused, naming both",
 check("a refile of the number holding the page, and the page on another day, are not",
       [None, None], [f.same_scan(19129, url, D("1993-01-16"), "times"),
                      f.same_scan(19130, url, D("1993-01-18"), "times")])
+
+# held_dates() and held_scans() share one parse per file (held_files): a
+# read unit forked after plan() warmed it parses no file of the series,
+# and a file that changes is parsed again.
+(scan_root / "puzzles" / "times" / "1993" / "times-19131.json").write_text(json.dumps({"date": "1993-01-18"}))
+parsed, real_loads = [], f.json.loads
+f.json.loads = lambda text, *a, **k: parsed.append(text) or real_loads(text, *a, **k)
+f._HELD.clear()
+f.held_dates("times")
+check("held_scans after held_dates parses no file again", [{(url, "1993-01-16"): [19129]}, 2],
+      [f.held_scans("times"), len(parsed)])
+os.utime(scan_root / "puzzles" / "times" / "1993" / "times-19131.json", ns=(1, 1))
+check("a file whose stat moved is parsed again, the other not",
+      [{19129: D("1993-01-16"), 19131: D("1993-01-18")}, 3], [f.held_dates("times"), len(parsed)])
+f.json.loads = real_loads
 f.ROOT = real_root
 
 # lay_loose(): each clue alone on its own light; a misread count is not laid.
