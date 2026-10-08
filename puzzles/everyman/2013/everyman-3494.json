@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Corresponding with uncle, say",
     "enumeration": "8"
    },
-   "solution": "RELATIVE"
+   "solution": "RELATIVE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RELATIVE",
+    "definitions": [
+     {
+      "text": "Corresponding with",
+      "at": 0
+     },
+     {
+      "text": "uncle, say",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Corresponding with",
+      "note": "first meaning: in proportion to"
+     },
+     {
+      "clueFragment": "uncle, say",
+      "note": "second meaning: a family member, of which an uncle is one example"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests writing letters to an uncle; 'say' marks the uncle as just one example of the second meaning.",
+     "definitionFit": "The adjective means proportional or comparative, and the noun means a kinsman, a person connected by blood or marriage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Corresponding"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +86,56 @@
     "text": "Help whistle-blower to pen story",
     "enumeration": "6"
    },
-   "solution": "RELIEF"
+   "solution": "RELIEF",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RELIEF",
+    "definitions": [
+     {
+      "text": "Help",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to pen",
+      "for": "container",
+      "note": "to pen something is to shut it in an enclosure, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "whistle-blower",
+      "gives": "REF",
+      "note": "a referee blows the whistle in a match"
+     },
+     {
+      "clueFragment": "story",
+      "gives": "LIE",
+      "note": "a story can be a fib or falsehood"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "LIE",
+      "F"
+     ]
+    },
+    "explanation": {
+     "surface": "An appeal to assist a whistle-blower in writing up their exposé.",
+     "walkthrough": "'Whistle-blower' suggests an informant, but it is the match official.",
+     "definitionFit": "Relief is assistance given to people in need, such as aid after a disaster."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "whistle-blower"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +149,59 @@
     "text": "Sound of US soldier in boozer",
     "enumeration": "7"
    },
-   "solution": "LOGICAL"
+   "solution": "LOGICAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LOGICAL",
+    "definitions": [
+     {
+      "text": "Sound",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing being in another means it sits inside it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boozer",
+      "gives": "LOCAL",
+      "note": "a boozer is a pub, and one's local is one's nearest pub"
+     },
+     {
+      "clueFragment": "US soldier",
+      "gives": "GI",
+      "note": "GI is the standard term for an American soldier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "GI",
+      "CAL"
+     ]
+    },
+    "explanation": {
+     "surface": "The noise an American serviceman makes when drinking in a pub.",
+     "walkthrough": "'Sound' looks like a noise, but it is the adjective meaning reasonable. In Britain a boozer is a pub and 'the local' is the neighbourhood pub.",
+     "definitionFit": "A sound argument is valid and well reasoned, which is what a logical one is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Sound"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +215,67 @@
     "text": "Name of book lieutenant raised during match",
     "enumeration": "5"
    },
-   "solution": "TITLE"
+   "solution": "TITLE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TITLE",
+    "definitions": [
+     {
+      "text": "Name of book",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue, raising something lifts it so it reads bottom to top"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something happening during another event falls within it, so it goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "match",
+      "gives": "TIE",
+      "note": "a tie is a cup match between two teams"
+     },
+     {
+      "clueFragment": "lieutenant",
+      "gives": "LT",
+      "note": "Lt is the abbreviation for lieutenant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "TL",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "LT",
+       "to": "TL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An army officer hoisting a book's name aloft at a sporting fixture.",
+     "walkthrough": "In British sport a tie is a single knockout match, such as an FA Cup tie.",
+     "definitionFit": "A title is what a book is called, the heading under which it is published."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "match"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +295,72 @@
      }
     ]
    },
-   "solution": "VIRTUALREALITY"
+   "solution": "VIRTUALREALITY",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "VIRTUAL REALITY",
+    "definitions": [
+     {
+      "text": "Simulation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put through",
+      "for": "container",
+      "note": "putting something through another threads it into the middle"
+     },
+     {
+      "text": "worked",
+      "for": "anagram",
+      "note": "worked material is shaped and reformed, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "learner driver",
+      "gives": "L",
+      "note": "L-plates mark a learner driver in Britain"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rarity",
+      "gives": "RARITY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "value",
+      "gives": "VALUE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ILTRARITYVALUE",
+       "gives": "VIRTUALREALITY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A driving-school simulator where a learner is put through their paces, its rarity making it valuable.",
+     "walkthrough": "L goes into IT, then that and RARITY VALUE are mixed together to give VIRTUAL REALITY.",
+     "definitionFit": "Virtual reality is a computer-generated simulation of an environment the user seems to inhabit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worked"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +374,54 @@
     "text": "Spoil one married couple",
     "enumeration": "6"
    },
-   "solution": "IMPAIR"
+   "solution": "IMPAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPAIR",
+    "definitions": [
+     {
+      "text": "Spoil",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "m is the abbreviation for married"
+     },
+     {
+      "clueFragment": "couple",
+      "gives": "PAIR",
+      "note": "a couple is two, a pair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "M",
+      "PAIR"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to indulge one wedded duo.",
+     "walkthrough": "'Spoil' suggests pampering the couple, but it means damage.",
+     "definitionFit": "To impair is to weaken or damage something, which is to spoil it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Spoil"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +435,68 @@
     "text": "Precocious little girl's taken in about one, a nut",
     "enumeration": "9"
    },
-   "solution": "MACADAMIA"
+   "solution": "MACADAMIA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MACADAMIA",
+    "definitions": [
+     {
+      "text": "a nut",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'s taken in",
+      "for": "container",
+      "note": "something that has taken another in holds it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Precocious little girl",
+      "gives": "MADAM",
+      "note": "a little madam is a bossy, precocious girl"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "CA",
+      "note": "ca is the abbreviation of circa, about"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "CA",
+      "DAM",
+      "I",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky child has swallowed something about one thing, which is a nut.",
+     "walkthrough": "The insertion lands after the second letter of the girl's word. 'Little madam' is a British phrase for a self-important young girl.",
+     "definitionFit": "The macadamia is an Australian tree whose round, rich kernel is eaten as a nut."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +510,54 @@
     "text": "Resolute, a worker crossing barrier",
     "enumeration": "7"
    },
-   "solution": "ADAMANT"
+   "solution": "ADAMANT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ADAMANT",
+    "definitions": [
+     {
+      "text": "Resolute",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "crossing an obstacle means straddling it, so the outer letters lie on either side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a worker",
+      "gives": "AANT",
+      "note": "a is as written; a worker is an ant, the insect"
+     },
+     {
+      "clueFragment": "barrier",
+      "gives": "DAM",
+      "note": "a dam is a barrier holding back water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DAM",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A determined labourer climbing over a fence.",
+     "definitionFit": "Someone adamant is unshakeably determined, refusing to be moved, which is resolute."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worker"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +571,64 @@
     "text": "One within about to chuck wine",
     "enumeration": "8"
    },
-   "solution": "RIESLING"
+   "solution": "RIESLING",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "RIESLING",
+    "definitions": [
+     {
+      "text": "wine",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "within",
+      "for": "container",
+      "note": "within means placed inside something else"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about, concerning"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "chuck",
+      "gives": "SLING",
+      "note": "to chuck or sling is to throw"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "I",
+      "E",
+      "SLING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at home is on the point of throwing out the wine.",
+     "definitionFit": "Riesling is a white grape variety and the wine made from it, chiefly German or Alsatian."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chuck"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +652,46 @@
      }
     ]
    },
-   "solution": "NEARTHEKNUCKLE"
+   "solution": "NEARTHEKNUCKLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NEAR THE KNUCKLE",
+    "definitions": [
+     {
+      "text": "A stone's throw from the joint",
+      "at": 0
+     },
+     {
+      "text": "on the verge of the indecent",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A stone's throw from the joint",
+      "note": "first meaning, taken literally: close to a finger joint"
+     },
+     {
+      "clueFragment": "on the verge of the indecent",
+      "note": "second meaning: the idiom for humour or remarks that are nearly offensive"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Joint' could be a pub or a cannabis cigarette, but read literally it is the finger joint, so the first part is a playful literal reading of the idiom.",
+     "definitionFit": "The idiom describes jokes or comments that are borderline risqué, close to the line of what is acceptable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "joint"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +705,43 @@
     "text": "Barge carrying less weight",
     "enumeration": "7"
    },
-   "solution": "LIGHTER"
+   "solution": "LIGHTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LIGHTER",
+    "definitions": [
+     {
+      "text": "Barge",
+      "at": 0
+     },
+     {
+      "text": "carrying less weight",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Barge",
+      "note": "first meaning: a flat-bottomed boat used to unload ships"
+     },
+     {
+      "clueFragment": "carrying less weight",
+      "note": "second meaning: the comparative of light"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as one barge with a smaller load; the two parts are separate meanings.",
+     "definitionFit": "A lighter is a flat boat for ferrying cargo to and from ships, and lighter also means weighing less."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Barge"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +755,72 @@
     "text": "Soldiers beheaded and left in hollow in surrounded area",
     "enumeration": "7"
    },
-   "solution": "ENCLAVE"
+   "solution": "ENCLAVE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "ENCLAVE",
+    "definitions": [
+     {
+      "text": "surrounded area",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beheaded",
+      "for": "deletion",
+      "note": "a beheaded word loses its head, its first letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldiers",
+      "gives": "MEN",
+      "note": "soldiers are men in the ranks"
+     },
+     {
+      "clueFragment": "hollow",
+      "gives": "CAVE",
+      "note": "a cave is a hollow in rock"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "C",
+      "L",
+      "AVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A grim scene of decapitated troops abandoned in a hole within a besieged zone.",
+     "walkthrough": "The first 'in' places L inside CAVE; the second joins the wordplay to the definition.",
+     "definitionFit": "An enclave is a territory wholly enclosed within another country's land, such as Lesotho within South Africa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +834,53 @@
     "text": "Former examiner, reportedly in old government office",
     "enumeration": "9"
    },
-   "solution": "EXCHEQUER"
+   "solution": "EXCHEQUER",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "EXCHEQUER",
+    "definitions": [
+     {
+      "text": "old government office",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "what is reported is heard rather than seen, so the word is taken by its sound"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Former",
+      "gives": "EX",
+      "note": "ex- means former"
+     },
+     {
+      "clueFragment": "examiner",
+      "gives": "CHEQUER",
+      "soundsLike": "CHECKER",
+      "note": "an examiner is someone who checks"
+     }
+    ],
+    "explanation": {
+     "surface": "A retired inspector, people say, worked in a historic state department.",
+     "walkthrough": "The Exchequer took its name from the chequered cloth on which royal accounts were reckoned with counters.",
+     "definitionFit": "The Exchequer is the British treasury department, dating back to Norman times, which manages public revenue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "examiner"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +894,53 @@
     "text": "Slow speech, live, shown after tie",
     "enumeration": "5"
    },
-   "solution": "DRAWL"
+   "solution": "DRAWL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRAWL",
+    "definitions": [
+     {
+      "text": "Slow speech",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shown after",
+      "for": "charade",
+      "note": "being shown after means coming later in the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tie",
+      "gives": "DRAW",
+      "note": "a tied game is a draw"
+     },
+     {
+      "clueFragment": "live",
+      "gives": "L",
+      "note": "L marks the live wire in electrical wiring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRAW",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A broadcast that crawls along, aired live just after a drawn match.",
+     "definitionFit": "A drawl is a lazy manner of talking with vowels drawn out, as in some American accents."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "live"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +954,64 @@
     "text": "Failed attempt on hill in English resort town",
     "enumeration": "13"
    },
-   "solution": "LITTLEHAMPTON"
+   "solution": "LITTLEHAMPTON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LITTLEHAMPTON",
+    "definitions": [
+     {
+      "text": "English resort town",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Failed",
+      "for": "anagram",
+      "note": "a failed effort collapses into disorder, so these letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attempt",
+      "gives": "ATTEMPT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hill",
+      "gives": "HILL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATTEMPTONHILL",
+       "gives": "LITTLEHAMPTON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unsuccessful climb up a slope at a seaside holiday spot.",
+     "walkthrough": "Littlehampton is a seaside town in West Sussex on the south coast of England.",
+     "definitionFit": "Littlehampton is a beach town at the mouth of the River Arun, popular with holidaymakers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Failed"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +1031,48 @@
      }
     ]
    },
-   "solution": "TUBESKIRT"
+   "solution": "TUBESKIRT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TUBE SKIRT",
+    "definitions": [
+     {
+      "text": "wearing this?",
+      "at": 40
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Use the Circle Line, perhaps",
+      "gives": "TUBE",
+      "note": "to tube is to travel on the London Underground, of which the Circle Line is one route"
+     },
+     {
+      "clueFragment": "go round",
+      "gives": "SKIRT",
+      "note": "to skirt something is to go round its edge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUBE",
+      "SKIRT"
+     ]
+    },
+    "explanation": {
+     "surface": "A joke that a commuter riding round London might wear a garment to match.",
+     "walkthrough": "The Tube is London's Underground railway; the Circle Line runs in a loop. The question mark flags the playful definition.",
+     "definitionFit": "A tube skirt is a tight, stretchy, straight skirt shaped like a cylinder, so it wraps round the body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Circle"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1086,46 @@
     "text": "Proceeds with loans",
     "enumeration": "8"
    },
-   "solution": "ADVANCES"
+   "solution": "ADVANCES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ADVANCES",
+    "definitions": [
+     {
+      "text": "Proceeds",
+      "at": 0
+     },
+     {
+      "text": "loans",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Proceeds",
+      "note": "first meaning: goes forward, as a verb"
+     },
+     {
+      "clueFragment": "loans",
+      "note": "second meaning: sums paid early or lent, as a noun"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Proceeds' looks like the noun for takings, which fits the money surface, but it is the verb for moving on.",
+     "definitionFit": "An army advances when it moves forward, and advances are also payments made beforehand or money lent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Proceeds"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1145,60 @@
      }
     ]
    },
-   "solution": "DOGSBREAKFAST"
+   "solution": "DOGSBREAKFAST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOGS BREAKFAST",
+    "definitions": [
+     {
+      "text": "Shambles",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places one piece later in the word than the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "follows",
+      "gives": "DOGS",
+      "note": "to dog someone is to follow them closely"
+     },
+     {
+      "clueFragment": "interval",
+      "gives": "BREAK",
+      "note": "a break is a pause or interval"
+     },
+     {
+      "clueFragment": "quickly",
+      "gives": "FAST",
+      "note": "fast means quickly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOGS",
+      "BREAK",
+      "FAST"
+     ]
+    },
+    "explanation": {
+     "surface": "A mess rapidly ensues once the intermission is over.",
+     "walkthrough": "'Dog's breakfast' is British slang for a complete mess.",
+     "definitionFit": "A dog's breakfast is an informal name for a muddled, chaotic mess, like scraps thrown together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "follows"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1212,58 @@
     "text": "I'm in favour, so pull a face",
     "enumeration": "7"
    },
-   "solution": "GRIMACE"
+   "solution": "GRIMACE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GRIMACE",
+    "definitions": [
+     {
+      "text": "pull a face",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "so"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "favour",
+      "gives": "GRACE",
+      "note": "grace is favour or goodwill, as in being in someone's good graces"
+     },
+     {
+      "clueFragment": "I'm",
+      "gives": "IM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GR",
+      "IM",
+      "ACE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone well liked, and so making expressions to show it.",
+     "walkthrough": "'I'm in favour' reads as a declaration of support, but 'favour' is the outer word.",
+     "definitionFit": "To grimace is to twist one's features in pain or disgust, an expression made with the face."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "favour"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1277,82 @@
     "text": "Elevated man in grey suit pointing to destructive wave",
     "enumeration": "7"
    },
-   "solution": "TSUNAMI"
+   "solution": "TSUNAMI",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "container"
+    ],
+    "answer": "TSUNAMI",
+    "definitions": [
+     {
+      "text": "destructive wave",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Elevated",
+      "for": "reversal",
+      "note": "in a down clue, an elevated word is lifted to read from the bottom up"
+     },
+     {
+      "text": "grey",
+      "for": "anagram",
+      "note": "grey suggests something muddy and indistinct, so these letters lose their order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "pointing to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man",
+      "gives": "MAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "suit",
+      "gives": "SUIT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TSU",
+      "NAM",
+      "I"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SUIT",
+       "gives": "TSUI"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "MAN",
+       "to": "NAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A senior businessman in a grey suit indicates an approaching catastrophe.",
+     "walkthrough": "'Grey suit' reads as one phrase for a businessman's outfit, but 'grey' works on the word suit alone.",
+     "definitionFit": "A tsunami is a huge sea wave set off by an undersea earthquake, which can devastate coasts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grey"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1366,54 @@
     "text": "Bloke almost rented wooden villa",
     "enumeration": "6"
    },
-   "solution": "CHALET"
+   "solution": "CHALET",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CHALET",
+    "definitions": [
+     {
+      "text": "wooden villa",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bloke",
+      "gives": "CHAP",
+      "note": "a chap is a man, a bloke"
+     },
+     {
+      "clueFragment": "rented",
+      "gives": "LET",
+      "note": "property that is let is rented out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "LET"
+     ]
+    },
+    "explanation": {
+     "surface": "A man nearly leased a timber holiday home.",
+     "walkthrough": "Bloke and chap are both British informal words for a man.",
+     "definitionFit": "A chalet is a timber house with overhanging eaves, typical of Swiss mountains and holiday resorts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1427,42 @@
     "text": "What's as good as a mile? Wrong",
     "enumeration": "5"
    },
-   "solution": "AMISS"
+   "solution": "AMISS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AMISS",
+    "definitions": [
+     {
+      "text": "What's as good as a mile?",
+      "at": 0
+     },
+     {
+      "text": "Wrong",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What's as good as a mile?",
+      "note": "first meaning: completes the proverb about a narrow failure being no better than a wide one"
+     },
+     {
+      "clueFragment": "Wrong",
+      "note": "second meaning: faulty, out of order"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The proverb runs 'a miss is as good as a mile', so the first part is two words that run together as one.",
+     "definitionFit": "Something amiss is out of place or faulty, which is wrong; the proverb's two words read the same."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1476,70 @@
     "text": "Braggart has look round inside crude mud hut",
     "enumeration": "9"
    },
-   "solution": "LOUDMOUTH"
+   "solution": "LOUDMOUTH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LOUDMOUTH",
+    "definitions": [
+     {
+      "text": "Braggart",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crude",
+      "for": "anagram",
+      "note": "something crude is rough and unrefined, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "inside"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "look",
+      "gives": "LO",
+      "note": "lo is an old word for look"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "a round letter"
+     },
+     {
+      "clueFragment": "mud",
+      "gives": "MUD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hut",
+      "gives": "HUT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LOOMUDHUT",
+       "gives": "LOUDMOUTH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boaster peers about inside a primitive dwelling.",
+     "walkthrough": "LO and O go inside the scrambled letters of mud hut; the jumble places them where needed.",
+     "definitionFit": "A loudmouth talks noisily and boastfully, much as a braggart does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crude"
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1553,55 @@
     "text": "Animal lows close to milking-time",
     "enumeration": "5"
    },
-   "solution": "MOOSE"
+   "solution": "MOOSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MOOSE",
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only the final letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lows",
+      "gives": "MOOS",
+      "note": "cattle low, or moo"
+     },
+     {
+      "clueFragment": "milking-time",
+      "gives": "E",
+      "select": "last",
+      "note": "end of the compound word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOOS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A cow complains as milking-time approaches.",
+     "definitionFit": "The moose is the largest member of the deer family, called an elk in Europe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 24,
@@ -397,7 +1615,56 @@
     "text": "Stately vehicle coming from church with a flourish",
     "enumeration": "7"
    },
-   "solution": "CHARIOT"
+   "solution": "CHARIOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHARIOT",
+    "definitions": [
+     {
+      "text": "Stately vehicle",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "coming from",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "ch is the abbreviation for church"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "flourish",
+      "gives": "RIOT",
+      "note": "a riot is a lavish display, as in a riot of colour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "A",
+      "RIOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A grand carriage sweeps away from the church in style.",
+     "definitionFit": "A chariot is a horse-drawn carriage, used in ceremony and processions, and in ancient times in war."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flourish"
+    }
+   }
   },
   {
    "number": 25,
@@ -417,7 +1684,43 @@
      }
     ]
    },
-   "solution": "KNOWALL"
+   "solution": "KNOWALL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "KNOW-ALL",
+    "definitions": [
+     {
+      "text": "Wise guy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the letters sit in the words that follow, spanning their boundaries"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clink, now, allegedly",
+      "gives": "KNOWALL",
+      "note": "runs from the end of the first word into the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A smart alec now reportedly behind bars.",
+     "walkthrough": "Clink is slang for prison; the punctuation is ignored.",
+     "definitionFit": "A know-all is someone who behaves as if they know everything, the sort of person called a wise guy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "allegedly"
+    }
+   }
   },
   {
    "number": 26,
@@ -431,7 +1734,62 @@
     "text": "Female leaving small party with rest",
     "enumeration": "6"
    },
-   "solution": "SIESTA"
+   "solution": "SIESTA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SIESTA",
+    "definitions": [
+     {
+      "text": "rest",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "something leaving goes away, so that letter is removed"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small, as on clothing labels"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "FIESTA",
+      "note": "a fiesta is a festive celebration"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IESTA"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman slips out of a modest gathering for a lie-down.",
+     "definitionFit": "A siesta is an afternoon nap, a short rest taken in hot countries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 27,
@@ -445,7 +1803,67 @@
     "text": "Social outcast, before 'L' in concise dictionary",
     "enumeration": "8"
    },
-   "solution": "DERELICT"
+   "solution": "DERELICT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "container"
+    ],
+    "answer": "DERELICT",
+    "definitions": [
+     {
+      "text": "Social outcast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "concise",
+      "for": "deletion",
+      "note": "a concise version is shortened, so the word is cut down"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "before",
+      "gives": "ERE",
+      "note": "ere is a poetic word for before"
+     },
+     {
+      "clueFragment": "'L'",
+      "gives": "L",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dictionary",
+      "gives": "DICTIONARY",
+      "note": "shortened to its first four letters, the usual abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "EREL",
+      "ICT"
+     ]
+    },
+    "explanation": {
+     "surface": "A dictionary entry that sits just ahead of the letter L, under the word for an outcast.",
+     "walkthrough": "'Before' looks like a placement instruction but it is the word ERE. DICT is the standard short form of dictionary.",
+     "definitionFit": "A derelict is a person abandoned by society, a vagrant or down-and-out with no home."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "before"
+    }
+   }
   }
  ]
 }
