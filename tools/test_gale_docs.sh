@@ -148,6 +148,26 @@ rq = dict(urllib.parse.parse_qsl(urllib.parse.urlsplit(gd.report_link("LSNR", 13
 check("its link cites the report's issue", True, "16 June 1955, p. 40" in urllib.parse.unquote(rq["citationTextJson"]))
 check("no report, a miss", True, "no report" in gd.lookup_report("LSNR", lday, FakeGale({}), 1309)["why"])
 
+# A tick's time budget: no lookup starts once `until` has passed.
+import time
+tcache = tmp / "budget.json"
+fake = FakeGale({})
+tout = io.StringIO()
+check("past its deadline, no lookup starts", (0, []),
+      (gd.resolve("TTDA", [(d, None) for d in days], tout, fake, tcache, until=time.monotonic() - 1), fake.asked))
+check("and it says the rest waits", True, "out of time" in tout.getvalue())
+
+# report_lookups reads the ledger once, not once a row (it took 55 s on 3,000 rows).
+calls = []
+real = gl.solutions
+gl.solutions = lambda *a, **k: (calls.append(1), real(*a, **k))[1]
+try:
+    gl.report_lookups([{"number": n, "title": "x", "date": D(1950, 1, 1)} for n in range(1, 50)],
+                      store=tmp / "nostore", root=tmp / "noroot", arrivals=[])
+finally:
+    gl.solutions = real
+check("report_lookups asks for the solutions a fixed number of times", True, len(calls) <= 3)
+
 print(f"{fails} failure(s)")
 sys.exit(1 if fails else 0)
 PY

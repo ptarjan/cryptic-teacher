@@ -213,11 +213,13 @@ def cached(docs, key):
     return e is not None and ("doc" in e or e.get("matcher", 0) >= MATCHER)
 
 
-def resolve(prod, rows, out=sys.stdout, gale=None, cache=CACHE, limit=PER_TICK, reports=()):
+def resolve(prod, rows, out=sys.stdout, gale=None, cache=CACHE, limit=PER_TICK, reports=(), until=None):
     """Look up the first `limit` uncached of `rows` ([(date, number or None)])
     and `reports` ([(puzzle's date, number)]), in date order, each row's doc
     link then its report link, so the rows to do next get both first (with no
     reports, in `rows` order); stop at Gale's first error (said to `out`).
+    No lookup starts after the monotonic time `until` (one is several
+    requests at PACE, so a slow Gale must not eat the whole tick).
     Returns how many links were added."""
     docs = load(cache)
     asks = [(d, 0, f"{prod}/{d.isoformat()}", n, lookup) for d, n in rows]
@@ -230,6 +232,9 @@ def resolve(prod, rows, out=sys.stdout, gale=None, cache=CACHE, limit=PER_TICK, 
             todo.setdefault(key, (d, n, how))
     added = 0
     for key, (day, number, how) in list(todo.items())[:limit]:
+        if until is not None and time.monotonic() > until:
+            print(f"gale_docs: out of time; the rest next tick", file=out)
+            break
         gale = gale or Gale()
         try:
             e = how(prod, day, gale, number)

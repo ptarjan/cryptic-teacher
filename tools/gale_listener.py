@@ -1035,16 +1035,17 @@ def render(idx=None, out=sys.stdout):
     print(f"checklist published to {gi.GALE_ROOT}/{CHECKLIST.name}", file=out)
 
 
-def tick(out=sys.stdout, force=False, ask=True):
+def tick(out=sys.stdout, force=False, ask=True, until=None):
     """The every-minute part (gale_inbox.sync calls it): mirror the Listener
     inbox and, when it moved (or gi.RENDER_EVERY passed), re-render the
     checklist; publish its status file either way. Gale is asked for links
-    only when `ask` (gale_inbox.gale_due). The clue reading stays in the
-    full pass."""
+    only when `ask` (gale_inbox.gale_due), none started after the monotonic
+    time `until`. The clue reading stays in the full pass."""
     changed = gi.mirror(out, host_inbox=gi.LISTENER_INBOX, into=MIRROR)
     idx = index()
     linked = ask and gale_docs.resolve("LSNR", [(r["date"], r["number"]) for r in to_save(idx)], out,
-                                       reports=[(r["date"], r["number"]) for r in report_lookups(idx)])
+                                       reports=[(r["date"], r["number"]) for r in report_lookups(idx)],
+                                       until=until)
     last = CHECKLIST.stat().st_mtime if CHECKLIST.exists() else 0
     if force or changed or linked or time.time() - last > gi.RENDER_EVERY:
         render(idx, out=out)
@@ -1085,7 +1086,8 @@ def report_lookups(idx, store=STORE, root=ROOT, arrivals=None):
     link) whose report page has not arrived."""
     arrivals = list(gi.load(ARRIVED, {}).values()) if arrivals is None else arrivals
     want = {r["number"] for r in [*unsolved(idx, store, arrivals), *to_save(idx, store, root, arrivals)]}
-    return [r for r in idx if printed(r) and r["number"] in want - solutions(store, arrivals)]
+    want -= solutions(store, arrivals)  # once: per row it re-read the ledger ~3,000 times (55 s)
+    return [r for r in idx if printed(r) and r["number"] in want]
 
 
 def elsewhere_wanted(ledger, got, arrivals, filed):
