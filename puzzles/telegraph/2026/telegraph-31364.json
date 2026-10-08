@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,67 @@
     "text": "Retired Arab acquires first coffee maker",
     "enumeration": "7"
    },
-   "solution": "BARISTA"
+   "solution": "BARISTA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "BARISTA",
+    "definitions": [
+     {
+      "text": "coffee maker",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Retired",
+      "for": "reversal",
+      "note": "someone retired has gone back, so the word is read in the backward direction"
+     },
+     {
+      "text": "acquires",
+      "for": "container",
+      "note": "to acquire is to take something in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arab",
+      "gives": "ARAB",
+      "note": "taken as written, then turned round"
+     },
+     {
+      "clueFragment": "first",
+      "gives": "IST",
+      "note": "1st, written out as the abbreviation IST"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "IST",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "ARAB",
+       "to": "BARA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A retired Arab gentleman takes up a new hobby: making coffee.",
+     "walkthrough": "BARA holds IST to give BARISTA; 'first' is shortened to 1ST, read as IST.",
+     "definitionFit": "A barista is the person in a café who prepares espresso drinks for customers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Retired"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +109,53 @@
     "text": "Producer of spray for treating moist ear",
     "enumeration": "8"
    },
-   "solution": "ATOMISER"
+   "solution": "ATOMISER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ATOMISER",
+    "definitions": [
+     {
+      "text": "Producer of spray",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "treating",
+      "for": "anagram",
+      "note": "treating something works it over and changes it, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "moist ear",
+      "gives": "MOISTEAR",
+      "note": "the eight letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MOISTEAR",
+       "gives": "ATOMISER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something that sprays liquid, recommended for an ear that is too moist.",
+     "definitionFit": "An atomiser is a device that turns liquid such as perfume into a fine mist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "treating"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +169,68 @@
     "text": "Succeeded to leave Italian lady nudist exhausted in the dark",
     "enumeration": "8"
    },
-   "solution": "IGNORANT"
+   "solution": "IGNORANT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "IGNORANT",
+    "definitions": [
+     {
+      "text": "in the dark",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to leave",
+      "for": "deletion",
+      "note": "the abbreviation for succeeded departs from the following word, removing it"
+     },
+     {
+      "text": "exhausted",
+      "for": "letter_selection",
+      "note": "an exhausted word is emptied out, keeping only its two ends"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Succeeded",
+      "gives": "S",
+      "note": "s. is the abbreviation for succeeded in genealogies; it is removed"
+     },
+     {
+      "clueFragment": "Italian lady",
+      "gives": "SIGNORA",
+      "note": "Italian for a married woman"
+     },
+     {
+      "clueFragment": "nudist",
+      "gives": "NT",
+      "select": "outer",
+      "note": "only the outside letters remain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IGNORA",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian woman leaves a nudist beach worn out, with no idea of something.",
+     "walkthrough": "s. is the genealogists' abbreviation for succeeded; a signora is an Italian married woman.",
+     "definitionFit": "To be kept in the dark is to be uninformed, so someone in the dark lacks knowledge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Succeeded"
+    }
+   }
   },
   {
    "number": 4,
@@ -80,7 +250,52 @@
      }
     ]
    },
-   "solution": "TERRAFIRMA"
+   "solution": "TERRAFIRMA",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "TERRA FIRMA",
+    "definitions": [
+     {
+      "text": "Ground",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reports of",
+      "for": "homophone",
+      "note": "a report is something heard, so the words are said out loud"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dread",
+      "gives": "TERRA",
+      "soundsLike": "TERROR",
+      "note": "dread is terror, which in some accents is said like this"
+     },
+     {
+      "clueFragment": "more solid",
+      "gives": "FIRMA",
+      "soundsLike": "FIRMER",
+      "note": "more solid is firmer, said in a non-rhotic accent"
+     }
+    ],
+    "explanation": {
+     "surface": "News reports about a dread that is growing ever more solid.",
+     "walkthrough": "In non-rhotic British speech TERROR FIRMER and TERRA FIRMA are pronounced identically.",
+     "definitionFit": "Terra firma is Latin for dry land, the solid ground under one's feet as opposed to sea or air."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "reports"
+    }
+   }
   },
   {
    "number": 5,
@@ -94,7 +309,60 @@
     "text": "Authority to travel island within very small area",
     "enumeration": "4"
    },
-   "solution": "VISA"
+   "solution": "VISA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VISA",
+    "definitions": [
+     {
+      "text": "Authority to travel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "within",
+      "for": "container",
+      "note": "within means placed inside the following pair of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "IS",
+      "note": "standard abbreviation for island"
+     },
+     {
+      "clueFragment": "small area",
+      "gives": "A",
+      "note": "a, the short form of area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "IS",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Permission is needed to visit a tiny island.",
+     "walkthrough": "'Small' just marks area as shortened to its initial; the island sits between the two single letters.",
+     "definitionFit": "A visa is the official endorsement in a passport permitting entry to a country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "very"
+    }
+   }
   },
   {
    "number": 6,
@@ -108,7 +376,43 @@
     "text": "Ran and met high ball crossed into box?",
     "enumeration": "6"
    },
-   "solution": "HEADED"
+   "solution": "HEADED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HEADED",
+    "definitions": [
+     {
+      "text": "Ran",
+      "at": 0
+     },
+     {
+      "text": "met high ball crossed into box",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ran",
+      "note": "first meaning: led or was in charge of, as of a company"
+     },
+     {
+      "clueFragment": "met high ball crossed into box",
+      "note": "second meaning: in football, struck the ball with the forehead after a cross"
+     }
+    ],
+    "explanation": {
+     "surface": "A footballer sprinted and nodded a cross into the penalty area.",
+     "walkthrough": "The box is the penalty area in football; a cross is a ball played in from the wing.",
+     "definitionFit": "To head something is both to lead it and, in football, to hit the ball with one's forehead."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ran"
+    }
+   }
   },
   {
    "number": 7,
@@ -122,7 +426,52 @@
     "text": "Serving up tabbouleh canapés, filled with style",
     "enumeration": "7"
    },
-   "solution": "PANACHE"
+   "solution": "PANACHE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "PANACHE",
+    "definitions": [
+     {
+      "text": "style",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filled with",
+      "for": "hidden_word",
+      "note": "the phrase is filled with the letters, which sit inside its run of words"
+     },
+     {
+      "text": "Serving up",
+      "for": "reversal",
+      "note": "in a down clue, up means the letters read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tabbouleh canapés",
+      "gives": "PANACHE",
+      "note": "letters read backwards across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A caterer serves Middle Eastern salad on canapés with real flair.",
+     "walkthrough": "Reading 'h canapés' backwards gives the answer; tabbouleh is a parsley and bulgur salad.",
+     "definitionFit": "Panache is flamboyant confidence and stylishness in how someone does things."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Serving"
+    }
+   }
   },
   {
    "number": 8,
@@ -136,7 +485,64 @@
     "text": "Flatbread in English pub, it's prepared for late customers",
     "enumeration": "7"
    },
-   "solution": "EPITAPH"
+   "solution": "EPITAPH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EPITAPH",
+    "definitions": [
+     {
+      "text": "it's prepared for late customers",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the bread inside the letters around it"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flatbread",
+      "gives": "PITA",
+      "note": "a flat Middle Eastern bread, also spelt pitta"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "pub",
+      "gives": "PH",
+      "note": "PH, the map abbreviation for public house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "PITA",
+      "PH"
+     ]
+    },
+    "explanation": {
+     "surface": "A pub serving English flatbread prepares food for its late-night drinkers.",
+     "walkthrough": "'Late' means dead, not out after hours: the customers are the departed.",
+     "definitionFit": "An epitaph is the inscription composed for a dead person's tombstone, so it is prepared for the deceased."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "late"
+    }
+   }
   },
   {
    "number": 9,
@@ -150,7 +556,61 @@
     "text": "Sacked politician admits a dangerous leak",
     "enumeration": "8"
    },
-   "solution": "FIREDAMP"
+   "solution": "FIREDAMP",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "FIREDAMP",
+    "definitions": [
+     {
+      "text": "dangerous leak",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admits",
+      "for": "container",
+      "note": "to admit is to let in, so the politician takes the article inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sacked",
+      "gives": "FIRED",
+      "note": "dismissed from a job"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "Member of Parliament"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIRED",
+      "A",
+      "MP"
+     ]
+    },
+    "explanation": {
+     "surface": "A dismissed MP confesses to a damaging leak of information.",
+     "walkthrough": "FIRED is followed by MP holding A. The leak is not of secrets but of gas from a coal seam.",
+     "definitionFit": "Firedamp is methane seeping into coal mines, where it can explode."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "leak"
+    }
+   }
   },
   {
    "number": 10,
@@ -164,7 +624,56 @@
     "text": "Establish boundaries for Rugby ironworks",
     "enumeration": "7"
    },
-   "solution": "FOUNDRY"
+   "solution": "FOUNDRY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FOUNDRY",
+    "definitions": [
+     {
+      "text": "ironworks",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boundaries for",
+      "for": "letter_selection",
+      "note": "the boundaries of a word are its two edges, so only those letters count"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Establish",
+      "gives": "FOUND",
+      "note": "to set up, as a business"
+     },
+     {
+      "clueFragment": "Rugby",
+      "gives": "RY",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOUND",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "Setting the touchlines for a game of rugby.",
+     "walkthrough": "Rugby is also a town in England, which suits a works.",
+     "definitionFit": "A foundry is a factory where metal such as iron is melted and cast into shapes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boundaries"
+    }
+   }
   },
   {
    "number": 11,
@@ -178,7 +687,61 @@
     "text": "Pass time chasing vehicle, one on the highway to hell?",
     "enumeration": "8"
    },
-   "solution": "HANDCART"
+   "solution": "HANDCART",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HANDCART",
+    "definitions": [
+     {
+      "text": "one on the highway to hell?",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chasing",
+      "for": "charade",
+      "note": "chasing means coming behind, so the time letter follows the vehicle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pass",
+      "gives": "HAND",
+      "note": "to pass something over"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "CAR",
+      "note": "a motor vehicle"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAND",
+      "CAR",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A driver passes the time chasing another car down a road to ruin.",
+     "walkthrough": "'Chasing' puts T after CAR. The definition plays on the idiom 'going to hell in a handcart', meaning heading for disaster.",
+     "definitionFit": "The idiom of going to hell in a handcart makes this small pushed barrow the vehicle of ruin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pass"
+    }
+   }
   },
   {
    "number": 11,
@@ -198,7 +761,49 @@
      }
     ]
    },
-   "solution": "HAIRBALLS"
+   "solution": "HAIRBALLS",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "HAIR-BALLS",
+    "definitions": [
+     {
+      "text": "they'll upset the cat",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner's",
+      "for": "spoonerism",
+      "note": "Rev. Spooner was famed for swapping the opening sounds of two words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unfurnished vestibules",
+      "gives": "HAIRBALLS",
+      "soundsLike": "BARE HALLS",
+      "note": "empty entrance rooms; swap their opening sounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAIRBALLS"
+     ]
+    },
+    "explanation": {
+     "surface": "Empty entrance halls that a cat would find unsettling.",
+     "definitionFit": "A cat grooming itself swallows fur that clumps in its stomach until it is sick, so these balls of fur upset it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 12,
@@ -212,7 +817,64 @@
     "text": "Topless, Carrie's on the move in mountain range",
     "enumeration": "6"
    },
-   "solution": "SIERRA"
+   "solution": "SIERRA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SIERRA",
+    "definitions": [
+     {
+      "text": "mountain range",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Topless",
+      "for": "deletion",
+      "note": "without a top, the word loses its first letter"
+     },
+     {
+      "text": "on the move",
+      "for": "anagram",
+      "note": "letters on the move change places with one another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Carrie's",
+      "gives": "CARRIES",
+      "note": "read as one word, with the apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIERRA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARRIES",
+       "gives": "SIERRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Carrie sunbathes topless while trekking through the mountains.",
+     "walkthrough": "CARRIES loses its C, and the rest is rearranged.",
+     "definitionFit": "A sierra is a long jagged chain of mountains, a word from Spanish meaning saw."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Topless"
+    }
+   }
   },
   {
    "number": 13,
@@ -226,7 +888,47 @@
     "text": "China's joint alliance",
     "enumeration": "10"
    },
-   "solution": "FRIENDSHIP"
+   "solution": "FRIENDSHIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FRIENDSHIP",
+    "definitions": [
+     {
+      "text": "alliance",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "China's",
+      "gives": "FRIENDS",
+      "note": "china is rhyming slang for mate (china plate), so a friend's"
+     },
+     {
+      "clueFragment": "joint",
+      "gives": "HIP",
+      "note": "a joint in the body"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRIENDS",
+      "HIP"
+     ]
+    },
+    "explanation": {
+     "surface": "A joint venture between China and another nation.",
+     "walkthrough": "'China' looks like the country; in cockney rhyming slang china plate means mate.",
+     "definitionFit": "A friendship is a bond of mutual goodwill, like an alliance between two people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "China's"
+    }
+   }
   },
   {
    "number": 14,
@@ -246,7 +948,65 @@
      }
     ]
    },
-   "solution": "NAILPOLISH"
+   "solution": "NAILPOLISH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NAIL POLISH",
+    "definitions": [
+     {
+      "text": "a handy accessory",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "developed",
+      "for": "anagram",
+      "note": "to develop is to change form, so these letters take a new shape"
+     }
+    ],
+    "linkWords": [
+     "into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New",
+      "gives": "N",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "lip oil",
+      "gives": "LIPOIL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "has",
+      "gives": "HAS",
+      "note": "taken as written, part of the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NLIPOILHAS",
+       "gives": "NAILPOLISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new lip oil product has become a convenient beauty item.",
+     "walkthrough": "'Has' is part of the fodder as well as the indicator phrase: N, LIP OIL and HAS together are rearranged.",
+     "definitionFit": "Nail polish is applied to fingernails, so it is an accessory worn on the hand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "handy"
+    }
+   }
   },
   {
    "number": 15,
@@ -260,7 +1020,56 @@
     "text": "Director deleting content of Lawrence article",
     "enumeration": "4"
    },
-   "solution": "LEAN"
+   "solution": "LEAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LEAN",
+    "definitions": [
+     {
+      "text": "Director",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "deleting content of",
+      "for": "letter_selection",
+      "note": "with its contents removed, only the shell of the name is left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lawrence",
+      "gives": "LE",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A film director edits material about Lawrence of Arabia.",
+     "walkthrough": "David Lean directed Lawrence of Arabia, which makes the surface fit.",
+     "definitionFit": "David Lean was the British film director of Lawrence of Arabia and Doctor Zhivago."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "content"
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +1083,60 @@
     "text": "Teenage hoodlum initially committing theft, having a pound?",
     "enumeration": "9"
    },
-   "solution": "THROBBING"
+   "solution": "THROBBING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "THROBBING",
+    "definitions": [
+     {
+      "text": "having a pound?",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of each of the two preceding words"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Teenage hoodlum",
+      "gives": "TH",
+      "select": "first",
+      "note": "first letters"
+     },
+     {
+      "clueFragment": "committing theft",
+      "gives": "ROBBING",
+      "note": "stealing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "ROBBING"
+     ]
+    },
+    "explanation": {
+     "surface": "A young thug is caught stealing, hoping to get a quid out of it.",
+     "walkthrough": "The pound looks like money; here it is a beating pulse.",
+     "definitionFit": "Something throbbing beats with a strong pulse, so it has a pounding rhythm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pound"
+    }
+   }
   },
   {
    "number": 17,
@@ -294,7 +1156,68 @@
      }
     ]
    },
-   "solution": "GAMESHOW"
+   "solution": "GAMESHOW",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "GAME SHOW",
+    "definitions": [
+     {
+      "text": "TV programme",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the husband inside the word for very"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plucky",
+      "gives": "GAME",
+      "note": "game means willing and brave"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "SO",
+      "note": "as in 'so good'"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "western",
+      "gives": "W",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAME",
+      "S",
+      "H",
+      "O",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "A brave husband stars in a cowboy series on television.",
+     "walkthrough": "H goes inside SO, then W follows.",
+     "definitionFit": "A game show is a television programme in which contestants compete for prizes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "western"
+    }
+   }
   },
   {
    "number": 18,
@@ -308,7 +1231,62 @@
     "text": "Lug around witch last seen in village somewhere near Tunis",
     "enumeration": "8"
    },
-   "solution": "CARTHAGE"
+   "solution": "CARTHAGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CARTHAGE",
+    "definitions": [
+     {
+      "text": "somewhere near Tunis",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last seen in",
+      "for": "letter_selection",
+      "note": "what is seen last of a word is its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lug around",
+      "gives": "CART",
+      "note": "to cart something is to carry it laboriously"
+     },
+     {
+      "clueFragment": "witch",
+      "gives": "HAG",
+      "note": "an ugly old woman, a witch"
+     },
+     {
+      "clueFragment": "village",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CART",
+      "HAG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hauls a witch round a village in North Africa.",
+     "walkthrough": "'Around' belongs with 'Lug', not as a signal to put one piece inside another.",
+     "definitionFit": "Carthage was the ancient Phoenician city whose ruins now lie in the suburbs of Tunis."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 19,
@@ -322,7 +1300,50 @@
     "text": "School day came, unfortunately",
     "enumeration": "7"
    },
-   "solution": "ACADEMY"
+   "solution": "ACADEMY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ACADEMY",
+    "definitions": [
+     {
+      "text": "School",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "things that go unfortunately go wrong, so the letters fall out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "day came",
+      "gives": "DAYCAME",
+      "note": "the seven letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DAYCAME",
+       "gives": "ACADEMY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pupil laments that the first day of term arrived.",
+     "definitionFit": "An academy is a type of school, in Britain a state school run independently of the local council."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unfortunately"
+    }
+   }
   },
   {
    "number": 20,
@@ -336,7 +1357,67 @@
     "text": "Issue number one: tide is turning",
     "enumeration": "7"
    },
-   "solution": "EDITION"
+   "solution": "EDITION",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EDITION",
+    "definitions": [
+     {
+      "text": "Issue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is turning",
+      "for": "reversal",
+      "note": "turning round makes the whole string run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "number",
+      "gives": "NO",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral"
+     },
+     {
+      "clueFragment": "tide",
+      "gives": "TIDE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDIT",
+      "I",
+      "ON"
+     ],
+     "reversals": [
+      {
+       "from": "NOITIDE",
+       "to": "EDITION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The first issue of a magazine reports that the tide is changing.",
+     "walkthrough": "NO, I and TIDE are joined and then the whole is read backwards.",
+     "definitionFit": "An edition is one issue of a newspaper or magazine, all copies printed at one time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 21,
@@ -350,7 +1431,55 @@
     "text": "Open top of anchovy container",
     "enumeration": "4"
    },
-   "solution": "AJAR"
+   "solution": "AJAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AJAR",
+    "definitions": [
+     {
+      "text": "Open",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a word in an across clue is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "anchovy",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "container",
+      "gives": "JAR",
+      "note": "a glass container"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "JAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to open the lid on a pot of anchovies.",
+     "definitionFit": "A door that is ajar is slightly open, neither closed nor fully opened."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 22,
@@ -364,7 +1493,67 @@
     "text": "Policeman claiming old laws to be scrapped? Utter tosh",
     "enumeration": "10"
    },
-   "solution": "CODSWALLOP"
+   "solution": "CODSWALLOP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CODSWALLOP",
+    "definitions": [
+     {
+      "text": "Utter tosh",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be scrapped?",
+      "for": "anagram",
+      "note": "laws that are scrapped are broken up, so the letters are jumbled"
+     },
+     {
+      "text": "claiming",
+      "for": "container",
+      "note": "to claim is to take hold of, so the policeman holds the jumble inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Policeman",
+      "gives": "COP",
+      "note": "informal word for a police officer"
+     },
+     {
+      "clueFragment": "old laws",
+      "gives": "OLDLAWS",
+      "note": "taken as written, to be jumbled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ODSWALL",
+      "OP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OLDLAWS",
+       "gives": "DSWALLO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A policeman says outdated laws should be abolished, which a listener calls rubbish.",
+     "walkthrough": "COP is split to hold the rearranged letters: CO + DSWALLO + P.",
+     "definitionFit": "Codswallop is British slang for nonsense, the same idea as utter rubbish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "scrapped"
+    }
+   }
   },
   {
    "number": 23,
@@ -378,7 +1567,65 @@
     "text": "Wife attacked case of Burgundy and port",
     "enumeration": "6"
    },
-   "solution": "WHITBY"
+   "solution": "WHITBY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "WHITBY",
+    "definitions": [
+     {
+      "text": "port",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "case of",
+      "for": "letter_selection",
+      "note": "a case is the outside of something, so only the outer letters count"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wife",
+      "gives": "W",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "attacked",
+      "gives": "HIT",
+      "note": "struck"
+     },
+     {
+      "clueFragment": "Burgundy",
+      "gives": "BY",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HIT",
+      "BY"
+     ]
+    },
+    "explanation": {
+     "surface": "A wife set about a crate of Burgundy and some port wine.",
+     "walkthrough": "Burgundy and port look like wines; port is a harbour town. Whitby is a fishing port on the Yorkshire coast.",
+     "definitionFit": "Whitby is a seaside harbour town in North Yorkshire, England, known for Dracula and its abbey."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 24,
@@ -392,7 +1639,43 @@
     "text": "Homer tacitly accepting a vow of silence",
     "enumeration": "6"
    },
-   "solution": "OMERTA"
+   "solution": "OMERTA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OMERTA",
+    "definitions": [
+     {
+      "text": "a vow of silence",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "hidden_word",
+      "note": "the phrase accepts the letters into itself, holding them within its run"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Homer tacitly",
+      "gives": "OMERTA",
+      "note": "letters running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Homer quietly agrees to keep his mouth shut.",
+     "walkthrough": "'Tacitly' sits nicely with the definition: tacit means unspoken.",
+     "definitionFit": "Omertà is the Mafia's code of silence, forbidding members to talk to the police."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Homer"
+    }
+   }
   },
   {
    "number": 25,
@@ -406,7 +1689,79 @@
     "text": "Editor busily cutting old, odd bits of Truss rubbish",
     "enumeration": "8"
    },
-   "solution": "DETRITUS"
+   "solution": "DETRITUS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DETRITUS",
+    "definitions": [
+     {
+      "text": "rubbish",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "busily",
+      "for": "anagram",
+      "note": "busily suggests bustling activity, so the letters are moved around"
+     },
+     {
+      "text": "cutting",
+      "for": "deletion",
+      "note": "cutting removes something, here the letter for old"
+     },
+     {
+      "text": "odd bits of",
+      "for": "letter_selection",
+      "note": "odd bits are the first, third and fifth letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Editor",
+      "gives": "EDITOR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "standard abbreviation; this letter is removed"
+     },
+     {
+      "clueFragment": "Truss",
+      "gives": "TUS",
+      "select": "alternate",
+      "note": "letters one, three and five"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DETRI",
+      "TUS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EDITR",
+       "gives": "DETRI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An editor hurriedly trims bits of a story about former PM Liz Truss as rubbish.",
+     "walkthrough": "The deletion happens before the shuffle. Liz Truss was a short-lived British prime minister.",
+     "definitionFit": "Detritus is debris or waste matter left over, so it amounts to rubbish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Truss"
+    }
+   }
   },
   {
    "number": 26,
@@ -420,7 +1775,55 @@
     "text": "State University starts to teach ancient history",
     "enumeration": "4"
    },
-   "solution": "UTAH"
+   "solution": "UTAH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "UTAH",
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of the words are their opening letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "University",
+      "gives": "U",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "teach ancient history",
+      "gives": "TAH",
+      "select": "first",
+      "note": "first letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "TAH"
+     ]
+    },
+    "explanation": {
+     "surface": "A state university begins to offer courses in ancient history.",
+     "definitionFit": "Utah is one of the fifty United States, in the American West."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "State"
+    }
+   }
   },
   {
    "number": 27,
@@ -434,7 +1837,72 @@
     "text": "Know-all Joe put back in detention by British school leader",
     "enumeration": "7"
    },
-   "solution": "BIGHEAD"
+   "solution": "BIGHEAD",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "BIGHEAD",
+    "definitions": [
+     {
+      "text": "Know-all",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put back",
+      "for": "reversal",
+      "note": "putting back sends the word in the opposite direction"
+     },
+     {
+      "text": "in detention by",
+      "for": "container",
+      "note": "detention holds someone in, so the soldier is kept between the other pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "Joe",
+      "gives": "GI",
+      "note": "GI Joe, the American soldier"
+     },
+     {
+      "clueFragment": "school leader",
+      "gives": "HEAD",
+      "note": "a headteacher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "IG",
+      "HEAD"
+     ],
+     "reversals": [
+      {
+       "from": "GI",
+       "to": "IG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A smart-alec pupil called Joe is given detention by a British headmaster.",
+     "walkthrough": "GI Joe is the generic American soldier, so Joe alone stands for GI.",
+     "definitionFit": "A bighead is a conceited person who thinks they know everything, much like a know-all."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Joe"
+    }
+   }
   },
   {
    "number": 28,
@@ -448,7 +1916,48 @@
     "text": "Bare your bottom and smile, Ray!",
     "enumeration": "8"
    },
-   "solution": "MOONBEAM"
+   "solution": "MOONBEAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOONBEAM",
+    "definitions": [
+     {
+      "text": "Ray",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bare your bottom",
+      "gives": "MOON",
+      "note": "to moon is to show one's buttocks as a prank"
+     },
+     {
+      "clueFragment": "smile",
+      "gives": "BEAM",
+      "note": "a broad smile"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOON",
+      "BEAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky instruction to someone called Ray to flash his backside and grin.",
+     "walkthrough": "Ray looks like a name being addressed; it is a beam of light.",
+     "definitionFit": "A moonbeam is a shaft of moonlight, one ray of light from the moon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Ray"
+    }
+   }
   },
   {
    "number": 29,
@@ -462,7 +1971,54 @@
     "text": "More difficult when – hic! – we're drunk",
     "enumeration": "7"
    },
-   "solution": "CHEWIER"
+   "solution": "CHEWIER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHEWIER",
+    "definitions": [
+     {
+      "text": "More difficult",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "a drunk staggers about, so the letters lurch out of order"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hic! – we're",
+      "gives": "HICWERE",
+      "note": "the seven letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HICWERE",
+       "gives": "CHEWIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hiccupping drinkers find everything harder once they are drunk.",
+     "definitionFit": "Chewier food is tougher to eat, taking more effort to bite through, so harder going."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "drunk"
+    }
+   }
   }
  ]
 }
