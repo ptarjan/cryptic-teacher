@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,47 @@
      }
     ]
    },
-   "solution": "WEATHERFORECAST"
+   "solution": "WEATHERFORECAST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WEATHER FORECAST",
+    "definitions": [
+     {
+      "text": "widespread storms, possibly",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Survive",
+      "gives": "WEATHER",
+      "note": "to weather a crisis is to come through it"
+     },
+     {
+      "clueFragment": "predicted",
+      "gives": "FORECAST",
+      "note": "forecast is a past form of the verb meaning to predict"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WEATHER",
+      "FORECAST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone vows to come through the storms that were predicted to sweep the country.",
+     "walkthrough": "'Survive predicted' reads as a phrase about enduring a prophecy; it is two separate synonyms placed side by side.",
+     "definitionFit": "A bulletin saying storms will be widespread is an example of what a meteorologist issues, hence 'possibly'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Survive"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +96,64 @@
     "text": "Act corruptly in Nato for the present",
     "enumeration": "8"
    },
-   "solution": "DONATION"
+   "solution": "DONATION",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "DONATION",
+    "definitions": [
+     {
+      "text": "present",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "corruptly",
+      "for": "anagram",
+      "note": "something done corruptly is bent out of its proper shape, so the letters that follow are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Act",
+      "gives": "DO",
+      "note": "to do is to act"
+     },
+     {
+      "clueFragment": "in Nato",
+      "gives": "NATION",
+      "note": "these six letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "NATION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INNATO",
+       "gives": "NATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that someone is behaving dishonestly within NATO for the time being.",
+     "walkthrough": "'For the present' reads as 'for now'; 'present' is the definition, a noun meaning gift.",
+     "definitionFit": "A donation is a gift of money or goods, which is a present in the noun sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "present"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +167,56 @@
     "text": "Blows very loudly during encore",
     "enumeration": "5"
    },
-   "solution": "BIFFS"
+   "solution": "BIFFS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BIFFS",
+    "definitions": [
+     {
+      "text": "Blows",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something happening during another event sits within it, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "encore",
+      "gives": "BIS",
+      "note": "bis is a call for a repeat performance, like 'encore'"
+     },
+     {
+      "clueFragment": "very loudly",
+      "gives": "FF",
+      "note": "ff, fortissimo, is the musical mark for very loud"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BI",
+      "FF",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A trumpeter plays at full blast while giving an encore.",
+     "walkthrough": "The musical setting of the surface hides that 'Blows' means punches, not blowing an instrument.",
+     "definitionFit": "A biff is an informal word for a punch, so biffs are blows struck with a fist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Blows"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +230,53 @@
     "text": "Account in which one acted badly",
     "enumeration": "8"
    },
-   "solution": "ANECDOTE"
+   "solution": "ANECDOTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANECDOTE",
+    "definitions": [
+     {
+      "text": "Account",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "acting badly means the performance is garbled, so the preceding letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "in which"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one acted",
+      "gives": "ONEACTED",
+      "note": "the eight letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONEACTED",
+       "gives": "ANECDOTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A story told by someone about the time they gave a poor performance on stage.",
+     "definitionFit": "An anecdote is a short story or account of an incident, usually a personal one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "acted"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +296,73 @@
      }
     ]
    },
-   "solution": "FLYTIP"
+   "solution": "FLYTIP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "FLY-TIP",
+    "definitions": [
+     {
+      "text": "dump",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only its first and last letters are used"
+     },
+     {
+      "text": "recedes",
+      "for": "reversal",
+      "note": "something receding goes backwards, so the word for sympathy is written in the opposite direction"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "this places the word for sympathy behind the other piece in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "foul",
+      "gives": "FL",
+      "select": "outer",
+      "note": "the first and last letters of foul"
+     },
+     {
+      "clueFragment": "Sympathy",
+      "gives": "YTIP",
+      "note": "pity is sympathy, here written backwards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FL",
+      "YTIP"
+     ],
+     "reversals": [
+      {
+       "from": "PITY",
+       "to": "YTIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pity ebbs away on seeing a filthy rubbish tip.",
+     "walkthrough": "In Britain, fly-tipping means dumping rubbish illegally, by a roadside or in a field.",
+     "definitionFit": "To fly-tip is to discard waste illegally, so it is a specific way to dump rubbish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dump"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +376,67 @@
     "text": "Resolved cases receive overdue increases",
     "enumeration": "9"
    },
-   "solution": "ESCALATES"
+   "solution": "ESCALATES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ESCALATES",
+    "definitions": [
+     {
+      "text": "increases",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Resolved",
+      "for": "anagram",
+      "note": "something resolved has been broken down and settled anew, so the following letters are rearranged"
+     },
+     {
+      "text": "receive",
+      "for": "container",
+      "note": "to receive something is to take it in, so one piece is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cases",
+      "gives": "ESCAS",
+      "note": "these five letters rearranged"
+     },
+     {
+      "clueFragment": "overdue",
+      "gives": "LATE",
+      "note": "overdue means late"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESCA",
+      "LATE",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CASES",
+       "gives": "ESCAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Once legal cases are settled, people get pay rises that were long overdue.",
+     "walkthrough": "'Resolved' reads as 'settled' in the legal surface, but it means the letters are sorted out afresh.",
+     "definitionFit": "To escalate is to grow or intensify, so escalates matches increases as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Resolved"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +450,67 @@
     "text": "Take action to support quiet closure of caribou reindeer hunt",
     "enumeration": "6"
    },
-   "solution": "PURSUE"
+   "solution": "PURSUE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PURSUE",
+    "definitions": [
+     {
+      "text": "hunt",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "closure of",
+      "for": "letter_selection",
+      "note": "the closure of a word is where it ends, so the final letters of the following words are taken"
+     },
+     {
+      "text": "to support",
+      "for": "charade",
+      "note": "in a down clue a supporting piece sits underneath, so the legal action comes last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quiet",
+      "gives": "P",
+      "note": "p, piano, is the musical mark for quiet"
+     },
+     {
+      "clueFragment": "caribou reindeer",
+      "gives": "UR",
+      "select": "last",
+      "note": "the last letters of each word"
+     },
+     {
+      "clueFragment": "Take action",
+      "gives": "SUE",
+      "note": "to sue is to take legal action"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "UR",
+      "SUE"
+     ]
+    },
+    "explanation": {
+     "surface": "Campaigners go to court to back a quiet halt to hunting caribou and reindeer.",
+     "walkthrough": "'hunt' seems to belong with the animals in the surface, but it is the definition, a verb.",
+     "definitionFit": "To pursue is to chase after something, which is what it means to hunt quarry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "action"
+    }
+   }
   },
   {
    "number": 8,
@@ -143,7 +524,80 @@
     "text": "Initially speak about my poor friend with feeling",
     "enumeration": "15"
    },
-   "solution": "SYMPATHETICALLY"
+   "solution": "SYMPATHETICALLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "SYMPATHETICALLY",
+    "definitions": [
+     {
+      "text": "with feeling",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initially",
+      "for": "letter_selection",
+      "note": "initially points at the beginning, so only the opening letter of the next word is kept"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turned about means facing the other way, so the next word runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "speak",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of speak"
+     },
+     {
+      "clueFragment": "my",
+      "gives": "YM",
+      "note": "my written backwards"
+     },
+     {
+      "clueFragment": "poor",
+      "gives": "PATHETIC",
+      "note": "poor in the sense of feeble or inadequate"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "ALLY",
+      "note": "an ally is a friend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "YM",
+      "PATHETIC",
+      "ALLY"
+     ],
+     "reversals": [
+      {
+       "from": "MY",
+       "to": "YM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone begins talking warmly about an unfortunate friend.",
+     "walkthrough": "'about' reads as 'concerning' in the surface, but it turns the next word round.",
+     "definitionFit": "Acting sympathetically means showing compassion, that is, acting with feeling for another's troubles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +611,51 @@
     "text": "Switch to email on moving",
     "enumeration": "9"
    },
-   "solution": "EMOTIONAL"
+   "solution": "EMOTIONAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EMOTIONAL",
+    "definitions": [
+     {
+      "text": "moving",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Switch",
+      "for": "anagram",
+      "note": "to switch things around is to change their positions, so the following letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to email on",
+      "gives": "TOEMAILON",
+      "note": "the nine letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOEMAILON",
+       "gives": "EMOTIONAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to change over to email while relocating offices.",
+     "walkthrough": "'moving' looks like house-moving in the surface; it is the definition, meaning touching.",
+     "definitionFit": "Something moving stirs the feelings, which is what an emotional scene or speech does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "moving"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +669,65 @@
     "text": "State imprisons upper-class Tory as impudent",
     "enumeration": "5"
    },
-   "solution": "SAUCY"
+   "solution": "SAUCY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SAUCY",
+    "definitions": [
+     {
+      "text": "impudent",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "imprisons",
+      "for": "container",
+      "note": "to imprison something is to lock it inside, so the other letters go within the first word"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "State",
+      "gives": "SAY",
+      "note": "to state is to say"
+     },
+     {
+      "clueFragment": "upper-class",
+      "gives": "U",
+      "note": "U is the standard abbreviation for upper-class"
+     },
+     {
+      "clueFragment": "Tory",
+      "gives": "C",
+      "note": "C stands for Conservative, the party of the Tories"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "U",
+      "C",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "The government jails a posh Conservative for cheek.",
+     "walkthrough": "SAY holds U and C. Tory is the everyday name for a member of Britain's Conservative Party.",
+     "definitionFit": "Saucy describes cheeky, disrespectful behaviour, a close synonym of impudent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "State"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +741,62 @@
     "text": "Trade tariff wrongly calculated at the outset",
     "enumeration": "7"
    },
-   "solution": "TRAFFIC"
+   "solution": "TRAFFIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "TRAFFIC",
+    "definitions": [
+     {
+      "text": "Trade",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrongly",
+      "for": "anagram",
+      "note": "something done wrongly is out of order, so the letters are rearranged"
+     },
+     {
+      "text": "at the outset",
+      "for": "letter_selection",
+      "note": "the outset is the very start, so just the first letter of the preceding word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tariff",
+      "gives": "TARIFF",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "calculated",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of calculated"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TARIFFC",
+       "gives": "TRAFFIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trade levy got its sums wrong right from the start.",
+     "definitionFit": "To traffic is to deal or trade, often in illicit goods, and as a noun it means commerce."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "calculated"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +816,54 @@
      }
     ]
    },
-   "solution": "TEARSUP"
+   "solution": "TEARSUP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TEARS UP",
+    "definitions": [
+     {
+      "text": "shreds",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beaten",
+      "for": "anagram",
+      "note": "something beaten is knocked out of shape, so the name's letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pasteur",
+      "gives": "PASTEUR",
+      "note": "the scientist's name, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PASTEUR",
+       "gives": "TEARSUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The great microbiologist is soundly defeated, torn to pieces.",
+     "walkthrough": "'to shreds' reads as one phrase, but 'to' is just the link and 'shreds' is a verb.",
+     "definitionFit": "To shred paper is to rip it into strips, which is exactly what someone who tears it up does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shreds"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +877,43 @@
     "text": "Awesome digital image?",
     "enumeration": "4"
    },
-   "solution": "EPIC"
+   "solution": "EPIC",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EPIC",
+    "definitions": [
+     {
+      "text": "Awesome",
+      "at": 0
+     },
+     {
+      "text": "digital image",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Awesome",
+      "note": "first meaning: tremendous, in the slang sense"
+     },
+     {
+      "clueFragment": "digital image",
+      "note": "second meaning: an electronic picture, split as e- plus a short word for picture"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense is a playful split: E for electronic, as in email, and PIC for picture. The question mark flags the invented word.",
+     "definitionFit": "Epic is current slang for impressive or amazing, and an e-pic is an electronic photograph."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "digital"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +927,77 @@
     "text": "Too satisfied with firm's first Manchester location not being empty",
     "enumeration": "10"
    },
-   "solution": "COMPLACENT"
+   "solution": "COMPLACENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "COMPLACENT",
+    "definitions": [
+     {
+      "text": "Too satisfied",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first marks the beginning, so only the opening letter of the city name is used"
+     },
+     {
+      "text": "being empty",
+      "for": "letter_selection",
+      "note": "a word that is empty has lost its contents, leaving only its outside letters"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "firm's",
+      "gives": "CO",
+      "note": "Co. is the abbreviation for company, a firm"
+     },
+     {
+      "clueFragment": "Manchester",
+      "gives": "M",
+      "select": "first",
+      "note": "first letter of Manchester"
+     },
+     {
+      "clueFragment": "location",
+      "gives": "PLACE",
+      "note": "a location is a place"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NT",
+      "select": "outer",
+      "note": "the outer letters of not"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "M",
+      "PLACE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A company smug about its first Manchester premises not standing vacant.",
+     "walkthrough": "'firm's first' looks like it should give F; 'first' belongs to Manchester, and 'firm's' is CO.",
+     "definitionFit": "Complacent describes someone smugly content and uncritical, satisfied to an excessive degree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "empty"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +1011,51 @@
     "text": "Leap in cab awkwardly, helplessly drunk",
     "enumeration": "9"
    },
-   "solution": "INCAPABLE"
+   "solution": "INCAPABLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INCAPABLE",
+    "definitions": [
+     {
+      "text": "helplessly drunk",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awkwardly",
+      "for": "anagram",
+      "note": "doing something awkwardly means clumsily, so the preceding letters land in a muddled order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leap in cab",
+      "gives": "LEAPINCAB",
+      "note": "the nine letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEAPINCAB",
+       "gives": "INCAPABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reveller stumbles clumsily into a taxi after one too many.",
+     "walkthrough": "'Drunk and incapable' is a British legal charge, so incapable alone can mean too drunk to function.",
+     "definitionFit": "Incapable, in the phrase drunk and incapable, means so intoxicated as to be unable to look after oneself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Leap"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +1069,58 @@
     "text": "Acceptable to frame African politicians for money",
     "enumeration": "7"
    },
-   "solution": "FINANCE"
+   "solution": "FINANCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FINANCE",
+    "definitions": [
+     {
+      "text": "money",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to frame",
+      "for": "container",
+      "note": "a frame surrounds a picture, so the first word encloses the next piece"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Acceptable",
+      "gives": "FINE",
+      "note": "fine means acceptable or all right"
+     },
+     {
+      "clueFragment": "African politicians",
+      "gives": "ANC",
+      "note": "the ANC is the African National Congress, South Africa's ruling party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIN",
+      "ANC",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "It is deemed acceptable to fit up African politicians in exchange for cash.",
+     "walkthrough": "'frame' suggests a false accusation in the surface; here it means to surround.",
+     "definitionFit": "Finance means funds or money, especially the money needed for a project."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "frame"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1134,59 @@
     "text": "Break the French after Western struggle",
     "enumeration": "7"
    },
-   "solution": "WRESTLE"
+   "solution": "WRESTLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WRESTLE",
+    "definitions": [
+     {
+      "text": "struggle",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the first two pieces behind the abbreviation for the direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Western",
+      "gives": "W",
+      "note": "W is the abbreviation for Western"
+     },
+     {
+      "clueFragment": "Break",
+      "gives": "REST",
+      "note": "a rest is a break"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "REST",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A break for the French following a Western struggle, like a pause in a historical conflict.",
+     "definitionFit": "To wrestle is to grapple or fight, which is a physical struggle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Break"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1200,50 @@
     "text": "Current drop in unexpected income",
     "enumeration": "8"
    },
-   "solution": "WINDFALL"
+   "solution": "WINDFALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WINDFALL",
+    "definitions": [
+     {
+      "text": "unexpected income",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Current",
+      "gives": "WIND",
+      "note": "wind is a current of air"
+     },
+     {
+      "clueFragment": "drop",
+      "gives": "FALL",
+      "note": "a drop is a fall"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIND",
+      "FALL"
+     ]
+    },
+    "explanation": {
+     "surface": "A financial report notes a present slump in surprise earnings.",
+     "walkthrough": "'Current' reads as 'present-day' but is a noun, a flow of air.",
+     "definitionFit": "A windfall is a sudden piece of good fortune, especially money one did not expect to receive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Current"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1257,62 @@
     "text": "Pass on characteristic involving, primarily, nose, skull and mouth",
     "enumeration": "8"
    },
-   "solution": "TRANSMIT"
+   "solution": "TRANSMIT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TRANSMIT",
+    "definitions": [
+     {
+      "text": "Pass on",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "to involve something is to take it in, so the word for characteristic wraps round the other letters"
+     },
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so the initial letter of each following word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "characteristic",
+      "gives": "TRAIT",
+      "note": "a trait is a characteristic"
+     },
+     {
+      "clueFragment": "nose, skull and mouth",
+      "gives": "NSM",
+      "select": "first",
+      "note": "the first letters of nose, skull and mouth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRA",
+      "NSM",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "An inherited facial feature handed down to the next generation.",
+     "walkthrough": "'and' belongs to the list of features, not a letter source; only the three nouns are initialled.",
+     "definitionFit": "To transmit is to send or convey, so passing on a message or disease is transmitting it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "characteristic"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1326,46 @@
     "text": "Getting back to being on the dole again?",
     "enumeration": "10"
    },
-   "solution": "RECLAIMING"
+   "solution": "RECLAIMING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RECLAIMING",
+    "definitions": [
+     {
+      "text": "Getting back",
+      "at": 0
+     },
+     {
+      "text": "being on the dole again",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Getting back",
+      "note": "first meaning: recovering something one had lost"
+     },
+     {
+      "clueFragment": "being on the dole again",
+      "note": "second meaning, split as re- plus a word for drawing benefits: claiming once more"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense is cryptic: 'claiming' is British slang for drawing unemployment benefit, the dole, and the prefix re- makes it happen again; the question mark flags the split.",
+     "definitionFit": "To reclaim is to recover possession of something, and re-claiming is literally making a benefit claim once more."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1379,61 @@
     "text": "Worry about overturning progress",
     "enumeration": "6"
    },
-   "solution": "CAREER"
+   "solution": "CAREER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CAREER",
+    "definitions": [
+     {
+      "text": "progress",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overturning",
+      "for": "reversal",
+      "note": "something overturned is upended, so in this down clue the short word reads from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Worry",
+      "gives": "CARE",
+      "note": "care is anxiety or worry"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "ER",
+      "note": "re, Latin for concerning, turned upside down"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARE",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "RE",
+       "to": "ER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone frets that a reversal will undo their advancement.",
+     "walkthrough": "'about' is read as RE, the usual crossword shorthand for regarding, before it is flipped.",
+     "definitionFit": "A career is a person's progress through working life, the course of advancement in a profession."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "overturning"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1447,61 @@
     "text": "Threat makes people join a church",
     "enumeration": "6"
    },
-   "solution": "MENACE"
+   "solution": "MENACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MENACE",
+    "definitions": [
+     {
+      "text": "Threat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "join",
+      "for": "charade",
+      "note": "joining puts things side by side, so the pieces are set down one after another"
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "people",
+      "gives": "MEN",
+      "note": "men are people"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEN",
+      "A",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A worrying congregation trend: people signing up to a church.",
+     "definitionFit": "A menace is a danger or source of threat, so the two nouns are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1515,42 @@
     "text": "Appears in what's a risqué garment",
     "enumeration": "4"
    },
-   "solution": "SARI"
+   "solution": "SARI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SARI",
+    "definitions": [
+     {
+      "text": "garment",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Appears in",
+      "for": "hidden_word",
+      "note": "something that appears in a phrase is sitting inside its letters, spanning the word breaks"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what's a risqué",
+      "gives": "SARI",
+      "note": "the letters run across the word boundaries"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone shows up wearing something slightly racy.",
+     "definitionFit": "A sari is a long draped garment worn chiefly by women in South Asia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "risqué"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1564,50 @@
     "text": "Time to let up being a wind-up merchant",
     "enumeration": "5"
    },
-   "solution": "TEASE"
+   "solution": "TEASE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEASE",
+    "definitions": [
+     {
+      "text": "wind-up merchant",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "to let up",
+      "gives": "EASE",
+      "note": "to ease is to let up or slacken"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "EASE"
+     ]
+    },
+    "explanation": {
+     "surface": "A plea for a prankster to stop and give everyone a break.",
+     "walkthrough": "In British slang a wind-up merchant is someone who habitually provokes people for fun.",
+     "definitionFit": "A tease is a person who mocks or provokes others playfully, just like a habitual joker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "merchant"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1621,63 @@
     "text": "Could be dead start to afternoon at home for sure",
     "enumeration": "7"
    },
-   "solution": "CERTAIN"
+   "solution": "CERTAIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CERTAIN",
+    "definitions": [
+     {
+      "text": "for sure",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter, so only that is taken from the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Could be dead",
+      "gives": "CERT",
+      "note": "a cert, short for certainty, is often called a dead cert"
+     },
+     {
+      "clueFragment": "afternoon",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter of afternoon"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "in means at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CERT",
+      "A",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at home in the early afternoon is surely dead, as in a whodunnit.",
+     "walkthrough": "'Could be dead' defines by example: the word is one that 'dead' often qualifies, as in the British phrase a dead cert, a sure winner.",
+     "definitionFit": "Certain means definite or assured, so it can replace the adverbial phrase for sure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dead"
+    }
+   }
   },
   {
    "number": 25,
@@ -401,7 +1691,59 @@
     "text": "Delivers lilac regularly as a flower",
     "enumeration": "7"
    },
-   "solution": "FREESIA"
+   "solution": "FREESIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "FREESIA",
+    "definitions": [
+     {
+      "text": "a flower",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter of the colour word is taken"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Delivers",
+      "gives": "FREES",
+      "note": "to deliver is to set free"
+     },
+     {
+      "clueFragment": "lilac",
+      "gives": "IA",
+      "select": "alternate",
+      "note": "the second and fourth letters of lilac"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FREES",
+      "IA"
+     ]
+    },
+    "explanation": {
+     "surface": "A florist's van regularly brings lilac blooms around.",
+     "walkthrough": "'Delivers' suggests the florist's van, but it is meant in the sense of rescuing.",
+     "definitionFit": "The freesia is a fragrant flowering plant from southern Africa, popular in bouquets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Delivers"
+    }
+   }
   },
   {
    "number": 26,
@@ -415,7 +1757,60 @@
     "text": "Take wickets finally with a duck",
     "enumeration": "5"
    },
-   "solution": "STEAL"
+   "solution": "STEAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STEAL",
+    "definitions": [
+     {
+      "text": "Take",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end, so only the last letter of the previous word is kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wickets",
+      "gives": "S",
+      "select": "last",
+      "note": "last letter of wickets"
+     },
+     {
+      "clueFragment": "a duck",
+      "gives": "TEAL",
+      "note": "the teal is a small duck"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TEAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A bowler takes wickets at last, after a batter is out for a duck.",
+     "walkthrough": "In cricket a duck is a score of zero; here it is the bird.",
+     "definitionFit": "To steal is to take something that is not yours, so take works as a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 27,
@@ -429,7 +1824,62 @@
     "text": "Divine girl ensnares established lecturer",
     "enumeration": "9"
    },
-   "solution": "CELESTIAL"
+   "solution": "CELESTIAL",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CELESTIAL",
+    "definitions": [
+     {
+      "text": "Divine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ensnares",
+      "for": "container",
+      "note": "to ensnare is to trap something within, so the name wraps around the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "CELIA",
+      "note": "a girl's name"
+     },
+     {
+      "clueFragment": "established",
+      "gives": "EST",
+      "note": "est. is the abbreviation for established"
+     },
+     {
+      "clueFragment": "lecturer",
+      "gives": "L",
+      "note": "L is the abbreviation for lecturer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CEL",
+      "EST",
+      "IA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A gorgeous young woman catches a long-serving academic.",
+     "walkthrough": "'Divine' reads as describing the girl but is the definition; the lecturer's letter is added after the trapping.",
+     "definitionFit": "Celestial means heavenly, belonging to the sky or the realm of the gods, so it matches divine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Divine"
+    }
+   }
   }
  ]
 }
