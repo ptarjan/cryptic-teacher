@@ -1091,7 +1091,7 @@ keyed_tonight = set(sys.argv[3].split())
 # two papers could share.
 todo = sorted(((puzzle_day(p) or datetime.date.min, p["id"]) for p in idx["puzzles"]
                if not p["annotated"] and p.get("hasSolutions")
-               and p["id"] not in blocked), reverse=True)
+               and not p.get("awaitsPreamble") and p["id"] not in blocked), reverse=True)
 fresh = [i for d, i in todo if d >= cutoff or i in keyed_tonight]
 # A series' first puzzle leads the rest, then a partly annotated one, which
 # costs only its missing clues.
@@ -1167,6 +1167,7 @@ if unreadable:
 todo = sorted(((is_first_issue(p["id"]), puzzle_day(p) or datetime.date.min, p["id"])
                for p in idx["puzzles"]
                if p["id"] in unsolved_ids and p["id"] not in unreadable
+               and not p.get("awaitsPreamble")
                and p["id"] not in tried), reverse=True)
 # Puzzles held as their clues alone (tools/clues_only.py) are solved here too,
 # those a builder can promote; the solve derives their grid. Read from the
