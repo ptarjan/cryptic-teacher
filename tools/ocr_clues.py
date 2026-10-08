@@ -672,14 +672,17 @@ def prints(pairs, low, theirs):
 
 def parted(clue, others):
     """`clue` with a non-word in it that another reading prints as two to
-    four words ("theplant", "favouriteVictorian") parted as they are."""
+    six words ("theplant", "favouriteVictorian") parted as they are, and
+    two words it ran together over a stop ("to.poison", "Anag.of") parted."""
     apart = {}
     for theirs in others:
-        for n in (2, 3, 4):
+        for n in range(2, 7):
             for i in range(len(theirs) - n + 1):
                 ws = theirs[i:i + n]
                 if all(w.isalpha() for w in ws):
                     apart.setdefault("".join(ws).lower(), [len(w) for w in ws])
+    marked_apart = {(a + c).lower() for theirs in others for a, b, c in zip(theirs, theirs[1:], theirs[2:])
+                    if a.isalpha() and b in MARKS and c.isalpha()}
 
     def part(m):
         w = m.group()
@@ -691,6 +694,16 @@ def parted(clue, others):
             out.append(w[k:k + size])
             k += size
         return " ".join(out)
+
+    def stop(m):
+        # A stop between two words another reading prints side by side:
+        # after a word, a speck ("to.poison"); after no word, an
+        # abbreviation's ("Anag.of").
+        a, b = m.group(1), m.group(2)
+        if (a + b).lower() not in apart and (a + b).lower() not in marked_apart:
+            return m.group()
+        return f"{a} {b}" if a.islower() and is_word(a) else f"{a}. {b}"
+    clue = re.sub(r"\b([A-Za-z]+)\.([a-z]{2,})\b", stop, clue)
     return re.sub(r"[A-Za-z]{4,}", part, clue)
 
 

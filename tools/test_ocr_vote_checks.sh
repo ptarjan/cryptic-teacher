@@ -286,6 +286,10 @@ check("words another reading ran together count as its",
 check("words this reading ran together that another prints apart are parted",
       "A starch from the roots of the plant.", oc.agree("A starch from the roots of theplant.",
                                                        [mark("36 A starch from the roots of the plant. 37 Your")])[0])
+check("a stop run between two words another reading prints apart: a speck after a word",
+      "An antidote to poison.", oc.agree("An antidote to.poison.", [mark("2 An antidote to poison. 3 An")])[0])
+check("and an abbreviation's after no word", "Anag. of a lovely word",
+      oc.agree("Anag.of a lovely word", [mark("7 Anag. of a lovely word 8 The")])[0])
 check("a dictionary word another reading split stays whole (mirror)",
       "Somewhere to go.", oc.agree("Somewhere to go.", [mark("4 Some where to go. 5 A"), mark("4 Somewhere to go. 5 A")])[0])
 check("a word no reading prints apart is still lost (mirror)",

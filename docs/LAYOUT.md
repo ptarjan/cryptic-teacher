@@ -1730,11 +1730,15 @@ tools/test_gale_listener.sh                   is a saved Listener page matched b
                                               number set wide of its words, read in old-style
                                               letters ("I.", "Io.") or run into them, a list
                                               broken by a gap or run on into the next after a
-                                              heading's space, no report's prose, and a clue a
-                                              line when uncounted; does a page say the page its
-                                              clues or diagram are on; is each file read once,
-                                              and does the checklist mark what is saved or
-                                              filed and ask for a missing solution?
+                                              heading's space, no report's prose, a clue a line
+                                              when uncounted, a clue's number lost (put back
+                                              when the gap counts it), a line under a short one
+                                              or a footnote no run-on, a grid's numbers beside
+                                              a list and a footnote's dagger read as a letter;
+                                              does a page say the page its clues or diagram are
+                                              on; is each file read once, and does the
+                                              checklist mark what is saved or filed and ask for
+                                              a missing solution?
 tools/listener_grid.py                        reads a 1930s Listener grid off a scanned Gale
                                               page: every grid on the page found as a lattice
                                               of long rules (prose, column rules and boxes are
@@ -1756,7 +1760,8 @@ tools/test_listener_grid.sh                   does listener_grid read a drawn, s
                                               row of blocks too; do printed numbers put a faint
                                               bar back, a corner keep a number's strokes, and a
                                               grid without numbers on its 2-cell runs fit with
-                                              them barred shut?
+                                              them barred shut, and a number read in two cells
+                                              the run could each hold kept in neither?
 tools/test_gale_inbox.sh                      is a page saved into the Gale inbox matched to
                                               its date by its name or puzzle number, staged as
                                               that date's Times edition with its Gale link, due
@@ -1777,7 +1782,9 @@ tools/test_canberra_reprint_vote.sh           does a Canberra Times reprint vote
 tools/test_ocr_vote_checks.sh                 does the clue vote file each word, count, capital
                                               and hyphen as the readings print them, and settle
                                               a word they all misread on the known word their
-                                              slips point to?
+                                              slips point to; does a reading that lost the clue
+                                              stay out of its vote, words run together part,
+                                              and a figure run onto a word go?
 tools/test_prereset_index_lock.sh             do the pool's concurrent runs commit only their
                                               own puzzle?
 tools/test_anagram_ring.sh                    a clue typed anagram gets the anagram ring:
@@ -1836,7 +1843,8 @@ tools/test_file_gale_listener.sh              does the Gale Listener filer put b
                                               unanswered, keep the report's answers as
                                               listenerreport's copy and never in the file, and
                                               say what a puzzle short of a step lacks (with the
-                                              page its page sends the grid to)?
+                                              page its page sends the grid to), and are a
+                                              blocked grid's blocks no bars?
 tools/test_listener_letters.sh                does trove_solution_ocr.read_grid_letters read
                                               the letters of a drawn, filled Listener report
                                               grid back through listener_grid's lattice?
