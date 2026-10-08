@@ -83,6 +83,34 @@ b = {"1-across": ("Answering letlers induces spasm", "5", None),
 got = al.pick([a, b])
 check("corroborated light kept", "Answering letters induces spasm", got["1-across"][0])
 check("light the readings disagree on is blank, count kept", ("", "3"), got["4-across"][:2])
+# A clue one reading alone lays, that another reading lays under its number
+# the other way, is that clue read into the wrong list (No 3's 28D read
+# under ACROSS); a clue unlike its number's other-way clue is laid.
+texts = ["ACROSS\nA junction on the East In diafy\n", "DOWN\nA junction on the East Indian Railway.\n"]
+a = {"28-across": ("A junction on the East In diafy", None, None)}
+b = {"28-down": ("A junction on the East Indian Railway.", None, None)}
+check("a clue laid the wrong way by one reading is blank", "", al.pick([a, b], texts)["28-across"][0])
+a = {"28-across": ("A tree that grows in Burma.", None, None)}
+texts = ["ACROSS\nA tree that grows in Burma.\n", "A tree that grows in Burma.\nA junction on the East Indian Railway.\n"]
+check("a clue unlike its number's other-way clue is laid (mirror)", "A tree that grows in Burma.",
+      al.pick([a, b], texts)["28-across"][0])
+
+# A number out of order whose last figure is its lookalike's (old-style 8
+# read "3", 9 read "0") is the one number between its neighbours it gives;
+# none, or two, and it is a misread number left unlaid.
+def listed(*nums):
+    return {"across": [{"tokens": [{n}], "enums": [], "text": f"Clue {n}."} for n in nums], "down": []}
+guessed = set()
+check("a misread figure laid between its neighbours", ["43-across", "46-across", "48-across", "50-across"],
+      sorted(al.lay(listed(43, 46, 43, 50), guessed)))
+check("... as read, not guessed", (set(), "Clue 43."), (guessed, al.lay(listed(43, 46, 43, 50))["48-across"][0]))
+check("a misread figure whose lookalike is out of its place is not laid (mirror)",
+      ["43-across", "46-across", "47-across", "50-across"], sorted(al.lay(listed(43, 46, 43, 47, 50))))
+check("a misread number with no lookalike figure is not laid (mirror)", ["44-across", "46-across", "50-across"],
+      sorted(al.lay(listed(44, 46, 44, 50))))
+check("a misread number at a list's end is not laid (mirror)", ["43-across", "46-across"],
+      sorted(al.lay(listed(43, 46, 43))))
+
 check("a count inside the text is a run-on", False, al.sound("NEW HAMPSHIRE () Points restricting"))
 check("a misread next number inside the text is a run-on", False,
       al.sound("Like an old woman >0 In some places"))
