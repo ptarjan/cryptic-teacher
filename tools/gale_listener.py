@@ -745,7 +745,8 @@ def reread_from(img, key, which, out, located):
         # tall (No 97's 46A, 21 px apart) put the next line's centre within
         # a quarter height of it, and that line was taken and lost.
         band = (n[1], n[3])
-        got = sorted((w for w in read_box(img, key, box, which) if band[0] <= (w[1] + w[3]) / 2 <= band[1]),
+        # Its number read as letters ("II." for 11) is a number, as figures reads it.
+        got = sorted(figures([w for w in read_box(img, key, box, which) if band[0] <= (w[1] + w[3]) / 2 <= band[1]]),
                      key=lambda w: w[0])
         if not got or not (OPENS.match(got[0][4]) or re.fullmatch(r"\d{1,2}", got[0][4])):
             continue
