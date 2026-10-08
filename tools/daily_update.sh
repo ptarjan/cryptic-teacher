@@ -301,11 +301,10 @@ TELEGRAPH_BUCKET_SECONDS="${TELEGRAPH_BUCKET_SECONDS:-2400}"
 unit_bucket_telegraph() {
   blog_chain Telegraph "fetch_telegraph.py --holes all --budget-seconds $TELEGRAPH_BUCKET_SECONDS"
 }
-# The Globe and Mail prints the Times Quick Cryptic from No 3106: its copy
-# witnesses the blog-rebuilt Quick the Times filer would file for the same
-# number, which is how a defect of the converter behind every earlier Quick
-# shows. Nothing is refiled from it; the filer files those numbers as
-# globeandmail already. Daily; the fetch asks only for the copies not cached.
+# The Globe and Mail reprints the Times Quick Cryptic from No 3106: its copy
+# witnesses the blog-rebuilt Quick the Times filer files for the same number,
+# which is how a defect of that converter shows. Nothing is refiled from it.
+# Daily; the fetch asks only for the copies not cached.
 unit_xval_globe() {
   blog_chain Globe "cross_validate.py globe --fetch" "cross_validate.py globe"
 }

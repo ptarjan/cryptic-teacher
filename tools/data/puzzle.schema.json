@@ -977,6 +977,34 @@
      "pattern": "^times-[0-9]+$",
      "description": "Canberra Times only: the London Times cryptic this reprints, matched by clue set (tools/file_archive_org_puzzles.py --match-canberra)."
     },
+    "reprintedIn": {
+     "type": "array",
+     "minItems": 1,
+     "description": "The other papers' prints of this puzzle (a series whose series.py `reprints` names this one): each its own number and print date. The reprint holds no file of its own; tools/reprints.py.",
+     "items": {
+      "type": "object",
+      "required": [
+       "series",
+       "number",
+       "date"
+      ],
+      "additionalProperties": false,
+      "properties": {
+       "series": {
+        "type": "string",
+        "pattern": "^[a-z]{2,12}$"
+       },
+       "number": {
+        "type": "integer",
+        "minimum": 1
+       },
+       "date": {
+        "type": "string",
+        "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+       }
+      }
+     }
+    },
     "feedId": {
      "type": "string",
      "minLength": 1,

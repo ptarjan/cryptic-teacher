@@ -516,6 +516,9 @@ function boot(opts) {
   reindex();
   new Function("window", fs.readFileSync(path.join(ROOT, "puzzles/index.js"), "utf8"))(global.window);
   global.CRYPTIC_INDEX = global.window.CRYPTIC_INDEX;
+  // options.index edits the index BEFORE app.js reads it, for a shape the
+  // corpus does not hold yet.
+  if (options.index) options.index(global.window.CRYPTIC_INDEX);
 
   // app.js references bare identifiers window/document/localStorage/confirm via globals above
   const appSrc = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");

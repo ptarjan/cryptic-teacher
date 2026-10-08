@@ -93,9 +93,6 @@ rows[1]["corrections"] = [{"number": 1, "direction": "across", "answer": right}]
 # A grid whose post the parser no longer reads (post 4923 once) reaches the
 # ledger with its cause instead of crashing the filer.
 rows.append(row(rec(10, 105, "2026-01-11")))
-# The Globe and Mail already holds the Quick from 3150 on.
-(puzzle_paths.PUZZLE_DIR / "globeandmail" / "undated").mkdir(parents=True)
-(puzzle_paths.PUZZLE_DIR / "globeandmail" / "undated" / "globeandmail-3150.json").write_text("{}")
 
 grids, parsed = tmp / "grids.jsonl", tmp / "parsed.jsonl"
 grids.write_text("".join(json.dumps(r) + "\n" for r in rows))
@@ -105,7 +102,8 @@ filed, skipped, drifted = F.run(grids, parsed, listing=LISTING)
 print("FILED", ",".join(f"{s}:{n}" for s, n in sorted(filed.items())))
 print("NO_CLUE", skipped["a light has no clue"])
 print("OUT_OF_SEQUENCE", skipped["number out of sequence"])
-print("REPRINTED", skipped["globeandmail reprints it"])
+print("REPRINTED", int(any(
+    puzzle_paths.PUZZLE_DIR.glob("timesquick/*/timesquick-3200.json"))))
 # Every row reached has its cause in the filer's ledger, a CAUSES key or "filed".
 led = {r["post_id"]: r["cause"] for r in map(json.loads, (tmp / F.file_blog_puzzles.FILINGS).read_text().splitlines())}
 print("LEDGER", ",".join(f"{k}:{v}" for k, v in sorted(led.items())))
@@ -158,11 +156,6 @@ got, _ = B.retext(annotated("Hide behind young woman [as] neccessary?",
 kept, n = B.retext(annotated("Trainee / in the wrong", blocks=[{"clueFragment": "/"}]), P.tidy)
 print("TIDIED_NOTE", got["entries"][0]["annotation"]["definitions"][0]["text"], "|",
       kept["entries"][0]["clue"]["text"], n)
-
-# A number inside the Globe's run that it never printed is still filed here.
-(puzzle_paths.PUZZLE_DIR / "globeandmail" / "undated" / "globeandmail-3152.json").write_text("{}")
-held = F.reprinted_from()
-print("REPRINT_GAP", ",".join(str(F.reprinted_by(held, "timesquick", n)) for n in (3150, 3151, 3200)))
 
 # A title one typing slip from the only unclaimed number that fits is renumbered.
 fits = lambda date, n: 5040 <= n <= 5050
@@ -241,13 +234,11 @@ PY
 echo "$out" | grep -v "^[A-Z_]* " | sed 's/^/  | /'
 got() { echo "$out" | grep "^$1 " | cut -d' ' -f2-; }
 
-check "files the complete, in-sequence rows" "sundaytimes:1,times:4" "$(got FILED)"
+check "files the complete, in-sequence rows" "sundaytimes:1,times:4,timesquick:1" "$(got FILED)"
 check "a light with no clue, or only its count, refuses the puzzle" "2" "$(got NO_CLUE)"
 check "a misread number is refused" "1" "$(got OUT_OF_SEQUENCE)"
-check "a number the Globe and Mail reprints is left to it" "1" "$(got REPRINTED)"
-check "the filer's ledger records each row's cause as a key" "1:filed,2:filed,3:out-of-sequence,4:filed,5:no-clue,6:no-clue,7:filed,8:filed,9:reprinted,10:no-parsed-record" "$(got LEDGER)"
-check "a number the Globe skipped inside its run is filed as the Quick" \
-  "globeandmail,None,globeandmail" "$(got REPRINT_GAP)"
+check "a Quick the Globe and Mail reprints is filed as the Times original" "1" "$(got REPRINTED)"
+check "the filer's ledger records each row's cause as a key" "1:filed,2:filed,3:out-of-sequence,4:filed,5:no-clue,6:no-clue,7:filed,8:filed,9:filed,10:no-parsed-record" "$(got LEDGER)"
 check "a mistyped title is renumbered only onto one free slot that fits" \
   "5045 None None" "$(got RETYPED)"
 check "the clue keeps its enumeration" "Two words (2,3)" "$(got CLUE_KEEPS_COUNT)"

@@ -38,8 +38,6 @@ import series as series_meta
 import times_grids as tg
 from file_blog_puzzles import (  # noqa: F401 -- the filer's checks, as tools/ft_puzzles.py and its test read them
     in_sequence,
-    reprinted_by,
-    reprinted_from,
     retyped,
     sequence_window,
 )

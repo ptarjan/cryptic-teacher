@@ -97,11 +97,11 @@ PACING. One request per second, max, with a browser-ish User-Agent (reusing
 fetch_puzzle.UA) — this is somebody else's CDN and getting banned would take
 the puzzle away from every future run, not just this one.
 
-Writes puzzles/<series>/<year>/<series>-<number>.json (preserving any existing per-clue
-annotations, same as the other two fetchers), then rebuilds the index via
-fetch_puzzle.reindex() — unless --out points somewhere other than the real
-puzzles/ dir, in which case reindex() is skipped, because it always rebuilds
-the index from puzzles/ itself regardless of where files were just written.
+The Globe's No N is the Times Quick Cryptic No N, so it is never filed as a
+puzzle of its own: each print is recorded on the held timesquick-N as
+source.reprintedIn (tools/reprints.py, fetch_date), then the index is rebuilt
+via fetch_puzzle.reindex(). --out writes the converted print to that
+directory instead, as it is, and skips reindex().
 """
 
 import base64
@@ -117,8 +117,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import enumeration  # noqa: E402 — a clue's printed counts; tools/enumeration.py
 import puzzle_paths  # noqa: E402
+import reprints  # noqa: E402
 from fetch_puzzle import (flatten_clue, http_bytes, separators,  # noqa: E402
-                          merge_annotations, puzzle_files, puzzle_path,
                           read_puzzle_file, reindex, write_puzzle_file)
 import series as series_meta  # noqa: E402
 
@@ -396,36 +396,47 @@ def list_available_dates():
 
 
 def fetch_date(ymd, out_dir, dry_run=False):
+    """Fetch the Globe's print of `ymd` and record it on the Quick it reprints.
+
+    The Globe's No N is the Times Quick Cryptic No N (series.py `reprints`),
+    so the corpus files the Quick alone and this print goes on it as
+    source.reprintedIn (tools/reprints.py). A Quick not filed yet waits for
+    its own filers (file_times_puzzles.py, fetch_times_feed.py): this print
+    is refused until then. --out writes the converted print as it is, for
+    inspection."""
     puzzle_id = f"{SET}_{ymd}"
     data = fetch_raw_json(puzzle_id)
     puzzle = convert(data, ymd)
-    # --out writes flat into its directory; the corpus files by puzzle_path().
-    path = (puzzle_path(puzzle["series"], puzzle["number"])
-            if out_dir.resolve() == puzzle_paths.PUZZLE_DIR.resolve()
-            else out_dir / f"{puzzle['id']}.json")
-    if dry_run:
-        print(f"[dry-run] would write {path} ({puzzle['name']}, {len(puzzle['entries'])} entries)")
+    if out_dir.resolve() != puzzle_paths.PUZZLE_DIR.resolve():
+        if not dry_run:
+            (out_dir / f"{puzzle['id']}.json").write_text(
+                json.dumps(puzzle, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
         return puzzle
-    is_new = not path.exists()
-    if not is_new:
-        old = read_puzzle_file(path)
-        old_day = series_meta.puzzle_day(old)
-        new_day = series_meta.puzzle_day(puzzle)
-        if old_day != new_day:
-            # The paper's own title is what convert() files under (see its
-            # NUMBERING note) and it has repeated for real: "No 3262" was
-            # printed on both 2026-05-17 and 2026-05-18, two different grids
-            # — a publisher-side duplicate, not a same-day correction. Writing
-            # here would silently destroy whichever day isn't already on
-            # disk, so refuse instead of guessing which one wins.
-            raise ValueError(
-                f"{puzzle['id']} on disk is dated {old_day}, but {ymd} is a different "
-                f"day ({new_day}) with the same title/number — publisher duplicate, "
-                "not a refresh; not overwriting"
-            )
-        merge_annotations(puzzle, old)
-    write_puzzle_file(path, puzzle, generator="tools/fetch_globeandmail.py")
-    print(("fetched " if is_new else "refreshed ") + f"{puzzle['id']} ({ymd})")
+    original_id = reprints.original_of(puzzle)
+    held = puzzle_paths.find(original_id)
+    if held is None:
+        raise ExpectedlyUnfetchable(
+            f"{ymd}: the Globe's No {puzzle['number']} reprints {original_id}, which is not "
+            "filed yet; its print is recorded once the Quick is filed")
+    original = read_puzzle_file(held)
+    printed = {(p["series"], p["number"]): p["date"]
+               for p in (original.get("source") or {}).get("reprintedIn") or []}
+    day = printed.get((puzzle["series"], puzzle["number"]))
+    if day == puzzle["date"]:
+        print(f"up-to-date {original_id} ({ymd})")
+        return puzzle
+    if day is not None:
+        # The paper's own title is what convert() numbers by, and it has
+        # repeated for real: "No 3262" was printed on both 2026-05-17 and
+        # 2026-05-18, two different grids. Neither day replaces the other.
+        raise ValueError(f"{original_id} records the Globe's No {puzzle['number']} on {day}, "
+                         f"but {ymd} prints the same number: publisher duplicate, not recorded")
+    if dry_run:
+        print(f"[dry-run] would record the Globe's {ymd} print on {original_id}")
+        return puzzle
+    write_puzzle_file(held, reprints.with_print(original, puzzle["series"], puzzle["number"],
+                                                puzzle["date"]))
+    print(f"recorded the Globe's {ymd} print on {original_id}")
     return puzzle
 
 
@@ -437,9 +448,18 @@ def days_between(start, end):
     return [(hi - timedelta(days=i)).strftime("%Y%m%d") for i in range(n + 1)]
 
 
+def recorded():
+    """{Globe number: its print date} for every print recorded on a Quick."""
+    out = {}
+    for f in puzzle_paths.PUZZLE_DIR.glob("timesquick/*/timesquick-*.json"):
+        for p in (read_puzzle_file(f).get("source") or {}).get("reprintedIn") or []:
+            if p["series"] == "globeandmail":
+                out[p["number"]] = date.fromisoformat(p["date"])
+    return out
+
+
 def oldest_held():
-    days = [series_meta.puzzle_day(p) for p in (read_puzzle_file(f) for f in puzzle_files())
-            if p["id"].startswith("globeandmail-")]
+    days = recorded().values()
     return min(days) if days else None
 
 
@@ -477,7 +497,7 @@ def latest():
                 raise
             continue
         puzzle = convert(data, ymd)
-        if puzzle_path(puzzle["series"], puzzle["number"]).exists():
+        if puzzle["number"] in recorded():
             # The newest date the picker can see is one we already have, so
             # there is nothing newer to find further down the list either.
             print(f"up-to-date {puzzle['id']}")

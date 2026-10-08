@@ -14,7 +14,7 @@
     python3 tools/cross_validate.py ft                     # the FT cryptic against the FT's PDFs
     python3 tools/cross_validate.py georgeho               # 17 series against georgeho's blog clues
     python3 tools/cross_validate.py bigdave44              # the Telegraph's app files against the blog
-    python3 tools/cross_validate.py timesforthetimes       # the Globe's files against the Times blog
+    python3 tools/cross_validate.py timesforthetimes       # the Times's series against the Times blog
     python3 tools/cross_validate.py archiveorg             # the Times, FT and Guardian against archive.org's scans
     python3 tools/cross_validate.py listenerreport         # the 1930s Listeners' answers against their reports
     python3 tools/cross_validate.py all --apply --limit 10000
@@ -88,10 +88,9 @@ uses: a solver's blog is the only key many cold solves will ever get.
   timesclub tls                                                 Times listing's dates (corroborate.py);
                                                                 times: archive.org scan [archiveorg],
                                                                 Canberra reprint [canberra]
-  timesquick                 timesforthetimes rebuild to 3105   Globe [globe] for the blog copy from
-                                                                3106, georgeho
-  globeandmail               own Amuse payload                  own payload [globe], timesforthetimes
-                                                                [timesforthetimes]
+  timesquick                 timesforthetimes rebuild, or the   Globe [globe] where it reprints it,
+                             Globe's print (3106-3386)          timesforthetimes [timesforthetimes],
+                                                                georgeho
   ftcryptic                  FT PDF 2006-12, else               FT PDF [ft], the fifteensquared post
                              fifteensquared rebuild             the rebuild came from, archive.org
                                                                 scan [archiveorg]
@@ -527,20 +526,18 @@ class FifteenSquared(Adapter):
 class Globe(Adapter):
     """The Globe and Mail's copy of the Times Quick Cryptic: Globe No N is
     Quick No N, printed about seven weeks later from the same grid and clues.
-    tools/fetch_globeandmail.py fetches it; this caches each day's decoded
-    Amuse payload and reads it without that tool's convert().
+    tools/fetch_globeandmail.py records each print on the Quick it reprints
+    (source.reprintedIn); this caches each day's decoded Amuse payload and
+    reads it without that tool's convert().
 
-    The Globe's archive starts at No 3106, where the Times filer stops filing
-    the blog's copy (file_blog_puzzles.reprinted_by), so the blog copies it
-    witnesses are mostly never filed. Each is built here as the filer would
-    build it, from the same grids.jsonl and parsed.jsonl, and compared under
-    its Quick id: a difference is a defect of the converter that built every
-    Quick before 3106. A Quick file we do hold is compared as filed, and so
-    is each globeandmail file, which checks fetch_globeandmail's converter."""
+    Each Quick whose Globe print is recorded is compared as filed, and so is
+    a blog copy of each Quick the Globe printed that we do not hold, built
+    here as tools/file_times_puzzles.py would build it from the same
+    grids.jsonl and parsed.jsonl."""
     name = "globe"
     authority = PAPER
     origin = "globe"
-    series = ("timesquick", "globeandmail")
+    series = ("timesquick",)
     exact_clues = True
     #: Somebody else's CDN: fetch_globeandmail.REQUEST_GAP, one at a time.
     delay = 1.0
@@ -550,17 +547,13 @@ class Globe(Adapter):
         self._blog = None
 
     def ids(self):
-        """{puzzle id: (series, date key)}: each globeandmail file's print
-        day, for its own id and the Quick id of its number."""
+        """{Quick id: ("timesquick", date key)}: the day the Globe printed
+        each Quick, off the Quicks' source.reprintedIn."""
         out = {}
-        for pid, path in held_paths(self.series).items():
-            series, _, num = pid.rpartition("-")
-            if series != "globeandmail":
-                continue
-            ymd = (read_puzzle_file(path).get("date") or "").replace("-", "")
-            if len(ymd) == 8:
-                out[pid] = ("globeandmail", ymd)
-                out[f"timesquick-{num}"] = ("timesquick", ymd)
+        for pid, path in held_paths(("timesquick",)).items():
+            for p in (read_puzzle_file(path).get("source") or {}).get("reprintedIn") or []:
+                if p["series"] == "globeandmail":
+                    out[pid] = ("timesquick", p["date"].replace("-", ""))
         for ymd, num in GLOBE_RENUMBERED.items():
             out[f"timesquick-{num}"] = ("timesquick", ymd)
         return out
@@ -895,11 +888,11 @@ class BigDave44(ParsedBlog):
 
 
 class TimesBlog(ParsedBlog):
-    """timesforthetimes's write-ups of the Times's series: a witness to each
-    Globe and Mail file (Globe No N is Quick No N) and to any Times file not
-    built from this blog."""
+    """timesforthetimes's write-ups of the Times's series: a witness to any
+    Times file not built from this blog, such as a Quick read off the Globe's
+    print."""
     name = "timesforthetimes"
-    series = ("globeandmail", "times", "timesquick", "sundaytimes", "timesjumbo", "mephisto",
+    series = ("times", "timesquick", "sundaytimes", "timesjumbo", "mephisto",
               "timesclub", "tls")
     filer = "tools/file_times_puzzles.py"
 
@@ -915,10 +908,7 @@ class TimesBlog(ParsedBlog):
             return []
         if not rec.get("number"):
             return []
-        out = [f"{series}-{rec['number']}"]
-        if series == "timesquick":
-            out.append(f"globeandmail-{rec['number']}")
-        return out
+        return [f"{series}-{rec['number']}"]
 
 
 def misfiled(got, ours, answers, clues):
@@ -1542,7 +1532,7 @@ def refile(adapter, limit=None):
     if one is None:
         raise SystemExit("--refile: the guardian, independent and ft adapters refile here; the "
                          "Telegraph's is tools/fetch_telegraph.py --holes, and the Globe's "
-                         "numbers are filed as globeandmail already")
+                         "prints are recorded on the Quicks they reprint")
     keys = adapter.ids()
     disk = held(adapter)
     report = REPORTS / f"{adapter.name}.jsonl"

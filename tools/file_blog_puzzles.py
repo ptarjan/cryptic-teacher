@@ -21,8 +21,6 @@ its reason:
     is inside. One whose title is a single typing slip from exactly one
     unclaimed number that fits is filed under that number. A number two
     posts claim files neither;
-  - no other series reprints it: a number a reprinting series (`reprints`
-    in tools/series.py) holds, or has not reached yet, is left to it.
 
 The blog's answers are a solver's write-up, not the paper's key, so
 solutions.blog names the blog (series.py's `blog`) and solutions.origin says so.
@@ -48,7 +46,6 @@ TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
 import enumeration
 import fetch_puzzle
-import puzzle_paths
 import reconstruct_grid as rg
 import series as series_meta
 import times_grids as tg
@@ -112,7 +109,6 @@ CAUSES = {
     "no-number": "no puzzle number",
     "out-of-sequence": "number out of sequence",
     "claimed-twice": "number claimed twice",
-    "reprinted": "a reprinting series holds or will hold it",
     "paper-feed": "the paper's own feed files it",
     "write-refused": "refused by the write path",
 }
@@ -265,33 +261,6 @@ def retyped(row, fits, taken):
     """
     fit = [n for n in slips(row["number"]) if n not in taken and fits(row["date"], n)]
     return fit[0] if len(fit) == 1 else None
-
-
-def reprinted_from():
-    """{series: (the series reprinting it, the numbers that series holds)}."""
-    held = {}
-    for key, meta in series_meta.SERIES.items():
-        if meta.get("reprints"):
-            numbers = {series_meta.parse_id(p.stem)[1]
-                       for p in puzzle_paths.PUZZLE_DIR.glob(f"{key}/*/{key}-[0-9]*.json")}
-            if numbers:
-                held[meta["reprints"]] = (key, numbers)
-    return held
-
-
-def reprinted_by(reprints, series, number):
-    """The series that files `number` instead of `series`, or None.
-
-    It holds the number, or has not reached it yet (the Globe prints the Quick
-    ~7 weeks late). A number inside its run that it holds no file for is
-    still ours to file: the Globe printed Quick 3,263 on 2026-05-18 titled
-    "No 3262", like the day before, so fetch_globeandmail refuses it as a
-    duplicate, and cross_validate.py globe checks our copy against that day.
-    """
-    if series not in reprints:
-        return None
-    key, numbers = reprints[series]
-    return key if number in numbers or number > max(numbers) else None
 
 
 def typed_counts(recs):
@@ -654,7 +623,6 @@ def run(source, grids, parsed, write=True, newest=None):
                   for claim in claims.values() for row, _ in claim if row.get("titled")}
     dates, notes = source.print_dates(recs.values(), renumbered)
     dates = every_day(claims, recs, dates)
-    reprints = reprinted_from()
     typed = typed_counts(recs.values())
     filed, kept, drifted = collections.Counter(), 0, []
     redated, renamed, retold = collections.Counter(), collections.Counter(), collections.Counter()
@@ -667,11 +635,6 @@ def run(source, grids, parsed, write=True, newest=None):
             skipped[CAUSES["claimed-twice"]] += len(claim)
             for row, _ in claim:
                 outcome(row, "claimed-twice", number)
-            continue
-        by = reprinted_by(reprints, series, number)
-        if by:
-            skipped[f"{by} reprints it"] += 1
-            outcome(claim[0][0], "reprinted", number)
             continue
         if source.published(series, number):
             skipped[CAUSES["paper-feed"]] += 1

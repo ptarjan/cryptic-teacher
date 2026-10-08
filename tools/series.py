@@ -118,8 +118,8 @@ SERIES = {
         "bylined": True,
         "badge": "globe & mail",
         # It is the Times Quick Cryptic under the same number, about seven
-        # weeks later and with the published grid and answers, so from its
-        # first number on the Quick is filed here and not from the blog.
+        # weeks later, so it holds no files: each print is recorded on the
+        # Quick it reprints (tools/reprints.py).
         "reprints": "timesquick",
     },
     "canberra": {
