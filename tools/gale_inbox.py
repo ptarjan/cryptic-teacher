@@ -962,7 +962,8 @@ def _parts(cell):
 
 def _row(r):
     """One row: {"date", "cells", "status", and, for one to fetch, "key",
-    "search" (Open in Gale), "dl" (Download, or None), "label", "copy" (a
+    "search" (Open in Gale), "dl" (Download, or None), "label", "more" ([(label,
+    url)] further Downloads beside it), "copy" (a
     search to copy, or None), "arrived"}."""
     k = r.get("key")
     get = ""
@@ -972,6 +973,7 @@ def _row(r):
         e, mk, dl = html.escape, f' onclick="mark(\'{k}\')"', r.get("dl")
         get = ('<span class="acts">'
                + (f'<a class="dl" href="{e(dl)}" target="gale"{mk}>{e(r.get("label") or "Download")}</a>' if dl else "")
+               + "".join(f'<a class="dl" href="{e(u)}" target="gale"{mk}>{e(t)}</a>' for t, u in r.get("more") or ())
                + f'<a class="go" href="{e(r["search"])}" target="gale"{"" if dl else mk}>Open in Gale</a>'
                + (f' <button onclick="cp(this,{e(json.dumps(r["copy"]))})">Copy</button> <code>{e(r["copy"])}</code>'
                   if r.get("copy") else "")

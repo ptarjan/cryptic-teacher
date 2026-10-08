@@ -695,6 +695,15 @@ with tempfile.TemporaryDirectory() as tmp:
     got = [r["number"] for r in g.report_lookups(idx, store, root, arrivals)]
     check("reports looked up for a saved and an upcoming row, not one whose report arrived unread", [2, 4], got)
     check("unsolved lists a saved puzzle though a file is unread", [2], [r["number"] for r in g.unsolved(idx, store, arrivals)])
+    # An upcoming row offers its solution beside its Download once the report link is cached.
+    day4 = idx[3]["date"]
+    ent = lambda doc, day: {"doc": doc, "title": "T", "page": 1, "records": ["r"], "day": day.isoformat()}
+    docs = {f"LSNR/{day4.isoformat()}": ent("D4", day4), "LSNR/report/4": ent("R4", day4 + datetime.timedelta(days=14))}
+    row4 = next(r for r in g.checklist(idx, store, root, arrivals=arrivals, docs=docs).split("\n") if 'data-k="p4"' in r)
+    check("an upcoming row offers Download, then Download solution", (True, True),
+          ("Download</a>" in row4, "Download solution</a>" in row4 and row4.index("Download</a>") < row4.index("Download solution")))
+    row4 = next(r for r in g.checklist(idx, store, root, arrivals=arrivals, docs={f"LSNR/{day4.isoformat()}": docs[f"LSNR/{day4.isoformat()}"]}).split("\n") if 'data-k="p4"' in r)
+    check("and no solution link before it is cached", False, "Download solution" in row4)
 
 print(f"FAILS {fails}")
 sys.exit(1 if fails else 0)
