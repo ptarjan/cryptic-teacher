@@ -1031,9 +1031,34 @@ echo "=== cryptic-teacher tick $(date '+%Y-%m-%d %H:%M') ==="
 # written by whatever code ran last, not by this checkout's. Both queues read
 # fields off it and read a missing field as a puzzle with nothing wrong, so an
 # index older than a field silently answers "fine" for every puzzle.
-# The tick's only rebuild of it (CT_GENERATED=none above): seconds on a quiet
-# machine, minutes beside the corpus job.
-python3 tools/fetch_puzzle.py --reindex
+# A tick must return in seconds (the plugin kills it at 600), and a rebuild is
+# minutes beside the corpus job, so the index is rebuilt detached, after the
+# tick has read the last one (start_index_rebuild, at the end). This tick reads
+# that index only when it was built by this checkout's indexer and no rebuild
+# is writing it; otherwise it chooses no puzzle, and the next tick does.
+index_lock="$(git rev-parse --path-format=absolute --git-common-dir)/daily-tick-index.lock"
+index_stamp="$(git rev-parse --path-format=absolute --git-dir)/daily-tick-index.stamp"
+index_ready() {
+  [ -s puzzles/index.json ] && [ -s "$index_stamp" ] && flock -n "$index_lock" true &&
+    git diff --quiet "$(cat "$index_stamp")" HEAD -- tools/fetch_puzzle.py tools/series.py 2>/dev/null
+}
+start_index_rebuild() {  # detached, holding none of this tick's descriptors (the tree lease, the scheduler's lock)
+  python3 - "$index_lock" "$(git rev-parse --path-format=absolute --git-common-dir)/ct-generated.lock" "$index_stamp" <<'PY'
+import subprocess, sys
+index_lock, generated_lock, stamp = sys.argv[1:]
+# One rebuild at a time for the tick (index_lock, which index_ready also
+# tests), and one generated rebuild at a time across every tree.
+script = ('flock -n "$1" flock "$2" python3 tools/fetch_puzzle.py --reindex >/dev/null 2>&1 '
+          '&& git rev-parse HEAD >"$3.tmp" && mv "$3.tmp" "$3"')
+subprocess.Popen(["bash", "-c", script, "rebuild", index_lock, generated_lock, stamp], stdin=subprocess.DEVNULL,
+                 stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True, close_fds=True)
+PY
+}
+if ! index_ready; then
+  echo "the annotation index is being rebuilt or is from other code; no puzzle is chosen this tick"
+  start_index_rebuild
+  exec python3 tools/unit_queue.py tick daily ${UNIT_QUEUE_DRY:+--dry-run}
+fi
 annotate_blocked=$(python3 tools/failed_inputs.py skipped annotate)
 { read -r fresh; read -r pending; } < <(python3 - "$ANNOTATE_MAX" "$annotate_blocked" "$(python3 tools/daily_units.py keyed --recent)" <<'EOF'
 import json, sys
@@ -1286,6 +1311,8 @@ if [ -n "$kept" ] && [ -n "$burn_pid" ] && ps -o command= -p "$burn_pid" 2>/dev/
   echo "the burn (pid $burn_pid) is draining the backlog; leaving it $kept"
   kept=""
 fi
+# The index the next tick reads, rebuilt now that this one has chosen.
+start_index_rebuild
 ANNOTATE_MAX="$ANNOTATE_MAX" ANNOTATE_MAX_MINUTES="$ANNOTATE_MAX_MINUTES" \
   DAILY_FRESH="$fresh" DAILY_PENDING="$kept" DAILY_UNSOLVED="$unsolved" DAILY_MISSES="$misses" \
   python3 tools/unit_queue.py tick daily ${UNIT_QUEUE_DRY:+--dry-run}
