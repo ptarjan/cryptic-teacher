@@ -471,6 +471,55 @@ check("an unclosed quotation takes back the closing one reading prints after its
 check("no reading printing a closing there puts none back (mirror)", None,
       oc.reclosed('"That\'s a day longer than a wonder. ..', ["a day longer than a wonder.\n19. Cake"]))
 
+# No 103 14D: two Tesseract readings print "tipper", two RapidOCR ones the
+# printed "tripper". A tie split by engine goes to the engine whose slip
+# the other spelling would take is far the likelier on the page.
+fams = {"tipper": ["tesseract", "tesseract"], "tripper": ["rapidocr", "rapidocr"]}
+seen = lambda lost, added, wrong=None: {"seen": 400, "wrong": wrong or lost + added, "lost": lost, "added": added}
+check("an engine tie goes to the spelling whose letters the other engine lost (No 103 14D)",
+      "tripper", oc.by_family(fams, {"tesseract": seen(4, 0), "rapidocr": seen(3, 0)}))
+check("engines that slip alike leave the tie held (mirror)",
+      None, oc.by_family(fams, {"tesseract": seen(1, 0), "rapidocr": seen(1, 1)}))
+check("a tie inside one engine is no engine split (mirror)",
+      None, oc.by_family({"tipper": ["tesseract", "rapidocr"], "tripper": ["rapidocr", "tesseract"]},
+                         {"tesseract": seen(9, 0), "rapidocr": seen(0, 0)}))
+
+# The same through reconcile: the page's other clues measure each engine,
+# where one Tesseract reading ("page") drops a letter the other three keep.
+import random
+rng = random.Random(12)
+pool = "the sign of this house wonder legend fidelity reverse ancient city noted language flower deity medium".split()
+laid, page, rapid = {}, [], []
+for n in range(1, 41):
+    ws = [rng.choice(pool) for _ in range(6)]
+    lost = [w[1:] if n % 3 == 0 and k == 2 else w for k, w in enumerate(ws)]
+    laid[f"{n}-across"] = (" ".join(ws).capitalize() + ".", None, None)
+    page.append(f"{n}. " + " ".join(lost).capitalize() + ".")
+    rapid.append(f"{n}. " + " ".join(ws).capitalize() + ".")
+def tie(page):
+    lays = dict(laid) | {"41-across": ("A mark of the tipper.", None, None)}
+    got, blank = oc.reconcile(lays, ["\n".join(page + ["41. A mark of the tipper."])]
+                              + ["\n".join(rapid + ["41. A mark of the tripper."])] * 2,
+                              uncounted=True, names=["page", "en5", "ch"], mine="times")
+    return got["41-across"][0]
+check("reconcile breaks an engine tie with the page's measured slips (No 103 14D)",
+      "A mark of the tripper.", tie(page))
+check("reconcile holds an engine tie when Tesseract lost no letters elsewhere (mirror)", "", tie(rapid))
+
+# No 103: Tesseract ends clue after clue on a comma where RapidOCR prints the stop.
+import archive_org_listener as al
+lays_t = {f"{n}-down": (f"Clue number {n} here,", None, None) for n in range(1, 13)}
+lays_r = {f"{n}-down": (f"Clue number {n} here.", None, None) for n in range(1, 13)}
+check("an end comma one engine alone prints, often on the page, is its slip: the stop stands (No 103)",
+      "Clue number 3 here.", al.end_stops(lays_t, [lays_t, lays_t, lays_r, lays_r], ["times", "page", "en5", "ch"])["3-down"][0])
+# Mirror: RapidOCR ends four of the page's clues on a comma too, so a
+# comma is no Tesseract slip there.
+lays_v = {k: (t[:-1] + ",", e, g) if k in ("4-down", "6-down", "8-down", "10-down") else (t, e, g)
+          for k, (t, e, g) in lays_r.items()}
+check("an end comma both engines print on the page's other clues stands (mirror)",
+      "Clue number 3 here,", al.end_stops(lays_w := lays_v | {"3-down": lays_t["3-down"]},
+                                           [lays_w, lays_w, lays_v, lays_v], ["times", "page", "en5", "ch"])["3-down"][0])
+
 print(f"FAILS {fails}")
 EOF
 )

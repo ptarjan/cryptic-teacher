@@ -63,6 +63,24 @@ UPSCALE = 2
 READERS = {"ch": None,
            "en5": Path(os.path.expanduser("~/.cache/rapidocr/en_PP-OCRv5_rec_mobile_infer.onnx")),
            "times": "tesseract"}
+#: Each reader's engine: readers of one engine share its slips, so two
+#: readings of one engine are no two independent votes. A copy's reader
+#: ("canberra:<article>:times") is its reader's engine; "page" is
+#: gale_listener's whole-page Tesseract words.
+FAMILIES = {"ch": "rapidocr", "en5": "rapidocr", "times": "tesseract", "page": "tesseract"}
+#: A tie that splits the readings by engine goes to the spelling whose
+#: engine's slip it would take is the likelier on the page (by_family): each
+#: engine measured on FAMILY_WORDS settled words at least, and the one slip
+#: likelier than the other with posterior odds of FAMILY_SURE at least.
+FAMILY_WORDS = 100
+FAMILY_SURE = 0.95
+
+
+def family(name):
+    """The engine (FAMILIES) of the reader `name`, None when unknown."""
+    return FAMILIES.get((name or "").rsplit(":", 1)[-1])
+
+
 #: The Tesseract readers' models: None is the installed eng.
 TESS_MODELS = {"times": TOOLS / "data" / "archive_org_tess.traineddata"}
 TESSERACT = Path(os.path.expanduser("~/.local/tess/bin/tesseract"))
@@ -964,7 +982,63 @@ def lone_word_fits(word, before, after):
 UNANIMOUS_LETTERS = 4
 
 
-def agree(clue, others, keep_known=False):
+def surer(k1, n1, k2, n2, steps=2000):
+    """P(p1 > p2) for two slip rates seen k1 times in n1 words and k2 in n2,
+    each rate's posterior Beta(k + 1, n - k + 1) (a flat prior)."""
+    def density(x, k, n):
+        return math.exp(k * math.log(x) + (n - k) * math.log1p(-x)
+                        + math.lgamma(n + 2) - math.lgamma(k + 1) - math.lgamma(n - k + 1)) / steps
+    below = total = 0.0
+    for i in range(steps):
+        x = (i + 0.5) / steps
+        total += density(x, k1, n1) * below
+        below += density(x, k2, n2)
+    return total
+
+
+def dropped(short, long):
+    """Whether `short` is `long` with letters dropped."""
+    it = iter(long)
+    return len(short) < len(long) and all(c in it for c in short)
+
+
+def by_family(spellers, rates):
+    """The spelling one engine's readers print and the other's do not, when
+    the slip the other spelling would take is far likelier on the page:
+    `rates` ({engine: {"seen", "wrong", "lost", "added"}}, family_rates)
+    counts each engine's words misread, read with letters lost, and read
+    with letters added. A spelling that is the other with letters dropped
+    asks whether its engine lost them or the other engine added them (No
+    103 14D, "tipper" against the printed "tripper"); any other pair asks
+    which engine misreads more. Else None. `spellers` is {spelling: [engine
+    of each reading printing it]}: two readings of one engine tied against
+    two of another are one vote against one, which only the engines'
+    measured slips can break."""
+    if len(spellers) != 2:
+        return None
+    sides = {s: set(fs) for s, fs in spellers.items()}
+    if any(len(fs) != 1 or None in fs for fs in sides.values()):
+        return None
+    (a, (ea,)), (b, (eb,)) = sides.items()
+    if ea == eb or ea not in rates or eb not in rates:
+        return None
+    ra, rb = rates[ea], rates[eb]
+    if min(ra["seen"], rb["seen"]) < FAMILY_WORDS:
+        return None
+    for (x, ex, rx), (y, ey, ry) in (((a, ea, ra), (b, eb, rb)), ((b, eb, rb), (a, ea, ra))):
+        # x's engine slipped, or y's: is x's slip the far likelier?
+        if dropped(x, y):
+            slip_x, slip_y = "lost", "added"
+        elif dropped(y, x):
+            slip_x, slip_y = "added", "lost"
+        else:
+            slip_x = slip_y = "wrong"
+        if surer(rx[slip_x], rx["seen"], ry[slip_y], ry["seen"]) >= FAMILY_SURE:
+            return y
+    return None
+
+
+def agree(clue, others, keep_known=False, families=None, rates=None):
     """(text or None, how) for one clue against the other readings' words
     and marks (`others`: one list per reading, or one list alone). Each word
     stands when another reading has it too; else it takes the spelling the
@@ -975,7 +1049,10 @@ def agree(clue, others, keep_known=False):
     `keep_known` this reading's dictionary words are an engine's own and
     give way only to a word every other reading has (Trove's text, whose
     real words its readers' shared misreads must not outvote: "lie", not
-    "he")."""
+    "he").
+    `families` names the engine of this reading and of each other reading
+    in turn, and `rates` each engine's slips on the page (family_rates): a
+    tie the readings split by engine goes to the far better one (by_family)."""
     if others and isinstance(others[0], str):
         others = [others]
     if not tokens(clue):
@@ -1184,6 +1261,14 @@ def agree(clue, others, keep_known=False):
                 elif fit(fits[0], before, after) - fit(fits[1], before, after) < FIT_MARGIN:
                     # Else the known word every reading's slips point to.
                     settled = consensus(read, before, after)
+                    if not settled and families and rates:
+                        # Else the spelling of the engine that misreads far
+                        # less on this page, when the engines split the tie.
+                        spellers = {}
+                        for k, v in [(-1, a)] + list(got.items()):
+                            spellers.setdefault(v.lower(), []).append(families[k + 1])
+                        settled = by_family(spellers, rates)
+                        how = "settled by the engines" if settled else how
                     if not settled:
                         return None, f"readings differ: {w} / {' / '.join(got.values())}"
                     words_ = [settled]
@@ -1720,25 +1805,80 @@ def numbered_at(stream, own, text):
     return near if prints(align(low, [w.lower() for w in near]), low, near) else whole
 
 
-def reconcile(laid, streams, lengths=None, keep_known=False, uncounted=False):
+def family_rates(out, heard, whose, mine, order):
+    """{engine: {"seen", "wrong", "lost", "added"}}: how many of the page's
+    settled words each engine's readings were put to, misread, read with
+    letters lost, and read with letters added (by_family). A settled word is one a filed clue (`out`,
+    {light: (text, ...)}) holds that readings of two engines or more print
+    alike; each reading put to it (`heard`, {light: [its tokens, or None]}:
+    the laid clue's, from reader `whose[light]` or `mine`, then one per
+    reader of `order`) misreads it when its word there differs. A laid clue
+    whose reader is unknown is left out, so no reading counts twice."""
+    rates = {}
+    for lid, (text, _, _) in out.items():
+        if not text or lid not in heard:
+            continue
+        laid_by = whose.get(lid, mine if isinstance(mine, str) else None)
+        engines = [family(laid_by)] + [family(n) if n != laid_by else None for n in order]
+        low = [w.lower() for w in marked(text, breaks=True)]
+        at = [{} for _ in low]  # word i -> {reading: its word}
+        for r, theirs in enumerate(heard[lid]):
+            if not theirs or not engines[r]:
+                continue
+            pairs = align(low, [w.lower() for w in theirs])
+            if not prints(pairs, low, theirs):
+                continue
+            for i, j in pairs:
+                if i is not None and j is not None:
+                    at[i][r] = theirs[j].lower()
+        for i, w in enumerate(low):
+            if not w.isalpha():
+                continue
+            if len({engines[r] for r, v in at[i].items() if v == w}) < 2:
+                continue
+            for r, v in at[i].items():
+                if not v.isalpha():
+                    # A mark or a quote's "'s" set against a word: a token
+                    # parted otherwise, no letter misread.
+                    continue
+                got = rates.setdefault(engines[r], dict.fromkeys(("seen", "wrong", "lost", "added"), 0))
+                got["seen"] += 1
+                got["wrong"] += v != w
+                got["lost"] += dropped(v, w)
+                got["added"] += dropped(w, v)
+    return rates
+
+
+def reconcile(laid, streams, lengths=None, keep_known=False, uncounted=False, names=None, mine=None,
+              rates=None):
     """The laid clues with each clue's text put to every reading; returns
     (laid, {light: why}) naming each clue filed blank. `streams` holds each
     other reading's text, or {light: that reading's text} where the lights
     were laid from different readings; one text or dict alone is one reading.
     `lengths` ({light: cells}, from the grid) gives a clue whose count was
     lost its light's length as the count. `uncounted`: the lists print no
-    counts (the 1930s Listener's), so a clue without one is read whole."""
+    counts (the 1930s Listener's), so a clue without one is read whole.
+    `names` names the reader of each stream and `mine` ({light: reader}, or
+    one reader for all) the reading each laid clue is from: a clue a tie of engines held is voted again with each
+    engine's slips on the other clues (family_rates, agree)."""
     if isinstance(streams, (str, dict)):
         streams = [streams]
+    names = list(names) if names else [None] * len(streams)
+    whose = mine if isinstance(mine, dict) else {}
     # A list's heading bounds the clues either side like a number: "DOWN"
     # over "1 Unusual ..." is no word lost from 1 down.
     whole = [clean(HEADING.sub("0", s)) for s in streams if isinstance(s, str)]
     per = [{k: marked(clean(v), breaks=True) for k, v in s.items()} for s in streams if isinstance(s, dict)]
-    out, blank = {}, {}
+    order = ([n for s, n in zip(streams, names) if isinstance(s, str)]
+             + [n for s, n in zip(streams, names) if isinstance(s, dict)])
+    out, blank, heard = {}, {}, {}
     for lid, (text, enum, group) in laid.items():
         own = int(re.match(r"\d+", lid).group())
-        other = [o for o in [numbered_at(s, own, text) for s in whole]
-                 + [p.get(lid, []) for p in per] if o]
+        put = [numbered_at(s, own, text) for s in whole] + [p.get(lid, []) for p in per]
+        other = [o for o in put if o]
+        engines = [family(whose.get(lid, mine if isinstance(mine, str) else None))]
+        engines += [family(n) for n, o in zip(order, put) if o]
+        heard[lid] = [marked(clean(text), breaks=True) if text else None] + put
         if SEE_RE.match(text or ""):
             out[lid] = (text, enum, group)
             continue
@@ -1805,7 +1945,7 @@ def reconcile(laid, streams, lengths=None, keep_known=False, uncounted=False):
         if lead and lead.group(1) in lid.split("-")[0]:
             text = text[lead.end():]
         text = join_split(numbers_joined(text, streams), other)
-        got, how = agree(text, other, keep_known)
+        got, how = agree(text, other, keep_known, engines, rates)
         got = trimmed(cut_at_count(got, enum), lid)
         if got is not None and merged(got):
             got, how = None, merged(got)
@@ -1814,6 +1954,13 @@ def reconcile(laid, streams, lengths=None, keep_known=False, uncounted=False):
             out[lid] = ("", enum, group)
         else:
             out[lid] = (got, enum, group)
+    if rates is None and blank and any(map(family, order)) and (got := family_rates(out, heard, whose, mine, order)):
+        again, _ = reconcile({lid: laid[lid] for lid in blank}, streams, lengths, keep_known,
+                             uncounted, names, mine, got)
+        for lid, (text, enum, group) in again.items():
+            if text:
+                out[lid] = (text, enum, group)
+                blank.pop(lid)
     return out, blank
 
 
