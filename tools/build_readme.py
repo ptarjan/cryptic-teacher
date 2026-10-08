@@ -308,6 +308,7 @@ LAYOUT = [
     ("scheduling", "tools/test_unit_queue.sh", "drives a fake queue through tools/unit_queue.py: a tick returns at once, an overrun is killed and alerted, a failure waits out its retry, a class cap and a running unit hold starts back, `after` and `trigger` order them"),
     ("scheduling", "tools/nightly_worktree.sh", "sourced first: re-execs a scheduled job in its own worktree, never the editor’s"),
     ("scheduling", "tools/durable.sh", "sourced by a long job that files into git: commits and pushes what it filed every few minutes, and on SIGTERM ends the job and commits first; nightly_worktree.sh's CT_SALVAGE_PATHS pushes what a SIGKILL left"),
+    ("scheduling", "tools/unstage_unparsable.sh", "sourced by durable.sh and nightly_worktree.sh: unstages a .json a kill cut off, so no commit carries one"),
     ("scheduling", "tools/json_merge.py", "git merge driver: the keyed JSON data files several writers append to merge per key, so a rebase never stops on a ledger row"),
     ("scheduling", "tools/claude_path.sh", "sourced: finds the `claude` CLI wherever this machine keeps it, SDK-bundled copy included"),
     ("scheduling", "tools/alert.sh", "posts a run’s failures to Discord instead of burying them in a log"),

@@ -30,6 +30,7 @@
 DURABLE_EVERY="${DURABLE_EVERY:-300}"
 DURABLE_STOP_GRACE="${DURABLE_STOP_GRACE:-60}"
 _durable_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+. "$_durable_dir/unstage_unparsable.sh"
 _durable_child=""
 _durable_what=""
 _durable_pushed=""
