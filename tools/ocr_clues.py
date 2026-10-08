@@ -713,7 +713,16 @@ def parted(clue, others):
         if (a + b).lower() not in apart and (a + b).lower() not in marked_apart:
             return m.group()
         return f"{a} {b}" if a.islower() and is_word(a) else f"{a}. {b}"
+    def quote(m):
+        # An apostrophe between two words another reading prints apart: a
+        # plural's possessive after an s ("soldiers' tea"), else a quotation
+        # opening ("say,'Give"); a known contraction ("they're") stays.
+        a, b = m.group(1), m.group(2)
+        if (a + b).lower() not in apart or known(m.group().lower()):
+            return m.group()
+        return f"{a}' {b}" if a[-1] in "sS" else f"{a} '{b}"
     clue = re.sub(r"\b([A-Za-z]+)\.([a-z]{2,})\b", stop, clue)
+    clue = re.sub(r"\b([A-Za-z]{2,})'([A-Za-z]{2,})\b", quote, clue)
     return re.sub(r"[A-Za-z]{4,}", part, clue)
 
 
@@ -1052,7 +1061,11 @@ def agree(clue, others, keep_known=False):
         else:
             return None, (f"both read {w!r}, not a word" if votes[a] > 1
                           else f"readings differ: {w} / {' / '.join(got.values())}")
-        slip = None if keep_known and pick == a else common_slip(pick)
+        # A dictionary word at least three readings print alike, with none
+        # dissenting, stands: no slip or corpus fit outvotes them (No 17's
+        # "starling", not "starting").
+        unanimous = pick == a and known(a) and len(got) >= 2 and all(v.lower() == a for v in got.values())
+        slip = None if (keep_known and pick == a) or unanimous else common_slip(pick)
         if slip:
             # Every reader can share the slip: the commoner spelling stands
             # unless the read one fits its neighbours in the corpus's clues
@@ -1065,7 +1078,7 @@ def agree(clue, others, keep_known=False):
                 spelt[slip] = slip.capitalize() if spelt[pick][:1].isupper() else slip
                 pick = slip
                 how = "settled by the corpus"
-        alt = None if keep_known and pick == a else likelier(pick, before, after, read)
+        alt = None if (keep_known and pick == a) or unanimous else likelier(pick, before, after, read)
         if alt and not (i and spelt[pick][:1].isupper()) and swappable(clue, spans[i][0], w):
             spelt[alt] = alt.capitalize() if spelt[pick][:1].isupper() else alt
             pick = alt
