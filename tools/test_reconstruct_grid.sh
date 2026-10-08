@@ -110,11 +110,8 @@ print("BLANK_ONE_LENGTH", survives)
 # Two real grids recovered from the number-less form, which is the form the
 # book scans are in. everyman-3082 is an ordinary 15x15; timesquick-3146 is
 # a 13x13 its setter drew without symmetry, so it only comes back at all
-# through the fallback, and it is here to keep that path alive. Its file is
-# the Globe and Mail's print until tools/fold_reprints.py folds it.
-import puzzle_paths
-quick = next(p for p in ("timesquick-3146", "globeandmail-3146") if puzzle_paths.find(p))
-for name, pid, loose in (("EVERYMAN", "everyman-3082", False), ("TIMESQUICK", quick, True)):
+# through the fallback, and it is here to keep that path alive.
+for name, pid, loose in (("EVERYMAN", "everyman-3082", False), ("TIMESQUICK", "timesquick-3146", True)):
     puz = read_puzzle_file(resolve_puzzle(pid))
     found, info = R.reconstruct(
         R.lights_of(puz, numbered=False),
