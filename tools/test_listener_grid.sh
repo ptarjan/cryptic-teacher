@@ -307,5 +307,14 @@ check("a number in a cell starting no light, the rest one ahead, is a stray", (T
 odd = {**page, (2, 1): 8}
 f = lg.fit(certain(STRAY), {"ch": odd, "en5": odd})
 check("a stray that leaves another number off is no fit (mirror)", (False, None), (f["exact"], f.get("stray")))
+# No 4 prints 4 left of 3: two lights' numbers each in the other's start.
+OPEN = ["...", "...", "..."]
+page = {(0, 0): 1, (0, 1): 3, (0, 2): 2, (1, 0): 4, (2, 0): 5}
+f = lg.fit(certain(OPEN), {"ch": page, "en5": page})
+check("two numbers printed each in the other's start are a swap", (True, [[0, 1], [0, 2]], []),
+      (f["exact"], f.get("swap"), f["disagree"]))
+odd = {**page, (1, 0): 5, (2, 0): 4}
+f = lg.fit(certain(OPEN), {"ch": odd, "en5": odd})
+check("two pairs swapped are no fit (mirror)", (False, None), (f["exact"], f.get("swap")))
 sys.exit(1 if fails else 0)
 PY

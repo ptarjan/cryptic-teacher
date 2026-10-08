@@ -350,12 +350,25 @@ def headed_columns(words):
     if not (pair := list_heads(words)):
         return None
     across, down = pair
+    if down[2] < across[0] and down[1] > across[3]:
+        # DOWN under the left column, ACROSS over the right (No 4's lists
+        # either side of a map), each centred over its list's two columns:
+        # each list is read from its own heading's column, under it.
+        a, d = (sum(list_lines(words, h, h, 2 * CENTRED).values(), []) for h in pair)
+        return [a, d] if a and d else None
+    lines = list_lines(words, across, down, CENTRED)
+    return [lines["ACROSS"], lines["DOWN"]] if lines["ACROSS"] and lines["DOWN"] else None
+
+
+def list_lines(words, across, down, reach):
+    """{"ACROSS": lines, "DOWN": lines} read from the column the ACROSS
+    heading is in, its clue numbers up to reach left of it."""
     # A DOWN level with ACROSS may be read a little above it.
     top = min(across[1], down[1]) - 20
     below = [w for w in words if (w[1] + w[3]) / 2 >= top]
     # A heading may be centred over its column (No 103's), its clue numbers
     # far left of it: the column starts where they line up.
-    left = max((x for x in column_lefts(below) if across[0] - CENTRED <= x <= across[0]), default=across[0] - 40)
+    left = max((x for x in column_lefts(below) if across[0] - reach <= x <= across[0]), default=across[0] - 40)
     body = [w for w in words_only(below) if w[0] >= left]
     spans = []
     # A speck ("|", "-") prints no word: one in the gutter bridges it.
@@ -400,7 +413,7 @@ def headed_columns(words):
             lines[side].append(line)
         if al.END.match(lines[side][-1][4] if lines[side] else ""):
             break
-    return [lines["ACROSS"], lines["DOWN"]] if lines["ACROSS"] and lines["DOWN"] else None
+    return lines
 
 
 #: A report's heading, "Report on Crossword No. 13", "Report on the

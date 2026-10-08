@@ -257,6 +257,25 @@ def unstrayed(fit, clues):
     return out, notes, None
 
 
+def unswapped(fit, clues):
+    """(clues keyed by the lights' own numbers, notes): a page printing two
+    lights' numbers each in the other's start (fit "swap", No 4's 3 and 4)
+    numbers its clue list as the page does."""
+    if not fit.get("swap"):
+        return clues, {}
+    st = lg.starts(fit["rows"])
+    a, b = (st[tuple(c)] for c in fit["swap"])
+    trade = {a: b, b: a}
+    out, notes = {}, {}
+    for lid, c in clues.items():
+        m, d = number_of(lid)
+        mine = f"{trade.get(m, m)}-{d}"
+        out[mine] = c
+        if m in trade:
+            notes[mine] = f"printed as {lid}: the page prints {a} and {b} each in the other's cell"
+    return out, notes
+
+
 def order(lid):
     n, d = lid.split("-")
     return d != "across", int(n)
@@ -402,6 +421,8 @@ def join(reading, grids, reports, read_letters):
         if page is None:
             whys.append(why)
             continue
+        page, traded = unswapped(g["fit"], page)
+        shifted = {**shifted, **traded}
         laid, notes = mended(g["fit"]["rows"], page)
         notes = {**shifted, **notes}
         rows, side, why = fit_to_clues(g["grid"], g["fit"], laid)
@@ -425,6 +446,8 @@ def join(reading, grids, reports, read_letters):
         verdict["numberMoved"] = [list(c) for c in g["fit"]["moved"]]
     if g["fit"].get("stray"):
         verdict["strayNumber"] = g["fit"]["stray"]
+    if g["fit"].get("swap"):
+        verdict["swappedNumbers"] = g["fit"]["swap"]
     # One clue read onto two lights has lost the other's: both go blank
     # unless one light's count picks it (ocr_clues.one_light_each).
     lengths = {f"{n}-{d}": len(c) for (n, d), c in rg.light_cells(rows).items()}
