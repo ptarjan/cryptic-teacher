@@ -62,6 +62,6 @@ PY
 )
 echo "$out"
 for k in INDEX ONCE SPLIT DAILY NOPICKS PAGER PAGERHTML; do
-  echo "$out" | grep -qx "$k True" || { echo "FAIL: $k"; exit 1; }
+  grep -qx "$k True" <<<"$out" || { echo "FAIL: $k"; exit 1; }
 done
 echo "PASS"

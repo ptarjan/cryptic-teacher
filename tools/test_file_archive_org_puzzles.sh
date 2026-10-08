@@ -1868,5 +1868,5 @@ else
 FAILS 1"
 fi
 echo "$out"
-echo "$out" | grep -q '^FAILS 0$' && ! echo "$out" | grep -q '^FAILS [1-9]' || { echo "test_file_archive_org_puzzles: failed"; exit 1; }
+grep -q '^FAILS 0$' <<<"$out" && ! grep -q '^FAILS [1-9]' <<<"$out" || { echo "test_file_archive_org_puzzles: failed"; exit 1; }
 echo "test_file_archive_org_puzzles: all passed"

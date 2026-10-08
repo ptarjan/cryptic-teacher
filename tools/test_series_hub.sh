@@ -99,6 +99,6 @@ PY
 )
 echo "$out"
 for k in COUNT GRID APP NOTOTAL STRIP FEW TODAY LATEST LEADS NOCOUNT YEARCOUNTS PATHS STAGE LINKED LEGEND YEARSTRIP HUBLINK ONEWAY COUNTS NOTE CHIPS; do
-  echo "$out" | grep -qx "$k True" || { echo "FAIL: $k"; exit 1; }
+  grep -qx "$k True" <<<"$out" || { echo "FAIL: $k"; exit 1; }
 done
 echo "PASS"

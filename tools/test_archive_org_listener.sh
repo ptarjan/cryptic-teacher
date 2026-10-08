@@ -109,4 +109,4 @@ print("FAILS", fails)
 EOF
 )
 echo "$out"
-echo "$out" | grep -q "^FAILS 0$"
+grep -q "^FAILS 0$" <<<"$out"

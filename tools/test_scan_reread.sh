@@ -111,5 +111,5 @@ print(f"FAILS {fails}")
 PY
 )
 echo "$out"
-echo "$out" | grep -q '^FAILS 0$' || { echo "test_scan_reread: failed"; exit 1; }
+grep -q '^FAILS 0$' <<<"$out" || { echo "test_scan_reread: failed"; exit 1; }
 echo "test_scan_reread: all passed"
