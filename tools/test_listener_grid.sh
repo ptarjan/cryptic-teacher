@@ -174,12 +174,24 @@ for r, row in enumerate(MAP):
             d.rectangle((x + P - 5, y, x + P + 5, y + P), fill=25)
         if ch in "b+":
             d.rectangle((x, y + P - 5, x + P, y + P + 5), fill=25)
+# The outline's left stroke beside r6c3 breaks for 2 px halfway down (No 4's
+# 40 cell), leaving two runs each under RULE_RUN.
+d.rectangle((X0 + 3 * P - 3, 200 + 6 * P + 44, X0 + 3 * P + 3, 200 + 6 * P + 45), fill=235)
 img = img.rotate(0.3, fillcolor=235)
 grids = [g for g in lg.find_grids(np.asarray(img, dtype=np.uint8)) if g["rows"]]
 check("a map-shaped grid is found", 1, len(grids))
 if grids:
-    check("its cells read back, those off the outline blocks", list(MAP), grids[0]["rows"])
+    check("its cells read back, those off the outline blocks, the cell beside a broken stroke a cell",
+          list(MAP), grids[0]["rows"])
     check("its numbers are light_cells'", lg.numbers(list(MAP)), lg.numbers(grids[0]["rows"]))
+# Two strokes RULE_GAP + 1 apart stay two runs (mirror): text's stacked
+# letters are no rule.
+def joined(gap):
+    col = np.zeros((200, 1), bool)
+    col[10:40] = col[40 + gap:70 + gap] = True
+    return bool(lg.runs_at_least(lg.bridged(col, 0), 45, 0).any())
+check("a break of RULE_GAP joins two strokes, one wider splits them (mirror)", (True, False),
+      (joined(lg.RULE_GAP), joined(lg.RULE_GAP + 1)))
 
 # A rectangle whose frame breaks (No 1's report on No 3's page, its right
 # frame faded beside row 1 for a third of a cell; No 30's and No 13's faded
