@@ -18,7 +18,8 @@ its id from the pending list as it lands, so a stopped run resumes.
 Each canberra-N names the times-N it reprints in source.reprintOf. Where that
 is held, the Canberra copy's answers, counts, missing words and annotated
 clues go into it (reprints.merged); where not, the Canberra copy is filed as
-it, dated by its held neighbours' numbering (undated where a holiday leaves
+it, dated by its own archive.org reading or else its dated neighbours'
+numbering, held files and readings alike (undated where a holiday leaves
 that open). A copy on another grid, answering a light otherwise, or naming an
 original another pending file names too, is left pending and named. Nothing
 is written unless every light of the reprint survives (reprints.lost).
@@ -158,20 +159,30 @@ def printing_day(d, step):
     return d + datetime.timedelta(days=step) if d.weekday() == SUNDAY else d
 
 
-def times_dates():
-    """{number: print date} of the held Times cryptics."""
+def times_dates(readings=downloads.ARCHIVE_ORG_SOURCE):
+    """{number: print date} of the held Times cryptics and of the archive.org
+    readings of Times editions (each dated by its scan), a held file's date
+    winning."""
     out = {}
-    for path in puzzle_paths.PUZZLE_DIR.joinpath("times").glob("*/times-*.json"):
-        p = json.loads(path.read_text(encoding="utf-8"))
-        if p.get("date"):
+    paths = [*sorted(Path(readings).glob("times-*.json")),
+             *puzzle_paths.PUZZLE_DIR.joinpath("times").glob("*/times-*.json")]
+    for path in paths:
+        try:
+            p = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            continue
+        if p.get("date") and isinstance(p.get("number"), int):
             out[p["number"]] = p["date"]
     return out
 
 
 def counted_date(n, dates):
-    """Times No `n`'s print date, counted in printing days from the nearest
-    held numbers either side, or None where the two counts disagree (a
-    holiday between them leaves it open)."""
+    """Times No `n`'s print date: its own where `dates` holds it, else
+    counted in printing days from the nearest dated numbers either side, or
+    None where the two counts disagree (a holiday between them leaves it
+    open)."""
+    if n in dates:
+        return dates[n]
     lo = max((k for k in dates if k < n), default=None)
     hi = min((k for k in dates if k > n), default=None)
     if lo is None or hi is None:
