@@ -149,9 +149,16 @@ def versions():
 # ------------------------------------------------------------ the desktop side
 
 
-def full_speed():
+#: The Windows priority class a session's server runs at, by the
+#: OCR_REMOTE_PRIORITY its Mac process sets: idle for reads, below normal
+#: (still under a game's normal) for the edition queue's scans, so a
+#: scan's title OCR is not starved by the 20 reads beside it.
+PRIORITIES = {"idle": 0x40, "scan": 0x4000}
+
+
+def full_speed(priority="idle"):
     """Opt this process out of Windows power throttling (EcoQoS), at
-    idle priority: a windowless process started by sshd counts as
+    `priority` (PRIORITIES): a windowless process started by sshd counts as
     background, and Windows
     keeps those on the efficiency cores."""
     import ctypes
@@ -167,10 +174,10 @@ def full_speed():
     k32.SetProcessInformation.argtypes = [ctypes.c_void_p, ctypes.c_int, ctypes.c_void_p, ctypes.c_ulong]
     if not k32.SetProcessInformation(k32.GetCurrentProcess(), 4, ctypes.byref(state), ctypes.sizeof(state)):
         print(f"SetProcessInformation failed: {ctypes.GetLastError()}", file=sys.stderr, flush=True)
-    # Idle priority, which tesseract inherits: the box is Paul's, and a game
+    # Idle or below normal, which tesseract inherits: the box is Paul's, and a game
     # on it must keep its frames.
     k32.SetPriorityClass.argtypes = [ctypes.c_void_p, ctypes.c_ulong]
-    if not k32.SetPriorityClass(k32.GetCurrentProcess(), 0x40):
+    if not k32.SetPriorityClass(k32.GetCurrentProcess(), PRIORITIES.get(priority, PRIORITIES["idle"])):
         print(f"SetPriorityClass failed: {ctypes.GetLastError()}", file=sys.stderr, flush=True)
 
 
@@ -264,7 +271,7 @@ def _pdf_pages_there(data):
 CALLS = {"reconstruct": _reconstruct_there, "pdf_pages": _pdf_pages_there}
 
 
-def serve():
+def serve(priority="idle"):
     """Read crops and editions on stdin, words and verdicts on stdout: after a
     "ready" line with versions(), each request is a JSON line {"which",
     "bytes"} and that many bytes of PNG, answered by a JSON line {"words"},
@@ -276,7 +283,7 @@ def serve():
     by a line {"result", "bytes"} and that many bytes (CALLS); any can be
     answered by {"error"}."""
     os.environ["PATH"] = str(Path(HOME) / "tess" / "Library" / "bin") + os.pathsep + os.environ["PATH"]
-    full_speed()
+    full_speed(priority)
     # The full pass's 20 sessions share the 28-thread box: two threads each.
     os.environ.setdefault("OCR_THREADS", "2")
     import io
@@ -347,6 +354,12 @@ def serve():
 # ------------------------------------------------------------ the Mac side
 
 
+def priority():
+    """This process's sessions' priority on the desktop (PRIORITIES)."""
+    p = os.environ.get("OCR_REMOTE_PRIORITY") or "idle"
+    return p if p in PRIORITIES else "idle"
+
+
 class Unavailable(Exception):
     pass
 
@@ -357,7 +370,7 @@ class Session:
     def __init__(self, host):
         self.host = host
         self.err = tempfile.TemporaryFile()  # noqa: SIM115 -- ssh writes to it for the session's life
-        serve = rf"{HOME}\venv\Scripts\python.exe {code_dir()}\tools\ocr_remote.py serve"
+        serve = rf"{HOME}\venv\Scripts\python.exe {code_dir()}\tools\ocr_remote.py serve {priority()}"
         self.proc = subprocess.Popen([*SSH, host, serve], stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                                      stderr=self.err)
         self.buf = b""
@@ -790,7 +803,7 @@ def check():
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "check"
     if cmd == "serve":
-        serve()
+        serve(sys.argv[2] if len(sys.argv) > 2 else "idle")
     elif cmd == "check":
         sys.exit(check())
     else:
