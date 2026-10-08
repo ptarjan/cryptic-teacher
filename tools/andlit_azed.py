@@ -525,6 +525,9 @@ SCAN_VERSION = 3
 #: The 2006-08 scans are ~750px wide, too small for the readers' detector:
 #: upscaled 2x, the vote agrees on 32 of No 1820's 36 clues, not 21.
 SCAN_SCALE = 2
+#: How alike a clue on a light the grid lacks must be to a grid light's
+#: clue to be its copy under a misread number (al.CORROBORATE).
+PHANTOM_COPY = 0.7
 FOOTER = re.compile(r"(?i)\s*the\s+chambers\s+dictionary\b.*$")
 
 
@@ -652,9 +655,17 @@ def scan_copy(got):
     import ocr_clues
     lengths = {k: len(c) for k, c in rg.light_cells(rows).items()} if rows else {}
     clues = {}
+    own = {k: (t or "").lower() for k, (t, _e) in got["clues"].items()
+           if (int(k.split("-")[0]), k.split("-")[1]) in lengths}
     for key, (text, enum) in got["clues"].items():
         n, way = key.split("-")
         light = (int(n), way)
+        if printed and light not in lengths and (not text or any(
+                t and ocr_clues.similar(text.lower(), t) >= PHANTOM_COPY for t in own.values())):
+            # A number the grid, whose numbers all fit, has no light for: a
+            # misread one ("1" or "83" for 11 or 8). With no words, or the
+            # words another light's clue has, it holds nothing back.
+            continue
         text = FOOTER.sub("", text or "").strip()
         if ENUM_END.search(text):
             enum = None     # the count stayed in the text
