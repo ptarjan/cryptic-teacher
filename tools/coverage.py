@@ -101,7 +101,7 @@ def _causes():
         for source in (("trove",) if key == "canberra-reprint" else ("archive.org", "gale")):
             out[(source, key)] = Cause(owner, fix, recoverable, key == "refused-no-cause")
     out[("gale", "by-hand-only")] = Cause(
-        "tools/gale_inbox.py", "only a Gale page Paul downloads by hand (Gale's terms forbid scripts): "
+        "tools/gale_inbox.py", "only a Gale page Paul downloads by hand: "
         "tools/gale_inbox.py files what lands", False, False)
     out[("none", "no-source")] = Cause(
         "tools/first_issue.py", "no source we know prints it: find one (tools/first_issue.py SOURCES)", False, False)
