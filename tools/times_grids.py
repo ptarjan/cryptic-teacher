@@ -644,14 +644,18 @@ def solve_barred(rec, n):
 #: The most splits of a record's linked answers solve() tries. Each is one
 #: search with every other answer written in, which fails in a fraction of a
 #: second, so this is cheap.
-MAX_SPLITS = 64
+MAX_SPLITS = 256
 
 
 def splits(group):
     """Every way to share a linked answer's words out among its lights, in
     order and at word breaks: [[(light, letters), ...], ...]. The words are
     the printed answer's, or where the parser kept only its letters, the
-    enumeration's counts cut from them."""
+    enumeration's counts cut from them. An answer of fewer words than lights
+    runs a word on from one light into the next ("18, 23" PUTRID): it is cut
+    at every word break and between letters as many times more as it needs,
+    no light shorter than parser.MIN_LIGHT. A light whose direction the post
+    left unsaid (None) is tried both ways."""
     if group.get("answer_printed"):
         words = parser.answer_words(group["answer_printed"])
     else:
@@ -664,12 +668,36 @@ def splits(group):
             words.append(letters[at:at + n])
             at += n
     lights = [tuple(x) for x in group["lights"]]
+    whole = "".join(words)
+    breaks = list(itertools.accumulate(len(w) for w in words))[:-1]
+    if len(words) >= len(lights):
+        cuts_of = itertools.combinations(breaks, len(lights) - 1)
+    else:
+        inside = [i for i in range(1, len(whole)) if i not in breaks]
+        cuts_of = (sorted({*breaks, *more}) for more in
+                   itertools.combinations(inside, len(lights) - len(words)))
+    cuts_of = list(cuts_of)
+    ways = [[(n, d)] if d else [(n, "across"), (n, "down")] for n, d in lights]
     out = []
-    for cuts in itertools.combinations(range(1, len(words)), len(lights) - 1):
-        bounds = (0, *cuts, len(words))
-        out.append([(light, "".join(words[a:b]))
-                    for light, a, b in zip(lights, bounds, bounds[1:])])
+    for named in itertools.product(*ways):
+        for cuts in cuts_of:
+            bounds = (0, *cuts, len(whole))
+            if len(words) < len(lights) and min(
+                    b - a for a, b in itertools.pairwise(bounds)) < parser.MIN_LIGHT:
+                continue
+            out.append([(light, whole[a:b])
+                        for light, a, b in zip(named, bounds, bounds[1:])])
     return out
+
+
+def choices(rec):
+    """Every split of each of rec's linked answers taken together, but for
+    those naming a light twice or a light rec already has."""
+    have = {(e["number"], e["direction"]) for e in rec["entries"]}
+    for choice in itertools.product(*(splits(g) for g in rec["unsplit"])):
+        named = [light for pieces in choice for light, _ in pieces]
+        if len(set(named)) == len(named) and not have & set(named):
+            yield choice
 
 
 def with_split(rec, choice):
@@ -699,7 +727,7 @@ def split_by(rec, grid):
     rec as it is when no split fits the grid."""
     if not rec.get("unsplit"):
         return rec
-    for choice in itertools.product(*(splits(g) for g in rec["unsplit"])):
+    for choice in choices(rec):
         whole = with_split(rec, choice)
         if answers_fit(grid, whole):
             return whole
@@ -731,12 +759,11 @@ def solve_linked(rec, limit, max_nodes, budget):
     every split at a word break is rebuilt, and one split landing on exactly
     one grid is the split. The chosen split is written into rec's entries,
     which is what the grid row and the filer read."""
-    choices = list(itertools.islice(
-        itertools.product(*(splits(g) for g in rec["unsplit"])), MAX_SPLITS + 1))
-    if len(choices) > MAX_SPLITS:
+    tries = list(itertools.islice(choices(rec), MAX_SPLITS + 1))
+    if len(tries) > MAX_SPLITS:
         return [], "rejected: too many ways to split its linked answers"
     found = []
-    for choice in choices:
+    for choice in tries:
         grids, why = solve(with_split(rec, choice), limit=limit, max_nodes=max_nodes,
                            thorough=False, budget=budget)
         if budget.spent():
@@ -895,7 +922,7 @@ def light_key(rec):
     that puzzle due again, and a fix that changes nothing in it does not."""
     lights = sorted((e["number"], e["direction"], e["answer"], e.get("enumeration") or "",
                      e.get("heading") or "") for e in rec["entries"])
-    unsplit = [(g["lights"], g.get("answer"), g.get("enumeration"))
+    unsplit = [(g["lights"], g.get("answer") or g.get("answer_printed"), g.get("enumeration"))
                for g in rec.get("unsplit") or ()]
     raw = json.dumps([lights, unsplit], ensure_ascii=False, sort_keys=True)
     return hashlib.sha1(raw.encode("utf-8")).hexdigest()[:12]

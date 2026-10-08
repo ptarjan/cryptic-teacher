@@ -135,6 +135,39 @@ print("SPLIT", [(e["number"], e["answer"], e["clue"]) for e in split["entries"]
                 if (e["number"], e["direction"]) in linked],
       [(k[0], fill[k]) for k in linked])
 
+# A run-on answer, one word across two lights ("18, 23" PUTRID), and the
+# light whose direction the head leaves unsaid: the grid settles both.
+runon = [k for k in lights if len(lights[k]) == 5 and k[1] == "down"]
+rec = {"entries": [{"number": n, "direction": d, "answer": a, "clue": "c (9)", "enumeration": None}
+                   for (n, d), a in fill.items() if (n, d) not in runon],
+       "unsplit": [{"lights": [list(runon[0]), [runon[1][0], None]], "clue": "Run on (10)",
+                    "enumeration": "10", "answer_printed": fill[runon[0]] + fill[runon[1]]}]}
+split = F.tg.split_by(rec, TINY)
+print("RUNON_SPLIT", [(e["number"], e["direction"], e["answer"]) for e in split["entries"]
+                      if (e["number"], e["direction"]) in runon], "unsplit" in split)
+print("CUTS", [[(n, d, w) for (n, d), w in c] for c in F.tg.splits(
+    {"lights": [[18, "across"], [23, None]], "answer_printed": "PUTRID"})])
+print("RUNON_CUTS", [[w for _l, w in c] for c in F.tg.splits(
+    {"lights": [[1, "down"], [4, "down"], [23, "down"]], "answer_printed": "ABCDEFG HIJ"})])
+print("WORD_CUTS", [[(n, d, w) for (n, d), w in c] for c in F.tg.splits(
+    {"lights": [[24, "down"], [29, "across"]], "answer_printed": "GEORGE ORWELL"})])
+
+# Rows cut from fifteensquared-198979 and -161126.
+def unsplit_of(rows, way="DOWN"):
+    entries, unsplit = F.parse_entries(f"<table><tr><td>{way}</td></tr>{rows}</table>")
+    return [(u["lights"], u["answer_printed"]) for u in unsplit], [
+        f"{e['number']}{e['direction'][0]}={e['answer']}|{e['clue']}" for e in entries]
+GEORGE = """<tr><td class=" fts-subgroup">{}</td>
+<td class=" fts-subgroup"><span style="font-weight: bold;">GEORGE ORWELL</span></td>
+<td class=" fts-subgroup"><div><span style="color: #0000ff;">Writer</span><span> completes psycho thriller competently on autopilot (6,6)</span></div></td></tr>
+<tr class=" fts-subgroup"><td colspan=" 2"></td><td>GEORGE ( autopilot, nickname of ) OR WELL ( competently )</td></tr>"""
+print("UNSAID", unsplit_of(GEORGE.format("24/29")))
+print("NAMED", unsplit_of(GEORGE.format("24d/29a")))
+print("RUNON", unsplit_of("""<tr><td class=" fts-subgroup fts-clue">18, 23</td>
+<td class=" fts-subgroup"><span class=" fts-answer">PUTRID</span></td>
+<td class=" fts-subgroup"><div><span class=" fts-definition">Disgusting</span><span class=" fts-clue"> place repelled director (6)</span></div></td></tr>
+<tr class=" fts-subgroup"><td colspan=" 2"></td><td>PUT (‘place’) + reversal of DIR[ector].</td></tr>""", "ACROSS"))
+
 # The Saturday prize is blogged on the Monday with Monday's puzzle, and a
 # Wednesday blogged a day late on the Thursday with Thursday's.
 recs = [{"number": n, "date": d} for n, d in ((100, "2026-09-14"), (101, "2026-09-15"),
@@ -198,7 +231,7 @@ PY
 field() { printf '%s\n' "$out" | sed -n "s/^$1 //p"; }
 
 check "the table layout, answer before clue, a clue opening with a number" \
-  "1a=STEAKHOUSE|Restaurant takes off (10); 6a=CARP|Complain about (4); 3d=SECRET|16 9 church in Leicester (6,12,7); 11d=INTELLIGENCE|See 3; 20d=SERVICE|See 3; 5d=MACKTHEKNIFE|Old woman trained (4,3,5)" \
+  "1a=STEAKHOUSE|Restaurant takes off (10); 6a=CARP|Complain about (4); 5d=MACKTHEKNIFE|Old woman trained (4,3,5); unsplit SECRET INTELLIGENCE SERVICE" \
   "$(field TABLE)"
 check "the list layout, and a linked answer with more words than lights left unsplit" \
   "7a=SERENAWILLIAMS|She’s shown off wiles in Slam Era (6,8); 10a=ASPHALT|When pub key’s on top of roof? (7); unsplit THE BEST IN THE BUSINESS" \
@@ -231,6 +264,20 @@ check "number and setter off each title shape" \
   "[(18489, 'Xela'), (18480, 'Mudd'), (18484, 'Julius'), (16342, 'Rosa Klebb'), (13150, 'Glow-worm'), (13151, 'Mudd')]" "$(field TITLE)"
 check "a linked answer shared out at the grid's light break" \
   "[(5, 'FGHIJ', 'Linked (2,3,5)'), (8, 'PQRST', 'See 5')] [(5, 'FGHIJ'), (8, 'PQRST')]" "$(field SPLIT)"
+check "a one-word answer run across two lights, its second light's direction unsaid, split by the grid" \
+  "[(2, 'down', 'BGLQV'), (3, 'down', 'DINSX')] False" "$(field RUNON_SPLIT)"
+check "a one-word answer cut between letters, no light under three, an unsaid direction both ways" \
+  "[[(18, 'across', 'PUT'), (23, 'across', 'RID')], [(18, 'across', 'PUT'), (23, 'down', 'RID')]]" "$(field CUTS)"
+check "a run-on answer cut at its word break and once more inside a word" \
+  "[['ABC', 'DEFG', 'HIJ'], ['ABCD', 'EFG', 'HIJ']]" "$(field RUNON_CUTS)"
+check "an answer of as many words as lights cut only at its word break" \
+  "[[(24, 'down', 'GEORGE'), (29, 'across', 'ORWELL')]]" "$(field WORD_CUTS)"
+check "a linked head leaves its second light's direction to the grid (fifteensquared-198979)" \
+  "([([[24, 'down'], [29, None]], 'GEORGE ORWELL')], [])" "$(field UNSAID)"
+check "a linked head naming each direction is split by the post" \
+  "([], ['24d=GEORGE|Writer completes psycho thriller competently on autopilot (6,6)', '29a=ORWELL|See 24'])" "$(field NAMED)"
+check "a one-word answer under two numbers is left to the grid, not given to the first (fifteensquared-161126)" \
+  "([([[18, 'across'], [23, None]], 'PUTRID')], [])" "$(field RUNON)"
 check "a puzzle blogged late dated to its own day: the prize to its Saturday" \
   "100:Mon 101:Tue 102:Wed 103:Thu 104:Fri 105:Sat 106:Mon 107:Tue 108:Wed 109:Thu" "$(field DATES)"
 check "a run of numbers with no day of its own fitted between its neighbours" \

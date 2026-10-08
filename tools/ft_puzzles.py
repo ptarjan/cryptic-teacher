@@ -149,6 +149,13 @@ def head_of(ln, direction, last, bare=False):
     if m:
         lights = tftt.link_lights(m, direction)
         rest = tftt.LINK_TAIL.sub("", ln[m.end():]).strip()
+        if lights:
+            # Only the leader is listed under its heading: "24/29" under DOWN
+            # is 29 across as often as down, so a light after the leader with
+            # no suffix of its own has no direction (None).
+            named = [s for _n, s in tftt.LINK_PART.findall(m.group(3))]
+            lights = lights[:1] + [(n, d if s else None)
+                                   for (n, d), s in zip(lights[1:], named)]
     else:
         m = tftt.NUMBERED.match(ln)
         if not m:
@@ -298,8 +305,14 @@ def read_entries(rendered, bare=False):
         clue, enum, printed = read_light(lines, bare)
         if printed is None:
             continue
-        pieces = ([(lights[0], re.sub(r"[^A-Z]", "", printed))] if len(lights) == 1
-                  else tftt.link_pieces(lights, printed, enum))
+        if len(lights) == 1:
+            pieces = [(lights[0], re.sub(r"[^A-Z]", "", printed))]
+        elif any(d is None for _n, d in lights) or len(tftt.answer_words(printed)) < len(lights):
+            # The grid settles a direction the post leaves unsaid, and where
+            # a word runs on from one light into the next ("18, 23" PUTRID).
+            pieces = None
+        else:
+            pieces = tftt.link_pieces(lights, printed, enum)
         if pieces is None:
             unsplit.append({"lights": [list(x) for x in lights],
                             "answer_printed": printed, "clue": clue,
