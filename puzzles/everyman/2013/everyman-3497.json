@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,64 @@
     "text": "Fork in byway, initially leading to farm",
     "enumeration": "6"
    },
-   "solution": "BRANCH"
+   "solution": "BRANCH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BRANCH",
+    "definitions": [
+     {
+      "text": "Fork",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the start of the word before it, so only its opening letter is used"
+     },
+     {
+      "text": "leading to",
+      "for": "charade",
+      "note": "something leading to another goes in front of it, fixing the order of the two parts"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "byway",
+      "gives": "B",
+      "select": "first",
+      "note": "the first letter of byway"
+     },
+     {
+      "clueFragment": "farm",
+      "gives": "RANCH",
+      "note": "a ranch is a large farm, especially for cattle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RANCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Directions to a farm: take the fork in the little side road.",
+     "walkthrough": "'Fork in byway' reads as one phrase, but the definition is just 'Fork'; 'in' joins it to the wordplay.",
+     "definitionFit": "A branch is a point where a road or river divides into separate ways, which is a fork."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fork"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +107,58 @@
     "text": "Free antelope and most of other ruminants",
     "enumeration": "8"
    },
-   "solution": "BUCKSHEE"
+   "solution": "BUCKSHEE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "BUCKSHEE",
+    "definitions": [
+     {
+      "text": "Free",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "most of something is all but a little of it, so the last letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "antelope",
+      "gives": "BUCK",
+      "note": "a buck is a male antelope or deer"
+     },
+     {
+      "clueFragment": "other ruminants",
+      "gives": "SHEEP",
+      "note": "sheep chew the cud, like antelope"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUCK",
+      "SHEE"
+     ]
+    },
+    "explanation": {
+     "surface": "An offer of an antelope and most of a flock of other grazing animals for nothing.",
+     "walkthrough": "BUCKSHEE is British slang, originally military, for something given at no cost.",
+     "definitionFit": "Buckshee is informal British slang meaning without charge, gratis."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Free"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +172,51 @@
     "text": "In sacred river, a leading character",
     "enumeration": "5"
    },
-   "solution": "ALPHA"
+   "solution": "ALPHA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALPHA",
+    "definitions": [
+     {
+      "text": "leading character",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "In"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sacred river",
+      "gives": "ALPH",
+      "note": "Alph is the sacred river in Coleridge's poem Kubla Khan"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALPH",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A star actor found swimming in a holy river.",
+     "walkthrough": "'Where Alph, the sacred river, ran' is a famous line from Coleridge's Kubla Khan, and crosswords use it often.",
+     "definitionFit": "Alpha is the first letter of the Greek alphabet, so it is the character that leads all the others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +230,50 @@
     "text": "Piece of furniture - can it be baroque?",
     "enumeration": "7"
    },
-   "solution": "CABINET"
+   "solution": "CABINET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CABINET",
+    "definitions": [
+     {
+      "text": "Piece of furniture",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "baroque",
+      "for": "anagram",
+      "note": "baroque style is elaborate and twisted, so the preceding letters get rearranged ornately"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "can it be",
+      "gives": "CANITBE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CANITBE",
+       "gives": "CABINET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An antiques buyer wonders whether a piece of furniture could be from the Baroque period.",
+     "definitionFit": "A cabinet is a cupboard with shelves or drawers, a standard item of household furniture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "baroque"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +287,72 @@
     "text": "Ducks in shopping area by a road close to ponds",
     "enumeration": "8"
    },
-   "solution": "MALLARDS"
+   "solution": "MALLARDS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MALLARDS",
+    "definitions": [
+     {
+      "text": "Ducks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its final letter is taken"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shopping area",
+      "gives": "MALL",
+      "note": "a mall is a shopping centre"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "RD",
+      "note": "Rd is the standard abbreviation for road"
+     },
+     {
+      "clueFragment": "ponds",
+      "gives": "S",
+      "select": "last",
+      "note": "the last letter of ponds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MALL",
+      "A",
+      "RD",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Ducks wander into a shopping centre beside a road near some ponds.",
+     "walkthrough": "'close to' looks like it means near, but it asks for the end letter of the next word.",
+     "definitionFit": "Mallards are the commonest wild ducks, the green-headed drakes seen on park ponds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +380,51 @@
      }
     ]
    },
-   "solution": "ASTHECROWFLIES"
+   "solution": "ASTHECROWFLIES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AS THE CROW FLIES",
+    "definitions": [
+     {
+      "text": "In a straight line?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Amazing",
+      "for": "anagram",
+      "note": "amazing suggests something astonishing or bewildering, so the letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cartwheels, if so",
+      "gives": "CARTWHEELSIFSO",
+      "note": "the fourteen letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CARTWHEELSIFSO",
+       "gives": "ASTHECROWFLIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gymnast does wonderful cartwheels, provided they travel straight across the floor.",
+     "walkthrough": "The fodder includes 'if so', so every word after 'Amazing' is used.",
+     "definitionFit": "The idiom means by the most direct route, measured in a straight line rather than along roads."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cartwheels"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +438,54 @@
     "text": "Broad-minded, artist included in false statement?",
     "enumeration": "7"
    },
-   "solution": "LIBERAL"
+   "solution": "LIBERAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LIBERAL",
+    "definitions": [
+     {
+      "text": "Broad-minded",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "included in",
+      "for": "container",
+      "note": "something included in another is placed inside it, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "false statement",
+      "gives": "LIBEL",
+      "note": "a libel is a published false and damaging statement"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA stands for Royal Academician, a member of the Royal Academy of Arts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIBE",
+      "RA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Is it a lie to call an artist tolerant and open-minded?",
+     "definitionFit": "A liberal person is tolerant of views and behaviour different from their own, which is being broad-minded."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "artist"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +499,55 @@
     "text": "Vote loser, possibly, for president",
     "enumeration": "9"
    },
-   "solution": "ROOSEVELT"
+   "solution": "ROOSEVELT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROOSEVELT",
+    "definitions": [
+     {
+      "text": "president",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly signals one of several arrangements, so the letters can be reordered"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vote loser",
+      "gives": "VOTELOSER",
+      "note": "the nine letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VOTELOSER",
+       "gives": "ROOSEVELT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who loses an election might yet be in the running for president.",
+     "walkthrough": "Ironic, since both Roosevelts won the presidency; Franklin D. Roosevelt was elected four times.",
+     "definitionFit": "Theodore and Franklin D. Roosevelt were both Presidents of the United States."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "loser"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +561,65 @@
     "text": "Legislative body established around North America and Spain",
     "enumeration": "6"
    },
-   "solution": "SENATE"
+   "solution": "SENATE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SENATE",
+    "definitions": [
+     {
+      "text": "Legislative body",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so one word wraps the next item"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "established",
+      "gives": "SET",
+      "note": "set as in settled or fixed in place"
+     },
+     {
+      "clueFragment": "North America",
+      "gives": "NA",
+      "note": "the standard abbreviation"
+     },
+     {
+      "clueFragment": "Spain",
+      "gives": "E",
+      "note": "E is the international vehicle code for Spain (España)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "NA",
+      "T",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A lawmaking assembly founded in North America and Spain.",
+     "walkthrough": "The wrapping takes in North America only; Spain is added at the end.",
+     "definitionFit": "A senate is the upper house of a parliament, as in the United States Congress, so it makes laws."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "established"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +639,54 @@
      }
     ]
    },
-   "solution": "OLDHAMATHLETIC"
+   "solution": "OLDHAMATHLETIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OLDHAM ATHLETIC",
+    "definitions": [
+     {
+      "text": "Football club",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "chilling out means unwinding, so the preceding letters are loosened into a new order"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "team had to chill",
+      "gives": "TEAMHADTOCHILL",
+      "note": "the fourteen letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEAMHADTOCHILL",
+       "gives": "OLDHAMATHLETIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football club's players were told to relax.",
+     "walkthrough": "'chill out' reads as one phrase, but 'chill' is part of the fodder and only 'out' signals the shuffle. The 's stands for 'is'.",
+     "definitionFit": "Oldham Athletic is an English professional football club from Oldham, near Manchester."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chill"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +706,51 @@
      }
     ]
    },
-   "solution": "CAPABILITYBROWN"
+   "solution": "CAPABILITYBROWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAPABILITY BROWN",
+    "definitions": [
+     {
+      "text": "gardener",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "shown by",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Potential",
+      "gives": "CAPABILITY",
+      "note": "capability means potential ability"
+     },
+     {
+      "clueFragment": "former PM",
+      "gives": "BROWN",
+      "note": "Gordon Brown was UK Prime Minister 2007-2010"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAPABILITY",
+      "BROWN"
+     ]
+    },
+    "explanation": {
+     "surface": "A former prime minister's gardener shows real promise.",
+     "walkthrough": "Capability Brown got his nickname from telling clients their estates had 'capabilities'.",
+     "definitionFit": "Lancelot 'Capability' Brown was the great 18th-century English landscape gardener of country estates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Potential"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +764,74 @@
     "text": "Sat out in front of a Parisian church, being hearty",
     "enumeration": "7"
    },
-   "solution": "STAUNCH"
+   "solution": "STAUNCH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "STAUNCH",
+    "definitions": [
+     {
+      "text": "hearty",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out suggests being put out of order, so the preceding letters are reshuffled"
+     },
+     {
+      "text": "in front of",
+      "for": "charade",
+      "note": "in front of fixes the order, putting the earlier parts ahead of the later ones"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sat",
+      "gives": "SAT",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "a Parisian",
+      "gives": "UN",
+      "note": "un is French for a"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the standard abbreviation for church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STA",
+      "UN",
+      "CH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SAT",
+       "gives": "STA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sits outside a church in Paris, in good spirits.",
+     "definitionFit": "Staunch means sturdy and wholehearted in loyalty, matching hearty in the sense of vigorous and robust."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sat"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +845,59 @@
     "text": "Boy nicking article is serious",
     "enumeration": "7"
    },
-   "solution": "EARNEST"
+   "solution": "EARNEST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EARNEST",
+    "definitions": [
+     {
+      "text": "serious",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nicking",
+      "for": "container",
+      "note": "nicking is stealing, so the boy takes in the article and holds it inside"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boy",
+      "gives": "ERNEST",
+      "note": "a boy's name"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "A",
+      "RNEST"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy who steals is in serious trouble.",
+     "walkthrough": "A nod to Wilde's The Importance of Being Earnest, which puns on the same two words.",
+     "definitionFit": "Earnest describes someone sincere and intensely serious in manner or purpose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nicking"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +917,53 @@
      }
     ]
    },
-   "solution": "EASTTIMOR"
+   "solution": "EASTTIMOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EAST TIMOR",
+    "definitions": [
+     {
+      "text": "Asian country",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abroad",
+      "for": "anagram",
+      "note": "abroad can mean astray or widely scattered, so the letters wander into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Estimator",
+      "gives": "ESTIMATOR",
+      "note": "the nine letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ESTIMATOR",
+       "gives": "EASTTIMOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quantity surveyor working overseas in an Asian nation.",
+     "definitionFit": "East Timor (Timor-Leste) is a small nation in Southeast Asia, occupying the eastern half of Timor island."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "abroad"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +977,60 @@
     "text": "Highly curious after crime? Sounds like it in place of worship",
     "enumeration": "9"
    },
-   "solution": "SYNAGOGUE"
+   "solution": "SYNAGOGUE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "SYNAGOGUE",
+    "definitions": [
+     {
+      "text": "place of worship",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the first-named piece behind the second in the answer"
+     },
+     {
+      "text": "Sounds like it",
+      "for": "homophone",
+      "note": "sounds like says the result is heard rather than spelt, so the pieces are matched by their sound"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crime",
+      "gives": "SYN",
+      "soundsLike": "SIN",
+      "note": "a sin is a wrongdoing"
+     },
+     {
+      "clueFragment": "Highly curious",
+      "gives": "AGOGUE",
+      "soundsLike": "AGOG",
+      "note": "agog means eagerly curious"
+     }
+    ],
+    "explanation": {
+     "surface": "Eager curiosity after a wrongdoing, perhaps from a congregation.",
+     "walkthrough": "Said together, 'sin agog' sounds like SYNAGOGUE.",
+     "definitionFit": "A synagogue is the building where a Jewish congregation meets for prayer and religious instruction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "crime"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1044,43 @@
     "text": "Song told a story",
     "enumeration": "4"
    },
-   "solution": "LIED"
+   "solution": "LIED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LIED",
+    "definitions": [
+     {
+      "text": "Song",
+      "at": 0
+     },
+     {
+      "text": "told a story",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Song",
+      "note": "first meaning: a German art song, as by Schubert"
+     },
+     {
+      "clueFragment": "told a story",
+      "note": "second meaning: said something untrue"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Told a story' is the euphemism for fibbing, not narrating.",
+     "definitionFit": "Lied is a German romantic song set to a poem, and also the past tense of lie, to say something false."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "story"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1094,61 @@
     "text": "Object after silly sketch",
     "enumeration": "8"
    },
-   "solution": "ARTEFACT"
+   "solution": "ARTEFACT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ARTEFACT",
+    "definitions": [
+     {
+      "text": "Object",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "silly",
+      "for": "anagram",
+      "note": "silly means foolish and muddled, so the word before it is jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "after",
+      "gives": "AFTER",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "sketch",
+      "gives": "ACT",
+      "note": "a comic sketch is a short act"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARTEF",
+      "ACT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AFTER",
+       "gives": "ARTEF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone protests after a foolish comic sketch.",
+     "walkthrough": "'after' looks like a positional instruction but is the anagram fodder.",
+     "definitionFit": "An artefact is a man-made item, especially one of historical interest, so an object."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "after"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1162,42 @@
     "text": "Queen featured in Cuban newspaper",
     "enumeration": "4"
    },
-   "solution": "ANNE"
+   "solution": "ANNE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ANNE",
+    "definitions": [
+     {
+      "text": "Queen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "featured in",
+      "for": "hidden_word",
+      "note": "featured in says the answer appears within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cuban newspaper",
+      "gives": "ANNE",
+      "note": "letters running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A queen makes the pages of a Havana daily.",
+     "definitionFit": "Anne was Queen of Great Britain from 1702 to 1714, the last Stuart monarch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "featured"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1211,58 @@
     "text": "Almost stop by nearby pen",
     "enumeration": "7"
    },
-   "solution": "ENCLOSE"
+   "solution": "ENCLOSE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ENCLOSE",
+    "definitions": [
+     {
+      "text": "pen",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the last letter is cut off"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stop",
+      "gives": "END",
+      "note": "to end is to stop"
+     },
+     {
+      "clueFragment": "nearby",
+      "gives": "CLOSE",
+      "note": "close means near"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "CLOSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Nearly coming to a halt beside a nearby animal enclosure.",
+     "walkthrough": "'pen' reads as a noun, a writing tool, but here it is the verb.",
+     "definitionFit": "To pen animals is to shut them in, which is to enclose them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pen"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1276,59 @@
     "text": "Set-to with crew, unfortunately, in Northants town",
     "enumeration": "9"
    },
-   "solution": "TOWCESTER"
+   "solution": "TOWCESTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TOWCESTER",
+    "definitions": [
+     {
+      "text": "Northants town",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "unfortunately suggests things going wrong, so the letters fall out of order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Set-to",
+      "gives": "SETTO",
+      "note": "set-to, a fight, used as letters"
+     },
+     {
+      "clueFragment": "crew",
+      "gives": "CREW",
+      "note": "used as letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SETTOCREW",
+       "gives": "TOWCESTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rowing crew gets into a scrap in a Northamptonshire town.",
+     "walkthrough": "Northants is short for Northamptonshire, an English county; Towcester is known for its racecourse. 'with' only joins the two pieces of fodder.",
+     "definitionFit": "Towcester is a small market town in the English county of Northamptonshire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crew"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1342,46 @@
     "text": "Given a ring and hired?",
     "enumeration": "7"
    },
-   "solution": "ENGAGED"
+   "solution": "ENGAGED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ENGAGED",
+    "definitions": [
+     {
+      "text": "Given a ring",
+      "at": 0
+     },
+     {
+      "text": "hired",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Given a ring",
+      "note": "first meaning: betrothed, with an engagement ring"
+     },
+     {
+      "clueFragment": "hired",
+      "note": "second meaning: taken on to work"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Given a ring' also suggests a phone call, the line being busy, a third sense of the word.",
+     "definitionFit": "Engaged means promised in marriage, and also employed, as when a firm engages a lawyer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1401,44 @@
      }
     ]
    },
-   "solution": "OLDHAT"
+   "solution": "OLDHAT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OLD HAT",
+    "definitions": [
+     {
+      "text": "Stale",
+      "at": 0
+     },
+     {
+      "text": "pork pie, say, could be past its sell-by date",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stale",
+      "note": "first meaning: out of date, hackneyed"
+     },
+     {
+      "clueFragment": "pork pie, say, could be past its sell-by date",
+      "note": "second meaning, read literally: a pork pie is a flat-crowned style of hat, and one that has passed its best"
+     }
+    ],
+    "explanation": {
+     "surface": "A pork pie gone off in the fridge, well past its date.",
+     "walkthrough": "The pork pie is not food but a pork pie hat, a flat-topped brimmed hat; an aged one is literally an old hat.",
+     "definitionFit": "Old hat is an idiom for something tired and unoriginal, which is stale in the figurative sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pork"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1452,60 @@
     "text": "Good one in bar, clear",
     "enumeration": "7"
    },
-   "solution": "LOGICAL"
+   "solution": "LOGICAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LOGICAL",
+    "definitions": [
+     {
+      "text": "clear",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first pieces inside the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "LOCAL",
+      "note": "in Britain your local is your nearby pub"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "GI",
+      "CAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at a good table in the bar has a clear head.",
+     "definitionFit": "Logical reasoning is clear and coherent, following sensibly from one step to the next."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1519,66 @@
     "text": "Big eel wriggling across lake, clear",
     "enumeration": "7"
    },
-   "solution": "LEGIBLE"
+   "solution": "LEGIBLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LEGIBLE",
+    "definitions": [
+     {
+      "text": "clear",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wriggling",
+      "for": "anagram",
+      "note": "wriggling suggests twisting about, so the letters are reordered"
+     },
+     {
+      "text": "across",
+      "for": "container",
+      "note": "across means spanning or straddling, so the jumbled letters stretch around the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Big eel",
+      "gives": "BIGEEL",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the abbreviation for lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEGIB",
+      "L",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BIGEEL",
+       "gives": "LEGIBE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A huge eel swims across a lake whose water is crystal clear.",
+     "definitionFit": "Legible handwriting or print is clear enough to be read easily."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clear"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1592,60 @@
     "text": "Spree in Crosby, perhaps ending in Bootle",
     "enumeration": "5"
    },
-   "solution": "BINGE"
+   "solution": "BINGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BINGE",
+    "definitions": [
+     {
+      "text": "Spree",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending",
+      "for": "letter_selection",
+      "note": "the ending of a word is its final letter, which is the one kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crosby, perhaps",
+      "gives": "BING",
+      "note": "Bing Crosby was the American crooner"
+     },
+     {
+      "clueFragment": "Bootle",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of Bootle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BING",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A wild night out in Crosby that ends in Bootle.",
+     "walkthrough": "Crosby and Bootle are neighbouring towns on Merseyside, near Liverpool, so the surface is a local pub crawl; but Crosby here is Bing Crosby, the singer.",
+     "definitionFit": "A binge is a bout of excessive indulgence, especially in drinking, much like a spree."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Crosby"
+    }
+   }
   },
   {
    "number": 25,
@@ -435,7 +1673,39 @@
      }
     ]
    },
-   "solution": "HIGHONTHEAGENDA"
+   "solution": "HIGHONTHEAGENDA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HIGH ON THE AGENDA",
+    "definitions": [
+     {
+      "text": "The minutes of the last meeting should be one of the most important things to be discussed",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one of the most important things to be discussed",
+      "note": "surface reading: the minutes are a vital matter that must be debated"
+     },
+     {
+      "clueFragment": "The minutes of the last meeting",
+      "note": "setter's reading: approving the previous minutes is literally among the first items listed for any meeting"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The phrase normally means a priority, but minutes of the previous meeting are near the top of any agenda list simply by custom, not importance.",
+     "definitionFit": "The idiom means being a top priority, and also literally being listed near the top of a meeting's list of business."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "important"
+    }
+   }
   },
   {
    "number": 26,
@@ -455,7 +1725,64 @@
      }
     ]
    },
-   "solution": "THEBEACH"
+   "solution": "THEBEACH",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "THE BEACH",
+    "definitions": [
+     {
+      "text": "Film",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on board",
+      "for": "container",
+      "note": "on board means inside a vehicle, so the first pieces travel within the last word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ambassador",
+      "gives": "HE",
+      "note": "HE stands for His Excellency, an ambassador's title"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess notation for bishop"
+     },
+     {
+      "clueFragment": "train",
+      "gives": "TEACH",
+      "note": "to train someone is to teach them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HEB",
+      "EACH"
+     ]
+    },
+    "explanation": {
+     "surface": "A film about an ambassador and a bishop travelling on a train.",
+     "walkthrough": "'train' is a verb here, not the railway the surface suggests.",
+     "definitionFit": "The Beach is a 2000 film starring Leonardo DiCaprio, based on Alex Garland's novel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "train"
+    }
+   }
   },
   {
    "number": 27,
@@ -469,7 +1796,62 @@
     "text": "Around noon, notice vet coming",
     "enumeration": "6"
    },
-   "solution": "ADVENT"
+   "solution": "ADVENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ADVENT",
+    "definitions": [
+     {
+      "text": "coming",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Around",
+      "for": "container",
+      "note": "around means surrounding, so the last word wraps the single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "notice",
+      "gives": "AD",
+      "note": "an ad, short for advertisement, is a notice"
+     },
+     {
+      "clueFragment": "vet",
+      "gives": "VET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "note": "N is the abbreviation for noon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "VE",
+      "N",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A notice says the vet is visiting around midday.",
+     "walkthrough": "'Around noon' reads as a time, but 'Around' is the wrapping signal and noon supplies one letter.",
+     "definitionFit": "Advent is an arrival, especially of something important, so it means a coming."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Around"
+    }
+   }
   }
  ]
 }
