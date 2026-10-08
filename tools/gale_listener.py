@@ -872,15 +872,24 @@ def reread_from(img, key, which, out, located):
             x1 = max(x1, w[2])
         if x1 == n[2]:
             continue  # a number with no words beside it: no clue line
-        # The detector reads nothing in a crop much tighter than the line.
-        box = (max(0, n[0] - h), max(0, n[1] - h // 2), min(img.width, x1 + h), min(img.height, n[3] + h // 2))
         # The number's own rows: lines set tighter than a number's box is
         # tall (No 97's 46A, 21 px apart) put the next line's centre within
         # a quarter height of it, and that line was taken and lost.
         band = (n[1], n[3])
+        # A word of this reading the crop would cut is read whole: the
+        # anchor can lose a line's end this reading has (No 4's "38. ...
+        # to a house'", its page reading ending at "a").
+        x1 = max([x1] + [w[2] for w in out if w[0] < x1 < w[2] and band[0] <= (w[1] + w[3]) / 2 <= band[1]])
+        # The detector reads nothing in a crop much tighter than the line.
+        box = (max(0, n[0] - h), max(0, n[1] - h // 2), min(img.width, x1 + h), min(img.height, n[3] + h // 2))
         # Its number read as letters ("II." for 11) is a number, as figures reads it.
         got = sorted(figures([w for w in read_box(img, key, box, which) if band[0] <= (w[1] + w[3]) / 2 <= band[1]]),
                      key=lambda w: w[0])
+        if got and got[0][0] >= n[2] and not re.match(r"\W{0,2}\d", got[0][4]):
+            # Its words alone, all right of the anchor's number: the reader
+            # loses a thin number again (No 4's "1. Our subject." read
+            # ".Our subject.", then "Our subject."), and the anchor's stands.
+            got = [n] + got
         if not got or not (OPENS.match(got[0][4]) or re.fullmatch(r"\d{1,2}", got[0][4])):
             continue
         if got[0][4] == re.match(r"\W{0,2}(\d{1,2})", n[4]).group(1):

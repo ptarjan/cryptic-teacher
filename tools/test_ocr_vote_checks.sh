@@ -324,6 +324,17 @@ check("and over a word with an apostrophe", "Fruit's counterpart in bottles",
       oc.parted("Fruit'scounterpartinbottles", [mark("4 Fruit's counterpart in bottles 5 A")]))
 check("a run-together no reading prints apart stays as read (mirror)", "Paintedbrown restaurant",
       oc.parted("Paintedbrown restaurant", [mark("12 Painted crown restaurant 13 A")]))
+check("three words run together with a letter misread part as another reading prints them (No 4 21D)",
+      "irritating feature of England's nationai game",
+      oc.parted("irritating featureofEngland'snationai game", [mark("21 irritating feature of England's national game 26 A")]))
+check("two words run together with a letter misread stay (mirror)", "an irritating featureofEngland",
+      oc.parted("an irritating featureofEngland", [mark("21 an irritating featurc ofEngland 26 A")]))
+glued = ["some", "consider", "this", "an", "irritating", "featureofengland'snationai", "game"]
+at = [(i, i) for i in range(6)] + [(6, None)]
+check("a reading prints a clue whose run-together word holds its word (No 4 21D)", True,
+      oc.prints(at, glued, ["Some", "consider", "this", "an", "irritating", "feature", "of", "national", "game"]))
+check("not where the run-together word holds none of it (mirror)", False,
+      oc.prints(at, glued, ["Some", "consider", "this", "an", "irritating", "fit", "of", "national", "game"]))
 check("a short word one reading has and the other dropped stands when the corpus prints it there (No 1880)",
       "Come to see me", oc.agree("Come to see me", [mark("6 Come see me 7 A")])[0])
 check("not where the corpus prints its neighbours together as often (mirror)",
@@ -417,6 +428,17 @@ check("a hyphen, a rule run into a word or after a colon, an underline, a long r
                             rule(400, 430, 160), lambda d: d.rectangle((395, 140, 396, 190), fill=0),
                             lambda d: d.rectangle((435, 140, 436, 190), fill=0)),
                        [LINE, (395, 150, 440, 175)], WORDS + [(395, 150, 440, 175, "grid")], H))
+# No 4 9D "'——and here's": a two-em rule after an opening quote, run into
+# the next word, under a box a reader stretched over it from the line above.
+quote_mark = lambda d: d.rectangle((395, 42, 397, 47), fill=0)
+letters = lambda x: (lambda d: [d.rectangle((x + k, 44, x + k, 58), fill=0) for k in range(0, 31, 6)])
+run_in = lambda d: (d.rectangle((400, 50, 442, 52), fill=0), letters(443)(d))
+check("a two-em rule run into the word after it, an opening quote above, is a blank (No 4 9D)",
+      [(400, 50, 444, 53, "——")],
+      oc.blank_strokes(page(text, quote_mark, run_in), [LINE], WORDS + [(390, 10, 450, 52, "England.")], H))
+check("a one-em dash run into a word is none (mirror)", [],
+      oc.blank_strokes(page(text, lambda d: (d.rectangle((400, 50, 422, 52), fill=0), letters(423)(d))),
+                       [LINE], WORDS, H))
 blank = (1202, 603, 1227, 605, "——")
 readings = {"ch": [(1080, 588, 1473, 617, "And the-is heard above the")],
             "en5": [(1080, 588, 1473, 617, "And the - is heard above the")],
@@ -454,6 +476,9 @@ check("a quotation parted from the comma before it, and a dash after a colon spa
 check("a comma glued to a capitalised word is spaced (No 97 33D \"knot,I'm\")",
       "They'd cut the Gordian knot, I'm sure.", oc.clean("They'd cut the Gordian knot,I'm sure."))
 check("an initialism's comma stays (mirror)", "U.S.,UK", oc.clean("U.S.,UK"))
+check("a colon after a lone capital is spaced (No 4 12D \"Add a T:an island\")",
+      "Add a T: an island in a river.", oc.clean("Add a T:an island in a river."))
+check("a colon between capitals stays (mirror)", "An A:B ratio.", oc.clean("An A:B ratio."))
 check("a hyphen within a word stays (mirror)", "A well-known man, I'd say.", oc.clean("A well-known man, I'd say."))
 
 check("an opening quote glued to the word before opens the next (No 9 14A)",
@@ -589,6 +614,32 @@ check("a few words another clue shares stay after the stop (mirror, No 103 41D)"
       "Half girl half hag, a wonder of the Nile.",
       oc.run_on("Half girl half hag, a wonder of the Nile.", "41-down",
                 {"27-down": ("Not many wonders surpass the modern one here.", None, None)}))
+# No 4 22A: two readings lost "23." and ran 22A on into 23A's words.
+isles = [["perhaps", "the", "most", "english", "of", "islands"]]
+check("a reading's end running on into another laid clue is no end lost (No 4 22A)", "The name of an eagle.",
+      oc.agree("The name of an eagle.", [mark("22 The name of an eagle. Inglish of islands, 36 An"),
+                                         mark("22 The name of an eagle. 23 Perhaps the most English of islands."),
+                                         mark("22 The name of an eagle. English of islands O hnooWIK 27 An")],
+               clues=isles)[0])
+check("an end no other clue prints is lost (mirror)", None,
+      oc.agree("The name of an eagle.", [mark("22 The name of an eagle. Inglish of islands, 36 An"),
+                                         mark("22 The name of an eagle. 23 Perhaps the most English of islands."),
+                                         mark("22 The name of an eagle. English of islands O hnooWIK 27 An")],
+               clues=[["perhaps", "the", "most", "scottish", "of", "lochs"]])[0])
+check("a lead closing on another clue's words is that clue's (No 4 23A)", (True, False),
+      (oc.elsewhere_run(("the", "name", "of", "an"), "start", [["the", "name", "of", "an", "eagle"]]),
+       oc.elsewhere_run(("of", "an"), "start", [["the", "name", "of", "an", "eagle"]])))
+london = "'London's lasting shame, but nevertheless part of our history."
+check("a quotation closing mid-clue that a reading prints is closed there (No 4 8A)",
+      "'London's lasting shame,' but nevertheless part of our history.",
+      oc.reclosed(london, ["8. 'London's lasting shame,' but\nnevertheless part of our history."]))
+check("not where no reading closes it (mirror)", None,
+      oc.reclosed(london, ["8. 'London's lasting shame, but\nnevertheless part of our history."]))
+days = {"5-down": ("St. George's Day, 1918.", None, None), "11-down": ("St. George's Day, 1915.", None, None)}
+check("words after a stop another clue prints with other figures stay (No 4 30A)",
+      "St. George's Day, 1564.", oc.run_on("St. George's Day, 1564.", "30-across", days))
+check("words after a stop another clue prints with the same figures are cut (mirror)",
+      "On St.", oc.run_on("On St. George's Day, 1918.", "30-across", days))
 
 print(f"FAILS {fails}")
 EOF
