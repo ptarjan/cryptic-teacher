@@ -38,6 +38,9 @@
   "date": "2023-09-17",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,42 @@
     "text": "Papery fabric used in soft apparel",
     "enumeration": "5"
    },
-   "solution": "TAPPA"
+   "solution": "TAPPA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TAPPA",
+    "definitions": [
+     {
+      "text": "Papery fabric",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "used in",
+      "for": "hidden_word",
+      "note": "the letters are put to use inside the following words, sitting there in an unbroken run"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soft apparel",
+      "gives": "TAPPA",
+      "note": "runs across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A paper-like cloth goes into making some soft clothing.",
+     "definitionFit": "Tappa (tapa) is the bark cloth of the Pacific islands, beaten thin until it resembles paper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "used"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +103,65 @@
     "text": "Regarding after-effect of stimulus I cut almost all alcohol out",
     "enumeration": "10"
    },
-   "solution": "ACOLOUTHIC"
+   "solution": "ACOLOUTHIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ACOLOUTHIC",
+    "definitions": [
+     {
+      "text": "Regarding after-effect of stimulus",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost all",
+      "for": "deletion",
+      "note": "almost all of a word means it loses only its final letter"
+     },
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out in the sense of disordered or awry, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I cut",
+      "gives": "ICUT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "alcohol",
+      "gives": "ALCOHOL",
+      "note": "taken as written, then trimmed of its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACOLOUTHIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ICUTALCOHO",
+       "gives": "ACOLOUTHIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone announces they have nearly given up drinking.",
+     "walkthrough": "Remove the final L from ALCOHOL, then shuffle what remains together with I CUT.",
+     "definitionFit": "Acolouthic is a technical adjective describing the after-image or sensation persisting once a stimulus has stopped."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +175,62 @@
     "text": "Hummel overseas providing bit of elegance in ringtone",
     "enumeration": "5"
    },
-   "solution": "POLEY"
+   "solution": "POLEY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "POLEY",
+    "definitions": [
+     {
+      "text": "Hummel overseas",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bit of",
+      "for": "letter_selection",
+      "note": "a bit of a word is just its opening letter here"
+     },
+     {
+      "text": "providing",
+      "for": "container",
+      "note": "the ringtone word provides a home for the extra letter, wrapping around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "elegance",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter"
+     },
+     {
+      "clueFragment": "ringtone",
+      "gives": "POLY",
+      "note": "poly is short for a polyphonic ringtone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POL",
+      "E",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzling line about a figurine or tune abroad finding some elegance in a phone's ring.",
+     "walkthrough": "Hummel is a Scots word for hornless cattle; 'overseas' points to Australia, where the same idea is expressed by this word.",
+     "definitionFit": "In Australian usage poley describes cattle without horns, which is exactly what hummel means in Scotland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hummel"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +244,61 @@
     "text": "Sweet-smelling powder, once an advantage when sex is involved",
     "enumeration": "6"
    },
-   "solution": "PULVIL"
+   "solution": "PULVIL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PULVIL",
+    "definitions": [
+     {
+      "text": "Sweet-smelling powder, once",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when",
+      "for": "container",
+      "note": "when sex is involved means the number is taken right into the middle of the other word"
+     },
+     {
+      "text": "involved",
+      "for": "container",
+      "note": "something involved is wrapped up inside, so these letters are enclosed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an advantage",
+      "gives": "PULL",
+      "note": "pull is influence, an edge over others"
+     },
+     {
+      "clueFragment": "sex",
+      "gives": "VI",
+      "note": "sex is Latin for six, written VI in Roman numerals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUL",
+      "VI",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Perfume has always given an edge in matters of sex.",
+     "walkthrough": "'Sex' looks like the theme of the surface but is just the Latin word for six.",
+     "definitionFit": "Pulvil was an old word for scented powder used on wigs and clothes, hence the archaic marker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sex"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +312,52 @@
     "text": "Casks pouring out stream",
     "enumeration": "6"
    },
-   "solution": "ARMETS"
+   "solution": "ARMETS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ARMETS",
+    "definitions": [
+     {
+      "text": "Casks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pouring out",
+      "for": "anagram",
+      "note": "liquid poured out spills in disorder, so the letters tumble into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stream",
+      "gives": "STREAM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STREAM",
+       "gives": "ARMETS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Barrels gush with a flowing liquid.",
+     "walkthrough": "'Casks' looks like barrels, but cask is an old spelling of casque, a helmet.",
+     "definitionFit": "An armet is a type of medieval helmet, and cask is a recorded variant of casque, a helmet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Casks"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +371,55 @@
     "text": "Hunting dog? Much older one in sport",
     "enumeration": "7"
    },
-   "solution": "BRACHET"
+   "solution": "BRACHET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BRACHET",
+    "definitions": [
+     {
+      "text": "Hunting dog?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the older word sits in the middle of the sporting word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sport",
+      "gives": "BET",
+      "note": "to sport money is to wager it"
+     },
+     {
+      "clueFragment": "Much older one",
+      "gives": "RACH",
+      "note": "rach (rache) is a very old word for a scent-hunting dog"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RACH",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks about a hunting dog and is told an old one is in the game.",
+     "walkthrough": "'One' in 'much older one' refers back to the hunting dog: RACHE is an earlier word for the same kind of hound.",
+     "definitionFit": "A brachet is a small scent hound used in hunting, a term from medieval venery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sport"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +433,79 @@
     "text": "Implant one inserted in reverse of strong horse above bone",
     "enumeration": "7"
    },
-   "solution": "BIOCHIP"
+   "solution": "BIOCHIP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "BIOCHIP",
+    "definitions": [
+     {
+      "text": "Implant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reverse of",
+      "for": "reversal",
+      "note": "the reverse of a word is that word read from its end to its start"
+     },
+     {
+      "text": "inserted in",
+      "for": "container",
+      "note": "one item is put inside the other"
+     },
+     {
+      "text": "above",
+      "for": "charade",
+      "note": "in a down entry, what is above simply comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strong horse",
+      "gives": "COB",
+      "note": "a cob is a sturdy short-legged horse"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "bone",
+      "gives": "HIP",
+      "note": "the hip bone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "I",
+      "OC",
+      "HIP"
+     ],
+     "reversals": [
+      {
+       "from": "COB",
+       "to": "BOC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vet's note about putting an implant into a horse near its hip.",
+     "walkthrough": "In a down entry 'above' just means the bone comes after the rest.",
+     "definitionFit": "A biochip is a microchip implanted in a living body, for example to identify an animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "horse"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +519,55 @@
     "text": "Taste displayed in excellent fur’s pattern",
     "enumeration": "6"
    },
-   "solution": "AGOUTI"
+   "solution": "AGOUTI",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AGOUTI",
+    "definitions": [
+     {
+      "text": "fur’s pattern",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "displayed in",
+      "for": "container",
+      "note": "the taste is shown within the other letters, enclosed by them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "excellent",
+      "gives": "AI",
+      "note": "A1 written as letters, meaning first-rate"
+     },
+     {
+      "clueFragment": "Taste",
+      "gives": "GOUT",
+      "note": "goût is French for taste, used in English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GOUT",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A furrier praises the taste shown in a fine pattern of fur.",
+     "walkthrough": "GOUT here is not the illness but the French-derived word for taste.",
+     "definitionFit": "Agouti describes a banded grizzled coat colouring, named after the rodent whose fur shows it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Taste"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +581,55 @@
     "text": "Dog catching rodent? One or the other up north",
     "enumeration": "6"
    },
-   "solution": "CRATUR"
+   "solution": "CRATUR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CRATUR",
+    "definitions": [
+     {
+      "text": "One or the other up north",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "catching",
+      "for": "container",
+      "note": "the dog catches the rodent and holds it within its jaws"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dog",
+      "gives": "CUR",
+      "note": "a cur is a mongrel dog"
+     },
+     {
+      "clueFragment": "rodent",
+      "gives": "RAT",
+      "note": "a familiar rodent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RAT",
+      "UR"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog catches a rat, and someone wonders which animal is which.",
+     "walkthrough": "The definition refers back to the dog and the rodent: either is a creature, and cratur is the Scots and Irish form of that word.",
+     "definitionFit": "Cratur is a northern dialect spelling of creature, a word that fits either beast in the scene."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "One"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +643,61 @@
     "text": "Unprocessed rubber, tinge including a dash of latex",
     "enumeration": "4"
    },
-   "solution": "HULE"
+   "solution": "HULE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "HULE",
+    "definitions": [
+     {
+      "text": "Unprocessed rubber",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a dash of",
+      "for": "letter_selection",
+      "note": "a dash is a tiny amount, here just the first letter"
+     },
+     {
+      "text": "including",
+      "for": "container",
+      "note": "the tinge word includes the extra letter inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tinge",
+      "gives": "HUE",
+      "note": "a hue is a shade or tinge"
+     },
+     {
+      "clueFragment": "latex",
+      "gives": "L",
+      "select": "first",
+      "note": "its opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HU",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Raw rubber with a slight colour and a trace of latex in it.",
+     "definitionFit": "Hule (ulé) is the crude rubber obtained from a Central American tree, before processing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dash"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +711,61 @@
     "text": "She isn’t unusually special – it won’t be featured inter alia",
     "enumeration": "8"
    },
-   "solution": "THISNESS"
+   "solution": "THISNESS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "THISNESS",
+    "definitions": [
+     {
+      "text": "it won’t be featured inter alia",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusually",
+      "for": "anagram",
+      "note": "unusually means in an unusual order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "She isn’t",
+      "gives": "SHEISNT",
+      "note": "taken as written, apostrophe dropped"
+     },
+     {
+      "clueFragment": "special",
+      "gives": "S",
+      "note": "S is the abbreviation for special"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THISNES",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SHEISNT",
+       "gives": "THISNES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone insists that she is nothing out of the ordinary.",
+     "walkthrough": "Inter alia means among other things; a thing with this quality stands as an individual rather than one of many, so the definition is fair.",
+     "definitionFit": "Thisness, or haecceity, is the philosophical property of being this particular individual thing and no other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "special"
+    }
+   }
   },
   {
    "number": 11,
@@ -204,7 +778,72 @@
    "clue": {
     "text": "Welcoming King Emperor chorus sung badly? This was natural cleanser (12, two words)"
    },
-   "solution": "SCOURINGRUSH"
+   "solution": "SCOURINGRUSH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SCOURINGRUSH",
+    "definitions": [
+     {
+      "text": "This was natural cleanser",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "something done badly comes out wrong, so the letters emerge rearranged"
+     },
+     {
+      "text": "Welcoming",
+      "for": "container",
+      "note": "the jumbled words welcome the two royal letters into their midst"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "R for rex, Latin for king"
+     },
+     {
+      "clueFragment": "Emperor",
+      "gives": "I",
+      "note": "I for imperator, Latin for emperor"
+     },
+     {
+      "clueFragment": "chorus sung",
+      "gives": "CHORUSSUNG",
+      "note": "both words taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCOU",
+      "RI",
+      "NGRUSH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHORUSSUNG",
+       "gives": "SCOUNGRUSH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A choir mangles a song while welcoming a royal emperor.",
+     "walkthrough": "'Sung' looks like part of the signal, but its letters belong in the jumble too. The plant is a horsetail.",
+     "definitionFit": "Scouring rush is a horsetail whose silica-rich stems were used to scrub and polish pots, a plant-based abrasive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Emperor"
+    }
+   }
   },
   {
    "number": 12,
@@ -218,7 +857,69 @@
     "text": "Lines penned in excited promo for spicy fish titbit",
     "enumeration": "7"
    },
-   "solution": "ROLLMOP"
+   "solution": "ROLLMOP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ROLLMOP",
+    "definitions": [
+     {
+      "text": "spicy fish titbit",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excited",
+      "for": "anagram",
+      "note": "something excited is agitated and stirred up, so the letters are mixed"
+     },
+     {
+      "text": "penned in",
+      "for": "container",
+      "note": "penned in means shut inside, so these letters go into the middle"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lines",
+      "gives": "LL",
+      "note": "L is line, doubled for the plural"
+     },
+     {
+      "clueFragment": "promo",
+      "gives": "PROMO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "LL",
+      "MOP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PROMO",
+       "gives": "ROMOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An advertisement writes breathless lines about a spicy fish snack.",
+     "definitionFit": "A rollmop is a pickled herring fillet rolled around a filling, eaten as an appetiser."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lines"
+    }
+   }
   },
   {
    "number": 13,
@@ -232,7 +933,62 @@
     "text": "What growing gymnosperms show, decay, hard, in mantles",
     "enumeration": "10"
    },
-   "solution": "PROTHALLIA"
+   "solution": "PROTHALLIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PROTHALLIA",
+    "definitions": [
+     {
+      "text": "What growing gymnosperms show",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the decay and hard pieces go inside the mantles word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mantles",
+      "gives": "PALLIA",
+      "note": "pallium (plural pallia) is a mantle or cloak"
+     },
+     {
+      "clueFragment": "decay",
+      "gives": "ROT",
+      "note": "rot is decay"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H for hard, as on pencils"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ROT",
+      "H",
+      "ALLIA"
+     ]
+    },
+    "explanation": {
+     "surface": "A botanist lists decay and toughness found in the coverings of conifers.",
+     "walkthrough": "Pallium is the Latin mantle; its plural is used for a mollusc's or bird's mantle too.",
+     "definitionFit": "Prothallia are the small gametophyte growths of ferns, and the term also covers the reduced gametophyte stage of gymnosperms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mantles"
+    }
+   }
   },
   {
    "number": 14,
@@ -246,7 +1002,56 @@
     "text": "Bluff that’s most ingenious separated from rest",
     "enumeration": "5"
    },
-   "solution": "CLEVE"
+   "solution": "CLEVE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CLEVE",
+    "definitions": [
+     {
+      "text": "Bluff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "separated from",
+      "for": "deletion",
+      "note": "once the last word is separated off, it is dropped from the longer word"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "most ingenious",
+      "gives": "CLEVEREST",
+      "note": "the superlative form of the adjective for smart or ingenious"
+     },
+     {
+      "clueFragment": "rest",
+      "gives": "REST",
+      "note": "taken as written, then removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLEVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A smart bluff stands out from the rest of the field.",
+     "walkthrough": "'Bluff' looks like deception but is the cliff sense.",
+     "definitionFit": "Cleve is an old variant of cleeve, a cliff or steep hillside, which is what a bluff is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bluff"
+    }
+   }
   },
   {
    "number": 15,
@@ -260,7 +1065,42 @@
     "text": "Betrayers of others’ sexual preferences? They’re some way from target’s centre",
     "enumeration": "6"
    },
-   "solution": "OUTERS"
+   "solution": "OUTERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OUTERS",
+    "definitions": [
+     {
+      "text": "Betrayers of others’ sexual preferences?",
+      "at": 0
+     },
+     {
+      "text": "They’re some way from target’s centre",
+      "at": 41
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Betrayers of others’ sexual preferences?",
+      "note": "first meaning: people who publicly expose someone's sexuality"
+     },
+     {
+      "clueFragment": "They’re some way from target’s centre",
+      "note": "second meaning: hits in the outermost ring of a target"
+     }
+    ],
+    "explanation": {
+     "surface": "Two descriptions, one of gossiping informers, one of poor shots at archery.",
+     "definitionFit": "To out someone is to reveal their sexuality, and in archery or shooting an outer is a hit on the outside ring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +1114,60 @@
     "text": "Savage article, namely one forming leader",
     "enumeration": "8"
    },
-   "solution": "SCATHING"
+   "solution": "SCATHING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCATHING",
+    "definitions": [
+     {
+      "text": "Savage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "forming leader",
+      "for": "charade",
+      "note": "these pieces take the lead, placed ahead of the other one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "namely",
+      "gives": "SC",
+      "note": "sc. for scilicet, Latin for namely"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a is one"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "THING",
+      "note": "an article is a thing or object"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SC",
+      "A",
+      "THING"
+     ]
+    },
+    "explanation": {
+     "surface": "A savage newspaper piece singles out one person who leads the attack.",
+     "walkthrough": "'Article' suggests a grammatical a or the, but here it is an object.",
+     "definitionFit": "A savage review or remark is a scathing one, bitterly harsh in its criticism."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +1180,60 @@
    "clue": {
     "text": "Treat to sexual advances? Husband replacing second can (7, two words)"
    },
-   "solution": "HITUPON"
+   "solution": "HITUPON",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "HITUPON",
+    "definitions": [
+     {
+      "text": "Treat to sexual advances?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replacing",
+      "for": "substitution",
+      "note": "one letter takes the place of another within the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Husband",
+      "gives": "H",
+      "note": "H for husband"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S for second"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "SITUPON",
+      "note": "can is slang for the bottom, as is sit-upon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ITUPON"
+     ]
+    },
+    "explanation": {
+     "surface": "A husband pesters someone with sexual advances.",
+     "walkthrough": "H takes the place of the S at the front of SITUPON.",
+     "definitionFit": "To hit on someone, or hit upon them, is slang for making sexual overtures to them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1247,47 @@
     "text": "Old suckers and weeds",
     "enumeration": "5"
    },
-   "solution": "CULLS"
+   "solution": "CULLS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CULLS",
+    "definitions": [
+     {
+      "text": "Old suckers",
+      "at": 0
+     },
+     {
+      "text": "weeds",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old suckers",
+      "note": "first meaning: archaic word for dupes or gulls"
+     },
+     {
+      "clueFragment": "weeds",
+      "note": "second meaning: removes unwanted ones, thins out"
+     }
+    ],
+    "explanation": {
+     "surface": "A gardener complains about old suckers and weeds.",
+     "walkthrough": "'Suckers' and 'weeds' suggest plants, but the first is people who are easily fooled.",
+     "definitionFit": "A cull was an old term for a simpleton or dupe, and to cull is to pick out and remove the unwanted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "suckers"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1301,57 @@
     "text": "Operating illegally, making head of police furious",
     "enumeration": "6"
    },
-   "solution": "PIRATE"
+   "solution": "PIRATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PIRATE",
+    "definitions": [
+     {
+      "text": "Operating illegally",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "police",
+      "gives": "P",
+      "select": "first",
+      "note": "its opening letter"
+     },
+     {
+      "clueFragment": "furious",
+      "gives": "IRATE",
+      "note": "irate means very angry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "IRATE"
+     ]
+    },
+    "explanation": {
+     "surface": "An illegal operation leaves the chief of police raging.",
+     "definitionFit": "A pirate radio station or copier works outside the law, so pirate as an adjective means operating illegally."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1365,69 @@
     "text": "Versatile opener? Grandmaster dispenses with his first around start of event",
     "enumeration": "7"
    },
-   "solution": "PASSKEY"
+   "solution": "PASSKEY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PASSKEY",
+    "definitions": [
+     {
+      "text": "Versatile opener?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dispenses with his first",
+      "for": "deletion",
+      "note": "doing without his first means the opening letter of the name is dropped"
+     },
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the shortened name goes around the single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grandmaster",
+      "gives": "SPASSKY",
+      "note": "Boris Spassky, Soviet chess grandmaster and world champion"
+     },
+     {
+      "clueFragment": "event",
+      "gives": "E",
+      "select": "first",
+      "note": "its opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PASSK",
+      "E",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A chess master skips his first move, playing around with an all-purpose opening.",
+     "walkthrough": "Drop the S from SPASSKY and put E before the final Y. 'Opener' suggests a chess opening, but it is a key.",
+     "definitionFit": "A passkey, or master key, opens many different locks, so it is a versatile opener."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "opener"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1441,62 @@
     "text": "Poet’s array, No. 1 for reader held in palm",
     "enumeration": "6"
    },
-   "solution": "ATTRAP"
+   "solution": "ATTRAP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ATTRAP",
+    "definitions": [
+     {
+      "text": "Poet’s array",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "No. 1 for",
+      "for": "letter_selection",
+      "note": "number one for a word is its first letter"
+     },
+     {
+      "text": "held in",
+      "for": "container",
+      "note": "the letter is held inside the palm word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reader",
+      "gives": "R",
+      "select": "first",
+      "note": "its opening letter"
+     },
+     {
+      "clueFragment": "palm",
+      "gives": "ATTAP",
+      "note": "attap (atap) is the nipa palm of South-East Asia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATT",
+      "R",
+      "AP"
+     ]
+    },
+    "explanation": {
+     "surface": "A poet's book is held in the reader's hand.",
+     "walkthrough": "'Palm' suggests a hand, but it is the tree. Spenser used the answer as a verb meaning to dress up.",
+     "definitionFit": "Attrap is a Spenserian verb meaning to adorn with trappings, so poetic for array or dress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "palm"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1510,42 @@
     "text": "Obstacle bound to occur in impure morals",
     "enumeration": "6"
    },
-   "solution": "REMORA"
+   "solution": "REMORA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "REMORA",
+    "definitions": [
+     {
+      "text": "Obstacle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bound to occur in",
+      "for": "hidden_word",
+      "note": "the letters are certain to be found within the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "impure morals",
+      "gives": "REMORA",
+      "note": "spans the end of the first word and most of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Loose morals are bound to get in the way.",
+     "definitionFit": "Remora is an old word for a hindrance, from the suckerfish once believed to slow ships."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bound"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1559,61 @@
     "text": "Watch of traditional design, one scaling heights? 6)",
     "enumeration": "6"
    },
-   "solution": "ANALOG"
+   "solution": "ANALOG",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ANALOG",
+    "definitions": [
+     {
+      "text": "Watch of traditional design",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scaling",
+      "for": "reversal",
+      "note": "scaling means climbing upward, so in a down entry the word is read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a is one"
+     },
+     {
+      "clueFragment": "heights",
+      "gives": "GOLAN",
+      "note": "the Golan Heights, on the Israel–Syria border"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NALOG"
+     ],
+     "reversals": [
+      {
+       "from": "GOLAN",
+       "to": "NALOG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old-fashioned watch worn by a climber.",
+     "walkthrough": "The question mark covers using 'heights' alone for the Golan Heights. A sits on top and the climb runs upward through GOLAN.",
+     "definitionFit": "An analog watch shows the time with hands on a dial, the traditional style rather than digital."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heights"
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1627,56 @@
     "text": "Scotsman’s pants, little height in the legs",
     "enumeration": "5"
    },
-   "solution": "PEGHS"
+   "solution": "PEGHS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PEGHS",
+    "definitions": [
+     {
+      "text": "Scotsman’s pants",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the small letter goes inside the legs word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the legs",
+      "gives": "PEGS",
+      "note": "pegs is slang for legs"
+     },
+     {
+      "clueFragment": "little height",
+      "gives": "H",
+      "note": "H is the abbreviation for height"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEG",
+      "H",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A Scotsman's trousers are short in the leg.",
+     "walkthrough": "'Pants' looks like trousers, but it is the verb, breathes hard; pegh is the Scots word for that.",
+     "definitionFit": "Pegh (or pech) is Scots for to pant or puff, so a Scotsman's pants are his peghs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pants"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1690,53 @@
     "text": "Ancient rustic, anonymous, taken in plague",
     "enumeration": "6"
    },
-   "solution": "PESANT"
+   "solution": "PESANT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PESANT",
+    "definitions": [
+     {
+      "text": "Ancient rustic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken in",
+      "for": "container",
+      "note": "the short form is taken inside the plague word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plague",
+      "gives": "PEST",
+      "note": "pest is an old word for plague"
+     },
+     {
+      "clueFragment": "anonymous",
+      "gives": "AN",
+      "note": "AN is a short form of anonymous"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PES",
+      "AN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A nameless peasant of old falls victim to the plague.",
+     "definitionFit": "Pesant is an obsolete spelling of peasant, a country labourer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1750,63 @@
     "text": "Beetle diner found consuming bit of lettuce",
     "enumeration": "6"
    },
-   "solution": "ELATER"
+   "solution": "ELATER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ELATER",
+    "definitions": [
+     {
+      "text": "Beetle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bit of",
+      "for": "letter_selection",
+      "note": "a bit of a word is its first letter here"
+     },
+     {
+      "text": "consuming",
+      "for": "container",
+      "note": "the diner consumes the letter, taking it inside"
+     }
+    ],
+    "linkWords": [
+     "found"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "diner",
+      "gives": "EATER",
+      "note": "someone who eats"
+     },
+     {
+      "clueFragment": "lettuce",
+      "gives": "L",
+      "select": "first",
+      "note": "its opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "L",
+      "ATER"
+     ]
+    },
+    "explanation": {
+     "surface": "A restaurant customer finds a beetle in the salad.",
+     "definitionFit": "An elater is a click beetle, one able to spring into the air when on its back."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1820,49 @@
     "text": "Shorten rewritten poetic lament for the dead",
     "enumeration": "7"
    },
-   "solution": "THRENOS"
+   "solution": "THRENOS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THRENOS",
+    "definitions": [
+     {
+      "text": "poetic lament for the dead",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rewritten",
+      "for": "anagram",
+      "note": "a text rewritten is put down again in a different form, so the letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shorten",
+      "gives": "SHORTEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SHORTEN",
+       "gives": "THRENOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An editor asks for an elegy to be cut and redrafted.",
+     "definitionFit": "A threnos, or threnody, is a dirge or elegy mourning someone who has died."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1876,42 @@
     "text": "Secret union",
     "enumeration": "5"
    },
-   "solution": "CLOSE"
+   "solution": "CLOSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CLOSE",
+    "definitions": [
+     {
+      "text": "Secret",
+      "at": 0
+     },
+     {
+      "text": "union",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Secret",
+      "note": "first meaning: kept private, reticent"
+     },
+     {
+      "clueFragment": "union",
+      "note": "second meaning: an old word for a junction or joining"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a clandestine trade union or marriage; the words are separate meanings.",
+     "definitionFit": "Close means reticent or concealed, and Chambers records the noun close in the sense of a junction or coming together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "union"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1925,70 @@
     "text": "Processed ham, tinned, not tough – one bought to do the job?",
     "enumeration": "6"
    },
-   "solution": "HITMAN"
+   "solution": "HITMAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "HITMAN",
+    "definitions": [
+     {
+      "text": "one bought to do the job?",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means the following word is left out of the one before it"
+     },
+     {
+      "text": "Processed",
+      "for": "anagram",
+      "note": "processed food has been reworked, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ham",
+      "gives": "HAM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tinned",
+      "gives": "TINNED",
+      "note": "taken as written, before its tail is removed"
+     },
+     {
+      "clueFragment": "tough",
+      "gives": "NED",
+      "note": "a ned is a Scottish young hooligan, a tough"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HITMAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HAMTIN",
+       "gives": "HITMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Processed tinned ham that isn't tough, bought for a particular task.",
+     "walkthrough": "Take NED off the end of TINNED, then rearrange HAM and TIN. The question mark flags 'bought' as a play on hired.",
+     "definitionFit": "A hitman is a hired killer, someone paid to carry out a murder as a contract job."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "tough"
+    }
+   }
   },
   {
    "number": 28,
@@ -469,7 +2002,41 @@
     "text": "Parisian landmark? It was grand as part of artistic education",
     "enumeration": "4"
    },
-   "solution": "TOUR"
+   "solution": "TOUR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TOUR",
+    "definitions": [
+     {
+      "text": "Parisian landmark?",
+      "at": 0
+     },
+     {
+      "text": "It was grand as part of artistic education",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Parisian landmark?",
+      "note": "first meaning: French for tower, as in the Eiffel one"
+     },
+     {
+      "clueFragment": "It was grand as part of artistic education",
+      "note": "second meaning: the Grand one taken by young gentlemen to see European art"
+     }
+    ],
+    "explanation": {
+     "surface": "Two descriptions, one a Paris monument and one a cultured young man's travels.",
+     "definitionFit": "Tour is the French word for tower, and the Grand Tour was a traditional journey through Europe for cultural education."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 29,
@@ -483,7 +2050,54 @@
     "text": "Rock at sea, ever avoided one by one",
     "enumeration": "5"
    },
-   "solution": "SALLY"
+   "solution": "SALLY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SALLY",
+    "definitions": [
+     {
+      "text": "Rock at sea",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "avoided",
+      "for": "deletion",
+      "note": "what is avoided is kept out, so those letters are left out of the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ever",
+      "gives": "EVER",
+      "note": "taken as written, then removed"
+     },
+     {
+      "clueFragment": "one by one",
+      "gives": "SEVERALLY",
+      "note": "severally means separately, one at a time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A rock in the ocean is always steered clear of, ship by ship.",
+     "walkthrough": "'Rock' looks like a reef but is a verb. Removing EVER from SEVERALLY leaves the answer.",
+     "definitionFit": "To sally a ship is to rock it by having the crew run from side to side, to free it from ice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Rock"
+    }
+   }
   },
   {
    "number": 30,
@@ -497,7 +2111,63 @@
     "text": "Coal tar compound – there’s nothing left inside fish",
     "enumeration": "7"
    },
-   "solution": "SKATOLE"
+   "solution": "SKATOLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SKATOLE",
+    "definitions": [
+     {
+      "text": "Coal tar compound",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "these pieces go inside the fish word"
+     }
+    ],
+    "linkWords": [
+     "there’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "SKATE",
+      "note": "a skate is a flat fish"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O is zero"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKAT",
+      "O",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A grim discovery that no coal tar is left inside a fish.",
+     "definitionFit": "Skatole is a foul-smelling compound found in coal tar and in faeces."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 31,
@@ -511,7 +2181,51 @@
     "text": "Development of bodily fibres that’ll flex energies on us",
     "enumeration": "12"
    },
-   "solution": "NEUROGENESIS"
+   "solution": "NEUROGENESIS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEUROGENESIS",
+    "definitions": [
+     {
+      "text": "Development of bodily fibres",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that’ll flex",
+      "for": "anagram",
+      "note": "something that flexes bends into a new shape, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "energies on us",
+      "gives": "ENERGIESONUS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ENERGIESONUS",
+       "gives": "NEUROGENESIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fitness trainer talks about muscle fibres growing as we flex our energies.",
+     "walkthrough": "'Fibres' suggests muscle, but the bodily fibres here are nerve fibres.",
+     "definitionFit": "Neurogenesis is the growth and development of nerve tissue, whose fibres carry signals through the body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flex"
+    }
+   }
   },
   {
    "number": 32,
@@ -525,7 +2239,53 @@
     "text": "Like crude style of pop, lively, catching current fashion",
     "enumeration": "7"
    },
-   "solution": "GARAGEY"
+   "solution": "GARAGEY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GARAGEY",
+    "definitions": [
+     {
+      "text": "Like crude style of pop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "catching",
+      "for": "container",
+      "note": "the lively word catches the fashion word and holds it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lively",
+      "gives": "GAY",
+      "note": "gay in its older sense of merry and lively"
+     },
+     {
+      "clueFragment": "current fashion",
+      "gives": "RAGE",
+      "note": "all the rage, the latest craze"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GA",
+      "RAGE",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A rough, energetic music style is suddenly in vogue.",
+     "definitionFit": "Garage rock is raw, amateurish rock music, so garagey describes something in that crude manner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 33,
@@ -539,7 +2299,57 @@
     "text": "Dance that’s touching when grasped by little chap",
     "enumeration": "5"
    },
-   "solution": "TREAD"
+   "solution": "TREAD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TREAD",
+    "definitions": [
+     {
+      "text": "Dance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grasped by",
+      "for": "container",
+      "note": "the short word is grasped and held inside the other"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "little chap",
+      "gives": "TAD",
+      "note": "a tad is a small child, a little boy"
+     },
+     {
+      "clueFragment": "touching",
+      "gives": "RE",
+      "note": "re means concerning or touching on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RE",
+      "AD"
+     ]
+    },
+    "explanation": {
+     "surface": "A small boy's dance is described as touching.",
+     "definitionFit": "To tread a measure is to dance it, so tread can mean to dance or step out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "touching"
+    }
+   }
   }
  ]
 }
