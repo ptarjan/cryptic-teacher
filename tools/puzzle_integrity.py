@@ -109,6 +109,10 @@ The flags, in the order they matter:
             end) without its annotation is the usual way in. Checked on every
             write and, for the puzzle files a commit stages, by
             .githooks/pre-commit (`--quotes FILE...`).
+  CURLY     clue text (or an annotation's quote of it) holding a curly quote
+            or a backtick: it is stored with ' and " and curled on display
+            (tools/quotes.py, quotes.js). Checked on every write, which
+            straightens first.
   FILED     a puzzle file that is not where puzzle_paths.file_for puts it:
             puzzles/<series>/<year>/<id>.json, the year its `date`'s. A file in
             the wrong year folder, under a name that is not its id, or left flat
@@ -176,6 +180,7 @@ import parallel  # noqa: E402
 import provenance  # noqa: E402
 import puzzle_paths  # noqa: E402
 import puzzle_schema  # noqa: E402
+import quotes  # noqa: E402
 import series as series_meta  # noqa: E402
 from apply_solution import (  # noqa: E402
     check_fill,
@@ -210,7 +215,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # The flags, in the order they are reported. One tuple, read by both the
 # per-finding listing and the tally, so a check cannot be added to one and
 # missed from the other.
-FLAGS = ("LENGTH", "ORDER", "APOSTROPHE", "CROSS", "CELLS", "ALTERED", "GRID", "NUMBER", "DATE", "SETTER", "SHAPE", "PROV", "QUOTE", "FILED", "NEARDUP", "REPRINT")
+FLAGS = ("LENGTH", "ORDER", "APOSTROPHE", "CROSS", "CELLS", "ALTERED", "GRID", "NUMBER", "DATE", "SETTER", "SHAPE", "PROV", "QUOTE", "CURLY", "FILED", "NEARDUP", "REPRINT")
 
 # No cryptic crossword in this corpus predates the Guardian's, which began in 1929.
 # A date below this is a page the publisher mis-filed or a fetcher that lost one,
@@ -1151,6 +1156,7 @@ def check_puzzle(puzzle, today, flags):
     check_preamble(puzzle, flags)
     check_duplicated_clues(puzzle, flags)
     check_annotation_quotes(puzzle, flags)
+    check_curly_quotes(puzzle, flags)
     check_reprint(puzzle, flags)
 
 
@@ -1186,6 +1192,14 @@ def check_annotation_quotes(puzzle, flags):
             if text not in clue:
                 flags.append(("QUOTE", puzzle.get("id"), f"{entry_id(e)}: {what} {text!r} is not "
                               f"in the clue {clue!r}; edit the annotation with the clue"))
+
+
+def check_curly_quotes(puzzle, flags):
+    """CURLY: clue text holding a curly quote or a backtick. It is stored with
+    ' and " (tools/quotes.py) and curled on display (quotes.js)."""
+    for e, key, text in quotes.curly(puzzle):
+        flags.append(("CURLY", puzzle.get("id"), f"{entry_id(e)}: {key} {text!r} holds a curly "
+                      "quote or backtick; clue text is stored straight (quotes.straight)"))
 
 
 def check_duplicated_clues(puzzle, flags):
@@ -1357,6 +1371,11 @@ def check_strays(published, flags, files):
 _TODAY = None
 
 
+# The corpus predates straight-quoted storage; until tools/quotes.py has
+# converted it, the sweep leaves CURLY out. Writes refuse it already.
+CURLY_ENFORCED = False
+
+
 def _one_file(path):
     """Everything audit() needs from one file, for parallel.pmap: its own
     flags, and what the cross-file checks weigh it by."""
@@ -1367,6 +1386,8 @@ def _one_file(path):
     held = (puzzle.get("series", "cryptic"), puzzle["number"], date_of(puzzle), pid)
     row = (pid, content_hash(puzzle), clue_keys(puzzle), held)
     check_puzzle(puzzle, _TODAY, flags)
+    if not CURLY_ENFORCED:
+        flags = [f for f in flags if f[0] != "CURLY"]
     return flags, row
 
 

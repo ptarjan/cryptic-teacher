@@ -49,6 +49,7 @@ LAYOUT_DOC = REPO / "docs" / "LAYOUT.md"
 LAYOUT = [
     ("", "index.html, style.css, app.js", "the app (vanilla HTML/CSS/JS)"),
     ("", "analytics.js", "the one shared GA snippet every page loads, so there is exactly one id"),
+    ("", "quotes.js", "curls the straight quotes clue text is stored with, for display (tools/quotes.py stores them straight)"),
     ("", "qr.js", "the QR encoder, drawn in the page: the sync code is the account, so it is never handed to an image service"),
     ("", "vendor/", "the one dependency shipped to the browser: jsQR, pinned by filename and sha256, fetched only when someone scans a code"),
     ("", "learn/", "the “How cryptic clues work” lesson, built from tools/tutorial.html — generated, not committed"),
@@ -108,6 +109,8 @@ LAYOUT = [
     ("fetching", "tools/groups.py", "linked answers: the leader carries `group`, its lights in order, and the other lights nothing; maps each light to its group or leader, and spreads/collapses the per-light claims the Guardian ships"),
     ("fetching", "tools/test_definitions.sh", "holds each of those rules, the refusal, and the validator's check that `at` points at its text"),
     ("fetching", "tools/puzzle_integrity.py", "checks the puzzles themselves: two puzzles that are the same puzzle, an answer that does not fit its clue’s printed length, two entries that cross and disagree"),
+    ("fetching", "tools/quotes.py", "clue text is stored with straight quotes: straightens every write, and converts held files"),
+    ("fetching", "tools/test_quotes.js", "a clue stored with straight quotes shows curled ones, apostrophes and leading elisions included"),
     ("fetching", "tools/test_puzzle_integrity.sh", "proves the two LENGTH exception tables match by nothing looser than the exact sentence they’re keyed on, and that baselining one finding never silences the rest of its puzzle"),
     ("fetching", "tools/test_puzzle_invariants.sh", "proves every puzzle write refuses what the corpus sweep would report"),
     ("fetching", "tools/fetch_ia_book.py", "borrows a lending-restricted archive.org book, saves its OCR text outside the repo, returns the loan, and hands back on startup any loan a killed run left out \u2014 a finally clause does not run when the process is killed by a signal"),

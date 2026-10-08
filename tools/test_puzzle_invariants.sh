@@ -148,6 +148,19 @@ p = copy.deepcopy(real("sundaytimes-5000"))
 p["date"] = None
 write("prize-not-yet-dated", p)
 
+# Clue text curled by its source is written straight, and an annotation
+# quoting it is straightened with it rather than dropped as stale.
+import quotes
+curled = copy.deepcopy(real("independent-10458"))
+for e in curled["entries"]:
+    for holder, key in quotes._clue_strings(e):
+        holder[key] = holder[key].replace("'", "\u2019")
+before = sum("annotation" in e for e in curled["entries"])
+got = write("curled-clues", curled)
+print("STRAIGHT", bool(got) and not any(quotes.curly(got))
+      and any("\u2019" in e["clue"].get("text", "") for e in curled["entries"])
+      and sum("annotation" in e for e in got["entries"]) == before)
+
 write("30098-blank-12a", real("cryptic-30098"))
 write("23053-corrected", real("cryptic-23053"))
 
@@ -182,6 +195,7 @@ print("CORPUS " + ("; ".join(f"{f} {pid} {w}" for f, pid, w in flags[:5]) or "cl
 PY
 )
 echo "every puzzle write runs the corpus sweep's per-puzzle checks"
+same "curly quotes in clue text and its annotation are written straight, annotations kept" "$(grep '^STRAIGHT ' <<<"$out")" "STRAIGHT True"
 same "a healthy puzzle writes" "$(grep '^WROTE healthy$' <<<"$out")" "WROTE healthy"
 same "a group held by its leader alone writes" "$(grep ' leader-holds-group' <<<"$out")" "WROTE leader-holds-group"
 same "a continuation holding the group is refused" "$(grep ' continuation-holds-group' <<<"$out")" "REFUSED continuation-holds-group SHAPE"

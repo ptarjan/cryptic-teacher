@@ -55,7 +55,7 @@ const ROOT = path.join(__dirname, "..");
 // it fails when a file the smoke test reaches is not named here.
 // Over-including costs a re-run; under-including serves a stale pass.
 const SMOKE_DEPS = [
-    "app.js", "analytics.js", "index.html", "style.css", "qr.js", "sw.js", "site.webmanifest",
+    "app.js", "analytics.js", "index.html", "style.css", "qr.js", "quotes.js", "sw.js", "site.webmanifest",
     "favicon", "apple-touch-icon", "icon-192.png", "icon-512.png", "og.png", "sync/", "vendor/",
     "tools/acquire_book.py", "tools/alert.sh", "tools/annotation.py", "tools/annotation_backlog.json",
     "tools/app_tables.py", "tools/apply_solution.py", "tools/archive_coverage.py", "tools/blog_facts.py",
@@ -76,7 +76,7 @@ const SMOKE_DEPS = [
     "tools/og_page_card.html", "tools/page_card.py", "tools/parallel.py", "tools/parse_penguin_book.py",
     "tools/prereset_backfill.sh", "tools/provenance.py", "tools/push_puzzle_commit.sh",
     "tools/puzzle_integrity.py", "tools/puzzle_paths.js", "tools/puzzle_paths.py",
-    "tools/puzzle_schema.py", "tools/puzzle_tags.py", "tools/reconstruct_grid.py", "tools/reprints.py",
+    "tools/puzzle_schema.py", "tools/puzzle_tags.py", "tools/quotes.py", "tools/reconstruct_grid.py", "tools/reprints.py",
     "tools/reindex.js", "tools/scan_crop.py", "tools/scan_queue.py", "tools/series.py",
     "tools/showcase.py", "tools/smoke_test.js", "tools/stamp_assets.py",
     "tools/test_alert_claimed.sh", "tools/test_nightly_worktree.sh",
