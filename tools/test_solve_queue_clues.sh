@@ -27,8 +27,9 @@ pick=$(awk '/^unsolved=\$\(python3 /,/^\)$/' tools/daily_update.sh)
 echo "the queue reads an index this checkout wrote"
 # puzzles/index.json is generated and untracked, and the queue reads a missing
 # field as a puzzle with nothing wrong. So an index left behind by older code
-# answers "fine" for every puzzle. The reindex has to come first.
-reindex_at=$(grep -n '^python3 tools/fetch_puzzle.py --reindex$' tools/daily_update.sh |
+# answers "fine" for every puzzle. The tick rebuilds it detached, and reads it
+# only once a rebuild by this checkout's indexer has finished (index_ready).
+reindex_at=$(grep -n '^if ! index_ready; then$' tools/daily_update.sh |
              cut -d: -f1 | head -1)
 select_at=$(grep -n '^unsolved=\$(python3 ' tools/daily_update.sh | cut -d: -f1 | head -1)
 check "the index is rebuilt before the queue is chosen" \
