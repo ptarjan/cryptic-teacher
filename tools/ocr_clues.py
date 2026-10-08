@@ -1320,8 +1320,8 @@ def clean(text):
     # So is any dash after a colon ("Charade:—components", read ": -components").
     text = re.sub(r"(?<=[a-z]:)[ \t]*(?:—|--?|–)[ \t]*(?=[A-Za-z])", " — ", text)
     # The space after a comma, semicolon or colon between two words lost
-    # ("rum,as", "usage:acceptable"), or before a quotation ("say,'Give").
-    text = re.sub(r"(?<=[a-z]{2})([,;:])(?=[a-z]{2}|['\u2018\"\u201c][A-Z])", r"\1 ", text)
+    # ("rum,as", "usage:acceptable", "knot,I'm"), or before a quotation ("say,'Give").
+    text = re.sub(r"(?<=[a-z]{2})([,;:])(?=[a-z]{2}|[A-Z][a-z']|['\u2018\"\u201c][A-Z])", r"\1 ", text)
     # An exclamation mark read as a capital I or a one, last before the count.
     text = re.sub(r"(?<=[a-z]) [I1l](?=\s*(?:\(\s*\d|$))", "!", text)
     text = re.sub(r"(?<![\d(])\b1(?=[a-z]*\b)(?![a-z]*\s+(?:and|or|&)\s+\d)([a-z]*)", one_for_i, text)

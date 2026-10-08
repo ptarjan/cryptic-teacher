@@ -373,6 +373,12 @@ check("a line set close under the one read again is kept, not taken from the cro
       sorted(w[4] for w in g.reread_lines(PAGE, "k", "ch", tight, [en5])))
 check("the line read again is still put in (mirror)", True,
       "8." in [w[4] for w in g.reread_lines(PAGE, "k", "ch", tight, [en5])])
+def read_box(img, key, box, which):
+    reads.append(box)
+    return [(1064, 848, 1081, 865, "II."), (1095, 848, 1181, 868, "A park.")]
+g.read_box = read_box
+check("a line read again whose number reads as letters (\"II.\") is put in as 11",
+      ["11.", "6. Lenten.", "A park."], sorted(w[4] for w in g.reread_lines(PAGE, "k", "ch", mine[:1], [en5])))
 reads.clear()
 check("a line no reading numbers is not (mirror)", (["6. Lenten."], 0),
       (sorted(w[4] for w in g.reread_lines(PAGE, "k", "ch", mine[:1], [lost])), len(reads)))

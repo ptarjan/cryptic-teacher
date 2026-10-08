@@ -408,6 +408,9 @@ check("no stop before it, or one ending a word: nothing put back (mirror)", [Non
 check("a quotation parted from the comma before it, and a dash after a colon spaced",
       ["A printer might say, 'Give me a", "Charade: — components I postpone."],
       [oc.clean("A printer might say,'Give me a"), oc.clean("Charade: -components I postpone.")])
+check("a comma glued to a capitalised word is spaced (No 97 33D \"knot,I'm\")",
+      "They'd cut the Gordian knot, I'm sure.", oc.clean("They'd cut the Gordian knot,I'm sure."))
+check("an initialism's comma stays (mirror)", "U.S.,UK", oc.clean("U.S.,UK"))
 check("a hyphen within a word stays (mirror)", "A well-known man, I'd say.", oc.clean("A well-known man, I'd say."))
 
 print(f"FAILS {fails}")
