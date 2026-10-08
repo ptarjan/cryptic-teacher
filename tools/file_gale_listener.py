@@ -16,8 +16,11 @@ read agree, and is checked against a third:
     every clue number has a light in its direction and every light a clue.
     A fit can be exact with a faint bar missing whose far cell starts a
     light anyway (the numbering is the same), so where the lists disagree
-    and exactly one unsure side (listener_grid.UNSURE) flipped makes them
-    agree, it is flipped; otherwise the grid is not used. Before that the
+    and one fewest set of unsure sides (listener_grid.UNSURE) flipped makes
+    them agree (one side of any, or up to MOST_FLIPS of the NEAR nearest
+    the bar width: No 4's four faint bars), it is flipped; otherwise the
+    grid is not used. A page numbering its lights as printed (No 4 trades
+    3 and 4 and skips 32) has its list read by those numbers. Before that the
     list is mended() where the page itself errs: a line read twice, a
     clue number misprinted, a light printed with no clue;
   - its report's answers, the check: the filled grid of the "Report on
@@ -59,7 +62,9 @@ grid that turns exact files on the next pass.
 import argparse
 import copy
 import hashlib
+import itertools
 import json
+import math
 import re
 import subprocess
 import sys
@@ -121,30 +126,31 @@ def bars_of(rows):
             for s in "rb" if ch == "+" or ch == s}
 
 
-def flipped(rows, side):
-    bars = bars_of(rows)
-    bars[side] = not bars.get(side)
-    return lg.with_bars(rows, bars)
-
-
 def light_ids(rows):
     return {f"{n}-{d}" for n, d in rg.light_cells(rows)}
 
 
-def lights_fit(rows, clues):
-    """Why the grid's lights are not the clue list's (`clues` {light id:
-    {"text", "enumeration"}}), or None: each clue read needs its light, of
-    its enumeration's length where it has one, and each light a number in
-    the lists."""
+def misfits(rows, clues):
+    """(spare, unclued, long): the light ids of `clues` ({light id: {"text",
+    "enumeration"}}) read with words but on no light of `rows`, of the
+    lights no clue names, and of the lights whose clue's enumeration is
+    not their length. A number the reader laid no words on says nothing of
+    the grid: on a light it is a clue unread (complete() refuses it), off
+    one a guess."""
     have = {f"{n}-{d}": len(cells) for (n, d), cells in rg.light_cells(rows).items()}
-    # A number the reader laid no words on says nothing of the grid: on a
-    # light it is a clue unread (complete() refuses it), off one a guess.
     spare = sorted({lid for lid, c in clues.items() if (c.get("text") or "").strip()} - set(have), key=order)
     unclued = sorted(set(have) - set(clues), key=order)
     long = sorted((lid for lid, c in clues.items() if lid in have and c.get("enumeration")
                    and gl.al.ftp.count(c["enumeration"]) != have[lid]), key=order)
-    parts = [f"{what} {', '.join(ids)}" for what, ids in (
-        ("no light for", spare), ("no clue for", unclued), ("count disagrees for", long)) if ids]
+    return spare, unclued, long
+
+
+def lights_fit(rows, clues):
+    """Why the grid's lights are not the clue list's (misfits), or None:
+    each clue read needs its light, of its enumeration's length where it
+    has one, and each light a number in the lists."""
+    parts = [f"{what} {', '.join(ids)}" for what, ids in zip(
+        ("no light for", "no clue for", "count disagrees for"), misfits(rows, clues)) if ids]
     return "; ".join(parts) or None
 
 
@@ -257,22 +263,29 @@ def unstrayed(fit, clues):
     return out, notes, None
 
 
-def unswapped(fit, clues):
-    """(clues keyed by the lights' own numbers, notes): a page printing two
-    lights' numbers each in the other's start (fit "swap", No 4's 3 and 4)
-    numbers its clue list as the page does."""
-    if not fit.get("swap"):
+def as_page(rows, fit, clues):
+    """(clues keyed by `rows`' light numbers, notes), or None: a page
+    numbering its lights as printed (fit "numbering" "printed", No 4's 3
+    and 4 traded and 32 skipped) has its clue list read by those numbers,
+    each clue going to the light whose start the page numbers so. None when
+    the printed numbers are no numbering of `rows` (lg.as_printed) or a
+    clue's number is on no light. Unchanged otherwise."""
+    if fit.get("numbering") != "printed":
         return clues, {}
-    st = lg.starts(fit["rows"])
-    a, b = (st[tuple(c)] for c in fit["swap"])
-    trade = {a: b, b: a}
+    page = lg.as_printed(rows, {(r, c): n for r, c, n in fit["printed"]})
+    if page is None:
+        return None
+    st = lg.starts(rows)
+    to = {n: st[c] for c, n in page.items()}
     out, notes = {}, {}
     for lid, c in clues.items():
         m, d = number_of(lid)
-        mine = f"{trade.get(m, m)}-{d}"
+        if m not in to:
+            return None
+        mine = f"{to[m]}-{d}"
         out[mine] = c
-        if m in trade:
-            notes[mine] = f"printed as {lid}: the page prints {a} and {b} each in the other's cell"
+        if to[m] != m:
+            notes[mine] = f"printed as {lid}: the page numbers its lights as printed"
     return out, notes
 
 
@@ -281,28 +294,75 @@ def order(lid):
     return d != "across", int(n)
 
 
-def flips(grid, rows, clues):
-    """[(side, rows)] of each unsure side of `grid` whose flip in `rows`
-    makes the lights the clue list's."""
+#: The unsure sides, nearest BAR_RATIO first, that a search of more than
+#: one flip tries, and the most flips it makes.
+NEAR, MOST_FLIPS = 24, 4
+
+
+def misfit_lines(rows, clues):
+    """{(axis, index)}: the rows ("r", y) and columns ("b", x) holding a
+    light the clue list and `rows` disagree on, its start where the list
+    has a light the grid has not: an across light hangs on the bars of its
+    row alone, a down light on those of its column."""
+    lts = rg.light_cells(rows)
+    at = {n: cells[0] for (n, _), cells in lts.items()}
+    out = set()
+    for lid in itertools.chain(*misfits(rows, clues)):
+        n, d = number_of(lid)
+        for y, x in lts.get((n, d)) or ([at[n]] if n in at else []):
+            out.add(("r", y) if d == "across" else ("b", x))
+    return out
+
+
+def flips(grid, fit, lay):
+    """[(sides, rows, clues, notes)] of each fewest set of `grid`'s unsure
+    sides (listener_grid.UNSURE) whose flip in `rows` makes its lights the
+    fitted rows the clue list's as lay(rows) ((clues, notes) or None) lays
+    it: one flip of any, else, on a page numbering its lights as printed
+    (whose numbers tie each clue to a cell, so a light hangs on the bars of
+    its own row or column alone), up to MOST_FLIPS bars put in, of the NEAR
+    sides nearest the bar width each lying in a row or column holding
+    a light they disagree on (misfit_lines). A bar printed faint reads as a rule, so
+    several go missing (No 4's four); a rule never reads as several bars,
+    and taking one out (No 4's under 19 Down) gives a light no word fills.
+    [] when none does."""
     thin = max(grid["thin"], 1.0)
-    return [(side, alt) for side, width in grid["sides"].items()
-            if lg.UNSURE[0] <= width / thin <= lg.UNSURE[1]
-            for alt in [flipped(rows, side)] if lights_fit(alt, clues) is None]
-
-
-def fit_to_clues(grid, fit, clues):
-    """(rows, flipped side or None, why): the fitted grid when its lights
-    are the clue list's, else the one unsure side whose flip makes them so,
-    else (None, None, why)."""
+    edge = math.log(lg.BAR_RATIO)
+    unsure = sorted((side for side, width in grid["sides"].items() if lg.UNSURE[0] <= width / thin <= lg.UNSURE[1]),
+                    key=lambda side: abs(math.log(grid["sides"][side] / thin) - edge))
     rows = fit["rows"]
-    why = lights_fit(rows, clues)
+    got = lay(rows)
+    lines = misfit_lines(rows, got[0]) if got and fit.get("numbering") == "printed" else set()
+    bars = bars_of(rows)
+    near = [side for side in unsure if not bars.get(side)
+            and (side[2], side[0] if side[2] == "r" else side[1]) in lines][:NEAR]
+    for k in range(1, MOST_FLIPS + 1):
+        hits = []
+        for sides in itertools.combinations(unsure if k == 1 else near, k):
+            alt = lg.with_bars(rows, {**bars, **{side: not bars.get(side) for side in sides}})
+            got = lay(alt)
+            if got and lights_fit(alt, got[0]) is None:
+                hits.append((sides, alt, *got))
+        if hits:
+            return hits
+    return []
+
+
+def fit_to_clues(grid, fit, lay):
+    """(rows, flipped sides, clues, notes, why, mends): the fitted grid when
+    its lights are the clue list's as lay(rows) lays it, else the one
+    fewest set of unsure sides whose flip makes them so (flips), else
+    (None, None, None, None, why, how many fewest sets would)."""
+    rows = fit["rows"]
+    got = lay(rows)
+    why = lights_fit(rows, got[0]) if got else "the printed numbers number none of its starts"
     if why is None:
-        return rows, None, None
-    fixes = flips(grid, rows, clues)
+        return rows, [], *got, None, 0
+    fixes = flips(grid, fit, lay)
     if len(fixes) == 1:
-        return fixes[0][1], fixes[0][0], None
-    return None, None, f"the grid's lights are not the clue list's: {why}" + (
-        f" ({len(fixes)} unsure sides would each mend it)" if fixes else "")
+        return fixes[0][1], fixes[0][0], *fixes[0][2:], None, 1
+    return None, None, None, None, f"the grid's lights are not the clue list's: {why}" + (
+        f" ({len(fixes)} sets of {len(fixes[0][0])} unsure sides would each mend it)" if fixes else ""), len(fixes)
 
 
 def agreement(a, b):
@@ -421,15 +481,22 @@ def join(reading, grids, reports, read_letters):
         if page is None:
             whys.append(why)
             continue
-        page, traded = unswapped(g["fit"], page)
-        shifted = {**shifted, **traded}
-        laid, notes = mended(g["fit"]["rows"], page)
-        notes = {**shifted, **notes}
-        rows, side, why = fit_to_clues(g["grid"], g["fit"], laid)
-        if not rows and not flips(g["grid"], g["fit"]["rows"], laid):
-            skip, note = skipped(g["fit"]["rows"], laid)
+
+        def lay(rows, fit=g["fit"], page=page, shifted=shifted):
+            # The page's own errors are mended on the fitted grid: a faint
+            # bar flipped must fit the list as mended there. A page
+            # numbering its lights as printed is read again on each grid.
+            got = as_page(rows if fit.get("numbering") == "printed" else fit["rows"], fit, page)
+            if got is None:
+                return None
+            laid, notes = mended(rows if fit.get("numbering") == "printed" else fit["rows"], got[0])
+            return laid, {**shifted, **got[1], **notes}
+
+        rows, sides, laid, notes, why, mends = fit_to_clues(g["grid"], g["fit"], lay)
+        if not rows and not mends and (got := lay(g["fit"]["rows"])):
+            skip, note = skipped(g["fit"]["rows"], got[0])
             if skip and lights_fit(g["fit"]["rows"], skip) is None:
-                rows, side, laid, notes = g["fit"]["rows"], None, skip, {**notes, **note}
+                rows, sides, laid, notes = g["fit"]["rows"], [], skip, {**got[1], **note}
         if rows:
             clues = laid
             reading = {**reading, "clues": laid}
@@ -438,16 +505,16 @@ def join(reading, grids, reports, read_letters):
     else:
         verdict["lacks"] = "grid: " + "; ".join(whys)
         return None, verdict, None
-    if side:
-        verdict["flipped"] = list(side)
+    if sides:
+        verdict["flipped"] = [list(side) for side in sides]
     if notes:
         verdict["mended"] = notes
     if g["fit"].get("moved"):
         verdict["numberMoved"] = [list(c) for c in g["fit"]["moved"]]
     if g["fit"].get("stray"):
         verdict["strayNumber"] = g["fit"]["stray"]
-    if g["fit"].get("swap"):
-        verdict["swappedNumbers"] = g["fit"]["swap"]
+    if g["fit"].get("numbering") == "printed":
+        verdict["numbering"] = "printed"
     # One clue read onto two lights has lost the other's: both go blank
     # unless one light's count picks it (ocr_clues.one_light_each).
     lengths = {f"{n}-{d}": len(c) for (n, d), c in rg.light_cells(rows).items()}

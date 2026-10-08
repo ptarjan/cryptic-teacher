@@ -622,27 +622,41 @@ def fit(grid, printed):
             (x for b in tries for x in [stray(with_bars(grid["rows"], b), agreed)] if x), None)):
         return {"rows": got[0], "shortest": 2, "agreed": len(agreed), "disagree": [], "moved": [],
                 "exact": True, "stray": list(got[1])}
-    if not out["exact"] and shortest == 2 and (pair := swapped(rows, agreed)):
-        return {**out, "disagree": [], "exact": True, "swap": [list(c) for c in pair]}
+    # The page's own numbering, one pair traded (No 4's 3 and 4); a number
+    # skipped is no slip the numbers alone can tell from a misread one.
+    if (not out["exact"] and shortest == 2 and len(agreed) >= EXACT_COVER * len(st)
+            and (page := as_printed(rows, agreed)) and sorted(page.values()) == sorted(st.values())):
+        return {**out, "disagree": [], "exact": True, "numbering": "printed",
+                "printed": [[r, c, n] for (r, c), n in sorted(agreed.items())]}
     return out
 
 
-def swapped(rows, agreed):
-    """(cell, cell) when the page prints two consecutive lights' start
-    numbers each in the other's cell (No 4 prints 4 left of 3) and every
-    agreed number is the page's once they trade: the filer reads the clue
-    list by the page's numbers. Else None."""
-    st = starts(rows)
-    if len(agreed) < EXACT_COVER * len(st):
+def as_printed(rows, agreed):
+    """{start cell: number} as the page numbers `rows`' lights, when it
+    slips: each start takes its number read (`agreed` {cell: n}), each
+    unread start in reading order the least number nothing takes above the
+    start's before, or the least of all, whichever puts fewer reads out of
+    order (the first; the second when it falls in a traded pair). No 4
+    prints 4 left of 3 and skips 32. None when a read lies in a cell
+    starting no light, two cells share a number, or the numbers fall in
+    reading order more than once (one pair traded)."""
+    st = sorted(starts(rows))
+    taken = set(agreed.values())
+    if not set(agreed) <= set(st) or len(taken) != len(agreed):
         return None
-    at = {n: c for c, n in st.items()}
-    for c, n in sorted(agreed.items()):
-        if c not in st or abs(st[c] - n) != 1 or (other := at.get(n)) is None:
-            continue
-        page = {**st, c: n, other: st[c]}
-        if all(page.get(cell) == m for cell, m in agreed.items()):
-            return tuple(sorted((c, other)))
-    return None
+    out, last = {}, 0
+    for c in st:
+        n = agreed.get(c)
+        if n is None:
+            free = sorted(set(range(1, len(st) + len(taken) + 2)) - taken)
+            n = min((next(m for m in free if m > last), free[0]), key=lambda m: sum(
+                1 for cell, read in agreed.items() if (cell < c and read > m) or (cell > c and read < m)))
+            taken.add(n)
+        out[c] = last = n
+    nums = list(out.values())
+    if sum(a > b for i, a in enumerate(nums) for b in nums[i + 1:]) > 1:
+        return None
+    return out
 
 
 def stray(rows, agreed):
