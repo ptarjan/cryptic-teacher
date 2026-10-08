@@ -12,4 +12,10 @@ python3 tools/build_readme.py --check-layout || exit 1
 # An annotation quoting words its clue no longer holds fails the deploy's
 # validate run and holds every deploy after it; refuse it here instead.
 staged=$(git diff --cached --name-only --diff-filter=AM -- 'puzzles/*.json')
-[ -z "$staged" ] || printf '%s\n' "$staged" | xargs python3 tools/puzzle_integrity.py --quotes
+[ -z "$staged" ] || printf '%s\n' "$staged" | xargs python3 tools/puzzle_integrity.py --quotes || exit 1
+# A page-build module missing from SMOKE_DEPS in tools/ci_cache.js fails CI's
+# tools/test_ci_cache_deps.js; refuse the commit instead. Fix: add the path it
+# names to SMOKE_DEPS.
+if git diff --cached --name-only -- 'tools/*' 'sync/*' 'vendor/*' '*.js' | grep . >/dev/null; then
+  node tools/test_ci_cache_deps.js >/dev/null || exit 1
+fi
