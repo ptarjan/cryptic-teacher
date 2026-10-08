@@ -832,7 +832,7 @@ def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES, thorough=True, budget=None
                                    limit=limit, words=words,
                                    max_black_run=black_run(rec))
         refused = None
-    except Exception as e:                       # a light longer than the grid
+    except ValueError as e:                      # a light longer than the grid
         sols, info, refused = [], {"truncated": False}, f"rejected: {e}"
     if not sols and not info["truncated"] and numbering_faults(lights, words):
         grids, why = renumbered(rec, lights, words, n, budget)
