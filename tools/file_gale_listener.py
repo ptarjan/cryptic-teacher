@@ -4,6 +4,7 @@
     python3 tools/file_gale_listener.py              # file what the saved pages give
     python3 tools/file_gale_listener.py --dry-run    # say what each puzzle lacks, write nothing
     python3 tools/file_gale_listener.py --out DIR    # file into DIR, a puzzle with a clue unread too
+    python3 tools/file_gale_listener.py --number 3   # just No 3: its pages and those its report may be on
 
 A puzzle files when two readings of the pages tools/gale_listener.py has
 read agree, and is checked against a third:
@@ -91,6 +92,9 @@ TOOL = "tools/file_gale_listener.py"
 SERIES = gl.lp.SERIES
 GRIDS = gl.HOME / "grids"
 LEDGER = "filed.json"
+#: With --number, a page is read for No N's report when it is of No N to
+#: No N + REPORT_WITHIN (the report is printed about two issues later).
+REPORT_WITHIN = 4
 #: A filled grid is a puzzle's report when this share of its cells reads the
 #: same block and bars as the puzzle's grid (No 1's report agrees on 96 of
 #: 100 cells, No 13's page's report with No 12 on 105 of 169).
@@ -637,17 +641,21 @@ def letters_reader(inbox=gl.MIRROR, cache=GRIDS):
 
 
 def run(store=gl.STORE, inbox=gl.MIRROR, puzzles=None, write=True, out=sys.stdout,
-        grids_of=page_grids, read_letters=None, reports_to=REPORTS):
-    """Join every reading in `store` with its grid and report; file those
-    that pass, and keep each report's copy in `reports_to`. Returns
-    {number: verdict}, also written to store/LEDGER."""
+        grids_of=page_grids, read_letters=None, reports_to=REPORTS, numbers=None):
+    """Join every reading in `store` (or just those of `numbers`) with its
+    grid and report; file those that pass, and keep each report's copy in
+    `reports_to`. Returns {number: verdict}, also merged into store/LEDGER."""
     read_letters = read_letters or letters_reader(Path(inbox))
     ledger = gl.load_ledger(store)
     files = [(sha, e) for sha, e in ledger.items() if (Path(inbox) / e["file"]).exists()]
     readings = {}
     for p in sorted(store.glob("listener-*.json")):
         r = json.loads(p.read_text())
-        readings[r["number"]] = r
+        if numbers is None or r["number"] in numbers:
+            readings[r["number"]] = r
+    if numbers is not None:
+        files = [(sha, e) for sha, e in files if any(
+            isinstance(e.get("number"), int) and 0 <= e["number"] - n <= REPORT_WITHIN for n in numbers)]
     grids = {}
     for sha, e in sorted(files, key=lambda f: (f[1].get("number") not in readings, f[1]["file"])):
         try:
@@ -691,7 +699,11 @@ def run(store=gl.STORE, inbox=gl.MIRROR, puzzles=None, write=True, out=sys.stdou
               + (f", {verdict['reportAnswers']}/{len(puzzle['entries'])} answers read off the report"
                  if "reportAnswers" in verdict else ""), file=out)
     if write:
-        (store / LEDGER).write_text(json.dumps(verdicts, indent=1) + "\n")
+        kept = {}
+        if numbers is not None and (store / LEDGER).exists():
+            kept = {int(k): v for k, v in json.loads((store / LEDGER).read_text()).items()}
+        merged = {**kept, **verdicts}
+        (store / LEDGER).write_text(json.dumps({n: merged[n] for n in sorted(merged)}, indent=1) + "\n")
     return verdicts
 
 
@@ -701,8 +713,10 @@ def main(argv=None):
     ap.add_argument("--out", type=Path, help="file into this folder instead of the corpus")
     ap.add_argument("--store", type=Path, default=gl.STORE)
     ap.add_argument("--inbox", type=Path, default=gl.MIRROR)
+    ap.add_argument("--number", type=int, action="append",
+                    help="just this No (repeatable): its pages and those its report may be on")
     a = ap.parse_args(argv)
-    run(a.store, a.inbox, a.out, write=not a.dry_run)
+    run(a.store, a.inbox, a.out, write=not a.dry_run, numbers=set(a.number) if a.number else None)
     return 0
 
 

@@ -191,6 +191,19 @@ check("No 3's blank clue, and the clue read onto two lights, are what it lacks; 
 check("the verdicts are kept", {"1", "2", "3"}, set(json.loads((store / f.LEDGER).read_text())))
 again = run(out=io.StringIO())
 check("a second run holds No 1 as it is", "already held", again[1].get("skip"))
+seen = []
+def grids_seen(p, sha):
+    seen.append(p.name)
+    return pages[p.name]
+one = f.run(store, inbox, out, grids_of=grids_seen, read_letters=read_letters, reports_to=printed,
+            out=io.StringIO(), numbers={1})
+check("--number 1 files No 1 alone, reading its pages and later ones only", ([1], ["p1.pdf", "p2.pdf", "p3.pdf"]),
+      (sorted(one), sorted(seen)))
+check("and keeps the other verdicts in the ledger", {"1", "2", "3"}, set(json.loads((store / f.LEDGER).read_text())))
+seen.clear()
+f.run(store, inbox, out, grids_of=grids_seen, read_letters=read_letters, reports_to=printed,
+      out=io.StringIO(), numbers={3}, write=False)
+check("a page of an earlier No is not read for --number 3 (mirror)", ["p3.pdf"], seen)
 del pages["p3.pdf"][1:]
 (out / "listener-1.json").unlink()
 bare = run(out=io.StringIO())[1]
