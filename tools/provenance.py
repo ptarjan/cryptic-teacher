@@ -239,7 +239,8 @@ ACQUIRED_BY = {
     "tools/file_archive_org_puzzles.py": {
         "channel": "newspaper",
         "what": "a page of The Times, the FT, the Guardian or the Telegraph in archive.org's scans "
-                "(tools/fetch_archive_org_editions.py): "
+                "(tools/fetch_archive_org_editions.py), or a Times page Paul saved from Gale's "
+                "Times Digital Archive (tools/gale_inbox.py): "
                 "clues where archive.org's OCR and RapidOCR agree, the grid read off the scan or "
                 "rebuilt from the clues, answers off a later edition's solution grid"},
     "tools/file_gale_listener.py": {
@@ -361,6 +362,10 @@ ACQUISITION_BY_SOURCE = {
                                "tools/fetch_metro.py --wayback"),
     ("canberra", "trove.nla.gov.au"): ("tools/file_trove_puzzles.py",),
     ("times", "archive.org"): ("tools/file_archive_org_puzzles.py",),
+    # The Times pages Paul saves from Gale (tools/gale_inbox.py): the
+    # document's page there, or the library portal where none is named.
+    ("times", "go.gale.com"): ("tools/file_archive_org_puzzles.py",),
+    ("times", "abresearchportal.ca"): ("tools/file_archive_org_puzzles.py",),
     ("ftcryptic", "archive.org"): ("tools/file_archive_org_puzzles.py",),
     ("cryptic", "archive.org"): ("tools/file_archive_org_puzzles.py",),
     ("telegraph", "archive.org"): ("tools/file_archive_org_puzzles.py",),
@@ -741,7 +746,16 @@ def stamp(puzzle, tool):
     annotations, and tools/backfill_provenance.py's git-derived dates must
     survive every later write.
     """
-    acquired = (puzzle.get("source") or {}).get("acquiredOn") or today()
+    source = puzzle.get("source") or {}
+    series, host = series_of_id(puzzle["id"]), host_of(source.get("url"))
+    if tool in ACQUIRED_BY and tool != "unknown" and source.get("acquiredBy") in (None, tool) \
+            and not ACQUISITION_BY_SOURCE.get((series, host)):
+        # A filer's page at a host the table has no row for would be stamped
+        # acquiredBy and retrievedFrom "unknown", and an OCR'd one could never
+        # be asked to be read again (scan_queue.request_reread).
+        raise ValueError(f"{puzzle['id']}: {tool} files it from {host or 'no URL'!r}, which "
+                         f"provenance.ACQUISITION_BY_SOURCE has no ({series!r}, {host!r}) row for: add one")
+    acquired = source.get("acquiredOn") or today()
     return place(puzzle, derive(puzzle, tool, acquired))
 
 
