@@ -938,6 +938,9 @@ tools/durable.sh                              sourced by a long job that files i
                                               minutes, and on SIGTERM ends the job and commits
                                               first; nightly_worktree.sh's CT_SALVAGE_PATHS
                                               pushes what a SIGKILL left
+tools/unstage_unparsable.sh                   sourced by durable.sh and nightly_worktree.sh:
+                                              unstages a .json a kill cut off, so no commit
+                                              carries one
 tools/json_merge.py                           git merge driver: the keyed JSON data files
                                               several writers append to merge per key, so a
                                               rebase never stops on a ledger row

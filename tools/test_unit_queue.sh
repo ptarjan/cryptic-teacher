@@ -106,7 +106,7 @@ git config --global init.defaultBranch master
 git init -q --bare "$tmp/origin.git"
 git clone -q "$tmp/origin.git" "$tmp/repo" 2>/dev/null
 mkdir -p "$tmp/repo/tools"
-cp tools/nightly_worktree.sh tools/unit_queue.py "$tmp/repo/tools/"
+cp tools/nightly_worktree.sh tools/unstage_unparsable.sh tools/unit_queue.py "$tmp/repo/tools/"
 echo 'alert() { echo "$*" >>"$HOME/alerts"; }' >"$tmp/repo/tools/alert.sh"
 cat >"$tmp/repo/tools/slotjob.sh" <<'SH'
 #!/bin/bash

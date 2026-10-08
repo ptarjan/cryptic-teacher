@@ -9,9 +9,10 @@
 #   3. sent SIGKILL (OOM, reboot): the next start salvages the tree, modified
 #      tracked files and a commit a failed push left, but not a cut-off file;
 # and each restart files only what its ledger lacks, so no item is filed twice
-# and every item the ledger holds is on origin. Then tools/corpus_queue.py
-# stop is checked to give the pass its TERM and time to commit before killing,
-# and every scheduled job that can run long is checked to use the mechanism.
+# and every item the ledger holds is on origin. Then a job that sources
+# durable.sh alone is checked to checkpoint, tools/corpus_queue.py stop to give
+# the pass its TERM and time to commit before killing, and every scheduled job
+# that can run long to use the mechanism.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 REAL="$PWD"
@@ -26,7 +27,7 @@ git init -q --bare "$tmp/origin.git"
 git clone -q "$tmp/origin.git" "$tmp/main" 2>/dev/null
 M="$tmp/main"
 mkdir -p "$M/tools" "$M/puzzles/a"
-cp tools/durable.sh tools/nightly_worktree.sh tools/push_puzzle_commit.sh tools/commit_subject.py "$M/tools/"
+cp tools/durable.sh tools/nightly_worktree.sh tools/unstage_unparsable.sh tools/push_puzzle_commit.sh tools/commit_subject.py "$M/tools/"
 cat >"$M/tools/alert.sh" <<'EOF'
 alert() { echo "$*" >>"$HOME/alerts"; }
 EOF
@@ -118,7 +119,21 @@ done <"$HOME/ledger"
 [ ! -s "$HOME/alerts" ] || fail "alerted: $(cat "$HOME/alerts")"
 pid=""
 
-# 4. corpus_queue.py stop gives the pass's leader TERM and waits for it.
+# 4. A job that sources tools/durable.sh alone, outside any worktree, checkpoints
+#    too: durable.sh brings every function it calls.
+git clone -q "$tmp/origin.git" "$tmp/solo" 2>/dev/null
+cat >"$tmp/solo.sh" <<'EOF'
+cd "$1" || exit 1
+DURABLE_PATHS=(puzzles)
+. tools/durable.sh
+mkdir -p puzzles/b && echo '{"n": 1}' >puzzles/b/1.json
+durable_checkpoint "solo pass"
+EOF
+out=$(bash "$tmp/solo.sh" "$tmp/solo" 2>&1) || fail "a job sourcing only durable.sh could not checkpoint: $out"
+case "$out" in *"command not found"*) fail "durable.sh calls a function it does not bring: $out" ;; esac
+on_origin puzzles/b/1.json >/dev/null || fail "a job sourcing only durable.sh did not push what it filed: $out"
+
+# 5. corpus_queue.py stop gives the pass's leader TERM and waits for it.
 python3 - "$REAL" <<'PY'
 import os, sys, time
 from pathlib import Path
@@ -144,7 +159,7 @@ assert q.exit_status() == 143, q.exit_status()
 assert q.load_state().get("held"), "a stopped pass is held"
 PY
 
-# 5. Every scheduled job that can run past LONG seconds (no timeout, or a
+# 6. Every scheduled job that can run past LONG seconds (no timeout, or a
 #    longer one) either commits as it goes through tools/durable.sh or has its
 #    dropped runs salvaged; so does the pass the corpus queue starts.
 python3 - <<'PY'
