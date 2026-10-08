@@ -1594,6 +1594,12 @@ tools/test_edition_queue.sh                   does the edition queue append rows
                                               articles and Listener pages as units, hand a
                                               slice's running units to the next slice, and pace
                                               Trove across processes?
+tools/code_reach.py                           a cache key for only the code a cached result
+                                              runs: the definitions its roots reach, across
+                                              this repo's modules, a class's methods only when
+                                              called, comments and docstrings left out (the
+                                              archive.org scan key, the Listener grid and
+                                              letter caches)
 tools/scan_queue.py                           the read queue the scan filers share: the
                                               append-only ledgers (the last row a source
                                               standing), per-source locks, and the re-reads

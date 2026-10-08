@@ -71,13 +71,39 @@ check("misread titles read: first word, a mark before Crossword, a split number,
        for n, _ in f.headings([line(t)], f.TITLE)])
 # A scan cached by older heading code is made again, and a title it finds
 # that no verdict covers makes the edition due.
+import code_reach
+reached = {d for m, d in code_reach.reach("file_archive_org_puzzles", f.SCAN_ROOTS)
+           if m == "file_archive_org_puzzles"}
 check("the scan key follows every name scan() reaches: the title pattern, the title OCR, the Gale page's "
-      "headings and their band re-reads, the 1930 headings", set(),
+      "headings and their band re-reads, the 1930 headings, the Paper method scan calls", set(),
       {"TITLE", "SOLUTION", "ocr_titles", "ocr_headings", "mend_misreads", "solution_bands", "SOLUTION_BAND",
-       "times1930_headings"} - f.scan_code())
-check("and not the filing code: a change to it rescans nothing", set(), {"read_puzzle", "read_solution"} & f.scan_code())
-check("scan_code follows a name through the code naming it, and no further", {"scan", "a", "B"},
-      f.scan_code("def scan():\n    return a()\ndef a():\n    return B\nB = 1\nC = 2\ndef d():\n    return C\n"))
+       "times1930_headings", "Paper.headings"} - reached)
+check("and not the filing code: a change to it rescans nothing", set(), {"read_puzzle", "read_solution"} & reached)
+# The mirror: the key moves with code scan() runs and stays with code it
+# does not, here and in another module.
+base = {"m": "import n\nclass P:\n    def __init__(self):\n        self.k = K\n    def used(self, x):\n"
+             "        return n.helper(x)\n    def unused(self):\n        return 1\nK = 1\n"
+             "def scan():\n    \"\"\"Doc.\"\"\"\n    page = P().used(2)  # a local named like a def\n    return page\n"
+             "def page():\n    return 9\ndef other():\n    return 3\n",
+        "n": "def helper(x):\n    return x + 1\ndef spare():\n    return 0\n"}
+def key_of(**edits):
+    texts = dict(base)
+    for mod, (old, new) in edits.items():
+        assert old in texts[mod], old
+        texts[mod] = texts[mod].replace(old, new)
+    return code_reach.key("m", {"scan"}, texts=texts)
+k0 = key_of()
+check("an edit scan() runs moves the key: a called method, a class constant, another module's helper",
+      [True, True, True],
+      [key_of(m=("return n.helper(x)", "return n.helper(x) * 2")) != k0, key_of(m=("K = 1", "K = 2")) != k0,
+       key_of(n=("return x + 1", "return x + 2")) != k0])
+check("an edit it never runs leaves it: an uncalled method, another function, another module's spare, "
+      "a docstring, a comment, a def named like a local",
+      [k0] * 6,
+      [key_of(m=("return 1", "return 7")), key_of(m=("return 3", "return 4")), key_of(n=("return 0", "return 5")),
+       key_of(m=("Doc.", "Other doc.")), key_of(m=("# a local", "# the local")), key_of(m=("return 9", "return 8"))])
+check("the old whole-name key is the one the ledger rows carry, re-keyed not rescanned", True,
+      len(f.whole_name_scan_key()) == 16 and f.whole_name_scan_key() != f.scan_key())
 check("a title no verdict covers makes the edition due", "titles changed",
       f.due_reason({"inputs": "h", "solutionsSeen": [], "verdicts": [], "vlm": "v",
                     "scan": {"puzzles": [{"number": 18862}]}}, "h", [], "v"))

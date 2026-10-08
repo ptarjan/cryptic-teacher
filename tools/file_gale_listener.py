@@ -88,12 +88,26 @@ REPORT_AGREE = 0.9
 REPORTS = cv.ListenerReport().cache
 
 
-def code_key(*modules):
-    """A key that changes when any of `modules`' source does."""
-    h = hashlib.sha256()
-    for m in modules:
-        h.update(Path(m.__file__).read_bytes())
-    return h.hexdigest()[:16]
+def code_key(module, *roots):
+    """A key that changes when the code `roots` (names in `module`) reach
+    does (tools/code_reach.py), not on an edit to the rest of the file."""
+    if (module, roots) not in _KEYS:
+        import code_reach
+        _KEYS[(module, roots)] = code_reach.key(module, set(roots))
+    return _KEYS[(module, roots)]
+
+
+_KEYS = {}
+
+
+def file_key(module):
+    """The key caches were written under before code_key: `module`'s whole
+    source. A cache entry under it is taken as current (and re-keyed)."""
+    return hashlib.sha256(Path(module.__file__).read_bytes()).hexdigest()[:16]
+
+
+#: What page_grids() runs of listener_grid.
+GRID_CODE = ("find_grids", "fit", "printed_numbers")
 
 
 # ------------------------------------------------------------ the grid
@@ -308,10 +322,13 @@ def page_grids(path, sha, cache=GRIDS):
     listener_grid's code: [{"grid": find_grids' dict, "fit": fit() or None}]
     (the unfilled ones fitted to their printed numbers)."""
     import numpy as np
-    key = code_key(lg)
+    key = code_key(lg, *GRID_CODE)
     dest = cache / f"{sha}.json"
     if dest.exists():
         got = json.loads(dest.read_text())
+        if got.get("code") == file_key(lg):
+            got["code"] = key
+            dest.write_text(json.dumps(got))
         if got.get("code") == key:
             return [{"grid": {**g["grid"], "sides": {tuple(json.loads(k)): v for k, v in g["grid"]["sides"].items()}},
                      "fit": g["fit"]} for g in got["grids"]]
@@ -338,9 +355,13 @@ def letters_reader(inbox=gl.MIRROR, cache=GRIDS):
     import numpy as np
 
     def read(report, lts):
-        key = hashlib.sha256(json.dumps([report["page"], report["grid"]["box"], code_key(ts),
-                                         sorted((f"{n}-{d}", c) for (n, d), c in lts.items())]).encode()).hexdigest()[:20]
-        dest = cache / f"letters-{key}.json"
+        def keyed(code):
+            return hashlib.sha256(json.dumps([report["page"], report["grid"]["box"], code,
+                                              sorted((f"{n}-{d}", c) for (n, d), c in lts.items())]).encode()).hexdigest()[:20]
+        dest = cache / f"letters-{keyed(code_key(ts, 'read_grid_letters'))}.json"
+        old = cache / f"letters-{keyed(file_key(ts))}.json"
+        if not dest.exists() and old.exists():
+            old.replace(dest)
         if not dest.exists():
             img, _ = gi.images(inbox / report["page"])[report["grid"]["page"]]
             gray = np.asarray(img.convert("L"), dtype=np.uint8)

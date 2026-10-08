@@ -548,6 +548,8 @@ def main(argv=None):
         return 0
     for key in [k for k in papers if k != "listener"]:
         ledger, by = (ftp.CACHE / "filed.jsonl", "article") if key == "trove" else (fa.ledger_of(args.cache, fa.FILERS[key]), "edition")
+        if key != "trove" and (n := fa.rekey_scans(ledger)):
+            log(f"{ledger.name}: {n} scans re-keyed to the narrowed scan key")
         folded = scan_queue.compact(ledger, by)
         if folded and folded[0] != folded[1]:
             log(f"{ledger.name}: {folded[0]} rows folded to {folded[1]}")
