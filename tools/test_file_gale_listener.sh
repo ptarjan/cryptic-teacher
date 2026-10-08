@@ -270,8 +270,22 @@ check("a page numbered as the lights are leaves the list as printed (mirror)", (
       f.as_page(OPEN, {"rows": OPEN, "exact": True}, listed))
 check("a clue numbered on no light refuses the numbering (mirror)", None,
       f.as_page(OPEN, printed, {**listed, "7-across": {"text": "x"}}))
-check("a grid where a printed number starts no light refuses the numbering (mirror)", None,
-      f.as_page(OPEN, {**printed, "printed": [[1, 1, 6]]}, {}))
+check("a number in a cell starting no light, out of reading order, refuses the numbering (mirror)", None,
+      f.as_page(OPEN, {**printed, "printed": [[0, 1, 5], [1, 1, 2]]}, {}))
+# No 3 prints 27 in a cell starting no light and skips 47: the fit chases
+# both numbers with the unsure sides, losing a real bar and adding a false
+# one. The grid as its widths read it, numbered as printed, is the clue
+# list's, so it is taken.
+FITTED = ["...", "r..", "..."]   # a false bar starts 5 Across at (1, 1)
+page = [[0, 0, 1], [0, 1, 2], [0, 2, 3], [1, 0, 4], [1, 1, 5], [2, 0, 7]]
+g = {"grid": {"rows": OPEN}, "fit": {"rows": FITTED, "exact": True, "stray": None, "printed": page}}
+listed = {k: {"text": k} for k in ("1-across", "4-across", "7-across", "1-down", "2-down", "3-down")}
+got = f.as_read(g, listed)
+check("a stray and a skipped number: the grid as read, the list by the page's numbers",
+      (OPEN, None, {"5-across": "printed as 7-across: the page numbers its lights as printed"}),
+      got and (got["rows"], f.lights_fit(OPEN, got["laid"][1]), got["laid"][2]))
+check("a clue at the stray number refuses the grid as read (mirror)", None,
+      f.as_read(g, {**listed, "5-across": {"text": "x"}}))
 # On a page numbered as printed, the flips the clue list asks for come
 # from the unsure sides alone, on the lines of the lights it disagrees on.
 BARRED = ["....", "....", "....", "...."]
