@@ -81,7 +81,7 @@ YEARS = lp.CACHE / "years"
 #: The Listener magazine's last issue; the puzzle moved to The Times after it.
 FIRST_YEAR, LAST_ISSUE = 1930, datetime.date(1991, 1, 3)
 #: Bumped when the reading changes, so every file is read again.
-VERSION = 10
+VERSION = 11
 PORTAL = gi.PORTAL
 DOC_URL = "https://go.gale.com/ps/retrieve.do?docId=GALE%7C{}&prodId=LSNR&userGroupName=alberta_portal"
 
@@ -636,18 +636,18 @@ def notice_top(rows):
 def notice_cuts(columns):
     """Where each column's lines (`columns`, fa.merge_rows' rows each) end
     for a notice under the lists, or None: its own notice_top(), else,
-    beside a notice another column holds, its first line reaching below
-    that notice's top when no line from there down opens on a clue number
-    (a notice set across the page whose words one reading lost there:
-    "68 Essex I" under DOWN 35)."""
+    its first line reaching below the highest notice's top, when no line
+    from there down opens on a clue number and that line stands higher: a
+    notice set across the page is one paragraph, whose words one reading
+    lost in a column ("68 Essex I" under DOWN 35) or set apart there from
+    the line with NOTICE's words ("68 Essex I" over "prize of ...")."""
     own = [notice_top(rows) for rows in columns]
     tops = [t for t in own if t is not None]
     out = []
     for rows, top in zip(columns, own):
-        if top is None and tops:
-            below = [r for r in rows if r[1] > min(tops)]
-            if below and not any(OPENS.match(r[4]) for r in below):
-                top = below[0][0]
+        below = [r for r in rows if tops and r[1] > min(tops)]
+        if below and not any(OPENS.match(r[4]) for r in below) and (top is None or below[0][0] < top):
+            top = below[0][0]
         out.append(top)
     return out
 
