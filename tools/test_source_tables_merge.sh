@@ -32,9 +32,9 @@ git config user.email nobody@example.com
 git config user.name test
 git config merge.json-keys.driver "python3 tools/json_merge.py %O %A %B"
 mkdir -p tools/data
-cp "$ROOT/tools/json_merge.py" tools/
+cp "$ROOT/tools/json_merge.py" "$ROOT/tools/puzzle_schema.py" tools/
 cp "$ROOT/.gitattributes" .
-cp "$ROOT/tools/data/source_clue_wrong.json" "$ROOT/tools/data/source_answer_wrong.json" tools/data/
+cp "$ROOT/tools/data/source_clue_wrong.json" "$ROOT/tools/data/source_answer_wrong.json" "$ROOT/tools/data/puzzle.schema.json" tools/data/
 
 # addrow <table> <key>: add one row, as a writer (or a model) would, by hand.
 addrow() { python3 - "$@" <<'PY'
