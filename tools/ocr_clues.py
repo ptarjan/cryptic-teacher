@@ -1006,6 +1006,20 @@ def is_word_only_capital(word, seen):
 
 
 FULL_WIDTH = {c: c - 0xfee0 for c in range(0xff01, 0xff5f)}
+#: A lone underscore touching a word or a mark: a speck our readers read as
+#: one ("love,_emperor", "during_a", "fine_"). A run of them is a printed
+#: blank ("Freedom and _____"), and so may a lone one between spaces be ("And
+#: with no _ but a cry").
+SPECK_UNDERSCORE = re.compile(r"(?<=[^_\s])_(?!_)|(?<!_)_(?=[^_\s])")
+
+
+def unspecked(text):
+    """`text` without SPECK_UNDERSCORE: a space where it parts two words, else
+    nothing."""
+    def gone(m):
+        s, a, b = m.string, m.start(), m.end()
+        return " " if 0 < a and b < len(s) and not s[a - 1].isspace() and not s[b].isspace() else ""
+    return re.sub(r"  +", " ", SPECK_UNDERSCORE.sub(gone, text)).strip()
 
 
 def clean(text):
@@ -1015,6 +1029,7 @@ def clean(text):
     full stop or an I is put back."""
     text = re.sub(r"\s*[*•|]+(?=\s|$)", "", re.sub(r"(?<=[a-z])¬\s*(?=[a-z])", "", text))
     text = text.replace("\u2019", "'").replace("\u2018", "'")
+    text = unspecked(text)
     # A recogniser's full-width mark is the ASCII one ("\uff1f" for "?").
     text = text.translate(FULL_WIDTH)
     # A pound sign in a word is an f the print's worn type turned ("o£").
@@ -1644,7 +1659,9 @@ def strays(text):
       - a lone small letter, not LONE_LETTER_OK, an apostrophe's ("'e",
         "'s"), a quoted or dashed one ("--s"), e.g. / i.e. or a letter the
         clue names ("with a c"): "round t the heart", "new t". A capital
-        letter alone is the setter's ("S Africa", "Brand X").
+        letter alone is the setter's ("S Africa", "Brand X");
+      - a lone underscore touching a word or mark (SPECK_UNDERSCORE:
+        "love,_emperor"), which unstrayed() takes out.
     Clues print none of these: each is one reading's speck or doubled line
     the vote left in."""
     raw = (text or "").split()
@@ -1675,6 +1692,7 @@ def strays(text):
         if (s, nxt) in LETTER_PAIRS or (prev, s) in LETTER_PAIRS or prev in NAMES_LETTER:
             continue
         out.append((k, "a stray letter"))
+    out += [(k, "a speck read as an underscore") for k, r in enumerate(raw) if SPECK_UNDERSCORE.search(r)]
     return sorted(out)
 
 
@@ -1690,6 +1708,7 @@ def unstrayed(text, theirs):
     prints the words either side of it together, or set in capitals where
     one prints it so ("Brand X"); a flag no reading mends stands, for the
     caller to file the clue blank."""
+    text = unspecked(text or "")
     seqs = [[w.lower() for w in tokens(t)] for t in theirs]
     caps = [tokens(t) for t in theirs]
 

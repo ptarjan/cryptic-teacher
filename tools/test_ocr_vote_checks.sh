@@ -203,6 +203,21 @@ check("a small letter a reading prints as a capital takes it", "Decoration for B
       oc.unstrayed("Decoration for Brand x", ["Decoration for Brand X"]))
 check("with no reading that lacks it, the flag stands (mirror)", "Turned up as new t",
       oc.unstrayed("Turned up as new t", ["Turned up as new t", "Turned np as new t"]))
+# A lone underscore touching a word is a speck read as one (times-17246's
+# "love,_emperor", 280 held clues off scans): read without it, flagged where
+# held so the edition is read again; a run of them, or one between spaces,
+# may be the print's blank and stands.
+check("a speck read as an underscore is read as nothing, or the space it stood in",
+      ["Demanding love, emperor leads the country", "Male watch found during a short day", "Magic judge of beauty",
+       "Out of prison fine"],
+      [oc.clean(t) for t in ("Demanding love,_emperor leads the country", "Male watch found during_a short day",
+                             "Magic judge _of beauty", "Out of prison fine_")])
+check("a held one is a stray, and unstrayed takes the mark out, not the word",
+      (["a speck read as an underscore"], "Demanding love, emperor leads the country"),
+      (kinds("Demanding love,_emperor leads the country"), oc.unstrayed("Demanding love,_emperor leads the country", [])))
+check("(mirror) a printed blank stands: a run, or one between spaces, at the clue's end too", [[], [], []],
+      [kinds(t) for t in ("Freedom and _____ gang thegither", "And with no _ but a cry", "The cock's shrill _")])
+check("and clean() keeps them", "And with no _ but a cry", oc.clean("And with no _ but a cry"))
 two = lambda one: f"ACROSS\n1 {one} (5).\nDOWN\n2 Ore (3).\n"
 lens = {"1-across": 5, "2-down": 3}
 got, blank = fa.unfit_blanked(*oc.as_printed({"a": two("Turned up as new t"), "b": two("Turned up as new")},
