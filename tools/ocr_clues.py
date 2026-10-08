@@ -809,17 +809,24 @@ def prints(pairs, low, theirs):
 
 
 def parted(clue, others):
-    """`clue` with a non-word in it that another reading prints as two to
-    six words ("theplant", "favouriteVictorian", and "fora" for "for a",
+    """`clue` with a non-word in it that another reading prints as two or
+    more words ("theplant", "favouriteVictorian", a whole clue
+    "Paintedbrownrestaurantred...", and "fora" for "for a",
     whose two words the corpus's clues print far more) parted as they are, and
     two words it ran together over a stop ("to.poison", "Anag.of") parted."""
+    runs = re.findall(r"[A-Za-z]+(?:'[A-Za-z]+)*", clue)
+    longest = max((len(w) for w in runs), default=0)
     apart = {}
     for theirs in others:
-        for n in range(2, 7):
-            for i in range(len(theirs) - n + 1):
-                ws = theirs[i:i + n]
-                if all(w.isalpha() for w in ws):
-                    apart.setdefault("".join(ws).lower(), [len(w) for w in ws])
+        for i in range(len(theirs)):
+            joined, sizes = "", []
+            for w in theirs[i:]:
+                if not w.replace("'", "").isalpha() or len(joined) + len(w) > longest:
+                    break
+                joined += w.lower()
+                sizes.append(len(w))
+                if len(sizes) > 1:
+                    apart.setdefault(joined, list(sizes))
     marked_apart = {(a + c).lower() for theirs in others for a, b, c in zip(theirs, theirs[1:], theirs[2:])
                     if a.isalpha() and b in MARKS and c.isalpha()}
 
@@ -861,7 +868,7 @@ def parted(clue, others):
         return f"{a}' {b}" if a[-1] in "sS" else f"{a} '{b}"
     clue = re.sub(r"\b([A-Za-z]+)\.([a-z]{2,})\b", stop, clue)
     clue = re.sub(r"\b([A-Za-z]{2,})'([A-Za-z]{2,})\b", quote, clue)
-    return re.sub(r"[A-Za-z]{4,}", part, clue)
+    return re.sub(r"[A-Za-z]+(?:'[A-Za-z]+)*", lambda m: part(m) if len(m.group()) >= 4 else m.group(), clue)
 
 
 def unglued(theirs, low):

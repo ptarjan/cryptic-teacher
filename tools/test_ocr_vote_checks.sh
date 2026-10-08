@@ -296,6 +296,14 @@ check("and an abbreviation's after no word", "Anag. of a lovely word",
       oc.agree("Anag.of a lovely word", [mark("7 Anag. of a lovely word 8 The")])[0])
 check("a rare word another reading prints as two common ones is parted",
       "Ireland for a hill.", oc.agree("Ireland fora hill.", [mark("27 Ireland for a hill. 28 An")])[0])
+check("a whole clue this reading ran together that another prints apart is parted",
+      "Painted brown restaurant red instead of half rose",
+      oc.parted("Paintedbrownrestaurantredinsteadofhalfrose",
+                [mark("12 Painted brown restaurant red instead of half rose 13 A")]))
+check("and over a word with an apostrophe", "Fruit's counterpart in bottles",
+      oc.parted("Fruit'scounterpartinbottles", [mark("4 Fruit's counterpart in bottles 5 A")]))
+check("a run-together no reading prints apart stays as read (mirror)", "Paintedbrown restaurant",
+      oc.parted("Paintedbrown restaurant", [mark("12 Painted crown restaurant 13 A")]))
 check("a dictionary word another reading split stays whole (mirror)",
       "Somewhere to go.", oc.agree("Somewhere to go.", [mark("4 Some where to go. 5 A"), mark("4 Somewhere to go. 5 A")])[0])
 check("a dictionary word a reading broke over a line end stays whole",
