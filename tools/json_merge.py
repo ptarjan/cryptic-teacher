@@ -48,6 +48,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+import puzzle_schema
+
 MISSING = object()
 
 
@@ -142,7 +144,7 @@ def main_puzzle(o_path, a_path, b_path):
     try:
         o, a, b = (json.loads(Path(p).read_text(encoding="utf-8"))
                    for p in (o_path, a_path, b_path))
-        merged = merge_puzzle(o, a, b)
+        merged = puzzle_schema.order(merge_puzzle(o, a, b))
     except (ValueError, Conflict) as err:
         print(f"json_merge --puzzle: {type(err).__name__} at {err}; "
               "leaving a marked conflict", file=sys.stderr)
