@@ -919,6 +919,8 @@ def lookalike(greek, latin):
     g, l = plain(greek).translate(LOOKALIKE), plain(letters(latin))
     return len(g) >= 3 and difflib.SequenceMatcher(None, g, l).ratio() >= LOOKALIKE_RATIO
 DASHES = re.compile(r"[-–—]+")
+#: A piece that is only stops: one a dash parted from its word ("ὀξὺ—,").
+PARTED_STOP = re.compile(r"[.,;:!?]+")
 
 
 def greek_box(img, key, box):
@@ -1009,17 +1011,19 @@ def greek_text(img, key, words, boxes):
                     or read_box(img, key, b, next(iter(ocr_clues.TESS_MODELS)))])
     out, any_greek, looked = "", False, False
     used = set()
-    for k, p in enumerate(greek):
+    for p in greek:
         near = [[q for q in t if over(q, p[:4]) or over(p, q[:4])] for t in tess]
         there = [[q[4] for q in t] for t in near]
-        # The clue's number leads its line: a reading's number stretched
-        # over the words after it (No 10 20A's "6" over "αἰετὸς ὀξὺ—,")
-        # makes none of them one.
-        if k == 0 and any(t and all(re.fullmatch(r"\W{0,2}\d{1,2}\W{0,2}", q) for q in t) for t in there):
+        # The clue's number; a reading's number stretched over the words
+        # after it (No 10 20A's "6" over "αἰετὸς ὀξὺ—,") makes no Greek
+        # word or stop one. A lone Greek letter is the number misread ("γ."
+        # for "7.").
+        word = p[4].rstrip(".,;:")
+        kept = GREEK_WORD.fullmatch(word) and word.islower() and len(word) > 1 or PARTED_STOP.fullmatch(p[4])
+        if not kept and any(t and all(re.fullmatch(r"\W{0,2}\d{1,2}\W{0,2}", q) for q in t) for t in there):
             continue
         said = [letters(" ".join(t)) for t in there if t]
         agreed = next((s for s in said if said.count(s) > 1 and ocr_clues.known(s)), None)
-        word = p[4].rstrip(".,;:")
         hinted = alike = False
         for w in rapid:
             if w[1] <= (p[1] + p[3]) / 2 <= w[3] and w[0] <= (p[0] + p[2]) / 2 <= w[2]:
@@ -1027,7 +1031,7 @@ def greek_text(img, key, words, boxes):
                 tok = re.search(r"\S*$", w[4][:at]).group() + re.match(r"\S*", w[4][at:]).group()
                 hinted |= bool(GREEK_LETTER.search(tok))
                 alike |= lookalike(word, tok) and not ocr_clues.known(letters(tok))
-        if re.fullmatch(r"[.,;:!?]+", p[4]):
+        if PARTED_STOP.fullmatch(p[4]):
             text = p[4]  # a stop the dash before it parted from its word ("ὀξὺ—,")
         elif GREEK_WORD.fullmatch(word) and word.islower() and (hinted or alike or not agreed):
             text, any_greek, looked = p[4], True, looked or alike
@@ -1057,8 +1061,8 @@ def tighter(box):
 def greek_mended(img, key, words, verdict, laid):
     """`laid` with each light the vote left blank whose clue quotes Greek
     (greek_text) read with its Greek words; each noted in the verdict's
-    "greek", with the vote's reason for the blank; a line is mended into
-    one light only."""
+    "greek", with the vote's reason for the blank, and its Greek words in
+    its "asPrinted"; a line is mended into one light only."""
     taken = []
     for lid, (t, e, g) in list(laid.items()):
         if t or not (boxes := clue_lines(img, words, lid)):
@@ -1070,6 +1074,8 @@ def greek_mended(img, key, words, verdict, laid):
             taken += boxes
             laid[lid] = (text, e, g)
             verdict.setdefault("greek", {})[lid] = verdict.get("blank", {}).pop(lid, "blank")
+            # Its Greek words are as printed: no English lexicon knows them.
+            verdict.setdefault("asPrinted", {})[lid] = [w for w in text.split() if GREEK_LETTER.search(w)]
     if not verdict.get("blank"):
         verdict.pop("blank", None)
     verdict["agreed"] = sum(1 for t, _, _ in laid.values() if t)
