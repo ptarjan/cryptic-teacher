@@ -43,6 +43,7 @@ import io
 import itertools
 import json
 import logging
+import math
 import re
 import sys
 import time
@@ -520,7 +521,7 @@ def blog_records():
 #: Voted readings of the scanned copies, one {number}.json each, keyed by the
 #: copy's sha and SCAN_VERSION: bump it when the reading below changes.
 SCAN_STORE = CACHE / "scans"
-SCAN_VERSION = 1
+SCAN_VERSION = 2
 #: The 2006-08 scans are ~750px wide, too small for the readers' detector:
 #: upscaled 2x, the vote agrees on 32 of No 1820's 36 clues, not 21.
 SCAN_SCALE = 2
@@ -589,6 +590,44 @@ def read_scan(path, number, ocr=True):
     return scan_copy(got)
 
 
+#: A scan's reader runs two words together where the print spaces them
+#: ("maybeheard", "sendingback"): a word rarer than the lexicon's
+#: RUN_TOGETHER_RANK (or not in it, and printed by the corpus's clues less
+#: often than the pair) is two words when the corpus's clues print the pair
+#: at least RUN_TOGETHER_PAIRS times; a word the lexicon holds only past
+#: RUN_TOGETHER_RARE ("rulering", read for "ruler in") is two when it is
+#: two of the lexicon's RUN_TOGETHER_COMMON commonest words. On the corpus's
+#: filed Azed clues these trip 77 of 21,478, several of them misreads.
+RUN_TOGETHER_RANK = 100_000
+RUN_TOGETHER_PAIRS = 3
+RUN_TOGETHER_RARE = 200_000
+RUN_TOGETHER_COMMON = 10_000
+
+
+def run_together(word):
+    """The two words ("maybe heard") a scan's reader ran together into
+    `word`, else None: a capitalised word the lexicon holds is a name."""
+    import ocr_clues
+    low = word.lower()
+    if len(low) < 4 or not low.isalpha():
+        return None
+    rank = ocr_clues.rank(low)
+    if rank is not None and (rank <= RUN_TOGETHER_RANK or word[0].isupper()):
+        return None
+    uni, pairs, _ = ocr_clues.clue_lm()
+    seen = uni.get(low, 0)
+    for k in range(1, len(low)):
+        a, b = low[:k], low[k:]
+        if not (ocr_clues.is_word(a) and ocr_clues.is_word(b)):
+            continue
+        if pairs.get(f"{a} {b}", 0) >= max(RUN_TOGETHER_PAIRS, seen + 1):
+            return f"{a} {b}"
+        if (rank or 0) > RUN_TOGETHER_RARE and not seen and min(len(a), len(b)) >= 3 \
+                and max(ocr_clues.rank(a) or math.inf, ocr_clues.rank(b) or math.inf) <= RUN_TOGETHER_COMMON:
+            return f"{a} {b}"
+    return None
+
+
 def scan_copy(got):
     """read_scan's stored reading as the copy dict assemble() takes."""
     rows = got["rows"]
@@ -606,7 +645,8 @@ def scan_copy(got):
             enum = None     # the count stayed in the text
         elif not enum and light in lengths:
             enum = str(lengths[light])  # a lost count is the light's length
-        ok = text and not ocr_clues.suspect(text)
+        ok = text and not ocr_clues.suspect(text) and not any(
+            run_together(w) for w in re.findall(r"[A-Za-z'\u2019]+", text))
         clues[light] = f"{text} ({enum})" if ok and enum else text if ok else ""
     return {"number": None, "preamble": "", "title": "", "grid": rows, "printed": printed,
             "clues": clues}

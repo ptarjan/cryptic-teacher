@@ -111,6 +111,14 @@ print("scan-blank", A.assemble(1800, A.scan_copy(blanked), "u", None, None, "Pla
 joined = dict(stored, clues=dict(voted, **{"2-down": ["Mineral instorexq", "3"]}))
 print("scan-no-clues", A.assemble(1800, A.scan_copy(dict(stored, clues={})), "u", None, None, "Plain")[1])
 print("scan-suspect", A.assemble(1800, A.scan_copy(joined), "u", None, None, "Plain")[1])
+# Two words a reader ran together pass the lexicon ("maybe"+"heard", the
+# rare "rulering" for "ruler in"): held. A real compound ("afresh") and a
+# dialect "climbin'" are no such pair.
+for name, text in (("ran-together", "Mineral maybeheard in store"), ("ran-together-rare", "Black rulering a store"),
+                   ("not-ran-together", "Mineral afresh in store")):
+    print(name, A.assemble(1800, A.scan_copy(dict(stored, clues=dict(voted, **{"2-down": [text, "3"]}))),
+                           "u", None, None, "Plain")[1])
+print("dropped-g", A.run_together("climbin'"), A.run_together("climbin"))
 
 # A PDF that is one page image goes to the scan reader, not "not text".
 import io, pathlib, tempfile
@@ -143,6 +151,10 @@ check "a scan whose clues all agree files" \
 check "a scan with a clue unagreed is held" "ocr-blank" "$(line scan-blank)"
 check "a scan cut off above its clues is held as such" "scan-no-clues" "$(line scan-no-clues)"
 check "a scan clue OCR wrote is held" "ocr-blank" "$(line scan-suspect)"
+check "a scan clue with two words run together is held" "ocr-blank" "$(line ran-together)"
+check "a rare lexicon word that is two common ones is held" "ocr-blank" "$(line ran-together-rare)"
+check "a compound is no words run together" "None" "$(line not-ran-together)"
+check "a dropped g is none either, though its letters are" "None climb in" "$(line dropped-g)"
 check "an image-only PDF is a scan, not not-text" "scan (40, 40)" "$(line scan-routed)"
 
 [ "$fails" -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }
