@@ -200,13 +200,16 @@ def clues(text):
 def parse(text):
     """fa.parse, with each list read past a stretch that does not parse; a
     list printed with no counts (the 1930s magazine's) is read a clue a line
-    (by_lines), since only a count ends a clue for the daily's parser."""
+    (by_lines), since only a count ends a clue for the daily's parser. A
+    list is uncounted when counts end fewer than half the clues by_lines
+    finds: one bracket misread as a count ("(Pope)") ran No 9's 14 downs
+    into 2 clues."""
     secs = ftp.sections(fa.tidy(text))
     parsed = secs and {k: clues(t) for k, t in secs.items()}
-    if not parsed or not any(c["enums"] for cs in parsed.values() for c in cs):
-        lined = by_lines(text)
-        if lined:
-            return lined, None
+    counted = sum(1 for cs in (parsed or {}).values() for c in cs if c["enums"])
+    lined = by_lines(text)
+    if lined and counted < sum(map(len, lined.values())) / 2:
+        return lined, None
     if secs is None:
         return None, "no ACROSS and DOWN lists"
     if not all(parsed.values()):

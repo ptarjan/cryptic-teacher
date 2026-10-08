@@ -1477,8 +1477,9 @@ tools/test_archive_org_listener.sh            does tools/archive_org_listener.py
                                               the clue columns at DOWN (not the title's "8
                                               DOWN"), carry across clues that run into the
                                               second column, read a list past a line that does
-                                              not parse, and blank a clue no two readings agree
-                                              on or that runs on?
+                                              not parse, read an uncounted list a clue a line
+                                              past a stray count, and blank a clue no two
+                                              readings agree on or that runs on?
 tools/archive_org_jumbo.py                    file the Times Jumbo cryptics in archive.org's
                                               scans of The Times' Saturday editions
 tools/test_archive_org_jumbo.sh               does tools/archive_org_jumbo.py take the Jumbo's
@@ -1697,26 +1698,36 @@ tools/test_gale_listener.sh                   is a saved Listener page matched b
                                               kept as N's solution; are its lists read in
                                               column order, the 1930s lists by their numbers in
                                               bands across two columns with a heading unread or
-                                              DOWN first, and a clue a line when uncounted, is
-                                              each file read once, and does the checklist mark
-                                              what is saved or filed and ask for a missing
-                                              solution?
+                                              DOWN first, a heading centred over its column, a
+                                              number set wide of its words, read in old-style
+                                              letters ("I.", "Io.") or run into them, a list
+                                              broken by a gap, and a clue a line when
+                                              uncounted; does a page say the page its clues or
+                                              diagram are on; is each file read once, and does
+                                              the checklist mark what is saved or filed and ask
+                                              for a missing solution?
 tools/listener_grid.py                        reads a 1930s Listener grid off a scanned Gale
                                               page: every grid on the page found as a lattice
                                               of long rules (prose, column rules and boxes are
                                               not), rows x cols, blocks by ink fill, bars by
-                                              rule width against the thin rule, numbered by
-                                              reconstruct_grid.light_cells; match() checks the
-                                              numbers against gale_listener's clue lists; fit()
-                                              sets each unsure bar so the numbering agrees with
-                                              the cells' printed numbers (read with the shared
-                                              clue readers) and says whether it is exact; no
-                                              symmetry assumed
+                                              rule width against the thin rule (a row mostly
+                                              blocks is a band whose edges are rules), numbered
+                                              by reconstruct_grid.light_cells; match() checks
+                                              the numbers against gale_listener's clue lists;
+                                              fit() sets each unsure bar so the numbering
+                                              agrees with the cells' printed numbers (read with
+                                              the shared clue readers, only the rules at a
+                                              corner's edges painted out) and says whether it
+                                              is exact, barring 2-cell runs shut when the page
+                                              leaves them unnumbered; no symmetry assumed
 tools/test_listener_grid.sh                   does listener_grid read a drawn, slightly turned,
                                               non-square barred grid with a block back exactly,
                                               among prose, a column rule and a boxed advert,
-                                              and number it as light_cells does, and do printed
-                                              numbers put a faint bar back?
+                                              and number it as light_cells does, a grid with a
+                                              row of blocks too; do printed numbers put a faint
+                                              bar back, a corner keep a number's strokes, and a
+                                              grid without numbers on its 2-cell runs fit with
+                                              them barred shut?
 tools/test_gale_inbox.sh                      is a page saved into the Gale inbox matched to
                                               its date by its name or puzzle number, staged as
                                               that date's Times edition with its Gale link, due
@@ -1795,7 +1806,8 @@ tools/test_file_gale_listener.sh              does the Gale Listener filer put b
                                               crossings and leave a cell nothing settles
                                               unanswered, keep the report's answers as
                                               listenerreport's copy and never in the file, and
-                                              say what a puzzle short of a step lacks?
+                                              say what a puzzle short of a step lacks (with the
+                                              page its page sends the grid to)?
 tools/test_listener_letters.sh                does trove_solution_ocr.read_grid_letters read
                                               the letters of a drawn, filled Listener report
                                               grid back through listener_grid's lattice?
