@@ -51,6 +51,32 @@ check("a count the light does not have is a disagreement", "count disagrees for 
       f.lights_fit(OPEN, {f"{n}-{d}": {"text": "x", "enumeration": "5" if (n, d) == (1, "across") else None}
                           for n, d in lts}))
 
+# The clue list laid on the lights where the page is wrong or read twice.
+lids = sorted(f"{n}-{d}" for n, d in lts)
+named = {lid: {"text": "clue " + "abcdefgh"[i]} for i, lid in enumerate(lids)}
+twice = {**named, "9-across": {"text": named["5-across"]["text"].upper().replace(" ", "  ")}}
+got, notes = f.mended(OPEN, twice)
+check("a clue off any light with a lit clue's text was read twice", (named, ["9-across"]), (got, list(notes)))
+got, _ = f.mended(OPEN, {**named, "9-across": {"text": "its own words"}})
+check("one with its own words stays, and the lists disagree (mirror)", "no light for 9-across", f.lights_fit(OPEN, got))
+moved = {k: v for k, v in named.items() if k != "7-across"} | {"8-across": {"text": "x"}}
+got, notes = f.mended(OPEN, moved)
+check("the one spare clue and the one bare light at its place are one (No 9 prints 35 for 36A)",
+      (None, {"7-across": "printed as 8-across"}), (f.lights_fit(OPEN, got), notes))
+far = {k: v for k, v in named.items() if k != "1-across"} | {"8-across": {"text": "x"}}
+got, notes = f.mended(OPEN, far)
+check("not where a clued light lies between them (mirror)", ({}, "no light for 8-across; no clue for 1-across"),
+      (notes, f.lights_fit(OPEN, got)))
+cite = {k: v for k, v in named.items() if k != "4-down"} | {"2-down": {"text": "Wonderful 4."}}
+got, notes = f.mended(OPEN, cite)
+check("a light other clues cite is printed with no clue", (None, {"4-down": "printed with no clue: other clues cite it"}),
+      (f.lights_fit(OPEN, got), notes))
+built = f.build({"number": 103, "name": "n", "date": "1932-03-02", "clues": got, "source": {"url": "u"}}, OPEN)
+check("and is filed as a clue the page leaves out", {"missing": True},
+      next(e["clue"] for e in built["entries"] if (e["number"], e["direction"]) == (4, "down")))
+got, notes = f.mended(OPEN, {k: v for k, v in named.items() if k != "4-down"} | {"2-down": {"text": "See 4 across."}})
+check("one cited in the other direction stays unclued (mirror)", ({}, "no clue for 4-down"), (notes, f.lights_fit(OPEN, got)))
+
 # A blocked grid whose unnumbered 2-cell runs are barred shut (No 17's):
 # its blocks are no bars.
 built = f.build({"number": 17, "name": "Listener crossword No 17: Test", "date": "1930-07-23", "clues": {},
