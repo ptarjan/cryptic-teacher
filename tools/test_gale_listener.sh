@@ -350,8 +350,9 @@ check("a saved solution is marked", True, "solution saved" in page)
 bare = g.checklist(rows, Path(sys.argv[1]) / "nostore", Path(sys.argv[1]) / "none", arrivals=[])
 check("a session link, then a Listener search on each puzzle still to save, in next up and its year", (True, 4),
       (g.gi.SESSION.format("LSNR") in bare, bare.count("prodId=LSNR")))
-check("next up lists them with the ordering rule and a Next batch", True,
-      '<table id="next">' in bare and g.ORDER in bare and "nextBatch()" in bare)
+check("next up lists them with the ordering rule, refilling itself (no Next batch)", (True, False),
+      ('<table id="next">' in bare and g.ORDER in bare and '<table id="done">' in bare, "nextBatch" in bare))
+check("nothing on the page asks for a rename", False, "Rename it" in page)
 check("years collapsed", True, "<details><summary><b>1930</b>" in bare)
 check("no search link once a puzzle is saved or filed", 0, page.count("prodId=LSNR"))
 inbox2, store2 = Path(sys.argv[1]) / "inbox2", Path(sys.argv[1]) / "store2"
@@ -379,7 +380,7 @@ check("a file already matched is not opened again", 4, len(g.arrived(inbox, rows
 (root / "puzzles" / "listener" / "1930" / "listener-2.json").unlink()
 page = g.checklist(rows, store, root, arrivals=came)
 check("an arrived page is ticked off", True, "arrived: the full pass reads it at its next slice" in page)
-check("and counted", True, "<b>2 of 2</b> saved or filed" in page)
+check("and counted by the files downloaded", True, "<b id=\"count\">4 of 4</b> files downloaded" in page)
 check("a page naming no puzzle waits for the pass", True, "<li><b>download.png</b>: arrived, puzzle not yet known" in page)
 check("one the pass already read is not waiting", False,
       "<li><b>holiday snap.jpg</b>: arrived, puzzle not yet known" in page)

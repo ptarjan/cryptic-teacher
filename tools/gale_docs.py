@@ -190,6 +190,18 @@ def link(prod, day, docs):
     return download_url(prod, day, e) if e and "doc" in e else None
 
 
+#: Gale's permalink for a document, the one its citation prints: opens the
+#: article in the viewer in a portal session.
+PERMALINK = "https://link.gale.com/apps/doc/{doc}/{prod}?u=alberta_portal&sid=bookmark-{prod}"
+
+
+def permalink(prod, day, docs):
+    """Gale's page for the crossword of `day` from the loaded cache `docs`,
+    else None."""
+    e = docs.get(f"{prod}/{day.isoformat()}")
+    return PERMALINK.format(doc=e["doc"], prod=prod) if e and "doc" in e else None
+
+
 def report_link(prod, number, docs):
     """The Download URL for the report on puzzle `number`, else None."""
     e = docs.get(f"{prod}/report/{number}")

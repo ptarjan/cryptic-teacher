@@ -6,7 +6,8 @@
 # when a file is added or replaced for that date and no other, and gone when
 # the inbox no longer holds it? Is a Gale download recognised by its name or
 # citation and routed to its paper's inbox, everything else left alone, and
-# does the checklist lead with progress, pages to redo and what to search?
+# does the checklist lead with progress and what to search, sorting every
+# file that is not a wanted page out by itself (set aside, never asked)?
 #
 #     bash tools/test_gale_inbox.sh
 #
@@ -81,7 +82,7 @@ check("an edition laid out under the portal's link is relinked to its document's
 check("a page set on an archive.org-wide page", fa.SCAN_WIDTH, Image.open(d / "leaf_0000.jpg").width)
 check("a file that names no edition is listed, not staged", ["holiday snap.jpg"],
       [m["file"] for m in json.loads(un.read_text()) if not m.get("date")])
-check("a staged page with no grid on it is listed for redoing", ["GALE|IF0503151598 1988-01-12.jpg"],
+check("a staged page with no grid on it is listed", ["GALE|IF0503151598 1988-01-12.jpg"],
       [m["file"] for m in json.loads(un.read_text()) if m.get("date")])
 check("each file's match is kept, so a tick re-reads only what moved", 2,
       len(json.loads(g.MATCHES.read_text())))
@@ -156,14 +157,16 @@ check("a page for another date is its own edition, the first left alone", (True,
 g.stage(inbox, cache, io.StringIO(), un, g.MATCHES)
 check("a page gone from the inbox takes its edition with it", False, other.exists())
 
-# The checklist: progress, pages to redo, the next editions with what to
+# The checklist: progress, what was sorted, the next editions with what to
 # search for, then each year, the worst first.
 g.usual_pages = lambda: {1988: (16, 24, 18)}
 rows = [(D(1987, 3, 2), "no-scan"), (D(1988, 1, 12), "no-scan"), (D(1988, 1, 13), "no-scan"),
         (D(1988, 1, 14), "no-scan")]
-html = g.checklist(rows, cache, un)
+LOG = Path(sys.argv[1]) / "set_aside.json"
+html = g.checklist(rows, cache, un, log=LOG)
 check("the worst year first", True, html.index("<b>1988</b>: 3 missing") < html.index("<b>1987</b>: 1 missing"))
-check("progress counts the arrived editions", True, "<b>1 of 4</b> arrived, 3 to go" in html)
+check("progress counts the files downloaded (2 for one date and 1 naming none) against those and the editions to go",
+      True, '<b id="count">3 of 6</b> files downloaded, <span id="togo">3</span> to go' in html)
 nxt = html[html.index("<h2>Next up"):html.index("<h2>Everything")]
 check("next up starts at the worst year's first edition not arrived", True,
       nxt.index("Wed 13 Jan 1988") < nxt.index("Thu 14 Jan 1988") < nxt.index("Mon 02 Mar 1987"))
@@ -171,9 +174,20 @@ check("an arrived edition is not next up", False, "Tue 12 Jan 1988" in nxt)
 check("a search to copy for the puzzle's number", True,
       """onclick="cp(this,&quot;\\&quot;Crossword Puzzle No 17,564\\&quot;&quot;)">Copy</button>""" in nxt)
 check("the ordering rule is said", True, g.ORDER in nxt)
-check("next up is a pool with its Next batch and Refresh", True,
-      '<table id="next">' in nxt and 'onclick="nextBatch()"' in nxt and 'onclick="location.reload()"' in nxt)
-check("the pool is POOL long, the lookahead longer", ([D(1988, 1, 13)], 60, 200),
+check("next up is a pool that refills itself: no Next batch, a Clicked list under it, Refresh", (True, False, True, True),
+      ('<table id="next">' in nxt, "nextBatch" in html or "Next batch" in html,
+       '<div id="clicked" hidden><h3>Clicked</h3>' in nxt and '<table id="done">' in nxt, 'onclick="location.reload()"' in nxt))
+check("each next-up row carries its place in the pool, so a row unclicked goes back where it was", True,
+      all(f'data-i="{i}"' in nxt for i in range(3)))
+check("a clicked row moves to Clicked after MOVE_SECONDS; mark() re-shows then", True,
+      "MOVE=3*1e3" in html and "setTimeout(show,MOVE+50)" in html and "(gone?dn:nx).tBodies[0].appendChild(r)" in html)
+import subprocess, shutil as _sh
+if _sh.which("node"):
+    js = html[html.index("<script>") + 8:html.index("</script>")]
+    (Path(sys.argv[1]) / "page.js").write_text(js)
+    check("the page's script parses", 0, subprocess.run(["node", "--check", str(Path(sys.argv[1]) / "page.js")]).returncode)
+check("no download-limit text", False, "downloads a session" in html)
+check("the pool is POOL long; links are looked up for every wanted edition", ([D(1988, 1, 13)], 60, None),
       ([d for d, _ in g.next_up(rows, {D(1988, 1, 12): []}, 1)], g.POOL, g.LOOKAHEAD))
 check("each row to fetch has a state badge the script fills", True, '<span class="st"></span>' in nxt)
 check("which says downloading, then late, then in the inbox", True,
@@ -181,32 +195,103 @@ check("which says downloading, then late, then in the inbox", True,
 check("an estimated number says so", True, "number estimated" in nxt[nxt.index("Mon 02 Mar 1987"):])
 check("a date's likely page", True, "p. 18 (or 16-24)" in nxt)
 check("an arrived edition is marked", True, "arrived (1988-01-12 page 2.png, GALE|IF0503151598 1988-01-12.jpg)" in html)
-bad = html[html.index("Check these files"):html.index('<div class="how">')]
-check("an unmatched file is listed to redo", True, "holiday snap.jpg" in bad and "Rename it" in bad)
-check("a page with no grid is listed to redo", True, "no crossword grid" in bad)
+text = html[html.index("</script>"):]
+check("no box asks anything of Paul", (False, False, False), ("Check these files" in text, "Rename it" in text,
+                                                               "delete" in text.lower()))
+note = html[html.index('<details class="notes">'):html.index('<div class="how">')]
+check("a file that names no edition is a note: left in the inbox", True,
+      "holiday snap.jpg" in note and "left in the inbox" in note and "nothing to do" in note)
 check("the page reads its status file, no blind refresh", (True, False),
       ('SRC="Checklist.status.js"' in html, 'http-equiv="refresh"' in html))
 arrived = next(r for r in html.split("\n") if 'data-k="1988-01-12"' in r)
 check("an arrived row says so and offers no Download", (True, True, False, False),
       ('data-in="1"' in arrived, "in the inbox" in arrived, 'class="dl"' in arrived, "Open in Gale" in arrived))
 check("Download is a big button", True, all(w in g.CSS for w in ("a.dl{display:inline-block;padding:8px 18px;font-size:17px",)))
-# A page saved for a date but holding no cryptic's title (1987-01-13's was
-# the Concise's page): listed to redo, and the edition still to fetch.
-scanned = {"GaleTimes1988UKEnglish/1988-01-12": {"edition": "GaleTimes1988UKEnglish/1988-01-12",
-                                                  "scan": {"puzzles": [], "solutions": []}}}
-html2 = g.checklist(rows, cache, un, ledger=scanned)
-bad2 = html2[html2.index("Check these files"):html2.index('<div class="how">')]
+# A page saved for a date, read, holding no cryptic's title: back to fetch
+# unless Gale's citation names it the cryptic (a reader miss: it counts).
+rel88 = "GaleTimes1988UKEnglish/1988-01-12"
+scanned = {rel88: {"edition": rel88, "scan": {"puzzles": [], "solutions": []}, "filesHash": fa.input_hash(d),
+                  "scanKey": fa.scan_key()}}
+html2 = g.checklist(rows, cache, un, ledger=scanned, log=LOG)
 nxt2 = html2[html2.index("<h2>Next up"):html2.index("<h2>Everything")]
-check("a page with no cryptic's title is listed to redo, its edition next up again, not counted arrived",
-      (True, True, True), ("(the Concise" in bad2, "Tue 12 Jan 1988" in nxt2, "<b>0 of 4</b> arrived" in html2))
+check("a page with no cryptic's title: its edition next up again and to go, nothing asked",
+      (True, True, False), ("Tue 12 Jan 1988" in nxt2, "<b id=\"count\">3 of 7</b>" in html2, "Check these" in html2))
+check("(mirror) a scan of other files, by older code, or one that failed, is no reading of these", ({}, {}, {}),
+      (g.titleless(g.staged_matches(cache), {rel88: {**scanned[rel88], "filesHash": "old"}}, cache),
+       g.titleless(g.staged_matches(cache), {rel88: {**scanned[rel88], "scanKey": "old"}}, cache),
+       g.titleless(g.staged_matches(cache), {rel88: {**scanned[rel88], "scan": {"puzzles": [], "failed": "Timeout"}}},
+                   cache)))
 html2 = g.checklist(rows, cache, un, ledger={k: {**v, "scan": {"puzzles": [{"number": 17564}], "solutions": []}}
-                                             for k, v in scanned.items()})
-check("(mirror) one with a title is not", (False, False),
-      ("(the Concise" in html2, "Tue 12 Jan 1988" in html2[html2.index("<h2>Next up"):html2.index("<h2>Everything")]))
+                                             for k, v in scanned.items()}, log=LOG)
+check("(mirror) one with a title is not", False,
+      "Tue 12 Jan 1988" in html2[html2.index("<h2>Next up"):html2.index("<h2>Everything")])
+src88 = next(d.glob("sources-*.json"))
+kept_src = src88.read_text()
+src88.write_text(json.dumps([{**m, "cited": "The Times Crossword Puzzle No 17,563"} for m in json.loads(kept_src)]))
+scanned[rel88]["filesHash"] = fa.input_hash(d)
+html2 = g.checklist(rows, cache, un, ledger=scanned, log=LOG)
+check("titleless but cited as the cryptic: arrived, a note says our readers missed it", (False, True, True),
+      ("Tue 12 Jan 1988" in html2[html2.index("<h2>Next up"):html2.index("<h2>Everything")],
+       "<b id=\"count\">3 of 6</b>" in html2, "our readers read no title on it yet" in html2))
+src88.write_text(kept_src)
+scanned[rel88]["filesHash"] = fa.input_hash(d)
+
+# Sorting files out: each class set aside with its reason, nothing asked.
+M = lambda f, **k: {"file": f, "grid": True, "cited": None, **k}
+cryptic, concise = "The Times Crossword Puzzle No 17,275", "Concise Crossword No 1154"
+staged = {D(1988, 1, 13): [M("IF0502610073.pdf", cited=cryptic), M("IF0502610073 (1).pdf", cited=cryptic),
+                           M("IF0502610073 (2).pdf", cited=cryptic)],
+          D(1988, 1, 14): [M("IF0501710448.pdf", cited=concise)],
+          D(1988, 2, 1): [M("IF0500000001.pdf")],
+          D(1987, 6, 30): [M("IF0500000002.pdf")],
+          D(1987, 3, 2): [M("IF0500000003.pdf", grid=False)],
+          D(1988, 1, 12): [M("IF0500000004.pdf"), M("IF0500000005.pdf", cited=cryptic, grid=False)]}
+plan = {f: why for f, _, why in g.to_set_aside(staged, rows, {17396: D(1987, 6, 30)}, {D(1988, 1, 12): []})}
+check("second copies of one Gale document go, the first kept",
+      ["IF0502610073 (1).pdf", "IF0502610073 (2).pdf"], sorted(f for f, w in plan.items() if "second copy" in w))
+check("a page Gale's citation names as another puzzle goes", True, "Concise Crossword No 1154" in plan["IF0501710448.pdf"])
+check("a page for a date the list does not ask for goes; one already filed stays", (True, False),
+      ("does not ask for" in plan.get("IF0500000001.pdf", ""), "IF0500000002.pdf" in plan))
+check("a page with no grid goes", "no crossword grid on it", plan.get("IF0500000003.pdf"))
+check("a titleless page goes; Gale's cryptic page stays, grid or title read or not", (True, False),
+      ("no Times Crossword title" in plan.get("IF0500000004.pdf", ""), "IF0500000005.pdf" in plan))
+check("the cryptic's copy is the one kept", False, "IF0502610073.pdf" in plan)
+check("a file matched before citations were read is not judged by grid or title yet", [],
+      g.to_set_aside({D(1987, 3, 2): [{"file": "old.pdf", "grid": False}]}, rows, {}, {D(1987, 3, 2): []}))
+ran = []
+n = g.set_aside(g.to_set_aside(staged, rows, {17396: D(1987, 6, 30)}, {}), io.StringIO(), "/inbox", LOG, ran.append)
+check("set_aside moves them on the Mac into the inbox's Set aside folder, never over a file there",
+      (True, True, n), (ran[0].startswith("mkdir -p '/inbox/Set aside' && mv -n "), "'/inbox/Set aside/'" in ran[0],
+                        ran[0].count(" mv -n ")))
+check("and nothing when there is nothing to move", (0, 1), (g.set_aside([], io.StringIO(), "/inbox", LOG, ran.append), len(ran)))
+log = json.loads(LOG.read_text())
+check("each is logged with its date and why", ("1988-01-14", True),
+      (log["IF0501710448.pdf"]["date"], "Concise" in log["IF0501710448.pdf"]["why"]))
+docs = {"TTDA/1988-01-14": {"why": "no crossword in the issue's contents"}, "TTDA/1988-01-13": {"why": "no crossword in the issue's contents"},
+        "TTDA/1987-03-02": {"why": "Gale has no issue that day"}}
+aside = g.aside_days(LOG)
+check("Gale has no cryptic: no issue, or no crossword listed and the page found another puzzle; else still to fetch",
+      (True, True, None), (bool(g.not_on_gale(D(1988, 1, 14), docs, aside)), bool(g.not_on_gale(D(1987, 3, 2), docs, aside)),
+                           g.not_on_gale(D(1988, 1, 13), docs, aside)))
+html3 = g.checklist(rows, cache, un, docs=docs, log=LOG)
+nxt3 = html3[html3.index("<h2>Next up"):html3.index("<h2>Everything")]
+check("such a date leaves next up, its year row saying why", (False, True),
+      ("Thu 14 Jan 1988" in nxt3, "contents list no cryptic that day" in html3))
+check("the files set aside are notes, not asks", (True, False),
+      ("set aside into Set aside" in html3, "Check these" in html3))
+check("a note older than ASIDE_DAYS is dropped", [], [f for f, w in g.notes({}, {}, Path("/nonexistent"), LOG,
+      datetime.datetime.now().astimezone() + datetime.timedelta(days=g.ASIDE_DAYS + 1)) if "set aside" in w])
+check("the citation's title is read off a Gale download's text", "Concise Crossword No 1154",
+      g.CITED_TITLE.search('"Concise Crossword No 1154." Times, 13 Jan. 1987, p. 10.').group(1))
+check("only the cryptic's title is the cryptic", (True, False, False),
+      (g.cryptic_cited({"cited": cryptic}), g.cryptic_cited({"cited": concise}), g.cryptic_cited({})))
 status = {}
-g.checklist(rows, cache, un, status=status)
+g.checklist(rows, cache, un, status=status, log=Path("/nonexistent"))
 check("a render's status names the page and its arrived rows", (True, ["1988-01-12"]),
       (status["page"] > 0, status["in"]))
+check("and the count, which the page's poll writes into its progress bar and number", ((3, 6), True),
+      ((status["done"], status["total"]), all(w in html for w in ('<progress id="prog"', '<b id="count">',
+                                                                    'galeStatus(s){IN=new Set(s.in);AT=s.at*1000;count(s)'))))
 published = []
 g.publish = lambda path, host_inbox=None: published.append(path.name)
 page_path = Path(sys.argv[1]) / "Checklist.html"
@@ -226,19 +311,19 @@ want = ("https://go.gale.com/ps/advancedSearch.do?inputFieldNames%5B0%5D=TI&inpu
         "&dateIndices=DA&dateLimiterValues%5BDA%5D.dateMode=2&dateLimiterValues%5BDA%5D.fromYear=1988"
         "&dateLimiterValues%5BDA%5D.fromMonth=01&dateLimiterValues%5BDA%5D.fromDay=13"
         "&dateLimiterValues%5BDA%5D.fromEra=1&searchType=AdvancedSearchForm&method=doSearch&searchMethod=advanced"
-        "&searchResultsType=SingleTab&prodId=TTDA&userGroupName=alberta_portal")
+        "&searchResultsType=SingleTab&prodId=TTDA&userGroupName=alberta_portal&u=alberta_portal&p=TTDA")
 check("a date's link is Gale's title search on that day, month and day zero-padded", want,
       g.search_url(D(1988, 1, 13)))
 check("each next-up row links its date's search, kept beside Copy", True,
       f'<a class="go" href="{g.html.escape(want)}" target="gale" onclick="mark(\'1988-01-13\')">Open in Gale</a> '
       '<button onclick="cp(' in nxt)
+check("a row whose document is known opens Gale's permalink for it, as its citation prints; else the search",
+      ("https://link.gale.com/apps/doc/IF0500470778/TTDA?u=alberta_portal&sid=bookmark-TTDA", None),
+      (g.gale_docs.permalink("TTDA", D(1987, 1, 19), {"TTDA/1987-01-19": {"doc": "IF0500470778"}}),
+       g.gale_docs.permalink("TTDA", D(1987, 1, 13), {"TTDA/1987-01-13": {"why": "no crossword"}})))
 check("the Listener's link searches its own archive", True, "prodId=LSNR" in g.search_url(D(1930, 4, 9), "LSNR"))
 check("no link fetches a document or names a session id", [], [u for u in re.findall(r'href="([^"]+)"', html)
       if "retrieve.do" in u or "PHPSESSID" in u or "jsessionid" in u.lower()])
-check("a page for a date the list does not ask for is flagged", [("x.pdf", True)],
-      [(f, "not on the list" in why) for f, why in g.problems(rows, held, {D(1988, 2, 1): ["x.pdf"]}, Path("/nonexistent"))])
-check("but not one already filed", [], g.problems(rows, {17396: D(1987, 6, 30)}, {D(1987, 6, 30): ["y.pdf"]},
-                                                  Path("/nonexistent")))
 
 # Recognising and routing Gale files: by Gale's document id in the name or
 # Gale's citation in a PDF's text; the drop folder takes any page file;

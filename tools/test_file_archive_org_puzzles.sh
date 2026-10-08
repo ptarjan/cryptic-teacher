@@ -124,6 +124,11 @@ check("a garbled Concise, solution, Listener or index line is no title", [],
        for n, _ in f.headings([line(t)], f.TITLE)])
 check("a title run together with its \"The\" is read (1995-04-12)", [19827],
       [n for n, _ in f.headings([line("THETIMES CROSSWORD NO 19,827")], f.TITLE)])
+check("a title with \"Times\" run into \"Crossword\" is read (Gale 1987-01-19, ch)", [17257, 17242],
+      [n for t in ("The TimesCrosswordPuzzleNo 17,257", "TheTimesCrosswordPuzzleNo17,242")
+       for n, _ in f.headings([line(t)], f.TITLE)])
+check("(mirror) a Concise run into \"Crossword\" is still no title", [],
+      [n for t in ("ConciseCrossword No 1154", "The ConciseCrosswordNo 1,154") for n, _ in f.headings([line(t)], f.TITLE)])
 words = [(2108, 2835, 2214, 2853, "Horthern Bank Ltd"), (2504, 2828, 2845, 2869, "CROSSWORD"),
          (2262, 2729, 2293, 2947, "*922393s93s"), (2108, 2896, 2183, 2914, "Rea Brothers"),
          (2468, 2892, 2882, 2924, "No.7,869 Set by CINEPHILE")]
@@ -1586,6 +1591,39 @@ os.environ.pop("OCR_REMOTE", None)
 page_img = Image.new("RGB", (400, 600), "white")
 band = f.title_bands(page_img, (100, 0, 300, 200))[0]
 check("a title band over a grid at the page's top edge has no height", 0, band[3] - band[1])
+check("the far band reaches a grid's height over it, the grid's width (a Saturday prize title over its entry form)",
+      (3, (100, 100, 300, 300)), (len(f.title_bands(page_img, (100, 300, 300, 500))),
+                                  f.title_bands(page_img, (100, 300, 300, 500), far=True)[-1]))
+# A Gale page whose whole-page read finds no title has the bands round its
+# grid read, the far one too.
+gd = Path(os.environ["TMP"]) / "GaleTimes1987UKEnglish" / "1987-07-02"
+gd.mkdir(parents=True)
+page_img.save(gd / "leaf_0000.jpg")
+(gd / "pages.json").write_text(json.dumps({"date": "1987-07-02", "item": "GaleTimes1987UKEnglish",
+                                           "crossword_pages": [{"leaf": 0}]}))
+saved_h, saved_t = f.ocr_headings, f.ocr_titles
+asked = []
+f.ocr_headings = lambda img, paper, key: ([], [])
+f.ocr_titles = lambda img, paper, day, key, far=False: asked.append(far) or [(17398, (0, 0, 1, 1), None, ["ch", "en5"])]
+check("a Gale page with no whole-page title is read in the bands round its grid", ([17398], [True]),
+      ([p["number"] for p in f._scan(gd)["puzzles"]], asked))
+f.ocr_headings = lambda img, paper, key: ([(17398, (0, 0, 1, 1), None, ["ch", "en5"])], [])
+asked.clear()
+check("(mirror) one whose whole-page read has its title is not read again", ([17398], []),
+      ([p["number"] for p in f._scan(gd)["puzzles"]], asked))
+f.ocr_headings, f.ocr_titles = saved_h, saved_t
+# A reader timing out on a whole Gale page (tesseract, 300s, Gale
+# 1987-08-06) reads nothing; the others' title still stands.
+import subprocess
+saved_bw = f.band_words
+def timed_out(img, band, which, path):
+    if which == "times":
+        raise subprocess.TimeoutExpired("tesseract", 300)
+    return [(10, 10, 300, 40, "The TimesCrosswordPuzzleNo17,428")]
+f.band_words = timed_out
+check("a reader's timeout on a whole page reads as nothing, not a failed scan", [(17428, ["ch", "en5"])],
+      [(n, r) for n, _, _, r in f.ocr_headings(Image.new("RGB", (400, 600), "black"), f.GALE, "timeout_test")[0]])
+f.band_words = saved_bw
 check("a band with no height reads as no words, not a crash", [],
       f.band_words(page_img, band, "times", Path(os.environ["TMP"]) / "band.json"))
 check("an image with no width reads as no words", [], ocr_clues.read_words(Image.new("RGB", (0, 40)), "ch"))
