@@ -57,7 +57,10 @@ verdict against its inputs (its files' sizes and times, its clue zones, and
 whether the VLM read it), so a rerun reads only articles that are new or
 changed, the never-read first and
 then the stale by when they were read (tools/scan_queue.py), the ledger saved
-after each. --seconds N stops starting new reads once N seconds have passed
+after each. The standing pass does not run this as a batch:
+tools/edition_queue.py reads each due article (plan()) as a unit of its
+own (read_unit: its own lock, one row appended, the last row an article
+standing); a batch run holds the ledger throughout, and the units wait. --seconds N stops starting new reads once N seconds have passed
 (a page-image read is 15-100 s); what is left keeps its old ledger row, so it
 stays pending for the next run. --workers N reads N articles at once.
 
@@ -1224,40 +1227,15 @@ def _run(cache, write, ledger, out, puzzles, deadline, workers, reread, articles
             [(d,) for d in queue], consider_article, workers, deadline, init=set_taken, initargs=(taken,),
             failed=lambda item, error: (refuse({}, "crashed", f"crashed: {error}"), None, None, False)), 1):
         aid = d.name
-        verdict, puzzle, voted, vlm_ok = got
         if time.monotonic() - reported >= 300:
             reported = time.monotonic()
             print(f"  {done} of {len(queue)} read", file=out, flush=True)
-        if puzzle is not None and puzzle["id"] in taken and taken[puzzle["id"]] != aid:
-            # Another worker filed this id while this one read.
-            verdict, puzzle = refuse(dict(verdict), "id-taken", f"{puzzle['id']} is article {taken[puzzle['id']]}'s"), None
-            verdict.pop("id", None)
-        held = files.get(aid)
-        if voted is not None and held and held.stem == voted["id"] and taken.get(voted["id"]) == aid:
-            puzzle = held_read(voted, puzzle, held, verdict, write)
-        elif puzzle is not None and write:
-            path = (Path(puzzles) / f"{puzzle['id']}.json" if puzzles
-                    else puzzle_path(SERIES, puzzle["number"]))
-            if not path.exists() and not scan_queue.file_puzzle(write_puzzle_file, TOOL, path,
-                                                                 puzzle, verdict):
-                puzzle = None
-        # Keyed by the inputs after this read's writes: a stray clue it
-        # mended no longer makes the article due.
-        h = inputs_of(d, held)
-        row = ledger_row(aid, h, verdict)
-        if seen_by and vlm_ok:
-            row["vlm"] = seen_by
-        if puzzle is not None:
-            taken[puzzle["id"]] = aid
+        row, puzzle = settle(d, got, taken, files, write, puzzles, seen_by)
         if write or not puzzle:
             known[aid] = row
         if write:
             save(ledger, known)
         del due[d]
-        print(f"{time.strftime('%H:%M:%S')} read {aid}: "
-              + ("wrote " + row["id"] if row.get("wrote") else
-                 str(row.get("id") or row.get("skip") or row.get("pending") or row.get("refused") or "read"))[:80],
-              file=sys.stderr, flush=True)
     tally = {}
     for d in dirs:
         row = known.get(d.name)
@@ -1283,6 +1261,102 @@ def _run(cache, write, ledger, out, puzzles, deadline, workers, reread, articles
     for k in sorted(tally):
         print(f"  {tally[k]:5d}  {k}", file=out)
     return tally
+
+
+def settle(d, got, taken, files, write, puzzles, seen_by):
+    """File what article `d`'s read (consider_article's `got`) found, as
+    `taken` ({puzzle id: article}, updated) and `files` (held_files) allow,
+    and return (its ledger row, the puzzle written or None)."""
+    aid = d.name
+    verdict, puzzle, voted, vlm_ok = got
+    if puzzle is not None and puzzle["id"] in taken and taken[puzzle["id"]] != aid:
+        # Another worker filed this id while this one read.
+        verdict, puzzle = refuse(dict(verdict), "id-taken", f"{puzzle['id']} is article {taken[puzzle['id']]}'s"), None
+        verdict.pop("id", None)
+    held = files.get(aid)
+    if voted is not None and held and held.stem == voted["id"] and taken.get(voted["id"]) == aid:
+        puzzle = held_read(voted, puzzle, held, verdict, write)
+    elif puzzle is not None and write:
+        path = (Path(puzzles) / f"{puzzle['id']}.json" if puzzles
+                else puzzle_path(SERIES, puzzle["number"]))
+        if not path.exists() and not scan_queue.file_puzzle(write_puzzle_file, TOOL, path,
+                                                             puzzle, verdict):
+            puzzle = None
+    # Keyed by the inputs after this read's writes: a stray clue it
+    # mended no longer makes the article due.
+    row = ledger_row(aid, inputs_of(d, held), verdict)
+    if seen_by and vlm_ok:
+        row["vlm"] = seen_by
+    if puzzle is not None:
+        taken[puzzle["id"]] = aid
+    print(f"{time.strftime('%H:%M:%S')} read {aid}: "
+          + ("wrote " + row["id"] if row.get("wrote") else
+             str(row.get("id") or row.get("skip") or row.get("pending") or row.get("refused") or "read"))[:80],
+          file=sys.stderr, flush=True)
+    return row, puzzle
+
+
+#: How urgent each reason to read an article is (tools/edition_queue.py's
+#: ranks, shared with the archive.org editions').
+RANKS = {"never read": 1, "annotation asked": 1, "--reread": 3}
+
+
+def plan(cache=CACHE, reread=None, asked=(), ledger=None, puzzles=None):
+    """The article reads due, one unit each ({"rel": article id, "rank",
+    "reason", "force"}), the most urgent first: never read and annotation's
+    asks (`asked`, read whatever their row says), then those whose inputs
+    moved or whose cause a change cured, then the --reread ones, each rank
+    by scan_queue.order (the longest since read first)."""
+    ledger = Path(ledger or cache / "filed.jsonl")
+    known = scan_queue.ledger_rows(ledger, "article")
+    files = held_files(puzzles)
+    seen_by = vlm.version() if vlm.reachable() else None
+    asked = set(asked)
+    due = {}
+    for d in (sorted(p for p in cache.iterdir() if (p / "meta.json").exists()) if cache.exists() else []):
+        why = "annotation asked" if d.name in asked else due_reason(known.get(d.name), inputs_of(d, files.get(d.name)),
+                                                                     seen_by, reread)
+        if why:
+            due[d.name] = why
+    queue = scan_queue.order(list(due), {a: known[a] for a in due if a in known},
+                             lambda row: row is None or "inputs" not in row)
+    units = [{"rel": a, "reason": due[a], "rank": RANKS.get(due[a], 2), "force": due[a] == "annotation asked",
+              "needs": []} for a in queue]
+    return sorted(units, key=lambda u: u["rank"])
+
+
+def read_unit(aid, cache=CACHE, puzzles=None, reread=None, force=False, ledger=None):
+    """Read and file one article (tools/edition_queue.py's unit), under its
+    own lock, adding its own ledger row. Returns "read", "current" (no
+    longer due, unless `force`), "busy" (another unit has it) or "held" (a
+    batch run holds the ledger)."""
+    ledger = Path(ledger or cache / "filed.jsonl")
+    if scan_queue.held(ledger):
+        return "held"
+    with scan_queue.source_lock(ledger, aid) as mine:
+        if not mine:
+            return "busy"
+        d = Path(cache) / aid
+        known = scan_queue.ledger_rows(ledger, "article")
+        files = held_files(puzzles)
+        seen_by = vlm.version() if vlm.reachable() else None
+        if not force and not due_reason(known.get(aid), inputs_of(d, files.get(aid)), seen_by, reread):
+            print(f"{time.strftime('%H:%M:%S')} {aid}: not due any more", file=sys.stderr, flush=True)
+            return "current"
+        taken = {row["id"]: a for a, row in known.items() if row.get("id")} | {p.stem: a for a, p in files.items()}
+        set_taken(taken)
+        got = consider_article(d)
+        puzzle = got[1]
+        # Two units filing one puzzle id: the second sees the first's row.
+        with scan_queue.source_lock(ledger, f"id:{puzzle['id']}" if puzzle else f"none:{aid}") as free:
+            if puzzle is not None:
+                fresh = scan_queue.ledger_rows(ledger, "article")
+                taken |= {row["id"]: a for a, row in fresh.items() if row.get("id")}
+                if not free:
+                    taken.setdefault(puzzle["id"], "another unit's")
+            row, _ = settle(d, got, taken, files, True, puzzles, seen_by)
+            scan_queue.append(ledger, [row])
+        return "read"
 
 
 def held_read(voted, puzzle, path, verdict, write):

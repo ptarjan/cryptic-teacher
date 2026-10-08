@@ -48,12 +48,17 @@ from pathlib import Path
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
 import fetch_archive_org_editions as fetch_ao  # noqa: E402
+import fetch_trove  # noqa: E402
 import file_archive_org_puzzles as fa  # noqa: E402
+import file_trove_puzzles as ftp  # noqa: E402
 import scan_queue  # noqa: E402
 
-#: The papers in the order a rank's units are taken.
-PAPERS = ["gale", "times", "telegraph", "guardian", "ft"]
+#: The papers in the order a rank's units are taken; "trove" is the
+#: Canberra Times articles (tools/file_trove_puzzles.py), read in a pool of
+#: their own (TROVE_WORKERS) beside the editions'.
+PAPERS = ["gale", "times", "telegraph", "guardian", "ft", "trove"]
 WORKERS = 20
+TROVE_WORKERS = 6
 SCAN_WORKERS = 3
 #: A unit still running this long is killed and left for the next run.
 SCAN_SECONDS = 1200
@@ -76,6 +81,11 @@ FETCHERS = {
     "archive.org": {"plan": lambda: fetch_ao.plan(fetch_ao.downloads.ARCHIVE_ORG),
                     "run": lambda u: fetch_ao.fetch_unit(fetch_ao.downloads.ARCHIVE_ORG, u),
                     "workers": 12, "seconds": 1200},
+    # Trove is asked at most once a second across every unit (fetch_trove
+    # pace()); three at once overlap one's request with the others' waits.
+    "trove": {"plan": lambda: fetch_trove.plan(),
+              "run": lambda u: fetch_trove.fetch_unit(u),
+              "workers": 3, "seconds": 900},
 }
 FETCH_OUTAGES = fetch_ao.FAILURES_IN_A_ROW
 
@@ -97,10 +107,21 @@ def plan(papers, cache=fa.CACHE, reread=None, newer=None, out=None):
                 p = fa.filer_of(req["source"])
                 if p is not None:
                     asked.setdefault(p.key, set()).add(req["source"])
+            elif req["filer"] == "trove":
+                asked.setdefault("trove", set()).add(req["source"])
     except (OSError, ValueError) as e:
         log(f"the annotation re-read requests did not load ({type(e).__name__}: {e}); planned without them")
     scans, reads = [], []
     for k, key in enumerate(papers):
+        if key == "trove":
+            led = ftp.CACHE / "filed.jsonl"
+            if scan_queue.held(led):
+                if out is not None:
+                    out.append(f"trove: a run holds {led.with_suffix('.lock')}; left out")
+                continue
+            if newer is None:
+                reads += [(u["rank"], k, n, u) for n, u in enumerate(trove_plan(reread, asked.get("trove", ())))]
+            continue
         paper = fa.FILERS[key]
         if scan_queue.held(fa.ledger_of(cache, paper)):
             if out is not None:
@@ -116,13 +137,32 @@ def plan(papers, cache=fa.CACHE, reread=None, newer=None, out=None):
     return [u for *_, u in sorted(scans, key=lambda t: t[:3])], [u for *_, u in sorted(reads, key=lambda t: t[:3])]
 
 
+#: How often (seconds) the Trove articles are planned again: stat-ing
+#: every article's inputs takes ~5s, and a new article is never urgent.
+TROVE_REPLAN = 300
+_TROVE = {}
+
+
+def trove_plan(reread, asked):
+    """file_trove_puzzles.plan()'s units, made again every TROVE_REPLAN
+    seconds or when the annotation asks change."""
+    asked = frozenset(asked)
+    if _TROVE.get("asked") != asked or time.monotonic() - _TROVE.get("at", -TROVE_REPLAN) >= TROVE_REPLAN:
+        units = [{**u, "kind": "read", "paper": "trove"} for u in ftp.plan(reread=reread, asked=asked)]
+        _TROVE.update(asked=asked, at=time.monotonic(), units=units)
+    return _TROVE["units"]
+
+
 def key_of(unit):
     return unit["kind"], unit["paper"], unit["rel"]
 
 
 def slot_of(unit):
-    """The pool a unit runs in: "scan", "read", or its fetch source."""
-    return unit["paper"] if unit["kind"] == "fetch" else unit["kind"]
+    """The pool a unit runs in: "scan", "read", "trove" (its article reads)
+    or its fetch source ("fetch archive.org", "fetch trove")."""
+    if unit["kind"] == "fetch":
+        return f"fetch {unit['paper']}"
+    return "trove" if unit["paper"] == "trove" else unit["kind"]
 
 
 def plan_fetches(sources):
@@ -137,6 +177,8 @@ def run_unit(unit, cache, puzzles, reread):
     """In the forked child: the unit's outcome (EXITS)."""
     if unit["kind"] == "fetch":
         return FETCHERS[unit["paper"]]["run"](unit)
+    if unit["paper"] == "trove":
+        return ftp.read_unit(unit["rel"], puzzles=None, reread=reread, force=unit.get("force"))
     paper = fa.FILERS[unit["paper"]]
     if unit["kind"] == "scan":
         return fa.scan_unit(paper, unit["rel"], cache)
@@ -208,7 +250,7 @@ class Beside:
 
 def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=None, workers=WORKERS,
              scan_workers=SCAN_WORKERS, newer=None, beside=None, read_seconds=READ_SECONDS,
-             scan_seconds=SCAN_SECONDS, replan=REPLAN, fetch=()):
+             scan_seconds=SCAN_SECONDS, replan=REPLAN, fetch=(), trove_workers=TROVE_WORKERS):
     """Run the queue until nothing due is left to start (or `seconds` have
     passed, or a TERM), then wait for the units running. `fetch` names the
     FETCHERS whose units run too, in pools of their own. Returns the exit
@@ -225,7 +267,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     scans = reads = fetches = []
     planned = None
     left = 0
-    pools = {"scan": scan_workers, "read": workers, **{src: FETCHERS[src]["workers"] for src in fetch}}
+    pools = {"scan": scan_workers, "read": workers, "trove": trove_workers,
+             **{f"fetch {src}": FETCHERS[src]["workers"] for src in fetch}}
     outages = dict.fromkeys(fetch, 0)
     stopped = set()  # fetch sources started no more this run
 
@@ -277,9 +320,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             if unit["kind"] == "fetch":
                 src = unit["paper"]
                 outages[src] = outages[src] + 1 if rc == 5 else 0
-                if rc == 6 and pools[src] > 1:
-                    pools[src] -= 1
-                    log(f"{src}: answered 429; at most {pools[src]} fetches at once from now on")
+                if rc == 6 and pools[f"fetch {src}"] > 1:
+                    pools[f"fetch {src}"] -= 1
+                    log(f"{src}: answered 429; at most {pools[f'fetch {src}']} fetches at once from now on")
                 if (rc == 7 or outages[src] >= FETCH_OUTAGES) and src not in stopped:
                     stopped.add(src)
                     log(f"{src}: no more fetches this run ({'disk full' if rc == 7 else f'{outages[src]} in a row found it down'})")
@@ -389,6 +432,7 @@ def main(argv=None):
     r.add_argument("--seconds", type=float, help="start no unit after this many seconds")
     r.add_argument("--workers", type=int, default=WORKERS, help="reads at once")
     r.add_argument("--scan-workers", type=int, default=SCAN_WORKERS)
+    r.add_argument("--trove-workers", type=int, default=TROVE_WORKERS, help="Trove article reads at once")
     r.add_argument("--wait", action="store_true", help="accepted for tools/ocr_full_pass.sh's slices; units never wait")
     r.add_argument("--beside", action="append", default=[], metavar="COMMAND",
                    help="a batch filer taking --seconds to run beside the units (shell words), again while it "
@@ -419,12 +463,12 @@ def main(argv=None):
             print(f"  {src:11s} {reason:22s} {n:6d}")
         return 0
     for key in papers:
-        ledger = fa.ledger_of(args.cache, fa.FILERS[key])
-        folded = scan_queue.compact(ledger, "edition")
+        ledger, by = (ftp.CACHE / "filed.jsonl", "article") if key == "trove" else (fa.ledger_of(args.cache, fa.FILERS[key]), "edition")
+        folded = scan_queue.compact(ledger, by)
         if folded and folded[0] != folded[1]:
             log(f"{ledger.name}: {folded[0]} rows folded to {folded[1]}")
     return dispatch(papers, args.cache, args.out, reread, args.seconds, args.workers, args.scan_workers, newer,
-                    [shlex.split(b) for b in args.beside], fetch=args.fetch)
+                    [shlex.split(b) for b in args.beside], fetch=args.fetch, trove_workers=args.trove_workers)
 
 
 if __name__ == "__main__":

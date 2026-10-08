@@ -1546,28 +1546,35 @@ tools/ocr_full_pass.sh                        the one standing corpus job: read 
                                               read before REREAD_BEFORE) and the re-reads
                                               annotation asked for, to the end: the editions
                                               through tools/edition_queue.py's per-edition
-                                              units, the Trove filer beside them, archive.org's
-                                              fetches units of that queue and Trove's fetched
-                                              beside the reads, then stop; the Gale Listener
-                                              pages saved since are read beside it, started at
-                                              its start and before every slice
+                                              units, the Trove articles' reads and the
+                                              archive.org and Trove fetches units of that queue
+                                              too, then stop; the Gale Listener pages saved
+                                              since are read beside it, started at its start
+                                              and before every slice
 tools/edition_queue.py                        the archive.org and Gale editions as a queue of
                                               small units: one edition's scan or read each, in
                                               its own forked process with its own time limit
                                               and edition lock, appending its own ledger row;
                                               Gale pages saved by hand first, then never read
                                               and annotation's asks, then inputs moved, then
-                                              REREAD_BEFORE; with --fetch archive.org, one unit
-                                              an edition fetched too, in a pool of its own;
-                                              planned again every minute; `plan` prints what is
-                                              due by rank
+                                              REREAD_BEFORE; the Trove articles' reads (one
+                                              unit an article, a pool of their own); with
+                                              --fetch archive.org / trove, one unit an edition,
+                                              article or article's zones fetched too, each
+                                              source in a pool of its own (Trove paced to 1
+                                              req/s across units); planned again every minute;
+                                              `plan` prints what is due by rank
 tools/test_edition_queue.sh                   does the edition queue append rows (the last
                                               standing, a half-written line skipped), keep one
                                               unit per edition, take Gale pages saved by hand
                                               first, read only after the scans its solution
                                               needs, kill a slow unit at its own limit without
                                               holding up the rest, say what a capped run left,
-                                              pass a TERM on, and run the Trove filer beside?
+                                              pass a TERM on, run a batch filer beside, run
+                                              fetch units in pools of their own (a 429
+                                              shrinking one, an outage stopping it), read Trove
+                                              articles as units, and pace Trove across
+                                              processes?
 tools/scan_queue.py                           the read queue the scan filers share: the
                                               append-only ledgers (the last row a source
                                               standing), per-source locks, and the re-reads
