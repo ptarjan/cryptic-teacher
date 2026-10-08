@@ -2283,6 +2283,19 @@ def blocks_miss_letters(ann, entry):
     return bool(got) and sorted(got) != sorted(block_letters(ann, wordplay_letters(ann, entry)))
 
 
+def missing_link_word_fix(ann, extra, missing):
+    """The exact edit when the blocks' missing letters are a word filed under
+    linkWords: that word is fodder, so it becomes a block and leaves linkWords."""
+    if extra or not missing:
+        return ""
+    for w in ann.get("linkWords") or []:
+        if isinstance(w, str) and sorted(letters(w)) == sorted(missing):
+            return (f". {w!r} is in linkWords but its letters are the missing ones: "
+                    f"remove it from linkWords and add the block "
+                    f"{{\"clueFragment\": {json.dumps(w)}, \"gives\": {json.dumps(letters(w))}}}")
+    return ""
+
+
 def check_blocks_account_for_answer(entries, errors, warnings):
     """The letters the blocks hand over have to be the answer's letters.
 
@@ -2313,7 +2326,8 @@ def check_blocks_account_for_answer(entries, errors, warnings):
                 + (f" (extra {extra!r})" if extra else "")
                 + (f" (missing {missing!r})" if missing else "")
                 + " — the blocks are what the learner actually reads, so they have "
-                  "to be the parse, not a sketch of one")
+                  "to be the parse, not a sketch of one"
+                + missing_link_word_fix(ann, extra, missing))
     if hits:
         errors.append(
             f"puzzle: {len(hits)} clue(s) ({', '.join(hits)}) have blocks whose letters "
