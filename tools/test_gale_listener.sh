@@ -174,6 +174,25 @@ check("No 97: an advert's capitals and the setter's NOTE end the column's list",
 check("a clue printed in capitals stays (mirror)", "10. UNPLEASANT JESTER",
       cols and next((l[4] for l in cols[1] if l[4].startswith("10")), None))
 
+# No 9's page: ACROSS low on the left, so the columns right of it are read
+# from the top, where the radio programmes' capitals stand over DOWN. Those
+# capitals are above the lists, so the column's lists still follow; the
+# same capitals under the lists end them (mirror).
+def no9(advert_y):
+    return ([(600, 3000, 700, 3024, "ACROSS")] + wide("1.", "Puzzler of one", 250, 3040)
+            + wide("9.", "Such question", 250, 3070) + wide("11.", "To do this", 250, 3100)
+            + line("FOREIGN STATIONS", 1200, 200) + line("SUNDAY, GOTTERDAMMERUNG", 1160, 240)
+            + [(1500, 300, 1600, 324, "DOWN.")] + wide("1.", "This foreign boaster", 1150, 340)
+            + wide("2.", "Add head", 1150, 370) + line("B.B.C. SYMPHONY CONCERT", 1300, advert_y)
+            + wide("3.", "A riddle", 1150, 400) + wide("9.", "Half sort", 1150, 490)
+            + wide("10.", "Unpleasant jester", 1150, 520))
+cols = g.page_columns(g.figures(no9(900)))
+check("No 9: capitals above the lists end no column",
+      ["1", "2", "3", "9", "10"], [l[4].split(".")[0] for l in cols[1]] if cols else None)
+cols = g.page_columns(g.figures(no9(445)))
+check("capitals under a list's clue still end its column (mirror)",
+      ["1", "2", "3"], [l[4].split(".")[0] for l in cols[1]] if cols else None)
+
 # No 15's page: ACROSS under the grid, its list running on at the top of the
 # next two columns over a centred DOWN; DOWN 22 straight under ACROSS 34 in
 # the last column, a heading's space between; a report's prose quoting

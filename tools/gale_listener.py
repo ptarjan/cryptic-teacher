@@ -442,7 +442,7 @@ def numbered_columns(words):
     for x0, x1 in zip(lefts, lefts[1:] + [float("inf")]):
         col = [(w[1], w[3], w[0], w[2], w[4]) for w in words if x0 <= w[0] < x1 and (
             w in kept or w[0] - x0 < NUMBER_EDGE or not re.fullmatch(r"\d{1,2}", w[4]))]
-        run, last_y, last_x = [], None, x0
+        run, last_y, last_x, clued = [], None, x0, False
         rows = fa.merge_rows(col)
         # The column's right edge: where its clue lines end, but for one
         # run into the grid or form beside it (No 17's "less'. NAME....").
@@ -462,11 +462,12 @@ def numbered_columns(words):
                 # Above the first heading, in its columns or those left of
                 # it: the grid, the preamble, another article.
                 continue
-            if (NOTE_HEAD.match(line[4]) or CAPITALS.match(line[4]) and not al.LINE_CLUE.match(line[4])
-                    ) and not fa.heading_of(line[4]):
+            if clued and (NOTE_HEAD.match(line[4]) or CAPITALS.match(line[4]) and not al.LINE_CLUE.match(line[4])
+                          ) and not fa.heading_of(line[4]):
                 # Under the lists, the setter's note or an advert's heading
                 # (No 97's, under 42 down and 46 across): the column's
-                # lists are over.
+                # lists are over. Above them (No 9's radio programmes over
+                # DOWN), they are only lines that are no clue.
                 break
             m = al.LINE_CLUE.match(line[4])
             if run and (speck := SPECK.match(line[4])) and WORDY.search(line[4]):
@@ -483,7 +484,7 @@ def numbered_columns(words):
                     runs.append(run)
                     run = []
                 run.append((n, [line]))
-                last_x, last_y = line[2], line[1]
+                last_x, last_y, clued = line[2], line[1], True
             elif under and run[-1][1][-1][3] - x0 >= FULL * (right - x0):
                 run[-1][1].append(line)
                 last_y = line[1]
