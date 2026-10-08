@@ -2023,7 +2023,7 @@ def unstrayed(text, theirs):
 #: The letters OCR reads as an apostrophe: a thin upright stroke.
 APOSTROPHE_FOR = "il"
 #: What follows a contraction's apostrophe ("I'll" is no "Ill").
-CONTRACTED = re.compile(r"(?:s|t|d|m|ll|re|ve)", re.I)
+CONTRACTED = re.compile(r"(?:s|t|d|m|ll|re|ve)", re.IGNORECASE)
 
 
 def letter_lost(word):
