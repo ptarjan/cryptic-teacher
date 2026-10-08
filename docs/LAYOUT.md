@@ -1882,5 +1882,7 @@ tools/test_ann_layout.sh                      annotate_check's fix-ups rewrite o
                                               next Edit of text it wrote still matches
 tools/commit_subject.py                       a commit subject naming the puzzles staged, for
                                               jobs that commit as they go
+tools/mem_gate.py                             memory gate: a queue starts a unit only while
+                                              available RAM stays above a floor
 ```
 <!-- LAYOUT-END -->

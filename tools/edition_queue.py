@@ -57,6 +57,7 @@ import fetch_trove  # noqa: E402
 import file_archive_org_puzzles as fa  # noqa: E402
 import file_trove_puzzles as ftp  # noqa: E402
 import gale_listener  # noqa: E402
+import mem_gate  # noqa: E402
 import scan_queue  # noqa: E402
 
 #: The papers in the order a rank's units are taken; "trove" is the
@@ -269,6 +270,10 @@ class Beside:
             os.killpg(self.proc.pid, sig)
 
 
+#: What the memory gate reads (tests swap it); None is mem_gate.available.
+mem_gate_reader = None
+
+
 def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=None, workers=WORKERS,
              scan_workers=SCAN_WORKERS, newer=None, beside=None, read_seconds=READ_SECONDS,
              scan_seconds=SCAN_SECONDS, replan=REPLAN, fetch=(), trove_workers=TROVE_WORKERS, handoff=None):
@@ -295,6 +300,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     pools = {"scan": scan_workers, "read": workers, "trove": trove_workers, "listener": LISTENER_WORKERS,
              **{f"fetch {src}": FETCHERS[src]["workers"] for src in fetch}}
     outages = dict.fromkeys(fetch, 0)
+    memory_bound = False  # logged once per slice
     stopped = set()  # fetch sources started no more this run
     adopted = take_over(handoff) if handoff else {}  # pid: (unit, started), another run's
     for unit, _ in adopted.values():
@@ -403,6 +409,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         free = dict(pools)
         for _, (u, _) in units_running():
             free[slot_of(u)] = free.get(slot_of(u), 0) - 1
+        begun_now = 0
+        held_back = False
         for u in scans + reads + fetches:
             if not may_start() or free[slot_of(u)] <= 0 or key_of(u) in tried:
                 continue
@@ -410,8 +418,16 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 continue
             if u["kind"] == "read" and u["reason"] == "scan stale" and any((u["paper"], r) in rescanned for r in u["needs"]):
                 continue
+            if not mem_gate.room(begun_now, mem_gate_reader):
+                held_back = True
+                continue
             start(u)
+            begun_now += 1
             free[slot_of(u)] -= 1
+        if held_back and not memory_bound:
+            memory_bound = True
+            log(f"memory-bound: under {(mem_gate.FLOOR + mem_gate.UNIT) >> 20} MB available; no unit starts "
+                f"until a later pass finds room ({len(running) + len(adopted)} running are left alone)")
         if stop:
             break
         if handoff and not may_start() and not any(b.busy() for b in beside):
