@@ -355,6 +355,25 @@ if [ "$pool" = "True
 True" ]; then echo "ok   the local pool reads in order, and exits on a stall"; else
   echo "FAIL local pool: expected [True True], got [$pool]"; fails=$((fails + 1)); fi
 
+# The lexicons are built on the desktop, its beats skipped; with no desktop,
+# here, a process each, as one process builds them, our annotations counted
+# in the indicator lexicon.
+lexicons=$(cd "$REPO/tools" && OCR_REMOTE= python3 -c '
+import letter_facts as l
+rows = [(f"p{i}", "1a", "Great Dane wrecked open-air restaurant (3,6)", "TEAGARDEN",
+         {"type": "anagram", "indicators": [{"text": "wrecked", "for": "anagram"}]}) for i in range(3)]
+ours = [("q1", "2d", "Ivan turning up (4)", "NAVI", {"type": "reversal", "indicators": [{"text": "turning up", "for": "reversal"}]})]
+corpus = l.Packed(rows)
+here = l._lexicons(corpus, ours, None)
+one = l._lexicons(l.Packed.of(corpus.pickled()), ours, 1)
+print(all(vars(a) == vars(b) for a, b in zip(here, one)), sorted(here[0].votes) == [("TURNING", "UP"), ("WRECKED",)])
+l._desktop = lambda flag, request: iter([l.BEAT, l.BEAT, ("built", flag)])
+print(l._lexicons(corpus, ours, None))' 2>/dev/null)
+want="True True
+('built', '--serve-lexicons')"
+if [ "$lexicons" = "$want" ]; then echo "ok   the lexicons build on the desktop, else here in a pool as in one process"; else
+  echo "FAIL lexicons: expected [$want], got [$lexicons]"; fails=$((fails + 1)); fi
+
 # blog_facts runs at NICE from a lower niceness, and never lowers a higher one.
 nice=$(cd "$REPO/tools" && python3 -c '
 import os, blog_facts as b

@@ -368,17 +368,18 @@ unit_azed() {
 # writes tools/data/blog_facts/, which the site's hints and the validator's
 # definition check read. A full parse is ~5 minutes, so --if-changed skips it
 # when no cached post, clue or the parser itself has moved since the files were
-# written. Its letter_facts pass builds the corpus-wide lexicons here and
-# reads the clues on the desktop (a local pool when it is busy or off).
+# written. Its letter_facts pass builds the corpus-wide lexicons and reads the
+# clues on the desktop (here, in local pools, when it is busy or off).
 # Due after any blog unit ended well (tools/daily_units.py), so a new puzzle
 # is validated against its blog. unit_commit's `git add -A` picks the files up.
 unit_blog_facts() {
   local facts_out step_start step_rc
   facts_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-facts.XXXXXX")"
   step_start=$SECONDS
-  python3 tools/blog_facts.py --if-changed >"$facts_out" 2>&1
-  step_rc=$?
-  cat "$facts_out"
+  # Through tee, so each step's timing line reaches the log as it is printed,
+  # and a run killed at its limit still shows where it was.
+  python3 tools/blog_facts.py --if-changed 2>&1 | tee "$facts_out"
+  step_rc=${PIPESTATUS[0]}
   echo "blog_facts: rc=$step_rc in $((SECONDS - step_start))s"
   [ $step_rc -eq 0 ] ||
     alert "tools/blog_facts.py failed (rc=$step_rc), so new puzzles get no blog hints:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$facts_out" | cut -c1-200)"$'\n'"\`\`\`"
