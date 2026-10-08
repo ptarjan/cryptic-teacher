@@ -66,7 +66,7 @@ desktop = r"""
 import json, sys, time
 import acquire_book, ocr_remote
 ocr_remote.SEARCH_HEARTBEAT = 0.2
-ocr_remote.full_speed = lambda: None
+ocr_remote.full_speed = lambda *a: None
 ocr_remote.versions = lambda: {}
 def slow(job):
     time.sleep(job["sleep"])
@@ -113,6 +113,30 @@ for t in threads:
 for t in threads:
     t.join()
 check("no more than LOCAL_SLOTS reads run here at once", 2, most[0])
+# A scan's sessions run above the reads' on the desktop: the serve command
+# names the priority the Mac process asked for, and serve takes it.
+import subprocess
+started = []
+class FakeProc:
+    stdout = stdin = None
+real_popen, real_answer = subprocess.Popen, ocr_remote.Session.answer
+subprocess.Popen = lambda argv, **k: started.append(argv[-1]) or FakeProc()
+ocr_remote.Session.answer = lambda self, timeout: {"ready": {}}
+ocr_remote.code_dir = lambda: "C:\\code"
+try:
+    for asked in (None, "scan", "bogus"):
+        if asked is None:
+            os.environ.pop("OCR_REMOTE_PRIORITY", None)
+        else:
+            os.environ["OCR_REMOTE_PRIORITY"] = asked
+        ocr_remote.Session("h")
+finally:
+    subprocess.Popen, ocr_remote.Session.answer = real_popen, real_answer
+    os.environ.pop("OCR_REMOTE_PRIORITY", None)
+check("serve runs idle unless a scan asks; an unknown ask is idle", ["idle", "scan", "idle"],
+      [c.rsplit(" ", 1)[1] for c in started])
+check("idle for reads, below normal (under a game's normal) for scans", {"idle": 0x40, "scan": 0x4000},
+      ocr_remote.PRIORITIES)
 sys.exit(1 if fails else 0)
 PY
 )

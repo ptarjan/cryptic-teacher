@@ -189,7 +189,11 @@ def plan_fetches(sources):
 
 
 def run_unit(unit, cache, puzzles, reread):
-    """In the forked child: the unit's outcome (EXITS)."""
+    """In the forked child: the unit's outcome (EXITS). A scan's desktop
+    sessions run above the reads' (ocr_remote.PRIORITIES): a read waits on
+    the scans its solution needs, so a starved scan holds up reads too."""
+    if unit["kind"] == "scan":
+        os.environ["OCR_REMOTE_PRIORITY"] = "scan"
     if unit["kind"] == "fetch":
         return FETCHERS[unit["paper"]]["run"](unit)
     if unit["paper"] == "trove":
