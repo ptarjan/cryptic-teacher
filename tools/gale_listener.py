@@ -303,11 +303,23 @@ def page_columns(words):
     return max(found, key=lambda c: sum(bool(al.LINE_CLUE.match(line[4])) for lst in c for line in lst), default=None)
 
 
+#: The word a list's heading may open on, "CLUES—ACROSS" (No 197's),
+#: read "CLUF" too: the heading's own, no clue's.
+CLUES = re.compile(r"^\W*CLU[A-Z]{0,3}\W*")
+
+
+def heading(text):
+    """fa.heading_of the text, a CLUES word opening it dropped."""
+    m = CLUES.match(text)
+    return fa.heading_of(text[m.end():] if m and m.end() < len(text) else text)
+
+
 def headings(words):
-    """The words that are a list's heading alone on their line (ALONE): a
-    report's prose quoting "for 1 Across (see notes)" heads no list."""
-    return [w for w in words if fa.heading_of(w[4]) and not any(
-        o is not w and abs((o[1] + o[3]) / 2 - (w[1] + w[3]) / 2) < (w[3] - w[1]) / 2
+    """The words that are a list's heading alone on their line (ALONE), but
+    for a CLUES word left of it: a report's prose quoting "for 1 Across
+    (see notes)" heads no list."""
+    return [w for w in words if heading(w[4]) and not any(
+        o is not w and not (CLUES.fullmatch(o[4]) and o[2] <= w[0]) and abs((o[1] + o[3]) / 2 - (w[1] + w[3]) / 2) < (w[3] - w[1]) / 2
         and min(abs(o[0] - w[2]), abs(w[0] - o[2])) < ALONE for o in words)]
 
 
@@ -317,7 +329,7 @@ def list_heads(words):
     heads = headings(words)
     across = al.heading_word(heads, "ACROSS")
     down = across and next((w for w in sorted(heads, key=lambda w: (w[0] // 200, w[1]))
-                            if fa.heading_of(w[4]) == "DOWN"
+                            if heading(w[4]) == "DOWN"
                             and (w[1] > across[3] or w[0] > across[2])), None)
     return (across, down) if across and down else None
 
@@ -395,7 +407,7 @@ def list_lines(words, across, down, reach):
     for i, (x0, x1) in enumerate(spans):
         col = [(w[1], w[3], w[0], w[2], w[4]) for w in body if x0 <= w[0] <= x1]
         rows = fa.merge_rows(col)
-        if i and not any(al.LINE_CLUE.match(r[4]) or fa.heading_of(r[4]) for r in rows[:2]):
+        if i and not any(al.LINE_CLUE.match(r[4]) or heading(r[4]) for r in rows[:2]):
             # A column opening on prose (No 88's report beside its lists)
             # holds no more of them.
             break
@@ -406,7 +418,7 @@ def list_lines(words, across, down, reach):
                     notice is not None and line[0] >= notice):
                 break
             last = line[1]
-            head = fa.heading_of(line[4])
+            head = heading(line[4])
             if head:
                 side = head
                 continue
@@ -570,7 +582,7 @@ def numbered_columns(words):
                 # it: the grid, the preamble, another article.
                 continue
             if clued and (NOTE_HEAD.match(line[4]) or CAPITALS.match(line[4]) and not al.LINE_CLUE.match(line[4])
-                          ) and not fa.heading_of(line[4]):
+                          ) and not heading(line[4]):
                 # Under the lists, the setter's note or an advert's heading
                 # (No 97's, under 42 down and 46 across): the column's
                 # lists are over. Above them (No 9's radio programmes over
@@ -587,9 +599,9 @@ def numbered_columns(words):
             under = (run and last_y is not None and line[0] - last_y < fa.GAP / 2
                      and (line[2] > last_x + RUN_ON or WORD_FIRST.match(line[4])
                           and run[-1][1][-1][3] - x0 >= FULL * (right - x0))
-                     and not fa.heading_of(line[4]) and not FOOTNOTE.match(line[4])
+                     and not heading(line[4]) and not FOOTNOTE.match(line[4])
                      and line[1] - line[0] <= TALLER * (run[-1][1][-1][1] - run[-1][1][-1][0]))
-            if m and line[2] - x0 < NUMBER_EDGE and WORDY.search(m.group(2)) and not fa.heading_of(line[4]):
+            if m and line[2] - x0 < NUMBER_EDGE and WORDY.search(m.group(2)) and not heading(line[4]):
                 n = int(m.group(1))
                 if run and run[-1][0] and line[0] - last_y <= RESTART and lost_zero(run[-1][0], n):
                     n *= 10
@@ -630,7 +642,7 @@ def numbered_columns(words):
     if min(map(len, lists)) < COLUMN_MIN:
         return None
     lines = [[line for _, ls in lst for line in ls] for lst in lists]
-    return lines if fa.heading_of(start[4]) == "ACROSS" else lines[::-1]
+    return lines if heading(start[4]) == "ACROSS" else lines[::-1]
 
 
 def notice_top(rows):
@@ -806,7 +818,7 @@ def read_page(img, key, lengths=None):
     located = figures(page_words(img, key))
     if pages := elsewhere(located):
         verdict["seePages"] = pages
-    if not any(fa.heading_of(w[4]) for w in located) and not column_lefts(located):
+    if not any(heading(w[4]) for w in located) and not column_lefts(located):
         verdict["refused"] = "no clue list on the page" + see_pages(pages)
         return verdict, None
     box = (0, 0, img.width, img.height)
