@@ -23,6 +23,9 @@
   "date": "2023-11-29",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,65 @@
     "text": "Sauce and beans occasionally found in pancake",
     "enumeration": "7"
    },
-   "solution": "TABASCO"
+   "solution": "TABASCO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TABASCO",
+    "definitions": [
+     {
+      "text": "Sauce",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "something done only occasionally happens every other time, so only some of the letters are used"
+     },
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "what is found in something sits inside it, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pancake",
+      "gives": "TACO",
+      "note": "a taco is a folded Mexican corn pancake"
+     },
+     {
+      "clueFragment": "beans",
+      "gives": "BAS",
+      "select": "alternate",
+      "note": "the first, third and fifth letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "BAS",
+      "CO"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook adds a sauce and some beans to a pancake filling.",
+     "walkthrough": "A taco is not usually called a pancake, but its soft corn tortilla is a flat griddled cake, which makes the substitution fair.",
+     "definitionFit": "Tabasco is a proprietary brand of hot pepper sauce, so it is an example of a sauce."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pancake"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +111,44 @@
     "text": "Count to play the informer",
     "enumeration": "4"
    },
-   "solution": "TELL"
+   "solution": "TELL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TELL",
+    "definitions": [
+     {
+      "text": "Count",
+      "at": 0
+     },
+     {
+      "text": "to play the informer",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Count",
+      "note": "first meaning: to number things, as a bank teller does"
+     },
+     {
+      "clueFragment": "to play the informer",
+      "note": "second meaning: to snitch on someone"
+     }
+    ],
+    "explanation": {
+     "surface": "A nobleman, a count, turns informer and betrays his friends.",
+     "walkthrough": "'Count' looks like a title of nobility; it is the verb meaning to number.",
+     "definitionFit": "To tell is both to reckon a number (as in 'all told') and, informally, to sneak on someone to an authority."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Count"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +162,55 @@
     "text": "Impatient exclamation from Scot splitting cheese roll",
     "enumeration": "7"
    },
-   "solution": "BRIOCHE"
+   "solution": "BRIOCHE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BRIOCHE",
+    "definitions": [
+     {
+      "text": "roll",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "splitting",
+      "for": "container",
+      "note": "something splitting another thing drives into its middle, so it ends up inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheese",
+      "gives": "BRIE",
+      "note": "a soft French cheese"
+     },
+     {
+      "clueFragment": "Impatient exclamation from Scot",
+      "gives": "OCH",
+      "note": "a Scottish cry of irritation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRI",
+      "OCH",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A Scot impatiently cries out while cutting open a cheese roll.",
+     "walkthrough": "'Cheese roll' reads as one sandwich; the cheese is wordplay and the roll alone is the definition.",
+     "definitionFit": "A brioche is a soft enriched French bread, often baked as an individual roll."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cheese"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +224,56 @@
     "text": "Beatles manager once leaving record for writer",
     "enumeration": "5"
    },
-   "solution": "STEIN"
+   "solution": "STEIN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STEIN",
+    "definitions": [
+     {
+      "text": "writer",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "something leaving departs, so those letters are dropped from the name"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beatles manager once",
+      "gives": "EPSTEIN",
+      "note": "Brian Epstein managed the Beatles in the 1960s"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "EP",
+      "note": "an EP is an extended-play record"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEIN"
+     ]
+    },
+    "explanation": {
+     "surface": "The Beatles' old manager walks away from a record deal to become an author.",
+     "walkthrough": "Remove EP from EPSTEIN to leave STEIN.",
+     "definitionFit": "Gertrude Stein was an American novelist and poet, so she is an example of a writer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +287,50 @@
     "text": "Spontaneous occurrence before the public holiday",
     "enumeration": "8"
    },
-   "solution": "OUTBREAK"
+   "solution": "OUTBREAK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTBREAK",
+    "definitions": [
+     {
+      "text": "Spontaneous occurrence",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the public",
+      "gives": "OUT",
+      "note": "something out is open and public, known to all"
+     },
+     {
+      "clueFragment": "holiday",
+      "gives": "BREAK",
+      "note": "a short holiday is a break"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "BREAK"
+     ]
+    },
+    "explanation": {
+     "surface": "Something happens unexpectedly just before a public holiday.",
+     "walkthrough": "OUT then BREAK gives OUTBREAK; 'the public' stands for being out in the open.",
+     "definitionFit": "An outbreak is a sudden eruption of disease, war or violence, something that flares up of its own accord."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "public"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +350,65 @@
      }
     ]
    },
-   "solution": "BELLJAR"
+   "solution": "BELLJAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BELL JAR",
+    "definitions": [
+     {
+      "text": "glass container",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put into",
+      "for": "container",
+      "note": "things put into something are placed inside it"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "BAR",
+      "note": "a bar is a pub"
+     },
+     {
+      "clueFragment": "Measure",
+      "gives": "ELL",
+      "note": "an ell is an old measure of cloth length"
+     },
+     {
+      "clueFragment": "Juliet",
+      "gives": "J",
+      "note": "Juliet is J in the NATO alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ELL",
+      "J",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "A measure of drink is poured for Juliet into a glass at the pub.",
+     "walkthrough": "'Measure' suggests a measure of spirits at the bar; here it is an old unit of length.",
+     "definitionFit": "A bell jar is a bell-shaped glass cover used in laboratories and to protect displays."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Measure"
+    }
+   }
   },
   {
    "number": 5,
@@ -126,7 +422,55 @@
     "text": "Whistler secured in bank that’s robbed?",
     "enumeration": "6"
    },
-   "solution": "BEREFT"
+   "solution": "BEREFT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BEREFT",
+    "definitions": [
+     {
+      "text": "that’s robbed?",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "secured in",
+      "for": "container",
+      "note": "something secured in a place is held safely inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bank",
+      "gives": "BET",
+      "note": "to bank on something is to bet on it"
+     },
+     {
+      "clueFragment": "Whistler",
+      "gives": "REF",
+      "note": "a referee blows the whistle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "REF",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A man with a whistle is locked in a bank that is being robbed.",
+     "walkthrough": "'Bank' and 'robbed' paint a heist, but bank is the verb to rely on.",
+     "definitionFit": "Bereft means deprived of something, as anyone robbed has been; the question mark admits the stretch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 6,
@@ -140,7 +484,71 @@
     "text": "Debauchee having left island, knight Edward VII embraces?",
     "enumeration": "9"
    },
-   "solution": "LIBERTINE"
+   "solution": "LIBERTINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LIBERTINE",
+    "definitions": [
+     {
+      "text": "Debauchee",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embraces",
+      "for": "container",
+      "note": "to embrace is to wrap one's arms round, so one piece holds another inside"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "the usual abbreviation for left"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "the usual abbreviation for island"
+     },
+     {
+      "clueFragment": "Edward VII",
+      "gives": "BERTIE",
+      "note": "Edward VII was known in the family as Bertie"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "N",
+      "note": "N is the chess notation for a knight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "I",
+      "BERTI",
+      "N",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A rake has left an island where Edward VII is knighting people.",
+     "walkthrough": "Edward VII was notorious as a playboy, which makes the surface apt.",
+     "definitionFit": "A libertine is a person who lives a dissolute, sexually unrestrained life, exactly a debauchee."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "knight"
+    }
+   }
   },
   {
    "number": 7,
@@ -154,7 +562,56 @@
     "text": "The Fool — as shown in the cards?",
     "enumeration": "7"
    },
-   "solution": "JACKASS"
+   "solution": "JACKASS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "JACKASS",
+    "definitions": [
+     {
+      "text": "The Fool",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shown in",
+      "for": "container",
+      "note": "something shown in a display is set within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the cards",
+      "gives": "JACKS",
+      "note": "jacks are court cards in a pack"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JACK",
+      "AS",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "The Fool, as he appears in a tarot pack.",
+     "walkthrough": "The Fool really is a tarot card, which makes the surface convincing.",
+     "definitionFit": "A jackass is a male donkey and by extension a stupid person, a fool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Fool"
+    }
+   }
   },
   {
    "number": 8,
@@ -168,7 +625,67 @@
     "text": "Disowned aide, put out, getting into the wine",
     "enumeration": "10"
    },
-   "solution": "REPUDIATED"
+   "solution": "REPUDIATED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "REPUDIATED",
+    "definitions": [
+     {
+      "text": "Disowned",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put out",
+      "for": "anagram",
+      "note": "something put out is disturbed and upset, so these letters are thrown into disorder"
+     },
+     {
+      "text": "getting into",
+      "for": "container",
+      "note": "something getting into another thing ends up within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the wine",
+      "gives": "RED",
+      "note": "red is wine"
+     },
+     {
+      "clueFragment": "aide, put",
+      "gives": "AIDEPUT",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EPUDIAT",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AIDEPUT",
+       "gives": "EPUDIAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An assistant, upset, takes to drink after being disowned.",
+     "walkthrough": "'Put' does double duty in the surface but here is fodder, with 'out' acting as the signal.",
+     "definitionFit": "To repudiate is to reject or refuse to acknowledge, so repudiated means disowned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "aide"
+    }
+   }
   },
   {
    "number": 9,
@@ -182,7 +699,74 @@
     "text": "Sheep kills time in an easterly wind",
     "enumeration": "9"
    },
-   "solution": "LEICESTER"
+   "solution": "LEICESTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "LEICESTER",
+    "definitions": [
+     {
+      "text": "Sheep",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "easterly",
+      "for": "reversal",
+      "note": "an easterly wind blows from the east, so in an across answer the word travels right to left"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the pieces are placed within the wind word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wind",
+      "gives": "REEL",
+      "note": "to reel is to wind, as a fishing line"
+     },
+     {
+      "clueFragment": "kills",
+      "gives": "ICES",
+      "note": "ices is slang for kills"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "the usual abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "ICES",
+      "T",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "REEL",
+       "to": "LEER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Livestock are dying in a bitter east wind.",
+     "walkthrough": "'Wind' reads as weather; it is the verb, as when winding a fishing line.",
+     "definitionFit": "The Leicester is a breed of English long-wool sheep, so it is an example of sheep."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wind"
+    }
+   }
   },
   {
    "number": 10,
@@ -196,7 +780,61 @@
     "text": "Northern town taxi turned towards a centre",
     "enumeration": "5"
    },
-   "solution": "BACUP"
+   "solution": "BACUP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "BACUP",
+    "definitions": [
+     {
+      "text": "Northern town",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned",
+      "for": "reversal",
+      "note": "something turned faces the other way, so its letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taxi",
+      "gives": "CAB",
+      "note": "a cab is a taxi"
+     },
+     {
+      "clueFragment": "towards a centre",
+      "gives": "UP",
+      "note": "in British usage one goes up to the capital or a city centre"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAC",
+      "UP"
+     ],
+     "reversals": [
+      {
+       "from": "CAB",
+       "to": "BAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A taxi in a northern town turns and heads for the middle.",
+     "walkthrough": "CAB backwards is BAC, then UP. BACUP is a small mill town in Lancashire, northern England.",
+     "definitionFit": "Bacup is a town in Rossendale, Lancashire, in the north of England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "taxi"
+    }
+   }
   },
   {
    "number": 11,
@@ -216,7 +854,62 @@
      }
     ]
    },
-   "solution": "CENTREFORWARD"
+   "solution": "CENTREFORWARD",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CENTRE FORWARD",
+    "definitions": [
+     {
+      "text": "one trained to attack",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about here means around, so one piece surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Showing heart",
+      "gives": "CENTRE",
+      "note": "the heart of something is its centre"
+     },
+     {
+      "clueFragment": "cross",
+      "gives": "FORD",
+      "note": "to ford a river is to cross it"
+     },
+     {
+      "clueFragment": "conflict",
+      "gives": "WAR",
+      "note": "war is conflict"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CENTRE",
+      "FOR",
+      "WAR",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A brave fighter crosses into battle, trained for the offensive.",
+     "walkthrough": "A centre forward is the main striker in a football team.",
+     "definitionFit": "A centre forward is the attacking player at the head of a football side, whose role is to score."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "conflict"
+    }
+   }
   },
   {
    "number": 12,
@@ -236,7 +929,66 @@
      }
     ]
    },
-   "solution": "DONALDDUCK"
+   "solution": "DONALDDUCK",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DONALD DUCK",
+    "definitions": [
+     {
+      "text": "Character billed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "decrepit",
+      "for": "anagram",
+      "note": "something decrepit is broken down, so the letters fall into a new order"
+     }
+    ],
+    "linkWords": [
+     "as",
+     "to it"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old and",
+      "gives": "OLDAND",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "DUCK",
+      "note": "in cricket a duck is a score of zero"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DONALD",
+      "DUCK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OLDAND",
+       "gives": "DONALD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is described as old and decrepit, worthless through and through.",
+     "walkthrough": "'Billed' seems to mean advertised; it means having a bill. A duck in cricket is a batsman's score of nought.",
+     "definitionFit": "Donald Duck is a Disney cartoon character, and being a duck he has a beak, or bill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "billed"
+    }
+   }
   },
   {
    "number": 13,
@@ -250,7 +1002,69 @@
     "text": "Patent protecting firm — origin of Apple Mac?",
     "enumeration": "8"
    },
-   "solution": "OVERCOAT"
+   "solution": "OVERCOAT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "OVERCOAT",
+    "definitions": [
+     {
+      "text": "Mac?",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "origin of",
+      "for": "letter_selection",
+      "note": "the origin is where something begins, so only the first letter is taken"
+     },
+     {
+      "text": "protecting",
+      "for": "container",
+      "note": "something protecting another wraps round it as a shield"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Patent",
+      "gives": "OVERT",
+      "note": "patent means obvious, open"
+     },
+     {
+      "clueFragment": "firm",
+      "gives": "CO",
+      "note": "Co is the abbreviation for company"
+     },
+     {
+      "clueFragment": "Apple",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "CO",
+      "A",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A patent protects the firm behind the Apple Mac computer.",
+     "walkthrough": "'Apple Mac' suggests computers; a mac is a mackintosh raincoat.",
+     "definitionFit": "A mac, short for mackintosh, is a waterproof coat worn over other clothes, so it is a kind of overcoat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mac"
+    }
+   }
   },
   {
    "number": 14,
@@ -264,7 +1078,65 @@
     "text": "Short file, kept by alliance in Somerset, that goes sideways",
     "enumeration": "9"
    },
-   "solution": "CARTWHEEL"
+   "solution": "CARTWHEEL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "CARTWHEEL",
+    "definitions": [
+     {
+      "text": "Somerset, that goes sideways",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Short",
+      "for": "deletion",
+      "note": "something short is cut down, so its last letter is lost"
+     },
+     {
+      "text": "kept by",
+      "for": "container",
+      "note": "something kept by another is held within it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alliance",
+      "gives": "CARTEL",
+      "note": "a cartel is an alliance of businesses"
+     },
+     {
+      "clueFragment": "file",
+      "gives": "WHET",
+      "note": "to file a blade is to sharpen, or whet, it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CART",
+      "WHE",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "A shortened document is held by a coalition in the county of Somerset.",
+     "walkthrough": "'Somerset' looks like the English county but is an old word for somersault.",
+     "definitionFit": "A cartwheel is a gymnastic move turning the body sideways over the hands, a somersault performed side-on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Somerset"
+    }
+   }
   },
   {
    "number": 15,
@@ -278,7 +1150,65 @@
     "text": "Duke ingesting MDMA joins a celebration",
     "enumeration": "6"
    },
-   "solution": "FIESTA"
+   "solution": "FIESTA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "FIESTA",
+    "definitions": [
+     {
+      "text": "celebration",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ingesting",
+      "for": "container",
+      "note": "something ingesting another takes it inside itself"
+     }
+    ],
+    "linkWords": [
+     "joins"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Duke",
+      "gives": "FIST",
+      "note": "dukes is slang for fists"
+     },
+     {
+      "clueFragment": "MDMA",
+      "gives": "E",
+      "note": "MDMA is the drug ecstasy, E for short"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FI",
+      "E",
+      "ST",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "An aristocrat takes ecstasy and joins a party.",
+     "walkthrough": "E goes inside FIST, then A follows. 'Duke' seems to be a nobleman; 'put up your dukes' means raise your fists.",
+     "definitionFit": "A fiesta is a festival or party, especially in Spanish-speaking countries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Duke"
+    }
+   }
   },
   {
    "number": 16,
@@ -292,7 +1222,65 @@
     "text": "Outlaws part that’s wrapped with note",
     "enumeration": "8"
    },
-   "solution": "BANDITTI"
+   "solution": "BANDITTI",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BANDITTI",
+    "definitions": [
+     {
+      "text": "Outlaws",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrapped",
+      "for": "container",
+      "note": "the part is wrapped round the next piece, enclosing it"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part",
+      "gives": "BIT",
+      "note": "a bit is a part"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "and means together with"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "TI",
+      "note": "ti is the seventh note of the sol-fa scale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "AND",
+      "IT",
+      "TI"
+     ]
+    },
+    "explanation": {
+     "surface": "Criminals hand over a share wrapped up with a banknote.",
+     "walkthrough": "'With' looks like a joining word but supplies letters, as 'and' means together with.",
+     "definitionFit": "Banditti is the Italian-style plural of bandit, and bandits are outlaws."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 17,
@@ -306,7 +1294,60 @@
     "text": "Despair initially avoided may become hope",
     "enumeration": "6"
    },
-   "solution": "ASPIRE"
+   "solution": "ASPIRE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ASPIRE",
+    "definitions": [
+     {
+      "text": "hope",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially avoided",
+      "for": "deletion",
+      "note": "the first letter is the one avoided, so it is left off"
+     },
+     {
+      "text": "may become",
+      "for": "anagram",
+      "note": "becoming something else means a change of form, so the letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Despair",
+      "gives": "ESPAIR",
+      "note": "the word without its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASPIRE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ESPAIR",
+       "gives": "ASPIRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "If you steer clear of despair at the outset, it may turn into hope.",
+     "walkthrough": "The surface is a neat motivational saying, and the answer is the verb, as in 'aspire to greatness'.",
+     "definitionFit": "To aspire is to set one's hopes on achieving something, so it matches hope as a verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Despair"
+    }
+   }
   },
   {
    "number": 18,
@@ -320,7 +1361,63 @@
     "text": "Select times for admission to A&E? That’s ground-breaking!",
     "enumeration": "7"
    },
-   "solution": "PICKAXE"
+   "solution": "PICKAXE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PICKAXE",
+    "definitions": [
+     {
+      "text": "That’s ground-breaking!",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for admission to",
+      "for": "container",
+      "note": "being admitted to a place means going inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Select",
+      "gives": "PICK",
+      "note": "to pick is to select"
+     },
+     {
+      "clueFragment": "A&E",
+      "gives": "AE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "times",
+      "gives": "X",
+      "note": "x is the multiplication sign"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PICK",
+      "A",
+      "X",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Choosing when to go into hospital emergency would be a breakthrough.",
+     "walkthrough": "A&E is the British hospital emergency department.",
+     "definitionFit": "A pickaxe is a digging tool used literally to break hard ground, so the exclamation is a playful definition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ground-breaking"
+    }
+   }
   },
   {
    "number": 19,
@@ -334,7 +1431,66 @@
     "text": "Trap a king — what’s stopping merry old one?",
     "enumeration": "8"
    },
-   "solution": "CAKEHOLE"
+   "solution": "CAKEHOLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CAKEHOLE",
+    "definitions": [
+     {
+      "text": "Trap",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stopping",
+      "for": "container",
+      "note": "something stopping a gap plugs it, sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "merry old one",
+      "gives": "COLE",
+      "note": "Old King Cole was a merry old soul in the nursery rhyme"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is king in chess and cards"
+     },
+     {
+      "clueFragment": "what",
+      "gives": "EH",
+      "note": "eh is a request to repeat, like what?"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "AKEH",
+      "OLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks why a jolly old king is being trapped.",
+     "walkthrough": "'Trap' looks like a verb but is the noun: cakehole and trap are both British slang for mouth.",
+     "definitionFit": "Both trap and cakehole are informal British words for the mouth, as in 'shut your trap'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Trap"
+    }
+   }
   },
   {
    "number": 20,
@@ -348,7 +1504,70 @@
     "text": "Old Greek character given support raised snakes",
     "enumeration": "7"
    },
-   "solution": "OPHIDIA"
+   "solution": "OPHIDIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "OPHIDIA",
+    "definitions": [
+     {
+      "text": "snakes",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down answer, raising something sends it upward, so its letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "the usual abbreviation for old"
+     },
+     {
+      "clueFragment": "Greek character",
+      "gives": "PHI",
+      "note": "phi is a letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "AID",
+      "note": "aid is support"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PHI",
+      "DIA"
+     ],
+     "reversals": [
+      {
+       "from": "AID",
+       "to": "DIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A figure from ancient Greek myth is helped up by snakes.",
+     "walkthrough": "O and PHI, then AID upward as DIA.",
+     "definitionFit": "Ophidia is the zoological name for the suborder of reptiles comprising the snakes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 21,
@@ -362,7 +1581,67 @@
     "text": "Taken to beer without opening tin cans?",
     "enumeration": "6"
    },
-   "solution": "STOLEN"
+   "solution": "STOLEN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "STOLEN",
+    "definitions": [
+     {
+      "text": "Taken",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without opening",
+      "for": "deletion",
+      "note": "lacking its opening means the first letter is missing"
+     },
+     {
+      "text": "cans",
+      "for": "container",
+      "note": "cans as a verb means puts into a tin, so the pieces are enclosed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tin",
+      "gives": "SN",
+      "note": "Sn is the chemical symbol for tin"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "beer",
+      "gives": "ALE",
+      "note": "ale is beer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TO",
+      "LE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Somebody has taken to drinking beer straight from a can without opening it.",
+     "walkthrough": "'Cans' looks like a noun but is the verb, to seal in a tin.",
+     "definitionFit": "Stolen means taken unlawfully, so it can replace taken as a past participle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cans"
+    }
+   }
   },
   {
    "number": 22,
@@ -386,7 +1665,67 @@
      }
     ]
    },
-   "solution": "DICEWITHDEATH"
+   "solution": "DICEWITHDEATH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DICE WITH DEATH",
+    "definitions": [
+     {
+      "text": "Take serious risks?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bowling",
+      "for": "anagram",
+      "note": "bowling along means rolling briskly, so the letters are tumbled"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means surrounding, so the cricket letter is enclosed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ditch the idea",
+      "gives": "DITCHTHEIDEA",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "wicket",
+      "gives": "W",
+      "note": "W is the cricket scoring abbreviation for a wicket"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DICE",
+      "W",
+      "ITHDEATH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DITCHTHEIDEA",
+       "gives": "DICEITHDEATH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricketer is told to drop the plan of bowling round the wicket because it is too risky.",
+     "walkthrough": "'Bowling round the wicket' is a real cricket phrase meaning delivering from the far side of the stumps, which hides the mechanics.",
+     "definitionFit": "To dice with death is an idiom for behaving in a dangerously reckless way, gambling with one's life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bowling"
+    }
+   }
   },
   {
    "number": 23,
@@ -400,7 +1739,39 @@
     "text": "Partners in crime?",
     "enumeration": "5"
    },
-   "solution": "ABETS"
+   "solution": "ABETS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ABETS",
+    "definitions": [
+     {
+      "text": "Partners in crime?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Partners in crime?",
+      "note": "surface reading: a noun, accomplices who commit offences together"
+     },
+     {
+      "clueFragment": "Partners",
+      "note": "setter's reading: a verb, one who partners another in wrongdoing by helping them"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The phrase reads as a plural noun for accomplices; read 'partners' as a verb and it describes helping someone commit an offence.",
+     "definitionFit": "To abet is to encourage or assist someone in committing a crime, which is acting as their partner in it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Partners"
+    }
+   }
   },
   {
    "number": 24,
@@ -414,7 +1785,44 @@
     "text": "Crew said something at Chiswick in Boat Race",
     "enumeration": "4"
    },
-   "solution": "EYOT"
+   "solution": "EYOT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EYOT",
+    "definitions": [
+     {
+      "text": "something at Chiswick in Boat Race",
+      "at": 10
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said",
+      "for": "homophone",
+      "note": "said tells us the word is heard, not seen"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crew",
+      "gives": "EYOT",
+      "soundsLike": "EIGHT",
+      "note": "a rowing crew of eight is called an eight"
+     }
+    ],
+    "explanation": {
+     "surface": "A rowing crew talks about a landmark on the Boat Race course at Chiswick.",
+     "walkthrough": "An eyot, a river island, is pronounced 'ait'. Chiswick Eyot is a Thames island passed in the Oxford and Cambridge Boat Race.",
+     "definitionFit": "Chiswick Eyot is a small island in the Thames along the Boat Race course, so it is a landmark there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Crew"
+    }
+   }
   },
   {
    "number": 25,
@@ -428,7 +1836,49 @@
     "text": "United by wise tradition",
     "enumeration": "5"
    },
-   "solution": "USAGE"
+   "solution": "USAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "USAGE",
+    "definitions": [
+     {
+      "text": "tradition",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "United",
+      "gives": "U",
+      "note": "U is the abbreviation for United in football team names"
+     },
+     {
+      "clueFragment": "wise",
+      "gives": "SAGE",
+      "note": "sage means wise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "SAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "People brought together by a wise old custom.",
+     "definitionFit": "Usage means established custom or practice, especially habitual ways of doing things handed down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "United"
+    }
+   }
   },
   {
    "number": 26,
@@ -448,7 +1898,65 @@
      }
     ]
    },
-   "solution": "LATTERDAY"
+   "solution": "LATTERDAY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LATTER-DAY",
+    "definitions": [
+     {
+      "text": "contemporary",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the letter for daughters is placed within the following word"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coffee",
+      "gives": "LATTE",
+      "note": "a latte is a milky coffee"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "RAY",
+      "note": "a bar of light is a ray"
+     },
+     {
+      "clueFragment": "Daughters",
+      "gives": "D",
+      "note": "the usual abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LATTE",
+      "R",
+      "D",
+      "AY"
+     ]
+    },
+    "explanation": {
+     "surface": "Daughters hang out in a trendy coffee bar.",
+     "walkthrough": "'Coffee bar' reads as a café; the two words are separate pieces.",
+     "definitionFit": "Latter-day means belonging to recent or present times, a modern version, so it is a synonym for contemporary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 27,
@@ -462,7 +1970,75 @@
     "text": "Family outside on marks close to royal citadel",
     "enumeration": "7"
    },
-   "solution": "KREMLIN"
+   "solution": "KREMLIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "KREMLIN",
+    "definitions": [
+     {
+      "text": "citadel",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its final letter is taken"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "a word placed outside others surrounds them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Family",
+      "gives": "KIN",
+      "note": "kin are family"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or concerning"
+     },
+     {
+      "clueFragment": "marks",
+      "gives": "M",
+      "note": "M is the abbreviation for marks, the old German currency"
+     },
+     {
+      "clueFragment": "royal",
+      "gives": "L",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "RE",
+      "M",
+      "L",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A family stands outside the walls of a royal fortress.",
+     "walkthrough": "'Marks' is the old German currency, the Deutschmark, abbreviated M.",
+     "definitionFit": "The Kremlin is the fortified complex at the heart of Moscow; kremlin is Russian for a city citadel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "marks"
+    }
+   }
   },
   {
    "number": 28,
@@ -476,7 +2052,43 @@
     "text": "Second sin St Anthony embodies?",
     "enumeration": "7"
    },
-   "solution": "INSTANT"
+   "solution": "INSTANT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "INSTANT",
+    "definitions": [
+     {
+      "text": "Second",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embodies",
+      "for": "hidden_word",
+      "note": "something that embodies another holds it within its body"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sin St Anthony",
+      "gives": "INSTANT",
+      "note": "the letters run across these words"
+     }
+    ],
+    "explanation": {
+     "surface": "A second sin is committed by St Anthony, the famously tempted saint.",
+     "walkthrough": "'Second' seems to qualify 'sin'; it is the definition, a short moment.",
+     "definitionFit": "An instant is a very short moment of time, as is a second in everyday speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Second"
+    }
+   }
   }
  ]
 }
