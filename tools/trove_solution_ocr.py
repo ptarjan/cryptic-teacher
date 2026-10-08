@@ -23,6 +23,24 @@ read leaves no doubt:
      whole light as that word. Everything else stays None for the nightly
      solve.
 
+A solution image that is the grid itself (read_answers(tight=True), the
+crop tools/file_archive_org_puzzles.py and tools/archive_org_jumbo.py take
+of a page) is read by read_framed instead:
+
+  1. The grid is straightened() (a scan's rows shear against its columns)
+     and each rule found where it lies (rules(): a printed pitch is uneven);
+     an even lattice() stands in when it reads the blocks better.
+  2. The recogniser reads each light as above; a cell's sure letter counts
+     unless the cell holds a clue number (run into a D or an O it reads B).
+  3. Every other cell is matched to the mean glyph of each letter read
+     surely in this grid, its number's corner left out, and the likeliest
+     letters that make its light a known() word, by MATCH_MARGIN over any
+     other, are taken (matched_letters). The match must agree with the
+     recogniser: a letter some full-length read gave the cell (as printed,
+     or with its number's corner blanked), and no other letter read there
+     surely; a letter that leaves a crossing light no word is not taken.
+  4. A light is accepted when every cell is read and its word is known().
+
 read_grid_letters reads a Listener report's filled grid the same way, on
 the lattice listener_grid finds and the lights of the puzzle's own grid.
 
@@ -192,6 +210,160 @@ def lattice(gray, n, tight=False):
     return x0 + ox, y0 + oy, pw, ph
 
 
+#: The steepest shear (pixels across per pixel along) straightened() undoes.
+MAX_SHEAR, SHEAR_STEP = 0.04, 0.002
+#: How far from its even place (a share of the pitch) a rule is looked for.
+RULE_REACH = 0.2
+
+
+def sheared(img, sx, sy):
+    """`img` with each row shifted sx pixels a row and each column sy a
+    column, about its middle; paper fills the edges."""
+    w, h = img.size
+    return img.transform(img.size, Image.AFFINE, (1, sx, -sx * h / 2, sy, 1, -sy * w / 2),
+                         resample=Image.BILINEAR, fillcolor=255)
+
+
+def straightened(img):
+    """A gray grid image with its rules square to its edges: a scan's rows
+    and columns tilt apart (a curled page shears, it does not turn), so each
+    axis takes the shear that sharpens its rules' ink profile most."""
+    def sharpness(g, axis):
+        prof = (np.asarray(g) < 128).mean(axis)
+        return float((np.diff(prof) ** 2).sum())
+    steps = np.arange(-MAX_SHEAR, MAX_SHEAR + SHEAR_STEP / 2, SHEAR_STEP)
+    sy = max(steps, key=lambda s: sharpness(sheared(img, 0, s), 1))
+    sx = max(steps, key=lambda s: sharpness(sheared(img, s, 0), 0))
+    return sheared(img, sx, sy)
+
+
+def rules(gray, grid):
+    """(ys, xs): the centre of each of an image's n+1 row and column rules,
+    for an image that is the grid (frame to frame, straightened()). A
+    printed lattice's pitch is uneven, so each inner rule is found on its
+    own, near its even place, where ink runs along every pair of lights it
+    parts (a letter's stroke runs along few of them)."""
+    n = len(grid)
+    ink = gray < trove_grid.otsu(gray)
+    x0, y0, pw, ph = lattice(gray, n, tight=True)
+
+    def axis(start, pitch, across, prof, both, along):
+        out = [start]
+        for k in range(1, n):
+            guess = start + k * pitch
+            lo, hi = round(guess - RULE_REACH * pitch), round(guess + RULE_REACH * pitch)
+            segs = [along(lo, hi, int(across[0] + (j + 0.2) * across[1]), int(across[0] + (j + 0.8) * across[1]))
+                    for j in range(n) if both(k, j)]
+            if not segs:
+                out.append(guess)
+                continue
+            seg = np.median(segs, 0)
+            top, at = seg.max(), int(seg.argmax())
+            a = b = at
+            while a > 0 and seg[a - 1] >= top - 0.05:
+                a -= 1
+            while b < len(seg) - 1 and seg[b + 1] >= top - 0.05:
+                b += 1
+            out.append(lo + (a + b) / 2)
+        # The frame's middle, not its outer edge.
+        a = int(start)
+        while a + 1 < len(prof) and prof[a + 1] > 0.5:
+            a += 1
+        b = min(int(start + n * pitch), len(prof) - 1)
+        while b > 0 and prof[b - 1] > 0.5:
+            b -= 1
+        return [(start + a) / 2] + out[1:] + [(start + n * pitch + b) / 2]
+
+    ys = axis(y0, ph, (x0, pw), ink.mean(1), lambda k, j: grid[k - 1][j] != "#" and grid[k][j] != "#",
+              lambda lo, hi, a, b: ink[lo:hi + 1, a:b].mean(1))
+    xs = axis(x0, pw, (y0, ph), ink.mean(0), lambda k, j: grid[j][k - 1] != "#" and grid[j][k] != "#",
+              lambda lo, hi, a, b: ink[a:b, lo:hi + 1].mean(0))
+    return ys, xs
+
+
+#: A cell's glyph is matched as a GLYPH x GLYPH image, slid up to
+#: GLYPH_SHIFT pixels each way over the letter it is matched to.
+GLYPH, GLYPH_SHIFT = 32, 3
+#: How far into a cell its glyph is cut: wider than CELL_MARGIN, since the
+#: slide keeps the rules off it.
+GLYPH_MARGIN = 0.08
+#: The top-left corner a printed clue number takes, as shares of the glyph:
+#: wide by the number's digits, high.
+NUMBER_WIDE, NUMBER_HIGH = {1: 0.45, 2: 0.62}, 0.42
+
+
+def glyph(gray, ys, xs, r, c):
+    """Cell (r, c)'s ink (0 paper, 1 ink) at (GLYPH + 2 GLYPH_SHIFT) square."""
+    a = between(gray, ys, xs, r, c, GLYPH_MARGIN)
+    side = GLYPH + 2 * GLYPH_SHIFT
+    if a.size == 0:
+        return np.zeros((side, side), np.float32)
+    return 1 - np.asarray(Image.fromarray(a).resize((side, side), Image.BILINEAR), np.float32) / 255
+
+
+def slides(g):
+    """Every GLYPH-square window of a glyph(), as rows."""
+    win = np.lib.stride_tricks.sliding_window_view(g, (GLYPH, GLYPH))
+    return win.reshape(-1, GLYPH * GLYPH)
+
+
+def middle(g):
+    return g[GLYPH_SHIFT:GLYPH_SHIFT + GLYPH, GLYPH_SHIFT:GLYPH_SHIFT + GLYPH].ravel()
+
+
+def unnumbered(number):
+    """The glyph pixels clear of a printed clue `number` (all for None)."""
+    keep = np.ones((GLYPH, GLYPH), bool)
+    if number is not None:
+        keep[:round(NUMBER_HIGH * GLYPH), :round(NUMBER_WIDE[min(len(str(number)), 2)] * GLYPH)] = False
+    return keep.ravel()
+
+
+def likeness(rows, flat, keep):
+    """The best normalised correlation of any of `rows` with `flat`, on the
+    pixels `keep`."""
+    a, b = rows[:, keep], flat[keep]
+    a = a - a.mean(1, keepdims=True)
+    b = b - b.mean()
+    return float(((a @ b) / (np.sqrt((a * a).sum(1) * (b * b).sum()) + 1e-6)).max())
+
+
+def letter_models(glyphs, letters):
+    """{letter: (its mean glyph, how many cells made it)} from the glyphs of
+    the cells whose letter is known: each laid where it best fits the first."""
+    out = {}
+    for ch in set(letters.values()):
+        cells = sorted(rc for rc, v in letters.items() if v == ch)
+        first = middle(glyphs[cells[0]])
+        laid = []
+        for rc in cells:
+            rows = slides(glyphs[rc])
+            a = rows - rows.mean(1, keepdims=True)
+            b = first - first.mean()
+            laid.append(rows[int((a @ b).argmax())])
+        out[ch] = (np.mean(laid, 0), len(cells))
+    return out
+
+
+def ranked(g, models, keep):
+    """[(letter, likeness)] of a glyph to each letter model, best first."""
+    rows = slides(g)
+    return sorted(((ch, likeness(rows, m, keep)) for ch, (m, _) in models.items()), key=lambda t: -t[1])
+
+
+def even(lat, n):
+    """(ys, xs): the rules of lattice `lat`, evenly apart."""
+    x0, y0, pw, ph = lat
+    return [y0 + k * ph for k in range(n + 1)], [x0 + k * pw for k in range(n + 1)]
+
+
+def between(gray, ys, xs, r, c, m=CELL_MARGIN):
+    """Cell (r, c) between its rules, `m` of its size in from each."""
+    h, w = ys[r + 1] - ys[r], xs[c + 1] - xs[c]
+    return gray[max(0, int(ys[r] + m * h)):max(0, int(ys[r + 1] - m * h)),
+                max(0, int(xs[c] + m * w)):max(0, int(xs[c + 1] - m * w))]
+
+
 def cell(gray, lat, r, c, m=CELL_MARGIN):
     x0, y0, pw, ph = lat
     return gray[int(y0 + (r + m) * ph):int(y0 + (r + 1 - m) * ph),
@@ -225,19 +397,22 @@ def opened(a, k):
 
 
 def blocks_read(gray, lat, n):
-    """{(row, col): True where the solution image has a block} for n x n."""
+    """{(row, col): True where the solution image has a block} for n x n,
+    on lattice `lat` (x0, y0, pitch_x, pitch_y) or rules (ys, xs)."""
+    ys, xs = lat if len(lat) == 2 else even(lat, n)
     paper = (gray >= trove_grid.otsu(gray)).astype(np.uint8)
-    paper = opened(paper, max(2, round(min(lat[2], lat[3]) / 12)))
+    paper = opened(paper, max(2, round(min(ys[-1] - ys[0], xs[-1] - xs[0]) / n / 12)))
     out = {}
     for r in range(n):
         for c in range(n):
-            a = cell(paper, lat, r, c, 0.15)
+            a = between(paper, ys, xs, r, c, 0.15)
             out[(r, c)] = None if a.size == 0 else float(a.mean()) < BLOCK_PAPER
     return out
 
 
 def block_agreement(gray, grid, lat):
-    """Share of cells that are blocks in the image exactly where the grid has one."""
+    """Share of cells that are blocks in the image exactly where the grid
+    has one, on lattice `lat` or rules (ys, xs)."""
     seen = blocks_read(gray, lat, len(grid))
     if None in seen.values():
         return 0.0
@@ -267,6 +442,8 @@ def read_lights(lts, crop):
     sure, full = {}, {}
     for key, cells in lts.items():
         crops = [crop(r, c) for r, c in cells]
+        if any(x.size == 0 for x in crops):
+            continue
         for (vi, render), (ri, rec) in itertools.product(enumerate(VARIANTS.values()),
                                                          enumerate(recognisers())):
             word, probs = read_word(word_image([render(x) for x in crops]), rec)
@@ -308,13 +485,167 @@ def read_grid_letters(gray, ys, xs, lts, margin=CELL_MARGIN):
             "known": sorted(k for k, w in words.items() if w and known(w))}
 
 
+#: A glyph-matched letter must be this much likelier (in likeness, summed
+#: over a light's matched cells) than the next reading that makes a word.
+MATCH_MARGIN = 0.05
+#: A cell's letters tried are those within MATCH_SPREAD of its best, at most
+#: MATCH_TRIES of them; a light is matched with at most MATCH_CELLS unread.
+MATCH_SPREAD, MATCH_TRIES, MATCH_CELLS = 0.15, 4, 3
+
+
+def matched_letters(read, glyphs, numbers, lts, allowed=None):
+    """{cell: letter} for the cells `read` ({cell: letter}, the recogniser's
+    sure letters of the cells with no clue number) leaves unread, by glyph:
+    each is matched to the mean glyph of each letter read (letter_models),
+    its clue number's corner left out (the recogniser reads a number run
+    into a D or an O as a B). Only the letters `allowed` ({cell: letters}:
+    the recogniser's evidence, see read_framed) are tried, and a cell whose
+    best match is not allowed is left unread: the glyph and the recogniser
+    must agree. A light with up to MATCH_CELLS cells unread takes the
+    likeliest letters that make it known(), by MATCH_MARGIN over any other
+    known() reading; each settled letter then counts in its crossing light,
+    until none settles."""
+    models = letter_models(glyphs, read)
+    tries = {}
+    for rc in glyphs:
+        if rc not in read:
+            rank = ranked(glyphs[rc], models, unnumbered(numbers.get(rc)))
+            ok = AZ if allowed is None else allowed.get(rc, "")
+            if rank and rank[0][0] in ok:
+                tries[rc] = [(ch, s) for ch, s in rank[:MATCH_TRIES]
+                             if s >= rank[0][1] - MATCH_SPREAD and ch in ok]
+    letters, out = dict(read), {}
+    through = {}
+    for cells in lts.values():
+        for rc in cells:
+            through.setdefault(rc, []).append(cells)
+
+    def fits(cells, have):
+        """Whether the light can still be a known() word: with one cell open,
+        some letter there makes one; with more, it may."""
+        open_ = [rc for rc in cells if rc not in have]
+        if len(open_) > 1:
+            return True
+        return any(known("".join(have.get(rc) or ch for rc in cells)) for ch in (AZ if open_ else "-"))
+
+    settled = True
+    while settled:
+        settled = False
+        for cells in lts.values():
+            open_ = [rc for rc in cells if rc not in letters]
+            if not open_ or len(open_) > MATCH_CELLS or any(rc not in tries for rc in open_):
+                continue
+            words = []
+            for combo in itertools.product(*(tries[rc] for rc in open_)):
+                got = dict(zip(open_, (ch for ch, _ in combo)))
+                word = "".join(letters.get(rc) or got[rc] for rc in cells)
+                have = {**letters, **got}
+                if known(word) and all(fits(other, have) for rc in open_ for other in through[rc]
+                                       if other is not cells):
+                    words.append((sum(s for _, s in combo), got))
+            words.sort(key=lambda t: -t[0])
+            if words and (len(words) == 1 or words[0][0] - words[1][0] >= MATCH_MARGIN * len(open_)):
+                letters.update(words[0][1])
+                out.update(words[0][1])
+                settled = True
+    return out
+
+
+def framed_rules(gray, grid):
+    """(gray, ys, xs): the grid image and its rules that read its blocks
+    as the grid's best, of: its largest patch of ink straightened() and
+    ruled by rules(), else (a crop that is no clean frame: a column cut
+    off, a caption touching) that patch's lattice() between its outer
+    rules or fitted in it, evenly apart. Ties go to rules()."""
+    n = len(grid)
+    box = trove_grid.largest_component(gray < trove_grid.otsu(gray))
+    if box is None:
+        raise ValueError("no ink in the image")
+    tried = []
+    patch = np.asarray(straightened(Image.fromarray(gray[box[1]:box[3] + 1, box[0]:box[2] + 1])))
+    try:
+        ys, xs = rules(patch, grid)
+        steps = np.concatenate([np.diff(ys), np.diff(xs)])
+        if steps.min() > 0.5 * np.median(steps):
+            tried.append((patch, ys, xs))
+    except ValueError:
+        pass
+    for tight in (True, False):
+        try:
+            tried.append((gray, *even(lattice(gray, n, tight), n)))
+        except ValueError:
+            pass
+    if not tried:
+        raise ValueError("no lattice in the image")
+    return max(tried, key=lambda g: block_agreement(g[0], grid, (g[1], g[2])))
+
+
+def read_framed(image, grid):
+    """read_answers for an image that is the grid: read on its own rules
+    (framed_rules), each light accepted when every cell is read (the
+    recogniser's sure letter, or for a cell with a clue number or no sure
+    read, matched_letters) and the word is known()."""
+    gray, ys, xs = framed_rules(np.asarray(Image.open(image).convert("L")), grid)
+    lts = lights(grid)
+    numbers = {cells[0]: n for (n, _), cells in lts.items()}
+
+    def unmarked(r, c):
+        a = between(gray, ys, xs, r, c).copy()
+        if (r, c) in numbers:
+            h, w = a.shape
+            a[:round(NUMBER_HIGH * h), :round(NUMBER_WIDE[min(len(str(numbers[(r, c)])), 2)] * w)] = 255
+        return a
+    sure, full = read_lights(lts, lambda r, c: between(gray, ys, xs, r, c))
+    read = {rc: ch for rc, ch in sure_letters(sure).items() if rc not in numbers}
+    # A cell's letter must be one some full-length read gave it, plain or
+    # with its number's corner blanked, and no letter either way read
+    # surely there may be another.
+    blanked, blanked_full = read_lights(lts, unmarked)
+    allowed = {}
+    for words in (full, blanked_full):
+        for key, ws in words.items():
+            for w in ws:
+                for rc, ch in zip(lts[key], w):
+                    allowed.setdefault(rc, set()).add(ch)
+    for reads in (sure_letters(sure), sure_letters(blanked)):
+        for rc, ch in reads.items():
+            allowed[rc] = allowed.get(rc, set()) & {ch}
+    glyphs = {rc: glyph(gray, ys, xs, *rc) for cells in lts.values() for rc in cells}
+    matched = matched_letters(read, glyphs, numbers, lts, allowed)
+    letters = {**read, **matched}
+    # A light read_answers' plain reading accepts (every cell sure, the whole
+    # word read) stands too where each numbered cell's sure letter is its
+    # glyph's best match and no letter above says otherwise.
+    every, models = sure_letters(sure), letter_models(glyphs, read)
+    accepted = {}
+    for key, cells in lts.items():
+        if all(rc in letters for rc in cells):
+            word = "".join(letters[rc] for rc in cells)
+            if known(word):
+                accepted[key] = word
+        elif all(rc in every for rc in cells):
+            word = "".join(every[rc] for rc in cells)
+            if word in full.get(key, ()) and known(word) and all(
+                    letters.get(rc, ch) == ch for rc, ch in zip(cells, word)) and all(
+                    [m for m, _ in ranked(glyphs[rc], models, unnumbered(numbers[rc]))[:1]] == [ch]
+                    for rc, ch in zip(cells, word) if rc in numbers):
+                accepted[key] = word
+    stats = {"lights": len(lts), "fullReads": len(full), "accepted": len(accepted),
+             "cellsRead": len(read), "cellsMatched": len(matched), "cells": len(glyphs),
+             "blocks": round(block_agreement(gray, grid, (ys, xs)), 3)}
+    return accepted, stats
+
+
 def read_answers(image, grid, tight=False):
     """({(number, direction): answer} accepted, stats) for a solution image
     and the puzzle's grid (rows of "#" and ".").
 
-    Cells are read by read_lights and sure_letters. A light is accepted when every one of its cells is read, some
+    With `tight` (the image is the grid, frame to frame) it is read_framed.
+    Else cells are read by read_lights and sure_letters. A light is accepted when every one of its cells is read, some
     recogniser read the light itself as exactly that word, and the word is
     known()."""
+    if tight:
+        return read_framed(image, grid)
     gray = np.asarray(Image.open(image).convert("L"))
     lat = lattice(gray, len(grid), tight)
     lts = lights(grid)

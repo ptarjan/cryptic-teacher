@@ -85,10 +85,11 @@ GRACE=1800
 export OCR_REMOTE="${OCR_REMOTE-micro@100.68.145.15,micro@192.168.1.198}"
 export OCR_THREADS="${OCR_THREADS:-1}"
 WORKERS="${OCR_FULL_PASS_WORKERS:-20}"
-# The last change to the scan filers that should alter past readings: the
-# 1983-86 FT clue column beside its grid, the 1983 FT title number misread
-# in one digit, and a grid over its title ending at the title.
-REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-08T00:37:29+00:00}"
+# The last change to the scan filers that should alter past readings: a
+# printed solution grid read on its own rules, its numbered and unsure
+# cells matched to its own letters (trove_solution_ocr.read_framed), and a
+# re-read's answers merged into the held filing.
+REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-08T02:46:05+00:00}"
 
 # The Listener pages Paul saves from Gale's Listener Historical Archive: each
 # new file's clues read once (ledger by file hash), each puzzle whose grid
