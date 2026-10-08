@@ -125,9 +125,14 @@ other change to this code or the VLM model makes nothing due: whoever makes it
 runs the re-read once, `--reread [BEFORE]` (every edition last read before
 BEFORE, an ISO time, default now; slices of one re-read share a BEFORE).
 --no-scan reads only the due editions whose scans stand, and the scans of the
-SOLUTION_DAYS after them (where their solutions print), and scans nothing:
-the desktop VLM's work that waits on no scan (tools/ocr_full_pass.sh runs it
-for every paper before any paper's scans).
+SOLUTION_DAYS after them (where their solutions print), and scans nothing.
+
+The standing pass does not run this as a batch: tools/edition_queue.py
+plans what is due (plan(): the same due_reason, scanning nothing) and runs
+each edition as a unit of its own, scan_unit() or read_unit(), each locking
+its edition and appending its own ledger row (scan_queue.append), so units
+run side by side and a batch run (this CLI, holding the ledger's lock
+throughout) holds them off: a unit then ends "held", left for the next plan.
 """
 import argparse
 import datetime
@@ -2824,6 +2829,23 @@ def progress(line):
     print(f"{time.strftime('%H:%M:%S')} {line}", file=sys.stderr, flush=True)
 
 
+def ledger_of(cache=CACHE, paper=None, ledger=None):
+    """The ledger a run of `paper` keeps under `cache` (LEDGER_NAMES), or `ledger`."""
+    return Path(ledger or cache / LEDGER_NAMES.get((paper or TIMES).key, "filed.jsonl"))
+
+
+def load_known(ledger):
+    """{edition: row} of a ledger, the last row of each standing."""
+    known = scan_queue.ledger_rows(ledger, "edition")
+    for row in known.values():
+        if "hash" in row and "inputs" not in row:
+            # A row keyed by code and files together: its read stands
+            # for the files it was read with.
+            row.pop("hash")
+            row["inputs"] = row.get("filesHash")
+    return known
+
+
 def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limit=None,
         source=SOURCE, paper=None, seconds=None, workers=1, wait=False, reread=None, editions=None, scan_new=True,
         newer=None):
@@ -2839,7 +2861,7 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
     is not set."""
     deadline = None if seconds is None else time.monotonic() + seconds
     paper = paper or TIMES
-    ledger = Path(ledger or cache / LEDGER_NAMES.get(paper.key, "filed.jsonl"))
+    ledger = ledger_of(cache, paper, ledger)
     with scan_queue.lock(ledger, wait) as mine:
         if not mine:
             print(f"another run holds {ledger.with_suffix('.lock')}: nothing read", file=out)
@@ -2937,9 +2959,9 @@ def scan_near(dirs, rels, editions):
     named = [d for d in dirs if rels[d] in editions]
     out = set(named)
     for n in named:
-        start = datetime.date.fromisoformat(n.name[:10])
-        out |= {d for d in dirs if d.parent == n.parent
-                and 0 < (datetime.date.fromisoformat(d.name[:10]) - start).days <= SOLUTION_DAYS}
+        start = edition_date(n)
+        out |= {d for d in dirs if d.parent == n.parent and start and edition_date(d)
+                and 0 < (edition_date(d) - start).days <= SOLUTION_DAYS}
     return out
 
 
@@ -2948,23 +2970,154 @@ def staged_at(d):
     return (d / "pages.json").stat().st_mtime
 
 
+# ------------------------------------------------------------ the per-edition queue
+
+#: How urgent each reason to read an edition is (tools/edition_queue.py
+#: takes the lowest first): pages Paul saved by hand, then any never-read
+#: edition and the re-reads annotation asked for, then an edition whose
+#: inputs moved, then the re-reads REREAD_BEFORE makes due.
+RANKS = {"saved by hand": 0, "never read": 1, "annotation asked": 1, "inputs changed": 2, "titles changed": 2,
+         "read without the VLM": 2, "scan stale": 2, "--reread": 3}
+
+
+def scan_current(row, fh):
+    """Whether ledger `row` holds a scan of files `fh` by this scan code."""
+    return bool(row) and row.get("filesHash") == fh and row.get("scanKey") == scan_key() and "scan" in row
+
+
+def plan(paper, cache=CACHE, ledger=None, reread=None, asked=(), dirs=None):
+    """What a run of `paper` has to do, scanning nothing: ([scan unit],
+    [read unit]), each a dict with "rel", "rank" (RANKS), "reason"; a read
+    unit's "needs" are the editions whose scans it waits on (its own and
+    those dated SOLUTION_DAYS after it: its solution prints there), a scan
+    unit's rank the most urgent read needing it. `asked` are the editions
+    annotation asked to have read again (read whatever their row says);
+    `dirs` limits the plan to those editions. Each list is in the order a
+    run reads them (scan_queue.order; NEWEST_FIRST papers by staged_at)."""
+    import bisect
+    ledger = ledger_of(cache, paper, ledger)
+    known = load_known(ledger)
+    every = _PLANNED_DIRS[(str(cache), paper.key)] = edition_dirs(cache, paper)
+    held_dates(paper.series)  # cached here, so each unit forked after this reads only what changed
+    dirs = every if dirs is None else [d for d in every if d in set(dirs)]
+    rels = {d: f"{d.parent.name}/{d.name}" for d in every}
+    seen_by = vlm.version() if vlm.reachable() else None
+    stale = [d for d in dirs if not scan_current(known.get(rels[d]), input_hash(d))]
+    stale_set = set(stale)
+    scans = {rels[d]: (known.get(rels[d]) or {}).get("scan") or {"puzzles": [], "solutions": []} for d in every}
+    solutions = {s["number"] for d in every for s in scans[rels[d]]["solutions"]}
+    asked = set(asked)
+    reads = {}
+    for d in dirs:
+        rel, row = rels[d], known.get(rels[d]) or {}
+        if d in stale_set:
+            why = "scan stale" if "inputs" in row else "never read"
+        else:
+            sol_seen = sorted(n for n in (p["number"] for p in scans[rel]["puzzles"]) if n in solutions)
+            why = due_reason(row, inputs_of(row["filesHash"], scans[rel], paper.series), sol_seen, seen_by, reread)
+        if not why and rel in asked:
+            why = "annotation asked"
+        if why == "never read" and paper.key in NEWEST_FIRST:
+            why = "saved by hand"
+        if why:
+            reads[d] = why
+    # Which stale scans each read waits on: its own and the SOLUTION_DAYS after it.
+    dated = sorted((edition_date(d), rels[d]) for d in stale if edition_date(d))
+    undated = [rels[d] for d in stale if not edition_date(d)]
+    days = [day for day, _ in dated]
+
+    def needs(d):
+        day = edition_date(d)
+        if day is None:
+            return [rels[s] for s in stale]
+        lo = bisect.bisect_left(days, day)
+        hi = bisect.bisect_right(days, day + datetime.timedelta(days=SOLUTION_DAYS))
+        return [rel for _, rel in dated[lo:hi]] + undated
+    keys = sorted(reads, key=staged_at, reverse=True) if paper.key in NEWEST_FIRST else list(reads)
+    queue = scan_queue.order(keys, {d: known.get(rels[d]) or {} for d in reads}, lambda row: "inputs" not in row)
+    read_units = [{"kind": "read", "paper": paper.key, "rel": rels[d], "reason": reads[d], "rank": RANKS[reads[d]],
+                   "needs": needs(d), "force": reads[d] == "annotation asked"} for d in queue]
+    rank_of = {}
+    for u in read_units:
+        for rel in u["needs"]:
+            rank_of[rel] = min(rank_of.get(rel, 9), u["rank"])
+    scan_units = [{"kind": "scan", "paper": paper.key, "rel": rels[d], "rank": rank_of.get(rels[d], RANKS["scan stale"]),
+                   "reason": "scan stale" if "scan" in (known.get(rels[d]) or {}) else "never scanned"}
+                  for d in (sorted(stale, key=staged_at, reverse=True) if paper.key in NEWEST_FIRST else stale)]
+    return scan_units, read_units
+
+
+#: {(cache, paper key): edition dirs} as the last plan() listed them: a unit
+#: forked after it starts from this list (its own edition added), not a
+#: listing of every item of its own (seconds each on a loaded host).
+_PLANNED_DIRS = {}
+
+
+def scan_unit(paper, rel, cache=CACHE, ledger=None):
+    """Scan one edition and add its row to the ledger (scan_queue.append),
+    unless another unit holds it or its scan stands: "scanned", "busy",
+    "current" or "held" (a run holds the ledger throughout)."""
+    ledger = ledger_of(cache, paper, ledger)
+    if scan_queue.held(ledger):
+        return "held"
+    d = Path(cache) / rel
+    with scan_queue.source_lock(ledger, rel) as mine:
+        if not mine:
+            return "busy"
+        fh = input_hash(d)
+        row = load_known(ledger).get(rel) or {}
+        if scan_current(row, fh):
+            return "current"
+        try:
+            found = scan(d)
+        except Exception as e:  # noqa: BLE001 -- as _run: a scan that raises stands as one with no headings
+            found = {"puzzles": [], "solutions": [], "failed": scan_queue.failure((rel,), e)}
+        progress(f"scanned {rel}: " + (f"failed: {found['failed']}" if "failed" in found
+                                       else f"{len(found['puzzles'])} puzzle(s)"))
+        scan_queue.append(ledger, [{**row, "edition": rel, "scan": found, "filesHash": fh, "scanKey": scan_key()}])
+        return "scanned"
+
+
+def read_unit(paper, rel, cache=CACHE, ledger=None, puzzles=None, source=SOURCE, reread=None, force=False,
+              out=sys.stdout):
+    """Read one edition (its own scan made first if it is stale) and file
+    what it holds, adding its row to the ledger, unless another unit holds
+    it or it is no longer due (`force`: read it anyway): "read", "busy" or
+    "held" (a run holds the ledger throughout)."""
+    ledger = ledger_of(cache, paper, ledger)
+    if scan_queue.held(ledger):
+        return "held"
+    with scan_queue.source_lock(ledger, rel) as mine:
+        if not mine:
+            return "busy"
+        dirs = _PLANNED_DIRS.get((str(cache), paper.key))
+        if dirs is not None and Path(cache) / rel not in dirs:
+            dirs = [*dirs, Path(cache) / rel]
+        _run(cache, True, ledger, out, puzzles, None, source, paper, None, 1, reread, editions=[rel],
+             unit={"force": force, "dirs": dirs})
+        return "read"
+
+
 def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, workers, reread, editions=None,
-         scan_new=True, newer=None):
+         scan_new=True, newer=None, unit=None):
     from fetch_puzzle import puzzle_path, write_puzzle_file
-    known = {}
-    if ledger.exists():
-        for line in ledger.read_text().splitlines():
-            row = json.loads(line)
-            if "hash" in row and "inputs" not in row:
-                # A row keyed by code and files together: its read stands
-                # for the files it was read with.
-                row.pop("hash")
-                row["inputs"] = row.get("filesHash")
-            known[row["edition"]] = row
+    known = load_known(ledger)
+    # A unit (read_unit) adds the rows it changed to the ledger; a run
+    # holding the ledger's lock throughout rewrites it whole.
+    changed = set()
+
+    def flush():
+        if not write:
+            return
+        if unit is not None:
+            scan_queue.append(ledger, [known[k] for k in sorted(changed)])
+        else:
+            save(ledger, known)
+        changed.clear()
     # The VLM's readings are an input: an edition read without it is read
     # again once it answers, and one read with it stands while it is down.
     seen_by = vlm.version() if vlm.reachable() else None
-    dirs = edition_dirs(cache, paper)
+    dirs = (unit or {}).get("dirs") or edition_dirs(cache, paper)
     rels = {d: f"{d.parent.name}/{d.name}" for d in dirs}
     # With `newer`, only the editions laid out since then are read, and only
     # they and the days after them scanned.
@@ -2973,7 +3126,9 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
     # With `editions`, only those and the days after them (where their
     # solutions print) are scanned afresh; every other edition's last scan
     # stands, stale or not, and one never scanned offers no solution.
-    near = scan_near(dirs, rels, editions or fresh) if editions or fresh is not None else None
+    # A unit scans its own edition alone: the queue scans the others (scan_unit).
+    near = ({d for d in dirs if rels[d] in editions} if unit is not None else
+            scan_near(dirs, rels, editions or fresh) if editions or fresh is not None else None)
     scans, unscanned = {}, {}
     for d in dirs:
         row = known.get(rels[d])
@@ -3004,19 +3159,18 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
                                            else f"{len(found['puzzles'])} puzzle(s)"))
         known[rels[d]] = {**known.get(rels[d], {}), "edition": rels[d], "scan": found, "filesHash": unscanned[d],
                           "scanKey": scan_key()}
+        changed.add(rels[d])
         # Saved as it goes: the scans of a whole paper take hours, and a kill
         # then loses at most SAVE_EVERY seconds of them.
-        if write and time.monotonic() - saved >= SAVE_EVERY:
-            save(ledger, known)
+        if time.monotonic() - saved >= SAVE_EVERY:
+            flush()
             saved = time.monotonic()
-    if unscanned and write:
-        save(ledger, known)
+    if unscanned:
+        flush()
     solutions = {}
     for d in dirs:
         for s in scans[rels[d]]["solutions"]:
             solutions.setdefault(s["number"], {**s, "dir": d})
-    held = held_numbers(paper.series)
-    held_dates(paper.series)  # read once here: the forked workers start with it
     due = {}
     for d in dirs:
         rel = rels[d]
@@ -3025,8 +3179,15 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
         fh = known[rel]["filesHash"]
         h = inputs_of(fh, scans[rel], paper.series)
         sol_seen = sorted(n for n in (p["number"] for p in scans[rel]["puzzles"]) if n in solutions)
-        if editions or due_reason(known[rel], h, sol_seen, seen_by, reread):
+        why = due_reason(known[rel], h, sol_seen, seen_by, reread)
+        if why or editions and (unit is None or unit.get("force")):
             due[d] = (h, sol_seen, fh)
+        elif unit is not None:
+            progress(f"not due {rel}: its scan stands as read, or it was read since it was queued")
+    # Read only when something is due: a unit that finds nothing due ends here.
+    held = held_numbers(paper.series) if due else set()
+    if due:
+        held_dates(paper.series)  # read once here: the forked workers start with it
     keys = sorted(due, key=staged_at, reverse=True) if paper.key in NEWEST_FIRST else list(due)
     queue = scan_queue.order(keys, {d: known[rels[d]] for d in due}, lambda row: "inputs" not in row)
     if limit is not None:
@@ -3090,16 +3251,15 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
                       "solutionsSeen": sol_seen, "verdicts": verdicts, "readAt": scan_queue.now()}
         if seen_by and vlm_ok:
             known[rel]["vlm"] = seen_by
-        if write:
-            save(ledger, known)
+        changed.add(rel)
+        flush()
         progress(f"read {rel}: " + ("; ".join(
             f"{v['number']} " + ("wrote " + v["id"] if v.get("wrote") else
                                  v.get("skip") or v.get("refused") or v.get("refusedWrite")
                                  or ("write failed: " + v["writeFailed"] if v.get("writeFailed") else None)
                                  or v.get("id") or "read")[:60]
             for v in verdicts) or "nothing filed"))
-    if write:
-        save(ledger, known)
+    flush()
     tally = report(known[rels[d]] for d in dirs if rels[d] in known)
     if len(due) > fresh:
         tally["left for the next run"] = len(due) - fresh

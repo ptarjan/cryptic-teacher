@@ -15,6 +15,13 @@ tools/file_trove_puzzles.py).
     one bad page never stops a run.
   - lock(): one run per ledger, so a long full pass and the nightly never
     write the same ledger at once.
+  - A ledger is append-only jsonl, one row per source read, the last row
+    for a source standing (ledger_rows()): append() adds rows under a hold
+    on the ledger's lock lasting only the write, so the per-edition units of
+    tools/edition_queue.py each add their own row and none rewrites another's;
+    a run holding the lock throughout (lock()) may rewrite it whole, and
+    compact() folds it to one row a source. source_lock() keeps two units off
+    one source.
   - request_reread(): an annotation that met a misread clue on an OCR'd
     puzzle (tools/annotate_check.py: a printedClue filed, or a rejection on a
     clue-text check) asks for its source to be read again. A request is open
@@ -94,6 +101,92 @@ def lock(ledger, wait_for_it=False):
             print(f"{time.strftime('%H:%M:%S')} waiting for another run's hold on {path}",
                   file=sys.stderr, flush=True)
             fcntl.flock(f, fcntl.LOCK_EX)
+        yield True
+
+
+def ledger_rows(path, key):
+    """{row[key]: row} of a jsonl ledger, the last row for a key standing;
+    {} when it is missing. A final line still being appended (no newline
+    yet) is not a row."""
+    try:
+        text = path.read_text(encoding="utf-8")
+    except FileNotFoundError:
+        return {}
+    out = {}
+    lines = text.split("\n")
+    for line in lines[:-1] if not text.endswith("\n") else lines:
+        if line.strip():
+            row = json.loads(line)
+            out[row[key]] = row
+    return out
+
+
+def append(ledger, rows):
+    """Add `rows` to `ledger`, one line each, in one write, under its lock
+    held only for that write (a run holding it throughout keeps this
+    waiting: append runs only when lock() is not held for a whole run)."""
+    import fcntl
+    if not rows:
+        return
+    data = "".join(json.dumps(r) + "\n" for r in rows).encode()
+    ledger.parent.mkdir(parents=True, exist_ok=True)
+    with open(ledger.with_suffix(".lock"), "w") as f:
+        fcntl.flock(f, fcntl.LOCK_EX)
+        fd = os.open(ledger, os.O_WRONLY | os.O_APPEND | os.O_CREAT, 0o644)
+        try:
+            os.write(fd, data)
+        finally:
+            os.close(fd)
+
+
+def compact(ledger, key):
+    """Rewrite `ledger` to one row a source (whole-or-none), unless a run
+    holds its lock; returns (rows before, rows after), None when held."""
+    import fcntl
+    if not ledger.exists():
+        return 0, 0
+    with open(ledger.with_suffix(".lock"), "w") as f:
+        try:
+            fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            return None
+        before = sum(1 for line in ledger.read_text(encoding="utf-8").splitlines() if line.strip())
+        rows = ledger_rows(ledger, key)
+        tmp = ledger.with_suffix(".tmp")
+        tmp.write_text("".join(json.dumps(r) + "\n" for r in rows.values()), encoding="utf-8")
+        tmp.replace(ledger)
+        return before, len(rows)
+
+
+def held(ledger):
+    """Whether a run holds `ledger`'s lock right now."""
+    import fcntl
+    path = ledger.with_suffix(".lock")
+    if not path.exists():
+        return False
+    with open(path, "a") as f:
+        try:
+            fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            return True
+        fcntl.flock(f, fcntl.LOCK_UN)
+    return False
+
+
+@contextlib.contextmanager
+def source_lock(ledger, source):
+    """Yields whether this process holds `source`'s own lock (beside
+    `ledger`, in <ledger stem>.locks/), never waiting: a source being read
+    by another unit is not read twice."""
+    import fcntl
+    d = ledger.parent / f"{ledger.stem}.locks"
+    d.mkdir(parents=True, exist_ok=True)
+    with open(d / (hashlib.sha256(source.encode()).hexdigest()[:20] + ".lock"), "w") as f:
+        try:
+            fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            yield False
+            return
         yield True
 
 
@@ -197,14 +290,15 @@ REQUESTS = Path(os.environ.get("SCAN_REREAD_REQUESTS")
                 or os.path.expanduser("~/.cache/scan_reread_requests.jsonl"))
 
 
-def _rows(path):
-    """A jsonl file's rows; none when it is missing. A filer replaces its
-    ledger whole (a rename), so a line is never half-written."""
+def jsonl_rows(path):
+    """A jsonl file's rows, in order; none when it is missing. A final line
+    still being appended (no newline yet) is not a row."""
     try:
         text = path.read_text(encoding="utf-8")
     except FileNotFoundError:
         return []
-    return [json.loads(line) for line in text.splitlines() if line.strip()]
+    lines = text.split("\n")
+    return [json.loads(line) for line in (lines if text.endswith("\n") else lines[:-1]) if line.strip()]
 
 
 def sources():
@@ -212,11 +306,11 @@ def sources():
     filer's ledger says it read: an archive.org edition's verdicts, a Trove
     article's id."""
     out = {}
-    for row in [r for key in ("archive", "gale") if key in LEDGERS for r in _rows(LEDGERS[key])]:
+    for row in [r for key in ("archive", "gale") if key in LEDGERS for r in jsonl_rows(LEDGERS[key])]:
         for v in row.get("verdicts") or ():
             if v.get("id"):
                 out[v["id"]] = ("archive", row["edition"], row)
-    for row in _rows(LEDGERS["trove"]):
+    for row in jsonl_rows(LEDGERS["trove"]):
         if row.get("id"):
             out[row["id"]] = ("trove", row["article"], row)
     return out
@@ -238,7 +332,7 @@ def is_open(req, ledgers=None):
 
 
 def requests():
-    return _rows(REQUESTS)
+    return jsonl_rows(REQUESTS)
 
 
 def open_requests():

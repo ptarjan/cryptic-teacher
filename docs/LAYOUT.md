@@ -1539,19 +1539,37 @@ tools/test_clue_record_shift.sh               does every Guardian clue record la
                                               its number names?
 tools/test_shared_continuation.sh             does a light whose clue names two leaders end
                                               both answers?
-tools/ocr_full_pass.sh                        the one standing corpus job: read every Trove
-                                              article and archive.org edition the scan filers
-                                              find due (never read, inputs changed, read
-                                              without the VLM that now answers, read before
-                                              REREAD_BEFORE), those whose scans stand first,
-                                              then the scanned, then Trove, and the re-reads
-                                              annotation asked for, to the end, fetching
-                                              archive.org and Trove beside the reads for the
-                                              next pass, then stop; the Gale Listener pages
-                                              saved since are read beside it, started at its
-                                              start and before every slice
-tools/scan_queue.py                           the read queue the scan filers share, and the
-                                              re-reads annotation asks of them
+tools/ocr_full_pass.sh                        the one standing corpus job: read every
+                                              archive.org edition, Gale page and Trove article
+                                              the scan filers find due (never read, inputs
+                                              changed, read without the VLM that now answers,
+                                              read before REREAD_BEFORE) and the re-reads
+                                              annotation asked for, to the end: the editions
+                                              through tools/edition_queue.py's per-edition
+                                              units, the Trove filer beside them, fetching
+                                              archive.org and Trove beside the reads, then
+                                              stop; the Gale Listener pages saved since are
+                                              read beside it, started at its start and before
+                                              every slice
+tools/edition_queue.py                        the archive.org and Gale editions as a queue of
+                                              small units: one edition's scan or read each, in
+                                              its own forked process with its own time limit
+                                              and edition lock, appending its own ledger row;
+                                              Gale pages saved by hand first, then never read
+                                              and annotation's asks, then inputs moved, then
+                                              REREAD_BEFORE; planned again every minute; `plan`
+                                              prints what is due by rank
+tools/test_edition_queue.sh                   does the edition queue append rows (the last
+                                              standing, a half-written line skipped), keep one
+                                              unit per edition, take Gale pages saved by hand
+                                              first, read only after the scans its solution
+                                              needs, kill a slow unit at its own limit without
+                                              holding up the rest, say what a capped run left,
+                                              pass a TERM on, and run the Trove filer beside?
+tools/scan_queue.py                           the read queue the scan filers share: the
+                                              append-only ledgers (the last row a source
+                                              standing), per-source locks, and the re-reads
+                                              annotation asks of them
 tools/archive_coverage.py                     per series and year: editions printed, scanned on
                                               archive.org and filed, and every unfiled
                                               edition's reason off the filer's ledger,
@@ -1655,10 +1673,11 @@ tools/gale_inbox.py                           the 1974-99 Times editions archive
 tools/gale_inbox.sh                           the scheduled entry point for gale_inbox.py sync,
                                               every minute, from a worktree
 tools/gale_read.sh                            reads the Gale Times pages laid out in the last
-                                              hour (file_archive_org_puzzles.py --paper gale,
-                                              its own ledger) minutes after each download,
-                                              started by gale_inbox.py sync; commits what it
-                                              files as it goes
+                                              hour (edition_queue.py --paper gale --newer-than,
+                                              its own ledger, one unit an edition) minutes
+                                              after each download, beside the full pass's
+                                              queue, started by gale_inbox.py sync; commits
+                                              what it files as it goes
 tools/gale_listener.py                        the Listener crosswords of 1930-91, read from the
                                               pages Paul saves by hand from Gale's Listener
                                               Historical Archive: a checklist of every puzzle

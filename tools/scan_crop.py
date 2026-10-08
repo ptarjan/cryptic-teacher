@@ -36,8 +36,8 @@ def verdict(pid, cache):
         raise NoCrop(f"no ledger at {cache / 'filed.jsonl'}")
     ledger = ", ".join(map(str, ledgers))
     found = None
-    for line in (ln for p in ledgers for ln in p.read_text().splitlines()):
-        row = json.loads(line)
+    import scan_queue
+    for row in (r for p in ledgers for r in scan_queue.jsonl_rows(p)):
         for v in row.get("verdicts") or []:
             if v.get("id") == pid and (found is None or v.get("wrote") or not found[1].get("wrote")):
                 found = (cache / row["edition"], v)
