@@ -55,7 +55,7 @@
 # before exiting; what a SIGKILL or reboot leaves in the tree the next start
 # salvages (CT_SALVAGE_PATHS). The queue runs in OCR_FULL_PASS_CHUNK-second
 # slices, each under a hard `timeout`, the tree moved to origin/master
-# between them.
+# between them while the units a slice handed over still run (no pause).
 #
 # Runs in a worktree of its own (tools/nightly_worktree.sh), at origin/master.
 # All of puzzles/, not the series it files: filing a newspaper puzzle deletes
@@ -94,26 +94,67 @@ REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-08T02:56:21+00:00}"
 
 publish() {  # publish <what>: commit and push the puzzles filed so far
   durable_checkpoint "Full OCR pass: $1" || return 1
-  durable_resync
+  durable_resync || true
+}
+
+# The units still running when a slice ends are handed to the next slice
+# (edition_queue.py --handoff), not waited for: the tree moves to
+# origin/master between slices while they run, and the next slice starts
+# its units from the new tree at once, the handed-over ones counted in its
+# pools. A unit reads a held file only as it writes it, so a move between
+# its start and its write loses nothing; one that leaves a tracked file
+# changed makes the move fail, and it is tried again (resync).
+HANDOFF="$(git rev-parse --git-dir)/edition-queue-handoff.json"
+rm -f "$HANDOFF"
+handed_over() {  # the pids a slice handed over, one a line
+  [ -f "$HANDOFF" ] && python3 -c 'import json, sys; [print(r["pid"]) for r in json.load(open(sys.argv[1]))]' "$HANDOFF"
+}
+stop_handed_over() {  # a stop between slices: TERM the units no slice holds
+  local pid
+  for pid in $(handed_over); do kill -TERM -- "-$pid" 2>/dev/null; done
+}
+trap 'stop_handed_over; _durable_stop' TERM INT HUP
+
+resync() {  # move the tree to origin/master, again while a handed-over unit keeps it changed
+  local n
+  for n in 1 2 3; do
+    durable_checkpoint "Full OCR pass: before the tree moves" || echo "durable: checkpoint failed before the move"
+    durable_resync && return 0
+    sleep 20
+  done
+  echo "the tree stays where it is until the next slice's end"
 }
 
 slices() {  # slices <what> <filer command...>: run the filer until nothing is left
-  local what="$1" out rc
+  local what="$1" out rc pids
   shift
-  out=$(mktemp) || return 1
   while :; do
     echo "=== $what: slice from $(date '+%F %T') ==="
     # Streamed as it goes (a line per source read), so the log shows what it
-    # is doing now; the copy in $out is read for the slice's tally.
+    # is doing now; the copy in $out is read for the slice's tally. A slice's
+    # own file: units it hands over still write to it, and it is followed
+    # until they end.
+    out=$(mktemp) || return 1
     DURABLE_TEE="$out" durable_run "Full OCR pass: $what" \
-      timeout "$((CHUNK + GRACE))" nice -n 19 "$@" --seconds "$CHUNK" --workers "$WORKERS" --wait
+      timeout "$((CHUNK + GRACE))" nice -n 19 "$@" --seconds "$CHUNK" --workers "$WORKERS" --wait --handoff "$HANDOFF"
     rc=$?
-    durable_resync
-    [ "$rc" -eq 0 ] || { echo "$what failed (rc=$rc); stopping"; rm -f "$out"; return 1; }
-    grep -q "left for the next run" "$out" || { rm -f "$out"; return 0; }
+    pids=$(handed_over | tr '\n' ' ')
+    if [ -n "$pids" ]; then
+      (
+        while :; do
+          up=""
+          for p in $pids; do kill -0 "$p" 2>/dev/null && up=1; done
+          [ -n "$up" ] || exit 0
+          sleep 5
+        done
+      ) &
+      tail -c "+$(($(stat -c %s "$out") + 1))" -f --pid=$! "$out" &
+    fi
+    resync
+    [ "$rc" -eq 0 ] || { echo "$what failed (rc=$rc); stopping"; return 1; }
+    grep -q "left for the next run" "$out" || return 0
   done
 }
-
 
 mkdir -p "$HOME/.cache/archive_org_crops/unfiled"
 # The Times pages Paul downloads by hand from Gale's Times Digital Archive

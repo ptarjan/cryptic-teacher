@@ -249,6 +249,36 @@ check("a 429 lowers the pool; FETCH_OUTAGES down in a row stop the source for th
       ("at most 1 fetches at once" in err.getvalue(), "no more fetches this run" in err.getvalue(),
        "start fetch e5" in log.read_text()))
 
+# ---- --handoff: a slice's end hands its running units to the next run,
+# which counts them in its pools and does not start them again.
+log.unlink()
+def timed_unit(unit, cache, puzzles, reread):
+    with open(log, "a") as fh:
+        fh.write(f"{time.monotonic():.3f} start {unit['kind']} {unit['rel']}\n")
+    time.sleep({"long": 4}.get(unit["rel"], 0.2))
+    with open(log, "a") as fh:
+        fh.write(f"{time.monotonic():.3f} end {unit['kind']} {unit['rel']}\n")
+    return "read"
+eq.run_unit = timed_unit
+eq.plan = units([], [("long", []), ("r1", [])])
+ho = T / "handoff.json"
+out = io.StringIO()
+t0 = time.monotonic()
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(out):
+    rc = eq.dispatch(["times"], cache, workers=1, seconds=0.5, handoff=ho)
+check("a slice ends at once, handing over its running unit, and says it left work", (0, True, ["long"], True),
+      (rc, time.monotonic() - t0 < 3, [r["unit"]["rel"] for r in json.loads(ho.read_text())],
+       "left for the next run" in out.getvalue()))
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    rc = eq.dispatch(["times"], cache, workers=1, handoff=ho, replan=0.2)
+ev = [line.split()[1:] for line in log.read_text().splitlines()]
+check("the next run takes it over: not started twice, its slot held until it ends, then r1",
+      (0, 1, True, True, False),
+      (rc, sum(e == ["start", "read", "long"] for e in ev),
+       ev.index(["end", "read", "long"]) < ev.index(["start", "read", "r1"]),
+       "ended (taken over)" in err.getvalue(), ho.exists()))
+
 # ---- Trove articles: one read unit each, appended rows, its own lock
 import file_trove_puzzles as ftp
 tc = T / "trove"

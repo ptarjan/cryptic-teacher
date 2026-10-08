@@ -1571,8 +1571,9 @@ tools/test_edition_queue.sh                   does the edition queue append rows
                                               pass a TERM on, run a batch filer beside, run
                                               fetch units in pools of their own (a 429
                                               shrinking one, an outage stopping it), read Trove
-                                              articles as units, and pace Trove across
-                                              processes?
+                                              articles and Listener pages as units, hand a
+                                              slice's running units to the next slice, and pace
+                                              Trove across processes?
 tools/scan_queue.py                           the read queue the scan filers share: the
                                               append-only ledgers (the last row a source
                                               standing), per-source locks, and the re-reads

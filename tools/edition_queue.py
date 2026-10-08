@@ -30,13 +30,18 @@ next plan on. A unit is tried once a run: one that runs out of time or fails is 
 the next run. --seconds stops starting units after N seconds and lets those
 running finish, then prints "left for the next run" when anything due was
 not started, as the batch filers do, so tools/ocr_full_pass.sh runs it in
-slices and moves its tree to origin/master between them. --beside runs a
+slices and moves its tree to origin/master between them. With --handoff
+FILE a slice does not wait for its units: at --seconds it writes those still
+running to FILE and ends, and the next slice, started from the moved tree,
+takes them on (counts them in its pools, kills them at their limits, TERMs
+them on a stop) while it starts new units at once. --beside runs a
 batch filer (the Trove filer) beside the units, again while it says "left
 for the next run", each run under its own time limit, so it never waits on
 the editions nor they on it. SIGTERM stops starting units, passes the
 TERM to each one running and waits up to STOP_GRACE seconds for them.
 """
 import argparse
+import json
 import os
 import shlex
 import signal
@@ -262,11 +267,15 @@ class Beside:
 
 def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=None, workers=WORKERS,
              scan_workers=SCAN_WORKERS, newer=None, beside=None, read_seconds=READ_SECONDS,
-             scan_seconds=SCAN_SECONDS, replan=REPLAN, fetch=(), trove_workers=TROVE_WORKERS):
+             scan_seconds=SCAN_SECONDS, replan=REPLAN, fetch=(), trove_workers=TROVE_WORKERS, handoff=None):
     """Run the queue until nothing due is left to start (or `seconds` have
     passed, or a TERM), then wait for the units running. `fetch` names the
-    FETCHERS whose units run too, in pools of their own. Returns the exit
-    status: 0, or 143 after a TERM."""
+    FETCHERS whose units run too, in pools of their own. With `handoff` (a
+    path), the units another run handed over there are taken on (counted in
+    their pools, killed at their limits, TERMed on a stop), and when
+    `seconds` pass the units still running are handed over there in turn and
+    this run ends at once, not waiting for them. Returns the exit status: 0,
+    or 143 after a TERM."""
     stop = []
     signal.signal(signal.SIGTERM, lambda *_: stop.append(signal.SIGTERM))
     signal.signal(signal.SIGINT, lambda *_: stop.append(signal.SIGINT))
@@ -283,6 +292,13 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
              **{f"fetch {src}": FETCHERS[src]["workers"] for src in fetch}}
     outages = dict.fromkeys(fetch, 0)
     stopped = set()  # fetch sources started no more this run
+    adopted = take_over(handoff) if handoff else {}  # pid: (unit, started), another run's
+    for unit, _ in adopted.values():
+        tried.add(key_of(unit))
+        log(f"taken over: {unit['kind']} {unit['rel']}")
+
+    def units_running():
+        return list(running.items()) + list(adopted.items())
 
     def replan_all(notes=None):
         sc, rd = plan(papers, cache, reread, newer, notes)
@@ -341,8 +357,15 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             outcomes[what.split(" ")[0]] = outcomes.get(what.split(" ")[0], 0) + 1
             log(f"end {unit['kind']} {unit['rel']}: {what} in {time.monotonic() - t0:.0f}s")
 
+    def reap_adopted():
+        for pid, (unit, t0) in list(adopted.items()):
+            if not alive(pid):
+                del adopted[pid]
+                finished[key_of(unit)] = time.monotonic()
+                log(f"end {unit['kind']} {unit['rel']}: ended (taken over) in {time.monotonic() - t0:.0f}s")
+
     def overdue():
-        for pid, (unit, t0) in list(running.items()):
+        for pid, (unit, t0) in units_running():
             limit = (FETCHERS[unit["paper"]]["seconds"] if unit["kind"] == "fetch" else
                      LISTENER_SECONDS if unit["paper"] == "listener" else
                      read_seconds if unit["kind"] == "read" else scan_seconds)
@@ -355,6 +378,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
 
     while True:
         reap()
+        reap_adopted()
         overdue()
         for b in beside:
             b.poll(may_start(), None if seconds is None else seconds - (time.monotonic() - begun))
@@ -367,14 +391,14 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             log(f"planned: {len(scans)} scans, {len(reads)} reads" + (f", {len(fetches)} fetches" if fetch else "")
                 + f" due; running {len(running)}")
         fetches = [u for u in fetches if u["paper"] not in stopped]
-        busy = {key_of(u) for u, _ in running.values()}
+        busy = {key_of(u) for _, (u, _) in units_running()}
         # A read of an edition read before, waiting only on a new scan, starts
         # after the plan that follows its scans: the scan may leave it not due.
         rescanned = {(p, r) for (k, p, r), t in finished.items() if k == "scan" and t > (planned or 0)}
         pending = {(u["paper"], u["rel"]) for u in scans if key_of(u) not in tried or key_of(u) in busy}
         free = dict(pools)
-        for u, _ in running.values():
-            free[slot_of(u)] -= 1
+        for _, (u, _) in units_running():
+            free[slot_of(u)] = free.get(slot_of(u), 0) - 1
         for u in scans + reads + fetches:
             if not may_start() or free[slot_of(u)] <= 0 or key_of(u) in tried:
                 continue
@@ -386,7 +410,14 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             free[slot_of(u)] -= 1
         if stop:
             break
-        if not running and not any(b.busy() for b in beside):
+        if handoff and not may_start() and not any(b.busy() for b in beside):
+            left = sum(key_of(u) not in tried for u in scans + reads + fetches) + len(running) + len(adopted)
+            hand_over(handoff, units_running())
+            log(f"slice over: {len(running) + len(adopted)} unit(s) handed over to the next run, still running")
+            running.clear()
+            adopted.clear()
+            break
+        if not running and not adopted and not any(b.busy() for b in beside):
             untried = sum(key_of(u) not in tried for u in scans + reads + fetches)
             if not may_start():
                 left = untried + sum(b.again and not b.done for b in beside)
@@ -402,8 +433,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 continue
         time.sleep(1)
     if stop:
-        log(f"stop asked: TERM to {len(running)} running unit(s), up to {STOP_GRACE}s")
-        for pid in running:
+        log(f"stop asked: TERM to {len(running) + len(adopted)} running unit(s), up to {STOP_GRACE}s")
+        for pid in list(running) + list(adopted):
             try:
                 os.killpg(pid, signal.SIGTERM)
             except ProcessLookupError:
@@ -411,10 +442,11 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         for b in beside:
             b.stop(signal.SIGTERM)
         end = time.monotonic() + STOP_GRACE
-        while running and time.monotonic() < end:
+        while (running or adopted) and time.monotonic() < end:
             reap()
+            reap_adopted()
             time.sleep(0.2)
-        for pid in running:
+        for pid in list(running) + list(adopted):
             try:
                 os.killpg(pid, signal.SIGKILL)
             except ProcessLookupError:
@@ -427,6 +459,41 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     if left:
         print(f"  {left:5d}  left for the next run")
     return 0
+
+
+def alive(pid):
+    """Whether process `pid` still runs (a zombie has ended)."""
+    try:
+        os.kill(pid, 0)
+    except ProcessLookupError:
+        return False
+    except PermissionError:
+        return True
+    try:
+        return Path(f"/proc/{pid}/stat").read_text().rsplit(")", 1)[1].split()[0] != "Z"
+    except (OSError, IndexError):
+        return True
+
+
+def hand_over(path, units):
+    """Write the units still running for the next run to take on."""
+    now_wall, now = time.time(), time.monotonic()
+    rows = [{"pid": pid, "unit": unit, "startedAt": now_wall - (now - t0)} for pid, (unit, t0) in units]
+    tmp = Path(f"{path}.tmp")
+    tmp.write_text(json.dumps(rows))
+    tmp.replace(path)
+
+
+def take_over(path):
+    """{pid: (unit, started)} of the units a run handed over at `path` that
+    still run; the file is removed."""
+    try:
+        rows = json.loads(Path(path).read_text())
+    except FileNotFoundError:
+        return {}
+    Path(path).unlink()
+    now_wall, now = time.time(), time.monotonic()
+    return {r["pid"]: (r["unit"], now - (now_wall - r["startedAt"])) for r in rows if alive(r["pid"])}
 
 
 def main(argv=None):
@@ -446,6 +513,9 @@ def main(argv=None):
     r.add_argument("--seconds", type=float, help="start no unit after this many seconds")
     r.add_argument("--workers", type=int, default=WORKERS, help="reads at once")
     r.add_argument("--scan-workers", type=int, default=SCAN_WORKERS)
+    r.add_argument("--handoff", type=Path, metavar="FILE",
+                   help="take on the units a run handed over in FILE; after --seconds, hand those still "
+                        "running over there and end at once")
     r.add_argument("--trove-workers", type=int, default=TROVE_WORKERS, help="Trove article reads at once")
     r.add_argument("--wait", action="store_true", help="accepted for tools/ocr_full_pass.sh's slices; units never wait")
     r.add_argument("--beside", action="append", default=[], metavar="COMMAND",
@@ -482,7 +552,8 @@ def main(argv=None):
         if folded and folded[0] != folded[1]:
             log(f"{ledger.name}: {folded[0]} rows folded to {folded[1]}")
     return dispatch(papers, args.cache, args.out, reread, args.seconds, args.workers, args.scan_workers, newer,
-                    [shlex.split(b) for b in args.beside], fetch=args.fetch, trove_workers=args.trove_workers)
+                    [shlex.split(b) for b in args.beside], fetch=args.fetch, trove_workers=args.trove_workers,
+                    handoff=args.handoff)
 
 
 if __name__ == "__main__":
