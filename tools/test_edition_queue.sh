@@ -219,6 +219,36 @@ with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.St
 check("--beside runs beside the units until it leaves nothing", (0, "3", True),
       (rc, beside_n.read_text().strip(), "end read r1" in log.read_text()))
 
+# --fetch: a source's fetch units run in a pool of their own beside the
+# reads; a 429 lowers the pool, FETCH_OUTAGES in a row stop the source.
+log.unlink()
+outcome = {}
+def fake_any(unit, cache, puzzles, reread):
+    with open(log, "a") as fh:
+        fh.write(f"{time.monotonic():.3f} start {unit['kind']} {unit['rel']}\n")
+    time.sleep(0.3)
+    return outcome.get(unit["rel"], "read" if unit["kind"] == "read" else "fetched")
+eq.run_unit = fake_any
+eq.plan = units([], [("r1", [])])
+eq.FETCHERS = {"src": {"plan": lambda: [{"rel": f"e{k}", "reason": "not fetched"} for k in range(6)],
+                       "run": None, "workers": 3, "seconds": 5}}
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    rc = eq.dispatch(["times"], cache, workers=1, fetch=["src"], replan=0.2)
+ev = [line.split()[1:] for line in log.read_text().splitlines()]
+check("fetch units run beside the reads, each once, in their own pool", (0, ["r1"], [f"e{k}" for k in range(6)]),
+      (rc, [e[2] for e in ev if e[1] == "read"], sorted(e[2] for e in ev if e[1] == "fetch")))
+log.unlink()
+outcome = {"e0": "throttled", **{f"e{k}": "outage" for k in range(1, 4)}}
+eq.FETCH_OUTAGES = 3
+eq.FETCHERS["src"]["workers"] = 2
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=1, fetch=["src"], replan=0.2)
+check("a 429 lowers the pool; FETCH_OUTAGES down in a row stop the source for the run", (True, True, False),
+      ("at most 1 fetches at once" in err.getvalue(), "no more fetches this run" in err.getvalue(),
+       "start fetch e5" in log.read_text()))
+
 print("FAILS", fails)
 sys.exit(1 if fails else 0)
 EOF

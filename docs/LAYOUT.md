@@ -1546,19 +1546,21 @@ tools/ocr_full_pass.sh                        the one standing corpus job: read 
                                               read before REREAD_BEFORE) and the re-reads
                                               annotation asked for, to the end: the editions
                                               through tools/edition_queue.py's per-edition
-                                              units, the Trove filer beside them, fetching
-                                              archive.org and Trove beside the reads, then
-                                              stop; the Gale Listener pages saved since are
-                                              read beside it, started at its start and before
-                                              every slice
+                                              units, the Trove filer beside them, archive.org's
+                                              fetches units of that queue and Trove's fetched
+                                              beside the reads, then stop; the Gale Listener
+                                              pages saved since are read beside it, started at
+                                              its start and before every slice
 tools/edition_queue.py                        the archive.org and Gale editions as a queue of
                                               small units: one edition's scan or read each, in
                                               its own forked process with its own time limit
                                               and edition lock, appending its own ledger row;
                                               Gale pages saved by hand first, then never read
                                               and annotation's asks, then inputs moved, then
-                                              REREAD_BEFORE; planned again every minute; `plan`
-                                              prints what is due by rank
+                                              REREAD_BEFORE; with --fetch archive.org, one unit
+                                              an edition fetched too, in a pool of its own;
+                                              planned again every minute; `plan` prints what is
+                                              due by rank
 tools/test_edition_queue.sh                   does the edition queue append rows (the last
                                               standing, a half-written line skipped), keep one
                                               unit per edition, take Gale pages saved by hand

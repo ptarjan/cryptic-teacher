@@ -154,6 +154,7 @@ check("no outage: 404, 429, an empty reply, a parse error",
       not any(fa.outage(e) for e in (http(404), http(429), RuntimeError("no OBJECT"), fa.PageNumbering("empty"), ValueError())))
 def streak(errors):
     r = fa.Run(tempfile.mkdtemp())
+    fx.refreshed["i"] = time.monotonic()  # a 404 asks for no fresh metadata
     def boom(*a):
         raise next(it)
     it = iter(errors); real = fa.fetch_edition; fa.fetch_edition = boom
@@ -271,5 +272,57 @@ check("an image PDF's grid page is its crossword page, saved grey at SCAN_WIDTH"
       and leaf.mode == "L" and leaf.width == 3296
       and json.load(open(os.path.join(d, "pages.json")))["leaves"] == 3
       and stored.count(b"<OBJECT") == 3 and b"<WORD" not in stored)
+
+# ---- the queue's units: plan() off the caches alone, fetch_unit() one edition
+out = tempfile.mkdtemp()
+os.makedirs(os.path.join(out, "items"))
+def put(rel, obj, age=0):
+    path = os.path.join(out, "items", rel)
+    with open(path, "w") as f:
+        json.dump(obj, f)
+    os.utime(path, (time.time() - age, time.time() - age))
+put("_group_times.json", [{"identifier": "NewsUK1980UKEnglish", "title": "The Times , 1980"}])
+put("_group_listener.json", [{"identifier": f"listener_{k}", "title": "Listener x"} for k in (1, 2)],
+    age=fa.LISTING_SECONDS + 5)
+names = [f"Jan 0{k} 1980, The Times, #{k}, UK (en)" for k in (1, 2, 3)]
+put("NewsUK1980UKEnglish.json", {"files": [{"name": n + "_djvu.txt"} for n in names]})
+put("listener_1.json", {"files": [{"name": "listener_1_djvu.txt"}]})
+with open(os.path.join(out, "done.tsv"), "w") as f:
+    f.write(f"NewsUK1980UKEnglish\t{names[0]}\t{fa.DETECTOR_VERSION}\n")
+def no_network(*a, **k):
+    raise AssertionError("plan() asked the network")
+fa.urllib.request.urlopen = no_network
+units = fa.plan(out, ["times", "listener"])
+check("plan: a stale listing first, then the groups an edition each in turn, nothing done, no network",
+      [u["rel"] for u in units] == ["_group_listener", f"NewsUK1980UKEnglish/{names[1]}", "listener_1/listener_1",
+                                    f"NewsUK1980UKEnglish/{names[2]}", "listener_2"]
+      and units[-1]["reason"] == "metadata not cached")
+fetched = []
+fa.fetch_edition = lambda fx, item, meta, name: fetched.append(name) or [{"leaf": 1, "headings": ["CROSSWORD NO 1"]}]
+with contextlib.redirect_stdout(io.StringIO()):
+    got = fa.fetch_unit(out, units[1], min_free_gb=0)
+check("fetch_unit fetches its one edition and marks it done",
+      got == "fetched" and fetched == [names[1]] and fa.edition_done(out, "NewsUK1980UKEnglish", names[1]))
+with contextlib.redirect_stdout(io.StringIO()):
+    check("an edition already done is current", fa.fetch_unit(out, units[1], min_free_gb=0) == "current")
+check("the next plan leaves it out", f"NewsUK1980UKEnglish/{names[1]}" not in [u["rel"] for u in fa.plan(out, ["times"])])
+import scan_queue
+from pathlib import Path
+with scan_queue.source_lock(Path(out) / "done.tsv", f"NewsUK1980UKEnglish/{names[2]}"):
+    pid = os.fork()
+    if pid == 0:
+        with contextlib.redirect_stdout(io.StringIO()):
+            os._exit(0 if fa.fetch_unit(out, units[3], min_free_gb=0) == "busy" else 1)
+    check("an edition another fetch holds is busy, not fetched twice",
+          os.waitstatus_to_exitcode(os.waitpid(pid, 0)[1]) == 0 and names[2] not in fetched)
+with contextlib.redirect_stdout(io.StringIO()):
+    check("under --min-free-gb nothing is fetched", fa.fetch_unit(out, units[3], min_free_gb=1e12) == "disk")
+def down(*a, **k):
+    raise urllib.error.URLError("refused")
+fa.fetch_edition = down
+fa.ITEM_SECONDS = 0
+with contextlib.redirect_stdout(io.StringIO()):
+    check("archive.org down is an outage, logged to failures.tsv",
+          fa.fetch_unit(out, units[3], min_free_gb=0) == "outage" and "refused" in open(os.path.join(out, "failures.tsv")).read())
 sys.exit(1 if fails else 0)
 PY
