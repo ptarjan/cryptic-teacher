@@ -193,6 +193,10 @@ check("the article, I, O and capitals are not (mirror)", [],
 check("a letter the clue names, e.g., 'e and v are not (mirror)", [],
       kinds("Spells sorcerers with a c, e g at 'e black v white"))
 check("suspect() refuses a stray clue", True, bool(oc.suspect("Turned up as new t")))
+check("an apostrophe read for an i is suspect (No 97 6D)", [("r'ddled", "an apostrophe for a letter")],
+      oc.suspect("He r'ddled very prettily."))
+check("a poet's elision, a contraction, a dialect word stand (mirror)", [],
+      oc.suspect("Wand'ring heav'n o'er I'll it's we'll Em'ly Rob'n"))
 check("a stray letter is taken out where a reading lacks it",
       "Ill temper visible round the heart of Naples",
       oc.unstrayed("Ill temper visible round t the heart of Naples",
