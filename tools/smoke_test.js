@@ -1485,6 +1485,14 @@ assert(registry["scorebar"].innerHTML.match(/Solved <strong>[1-9]/), "at least o
 // teach you. Search = the whole collection, so nothing is unreachable and a
 // number you know still works.
 const allPuzzles = global.CRYPTIC_INDEX.puzzles || [];
+// A reprint stays listed under its reprinting paper as a row pointing at its
+// original: one row per index `reprints` entry whose original the index holds.
+const allReprints = (() => {
+  const held = new Map([...allPuzzles, ...(global.CRYPTIC_INDEX.unlisted || [])]
+    .map((p) => [p.id, p]));
+  return (global.CRYPTIC_INDEX.reprints || []).filter((r) => held.has(r.reprintOf))
+    .map((r) => Object.assign({}, r, { original: held.get(r.reprintOf) }));
+})();
 const pickerRows = () => registry["picker-list"].children;
 const pickerHTMLNow = () => pickerRows().map((li) => li.children[0].innerHTML).join("");
 // How many rows go in before the list has to be scrolled. Read out of app.js
@@ -1702,14 +1710,17 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
     return rows;
   });
   // Two clicks from the hub to any puzzle: each one with solutions is on
-  // exactly one listing the hub links.
+  // exactly one listing the hub links, and each reprint of one is a row of its
+  // own under the reprinting paper, linking the original.
   {
-    const want = allPuzzles.filter((p) => p.hasSolutions).map((p) => p.id).sort();
+    const want = allPuzzles.filter((p) => p.hasSolutions).map((p) => p.id)
+      .concat(allReprints.filter((r) => r.original.hasSolutions).map((r) => r.reprintOf))
+      .sort();
     const got = [...listedIds].sort();
     const listed = new Set(listedIds);
     assert(got.length === want.length && got.every((id, i) => id === want[i]),
-      `the hub's listings hold every puzzle with solutions once: ${got.length} rows, `
-        + `${want.length} puzzles, missing `
+      `the hub's listings hold every puzzle with solutions once and each reprint row once: `
+        + `${got.length} rows, ${want.length} puzzles and reprints, missing `
         + want.filter((id) => !listed.has(id)).slice(0, 5).join(", "));
   }
   assert(pickerRowHTML.length && archiveRowHTML.length,
@@ -2024,9 +2035,9 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
   assert(all === drawn + below,
     `the "more below" count was the truth: said ${below} below ${drawn} drawn, `
     + `scrolled to ${all}`);
-  assert(all + unmatched === allPuzzles.length,
+  assert(all + unmatched === allPuzzles.length + allReprints.length,
     `and the "don't match" count is the rest of the archive: ${all} + ${unmatched} `
-    + `vs ${allPuzzles.length}`);
+    + `vs ${allPuzzles.length} puzzles + ${allReprints.length} reprint rows`);
   assert(all > PICKER_CHUNK * 4,
     `the chip this was driven from matches far more than one screenful (${all}), `
     + "which is the case the chunking is for");
@@ -5609,7 +5620,8 @@ global.realSetTimeout(() => {
   const menu = registry["picker-paper"].innerHTML;
   const papers = window.CRYPTIC_INDEX.groups || {};
   const n = {};
-  allPuzzles.forEach((p) => { n[p.series] = (n[p.series] || 0) + 1; });
+  // A paper's count is its own puzzles plus the reprints it printed.
+  [...allPuzzles, ...allReprints].forEach((p) => { n[p.series] = (n[p.series] || 0) + 1; });
   assert(Object.keys(n).every((s) => s in papers),
     "index.json's `groups` names every series in the index");
   // A Sunday sister paper files under its weekday paper, not "Other papers".
@@ -5641,7 +5653,7 @@ global.realSetTimeout(() => {
   groups.flatMap((g) => g.values).forEach((v) => {
     choosePaper(v);
     const want = v.split(",").reduce((t, k) => t + n[k], 0);
-    assert(matched() === want, `choosing "${v}" matches its ${want} puzzles: ${matched()}`);
+    assert(matched() === want, `choosing "${v}" matches its ${want} puzzles and reprints: ${matched()}`);
   });
   // The mirror of the name-matching bug: the Times option is the Times alone,
   // though "times" is inside the name of every Times paper.
