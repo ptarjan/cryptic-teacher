@@ -314,9 +314,10 @@ want = ("https://go.gale.com/ps/advancedSearch.do?inputFieldNames%5B0%5D=TI&inpu
         "&searchResultsType=SingleTab&prodId=TTDA&userGroupName=alberta_portal&u=alberta_portal&p=TTDA")
 check("a date's link is Gale's title search on that day, month and day zero-padded", want,
       g.search_url(D(1988, 1, 13)))
-check("each next-up row links its date's search, kept beside Copy", True,
-      f'<a class="go" href="{g.html.escape(want)}" target="gale" onclick="mark(\'1988-01-13\')">Open in Gale</a> '
-      '<button onclick="cp(' in nxt)
+row13 = nxt[nxt.index("13 Jan 1988"):nxt.index("14 Jan 1988")]
+check("each next-up row keeps its Gale link beside Copy: the permalink of a known document, after its Download", True,
+      bool(re.search(r'class="dl"[^>]*>Download</a><a class="go" href="https://link\.gale\.com/apps/doc/IF\d+/TTDA[^"]*" '
+                     r'target="gale">Open in Gale</a> <button onclick="cp\(', row13)))
 check("a row whose document is known opens Gale's permalink for it, as its citation prints; else the search",
       ("https://link.gale.com/apps/doc/IF0500470778/TTDA?u=alberta_portal&sid=bookmark-TTDA", None),
       (g.gale_docs.permalink("TTDA", D(1987, 1, 19), {"TTDA/1987-01-19": {"doc": "IF0500470778"}}),
