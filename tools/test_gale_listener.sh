@@ -363,6 +363,16 @@ check("a number misread as letters (No 97's \"DI.\" for \"11.\") is no number: t
       (["6. Lenten.", "8.", "A", "park."], 1),
       (sorted(w[4] for w in g.reread_lines(PAGE, "k", "ch", mine[:1] + [(1064, 848, 1081, 865, "DI.")], [en5])),
        len(reads)))
+def read_box(img, key, box, which):
+    reads.append(box)
+    return [(1064, 848, 1081, 865, "8."), (1095, 848, 1181, 868, "A park."), (1095, 858, 1181, 876, "saidthis")]
+g.read_box = read_box
+tight = mine[:1] + [(1095, 859, 1181, 875, "'Tis said this")]
+check("a line set close under the one read again is kept, not taken from the crop",
+      ["'Tis said this", "6. Lenten.", "8.", "A park."],
+      sorted(w[4] for w in g.reread_lines(PAGE, "k", "ch", tight, [en5])))
+check("the line read again is still put in (mirror)", True,
+      "8." in [w[4] for w in g.reread_lines(PAGE, "k", "ch", tight, [en5])])
 reads.clear()
 check("a line no reading numbers is not (mirror)", (["6. Lenten."], 0),
       (sorted(w[4] for w in g.reread_lines(PAGE, "k", "ch", mine[:1], [lost])), len(reads)))
