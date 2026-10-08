@@ -1695,6 +1695,31 @@ def opening_printed(text, own, streams):
 OPENING_SIMILAR = 0.75
 
 
+#: How far past a clue's own number numbered_at() reads a reading: the
+#: clue's length again plus this many characters, room for words the
+#: reading has that the clue lost and the next clue's number.
+NUMBERED_SLACK = 80
+
+
+def numbered_at(stream, own, text):
+    """`stream` (a reading's whole text) as marked() tokens, cut to the
+    stretches that open on the number `own`, each as long as `text` (the
+    clue) twice plus NUMBERED_SLACK characters: a short clue ("Wonderful
+    25.") put to a whole page aligns with whatever other clue holds its
+    words ("a wonderful 25"), whose opening then reads as words this clue
+    lost. A reading whose stretches do not print the clue (its number
+    misread, or the number another clue's) is put whole."""
+    whole = marked(stream, breaks=True)
+    span = len(text or "") * 2 + NUMBERED_SLACK
+    cuts = [stream[m.start():m.start() + span]
+            for m in re.finditer(rf"(?<![\w,.]){own}(?!\d)(?!\s*(?:across|down|ac|dn)\b)", stream, re.IGNORECASE)]
+    if not cuts:
+        return whole
+    near = marked("\n".join(cuts), breaks=True)
+    low = [w.lower() for w in marked(text or "", breaks=True)]
+    return near if prints(align(low, [w.lower() for w in near]), low, near) else whole
+
+
 def reconcile(laid, streams, lengths=None, keep_known=False, uncounted=False):
     """The laid clues with each clue's text put to every reading; returns
     (laid, {light: why}) naming each clue filed blank. `streams` holds each
@@ -1707,15 +1732,16 @@ def reconcile(laid, streams, lengths=None, keep_known=False, uncounted=False):
         streams = [streams]
     # A list's heading bounds the clues either side like a number: "DOWN"
     # over "1 Unusual ..." is no word lost from 1 down.
-    whole = [marked(clean(HEADING.sub("0", s)), breaks=True) for s in streams if isinstance(s, str)]
+    whole = [clean(HEADING.sub("0", s)) for s in streams if isinstance(s, str)]
     per = [{k: marked(clean(v), breaks=True) for k, v in s.items()} for s in streams if isinstance(s, dict)]
     out, blank = {}, {}
     for lid, (text, enum, group) in laid.items():
-        other = [o for o in whole + [p.get(lid, []) for p in per] if o]
+        own = int(re.match(r"\d+", lid).group())
+        other = [o for o in [numbered_at(s, own, text) for s in whole]
+                 + [p.get(lid, []) for p in per] if o]
         if SEE_RE.match(text or ""):
             out[lid] = (text, enum, group)
             continue
-        own = int(re.match(r"\d+", lid).group())
         text = trimmed(text, lid, voted=False)
         # A list counts up, so only a number above this clue's own can be
         # the next clue run on, and with the grid known, only one naming a
