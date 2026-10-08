@@ -563,7 +563,8 @@ def vote(words, verdict, cols=None, lengths=None):
     # word's capital, hyphen and spelling.
     laid, blank = ocr_clues.as_printed(texts, laid, blank, parse, lengths, uncounted=uncounted)
     for lid, (t, e, g) in laid.items():
-        t = ocr_clues.ligatured(ocr_clues.paired(t), [(ly.get(lid) or ("",))[0] for ly in lays])
+        t = ocr_clues.ligatured(ocr_clues.letter_put_back(ocr_clues.paired(t)),
+                                [(ly.get(lid) or ("",))[0] for ly in lays])
         laid[lid] = (t, e, g)
         if t and ocr_clues.unclosed_quote(t) is not None:
             own = [(ly.get(lid) or ("",))[0] for ly in lays]
