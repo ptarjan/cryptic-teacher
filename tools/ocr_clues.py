@@ -1544,6 +1544,9 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=()):
         elif new and i == 0 and old[0].isupper():
             new = new[0].upper() + new[1:]
         gap = speckless(text[k:at])
+        if i == 1 and 0 in drop:
+            # A misread clue number dropped takes its stop ("A. Frontier", No 3's 52D).
+            gap = gap.lstrip(".,;: ")
         if add and add[0] in MARKS and gap.strip() == ".":
             # A speck read as a full stop where the other readings have a mark.
             gap = " " if gap[-1:].isspace() else ""
@@ -1602,6 +1605,11 @@ def unspecked(text):
     return re.sub(r"  +", " ", SPECK_UNDERSCORE.sub(gone, text)).strip()
 
 
+#: The words clues hyphen to a lone "A" or "to": the rest is a speck.
+HYPHENED_A_TO = ("day", "morrow", "night", "do", "bomb", "level", "levels", "list", "lister", "road", "side",
+                 "team", "frame", "line", "plus")
+
+
 def clean(text):
     """A reading without OCR's specks: a not-sign read for the hyphen that
     breaks a word over a line end is the join, an asterisk or bullet beside
@@ -1627,6 +1635,12 @@ def clean(text):
     # there is a comma the print's low ink lost the tail of.
     # An abbreviation's stop stands: "Anag. of", "rev. and".
     text = re.sub(r"(?<=[a-z]{2})" + "".join(rf"(?<!\b{a})" for a in ABBREVIATED) + r"\.(?=\s+[a-z])", ",", text)
+    # A stop read twice after a word ends no clue: "1857..", not an ellipsis.
+    text = re.sub(r"(?<=\w)\.\.(?!\.)", ".", text)
+    # A speck read as a hyphen after a lone "A" or "to" ("A-town", "to-part");
+    # HYPHENED_A_TO and "a-" before an -ing word ("a-hunting") stand.
+    text = re.sub(r"\b([Aa]|[Tt]o)-(?!(?:" + "|".join(HYPHENED_A_TO) + r"|[a-z]+ing)\b)(?=[a-z]{2,}\b)",
+                  r"\1 ", text)
     # A one read as l or I before another digit ("l9th-century").
     text = re.sub(r"\b[lI](?=\d)", "1", text)
     # The space before a bracket opening on a word lost ("slang(from").

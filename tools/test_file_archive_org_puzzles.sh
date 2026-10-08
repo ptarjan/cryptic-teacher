@@ -392,6 +392,17 @@ check("a full stop before a lower-case word is a comma", "Let nine go loose, bei
       ocr_clues.clean("Let nine go loose. being merciful"))
 check("an ellipsis and an abbreviation keep their stops", "Oval . . . the C.I.D. man",
       ocr_clues.clean("Oval . . . the C.I.D. man"))
+check("a stop read twice after a word is one; an ellipsis stands (No 3's 52A, mirror)",
+      ["heard in 1857.", "for many years.", "Oval ... end..."],
+      [ocr_clues.clean(t) for t in ("heard in 1857..", "for many years..", "Oval ... end...")])
+check("a speck read as a hyphen after a lone A or to is a space (No 3's 5A, 26A)",
+      ["A town in the Punjab", "applied to part of India"],
+      [ocr_clues.clean(t) for t in ("A-town in the Punjab", "applied to-part of India")])
+check("the hyphens clues print after A or to stand (mirror)", ["to-day and to-morrow", "an A-bomb", "a-hunting we go"],
+      [ocr_clues.clean(t) for t in ("to-day and to-morrow", "an A-bomb", "a-hunting we go")])
+check("a misread clue number dropped takes its stop (No 3's 52D)", "Frontier cantonment.",
+      ocr_clues.agree("A. Frontier cantonment.", [ocr_clues.marked(t, breaks=True) for t in
+                                              ("52 Frontier cantonment. 53 Next", "52 Frontier cantoment. 53 Next")])[0])
 check("an I last before the count is an exclamation mark", "Flirted outrageously! (7)",
       ocr_clues.clean("Flirted outrageously I (7)"))
 check("a word broken over a line end is joined", "Almost admire a lieutenant unknown",
