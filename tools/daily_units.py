@@ -37,11 +37,12 @@ from unit_queue import STATE, Unit, main_checkout
 LOG = ".update.log"
 #: Trees daily_unit-1 .. daily_unit-SLOTS: at most this many units at once.
 #: Each start rebuilds its tree's index, one at a time (nightly_worktree.sh).
-SLOTS = 5
+SLOTS = 6
 TREE = "daily_unit"
 #: Model runs (annotate, miss, reports) at once, and backfills draining at
-#: once: so a backfill that reruns until its backlog is done leaves at least
-#: SLOTS - 2 trees for the fetchers and the annotations.
+#: once: with both full, SLOTS - 4 trees are left for the fetchers and the
+#: rest, so a backfill that reruns until its backlog is done never makes a
+#: new puzzle wait.
 LIMITS = {"claude": 2, "backfill": 2}
 BACKFILLS = ("bucket:telegraph", "ft", "azed")
 #: Started from the main checkout, as the scheduler starts the tick:
