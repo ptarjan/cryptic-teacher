@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,75 @@
      }
     ]
    },
-   "solution": "PIECHART"
+   "solution": "PIECHART",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PIE CHART",
+    "definitions": [
+     {
+      "text": "performance stats?",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing sitting in another means it is placed inside it"
+     },
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning to a word is its opening letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gym",
+      "gives": "PE",
+      "note": "PE, physical education, is school gym"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "daily",
+      "gives": "CHAR",
+      "note": "a daily is a cleaning lady, also called a char"
+     },
+     {
+      "clueFragment": "track",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of track"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "I",
+      "E",
+      "CHAR",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at the gym every day starts logging their workout figures.",
+     "walkthrough": "A daily (short for daily help) and a char are both British words for a cleaner, so 'daily' is not about frequency here.",
+     "definitionFit": "A pie chart is a circular diagram, one common way of displaying statistics such as a firm's results."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "daily"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +124,56 @@
     "text": "Abominable sins at lake lodges",
     "enumeration": "7"
    },
-   "solution": "INSTALS"
+   "solution": "INSTALS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INSTALS",
+    "definitions": [
+     {
+      "text": "lodges",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Abominable",
+      "for": "anagram",
+      "note": "something abominable is in a dreadful state, so the letters are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sins at",
+      "gives": "SINSAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the map abbreviation for lake"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SINSATL",
+       "gives": "INSTALS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Terrible wrongdoing at a lakeside cabin.",
+     "walkthrough": "'Lodges' looks like a noun for cabins by the lake, but it is a verb. INSTAL is the British spelling of install.",
+     "definitionFit": "To lodge something is to place or settle it firmly, which is what installing it does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lodges"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +187,61 @@
     "text": "Mostly opted to hem trendy trousers",
     "enumeration": "6"
    },
-   "solution": "CHINOS"
+   "solution": "CHINOS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "CHINOS",
+    "definitions": [
+     {
+      "text": "trousers",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mostly",
+      "for": "deletion",
+      "note": "mostly means most but not all of the word, so its final letter goes"
+     },
+     {
+      "text": "to hem",
+      "for": "container",
+      "note": "to hem something is to edge it all round, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "opted",
+      "gives": "CHOSE",
+      "note": "opted means chose; without its last letter it is CHOS"
+     },
+     {
+      "clueFragment": "trendy",
+      "gives": "IN",
+      "note": "in means fashionable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "IN",
+      "OS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone chose to take up the hem on fashionable trousers.",
+     "walkthrough": "'Hem' and 'trousers' make a tailoring scene, but hem is the enclosing instruction: CHOS wraps around IN.",
+     "definitionFit": "Chinos are casual cotton twill trousers, so the plural answer matches the plural definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hem"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +255,52 @@
     "text": "Open or unopened milk container?",
     "enumeration": "4"
    },
-   "solution": "AIRY"
+   "solution": "AIRY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AIRY",
+    "definitions": [
+     {
+      "text": "Open",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unopened",
+      "for": "deletion",
+      "note": "a word left unopened has lost its opening, its first letter"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "milk container?",
+      "gives": "DAIRY",
+      "note": "a dairy is where milk is kept and processed, a container of sorts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIRY"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a carton of milk has been opened or not.",
+     "walkthrough": "The surface plays 'Open' against 'unopened', but Open is the definition and unopened removes the D from DAIRY.",
+     "definitionFit": "An airy room is spacious and open, with plenty of light and fresh air circulating."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "unopened"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +314,80 @@
     "text": "Stray tomcat receiving a grand welcome - this pet needs care",
     "enumeration": "10"
    },
-   "solution": "TAMAGOTCHI"
+   "solution": "TAMAGOTCHI",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "TAMAGOTCHI",
+    "definitions": [
+     {
+      "text": "this pet needs care",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Stray",
+      "for": "anagram",
+      "note": "to stray is to wander off, so the letters wander out of their order"
+     },
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "receiving means taking something in, so other letters go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tomcat",
+      "gives": "TOMCAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "grand",
+      "gives": "G",
+      "note": "G is short for grand, a thousand pounds"
+     },
+     {
+      "clueFragment": "welcome",
+      "gives": "HI",
+      "note": "hi is a greeting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAM",
+      "A",
+      "G",
+      "OTC",
+      "HI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOMCAT",
+       "gives": "TAMOTC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lost tomcat is given a big welcome: it needs looking after.",
+     "walkthrough": "The surface pet is the cat; the real pet is digital. A grand is British slang for a thousand pounds.",
+     "definitionFit": "A Tamagotchi is a 1990s Japanese handheld toy, a virtual creature that must be fed and tended or it dies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "tomcat"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +401,51 @@
     "text": "Firm underwear - it can hurt you badly",
     "enumeration": "5"
    },
-   "solution": "COBRA"
+   "solution": "COBRA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COBRA",
+    "definitions": [
+     {
+      "text": "it can hurt you badly",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "-"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Firm",
+      "gives": "CO",
+      "note": "CO is short for company, a firm"
+     },
+     {
+      "clueFragment": "underwear",
+      "gives": "BRA",
+      "note": "a bra is an item of underwear"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "BRA"
+     ]
+    },
+    "explanation": {
+     "surface": "A tight undergarment that is painfully uncomfortable to wear.",
+     "walkthrough": "'Firm underwear' reads as supportive lingerie; Firm is the business sense.",
+     "definitionFit": "A cobra is a venomous snake whose bite can seriously injure or kill a person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Firm"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +459,55 @@
     "text": "Tolerates professor piercing cells in retina",
     "enumeration": "8"
    },
-   "solution": "CONDONES"
+   "solution": "CONDONES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CONDONES",
+    "definitions": [
+     {
+      "text": "Tolerates",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "piercing",
+      "for": "container",
+      "note": "piercing something means going into it, so one piece sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cells in retina",
+      "gives": "CONES",
+      "note": "cones are the colour-detecting cells of the retina"
+     },
+     {
+      "clueFragment": "professor",
+      "gives": "DON",
+      "note": "a don is a university teacher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "DON",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "An eye specialist puts up with something sharp going into the retina.",
+     "walkthrough": "Don is the Oxbridge word for a college tutor or professor.",
+     "definitionFit": "To condone wrongdoing is to accept or overlook it, which is tolerating it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "piercing"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +521,52 @@
     "text": "It's been said eagles occasionally swarm around",
     "enumeration": "7"
    },
-   "solution": "BESIEGE"
+   "solution": "BESIEGE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "BESIEGE",
+    "definitions": [
+     {
+      "text": "swarm around",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means now and then, so only every other letter is taken"
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "been said eagles",
+      "gives": "BESIEGE",
+      "select": "alternate",
+      "note": "the first, third, fifth and so on letters of these words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BESIEGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Folklore holds that eagles sometimes gather around their prey.",
+     "walkthrough": "'It's been said' looks like a phrase introducing hearsay, but 'been said' supplies letters.",
+     "definitionFit": "To besiege is to surround a place with forces, crowding in on all sides as a swarm would."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "said"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +580,58 @@
     "text": "Energy company probing alternative technology's virtue",
     "enumeration": "5"
    },
-   "solution": "ASSET"
+   "solution": "ASSET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ASSET",
+    "definitions": [
+     {
+      "text": "virtue",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "probing",
+      "for": "container",
+      "note": "something probing goes into a thing, so these letters go inside"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alternative technology",
+      "gives": "AT",
+      "note": "AT is the usual abbreviation for alternative technology"
+     },
+     {
+      "clueFragment": "Energy company",
+      "gives": "SSE",
+      "note": "SSE is a British energy supplier, Scottish and Southern Energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SSE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A power firm looks into the merits of green technology.",
+     "walkthrough": "SSE is a UK electricity and gas company, so 'Energy company' gives its initials, not CO or E.",
+     "definitionFit": "An asset is a useful quality or advantage, so a virtue in someone counts as one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "probing"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +645,64 @@
     "text": "Racket’s raised making shot",
     "enumeration": "4"
    },
-   "solution": "STAB"
+   "solution": "STAB",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "STAB",
+    "definitions": [
+     {
+      "text": "shot",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down entry, raised means lifted upward, so the letters read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Racket",
+      "gives": "BAT",
+      "note": "a bat is a racket in table tennis"
+     },
+     {
+      "clueFragment": "’s",
+      "gives": "S",
+      "note": "the S of the possessive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TAB"
+     ],
+     "reversals": [
+      {
+       "from": "BATS",
+       "to": "STAB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis player lifts the racket to hit a stroke.",
+     "walkthrough": "'Racket's' looks like a possessive; its S is a letter in the wordplay.",
+     "definitionFit": "A shot is an attempt, as in 'have a shot at it', and a stab means the same."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +716,57 @@
     "text": "Less affable Independent setter for a change",
     "enumeration": "7"
    },
-   "solution": "TESTIER"
+   "solution": "TESTIER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TESTIER",
+    "definitions": [
+     {
+      "text": "Less affable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for a change",
+      "for": "anagram",
+      "note": "making a change means altering things, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Independent",
+      "gives": "I",
+      "note": "I is the abbreviation for independent"
+     },
+     {
+      "clueFragment": "setter",
+      "gives": "SETTER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISETTER",
+       "gives": "TESTIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Independent's crossword compiler is grumpier than usual today.",
+     "walkthrough": "The surface nods at the newspaper this puzzle appears in, but Independent is just the letter I.",
+     "definitionFit": "Testy means irritable and short-tempered, so someone testier is more grumpy, less pleasant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Independent"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +780,55 @@
     "text": "Hiding at home reflects signs of negativity",
     "enumeration": "7"
    },
-   "solution": "MINUSES"
+   "solution": "MINUSES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MINUSES",
+    "definitions": [
+     {
+      "text": "signs of negativity",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Hiding",
+      "for": "container",
+      "note": "hiding something means keeping it inside, out of sight"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reflects",
+      "gives": "MUSES",
+      "note": "to muse is to reflect or ponder"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "in means at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "IN",
+      "USES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who stays indoors and broods shows a pessimistic attitude.",
+     "walkthrough": "'Reflects' looks like a reversal signal, but it is the verb meaning ponders.",
+     "definitionFit": "A minus is the symbol written in front of a negative number, so the plural answer means several such signs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "reflects"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +842,54 @@
     "text": "Signal to live a life of crime?",
     "enumeration": "6"
    },
-   "solution": "BEACON"
+   "solution": "BEACON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEACON",
+    "definitions": [
+     {
+      "text": "Signal",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to live",
+      "gives": "BE",
+      "note": "to be is to exist or live"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "life of crime",
+      "gives": "CON",
+      "note": "a con is a convict, someone whose life is crime"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "A",
+      "CON"
+     ]
+    },
+    "explanation": {
+     "surface": "A sign that someone means to turn criminal.",
+     "walkthrough": "Read whole, 'to live a life of crime' is 'to be a con'.",
+     "definitionFit": "A beacon is a fire or light used as a warning signal or guide."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "live"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +903,68 @@
     "text": "Try way to hold duck that is extremely sticky",
     "enumeration": "7"
    },
-   "solution": "GOOIEST"
+   "solution": "GOOIEST",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "GOOIEST",
+    "definitions": [
+     {
+      "text": "extremely sticky",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to hold",
+      "for": "container",
+      "note": "to hold things is to have them inside, enclosed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Try",
+      "gives": "GO",
+      "note": "a go is a try or attempt"
+     },
+     {
+      "clueFragment": "way",
+      "gives": "ST",
+      "note": "ST, street, is a way"
+     },
+     {
+      "clueFragment": "duck",
+      "gives": "O",
+      "note": "a duck is a cricket score of nought, shaped like O"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. abbreviates id est, that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "O",
+      "IE",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "Attempting to grab a duck that turns out to be very sticky.",
+     "walkthrough": "In cricket, a duck is a batsman's score of zero, hence O.",
+     "definitionFit": "Gooey means soft and sticky, and the superlative means the stickiest of all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +984,61 @@
      }
     ]
    },
-   "solution": "SPOTMARKET"
+   "solution": "SPOTMARKET",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SPOT MARKET",
+    "definitions": [
+     {
+      "text": "Somewhere to sell",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clothing from",
+      "for": "letter_selection",
+      "note": "the clothing of a word is its outside, its first and last letters"
+     },
+     {
+      "text": "bearing",
+      "for": "charade",
+      "note": "bearing here means coming after, carried along behind"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two stains",
+      "gives": "SPOTMARK",
+      "note": "a spot and a mark are both stains"
+     },
+     {
+      "clueFragment": "Equipment",
+      "gives": "ET",
+      "select": "outer",
+      "note": "the outside letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPOTMARK",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A shop selling sports kit with a couple of marks on it.",
+     "walkthrough": "'Clothing' suggests garments, but it means the outer letters of Equipment.",
+     "definitionFit": "A spot market is a trading place where goods are bought and sold for immediate delivery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clothing"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1052,43 @@
     "text": "Bureau trades krona, taking a cut",
     "enumeration": "4"
    },
-   "solution": "DESK"
+   "solution": "DESK",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DESK",
+    "definitions": [
+     {
+      "text": "Bureau",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking a cut",
+      "for": "hidden_word",
+      "note": "taking a cut means taking a slice out of the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trades krona",
+      "gives": "DESK",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A currency exchange office swaps Swedish money and charges commission.",
+     "walkthrough": "Bureau de change sets up a scene; Bureau is the furniture.",
+     "definitionFit": "A bureau is a writing desk with drawers, the classic piece of office furniture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bureau"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1102,57 @@
     "text": "Stuck up American friend's nickname",
     "enumeration": "3"
    },
-   "solution": "DUB"
+   "solution": "DUB",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "DUB",
+    "definitions": [
+     {
+      "text": "nickname",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Stuck up",
+      "for": "reversal",
+      "note": "in a down entry, stuck up means put upward, so the letters read bottom to top"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American friend",
+      "gives": "BUD",
+      "note": "bud is American slang for a pal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUB"
+     ],
+     "reversals": [
+      {
+       "from": "BUD",
+       "to": "DUB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snooty American pal has a nickname.",
+     "walkthrough": "'Stuck up' looks like snooty; here it turns the letters upward.",
+     "definitionFit": "To dub someone is to give them a name, so the verb answers a verb sense of nickname."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stuck"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1166,74 @@
     "text": "Those busy with trivia organised protest around the outskirts of Reigate",
     "enumeration": "9"
    },
-   "solution": "POTTERERS"
+   "solution": "POTTERERS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "POTTERERS",
+    "definitions": [
+     {
+      "text": "Those busy with trivia",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "organised",
+      "for": "anagram",
+      "note": "organised means put into a fresh arrangement"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "one piece goes around another, enclosing it"
+     },
+     {
+      "text": "the outskirts of",
+      "for": "letter_selection",
+      "note": "the outskirts of a word are its edges, its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "protest",
+      "gives": "PROTEST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Reigate",
+      "gives": "RE",
+      "select": "outer",
+      "note": "the outer letters of the town name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POTTE",
+      "RE",
+      "RS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PROTEST",
+       "gives": "POTTERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Demonstrators arrange a march on the edge of a Surrey town.",
+     "walkthrough": "Reigate is a town in Surrey, south of London; only its edge letters are used.",
+     "definitionFit": "To potter is to occupy oneself in a desultory way with small, unimportant tasks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "organised"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1247,50 @@
     "text": "In Ibiza, agreed to have soft drink",
     "enumeration": "3"
    },
-   "solution": "SIP"
+   "solution": "SIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SIP",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "to have"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In Ibiza, agreed",
+      "gives": "SI",
+      "note": "si is Spanish for yes"
+     },
+     {
+      "clueFragment": "soft",
+      "gives": "P",
+      "note": "p, piano, means soft in music"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "On holiday in Ibiza, someone settles for a non-alcoholic drink.",
+     "walkthrough": "'Soft drink' looks like one phrase; soft is the letter P and drink alone is the definition.",
+     "definitionFit": "To sip is to drink in small mouthfuls, so it is a kind of drinking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "soft"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1304,60 @@
     "text": "Voluntary? Best working for money",
     "enumeration": "8"
    },
-   "solution": "OPTIONAL"
+   "solution": "OPTIONAL",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "OPTIONAL",
+    "definitions": [
+     {
+      "text": "Voluntary?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "for here means in place of, so one piece swaps in where another was"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Best",
+      "gives": "OPTIMAL",
+      "note": "optimal means best"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "on means working, as a machine switched on"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "M",
+      "note": "M is an abbreviation for money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OPTI",
+      "ON",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "Is unpaid work really better than working for pay?",
+     "walkthrough": "'Voluntary' and 'working for money' set up volunteering versus paid work; the wordplay swaps letters.",
+     "definitionFit": "Something optional is left to choice rather than required, which is what voluntary means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1377,48 @@
      }
     ]
    },
-   "solution": "BALDPATCH"
+   "solution": "BALDPATCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BALD PATCH",
+    "definitions": [
+     {
+      "text": "such as Coot has?",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Barren",
+      "gives": "BALD",
+      "note": "bald means bare, with nothing growing"
+     },
+     {
+      "clueFragment": "spell",
+      "gives": "PATCH",
+      "note": "a patch is a period or spell, as a bad patch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BALD",
+      "PATCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A dry season, the kind Coot the setter is going through.",
+     "walkthrough": "'Bald as a coot' is a British saying, the coot being a waterbird with a white forehead; Coot is also this puzzle's setter.",
+     "definitionFit": "A bald patch is a hairless area on the scalp, the sort a coot is proverbially said to have."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spell"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1438,66 @@
      }
     ]
    },
-   "solution": "LONGAGO"
+   "solution": "LONGAGO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LONG-AGO",
+    "definitions": [
+     {
+      "text": "in the distant past",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last",
+      "for": "charade",
+      "note": "the last of a word is its final letter, taken alone"
+     },
+     {
+      "text": "'s stuck",
+      "for": "container",
+      "note": "something stuck in a thing is lodged inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "John",
+      "gives": "LOO",
+      "note": "a john is slang for a lavatory"
+     },
+     {
+      "clueFragment": "Sullivan's",
+      "gives": "N",
+      "note": "its final letter"
+     },
+     {
+      "clueFragment": "joke",
+      "gives": "GAG",
+      "note": "a gag is a joke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "NGAG",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A sitcom writer's final gag is stuck in a bygone era.",
+     "walkthrough": "John Sullivan wrote Only Fools and Horses, a British TV sitcom; here John is a lavatory and Sullivan supplies only its last letter.",
+     "definitionFit": "Long ago is an adverb phrase meaning at a time far back, which is when something in the distant past happened."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "John"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1511,57 @@
     "text": "Lager brought round for trip",
     "enumeration": "4"
    },
-   "solution": "SLIP"
+   "solution": "SLIP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SLIP",
+    "definitions": [
+     {
+      "text": "trip",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought round",
+      "for": "reversal",
+      "note": "bringing something round turns it to face the other way"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lager",
+      "gives": "PILS",
+      "note": "pils is a pilsner lager"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLIP"
+     ],
+     "reversals": [
+      {
+       "from": "PILS",
+       "to": "SLIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drinks are carried over for a day out.",
+     "walkthrough": "'Trip' suggests an outing; it is the stumble sense.",
+     "definitionFit": "A slip is a stumble or misstep, as is a trip, and both can also mean a mistake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trip"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1575,65 @@
     "text": "Officer, absorbing end of prayer on Sabbath, grieves",
     "enumeration": "7"
    },
-   "solution": "LAMENTS"
+   "solution": "LAMENTS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "LAMENTS",
+    "definitions": [
+     {
+      "text": "grieves",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absorbing",
+      "for": "container",
+      "note": "absorbing means taking something in, so it goes inside"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Officer",
+      "gives": "LT",
+      "note": "Lt abbreviates lieutenant"
+     },
+     {
+      "clueFragment": "end of prayer",
+      "gives": "AMEN",
+      "note": "amen is said at the close of a prayer"
+     },
+     {
+      "clueFragment": "Sabbath",
+      "gives": "S",
+      "note": "S is short for Sabbath"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "AMEN",
+      "T",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "An army officer mourning after Sunday prayers.",
+     "walkthrough": "'End of prayer' looks like a final-letter instruction, but it is the whole word said at the end.",
+     "definitionFit": "To lament is to mourn or express sorrow, so laments matches grieves in tense and person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "end"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1647,61 @@
     "text": "Dim Coot left dope outside",
     "enumeration": "6"
    },
-   "solution": "TWILIT"
+   "solution": "TWILIT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TWILIT",
+    "definitions": [
+     {
+      "text": "Dim",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "one piece placed outside another surrounds it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dope",
+      "gives": "TWIT",
+      "note": "a dope is a fool, a twit"
+     },
+     {
+      "clueFragment": "Coot",
+      "gives": "I",
+      "note": "Coot is the setter, who refers to themself as I"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is short for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TW",
+      "IL",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A foolish person abandoned a drug addict on the street.",
+     "walkthrough": "'Dim' and 'dope' both suggest stupidity, but Dim means faintly lit. Coot is the setter, so the setter's name stands for I.",
+     "definitionFit": "Twilit means lit by twilight, the faint glow after sunset, so it is dimly lit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dim"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1715,51 @@
     "text": "Fungus father's found on corgi's extremities",
     "enumeration": "7"
    },
-   "solution": "CANDIDA"
+   "solution": "CANDIDA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CANDIDA",
+    "definitions": [
+     {
+      "text": "Fungus",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "found on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "corgi's extremities",
+      "gives": "CANDI",
+      "note": "the extremities of corgi are C and I, written out as words"
+     },
+     {
+      "clueFragment": "father's",
+      "gives": "DA",
+      "note": "da is a word for dad"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CANDI",
+      "DA"
+     ]
+    },
+    "explanation": {
+     "surface": "Dad discovers a mould growing on the dog's paws.",
+     "walkthrough": "The two end letters are spelt out with their joining word: C and I.",
+     "definitionFit": "Candida is a yeast-like fungus, the cause of thrush infections."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "extremities"
+    }
+   }
   },
   {
    "number": 24,
@@ -421,7 +1773,70 @@
     "text": "Chopped up 100 ruby red eider hearts",
     "enumeration": "5"
    },
-   "solution": "CUBED"
+   "solution": "CUBED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CUBED",
+    "definitions": [
+     {
+      "text": "Chopped up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hearts",
+      "for": "letter_selection",
+      "note": "the heart of a word is its middle, so only central letters are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "100",
+      "gives": "C",
+      "note": "C is the Roman numeral for 100"
+     },
+     {
+      "clueFragment": "ruby",
+      "gives": "UB",
+      "select": "middle",
+      "note": "the two middle letters"
+     },
+     {
+      "clueFragment": "red",
+      "gives": "E",
+      "select": "middle",
+      "note": "the middle letter"
+     },
+     {
+      "clueFragment": "eider",
+      "gives": "D",
+      "select": "middle",
+      "note": "the middle letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "UB",
+      "E",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Lots of red duck hearts sliced for a recipe.",
+     "walkthrough": "An eider is a sea duck. 'Chopped up' could signal an anagram, but here it is the definition.",
+     "definitionFit": "To cube food is to cut it into small dice-shaped pieces, so cubed means chopped in that way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Chopped"
+    }
+   }
   },
   {
    "number": 25,
@@ -435,7 +1850,60 @@
     "text": "Politicians given a lot of dirty money in bogs",
     "enumeration": "6"
    },
-   "solution": "SWAMPS"
+   "solution": "SWAMPS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SWAMPS",
+    "definitions": [
+     {
+      "text": "bogs",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a lot of",
+      "for": "deletion",
+      "note": "a lot of something is most but not all of it, so the last letter goes"
+     }
+    ],
+    "linkWords": [
+     "given",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dirty money",
+      "gives": "SWAG",
+      "note": "swag is stolen goods or loot"
+     },
+     {
+      "clueFragment": "Politicians",
+      "gives": "MPS",
+      "note": "MPs are Members of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWA",
+      "MPS"
+     ]
+    },
+    "explanation": {
+     "surface": "MPs taking bribes in the toilets.",
+     "walkthrough": "Bog is British slang for a toilet, which the surface trades on; here bogs are marshes.",
+     "definitionFit": "Swamps and bogs are both areas of waterlogged, marshy ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bogs"
+    }
+   }
   },
   {
    "number": 26,
@@ -449,7 +1917,51 @@
     "text": "Breaking news stitched together",
     "enumeration": "4"
    },
-   "solution": "SEWN"
+   "solution": "SEWN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEWN",
+    "definitions": [
+     {
+      "text": "stitched together",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Breaking",
+      "for": "anagram",
+      "note": "breaking something smashes it apart, so its letters are re-formed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "news",
+      "gives": "NEWS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NEWS",
+       "gives": "SEWN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Breaking news has been cobbled together from scraps.",
+     "walkthrough": "'Breaking news' reads as one phrase, a headline in progress.",
+     "definitionFit": "Sewn is the past participle of sew, meaning joined with needle and thread."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Breaking"
+    }
+   }
   },
   {
    "number": 27,
@@ -463,7 +1975,65 @@
     "text": "Bonsai maybe not right, wife's interjected - too quaint?",
     "enumeration": "4"
    },
-   "solution": "TWEE"
+   "solution": "TWEE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "TWEE",
+    "definitions": [
+     {
+      "text": "too quaint?",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "substitution",
+      "note": "not means leaving a piece out so another can take its place"
+     },
+     {
+      "text": "interjected",
+      "for": "substitution",
+      "note": "interjected means thrown in among, so a new letter goes in the gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bonsai maybe",
+      "gives": "TREE",
+      "note": "a bonsai is a miniature tree"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is short for right"
+     },
+     {
+      "clueFragment": "wife's",
+      "gives": "W",
+      "note": "W is short for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "W",
+      "EE"
+     ]
+    },
+    "explanation": {
+     "surface": "A wife chips in that a miniature tree may be a bit too cute.",
+     "walkthrough": "'Maybe' marks bonsai as one example of a tree.",
+     "definitionFit": "Twee is a British word for excessively dainty or sentimental, quaint to the point of affectation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 28,
@@ -477,7 +2047,53 @@
     "text": "Overcome Kyrgios, said to be an unconventional guy",
     "enumeration": "7"
    },
-   "solution": "BEATNIK"
+   "solution": "BEATNIK",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "BEATNIK",
+    "definitions": [
+     {
+      "text": "an unconventional guy",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said",
+      "for": "homophone",
+      "note": "said means spoken, so the sound counts, not the spelling"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Overcome",
+      "gives": "BEAT",
+      "note": "to beat is to overcome"
+     },
+     {
+      "clueFragment": "Kyrgios",
+      "gives": "NIK",
+      "soundsLike": "NICK",
+      "note": "Nick Kyrgios is an Australian tennis player"
+     }
+    ],
+    "explanation": {
+     "surface": "Defeating the tennis maverick Kyrgios, reputed to be a rebel.",
+     "walkthrough": "Nick Kyrgios is famous as a tennis bad boy, which makes the surface plausible.",
+     "definitionFit": "A beatnik was a member of the 1950s Beat Generation, rejecting mainstream social conventions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Kyrgios"
+    }
+   }
   },
   {
    "number": 29,
@@ -497,7 +2113,44 @@
      }
     ]
    },
-   "solution": "WELLNOW"
+   "solution": "WELLNOW",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WELL NOW",
+    "definitions": [
+     {
+      "text": "Fit again",
+      "at": 0
+     },
+     {
+      "text": "that's a surprise",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fit again",
+      "note": "first meaning: healthy at present, recovered"
+     },
+     {
+      "clueFragment": "that's a surprise",
+      "note": "second meaning: an exclamation of mild astonishment"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone back on their feet after illness, to everyone's astonishment.",
+     "walkthrough": "Read literally the phrase means healthy at this point; as an exclamation it expresses surprise.",
+     "definitionFit": "As an interjection the phrase registers astonishment; as words it states a recovery has happened."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fit"
+    }
+   }
   },
   {
    "number": 30,
@@ -511,7 +2164,65 @@
     "text": "Dribble leftovers on road heading west",
     "enumeration": "5"
    },
-   "solution": "DROOL"
+   "solution": "DROOL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DROOL",
+    "definitions": [
+     {
+      "text": "Dribble",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading west",
+      "for": "reversal",
+      "note": "west is leftward on a map, so in an across entry the letters run right to left"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leftovers",
+      "gives": "LOO",
+      "note": "split as left (L) and overs (O O, O being the cricket abbreviation for an over)"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "RD",
+      "note": "Rd abbreviates road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "OO",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "LOORD",
+       "to": "DROOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Food scraps spill on the road as a car drives west.",
+     "walkthrough": "'Leftovers' looks like one word for scraps, but it splits into left and overs.",
+     "definitionFit": "To dribble is to let saliva run from the mouth, the same as to drool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leftovers"
+    }
+   }
   },
   {
    "number": 31,
@@ -525,7 +2236,67 @@
     "text": "Work 10 shifts ... acting parts",
     "enumeration": "8"
    },
-   "solution": "TREATISE"
+   "solution": "TREATISE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TREATISE",
+    "definitions": [
+     {
+      "text": "Work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shifts",
+      "for": "anagram",
+      "note": "shifts means moves about, so the letters change places"
+     },
+     {
+      "text": "parts",
+      "for": "container",
+      "note": "something that parts a thing splits it, sitting between its halves"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "10",
+      "gives": "TESTIER",
+      "note": "the answer to 10 across"
+     },
+     {
+      "clueFragment": "acting",
+      "gives": "A",
+      "note": "A is short for acting, as in an acting role"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRE",
+      "A",
+      "TISE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TESTIER",
+       "gives": "TRETISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worker on rotating shifts takes on stage roles too.",
+     "walkthrough": "'Work' sounds like labour but means a piece of writing.",
+     "definitionFit": "A treatise is a formal written study of a subject, a scholarly work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shifts"
+    }
+   }
   }
  ]
 }
