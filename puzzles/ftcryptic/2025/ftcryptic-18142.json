@@ -24,6 +24,9 @@
   "date": "2025-08-25",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,40 @@
     "text": "Eagle perhaps? Not quite",
     "enumeration": "6"
    },
-   "solution": "BIRDIE"
+   "solution": "BIRDIE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BIRDIE",
+    "definitions": [
+     {
+      "text": "Eagle perhaps? Not quite",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eagle perhaps?",
+      "note": "surface reading: a large bird of prey, offered as an example of something"
+     },
+     {
+      "clueFragment": "Not quite",
+      "note": "setter's reading: in golf an eagle is two under par, and the score that falls just short of it is one under"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone guesses an eagle and then hedges.",
+     "walkthrough": "The eagle looks like a bird to name, but it is the golf score; the answer is the golf score one stroke worse, and also a little bird, which keeps the bird surface honest.",
+     "definitionFit": "In golf a birdie is one stroke under par, just short of the two-under eagle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Eagle"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +87,55 @@
     "text": "Cooked beef’s first up",
     "enumeration": "7"
    },
-   "solution": "BRAISED"
+   "solution": "BRAISED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BRAISED",
+    "definitions": [
+     {
+      "text": "Cooked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first asks for only the opening letter of the word it follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beef’s",
+      "gives": "B",
+      "select": "first",
+      "note": "opening letter of the meat"
+     },
+     {
+      "clueFragment": "up",
+      "gives": "RAISED",
+      "note": "raised means lifted up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RAISED"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook reports that the beef was put on first.",
+     "definitionFit": "Braising is a way of cooking meat slowly in a little liquid, so braised describes food cooked that way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +149,65 @@
     "text": "Alan Shearer’s forsaken an evil practice",
     "enumeration": "9"
    },
-   "solution": "REHEARSAL"
+   "solution": "REHEARSAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "REHEARSAL",
+    "definitions": [
+     {
+      "text": "practice",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "forsaken",
+      "for": "deletion",
+      "note": "to forsake is to abandon, so the named letters are dropped from the footballer's name"
+     },
+     {
+      "text": "evil",
+      "for": "anagram",
+      "note": "something evil is corrupt or twisted, so the remaining letters are bent into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Alan Shearer’s",
+      "gives": "ALANSHEARER",
+      "note": "the footballer's full name taken as letters"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "the two letters to remove"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REHEARSAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALSHEARER",
+       "gives": "REHEARSAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A famous striker has abandoned some wicked training habit.",
+     "walkthrough": "Alan Shearer is a former England centre-forward. Take one A and the N out of his name and rearrange the nine letters left.",
+     "definitionFit": "A rehearsal is a practice run of a performance before the real thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "evil"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +221,47 @@
     "text": "Patient batting partner",
     "enumeration": "6"
    },
-   "solution": "INMATE"
+   "solution": "INMATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INMATE",
+    "definitions": [
+     {
+      "text": "Patient",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "batting",
+      "gives": "IN",
+      "note": "in cricket the side batting is said to be in"
+     },
+     {
+      "clueFragment": "partner",
+      "gives": "MATE",
+      "note": "a mate is a partner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "MATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricketer waits calmly while their partner bats.",
+     "walkthrough": "'Patient' reads as an adjective about the batsman; it is a noun, someone held in a hospital.",
+     "definitionFit": "An inmate is a person confined in an institution, such as a patient detained in a psychiatric hospital."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Patient"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +281,50 @@
      }
     ]
    },
-   "solution": "THATSAID"
+   "solution": "THATSAID",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THAT SAID",
+    "definitions": [
+     {
+      "text": "Even so",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cryptic",
+      "for": "anagram",
+      "note": "cryptic means coded or obscured, so the letters are disguised by being put in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "this a tad",
+      "gives": "THISATAD",
+      "note": "the three words taken as letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THISATAD",
+       "gives": "THATSAID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A solver wonders whether this clue is a little too obscure.",
+     "definitionFit": "Both phrases concede a point before qualifying it: 'nevertheless', 'however'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cryptic"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +338,43 @@
     "text": "Person who succeeds welcomed by the Irish",
     "enumeration": "4"
    },
-   "solution": "HEIR"
+   "solution": "HEIR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HEIR",
+    "definitions": [
+     {
+      "text": "Person who succeeds",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcomed by",
+      "for": "hidden_word",
+      "note": "something welcomed by a group is taken inside it, so the letters sit within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Irish",
+      "gives": "HEIR",
+      "note": "the letters run across the join of the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A successful person is warmly received by the people of Ireland.",
+     "walkthrough": "'Succeeds' suggests doing well; here it means taking over from someone.",
+     "definitionFit": "An heir is the one who inherits a title or estate, succeeding the previous holder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "succeeds"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +388,67 @@
     "text": "Cheek still turned, worth poking that",
     "enumeration": "8"
    },
-   "solution": "TEMERITY"
+   "solution": "TEMERITY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TEMERITY",
+    "definitions": [
+     {
+      "text": "Cheek",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned",
+      "for": "reversal",
+      "note": "turned round means the word is read the other way"
+     },
+     {
+      "text": "poking",
+      "for": "container",
+      "note": "poking into something means pushing inside it, so this goes into the middle of the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "still",
+      "gives": "YET",
+      "note": "still in the sense of 'yet', as in 'still to come'"
+     },
+     {
+      "clueFragment": "worth",
+      "gives": "MERIT",
+      "note": "merit is worth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "MERIT",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "YET",
+       "to": "TEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone turns a cheek while a valuable thing pokes into it.",
+     "walkthrough": "'that' points back to the reversed piece: the worth word pokes into it.",
+     "definitionFit": "Temerity is audacious boldness, the same impudence as cheek."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cheek"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +462,60 @@
     "text": "Navy at bottom of a party dress",
     "enumeration": "5"
    },
-   "solution": "ADORN"
+   "solution": "ADORN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADORN",
+    "definitions": [
+     {
+      "text": "dress",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at bottom of",
+      "for": "charade",
+      "note": "in a down entry the bottom is the end, so this piece is placed after the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party"
+     },
+     {
+      "clueFragment": "Navy",
+      "gives": "RN",
+      "note": "RN is the Royal Navy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DO",
+      "RN"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor turns up at the end of a party wearing a frock.",
+     "walkthrough": "'dress' looks like a noun; it is the verb, to decorate.",
+     "definitionFit": "To dress something, like a shop window, is to decorate it, which is to adorn it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dress"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +529,50 @@
     "text": "What might make bedroom cold for rodents?",
     "enumeration": "7"
    },
-   "solution": "DORMICE"
+   "solution": "DORMICE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DORMICE",
+    "definitions": [
+     {
+      "text": "rodents",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "What might make",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bedroom",
+      "gives": "DORM",
+      "note": "a dorm is a shared bedroom"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "ICE",
+      "note": "ice is cold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DORM",
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about what chills a bedroom for small animals.",
+     "definitionFit": "Dormice are small, mostly nocturnal rodents famous for hibernating."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cold"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +592,62 @@
      }
     ]
    },
-   "solution": "ATHOME"
+   "solution": "ATHOME",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "AT HOME",
+    "definitions": [
+     {
+      "text": "In",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "parts",
+      "for": "container",
+      "note": "parts here is a verb, splitting the book apart so the other piece sits between"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "TOME",
+      "note": "a tome is a large book"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "T",
+      "H",
+      "OME"
+     ]
+    },
+    "explanation": {
+     "surface": "A man appears in a book in several parts.",
+     "walkthrough": "'parts' looks like a noun for sections of the book; it is a verb.",
+     "definitionFit": "To be in is to be at home, as in 'Is she in?'"
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "parts"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +661,71 @@
     "text": "Picture lover from Italian capital with leg wound",
     "enumeration": "8"
    },
-   "solution": "FILMGOER"
+   "solution": "FILMGOER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "FILMGOER",
+    "definitions": [
+     {
+      "text": "Picture lover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capital",
+      "for": "letter_selection",
+      "note": "a capital is the head letter of a word, so only the initial is used"
+     },
+     {
+      "text": "wound",
+      "for": "anagram",
+      "note": "wound as in twisted round, so the letters are wound into a new sequence"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "from",
+      "gives": "FROM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Italian",
+      "gives": "I",
+      "select": "first",
+      "note": "first letter of the word"
+     },
+     {
+      "clueFragment": "leg",
+      "gives": "LEG",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FROMILEG",
+       "gives": "FILMGOER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An art fan from Rome has an injured leg.",
+     "walkthrough": "'from' seems to be a link word but is part of the fodder; 'Italian capital' wants to be Rome, but is just its first letter.",
+     "definitionFit": "A picture is a film in everyday speech, so someone who loves pictures is a cinema-goer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +739,57 @@
     "text": "Source of energy in sprout for bird",
     "enumeration": "7"
    },
-   "solution": "BUSTARD"
+   "solution": "BUSTARD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BUSTARD",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sprout",
+      "gives": "BUD",
+      "note": "a bud is a sprout on a plant"
+     },
+     {
+      "clueFragment": "Source of energy",
+      "gives": "STAR",
+      "note": "a star such as the sun radiates energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BU",
+      "STAR",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A sprout is offered as a power food for a bird.",
+     "definitionFit": "The bustard is a large, heavy ground-dwelling game bird of open plains."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "energy"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +809,55 @@
      }
     ]
    },
-   "solution": "STARTOUT"
+   "solution": "STARTOUT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "START OUT",
+    "definitions": [
+     {
+      "text": "get away",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "container",
+      "note": "the beer has drunk the craft, taking it inside itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beer’s",
+      "gives": "STOUT",
+      "note": "stout is a dark beer"
+     },
+     {
+      "clueFragment": "Craft",
+      "gives": "ART",
+      "note": "a craft is an art or skill"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "ART",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has downed a craft ale and is told to clear off.",
+     "walkthrough": "'Craft beer' is a single idea on the surface; split it, and the apostrophe-s means 'has'.",
+     "definitionFit": "To start out is to set off on a journey, which is what getting away does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Craft"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +871,62 @@
     "text": "Character entering Burundi after vacation, small nation",
     "enumeration": "6"
    },
-   "solution": "BRUNEI"
+   "solution": "BRUNEI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BRUNEI",
+    "definitions": [
+     {
+      "text": "small nation",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after vacation",
+      "for": "letter_selection",
+      "note": "a vacated word has been emptied of its contents, leaving only its outside letters"
+     },
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "entering means going inside, so this piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Burundi",
+      "gives": "BI",
+      "select": "outer",
+      "note": "the country name with its middle emptied"
+     },
+     {
+      "clueFragment": "Character",
+      "gives": "RUNE",
+      "note": "a rune is a character of an old alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RUNE",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A figure arrives in one African country on returning from holiday, small as it is.",
+     "walkthrough": "'vacation' reads as a holiday; here it means emptying out. One country hides another.",
+     "definitionFit": "Brunei is a tiny sultanate on the island of Borneo, a small state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vacation"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +940,66 @@
     "text": "Low vehicle I’d entered in competitions, reversing up",
     "enumeration": "7"
    },
-   "solution": "SIDECAR"
+   "solution": "SIDECAR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SIDECAR",
+    "definitions": [
+     {
+      "text": "Low vehicle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversing up",
+      "for": "reversal",
+      "note": "in a down entry going up means reading from the bottom, so the word is turned round"
+     },
+     {
+      "text": "entered in",
+      "for": "container",
+      "note": "entered in places one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "competitions",
+      "gives": "RACES",
+      "note": "races are competitions"
+     },
+     {
+      "clueFragment": "I’d",
+      "gives": "ID",
+      "note": "taken as written without the apostrophe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ID",
+      "ECAR"
+     ],
+     "reversals": [
+      {
+       "from": "RACES",
+       "to": "SECAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone admits to entering a low-slung car in races and backing it up.",
+     "definitionFit": "A sidecar is the small low passenger carriage attached to the side of a motorcycle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "competitions"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +1013,43 @@
     "text": "Food served, a beauty",
     "enumeration": "4"
    },
-   "solution": "DISH"
+   "solution": "DISH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DISH",
+    "definitions": [
+     {
+      "text": "Food served",
+      "at": 0
+     },
+     {
+      "text": "a beauty",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Food served",
+      "note": "first meaning: a course or item of food brought to the table"
+     },
+     {
+      "clueFragment": "a beauty",
+      "note": "second meaning: informal for an attractive person"
+     }
+    ],
+    "explanation": {
+     "surface": "A waiter brings out a meal that looks gorgeous.",
+     "definitionFit": "The word means both a prepared item of food and, in slang, a good-looking person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "beauty"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1063,51 @@
     "text": "A priest set about erotic performance",
     "enumeration": "10"
    },
-   "solution": "STRIPTEASE"
+   "solution": "STRIPTEASE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STRIPTEASE",
+    "definitions": [
+     {
+      "text": "erotic performance",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests moving things around, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A priest set",
+      "gives": "APRIESTSET",
+      "note": "the three words taken as letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "APRIESTSET",
+       "gives": "STRIPTEASE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman has begun some saucy show.",
+     "definitionFit": "A striptease is an entertainment in which a performer slowly undresses, an erotic act."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "priest"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1121,64 @@
     "text": "Farmer in contrary gardener removing hat for military unit",
     "enumeration": "9"
    },
-   "solution": "ARTILLERY"
+   "solution": "ARTILLERY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ARTILLERY",
+    "definitions": [
+     {
+      "text": "military unit",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removing hat",
+      "for": "deletion",
+      "note": "a hat is worn on top, and in a down entry the top is the first letter, which comes off"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "contrary gardener",
+      "gives": "MARY",
+      "note": "the nursery rhyme 'Mary, Mary, quite contrary, how does your garden grow?'"
+     },
+     {
+      "clueFragment": "Farmer",
+      "gives": "TILLER",
+      "note": "a tiller is one who tills the soil"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "TILLER",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer and a stubborn gardener, the gardener taking off a hat.",
+     "walkthrough": "The gardener is Mary from the English nursery rhyme 'Mary, Mary, quite contrary', who is asked how her garden grows; without her first letter she holds the farmer.",
+     "definitionFit": "The artillery is the branch of an army that fires big guns, a military formation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "contrary"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1192,42 @@
     "text": "Neat hand",
     "enumeration": "8"
    },
-   "solution": "STRAIGHT"
+   "solution": "STRAIGHT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRAIGHT",
+    "definitions": [
+     {
+      "text": "Neat",
+      "at": 0
+     },
+     {
+      "text": "hand",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Neat",
+      "note": "first meaning: of a drink, taken undiluted"
+     },
+     {
+      "clueFragment": "hand",
+      "note": "second meaning: in poker, five cards in sequence"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Neat hand' reads as tidy handwriting; the words are separate, one about drinks and one about cards.",
+     "definitionFit": "A neat whisky is served without water or ice, and in poker a run of five consecutive cards is a named hand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hand"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1247,49 @@
      }
     ]
    },
-   "solution": "COLDTURKEY"
+   "solution": "COLDTURKEY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COLD TURKEY",
+    "definitions": [
+     {
+      "text": "complete withdrawal",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arctic",
+      "gives": "COLD",
+      "note": "arctic means freezing"
+     },
+     {
+      "clueFragment": "country",
+      "gives": "TURKEY",
+      "note": "a country"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COLD",
+      "TURKEY"
+     ]
+    },
+    "explanation": {
+     "surface": "A polar nation pulls out entirely.",
+     "definitionFit": "Going cold turkey means stopping an addictive drug abruptly and totally, with the withdrawal that follows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Arctic"
+    }
+   }
   },
   {
    "number": 19,
@@ -341,7 +1303,43 @@
     "text": "Yellow meat",
     "enumeration": "7"
    },
-   "solution": "CHICKEN"
+   "solution": "CHICKEN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHICKEN",
+    "definitions": [
+     {
+      "text": "Yellow",
+      "at": 0
+     },
+     {
+      "text": "meat",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yellow",
+      "note": "first meaning: cowardly"
+     },
+     {
+      "clueFragment": "meat",
+      "note": "second meaning: the flesh of a common farm bird"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Yellow meat' sounds like a description of poultry; the colour word means cowardly.",
+     "definitionFit": "Yellow and the answer are both slang for cowardly, and the answer is also a common white meat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Yellow"
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1353,51 @@
     "text": "Male getting leg shortened",
     "enumeration": "4"
    },
-   "solution": "STAG"
+   "solution": "STAG",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STAG",
+    "definitions": [
+     {
+      "text": "Male",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortened",
+      "for": "deletion",
+      "note": "shortened means cut down, so the last letter goes"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leg",
+      "gives": "STAGE",
+      "note": "a leg of a journey or race is a stage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAG"
+     ]
+    },
+    "explanation": {
+     "surface": "A man has a leg amputated.",
+     "walkthrough": "'leg' looks bodily, but it is the part of a journey.",
+     "definitionFit": "A stag is an adult male deer, and by extension a man without a female partner, as on a stag night."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leg"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1411,68 @@
     "text": "Setter spinning yarn in trap",
     "enumeration": "7"
    },
-   "solution": "GELATIN"
+   "solution": "GELATIN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "GELATIN",
+    "definitions": [
+     {
+      "text": "Setter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spinning",
+      "for": "reversal",
+      "note": "spinning turns something round, so the word runs backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trap",
+      "gives": "GIN",
+      "note": "a gin is a snare for game"
+     },
+     {
+      "clueFragment": "yarn",
+      "gives": "TALE",
+      "note": "a yarn is a story"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ELAT",
+      "IN"
+     ],
+     "reversals": [
+      {
+       "from": "TALE",
+       "to": "ELAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crossword compiler spins a tall story into a snare.",
+     "walkthrough": "'Setter' seems to be the crossword's compiler; it is something that makes a liquid set. 'spinning yarn' also hints at wool.",
+     "definitionFit": "Gelatin is used to make jellies and desserts set firm, so it is a setting agent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Setter"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1486,61 @@
     "text": "African rule written in brief letters",
     "enumeration": "6"
    },
-   "solution": "MALAWI"
+   "solution": "MALAWI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "MALAWI",
+    "definitions": [
+     {
+      "text": "African",
+      "at": 0,
+      "note": "the clue gives an adjective; the answer is the country"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brief",
+      "for": "deletion",
+      "note": "brief means cut short, so the last letter goes"
+     },
+     {
+      "text": "written in",
+      "for": "container",
+      "note": "something written in a document is included inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "letters",
+      "gives": "MAIL",
+      "note": "mail is letters sent by post"
+     },
+     {
+      "clueFragment": "rule",
+      "gives": "LAW",
+      "note": "a law is a rule"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "LAW",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "An African regulation is set down in a short note.",
+     "definitionFit": "Malawi is a landlocked country in south-east Africa, so it is an African state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1560,44 @@
      }
     ]
    },
-   "solution": "ILLSAY"
+   "solution": "ILLSAY",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "ILL SAY",
+    "definitions": [
+     {
+      "text": "Absolutely!",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Passageway",
+      "gives": "ILL",
+      "soundsLike": "AISLE",
+      "note": "a passage between rows of seats, pronounced like the contraction"
+     },
+     {
+      "clueFragment": "suggested",
+      "gives": "SAY",
+      "note": "say means suggest, as in 'shall we say noon?'"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone proposes a route and gets an emphatic yes.",
+     "walkthrough": "The passageway is spoken rather than spelt: it is pronounced exactly as the contraction for 'I will'.",
+     "definitionFit": "Both are emphatic exclamations of agreement, like 'definitely!' or 'you bet!'"
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "suggested"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1611,66 @@
     "text": "Flower: name coming up touring India",
     "enumeration": "5"
    },
-   "solution": "LILAC"
+   "solution": "LILAC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "LILAC",
+    "definitions": [
+     {
+      "text": "Flower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming up",
+      "for": "reversal",
+      "note": "in a down entry coming up means reading from the bottom, so the word is turned round"
+     },
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "touring means going round, so this piece wraps around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "name",
+      "gives": "CALL",
+      "note": "to name something is to call it"
+     },
+     {
+      "clueFragment": "India",
+      "gives": "I",
+      "note": "India is I in the NATO alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "I",
+      "LAC"
+     ],
+     "reversals": [
+      {
+       "from": "CALL",
+       "to": "LLAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A flower's name rises to fame while touring India.",
+     "definitionFit": "Lilac is a shrub bearing fragrant purple or white blossoms, a flower."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "touring"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1684,68 @@
     "text": "Friend keeping slowing, vehicle ultimately running alongside",
     "enumeration": "8"
    },
-   "solution": "PARALLEL"
+   "solution": "PARALLEL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PARALLEL",
+    "definitions": [
+     {
+      "text": "running alongside",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the final letter only"
+     },
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping means holding, so the friend wraps around what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Friend",
+      "gives": "PAL",
+      "note": "a pal is a friend"
+     },
+     {
+      "clueFragment": "slowing",
+      "gives": "RALL",
+      "note": "rall. is the musical abbreviation of rallentando, meaning slowing down"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "RALL",
+      "E",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A friend keeps slowing down, the car eventually running next to them.",
+     "walkthrough": "Rall., short for rallentando, is the musical direction to slow down gradually.",
+     "definitionFit": "Parallel lines or roads run side by side, always at the same distance apart."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "slowing"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1759,59 @@
     "text": "Weakest man, hand on heart in earnest",
     "enumeration": "4"
    },
-   "solution": "PAWN"
+   "solution": "PAWN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PAWN",
+    "definitions": [
+     {
+      "text": "Weakest man",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heart",
+      "for": "letter_selection",
+      "note": "the heart of a word is its centre, so only the middle letter is used"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hand",
+      "gives": "PAW",
+      "note": "a paw is informal for a hand"
+     },
+     {
+      "clueFragment": "earnest",
+      "gives": "N",
+      "select": "middle",
+      "note": "middle letter of the seven"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAW",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A feeble man earnestly puts his hand on his heart.",
+     "walkthrough": "'man' here is a chess piece, not a person.",
+     "definitionFit": "In chess the lowest-value piece is the pawn, the weakest of the men on the board."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "man"
+    }
+   }
   },
   {
    "number": 27,
@@ -459,7 +1825,72 @@
     "text": "Unit of mass I record in retro symbol",
     "enumeration": "8"
    },
-   "solution": "KILOGRAM"
+   "solution": "KILOGRAM",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "KILOGRAM",
+    "definitions": [
+     {
+      "text": "Unit of mass",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retro",
+      "for": "reversal",
+      "note": "retro means backwards-looking, so the word is read the other way"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "symbol",
+      "gives": "MARK",
+      "note": "a mark is a symbol"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "LOG",
+      "note": "a log is a record"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "I",
+      "LOG",
+      "RAM"
+     ],
+     "reversals": [
+      {
+       "from": "MARK",
+       "to": "KRAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notes down a weight inside an old-fashioned sign.",
+     "definitionFit": "The kilogram is the SI base unit for measuring mass, a thousand grams."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retro"
+    }
+   }
   },
   {
    "number": 28,
@@ -473,7 +1904,50 @@
     "text": "Mother for example has father in pieces",
     "enumeration": "6"
    },
-   "solution": "PARENT"
+   "solution": "PARENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARENT",
+    "definitions": [
+     {
+      "text": "Mother for example",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "father",
+      "gives": "PA",
+      "note": "pa is an informal word for father"
+     },
+     {
+      "clueFragment": "in pieces",
+      "gives": "RENT",
+      "note": "rent means torn apart"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "RENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Mum has smashed Dad to bits.",
+     "definitionFit": "A mother is one kind of parent, so she is an example of the category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "pieces"
+    }
+   }
   },
   {
    "number": 29,
@@ -487,7 +1961,73 @@
     "text": "Drug: figure inhaling it catching cold, half gone",
     "enumeration": "8"
    },
-   "solution": "NICOTINE"
+   "solution": "NICOTINE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "NICOTINE",
+    "definitions": [
+     {
+      "text": "Drug",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half gone",
+      "for": "deletion",
+      "note": "half gone means half the word is lost, keeping only its first two letters"
+     },
+     {
+      "text": "inhaling",
+      "for": "container",
+      "note": "inhaling means breathing in, so the figure takes the rest inside"
+     },
+     {
+      "text": "catching",
+      "for": "container",
+      "note": "catching means trapping, so the second piece is held within the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "figure",
+      "gives": "NINE",
+      "note": "nine is a number"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "COLD",
+      "note": "the word taken as written before half of it goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "I",
+      "CO",
+      "T",
+      "INE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone smokes and catches a chill, half wasted on a drug.",
+     "walkthrough": "Two containers nest: the shortened cold sits inside 'it', and that whole piece goes inside the number. 'inhaling' fits the smoking surface neatly.",
+     "definitionFit": "Nicotine is the addictive stimulant in tobacco, a drug."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "figure"
+    }
+   }
   },
   {
    "number": 30,
@@ -501,7 +2041,72 @@
     "text": "Leaders in Luxembourg and Italy near an African",
     "enumeration": "6"
    },
-   "solution": "LIBYAN"
+   "solution": "LIBYAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LIBYAN",
+    "definitions": [
+     {
+      "text": "African",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leaders in",
+      "for": "letter_selection",
+      "note": "leaders are what come first, so only the opening letters are taken"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Luxembourg",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "Italy",
+      "gives": "I",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "near",
+      "gives": "BY",
+      "note": "by means near, as in 'stand by me'"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "I",
+      "BY",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "Heads of two European states sit beside an African.",
+     "walkthrough": "'an' looks like part of the definition; it supplies letters, and the definition is the single word.",
+     "definitionFit": "A Libyan is a person from Libya, a North African country, so an African."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Leaders"
+    }
+   }
   }
  ]
 }
