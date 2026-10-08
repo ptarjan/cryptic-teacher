@@ -456,7 +456,9 @@ ALONE = 100
 def down_left(words, across, down):
     """Where the DOWN list's column starts when DOWN heads a column right of
     ACROSS: just left of the clue numbers lined up nearest under it (a
-    centred heading stands up to CENTRED right of them), else None. A
+    centred heading stands up to CENTRED right of them) and of DOWN itself
+    (a number read into its clue's first word starts left of the bare
+    ones), else None. A
     narrow gutter a reader's words bridge still parts the lists there."""
     xs = sorted(w[0] for w in words_only(words) if w[1] > down[1] and BARE_NUMBER.fullmatch(w[4] + ".")
                 and max(across[2], down[0] - CENTRED) < w[0] <= down[0] + COLUMN_STEP)
@@ -467,7 +469,7 @@ def down_left(words, across, down):
         else:
             runs.append([x])
     runs = [r for r in runs if len(r) >= COLUMN_MIN]
-    return runs[-1][0] - 5 if runs else None
+    return min(runs[-1][0], down[0]) - 5 if runs else None
 
 
 def column_lefts(words):
