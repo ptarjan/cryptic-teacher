@@ -290,6 +290,8 @@ check("a stop run between two words another reading prints apart: a speck after 
       "An antidote to poison.", oc.agree("An antidote to.poison.", [mark("2 An antidote to poison. 3 An")])[0])
 check("and an abbreviation's after no word", "Anag. of a lovely word",
       oc.agree("Anag.of a lovely word", [mark("7 Anag. of a lovely word 8 The")])[0])
+check("a rare word another reading prints as two common ones is parted",
+      "Ireland for a hill.", oc.agree("Ireland fora hill.", [mark("27 Ireland for a hill. 28 An")])[0])
 check("a dictionary word another reading split stays whole (mirror)",
       "Somewhere to go.", oc.agree("Somewhere to go.", [mark("4 Some where to go. 5 A"), mark("4 Somewhere to go. 5 A")])[0])
 check("a word no reading prints apart is still lost (mirror)",

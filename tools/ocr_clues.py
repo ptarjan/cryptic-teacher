@@ -672,7 +672,8 @@ def prints(pairs, low, theirs):
 
 def parted(clue, others):
     """`clue` with a non-word in it that another reading prints as two to
-    six words ("theplant", "favouriteVictorian") parted as they are, and
+    six words ("theplant", "favouriteVictorian", the rare "fora" for "for
+    a") parted as they are, and
     two words it ran together over a stop ("to.poison", "Anag.of") parted."""
     apart = {}
     for theirs in others:
@@ -687,7 +688,7 @@ def parted(clue, others):
     def part(m):
         w = m.group()
         sizes = apart.get(w.lower())
-        if not sizes or is_word(w.lower()):
+        if not sizes or is_word(w.lower()) and (rank(w.lower()) or NAME_RANK + 1) <= NAME_RANK:
             return w
         out, k = [], 0
         for size in sizes:
