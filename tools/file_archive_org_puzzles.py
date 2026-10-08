@@ -56,8 +56,9 @@ NewsUK19xxUKEnglish, and files each "Times Crossword Puzzle No N" as times-N:
   - A number already held is not written (unless this tool filed it and the
     new reading beats it on clues or answers, improves), but takes the
     reading's answers when this tool filed it (merge_answers: a new answer
-    replaces the held one, and a held answer a new one crosses on another
-    letter goes); the reading goes to
+    replaces the held one, and a held answer the re-read of its solution
+    grid did not read again, or a new one crosses on another letter,
+    goes); the reading goes to
     downloads.ARCHIVE_ORG_SOURCE, where tools/cross_validate.py's
     `archiveorg` adapter votes with it. Every reading goes there, filed or not.
 
@@ -3049,7 +3050,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
                 mended = mend_held(puzzle, held_path) if held_path.exists() else None
                 if mended is not None:
                     verdict["mended"] = mended[1]
-                    answered = merge_answers(mended[0], puzzle)
+                    answered = merge_answers(mended[0], puzzle, reread=solution_read(verdict))
                     if answered:
                         verdict["answered"] = answered
                     if write:
@@ -3059,13 +3060,19 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
                 dest = destination(puzzles, complete(puzzle))
                 if dest is False:
                     verdict["skip"] = "a clue is blank: only a puzzle with every clue goes to the corpus"
+                    old = json.loads(held_path.read_text()) if held_path.exists() else None
+                    answered = old is not None and merge_answers(old, puzzle, reread=solution_read(verdict))
+                    if answered:
+                        verdict["answered"] = answered
+                        if write:
+                            scan_queue.file_puzzle(write_puzzle_file, TOOL, held_path, old, verdict)
                     verdicts.append(verdict)
                     continue
                 path = (Path(dest) / f"{puzzle['id']}.json" if dest
                         else puzzle_path(paper.series, puzzle["number"]))
                 better = path.exists() and improves(puzzle, path)
                 old = json.loads(path.read_text()) if path.exists() and not better else None
-                answered = old is not None and merge_answers(old, puzzle)
+                answered = old is not None and merge_answers(old, puzzle, reread=solution_read(verdict))
                 if answered:
                     verdict["answered"] = answered
                     if write:
@@ -3219,11 +3226,14 @@ def mend_held(puzzle, path, tool=TOOL):
     return old, {entry_id(e): text(e["clue"]) for e in old["entries"] if entry_id(e) in lost}
 
 
-def merge_answers(old, puzzle, tool=TOOL):
+def merge_answers(old, puzzle, tool=TOOL, reread=False):
     """{light: its answer now (None: dropped)} after taking `puzzle`'s
     answers into the held filing `old` (in place): each light this reading
     answers takes its answer, and a held answer a new one crosses on
-    another letter is dropped. A light whose answer changes loses its
+    another letter is dropped; with `reread` (this reading read the
+    solution grid) so is every held answer it did not read again, the
+    older reader's sure reads having filed wrong ones (BAYED for DATED).
+    A light whose answer changes loses its
     annotation, written against the old answer. {} when `old` is not
     `tool`'s or lies on another grid."""
     if (old.get("source") or {}).get("acquiredBy") != tool \
@@ -3238,13 +3248,18 @@ def merge_answers(old, puzzle, tool=TOOL):
     for e in old["entries"]:
         lid, was = entry_id(e), e.get("solution")
         now = new.get(lid, was)
-        if lid not in new and was and any(letters.get(rc, ch) != ch for rc, ch in zip(cells(e), was)):
+        if lid not in new and was and (reread or any(letters.get(rc, ch) != ch for rc, ch in zip(cells(e), was))):
             now = None
         if now != was:
             e["solution"] = now
             e.pop("annotation", None)
             changed[lid] = now
     return changed
+
+
+def solution_read(verdict):
+    """Whether a title's read took its answers off its solution grid."""
+    return "solution" in verdict and "refused" not in verdict["solution"]
 
 
 def save(ledger, known):
