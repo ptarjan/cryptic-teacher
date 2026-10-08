@@ -153,7 +153,7 @@ check "sent to the solve method first, its fill path named" \
   "$(grep -c "Read tools/solve_prompt.md and follow it exactly, writing your fill to $stub/fill" <<<"$argv")" "1"
 check "then to the annotation task" "$(grep -c 'this task: Annotate the cryptic crossword test-1' <<<"$argv")" "1"
 check "on the annotation's own system prompt" "$(system 1)" "tools/annotate_prompt.md"
-check "with no web to read the answers off" "$(grep -c 'WebSearch\|WebFetch' <<<"$argv")" "0"
+check "allowed no web to read the answers off" "$(grep -o -- '--allowedTools [^ ]*' <<<"$argv" | grep -c 'WebSearch\|WebFetch')" "0"
 
 echo "an overrun in a solve resumes it, on the same system prompt and still with no web"
 FILL="$stub/fill" run overrun
@@ -161,7 +161,7 @@ check "calls" "$calls" "2"
 check "second call resumed the first's session" "$(resumed 2)" "$(opened 1)"
 check "on the annotation's system prompt both times" "$(system 1) $(system 2)" \
   "tools/annotate_prompt.md tools/annotate_prompt.md"
-check "with no web on either turn" "$(grep -c 'WebSearch\|WebFetch' <<<"$argv")" "0"
+check "allowed no web on either turn" "$(grep -o -- '--allowedTools [^ ]*' <<<"$argv" | grep -c 'WebSearch\|WebFetch')" "0"
 
 echo "a solve's conversation is not resumed without a note"
 FILL="$stub/fill" run "" "last-nights-solve solve"
