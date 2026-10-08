@@ -441,6 +441,13 @@ check("No 103: a stop left alone before the first word is an elided start, opene
 check("no stop before it, or one ending a word: nothing put back (mirror)", [None, None],
       [oc.reopened("rev. is a monster of so frightful mien'.", ["rev. is a monster of so frightful mien'."]),
        oc.reopened("A. B. is a monster of so frightful mien'.", [])])
+death = "This word might be put into the mouth of Death."
+check("No 10 41A: a quote a whole sentence opens and never closes, a reading prints bare, is a speck",
+      death, oc.unquoted_speck("'" + death, ["'" + death, death]))
+check("a quotation closed, its end lost, or opened in every reading keeps its quote (mirror)", [None, None, None],
+      [oc.unquoted_speck("'The highest string of the violin'.", ["The highest string of the violin'."]),
+       oc.unquoted_speck("'Resting weary limbs at last on beds of", ["Resting weary limbs at last on beds of"]),
+       oc.unquoted_speck("'" + death, ["'" + death, "‘" + death])])
 check("a quotation parted from the comma before it, and a dash after a colon spaced",
       ["A printer might say, 'Give me a", "Charade: — components I postpone."],
       [oc.clean("A printer might say,'Give me a"), oc.clean("Charade: -components I postpone.")])

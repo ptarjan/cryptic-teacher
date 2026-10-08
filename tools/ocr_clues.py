@@ -2491,6 +2491,21 @@ def reopened(text, readings):
     return None
 
 
+def unquoted_speck(text, readings):
+    """`text` without the single quote it opens with and never closes,
+    when the clue ends a whole sentence (a quotation whose end is lost
+    leaves its last word bare: "'Resting ... on beds of") and a reading of
+    it (`readings`) prints its first word with no mark before it: a speck
+    by the clue's number read as a quote (No 10 41A "'This word might be put
+    into the mouth of Death."). None otherwise."""
+    if not text or text[0] not in "'‘" or unclosed_quote(text) != 0 or not re.search(r"\w[.?!]$", text):
+        return None
+    first = text[1:].split(None, 1)[:1]
+    if first and any(re.match(r"\s*" + re.escape(first[0]) + r"(?:\s|$)", r or "") for r in readings):
+        return text[1:]
+    return None
+
+
 def holding(text, k):
     """The whitespace-parted token of `text` holding its character `k`."""
     return text[:k].rsplit(None, 1)[-1] + text[k:].split(None, 1)[0] if text[:k] and not text[k - 1].isspace() \

@@ -571,7 +571,8 @@ def vote(words, verdict, cols=None, lengths=None):
         laid[lid] = (t, e, g)
         if t and ocr_clues.unclosed_quote(t) is not None:
             own = [(ly.get(lid) or ("",))[0] for ly in lays]
-            if got := ocr_clues.reopened(t, own) or ocr_clues.reclosed(t, own + list(texts.values())):
+            if got := (ocr_clues.reopened(t, own) or ocr_clues.reclosed(t, own + list(texts.values()))
+                       or ocr_clues.unquoted_speck(t, own)):
                 laid[lid] = (got, e, g)
                 continue
             # A quotation's end or start lost: a printed blank ("——'") no
