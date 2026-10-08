@@ -24,6 +24,9 @@
   "date": "2025-09-02",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,72 @@
     "text": "Before a crustacean swallowed head of stag beetle",
     "enumeration": "6"
    },
-   "solution": "SCARAB"
+   "solution": "SCARAB",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "SCARAB",
+    "definitions": [
+     {
+      "text": "beetle",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its front, so only its opening letter is kept"
+     },
+     {
+      "text": "swallowed",
+      "for": "container",
+      "note": "whatever is swallowed ends up inside the swallower, so one piece goes within another"
+     },
+     {
+      "text": "Before",
+      "for": "charade",
+      "note": "placed first in the clue, it says the letter from the deer comes ahead of the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stag",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of stag"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "crustacean",
+      "gives": "CRAB",
+      "note": "a crab is a crustacean"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CARAB"
+     ]
+    },
+    "explanation": {
+     "surface": "A crab gobbles up part of a stag, which is a strange meal for any shellfish.",
+     "walkthrough": "The crab swallows the A, giving C-A-RAB, and the S from stag goes in front: SCARAB.",
+     "definitionFit": "A scarab is a dung beetle, sacred in ancient Egypt and common as a carved amulet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Before"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +119,50 @@
     "text": "Illustration shows batting position",
     "enumeration": "8"
    },
-   "solution": "INSTANCE"
+   "solution": "INSTANCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INSTANCE",
+    "definitions": [
+     {
+      "text": "Illustration",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "shows"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "batting",
+      "gives": "IN",
+      "note": "a batter at the crease in cricket is said to be in"
+     },
+     {
+      "clueFragment": "position",
+      "gives": "STANCE",
+      "note": "a stance is a position taken up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "STANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A coaching manual's picture demonstrates how to stand at the crease.",
+     "walkthrough": "'Batting position' reads as one cricket phrase, but it splits in two; a batter at the crease in cricket is said to be in.",
+     "definitionFit": "An instance is an example, and an illustration is an example given to make a point clear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "batting"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +176,47 @@
     "text": "Perhaps mouse is unimportant",
     "enumeration": "10"
    },
-   "solution": "PERIPHERAL"
+   "solution": "PERIPHERAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PERIPHERAL",
+    "definitions": [
+     {
+      "text": "Perhaps mouse",
+      "at": 0
+     },
+     {
+      "text": "unimportant",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps mouse",
+      "note": "first meaning: a device plugged into a computer, of which a mouse is one example"
+     },
+     {
+      "clueFragment": "unimportant",
+      "note": "second meaning: on the margins, not central"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone dismisses a mouse as a creature of no consequence.",
+     "walkthrough": "'Mouse' suggests the rodent; here it is the computer accessory, an example of a device attached to a computer.",
+     "definitionFit": "The word is both a noun for an add-on computer device and an adjective for something marginal or minor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mouse"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +230,67 @@
     "text": "Continent is up for replacing inhabitants of Africa",
     "enumeration": "4"
    },
-   "solution": "ASIA"
+   "solution": "ASIA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "substitution"
+    ],
+    "answer": "ASIA",
+    "definitions": [
+     {
+      "text": "Continent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading the word from bottom to top"
+     },
+     {
+      "text": "for replacing",
+      "for": "substitution",
+      "note": "one thing standing in for another means the clue's inner letters are swapped out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "inhabitants of Africa",
+      "gives": "FRIC",
+      "note": "the inhabitants of a word are its inner letters, all but the first and last"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SI",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "IS",
+       "to": "SI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A note that one continent's peoples are being displaced by another's.",
+     "walkthrough": "The outer letters of the word Africa stay put; only its middle is swapped for the turned-round word.",
+     "definitionFit": "Asia is the largest of the continents, stretching from the Urals to the Pacific."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inhabitants"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +304,67 @@
     "text": "Surface tension just absorbed by oxygen",
     "enumeration": "10"
    },
-   "solution": "OSTENSIBLE"
+   "solution": "OSTENSIBLE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "OSTENSIBLE",
+    "definitions": [
+     {
+      "text": "Surface",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absorbed",
+      "for": "container",
+      "note": "something absorbed is taken right inside, so one piece sits within another"
+     },
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "by can mean beside, so the oxygen symbol is set next to the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oxygen",
+      "gives": "O",
+      "note": "O is the chemical symbol for oxygen"
+     },
+     {
+      "clueFragment": "tension",
+      "gives": "T",
+      "note": "T is the physics symbol for tension"
+     },
+     {
+      "clueFragment": "just",
+      "gives": "SENSIBLE",
+      "note": "just in the sense of reasonable or sound"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "S",
+      "T",
+      "ENSIBLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A chemistry note: surface tension is simply taken up by oxygen.",
+     "walkthrough": "'Surface tension' looks like one physics term, but 'Surface' is the definition. T goes inside SENSIBLE (S-T-ENSIBLE), with O beside it.",
+     "definitionFit": "Ostensible means apparent on the face of things, so it describes what is only surface-deep."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Surface"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +378,48 @@
     "text": "Punter places this to help",
     "enumeration": "4"
    },
-   "solution": "ABET"
+   "solution": "ABET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ABET",
+    "definitions": [
+     {
+      "text": "Punter places this",
+      "at": 0,
+      "note": "a two-word phrase, A BET, run together"
+     },
+     {
+      "text": "help",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Punter places this",
+      "note": "first meaning: what a gambler puts on a horse, split as two words"
+     },
+     {
+      "clueFragment": "help",
+      "note": "second meaning: to assist, usually in wrongdoing"
+     }
+    ],
+    "explanation": {
+     "surface": "A gambler puts money on a horse to give it a boost.",
+     "walkthrough": "A punter is a gambler; what they place is A BET, which run together gives ABET.",
+     "definitionFit": "To abet is to assist or encourage, chiefly in a crime, as in aiding and abetting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "places"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +433,47 @@
     "text": "Beer’s picked up for pound",
     "enumeration": "6"
    },
-   "solution": "BRUISE"
+   "solution": "BRUISE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BRUISE",
+    "definitions": [
+     {
+      "text": "pound",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up",
+      "for": "homophone",
+      "note": "picking something up by ear means hearing it, so the sound counts, not the spelling"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beer’s",
+      "gives": "BRUISE",
+      "soundsLike": "BREWS",
+      "note": "beer is a brew, so beer is becomes brew's, said brews"
+     }
+    ],
+    "explanation": {
+     "surface": "A pub-goer notices that a pint has been bought for a pound coin.",
+     "walkthrough": "'Pound' tempts as money, but it is a verb meaning to batter.",
+     "definitionFit": "To bruise is to crush or injure by beating, and to pound food or flesh does exactly that."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pound"
+    }
+   }
   },
   {
    "number": 8,
@@ -141,7 +493,50 @@
      }
     ]
    },
-   "solution": "CHESSSET"
+   "solution": "CHESSSET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHESS SET",
+    "definitions": [
+     {
+      "text": "Use this for playing",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "musical",
+      "gives": "CHESS",
+      "note": "Chess is a 1980s stage musical by Tim Rice and the men of ABBA"
+     },
+     {
+      "clueFragment": "TV",
+      "gives": "SET",
+      "note": "a TV is a television set"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHESS",
+      "SET"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to use a television for watching a musical.",
+     "walkthrough": "'Playing musical' looks like a phrase, but the definition stops at 'playing'.",
+     "definitionFit": "A chess set is the board and pieces you need in order to play a game of chess."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "musical"
+    }
+   }
   },
   {
    "number": 9,
@@ -155,7 +550,58 @@
     "text": "Agreement for government survey about official organisation",
     "enumeration": "9"
    },
-   "solution": "CONSENSUS"
+   "solution": "CONSENSUS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CONSENSUS",
+    "definitions": [
+     {
+      "text": "Agreement",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece wraps the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "government survey",
+      "gives": "CENSUS",
+      "note": "a census is an official count of the population"
+     },
+     {
+      "clueFragment": "official organisation",
+      "gives": "ONS",
+      "note": "the ONS is Britain's Office for National Statistics, which runs the census"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ONS",
+      "ENSUS"
+     ]
+    },
+    "explanation": {
+     "surface": "Agreement is needed for a state survey of a public body.",
+     "walkthrough": "The Office for National Statistics is the UK body that actually conducts the census, which makes the surface apt.",
+     "definitionFit": "A consensus is general agreement shared by a whole group."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "organisation"
+    }
+   }
   },
   {
    "number": 10,
@@ -169,7 +615,39 @@
     "text": "Slip caught this delivery",
     "enumeration": "5"
    },
-   "solution": "BIRTH"
+   "solution": "BIRTH",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BIRTH",
+    "definitions": [
+     {
+      "text": "Slip caught this delivery",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slip caught this delivery",
+      "note": "surface reading: a cricket fielder in the slips takes a catch off a ball bowled"
+     },
+     {
+      "clueFragment": "delivery",
+      "note": "setter's reading: a baby slips out and is caught by the midwife, and the event is a delivery"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In cricket the slips stand beside the wicketkeeper and a delivery is a bowled ball; here a delivery is a baby arriving.",
+     "definitionFit": "A delivery in a maternity ward is the moment a child is born."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Slip"
+    }
+   }
   },
   {
    "number": 11,
@@ -183,7 +661,62 @@
     "text": "One detects light capturing surface of sparkling wine",
     "enumeration": "7"
    },
-   "solution": "RETSINA"
+   "solution": "RETSINA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RETSINA",
+    "definitions": [
+     {
+      "text": "wine",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surface of",
+      "for": "letter_selection",
+      "note": "the surface of a word is its top layer, so just its opening letter"
+     },
+     {
+      "text": "capturing",
+      "for": "container",
+      "note": "something captured is held inside its captor"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One detects light",
+      "gives": "RETINA",
+      "note": "the retina is the light-sensitive layer at the back of the eye"
+     },
+     {
+      "clueFragment": "sparkling",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of sparkling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RET",
+      "S",
+      "INA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone holds a glass of fizz up to the light and spots the bubbles.",
+     "walkthrough": "'Sparkling wine' reads as one phrase, but 'sparkling' only lends its first letter; retsina is not fizzy.",
+     "definitionFit": "Retsina is a Greek white wine flavoured with pine resin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sparkling"
+    }
+   }
   },
   {
    "number": 12,
@@ -197,7 +730,54 @@
     "text": "Demands guts to give up resistance",
     "enumeration": "7"
    },
-   "solution": "ENTAILS"
+   "solution": "ENTAILS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ENTAILS",
+    "definitions": [
+     {
+      "text": "Demands",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to give up",
+      "for": "deletion",
+      "note": "giving something up means losing it, so one letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guts",
+      "gives": "ENTRAILS",
+      "note": "entrails are the guts of an animal"
+     },
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the physics symbol for resistance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENT",
+      "AILS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone insists that cowardice means abandoning the fight.",
+     "walkthrough": "'Guts' suggests courage, but it means innards; ENTRAILS without its R leaves ENTAILS.",
+     "definitionFit": "If one thing entails another, it necessarily requires or involves it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "guts"
+    }
+   }
   },
   {
    "number": 13,
@@ -211,7 +791,48 @@
     "text": "Censor incomplete report",
     "enumeration": "3"
    },
-   "solution": "BAN"
+   "solution": "BAN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BAN",
+    "definitions": [
+     {
+      "text": "Censor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "incomplete",
+      "for": "deletion",
+      "note": "something incomplete is missing its end, so the final letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "report",
+      "gives": "BANG",
+      "note": "a report is the sound of a gunshot, a bang"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A censor suppresses a report that was never finished.",
+     "walkthrough": "'Report' looks like a document to be censored, but it is the noise of a gun.",
+     "definitionFit": "To censor is to suppress or prohibit, which is what a ban does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "report"
+    }
+   }
   },
   {
    "number": 14,
@@ -231,7 +852,74 @@
      }
     ]
    },
-   "solution": "HOMOSAPIENS"
+   "solution": "HOMOSAPIENS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "HOMO SAPIENS",
+    "definitions": [
+     {
+      "text": "man",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not",
+      "for": "deletion",
+      "note": "not means without, so the title's letters are removed"
+     },
+     {
+      "text": "different",
+      "for": "anagram",
+      "note": "a different arrangement means the remaining letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "—"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Homer Simpson",
+      "gives": "HOMERSIMPSON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Mr.",
+      "gives": "MR",
+      "note": "the title, without its full stop"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOMOSAPIENS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HOESIMPSONA",
+       "gives": "HOMOSAPIENS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cartoon dad is declared to be a different kind of man altogether.",
+     "walkthrough": "Remove M and R from HOMER SIMPSON, add A, and rearrange the eleven letters.",
+     "definitionFit": "Homo sapiens is the scientific name for the human species, mankind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Mr."
+    }
+   }
   },
   {
    "number": 15,
@@ -245,7 +933,65 @@
     "text": "Short of gold, mountaineers brewed soup",
     "enumeration": "10"
    },
-   "solution": "MINESTRONE"
+   "solution": "MINESTRONE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "MINESTRONE",
+    "definitions": [
+     {
+      "text": "soup",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Short of",
+      "for": "deletion",
+      "note": "being short of something means lacking it, so those letters are taken away"
+     },
+     {
+      "text": "brewed",
+      "for": "anagram",
+      "note": "brewing mixes and stews ingredients, so the letters are stirred into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "mountaineers",
+      "gives": "MOUNTAINEERS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MINESTRONE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MONTINEERS",
+       "gives": "MINESTRONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Climbers who can't afford better cook up soup at camp.",
+     "walkthrough": "Take A and U out of MOUNTAINEERS and rearrange the ten letters left.",
+     "definitionFit": "Minestrone is a thick Italian vegetable soup, often with pasta or rice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brewed"
+    }
+   }
   },
   {
    "number": 16,
@@ -259,7 +1005,62 @@
     "text": "Old man more unwell after getting tattoo — needs this?",
     "enumeration": "10"
    },
-   "solution": "PAINKILLER"
+   "solution": "PAINKILLER",
+   "annotation": {
+    "type": [
+     "charade",
+     "and_lit"
+    ],
+    "answer": "PAINKILLER",
+    "definitions": [
+     {
+      "text": "Old man more unwell after getting tattoo — needs this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says the sickly piece follows the body-art piece in the line"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old man",
+      "gives": "PA",
+      "note": "pa is a father, an old man"
+     },
+     {
+      "clueFragment": "tattoo",
+      "gives": "INK",
+      "note": "a tattoo is informally called ink"
+     },
+     {
+      "clueFragment": "more unwell",
+      "gives": "ILLER",
+      "note": "comparative of ill"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "INK",
+      "ILLER"
+     ]
+    },
+    "explanation": {
+     "surface": "A father feels worse after his first tattoo and wants something for it.",
+     "walkthrough": "The whole clue is the definition as well as the wordplay: PA, then INK, then ILLER.",
+     "definitionFit": "An analgesic is what an elderly man in pain after a tattoo session would reach for."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "tattoo"
+    }
+   }
   },
   {
    "number": 17,
@@ -273,7 +1074,58 @@
     "text": "Clip art detailed by that woman",
     "enumeration": "5"
    },
-   "solution": "SHEAR"
+   "solution": "SHEAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SHEAR",
+    "definitions": [
+     {
+      "text": "Clip",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "detailed",
+      "for": "deletion",
+      "note": "de-tailed means having its tail cut off, so the last letter goes"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that woman",
+      "gives": "SHE",
+      "note": "she is the pronoun for that woman"
+     },
+     {
+      "clueFragment": "art",
+      "gives": "ART",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHE",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "Clip art finished in fine detail by a female designer.",
+     "walkthrough": "'Detailed' reads as intricate but splits as de-tailed: ART loses its T.",
+     "definitionFit": "To shear is to clip or cut, as with sheep's wool or a hedge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "detailed"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +1139,60 @@
     "text": "Symptoms initially given impression of agitation",
     "enumeration": "8"
    },
-   "solution": "SEDITION"
+   "solution": "SEDITION",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SEDITION",
+    "definitions": [
+     {
+      "text": "agitation",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the start of the word, so only its opening letter is taken"
+     }
+    ],
+    "linkWords": [
+     "given",
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Symptoms",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of symptoms"
+     },
+     {
+      "clueFragment": "impression",
+      "gives": "EDITION",
+      "note": "an impression is a print run of a book, an edition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EDITION"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor notes that the early symptoms suggest a nervous condition.",
+     "walkthrough": "'Agitation' sounds medical, but here it means stirring up unrest against the state.",
+     "definitionFit": "Sedition is political agitation or incitement to rebel against authority."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "impression"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1206,51 @@
     "text": "Pinch of salt at noon",
     "enumeration": "3"
    },
-   "solution": "NAB"
+   "solution": "NAB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NAB",
+    "definitions": [
+     {
+      "text": "Pinch",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of",
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "note": "N is short for noon"
+     },
+     {
+      "clueFragment": "salt",
+      "gives": "AB",
+      "note": "a salt is a sailor, an able-bodied seaman or AB"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "AB"
+     ]
+    },
+    "explanation": {
+     "surface": "Adding a pinch of salt to lunch at midday.",
+     "walkthrough": "'Pinch of salt' reads as a kitchen measure, but 'Pinch' is the definition and 'salt' a sailor.",
+     "definitionFit": "Pinch and nab are both slang for steal or arrest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "salt"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1264,65 @@
     "text": "Block chain reduced by more than half with energy and time",
     "enumeration": "5"
    },
-   "solution": "INGOT"
+   "solution": "INGOT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "INGOT",
+    "definitions": [
+     {
+      "text": "Block",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reduced by more than half",
+      "for": "deletion",
+      "note": "cut down by over half means most of the word's letters are thrown away"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chain",
+      "gives": "CHAIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "GO",
+      "note": "go means energy or drive"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is short for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "GO",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A blockchain is cut down to size with power and patience.",
+     "walkthrough": "'Block chain' reads as the crypto ledger, but 'Block' is the definition. CHAIN loses three of its five letters, leaving IN.",
+     "definitionFit": "An ingot is a block of cast metal, such as a gold bar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chain"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1336,49 @@
     "text": "Psychologically coerce Georgia with insult",
     "enumeration": "8"
    },
-   "solution": "GASLIGHT"
+   "solution": "GASLIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GASLIGHT",
+    "definitions": [
+     {
+      "text": "Psychologically coerce",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Georgia",
+      "gives": "GA",
+      "note": "GA is the abbreviation for the US state of Georgia"
+     },
+     {
+      "clueFragment": "insult",
+      "gives": "SLIGHT",
+      "note": "a slight is an insult or snub"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GA",
+      "SLIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Bullying a whole country into submission through slurs.",
+     "definitionFit": "To gaslight someone is to manipulate them into doubting their own perception, after the film Gaslight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Georgia"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1392,51 @@
     "text": "Misinformation regarding climax of tennis match?",
     "enumeration": "11"
    },
-   "solution": "DOUBLESPEAK"
+   "solution": "DOUBLESPEAK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOUBLESPEAK",
+    "definitions": [
+     {
+      "text": "Misinformation",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "regarding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tennis match",
+      "gives": "DOUBLES",
+      "note": "doubles is a tennis match with two players a side"
+     },
+     {
+      "clueFragment": "climax of",
+      "gives": "PEAK",
+      "note": "a peak is a climax or high point"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOUBLES",
+      "PEAK"
+     ]
+    },
+    "explanation": {
+     "surface": "Fake news about the decisive point of a tennis final.",
+     "walkthrough": "The question mark flags the whimsical split: the high point of a doubles match is a doubles peak.",
+     "definitionFit": "Doublespeak is deliberately evasive or misleading language, Orwell-style."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "climax"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1450,45 @@
     "text": "Blurb an editor abridged and refined",
     "enumeration": "6"
    },
-   "solution": "URBANE"
+   "solution": "URBANE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "URBANE",
+    "definitions": [
+     {
+      "text": "refined",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abridged",
+      "for": "hidden_word",
+      "note": "an abridged text is cut at both ends, so the letters left in the middle make the word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blurb an editor",
+      "gives": "URBANE",
+      "note": "the run of letters inside these words"
+     }
+    ],
+    "explanation": {
+     "surface": "A book's blurb is cut down and polished by its editor.",
+     "definitionFit": "Urbane means suave and courteous, with polished city manners."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "abridged"
+    }
+   }
   },
   {
    "number": 23,
@@ -371,7 +1502,53 @@
     "text": "Problem wrestling with lost love",
     "enumeration": "3"
    },
-   "solution": "SUM"
+   "solution": "SUM",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SUM",
+    "definitions": [
+     {
+      "text": "Problem",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with lost",
+      "for": "deletion",
+      "note": "with something lost means minus it, so that letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wrestling",
+      "gives": "SUMO",
+      "note": "sumo is Japanese wrestling"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, which looks like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is struggling with a lost romance.",
+     "walkthrough": "'Wrestling with' reads as struggling with, but wrestling is a sport here.",
+     "definitionFit": "A sum is an arithmetic problem, as in a schoolchild doing sums."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wrestling"
+    }
+   }
   },
   {
    "number": 24,
@@ -385,7 +1562,76 @@
     "text": "Cross repeatedly assuming Gandalf to begin with is not a wizard",
     "enumeration": "6"
    },
-   "solution": "MUGGLE"
+   "solution": "MUGGLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MUGGLE",
+    "definitions": [
+     {
+      "text": "not a wizard",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to begin with",
+      "for": "letter_selection",
+      "note": "to begin with means at the start, so just the opening letter is used"
+     },
+     {
+      "text": "repeatedly",
+      "for": "letter_selection",
+      "note": "repeatedly says the selected letter is used more than once, here twice"
+     },
+     {
+      "text": "assuming",
+      "for": "container",
+      "note": "assuming means taking on or taking in, so the letters go inside"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cross",
+      "gives": "MULE",
+      "note": "a mule is a cross between a horse and a donkey"
+     },
+     {
+      "clueFragment": "Gandalf",
+      "gives": "G",
+      "select": "first",
+      "note": "the first letter of Gandalf"
+     },
+     {
+      "clueFragment": "Gandalf",
+      "gives": "G",
+      "select": "first",
+      "note": "the same letter again, as the clue asks for it more than once"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MU",
+      "GG",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Gandalf crossing a wizard's path, fitting for Tolkien's wizard.",
+     "walkthrough": "'Cross' looks like a verb but is the hybrid animal; MULE takes in G twice: MU-GG-LE.",
+     "definitionFit": "In the Harry Potter books a Muggle is a person with no magical powers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Cross"
+    }
+   }
   },
   {
    "number": 25,
@@ -399,7 +1645,54 @@
     "text": "Blank slate lacking as a format for spreadsheets",
     "enumeration": "7"
    },
-   "solution": "TABULAR"
+   "solution": "TABULAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TABULAR",
+    "definitions": [
+     {
+      "text": "format for spreadsheets",
+      "at": 25,
+      "note": "a noun phrase for an adjective: tabular data is in that format"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking means without, so the following letters are taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blank slate",
+      "gives": "TABULARASA",
+      "note": "tabula rasa is Latin for a blank slate"
+     },
+     {
+      "clueFragment": "as a",
+      "gives": "ASA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TABULAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A blank spreadsheet is said to lack something as a format.",
+     "walkthrough": "TABULA RASA minus its final A-S-A leaves TABULAR.",
+     "definitionFit": "Tabular means arranged in rows and columns, which is exactly how spreadsheets lay out data."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "slate"
+    }
+   }
   },
   {
    "number": 26,
@@ -413,7 +1706,44 @@
     "text": "Song was flat?",
     "enumeration": "4"
    },
-   "solution": "LIED"
+   "solution": "LIED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LIED",
+    "definitions": [
+     {
+      "text": "Song",
+      "at": 0
+     },
+     {
+      "text": "was flat",
+      "at": 5,
+      "note": "playful: lied as told an untruth, read as lay flat"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Song",
+      "note": "first meaning: a German art song, as by Schubert"
+     },
+     {
+      "clueFragment": "was flat",
+      "note": "second meaning: past tense of lie, reclining, used loosely"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Flat' suggests a singer off pitch; the second sense is lying down, with a wink that LIED is properly the past of telling fibs.",
+     "definitionFit": "A Lied is a German art song for voice and piano; lied is also a past form of lie."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flat"
+    }
+   }
   },
   {
    "number": 27,
@@ -427,7 +1757,43 @@
     "text": "Hearty meal should be what dentist gives you",
     "enumeration": "7"
    },
-   "solution": "FILLING"
+   "solution": "FILLING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FILLING",
+    "definitions": [
+     {
+      "text": "Hearty meal should be",
+      "at": 0
+     },
+     {
+      "text": "what dentist gives you",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hearty meal should be",
+      "note": "first meaning: satisfying and substantial"
+     },
+     {
+      "clueFragment": "what dentist gives you",
+      "note": "second meaning: the material that plugs a cavity in a tooth"
+     }
+    ],
+    "explanation": {
+     "surface": "A big lunch ought to be what you get at the dentist's.",
+     "definitionFit": "The word is an adjective for food that satisfies hunger and a noun for a dental repair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hearty"
+    }
+   }
   },
   {
    "number": 27,
@@ -441,7 +1807,59 @@
     "text": "Vampire has more than one lover with unforgiving heart",
     "enumeration": "4"
    },
-   "solution": "FANG"
+   "solution": "FANG",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FANG",
+    "definitions": [
+     {
+      "text": "Vampire has more than one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heart",
+      "for": "letter_selection",
+      "note": "the heart of a word is its centre, so only the middle letter is kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lover",
+      "gives": "FAN",
+      "note": "a fan is a lover or enthusiast"
+     },
+     {
+      "clueFragment": "unforgiving",
+      "gives": "G",
+      "select": "middle",
+      "note": "the middle letter of this eleven-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A vampire juggles several lovers and shows no mercy.",
+     "walkthrough": "'More than one lover' tempts as the wordplay, but 'more than one' belongs to the definition: a vampire has two of these.",
+     "definitionFit": "A fang is a long pointed tooth, and the stock vampire has a pair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "lover"
+    }
+   }
   },
   {
    "number": 28,
@@ -455,7 +1873,62 @@
     "text": "“Once upon…” at the beginning carried little weight",
     "enumeration": "5"
    },
-   "solution": "OUNCE"
+   "solution": "OUNCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "OUNCE",
+    "definitions": [
+     {
+      "text": "little weight",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the beginning",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter, which is all that is used"
+     },
+     {
+      "text": "carried",
+      "for": "container",
+      "note": "what is carried is held within the carrier"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Once",
+      "gives": "ONCE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "upon",
+      "gives": "U",
+      "select": "first",
+      "note": "the first letter of upon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "U",
+      "NCE"
+     ]
+    },
+    "explanation": {
+     "surface": "The opening of a fairy tale had little impact on its listeners.",
+     "walkthrough": "ONCE holds the U from upon after its first letter: O-U-NCE.",
+     "definitionFit": "An ounce is a small unit of weight, about 28 grams."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "carried"
+    }
+   }
   },
   {
    "number": 29,
@@ -469,7 +1942,56 @@
     "text": "Lanthanide ethanol mixture won’t kill you",
     "enumeration": "9"
    },
-   "solution": "NONLETHAL"
+   "solution": "NONLETHAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NONLETHAL",
+    "definitions": [
+     {
+      "text": "won’t kill you",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixture",
+      "for": "anagram",
+      "note": "a mixture has its parts stirred together, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lanthanide",
+      "gives": "LN",
+      "note": "Ln is the general chemical symbol for any lanthanide element"
+     },
+     {
+      "clueFragment": "ethanol",
+      "gives": "ETHANOL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LNETHANOL",
+       "gives": "NONLETHAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chemist reassures us that a lab mixture is harmless.",
+     "walkthrough": "'Lanthanide' tempts as fodder in full, but it gives only its group symbol Ln.",
+     "definitionFit": "Something nonlethal is not deadly, so it will not cause death."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lanthanide"
+    }
+   }
   }
  ]
 }
