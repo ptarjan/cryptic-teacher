@@ -528,6 +528,18 @@ check("and holds it with no length (mirror)", "no count read",
       al.ocr_clues.reconcile({"2-across": ("A fine bust, trembling?", None, None)},
                              ["2 A fine bust, trembling? 3 Next"], {})[1].get("2-across"))
 
+# No 8's 32 across: a worn "a" that Tesseract reads "2" (and its number "32."
+# as "2.") and another reading drops is seen twice, not voted blank.
+worn = {"32-across": ("Half of part of a palm used for a special purpose.", None, None)}
+check("a word another reading reads as a figure in its place stands", "Half of part of a palm used for a special purpose.",
+      al.ocr_clues.reconcile(worn, ["31. Flowers' sickness. 32. Half of part of  palm used for a special purpose. 33. The tulip tree.",
+                                    "31. Flowers' sickness. 2. Half of part of 2 palm used for a special purpose, 3. The tulip tree,"],
+                             uncounted=True)[0]["32-across"][0])
+check("and with no figure there, a word one reading alone has is blank (mirror)", "no other reading has 'a'",
+      al.ocr_clues.reconcile(worn, ["31. Flowers' sickness. 32. Half of part of  palm used for a special purpose. 33. The tulip tree.",
+                                    "31. Flowers' sickness. 2. Half of part of palm used for a special purpose, 3. The tulip tree,"],
+                             uncounted=True)[1].get("32-across"))
+
 # A page that prints the clues or the diagram on another page says which.
 check("the pages it sends to, over a line break; a report's page is none",
       [675, 885, 1057], g.elsewhere(line("Closing date: Tuesday. Diagram", 100, 100) + line("and rules on page 885.", 100, 120)
