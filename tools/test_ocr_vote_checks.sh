@@ -335,6 +335,8 @@ check("but a reading that dissents, or two readings alone, leave it to the corpu
       [oc.agree(starling, [mark("43 " + starling + " 44 The"),
                            mark("43 " + starling.replace("starling", "starting") + " 44 The")])[0],
        oc.agree(starling, [mark("43 " + starling + " 44 The")])[0]])
+check("but a two-letter word every reading shares still yields to its commoner slip (mirror)",
+      "it does us a power of good.", oc.agree("it does us a power ot good.", [mark("13 it does us a power ot good. 14 The")] * 2)[0])
 tea = "in the soldiers'tea for this purpose."
 check("an apostrophe glued between two words another reading parts stays a possessive (No 15 39A)",
       "in the soldiers' tea for this purpose.",
