@@ -307,14 +307,26 @@ check("a number in a cell starting no light, the rest one ahead, is a stray", (T
 odd = {**page, (2, 1): 8}
 f = lg.fit(certain(STRAY), {"ch": odd, "en5": odd})
 check("a stray that leaves another number off is no fit (mirror)", (False, None), (f["exact"], f.get("stray")))
-# No 4 prints 4 left of 3: two lights' numbers each in the other's start.
+# No 4 prints 4 left of 3 and skips 32: the page numbers its lights as printed.
 OPEN = ["...", "...", "..."]
 page = {(0, 0): 1, (0, 1): 3, (0, 2): 2, (1, 0): 4, (2, 0): 5}
 f = lg.fit(certain(OPEN), {"ch": page, "en5": page})
-check("two numbers printed each in the other's start are a swap", (True, [[0, 1], [0, 2]], []),
-      (f["exact"], f.get("swap"), f["disagree"]))
+check("two numbers printed each in the other's start are the page's numbering", (True, "printed", []),
+      (f["exact"], f.get("numbering"), f["disagree"]))
+check("its numbers are the page's", page, lg.as_printed(OPEN, {tuple(x[:2]): x[2] for x in f["printed"]}))
+skip = {(0, 0): 1, (0, 1): 2, (0, 2): 3, (1, 0): 5, (2, 0): 6}
+check("a number skipped is the page's numbering", skip, lg.as_printed(OPEN, skip))
+f = lg.fit(certain(OPEN), {"ch": skip, "en5": skip})
+check("but no fit, as one misread is the same (mirror)", (False, None), (f["exact"], f.get("numbering")))
+check("an unread start past a skipped number takes the next above, not the one skipped",
+      {(0, 0): 1, (0, 1): 2, (0, 2): 4, (1, 0): 5, (2, 0): 6}, lg.as_printed(OPEN, {(0, 0): 1, (0, 1): 2, (0, 2): 4, (2, 0): 6}))
+check("an unread start takes no number a later start prints", {(0, 0): 1, (0, 1): 3, (0, 2): 2, (1, 0): 4, (2, 0): 5},
+      lg.as_printed(OPEN, {(0, 0): 1, (0, 2): 2, (1, 0): 4}))
 odd = {**page, (1, 0): 5, (2, 0): 4}
 f = lg.fit(certain(OPEN), {"ch": odd, "en5": odd})
-check("two pairs swapped are no fit (mirror)", (False, None), (f["exact"], f.get("swap")))
+check("two pairs swapped are no fit (mirror)", (False, None), (f["exact"], f.get("numbering")))
+check("a number printed in a cell starting no light contradicts the lights (mirror)", None,
+      lg.as_printed(OPEN, {(0, 0): 1, (1, 1): 2}))
+check("one number printed twice is no numbering (mirror)", None, lg.as_printed(OPEN, {(0, 0): 1, (0, 1): 1}))
 sys.exit(1 if fails else 0)
 PY

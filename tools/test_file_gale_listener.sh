@@ -40,12 +40,12 @@ sides[(1, 0, "b")] = 1.4   # faint: a bar ending 1 Down that changes no number
 sides[(0, 2, "r")] = 1.3   # faint too, but a bar there adds a light no clue has
 grid = {"rows": OPEN, "sides": sides, "thin": 1.0}
 clues = {f"{n}-{d}": {"text": "x"} for n, d in lts} | {"6-down": {"text": "x"}}
-rows, side, why = f.fit_to_clues(grid, {"rows": OPEN}, clues)
-check("a 6 Down clue puts back the faint bar under r1c0", ((1, 0, "b"), ["....", "b...", "....", "...."]),
-      (side, rows))
+rows, put, *_, why, _ = f.fit_to_clues(grid, {"rows": OPEN}, lambda rows: (clues, {}))
+check("a 6 Down clue puts back the faint bar under r1c0", (((1, 0, "b"),), ["....", "b...", "....", "...."]),
+      (put, rows))
 plain = {k: v for k, v in clues.items() if k != "6-down"}
-rows, side, why = f.fit_to_clues(grid, {"rows": OPEN}, {**plain, "9-across": {"text": "x"}})
-check("no single flip mends a clue with no light", (None, "no light for 9-across"),
+rows, _, *_, why, _ = f.fit_to_clues(grid, {"rows": OPEN}, lambda rows: ({**plain, "9-across": {"text": "x"}}, {}))
+check("no flip mends a clue with no light", (None, "no light for 9-across"),
       (rows, why and why.split(": ", 1)[1]))
 check("a count the light does not have is a disagreement", "count disagrees for 1-across",
       f.lights_fit(OPEN, {f"{n}-{d}": {"text": "x", "enumeration": "5" if (n, d) == (1, "across") else None}
@@ -214,7 +214,7 @@ one = {**sides, (0, 1, "r"): 1.5, (0, 2, "r"): 0.5}
 puzzle, v, _ = f.join(reading(8, TEXT), [{"grid": {**grid, "sides": one}, "fit": {**exact, "rows": stray}}],
                       [], read_letters)
 check("the one faint bar whose flip mends it is flipped (mirror)",
-      ([0, 1, "r"], None, 8), (v.get("flipped"), v.get("mended"), puzzle and len(puzzle["entries"])))
+      ([[0, 1, "r"]], None, 8), (v.get("flipped"), v.get("mended"), puzzle and len(puzzle["entries"])))
 _, v, _ = f.join(reading(8, TEXT), [{"grid": {**grid, "sides": {**one, (0, 2, "r"): 1.3}}, "fit": {**exact, "rows": stray}}],
                  [], read_letters)
 check("two flips that would each mend it leave the grid unused, no light called skipped (mirror)", (None, True),
@@ -242,13 +242,35 @@ check("a stray number's tail is read one back", (set(f.light_ids(STRAY)), None, 
 check("the lights then fit the list", None, f.lights_fit(STRAY, laid))
 laid, _, why = f.unstrayed(fit, {**listed, "6-down": {"text": "a clue at the stray number"}})
 check("a clue numbered at the stray cell refuses it: a misread bar (mirror)", (None, True), (laid, bool(why)))
-# A page printing two numbers each in the other's start (fit "swap", No 4's
-# 3 and 4) numbers its clue list as printed: each clue goes to its light.
+# A page numbering its lights as printed (fit "printed", No 4's 3 and 4
+# traded) has its clue list read by those numbers: each clue to its light.
 OPEN = ["...", "...", "..."]
+printed = {"rows": OPEN, "exact": True, "numbering": "printed", "printed": [[0, 1, 3], [0, 2, 2], [1, 0, 4]]}
 listed = {k: {"text": k} for k in ("1-across", "4-across", "5-across", "1-down", "2-down", "3-down")}
-laid, notes = f.unswapped({"rows": OPEN, "exact": True, "swap": [[0, 1], [0, 2]]}, listed)
-check("a swapped pair's clues trade lights", ("3-down", "2-down", "1-across", ["2-down", "3-down"]),
+laid, notes = f.as_page(OPEN, printed, listed)
+check("a traded pair's clues trade lights", ("3-down", "2-down", "1-across", ["2-down", "3-down"]),
       (laid["2-down"]["text"], laid["3-down"]["text"], laid["1-across"]["text"], sorted(notes)))
-check("no swap leaves the list as printed (mirror)", (listed, {}), f.unswapped({"rows": OPEN, "exact": True}, listed))
+check("a page numbered as the lights are leaves the list as printed (mirror)", (listed, {}),
+      f.as_page(OPEN, {"rows": OPEN, "exact": True}, listed))
+check("a clue numbered on no light refuses the numbering (mirror)", None,
+      f.as_page(OPEN, printed, {**listed, "7-across": {"text": "x"}}))
+check("a grid where a printed number starts no light refuses the numbering (mirror)", None,
+      f.as_page(OPEN, {**printed, "printed": [[1, 1, 6]]}, {}))
+# On a page numbered as printed, the flips the clue list asks for come
+# from the unsure sides alone, on the lines of the lights it disagrees on.
+BARRED = ["....", "....", "....", "...."]
+wide = {(r, c, s): 1.0 for r in range(4) for c in range(4) for s in "rb"
+        if (s == "r" and c < 3) or (s == "b" and r < 3)}
+wide[(2, 2, "b")], wide[(2, 3, "b")] = 1.45, 1.42   # 3 Down and 4 Down are three long
+three = {f"{n}-{d}": {"text": "x", "enumeration": "3" if (n, d) in ((3, "down"), (4, "down")) else None}
+         for n, d in f.rg.light_cells(BARRED)}
+page = {"rows": BARRED, "numbering": "printed"}
+rows, put, *_, why, _ = f.fit_to_clues({"rows": BARRED, "sides": wide, "thin": 1.0}, page, lambda rows: (three, {}))
+check("two faint bars the list needs are both put in", ({(2, 2, "b"), (2, 3, "b")}, None), (set(put or ()), why))
+far = {**wide, (2, 3, "b"): 0.9}
+rows, *_ = f.fit_to_clues({"rows": BARRED, "sides": far, "thin": 1.0}, page, lambda rows: (three, {}))
+check("a side read surely a rule is never flipped (mirror)", None, rows)
+rows, *_ = f.fit_to_clues({"rows": BARRED, "sides": wide, "thin": 1.0}, {"rows": BARRED}, lambda rows: (three, {}))
+check("a page numbered as its lights are tries one flip alone (mirror)", None, rows)
 sys.exit(1 if fails else 0)
 PY
