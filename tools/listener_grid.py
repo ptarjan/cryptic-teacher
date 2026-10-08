@@ -177,18 +177,19 @@ def thickness(dark, at, lo, hi, reach, axis):
 def read_box(ink, dark, ys, xs, inside=None):
     """(rows, sides, thin) for the lattice whose rules lie at ys and xs:
     the puzzle-format rows, each cell side's ink mass, and the thin rule's.
-    A cell whose middle lies off `inside` (shape()'s mask, the box's size)
-    is no cell of the grid, and a block in the rows."""
+    A cell whose middle lies mostly off `inside` (shape()'s mask, the box's
+    size) is no cell of the grid, and a block in the rows."""
     nr, nc = len(ys) - 1, len(xs) - 1
     blocks = np.zeros((nr, nc), bool)
     for r in range(nr):
         for c in range(nc):
             h, w = ys[r + 1] - ys[r], xs[c + 1] - xs[c]
-            if inside is not None and not inside[min(int((ys[r] + ys[r + 1]) / 2), inside.shape[0] - 1),
-                                                 min(int((xs[c] + xs[c + 1]) / 2), inside.shape[1] - 1)]:
+            middle = (slice(int(ys[r] + 0.2 * h), int(ys[r + 1] - 0.2 * h)),
+                      slice(int(xs[c] + 0.2 * w), int(xs[c + 1] - 0.2 * w)))
+            if inside is not None and inside[middle].mean() < 0.5:
                 blocks[r, c] = True
                 continue
-            mid = ink[int(ys[r] + 0.2 * h):int(ys[r + 1] - 0.2 * h), int(xs[c] + 0.2 * w):int(xs[c + 1] - 0.2 * w)]
+            mid = ink[middle]
             blocks[r, c] = mid.size and mid.mean() >= BLOCK_INK
     pitch = ((ys[-1] - ys[0]) / nr + (xs[-1] - xs[0]) / nc) / 2
     reach = 0.15 * pitch
@@ -226,35 +227,51 @@ def darkness(gray):
     return np.clip((paper - gray.astype(float)) / max(1.0, paper - full), 0, 1)
 
 
+def grown(mask, r):
+    """`mask` widened r pixels every way (a square's reach)."""
+    out = mask.copy()
+    for _ in range(r):
+        step = out.copy()
+        step[1:] |= out[:-1]
+        step[:-1] |= out[1:]
+        step[:, 1:] |= out[:, :-1]
+        step[:, :-1] |= out[:, 1:]
+        out = step
+    return out
+
+
+def cell_span(patch):
+    """The median run of paper between two rules along the rows and
+    columns of `patch`: the grid's pitch less a rule."""
+    spans = []
+    for m in (patch, patch.T):
+        for line in m:
+            at = np.flatnonzero(line)
+            if len(at) > 1:
+                d = np.diff(at) - 1
+                spans.extend(d[d > 1])
+    return int(np.median(spans)) if spans else 0
+
+
 def shape(patch):
     """The grid's outline filled in: `patch` (its pooled rules) with every
-    hole the paper outside cannot reach, widened a pixel so a rule's smear
-    stays inside. A rectangle's is its box; a map-shaped grid's (No 3's
-    India) leaves the paper around the outline out."""
-    wide = patch.copy()
-    wide[1:] |= patch[:-1]
-    wide[:-1] |= patch[1:]
-    wide[:, 1:] |= patch[:, :-1]
-    wide[:, :-1] |= patch[:, 1:]
+    hole the paper outside cannot reach through an opening a third of a
+    cell wide, widened a pixel so a rule's smear stays inside. A frame
+    printed with a shorter break stays shut (the outside floods against
+    walls grown a sixth of a cell each way, then grows back as far), and a
+    cell-wide bay of paper along a map's outline stays open. A rectangle's
+    is its box; a map-shaped grid's (No 3's India) leaves the paper around
+    the outline out."""
+    r = max(1, cell_span(patch) // 6)
+    wall = grown(patch, 1 + r)
     out = np.zeros_like(patch)
-    out[0], out[-1], out[:, 0], out[:, -1] = ~wide[0], ~wide[-1], ~wide[:, 0], ~wide[:, -1]
+    out[0], out[-1], out[:, 0], out[:, -1] = ~wall[0], ~wall[-1], ~wall[:, 0], ~wall[:, -1]
     while True:
-        grown = out.copy()
-        grown[1:] |= out[:-1]
-        grown[:-1] |= out[1:]
-        grown[:, 1:] |= out[:, :-1]
-        grown[:, :-1] |= out[:, 1:]
-        grown &= ~wide
-        if (grown == out).all():
+        more = grown(out, 1) & ~wall
+        if (more == out).all():
             break
-        out = grown
-    inside = ~out
-    edge = inside.copy()
-    edge[1:] |= inside[:-1]
-    edge[:-1] |= inside[1:]
-    edge[:, 1:] |= inside[:, :-1]
-    edge[:, :-1] |= inside[:, 1:]
-    return edge
+        out = more
+    return grown(~(grown(out, r) & ~grown(patch, 1)), 1)
 
 
 def find_grids(gray):
