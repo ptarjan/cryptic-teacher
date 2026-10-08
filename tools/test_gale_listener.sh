@@ -439,6 +439,18 @@ mixed = {"page": tess_line, "times": tess_line, "ch": [(110, 105, 400, 135, "7.A
          "en5": [(110, 105, 400, 135, "7. Add —μos and")]}
 check("a known word the English readers agree on is Greek where RapidOCR prints a Greek letter in it",
       "Add—μος and", g.greek_text(None, "k", mixed, LINE))
+# No 10 20A: the page reading's number "6" stretches over the Greek words
+# after it, and the dash parts the comma from "ὀξὺ".
+greek_line = [(110, 105, 140, 135, "20."), (150, 105, 250, 135, "αἰετὸς"), (260, 105, 330, 135, "ὀξὺ---,"),
+              (340, 105, 420, 135, "Ηοτηρτ,")]
+tess_line = [(110, 105, 140, 135, "20."), (150, 105, 250, 135, "aeos"), (260, 105, 330, 135, "ou,"),
+             (340, 105, 420, 135, "Homer,")]
+homer = {"page": [(110, 100, 330, 140, "6")], "times": [],
+         "ch": [(110, 105, 420, 135, "20. aietosof-,Homer.")], "en5": [(110, 105, 420, 135, "20. aletòs ou-, Homer.")]}
+check("a number stretched over the Greek after it numbers none of it; a parted comma is kept (No 10 20A)",
+      "αἰετὸς ὀξὺ—, Homer,", g.greek_text(None, "k", homer, LINE))
+check("a number leading the line is still dropped (mirror)", "αἰετὸς",
+      g.greek_text(None, "k", {**homer, "page": [(110, 100, 140, 140, "20")]}, LINE).split()[0])
 check("a reader's Latin lookalikes of a Greek word show it", (True, True, False),
       (g.lookalike("αἰετὸς", "aletòs"), g.lookalike("χλωρὸν", "xAwpov"), g.lookalike("χλωρὸν", "Homer")))
 check("a box tightened by an eighth top and bottom", (0, 106, 50, 142), g.tighter((0, 100, 50, 148)))

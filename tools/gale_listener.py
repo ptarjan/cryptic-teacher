@@ -1009,11 +1009,14 @@ def greek_text(img, key, words, boxes):
                     or read_box(img, key, b, next(iter(ocr_clues.TESS_MODELS)))])
     out, any_greek, looked = "", False, False
     used = set()
-    for p in greek:
+    for k, p in enumerate(greek):
         near = [[q for q in t if over(q, p[:4]) or over(p, q[:4])] for t in tess]
         there = [[q[4] for q in t] for t in near]
-        if any(t and all(re.fullmatch(r"\W{0,2}\d{1,2}\W{0,2}", q) for q in t) for t in there):
-            continue  # the clue's number
+        # The clue's number leads its line: a reading's number stretched
+        # over the words after it (No 10 20A's "6" over "αἰετὸς ὀξὺ—,")
+        # makes none of them one.
+        if k == 0 and any(t and all(re.fullmatch(r"\W{0,2}\d{1,2}\W{0,2}", q) for q in t) for t in there):
+            continue
         said = [letters(" ".join(t)) for t in there if t]
         agreed = next((s for s in said if said.count(s) > 1 and ocr_clues.known(s)), None)
         word = p[4].rstrip(".,;:")
@@ -1024,7 +1027,9 @@ def greek_text(img, key, words, boxes):
                 tok = re.search(r"\S*$", w[4][:at]).group() + re.match(r"\S*", w[4][at:]).group()
                 hinted |= bool(GREEK_LETTER.search(tok))
                 alike |= lookalike(word, tok) and not ocr_clues.known(letters(tok))
-        if GREEK_WORD.fullmatch(word) and word.islower() and (hinted or alike or not agreed):
+        if re.fullmatch(r"[.,;:!?]+", p[4]):
+            text = p[4]  # a stop the dash before it parted from its word ("ὀξὺ—,")
+        elif GREEK_WORD.fullmatch(word) and word.islower() and (hinted or alike or not agreed):
             text, any_greek, looked = p[4], True, looked or alike
         else:
             found = [" ".join(t) for t in there if t]
