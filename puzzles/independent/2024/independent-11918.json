@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,84 @@
     "text": "Turned up carrying a bit of food amid havoc, offering assistance",
     "enumeration": "7"
    },
-   "solution": "HELPFUL"
+   "solution": "HELPFUL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "HELPFUL",
+    "definitions": [
+     {
+      "text": "offering assistance",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Turned",
+      "for": "reversal",
+      "note": "something turned round faces the other way, so the following word is read backwards"
+     },
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "to carry something is to hold it inside, so one piece sits within another"
+     },
+     {
+      "text": "a bit of",
+      "for": "letter_selection",
+      "note": "only a small bit is wanted, here the opening letter of the word that follows"
+     },
+     {
+      "text": "amid",
+      "for": "container",
+      "note": "amid means in the middle of, so the built piece goes inside the havoc word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "havoc",
+      "gives": "HELL",
+      "note": "havoc or chaos is hell"
+     },
+     {
+      "clueFragment": "up",
+      "gives": "UP",
+      "note": "taken as written, then turned to PU"
+     },
+     {
+      "clueFragment": "food",
+      "gives": "F",
+      "select": "first",
+      "note": "first letter of food"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEL",
+      "PFU",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "UP",
+       "to": "PU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone arrives clutching a snack in the middle of chaos and offers to help.",
+     "walkthrough": "Two containers nest here: the turned-up word swallows the food letter, and that whole unit then sits inside the havoc word.",
+     "definitionFit": "Helpful describes a person or thing that gives aid, the same as offering assistance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Turned"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +127,58 @@
     "text": "Travelling salesman: he works with trucks",
     "enumeration": "8"
    },
-   "solution": "HUCKSTER"
+   "solution": "HUCKSTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HUCKSTER",
+    "definitions": [
+     {
+      "text": "Travelling salesman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "works",
+      "for": "anagram",
+      "note": "works suggests something being worked or processed into a new shape"
+     }
+    ],
+    "linkWords": [
+     ":"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "he",
+      "gives": "HE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "trucks",
+      "gives": "TRUCKS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HETRUCKS",
+       "gives": "HUCKSTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A description of a door-to-door salesman who does his job out of lorries.",
+     "definitionFit": "A huckster is a hawker or pedlar who sells goods on the road, a travelling seller."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "works"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +192,53 @@
     "text": "Drink mate overturned",
     "enumeration": "3"
    },
-   "solution": "LAP"
+   "solution": "LAP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "LAP",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overturned",
+      "for": "reversal",
+      "note": "overturned means upside down, so in a down entry the word runs in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mate",
+      "gives": "PAL",
+      "note": "a mate is a pal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAP"
+     ],
+     "reversals": [
+      {
+       "from": "PAL",
+       "to": "LAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A friend's glass gets knocked over.",
+     "definitionFit": "To lap is to drink by scooping up liquid with the tongue, as a cat does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Drink"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +252,57 @@
     "text": "Tree’s end of life? Axe",
     "enumeration": "4"
    },
-   "solution": "FIRE"
+   "solution": "FIRE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "FIRE",
+    "definitions": [
+     {
+      "text": "Axe",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "end of picks out only the final letter of the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tree",
+      "gives": "FIR",
+      "note": "a fir is a tree"
+     },
+     {
+      "clueFragment": "life",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of life"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Is the axe what ends a tree's life?",
+     "walkthrough": "Axe looks like the tool that fells the tree, but it is the verb meaning sack.",
+     "definitionFit": "To fire someone and to axe them both mean to dismiss them from a job."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Axe"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +316,67 @@
     "text": "Student name included in revival of matinee feature",
     "enumeration": "9"
    },
-   "solution": "LINEAMENT"
+   "solution": "LINEAMENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LINEAMENT",
+    "definitions": [
+     {
+      "text": "feature",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "included in",
+      "for": "container",
+      "note": "being included in something places these letters inside it"
+     },
+     {
+      "text": "revival of",
+      "for": "anagram",
+      "note": "a revival is a new production, so the letters are staged again in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Student",
+      "gives": "L",
+      "note": "L for learner, a student"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     },
+     {
+      "clueFragment": "matinee",
+      "gives": "MATINEE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LNMATINEE",
+       "gives": "LINEAMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drama student gets a credit in a revived afternoon performance of a show.",
+     "walkthrough": "L and N go into the jumble of matinee's letters.",
+     "definitionFit": "A lineament is a distinctive line or contour of the face, so a facial feature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revival"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +390,75 @@
     "text": "Item of church furniture and other things brought back, secured by the French navy",
     "enumeration": "7"
    },
-   "solution": "LECTERN"
+   "solution": "LECTERN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "LECTERN",
+    "definitions": [
+     {
+      "text": "Item of church furniture",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought back",
+      "for": "reversal",
+      "note": "bringing something back returns it the way it came, so the abbreviation is read right to left"
+     },
+     {
+      "text": "secured by",
+      "for": "container",
+      "note": "something secured by others is held fast between them, so it goes inside"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     },
+     {
+      "clueFragment": "other things",
+      "gives": "ETC",
+      "note": "etc, et cetera, means and other things"
+     },
+     {
+      "clueFragment": "navy",
+      "gives": "RN",
+      "note": "Royal Navy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "CTE",
+      "RN"
+     ],
+     "reversals": [
+      {
+       "from": "ETC",
+       "to": "CTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A church inventory lists a fixture and sundries, all shipped home under guard by the French navy.",
+     "walkthrough": "The French and navy are two separate pieces that together hold the reversed abbreviation between them.",
+     "definitionFit": "A lectern is the stand in a church from which the Bible is read."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "navy"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +472,56 @@
     "text": "Minor difficulty with power cut",
     "enumeration": "5"
    },
-   "solution": "LIGHT"
+   "solution": "LIGHT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LIGHT",
+    "definitions": [
+     {
+      "text": "Minor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "cut means taken away, so that letter is removed from the word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "difficulty",
+      "gives": "PLIGHT",
+      "note": "a plight is a difficult situation"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the symbol for power"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A small inconvenience: the electricity has been cut off.",
+     "walkthrough": "Minor difficulty reads as one phrase, but Minor is the definition alone; PLIGHT loses its P.",
+     "definitionFit": "Light means trivial or not serious, as in a light sentence, so minor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Minor"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +535,72 @@
     "text": "English writer’s trunk initially received in English school",
     "enumeration": "10"
    },
-   "solution": "CHESTERTON"
+   "solution": "CHESTERTON",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CHESTERTON",
+    "definitions": [
+     {
+      "text": "English writer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the first letter of the next word is used"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts that letter inside the school's name"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trunk",
+      "gives": "CHEST",
+      "note": "a trunk is a chest, the box or the torso"
+     },
+     {
+      "clueFragment": "received",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of received"
+     },
+     {
+      "clueFragment": "English school",
+      "gives": "ETON",
+      "note": "Eton is the famous English public school"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHEST",
+      "E",
+      "R",
+      "TON"
+     ]
+    },
+    "explanation": {
+     "surface": "An English author's luggage first turned up at a boarding school.",
+     "walkthrough": "The 's is a link joining definition to wordplay. Eton College is England's best-known boarding school.",
+     "definitionFit": "G K Chesterton was the English author of the Father Brown detective stories."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trunk"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +614,52 @@
     "text": "Consume fuel without pressure",
     "enumeration": "3"
    },
-   "solution": "EAT"
+   "solution": "EAT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EAT",
+    "definitions": [
+     {
+      "text": "Consume",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so that letter is left out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fuel",
+      "gives": "PEAT",
+      "note": "peat is burnt as fuel"
+     },
+     {
+      "clueFragment": "pressure",
+      "gives": "P",
+      "note": "P is the symbol for pressure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAT"
+     ]
+    },
+    "explanation": {
+     "surface": "An engine burning fuel without any pressure building up.",
+     "definitionFit": "To eat something is to consume it as food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fuel"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +673,78 @@
     "text": "One day in tabloid elevated male page 3 behaviour?",
     "enumeration": "6"
    },
-   "solution": "NUDISM"
+   "solution": "NUDISM",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal",
+     "charade"
+    ],
+    "answer": "NUDISM",
+    "definitions": [
+     {
+      "text": "page 3 behaviour?",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the first pieces inside the newspaper's name"
+     },
+     {
+      "text": "elevated",
+      "for": "reversal",
+      "note": "elevated means raised up, so in a down entry the letters are read from the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tabloid",
+      "gives": "SUN",
+      "note": "The Sun is a British tabloid newspaper"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D is the abbreviation for day"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUDIS",
+      "M"
+     ],
+     "reversals": [
+      {
+       "from": "SIDUN",
+       "to": "NUDIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "One day a man appeared on page 3 of a tabloid.",
+     "walkthrough": "Page 3 of The Sun famously featured topless models, so the definition plays on the very paper used in the wordplay.",
+     "definitionFit": "Nudism is going about unclothed, which is what Sun page 3 models were known for."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "elevated"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +758,57 @@
     "text": "Holidaymaker losing money in scam?",
     "enumeration": "5"
    },
-   "solution": "CAPER"
+   "solution": "CAPER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CAPER",
+    "definitions": [
+     {
+      "text": "scam?",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing something means it drops out, so one letter is removed from the word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Holidaymaker",
+      "gives": "CAMPER",
+      "note": "a camper is someone on a camping holiday"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "M",
+      "note": "M is an abbreviation for money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "PER"
+     ]
+    },
+    "explanation": {
+     "surface": "A tourist gets fleeced by a con and is left out of pocket.",
+     "walkthrough": "CAMPER without its M leaves CAPER. The question mark flags that a caper is only loosely a scam.",
+     "definitionFit": "A caper is a slang word for a crafty or illegal escapade, so a scheme or swindle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "money"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +822,56 @@
     "text": "Decent leg breaks not deployed",
     "enumeration": "9"
    },
-   "solution": "NEGLECTED"
+   "solution": "NEGLECTED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEGLECTED",
+    "definitions": [
+     {
+      "text": "not deployed",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaks",
+      "for": "anagram",
+      "note": "when something breaks it falls apart and the pieces can be put back in any order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Decent",
+      "gives": "DECENT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "leg",
+      "gives": "LEG",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DECENTLEG",
+       "gives": "NEGLECTED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket picture: a bowler's tidy leg-breaks go unused because the captain never brings him on.",
+     "walkthrough": "Leg breaks are spinning deliveries in cricket, which hides the anagram signal.",
+     "definitionFit": "Something neglected has been left unused or ignored, just as a resource not deployed sits idle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "breaks"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +885,48 @@
     "text": "Premiere ignoring latest top performer",
     "enumeration": "4"
    },
-   "solution": "STAR"
+   "solution": "STAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STAR",
+    "definitions": [
+     {
+      "text": "top performer",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring latest",
+      "for": "deletion",
+      "note": "the latest letter is the last one, and ignoring it means leaving it off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Premiere",
+      "gives": "START",
+      "note": "a premiere is the start of a show's run"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR"
+     ]
+    },
+    "explanation": {
+     "surface": "At a film premiere the leading actor skips the newest gossip.",
+     "walkthrough": "START with its final T dropped leaves STAR.",
+     "definitionFit": "A star is the leading or most celebrated performer in a show or field."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Premiere"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +940,62 @@
     "text": "Dirigible excellent? A tear? Keeping quiet",
     "enumeration": "7"
    },
-   "solution": "AIRSHIP"
+   "solution": "AIRSHIP",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AIRSHIP",
+    "definitions": [
+     {
+      "text": "Dirigible",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Keeping",
+      "for": "container",
+      "note": "keeping means holding on to, so the tear word wraps around the call for silence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "excellent",
+      "gives": "AI",
+      "note": "A1 means first-class, with the 1 read as the letter I"
+     },
+     {
+      "clueFragment": "A tear",
+      "gives": "RIP",
+      "note": "a tear is a rip"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "SH",
+      "note": "sh is the call for quiet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AI",
+      "R",
+      "SH",
+      "IP"
+     ]
+    },
+    "explanation": {
+     "surface": "Questions about a blimp: is it splendid, or has it sprung a leak, and is it being kept hush-hush?",
+     "walkthrough": "A1 for first-class is often written AI in crosswords. The A of A tear only serves the surface.",
+     "definitionFit": "A dirigible is a steerable lighter-than-air craft, which is an airship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tear"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +1009,69 @@
     "text": "Quarrelling about it, dismissing rule as contrived",
     "enumeration": "10"
    },
-   "solution": "FACTITIOUS"
+   "solution": "FACTITIOUS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "FACTITIOUS",
+    "definitions": [
+     {
+      "text": "contrived",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the word wraps itself round the short piece"
+     },
+     {
+      "text": "dismissing",
+      "for": "deletion",
+      "note": "dismissing sends something away, so that letter is taken out"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quarrelling",
+      "gives": "FRACTIOUS",
+      "note": "fractious means irritable and quarrelsome"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rule",
+      "gives": "R",
+      "note": "R is the abbreviation for rule"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FACT",
+      "IT",
+      "IOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "People bickering over a regulation and throwing it out as artificial.",
+     "walkthrough": "Quarrelling suggests a verb, but it is the adjective sense, as in quarrelling children.",
+     "definitionFit": "Factitious means artificially made up or not genuine, exactly what contrived means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rule"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +1085,68 @@
     "text": "Surplus quantity? Broadcasting including extremely reduced sport",
     "enumeration": "7"
    },
-   "solution": "OVERRUN"
+   "solution": "OVERRUN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "container"
+    ],
+    "answer": "OVERRUN",
+    "definitions": [
+     {
+      "text": "Surplus quantity?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reduced",
+      "for": "deletion",
+      "note": "reduced means cut down, so the last letter of the intensifier is lost"
+     },
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including means taking in, so the broadcast word wraps around the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Broadcasting",
+      "gives": "ON",
+      "note": "a programme being broadcast is on"
+     },
+     {
+      "clueFragment": "extremely",
+      "gives": "VERY",
+      "note": "very means extremely"
+     },
+     {
+      "clueFragment": "sport",
+      "gives": "RU",
+      "note": "RU is rugby union"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "VER",
+      "RU",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A TV schedule running late because a cut-down sports programme overran.",
+     "walkthrough": "Reduced applies to extremely, not to the sport. RU for rugby union is a standard crossword abbreviation.",
+     "definitionFit": "An overrun is an amount by which something exceeds its allowance, such as a cost overrun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Broadcasting"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1166,67 @@
      }
     ]
    },
-   "solution": "COSANOSTRA"
+   "solution": "COSANOSTRA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "COSA NOSTRA",
+    "definitions": [
+     {
+      "text": "Criminal organisation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "represented",
+      "for": "anagram",
+      "note": "represented means shown again in another form, so these letters are reordered"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the jumbled letters go round the region's abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cartoons",
+      "gives": "CARTOONS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "South America",
+      "gives": "SA",
+      "note": "SA is the abbreviation for South America"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "SA",
+      "NOSTRA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CARTOONS",
+       "gives": "CONOSTRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gang portrayed in comic strips set in South America.",
+     "walkthrough": "Cartoons rearranged gives CONOSTRA, which wraps around SA after the first two letters.",
+     "definitionFit": "Cosa Nostra is the name for the Sicilian and American Mafia, an organised crime syndicate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "represented"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1240,51 @@
     "text": "Location for personal decoration displaying British honourees",
     "enumeration": "7"
    },
-   "solution": "EARLOBE"
+   "solution": "EARLOBE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EARLOBE",
+    "definitions": [
+     {
+      "text": "Location for personal decoration",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "displaying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British honourees",
+      "gives": "EARL",
+      "note": "an earl holds a British peerage, one kind of honour"
+     },
+     {
+      "clueFragment": "British honourees",
+      "gives": "OBE",
+      "note": "an OBE is an Officer of the Order of the British Empire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EARL",
+      "OBE"
+     ]
+    },
+    "explanation": {
+     "surface": "A spot where personal medals or decorations are shown off by British dignitaries.",
+     "walkthrough": "One plural phrase covers two different honourees, a peer and a member of an order, set side by side.",
+     "definitionFit": "The earlobe is where earrings are worn, a place for adorning oneself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "decoration"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1298,64 @@
     "text": "Depressing sound from electronic network going over",
     "enumeration": "5"
    },
-   "solution": "DIRGE"
+   "solution": "DIRGE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DIRGE",
+    "definitions": [
+     {
+      "text": "Depressing sound",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going over",
+      "for": "reversal",
+      "note": "something going over flips across, so the network word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "network",
+      "gives": "GRID",
+      "note": "a grid is a network, such as the electricity grid"
+     },
+     {
+      "clueFragment": "electronic",
+      "gives": "E",
+      "note": "E is the abbreviation for electronic, as in e-mail"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIRG",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "GRID",
+       "to": "DIRG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gloomy hum coming from the electricity network as it fails.",
+     "walkthrough": "GRID read backwards is DIRG, then E is added.",
+     "definitionFit": "A dirge is a slow mournful song or lament, a sad and depressing piece of music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "electronic"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1369,74 @@
     "text": "Disorder in internal plumbing? Start to develop repairs to pipes, say",
     "enumeration": "9"
    },
-   "solution": "DYSPEPSIA"
+   "solution": "DYSPEPSIA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "DYSPEPSIA",
+    "definitions": [
+     {
+      "text": "Disorder in internal plumbing?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter, so only that letter is used"
+     },
+     {
+      "text": "repairs to",
+      "for": "anagram",
+      "note": "repairs rework something into a new state, so the letters are put together afresh"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "develop",
+      "gives": "D",
+      "select": "first",
+      "note": "first letter of develop"
+     },
+     {
+      "clueFragment": "pipes",
+      "gives": "PIPES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "SAY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "YSPEPSIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PIPESSAY",
+       "gives": "YSPEPSIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plumbing fault inside the house starts to develop, so the pipes need fixing.",
+     "walkthrough": "Say looks like a casual aside meaning for example, but it is part of the anagram letters. Internal plumbing is a joke for the gut.",
+     "definitionFit": "Dyspepsia is indigestion, a disorder of the digestive tract, playfully called internal plumbing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plumbing"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1450,62 @@
     "text": "Rock group in church regarding unknown service",
     "enumeration": "8"
    },
-   "solution": "CEREMONY"
+   "solution": "CEREMONY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CEREMONY",
+    "definitions": [
+     {
+      "text": "service",
+      "at": 39
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     },
+     {
+      "clueFragment": "Rock group",
+      "gives": "REM",
+      "note": "R.E.M. is an American rock band"
+     },
+     {
+      "clueFragment": "regarding",
+      "gives": "ON",
+      "note": "on means about or regarding"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "Y is an algebraic unknown"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CE",
+      "REM",
+      "ON",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A band plays in a church at a service for someone unnamed.",
+     "walkthrough": "In is only a link here, not a container signal. R.E.M. is an American rock band; Y is an algebraic unknown.",
+     "definitionFit": "A ceremony is a formal religious or public rite, which is one sense of service."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rock"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1519,59 @@
     "text": "Compassion and passion may be about right",
     "enumeration": "5"
    },
-   "solution": "HEART"
+   "solution": "HEART",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HEART",
+    "definitions": [
+     {
+      "text": "Compassion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one word goes round the abbreviation"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "may be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "passion",
+      "gives": "HEAT",
+      "note": "heat is intensity of feeling, passion"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEA",
+      "R",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A thought on feelings: kindness and ardour might be the correct way to be.",
+     "walkthrough": "HEAT goes around R: HE-R-AT.",
+     "definitionFit": "Heart is used for kindness and sympathy, as in having a heart, which is compassion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "passion"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1585,63 @@
     "text": "Special valour, ousting a tyrant",
     "enumeration": "7"
    },
-   "solution": "SCOURGE"
+   "solution": "SCOURGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SCOURGE",
+    "definitions": [
+     {
+      "text": "tyrant",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ousting",
+      "for": "deletion",
+      "note": "ousting throws someone out, so the letter named after it is removed"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Special",
+      "gives": "S",
+      "note": "S is the abbreviation for special"
+     },
+     {
+      "clueFragment": "valour",
+      "gives": "COURAGE",
+      "note": "valour is courage"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter that is thrown out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "COURGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Heroic special forces overthrow a dictator.",
+     "walkthrough": "The a reads as the article before tyrant, but it is the letter taken out of the valour word.",
+     "definitionFit": "A scourge is a cruel oppressor or source of affliction, so a tyrant fits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "valour"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1655,67 @@
     "text": "Book getting support after admitting a boob?",
     "enumeration": "6"
    },
-   "solution": "BREAST"
+   "solution": "BREAST",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BREAST",
+    "definitions": [
+     {
+      "text": "boob?",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "admitting means letting in, so the support word takes the letter inside"
+     }
+    ],
+    "linkWords": [
+     "getting",
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "REST",
+      "note": "a rest is a support, as in an armrest"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RE",
+      "A",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "A book gets endorsed after its author admits a blunder.",
+     "walkthrough": "A goes inside REST to make REAST, after B. Boob looks like a mistake but here is slang for a breast.",
+     "definitionFit": "Boob is informal slang for a woman's breast; the question mark flags the slang."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "boob"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1729,54 @@
     "text": "Showed pain after modern version criticised",
     "enumeration": "10"
    },
-   "solution": "REPROACHED"
+   "solution": "REPROACHED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REPROACHED",
+    "definitions": [
+     {
+      "text": "criticised",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the pain phrase behind the version phrase, so the second-read piece comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "modern version",
+      "gives": "REPRO",
+      "note": "a repro is a reproduction, a modern copy of an antique"
+     },
+     {
+      "clueFragment": "Showed pain",
+      "gives": "ACHED",
+      "note": "to ache is to show or feel pain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REPRO",
+      "ACHED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone winced at a remake and then slated it.",
+     "walkthrough": "After means the pain word comes second, though it is read first in the clue.",
+     "definitionFit": "To reproach someone is to rebuke or find fault with them, which is to criticise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "version"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1790,50 @@
     "text": "Sound triumphant over new coin",
     "enumeration": "5"
    },
-   "solution": "CROWN"
+   "solution": "CROWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CROWN",
+    "definitions": [
+     {
+      "text": "coin",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sound triumphant",
+      "gives": "CROW",
+      "note": "to crow is to boast loudly about a victory"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CROW",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gloats over a freshly minted coin.",
+     "walkthrough": "In a down clue, over places the first piece above the second. A crown was an old British coin worth five shillings.",
+     "definitionFit": "A crown is a British coin, historically worth five shillings and now issued for commemorations."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sound"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1847,50 @@
     "text": "Some seen kerb-crawling around joint",
     "enumeration": "4"
    },
-   "solution": "KNEE"
+   "solution": "KNEE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "KNEE",
+    "definitions": [
+     {
+      "text": "joint",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means only part of the text, so the letters lie inside the following words"
+     },
+     {
+      "text": "crawling around",
+      "for": "reversal",
+      "note": "crawling around turns back on itself, so the run of letters is read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seen kerb",
+      "gives": "EENK",
+      "note": "the letters running across these two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Some people have been spotted kerb-crawling around a seedy club.",
+     "walkthrough": "Kerb-crawling, cruising slowly to pick up a prostitute, hides the reversal signal; read backwards from k in kerb into seen.",
+     "definitionFit": "The knee is the hinge between thigh and shin, one of the body's joints."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "joint"
+    }
+   }
   },
   {
    "number": 25,
@@ -417,7 +1904,65 @@
     "text": "Mostly difficult for one to enter - locks?",
     "enumeration": "4"
    },
-   "solution": "HAIR"
+   "solution": "HAIR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "HAIR",
+    "definitions": [
+     {
+      "text": "locks?",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter goes"
+     },
+     {
+      "text": "to enter",
+      "for": "container",
+      "note": "to enter is to go inside, so the numeral slips into the shortened word"
+     }
+    ],
+    "linkWords": [
+     "-"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "difficult",
+      "gives": "HARD",
+      "note": "hard means difficult"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HA",
+      "I",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "It's mostly hard for anyone to get in: are the doors locked?",
+     "walkthrough": "HARD without its D is HAR, and I goes inside. Locks looks like door fastenings, but means tresses.",
+     "definitionFit": "Locks are tresses or strands of hair on the head."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "locks"
+    }
+   }
   },
   {
    "number": 26,
@@ -431,7 +1976,66 @@
     "text": "Good sporting outcome: cricketer getting runs amidst a defeat",
     "enumeration": "9"
    },
-   "solution": "ALBATROSS"
+   "solution": "ALBATROSS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ALBATROSS",
+    "definitions": [
+     {
+      "text": "Good sporting outcome",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "amidst",
+      "for": "container",
+      "note": "amidst means in the middle of, so the player and runs go inside"
+     }
+    ],
+    "linkWords": [
+     ":",
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a defeat",
+      "gives": "ALOSS",
+      "note": "a defeat is a loss"
+     },
+     {
+      "clueFragment": "cricketer",
+      "gives": "BAT",
+      "note": "a bat is a batsman"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "BAT",
+      "R",
+      "OSS"
+     ]
+    },
+    "explanation": {
+     "surface": "A batsman piling up runs while his side still loses, yet the result is good.",
+     "walkthrough": "BAT plus R goes inside A LOSS. The cricket surface hides a golf definition.",
+     "definitionFit": "In golf an albatross is a hole played three under par, an excellent score."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sporting"
+    }
+   }
   },
   {
    "number": 27,
@@ -445,7 +2049,43 @@
     "text": "Excluding lawyers?",
     "enumeration": "3"
    },
-   "solution": "BAR"
+   "solution": "BAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BAR",
+    "definitions": [
+     {
+      "text": "Excluding",
+      "at": 0
+     },
+     {
+      "text": "lawyers?",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Excluding",
+      "note": "first meaning: except"
+     },
+     {
+      "clueFragment": "lawyers",
+      "note": "second meaning: barristers collectively"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a question about shutting out the legal profession; the two words are separate meanings of one short word.",
+     "definitionFit": "The word works as a preposition meaning except and as the collective name for barristers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Excluding"
+    }
+   }
   },
   {
    "number": 28,
@@ -459,7 +2099,58 @@
     "text": "Silver band not in prominent position, causing difficulties",
     "enumeration": "5"
    },
-   "solution": "AGGRO"
+   "solution": "AGGRO",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "AGGRO",
+    "definitions": [
+     {
+      "text": "difficulties",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not in prominent position",
+      "for": "deletion",
+      "note": "a prominent position is one high up, and not being there means that two-letter word is taken away"
+     }
+    ],
+    "linkWords": [
+     "causing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Silver",
+      "gives": "AG",
+      "note": "Ag is the chemical symbol for silver"
+     },
+     {
+      "clueFragment": "band",
+      "gives": "GROUP",
+      "note": "a band is a musical group"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AG",
+      "GRO"
+     ]
+    },
+    "explanation": {
+     "surface": "A brass band relegated to the back row, causing trouble.",
+     "walkthrough": "Up means prominent or raised, so a band not in prominent position is the band word without its up.",
+     "definitionFit": "Aggro is British slang for trouble, hassle or aggressive behaviour, so difficulties."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "band"
+    }
+   }
   },
   {
    "number": 29,
@@ -473,7 +2164,54 @@
     "text": "Set on rising",
     "enumeration": "3"
    },
-   "solution": "GEL"
+   "solution": "GEL",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "GEL",
+    "definitions": [
+     {
+      "text": "Set",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "rising goes upwards, so in a down entry the word is read from the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "LEG",
+      "note": "in cricket the on side is also called the leg side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEL"
+     ],
+     "reversals": [
+      {
+       "from": "LEG",
+       "to": "GEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bare instruction to set something going upward.",
+     "walkthrough": "On is a cricket term: the on side and the leg side are the same half of the field.",
+     "definitionFit": "To gel is to set firm, as jelly does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 30,
@@ -487,7 +2225,65 @@
     "text": "Mistake linked to area in output of Cornish mining country",
     "enumeration": "7"
    },
-   "solution": "TERRAIN"
+   "solution": "TERRAIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TERRAIN",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the joined pieces inside the metal word"
+     }
+    ],
+    "linkWords": [
+     "linked to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "output of Cornish mining",
+      "gives": "TIN",
+      "note": "tin was the main product of Cornwall's mines"
+     },
+     {
+      "clueFragment": "Mistake",
+      "gives": "ERR",
+      "note": "to err is to make a mistake"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ERR",
+      "A",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A blunder tied to the district where Cornish mining happens.",
+     "walkthrough": "Cornwall, in south-west England, was famous for its tin mines. Country is the definition, meaning land rather than nation.",
+     "definitionFit": "Terrain is a stretch of land considered for its physical features, the sense of country as in open country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "country"
+    }
+   }
   },
   {
    "number": 31,
@@ -501,7 +2297,62 @@
     "text": "Number of broadcasts? Pair arranged bet",
     "enumeration": "7"
    },
-   "solution": "AIRPLAY"
+   "solution": "AIRPLAY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "AIRPLAY",
+    "definitions": [
+     {
+      "text": "Number of broadcasts?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "arranged means put into a new order, so these letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pair",
+      "gives": "PAIR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bet",
+      "gives": "LAY",
+      "note": "to lay is to wager, as in lay a bet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIRP",
+      "LAY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PAIR",
+       "gives": "AIRP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A punter asks how often something is broadcast, then places a fixed wager on a pair.",
+     "walkthrough": "'Number' could suggest a song, and indeed a song's airplay counts how often it is broadcast.",
+     "definitionFit": "Airplay is the amount of radio or TV play a record receives, so a count of its broadcasts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Number"
+    }
+   }
   }
  ]
 }
