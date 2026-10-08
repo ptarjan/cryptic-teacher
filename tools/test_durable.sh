@@ -75,7 +75,9 @@ fail() { echo "FAIL: $*"; echo "--- job log:"; cat "$tmp/job.log"; exit 1; }
 DURABLE_EVERY=1 start
 wait_for 60 filed 1 || fail "the fake job never filed item 1"
 wait_for 30 on_origin puzzles/a/1.json || fail "item 1 was not pushed while the job ran"
-git --git-dir="$tmp/origin.git" log --format=%s master | grep -qx "File 1; update 0 (fake pass)" || fail "a checkpoint commit does not name the puzzles it files"
+# A checkpoint can land between the filer's writes, so 0.json's update may
+# ride in a later commit; the commit carrying 1.json must still name it.
+git --git-dir="$tmp/origin.git" log --format=%s master | grep -qE '^File 1(; update 0)? \(fake pass\)$' || fail "a checkpoint commit does not name the puzzles it files"
 kill -0 "$pid" || fail "the job ended early"
 pkill -KILL -s "$pid"
 wait_for 10 group_gone || fail "job 1 outlived SIGKILL"
