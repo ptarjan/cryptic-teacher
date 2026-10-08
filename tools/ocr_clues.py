@@ -976,13 +976,14 @@ def parted(clue, others):
 def unglued(theirs, low):
     """Another reading's tokens with two to four of this clue's words it
     ran together ("eatsjunkets", "laidyoursoul") parted again, or over
-    the quote that opens the second (No 3's "for'red" for "for 'red'")."""
+    the quote that opens the second (No 3's "for'red" for "for 'red'"); an
+    apostrophe before a contraction's ending ("that's") opens no quote."""
     runs = {"".join(low[i:i + n]): low[i:i + n] for n in (2, 3, 4) for i in range(len(low) - n + 1)
             if all(w.isalpha() for w in low[i:i + n])}
     out = []
     for t in theirs:
         if (m := re.fullmatch(r"([A-Za-z]+)['‘’]([A-Za-z]+)", t)) and m[0].lower() not in low \
-                and runs.get((m[1] + m[2]).lower()) == [m[1].lower(), m[2].lower()]:
+                and not CONTRACTED.fullmatch(m[2]) and runs.get((m[1] + m[2]).lower()) == [m[1].lower(), m[2].lower()]:
             out += [m[1], m[2]]
             continue
         k = 0

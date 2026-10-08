@@ -696,6 +696,8 @@ check("a reading printing this clue's own words, the same as another's, still vo
                       ["An", "exclamation"], [["an", "exclamation"]]))
 check("words run together over an apostrophe this clue prints stay one (mirror)", ["don't"],
       oc.unglued(["don't"], ["don't", "go"]))
+check("a contraction is not parted into the stray letter another reading left (mirror, Canberra 14 July 1967 6D)",
+      ["Rumour", "that's", "hardly"], oc.unglued(["Rumour", "that's", "hardly"], ["rumour", "that", "s", "hardly"]))
 
 print(f"FAILS {fails}")
 EOF
