@@ -422,6 +422,24 @@ check("listing lines parse, junk skipped", [("downloads", 10, 1759700000, "GALE_
       g.parse_listing("downloads\t10\t1759700000\t./GALE_X 1.pdf\nstat: junk\ndesktop\t5\t1\ty.pdf\r\n"))
 check("the inboxes share one root on the Media share", (True, True),
       (g.HOST_INBOX.startswith(g.GALE_ROOT + "/"), g.LISTENER_INBOX.startswith(g.GALE_ROOT + "/")))
+# A Listener puzzle still to save whose document is known gets a Download in
+# next up, ahead of an earlier one Gale has no link for; the Times the same.
+import gale_listener as gl
+idx = [{"date": D(1930, 4, 2), "number": 1, "title": "A Musical Crossword", "setter": ""},
+       {"date": D(1930, 4, 9), "number": 2, "title": "A Scientific Crossword", "setter": ""}]
+known = {"doc": "GM2500000001", "title": "A Scientific Crossword", "page": 7, "records": ["R1"]}
+lpage = gl.checklist(idx, Path(sys.argv[1]) / "nostore", Path(sys.argv[1]) / "norepo", arrivals=[],
+                     docs={"LSNR/1930-04-09": known})
+lnext = re.findall(r"<tr data-k.*?</tr>", lpage.split('<table id="next">')[1].split("</table>")[0], re.S)
+check("a Listener next-up row with a known document has a Download, first", (2, ["p2", True, False]),
+      (len(lnext), [re.search(r'data-k="([^"]*)"', lnext[0]).group(1), 'class="dl"' in lnext[0], 'class="dl"' in lnext[1]]))
+g.held, g.usual_pages, g.archive_coverage.ledger = (lambda: {}), (lambda: {}), (lambda: {})
+tpage = g.checklist([(D(1988, 1, 12), "no-scan"), (D(1988, 1, 13), "no-scan")], Path(sys.argv[1]) / "nocache",
+                    Path(sys.argv[1]) / "none.json", docs={"TTDA/1988-01-13": dict(known, title="Crossword")},
+                    log=Path(sys.argv[1]) / "aside.log")
+tnext = re.findall(r"<tr data-k.*?</tr>", tpage.split('<table id="next">')[1].split("</table>")[0], re.S)
+check("a Times one the same", ["1988-01-13", True, False],
+      [re.search(r'data-k="([^"]*)"', tnext[0]).group(1), 'class="dl"' in tnext[0], 'class="dl"' in tnext[1]])
 stamp = Path(sys.argv[1]) / "looked_up"
 check("Gale is asked at most every LOOKUP_EVERY, however often the tick runs", [True, False, False, True],
       [g.gale_due(t, stamp) for t in (1000, 1060, 1120, 1000 + g.LOOKUP_EVERY)])

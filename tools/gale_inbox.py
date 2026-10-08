@@ -825,7 +825,8 @@ def staged_files(cache=CACHE):
 #: The checklist's "next up": BATCH rows shown at a time, refilled from a
 #: POOL rendered so a click needs no new render; Download links are looked
 #: up (gale_docs.resolve, at its pace) for every wanted edition, in next-up
-#: order (LOOKAHEAD None: all), so every row has one, not just next up's.
+#: order (LOOKAHEAD None: all), so every row has one, not just next up's;
+#: next up shows the linked rows first (page).
 BATCH = 15
 POOL = 60
 LOOKAHEAD = None
@@ -995,9 +996,13 @@ def page(*, paper, prod, name, store, done, total, done_word, folder, steps, not
     save one, the next `next_rows` in batches, then `years` [(year, summary,
     rows)]. Rows are _row's; `columns` the paper's own, between the row's
     Download and its status; `steps` the paper's own items of the how-to
-    and `order` how next up is ordered (inline HTML). `status`, when given, gets the page's stamp and arrived
-    rows, for publish_status."""
+    and `order` how next up is ordered (inline HTML). Next up is the first
+    POOL of `next_rows` with a Download link first, in their order, so a
+    click on any row it shows downloads; one with none (no lookup yet, or
+    Gale has none) follows them. `status`, when given, gets the page's stamp
+    and arrived rows, for publish_status."""
     e = html.escape
+    next_rows = ([r for r in next_rows if r.get("dl")] + [r for r in next_rows if not r.get("dl")])[:POOL]
     stamp = int(time.time())
     every = [r for r in next_rows] + [r for _, _, rs in years for r in rs]
     if status is not None:
@@ -1260,7 +1265,7 @@ def checklist(rows=None, cache=CACHE, unmatched=UNMATCHED, docs=None, status=Non
         paper="Times", prod="TTDA", name=CHECKLIST_NAME, store="galeCopied", done=done, total=total,
         done_word="files downloaded", folder=SHARE + "\\Times", notes=notes(matches, untitled, unmatched, log),
         steps=STEPS,
-        order=ORDER, what="editions", next_rows=[row(d, c) for d, c in next_up(rows, {**staged, **gone})],
+        order=ORDER, what="editions", next_rows=[row(d, c) for d, c in next_up(rows, {**staged, **gone}, None)],
         years_note="The worst year first. An edition leaves this list once its puzzle is filed.",
         years=[(y, f"{len(ds)} missing, {sum(d in staged for d, _ in ds)} arrived", [row(d, c) for d, c in sorted(ds)])
                for y, ds in sorted(years.items(), key=lambda kv: (-len(kv[1]), kv[0]))],
