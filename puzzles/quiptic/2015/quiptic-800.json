@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,70 @@
      }
     ]
    },
-   "solution": "ARCTICCIRCLE"
+   "solution": "ARCTICCIRCLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ARCTIC CIRCLE",
+    "definitions": [
+     {
+      "text": "the far north",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reduced",
+      "for": "deletion",
+      "note": "something reduced has been cut down, so the word for frozen water loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "curve",
+      "gives": "ARC",
+      "note": "an arc is a curved line"
+     },
+     {
+      "clueFragment": "Temperature",
+      "gives": "T",
+      "note": "T is the standard abbreviation for temperature"
+     },
+     {
+      "clueFragment": "ice",
+      "gives": "IC",
+      "note": "ice with its last letter cut off"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "CIRCLE",
+      "note": "a round shape is a circle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARC",
+      "T",
+      "IC",
+      "CIRCLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Talk of a polar region where cold slackens and the ice lies in a sweeping bend.",
+     "walkthrough": "The pieces read ARC + T + IC + CIRCLE; 'in' only loosely places the temperature-and-ice part beside the curve.",
+     "definitionFit": "The Arctic Circle is the line of latitude that bounds the polar region at the top of the globe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +119,48 @@
     "text": "Consider in detail why girl is not telling the truth, reportedly",
     "enumeration": "7"
    },
-   "solution": "ANALYSE"
+   "solution": "ANALYSE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ANALYSE",
+    "definitions": [
+     {
+      "text": "Consider in detail",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "what is reported is passed on by word of mouth, so the sound counts, not the spelling"
+     }
+    ],
+    "linkWords": [
+     "why"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl is not telling the truth",
+      "gives": "ANALYSE",
+      "soundsLike": "ANNA LIES",
+      "note": "Anna is a girl's name, and someone not telling the truth lies"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks for a close look at why a particular girl keeps lying.",
+     "walkthrough": "Said aloud, 'Anna lies' runs together into the answer.",
+     "definitionFit": "To analyse something is to examine it closely, part by part, which is to consider it in detail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "why"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +174,43 @@
     "text": "Wrench is elsewhere, hiding other tools",
     "enumeration": "7"
    },
-   "solution": "CHISELS"
+   "solution": "CHISELS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CHISELS",
+    "definitions": [
+     {
+      "text": "other tools",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding",
+      "for": "hidden_word",
+      "note": "the words before it are hiding something inside them, concealed across the word breaks"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wrench is elsewhere",
+      "gives": "CHISELS",
+      "note": "found running through the end of the first word, all of the second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A wrench has gone missing, while some other implements are tucked away somewhere.",
+     "walkthrough": "'other tools' works because a wrench is itself a tool, so these are tools besides it.",
+     "definitionFit": "Chisels are bladed hand tools for cutting wood or stone, different implements from a wrench."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "elsewhere"
+    }
+   }
   },
   {
    "number": 3,
@@ -87,7 +230,59 @@
      }
     ]
    },
-   "solution": "INESSENCE"
+   "solution": "INESSENCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IN ESSENCE",
+    "definitions": [
+     {
+      "text": "Basically",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "terribly",
+      "for": "anagram",
+      "note": "done terribly means done badly and out of order, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "can be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "niceness",
+      "gives": "NICENESS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NICENESSE",
+       "gives": "INESSENCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wry remark that English politeness can be awfully overdone.",
+     "walkthrough": "'terribly English' reads as a phrase meaning very English, but 'terribly' scrambles the letters and English supplies only E.",
+     "definitionFit": "Saying 'in essence' means boiling something down to its fundamental nature, just as 'basically' does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "terribly"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +296,61 @@
     "text": "About time daughter cut into sponge",
     "enumeration": "5"
    },
-   "solution": "CADGE"
+   "solution": "CADGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CADGE",
+    "definitions": [
+     {
+      "text": "sponge",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut into",
+      "for": "container",
+      "note": "something that cuts into another thing ends up lodged inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "About",
+      "gives": "C",
+      "note": "C is short for circa, Latin for about"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "AGE",
+      "note": "an age is a long period of time"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ADGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A mother's daughter slicing into a sponge cake at about teatime.",
+     "walkthrough": "D goes inside AGE, after C. 'Sponge' looks like cake but is the verb: to live off others.",
+     "definitionFit": "To cadge is to scrounge or beg things from others, the verb sense of sponge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sponge"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +364,65 @@
     "text": "Update woman's coverage of peasant revolution",
     "enumeration": "7"
    },
-   "solution": "REFRESH"
+   "solution": "REFRESH",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "REFRESH",
+    "definitions": [
+     {
+      "text": "Update",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coverage of",
+      "for": "container",
+      "note": "giving coverage to something wraps it, so one word wraps around the other"
+     },
+     {
+      "text": "revolution",
+      "for": "reversal",
+      "note": "a revolution turns something right round, so the whole result is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "woman's",
+      "gives": "HER",
+      "note": "her is the pronoun for a woman"
+     },
+     {
+      "clueFragment": "peasant",
+      "gives": "SERF",
+      "note": "a serf was a feudal peasant bound to the land"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REFRESH"
+     ],
+     "reversals": [
+      {
+       "from": "HSERFER",
+       "to": "REFRESH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A news update on a woman reporting a peasants' uprising.",
+     "walkthrough": "'revolution' applies to the whole wrapped result, not just the peasant, and the possessive 's is only surface glue.",
+     "definitionFit": "To refresh a page or display is to bring it up to date with the latest information."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolution"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +442,62 @@
      }
     ]
    },
-   "solution": "LONGAGO"
+   "solution": "LONGAGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LONG AGO",
+    "definitions": [
+     {
+      "text": "from the distant past",
+      "at": 42
+     }
+    ],
+    "linkWords": [
+     "to follow"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Look",
+      "gives": "LO",
+      "note": "lo is an old word meaning look"
+     },
+     {
+      "clueFragment": "north",
+      "gives": "N",
+      "note": "N is the abbreviation for north"
+     },
+     {
+      "clueFragment": "a funny story",
+      "gives": "GAG",
+      "note": "a gag is a joke"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, which looks like the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "N",
+      "GAG",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to look north, and an old anecdote handed down from ancient times.",
+     "walkthrough": "'to follow' puts the love-letter after the joke; lo is a crossword staple for look.",
+     "definitionFit": "Something long ago happened in a time far back, so it comes from the distant past."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 7,
@@ -155,7 +517,71 @@
      }
     ]
    },
-   "solution": "JIGSAWPUZZLE"
+   "solution": "JIGSAWPUZZLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "JIGSAW PUZZLE",
+    "definitions": [
+     {
+      "text": "Cut-up picture",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upside down",
+      "for": "reversal",
+      "note": "in a down entry, turning a word upside down makes it read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dance",
+      "gives": "JIG",
+      "note": "a jig is a lively folk dance"
+     },
+     {
+      "clueFragment": "was",
+      "gives": "WAS",
+      "note": "taken as written, then turned upside down"
+     },
+     {
+      "clueFragment": "floor",
+      "gives": "PUZZLE",
+      "note": "to floor someone is to baffle them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JIG",
+      "SAW",
+      "PUZZLE"
+     ],
+     "reversals": [
+      {
+       "from": "WAS",
+       "to": "SAW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snapshot of a dancer who ended up flat on the floor.",
+     "walkthrough": "'floor' is the verb: a question that floors you leaves you stumped.",
+     "definitionFit": "A jigsaw puzzle is a picture cut into interlocking pieces for reassembly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "floor"
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +595,60 @@
     "text": "Fancy island belonging to me having buried silver!",
     "enumeration": "7"
    },
-   "solution": "IMAGINE"
+   "solution": "IMAGINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "IMAGINE",
+    "definitions": [
+     {
+      "text": "Fancy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having buried",
+      "for": "container",
+      "note": "a word that has something buried has it hidden inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     },
+     {
+      "clueFragment": "belonging to me",
+      "gives": "MINE",
+      "note": "something belonging to me is mine"
+     },
+     {
+      "clueFragment": "silver",
+      "gives": "AG",
+      "note": "Ag is the chemical symbol for silver"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MAGINE"
+     ]
+    },
+    "explanation": {
+     "surface": "A daydream of owning an island with silver treasure buried on it.",
+     "walkthrough": "'Fancy' is a verb here, not an adjective.",
+     "definitionFit": "To fancy something can mean to suppose or picture it in the mind, which is to imagine it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fancy"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +662,64 @@
     "text": "Protection of French wetland on borders of Camargue",
     "enumeration": "7"
    },
-   "solution": "DEFENCE"
+   "solution": "DEFENCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DEFENCE",
+    "definitions": [
+     {
+      "text": "Protection",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "borders of",
+      "for": "letter_selection",
+      "note": "the borders of a word are its edges, so only its first and last letters count"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of French",
+      "gives": "DE",
+      "note": "de is French for of"
+     },
+     {
+      "clueFragment": "wetland",
+      "gives": "FEN",
+      "note": "a fen is low marshy land"
+     },
+     {
+      "clueFragment": "Camargue",
+      "gives": "CE",
+      "select": "outer",
+      "note": "the outside letters of the French region's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "FEN",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "Talk of guarding a French marsh at the edge of the Camargue, the wetland delta in southern France.",
+     "definitionFit": "A defence is a means of protecting against attack, so it is synonymous with protection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "of"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +733,61 @@
     "text": "Diverting reservists at home into enlisting",
     "enumeration": "12"
    },
-   "solution": "ENTERTAINING"
+   "solution": "ENTERTAINING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ENTERTAINING",
+    "definitions": [
+     {
+      "text": "Diverting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "going into something means ending up inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "enlisting",
+      "gives": "ENTERING",
+      "note": "enlisting in the army is entering it"
+     },
+     {
+      "clueFragment": "reservists",
+      "gives": "TA",
+      "note": "the TA, Territorial Army, was Britain's volunteer reserve force"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENTER",
+      "TAIN",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "Army reserve volunteers being pulled into joining up rather than staying home.",
+     "walkthrough": "'Diverting' suggests rerouting troops, but it is the adjective for amusing.",
+     "definitionFit": "Something diverting is amusing and holds the attention, which is what entertaining means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Diverting"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +801,70 @@
     "text": "Maiden's captivated young knight with singular modesty",
     "enumeration": "7"
    },
-   "solution": "SHYNESS"
+   "solution": "SHYNESS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SHYNESS",
+    "definitions": [
+     {
+      "text": "modesty",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "captivated",
+      "for": "container",
+      "note": "a captivated thing is held captive, so it sits inside the other word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maiden's",
+      "gives": "SHES",
+      "note": "a maiden is a she, plus the S of the possessive"
+     },
+     {
+      "clueFragment": "young",
+      "gives": "Y",
+      "note": "Y is a standard abbreviation for young"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "N",
+      "note": "N is the chess notation for a knight"
+     },
+     {
+      "clueFragment": "singular",
+      "gives": "S",
+      "note": "S is the grammatical abbreviation for singular"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "YN",
+      "ES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A demure maiden charms a young knight, a romance with a bashful air.",
+     "walkthrough": "Y and N sit inside SHE'S, then S is added.",
+     "definitionFit": "Shyness is a bashful reluctance to put oneself forward, which is closely akin to modesty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Maiden's"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +878,53 @@
     "text": "Graceful in a gentle style",
     "enumeration": "7"
    },
-   "solution": "ELEGANT"
+   "solution": "ELEGANT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ELEGANT",
+    "definitions": [
+     {
+      "text": "Graceful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "style",
+      "for": "anagram",
+      "note": "putting words in a new style restyles them, so their letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a gentle",
+      "gives": "AGENTLE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AGENTLE",
+       "gives": "ELEGANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Describing someone graceful as moving in a soft, gentle manner.",
+     "definitionFit": "Elegant means stylishly refined and pleasing in appearance or movement, a near synonym of graceful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "style"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +938,43 @@
     "text": "Old navy birds?",
     "enumeration": "5"
    },
-   "solution": "WRENS"
+   "solution": "WRENS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WRENS",
+    "definitions": [
+     {
+      "text": "Old navy",
+      "at": 0
+     },
+     {
+      "text": "birds",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old navy",
+      "note": "first meaning: members of the former Women's Royal Naval Service"
+     },
+     {
+      "clueFragment": "birds",
+      "note": "second meaning: small brown songbirds with cocked tails"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The Women's Royal Naval Service was merged into the Royal Navy in 1993; its members were nicknamed after its initials. 'birds' is also old British slang for women.",
+     "definitionFit": "The word names both the disbanded women's naval service members and a family of tiny songbirds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "navy"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +988,45 @@
     "text": "Heard no trace of accent coming from next door",
     "enumeration": "9"
    },
-   "solution": "NEIGHBOUR"
+   "solution": "NEIGHBOUR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "NEIGHBOUR",
+    "definitions": [
+     {
+      "text": "coming from next door",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heard",
+      "for": "homophone",
+      "note": "what is heard is taken by ear, so the sound of the words matters, not their spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no trace of accent",
+      "gives": "NEIGHBOUR",
+      "soundsLike": "NAY BURR",
+      "note": "nay is an old word for no, and a burr is a regional accent, such as a rolled R"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone noticing that a voice from next door carries no accent at all.",
+     "walkthrough": "'no trace of accent' sounds like it means accent-free, but it supplies two words to say together.",
+     "definitionFit": "A neighbour is the person living alongside you, so they come from the house next door."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trace"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1040,65 @@
     "text": "Bad-tempered Blairite chancellor finally to go in reshuffle",
     "enumeration": "9"
    },
-   "solution": "IRRITABLE"
+   "solution": "IRRITABLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "IRRITABLE",
+    "definitions": [
+     {
+      "text": "Bad-tempered",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end, so only the closing letter of the word counts"
+     },
+     {
+      "text": "reshuffle",
+      "for": "anagram",
+      "note": "a reshuffle reorders things, just as a cabinet reshuffle reorders posts"
+     }
+    ],
+    "linkWords": [
+     "to go in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blairite",
+      "gives": "BLAIRITE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "chancellor",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BLAIRITER",
+       "gives": "IRRITABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cross Blairite chancellor is due to lose his post in a cabinet reshuffle; a Blairite is a follower of Tony Blair.",
+     "definitionFit": "Irritable describes someone easily annoyed and quick to anger, the same as bad-tempered."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reshuffle"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1112,51 @@
     "text": "Less than expected rubbing by pants, say?",
     "enumeration": "9"
    },
-   "solution": "UNDERWEAR"
+   "solution": "UNDERWEAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNDERWEAR",
+    "definitions": [
+     {
+      "text": "pants, say?",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Less than expected",
+      "gives": "UNDER",
+      "note": "a figure under the forecast is less than expected"
+     },
+     {
+      "clueFragment": "rubbing",
+      "gives": "WEAR",
+      "note": "wear is damage from rubbing or friction"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNDER",
+      "WEAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint about chafing trousers rubbing less than anticipated.",
+     "walkthrough": "In Britain pants are underpants, not trousers, hence 'say' marking an example.",
+     "definitionFit": "British pants are briefs, one example of the clothing worn beneath outer garments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pants"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1170,43 @@
     "text": "Chest contains these knickers",
     "enumeration": "7"
    },
-   "solution": "DRAWERS"
+   "solution": "DRAWERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRAWERS",
+    "definitions": [
+     {
+      "text": "Chest contains these",
+      "at": 0
+     },
+     {
+      "text": "knickers",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chest contains these",
+      "note": "first meaning: sliding compartments in a chest of furniture"
+     },
+     {
+      "clueFragment": "knickers",
+      "note": "second meaning: an old word for women's or long underpants"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a chest full of underwear; in fact the chest holds the compartments and the underwear is a separate sense.",
+     "definitionFit": "The word names both the boxes that slide out of a chest of furniture and old-fashioned undergarments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Chest"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1220,81 @@
     "text": "Being more generous, Joey takes me round Italy by rail, initially",
     "enumeration": "7"
    },
-   "solution": "ROOMIER"
+   "solution": "ROOMIER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "ROOMIER",
+    "definitions": [
+     {
+      "text": "Being more generous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "takes",
+      "for": "charade",
+      "note": "taking on something adds it alongside, so the next pieces join on"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "going round something encloses it within"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the beginning, so just the opening letter of the word is used"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Joey",
+      "gives": "ROO",
+      "note": "a joey is a young kangaroo, a roo for short"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Italy",
+      "gives": "I",
+      "note": "I is the international vehicle code for Italy"
+     },
+     {
+      "clueFragment": "rail",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROO",
+      "MIE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A generous friend called Joey takes me on a rail tour of Italy.",
+     "walkthrough": "'Being more generous' is the definition in the sense of space: a roomier car is more generous in size.",
+     "definitionFit": "Generous can describe ample size, so something with more space is roomier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Joey"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1308,64 @@
     "text": "Spirit with which sailor returns to dance",
     "enumeration": "5"
    },
-   "solution": "RUMBA"
+   "solution": "RUMBA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "RUMBA",
+    "definitions": [
+     {
+      "text": "dance",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returns",
+      "for": "reversal",
+      "note": "something that returns goes back the way it came, so its letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "with which",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spirit",
+      "gives": "RUM",
+      "note": "rum is a spirit distilled from sugar cane"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "AB",
+      "note": "AB, able-bodied seaman, is a sailor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUM",
+      "BA"
+     ],
+     "reversals": [
+      {
+       "from": "AB",
+       "to": "BA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor comes back for a dance, fortified with liquor.",
+     "definitionFit": "The rumba is a Cuban ballroom dance, an example of the general term."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Spirit"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1379,49 @@
     "text": "Told king's very happy",
     "enumeration": "7"
    },
-   "solution": "RELATED"
+   "solution": "RELATED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RELATED",
+    "definitions": [
+     {
+      "text": "Told",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R is short for rex, Latin for king"
+     },
+     {
+      "clueFragment": "very happy",
+      "gives": "ELATED",
+      "note": "elated means overjoyed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ELATED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone was informed that the monarch is delighted.",
+     "definitionFit": "Related, as in a story related to friends, means told or narrated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Told"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1435,74 @@
     "text": "Puzzle setter's setter regularly takes up a short time",
     "enumeration": "7"
    },
-   "solution": "MYSTERY"
+   "solution": "MYSTERY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "MYSTERY",
+    "definitions": [
+     {
+      "text": "Puzzle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter of the word is taken"
+     },
+     {
+      "text": "takes up",
+      "for": "reversal",
+      "note": "in a down entry, taking something up lifts it from bottom to top, so it reads backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "setter's",
+      "gives": "MY",
+      "note": "the setter refers to themself, so the setter's is my"
+     },
+     {
+      "clueFragment": "setter",
+      "gives": "STE",
+      "select": "alternate",
+      "note": "the first, third and fifth letters of the word"
+     },
+     {
+      "clueFragment": "a short time",
+      "gives": "YR",
+      "note": "yr is the abbreviation for year, a time written short"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MY",
+      "STE",
+      "RY"
+     ],
+     "reversals": [
+      {
+       "from": "YR",
+       "to": "RY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crossword compiler's puzzle that takes a while to finish.",
+     "walkthrough": "'setter's setter' looks like a typo but the first one is the compiler speaking of themself and the second is letter fodder.",
+     "definitionFit": "A mystery is something baffling that has to be worked out, so it is a puzzle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "setter's"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1516,69 @@
     "text": "Very keen to get a look in God's house",
     "enumeration": "7"
    },
-   "solution": "ZEALOUS"
+   "solution": "ZEALOUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ZEALOUS",
+    "definitions": [
+     {
+      "text": "Very keen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "going in places these pieces inside another word"
+     },
+     {
+      "text": "house",
+      "for": "container",
+      "note": "to house something is to give it room inside, so the god's name surrounds the rest"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "God's",
+      "gives": "ZEUS",
+      "note": "Zeus was the king of the Greek gods"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "look",
+      "gives": "LO",
+      "note": "lo is an old word meaning look"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ZE",
+      "ALO",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "An eager visitor wanting to peek inside a temple.",
+     "walkthrough": "God's house sounds like a church, but the god is named and holds the other letters.",
+     "definitionFit": "Zealous describes fervent enthusiasm and dedication, so a zealous person is very keen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "house"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1592,63 @@
     "text": "It's sweet of kid to take us climbing",
     "enumeration": "5"
    },
-   "solution": "SUGAR"
+   "solution": "SUGAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SUGAR",
+    "definitions": [
+     {
+      "text": "It's sweet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "in a down entry, climbing goes upwards, so the letters read from the bottom up"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kid",
+      "gives": "RAG",
+      "note": "to kid or tease someone is to rag them"
+     },
+     {
+      "clueFragment": "to take us",
+      "gives": "US",
+      "note": "taken as written, added on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUGAR"
+     ],
+     "reversals": [
+      {
+       "from": "RAGUS",
+       "to": "SUGAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone finds it charming that a child wants to take them climbing.",
+     "walkthrough": "'kid' is the verb: to rag is to tease, in British slang.",
+     "definitionFit": "Sugar is the sweet substance used to sweeten food, hence a fair cryptic way to name it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "kid"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1668,50 @@
      }
     ]
    },
-   "solution": "TELLSON"
+   "solution": "TELLSON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TELLS ON",
+    "definitions": [
+     {
+      "text": "snitches",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Report",
+      "gives": "TELL",
+      "note": "to report something is to tell it"
+     },
+     {
+      "clueFragment": "issue",
+      "gives": "SON",
+      "note": "a son is issue, meaning offspring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TELL",
+      "SON"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to report a problem involving informers.",
+     "walkthrough": "'issue' means offspring here, an old legal sense.",
+     "definitionFit": "To tell on someone is to inform against them, exactly what a snitch does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "issue"
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1725,56 @@
     "text": "At the end of the day, straight home's good",
     "enumeration": "7"
    },
-   "solution": "EVENING"
+   "solution": "EVENING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EVENING",
+    "definitions": [
+     {
+      "text": "At the end of the day",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "straight",
+      "gives": "EVEN",
+      "note": "even means level or straight"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVEN",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Going straight home after work is the right thing to do once the day is over.",
+     "walkthrough": "'At the end of the day' reads as the cliche for 'ultimately', but is literal here.",
+     "definitionFit": "Evening is the part of the day between afternoon and night, its closing hours."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "straight"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1788,70 @@
     "text": "In the interval, live number's interrupted by short Twitter comment",
     "enumeration": "7"
    },
-   "solution": "BETWEEN"
+   "solution": "BETWEEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "deletion"
+    ],
+    "answer": "BETWEEN",
+    "definitions": [
+     {
+      "text": "In the interval",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupted by",
+      "for": "container",
+      "note": "something interrupted is broken into, so another piece lands in the middle"
+     },
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means cut off, so the last letter of the word is lost"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "live",
+      "gives": "BE",
+      "note": "to live is to be, to exist"
+     },
+     {
+      "clueFragment": "Twitter comment",
+      "gives": "TWEE",
+      "note": "a Twitter comment is a tweet, here missing its last letter"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "N",
+      "note": "N is the abbreviation for number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "TWEE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "During a concert's interval, a live music number is interrupted by a quick social media post.",
+     "walkthrough": "'interval' suggests the break at a show, but the definition is a preposition: in between.",
+     "definitionFit": "Between means in the space separating two things, which is the interval."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "live"
+    }
+   }
   },
   {
    "number": 26,
@@ -447,7 +1871,67 @@
      }
     ]
    },
-   "solution": "USERFRIENDLY"
+   "solution": "USERFRIENDLY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "USER-FRIENDLY",
+    "definitions": [
+     {
+      "text": "Easy to understand",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting into",
+      "for": "container",
+      "note": "getting into something means ending up inside it"
+     },
+     {
+      "text": "trouble",
+      "for": "anagram",
+      "note": "a word in trouble is in disorder, so its letters are thrown about"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mate",
+      "gives": "FRIEND",
+      "note": "a mate is a friend"
+     },
+     {
+      "clueFragment": "surely",
+      "gives": "USERLY",
+      "note": "the word's letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "USER",
+      "FRIEND",
+      "LY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SURELY",
+       "gives": "USERLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone surprised that their friend could be in trouble asks for reassurance.",
+     "walkthrough": "'mate' is British slang for a friend.",
+     "definitionFit": "Something user-friendly is designed so that ordinary people find it simple to use and grasp."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trouble"
+    }
+   }
   }
  ]
 }
