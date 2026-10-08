@@ -45,6 +45,7 @@ import argparse
 import datetime
 import hashlib
 import html
+import itertools
 import json
 import os
 import re
@@ -80,7 +81,7 @@ YEARS = lp.CACHE / "years"
 #: The Listener magazine's last issue; the puzzle moved to The Times after it.
 FIRST_YEAR, LAST_ISSUE = 1930, datetime.date(1991, 1, 3)
 #: Bumped when the reading changes, so every file is read again.
-VERSION = 9
+VERSION = 10
 PORTAL = gi.PORTAL
 DOC_URL = "https://go.gale.com/ps/retrieve.do?docId=GALE%7C{}&prodId=LSNR&userGroupName=alberta_portal"
 
@@ -374,6 +375,8 @@ def headed_columns(words):
              for a, b in zip([x0] + cuts, cuts + [x1 + 1]) if max(x0, a) < min(x1, b - 1)]
     lines = {"ACROSS": [], "DOWN": []}
     side = "ACROSS"
+    cuts = notice_cuts([fa.merge_rows([(w[1], w[3], w[0], w[2], w[4]) for w in body if x0 <= w[0] <= x1])
+                        for x0, x1 in spans])
     for i, (x0, x1) in enumerate(spans):
         col = [(w[1], w[3], w[0], w[2], w[4]) for w in body if x0 <= w[0] <= x1]
         rows = fa.merge_rows(col)
@@ -382,8 +385,10 @@ def headed_columns(words):
             # holds no more of them.
             break
         last = None
+        notice = cuts[i]
         for line in rows:
-            if last is not None and line[0] - last > 2 * fa.GAP or al.END.match(line[4]):
+            if last is not None and line[0] - last > 2 * fa.GAP or al.END.match(line[4]) or (
+                    notice is not None and line[0] >= notice):
                 break
             last = line[1]
             head = fa.heading_of(line[4])
@@ -405,6 +410,15 @@ NOTE_HEAD = re.compile(r"^\W*N[oO0][tTrR][eE]\s*[.:\u2014\u2013-]")
 #: Capitals with no small letter, two words or more ("B.B.C. SYMPHONY
 #: CONCERT"): an advert's or article's heading below a list.
 CAPITALS = re.compile(r"^[^a-z]*[A-Z]{3,}[^a-z]*[A-Z]{3,}[^a-z]*$")
+#: The words of a competition, prize or solution notice set under the
+#: lists ("Mr. A. R. Morton, c/o Mrs. ..., 68 Essex Road, ... prize of
+#: Half-a-Guinea"): notice_top() takes them only in a paragraph set off
+#: from the lists, with no clue number in it.
+NOTICE = re.compile(r"\b(?:prizes?|guineas?|c/o|competitions?|solvers?|awarded|envelopes?|post-?cards?|"
+                    r"solutions?\s+(?:will|must|should|may|to|of|received|sent))\b", re.IGNORECASE)
+#: A notice's paragraph is set off from the lists above it by a gap of
+#: more than this many of the column's line pitches.
+NOTICE_GAP = 1.6
 #: A clue number as the 1930s lists print it, "12.": where they line up
 #: is a clue column (a bare "12" may be a grid's or a sentence's). A
 #: bracket opens a count run on to its own line ("(12, 3 words)"), never one.
@@ -513,7 +527,9 @@ def numbered_columns(words):
     # lines: a bare number past where the clue numbers stand, with no words
     # beside it, goes.
     kept = set(words_only(words))
-    for x0, x1 in zip(lefts, lefts[1:] + [float("inf")]):
+    cuts = notice_cuts([fa.merge_rows([(w[1], w[3], w[0], w[2], w[4]) for w in words if x0 <= w[0] < x1])
+                        for x0, x1 in zip(lefts, lefts[1:] + [float("inf")])])
+    for x0, x1, notice in zip(lefts, lefts[1:] + [float("inf")], cuts):
         col = [(w[1], w[3], w[0], w[2], w[4]) for w in words if x0 <= w[0] < x1 and (
             w in kept or w[0] - x0 < NUMBER_EDGE or not re.fullmatch(r"\d{1,2}", w[4]))]
         run, last_y, last_x, clued = [], None, x0, False
@@ -529,7 +545,7 @@ def numbered_columns(words):
             col = [w for w in col if w[2] <= right + BEYOND * (right - x0)]
             rows = fa.merge_rows(col)
         for line in rows:
-            if REPORT_HEAD.match(line[4]):
+            if REPORT_HEAD.match(line[4]) or notice is not None and line[0] >= notice:
                 # A report's prose ("solving 38 Down") is no clue list.
                 break
             if x0 <= start[2] and line[1] <= start[3]:
@@ -590,6 +606,50 @@ def numbered_columns(words):
         return None
     lines = [[line for _, ls in lst for line in ls] for lst in lists]
     return lines if fa.heading_of(start[4]) == "ACROSS" else lines[::-1]
+
+
+def notice_top(rows):
+    """The top (y) of the first notice in a column's lines (`rows`,
+    fa.merge_rows' (y0, y1, x0, x1, text)), or None: a line with NOTICE's
+    words, with the lines just above it at the column's own pitch, the
+    paragraph starting after a gap of over NOTICE_GAP pitches under a clue
+    line (the preamble's "No prizes will be offered" is above the lists)
+    and holding no clue number ("68 Essex Road," has no stop; "12. A
+    prize" is a clue)."""
+    if len(rows) < 3:
+        return None
+    steps = sorted(b[0] - a[0] for a, b in itertools.pairwise(rows) if b[0] > a[0])
+    if not steps:
+        return None
+    pitch = steps[len(steps) // 2]
+    for i, line in enumerate(rows):
+        if not NOTICE.search(line[4]):
+            continue
+        top = i
+        while top and rows[top][0] - rows[top - 1][0] <= NOTICE_GAP * pitch:
+            top -= 1
+        if any(OPENS.match(r[4]) for r in rows[:top]) and not any(OPENS.match(r[4]) for r in rows[top:i + 1]):
+            return rows[top][0]
+    return None
+
+
+def notice_cuts(columns):
+    """Where each column's lines (`columns`, fa.merge_rows' rows each) end
+    for a notice under the lists, or None: its own notice_top(), else,
+    beside a notice another column holds, its first line reaching below
+    that notice's top when no line from there down opens on a clue number
+    (a notice set across the page whose words one reading lost there:
+    "68 Essex I" under DOWN 35)."""
+    own = [notice_top(rows) for rows in columns]
+    tops = [t for t in own if t is not None]
+    out = []
+    for rows, top in zip(columns, own):
+        if top is None and tops:
+            below = [r for r in rows if r[1] > min(tops)]
+            if below and not any(OPENS.match(r[4]) for r in below):
+                top = below[0][0]
+        out.append(top)
+    return out
 
 
 def numbered(run, n):

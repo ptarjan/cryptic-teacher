@@ -216,6 +216,33 @@ cols = g.page_columns(g.figures(no88(
 check("a list running on at the next column's top is still read (mirror)",
       ["1", "2", "5", "6", "7", "8", "9"], [l[4].split(".")[0] for l in cols[1]] if cols else None)
 
+# No 2's page: a prize notice set across the page under the lists, after
+# a wider gap ("Mr. A. R. Morton, c/o Mrs. ..., 68 Essex Road, ... prize
+# of Half-a-Guinea"), is no clue text, and its "68" is no clue; one
+# reading loses the right half's notice words ("68 Essex I"), and the left
+# half's notice still ends that column. The preamble's "No prizes will be
+# offered" above the lists and a clue "A prize" inside them end nothing
+# (mirrors).
+def no2(right=("68 Essex Road,", "prize of Half-a-Guinea"), clue2="2. A basic volcanic rock."):
+    return (line("Crossword No. 2. No prizes will be offered,", 100, 900)
+            + line("but any reader who sends a solution", 100, 930)
+            + [(300, 1000, 400, 1016, "ACROSS")] + line("1. A covering.", 100, 1030)
+            + line("33. Irish for juice.", 100, 1060) + line("34. An implement for writing.", 100, 1090)
+            + line("Mr. A. R. Morton, c/o Mrs.", 100, 1140) + line("is invited to apply to us", 100, 1170)
+            + [(800, 1000, 880, 1016, "DOWN")] + line("1. A covering.", 600, 1030)
+            + line(clue2, 600, 1060) + line("35. A waterfall.", 600, 1090)
+            + line(right[0], 640, 1140) + (line(right[1], 600, 1170) if right[1] else []))
+for what, page in (("the notice's words in both halves", no2()),
+                   ("one reading lost the right half's notice words", no2(("68 Essex I", None)))):
+    cols = g.page_columns(g.figures(page))
+    check(f"No 2: a prize notice under the lists ends them ({what})",
+          (["1", "33", "34"], ["1", "2", "35"]),
+          tuple([l[4].split(".")[0] for l in c] for c in cols) if cols else None)
+cols = g.page_columns(g.figures(no2(clue2="2. A prize for writing.")))
+check("a clue naming a prize, and the preamble's prizes, end nothing (mirror)",
+      (["1", "33", "34"], ["1", "2", "35"], "2. A prize for writing."),
+      (*(tuple([l[4].split(".")[0] for l in c] for c in cols)), cols[1][1][4]) if cols else None)
+
 # No 3's page: ACROSS and DOWN low on the left under the grid, both lists
 # running on at the top of the right half. The headings give only the
 # first band; the clue numbers give all of it, so they are taken. Without
