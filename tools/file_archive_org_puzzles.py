@@ -199,8 +199,8 @@ NUMBER = r"(\d{2}[,.\s]?\d{3})"
 TITLE = re.compile(r"^\W*(?:(?!(?:sunday|conc\w*|jumbo|two|quick|\w*stener|solutions?|to|of)\b)\S{1,8}\s+){0,4}?"
                    r"\W{0,3}crossword\W{0,3}(?:puzzle\W{0,3})?(?:n[o0]\W{0,3})?\s*"
                    r"([\dTIil][.,]?\s?\d[^\w\s]{0,2}\s?\d\s?\d\s?\d)(?!\d)", re.IGNORECASE)
-#: The previous puzzle's solution, printed under the clues.
-SOLUTION = re.compile(r"^\W*solution\s+(?:to|of)\s+puzzle\s+no\.?\s*" + NUMBER, re.I)
+#: The previous puzzle's solution, printed under the clues ("to" read "tn").
+SOLUTION = re.compile(r"^\W*solution\s+(?:t[o0n]|o[fl])\s+puzzle\s+n[o0]\.?\s*" + NUMBER, re.I)
 #: A column line that ends the clues.
 STOP = re.compile(r"^\W*(solution|crossword|concise|times\s+two|the\s+times\s+crossword|the\s+solution\s+(?:to|of)"
                   r"|championship|jumbo|\w{0,10}\s+(of|to)\s+puzzle|\S{4,9}\s+t[ao]m+or+ow|publ\w+\s+by"
@@ -287,11 +287,17 @@ def headings(lines, pattern):
 
 # ------------------------------------------------------------ the page
 
-def ink_box(img):
-    """The largest patch of ink in a PIL image, as (x0, y0, x1, y1), or None."""
+def ink_box(img, close=0):
+    """The largest patch of ink in a PIL image, as (x0, y0, x1, y1), or None;
+    with `close`, gaps up to that many pixels across closed first (a frame
+    the scan broke)."""
     import numpy as np
     gray = np.asarray(img.convert("L"), dtype=np.uint8)
-    return trove_grid.largest_component(gray < trove_grid.otsu(gray))
+    ink = gray < trove_grid.otsu(gray)
+    if close:
+        import cv2
+        ink = cv2.morphologyEx(ink.astype(np.uint8), cv2.MORPH_CLOSE, np.ones((close, close), np.uint8)) > 0
+    return trove_grid.largest_component(ink)
 
 
 def grid_shaped(box):
@@ -458,11 +464,12 @@ def footed(img, box):
 def starts_under(img, box, top):
     """Whether the ink of `box`, cut at `top` (its title's foot), starts
     within TITLE_OVERLAP over it: the grid's top frame reaching into the
-    title's box, not ink running down through the title. A row there that
-    only a fold or a speck crosses (CLEAR_SHARE of it inked), with a row
-    as wide as a frame (FRAME_SHARE) under it, parts the title from the
-    grid whatever runs down through both (a fold in the paper, No 54 of
-    1930-04-04)."""
+    title's box, not ink running down through the title. A row within
+    TITLE_OVERLAP either side of `top` that only a fold or a speck crosses
+    (CLEAR_SHARE of it inked), with a row as wide as a frame (FRAME_SHARE)
+    under it there, parts the title from the grid whatever runs down
+    through both (a fold in the paper, No 54 of 1930-04-04; a title's
+    descender over a frame 2px under its foot, Gale's 1987-01-07)."""
     import numpy as np
     if box[1] > top + 2:
         return True
@@ -471,7 +478,7 @@ def starts_under(img, box, top):
     if above is None or above[1] > 0:
         return True
     gray = np.asarray(img.crop((band[0], band[1], box[2], box[3])).convert("L"), dtype=np.uint8)
-    rows = (gray < trove_grid.otsu(gray))[: band[3] - band[1]].mean(axis=1)
+    rows = (gray < trove_grid.otsu(gray))[: top + TITLE_OVERLAP + 1 - band[1]].mean(axis=1)
     return any(rows[k] <= CLEAR_SHARE and rows[k + 1:].max() >= FRAME_SHARE / 2 for k in range(len(rows) - 1))
 
 
@@ -1557,33 +1564,105 @@ def mend_misreads(text):
     return text
 
 
+#: A word our readers read where a solution heading starts ("Solution", or a
+#: RapidOCR phrase holding it: "grass Solution to Puzzle No 17,245").
+SOLUTION_WORD = re.compile(r"\bsolution\b", re.IGNORECASE)
+#: A solution heading's band, re-read whole by every reader: from just left of
+#: its "Solution" word (or its grid's left edge) this far right, and this far
+#: over and under the word (over the grid, this far up from its top), in
+#: pixels at SCAN_WIDTH. The heading is set over its own solution grid, the
+#: clue column left of it (a whole-page read runs the two together, or reads
+#: neither), the next column past it; two side by side (a Saturday's) are
+#: read apart, each from its own word or grid.
+SOLUTION_BAND = (30, 420, 25, 70)
+#: The width of a solution grid at SCAN_WIDTH (the puzzle's own is 680-770).
+SOLUTION_GRID = (200, 480)
+
+
+def solution_shaped(img):
+    """grids_on's `shaped` for a solution grid on page `img`."""
+    k = SCAN_WIDTH / img.width
+
+    def shaped(box):
+        w, h = (box[2] - box[0]) * k, (box[3] - box[1]) * k
+        return SOLUTION_GRID[0] <= w <= SOLUTION_GRID[1] and 0.85 <= w / max(h, 1) <= 1.18
+    return shaped
+
+
+def solution_bands(img, words):
+    """The bands (x0, y0, x1, y1) a page's solution headings are re-read in:
+    one per "Solution" word any reader read (SOLUTION_WORD), and one over
+    each solution grid's top (grids_on), where no reader's whole-page pass
+    read the heading at all (Gale's 1987-01-17); those of one heading once."""
+    k = img.width / SCAN_WIDTH
+    left, right, pad, over = (int(v * k) for v in SOLUTION_BAND)
+    starts = []
+    for x0, y0, x1, y1, text in words:
+        m = SOLUTION_WORD.search(text)
+        if m:
+            starts.append((x0 + (x1 - x0) * m.start() // max(len(text), 1), y0 - pad, y1 + pad))
+    starts += [(g[0], g[1] - over, g[1] + pad // 5) for g in grids_on(img, shaped=solution_shaped(img))]
+    bands = []
+    for x, top, foot in starts:
+        band = (max(0, x - left), max(0, top), min(img.width, x + right), min(img.height, foot))
+        if not any(abs(band[0] - b[0]) < 2 * left and min(band[3], b[3]) > max(band[1], b[1]) for b in bands):
+            bands.append(band)
+    return bands
+
+
+def row_lines(words):
+    """printed_lines() with each row's lines joined: a heading read with a
+    wide gap between its words ("Solution tn Puzzle" ... "No 17,245") is one
+    line."""
+    rows = []
+    for ln in printed_lines(words):
+        row = next((r for r in rows if r[0][1] <= (ln[0][1] + ln[0][3]) / 2 <= r[0][3]), None)
+        if row is None:
+            rows.append(list(ln))
+        else:
+            row.extend(ln)
+            row.sort()
+    return rows
+
+
 def ocr_headings(img, paper, key):
     """([(number, box, setter, readers)], [(number, box)]) of the titles and
     solution headings on a page archive.org has no text for (a Gale page:
-    one article, so its whole ink is read): each heading's number at least
-    half our readers read, with the box and setter of the first; a title
-    fewer read stands when it is the number after a solution heading read
-    on the page (the day before's, printed under the clues)."""
+    one article, so its whole ink is read): each title's number at least
+    half our readers read on the page, with the box and setter of the
+    first; a title fewer read stands when it is the number after a solution
+    heading read on the page (the day before's, printed under the clues).
+    A solution heading is read again in its own band (solution_bands) by
+    every reader, and stands where at least half read its number there: a
+    whole-page read misses its small type or runs it into the clue column."""
     box = img.convert("L").point(lambda v: 255 if v < 128 else 0).getbbox()
     if box is None:
         return [], []
-    titles, sols = {}, {}
+    titles, page_words = {}, []
     for which in READERS:
         path = CROPS / "titles" / f"{key}_page.{reader_key(which)}.json"
         words = [(*w[:4], mend_misreads(w[4])) for w in band_words(img, box, which, path)]
+        page_words += words
         lines = printed_lines(words)
         lines += [ln[k:] for ln in lines for k in range(1, len(ln)) if HEADING_START.match(ln[k][4])]
-        ts, ss = paper.headings(lines)
-        for n, b, setter in ts:
+        for n, b, setter in paper.headings(lines)[0]:
             if which not in (r[0] for r in titles.get(n, ())):
                 titles.setdefault(n, []).append((which, b, setter))
-        for n, b in {n: b for n, b in reversed(ss)}.items():
-            sols.setdefault(n, []).append(b)
+    sols = {}
+    for band in solution_bands(img, page_words):
+        for which in READERS:
+            path = CROPS / "titles" / f"{key}_{'_'.join(map(str, band))}.{reader_key(which)}.json"
+            words = [(*w[:4], mend_misreads(w[4])) for w in band_words(img, band, which, path)]
+            lines = row_lines(words)
+            lines += [ln[k:] for ln in lines for k in range(1, len(ln)) if HEADING_START.match(ln[k][4])]
+            for n, b in {n: b for n, b in reversed(paper.headings(lines)[1])}.items():
+                if which not in (r[0] for r in sols.get(n, ())):
+                    sols.setdefault(n, []).append((which, b))
     least = len(READERS) / 2
-    sols = {n: boxes for n, boxes in sols.items() if len(boxes) >= least}
+    sols = {n: reads for n, reads in sols.items() if len(reads) >= least}
     return ([(n, reads[0][1], reads[0][2], [r[0] for r in reads]) for n, reads in titles.items()
              if len(reads) >= least or n - 1 in sols],
-            [(n, boxes[0]) for n, boxes in sols.items()])
+            [(n, reads[0][1]) for n, reads in sols.items()])
 
 
 def page(d, leaf):
@@ -1926,7 +2005,7 @@ PAPERS = {p.key: p for p in (TIMES, FT, GUARDIAN, TELEGRAPH)}
 #: Every --paper a run can read: each ledger's editions.
 FILERS = {**PAPERS, GALE.key: GALE}
 #: Each run's ledger in the cache, filed.jsonl unless named here. Kept off
-#: Paper, whose source is in the scan key (SCAN_CODE).
+#: Paper, whose source is in the scan key (scan_code).
 LEDGER_NAMES = {GALE.key: downloads.GALE_LEDGER.name}
 #: The runs whose never-read editions are read latest laid out first (pages
 #: saved by hand, whose saver waits to see them filed), not a year at a time.
@@ -2529,6 +2608,10 @@ def byline(img, hit, series=FT.series):
 #: The share of a solution grid's cells that must be block or light exactly
 #: where the puzzle's grid has them, for its letters to count.
 SOLUTION_BLOCKS = 0.97
+#: The gap, in pixels, closed across a solution grid's ink before its box is
+#: taken: a frame the scan broke leaves a part of the grid the largest ink
+#: (Gale's 1987-01-15, 248px of its 340).
+SOLUTION_CLOSE = 3
 
 
 def read_solution(sol, grid, above=False):
@@ -2542,7 +2625,7 @@ def read_solution(sol, grid, above=False):
     crop = (max(0, x0 - 80), y1, min(img.width, x1 + 140), min(img.height, y1 + int(1.4 * w) + 60))
     if above:
         crop = (max(0, x0 - 80), max(0, y0 - int(1.4 * w) - 60), min(img.width, x1 + 140), y0)
-    box = ink_box(img.crop(crop))
+    box = ink_box(img.crop(crop), SOLUTION_CLOSE)
     if box is None:
         return {}, {"refused": "no ink under the heading"}
     bw, bh = box[2] - box[0], box[3] - box[1]
@@ -2570,30 +2653,51 @@ WORKERS = 2
 SAVE_EVERY = 300
 
 
+def scan_code(text=None):
+    """The module-level names whose code scan() runs: those it names, and
+    theirs in turn (a function, class or assignment of this file naming
+    another), read off the file, so new heading code joins the scan key
+    without a list to keep."""
+    import ast
+    tree = ast.parse(text if text is not None else Path(__file__).read_text())
+    defs = {}
+    for node in tree.body:
+        if isinstance(node, (ast.FunctionDef, ast.ClassDef)):
+            defs.setdefault(node.name, []).append(node)
+        elif isinstance(node, ast.Assign):
+            for t in node.targets:
+                if isinstance(t, ast.Name):
+                    defs.setdefault(t.id, []).append(node)
+    seen, todo = set(), list(SCAN_ROOTS)
+    while todo:
+        name = todo.pop()
+        if name in seen or name not in defs:
+            continue
+        seen.add(name)
+        todo += [n.id for node in defs[name] for n in ast.walk(node) if isinstance(n, ast.Name)]
+    return seen
+
+
 def scan_key():
     """A hash of this file's code that finds an edition's titles and solution
-    headings (SCAN_CODE, read from the file): a scan made by other code is
+    headings (scan_code(), read from the file): a scan made by other code is
     made again."""
     if not _SCAN_KEY:
         import ast
         text = Path(__file__).read_text()
+        code = scan_code(text)
         h = hashlib.sha256()
         for node in ast.parse(text).body:
             names = ([node.name] if isinstance(node, (ast.FunctionDef, ast.ClassDef)) else
                      [t.id for t in node.targets if isinstance(t, ast.Name)] if isinstance(node, ast.Assign) else [])
-            if set(names) & SCAN_CODE:
+            if set(names) & code:
                 h.update(ast.get_source_segment(text, node).encode())
         _SCAN_KEY.append(h.hexdigest()[:16])
     return _SCAN_KEY[0]
 
 
-#: The names whose code scan() runs.
-SCAN_CODE = {"leaf_lines", "headings", "scan", "ft_headings", "guardian_headings", "telegraph_headings", "Paper",
-             "numbered_heading", "heading_of", "digits", "box_of", "centred", "number_of", "NUMBER", "TITLE",
-             "SOLUTION", "FT_TITLE", "FT_NUMBER", "FT_LEAD_JUNK", "FT_SETTER", "FT_SOLUTION", "G_NUMBER", "GUARDIAN_TITLE",
-             "GUARDIAN_SOLUTION", "TELEGRAPH_SOLUTION", "NUMBERED_HEADING", "FT_GRID_SPAN", "FT_SOLUTION_SPAN",
-             "TELEGRAPH_SOLUTION_SPAN", "OBJECT_TAG", "GRID_FILL", "TITLE_REACH", "grids_on", "title_bands",
-             "printed_lines", "band_words", "ocr_titles", "grid_shaped"}
+#: Where scan_code() starts.
+SCAN_ROOTS = {"scan"}
 _SCAN_KEY = []
 
 

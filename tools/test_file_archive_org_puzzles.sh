@@ -71,10 +71,13 @@ check("misread titles read: first word, a mark before Crossword, a split number,
        for n, _ in f.headings([line(t)], f.TITLE)])
 # A scan cached by older heading code is made again, and a title it finds
 # that no verdict covers makes the edition due.
-key, code = f.scan_key(), f.SCAN_CODE
-f.SCAN_CODE = code - {"TITLE"}; f._SCAN_KEY.clear()
-check("the title pattern is in the scan key", True, f.scan_key() != key)
-f.SCAN_CODE = code; f._SCAN_KEY.clear()
+check("the scan key follows every name scan() reaches: the title pattern, the title OCR, the Gale page's "
+      "headings and their band re-reads, the 1930 headings", set(),
+      {"TITLE", "SOLUTION", "ocr_titles", "ocr_headings", "mend_misreads", "solution_bands", "SOLUTION_BAND",
+       "times1930_headings"} - f.scan_code())
+check("and not the filing code: a change to it rescans nothing", set(), {"read_puzzle", "read_solution"} & f.scan_code())
+check("scan_code follows a name through the code naming it, and no further", {"scan", "a", "B"},
+      f.scan_code("def scan():\n    return a()\ndef a():\n    return B\nB = 1\nC = 2\ndef d():\n    return C\n"))
 check("a title no verdict covers makes the edition due", "titles changed",
       f.due_reason({"inputs": "h", "solutionsSeen": [], "verdicts": [], "vlm": "v",
                     "scan": {"puzzles": [{"number": 18862}]}}, "h", [], "v"))
@@ -95,9 +98,6 @@ check("a garbled Concise, solution, Listener or index line is no title", [],
        for n, _ in f.headings([line(t)], f.TITLE)])
 check("a title run together with its \"The\" is read (1995-04-12)", [19827],
       [n for n, _ in f.headings([line("THETIMES CROSSWORD NO 19,827")], f.TITLE)])
-f.SCAN_CODE = code - {"ocr_titles"}; f._SCAN_KEY.clear()
-check("the title OCR is in the scan key", True, f.scan_key() != key)
-f.SCAN_CODE = code; f._SCAN_KEY.clear()
 words = [(2108, 2835, 2214, 2853, "Horthern Bank Ltd"), (2504, 2828, 2845, 2869, "CROSSWORD"),
          (2262, 2729, 2293, 2947, "*922393s93s"), (2108, 2896, 2183, 2914, "Rea Brothers"),
          (2468, 2892, 2882, 2924, "No.7,869 Set by CINEPHILE")]
@@ -1316,6 +1316,14 @@ f.CLEAR_SHARE, saved_clear = -1, f.CLEAR_SHARE
 check("(mirror) without the clear row under the title the folded grid is refused", None, located("times1930-54-fold")[0])
 f.CLEAR_SHARE = saved_clear
 
+side, shaped, box = located("gale-times-17247-tight-title")
+check("a grid whose top frame lies 2px under its title's foot, a descender over it, is the title's (Gale 1987-01-07)",
+      ("below", True), (side, shaped))
+f.TITLE_OVERLAP, saved_overlap = 0, f.TITLE_OVERLAP
+check("(mirror) looking for the clear row over the title's foot only, it is refused", None,
+      located("gale-times-17247-tight-title")[0])
+f.TITLE_OVERLAP = saved_overlap
+
 side, shaped, box = located("times-16960-foot")
 check("a grid box ends at the grid's foot frame, not under the ACROSS line touching it (Times 16,960)",
       ("below", 711), (side, box[3]))
@@ -1555,6 +1563,60 @@ got = gale_words({r: ran_on + [(w[0] + 140, w[1], w[2] + 140, w[3], "Solotion" i
                                for w in sol] for r in rs[:2]})
 check("a solution heading read on the end of a clue line, 'Solotion', is read once a reader", ([17247], []),
       ([s_[0] for s_ in got[1]], got[0]))
+# A solution heading is read again in its own band: a whole-page read misses
+# its small type (two of three readers read nothing there, Gale's 1987-01-10)
+# or splits it at a wide gap ("Solution tn Puzzle" ... "No 17,245", 1987-01-06).
+def gale_bands(page, band):
+    saved_bw = f.band_words
+    def words(img, box, which, path):
+        if "_page." in str(path):
+            return page.get(which, [])
+        return [w for w in band.get(which, []) if box[0] <= w[0] and w[2] <= box[2] and box[1] <= w[1] and w[3] <= box[3]]
+    f.band_words = words
+    try:
+        return f.ocr_headings(wide_img, f.GALE, "test")
+    finally:
+        f.band_words = saved_bw
+wide_img = Image.new("L", (f.SCAN_WIDTH, 600), 255)
+wide_img.putpixel((10, 10), 0)
+gapped = [(40, 300, 110, 320, "Solution"), (115, 300, 135, 320, "tn"), (140, 300, 190, 320, "Puzzle"),
+          (260, 300, 280, 320, "No"), (285, 300, 340, 320, "17,245")]
+got = gale_bands({rs[2]: gapped[:1]}, {r: gapped for r in rs})
+check("a heading one reader saw on the page and every reader read in its band, gapped and 'tn', stands",
+      [17245], [s_[0] for s_ in got[1]])
+got = gale_bands({rs[2]: gapped[:1]}, {rs[2]: gapped})
+check("(mirror) one reader in its band is not enough", [], got[1])
+notice = title("The solution of Saturday's Prize Puzzle No 17,250 will appear next Saturday")
+notice = [(w[0], 300, w[2], 320, w[4]) for w in notice]
+got = gale_bands({r: notice for r in rs}, {r: notice for r in rs})
+check("a notice that the solution will appear is no heading (1987-01-12)", [], got[1])
+# A solution grid no reader's page pass read a heading over (1987-01-17):
+# its band is over the grid's top, and the heading read there stands.
+from PIL import ImageDraw
+sol_page = Image.new("L", (f.SCAN_WIDTH, 1400), 255)
+sd = ImageDraw.Draw(sol_page)
+gx, gy, cell = 600, 700, 22
+for k in range(16):
+    sd.line([(gx + k * cell, gy), (gx + k * cell, gy + 15 * cell)], fill=0, width=2)
+    sd.line([(gx, gy + k * cell), (gx + 15 * cell, gy + k * cell)], fill=0, width=2)
+for r in range(15):
+    for c in range(15):
+        if (r * 7 + c * 3) % 4 == 0:
+            sd.rectangle([gx + c * cell, gy + r * cell, gx + (c + 1) * cell, gy + (r + 1) * cell], fill=0)
+bands = f.solution_bands(sol_page, [])
+check("a band over a solution grid's top, though no reader read a 'Solution' word", True,
+      len(bands) == 1 and bands[0][1] < gy - 40 and gy <= bands[0][3] <= gy + 10 and bands[0][0] <= gx)
+check("and one heading's word and grid make one band", 1,
+      len(f.solution_bands(sol_page, [(gx + 10, gy - 40, gx + 90, gy - 15, "Solution")])))
+# A solution grid whose frame the scan broke is boxed whole (1987-01-15).
+sd.rectangle([gx + 5 * cell - 1, gy - 2, gx + 5 * cell, gy + 15 * cell + 2], fill=255)
+sd.rectangle([gx - 2, gy + 7 * cell - 1, gx + 15 * cell + 2, gy + 7 * cell], fill=255)
+crop = sol_page.crop((gx - 60, gy - 20, gx + 15 * cell + 60, gy + 15 * cell + 60))
+whole = f.ink_box(crop, f.SOLUTION_CLOSE)
+check("a solution grid with its frame broken is boxed whole once the gap is closed", True,
+      whole is not None and whole[2] - whole[0] >= 15 * cell - 4 and whole[3] - whole[1] >= 15 * cell - 4)
+part = f.ink_box(crop)
+check("(mirror) unclosed, the largest ink is a part of it", True, part[2] - part[0] < 15 * cell - 4 or part[3] - part[1] < 15 * cell - 4)
 
 # The 1930 Times (pub_times, one item an issue): its paper, its 1-3 digit
 # numbers held to the date, four clue columns, and counts from the grid.
