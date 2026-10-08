@@ -520,6 +520,24 @@ check("an end comma both engines print on the page's other clues stands (mirror)
       "Clue number 3 here,", al.end_stops(lays_w := lays_v | {"3-down": lays_t["3-down"]},
                                            [lays_w, lays_w, lays_v, lays_v], ["times", "page", "en5", "ch"])["3-down"][0])
 
+# No 17 16D: "walls.from" is longer than any word of the clue, and parted()
+# capped the words it joins at the clue's longest.
+check("two words run together over a stop part when longer than any word (No 17 16D)",
+      "*Used to preserve walls from damp.",
+      oc.parted("*Used to preserve walls.from damp.", [["Used", "to", "preserve", "walls", "from", "damp"]]))
+check("no reading printing the two words apart leaves them (mirror)",
+      "*Used to preserve walls.from damp.",
+      oc.parted("*Used to preserve walls.from damp.", [["Used", "to", "preserve", "wallsfrom", "damp"]]))
+
+# No 9 6D: en5 alone prints the ligature, which ch and Tesseract read "e".
+check("a word one reading prints with a ligature is filed as printed (No 9 6D)",
+      "A mediæval weapon.", oc.ligatured("A medieval weapon.", ["A medieval weapon.", "A mediæval weapon."]))
+check("no reading printing a ligature leaves the voted word (mirror)",
+      "A medieval weapon.", oc.ligatured("A medieval weapon.", ["A medieval weapon.", "A mediaeval weapon."]))
+check("a ligature word whose letters are a known word is no misread (No 9 6D)",
+      [], oc.suspect("A mediæval weapon."))
+check("a ligature in no known word is (mirror)", [("mædixval", "not a word")], oc.suspect("A mædixval weapon."))
+
 print(f"FAILS {fails}")
 EOF
 )
