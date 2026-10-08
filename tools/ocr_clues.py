@@ -241,8 +241,10 @@ BLANK_QUOTE = 0.4
 #: in a word's height.
 BLANK_APART = 0.2
 BLANK_WALL = 1.8
-#: A rule run into the word after it (No 4 9D's "'——and") is a blank this
-#: long at least, in a word's height: two ems, where a dash is one.
+#: A rule run into a word after it (No 4 9D's "'——and"), or before and
+#: after it, is a blank this long at least, in a word's height: two ems,
+#: where a dash is one. One run into the word before it and ending its
+#: line (No 4 15D's "no——" over "could draw") needs only BLANK_LONG.
 BLANK_RUN_IN = 1.8
 BLANK = "——"
 DASHES = re.compile(r"\s*[-‐-―_~=]+\s*")
@@ -268,16 +270,20 @@ def blank_strokes(img, lines, words, h):
         xs = np.flatnonzero(ink[y])
         for run in np.split(xs, np.flatnonzero(np.diff(xs) > BLANK_GAP * h) + 1):
             x0, x1 = int(run[0]), int(run[-1]) + 1
-            run_in = False
-            if BLANK_LONG * h <= x1 - x0 <= BLANK_LONGEST * h and len(run) < 0.75 * (x1 - x0):
-                # The rule unbroken from the run's start, the word after it
-                # touching it.
-                solid = np.split(run, np.flatnonzero(np.diff(run) > 1) + 1)[0]
-                if len(solid) < BLANK_RUN_IN * h:
+            before = after = False
+            if len(run) < 0.75 * (x1 - x0):
+                # The run's longest unbroken stretch is the rule, the words
+                # touching it on either side.
+                solid = max(np.split(run, np.flatnonzero(np.diff(run) > 1) + 1), key=len)
+                before, after = int(solid[0]) > x0, int(solid[-1]) + 1 < x1
+                x0, x1 = int(solid[0]), int(solid[-1]) + 1
+                if not BLANK_LONG * h <= x1 - x0 <= BLANK_LONGEST * h:
                     continue
-                x0, x1, run_in = int(solid[0]), int(solid[-1]) + 1, True
+                if x1 - x0 < BLANK_RUN_IN * h and (after or not line_end(x1, y, lines, h)):
+                    continue
             elif not BLANK_LONG * h <= x1 - x0 <= BLANK_LONGEST * h:
                 continue
+            run_in = before or after
             span = ink[:, x0:x1].mean(axis=1)
             y0, y1 = y, y + 1
             while y0 > 0 and span[y0 - 1] >= 0.3:
@@ -288,29 +294,33 @@ def blank_strokes(img, lines, words, h):
                     or span[y1 + 1:y1 + 3].max(initial=0) > 0.15:
                 continue
             seen.update(range(y0, y1))
-            if apart(ink, x0, y0, x1, y1, h, run_in) and placed((x0, (y0 + y1) / 2, x1), lines, h) \
+            if apart(ink, x0, y0, x1, y1, h, before, after) and placed((x0, (y0 + y1) / 2, x1), lines, h) \
                     and not any(w[1] - 0.2 * h <= y <= w[3] + 0.2 * h and min(w[2], x1) - max(w[0], x0) > 0.3 * (x1 - x0)
                                 # A rule run into a word is no underline: a
-                                # word over it is one whose box took it in.
+                                # word over it, or one running on past it on
+                                # the side it touches, is one whose box took
+                                # it in.
                                 and not (run_in and not w[1] + 0.25 * (w[3] - w[1]) <= y <= w[3] - 0.25 * (w[3] - w[1]))
+                                and not (before and w[0] < x0 - 0.3 * h) and not (after and w[2] > x1 + 0.3 * h)
                                 for w in words):
-                found.append((x0, y0, x1, y1, ("'" if run_in and opened(ink, x0, y0, y1, h) else "")
+                found.append((x0, y0, x1, y1, ("'" if after and not before and opened(ink, x0, y0, y1, h) else "")
                               + BLANK + ("'" if quoted(ink, x1, y0, y1, h) else "")))
     return found
 
 
-def apart(ink, x0, y0, x1, y1, h, run_in=False):
+def apart(ink, x0, y0, x1, y1, h, before=False, after=False):
     """Whether a rule stands apart as a blank does: a space before it at any
     height (a dash after a mark, "NOTE.\u2014Clues", "competitors:\u2014",
     is punctuation; a colon's dots miss the rule's own rows), a space after
     it at its height (a stop, comma or closing quote may follow), and no
     stroke taller than BLANK_WALL words near it (a grid's line or bar
-    between its walls). A rule `run_in` to the word after it has the space
-    before it from its own rows down: an opening quote stands above them
-    ("'——and")."""
+    between its walls). A rule run into the word `before` it or `after` it
+    (blank_strokes) needs no space on that side; one run into the word
+    after it alone has the space before it from its own rows down: an
+    opening quote stands above them ("'——and")."""
     gap = max(3, int(BLANK_APART * h))
-    before = ink[max(0, int(y0 - (1 if run_in else 0.45 * h))):int(y1 + 0.45 * h), max(0, x0 - 1 - gap):max(0, x0 - 1)]
-    if before.any() or not run_in and ink[y0:y1, x1 + 1:x1 + 1 + 2 * gap].any():
+    space = ink[max(0, int(y0 - (1 if after else 0.45 * h))):int(y1 + 0.45 * h), max(0, x0 - 1 - gap):max(0, x0 - 1)]
+    if not before and space.any() or not after and ink[y0:y1, x1 + 1:x1 + 1 + 2 * gap].any():
         return False
     near = ink[max(0, int(y0 - 2 * h)):int(y1 + 2 * h), max(0, int(x0 - h)):int(x1 + h)]
     for col in near.T:
@@ -320,6 +330,11 @@ def apart(ink, x0, y0, x1, y1, h, run_in=False):
             if run >= BLANK_WALL * h:
                 return False
     return True
+
+
+def line_end(x1, y, lines, h):
+    """Whether a rule ending at x1 at height y ends one of the clue `lines`."""
+    return any(l[1] <= y <= l[3] and abs(l[2] - x1) <= 0.3 * h for l in lines)
 
 
 def placed(stroke, lines, h):
@@ -1580,7 +1595,45 @@ def clean(text):
     # An exclamation mark read as a capital I or a one, last before the count.
     text = re.sub(r"(?<=[a-z]) [I1l](?=\s*(?:\(\s*\d|$))", "!", text)
     text = re.sub(r"(?<![\d(])\b1(?=[a-z]*\b)(?![a-z]*\s+(?:and|or|&)\s+\d)([a-z]*)", one_for_i, text)
-    return re.sub(r"\b([A-Za-z]+)-\s+([a-z]+)\b", line_end_hyphen, text)
+    return rejoined(re.sub(r"\b([A-Za-z]+)-\s+([a-z]+)\b", line_end_hyphen, text))
+
+
+#: A word the lexicon ranks rarer than this, said again as the end of the
+#: word before it, is that word's line-end half read twice.
+TAIL_RARE = 20000
+
+
+def rejoined(text):
+    """`text` with a word a reading broke mended: two non-words that spell a
+    word ("Engl ishman"); a rare word that ends the word before it and the
+    corpus never prints after it, its line-end half read twice
+    ("development ment"); an apostrophe after a lone capital, where the
+    word without it is one and the corpus never prints it with it
+    ("T'his"; "O'er" and "I'm" stand); and the space after a short
+    abbreviation's stop before a name ("St.George's")."""
+    uni, pairs, _ = clue_lm()
+
+    def join(m):
+        a, b = m.group(1), m.group(2)
+        return a + b if not known(a) and not known(b) and known(a + b) else m.group()
+
+    def twice(m):
+        a, b = m.group(1), m.group(2)
+        rare = (rank(b) or UNRANKED) > TAIL_RARE
+        if len(a) >= len(b) + 3 and a.lower().endswith(b.lower()) and rare and not pairs.get(f"{a} {b}".lower()):
+            return a
+        return m.group()
+
+    def capital(m):
+        a, b = m.group(1), m.group(2)
+        if not uni.get(f"{a}'{b}".lower()) and uni.get((a + b).lower(), 0) >= CLUE_WORD_FLOOR:
+            return a + b
+        return m.group()
+
+    text = re.sub(r"\b([A-Za-z]{2,})\s+([a-z]{2,})\b", join, text)
+    text = re.sub(r"\b([A-Za-z]{5,}) ([a-z]{3,})\b", twice, text)
+    text = re.sub(r"(?<![\w'])([A-Z])'([a-z]{2,})\b", capital, text)
+    return re.sub(r"\b([A-Z][a-z]{0,2})\.(?=[A-Z][a-z]{2})", r"\1. ", text)
 
 
 #: What follows a clue number standing for a light, not a word.
