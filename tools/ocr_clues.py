@@ -1040,6 +1040,34 @@ def by_family(spellers, rates):
     return None
 
 
+#: How many letters run_on() needs after the stop: two short words ("of
+#: the") are in many clues.
+RUN_ON_LETTERS = 10
+
+
+def run_on(text, lid, laid):
+    """`text` (light `lid`'s clue) cut before another clue it runs on into,
+    that clue's number lost (No 103 9D "A pole was the sign of this house,
+    legend test of fidelity,", the line "12. In legend wonderful test of
+    fidelity." read without "12. In"): after a stop (".", "?", "!", or the
+    "," or ";" Tesseract reads one as), words that print most of another
+    laid clue (`laid`, {light: (text, ...)}) and it them. Else `text` as
+    it is."""
+    for m in re.finditer(r"[.?!,;](?=\s+\S)", text or ""):
+        tail = [w.lower() for w in marked(clean(text[m.end():])) if w not in MARKS]
+        if len(tail) < 2 or sum(map(len, tail)) < RUN_ON_LETTERS:
+            continue
+        for k, (t, _, _) in laid.items():
+            theirs = [w for w in marked(clean(t or "")) if w not in MARKS]
+            low = [w.lower() for w in theirs]
+            # Both ways: a tag many clues end on ("Two letters missing.") or
+            # a few shared words ("wonder") are no whole clue run on.
+            if k != lid and theirs and prints(align(tail, low), tail, theirs) \
+                    and prints(align(low, tail), low, tail):
+                return text[:m.start() + 1]
+    return text
+
+
 def agree(clue, others, keep_known=False, families=None, rates=None):
     """(text or None, how) for one clue against the other readings' words
     and marks (`others`: one list per reading, or one list alone). Each word
@@ -1903,6 +1931,8 @@ def reconcile(laid, streams, lengths=None, keep_known=False, uncounted=False, na
             out[lid] = (text, enum, group)
             continue
         text = trimmed(text, lid, voted=False)
+        # Voted whole, the other clue's words in the other readings confirm it.
+        text = run_on(text, lid, laid)
         # A list counts up, so only a number above this clue's own can be
         # the next clue run on, and with the grid known, only one naming a
         # light: "Map 10 E" in 24 across is the clue's text.
