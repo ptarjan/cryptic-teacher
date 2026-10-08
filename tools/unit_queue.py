@@ -271,6 +271,8 @@ def spawn(queue, unit, logfile):
 
 #: What the memory gate reads (tests swap it); None is mem_gate.available.
 MEM_READER = None
+#: What the CPU gate reads (tests swap it); None is mem_gate.load.
+LOAD_READER = None
 
 
 def tick(queue, dry=False):
@@ -290,7 +292,7 @@ def tick(queue, dry=False):
         per_cls[r.get("cls", "")] = per_cls.get(r.get("cls", ""), 0) + 1
     free = getattr(mod, "SLOTS", 0) - len(running) if getattr(mod, "SLOTS", 0) else None
     started, waiting = [], []
-    memory_bound = False
+    memory_bound = cpu_bound = False
     for unit, why in due_units(mod, ledger, now):
         cap = mod.LIMITS.get(unit.cls)
         if (free is not None and free <= 0) or (cap is not None and per_cls.get(unit.cls, 0) >= cap):
@@ -302,6 +304,12 @@ def tick(queue, dry=False):
                 memory_bound = True
                 print(f"{queue}: memory-bound: under {(mem_gate.FLOOR + mem_gate.UNIT) >> 20} MB available; "
                       "due units wait for the next tick")
+            continue
+        if not mem_gate.cpu_room(len(started), LOAD_READER):
+            waiting.append(unit.key)
+            if not cpu_bound:
+                cpu_bound = True
+                print(f"{queue}: cpu-bound: load over {mem_gate.LOAD_PER_CORE:g} per core; due units wait for the next tick")
             continue
         print(f"{'[dry run] would start' if dry else 'start'} {unit.key} ({why})")
         if not dry:

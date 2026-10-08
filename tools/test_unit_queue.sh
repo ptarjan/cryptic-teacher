@@ -43,6 +43,8 @@ def plan(ledger, now):
            timeout=30, every=3600),
     ]
 PY
+# This host's own load must not gate the ticks under test.
+export CT_LOAD_PER_CORE=1e9
 q() { python3 tools/unit_queue.py "$@"; }
 UNIT_MORE="$tmp/more" python3 -c 'import sys; sys.path.insert(0, "tools"); import unit_queue; unit_queue.backlog_left()'
 [ -e "$tmp/more" ] || { echo "FAIL: backlog_left() did not mark \$UNIT_MORE"; exit 1; }
@@ -51,6 +53,7 @@ ended() { python3 - "$1" <<'PY'
 import sys
 sys.path.insert(0, "tools")
 import unit_queue as u
+u.LOAD_READER = lambda: 0.0  # this host's load must not gate the tests' starts
 e = u.Ledger("fake").last_end.get(sys.argv[1])
 print("" if e is None else e["rc"])
 PY
