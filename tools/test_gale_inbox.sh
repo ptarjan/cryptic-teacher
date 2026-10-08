@@ -507,7 +507,7 @@ check("a sync while another holds the lock skips at once, not waits", "another s
 # Each paper has its own lookup allowance: the Times using all of its leaves
 # the Listener a full one.
 import gale_listener as gl2, time as _time
-clock, asked = [0.0], {}
+clock, asked, published = [0.0], {}, []
 def fake_resolve(prod, rows, out=None, **kw):
     asked[prod] = kw["until"] - clock[0]
     if prod == "TTDA":
@@ -517,15 +517,19 @@ real = (_time.monotonic, g.collect, g.mirror, g.gale_due, g.held, g.number_on, g
 _time.monotonic = lambda: clock[0]
 g.collect = g.mirror = lambda *a, **k: False
 g.gale_due, g.held, g.number_on, g.next_up = (lambda: True), (lambda: {}), (lambda d, b: (None,)), (lambda *a: [])
-g.wanted, g.staged_files, g.last_render, g.publish_status, g.start_reads = (lambda: {}), (lambda: []), (lambda: _time.time() + 10**9), (lambda *a: None), (lambda *a: None)
+g.wanted, g.staged_files, g.last_render, g.publish_status, g.start_reads = (lambda: {}), (lambda: []), (lambda: _time.time() + 10**9), (lambda *a: published.append((a[0].name, clock[0]))), (lambda *a: None)
 g.gale_docs.resolve = fake_resolve
-gl2.tick = lambda out, force, ask, until: asked.update(LSNR=until - clock[0])
+gl2.tick = lambda out, force, ask, until, changed: asked.update(LSNR=until - clock[0])
 g.LOCK = Path(sys.argv[1]) / "sync2.lock"
 g.sync(out=io.StringIO())
 (_time.monotonic, g.collect, g.mirror, g.gale_due, g.held, g.number_on, g.next_up, g.wanted, g.staged_files,
  g.last_render, g.publish_status, g.start_reads, g.gale_docs.resolve, gl2.tick, g.LOCK) = real
 check("the Listener gets a full allowance when the Times used all of its own", [g.GALE_SECONDS, g.GALE_SECONDS],
       [asked["TTDA"], asked["LSNR"]])
+check("both pages' status files are published before any Gale lookup",
+      [(g.CHECKLIST.name, 0.0), (gl2.CHECKLIST.name, 0.0)], published[:2])
+check("an open page calls the status dead only after a sync's longest gap between publishes",
+      True, g.STALE_SECONDS > 2 * g.GALE_SECONDS)
 print("FAILS", fails)
 sys.exit(1 if fails else 0)
 PY

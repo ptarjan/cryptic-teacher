@@ -1095,13 +1095,22 @@ def render(idx=None, out=sys.stdout):
     print(f"checklist published to {gi.GALE_ROOT}/{CHECKLIST.name}", file=out)
 
 
-def tick(out=sys.stdout, force=False, ask=True, until=None):
-    """The every-minute part (gale_inbox.sync calls it): mirror the Listener
-    inbox and, when it moved (or gi.RENDER_EVERY passed), re-render the
-    checklist; publish its status file either way. Gale is asked for links
-    only when `ask` (gale_inbox.gale_due), none started after the monotonic
-    time `until`. The clue reading stays in the full pass."""
+def arrivals(out=sys.stdout):
+    """Mirror the Listener inbox and publish its status file; whether it
+    moved. gale_inbox.sync runs this before any Gale lookup, so an open
+    page hears of an arrival without waiting on them."""
     changed = gi.mirror(out, host_inbox=gi.LISTENER_INBOX, into=MIRROR)
+    gi.publish_status(CHECKLIST)
+    return changed
+
+
+def tick(out=sys.stdout, force=False, ask=True, until=None, changed=False):
+    """The every-minute part (gale_inbox.sync calls it, after arrivals,
+    whose `changed` it passes): when the inbox moved (or gi.RENDER_EVERY
+    passed), re-render the checklist; publish its status file either way.
+    Gale is asked for links only when `ask` (gale_inbox.gale_due), none
+    started after the monotonic time `until`. The clue reading stays in the
+    full pass."""
     idx = index()
     linked = ask and gale_docs.resolve("LSNR", [(r["date"], r["number"]) for r in to_save(idx)], out,
                                        reports=[(r["date"], r["number"]) for r in report_lookups(idx)],
