@@ -67,6 +67,52 @@
    "minLength": 1,
    "description": "The paper's note above the clues: a themed puzzle's instructions, or an erratum."
   },
+  "messages": {
+   "description": "The phrase a hidden-letter device spells, one item per phrase the preamble describes (two when the across and down clues each spell one). Each item's letters are the `hiddenLetter`s of the annotated entries it reads, in its `order`; spaces, hyphens and punctuation in `text` are not letters (tools/hidden_messages.py). Absent when the puzzle has no such device.",
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "required": [
+     "text",
+     "kind",
+     "order"
+    ],
+    "additionalProperties": false,
+    "properties": {
+     "text": {
+      "description": "The phrase as it reads, spaced and hyphenated: \"TEST-TUBE BABY\".",
+      "type": "string",
+      "pattern": "^[A-Z][A-Z ,.'!?:;-]*$"
+     },
+     "kind": {
+      "description": "The `hiddenLetter.kind` this phrase reads.",
+      "$ref": "#/$defs/hiddenLetterKind"
+     },
+     "direction": {
+      "description": "Only this direction's clues spell it; absent when both do.",
+      "$ref": "#/$defs/direction"
+     },
+     "order": {
+      "description": "How the letters are read: `clues`, in printed clue order (across by number, then down by number); `unordered`, they are the phrase's letters in some order the solver rearranges.",
+      "enum": [
+       "clues",
+       "unordered"
+      ]
+     },
+     "printed": {
+      "description": "Misprint only: the phrase reads the printed (wrong) letters, not the correct ones.",
+      "const": true
+     },
+     "placement": {
+      "description": "Where the solver writes it: `belowGrid`. Absent when the preamble asks only that it be read.",
+      "enum": [
+       "belowGrid"
+      ]
+     }
+    }
+   }
+  },
   "cluesUnplaced": {
    "description": "The paper printed the clues with no grid numbers (lettered A to Z by answer, say), so the solver works out where each answer goes: a jigsaw, whether or not the preamble says so.",
    "const": true
@@ -372,6 +418,15 @@
     "deletion",
     "insertion",
     "substitution"
+   ]
+  },
+  "hiddenLetterKind": {
+   "description": "tools/hidden_messages.py KINDS.",
+   "enum": [
+    "extra",
+    "omitted",
+    "misprint",
+    "clue"
    ]
   },
   "string": {
@@ -774,6 +829,35 @@
     "features": {
      "description": "Required by ratchet: absent only where tools/annotation_backlog.json grandfathers it, an allowance per puzzle that may only shrink (features).",
      "$ref": "#/$defs/features"
+    },
+    "hiddenLetter": {
+     "description": "The letter this clue gives to a puzzle's hidden-letter device, which the preamble describes; a puzzle-level `messages` item reads it (tools/hidden_messages.py checks both). By `kind`: `extra`, the blocks give the answer's letters and `letter` once more; `omitted`, the blocks give the answer's letters less one `letter`, or supply it in a block with no clue words; `misprint`, the clue prints `printed` at `at` where its sense needs `letter`; `clue`, `letter` is the clue's own letter at `at` (its first letter, an extra word's initial). The site highlights it once the clue is solved.",
+     "type": "object",
+     "required": [
+      "kind",
+      "letter"
+     ],
+     "additionalProperties": false,
+     "properties": {
+      "kind": {
+       "$ref": "#/$defs/hiddenLetterKind"
+      },
+      "letter": {
+       "description": "The letter the device yields, A-Z: the extra or omitted letter, a misprint's correct letter, or the clue letter.",
+       "type": "string",
+       "pattern": "^[A-Z]$"
+      },
+      "printed": {
+       "description": "Misprint only: the wrong letter the clue prints at `at`.",
+       "type": "string",
+       "pattern": "^[A-Z]$"
+      },
+      "at": {
+       "description": "Misprint and clue only: the letter's offset in the clue's `text`, in Unicode code points.",
+       "type": "integer",
+       "minimum": 0
+      }
+     }
     }
    }
   },

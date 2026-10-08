@@ -191,6 +191,8 @@ LAYOUT = [
     ("annotating", "tools/test_indicator_straddle.sh", "an indicator may sit inside a definition but not across its edge"),
     ("annotating", "tools/test_indicator_repeats.sh", "an indicator may repeat in `indicators` only as often as the clue prints it"),
     ("annotating", "tools/test_blocks_against_blog.sh", "holds the blog block check to its fixtures: a piece we spell, reverse, hear, delete from or anagram is silent, and one we lack is reported"),
+    ("annotating", "tools/hidden_messages.py", "hidden-letter devices: checks each annotation's `hiddenLetter` against its clue and each `messages` phrase against its clues' letters, flags preambles that name a device, and converts existing annotations whose blocks already carry the letters"),
+    ("annotating", "tools/test_hidden_messages.sh", "holds `hiddenLetter` to its clue's blocks or text, `messages` to its clues' letters in order, the preamble detection's hits and misses, and the converter"),
     ("annotating", "tools/test_defined_by_preamble.sh", "holds `definedByPreamble` to standing in for `definition` only where the puzzle prints a preamble, and never beside a definition"),
     ("annotating", "tools/apply_annotations.py", "writes a run’s annotation JSON into the puzzle file, and validates the result"),
     ("annotating", "tools/annotation_backlog.json", "how many clues of each OLD puzzle predate a required field; a puzzle not listed is allowed none, so new rules bind new puzzles"),

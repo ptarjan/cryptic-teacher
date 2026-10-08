@@ -115,6 +115,15 @@ into the solution. `answer` is still the solution; `blocks` and `assembly` build
 
 A block for letters the puzzle's preamble supplies has no clue words: leave out its `clueFragment`.
 
+When the preamble hides a letter per clue that spells a phrase, give each such clue
+`"hiddenLetter": {"kind": "extra", "letter": "L"}`. Kinds: `extra` (the blocks give it
+beyond the answer), `omitted` (a block with no `clueFragment` supplies it), `misprint`
+(add `"printed"`, the wrong letter, and `"at"`, its offset in the clue; `letter` is the
+correct one), `clue` (a letter of the clue itself, with `"at"`). Beside the entry ids,
+give the phrase: `"messages": [{"text": "SUM TO FINAL", "kind": "omitted", "direction":
+"across", "order": "clues", "placement": "belowGrid"}]`. `direction` only when one
+direction spells it, `placement` only when the preamble says where it is written.
+
 `definitions` has one object, or two for a double definition. Leave out `at`, the
 text's offset in the clue: `apply_annotations.py` computes it, and asks for it only
 when the text occurs in the clue more than once and it cannot tell which.

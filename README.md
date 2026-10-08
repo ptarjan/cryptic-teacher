@@ -211,6 +211,23 @@ and annotation files name entries by it. A puzzle file that stores an entry
 - `"definedByPreamble": true` replaces `definitions` on an answer the preamble
   defines and the clue does not. It is valid only when the puzzle has a
   `preamble`, and never beside `definitions`.
+- Hidden-letter devices (`tools/hidden_messages.py`). An annotation's
+  `hiddenLetter` is the letter its clue gives to a device the preamble
+  describes: `{"kind": "extra" | "omitted" | "misprint" | "clue", "letter"}`,
+  plus `printed` and `at` for a misprint (the wrong letter the clue prints and
+  its code-point offset in `clue.text`; `letter` is the correct one) and `at`
+  for a letter read off the clue. An extra letter is in the blocks and not the
+  answer; an omitted one is in the answer and not the blocks, or supplied by a
+  block with no `clueFragment`. The puzzle's `messages` lists each phrase the
+  letters spell: `{"text": "SUM TO FINAL", "kind": "omitted", "direction":
+  "across", "order": "clues", "placement": "belowGrid"}`. `order` is `clues`
+  (across by number, then down) or `unordered`; `direction` is absent when both
+  directions spell it; `printed: true` reads a misprint's wrong letters;
+  `placement` is absent when the preamble only asks that it be read. The
+  validator checks every letter against its clue and, once every clue a message
+  reads is annotated, that they spell `text`. A preamble that names such a
+  device on an annotated puzzle with no `messages` is counted by the ratchet
+  under `messages`.
 - `clue` is the clue as printed, in one object:
   - `text`: the printed words, without the enumeration ("Moscow politician
     revolting in style", "See 21"). Offsets into it (`italics`, a definition's

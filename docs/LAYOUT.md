@@ -619,6 +619,16 @@ tools/test_indicator_repeats.sh               an indicator may repeat in `indica
 tools/test_blocks_against_blog.sh             holds the blog block check to its fixtures: a
                                               piece we spell, reverse, hear, delete from or
                                               anagram is silent, and one we lack is reported
+tools/hidden_messages.py                      hidden-letter devices: checks each annotation's
+                                              `hiddenLetter` against its clue and each
+                                              `messages` phrase against its clues' letters,
+                                              flags preambles that name a device, and converts
+                                              existing annotations whose blocks already carry
+                                              the letters
+tools/test_hidden_messages.sh                 holds `hiddenLetter` to its clue's blocks or
+                                              text, `messages` to its clues' letters in order,
+                                              the preamble detection's hits and misses, and the
+                                              converter
 tools/test_defined_by_preamble.sh             holds `definedByPreamble` to standing in for
                                               `definition` only where the puzzle prints a
                                               preamble, and never beside a definition
