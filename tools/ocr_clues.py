@@ -136,9 +136,10 @@ def tesseract():
     return found
 
 
-def tesseract_words(crop, model=None):
+def tesseract_words(crop, model=None, psm=4):
     """[(x0, y0, x1, y1, word)] Tesseract reads in a PIL image, with the
-    installed eng model or the .traineddata at `model`."""
+    installed eng model or the .traineddata at `model`, in page
+    segmentation mode `psm` (7: the image is one line)."""
     import subprocess
     import tempfile
     with tempfile.TemporaryDirectory() as tmp:
@@ -151,7 +152,7 @@ def tesseract_words(crop, model=None):
         # is cp1252).
         # One thread: OpenMP's spinning threads take minutes over one crop
         # on a busy host, where a single thread takes seconds.
-        res = subprocess.run([tesseract(), str(path), "-", "--psm", "4", *lang,
+        res = subprocess.run([tesseract(), str(path), "-", "--psm", str(psm), *lang,
                               "-c", "tessedit_create_tsv=1"],
                              capture_output=True, encoding="utf-8", timeout=300, check=False,
                              env={**os.environ, "OMP_THREAD_LIMIT": "1"})

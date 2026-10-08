@@ -391,6 +391,36 @@ check("a number's box too wide for it is cut to its right end (mirror: one that 
       [(876, 1120, 903, 1138, "7."), (864, 1150, 900, 1170, "33.")],
       [w[:5] for w in g.figures([(784, 1120, 903, 1138, "7."), (864, 1150, 900, 1170, "33.")])])
 
+# A clue quoting Greek (No 10's 13 across, "φλογὸς μέγαν—Aeschylus.") the
+# English readers garble ("Hoyos yov") takes its Greek words from the Greek
+# model, its English ones from the Tesseract readings, the number dropped.
+LINE = [(100, 100, 700, 140)]
+greek_line = [(110, 105, 140, 135, "13."), (150, 105, 250, 135, "φλογὸς"), (260, 105, 500, 135, "μέγαν---ΑΘΞοΗν")]
+tess_line = [(110, 105, 140, 135, "13."), (150, 105, 250, 135, "Hoyos"), (260, 105, 500, 135, "yov—Aeschylus.")]
+g.greek_box, real_greek_box = (lambda img, key, box: greek_line), g.greek_box
+g.read_box, real_read_box = (lambda img, key, box, which: tess_line), g.read_box
+greek_words = {"page": tess_line, "times": [w[:4] + (w[4].replace(".", ","),) for w in tess_line],
+               "ch": [(110, 105, 560, 135, "13. pAoyos μeyavAeschylus.")],
+               "en5": [(110, 105, 560, 135, "13. Φλoyos μéyav—Aeschylus.")]}
+check("a clue's Greek words the English readers garble are the Greek model's",
+      "φλογὸς μέγαν—Aeschylus.", g.greek_text(None, "k", greek_words, LINE))
+# Mirror: a line no RapidOCR reading prints Greek letters on is English,
+# though the Greek model reads its lowercase words as Greek ("απὰ" for "and").
+greek_line = [(110, 105, 140, 135, "7."), (150, 105, 250, 135, "Ἀδὰ"), (260, 105, 330, 135, "απὰ"), (340, 105, 400, 135, "νοι")]
+tess_line = [(110, 105, 140, 135, "7."), (150, 105, 250, 135, "Adb"), (260, 105, 330, 135, "and"), (340, 105, 400, 135, "yon")]
+english = {"page": tess_line, "times": tess_line, "ch": [(110, 105, 400, 135, "7. Adb and yon")],
+           "en5": [(110, 105, 400, 135, "7. Add and you")]}
+check("and a line no reader sees Greek on is never read for it", None, g.greek_text(None, "k", english, LINE))
+# A Greek word two English readers agree on as a word ("pos" for "μος")
+# is still Greek where a RapidOCR reading prints a Greek letter in it.
+greek_line = [(110, 105, 140, 135, "7."), (150, 105, 250, 135, "Add"), (260, 105, 330, 135, "--μος"), (340, 105, 400, 135, "απὰ")]
+tess_line = [(110, 105, 140, 135, "7."), (150, 105, 250, 135, "Add"), (260, 105, 330, 135, "pos"), (340, 105, 400, 135, "and")]
+mixed = {"page": tess_line, "times": tess_line, "ch": [(110, 105, 400, 135, "7.Add μos and")],
+         "en5": [(110, 105, 400, 135, "7. Add —μos and")]}
+check("a known word the English readers agree on is Greek where RapidOCR prints a Greek letter in it",
+      "Add—μος and", g.greek_text(None, "k", mixed, LINE))
+g.greek_box, g.read_box = real_greek_box, real_read_box
+
 # A clue line a RapidOCR reading lost its number on (No 15's "8. A park."
 # read as "park") is read again alone, from the page words' number.
 reads = []
