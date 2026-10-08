@@ -121,7 +121,7 @@ while read -r _ flag raised; do
 done < <(grep '^FLAG ' <<<"$out1")
 same "every flag in FLAGS has a fixture" "$(field UNCOVERED "$out1")" "none"
 
-echo "a clue that says 'See preamble' cannot be written without the preamble"
+echo "a clue that says 'See preamble' with no preamble is written, and never sent for annotation"
 out_pre=$(PYTHONPATH="$REPO/tools" python3 - 2>&1 <<'PY'
 import copy
 from datetime import date
@@ -135,20 +135,22 @@ for name, pre in (("BARE", None), ("WITH", "1 Across is unclued.")):
         p["preamble"] = pre
     flags = []
     pi.check_puzzle(p, date(2026, 10, 5), flags)
-    print(name, any("no preamble" in f[2] for f in flags))
+    print(name, pi.awaits_preamble(p), any("preamble" in f[2] for f in flags))
 try:
     p = copy.deepcopy(real)
     p["entries"][0]["clue"]["text"] = "Unclued (see the preamble)"
     pi.refuse_bad_write(p)
     print("WRITE allowed")
+    print("INDEXED", pi.awaits_preamble(p))
 except pi.RefusedWrite as e:
-    print("WRITE", "refused" if "no preamble" in str(e) else f"refused for another reason: {e}")
+    print("WRITE", f"refused: {e}")
 PY
 )
 died "$out_pre" "the see-preamble fixture"
-same "'See preamble' with no preamble is flagged" "$(field BARE "$out_pre")" "True"
-same "'See preamble' with a preamble is not" "$(field WITH "$out_pre")" "False"
-same "the write path refuses it" "$(field WRITE "$out_pre")" "refused"
+same "'See preamble' with no preamble awaits its preamble" "$(field BARE "$out_pre")" "True"
+same "'See preamble' with a preamble does not" "$(field WITH "$out_pre")" "False"
+same "the write path accepts it" "$(field WRITE "$out_pre")" "allowed"
+same "'(see the preamble)' awaits too" "$(field INDEXED "$out_pre")" "True"
 
 echo "the CLI on a scratch corpus: clean exits 0; DUPLICATE, NEARDUP and DATE across files exit 1"
 out2=$(PYTHONPATH="$REPO/tools" SCRATCH="$scratch/cli" python3 - 2>&1 <<'PY'

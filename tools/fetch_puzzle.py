@@ -2654,6 +2654,7 @@ def index_row(path):
     """Write the puzzle's shim and return its row of the index, all but the
     difficulty, which reindex() adds from the corpus-wide ratings. One read of
     the file does both: the row hashes the shim bytes just written."""
+    import puzzle_integrity  # noqa: PLC0415 — it imports this module
     p = read_puzzle_file(path)
     shim, text = shim_path(path), shim_text(path, p)
     shim.write_text(text, encoding="utf-8")
@@ -2689,6 +2690,10 @@ def index_row(path):
         # only". Per puzzle, because nothing ties a series to one blog.
         **({"blog": blog} if blog else {}),
         "hasSolutions": all(e.get("solution") for e in p["entries"]),
+        # Written only where a clue says "see preamble" and the puzzle has no
+        # preamble (puzzle_integrity.awaits_preamble): the annotation pickers
+        # leave it out.
+        **({"awaitsPreamble": True} if puzzle_integrity.awaits_preamble(p) else {}),
         # Clue coverage, written ONLY where some clue is unreadable: absent
         # means every entry carries a clue, which is nearly every puzzle. The
         # browser downloads all of index.js, so a field that would say "28 of

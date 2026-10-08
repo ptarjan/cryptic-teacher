@@ -1123,18 +1123,21 @@ def _alpha(s):
 SEE_PREAMBLE = re.compile(r"(?i)\bsee (?:the )?preamble\b")
 
 
+def awaits_preamble(puzzle):
+    """Whether a clue says "see preamble" and the puzzle holds none. Such a
+    puzzle stays in the corpus (its clues are all it must have) but no
+    annotator is sent it: the clue cannot be explained without the preamble.
+    The index row carries it as `awaitsPreamble`, which both annotation pickers
+    (tools/daily_update.sh, tools/prereset_plan.backlog) read."""
+    return not puzzle.get("preamble") and any(
+        SEE_PREAMBLE.search((e.get("clue") or {}).get("text") or "")
+        for e in puzzle.get("entries") or [])
+
+
 def check_preamble(puzzle, flags):
-    """A clue that says "see preamble" needs the preamble it points to; a
-    source that does not carry it cannot file the puzzle. A preamble holds no
-    erratum and no publishing boilerplate: errata.apply and boilerplate.apply
-    take them out on every write, so one still there was written past that."""
-    if not puzzle.get("preamble"):
-        for e in puzzle.get("entries") or []:
-            text = (e.get("clue") or {}).get("text") or ""
-            if SEE_PREAMBLE.search(text):
-                flags.append(("SHAPE", puzzle.get("id"), (
-                    f"{e.get('number')}-{e.get('direction')}: the clue says {text[:60]!r}, "
-                    f"but the puzzle has no preamble (file it from a source that prints one)")))
+    """A preamble holds no erratum and no publishing boilerplate:
+    errata.apply and boilerplate.apply take them out on every write, so one
+    still there was written past that."""
     for found in errata.find(puzzle.get("preamble")):
         flags.append(("SHAPE", puzzle.get("id"), f"preamble holds an erratum, not "
                       f"instructions: {found[:120]!r} (tools/errata.py applies it)"))

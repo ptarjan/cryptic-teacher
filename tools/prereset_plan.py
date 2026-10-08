@@ -865,6 +865,9 @@ BACKLOG_CASES = [
     # $CT_SERIES narrows it
     (_SCAN, (), (), ("canberra",), ["canberra-500"]),
     (_SCAN[2:4], (), (), (), ["times-29600"]),
+    # a puzzle whose clue says "see preamble" with no preamble is never queued
+    ([_row("times-29600", "2026-09-01"), _row("times-29602", "2026-09-03", awaitsPreamble=True)],
+     (), (), (), ["times-29600"]),
     # a clues-only puzzle (clues_only_rows) is queued in its series' lane, here
     # book's ahead of times' (neither is in BY_DEMAND); a failed solve holds it
     # out like any other
@@ -1101,6 +1104,8 @@ def backlog(rows, annotate_blocked=(), solve_blocked=(), only=()):
     of its clues to solve it cold (fetch_puzzle.cold_solvable) and that solve
     has not failed on these inputs: the burn solves it, then annotates it. The
     clues are the only thing a puzzle must come with; its answers are derived.
+    A row that awaits its preamble (puzzle_integrity.awaits_preamble) is left
+    out: its "see preamble" clue cannot be explained without one.
     A row the solve or annotate ledger (tools/failed_inputs.py) holds out is
     left out: selection is by date, so a puzzle that fails is otherwise the
     newest gap again at every checkpoint, bought from scratch each time.
@@ -1124,6 +1129,7 @@ def backlog(rows, annotate_blocked=(), solve_blocked=(), only=()):
     annotate_blocked, solve_blocked, only = set(annotate_blocked), set(solve_blocked), set(only)
     todo = [p for p in rows
             if not p["annotated"] and p["id"] not in annotate_blocked
+            and not p.get("awaitsPreamble")
             and (p.get("hasSolutions") or (cold_solvable(p) and p["id"] not in solve_blocked))
             and (not only or p["series"] in only)]
     return round_robin(todo)
