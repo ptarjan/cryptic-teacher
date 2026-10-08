@@ -94,6 +94,11 @@ MATCHES = MIRROR.parent / "matches.json"
 #: The code a match is read by: a change to it re-reads every file.
 MATCHER = hashlib.sha256(b"".join((TOOLS / f).read_bytes() for f in (
     "gale_inbox.py", "file_archive_org_puzzles.py", "trove_grid.py"))).hexdigest()[:12]
+#: The most seconds a stage spends matching files afresh: a code change
+#: re-reads every file (minutes each batch), and the minute tick must stay
+#: short. A file not re-read yet keeps its last match (same name, size and
+#: mtime, under the code before); one never matched waits for the next tick.
+MATCH_SECONDS = 60
 #: The Downloads files already looked at and found not to be Gale's.
 SEEN = MIRROR.parent / "seen.json"
 LOCK = MIRROR.parent / "sync.lock"
@@ -355,7 +360,16 @@ def source_key(files):
     return h.hexdigest()[:16]
 
 
-def stage(inbox=MIRROR, cache=CACHE, out=sys.stdout, unmatched=UNMATCHED, matches=MATCHES):
+def save_json(path, value):
+    """Write `value` to `path` whole or not at all (a killed tick leaves the last)."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_name(path.name + ".tmp")
+    tmp.write_text(json.dumps(value, indent=0))
+    tmp.replace(path)
+
+
+def stage(inbox=MIRROR, cache=CACHE, out=sys.stdout, unmatched=UNMATCHED, matches=MATCHES,
+          seconds=MATCH_SECONDS):
     """Lay each date's pages in `inbox` out as one edition directory under
     `cache` (re-laid only when what the inbox holds for it moved; a date
     the inbox no longer holds is removed); the files that matched no
@@ -365,22 +379,37 @@ def stage(inbox=MIRROR, cache=CACHE, out=sys.stdout, unmatched=UNMATCHED, matche
     files = sorted(p for p in Path(inbox).iterdir() if p.is_file() and p.suffix.lower() in PAGES) \
         if Path(inbox).exists() else []
     known, kept = load(matches, {}), {}
+    #: Each file's match under any code, by name, size and mtime.
+    stale = {k.split("\t", 1)[1]: v for k, v in known.items()}
     by_date = collections.defaultdict(list)
+    deadline = time.monotonic() + seconds
+    deferred = 0
     for p in files:
         st = p.stat()
-        k = f"{MATCHER}\t{p.name}\t{st.st_size}\t{int(st.st_mtime)}"
+        ident = f"{p.name}\t{st.st_size}\t{int(st.st_mtime)}"
+        k = f"{MATCHER}\t{ident}"
         m = known.get(k)
-        if m is None:
+        if m is None and time.monotonic() > deadline:
+            m = stale.get(ident)
+            deferred += 1
+            if m is None:
+                continue
+            k = next(key for key in known if key.endswith("\t" + ident))
+        elif m is None:
             try:
                 m = match(p, by_number)
             except (OSError, ValueError, pypdf.errors.PyPdfError) as e:  # reported, not fatal
                 m = {"file": p.name, "date": None, "why": f"unreadable: {type(e).__name__}: {e}", "pages": []}
             m["date"] = m["date"] and m["date"].isoformat()
+            # Kept as it goes: a tick killed mid-way loses one file's match.
+            known[k] = {f: v for f, v in m.items() if f != "pages"}
+            save_json(matches, known)
         kept[k] = {f: v for f, v in m.items() if f != "pages"}
         m = dict(m, path=p, date=m["date"] and datetime.date.fromisoformat(m["date"]))
         by_date[m["date"]].append(m)
-    matches.parent.mkdir(parents=True, exist_ok=True)
-    matches.write_text(json.dumps(kept, indent=0))
+    save_json(matches, kept)
+    if deferred:
+        print(f"{deferred} file(s) left to match next tick (MATCH_SECONDS)", file=out)
     staged = set()
     for day, ms in by_date.items():
         if day is None:
@@ -424,7 +453,11 @@ def stage(inbox=MIRROR, cache=CACHE, out=sys.stdout, unmatched=UNMATCHED, matche
                                     indent=1))
     for item in cache.glob(ITEM.format("*")):
         for d in item.iterdir():
-            if d.is_dir() and d not in staged:
+            if d.is_dir() and d.name.endswith(".new"):
+                shutil.rmtree(d)  # a lay-out a killed tick left half done
+            elif deferred:
+                continue  # a file not matched yet may hold this date
+            elif d.is_dir() and d not in staged:
                 shutil.rmtree(d)
                 print(f"removed {item.name}/{d.name}: no longer in the inbox", file=out)
     return dict(by_date)

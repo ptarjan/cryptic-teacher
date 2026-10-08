@@ -109,6 +109,25 @@ del _os.environ["CT_IN_WORKTREE"], _os.environ["CT_MAIN_CHECKOUT"]
 first = fa.input_hash(d)
 g.stage(inbox, cache, io.StringIO(), un, g.MATCHES)
 check("an inbox unchanged leaves the edition's inputs alone", first, fa.input_hash(d))
+# A code change re-reads every file, MATCH_SECONDS at a time: past the
+# budget a file keeps its last match, so no edition goes, and a lay-out a
+# killed tick left half done is cleared.
+saved_matcher, saved_match = g.MATCHER, g.match
+g.MATCHER = "changed"
+def no_match(*a, **k):
+    raise AssertionError("matched past the budget")
+g.match = no_match
+(d.parent / (d.name + ".new")).mkdir()
+log = io.StringIO()
+g.stage(inbox, cache, log, un, g.MATCHES, seconds=-1)
+check("past the budget: nothing re-read, the edition kept, the half lay-out gone, the rest said",
+      (True, False, True), (d.exists(), (d.parent / (d.name + ".new")).exists(), "left to match next tick" in log.getvalue()))
+g.match = saved_match
+g.stage(inbox, cache, io.StringIO(), un, g.MATCHES)
+check("within it, every file re-read under the new code and kept", True,
+      all(k.startswith("changed\t") for k in json.loads(g.MATCHES.read_text())))
+g.MATCHER = saved_matcher
+g.stage(inbox, cache, io.StringIO(), un, g.MATCHES)
 check("and its inputs are its files' (inputs_of)", first, fa.inputs_of(first, {"puzzles": []}, "times"))
 Image.new("RGB", (400, 300), "white").save(inbox / "1988-01-12 page 2.png")
 g.stage(inbox, cache, io.StringIO(), un, g.MATCHES)
