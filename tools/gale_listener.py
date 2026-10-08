@@ -473,6 +473,8 @@ FOOTNOTE = re.compile(r"^\W{0,2}[*\u2020\u2021#]\s*[A-Z]")
 SENTENCE_END = re.compile(r"[.?!][\u2019'\")]?\s*$")
 #: A clue's number stands within this of its column's left edge.
 NUMBER_EDGE = 60
+#: A line's text opening on a word, no figure a misread number could be.
+WORD_FIRST = re.compile(r"[A-Za-z][a-z]{2}")
 #: A speck read where a clue's number is lost: "+ Why did this".
 SPECK = re.compile(r"^[^\w\s*\u2020\u2021'\"\u2018\u201c(]{1,2}\s+(?=[A-Z])")
 #: A heading stands alone on its line: no word this near either side
@@ -579,7 +581,12 @@ def numbered_columns(words):
                 # A speck where the number was ("+ Why did ..."): the words
                 # start at the indent.
                 line = (line[0], line[1], last_x + RUN_ON + 1, line[3], line[4][speck.end():])
-            under = (run and last_y is not None and line[0] - last_y < fa.GAP / 2 and line[2] > last_x + RUN_ON
+            # A line opening on a word where the numbers stand, under a full
+            # line, is a box stretched over a speck: No 3's "Indian servant
+            # looks forward to." under 45A, set at the indent.
+            under = (run and last_y is not None and line[0] - last_y < fa.GAP / 2
+                     and (line[2] > last_x + RUN_ON or WORD_FIRST.match(line[4])
+                          and run[-1][1][-1][3] - x0 >= FULL * (right - x0))
                      and not fa.heading_of(line[4]) and not FOOTNOTE.match(line[4])
                      and line[1] - line[0] <= TALLER * (run[-1][1][-1][1] - run[-1][1][-1][0]))
             if m and line[2] - x0 < NUMBER_EDGE and WORDY.search(m.group(2)) and not fa.heading_of(line[4]):
