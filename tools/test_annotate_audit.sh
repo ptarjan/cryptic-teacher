@@ -50,6 +50,17 @@ check([f["key"] for f in a.findings([row])], [], "and is kept out of the ranking
 check(a.rule_name("  ERROR: 4D: note on indicator 'x' gives away the letters T — 'y'. The rung",
                   new, old), "check_indicator_notes_name_no_block",
       "the current message wins over a retired one")
+t = a.load_templates(src + '''
+def validate_more(p):
+    errors.extend(f"{tag}: {p}" for p in problems)
+def check_blocks_add_up(entries, errors):
+    errors.append(f"puzzle: {len(hits)} clue(s) ({', '.join(hits)}) have blocks whose letters "
+                  f"are not the answer's")
+''')
+check(a.rule_name("  ERROR: 3D: hiddenLetter 'E' is not in the blocks", t), "hiddenLetter '…' is not in the blocks",
+      "a pass-through message is no template")
+check(a.rule_name("  ERROR: puzzle: 1 clue(s) (1D) have blocks whose letters are not the answer's", t),
+      "check_blocks_add_up", "a puzzle-level message is named by its check, whichever clues it lists")
 check(len(a.load_templates(a.VALIDATOR.read_text())) > 50, True,
       "the real validator yields its message templates")
 check(a.stopped_names("SCHEMA $.entries[2].annotation: missing required key 'blocks'; "

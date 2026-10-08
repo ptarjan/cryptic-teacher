@@ -86,7 +86,8 @@ REFUSED = {  # tool_result error text -> kind; these are the permission layer sa
 # ---------------------------------------------------------------- rule names
 
 def load_templates(source):
-    """[(regex, check name, literal chars)] for every `f"{tag}: ..."` message."""
+    """[(regex, check name, literal chars)] for every `f"{tag}: ..."` and
+    `f"puzzle: ..."` message."""
     out = []
     for fn in ast.parse(source).body:
         if not isinstance(fn, ast.FunctionDef):
@@ -95,12 +96,17 @@ def load_templates(source):
             if not isinstance(node, ast.JoinedStr) or len(node.values) < 2:
                 continue
             head, lit = node.values[0], node.values[1]
-            if not (isinstance(head, ast.FormattedValue) and isinstance(head.value, ast.Name)
+            if (isinstance(head, ast.FormattedValue) and isinstance(head.value, ast.Name)
                     and head.value.id == "tag" and isinstance(lit, ast.Constant)
                     and str(lit.value).startswith(": ")):
+                body, prefix, first = node.values[1:], r"\S+", str(lit.value)
+            elif isinstance(head, ast.Constant) and str(head.value).startswith("puzzle: "):
+                body, prefix = node.values, ""
+                first = ":" + " ".join(str(v.value) for v in body if isinstance(v, ast.Constant))[7:]
+            else:
                 continue
             parts, chars = [], 0
-            for v in node.values[1:]:
+            for v in body:
                 if isinstance(v, ast.Constant):
                     parts.append(re.escape(str(v.value)))
                     chars += len(str(v.value))
@@ -108,10 +114,16 @@ def load_templates(source):
                     parts.append(".*?")
                 if chars >= 40:
                     break
+            # `f"{tag}: {p}"` passes on another function's message, and as a
+            # pattern it would match every line, so it names nothing.
+            words = re.sub(r"^(puzzle)?:", "", "".join(
+                str(v.value) for v in body if isinstance(v, ast.Constant))).split()
+            if not words:
+                continue
             name = fn.name
             if not name.startswith("check_"):
-                name = f"{fn.name}: {' '.join(str(lit.value)[2:].split()[:4])}"
-            out.append((re.compile(r"\S+" + "".join(parts), re.DOTALL), name, chars))
+                name = f"{fn.name}: {' '.join(first[2:].split()[:4])}"
+            out.append((re.compile(prefix + "".join(parts), re.DOTALL), name, chars))
     return out
 
 
