@@ -59,6 +59,21 @@ check("a blocked grid's bars hold no block", ["r...", "....", "....", "...."], b
 check("and its blocks are no light's cell (mirror)", False,
       any((e["position"]["y"], e["position"]["x"]) == (0, 2) for e in built["entries"]))
 
+# A misprint the readings agree on files with the clue's asPrinted, so the
+# completeness check takes it.
+built = f.build({"number": 17, "name": "Listener crossword No 17: Test", "date": "1930-07-23", "source": {"url": "u"},
+                 "clues": {"1-across": {"text": "The plant elecampeae.", "asPrinted": ["elecampeae."]}}},
+                ["....", "....", "....", "...."])
+one = next(e for e in built["entries"] if (e["number"], e["direction"]) == (1, "across"))
+check("a clue's asPrinted is filed with it, and the clue is no suspect",
+      (["elecampeae."], []), (one["clue"].get("asPrinted"),
+                              f.ocr_clues.suspect(one["clue"]["text"], printed=one["clue"]["asPrinted"])))
+import validate_annotations as va
+errs = []
+va.check_no_markup({"entries": [{"number": 1, "direction": "across", "clue": {"text": "The plant elecampane.",
+                                                                          "asPrinted": ["elecampeae."]}}]}, errs)
+check("an asPrinted token the clue text lacks is refused", True, any("asPrinted" in e for e in errs))
+
 # Crossings: r0c0 unread, both its lights read whole as C...; r3c3 nothing settles.
 sure = {(r, c): SQUARE[r][c] for r in range(4) for c in range(4) if (r, c) not in {(0, 0), (3, 3)}}
 full = {(n, d): {"".join(SQUARE[r][c] for r, c in cells)} for (n, d), cells in lts.items()}

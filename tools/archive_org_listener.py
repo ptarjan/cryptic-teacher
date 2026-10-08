@@ -219,6 +219,9 @@ def parse(text):
 
 #: A line that starts a clue: its number, then its words.
 LINE_CLUE = re.compile(r"^\W{0,2}(\d{1,2})\W{0,2}\s+(\S.*)$")
+#: One clue for two lights, the first entered reversed: "20 rev., 24.
+#: Charade: ..." (No 97). The words after LINE_CLUE's number.
+LINKED = re.compile(r"^(rev\.)\s*,\s*(\d{1,2})\W{0,2}\s+(\S.*)$")
 
 
 def by_lines(text):
@@ -231,7 +234,12 @@ def by_lines(text):
             side = head.lower()
             continue
         m = LINE_CLUE.match(line)
-        if side and m:
+        if side and m and (linked := LINKED.match(m.group(2))):
+            # The clue is the first light's, reversed as printed ("rev."),
+            # its answer running on into the second.
+            out[side].append({"tokens": [{int(m.group(1))}, {int(linked.group(2))}],
+                              "text": f"{linked.group(1)} {linked.group(3).strip()}", "enums": set(), "see": None})
+        elif side and m:
             see = ocr_clues.SEE_RE.match(m.group(2))
             out[side].append({"tokens": [{int(m.group(1))}], "text": m.group(2).strip(), "enums": set(),
                               "see": int(see.group(1)) if see else None})
@@ -272,7 +280,11 @@ def lay(parsed):
                 continue
             last = nums[0]
             enums = sorted(clue["enums"])
-            out[f"{last}-{direction}"] = (clue["text"], enums[0] if len(enums) == 1 else None, None)
+            # One clue for two lights (LINKED): the corpus's linked form,
+            # its group on the first, the second filled "See N" after the vote.
+            group = [f"{last}-{direction}"] + [f"{min(t)}-{direction}" for t in clue["tokens"][1:]] \
+                if len(clue["tokens"]) > 1 else None
+            out[f"{last}-{direction}"] = (clue["text"], enums[0] if len(enums) == 1 else None, group)
     return out
 
 
@@ -286,8 +298,9 @@ CORROBORATE = 0.7
 def sound(text):
     """A clue text that is one clue: words, starting as a clue starts (a
     lone "1" is the I ocr_clues.clean makes of it, a footnote's mark, "*God",
-    "\u2020Not far from 13"), with no count or clue number inside it."""
-    return bool(text and re.match(r"[*\u2020\u2021]?\s?(?:[A-Z\"'.\u2018\u201c]|1\s)", text)
+    "\u2020Not far from 13", a reversed light's "rev. He'd"), with no count
+    or clue number inside it."""
+    return bool(text and re.match(r"(?:rev\.\s)?[*\u2020\u2021]?\s?(?:[A-Z\"'.\u2018\u201c]|1\s)", text)
                 and not RUN_ON.search(text) and not NEXT_NUMBER.search(text))
 
 
@@ -390,7 +403,8 @@ def vote(words, verdict, cols=None):
     tried.sort(reverse=True)
     best = tried[0][2]
     verdict["reading"] = best
-    laid = pick([lay(t[3]) for t in tried])
+    lays = [lay(t[3]) for t in tried]
+    laid = pick(lays)
     lengths = {lid: ftp.count(e) for lid, (_, e, _) in laid.items() if e}
     stream = [t for k, t in texts.items() if k != best and t.strip()]
     # The 1930s lists print no counts: a clue is then read without one.
@@ -400,10 +414,26 @@ def vote(words, verdict, cols=None):
     # word's capital, hyphen and spelling.
     laid, blank = ocr_clues.as_printed(texts, laid, blank, parse, lengths, uncounted=uncounted)
     for lid, (t, e, g) in laid.items():
-        if t and not sound(t):
+        if t and ocr_clues.unclosed_quote(t) is not None:
+            # A quotation's end or start lost: a printed blank ("——'") no
+            # reader sees, or a mark the vote dropped (No 15's 30 across,
+            # "And the-is heard above the lyre'." for "'And the — is ...").
+            laid[lid] = ("", e, g)
+            blank[lid] = "a quotation it never closes: its end is lost"
+        elif t and not sound(t):
             # The vote put back words that run on into the next clue.
             laid[lid] = ("", e, g)
             blank[lid] = "runs on into the next clue"
+    # A word no lexicon knows, or a bracket never shut, that the readings
+    # print alike is the print's own (a misprint): kept as printed.
+    alike = {lid: got for lid, (t, _, _) in laid.items()
+             if t and (got := ocr_clues.printed_alike(t, [(ly.get(lid) or ("",))[0] for ly in lays]))}
+    if alike:
+        verdict["asPrinted"] = alike
+    for lid, (t, e, g) in list(laid.items()):
+        for tail in (g or [])[1:] if t else ():
+            laid[tail] = (f"See {lid.split('-')[0]}", None, None)
+            blank.pop(tail, None)
     verdict["clues"] = len(laid)
     verdict["agreed"] = sum(1 for t, _, _ in laid.values() if t)
     if blank:

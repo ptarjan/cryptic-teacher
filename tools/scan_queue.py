@@ -208,7 +208,7 @@ def file_puzzle(write_puzzle_file, generator, path, puzzle, verdict):
     import ocr_clues
     import puzzle_integrity  # it imports the write path, so not at the top
     bleed = [f"{e.get('number')}-{e.get('direction')} {why}" for e in puzzle.get("entries") or ()
-             if (why := ocr_clues.bled((e.get("clue") or {}).get("text")))]
+             if (why := ocr_clues.bled((e.get("clue") or {}).get("text"), (e.get("clue") or {}).get("asPrinted") or ()))]
     if bleed:
         verdict["refusedWrite"] = f"refusing to write {puzzle.get('id')}: " + "; ".join(bleed)
         return False

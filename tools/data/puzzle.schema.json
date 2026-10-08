@@ -555,6 +555,17 @@
       }
      }
     },
+    "asPrinted": {
+     "description": "Tokens of `text` (parted at whitespace) that read as an OCR slip but are the print's own: a word no dictionary knows that the scan's readings spell alike letter for letter (Listener No 17's misprinted \"elecampeae.\"), or the token holding a bracket the clue never pairs that every reading prints unshut (No 15's \"slang(from\"). Written by the scan filers' vote (ocr_clues.printed_alike); the clue checks then take these tokens as printed. Each is a token of `text`.",
+     "type": "array",
+     "minItems": 1,
+     "uniqueItems": true,
+     "items": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^\\S+$"
+     }
+    },
     "missing": {
      "description": "The paper printed no words for this clue (`text` is absent; `enumeration` may still be present). Kept, never filled in: a blank can be the setter's joke (cryptic-30098 12-across).",
      "const": true

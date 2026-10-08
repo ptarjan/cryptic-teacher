@@ -231,9 +231,12 @@ def build(reading, rows):
         text = (clue.get("text") or "").strip()
         e = {"number": n, "direction": d, "position": {"x": cells[0][1], "y": cells[0][0]},
              "length": len(cells),
-             "clue": {"text": text, **({"enumeration": clue["enumeration"]} if clue.get("enumeration") else {})}
+             "clue": {"text": text, **({"enumeration": clue["enumeration"]} if clue.get("enumeration") else {}),
+                      **({"asPrinted": clue["asPrinted"]} if clue.get("asPrinted") else {})}
              if text else {"text": "", "missing": True},
              "solution": None}
+        if clue.get("group") and text:
+            e["group"] = clue["group"]
         entries.append(e)
     puzzle = {"id": series_meta.puzzle_id(SERIES, reading["number"]), "number": reading["number"],
               "series": SERIES, "name": reading["name"]}
@@ -407,7 +410,8 @@ def run(store=gl.STORE, inbox=gl.MIRROR, puzzles=None, write=True, out=sys.stdou
             if not whole:
                 verdict["lacks"] = "clues: " + (", ".join(sorted(
                     (f"{e['number']}-{e['direction']}" for e in puzzle["entries"]
-                     if not e["clue"].get("text") or ocr_clues.suspect(e["clue"]["text"])), key=order))
+                     if not e["clue"].get("text")
+                     or ocr_clues.suspect(e["clue"]["text"], printed=e["clue"].get("asPrinted") or ())), key=order))
                     or "a clue is unfit to file")
             # Only a puzzle whose every clue reads true goes to the corpus;
             # --out takes every puzzle, one short of that too.

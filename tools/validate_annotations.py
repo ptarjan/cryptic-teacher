@@ -2597,6 +2597,11 @@ def check_no_markup(puzzle, errors):
                               f"{len(text)}-character clue text. The ranges index the clue "
                               f"text, so editing one without the other silently italicises "
                               f"the wrong words.")
+        lost = [t for t in e["clue"].get("asPrinted") or () if t not in text.split()]
+        if lost:
+            errors.append(f"{entry_id(e)}: clue.asPrinted {lost!r} is no token of the clue text "
+                          f"{text!r}: it keeps the print's own spelling of words in the text, so "
+                          f"an edit to the text must carry it.")
 
     def walk(o, path):
         if isinstance(o, dict):

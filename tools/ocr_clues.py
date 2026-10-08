@@ -1041,6 +1041,14 @@ def agree(clue, others, keep_known=False):
             how = "settled by the lexicon"
         elif max(votes.values()) > 1 and votes[a] == 1 and len(a) > 3 and w[0].islower():
             return None, f"two readings agree on a non-word: {w} / {' / '.join(got.values())}"
+        elif len(a) > 3 and votes[a] > 1 and len(votes) == 1 and i not in specked:
+            # Every reading that sees a word here spells it alike, letter
+            # for letter, and no known word mends it: the print's own
+            # spelling (No 17's misprinted "elecampeae", "anatomatical"),
+            # filed as printed: printed_alike() records it as the clue's
+            # asPrinted, which suspect() then takes.
+            pick = a
+            how = "as printed"
         else:
             return None, (f"both read {w!r}, not a word" if votes[a] > 1
                           else f"readings differ: {w} / {' / '.join(got.values())}")
@@ -1102,6 +1110,10 @@ def is_word_only_capital(word, seen):
 
 
 FULL_WIDTH = {c: c - 0xfee0 for c in range(0xff01, 0xff5f)}
+#: Abbreviations a clue prints with a stop before a lower-case word (the
+#: 1930s Listener's "Anag. of", "20 rev."), each a lookbehind of its own
+#: width.
+ABBREVIATED = ("[Aa]nag", "[Rr]ev", "[Aa]bbr", "[Aa]bbrev", "[Oo]bs", "[Ee]sp", "[Cc]f", "[Vv]iz", "[Ii]nit")
 #: A lone underscore touching a word or a mark: a speck our readers read as
 #: one ("love,_emperor", "during_a", "fine_"). A run of them is a printed
 #: blank ("Freedom and _____"), and so may a lone one between spaces be ("And
@@ -1136,9 +1148,12 @@ def clean(text):
     text = re.sub(r"(?<=[a-z])\\\s?(?=[a-z])", "", text)
     # A clue's sentence never stops before a lower-case word: a full stop
     # there is a comma the print's low ink lost the tail of.
-    text = re.sub(r"(?<=[a-z]{2})\.(?=\s+[a-z])", ",", text)
+    # An abbreviation's stop stands: "Anag. of", "rev. and".
+    text = re.sub(r"(?<=[a-z]{2})" + "".join(rf"(?<!\b{a})" for a in ABBREVIATED) + r"\.(?=\s+[a-z])", ",", text)
     # A one read as l or I before another digit ("l9th-century").
     text = re.sub(r"\b[lI](?=\d)", "1", text)
+    # The space before a bracket opening on a word lost ("slang(from").
+    text = re.sub(r"(?<=[a-z]{2})\((?=[a-z]{3})", " (", text)
     # The space after a question or exclamation mark lost ("Worried?Pulse").
     text = re.sub(r"(?<=[a-z])([?!])(?=[A-Z][a-z])", r"\1 ", text)
     # A dash between words is the corpus's spaced em dash, however the scan
@@ -1344,12 +1359,14 @@ def unpaired(text):
     return stack[0][1] if stack else None
 
 
-def bled(text):
+def bled(text, printed=()):
     """Why a clue OCR read holds text that is not its own, or None: a clue
     number opening a capitalised clue (NUMBERED_IN), another clue run in,
     the page's own words (PAGE_TEXT), a list's heading (HEADING_IN), a
     bracket it never closes or opened (unpaired: a speck, or a count torn
-    off), or a square bracket or brace (a misread count or speck). No OCR filer writes such a clue (scan_queue.file_puzzle)."""
+    off) unless `printed` (the clue's asPrinted) keeps it, or a square
+    bracket or brace (a misread count or speck). No OCR filer writes such a
+    clue (scan_queue.file_puzzle)."""
     text = text or ""
     m = NUMBERED_IN.search(text)
     if m:
@@ -1361,7 +1378,7 @@ def bled(text):
     if m:
         return f"holds a list's heading: {text[max(0, m.start() - 12):m.end() + 12].strip()!r}"
     k = unpaired(text)
-    if k is not None:
+    if k is not None and holding(text, k) not in printed:
         return f"holds a bracket it never pairs: {text[max(0, k - 12):k + 12].strip()!r}"
     m = re.search(r"[\[\]{}]", text)
     if m:
@@ -1369,7 +1386,7 @@ def bled(text):
     return None
 
 
-def fault(text, enum, cells):
+def fault(text, enum, cells, printed=()):
     """Why a clue OCR read is not fit to file, or None: `text` is the word
     None (a lost text printed), holds text not its own (bled()), or its
     count `enum`, or a count left on its words, does not fill its `cells`
@@ -1377,7 +1394,7 @@ def fault(text, enum, cells):
     text = text or ""
     if text.strip() == "None":
         return "the text is the word None: a lost text printed"
-    why = bled(text)
+    why = bled(text, printed)
     if why:
         return why
     if enum and cells and sum(int(n) for n in re.findall(r"\d+", enum)) != cells:
@@ -1843,14 +1860,15 @@ def unstrayed(text, theirs):
     return text
 
 
-def suspect(text, vouched=()):
+def suspect(text, vouched=(), printed=()):
     """[(token, why)] for each word of a clue's text that OCR, not the setter,
     wrote. `vouched` holds lower-case words every reading spelt alike, which
-    stand though the lexicon lacks them (a rare word, a name)."""
+    stand though the lexicon lacks them (a rare word, a name); `printed`
+    holds tokens of the text the clue's `asPrinted` keeps (printed_alike)."""
     out = []
     for raw in (text or "").split():
         s = raw.strip(EDGE)
-        if not s:
+        if not s or raw in printed:
             continue
         if DIGIT_IN_WORD.search(s) and not COUNTED.fullmatch(s.lstrip("£$")):
             out.append((raw, "a digit inside a word"))
@@ -1888,9 +1906,71 @@ def suspect(text, vouched=()):
     # A bracket the clue never closes, or never opened, is a letter or a
     # count misread ("is (this", "for ) record").
     k = unpaired(text)
-    if k is not None:
-        out.append((next(r for r in text.split() if text[k] in r), "a bracket never closed or opened"))
+    if k is not None and holding(text, k) not in printed:
+        out.append((holding(text, k), "a bracket never closed or opened"))
     return out + stray(text)
+
+
+#: A quotation opening: a quote mark at the clue's start or after a space
+#: or a mark, before a capital ("'Resting weary", "say, 'Give"); not an
+#: elision ("'Tis", "'Twas").
+QUOTE_OPEN = re.compile(r"(?:^|(?<=[\s,;:(\u2014*\u2020\u2021]))(['\u2018\"\u201c])(?!T(?:is|was|were|would|will)\b)(?=[A-Z])")
+
+
+def unclosed_quote(text):
+    """The index of a quotation `text` opens and never closes, or closes
+    and never opened, or None: its end, a blank the readers cannot see
+    ("beds of \u2014\u2014'." read as "beds of"), or its start is lost. A single quote closes at a quote mark not followed
+    by a letter (an apostrophe inside a word is none), a double at a
+    double."""
+    for m in QUOTE_OPEN.finditer(text or ""):
+        rest = text[m.end():]
+        shut = r"[\"\u201d]" if m.group(1) in "\"\u201c" else r"['\u2019](?![A-Za-z])"
+        if not re.search(shut, rest):
+            return m.start()
+    # A single quote shut after a word not ending in s (no plural's
+    # apostrophe: "the lyre'.") that nothing opened: its start is lost.
+    m = re.search(r"(?<=[A-Za-z][a-rt-zA-RT-Z])['\u2019](?![A-Za-z])", text or "")
+    if m and not re.search(r"(?:^|(?<=[\s,;:(\u2014*\u2020\u2021]))['\"\u201c](?=[A-Za-z])|\u2018", text[:m.start()]):
+        return m.start()
+    return None
+
+
+def holding(text, k):
+    """The whitespace-parted token of `text` holding its character `k`."""
+    return text[:k].rsplit(None, 1)[-1] + text[k:].split(None, 1)[0] if text[:k] and not text[k - 1].isspace() \
+        else text[k:].split(None, 1)[0]
+
+
+def printed_alike(text, readings):
+    """The tokens of a voted clue `text` that suspect() would refuse, which
+    the print itself spells so: each word suspect() flags as no word that at
+    least two of `readings` (each reading's own text for the light, None
+    where it has none) hold letter for letter, and a bracket the clue never
+    pairs that at least two hold before the same word and none closes (No
+    15's 22 down, "slang (from Hollywood meaning ...", its bracket never
+    shut). The clue's `asPrinted`: what a misprint looks like to the vote.
+    A reading that lost the words votes neither way."""
+    own = [r for r in readings if r]
+    if len(own) < 2:
+        return []
+    low = [" ".join(r.lower().split()) for r in own]
+    out = []
+    for raw, why in suspect(text):
+        word = raw.strip(EDGE).lower()
+        if why == "not a word" and sum(bool(re.search(r"(?<![a-z])" + re.escape(word) + r"(?![a-z])", r))
+                                       for r in low) >= 2:
+            out.append(raw)
+    k = unpaired(text)
+    if k is not None and text[k] in "([":
+        after = re.match(r"\s*([A-Za-z]+)", text[k + 1:])
+        if after:
+            opened = re.compile(re.escape(text[k]) + r"\s*" + re.escape(after.group(1).lower()) + r"(?![a-z])")
+            holds = [r for r in low if opened.search(r)]
+            closed = [r for r in holds if unpaired(r) is None]
+            if len(holds) >= 2 and not closed:
+                out.append(holding(text, k))
+    return out
 
 
 # ------------------------------------------------------------ the VLM's pick

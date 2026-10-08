@@ -297,6 +297,36 @@ check("a dictionary word another reading split stays whole (mirror)",
 check("a dictionary word a reading broke over a line end stays whole",
       "Vain display with a severe hairstyle",
       oc.parted("Vain display with a severe hairstyle", [["Vain", "display", "with", "a", "severe", "hair", "Style"]]))
+check("a non-word two readings print alike and none otherwise is the print's (No 17's misprint)",
+      "the roots of the plant elecampeae.",
+      oc.agree("the roots of the plant elecampeae.", [mark("36 the roots of the plant elecampeae. 37 Your")])[0])
+check("but not when a reading spells it otherwise (mirror)", None,
+      oc.agree("the roots of the plant elecampeae.", [mark("36 the roots of the plant elecampeae. 37 Your"),
+                                                    mark("36 the roots of the plant elecampcac. 37 Your")])[0])
+check("asPrinted: the non-word two readings hold, and a bracket none closes",
+      (["elecampeae."], ["(from"]),
+      (oc.printed_alike("the plant elecampeae.", ["the plant elecampeae.", "the plant elecampeae", None]),
+       oc.printed_alike("Expressive slang (from Hollywood meaning", ["Expressive slang (from Hollywood meaning",
+                                                                   "slang (from Hollywood", ""])))
+check("asPrinted: one reading alone, or a bracket another reading closes, is none (mirror)",
+      ([], []),
+      (oc.printed_alike("the plant elecampeae.", ["the plant elecampeae.", "the plant elecampane."]),
+       oc.printed_alike("slang (from Hollywood", ["slang (from Hollywood", "slang (from Hollywood)"])))
+check("a token asPrinted keeps is no suspect, nor bled; others still are",
+      ([], None, [("anatomatical", "not a word")], True),
+      (oc.suspect("slang (from Hollywood elecampeae", printed=["(from", "elecampeae"]),
+       oc.bled("slang (from Hollywood", ["(from"]), oc.suspect("An anatomatical term", printed=["(from"]),
+       oc.bled("slang (from Hollywood") is not None))
+check("an abbreviation's stop before a small word stands; a sentence's is a comma",
+      "Anag. of a lovely word, then 20 rev. and", oc.clean("Anag. of a lovely word. then 20 rev. and"))
+check("a bracket opening on a word gets its space back; a plural's (s) keeps none",
+      "Expressive slang (from Hollywood, word(s)", oc.clean("Expressive slang(from Hollywood, word(s)"))
+check("a quotation never closed: its end lost; an elision, a closed one, a plural's apostrophe are not",
+      [0, 20, None, None, None, 31, None, None, None],
+      [oc.unclosed_quote(t) for t in ("'Resting weary limbs at last on beds of", "A printer might say,'Give me a",
+                                      "*'One shade the more, one ray the less'.", "'Tis true",
+                                      "In the soldiers' tea", "And the-is heard above the lyre'.", "rock 'n' roll",
+                                      "Hindustani for 'that much'.", "Hindustani for\u2018red'.")])
 check("a word no reading prints apart is still lost (mirror)",
       None, oc.agree("She eats junkets.", [mark("4 She junkets. 5 A"), mark("4 She junkets. 5 A")])[0])
 
