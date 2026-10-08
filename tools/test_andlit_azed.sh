@@ -96,6 +96,30 @@ font = DictionaryObject({NameObject("/Encoding"): DictionaryObject({NameObject("
      NameObject("/figuredash"), NameObject("/f.short"), NameObject("/one")])})})
 chars, _ = L._font_table(font)
 print("glyphs", [chars[c] for c in range(27, 33)])
+
+# A scan's stored reading (read_scan's vote and fitted grid): every clue
+# agreed files, a lost count taken from its light; one clue the readers do
+# not agree on, or whose words OCR wrote, holds the copy.
+voted = {"1-across": ["Feline found in the attic", "3"], "4-across": ["Bovine animal", None],
+         "5-across": ["Exist, they say (3)", None], "1-down": ["Teddy, at heart", "3"],
+         "2-down": ["Mineral in store", "3"], "3-down": ["Married in a wedding", "3"]}
+stored = {"sha": "x", "version": A.SCAN_VERSION, "verdict": {}, "rows": grid, "exact": True, "clues": voted}
+p, cause, _ = A.assemble(1800, A.scan_copy(stored), "u", None, None, "Plain")
+print("scan-files", cause, p and [e["clue"]["text"] for e in sorted(p["entries"], key=lambda e: (e["direction"], e["number"]))][:3])
+blanked = dict(stored, clues=dict(voted, **{"2-down": ["", "3"]}))
+print("scan-blank", A.assemble(1800, A.scan_copy(blanked), "u", None, None, "Plain")[1])
+joined = dict(stored, clues=dict(voted, **{"2-down": ["Mineral instorexq", "3"]}))
+print("scan-no-clues", A.assemble(1800, A.scan_copy(dict(stored, clues={})), "u", None, None, "Plain")[1])
+print("scan-suspect", A.assemble(1800, A.scan_copy(joined), "u", None, None, "Plain")[1])
+
+# A PDF that is one page image goes to the scan reader, not "not text".
+import io, pathlib, tempfile
+from PIL import Image
+buf = io.BytesIO()
+Image.new("RGB", (40, 40), "white").save(buf, "PDF")
+scan = pathlib.Path(tempfile.mkdtemp()) / "1800.pdf"
+scan.write_bytes(buf.getvalue())
+print("scan-routed", A.read(scan, 1800, scans=False), A.page_image(scan).size)
 PY
 )
 echo "$out" | sed 's/^/  | /'
@@ -114,5 +138,11 @@ check "clues read past notes and form lines" \
 check "a count in figures is written in words" "Down one (3, two words)" "$(line entry)"
 check "a missing answer comes from its crossings" "['CAT', 'COW', 'ARE', 'TED', 'ORE', 'WED']" "$(line fill)"
 check "ligature and digit glyphs" "['Th', 'ffl', 'fi', '–', 'f', '1']" "$(line glyphs)"
+check "a scan whose clues all agree files" \
+  "None ['Feline found in the attic', 'Bovine animal', 'Exist, they say']" "$(line scan-files)"
+check "a scan with a clue unagreed is held" "ocr-blank" "$(line scan-blank)"
+check "a scan cut off above its clues is held as such" "scan-no-clues" "$(line scan-no-clues)"
+check "a scan clue OCR wrote is held" "ocr-blank" "$(line scan-suspect)"
+check "an image-only PDF is a scan, not not-text" "scan (40, 40)" "$(line scan-routed)"
 
 [ "$fails" -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }

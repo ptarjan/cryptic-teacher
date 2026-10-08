@@ -3,8 +3,8 @@
 through andlit.org.uk's Azed index.
 
     python3 tools/andlit_azed.py fetch [--limit N] [--budget-seconds S]   # download the next not yet cached
-    python3 tools/andlit_azed.py file [--dry-run] [--numbers A-B]
-    python3 tools/andlit_azed.py nightly [--budget-seconds S]   # fetch for S seconds, then file what is cached
+    python3 tools/andlit_azed.py file [--dry-run] [--numbers A-B] [--scan-seconds S]
+    python3 tools/andlit_azed.py nightly [--budget-seconds S] [--scan-seconds S]   # fetch for S seconds, then file what is cached
 
 andlit.org.uk's index (puzzles.php) lists Nos 1734-2757 and 2798-2799, each
 behind puzzle_router.php, which redirects to the Guardian's own copy:
@@ -26,7 +26,9 @@ grid with every crossing agreeing. With no post, or one that leaves a light
 unanswered, a plain puzzle files unsolved for the backfill to solve. A special
 (andlit's index names it, or its preamble says more than which Chambers to
 use) files only from an HTML page, whose preamble is read, with a post's
-answers: a solver reading its clues cold would fill the grid wrongly. Numbers
+answers: a solver reading its clues cold would fill the grid wrongly. A scanned copy
+(2006-08's PDFs are one page image) is read by the shared OCR vote and the
+barred grid finder (read_scan), to a time budget. Numbers
 already filed are left alone. A filing run over every number (no --dry-run or
 --numbers) writes held.json, the cause each cached copy is not filed, which
 tools/coverage.py reads.
@@ -34,7 +36,10 @@ tools/coverage.py reads.
 import argparse
 import collections
 import datetime
+import hashlib
 import html
+import importlib.util
+import io
 import itertools
 import json
 import logging
@@ -89,6 +94,9 @@ CAUSES = {
     "post-misses": "a special whose fifteensquared post leaves a light unanswered",
     "answers-disagree": "fifteensquared's answers cross wrongly in the printed grid",
     "refused-on-write": "puzzle_integrity refused the write",
+    "scan-unread": "a scanned copy the OCR budget or an absent reader left unread this run",
+    "ocr-blank": "a scanned copy whose OCR readings leave a clue unagreed",
+    "scan-no-clues": "a scanned copy no reader reads a clue list off (the scan may stop short of it)",
 }
 CHAMBERS = re.compile(r"(?i)(?:special instructions:\s*)?(?:the\s+)?chambers dictionary \(\d{4}\)"
                       r" is recommended\.?")
@@ -507,13 +515,116 @@ def blog_records():
     return {r["number"]: r for r in recs if claims[r["number"]] == 1}
 
 
-def read(path):
+# ------------------------------------------------------------------ the scans
+
+#: Voted readings of the scanned copies, one {number}.json each, keyed by the
+#: copy's sha and SCAN_VERSION: bump it when the reading below changes.
+SCAN_STORE = CACHE / "scans"
+SCAN_VERSION = 1
+#: The 2006-08 scans are ~750px wide, too small for the readers' detector:
+#: upscaled 2x, the vote agrees on 32 of No 1820's 36 clues, not 21.
+SCAN_SCALE = 2
+FOOTER = re.compile(r"(?i)\s*the\s+chambers\s+dictionary\b.*$")
+
+
+def page_image(path):
+    """The copy's page as a PIL image: a scanned PDF's largest image, or the
+    copy itself when the router served an image. None when it has neither."""
+    from PIL import Image, UnidentifiedImageError
     data = path.read_bytes()
-    if path.suffix == ".pdf":
-        return read_pdf(data)
+    if data[:4] != b"%PDF":
+        try:
+            return Image.open(io.BytesIO(data)).convert("RGB")
+        except UnidentifiedImageError:
+            return None
+    import pypdf
+    imgs = [i.image for page in pypdf.PdfReader(io.BytesIO(data)).pages[:1] for i in page.images]
+    return max(imgs, key=lambda i: i.width * i.height).convert("RGB") if imgs else None
+
+
+def can_ocr():
+    """Whether a clue reader answers here: the desktop (OCR_REMOTE) or a local RapidOCR."""
+    import ocr_remote
+    return bool(ocr_remote.hosts()) or importlib.util.find_spec("rapidocr") is not None
+
+
+def read_scan(path, number, ocr=True):
+    """The copy dict assemble() takes, read off a scan by the shared clue vote
+    (gale_listener.read_page: every ocr_clues reader, voted) and the barred
+    grid finder (listener_grid, its bars fitted to the printed numbers), or
+    None when the page holds no image, or "scan" when it is not stored and
+    not `ocr`. "clues" maps each light to its voted
+    text, "" where the readings do not agree; "printed" is the grid's own
+    numbering only when every number read agrees with it."""
+    data = path.read_bytes()
+    sha = hashlib.sha256(data).hexdigest()
+    store = SCAN_STORE / f"{number}.json"
+    if store.exists():
+        got = json.loads(store.read_text())
+        if got["sha"] == sha and got["version"] == SCAN_VERSION:
+            return scan_copy(got)
+    if not ocr:
+        return "scan"
+    img = page_image(path)
+    if img is None:
+        return None
+    import gale_listener
+    import listener_grid
+    import numpy as np
+    from PIL import Image
+    img = img.resize((img.width * SCAN_SCALE, img.height * SCAN_SCALE), Image.LANCZOS)
+    verdict, voted = gale_listener.read_page(img, f"azed-{sha[:16]}")
+    gray = np.asarray(img.convert("L"), dtype=np.uint8)
+    grids = [g for g in listener_grid.find_grids(gray) if g["rows"]]
+    # The page's own grid is the biggest; the previous solution's is smaller.
+    grid = max(grids, key=lambda g: (g["box"][2] - g["box"][0]) * (g["box"][3] - g["box"][1]), default=None)
+    rows, exact = None, False
+    if grid:
+        fitted = listener_grid.fit(grid, listener_grid.printed_numbers(gray, grid))
+        rows, exact = fitted["rows"], fitted["exact"]
+    got = {"sha": sha, "version": SCAN_VERSION, "verdict": verdict, "rows": rows, "exact": exact,
+           "clues": {k: [t, e] for k, (t, e, _g) in (voted or {}).items()}}
+    SCAN_STORE.mkdir(parents=True, exist_ok=True)
+    store.write_text(json.dumps(got))
+    return scan_copy(got)
+
+
+def scan_copy(got):
+    """read_scan's stored reading as the copy dict assemble() takes."""
+    rows = got["rows"]
+    printed = {}
+    if rows and got["exact"]:
+        printed = {cells[0]: str(n) for (n, _d), cells in rg.light_cells(rows).items()}
+    import ocr_clues
+    lengths = {k: len(c) for k, c in rg.light_cells(rows).items()} if rows else {}
+    clues = {}
+    for key, (text, enum) in got["clues"].items():
+        n, way = key.split("-")
+        light = (int(n), way)
+        text = FOOTER.sub("", text or "").strip()
+        if ENUM_END.search(text):
+            enum = None     # the count stayed in the text
+        elif not enum and light in lengths:
+            enum = str(lengths[light])  # a lost count is the light's length
+        ok = text and not ocr_clues.suspect(text)
+        clues[light] = f"{text} ({enum})" if ok and enum else text if ok else ""
+    return {"number": None, "preamble": "", "title": "", "grid": rows, "printed": printed,
+            "clues": clues}
+
+
+def read(path, number=None, scans=True):
+    """The copy dict of a cached copy. A scan not read before is read only
+    when `scans` (else "scan" is returned, for the caller to hold)."""
+    data = path.read_bytes()
     if path.suffix == ".html":
         return read_html(data.decode("utf-8", "replace"))
-    return None
+    if path.suffix == ".pdf":
+        copy = read_pdf(data)
+        if copy is not None:
+            return copy
+    if not data:
+        return None
+    return read_scan(path, number, ocr=scans)
 
 
 def special(kind, copy):
@@ -587,7 +698,11 @@ def assemble(number, copy, url, date, post, kind=""):
     printed = split_numbers({k: str(v) for k, v in copy["printed"].items()}, starts)
     if printed != starts:
         return None, "numbers-differ", f"{len(set(printed.items()) ^ set(starts.items()))} cells"
-    clues = clue_list(copy["lines"], set(lights))
+    if "clues" in copy and not copy["clues"]:
+        return None, "scan-no-clues", ""
+    clues = copy["clues"] if "clues" in copy else clue_list(copy["lines"], set(lights))
+    if blank := sorted(k for k in lights if k in clues and not clues[k]):
+        return None, "ocr-blank", f"{len(blank)} clues, e.g. {blank[:3]}"
     if set(clues) != set(lights):
         return None, "clues-differ", f"unread {sorted(set(lights) - set(clues))[:3]}"
     if special(kind, copy) and not (post and copy["preamble"]):
@@ -628,17 +743,25 @@ def assemble(number, copy, url, date, post, kind=""):
     return puzzle, None, ""
 
 
-def file(write=True, numbers=None, log=print):
-    """File every cached copy not yet in puzzles/; (filed, Counter of causes)."""
+def file(write=True, numbers=None, log=print, scan_seconds=None, clock=time.monotonic):
+    """File every cached copy not yet in puzzles/; (filed, Counter of causes).
+    A scan not yet read is read (read_scan) only while `scan_seconds` have
+    not passed and a reader answers; one left unread calls backlog_left(),
+    so the next tick reads on."""
     idx, where, posts = index(), urls(), blog_records()
     filed, held, why = [], collections.Counter(), {}
+    start, ocr = clock(), can_ocr()
     for n in sorted(idx):
         if numbers and n not in numbers:
             continue
         path = cached(n)
         if path is None or puzzle_path(SERIES, n).exists():
             continue
-        copy = read(path)
+        copy = read(path, n, scans=ocr and (scan_seconds is None or clock() - start < scan_seconds))
+        if copy == "scan":
+            held["scan-unread"] += 1
+            why[n] = "scan-unread"
+            continue
         puzzle, cause, detail = assemble(n, copy, where.get(n, ROUTER.format(n)), idx[n][0],
                                          posts.get(n), idx[n][1])
         if puzzle is None:
@@ -657,6 +780,8 @@ def file(write=True, numbers=None, log=print):
                 log(f"  No {n}: refused on write: {str(e)[:160]}")
                 continue
         filed.append(puzzle["id"])
+    if held["scan-unread"] and ocr:
+        backlog_left()
     if write and not numbers:
         HELD.write_text(json.dumps({str(k): v for k, v in sorted(why.items())}, indent=0))
     return filed, held
@@ -678,11 +803,14 @@ def main(argv=None):
     g.add_argument("--numbers", type=number_range)
     h = sub.add_parser("nightly")
     h.add_argument("--budget-seconds", type=float)
+    for p in (g, h):
+        p.add_argument("--scan-seconds", type=float, help="stop reading new scans after this long")
     a = ap.parse_args(argv)
     if a.cmd in ("fetch", "nightly") and fetch(getattr(a, "limit", None), a.budget_seconds):
         backlog_left()
     if a.cmd in ("file", "nightly"):
-        filed, held = file(write=not getattr(a, "dry_run", False), numbers=getattr(a, "numbers", None))
+        filed, held = file(write=not getattr(a, "dry_run", False), numbers=getattr(a, "numbers", None),
+                           scan_seconds=a.scan_seconds)
         print(f"{'would file' if getattr(a, 'dry_run', False) else 'filed'} {len(filed)} Azed: "
               + " ".join(filed[:20]) + (" ..." if len(filed) > 20 else ""))
         for cause, k in held.most_common():
