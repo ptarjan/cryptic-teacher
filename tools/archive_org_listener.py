@@ -369,10 +369,11 @@ def printed_elsewhere(v, lid, k, lays, lines, guessed):
     if len(text.split()) < PRINTED_WORDS:
         return False
     for j, laid in enumerate(lays):
-        # Another light's whole clue inside this one: this is two clues run
-        # together ("The top of the head. - oo. Italian police.").
+        # Another light's whole clue inside this one, a footnote mark before
+        # it or not ("*The top of the head."): this is two clues run together.
         if any(other not in group and other not in guessed[j] and len(t[0].split()) >= PRINTED_WORDS
-               and t[0].lower().rstrip(".,;:") in text for other, t in laid.items() if t[0]):
+               and re.sub(r"^[^a-z0-9]+", "", t[0].lower().rstrip(".,;:")) in text
+               for other, t in laid.items() if t[0]):
             return False
         # A light whose text runs on into these words (No 103's 43A taking
         # 44A's unnumbered line) is no rival: only one of about this length.
