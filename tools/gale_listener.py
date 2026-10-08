@@ -77,7 +77,7 @@ YEARS = lp.CACHE / "years"
 #: The Listener magazine's last issue; the puzzle moved to The Times after it.
 FIRST_YEAR, LAST_ISSUE = 1930, datetime.date(1991, 1, 3)
 #: Bumped when the reading changes, so every file is read again.
-VERSION = 3
+VERSION = 4
 PORTAL = gi.PORTAL
 DOC_URL = "https://go.gale.com/ps/retrieve.do?docId=GALE%7C{}&prodId=LSNR&userGroupName=alberta_portal"
 
@@ -355,6 +355,12 @@ RUN_ON = 20
 #: it (its heading's, read or not); a "2." closer under a clue is a
 #: misread "32.".
 RESTART = 20
+#: A clue runs on to the next line only from a line set at least this
+#: much of its column's width: a short one ended its clue ("6. Lenten."),
+#: and the line under it is the next clue, its number lost ("park").
+FULL = 0.6
+#: A list's footnote, under its last clue: "*One letter missing."
+FOOTNOTE = re.compile(r"^\W{0,2}[*\u2020\u2021#]\s*[A-Z]")
 #: A heading stands alone on its line: no word this near either side
 #: ("8 Down should have had an asterisk" is prose). A word is on its line
 #: when their centres are under half its height apart: No 97's centred
@@ -380,7 +386,8 @@ def numbered_columns(words):
     two columns. Below the first heading read (a word alone on its line),
     and from the top in the columns right of it, each clue column (where
     clue numbers line up) is cut top to bottom into runs: a line opening on
-    a number and words is a clue, an indented line just under it runs on,
+    a number and words is a clue, an indented line just under a line set
+    wide (FULL) runs on, a footnote (FOOTNOTE) does not,
     and a heading, a line that is neither, a gap, or a clue numbered below
     the one before it, a heading's space under it, ends the run (No 15's
     DOWN 22 under ACROSS 39; a bracketed pair, "4.} 29.}", does not). A
@@ -403,7 +410,9 @@ def numbered_columns(words):
     for x0, x1 in zip(lefts, lefts[1:] + [float("inf")]):
         col = [(w[1], w[3], w[0], w[2], w[4]) for w in words if x0 <= w[0] < x1]
         run, last_y = [], None
-        for line in fa.merge_rows(col):
+        rows = fa.merge_rows(col)
+        right = max((line[3] for line in rows if OPENS.match(line[4])), default=x0)
+        for line in rows:
             if REPORT_HEAD.match(line[4]):
                 # A report's prose ("solving 38 Down") is no clue list.
                 break
@@ -420,7 +429,8 @@ def numbered_columns(words):
                 run.append((n, [line]))
                 last_x, last_y = line[2], line[1]
             elif (run and last_y is not None and line[0] - last_y < fa.GAP / 2 and line[2] > last_x + RUN_ON
-                  and not fa.heading_of(line[4])):
+                  and run[-1][1][-1][3] - x0 >= FULL * (right - x0)
+                  and not fa.heading_of(line[4]) and not FOOTNOTE.match(line[4])):
                 run[-1][1].append(line)
                 last_y = line[1]
             else:
@@ -456,20 +466,24 @@ AS_DIGIT = str.maketrans("IlOo", "1100")
 
 #: A clue number run into its first word, as the "ch" reader drops the
 #: space: "1.An African bird".
-GLUED = re.compile(r"^(\W{0,2}\d{1,2}[.,:])(?=[A-Za-z*'\"\u2018\u201c])")
+GLUED = re.compile(r"^(\W{0,2}\d{1,2}[.,:])(?=[A-Za-z*\u2020\u2021'\"\u2018\u201c])")
+#: A footnote's dagger opening a clue ("28.\u2020Not far from 13"), read as
+#: a small t or f run into the clue's capital ("tNot", "fA famous").
+DAGGER = re.compile(r"^(\W{0,2}\d{1,2}[.,:] )?[tf](?=[A-Z](?:[a-z]|\s|$))")
 
 
 def figures(words):
     """The words with a line's opening clue number read as letters put back
-    in digits (a number cannot open on 0, so "O." and "Oo." stay words), and
-    parted from a first word run into it."""
+    in digits (a number cannot open on 0, so "O." and "Oo." stay words),
+    parted from a first word run into it, and a footnote's dagger read as a
+    letter (DAGGER) put back."""
     out = []
     for w in words:
         m = FIGURES.match(w[4])
         n = m and m.group(2).translate(AS_DIGIT)
         if m and n.isdigit() and n[0] != "0" and not m.group(2).isdigit():
             w = (*w[:4], m.group(1) + n + m.group(3) + w[4][m.end():])
-        w = (*w[:4], GLUED.sub(r"\1 ", w[4]))
+        w = (*w[:4], DAGGER.sub("\\1\u2020", GLUED.sub(r"\1 ", w[4])))
         out.append(w)
     return out
 
