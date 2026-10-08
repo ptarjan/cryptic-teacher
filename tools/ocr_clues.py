@@ -2020,6 +2020,26 @@ def unstrayed(text, theirs):
     return text
 
 
+#: The letters OCR reads as an apostrophe: a thin upright stroke.
+APOSTROPHE_FOR = "il"
+#: What follows a contraction's apostrophe ("I'll" is no "Ill").
+CONTRACTED = re.compile(r"(?:s|t|d|m|ll|re|ve)", re.I)
+
+
+def letter_lost(word):
+    """Is the one apostrophe inside `word` a letter OCR read as a stroke? It
+    is when the word is no word as it stands, no contraction, and an i or l
+    in its place makes one ("He r'ddled" for "riddled", No 97 6D). A poet
+    elides an e ("wand'ring", "heav'n"), and a setter's dialect drops a
+    letter near the end (Em'ly, Rob'n, Li'l), so those stand: the corpus's
+    clues hold no such word with three letters after the mark."""
+    head, _, tail = word.partition("'")
+    if not head.isalpha() or not tail.isalpha() or len(tail) < 3 or CONTRACTED.fullmatch(tail):
+        return False
+    flat = plain(word).lower()
+    return not known(flat) and any(known(flat.replace("'", c)) for c in APOSTROPHE_FOR)
+
+
 def suspect(text, vouched=(), printed=()):
     """[(token, why)] for each word of a clue's text that OCR, not the setter,
     wrote. `vouched` holds lower-case words every reading spelt alike, which
@@ -2043,6 +2063,9 @@ def suspect(text, vouched=(), printed=()):
             continue
         for p in re.split(r"[-./&]", s.replace("\u2018", "'").replace("\u2019", "'")):
             bare = p.strip("'")
+            if letter_lost(bare):
+                out.append((raw, "an apostrophe for a letter"))
+                break
             if not bare.isalpha() or len(bare) < 2:
                 continue
             flat = plain(bare)
