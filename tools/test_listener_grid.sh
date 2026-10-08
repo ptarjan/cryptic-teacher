@@ -175,5 +175,46 @@ f = lg.fit(grid, {"ch": printed, "en5": printed})
 check("unnumbered two-letter runs fit exactly", (3, True), (f["shortest"], f["exact"]))
 check("and are barred shut, so light_cells numbers as printed", printed, lg.starts(f["rows"]))
 check("no light of two is left", [], [k for k, cells in lg.rg.light_cells(f["rows"]).items() if len(cells) < 3])
+# A grid that leaves one 2-cell run unnumbered but clues another (No 103:
+# "10. Last two letters of above"): the run read with the next number at
+# its start stays a light; the other is barred shut. Sides are all certain
+# rules here, so only the numbering can move.
+MIX = [".....",
+       ".#..#",
+       ".....",
+       "#..#.",
+       "....."]
+
+
+def certain(rows):
+    """Every side a certain rule, so only the numbering can move."""
+    h, w = len(rows), len(rows[0])
+    return {"rows": rows, "thin": 1.0,
+            "sides": {(r, c, d): 0.5 for r in range(h) for c in range(w) for d in "rb"
+                      if rows[r][c] != "#" and ((d == "r" and c < w - 1 and rows[r][c + 1] != "#")
+                                                or (d == "b" and r < h - 1 and rows[r + 1][c] != "#"))}}
+
+
+printed = lg.starts(lg.closed(MIX, 3, {(1, 2)}))     # the run at r1c2 numbered, r3c1's not
+f = lg.fit(certain(MIX), {"ch": printed, "en5": printed})
+runs = {cells[0]: len(cells) for (_, d), cells in lg.rg.light_cells(f["rows"]).items() if d == "across"}
+check("a 2-cell run printed with the next number stays a light", (True, 2), (f["exact"], runs.get((1, 2))))
+check("and the unnumbered one is barred shut", (None, printed), (runs.get((3, 1)), lg.starts(f["rows"])))
+base = lg.starts(MIX, 3)
+stray = {**base, (3, 1): 1}
+check("a 2-cell run read with a number out of turn stays shut (mirror)", base,
+      lg.starts(MIX, 3, {c: {n} for c, n in stray.items()}))
+
+# The printer set a number a cell off its light's start (No 9's 8, left of
+# 8-down): the start reads blank and the cell starts nothing.
+OPEN3 = ["#..", "...", "..."]
+assert lg.starts(OPEN3) == {(0, 1): 1, (0, 2): 2, (1, 0): 3, (2, 0): 4}
+off = {(0, 1): 1, (0, 2): 2, (1, 1): 3, (2, 0): 4}
+f = lg.fit(certain(OPEN3), {"ch": off, "en5": off})
+check("a number printed a cell off its start is moved, not a disagreement", (True, [], [(1, 1)]),
+      (f["exact"], f["disagree"], f["moved"]))
+far = {(0, 1): 1, (0, 2): 2, (1, 2): 3, (2, 0): 4}
+f = lg.fit(certain(OPEN3), {"ch": far, "en5": far})
+check("one two cells off stays a disagreement (mirror)", ([(1, 2)], []), (f["disagree"], f["moved"]))
 sys.exit(1 if fails else 0)
 PY

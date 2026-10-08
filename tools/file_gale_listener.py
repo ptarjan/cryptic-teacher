@@ -17,7 +17,9 @@ read agree, and is checked against a third:
     A fit can be exact with a faint bar missing whose far cell starts a
     light anyway (the numbering is the same), so where the lists disagree
     and exactly one unsure side (listener_grid.UNSURE) flipped makes them
-    agree, it is flipped; otherwise the grid is not used;
+    agree, it is flipped; otherwise the grid is not used. Before that the
+    list is mended() where the page itself errs: a line read twice, a
+    clue number misprinted, a theme light printed with no clue;
   - its report's answers, the check: the filled grid of the "Report on
     Crossword No. N" printed about two issues later, found on any saved page as the filled grid whose
     blocks and bars agree with the puzzle's on REPORT_AGREE of the cells
@@ -58,6 +60,7 @@ import argparse
 import copy
 import hashlib
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -143,6 +146,55 @@ def lights_fit(rows, clues):
     parts = [f"{what} {', '.join(ids)}" for what, ids in (
         ("no light for", spare), ("no clue for", unclued), ("count disagrees for", long)) if ids]
     return "; ".join(parts) or None
+
+
+def number_of(lid):
+    n, d = lid.split("-")
+    return int(n), d
+
+
+def mended(rows, clues):
+    """(clues, notes): the clue list (`clues` {light id: {"text", ...}}) laid
+    on the grid's lights where the page itself is wrong or read twice;
+    `notes` {light id: what was done}. Each mend needs the page's own word:
+      - a clue off any light whose text another clue on a light has is one
+        line read twice (No 103's 20D, 26D's text), and goes;
+      - the one clue off any light in a direction and the one light in it
+        with none, at the same place in the list (no clue on a light numbered
+        between them), are one: the printer set the number wrong (No 9
+        prints "35." for 36A) or the reader misread it;
+      - a light no clue names whose number another clue cites ("23. Wonderful
+        25.") is printed with no clue (No 103's theme word, 25D): its entry's
+        clue is "missing" with no text."""
+    have = {f"{n}-{d}": len(cells) for (n, d), cells in rg.light_cells(rows).items()}
+    clues, notes = dict(clues), {}
+    text = {lid: " ".join((c.get("text") or "").split()).lower() for lid, c in clues.items()}
+    for lid in sorted(set(clues) - set(have), key=order):
+        twin = next((o for o in sorted(have, key=order) if o in clues and text[lid] and text[o] == text[lid]), None)
+        if twin:
+            del clues[lid]
+            notes[lid] = f"read twice: {twin}'s text"
+    for d in ("across", "down"):
+        spare = [lid for lid in clues if lid not in have and text.get(lid) and lid.endswith("-" + d)]
+        bare = [lid for lid in have if lid not in clues and lid.endswith("-" + d)]
+        if len(spare) != 1 or len(bare) != 1:
+            continue
+        (s, _), (u, _) = number_of(spare[0]), number_of(bare[0])
+        between = [lid for lid in clues if lid in have and lid.endswith("-" + d)
+                   and min(s, u) < number_of(lid)[0] < max(s, u)]
+        enum = clues[spare[0]].get("enumeration")
+        if between or (enum and gl.al.ftp.count(enum) != have[bare[0]]):
+            continue
+        clues[bare[0]] = clues.pop(spare[0])
+        notes[bare[0]] = f"printed as {spare[0]}"
+    cited = " ".join(" ".join((c.get("text") or "").split()).lower() for lid, c in clues.items() if lid in have)
+    for lid in sorted(set(have) - set(clues), key=order):
+        n, d = number_of(lid)
+        other = "down" if d == "across" else "across"
+        if re.search(rf"(?<![\d,.]){n}(?!\d|\s*{other})", cited):
+            clues[lid] = {"text": "", "noCluePrinted": True}
+            notes[lid] = "printed with no clue: other clues cite it"
+    return clues, notes
 
 
 def order(lid):
@@ -233,7 +285,7 @@ def build(reading, rows):
              "length": len(cells),
              "clue": {"text": text, **({"enumeration": clue["enumeration"]} if clue.get("enumeration") else {}),
                       **({"asPrinted": clue["asPrinted"]} if clue.get("asPrinted") else {})}
-             if text else {"text": "", "missing": True},
+             if text else {"missing": True} if clue.get("noCluePrinted") else {"text": "", "missing": True},
              "solution": None}
         if clue.get("group") and text:
             e["group"] = clue["group"]
@@ -280,8 +332,11 @@ def join(reading, grids, reports, read_letters):
         return None, verdict, None
     whys = []
     for g in exact:
-        rows, side, why = fit_to_clues(g["grid"], g["fit"], clues)
+        laid, notes = mended(g["fit"]["rows"], clues)
+        rows, side, why = fit_to_clues(g["grid"], g["fit"], laid)
         if rows:
+            clues = laid
+            reading = {**reading, "clues": laid}
             break
         whys.append(why)
     else:
@@ -289,6 +344,10 @@ def join(reading, grids, reports, read_letters):
         return None, verdict, None
     if side:
         verdict["flipped"] = list(side)
+    if notes:
+        verdict["mended"] = notes
+    if g["fit"].get("moved"):
+        verdict["numberMoved"] = [list(c) for c in g["fit"]["moved"]]
     # One clue read onto two lights has lost the other's: both go blank
     # unless one light's count picks it (ocr_clues.one_light_each).
     lengths = {f"{n}-{d}": len(c) for (n, d), c in rg.light_cells(rows).items()}

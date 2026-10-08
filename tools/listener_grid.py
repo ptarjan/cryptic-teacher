@@ -384,28 +384,33 @@ def printed_numbers(gray, grid, readers=NUMBER_READERS):
     return out
 
 
-def starts(rows, shortest=2):
+def starts(rows, shortest=2, reads=None):
     """{(r, c): number} of light_cells' numbering when no light is shorter
     than `shortest` cells: 2 is light_cells' own; a 1930 blocked grid may
-    leave its 2-cell runs unnumbered (3)."""
+    leave its 2-cell runs unnumbered (3). With 3, a 2-cell run is numbered
+    still where `reads` ({(r, c): {numbers read}}) holds the next number at
+    its start: No 103 clues "10. Last two letters of above" and leaves
+    another 2-cell run unnumbered."""
     if shortest == 2:
         return {cells[0]: n for (n, _), cells in rg.light_cells(rows).items()}
     out = {}
     for (_, _), cells in sorted(rg.light_cells(rows).items()):
-        if len(cells) >= shortest and cells[0] not in out:
+        if cells[0] in out:
+            continue
+        if len(cells) >= shortest or len(out) + 1 in (reads or {}).get(cells[0], ()):
             out[cells[0]] = len(out) + 1
     return out
 
 
-def closed(rows, shortest):
+def closed(rows, shortest, keep=()):
     """`rows` with every run shorter than `shortest` barred shut into single
     cells, so light_cells numbers it as a grid that leaves those runs
     unnumbered (listener_puzzles.close_unclued's way: No 15's and No 29's
-    two-letter runs are no lights)."""
+    two-letter runs are no lights), but a run starting at a cell of `keep`."""
     out = [list(row) for row in rows]
     both = {("r", "b"): "+", ("b", "r"): "+", (".", "r"): "r", (".", "b"): "b"}
     for (_, d), cells in rg.light_cells(rows).items():
-        if len(cells) >= shortest:
+        if len(cells) >= shortest or cells[0] in keep:
             continue
         mark = "r" if d == "across" else "b"
         for y, x in cells[:-1]:
@@ -448,14 +453,15 @@ def in_order(got, most):
 
 
 def fit(grid, printed):
-    """{"rows", "shortest", "exact", "agreed", "disagree"}: the grid with each
+    """{"rows", "shortest", "exact", "agreed", "disagree", "moved"}: the grid with each
     unsure side (UNSURE) set so its numbering agrees with the printed numbers
     (`printed` as printed_numbers gives them), flipping the side the width
     says least, one at a time while that lowers the disagreements. Light
     starts follow from bars and blocks alone, so a misread bar shows as
     numbers out of place. When the numbers leave 2-cell runs unnumbered
     ("shortest" 3; else 2), "rows" has them barred shut (closed()), so
-    light_cells numbers "rows" as the page does either way."""
+    light_cells numbers "rows" as the page does either way. "moved" are the
+    read numbers printed a cell off their light's start."""
     import math
     thin = max(grid["thin"], 1.0)
     q = {k: v / thin for k, v in grid["sides"].items()}
@@ -470,13 +476,16 @@ def fit(grid, printed):
     unsure = [k for k, x in q.items() if UNSURE[0] <= x <= UNSURE[1]]
     edge = math.log(BAR_RATIO)
 
-    def score(bars, shortest):
-        st = starts(with_bars(grid["rows"], bars), shortest)
+    def score(bars, mode):
+        shortest, by_reads = mode
+        st = starts(with_bars(grid["rows"], bars), shortest, reads if by_reads else None)
         bad = sum(AGREED_WEIGHT if c in agreed else 1 for c, v in reads.items() if st.get(c) not in v)
         return bad, sum(abs(math.log(q[k]) - edge) for k in unsure if bars[k] != (q[k] >= BAR_RATIO))
 
     best = None
-    for shortest in (2, 3):
+    # Numbers left off 2-cell runs: none, all, or all but where a reader
+    # read the next number (tried last, so it wins only by fitting better).
+    for shortest in ((2, False), (3, False), (3, True)):
         bars = {k: x >= BAR_RATIO for k, x in q.items()}
         now = score(bars, shortest)
         while True:
@@ -492,19 +501,33 @@ def fit(grid, printed):
             now, bars = step
         if best is None or now < best[0]:
             best = (now, shortest, bars)
-    _, shortest, bars = best
+    _, (shortest, by_reads), bars = best
     rows = with_bars(grid["rows"], bars)
+    kept = reads if by_reads else None
     # Runs of two are barred shut only when the page leaves one unnumbered:
     # where both numberings are the same the numbers cannot tell, and
     # closing them would drop lights.
-    if shortest == 3 and starts(rows, 3) != starts(rows):
-        rows = closed(rows, 3)
+    if shortest == 3 and starts(rows, 3, kept) != starts(rows):
+        long = {cells[0] for cells in rg.light_cells(rows).values() if len(cells) >= 3}
+        rows = closed(rows, 3, set(starts(rows, 3, kept)) - long)
     else:
         shortest = 2
     st = starts(rows)
-    disagree = sorted(c for c, n in agreed.items() if st.get(c) != n)
+    at = {n: c for c, n in st.items()}
+    disagree, moved = [], []
+    for c, n in sorted(agreed.items()):
+        if st.get(c) == n:
+            continue
+        # The printer set the number a cell off its light's start (No 9's 8
+        # sits left of the cell the blocks start 8-down at): the start is
+        # read blank and c starts nothing, so no bar can mend it.
+        to = at.get(n)
+        if c not in st and to and to not in reads and abs(to[0] - c[0]) + abs(to[1] - c[1]) == 1:
+            moved.append(c)
+        else:
+            disagree.append(c)
     return {"rows": rows, "shortest": shortest, "agreed": len(agreed), "disagree": disagree,
-            "exact": not disagree and len(agreed) >= EXACT_COVER * len(st)}
+            "moved": moved, "exact": not disagree and len(agreed) >= EXACT_COVER * len(st)}
 
 
 def read_page(path):
