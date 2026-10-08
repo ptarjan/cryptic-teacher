@@ -23,6 +23,7 @@ import vlm_reader
 vlm_reader.reachable = lambda *a, **k: False
 import file_archive_org_puzzles as f
 import edition_queue as eq
+eq.cpu_gate_reader = lambda: 0.0  # this host's load must not gate the tests' starts
 
 fails = 0
 def check(what, want, got):
@@ -374,6 +375,22 @@ check("room: units begun this pass count against it", (True, True, False),
       tuple(mg.room(n, lambda: mg.FLOOR + int(2.5 * mg.UNIT)) for n in (0, 1, 2)))
 check("room: an unreadable figure gates nothing", True, mg.room(0, lambda: None))
 check("available() reads this host", True, (mg.available() or 1) > 0)
+check("cpu_room: under the load ceiling starts", True, mg.cpu_room(0, lambda: 3.0, cores=4))
+check("cpu_room: at the ceiling does not", False, mg.cpu_room(0, lambda: 6.0 * 4, cores=4))
+check("cpu_room: units begun this pass count against it", (True, False),
+      tuple(mg.cpu_room(n, lambda: 6.0 * 4 - 0.5, cores=4) for n in (0, 1)))
+check("cpu_room: an unreadable load gates nothing", True, mg.cpu_room(0, lambda: None, cores=4))
+eq.cpu_gate_reader = lambda: 1e6
+log.unlink(missing_ok=True)
+eq.plan = units([], [(f"c{k}", []) for k in range(3)])
+eq.mem_gate_reader = lambda: 16 * G
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, seconds=2.2, replan=0.5)
+check("over the load ceiling nothing starts, and it says so once", (False, 1),
+      (log.exists(), err.getvalue().count("cpu-bound")))
+eq.cpu_gate_reader = lambda: 0.0
+eq.mem_gate_reader = None
 log.unlink(missing_ok=True)
 eq.plan = units([], [(f"m{k}", []) for k in range(3)])
 eq.mem_gate_reader = lambda: 1 * G
@@ -394,6 +411,7 @@ eq.mem_gate_reader = None
 # unit_queue.tick shares the gate: short of memory it starts nothing, with room it starts all
 import types
 import unit_queue as uq
+uq.LOAD_READER = lambda: 0.0
 class _Ledger:
     def __init__(self, queue): pass
     def compact(self): pass

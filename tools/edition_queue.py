@@ -272,6 +272,8 @@ class Beside:
 
 #: What the memory gate reads (tests swap it); None is mem_gate.available.
 mem_gate_reader = None
+#: What the CPU gate reads (tests swap it); None is mem_gate.load.
+cpu_gate_reader = None
 
 
 def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=None, workers=WORKERS,
@@ -300,7 +302,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     pools = {"scan": scan_workers, "read": workers, "trove": trove_workers, "listener": LISTENER_WORKERS,
              **{f"fetch {src}": FETCHERS[src]["workers"] for src in fetch}}
     outages = dict.fromkeys(fetch, 0)
-    memory_bound = False  # logged once per slice
+    memory_bound = cpu_bound = False  # logged once per slice
     stopped = set()  # fetch sources started no more this run
     adopted = take_over(handoff) if handoff else {}  # pid: (unit, started), another run's
     for unit, _ in adopted.values():
@@ -410,7 +412,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         for _, (u, _) in units_running():
             free[slot_of(u)] = free.get(slot_of(u), 0) - 1
         begun_now = 0
-        held_back = False
+        held_back = cpu_held = False
         for u in scans + reads + fetches:
             if not may_start() or free[slot_of(u)] <= 0 or key_of(u) in tried:
                 continue
@@ -421,6 +423,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             if not mem_gate.room(begun_now, mem_gate_reader):
                 held_back = True
                 continue
+            if not mem_gate.cpu_room(begun_now, cpu_gate_reader):
+                cpu_held = True
+                continue
             start(u)
             begun_now += 1
             free[slot_of(u)] -= 1
@@ -428,6 +433,10 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             memory_bound = True
             log(f"memory-bound: under {(mem_gate.FLOOR + mem_gate.UNIT) >> 20} MB available; no unit starts "
                 f"until a later pass finds room ({len(running) + len(adopted)} running are left alone)")
+        if cpu_held and not cpu_bound:
+            cpu_bound = True
+            log(f"cpu-bound: load over {mem_gate.LOAD_PER_CORE:g} per core; no unit starts until it falls "
+                f"({len(running) + len(adopted)} running are left alone)")
         if stop:
             break
         if handoff and not may_start() and not any(b.busy() for b in beside):
