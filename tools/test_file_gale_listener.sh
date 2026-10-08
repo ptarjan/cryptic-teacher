@@ -125,6 +125,11 @@ bare = run(out=io.StringIO())[1]
 check("with no report saved, No 1 files all the same, unsolved", (True, None, "no saved filled grid has its blocks and bars"),
       (bare.get("wrote"), bare.get("lacks"), bare.get("noReport")))
 
+# A page with no grid on it says where the diagram is: the verdict passes it on.
+_, v, _ = f.join({**reading(9, TEXT), "verdict": {"seePages": [885]}}, [], [], read_letters)
+check("no grid on its pages, and the page it sends to", "grid: no unfilled grid read on its pages (it sends to p. 885)",
+      v.get("lacks"))
+
 # The report's copy against a solve: the misread word is a lead, never a fix.
 solved = json.loads(json.dumps(filed))
 for e in solved["entries"]:

@@ -113,6 +113,53 @@ words = (line("DOWN", 300, 400) + line("1. Knights", 100, 430) + line("2. A glut
 check("DOWN printed first", (["1. A hard stone", "10. Wherefore", "12. Porsena"], ["1. Knights", "2. A glutton", "3. That far"]),
       tuple([l[4] for l in c] for c in g.page_columns(words)))
 
+# A heading centred over its column (No 103's): its clue numbers start far
+# left of it, and an advert's text beside the column bridges the gutter.
+words = (line("Kingfisher Library advert text runs wide here", 100, 380)
+         + line("ACROSS", 700, 400) + line("1. First and last to some a sign at night", 520, 430)
+         + line("7. A partner who excels is a wonder", 520, 460)
+         + line("10. Last two letters of above", 520, 490) + line("DOWN", 700, 530)
+         + line("1. A sign and a wonder of the world", 520, 560)
+         + line("2. Wrote wonderful paraphrase of scripture", 520, 590) + line("3. Sign of a Saint", 520, 620)
+         + line("advert words", 100, 470) + line("more advert", 100, 560))
+check("a centred heading's list read from its clue numbers",
+      (["1", "7", "10"], ["1", "2", "3"]),
+      tuple([l[4].split(".")[0] for l in c] for c in g.page_columns(words) or ([], [])))
+
+# Old-style figures read as letters open a clue all the same.
+for text, want in [("I.", "1."), ("II. See 13.", "11. See 13."), ("Io.Last two", "10.Last two"),
+                   ("I3. Garden", "13. Garden"), ("O. Wonder", "O. Wonder"), ("Oo.", "Oo."),
+                   ("I am here", "I am here"), ("12. A tree", "12. A tree")]:
+    check(f"figures: {text!r}", want, g.figures([(0, 0, 10, 16, text)])[0][4])
+
+# No 97's page: the clue number set wide of its words (more than 40 px, under
+# BESIDE heights), ACROSS centred under the grid and touching its first
+# clue's line, DOWN at the top of the next column above it, its list broken
+# by a gap after 3, and a report's notes below it.
+def wide(n, text, x, y):
+    return [(x, y - 2, x + 28, y + 18, n)] + line(text, x + 72, y)
+words = ([(600, 1000, 700, 1024, "ACROSS")] + wide("I.", "Puzzler of one", 250, 1020)
+         + wide("9.", "Such question", 250, 1050) + wide("II.", "To do this", 250, 1080)
+         + wide("13.", "Of question", 250, 1110)
+         + [(1500, 300, 1600, 324, "DOWN.")] + wide("I.", "This foreign boaster", 1150, 340)
+         + wide("2.", "Add head", 1150, 370) + wide("3.", "A riddle", 1150, 400)
+         + wide("9.", "Half sort", 1150, 520) + wide("10.", "Unpleasant jester", 1150, 550)
+         + wide("12.", "A word for palm", 1150, 580)
+         + line("Report on Crossword No. 95", 1150, 700)
+         + wide("11.", "Anag. Greats.", 1150, 800) + wide("12.", "Hood: Epping Hunt.", 1150, 830)
+         + wide("19.", "Sontag.", 1150, 860))
+cols = g.page_columns(g.figures(words))
+check("No 97's across list: wide-set numbers, a centred heading touching it",
+      ["1", "9", "11", "13"], [l[4].split(".")[0] for l in cols[0]] if cols else None)
+check("No 97's down list over its gap, the report's notes left out",
+      ["1", "2", "3", "9", "10", "12"], [l[4].split(".")[0] for l in cols[1]] if cols else None)
+
+# A page that prints the clues or the diagram on another page says which.
+check("the pages it sends to, over a line break; a report's page is none",
+      [885, 1057], g.elsewhere(line("Closing date: Tuesday. Diagram", 100, 100) + line("and rules on page 885.", 100, 120)
+                               + line("(FOR CLUES SEE PAGE 1057)", 100, 300)
+                               + line("Report on Crossword No. 101 on page 319.", 100, 500)))
+
 # The ledger: each file read once, again when it changes.
 # A blank page has no title to read, and the test asks nothing of Tesseract.
 g.page_words = lambda img, key: []

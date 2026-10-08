@@ -252,12 +252,12 @@ def join(reading, grids, reports, read_letters):
     verdict = {"number": reading["number"]}
     clues = reading["clues"]
     if not grids:
-        verdict["lacks"] = "grid: no unfilled grid read on its pages"
+        verdict["lacks"] = "grid: no unfilled grid read on its pages" + gl.see_pages(
+            reading.get("verdict", {}).get("seePages"))
         return None, verdict, None
-    exact = [g for g in grids if g["fit"]["exact"] and g["fit"]["shortest"] == 2]
+    exact = [g for g in grids if g["fit"]["exact"]]
     if not exact:
-        verdict["lacks"] = "grid: no exact fit to the printed numbers" + (
-            " (a 2-cell run left unnumbered)" if any(g["fit"]["exact"] for g in grids) else "")
+        verdict["lacks"] = "grid: no exact fit to the printed numbers"
         return None, verdict, None
     whys = []
     for g in exact:

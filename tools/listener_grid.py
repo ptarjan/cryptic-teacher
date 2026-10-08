@@ -18,10 +18,12 @@ on the page:
   2. A grid is a patch of joined rules that crosses itself at least
      MIN_CROSSINGS times: an advertisement's box or a column rule does not.
   3. Its rules are the rows (columns) of the patch that rules cover
-     RULE_COVER of the way across; a block-filled row covers less. The rule
+     RULE_COVER of the way across. The rule
      positions give the cell edges, each cell its own, so a page that is
-     curled or scaled a little stays on the lattice. A rule too faint to
-     find is filled in at the pitch.
+     curled or scaled a little stays on the lattice. A row (column) mostly
+     blocks covers as much as a rule, so a covered run wider than half the
+     pitch is such a band and its edges are the rules (No 15's last row is
+     9 blocks of 13). A rule too faint to find is filled in at the pitch.
   4. A cell is a block when ink fills BLOCK_INK of its middle; a cell
      number sits in the corner, a report's letter in the middle leaves more
      paper than that.
@@ -65,7 +67,7 @@ RULE_RUN = 45
 #: A grid crosses itself at least this many times (a 5x5 lattice's 36).
 MIN_CROSSINGS = 30
 #: A row (column) of the grid's box is a rule when rule ink covers this
-#: share of it; blocks cover less, as no row of a crossword is all blocks.
+#: share of it (or a band of blocks: lattice_lines tells them apart).
 RULE_COVER = 0.7
 #: A rule wanders this many pixels either way over a grid's height.
 SMEAR = 4
@@ -101,29 +103,45 @@ def smeared(mask, axis, k=SMEAR):
 
 
 def rule_lines(profile, cover):
-    """Centres of the runs of `profile` at or above `cover`."""
+    """[(first, last)] of each run of `profile` at or above `cover`."""
     on = profile >= cover
     out, start = [], None
     for i, v in enumerate(list(on) + [False]):
         if v and start is None:
             start = i
         elif not v and start is not None:
-            out.append((start + i - 1) / 2)
+            out.append((start, i - 1))
             start = None
     return out
 
 
-def lattice_lines(found, span):
-    """The n+1 rule positions from those found: runs closer than a third of
-    the pitch are one rule (a bar's two edges), and a gap of k pitches has
-    k-1 faint rules filled in. None when they are no lattice."""
-    if len(found) < 2:
+def lattice_lines(runs, span, smear=SMEAR):
+    """The n+1 rule positions from the covered runs (rule_lines'), each
+    widened `smear` either way: a run is a rule at its centre, but one wider
+    than half the pitch is a band of blocks (a row or column mostly blocks
+    covers as much as a rule does), and its two edges are the rules. Runs
+    closer than a third of the pitch are one rule (a bar's two edges), and
+    a gap of k pitches has k-1 faint rules filled in. None when they are no
+    lattice."""
+    def gaps_pitch(found):
+        gaps = np.diff(found)
+        big = gaps[gaps > span / (MAX_CELLS + 1)]
+        return float(np.median(big)) if big.size else 0
+    if len(runs) < 2:
         return None
-    merged = [found[0]]
-    gaps = np.diff(found)
-    pitch = float(np.median(gaps[gaps > span / (MAX_CELLS + 1)])) if (gaps > span / (MAX_CELLS + 1)).any() else 0
+    pitch = gaps_pitch([(a + b) / 2 for a, b in runs])
     if pitch <= 0:
         return None
+    found = []
+    for a, b in runs:
+        if b - a - 2 * smear > pitch / 2:
+            found += [a + smear, b - smear]
+        else:
+            found.append((a + b) / 2)
+    pitch = gaps_pitch(found)
+    if pitch <= 0:
+        return None
+    merged = [found[0]]
     for f in found[1:]:
         if f - merged[-1] < pitch / 3:
             merged[-1] = (merged[-1] + f) / 2
@@ -300,14 +318,35 @@ AGREED_WEIGHT = 3
 EXACT_COVER = 0.5
 
 
+#: The rule along a corner's top (left) edge lies within this share of its
+#: height (width), allowing for a lattice a few pixels off.
+RULE_REACH = 0.35
+
+
+def edge_rule(share, cover):
+    """How many of the leading lines (`share`, each line's ink share) a rule
+    takes: through the last of the first run at or above `cover`, if it
+    starts within RULE_REACH of the edge; 0 when none does."""
+    reach = max(1, int(RULE_REACH * len(share)))
+    on = [i for i in range(reach) if share[i] > cover]
+    if not on:
+        return 0
+    end = on[0]
+    while end + 1 < len(share) and share[end + 1] > cover:
+        end += 1
+    return end + 1
+
+
 def corner(gray, ys, xs, r, c, cut):
-    """Cell (r, c)'s top-left, where its number prints, with the rules
-    (rows or columns of the patch mostly ink) painted out."""
+    """Cell (r, c)'s top-left, where its number prints, with the rules along
+    its top and left edges painted out, and all beyond them: only a run of
+    lines mostly ink touching the edge is a rule, as a two-digit number
+    fills most of a small scan's corner too."""
     h, w = ys[r + 1] - ys[r], xs[c + 1] - xs[c]
     a = gray[int(ys[r]):int(ys[r] + 0.5 * h), int(xs[c]):int(xs[c] + 0.62 * w)].copy()
     ink = a < cut
-    a[ink.mean(1) > 0.5, :] = 255
-    a[:, ink.mean(0) > 0.6] = 255
+    a[:edge_rule(ink.mean(1), 0.5), :] = 255
+    a[:, :edge_rule(ink.mean(0), 0.6)] = 255
     return a
 
 
@@ -358,6 +397,22 @@ def starts(rows, shortest=2):
     return out
 
 
+def closed(rows, shortest):
+    """`rows` with every run shorter than `shortest` barred shut into single
+    cells, so light_cells numbers it as a grid that leaves those runs
+    unnumbered (listener_puzzles.close_unclued's way: No 15's and No 29's
+    two-letter runs are no lights)."""
+    out = [list(row) for row in rows]
+    both = {("r", "b"): "+", ("b", "r"): "+", (".", "r"): "r", (".", "b"): "b"}
+    for (_, d), cells in rg.light_cells(rows).items():
+        if len(cells) >= shortest:
+            continue
+        mark = "r" if d == "across" else "b"
+        for y, x in cells[:-1]:
+            out[y][x] = both.get((out[y][x], mark), out[y][x])
+    return ["".join(row) for row in out]
+
+
 def with_bars(rows, bars):
     return ["".join(ch if ch == "#" else "+" if bars.get((r, c, "r")) and bars.get((r, c, "b"))
                     else "r" if bars.get((r, c, "r")) else "b" if bars.get((r, c, "b")) else "."
@@ -385,7 +440,9 @@ def fit(grid, printed):
     (`printed` as printed_numbers gives them), flipping the side the width
     says least, one at a time while that lowers the disagreements. Light
     starts follow from bars and blocks alone, so a misread bar shows as
-    numbers out of place."""
+    numbers out of place. When the numbers leave 2-cell runs unnumbered
+    ("shortest" 3; else 2), "rows" has them barred shut (closed()), so
+    light_cells numbers "rows" as the page does either way."""
     import math
     thin = max(grid["thin"], 1.0)
     q = {k: v / thin for k, v in grid["sides"].items()}
@@ -424,7 +481,14 @@ def fit(grid, printed):
             best = (now, shortest, bars)
     _, shortest, bars = best
     rows = with_bars(grid["rows"], bars)
-    st = starts(rows, shortest)
+    # Runs of two are barred shut only when the page leaves one unnumbered:
+    # where both numberings are the same the numbers cannot tell, and
+    # closing them would drop lights.
+    if shortest == 3 and starts(rows, 3) != starts(rows):
+        rows = closed(rows, 3)
+    else:
+        shortest = 2
+    st = starts(rows)
     disagree = sorted(c for c, n in agreed.items() if st.get(c) != n)
     return {"rows": rows, "shortest": shortest, "agreed": len(agreed), "disagree": disagree,
             "exact": not disagree and len(agreed) >= EXACT_COVER * len(st)}
