@@ -353,6 +353,9 @@ def pick(lays, texts=(), guessed=()):
     return out
 
 
+#: The fewest words a clue one reading numbers needs for another reading's
+#: line to vouch for it: a word or two ("God,") recurs anywhere.
+PRINTED_WORDS = 3
 #: How near in length (a share of the clue's) another light's text must be
 #: to rival a clue printed_elsewhere: a run-on is longer by a line.
 RIVAL_LENGTH = 0.15
@@ -363,7 +366,14 @@ def printed_elsewhere(v, lid, k, lays, lines, guessed):
     reading's text (`lines`, each reading's lines without numbers), and no
     reading lays those words in order on a light outside its group."""
     text, group = v[0].lower(), set(v[2] or ()) | {lid}
+    if len(text.split()) < PRINTED_WORDS:
+        return False
     for j, laid in enumerate(lays):
+        # Another light's whole clue inside this one: this is two clues run
+        # together ("The top of the head. - oo. Italian police.").
+        if any(other not in group and other not in guessed[j] and len(t[0].split()) >= PRINTED_WORDS
+               and t[0].lower().rstrip(".,;:") in text for other, t in laid.items() if t[0]):
+            return False
         # A light whose text runs on into these words (No 103's 43A taking
         # 44A's unnumbered line) is no rival: only one of about this length.
         if any(other not in group and other not in guessed[j] and abs(len(t[0]) - len(text)) <= len(text) * RIVAL_LENGTH
