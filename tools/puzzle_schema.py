@@ -294,6 +294,7 @@ def enum_sources():
     """$defs name -> the list that $defs entry's enum must equal."""
     import clue_types
     import fetch_puzzle
+    import hidden_messages
     import provenance
     import puzzle_integrity
     import series
@@ -310,6 +311,7 @@ def enum_sources():
         "solutionOrigin": list(provenance.SOLUTION_ORIGINS),
         "annotator": list(provenance.ANNOTATORS),
         "alterationOp": list(puzzle_integrity.ALTERATION_OPS),
+        "hiddenLetterKind": list(hidden_messages.KINDS),
         "blog": list(provenance.WRITEUP_KINDS),
     }
 

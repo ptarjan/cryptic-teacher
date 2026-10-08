@@ -72,6 +72,10 @@ from fetch_puzzle import read_puzzle_file, resolve_puzzle, source_clue, write_pu
 LANDING_COMMANDS = ("apply_annotations", "annotate_check")
 
 
+#: The _ann file's key for the puzzle's `messages` (tools/hidden_messages.py).
+MESSAGES_KEY = "messages"
+
+
 def default_input(path):
     """Beside the tools, named for the puzzle, ignored by git (`tools/_*`)."""
     return TOOLS / f"_ann_{path.stem}.json"
@@ -408,6 +412,10 @@ def mend_clues(puzzle):
 
 def apply(path, annotations, by=None):
     puzzle = read_puzzle_file(path)
+    # The phrase a hidden-letter device spells is the puzzle's, not a clue's:
+    # the _ann file carries it under "messages" beside the entry ids.
+    annotations = dict(annotations)
+    messages = annotations.pop(MESSAGES_KEY, None)
     continuations = groups.leader_of(puzzle["entries"])
     ids = [entry_id(e) for e in puzzle["entries"] if entry_id(e) not in continuations]
     only = annotate_only(path)
@@ -486,6 +494,11 @@ def apply(path, annotations, by=None):
         else:
             entry["annotation"] = normalize(ann, entry, puzzle["entries"])
             move_alteration(entry)
+    if messages is not None:
+        if messages:
+            puzzle["messages"] = messages
+        else:
+            puzzle.pop("messages", None)
     # Credited only for hints it changed: re-applying the file as it stands
     # writes nothing, and must not put a second name on someone else's work.
     changed = before != [e.get("annotation") for e in puzzle["entries"]]

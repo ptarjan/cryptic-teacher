@@ -87,6 +87,7 @@ from fetch_puzzle import (  # noqa: E402 — one reader, one exemption
 )
 from find_answer_leaks import light_solutions, named, pieces_of, says  # noqa: E402 — one matcher, shared with the finder
 from groups import entry_id  # noqa: E402
+from hidden_messages import block_letters, check_preamble, letter_problems, message_problems  # noqa: E402
 from puzzle_paths import (  # noqa: E402 — one glob, one id resolver
     puzzle_files,
     resolve_puzzle,
@@ -2279,7 +2280,7 @@ def blocks_miss_letters(ann, entry):
     if any(x in atype for x in UNBALANCED_TYPES) or atype in UNBALANCED_EXACT_TYPES:
         return False
     got = "".join(letters(b.get("gives")) for b in ann.get("blocks") or [] if isinstance(b, dict))
-    return bool(got) and sorted(got) != sorted(wordplay_letters(ann, entry))
+    return bool(got) and sorted(got) != sorted(block_letters(ann, wordplay_letters(ann, entry)))
 
 
 def check_blocks_account_for_answer(entries, errors, warnings):
@@ -2303,7 +2304,7 @@ def check_blocks_account_for_answer(entries, errors, warnings):
             continue
         if blocks_miss_letters(ann, e):
             got = "".join(letters(b.get("gives")) for b in ann.get("blocks", []))
-            want = wordplay_letters(ann, e)
+            want = block_letters(ann, wordplay_letters(ann, e))
             tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
             hits.append(tag)
             extra, missing = multiset_diff(got, want)
@@ -3022,6 +3023,7 @@ def validate_puzzle(puzzle, corpus=False):
                               f"mass noun defining a plural, fair because peanuts is itself "
                               f"used as a mass noun for a pittance). Explain it or drop it")
 
+        errors.extend(f"{tag}: {p}" for p in letter_problems(ann, e))
         check_definition_fit(tag, ann, errors, warnings)
         check_answer_matches_separators(tag, ann, e, errors)
         check_sound_names_its_source(tag, ann, errors, warnings)
@@ -3096,6 +3098,8 @@ def validate_puzzle(puzzle, corpus=False):
                                   f"first, then write the finished sentence")
 
 
+    errors.extend(message_problems(puzzle))
+    warnings.extend(check_preamble(puzzle))
     if annotated:
         check_every_clue_is_annotated(puzzle["entries"], errors, warnings,
                                       blind_misses(puzzle["id"]), corpus=corpus)
@@ -3145,6 +3149,7 @@ BACKLOG_MARKERS = {
     "features": ("no features",),
     "explanation.surface": ("no explanation.surface",),
     "assembly.anagrams": ("no assembly.anagrams",),
+    "messages": ("names a hidden-letter device",),
 }
 
 
