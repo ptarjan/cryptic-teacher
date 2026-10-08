@@ -1183,7 +1183,9 @@ def checklist(idx=None, store=STORE, root=ROOT, arrivals=None, docs=None, status
         elif n in asks:
             out.update(key=f"r{n}", dl=gale_docs.report_link("LSNR", n, docs), label="Download solution")
         elif n not in filed and n not in got:
-            out.update(key=f"p{n}", dl=gale_docs.link("LSNR", r["date"], docs), arrived=n in came or n in tried)
+            report = None if n in solved else gale_docs.report_link("LSNR", n, docs)
+            out.update(key=f"p{n}", dl=gale_docs.link("LSNR", r["date"], docs), arrived=n in came or n in tried,
+                       more=[("Download solution", report)] if report else [])
         return out
 
     want = asks | set(sends) | {r["number"] for r in todo}

@@ -214,18 +214,20 @@ def cached(docs, key):
 
 
 def resolve(prod, rows, out=sys.stdout, gale=None, cache=CACHE, limit=PER_TICK, reports=()):
-    """Look up the first `limit` of `reports` ([(puzzle's date, number)]),
-    then of `rows` ([(date, number or None)]), not in the cache (the few
-    reports first: a long tail of rows would hold them back for hours); stop at
-    Gale's first error (said to `out`). Returns how many links were added."""
+    """Look up the first `limit` uncached of `rows` ([(date, number or None)])
+    and `reports` ([(puzzle's date, number)]), in date order, each row's doc
+    link then its report link, so the rows to do next get both first (with no
+    reports, in `rows` order); stop at Gale's first error (said to `out`).
+    Returns how many links were added."""
     docs = load(cache)
+    asks = [(d, 0, f"{prod}/{d.isoformat()}", n, lookup) for d, n in rows]
+    asks += [(d, 1, f"{prod}/report/{n}", n, lookup_report) for d, n in reports]
+    if reports:
+        asks.sort(key=lambda a: a[:2])
     todo = {}  # one lookup a date, though two puzzles share it
-    for d, n in reports:
-        if not cached(docs, f"{prod}/report/{n}"):
-            todo.setdefault(f"{prod}/report/{n}", (d, n, lookup_report))
-    for d, n in rows:
-        if not cached(docs, f"{prod}/{d.isoformat()}"):
-            todo.setdefault(f"{prod}/{d.isoformat()}", (d, n, lookup))
+    for d, _, key, n, how in asks:
+        if not cached(docs, key):
+            todo.setdefault(key, (d, n, how))
     added = 0
     for key, (day, number, how) in list(todo.items())[:limit]:
         gale = gale or Gale()
