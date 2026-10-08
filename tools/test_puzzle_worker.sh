@@ -63,9 +63,10 @@ for f in tools/daily_update.sh tools/prereset_backfill.sh; do
   # Each script's own commits are its run's: the nightly's fetched puzzles
   # (committed and pushed as HEAD before anything annotates, its subject from
   # tools/commit_subject.py) and closing sweep, the burn's republish. Anything
-  # else is a puzzle's.
+  # else is a puzzle's. The burn's hourly sync publishes each local commit
+  # origin lacks, whatever it holds.
   check "$f does not commit or push one puzzle itself" \
-    "$(grep '^[^#]*push_puzzle_commit\|^[^#]*git commit' "$f" | grep -vc "| python3 tools/commit_subject\.py \|Republish after \|push_puzzle_commit\.sh HEAD ||$")" "0"
+    "$(grep '^[^#]*push_puzzle_commit\|^[^#]*git commit' "$f" | grep -vc "| python3 tools/commit_subject\.py \|Republish after \|push_puzzle_commit\.sh HEAD ||$\|push_puzzle_commit\.sh \"\$c\" \&\& continue$")" "0"
   check "$f does not reopen answers itself" "$(grep -c '^[^#]*tools/reopen_answers\.py' "$f")" "0"
   check "$f defines none of the worker's functions" \
     "$(grep -oE '^(worker_[a-z_]+|puzzle_spec|clues_spec|index_lock|index_unlock|discard_puzzle|stage_puzzle)\(\)' "$f" | tr '\n' ' ')" ""
