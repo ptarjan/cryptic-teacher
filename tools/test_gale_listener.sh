@@ -155,9 +155,29 @@ check("No 97's across list: wide-set numbers, a centred heading touching it",
 check("No 97's down list over its gap, the report's notes left out",
       ["1", "2", "3", "9", "10", "12"], [l[4].split(".")[0] for l in cols[1]] if cols else None)
 
+# No 15's page: ACROSS under the grid, its list running on at the top of the
+# next two columns over a centred DOWN; DOWN 22 straight under ACROSS 34 in
+# the last column, a heading's space between; a report's prose quoting
+# "38 Down" under the down list.
+words = (line("ACROSS", 300, 1000) + line("7. A flying monkey", 100, 1030) + line("12. Spoken in Switzerland", 100, 1060)
+         + line("13. The sort of name", 100, 1090) + line("14. A limestone cave", 600, 1030)
+         + line("16. A real bug", 600, 1060) + line("17. Once", 600, 1090)
+         + line("24. Stop", 1000, 100) + line("25. A dugout", 1000, 130) + line("26. A famous murderer", 1000, 160)
+         + line("DOWN", 1250, 185) + line("1. The carousing of seamen", 1000, 215) + line("2. Potbellied", 1000, 245)
+         + line("3. Initials of a writer", 1000, 275) + line("Report on Crossword No. 13", 1000, 330)
+         + line("38 Down deserves a prize for this", 1000, 360)
+         + line("32. Add head and tail", 1500, 100) + line("33. Squares of their body", 1500, 130)
+         + line("34. One who uses a glass", 1500, 160) + line("22. Expressive slang", 1500, 210)
+         + line("23. A printer might say", 1500, 240) + line("27. An Oriental theory", 1500, 270))
+cols = g.page_columns(words)
+check("No 15's lists: ACROSS over three columns, DOWN under it after a heading's space, no report prose",
+      (["7", "12", "13", "14", "16", "17", "24", "25", "26", "32", "33", "34"], ["1", "2", "3", "22", "23", "27"]),
+      tuple([l[4].split(".")[0] for l in c] for c in cols) if cols else None)
+
 # A page that prints the clues or the diagram on another page says which.
 check("the pages it sends to, over a line break; a report's page is none",
-      [885, 1057], g.elsewhere(line("Closing date: Tuesday. Diagram", 100, 100) + line("and rules on page 885.", 100, 120)
+      [675, 885, 1057], g.elsewhere(line("Closing date: Tuesday. Diagram", 100, 100) + line("and rules on page 885.", 100, 120)
+                               + line("Prize and rules on page 675.", 100, 200)
                                + line("(FOR CLUES SEE PAGE 1057)", 100, 300)
                                + line("Report on Crossword No. 101 on page 319.", 100, 500)))
 
