@@ -285,9 +285,9 @@ CORROBORATE = 0.7
 
 def sound(text):
     """A clue text that is one clue: words, starting as a clue starts (a
-    lone "1" is the I ocr_clues.clean makes of it), with no count or clue number
-    inside it."""
-    return bool(text and re.match(r"[A-Z\"'.\u2018\u201c]|1\s", text)
+    lone "1" is the I ocr_clues.clean makes of it, a footnote's mark, "*God",
+    "\u2020Not far from 13"), with no count or clue number inside it."""
+    return bool(text and re.match(r"[*\u2020\u2021]?\s?(?:[A-Z\"'.\u2018\u201c]|1\s)", text)
                 and not RUN_ON.search(text) and not NEXT_NUMBER.search(text))
 
 

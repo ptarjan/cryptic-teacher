@@ -649,6 +649,41 @@ def ends(pairs, theirs):
     return tuple(lead) if lead_ok else None, tuple(trail) if trail_ok else None
 
 
+#: How alike a word of another reading must be to one of the clue's for
+#: that reading to print it there (prints).
+PRINTS_SIMILAR = 0.8
+
+
+def prints(pairs, low, theirs):
+    """Whether the other reading `theirs` prints the clue `low` where align
+    put it: words alike, or run into the next ("eatsjunkets"), hold more
+    than half the clue's letters. One that lost the clue still aligns it somewhere ("stop" on
+    "supposed"), and its words there are another clue's: no vote on this
+    one's words or ends."""
+    letters = sum(len(w) for w in low if w not in MARKS and w != BREAK)
+    hit = 0
+    for i, j in pairs:
+        if i is not None and j is not None and low[i] not in MARKS and low[i] != BREAK:
+            theirs_j = theirs[j].lower()
+            hit += len(low[i]) if (similar(low[i], theirs_j) >= PRINTS_SIMILAR
+                                   or len(low[i]) > 2 and low[i] in theirs_j) else 0
+    return hit * 2 > letters
+
+
+def unglued(theirs, low):
+    """Another reading's tokens with two to four of this clue's words it
+    ran together ("eatsjunkets", "laidyoursoul") parted again."""
+    runs = {"".join(low[i:i + n]): low[i:i + n] for n in (2, 3, 4) for i in range(len(low) - n + 1)
+            if all(w.isalpha() for w in low[i:i + n])}
+    out = []
+    for t in theirs:
+        k = 0
+        for w in runs.get(t.lower(), [t]):
+            out.append(t[k:k + len(w)])
+            k += len(w)
+    return out
+
+
 def rejoin(theirs, low):
     """Another reading's tokens with a word it split joined again, when this
     clue's words (`low`) hold the joined word, or one a letter from it, and
@@ -745,9 +780,15 @@ def agree(clue, others, keep_known=False):
     extra = [{} for _ in range(len(mine) + 1)]  # gap before i -> {word: readings}
     leads, trails = [], []
     for k, theirs in enumerate(others):
-        theirs = ends_joined(rejoin(theirs, low), low)
+        theirs = ends_joined(rejoin(unglued(theirs, low), low), low)
         at = 0
         pairs = align(low, [w.lower() for w in theirs])
+        if not prints(pairs, low, theirs):
+            # This reading lost the clue: its words where align put it are
+            # another clue's, no vote on this one's.
+            leads.append(None)
+            trails.append(None)
+            continue
         lead, trail = ends(pairs, theirs)
         leads.append(lead)
         trails.append(trail)
@@ -810,6 +851,13 @@ def agree(clue, others, keep_known=False):
                 after = next((low[k] for k in range(i + 1, len(low)) if low[k] not in MARKS + BREAK), None)
                 fixes[i] = max(sorted(set(like)), key=lambda v: (like.count(v), fit(v, before, after)))
                 how = "settled by the readings"
+            elif (len(num) == 1 and clue[spans[i][0] + 1:spans[i][0] + 2].isalpha()
+                  and len(got) < len(others) and BREAK not in seen[i].values()
+                  and all(v.lower() in ("i", "l") for v in got.values())):
+                # A figure run onto a word's start ("1uncle"), where another
+                # reading sees nothing and none a number, is a speck: a
+                # printed "I" stands apart from the next word.
+                drop.add(i)
             continue
         if w.isdigit():
             marks = [v for v in seen[i].values() if v in MARKS]

@@ -174,6 +174,27 @@ check("No 15's lists: ACROSS over three columns, DOWN under it after a heading's
       (["7", "12", "13", "14", "16", "17", "24", "25", "26", "32", "33", "34"], ["1", "2", "3", "22", "23", "27"]),
       tuple([l[4].split(".")[0] for l in c] for c in cols) if cols else None)
 
+# No 15's down list: a clue ending short ("6. Lenten.") and the next one's
+# number lost ("park" under it, set at the words' indent), then a list's
+# footnote under its last clue.
+words = (line("DOWN", 300, 1000) + line("5. A musical direction for the band to play", 100, 1030)
+         + line("loud", 130, 1050) + line("6. Lenten.", 100, 1070) + line("park", 130, 1090)
+         + line("9. A Scottish island off the west coast here", 100, 1120)
+         + line("36. A blood fine paid by a murderer in", 100, 1150) + line("Ireland.", 130, 1170)
+         + line("*One letter missing.", 130, 1200) + line("ACROSS", 300, 1300)
+         + line("1. A flying monkey", 100, 1330) + line("2. Spoken in Switzerland", 100, 1360)
+         + line("3. The sort of name", 100, 1390))
+cols = g.page_columns(words)
+check("a line under a short one is no run-on, nor is a footnote",
+      ["5. A musical direction for the band to play", "loud", "6. Lenten.",
+       "9. A Scottish island off the west coast here", "36. A blood fine paid by a murderer in", "Ireland."],
+      [l[4] for l in cols[1]] if cols else None)
+for text, want in [("28.tNot far", "28. \u2020Not far"), ("fA", "\u2020A"), ("28.\u2020Not", "28. \u2020Not"),
+                   ("tRNA", "tRNA"), ("Then", "Then"), ("TA", "TA")]:
+    check(f"a footnote's dagger: {text!r}", want, g.figures([(0, 0, 10, 16, text)])[0][4])
+check("a clue opening on a footnote's mark is one clue", (True, True, False),
+      (al.sound("*God."), al.sound("\u2020Not far from 13"), al.sound("*one 12 Two")))
+
 # A page that prints the clues or the diagram on another page says which.
 check("the pages it sends to, over a line break; a report's page is none",
       [675, 885, 1057], g.elsewhere(line("Closing date: Tuesday. Diagram", 100, 100) + line("and rules on page 885.", 100, 120)

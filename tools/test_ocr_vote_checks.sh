@@ -262,6 +262,30 @@ flags = []
 pi.check_rewrite(old, held_file(""), flags)
 check("and refuses blanking a clean one (mirror)", 1, len([x for x in flags if "1-across" in x[2]]))
 
+# Gale's No 15 and No 9 (1930s Listener pages, uncounted lists): a reading
+# that lost a clue still aligns it somewhere, and its words there are
+# another clue's: no vote on this one's ends or words.
+mark = lambda t: oc.marked(oc.clean(t), breaks=True)
+check("a reading that lost a one-word clue says nothing of its end",
+      "Stop.", oc.agree("Stop.", [mark("24 Stop. 25 A dugout."),
+                                   mark("32 sad story was written in galliambics. 33 Squares"),
+                                   mark("18 A storm cloud (German), 19 A script")])[0])
+check("readings that print the clue with words after it still find its end lost (mirror)",
+      None, oc.agree("Stop.", [mark("24 Stop. 25 A dugout."), mark("24 Stop the press. 25 A"),
+                                mark("24 Stop it now. 25 A")])[0])
+check("a figure run onto a word's start where a reading sees nothing is a speck",
+      "A technical uncle of the B.B.C.",
+      oc.agree("A technical 1uncle of the B.B.C.", [mark("29 A technical I uncle of the B.B.C. 30 And"),
+                                                    mark("29 A technical uncle of the B.B.C. 30 And"),
+                                                    mark("32 written in galliambics. 33 Squares of their body.")])[0])
+check("a figure every reading sees as a number stays (mirror)", "Map 10 East",
+      oc.agree("Map 10 East", [mark("3 Map 10 East 4 A"), mark("3 Map 10 East 4 A")])[0])
+check("words another reading ran together count as its",
+      "She eats junkets.", oc.agree("She eats junkets.", [mark("4 She eatsjunkets. 5 A"),
+                                                          mark("2 called this enamelled 3 the name")])[0])
+check("a word no reading prints apart is still lost (mirror)",
+      None, oc.agree("She eats junkets.", [mark("4 She junkets. 5 A"), mark("4 She junkets. 5 A")])[0])
+
 print(f"FAILS {fails}")
 EOF
 )
