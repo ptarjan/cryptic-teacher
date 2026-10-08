@@ -424,17 +424,26 @@ def in_order(got, most):
     none above `most` (the grid's open cells, more than it can have lights), and the longest run that
     rises in reading order, as a grid numbers its cells. A stray "1" off a
     rule remnant, or 75 read for 25, falls out of that run; a number read
-    in two cells is kept in neither."""
-    # A number read in two cells is misread in one of them, and which
-    # cannot be told (No 17's 40 and 41 both read 41): neither is kept.
-    twice = {n for n in got.values() if list(got.values()).count(n) > 1}
-    cells = sorted(c for c, n in got.items() if 0 < n <= most and n not in twice)
+    in two cells the run could each hold is kept in neither."""
+    cells = sorted(c for c, n in got.items() if 0 < n <= most)
     # Longest strictly rising run, also no number below its place in it.
     best = []  # best[i]: the longest rising run ending at cells[i]
     for i, c in enumerate(cells):
         prev = max((best[j] for j in range(i) if got[cells[j]] < got[c]), key=len, default=[])
         best.append(prev + [c])
     keep = max(best, key=len, default=[])
+    # A number read in two cells either of which the run could hold (No
+    # 17's 40 read 41 beside the real 41) is misread in one, and which
+    # cannot be told: neither is kept.
+    for c2 in cells:
+        if c2 in keep:
+            continue
+        same = [c for c in keep if got[c] == got[c2]]
+        rest = [c for c in keep if c not in same]
+        before = max((got[c] for c in rest if c < c2), default=0)
+        after = min((got[c] for c in rest if c > c2), default=most + 1)
+        if same and before < got[c2] < after:
+            keep = rest
     return {c: got[c] for c in keep}
 
 
