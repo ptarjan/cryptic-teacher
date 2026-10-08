@@ -80,6 +80,13 @@ json.dump(d, open(p, 'w'))"
 (cd "$REPO" && python3 tools/file_trove_puzzles.py --cache "$tmp/cache" --out "$tmp/out" --reread >/dev/null)
 check "a reread keeps source.reprintOf" "times-12345" \
   "$(python3 -c "import json; print(json.load(open('$tmp/out/canberra-720601.json'))['source'].get('reprintOf'))")"
+# The REPRINT check refuses any write of a file naming the puzzle it
+# reprints, and the reads below write this one: the mark goes again.
+python3 -c "
+import json
+p = '$tmp/out/canberra-720601.json'
+d = json.load(open(p)); d['source'].pop('reprintOf')
+json.dump(d, open(p, 'w'))"
 
 # A held file whose clue has a doubled word or a stray letter
 # (ocr_clues.stray: canberra-730208's "What's Indian about r tomato?") makes
