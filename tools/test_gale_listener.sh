@@ -451,6 +451,15 @@ check("a number stretched over the Greek after it numbers none of it; a parted c
       "αἰετὸς ὀξὺ—, Homer,", g.greek_text(None, "k", homer, LINE))
 check("a number leading the line is still dropped (mirror)", "αἰετὸς",
       g.greek_text(None, "k", {**homer, "page": [(110, 100, 140, 140, "20")]}, LINE).split()[0])
+real_lines, real_text = g.clue_lines, g.greek_text
+g.clue_lines = lambda img, words, lid: [(0, 0, 10, 10)] if lid == "20-across" else []
+g.greek_text = lambda img, key, words, boxes: "αἰετὸς ὀξὺ—, Homer."
+v = {"blank": {"20-across": "x"}}
+laid = g.greek_mended(None, "k", {}, v, {"20-across": ("", None, None), "1-across": ("Cats.", None, None)})
+check("a mended clue's Greek words are as printed, so suspect() passes them (No 10 20A)",
+      (["αἰετὸς", "ὀξὺ—,"], []), (v["asPrinted"]["20-across"], g.ocr_clues.suspect(laid["20-across"][0], printed=v["asPrinted"]["20-across"])))
+check("a clue the vote read is no mend's (mirror)", None, v["asPrinted"].get("1-across"))
+g.clue_lines, g.greek_text = real_lines, real_text
 check("a reader's Latin lookalikes of a Greek word show it", (True, True, False),
       (g.lookalike("αἰετὸς", "aletòs"), g.lookalike("χλωρὸν", "xAwpov"), g.lookalike("χλωρὸν", "Homer")))
 check("a box tightened by an eighth top and bottom", (0, 106, 50, 142), g.tighter((0, 100, 50, 148)))
