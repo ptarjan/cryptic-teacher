@@ -272,7 +272,9 @@ def as_page(rows, fit, clues):
     and 4 traded and 32 skipped) has its clue list read by those numbers,
     each clue going to the light whose start the page numbers so. None when
     the printed numbers are no numbering of `rows` (lg.as_printed) or a
-    clue's number is on no light. Unchanged otherwise."""
+    clue's number is on no light. A number the reader laid no words on that
+    the page prints nowhere is a reading's guess (No 3's "0." for a 'u'
+    opening a line), and goes. Unchanged otherwise."""
     if fit.get("numbering") != "printed":
         return clues, {}
     page = lg.as_printed(rows, {(r, c): n for r, c, n in fit["printed"]})
@@ -283,6 +285,8 @@ def as_page(rows, fit, clues):
     out, notes = {}, {}
     for lid, c in clues.items():
         m, d = number_of(lid)
+        if m not in to and not (c.get("text") or "").strip():
+            continue
         if m not in to:
             return None
         mine = f"{to[m]}-{d}"

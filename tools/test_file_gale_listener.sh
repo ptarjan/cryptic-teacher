@@ -270,6 +270,10 @@ check("a page numbered as the lights are leaves the list as printed (mirror)", (
       f.as_page(OPEN, {"rows": OPEN, "exact": True}, listed))
 check("a clue numbered on no light refuses the numbering (mirror)", None,
       f.as_page(OPEN, printed, {**listed, "7-across": {"text": "x"}}))
+check("a number the page prints nowhere, laid no words, is a guess and goes", f.as_page(OPEN, printed, listed),
+      f.as_page(OPEN, printed, {**listed, "0-down": {"text": ""}}))
+check("a number the page prints nowhere, laid words, still refuses the numbering (mirror)", None,
+      f.as_page(OPEN, printed, {**listed, "0-down": {"text": "and you get"}}))
 check("a number in a cell starting no light, out of reading order, refuses the numbering (mirror)", None,
       f.as_page(OPEN, {**printed, "printed": [[0, 1, 5], [1, 1, 2]]}, {}))
 # No 3 prints 27 in a cell starting no light and skips 47: the fit chases

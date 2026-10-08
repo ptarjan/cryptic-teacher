@@ -680,6 +680,12 @@ check("words after a stop another clue prints with other figures stay (No 4 30A)
       "St. George's Day, 1564.", oc.run_on("St. George's Day, 1564.", "30-across", days))
 check("words after a stop another clue prints with the same figures are cut (mirror)",
       "On St.", oc.run_on("On St. George's Day, 1918.", "30-across", days))
+check("a non-word every reading prints, a worn letter from a far commoner word, is that word (No 3 22D)",
+      "Possible initials of a telegraph company.",
+      oc.agree("Possible initials cf a telegraph company.",
+               [mark("22 Possible initials cf a telegraph company. 23 A")] * 2)[0])
+check("a worn letter is not put back where two words are about as common (mirror)", (None, None),
+      (oc.worn("rcd"), oc.worn("tcn")))
 
 print(f"FAILS {fails}")
 EOF
