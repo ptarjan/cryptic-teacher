@@ -182,7 +182,7 @@ def fake_unit(unit, cache, puzzles, reread):
 eq.run_unit = fake_unit
 def units(scans, reads):
     return lambda papers, cache=None, reread=None, newer=None, out=None: (
-        [{"kind": "scan", "paper": "times", "rel": r, "rank": 1, "reason": "never scanned"} for r in scans],
+        [{"kind": "scan", "paper": "times", "rel": r, "rank": 1, "reason": "scan stale"} for r in scans],
         [{"kind": "read", "paper": "times", "rel": r, "rank": 1, "reason": "never read", "needs": n} for r, n in reads])
 eq.plan = units(["s1"], [("r1", ["s1"]), ("slow", []), ("r2", [])])
 with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):

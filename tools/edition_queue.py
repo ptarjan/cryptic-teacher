@@ -408,7 +408,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 continue
             if u["kind"] == "read" and any((u["paper"], r) in pending for r in u["needs"]):
                 continue
-            if u["reason"] == "scan stale" and any((u["paper"], r) in rescanned for r in u["needs"]):
+            if u["kind"] == "read" and u["reason"] == "scan stale" and any((u["paper"], r) in rescanned for r in u["needs"]):
                 continue
             start(u)
             free[slot_of(u)] -= 1
