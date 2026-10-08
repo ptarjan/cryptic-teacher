@@ -18,7 +18,10 @@ on the page:
   2. A grid is a patch of joined rules that crosses itself at least
      MIN_CROSSINGS times: an advertisement's box or a column rule does not.
   3. Its rules are the rows (columns) of the patch that rules cover
-     RULE_COVER of the way across. The rule
+     RULE_COVER of the way across its shape: the patch's outline filled
+     in, a rectangle's being its box, a map-shaped grid's (No 3's India,
+     No 4's England) the cells within the outline, those off it blocks
+     in its rows. The rule
      positions give the cell edges, each cell its own, so a page that is
      curled or scaled a little stays on the lattice. A row (column) mostly
      blocks covers as much as a rule, so a covered run wider than half the
@@ -171,14 +174,20 @@ def thickness(dark, at, lo, hi, reach, axis):
     return float(profile.sum() / max(profile.max(), 0.05))
 
 
-def read_box(ink, dark, ys, xs):
+def read_box(ink, dark, ys, xs, inside=None):
     """(rows, sides, thin) for the lattice whose rules lie at ys and xs:
-    the puzzle-format rows, each cell side's ink mass, and the thin rule's."""
+    the puzzle-format rows, each cell side's ink mass, and the thin rule's.
+    A cell whose middle lies off `inside` (shape()'s mask, the box's size)
+    is no cell of the grid, and a block in the rows."""
     nr, nc = len(ys) - 1, len(xs) - 1
     blocks = np.zeros((nr, nc), bool)
     for r in range(nr):
         for c in range(nc):
             h, w = ys[r + 1] - ys[r], xs[c + 1] - xs[c]
+            if inside is not None and not inside[min(int((ys[r] + ys[r + 1]) / 2), inside.shape[0] - 1),
+                                                 min(int((xs[c] + xs[c + 1]) / 2), inside.shape[1] - 1)]:
+                blocks[r, c] = True
+                continue
             mid = ink[int(ys[r] + 0.2 * h):int(ys[r + 1] - 0.2 * h), int(xs[c] + 0.2 * w):int(xs[c + 1] - 0.2 * w)]
             blocks[r, c] = mid.size and mid.mean() >= BLOCK_INK
     pitch = ((ys[-1] - ys[0]) / nr + (xs[-1] - xs[0]) / nc) / 2
@@ -217,6 +226,37 @@ def darkness(gray):
     return np.clip((paper - gray.astype(float)) / max(1.0, paper - full), 0, 1)
 
 
+def shape(patch):
+    """The grid's outline filled in: `patch` (its pooled rules) with every
+    hole the paper outside cannot reach, widened a pixel so a rule's smear
+    stays inside. A rectangle's is its box; a map-shaped grid's (No 3's
+    India) leaves the paper around the outline out."""
+    wide = patch.copy()
+    wide[1:] |= patch[:-1]
+    wide[:-1] |= patch[1:]
+    wide[:, 1:] |= patch[:, :-1]
+    wide[:, :-1] |= patch[:, 1:]
+    out = np.zeros_like(patch)
+    out[0], out[-1], out[:, 0], out[:, -1] = ~wide[0], ~wide[-1], ~wide[:, 0], ~wide[:, -1]
+    while True:
+        grown = out.copy()
+        grown[1:] |= out[:-1]
+        grown[:-1] |= out[1:]
+        grown[:, 1:] |= out[:, :-1]
+        grown[:, :-1] |= out[:, 1:]
+        grown &= ~wide
+        if (grown == out).all():
+            break
+        out = grown
+    inside = ~out
+    edge = inside.copy()
+    edge[1:] |= inside[:-1]
+    edge[:-1] |= inside[1:]
+    edge[:, 1:] |= inside[:, :-1]
+    edge[:, :-1] |= inside[:, 1:]
+    return edge
+
+
 def find_grids(gray):
     """[{"box": (x0, y0, x1, y1), "rows": [...] or None, "why": str or None,
     "filled": share of light cells holding ink}] for every grid on the page
@@ -233,18 +273,19 @@ def find_grids(gray):
         y0, x0, y1, x1 = top * step, left * step, (top + hh) * step, (left + ww) * step
         if crossing[top:top + hh, left:left + ww].sum() < MIN_CROSSINGS or hh < 20 or ww < 20:
             continue
+        inside = np.repeat(np.repeat(shape(lines[top:top + hh, left:left + ww]), step, 0), step, 1)
         # A rule a scan has turned a little wanders over a few pixels.
-        a = smeared(across[y0:y1, x0:x1], 0)
-        d = smeared(down[y0:y1, x0:x1], 1)
-        ys = lattice_lines(rule_lines(a.mean(1), RULE_COVER), y1 - y0)
-        xs = lattice_lines(rule_lines(d.mean(0), RULE_COVER), x1 - x0)
+        a = smeared(across[y0:y1, x0:x1], 0) & inside
+        d = smeared(down[y0:y1, x0:x1], 1) & inside
+        ys = lattice_lines(rule_lines(a.sum(1) / np.maximum(inside.sum(1), 1), RULE_COVER), y1 - y0)
+        xs = lattice_lines(rule_lines(d.sum(0) / np.maximum(inside.sum(0), 1), RULE_COVER), x1 - x0)
         found = {"box": (x0, y0, x1, y1), "rows": None, "why": None, "filled": 0.0}
         if ys is None or xs is None:
             found["why"] = "its rules are no regular lattice"
             out.append(found)
             continue
         sub = ink[y0:y1, x0:x1]
-        rows, sides, thin = read_box(sub, darkness(gray[y0:y1, x0:x1]), ys, xs)
+        rows, sides, thin = read_box(sub, darkness(gray[y0:y1, x0:x1]), ys, xs, inside)
         found["rows"] = rows
         found["sides"], found["thin"] = sides, thin
         found["lattice"] = ([y + y0 for y in ys], [x + x0 for x in xs])
