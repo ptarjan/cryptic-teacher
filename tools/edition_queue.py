@@ -51,14 +51,19 @@ import fetch_archive_org_editions as fetch_ao  # noqa: E402
 import fetch_trove  # noqa: E402
 import file_archive_org_puzzles as fa  # noqa: E402
 import file_trove_puzzles as ftp  # noqa: E402
+import gale_listener  # noqa: E402
 import scan_queue  # noqa: E402
 
 #: The papers in the order a rank's units are taken; "trove" is the
 #: Canberra Times articles (tools/file_trove_puzzles.py), read in a pool of
-#: their own (TROVE_WORKERS) beside the editions'.
-PAPERS = ["gale", "times", "telegraph", "guardian", "ft", "trove"]
+#: their own (TROVE_WORKERS) beside the editions', and "listener" the
+#: Listener pages Paul saves from Gale (tools/gale_listener.py), read one at
+#: a time (LISTENER_WORKERS: this host's Tesseract) within LISTENER_SECONDS.
+PAPERS = ["gale", "listener", "times", "telegraph", "guardian", "ft", "trove"]
 WORKERS = 20
 TROVE_WORKERS = 6
+LISTENER_WORKERS = 1
+LISTENER_SECONDS = 1800
 SCAN_WORKERS = 3
 #: A unit still running this long is killed and left for the next run.
 SCAN_SECONDS = 1200
@@ -113,6 +118,11 @@ def plan(papers, cache=fa.CACHE, reread=None, newer=None, out=None):
         log(f"the annotation re-read requests did not load ({type(e).__name__}: {e}); planned without them")
     scans, reads = [], []
     for k, key in enumerate(papers):
+        if key == "listener":
+            if newer is None:
+                reads += [(u["rank"], k, n, {**u, "kind": "read", "paper": "listener"})
+                          for n, u in enumerate(gale_listener.plan())]
+            continue
         if key == "trove":
             led = ftp.CACHE / "filed.jsonl"
             if scan_queue.held(led):
@@ -162,7 +172,7 @@ def slot_of(unit):
     or its fetch source ("fetch archive.org", "fetch trove")."""
     if unit["kind"] == "fetch":
         return f"fetch {unit['paper']}"
-    return "trove" if unit["paper"] == "trove" else unit["kind"]
+    return unit["paper"] if unit["paper"] in ("trove", "listener") else unit["kind"]
 
 
 def plan_fetches(sources):
@@ -179,6 +189,8 @@ def run_unit(unit, cache, puzzles, reread):
         return FETCHERS[unit["paper"]]["run"](unit)
     if unit["paper"] == "trove":
         return ftp.read_unit(unit["rel"], puzzles=None, reread=reread, force=unit.get("force"))
+    if unit["paper"] == "listener":
+        return gale_listener.read_unit(unit["rel"])
     paper = fa.FILERS[unit["paper"]]
     if unit["kind"] == "scan":
         return fa.scan_unit(paper, unit["rel"], cache)
@@ -267,7 +279,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     scans = reads = fetches = []
     planned = None
     left = 0
-    pools = {"scan": scan_workers, "read": workers, "trove": trove_workers,
+    pools = {"scan": scan_workers, "read": workers, "trove": trove_workers, "listener": LISTENER_WORKERS,
              **{f"fetch {src}": FETCHERS[src]["workers"] for src in fetch}}
     outages = dict.fromkeys(fetch, 0)
     stopped = set()  # fetch sources started no more this run
@@ -331,7 +343,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
 
     def overdue():
         for pid, (unit, t0) in list(running.items()):
-            limit = {"read": read_seconds, "scan": scan_seconds}.get(unit["kind"]) or FETCHERS[unit["paper"]]["seconds"]
+            limit = (FETCHERS[unit["paper"]]["seconds"] if unit["kind"] == "fetch" else
+                     LISTENER_SECONDS if unit["paper"] == "listener" else
+                     read_seconds if unit["kind"] == "read" else scan_seconds)
             if time.monotonic() - t0 > limit:
                 log(f"{unit['kind']} {unit['rel']} ran past {limit}s; killed, left for the next run")
                 try:
@@ -462,7 +476,7 @@ def main(argv=None):
         for (src, reason), n in sorted(counts.items()):
             print(f"  {src:11s} {reason:22s} {n:6d}")
         return 0
-    for key in papers:
+    for key in [k for k in papers if k != "listener"]:
         ledger, by = (ftp.CACHE / "filed.jsonl", "article") if key == "trove" else (fa.ledger_of(args.cache, fa.FILERS[key]), "edition")
         folded = scan_queue.compact(ledger, by)
         if folded and folded[0] != folded[1]:

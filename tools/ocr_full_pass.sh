@@ -92,25 +92,6 @@ WORKERS="${OCR_FULL_PASS_WORKERS:-20}"
 # re-read's answers merged into the held filing.
 REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-08T02:56:21+00:00}"
 
-# The Listener pages Paul saves from Gale's Listener Historical Archive: each
-# new file's clues read once (ledger by file hash), each puzzle whose grid
-# and clues agree filed unsolved, its report's answers kept as a check
-# (tools/file_gale_listener.py), the checklist published.
-# Started at the pass's start and before every slice, beside the reads (its
-# own ledger), so a page saved mid-pass is read within about a slice, not at
-# the next pass, and a long batch of new pages holds up no slice; one runs at
-# a time. A read cut off by LISTENER_SECONDS resumes at the next start.
-LISTENER_SECONDS=1800
-listener_pid=""
-listener() {
-  [ -n "$listener_pid" ] && kill -0 "$listener_pid" 2>/dev/null && return 0
-  {
-    timeout "$LISTENER_SECONDS" nice -n 19 python3 tools/gale_listener.py sync ||
-      echo "gale_listener sync failed or ran out of time (rc=$?); the readings before stand, the next start resumes"
-  } &
-  listener_pid=$!
-}
-
 publish() {  # publish <what>: commit and push the puzzles filed so far
   durable_checkpoint "Full OCR pass: $1" || return 1
   durable_resync
@@ -121,7 +102,6 @@ slices() {  # slices <what> <filer command...>: run the filer until nothing is l
   shift
   out=$(mktemp) || return 1
   while :; do
-    listener
     echo "=== $what: slice from $(date '+%F %T') ==="
     # Streamed as it goes (a line per source read), so the log shows what it
     # is doing now; the copy in $out is read for the slice's tally.
@@ -143,14 +123,14 @@ mkdir -p "$HOME/.cache/archive_org_crops/unfiled"
 # sure the pass starts from everything that has arrived.
 python3 tools/gale_inbox.py sync ||
   echo "gale_inbox sync failed (rc=$?); the Gale pages staged before stand, the checklist is not refreshed"
-listener
-finish() {  # finish <rc>: let the Listener sync end, commit what it filed, exit
-  wait
-  publish "Listener pages read" || echo "commit failed for the Listener pages; the next start salvages them"
+finish() {  # finish <rc>: say so and exit
   echo "=== full pass done $(date '+%F %T') (rc=$1) ==="
   exit "$1"
 }
-# Every edition and Trove article, one unit each (tools/edition_queue.py):
+# Every edition, Trove article and Listener page, one unit each
+# (tools/edition_queue.py; the Listener pages Paul saves from Gale's
+# Listener Historical Archive, mirrored by the gale_inbox tick, each read,
+# filed where grid and clues agree, and the checklist published):
 # an edition's scan, an edition's or article's read and filing, or a fetch,
 # each in a process of its own with its own time limit and lock, adding its
 # own ledger row, the most urgent first: the Gale pages Paul saved, then
@@ -161,7 +141,7 @@ finish() {  # finish <rc>: let the Listener sync end, commit what it filed, exit
 # Each slice starts nothing after CHUNK seconds, lets its units finish, and
 # the tree moves to origin/master before the next.
 TROVE_WORKERS="${OCR_FULL_PASS_TROVE_WORKERS:-6}"
-slices "editions off archive.org and Gale, Trove articles, and their fetches" python3 tools/edition_queue.py run \
+slices "editions off archive.org and Gale, Trove articles, Listener pages, and their fetches" python3 tools/edition_queue.py run \
   --reread "$REREAD_BEFORE" --out "$HOME/.cache/archive_org_crops/unfiled" --trove-workers "$TROVE_WORKERS" \
   --fetch archive.org --fetch trove || finish 1
 # Fill the canberra files' empty answers from solution grids fetched since

@@ -286,6 +286,25 @@ with q.lock(tled):
         os._exit(0 if ftp.read_unit("102", tc, reread=q.when("now")) == "held" else 1)
     check("a ledger a batch run holds: the unit is held", 0, os.waitstatus_to_exitcode(os.waitpid(pid, 0)[1]))
 
+# ---- Listener pages: one read unit each, rows appended to its ledger
+import gale_listener as gl
+inbox, store = T / "linbox", T / "lstore"
+inbox.mkdir()
+for name in ("1930-04-02.pdf", "1930-04-09.pdf"):
+    (inbox / name).write_bytes(name.encode())
+(store).mkdir()
+(store / gl.LEGACY).write_text(json.dumps({gl.file_hash(inbox / "1930-04-09.pdf"): {"file": "1930-04-09.pdf", "version": gl.VERSION}}))
+check("listener plan: the pages not read at VERSION, rank 0", [("1930-04-02.pdf", 0)],
+      [(u["rel"], u["rank"]) for u in gl.plan(inbox, store)])
+gl.index = lambda *a, **k: [{"number": 1, "date": None, "title": "t"}]
+gl.match = lambda p, idx, read_title=True: {"file": p.name, "number": None, "why": "no number", "pages": [], "reports": []}
+with contextlib.redirect_stdout(io.StringIO()):
+    got = gl.read_unit("1930-04-02.pdf", inbox, store, file_it=False)
+check("a listener unit reads its page and appends its row; the old ledger still counts", ("read", 1, []),
+      (got, len((store / gl.LEDGER).read_text().splitlines()), gl.plan(inbox, store)))
+with contextlib.redirect_stdout(io.StringIO()):
+    check("read, it is current", "current", gl.read_unit("1930-04-02.pdf", inbox, store, file_it=False))
+
 # ---- Trove's pace: units at once still ask at most once a `delay`
 import fetch_trove
 pace_dir = T / "pace"
