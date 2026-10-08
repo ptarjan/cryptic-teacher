@@ -75,20 +75,25 @@ const withReprint = (idx) => {
     && note.includes(ORIG.name),
     "the original says who reprinted it: " + note);
 
+  // The held reprint files (tools/data/reprints_pending.json) still list under
+  // the paper until they are folded, so the counts are the paper's own plus one.
+  const own = global.CRYPTIC_INDEX.puzzles.filter((p) => p.series === REPRINT.series).length;
   const reg = d.registry;
   reg["btn-picker"].onclick();
-  check(new RegExp(`value="${REPRINT.series}">[^<]* \\(1\\)<`).test(reg["picker-paper"].innerHTML),
-    "the paper menu lists the reprinting paper with its count");
+  check(new RegExp(`value="${REPRINT.series}">[^<]* \\(${(own + 1).toLocaleString("en-GB")}\\)<`)
+    .test(reg["picker-paper"].innerHTML),
+    `the paper menu lists the reprinting paper with its count (${own} + 1)`);
   reg["picker-paper"].value = REPRINT.series;
   reg["picker-paper"].listeners.change[0]();
+  const isReprint = (li) => li.children[0].innerHTML.includes("No 99,999");
   const rows = reg["picker-list"].children;
-  check(rows.length === 1 && rows[0].children[0].innerHTML.includes("No 99,999"),
+  check(rows.filter(isReprint).length === 1,
     "filtering on the reprinting paper lists its reprint row");
   const back = boot({ query: "?p=" + OTHER.id, index: withReprint });
   back.registry["btn-picker"].onclick();
   back.registry["picker-paper"].value = REPRINT.series;
   back.registry["picker-paper"].listeners.change[0]();
-  back.registry["picker-list"].children[0].children[0].onclick({});
+  back.registry["picker-list"].children.find(isReprint).children[0].onclick({});
   check(back.registry["puzzle-title"].innerHTML.startsWith(ORIG.name.replace(/&/g, "&amp;")),
     "tapping the reprint row opens the original: " + back.registry["puzzle-title"].innerHTML.slice(0, 80));
 }
