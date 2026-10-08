@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,67 @@
     "text": "Comfort old king holding disabled son",
     "enumeration": "7"
    },
-   "solution": "CONSOLE"
+   "solution": "CONSOLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CONSOLE",
+    "definitions": [
+     {
+      "text": "Comfort",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disabled",
+      "for": "anagram",
+      "note": "something disabled is broken or out of order, so the word after it is rearranged"
+     },
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "the old king holds the other letters, wrapping around them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old king",
+      "gives": "COLE",
+      "note": "Old King Cole of the nursery rhyme"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "NSO",
+      "note": "the word son rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "NSO",
+      "LE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SON",
+       "gives": "NSO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly monarch comforts a son who has been injured, holding him close.",
+     "walkthrough": "Old King Cole is the 'merry old soul' of the English nursery rhyme; he wraps around a jumbled SON to make CONSOLE.",
+     "definitionFit": "To console someone is to comfort them in grief, a straight verb synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "disabled"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +110,43 @@
     "text": "Bread dough",
     "enumeration": "4"
    },
-   "solution": "CASH"
+   "solution": "CASH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CASH",
+    "definitions": [
+     {
+      "text": "Bread",
+      "at": 0
+     },
+     {
+      "text": "dough",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bread",
+      "note": "first meaning: slang for money"
+     },
+     {
+      "clueFragment": "dough",
+      "note": "second meaning: also slang for money"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as baking terms, but both words are old slang for money.",
+     "definitionFit": "Bread and dough are both slang terms for money, a synonym of the answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bread"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +160,63 @@
     "text": "On return, approve of cubbyhole",
     "enumeration": "4"
    },
-   "solution": "NOOK"
+   "solution": "NOOK",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NOOK",
+    "definitions": [
+     {
+      "text": "cubbyhole",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "On return",
+      "for": "reversal",
+      "note": "returning means going back, so the word on is read from its end"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "On",
+      "gives": "ON",
+      "note": "taken as written before turning it round"
+     },
+     {
+      "clueFragment": "approve",
+      "gives": "OK",
+      "note": "to OK something is to approve it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "OK"
+     ],
+     "reversals": [
+      {
+       "from": "ON",
+       "to": "NO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Coming home, someone gives a small storage space their seal of approval.",
+     "definitionFit": "A nook is a small recess or corner, much like a cubbyhole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "return"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +230,51 @@
     "text": "Surpassed with cunning design of tuxedo",
     "enumeration": "8"
    },
-   "solution": "OUTFOXED"
+   "solution": "OUTFOXED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OUTFOXED",
+    "definitions": [
+     {
+      "text": "Surpassed with cunning",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "design",
+      "for": "anagram",
+      "note": "a design is a new arrangement or pattern, so the letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of tuxedo",
+      "gives": "OFTUXEDO",
+      "note": "both words as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OFTUXEDO",
+       "gives": "OUTFOXED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clever tailor's dinner-jacket design beats the competition.",
+     "walkthrough": "'of' looks like a link word but is part of the fodder.",
+     "definitionFit": "To outfox someone is to beat them through craftiness, as a fox outwits pursuers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "design"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +288,57 @@
     "text": "Equably, by going out, remaining level",
     "enumeration": "5"
    },
-   "solution": "EQUAL"
+   "solution": "EQUAL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EQUAL",
+    "definitions": [
+     {
+      "text": "level",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going out",
+      "for": "deletion",
+      "note": "going out means leaving, so the named letters depart from the word"
+     }
+    ],
+    "linkWords": [
+     "remaining"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Equably",
+      "gives": "EQUABLY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "by",
+      "gives": "BY",
+      "note": "the letters to remove"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EQUA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Calmly, as things go out, everything stays on an even keel.",
+     "walkthrough": "Strip the B and the Y from EQUABLY, leaving EQUAL.",
+     "definitionFit": "Equal and level both mean even, with neither side ahead, as in a level score."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "by"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +352,52 @@
     "text": "One vehicle journalist cursed",
     "enumeration": "6"
    },
-   "solution": "ABUSED"
+   "solution": "ABUSED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABUSED",
+    "definitions": [
+     {
+      "text": "cursed",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "A",
+      "note": "one as the article a"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "BUS",
+      "note": "a bus is a vehicle"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED, short for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BUS",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A reporter stuck on a bus swears at the delay.",
+     "definitionFit": "Abused here means swore at or insulted, the past-tense sense matching cursed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vehicle"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +411,63 @@
     "text": "British spice ground with muscles",
     "enumeration": "6"
    },
-   "solution": "BICEPS"
+   "solution": "BICEPS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "BICEPS",
+    "definitions": [
+     {
+      "text": "muscles",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ground",
+      "for": "anagram",
+      "note": "spice that is ground is crushed and broken up, so its letters are reshuffled"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "spice",
+      "gives": "ICEPS",
+      "note": "the word spice rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ICEPS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SPICE",
+       "gives": "ICEPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Grinding British spices in a mortar is a workout for the arms.",
+     "definitionFit": "Biceps are the large muscles at the front of the upper arm; the word is singular and plural alike."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +481,44 @@
     "text": "Compressible object inviting a hug?",
     "enumeration": "10"
    },
-   "solution": "SQUEEZABLE"
+   "solution": "SQUEEZABLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SQUEEZABLE",
+    "definitions": [
+     {
+      "text": "Compressible",
+      "at": 0
+     },
+     {
+      "text": "object inviting a hug",
+      "at": 13,
+      "note": "a description of a thing; the answer is an adjective"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Compressible",
+      "note": "first meaning: able to be pressed smaller"
+     },
+     {
+      "clueFragment": "object inviting a hug",
+      "note": "second meaning, playful: something cuddly that you want to hold tight"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the soft, cuddly sense of the word as a whimsical second definition.",
+     "definitionFit": "Squeezable means able to be compressed, and colloquially describes something so cute you want to cuddle it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "object"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +532,67 @@
     "text": "Insulting famed, reformed, single politician",
     "enumeration": "10"
    },
-   "solution": "DEFAMATORY"
+   "solution": "DEFAMATORY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DEFAMATORY",
+    "definitions": [
+     {
+      "text": "Insulting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reformed",
+      "for": "anagram",
+      "note": "something reformed is formed again into a new shape, so the preceding word is rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "famed",
+      "gives": "DEFAM",
+      "note": "the word famed rearranged"
+     },
+     {
+      "clueFragment": "single",
+      "gives": "A",
+      "note": "a, meaning one"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "TORY",
+      "note": "a member of the UK Conservative Party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEFAM",
+      "A",
+      "TORY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FAMED",
+       "gives": "DEFAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rude remark about a well-known, born-again bachelor MP.",
+     "walkthrough": "'reformed' looks like it describes the politician but works on 'famed'. A Tory is a British Conservative.",
+     "definitionFit": "A defamatory remark damages someone's reputation, which is insulting to them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reformed"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +612,53 @@
      }
     ]
    },
-   "solution": "SHORTCUT"
+   "solution": "SHORTCUT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SHORT CUT",
+    "definitions": [
+     {
+      "text": "Time-saver",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "perhaps",
+      "for": "anagram",
+      "note": "perhaps hints that the letters given could be some other arrangement"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "curt host",
+      "gives": "CURTHOST",
+      "note": "the two words as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CURTHOST",
+       "gives": "SHORTCUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brusque host saves time by being short with guests.",
+     "definitionFit": "A shortcut is a quicker route or method, something that saves time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "host"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +672,43 @@
     "text": "Untidy person’s neck",
     "enumeration": "6"
    },
-   "solution": "SCRUFF"
+   "solution": "SCRUFF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCRUFF",
+    "definitions": [
+     {
+      "text": "Untidy person",
+      "at": 0
+     },
+     {
+      "text": "neck",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Untidy person",
+      "note": "first meaning: a shabby, unkempt individual"
+     },
+     {
+      "clueFragment": "neck",
+      "note": "second meaning: the back of the neck"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The apostrophe makes it read as a description of someone's grubby neck; the two parts are separate meanings.",
+     "definitionFit": "A scruff is informally a scruffy person, and the scruff is also the nape at the back of the neck."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "neck"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +722,55 @@
     "text": "Nothing about religious sect is mysterious",
     "enumeration": "6"
    },
-   "solution": "OCCULT"
+   "solution": "OCCULT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OCCULT",
+    "definitions": [
+     {
+      "text": "mysterious",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nothing",
+      "gives": "O",
+      "note": "zero, shaped like O"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c for circa, about"
+     },
+     {
+      "clueFragment": "religious sect",
+      "gives": "CULT",
+      "note": "a cult is a religious sect"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "C",
+      "CULT"
+     ]
+    },
+    "explanation": {
+     "surface": "There is nothing strange about a sect, the writer insists, or perhaps the opposite.",
+     "definitionFit": "Occult means hidden, secret or supernatural, beyond ordinary understanding, so mysterious."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +794,53 @@
      }
     ]
    },
-   "solution": "WORLDCUPTEAM"
+   "solution": "WORLDCUPTEAM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WORLD CUP TEAM",
+    "definitions": [
+     {
+      "text": "top sportspeople",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fresh",
+      "for": "anagram",
+      "note": "fresh suggests a new version, so the letters are made anew in a different order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "talcum powder",
+      "gives": "TALCUMPOWDER",
+      "note": "both words as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TALCUMPOWDER",
+       "gives": "WORLDCUPTEAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "New talc being handed out to elite athletes in the changing room.",
+     "definitionFit": "A national World Cup team is made up of the best players, hence top sportspeople."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "powder"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +860,63 @@
      }
     ]
    },
-   "solution": "STEAMORGAN"
+   "solution": "STEAMORGAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "STEAM ORGAN",
+    "definitions": [
+     {
+      "text": "an old music producer",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fresh",
+      "for": "anagram",
+      "note": "fresh suggests something made anew, so the letters that follow are reordered"
+     }
+    ],
+    "linkWords": [
+     "served to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea’s",
+      "gives": "STEA",
+      "note": "the letters of tea's rearranged"
+     },
+     {
+      "clueFragment": "Mr Freeman",
+      "gives": "MORGAN",
+      "note": "Morgan Freeman, the actor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEA",
+      "MORGAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEAS",
+       "gives": "STEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Morgan Freeman is brought a fresh cuppa by an elderly record producer.",
+     "definitionFit": "A steam organ, as on a fairground, produces music by steam-driven pipes and is an antique instrument."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "producer"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +936,55 @@
      }
     ]
    },
-   "solution": "WEATHERMAP"
+   "solution": "WEATHERMAP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WEATHER MAP",
+    "definitions": [
+     {
+      "text": "Elements' chart",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sadly",
+      "for": "anagram",
+      "note": "sadly suggests things have gone wrong, so the letters end up in a different order"
+     }
+    ],
+    "linkWords": [
+     "made"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Martha weep",
+      "gives": "MARTHAWEEP",
+      "note": "both words as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MARTHAWEEP",
+       "gives": "WEATHERMAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Martha cried over the periodic table of the elements.",
+     "walkthrough": "'Elements' suggests chemistry, but here it means the weather, as in exposed to the elements.",
+     "definitionFit": "A weather map charts conditions such as rain and wind, which are the elements."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Elements'"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +998,68 @@
     "text": "Great model’s about to get well, ring America!",
     "enumeration": "10"
    },
-   "solution": "TREMENDOUS"
+   "solution": "TREMENDOUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TREMENDOUS",
+    "definitions": [
+     {
+      "text": "Great",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "model",
+      "gives": "T",
+      "note": "the Ford Model T"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means concerning"
+     },
+     {
+      "clueFragment": "get well",
+      "gives": "MEND",
+      "note": "to mend is to recover"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "O is ring-shaped"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "abbreviation for the United States"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RE",
+      "MEND",
+      "O",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion model is about to recover, so ring the States with the great news.",
+     "walkthrough": "The Model T Ford is the crossword's standard model, giving just T.",
+     "definitionFit": "Tremendous means very great in size or degree, an adjective synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1073,81 @@
     "text": "Maybe, see inside lid lifted for fuel",
     "enumeration": "6"
    },
-   "solution": "DIESEL"
+   "solution": "DIESEL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "container"
+    ],
+    "answer": "DIESEL",
+    "definitions": [
+     {
+      "text": "fuel",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Maybe",
+      "for": "anagram",
+      "note": "maybe hints the word could appear in a different form, so its letters are reordered"
+     },
+     {
+      "text": "lifted",
+      "for": "reversal",
+      "note": "in a down clue, lifting means raising from bottom to top, so the word reads upwards"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside places the first set of letters within the second"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "see",
+      "gives": "ESE",
+      "note": "the letters of see rearranged"
+     },
+     {
+      "clueFragment": "lid",
+      "gives": "LID",
+      "note": "taken as written before being turned upwards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "ESE",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEE",
+       "gives": "ESE"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "LID",
+       "to": "DIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Perhaps look inside the raised cap of a tank when refuelling.",
+     "definitionFit": "Diesel is a heavy oil burned in compression-ignition engines, a type of fuel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Maybe"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1161,51 @@
     "text": "Wobbly, fat rear",
     "enumeration": "3"
    },
-   "solution": "AFT"
+   "solution": "AFT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AFT",
+    "definitions": [
+     {
+      "text": "rear",
+      "at": 12
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Wobbly",
+      "for": "anagram",
+      "note": "something wobbly is unsteady, so the letters shift around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fat",
+      "gives": "FAT",
+      "note": "taken as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FAT",
+       "gives": "AFT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A self-deprecating remark about a jiggling, plump backside.",
+     "definitionFit": "Aft is the nautical term for the back or stern of a vessel, so rear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "rear"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1219,56 @@
     "text": "A dud notice on energy drink",
     "enumeration": "8"
    },
-   "solution": "LEMONADE"
+   "solution": "LEMONADE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEMONADE",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A dud",
+      "gives": "LEMON",
+      "note": "a lemon is a dud, something that fails"
+     },
+     {
+      "clueFragment": "notice",
+      "gives": "AD",
+      "note": "an advertisement"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "the physics symbol"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEMON",
+      "AD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A useless advert placed on an energy drink.",
+     "walkthrough": "'energy drink' reads as one phrase; split it, as E plus the definition.",
+     "definitionFit": "Lemonade is a soft drink made from lemons, sugar and water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "energy"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1282,43 @@
     "text": "Worker wanting a bit",
     "enumeration": "3"
    },
-   "solution": "ANT"
+   "solution": "ANT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ANT",
+    "definitions": [
+     {
+      "text": "Worker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a bit",
+      "for": "hidden_word",
+      "note": "only a bit, a small portion, of the next word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wanting",
+      "gives": "ANT",
+      "note": "letters two to four of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "An employee who wants a little something more.",
+     "walkthrough": "'Wanting a bit' reads like a worker lacking something; in fact a bit of 'wanting' is taken.",
+     "definitionFit": "Worker ants are the sterile females of a colony, so worker is a standard crossword hint for this insect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wanting"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1338,53 @@
      }
     ]
    },
-   "solution": "BESTSELLER"
+   "solution": "BESTSELLER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BEST SELLER",
+    "definitions": [
+     {
+      "text": "popular book",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suspect",
+      "for": "anagram",
+      "note": "suspect as an adjective means dubious, so the letters are not to be trusted in this order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bell steers",
+      "gives": "BELLSTEERS",
+      "note": "both words as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BELLSTEERS",
+       "gives": "BESTSELLER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A detective named Bell guides a suspect towards a popular novel.",
+     "definitionFit": "A bestseller is a book that sells in large numbers, hence popular."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suspect"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1398,73 @@
     "text": "Group, hoping to raise their spirits, look around one new club, initially",
     "enumeration": "6"
    },
-   "solution": "SEANCE"
+   "solution": "SEANCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SEANCE",
+    "definitions": [
+     {
+      "text": "Group, hoping to raise their spirits",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word just before it"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means the looking word goes round the outside of what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "look",
+      "gives": "SEE",
+      "note": "to see is to look"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a, meaning one"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "club",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of club"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "ANC",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A new club for people seeking to lift their mood looks around for members.",
+     "walkthrough": "'raise their spirits' sounds like cheering up; it means summoning the dead.",
+     "definitionFit": "A seance is a gathering of people trying to contact the dead, literally raising spirits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spirits"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1478,44 @@
     "text": "More than enough effort is a strain",
     "enumeration": "12"
    },
-   "solution": "OVEREXERTION"
+   "solution": "OVEREXERTION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OVEREXERTION",
+    "definitions": [
+     {
+      "text": "More than enough effort",
+      "at": 0
+     },
+     {
+      "text": "a strain",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "More than enough effort",
+      "note": "first meaning: excessive exertion, pushing too hard"
+     },
+     {
+      "clueFragment": "a strain",
+      "note": "second meaning: the physical harm or tiredness of overdoing it"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue reads as a plain statement; both halves describe the same word from different angles.",
+     "definitionFit": "Overexertion is too much physical effort, and it amounts to a strain on the body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1529,51 @@
     "text": "An article on Home Counties for the ones here",
     "enumeration": "5"
    },
-   "solution": "THESE"
+   "solution": "THESE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THESE",
+    "definitions": [
+     {
+      "text": "the ones here",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "on",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "An article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "Home Counties",
+      "gives": "SE",
+      "note": "the counties around London, in the South East"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper feature on the Home Counties, written for local readers.",
+     "walkthrough": "The Home Counties are the English counties surrounding London, in the South East of England, so SE.",
+     "definitionFit": "These is the plural demonstrative pointing to nearby things, the ones close at hand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1587,49 @@
     "text": "Gamble on one that comes second",
     "enumeration": "4"
    },
-   "solution": "BETA"
+   "solution": "BETA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BETA",
+    "definitions": [
+     {
+      "text": "that comes second",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gamble",
+      "gives": "BET",
+      "note": "a bet is a gamble"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a, meaning one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BET",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Putting money on a horse that finishes as runner-up.",
+     "definitionFit": "Beta is the second letter of the Greek alphabet, so it comes second in order."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Gamble"
+    }
+   }
   },
   {
    "number": 25,
@@ -423,7 +1649,53 @@
      }
     ]
    },
-   "solution": "ETAL"
+   "solution": "ETAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ET AL",
+    "definitions": [
+     {
+      "text": "The others",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "funny",
+      "for": "anagram",
+      "note": "funny means odd or peculiar, so the letters come out in a strange order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tale",
+      "gives": "TALE",
+      "note": "taken as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TALE",
+       "gives": "ETAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The other characters in a humorous story.",
+     "definitionFit": "Et al is Latin shorthand for et alii, meaning and others, used after a list of names."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "funny"
+    }
+   }
   },
   {
    "number": 26,
@@ -437,7 +1709,56 @@
     "text": "Good English car for one born in May or June",
     "enumeration": "6"
    },
-   "solution": "GEMINI"
+   "solution": "GEMINI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GEMINI",
+    "definitions": [
+     {
+      "text": "one born in May or June",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "car",
+      "gives": "MINI",
+      "note": "the classic small British car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "E",
+      "MINI"
+     ]
+    },
+    "explanation": {
+     "surface": "A sound English motor recommended for someone with a late-spring birthday.",
+     "walkthrough": "The Mini is a small British car made since 1959.",
+     "definitionFit": "Gemini is the star sign for birthdays from about 21 May to 21 June, and a person born then is called a Gemini."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "car"
+    }
+   }
   },
   {
    "number": 27,
@@ -451,7 +1772,53 @@
     "text": "Last month’s publicity for hospital department in a state of decline",
     "enumeration": "8"
    },
-   "solution": "DECADENT"
+   "solution": "DECADENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DECADENT",
+    "definitions": [
+     {
+      "text": "in a state of decline",
+      "at": 47
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Last month",
+      "gives": "DEC",
+      "note": "December, the year's final month"
+     },
+     {
+      "clueFragment": "publicity",
+      "gives": "AD",
+      "note": "an advertisement"
+     },
+     {
+      "clueFragment": "hospital department",
+      "gives": "ENT",
+      "note": "ear, nose and throat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEC",
+      "AD",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "December's advertising for a hospital unit that is falling apart.",
+     "walkthrough": "'Last month' looks like a time reference for the whole sentence but supplies DEC.",
+     "definitionFit": "Decadent describes a society in moral or cultural decay, a decline from former standards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Last"
+    }
+   }
   },
   {
    "number": 28,
@@ -465,7 +1832,37 @@
     "text": "Sibling’s boy's relationship",
     "enumeration": "6"
    },
-   "solution": "NEPHEW"
+   "solution": "NEPHEW",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NEPHEW",
+    "definitions": [
+     {
+      "text": "Sibling’s boy's relationship",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sibling’s boy's relationship",
+      "note": "surface reading: some lad's link to his brother or sister"
+     },
+     {
+      "clueFragment": "Sibling’s boy's",
+      "note": "setter's reading: the son of your brother or sister, and what he is to you"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The stacked possessives read like a family-tree puzzle; it asks what your sibling's son is to you.",
+     "definitionFit": "The kinship term for the son of one's brother or sister names exactly this family relationship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -479,7 +1876,53 @@
     "text": "See and hear agreement to dance",
     "enumeration": "7"
    },
-   "solution": "EYEBALL"
+   "solution": "EYEBALL",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "EYEBALL",
+    "definitions": [
+     {
+      "text": "See",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hear",
+      "for": "homophone",
+      "note": "hear tells us to take the next word by its sound rather than its spelling"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agreement",
+      "gives": "EYE",
+      "soundsLike": "AYE",
+      "note": "aye is a yes, which sounds like the organ of sight"
+     },
+     {
+      "clueFragment": "dance",
+      "gives": "BALL",
+      "note": "a formal dance"
+     }
+    ],
+    "explanation": {
+     "surface": "Watch, listen and say yes to an invitation to go dancing.",
+     "definitionFit": "To eyeball something is informally to look hard at it, so see."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hear"
+    }
+   }
   }
  ]
 }
