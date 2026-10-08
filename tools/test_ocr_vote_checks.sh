@@ -294,6 +294,9 @@ check("a rare word another reading prints as two common ones is parted",
       "Ireland for a hill.", oc.agree("Ireland fora hill.", [mark("27 Ireland for a hill. 28 An")])[0])
 check("a dictionary word another reading split stays whole (mirror)",
       "Somewhere to go.", oc.agree("Somewhere to go.", [mark("4 Some where to go. 5 A"), mark("4 Somewhere to go. 5 A")])[0])
+check("a dictionary word a reading broke over a line end stays whole",
+      "Vain display with a severe hairstyle",
+      oc.parted("Vain display with a severe hairstyle", [["Vain", "display", "with", "a", "severe", "hair", "Style"]]))
 check("a word no reading prints apart is still lost (mirror)",
       None, oc.agree("She eats junkets.", [mark("4 She junkets. 5 A"), mark("4 She junkets. 5 A")])[0])
 
