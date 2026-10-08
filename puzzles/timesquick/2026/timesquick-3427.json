@@ -24,6 +24,9 @@
   "date": "2026-10-08",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,48 @@
     "text": "Clean windows in parsonage energetically at first",
     "enumeration": "4"
    },
-   "solution": "WIPE"
+   "solution": "WIPE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "WIPE",
+    "definitions": [
+     {
+      "text": "Clean",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "'at first' asks for the opening letter of each of the words before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "windows in parsonage energetically",
+      "gives": "WIPE",
+      "select": "first",
+      "note": "the initial letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIPE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cleans the vicarage windows with vigour before anything else.",
+     "definitionFit": "To wipe something is to rub it clean with a cloth, a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "windows"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +95,61 @@
     "text": "Know-it-alls rejecting outsiders twist new ropes",
     "enumeration": "8"
    },
-   "solution": "WISEGUYS"
+   "solution": "WISEGUYS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "WISEGUYS",
+    "definitions": [
+     {
+      "text": "Know-it-alls",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejecting outsiders",
+      "for": "deletion",
+      "note": "to reject the outsiders is to throw away the outer letters of each of the next two words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "twist",
+      "gives": "WIS",
+      "note": "the word with its first and last letters dropped"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "E",
+      "note": "the word with its first and last letters dropped"
+     },
+     {
+      "clueFragment": "ropes",
+      "gives": "GUYS",
+      "note": "guys are ropes that hold a tent or mast steady"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIS",
+      "E",
+      "GUYS"
+     ]
+    },
+    "explanation": {
+     "surface": "Smart alecks scorn the old hands and twist new ropes their own way.",
+     "walkthrough": "The deletion applies to both 'twist' and 'new', leaving their middles.",
+     "definitionFit": "Wiseguys is American slang for people who act as though they know better than everyone else."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outsiders"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +163,43 @@
     "text": "Cut a serrated edge in flower",
     "enumeration": "4"
    },
-   "solution": "PINK"
+   "solution": "PINK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PINK",
+    "definitions": [
+     {
+      "text": "Cut a serrated edge in",
+      "at": 0
+     },
+     {
+      "text": "flower",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cut a serrated edge in",
+      "note": "first meaning: to cut a zigzag edge in cloth"
+     },
+     {
+      "clueFragment": "flower",
+      "note": "second meaning: a garden plant of the carnation family"
+     }
+    ],
+    "explanation": {
+     "surface": "A gardener or florist trims a flower with a zigzag cut.",
+     "definitionFit": "Pinking shears give fabric a zigzag edge, and pinks are scented garden plants related to carnations."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flower"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +213,53 @@
     "text": "Tip Rose extravagantly for clever remark",
     "enumeration": "7"
    },
-   "solution": "RIPOSTE"
+   "solution": "RIPOSTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RIPOSTE",
+    "definitions": [
+     {
+      "text": "clever remark",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extravagantly",
+      "for": "anagram",
+      "note": "doing something extravagantly suggests wild excess, so the letters are flung into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tip Rose",
+      "gives": "TIPROSE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TIPROSE",
+       "gives": "RIPOSTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rose the waitress earns a lavish tip for her witty comeback.",
+     "definitionFit": "A riposte is a quick, sharp reply, borrowed from the fencer's counter-thrust."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rose"
+    }
+   }
   },
   {
    "number": 3,
@@ -93,7 +273,53 @@
     "text": "Withdraw from suspect decree",
     "enumeration": "6"
    },
-   "solution": "RECEDE"
+   "solution": "RECEDE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RECEDE",
+    "definitions": [
+     {
+      "text": "Withdraw",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suspect",
+      "for": "anagram",
+      "note": "something suspect is dubious and not in proper order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "decree",
+      "gives": "DECREE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DECREE",
+       "gives": "RECEDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone backs away from an official order of doubtful legitimacy.",
+     "definitionFit": "To recede is to move back or pull away, a synonym of withdrawing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "suspect"
+    }
+   }
   },
   {
    "number": 4,
@@ -113,7 +339,53 @@
      }
     ]
    },
-   "solution": "PUBLICHOUSES"
+   "solution": "PUBLICHOUSES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PUBLIC HOUSES",
+    "definitions": [
+     {
+      "text": "Drinking establishments",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dodgy",
+      "for": "anagram",
+      "note": "dodgy means unreliable or crooked, so the letters are bent out of their order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US police hubs",
+      "gives": "USPOLICEHUBS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "USPOLICEHUBS",
+       "gives": "PUBLICHOUSES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bars turn up inside corrupt American police stations.",
+     "definitionFit": "Public house is the full British name for a pub, a place licensed to sell alcohol."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dodgy"
+    }
+   }
   },
   {
    "number": 5,
@@ -127,7 +399,59 @@
     "text": "Frank starts to empty drawers everywhere in rush",
     "enumeration": "8"
    },
-   "solution": "STAMPEDE"
+   "solution": "STAMPEDE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "STAMPEDE",
+    "definitions": [
+     {
+      "text": "rush",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of the following words are their opening letters"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frank",
+      "gives": "STAMP",
+      "note": "to frank a letter is to stamp it"
+     },
+     {
+      "clueFragment": "empty drawers everywhere",
+      "gives": "EDE",
+      "select": "first",
+      "note": "the first letter of each of these words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAMP",
+      "EDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Frank empties every drawer in a mad hurry.",
+     "walkthrough": "Frank reads as a man's name but is the verb for marking a letter with postage.",
+     "definitionFit": "A stampede is a sudden mass rush, as of panicked cattle or a crowd."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Frank"
+    }
+   }
   },
   {
    "number": 6,
@@ -141,7 +465,43 @@
     "text": "Current running backwards in section of damaged dynamo",
     "enumeration": "4"
    },
-   "solution": "EDDY"
+   "solution": "EDDY",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EDDY",
+    "definitions": [
+     {
+      "text": "Current running backwards",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in section of",
+      "for": "hidden_word",
+      "note": "a section of the words is a run of letters sitting inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "damaged dynamo",
+      "gives": "EDDY",
+      "note": "found across the junction of the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "An electric current is flowing the wrong way in a broken generator.",
+     "walkthrough": "'Running backwards' looks like a reversal signal, but it belongs to the definition; the letters read forwards.",
+     "definitionFit": "An eddy is a swirl of water or air moving against the main flow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "backwards"
+    }
+   }
   },
   {
    "number": 7,
@@ -161,7 +521,49 @@
      }
     ]
    },
-   "solution": "TWENTYTWENTY"
+   "solution": "TWENTYTWENTY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TWENTY-TWENTY",
+    "definitions": [
+     {
+      "text": "good vision",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Score",
+      "gives": "TWENTY",
+      "note": "a score is twenty"
+     },
+     {
+      "clueFragment": "twice",
+      "gives": "TWENTY",
+      "note": "the same number again"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TWENTY",
+      "TWENTY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who hits the target twice demonstrates a sharp eye.",
+     "definitionFit": "Normal sharpness of eyesight is called twenty-twenty after the standard eye-chart measure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Score"
+    }
+   }
   },
   {
    "number": 8,
@@ -181,7 +583,49 @@
      }
     ]
    },
-   "solution": "SANDWICHBOARD"
+   "solution": "SANDWICHBOARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SANDWICH BOARD",
+    "definitions": [
+     {
+      "text": "Something used in advertising",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "snack food",
+      "gives": "SANDWICH",
+      "note": "a light meal between slices of bread"
+     },
+     {
+      "clueFragment": "executives",
+      "gives": "BOARD",
+      "note": "the board of directors runs a company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SANDWICH",
+      "BOARD"
+     ]
+    },
+    "explanation": {
+     "surface": "Company bosses promote a snack product in an ad campaign.",
+     "definitionFit": "A sandwich board is a pair of hinged placards worn front and back by someone advertising in the street."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "executives"
+    }
+   }
   },
   {
    "number": 9,
@@ -195,7 +639,56 @@
     "text": "Professor returned to signal agreement",
     "enumeration": "3"
    },
-   "solution": "NOD"
+   "solution": "NOD",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "NOD",
+    "definitions": [
+     {
+      "text": "signal agreement",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so the word is read in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Professor",
+      "gives": "DON",
+      "note": "a don is a university teacher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOD"
+     ],
+     "reversals": [
+      {
+       "from": "DON",
+       "to": "NOD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An academic came back to give the go-ahead.",
+     "definitionFit": "Dipping the head is a gesture of assent, so to nod is to show agreement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returned"
+    }
+   }
   },
   {
    "number": 10,
@@ -209,7 +702,46 @@
     "text": "Worry leading group",
     "enumeration": "5"
    },
-   "solution": "UPSET"
+   "solution": "UPSET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPSET",
+    "definitions": [
+     {
+      "text": "Worry",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leading",
+      "gives": "UP",
+      "note": "a team that is ahead is said to be up"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "SET",
+      "note": "a set is a group of things or people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "SET"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is anxious about the band at the top of the charts.",
+     "definitionFit": "To upset someone is to trouble or distress them, a synonym of worry as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leading"
+    }
+   }
   },
   {
    "number": 11,
@@ -223,7 +755,49 @@
     "text": "Newspaper and packs of cards in relaxation areas",
     "enumeration": "8"
    },
-   "solution": "SUNDECKS"
+   "solution": "SUNDECKS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUNDECKS",
+    "definitions": [
+     {
+      "text": "relaxation areas",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Newspaper",
+      "gives": "SUN",
+      "note": "The Sun is a British tabloid newspaper"
+     },
+     {
+      "clueFragment": "packs of cards",
+      "gives": "DECKS",
+      "note": "a deck is a pack of playing cards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUN",
+      "DECKS"
+     ]
+    },
+    "explanation": {
+     "surface": "Holidaymakers lounge with papers and card games.",
+     "definitionFit": "Sundecks are open decks or terraces where people lie in the sun and unwind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Newspaper"
+    }
+   }
   },
   {
    "number": 12,
@@ -237,7 +811,44 @@
     "text": "Outdoes former top players, we hear",
     "enumeration": "7"
    },
-   "solution": "EXCEEDS"
+   "solution": "EXCEEDS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EXCEEDS",
+    "definitions": [
+     {
+      "text": "Outdoes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is spoken, so the sound of the phrase matters rather than its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former top players",
+      "gives": "EXCEEDS",
+      "soundsLike": "EX-SEEDS",
+      "note": "ex means former, and seeds are the top-ranked players in a tournament"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone surpasses tennis players who used to be ranked highly.",
+     "definitionFit": "To exceed is to go beyond, so a thing that exceeds another surpasses it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "players"
+    }
+   }
   },
   {
    "number": 13,
@@ -251,7 +862,67 @@
     "text": "Guide woman parking her Ford at the back",
     "enumeration": "8"
    },
-   "solution": "SHEPHERD"
+   "solution": "SHEPHERD",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SHEPHERD",
+    "definitions": [
+     {
+      "text": "Guide",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the back",
+      "for": "letter_selection",
+      "note": "the back of a word is its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "woman",
+      "gives": "SHE",
+      "note": "the female pronoun"
+     },
+     {
+      "clueFragment": "parking",
+      "gives": "P",
+      "note": "P is the road-sign symbol for parking"
+     },
+     {
+      "clueFragment": "her",
+      "gives": "HER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Ford",
+      "gives": "D",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHE",
+      "P",
+      "HER",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman directs someone to park her Ford car round the back.",
+     "definitionFit": "To shepherd people is to lead or herd them along, as a shepherd moves a flock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ford"
+    }
+   }
   },
   {
    "number": 14,
@@ -265,7 +936,42 @@
     "text": "Politician chosen — a Tory to some extent",
     "enumeration": "7"
    },
-   "solution": "SENATOR"
+   "solution": "SENATOR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SENATOR",
+    "definitions": [
+     {
+      "text": "Politician",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to some extent",
+      "for": "hidden_word",
+      "note": "to some extent means partly, so only part of the letters is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chosen — a Tory",
+      "gives": "SENATOR",
+      "note": "runs from the end of the first word through to the start of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "A selected politician is partly a Conservative.",
+     "definitionFit": "A senator is a member of a senate, an elected legislator."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chosen"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +985,64 @@
     "text": "Manipulated price over European formula",
     "enumeration": "6"
    },
-   "solution": "RECIPE"
+   "solution": "RECIPE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "RECIPE",
+    "definitions": [
+     {
+      "text": "formula",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Manipulated",
+      "for": "anagram",
+      "note": "manipulated figures have been worked over and rearranged"
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "price",
+      "gives": "PRICE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "standard abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RECIP",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PRICE",
+       "gives": "RECIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rigged price is placed above a European pricing formula.",
+     "walkthrough": "In a down clue 'over' would usually place one part on top of another; here the order happens to match plain sequence.",
+     "definitionFit": "A recipe is a set of instructions for a result, figuratively a formula for success."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "formula"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1056,55 @@
     "text": "Abnormally large gong regularly askew",
     "enumeration": "5"
    },
-   "solution": "OBESE"
+   "solution": "OBESE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "OBESE",
+    "definitions": [
+     {
+      "text": "Abnormally large",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gong",
+      "gives": "OBE",
+      "note": "a gong is slang for a medal or honour, such as the OBE (Order of the British Empire)"
+     },
+     {
+      "clueFragment": "askew",
+      "gives": "SE",
+      "select": "alternate",
+      "note": "the second and fourth letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OBE",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A huge gong hangs crooked again and again.",
+     "definitionFit": "Obese means extremely overweight, a medical term for unusual bodily size."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gong"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1118,41 @@
     "text": "Bird hiding in chrysanthemums",
     "enumeration": "3"
    },
-   "solution": "EMU"
+   "solution": "EMU",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EMU",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding in",
+      "for": "hidden_word",
+      "note": "something hiding in a word is tucked inside it, concealed among its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chrysanthemums",
+      "gives": "EMU",
+      "note": "sits near the end of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "A bird is lurking in the flower bed.",
+     "definitionFit": "The emu is a large flightless Australian bird, an example of the category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1166,42 @@
     "text": "Established company",
     "enumeration": "4"
    },
-   "solution": "FIRM"
+   "solution": "FIRM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FIRM",
+    "definitions": [
+     {
+      "text": "Established",
+      "at": 0
+     },
+     {
+      "text": "company",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Established",
+      "note": "first meaning: solidly fixed and settled"
+     },
+     {
+      "clueFragment": "company",
+      "note": "second meaning: a business"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a description of a long-standing business; the two words are separate meanings.",
+     "definitionFit": "The word serves as an adjective for something securely fixed and as a noun for a commercial business."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Established"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1215,49 @@
     "text": "Book everyone for dance party",
     "enumeration": "4"
    },
-   "solution": "BALL"
+   "solution": "BALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BALL",
+    "definitions": [
+     {
+      "text": "dance party",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     },
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "all means everyone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ALL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reserves tickets for the whole group to go dancing.",
+     "definitionFit": "A ball is a formal social gathering held for dancing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Book"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1271,50 @@
     "text": "Lacking in care, I decorate inns badly",
     "enumeration": "13"
    },
-   "solution": "INCONSIDERATE"
+   "solution": "INCONSIDERATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INCONSIDERATE",
+    "definitions": [
+     {
+      "text": "Lacking in care",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "something done badly is botched, so the letters end up jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I decorate inns",
+      "gives": "IDECORATEINNS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IDECORATEINNS",
+       "gives": "INCONSIDERATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A careless decorator confesses to doing a poor job on some pubs.",
+     "definitionFit": "Someone inconsiderate gives no thought to other people's feelings, so lacks care for them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "decorate"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1328,56 @@
     "text": "Accidentally enter foggy outskirts of Penzance",
     "enumeration": "7"
    },
-   "solution": "MISTYPE"
+   "solution": "MISTYPE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MISTYPE",
+    "definitions": [
+     {
+      "text": "Accidentally enter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outskirts of",
+      "for": "letter_selection",
+      "note": "the outskirts of a place are its edges, so the first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "foggy",
+      "gives": "MISTY",
+      "note": "a synonym"
+     },
+     {
+      "clueFragment": "Penzance",
+      "gives": "PE",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MISTY",
+      "PE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stumbles into the fog-bound edge of a Cornish town.",
+     "walkthrough": "Penzance is a seaside town in Cornwall, south-west England.",
+     "definitionFit": "To mistype is to key in text wrongly by accident."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "enter"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1391,48 @@
     "text": "Good boy is happy",
     "enumeration": "4"
    },
-   "solution": "GLAD"
+   "solution": "GLAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GLAD",
+    "definitions": [
+     {
+      "text": "happy",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "LAD",
+      "note": "a lad is a boy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "LAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A well-behaved child is cheerful.",
+     "definitionFit": "Glad is a synonym of pleased or cheerful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
