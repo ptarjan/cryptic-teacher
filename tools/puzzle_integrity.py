@@ -1386,11 +1386,6 @@ def check_strays(published, flags, files):
 _TODAY = None
 
 
-# The corpus predates straight-quoted storage; until tools/quotes.py has
-# converted it, the sweep leaves CURLY out. Writes refuse it already.
-CURLY_ENFORCED = False
-
-
 def _one_file(path):
     """Everything audit() needs from one file, for parallel.pmap: its own
     flags, and what the cross-file checks weigh it by."""
@@ -1401,8 +1396,6 @@ def _one_file(path):
     held = (puzzle.get("series", "cryptic"), puzzle["number"], date_of(puzzle), pid)
     row = (pid, content_hash(puzzle), clue_keys(puzzle), held)
     check_puzzle(puzzle, _TODAY, flags)
-    if not CURLY_ENFORCED:
-        flags = [f for f in flags if f[0] != "CURLY"]
     return flags, row
 
 
