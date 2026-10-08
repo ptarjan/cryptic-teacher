@@ -73,9 +73,11 @@ check("its source link is the Gale document's", g.DOC_URL.format("IF0503151598")
 # its name, is laid out again with the document's; then left alone.
 pages["url"] = g.PORTAL
 (d / "pages.json").write_text(json.dumps(pages))
+import os as _os
+_os.utime(d / "pages.json", (1000, 1000))
 g.stage(inbox, cache, io.StringIO(), un, g.MATCHES)
-check("an edition laid out under the portal's link is re-laid with its document's",
-      g.DOC_URL.format("IF0503151598"), fa.page_url(d, {}, 0))
+check("an edition laid out under the portal's link is relinked to its document's, still laid out when it was",
+      (g.DOC_URL.format("IF0503151598"), 1000), (fa.page_url(d, {}, 0), int(fa.staged_at(d))))
 check("a page set on an archive.org-wide page", fa.SCAN_WIDTH, Image.open(d / "leaf_0000.jpg").width)
 check("a file that names no edition is listed, not staged", ["holiday snap.jpg"],
       [m["file"] for m in json.loads(un.read_text()) if not m.get("date")])
