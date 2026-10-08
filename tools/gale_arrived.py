@@ -77,9 +77,8 @@ def scan(dirs, out, now=None, keep=KEEP):
                 marks[doc] = int(landed)
                 new.append((doc, e.name, round(now - landed, 1)))
     if marks != was or not Path(out).exists():  # an open page loads it from the first
-        tmp = Path(out).with_name("." + Path(out).name + ".tmp")
-        tmp.write_text(f"{CALL}{json.dumps(marks, sort_keys=True)});\n")
-        tmp.replace(out)
+        # In place, never renamed over: see gale_inbox.publish (polled).
+        Path(out).write_text(f"{CALL}{json.dumps(marks, sort_keys=True)});\n")
     return new
 
 

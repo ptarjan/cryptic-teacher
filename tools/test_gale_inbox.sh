@@ -295,13 +295,13 @@ check("and the count, which the page's poll writes into its progress bar and num
       ((status["done"], status["total"]), all(w in html for w in ('<progress id="prog"', '<b id="count">',
                                                                     'galeStatus(s){IN=new Set(s.in);AT=s.at*1000;BASE=s'))))
 published = []
-g.publish = lambda path, host_inbox=None: published.append(path.name)
+g.publish = lambda path, host_inbox=None, polled=False: published.append((path.name, polled))
 page_path = Path(sys.argv[1]) / "Checklist.html"
 g.publish_status(page_path, status)
 g.publish_status(page_path)
 js = (Path(sys.argv[1]) / "Checklist.status.js").read_text()
 check("the status file is a script call, kept between renders, published each tick",
-      (True, ["1988-01-12"], ["Checklist.status.js"] * 2),
+      (True, ["1988-01-12"], [("Checklist.status.js", True)] * 2),
       (js.startswith("galeStatus("), json.loads(js[len("galeStatus("):js.rindex(")")])["in"], published))
 check("the session link comes before any row's link", True,
       html.index(g.SESSION.format("TTDA")) < html.index('class="go"'))
@@ -456,8 +456,11 @@ check("as a script call the page loads", True, arr.read_text().startswith("galeA
 _before = arr.stat().st_mtime_ns
 (drop / "notes.pdf").write_bytes(b"x")
 check("a later unknown file leaves the arrivals file untouched", ([], _before), (ga.scan([drop], arr), arr.stat().st_mtime_ns))
+_ino = arr.stat().st_ino
 (drop / "GM2500000001 (2).pdf").unlink()
 ga.scan([drop], arr)
+check("the arrivals file is rewritten in place, never renamed over (Windows reads it through a cached SMB handle)",
+      _ino, arr.stat().st_ino)
 check("the mark outlives the sync's sweep of the file, and goes after KEEP", (["GM2500000001"], {}),
       (list(ga.read(arr)), (ga.scan([drop], arr, now=_t.time() + ga.KEEP + 1), ga.read(arr))[1]))
 (drop / "IF0500375892.pdf").write_bytes(b"x")

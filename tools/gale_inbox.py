@@ -550,13 +550,20 @@ def mirror(out=sys.stdout, host_inbox=HOST_INBOX, into=MIRROR):
     return len(want) + dropped
 
 
-def publish(path=CHECKLIST, host_inbox=GALE_ROOT):
-    """Copy a checklist into the Mac folder, under its own name, whole or
-    not at all: an open page loads its status file every POLL_SECONDS."""
+def publish(path=CHECKLIST, host_inbox=GALE_ROOT, polled=False):
+    """Copy a checklist into the Mac folder under its own name. A page is
+    replaced whole (written aside, then renamed). A `polled` file (a status
+    file, which an open page loads every POLL_SECONDS) is rewritten in
+    place: Windows reads it over SMB through a cached handle, which goes on
+    serving a renamed-over file's old copy; a half-written one fails to
+    parse and the next poll reads it whole."""
     q = shlex.quote
+    dest = q(host_inbox + '/' + path.name)
+    if polled:
+        ssh(f"mkdir -p {q(host_inbox)} && cat > {dest}", input=path.read_bytes())
+        return
     tmp = f"{host_inbox}/.{path.name}.tmp"
-    ssh(f"mkdir -p {q(host_inbox)} && cat > {q(tmp)} && mv -f {q(tmp)} {q(host_inbox + '/' + path.name)}",
-        input=path.read_bytes())
+    ssh(f"mkdir -p {q(host_inbox)} && cat > {q(tmp)} && mv -f {q(tmp)} {dest}", input=path.read_bytes())
 
 
 #: The Mac's arrival watcher (tools/gale_arrived.py): its copy of the
@@ -1003,7 +1010,7 @@ def publish_status(path, status=None):
         kept.write_text(json.dumps(status))
     st = load(kept, {"page": 0, "in": []})
     js.write_text(f"galeStatus({json.dumps({**st, 'at': int(time.time())})});\n")
-    publish(js)
+    publish(js, polled=True)
 
 
 def _parts(cell):
