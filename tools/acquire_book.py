@@ -138,7 +138,6 @@ WALL_SECONDS = 240        # per puzzle, enforced inside the worker
 SOLUTION_LIMIT = 40
 # Searches in flight on the desktop at once (tools/ocr_remote.py): it has 28
 # threads, and the OCR full pass holds 20 sessions of two.
-REMOTE_SLOTS = 8
 
 
 # ------------------------------------------------------------------ stage 1
@@ -354,7 +353,7 @@ def _reconstruct_one(job):
 
 def _searched(jobs, local_jobs):
     """Each job's _reconstruct_one result, as each lands. With OCR_REMOTE
-    set (tools/ocr_remote.py) up to REMOTE_SLOTS searches run on the desktop,
+    set (tools/ocr_remote.py) up to ocr_remote.SEARCH_SLOTS searches run on the desktop,
     each slot over its own ssh session; a slot with no desktop (unset, off,
     unreachable, or Paul gaming on it) hands its search to the local pool of
     local_jobs processes and tries the desktop again RETRY seconds later."""
@@ -390,7 +389,7 @@ def _searched(jobs, local_jobs):
                     slot.s, slot.retry = None, time.monotonic() + ocr_remote.RETRY
             return pool.submit(_reconstruct_one, job).result()
 
-        with ThreadPoolExecutor(max_workers=REMOTE_SLOTS) as threads:
+        with ThreadPoolExecutor(max_workers=ocr_remote.SEARCH_SLOTS) as threads:
             try:
                 yield from (f.result() for f in as_completed(
                     [threads.submit(one, j) for j in jobs]))

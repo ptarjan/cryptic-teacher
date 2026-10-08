@@ -82,6 +82,9 @@ UNSHIPPED = ("tools/data/blog_facts/", "tools/data/yt_solvers/")
 MANIFEST = "tools/shipped.txt"
 #: Seconds before a process that lost the desktop tries it again.
 RETRY = 600
+#: Grid searches a job runs on the desktop at once, each thread over its own
+#: session (tools/acquire_book.py's books, tools/times_grids.py's posts).
+SEARCH_SLOTS = 8
 #: Reads made here at once, host-wide, while OCR_REMOTE is set (local_slot).
 LOCAL_SLOTS = int(os.environ.get("OCR_LOCAL_SLOTS") or max(1, (os.cpu_count() or 2) - 1))
 
