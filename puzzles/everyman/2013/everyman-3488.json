@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Part of spectacular Christmas tree",
     "enumeration": "5"
    },
-   "solution": "LARCH"
+   "solution": "LARCH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LARCH",
+    "definitions": [
+     {
+      "text": "tree",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Part of",
+      "for": "hidden_word",
+      "note": "a part of something is a piece cut out of it, so the answer sits inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spectacular Christmas",
+      "gives": "LARCH",
+      "note": "the last letters of the first word run on into the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A dazzling decorated tree at Christmas, or a bit of one.",
+     "walkthrough": "Only 'tree' defines; 'Christmas' lends its first two letters to the hidden run and dresses the surface. SpectacuLAR CHristmas.",
+     "definitionFit": "The larch is a deciduous conifer, a kind of tree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Christmas"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +86,50 @@
     "text": "Place of pilgrimage, terribly old? Sure",
     "enumeration": "7"
    },
-   "solution": "LOURDES"
+   "solution": "LOURDES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LOURDES",
+    "definitions": [
+     {
+      "text": "Place of pilgrimage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "terribly",
+      "for": "anagram",
+      "note": "something done terribly is botched and messed up, so the letters are put in disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old? Sure",
+      "gives": "OLDSURE",
+      "note": "both words taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OLDSURE",
+       "gives": "LOURDES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a pilgrimage site is very ancient and gets an emphatic yes.",
+     "definitionFit": "Lourdes in south-west France is a famous Catholic shrine visited by millions of pilgrims."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "terribly"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +149,54 @@
      }
     ]
    },
-   "solution": "ROASTLAMB"
+   "solution": "ROASTLAMB",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROAST LAMB",
+    "definitions": [
+     {
+      "text": "Something to eat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooking transforms ingredients, so these letters are worked into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bar, almost",
+      "gives": "BARALMOST",
+      "note": "both words taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BARALMOST",
+       "gives": "ROASTLAMB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pub snack that is nearly done.",
+     "walkthrough": "'Almost' looks like a cue to drop a letter, but every letter of it is part of the anagram.",
+     "definitionFit": "Roast lamb is a classic Sunday dish, so it is food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "almost"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +210,72 @@
     "text": "A woman may wear this hat touring Ireland - almost new",
     "enumeration": "7"
    },
-   "solution": "HAIRNET"
+   "solution": "HAIRNET",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "container"
+    ],
+    "answer": "HAIRNET",
+    "definitions": [
+     {
+      "text": "woman may wear this",
+      "at": 2
+     }
+    ],
+    "indicators": [
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "to tour a place is to go round it, so one word wraps around the others"
+     },
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the word that follows loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hat",
+      "gives": "HAT",
+      "note": "taken as written; it is the outer shell"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Ireland",
+      "gives": "IR",
+      "note": "IR is a standard abbreviation for Ireland"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "NEW",
+      "note": "taken as written, then cut short"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "AIRNE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Fashion advice: a woman might sport this hat while travelling round Ireland.",
+     "walkthrough": "The definition is 'woman may wear this'; 'A' opens the surface as if part of it, but belongs to the wordplay. 'Hat' looks like the thing worn; it is only the outer shell.",
+     "definitionFit": "A hairnet is a fine mesh worn over the hair to hold it in place, traditionally by women."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hat"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +295,50 @@
      }
     ]
    },
-   "solution": "TEAGARDEN"
+   "solution": "TEAGARDEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TEA GARDEN",
+    "definitions": [
+     {
+      "text": "open-air restaurant",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fancy",
+      "for": "anagram",
+      "note": "fancy as a verb is to imagine, so the letters are freely reimagined in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Enraged at",
+      "gives": "ENRAGEDAT",
+      "note": "both words taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ENRAGEDAT",
+       "gives": "TEAGARDEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is furious about a pretentious outdoor eatery.",
+     "definitionFit": "A tea garden is an outdoor café where refreshments are served among lawns and flowers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fancy"
+    }
+   }
   },
   {
    "number": 4,
@@ -121,7 +358,57 @@
      }
     ]
    },
-   "solution": "TEMPTPROVIDENCE"
+   "solution": "TEMPTPROVIDENCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEMPT PROVIDENCE",
+    "definitions": [
+     {
+      "text": "Take an unnecessary risk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down clue a supporting word holds up another from below, so it comes second"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "draw",
+      "gives": "TEMPT",
+      "note": "to draw someone in is to entice or tempt them"
+     },
+     {
+      "clueFragment": "state capital",
+      "gives": "PROVIDENCE",
+      "note": "Providence is the capital of Rhode Island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEMPT",
+      "PROVIDENCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gambles needlessly on a stalemate in some state's capital.",
+     "walkthrough": "In a down clue one part 'supporting' another sits beneath it, so the capital goes below the word for draw.",
+     "definitionFit": "To tempt providence is an idiom for courting misfortune by acting rashly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "draw"
+    }
+   }
   },
   {
    "number": 5,
@@ -141,7 +428,63 @@
      }
     ]
    },
-   "solution": "AVERSIONTHERAPY"
+   "solution": "AVERSIONTHERAPY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AVERSION THERAPY",
+    "definitions": [
+     {
+      "text": "Type of treatment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside says one piece is placed within the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a type",
+      "gives": "AVERSION",
+      "note": "a is taken as written; a version is a type or variant"
+     },
+     {
+      "clueFragment": "they",
+      "gives": "THEY",
+      "note": "taken as written; it is split around the next piece"
+     },
+     {
+      "clueFragment": "knock",
+      "gives": "RAP",
+      "note": "to rap is to knock"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "VERSION",
+      "THE",
+      "RAP",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Puzzled description of a therapy: the kind where people bang about indoors.",
+     "walkthrough": "'Type' appears twice on purpose: once in the definition, once as wordplay for a variant. 'Inside' applies only to the knock, which sits within the word before it.",
+     "definitionFit": "Aversion therapy is a psychological treatment pairing an unwanted habit with something unpleasant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "knock"
+    }
+   }
   },
   {
    "number": 6,
@@ -155,7 +498,70 @@
     "text": "Startle a teller, firstly, entering safe",
     "enumeration": "7"
    },
-   "solution": "ASTOUND"
+   "solution": "ASTOUND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "ASTOUND",
+    "definitions": [
+     {
+      "text": "Startle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "firstly",
+      "for": "letter_selection",
+      "note": "firstly points to the opening letter of the word just before it"
+     },
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "something entering goes into another word, so it sits within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "safe",
+      "gives": "SOUND",
+      "note": "sound means safe and secure, as in safe and sound"
+     },
+     {
+      "clueFragment": "teller",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of teller"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "S",
+      "T",
+      "OUND"
+     ]
+    },
+    "explanation": {
+     "surface": "A robber surprises a bank teller by breaking into the safe.",
+     "walkthrough": "'Safe' looks like the bank's strongbox; here it is the adjective, as in safe and sound.",
+     "definitionFit": "To astound is to amaze or shock, a stronger synonym of startle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "safe"
+    }
+   }
   },
   {
    "number": 7,
@@ -169,7 +575,50 @@
     "text": "Director to study fear",
     "enumeration": "5"
    },
-   "solution": "DREAD"
+   "solution": "DREAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DREAD",
+    "definitions": [
+     {
+      "text": "fear",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Director",
+      "gives": "D",
+      "note": "D is a standard abbreviation for director"
+     },
+     {
+      "clueFragment": "study",
+      "gives": "READ",
+      "note": "to read a subject is to study it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "READ"
+     ]
+    },
+    "explanation": {
+     "surface": "A film director decides to research the theme of fear.",
+     "walkthrough": "To read a subject is British usage for studying it at university.",
+     "definitionFit": "Dread is a deep, anxious fear of what may happen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Director"
+    }
+   }
   },
   {
    "number": 8,
@@ -183,7 +632,50 @@
     "text": "Character smashed tea urn",
     "enumeration": "6"
    },
-   "solution": "NATURE"
+   "solution": "NATURE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NATURE",
+    "definitions": [
+     {
+      "text": "Character",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "smashed",
+      "for": "anagram",
+      "note": "something smashed is broken into bits, so its letters are scattered and rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea urn",
+      "gives": "TEAURN",
+      "note": "both words taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEAURN",
+       "gives": "NATURE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clumsy person breaks the tea urn.",
+     "definitionFit": "A person's nature is their temperament or basic character."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Character"
+    }
+   }
   },
   {
    "number": 9,
@@ -197,7 +689,52 @@
     "text": "Metal in skull? Head's not the same",
     "enumeration": "7"
    },
-   "solution": "URANIUM"
+   "solution": "URANIUM",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "URANIUM",
+    "definitions": [
+     {
+      "text": "Metal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Head's not the same",
+      "for": "substitution",
+      "note": "the first letter is no longer what it was, so the opening letter is swapped for another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "skull",
+      "gives": "CRANIUM",
+      "note": "the cranium is the skull"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "RANIUM"
+     ]
+    },
+    "explanation": {
+     "surface": "A metal plate fitted in someone's skull leaves them never quite the same.",
+     "walkthrough": "CRANIUM changes its first letter, C becoming U. The clue does not say which letter goes in; the definition and crossings decide.",
+     "definitionFit": "Uranium is a heavy radioactive metallic element used as nuclear fuel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Head's"
+    }
+   }
   },
   {
    "number": 10,
@@ -211,7 +748,63 @@
     "text": "Ask earnestly to go in and dine, being short of energy",
     "enumeration": "7"
    },
-   "solution": "ENTREAT"
+   "solution": "ENTREAT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ENTREAT",
+    "definitions": [
+     {
+      "text": "Ask earnestly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being short of",
+      "for": "deletion",
+      "note": "being short of something means lacking it, so a letter is taken away"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "go in",
+      "gives": "ENTER",
+      "note": "to go in is to enter"
+     },
+     {
+      "clueFragment": "dine",
+      "gives": "EAT",
+      "note": "to dine is to eat"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENTR",
+      "EAT"
+     ]
+    },
+    "explanation": {
+     "surface": "Pleading with someone to come in and eat while running low on energy.",
+     "walkthrough": "ENTER and EAT join, then one E (the second in ENTER) is dropped to give ENTREAT.",
+     "definitionFit": "To entreat is to beg or implore someone seriously."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "energy"
+    }
+   }
   },
   {
    "number": 11,
@@ -225,7 +818,60 @@
     "text": "Blows up, having frightful set-to with dean",
     "enumeration": "9"
    },
-   "solution": "DETONATES"
+   "solution": "DETONATES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DETONATES",
+    "definitions": [
+     {
+      "text": "Blows up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "frightful",
+      "for": "anagram",
+      "note": "frightful means awful and chaotic, so the letters are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "set-to",
+      "gives": "SETTO",
+      "note": "taken as written, hyphen dropped"
+     },
+     {
+      "clueFragment": "dean",
+      "gives": "DEAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SETTODEAN",
+       "gives": "DETONATES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone loses their temper after a terrible argument with the college dean.",
+     "walkthrough": "'Blows up' is the explosive sense, not losing one's temper. A set-to is a fight or quarrel.",
+     "definitionFit": "Detonates means explodes, as a bomb does when set off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Blows"
+    }
+   }
   },
   {
    "number": 12,
@@ -249,7 +895,51 @@
    "group": [
     "12-across",
     "13-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNDER STARTER'S ORDERS",
+    "definitions": [
+     {
+      "text": "Ready to go",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "down",
+      "gives": "UNDER",
+      "note": "under means down, below"
+     },
+     {
+      "clueFragment": "reservations, to eat first course",
+      "gives": "STARTERSORDERS",
+      "note": "requests to eat the first course of a meal, read as orders for the dish served first"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNDER",
+      "STARTERSORDERS"
+     ]
+    },
+    "explanation": {
+     "surface": "A diner booked in at a restaurant, ready to sit down and order the first course.",
+     "walkthrough": "A starter is the British name for a first course, so orders for it are a starter's orders. In horse racing the phrase means the horses are lined up and awaiting the start.",
+     "definitionFit": "Under starter's orders is the racing idiom for runners poised and ready to begin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "reservations"
+    }
+   }
   },
   {
    "number": 13,
@@ -282,7 +972,41 @@
     "text": "Counting, or estimating?",
     "enumeration": "9"
    },
-   "solution": "RECKONING"
+   "solution": "RECKONING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RECKONING",
+    "definitions": [
+     {
+      "text": "Counting",
+      "at": 0
+     },
+     {
+      "text": "estimating",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Counting",
+      "note": "first meaning: adding up or calculating a total"
+     },
+     {
+      "clueFragment": "estimating",
+      "note": "second meaning: judging or supposing roughly"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark hints that both words are the same verb in different senses.",
+     "definitionFit": "To reckon is both to calculate a figure and, colloquially, to think or guess, so both participles fit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -302,7 +1026,51 @@
      }
     ]
    },
-   "solution": "OBSERVATIONCAR"
+   "solution": "OBSERVATIONCAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OBSERVATION CAR",
+    "definitions": [
+     {
+      "text": "part of train",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unrestricted",
+      "for": "anagram",
+      "note": "unrestricted letters are free to roam, so they settle into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Overcoats in bar",
+      "gives": "OVERCOATSINBAR",
+      "note": "all three words taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OVERCOATSINBAR",
+       "gives": "OBSERVATIONCAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Coats hung in a pub, with drinking going on freely.",
+     "walkthrough": "'In' looks like a link word but its letters belong to the anagram.",
+     "definitionFit": "An observation car is a railway carriage with large windows for viewing the scenery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unrestricted"
+    }
+   }
   },
   {
    "number": 16,
@@ -316,7 +1084,43 @@
     "text": "Speak non-stop",
     "enumeration": "7"
    },
-   "solution": "EXPRESS"
+   "solution": "EXPRESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EXPRESS",
+    "definitions": [
+     {
+      "text": "Speak",
+      "at": 0
+     },
+     {
+      "text": "non-stop",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Speak",
+      "note": "first meaning: a verb, to put into words"
+     },
+     {
+      "clueFragment": "non-stop",
+      "note": "second meaning: an adjective for a fast train or service with no stops"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as an order to talk without pausing; really it is two unrelated senses of one word.",
+     "definitionFit": "To express a thought is to voice it, and an express train runs through without stopping."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "non-stop"
+    }
+   }
   },
   {
    "number": 17,
@@ -330,7 +1134,49 @@
     "text": "Work in musical drama, note",
     "enumeration": "7"
    },
-   "solution": "OPERATE"
+   "solution": "OPERATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPERATE",
+    "definitions": [
+     {
+      "text": "Work",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "musical drama",
+      "gives": "OPERA",
+      "note": "an opera is a drama set to music"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "TE",
+      "note": "te is the seventh note of the sol-fa scale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OPERA",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A singer's job in an opera, perhaps hitting one note.",
+     "definitionFit": "To operate is to function or run, as a machine works."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Work"
+    }
+   }
   },
   {
    "number": 18,
@@ -344,7 +1190,50 @@
     "text": "Sappers reportedly go free",
     "enumeration": "7"
    },
-   "solution": "RELIEVE"
+   "solution": "RELIEVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "RELIEVE",
+    "definitions": [
+     {
+      "text": "free",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as people say it, so the spoken form is what counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sappers",
+      "gives": "RE",
+      "note": "the Royal Engineers, whose soldiers are called sappers"
+     },
+     {
+      "clueFragment": "go",
+      "gives": "LIEVE",
+      "soundsLike": "LEAVE",
+      "note": "to go is to leave; the spelling changes but the sound stays"
+     }
+    ],
+    "explanation": {
+     "surface": "Army engineers are said to be released from duty.",
+     "walkthrough": "RE is the Royal Engineers, a British army corps whose soldiers are sappers. RE plus a word sounding like 'leave' gives RELIEVE.",
+     "definitionFit": "To relieve someone of a burden is to free them from it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sappers"
+    }
+   }
   },
   {
    "number": 19,
@@ -358,7 +1247,71 @@
     "text": "High value head of expedition placed on climbing experiences",
     "enumeration": "6"
    },
-   "solution": "ESTEEM"
+   "solution": "ESTEEM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "ESTEEM",
+    "definitions": [
+     {
+      "text": "High value",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     },
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "in a down clue climbing means read upwards, so the word runs backwards"
+     }
+    ],
+    "linkWords": [
+     "placed on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expedition",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter of expedition"
+     },
+     {
+      "clueFragment": "experiences",
+      "gives": "MEETS",
+      "note": "to meet with something is to experience it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "STEEM"
+     ],
+     "reversals": [
+      {
+       "from": "MEETS",
+       "to": "STEEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mountaineering party's leader prizes the experiences of climbing.",
+     "walkthrough": "'Placed on' in a down clue puts the E on top of the reversed word. 'Climbing' looks like the expedition's activity.",
+     "definitionFit": "Esteem is high regard, the value placed on someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "climbing"
+    }
+   }
   },
   {
    "number": 20,
@@ -372,7 +1325,59 @@
     "text": "Scallywag affected by school, at first",
     "enumeration": "5"
    },
-   "solution": "SCAMP"
+   "solution": "SCAMP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCAMP",
+    "definitions": [
+     {
+      "text": "Scallywag",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of the word just before it"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of school"
+     },
+     {
+      "clueFragment": "affected",
+      "gives": "CAMP",
+      "note": "camp means affected, theatrically exaggerated"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CAMP"
+     ]
+    },
+    "explanation": {
+     "surface": "A young rascal has been shaped by school from the start.",
+     "walkthrough": "'Affected' looks like 'influenced'; here it means mannered and showy.",
+     "definitionFit": "A scamp is a mischievous rascal, especially a child, just as a scallywag is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "affected"
+    }
+   }
   },
   {
    "number": 21,
@@ -386,7 +1391,57 @@
     "text": "Runs in a boy responsible for fire-raising",
     "enumeration": "5"
    },
-   "solution": "ARSON"
+   "solution": "ARSON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ARSON",
+    "definitions": [
+     {
+      "text": "fire-raising",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece within the words that follow it"
+     }
+    ],
+    "linkWords": [
+     "responsible for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a boy",
+      "gives": "ASON",
+      "note": "a is taken as written; a boy is a son"
+     },
+     {
+      "clueFragment": "Runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "SON"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy dashes about after starting a fire.",
+     "definitionFit": "Arson is the crime of deliberately setting fire to property, called fire-raising in Scots law."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Runs"
+    }
+   }
   },
   {
    "number": 22,
@@ -406,7 +1461,66 @@
      }
     ]
    },
-   "solution": "DIESELOIL"
+   "solution": "DIESELOIL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DIESEL OIL",
+    "definitions": [
+     {
+      "text": "Fuel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abroad",
+      "for": "anagram",
+      "note": "abroad means all over the place, so the letters are scattered into a new order"
+     },
+     {
+      "text": "stored in",
+      "for": "container",
+      "note": "something stored in another thing sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dollies",
+      "gives": "DOLLIES",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IE",
+      "SELOIL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DOLLIES",
+       "gives": "DSELOIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fuel kept in trolleys overseas.",
+     "definitionFit": "Diesel oil is the heavy petroleum fuel burnt in diesel engines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "abroad"
+    }
+   }
   },
   {
    "number": 23,
@@ -420,7 +1534,47 @@
     "text": "Oriental festival's name",
     "enumeration": "7"
    },
-   "solution": "EASTERN"
+   "solution": "EASTERN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EASTERN",
+    "definitions": [
+     {
+      "text": "Oriental",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "festival's",
+      "gives": "EASTER",
+      "note": "Easter is a Christian festival; the 's means 'has'"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is a standard abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EASTER",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking what an Eastern festival is called.",
+     "walkthrough": "The 's is read as 'has': the festival is followed by N.",
+     "definitionFit": "Oriental and eastern both describe things from Asia or the East."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Oriental"
+    }
+   }
   },
   {
    "number": 24,
@@ -434,7 +1588,75 @@
     "text": "A sin to devour a third of tiramisu - this one?",
     "enumeration": "7"
    },
-   "solution": "AVARICE"
+   "solution": "AVARICE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "AVARICE",
+    "definitions": [
+     {
+      "text": "this one",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "third of",
+      "for": "letter_selection",
+      "note": "a third of a word here means its third letter"
+     },
+     {
+      "text": "to devour",
+      "for": "container",
+      "note": "to devour something is to swallow it, so one word takes in another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sin",
+      "gives": "VICE",
+      "note": "a vice is a sin or moral failing"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tiramisu",
+      "gives": "R",
+      "select": 3,
+      "note": "third letter of tiramisu"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "V",
+      "AR",
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "Gobbling a chunk of tiramisu: which of the deadly sins is that?",
+     "walkthrough": "'A third of tiramisu' looks like a portion of the dessert; it is the word a plus the dessert's third letter. 'This one' means the sin the clue is about; gluttony is the false path, and the wordplay rules it out.",
+     "definitionFit": "Avarice, greed for wealth, is one of the seven deadly sins, so it is a sin of the kind named."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "third"
+    }
+   }
   },
   {
    "number": 25,
@@ -448,7 +1670,57 @@
     "text": "Comprehensive knowledge about working in a religious community",
     "enumeration": "9"
    },
-   "solution": "MONASTERY"
+   "solution": "MONASTERY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MONASTERY",
+    "definitions": [
+     {
+      "text": "religious community",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one word goes round another"
+     }
+    ],
+    "linkWords": [
+     "in a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Comprehensive knowledge",
+      "gives": "MASTERY",
+      "note": "mastery of a subject is thorough knowledge of it"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ON",
+      "ASTERY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone with deep learning working in a religious order.",
+     "definitionFit": "A monastery is the community of monks living together under religious vows, or their building."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 26,
@@ -462,7 +1734,52 @@
     "text": "Slip lead off dog fetching bird",
     "enumeration": "5"
    },
-   "solution": "EAGLE"
+   "solution": "EAGLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EAGLE",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Slip lead off",
+      "for": "deletion",
+      "note": "slipping a lead off removes the front, so the first letter goes"
+     }
+    ],
+    "linkWords": [
+     "fetching"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog",
+      "gives": "BEAGLE",
+      "note": "a beagle is a breed of hound"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAGLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog walker unclips the leash and the dog brings back a bird it caught.",
+     "walkthrough": "The 'lead' is a dog's leash in the surface, but here it means the leading letter.",
+     "definitionFit": "The eagle is a large bird of prey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lead"
+    }
+   }
   }
  ]
 }
