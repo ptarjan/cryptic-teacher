@@ -106,6 +106,15 @@ print("JOINRARE", F.join_lines("despite shad-", "owed"), "|", F.join_lines("do i
 zero = F.parse_clues("ACROSS\n1 Fabric (5)\n4 Show (5)\n5 Gear (5)\nD0WN\n"
                      "1 Fire (5)\n2 Child (5)\n3 Gets closer (5)\n")
 print("ZERO", " ".join(f"{n}{d[0]}" for c in zero["clues"] for n, d in c["lights"]))
+# No. 13,680: a linked head alone on its line, a light it leaves unsaid that its
+# stub lists in the other section, an enumeration broken at its hyphen.
+# No. 13,774: "(9’s 7)".
+apart = F.parse_clues("ACROSS\n1 Fabric (5)\n4 Show (3’s 2)\n5 See 2\nDOWN\n1 Fire (5)\n"
+                      "2, 5\nChild given a\ntent (4-\n1,5)\n3 Gets closer (5)\n")
+print("APART", " ".join(",".join(f"{n}{d[0]}" for n, d in c["lights"]) for c in apart["clues"]),
+      "|", " ".join(str(c["enumeration"]) for c in apart["clues"]),
+      "|", F.grid_matches(GRID, apart["clues"]))
+print("APARTCLUE", apart["clues"][4]["clue"])
 # No. 13,833 prints its note under the grid's numbers, above ACROSS.
 noted = F.parse_clues("CROSSWORD\nNo. 13,833 Set by GAFF\n1 2 3\n4\n10 solutions are connected to 11\n"
                       "across, which is unclued and 50\ntoday\nACROSS\n1 Fabric (5)\n4 See preamble (5)\n"
@@ -197,6 +206,9 @@ check "a word hyphenated to fit the line is rejoined; a compound keeps its hyphe
 check "a word rarer than its first half is still rejoined; two words that are no word keep the hyphen" \
   "despite shadowed | do it unacceptably | a level playing-field" "$(g JOINRARE)"
 check "a heading set with a zero, D0WN, still opens the down clues" "1a 4a 5a 1d 2d 3d" "$(g ZERO)"
+check "a linked head alone on its line opens the clue; its unsaid light takes its stub's section; (3’s 2) is an enumeration" \
+  "1a 4a 5a 1d 2d,5a 3d | 5 3’s 2 None 5 4-1,5 5 | None" "$(g APART)"
+check "a clue under a head-only line starts at its next line" "Child given a tent (4-1,5)" "$(g APARTCLUE)"
 
 check "an undated number takes a day only when the printing days between its neighbours are exactly the numbers" \
   "2010-06-12 2010-06-14 None" "$(g NEIGHBOUR)"
