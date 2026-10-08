@@ -8,12 +8,14 @@ const ROOT = require("path").join(__dirname, "..");
 const pp = require("./puzzle_paths");
 
 let failures = 0;
+const CTQuotes = require("../quotes.js");
 // The clue's words, without the enumeration; "" where the paper printed none.
+// Stored with straight quotes; the page curls them (printedClue).
 const clueText = (e) => e.clue.text || "";
 // An entry's id, "<number>-<direction>": the puzzle file stores none.
 const entryId = (e) => e.number + "-" + e.direction;
-// The line a solver reads: the words, then "(enumeration)" (app.js enumHTML).
-const printedClue = (e) => clueText(e) + (e.clue.enumeration
+// The line a solver reads: the words curled, then "(enumeration)" (app.js enumHTML).
+const printedClue = (e) => CTQuotes.curl(clueText(e)) + (e.clue.enumeration
   ? (clueText(e) ? " " : "") + "(" + e.clue.enumeration + ")" : "");
 // Returns the condition, so a check whose failure would crash the checks after it
 // can guard them: a stack trace stops the suite dead and hides every other result.

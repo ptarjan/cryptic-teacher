@@ -443,14 +443,33 @@ def held_by_content(series=SERIES):
     return held
 
 
+def filed_without_post(posted, series=SERIES):
+    """A record per puzzle on disk whose number no post in `posted` carries,
+    dated by its file. A post the parser no longer keeps (its entries now
+    outside PLAUSIBLE) leaves its filed puzzle a hole in print_dates; without
+    the file's own date as an anchor its neighbours were refitted onto the
+    same day."""
+    seen = {r["number"] for r in posted}
+    prefix = puzzle_path(series, 0).name.rsplit("-", 1)[0] + "-"
+    out = []
+    for path in puzzle_files():
+        if path.name.startswith(prefix):
+            p = read_puzzle_file(path)
+            if p.get("number") and p["number"] not in seen:
+                out.append({"number": p["number"],
+                            "date": series_meta.puzzle_day(p).isoformat()})
+    return out
+
+
 def file(write=True, limit=None):
     """File every grid row not yet in puzzles/, newest first; (filed, skipped)."""
     recs = {r["post_id"]: r for r in map(json.loads, (CACHE / "parsed.jsonl").open(encoding="utf-8"))}
     rows = [json.loads(line) for line in (CACHE / "grids.jsonl").open(encoding="utf-8")]
     rows.sort(key=lambda r: (r["date"], r["post_id"]), reverse=True)
     fits = ftp.sequence_window([r for r in recs.values() if r.get("number")])
-    dates = print_dates([r for r in recs.values()
-                         if r.get("number") and fits(r["date"], r["number"])])
+    posted = [r for r in recs.values()
+              if r.get("number") and fits(r["date"], r["number"])]
+    dates = print_dates(posted + filed_without_post(posted))
     claims = collections.Counter(r["number"] for r in recs.values() if r.get("number"))
     skipped, filed = collections.Counter(), []
     on_disk = None  # read only once a puzzle is built, which most nights none is
