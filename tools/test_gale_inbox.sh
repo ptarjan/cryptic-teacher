@@ -23,6 +23,8 @@ from pathlib import Path
 from PIL import Image
 import file_archive_org_puzzles as fa
 import gale_inbox as g
+# The Mac's own document cache must not leak in; CI has none.
+g.gale_docs.load = lambda cache=None: {}
 
 fails = 0
 def check(what, want, got):
@@ -163,7 +165,7 @@ g.usual_pages = lambda: {1988: (16, 24, 18)}
 rows = [(D(1987, 3, 2), "no-scan"), (D(1988, 1, 12), "no-scan"), (D(1988, 1, 13), "no-scan"),
         (D(1988, 1, 14), "no-scan")]
 LOG = Path(sys.argv[1]) / "set_aside.json"
-html = g.checklist(rows, cache, un, log=LOG)
+html = g.checklist(rows, cache, un, docs={"TTDA/1988-01-13": {"doc": "IF0502610073", "title": "Crossword", "page": 18, "records": ["IF0502610073"]}}, log=LOG)
 check("the worst year first", True, html.index("<b>1988</b>: 3 missing") < html.index("<b>1987</b>: 1 missing"))
 check("progress counts the files downloaded (2 for one date and 1 naming none) against those and the editions to go",
       True, '<b id="count">3 of 6</b> files downloaded, <span id="togo">3</span> to go' in html)
