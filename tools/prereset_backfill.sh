@@ -462,9 +462,6 @@ pool_drain() {
 pool_interval_start() {
   WAVE_FAILED_IDS=()
   POOL_DONE=0
-  POOL_BEFORE=$(python3 tools/weekly_usage.py 2>/dev/null || echo 0)
-  POOL_BEFORE_S=$(python3 tools/weekly_usage.py --group session 2>/dev/null || echo 0)
-  wide=$(wave_width)
   # The order is tools/prereset_plan.py --cover-first's (head_of_queue), which
   # re-sorts the whole of queue[at..], so what the re-read appends takes its
   # date's place. Cut-off puzzles stay first. Anything but a whole permutation
@@ -491,6 +488,11 @@ pool_interval_start() {
     [ "${#reordered[@]}" -eq $(( ${#queue[@]} - at )) ] \
       && queue=("${queue[@]:0:$at}" "${reordered[@]}")
   fi
+  # Read after the re-plan, which can take longer than a five-hour window has
+  # left on a loaded machine: the width launched is the one for now.
+  POOL_BEFORE=$(python3 tools/weekly_usage.py 2>/dev/null || echo 0)
+  POOL_BEFORE_S=$(python3 tools/weekly_usage.py --group session 2>/dev/null || echo 0)
+  wide=$(wave_width)
   pool_mark
   POOL_RUN_US=0
   POOL_STARTED_US=$POOL_MARK_US
