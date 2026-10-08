@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,42 @@
     "text": "Singer in musical, touring",
     "enumeration": "4"
    },
-   "solution": "ALTO"
+   "solution": "ALTO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ALTO",
+    "definitions": [
+     {
+      "text": "Singer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "'in' tells the solver the answer sits inside the words that follow, spanning a word break"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "musical, touring",
+      "gives": "ALTO",
+      "note": "the end of the first word runs into the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A performer goes on tour with a stage musical.",
+     "definitionFit": "An alto is a singer with a low female or high male voice range."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +85,48 @@
     "text": "Mysterious man, man of the church",
     "enumeration": "10"
    },
-   "solution": "ARCHBISHOP"
+   "solution": "ARCHBISHOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ARCHBISHOP",
+    "definitions": [
+     {
+      "text": "man of the church",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mysterious",
+      "gives": "ARCH",
+      "note": "arch means knowing, slyly mischievous"
+     },
+     {
+      "clueFragment": "man,",
+      "gives": "BISHOP",
+      "note": "a bishop is a chess piece, and chess pieces are called men"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARCH",
+      "BISHOP"
+     ]
+    },
+    "explanation": {
+     "surface": "An enigmatic figure turns out to be a cleric.",
+     "walkthrough": "The repeated 'man' misleads: the first is a chessman, the second part of the definition.",
+     "definitionFit": "An archbishop is a senior cleric ranking above bishops in a church hierarchy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "man"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +140,39 @@
     "text": "One giving better advice?",
     "enumeration": "7"
    },
-   "solution": "TIPSTER"
+   "solution": "TIPSTER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TIPSTER",
+    "definitions": [
+     {
+      "text": "One giving better advice?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One giving better advice?",
+      "note": "surface reading: someone whose counsel is superior to others'"
+     },
+     {
+      "clueFragment": "better",
+      "note": "setter's reading: a better is one who bets, so this is someone advising gamblers"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Better' reads as the comparative of good, but here it is a noun: a person who places bets.",
+     "definitionFit": "A tipster sells or offers predictions to people gambling on races and other events."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "better"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +192,64 @@
      }
     ]
    },
-   "solution": "NOBELPRIZE"
+   "solution": "NOBELPRIZE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "NOBEL PRIZE",
+    "definitions": [
+     {
+      "text": "international award",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the two letters inside the name of the country that follows"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Central American country",
+      "gives": "BELIZE",
+      "note": "Belize is a country in Central America"
+     },
+     {
+      "clueFragment": "PR",
+      "gives": "PR",
+      "note": "taken as written, the abbreviation for public relations"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "BEL",
+      "PR",
+      "IZE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Central American nation is denied publicity ahead of a global prize.",
+     "definitionFit": "The Nobel Prizes are awarded internationally each year for achievements in science, literature and peace."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "PR"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +263,46 @@
     "text": "Peculiar periodic social event",
     "enumeration": "7"
    },
-   "solution": "ODDBALL"
+   "solution": "ODDBALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ODDBALL",
+    "definitions": [
+     {
+      "text": "Peculiar",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "periodic",
+      "gives": "ODD",
+      "note": "odd as in occasional, now and then, as in 'the odd visit'"
+     },
+     {
+      "clueFragment": "social event",
+      "gives": "BALL",
+      "note": "a ball is a formal dance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ODD",
+      "BALL"
+     ]
+    },
+    "explanation": {
+     "surface": "A strange gathering held every so often.",
+     "definitionFit": "Used as an adjective, oddball describes something eccentric or strange."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "periodic"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +316,45 @@
     "text": "Non-stop, but with no purpose?",
     "enumeration": "7"
    },
-   "solution": "ENDLESS"
+   "solution": "ENDLESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ENDLESS",
+    "definitions": [
+     {
+      "text": "Non-stop",
+      "at": 0
+     },
+     {
+      "text": "with no purpose",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Non-stop",
+      "note": "first meaning: never ceasing"
+     },
+     {
+      "clueFragment": "with no purpose",
+      "note": "second, cryptic meaning: an end is an aim, so lacking one is to be without an aim"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the second reading, which splits the word into its parts: an end is a goal, and -less means without.",
+     "definitionFit": "Something that never stops is limitless; read literally, the word means lacking a goal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +380,72 @@
      }
     ]
    },
-   "solution": "PANTOMIMEHORSE"
+   "solution": "PANTOMIMEHORSE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PANTOMIME HORSE",
+    "definitions": [
+     {
+      "text": "Christmas show character",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spookily",
+      "for": "anagram",
+      "note": "doing something spookily is doing it weirdly, so the letters come out in an eerie new order"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "only the final letter of the named word is taken"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the jumbled letters are set to surround the single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I metamorphose",
+      "gives": "IMETAMORPHOSE",
+      "note": "taken as written, for rearranging"
+     },
+     {
+      "clueFragment": "Aladdin",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter of the pantomime title"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PANTOMIMEHORSE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IMETAMORPHOSEN",
+       "gives": "PANTOMIMEHORSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor in a Christmas show announces an eerie transformation during Aladdin.",
+     "walkthrough": "Pantomime is the British Christmas-season family theatre, with shows like Aladdin; the jumbled letters wrap round the N.",
+     "definitionFit": "A pantomime horse, two actors in one costume, is a stock comic figure in these festive stage shows."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "metamorphose"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +459,55 @@
     "text": "One with a cold manner in charge on English mountain",
     "enumeration": "7"
    },
-   "solution": "ICEBERG"
+   "solution": "ICEBERG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ICEBERG",
+    "definitions": [
+     {
+      "text": "One with a cold manner",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in charge",
+      "gives": "IC",
+      "note": "IC is the abbreviation for in charge"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "mountain",
+      "gives": "BERG",
+      "note": "berg is a mountain, as in the South African word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IC",
+      "E",
+      "BERG"
+     ]
+    },
+    "explanation": {
+     "surface": "A frosty person is put in command on a peak in England.",
+     "definitionFit": "Figuratively, an iceberg is a person who is aloof and emotionally chilly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +521,50 @@
     "text": "Docked in good time for nobleman",
     "enumeration": "4"
    },
-   "solution": "EARL"
+   "solution": "EARL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EARL",
+    "definitions": [
+     {
+      "text": "nobleman",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Docked",
+      "for": "deletion",
+      "note": "a docked tail is cut short, so the final letter is removed"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in good time",
+      "gives": "EARLY",
+      "note": "arriving in good time is arriving ahead of schedule"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EARL"
+     ]
+    },
+    "explanation": {
+     "surface": "A boat moored promptly, carrying an aristocrat.",
+     "definitionFit": "An earl is a British peer ranking between a marquess and a viscount."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Docked"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +584,70 @@
      }
     ]
    },
-   "solution": "PAVEMENTARTIST"
+   "solution": "PAVEMENTARTIST",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "PAVEMENT ARTIST",
+    "definitions": [
+     {
+      "text": "Painter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unexpectedly",
+      "for": "anagram",
+      "note": "something turning out unexpectedly comes out in an unforeseen order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quiet",
+      "gives": "P",
+      "note": "p (piano) is the musical marking for quiet"
+     },
+     {
+      "clueFragment": "little avenue",
+      "gives": "AVE",
+      "note": "Ave is the short form of avenue"
+     },
+     {
+      "clueFragment": "met Tristan",
+      "gives": "METTRISTAN",
+      "note": "taken as written, for rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "AVE",
+      "MENTARTIST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "METTRISTAN",
+       "gives": "MENTARTIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An artist on a quiet little street happens upon Tristan.",
+     "walkthrough": "'Painter' could be any artist; the anagram fixes the street-side kind.",
+     "definitionFit": "A pavement artist draws pictures in chalk on the sidewalk, usually for coins from passers-by."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tristan"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +661,52 @@
     "text": "Policeman left with US composer",
     "enumeration": "7"
    },
-   "solution": "COPLAND"
+   "solution": "COPLAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COPLAND",
+    "definitions": [
+     {
+      "text": "US composer",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Policeman",
+      "gives": "COP",
+      "note": "a cop is a police officer"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "and joins things, as with does"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COP",
+      "L",
+      "AND"
+     ]
+    },
+    "explanation": {
+     "surface": "An officer departs in the company of an American musician.",
+     "definitionFit": "Aaron Copland was an American composer, known for Appalachian Spring and Fanfare for the Common Man."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +720,51 @@
     "text": "Nursed a poorly man like Fonteyn's partner?",
     "enumeration": "7"
    },
-   "solution": "DANSEUR"
+   "solution": "DANSEUR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DANSEUR",
+    "definitions": [
+     {
+      "text": "man like Fonteyn's partner",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "poorly",
+      "for": "anagram",
+      "note": "something poorly is in bad shape, so the letters are out of their proper order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nursed a",
+      "gives": "NURSEDA",
+      "note": "taken as written, for rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NURSEDA",
+       "gives": "DANSEUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sick man was cared for, perhaps the ballerina's dance partner.",
+     "walkthrough": "Margot Fonteyn's famous partner was Rudolf Nureyev, a male ballet dancer.",
+     "definitionFit": "Danseur is the French-derived term for a male ballet dancer, the role Nureyev filled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Nursed"
+    }
+   }
   },
   {
    "number": 12,
@@ -239,7 +792,39 @@
      }
     ]
    },
-   "solution": "BYTHESAMETOKEN"
+   "solution": "BYTHESAMETOKEN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BY THE SAME TOKEN",
+    "definitions": [
+     {
+      "text": "in addition",
+      "at": 46
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Subject to its value, how books may be bought",
+      "note": "first meaning, cryptic: a book token is spent on books up to its face value"
+     },
+     {
+      "clueFragment": "in addition",
+      "note": "second meaning: likewise, for the same reason"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A book token is a gift voucher exchangeable for books, popular in Britain; the phrase is read literally for the first meaning.",
+     "definitionFit": "The idiom introduces a further point that follows equally, much like also or similarly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "value"
+    }
+   }
   },
   {
    "number": 13,
@@ -259,7 +844,49 @@
      }
     ]
    },
-   "solution": "GRASSROOTS"
+   "solution": "GRASSROOTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRASS ROOTS",
+    "definitions": [
+     {
+      "text": "the rank and file",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Betray",
+      "gives": "GRASS",
+      "note": "to grass is British slang for informing on someone"
+     },
+     {
+      "clueFragment": "radicals",
+      "gives": "ROOTS",
+      "note": "radical comes from the Latin for root; in maths a radical is a root"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRASS",
+      "ROOTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Extremists in the ordinary membership are informed upon.",
+     "definitionFit": "The grass roots are the ordinary members of a party or movement, as opposed to its leaders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "radicals"
+    }
+   }
   },
   {
    "number": 14,
@@ -273,7 +900,66 @@
     "text": "Dreamlike, a 50 after county side comes up short",
     "enumeration": "7"
    },
-   "solution": "SURREAL"
+   "solution": "SURREAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SURREAL",
+    "definitions": [
+     {
+      "text": "Dreamlike",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "comes up short",
+      "for": "deletion",
+      "note": "falling short means missing the end, so the last letter goes"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "'after' puts the first pieces behind the county piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "county side",
+      "gives": "SURREY",
+      "note": "Surrey is a county south of London, and also its county cricket side"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "50",
+      "gives": "L",
+      "note": "L is the Roman numeral for 50"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SURRE",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket team scores a half-century but still falls short.",
+     "walkthrough": "Surrey is an English county that fields a county cricket team; 'a 50' sounds like a batting score.",
+     "definitionFit": "Surreal means bizarre and irrational, with the strange quality of a dream."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "50"
+    }
+   }
   },
   {
    "number": 15,
@@ -287,7 +973,62 @@
     "text": "26, perhaps, eating last of fruit cocktail",
     "enumeration": "7"
    },
-   "solution": "STINGER"
+   "solution": "STINGER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STINGER",
+    "definitions": [
+     {
+      "text": "cocktail",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "eating takes something inside, so one piece swallows the other"
+     },
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "only the final letter of the following word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "26, perhaps",
+      "gives": "SINGER",
+      "note": "26-across is a bass, which is one kind of singer"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "T",
+      "INGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A fish, perhaps, eating the remains of a fruit cocktail.",
+     "walkthrough": "The cross-reference points to the fish, but its other meaning, a deep male voice, is the one needed.",
+     "definitionFit": "A stinger is a mixed drink of brandy and white crème de menthe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "26"
+    }
+   }
   },
   {
    "number": 16,
@@ -301,7 +1042,54 @@
     "text": "Said about part circling a large city",
     "enumeration": "7"
    },
-   "solution": "ORBITAL"
+   "solution": "ORBITAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ORBITAL",
+    "definitions": [
+     {
+      "text": "circling a large city",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' means surrounding, so the first word goes around the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Said",
+      "gives": "ORAL",
+      "note": "oral means spoken"
+     },
+     {
+      "clueFragment": "part",
+      "gives": "BIT",
+      "note": "a bit is a part or piece"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "BIT",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A section said to ring a big metropolis.",
+     "definitionFit": "An orbital road is a ring road around a city, as the M25 encircles London."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Said"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1103,50 @@
     "text": "Money that is found in old wood",
     "enumeration": "7"
    },
-   "solution": "BRASSIE"
+   "solution": "BRASSIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRASSIE",
+    "definitions": [
+     {
+      "text": "old wood",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "found in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Money",
+      "gives": "BRASS",
+      "note": "brass is British slang for money"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRASS",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "Cash discovered in an ancient forest.",
+     "walkthrough": "'Wood' means not a forest but a golf club with a wooden head.",
+     "definitionFit": "A brassie was a traditional golf club, equivalent to the modern two-wood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "wood"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1160,57 @@
     "text": "Toboggan full of crack in suitcases",
     "enumeration": "7"
    },
-   "solution": "LUGGAGE"
+   "solution": "LUGGAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LUGGAGE",
+    "definitions": [
+     {
+      "text": "suitcases",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "full of",
+      "for": "container",
+      "note": "something full of another thing holds it inside"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Toboggan",
+      "gives": "LUGE",
+      "note": "a luge is a racing sled"
+     },
+     {
+      "clueFragment": "crack",
+      "gives": "GAG",
+      "note": "a crack is a wisecrack, a joke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LUG",
+      "GAG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A sled crammed with something cracked inside some cases.",
+     "definitionFit": "Luggage is the collective word for bags and cases taken on a journey."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crack"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1224,50 @@
     "text": "Mother's broken flask",
     "enumeration": "7"
    },
-   "solution": "THERMOS"
+   "solution": "THERMOS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THERMOS",
+    "definitions": [
+     {
+      "text": "flask",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "a broken thing is in pieces that can be put together differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mother's",
+      "gives": "MOTHERS",
+      "note": "taken as written, the possessive S included"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MOTHERS",
+       "gives": "THERMOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mum's vacuum flask has been smashed.",
+     "definitionFit": "Thermos is the brand name that became the general word for a vacuum flask."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broken"
+    }
+   }
   },
   {
    "number": 19,
@@ -357,7 +1281,54 @@
     "text": "Young child in red, told off",
     "enumeration": "7"
    },
-   "solution": "TODDLER"
+   "solution": "TODDLER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TODDLER",
+    "definitions": [
+     {
+      "text": "Young child",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "'off' suggests going wrong or bad, so the letters are disordered"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "red, told",
+      "gives": "REDTOLD",
+      "note": "taken as written, for rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REDTOLD",
+       "gives": "TODDLER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A little one dressed in red gets scolded.",
+     "walkthrough": "'Told off' reads as scolded, but 'told' belongs to the fodder and 'off' is the signal.",
+     "definitionFit": "A toddler is a child just learning to walk, typically one to three years old."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 20,
@@ -371,7 +1342,58 @@
     "text": "Wise man's headgear held by mother",
     "enumeration": "7"
    },
-   "solution": "MAHATMA"
+   "solution": "MAHATMA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MAHATMA",
+    "definitions": [
+     {
+      "text": "Wise man",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held by",
+      "for": "container",
+      "note": "being held by something means sitting within its grasp"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mother",
+      "gives": "MAMA",
+      "note": "mama is a familiar word for mother"
+     },
+     {
+      "clueFragment": "headgear",
+      "gives": "HAT",
+      "note": "a hat is headgear"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "HAT",
+      "MA"
+     ]
+    },
+    "explanation": {
+     "surface": "A sage's cap is kept by his mum.",
+     "walkthrough": "The 's stands for 'has', linking definition to wordplay.",
+     "definitionFit": "Mahatma, Sanskrit for great soul, is an Indian title of reverence for a sage, as with Gandhi."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "headgear"
+    }
+   }
   },
   {
    "number": 21,
@@ -391,7 +1413,51 @@
      }
     ]
    },
-   "solution": "FAIRYGODMOTHER"
+   "solution": "FAIRYGODMOTHER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FAIRY GODMOTHER",
+    "definitions": [
+     {
+      "text": "Generous supporter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrong",
+      "for": "anagram",
+      "note": "putting something wrong means getting it into the incorrect order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of mayor righted",
+      "gives": "OFMAYORRIGHTED",
+      "note": "taken as written, for rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OFMAYORRIGHTED",
+       "gives": "FAIRYGODMOTHER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A benefactor of the mayor puts a wrong to rights.",
+     "walkthrough": "'Supporter of mayor' looks like the definition; 'of' belongs to the fodder instead.",
+     "definitionFit": "A fairy godmother, from Cinderella, is anyone who unexpectedly provides help or money."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "righted"
+    }
+   }
   },
   {
    "number": 22,
@@ -405,7 +1471,52 @@
     "text": "Prophet, a second son",
     "enumeration": "4"
    },
-   "solution": "AMOS"
+   "solution": "AMOS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMOS",
+    "definitions": [
+     {
+      "text": "Prophet",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "MO",
+      "note": "a mo is a moment, a second"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MO",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A seer and his younger boy.",
+     "definitionFit": "Amos was a Hebrew prophet, with a book of the Old Testament named after him."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 23,
@@ -419,7 +1530,52 @@
     "text": "Chaotic state of affairs in a Sicilian port",
     "enumeration": "7"
    },
-   "solution": "MESSINA"
+   "solution": "MESSINA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MESSINA",
+    "definitions": [
+     {
+      "text": "Sicilian port",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chaotic state of affairs",
+      "gives": "MESS",
+      "note": "a mess is a disorderly situation"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MESS",
+      "IN",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Things are in disarray in a harbour town in Sicily.",
+     "definitionFit": "Messina is a port city in north-east Sicily, on the strait facing mainland Italy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Chaotic"
+    }
+   }
   },
   {
    "number": 24,
@@ -433,7 +1589,51 @@
     "text": "Country hotel, so in need of refurbishment",
     "enumeration": "7"
    },
-   "solution": "LESOTHO"
+   "solution": "LESOTHO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LESOTHO",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in need of refurbishment",
+      "for": "anagram",
+      "note": "something needing refurbishment must be rebuilt and put back together differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hotel, so",
+      "gives": "HOTELSO",
+      "note": "taken as written, for rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HOTELSO",
+       "gives": "LESOTHO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rural inn so run down it needs doing up.",
+     "walkthrough": "'Country hotel' reads as one phrase, but 'Country' alone is the definition.",
+     "definitionFit": "Lesotho is a landlocked kingdom entirely surrounded by South Africa."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Country"
+    }
+   }
   },
   {
    "number": 25,
@@ -447,7 +1647,47 @@
     "text": "Dear dessert? Pity",
     "enumeration": "10"
    },
-   "solution": "SWEETHEART"
+   "solution": "SWEETHEART",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SWEETHEART",
+    "definitions": [
+     {
+      "text": "Dear",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dessert",
+      "gives": "SWEET",
+      "note": "in Britain a sweet is a pudding or dessert"
+     },
+     {
+      "clueFragment": "Pity",
+      "gives": "HEART",
+      "note": "heart means compassion, as in 'have a heart'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWEET",
+      "HEART"
+     ]
+    },
+    "explanation": {
+     "surface": "An expensive pudding is a shame.",
+     "walkthrough": "'Dear dessert' suggests a costly pudding; 'Dear' is a term of endearment.",
+     "definitionFit": "Both are affectionate forms of address for a loved one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dear"
+    }
+   }
   },
   {
    "number": 26,
@@ -461,7 +1701,52 @@
     "text": "Fish, black when small",
     "enumeration": "4"
    },
-   "solution": "BASS"
+   "solution": "BASS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BASS",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "B is the abbreviation for black, as on pencils"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as can mean while or when"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small, as on clothing labels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "AS",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A fish that is dark while it is young.",
+     "definitionFit": "The bass is a spiny-finned fish caught both in the sea and in fresh water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "when"
+    }
+   }
   }
  ]
 }
