@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,59 @@
     "text": "One regarded with contempt in back of Swiss taxi",
     "enumeration": "4"
    },
-   "solution": "SCAB"
+   "solution": "SCAB",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCAB",
+    "definitions": [
+     {
+      "text": "One regarded with contempt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back of",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter, so only the end of the next word is kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swiss",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of Swiss"
+     },
+     {
+      "clueFragment": "taxi",
+      "gives": "CAB",
+      "note": "a cab is a taxi"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CAB"
+     ]
+    },
+    "explanation": {
+     "surface": "A despised passenger sits in the back of a Swiss taxi.",
+     "walkthrough": "A scab is a strikebreaker, a figure of contempt to fellow workers.",
+     "definitionFit": "Scab is a contemptuous insult for a strikebreaker or any despicable person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +102,43 @@
     "text": "Harlequin's sweetheart's flowers",
     "enumeration": "10"
    },
-   "solution": "COLUMBINES"
+   "solution": "COLUMBINES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COLUMBINES",
+    "definitions": [
+     {
+      "text": "Harlequin's sweetheart's",
+      "at": 0
+     },
+     {
+      "text": "flowers",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Harlequin's sweetheart's",
+      "note": "first meaning: belonging to Columbine, Harlequin's lover in the commedia dell'arte, with the possessive ending"
+     },
+     {
+      "clueFragment": "flowers",
+      "note": "second meaning: plural of a garden plant also called aquilegia"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The possessive form of the pantomime character's name and the plural of the flower are spelt the same, apart from the apostrophe, which crosswords ignore.",
+     "definitionFit": "Columbine is Harlequin's beloved in pantomime and commedia, and also the name of an aquilegia flower."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flowers"
+    }
+   }
   },
   {
    "number": 3,
@@ -71,7 +162,61 @@
      }
     ]
    },
-   "solution": "BECAUSEITSTHERE"
+   "solution": "BECAUSEITSTHERE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "BECAUSE ITS THERE",
+    "definitions": [
+     {
+      "text": "Reason given for climbing Everest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "'out' suggests something put out of order, so the preceding words are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as",
+      "gives": "BECAUSE",
+      "note": "'as' in the sense of since or for the reason that"
+     },
+     {
+      "clueFragment": "I test her",
+      "gives": "ITSTHERE",
+      "note": "these eight letters are rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BECAUSE",
+      "ITSTHERE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITESTHER",
+       "gives": "ITSTHERE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A climber justifies tackling Everest while putting a woman through some kind of trial.",
+     "walkthrough": "'Because it's there' is George Mallory's famous reply when asked why he wanted to climb Everest.",
+     "definitionFit": "Mallory's quoted answer to the question of why he attempted the mountain is exactly this phrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "as"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +230,54 @@
     "text": "Clergyman, one in important church",
     "enumeration": "8"
    },
-   "solution": "MINISTER"
+   "solution": "MINISTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MINISTER",
+    "definitions": [
+     {
+      "text": "Clergyman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the first item inside the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral for one"
+     },
+     {
+      "clueFragment": "important church",
+      "gives": "MINSTER",
+      "note": "a minster is a large or important church, such as York Minster"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIN",
+      "I",
+      "STER"
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman serving at a major cathedral.",
+     "definitionFit": "A minister is a member of the clergy, especially in Protestant churches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +291,56 @@
     "text": "'elpful tips about more discourteous gatecrashers",
     "enumeration": "9"
    },
-   "solution": "INTRUDERS"
+   "solution": "INTRUDERS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "INTRUDERS",
+    "definitions": [
+     {
+      "text": "gatecrashers",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' means surrounding, so the first item wraps round the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "'elpful tips",
+      "gives": "INTS",
+      "note": "helpful tips are hints, and the apostrophe in 'elpful drops the H in the same Cockney way"
+     },
+     {
+      "clueFragment": "more discourteous",
+      "gives": "RUDER",
+      "note": "comparative of rude"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INT",
+      "RUDER",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Cockney-sounding advice about dealing with ruder people turning up uninvited.",
+     "walkthrough": "The dropped H of 'elpful is a signal to drop the H of the synonym too: 'INTS.",
+     "definitionFit": "Intruders are people who enter without invitation, just as gatecrashers do at a party."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tips"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +368,53 @@
      }
     ]
    },
-   "solution": "ITTAKESALLSORTS"
+   "solution": "ITTAKESALLSORTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IT TAKES ALL SORTS",
+    "definitions": [
+     {
+      "text": "people have different opinions",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for a change",
+      "for": "anagram",
+      "note": "making a change to the letters means putting them into a new order"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Talks to realists",
+      "gives": "TALKSTOREALISTS",
+      "note": "all fifteen letters are rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TALKSTOREALISTS",
+       "gives": "ITTAKESALLSORTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries a conversation with pragmatists for once, since opinions vary.",
+     "definitionFit": "The proverb 'it takes all sorts' tolerantly accepts that people differ in views and tastes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +428,54 @@
     "text": "Row right after cup game",
     "enumeration": "4"
    },
-   "solution": "TIER"
+   "solution": "TIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TIER",
+    "definitions": [
+     {
+      "text": "Row",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "'after' puts the first item behind the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cup game",
+      "gives": "TIE",
+      "note": "a cup tie is a knockout match in a cup competition"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A row breaks out right after a cup match.",
+     "walkthrough": "'Row' looks like a quarrel; here it is a line of seats. A cup tie is a British football knockout match.",
+     "definitionFit": "A tier is one row in a set of rising rows, as of seats in a stadium."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Row"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +489,41 @@
     "text": "Merit a percentage",
     "enumeration": "4"
    },
-   "solution": "RATE"
+   "solution": "RATE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RATE",
+    "definitions": [
+     {
+      "text": "Merit",
+      "at": 0
+     },
+     {
+      "text": "a percentage",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Merit",
+      "note": "first meaning: to deserve or be worth"
+     },
+     {
+      "clueFragment": "a percentage",
+      "note": "second meaning: a proportion, as in an interest figure"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The verb sense is to deserve, as in 'it doesn't rate a mention'; the noun is a proportion such as an interest rate.",
+     "definitionFit": "To rate is to deserve something, and a rate is a measured proportion like a percentage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +537,50 @@
     "text": "Male donkey's load",
     "enumeration": "4"
    },
-   "solution": "MASS"
+   "solution": "MASS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MASS",
+    "definitions": [
+     {
+      "text": "load",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     },
+     {
+      "clueFragment": "donkey",
+      "gives": "ASS",
+      "note": "an ass is a donkey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ASS"
+     ]
+    },
+    "explanation": {
+     "surface": "A jack donkey's burden.",
+     "walkthrough": "The 's is not a possessive but 'is', joining wordplay to definition.",
+     "definitionFit": "A mass is a large quantity or heap, as in a mass of paperwork, which is a load."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "load"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +594,50 @@
     "text": "Slow turtle can, surprisingly",
     "enumeration": "9"
    },
-   "solution": "RELUCTANT"
+   "solution": "RELUCTANT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RELUCTANT",
+    "definitions": [
+     {
+      "text": "Slow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surprisingly",
+      "for": "anagram",
+      "note": "something happening surprisingly turns out unexpected, so the letters come out in an unexpected order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "turtle can",
+      "gives": "TURTLECAN",
+      "note": "these nine letters are rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TURTLECAN",
+       "gives": "RELUCTANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slow animal surprisingly manages something.",
+     "definitionFit": "Reluctant means unwilling, and slow is used in that sense, as in slow to agree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +651,51 @@
     "text": "Disease caused by insects? Not originally",
     "enumeration": "7"
    },
-   "solution": "RICKETS"
+   "solution": "RICKETS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RICKETS",
+    "definitions": [
+     {
+      "text": "Disease",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not originally",
+      "for": "deletion",
+      "note": "not having the original letter means the first one is taken away"
+     }
+    ],
+    "linkWords": [
+     "caused by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "insects",
+      "gives": "CRICKETS",
+      "note": "crickets are chirping insects"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RICKETS"
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether some illness is spread by insects.",
+     "walkthrough": "Remove the C from CRICKETS. The question mark flags that the insects are wordplay, not a cause.",
+     "definitionFit": "Rickets is a bone-softening condition in children caused by vitamin D deficiency."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caused"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +709,54 @@
     "text": "Article on daily crime",
     "enumeration": "5"
    },
-   "solution": "THEFT"
+   "solution": "THEFT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THEFT",
+    "definitions": [
+     {
+      "text": "crime",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a across clue 'on' means placed next to, one item followed by the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "daily",
+      "gives": "FT",
+      "note": "the Financial Times, a daily newspaper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "FT"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper story about everyday crime.",
+     "walkthrough": "'Article' suggests a news story, but it is the grammatical article; 'daily' is the newspaper FT.",
+     "definitionFit": "Theft, the act of stealing, is a criminal offence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Article"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +776,45 @@
      }
     ]
    },
-   "solution": "COMEUNSTUCK"
+   "solution": "COMEUNSTUCK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COME UNSTUCK",
+    "definitions": [
+     {
+      "text": "Lose one's grip",
+      "at": 0
+     },
+     {
+      "text": "experience a setback",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lose one's grip",
+      "note": "first meaning, literal: to become detached, as glue fails"
+     },
+     {
+      "clueFragment": "experience a setback",
+      "note": "second meaning, figurative: to fail or run into trouble"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The literal sense of something peeling away and the idiom for things going wrong share the same phrase.",
+     "definitionFit": "The idiom describes a plan or person meeting failure, while literally it is losing adhesion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +828,61 @@
     "text": "Musicians strum, first to last enthralling boy",
     "enumeration": "10"
    },
-   "solution": "TRUMPETERS"
+   "solution": "TRUMPETERS",
+   "annotation": {
+    "type": [
+     "cycling",
+     "container"
+    ],
+    "answer": "TRUMPETERS",
+    "definitions": [
+     {
+      "text": "Musicians",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first to last",
+      "for": "cycling",
+      "note": "moving the first letter to the end shifts the word along by one place"
+     },
+     {
+      "text": "enthralling",
+      "for": "container",
+      "note": "to enthral is to hold captive, so one item holds another inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strum",
+      "gives": "TRUMS",
+      "note": "the leading S moves to the back"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "PETER",
+      "note": "a boy's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRUM",
+      "PETER",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Musicians playing guitars captivate a young lad.",
+     "walkthrough": "'Strum' sits in the surface as what musicians do, but it is only raw letters to be shifted.",
+     "definitionFit": "Trumpeters are musicians who play the trumpet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "strum"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +896,56 @@
     "text": "I had contracted to appear in competition easy to see",
     "enumeration": "7"
    },
-   "solution": "EVIDENT"
+   "solution": "EVIDENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EVIDENT",
+    "definitions": [
+     {
+      "text": "easy to see",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to appear in",
+      "for": "container",
+      "note": "something appearing in an event goes inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I had contracted",
+      "gives": "ID",
+      "note": "I had shortened to I'd"
+     },
+     {
+      "clueFragment": "competition",
+      "gives": "EVENT",
+      "note": "an event is a sporting competition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EV",
+      "ID",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone signed up to compete in an event that looks like a walkover.",
+     "walkthrough": "'Contracted' reads as signed up to a deal; it means shortened, I had becoming I'd, which sits inside EVENT.",
+     "definitionFit": "Evident means plain or obvious, clearly visible to anyone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "contracted"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +959,62 @@
     "text": "Taste before gathering in fruit",
     "enumeration": "9"
    },
-   "solution": "TANGERINE"
+   "solution": "TANGERINE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TANGERINE",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gathering",
+      "for": "container",
+      "note": "gathering means collecting up, so one item takes another into itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Taste",
+      "gives": "TANG",
+      "note": "a tang is a sharp taste"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "ERE",
+      "note": "ere is an old poetic word for before"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TANG",
+      "ER",
+      "IN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Having a taste before picking fruit.",
+     "walkthrough": "'Before' looks like a positional instruction, but it is the archaic word ere.",
+     "definitionFit": "A tangerine is a small citrus fruit like a mandarin orange."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gathering"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1028,48 @@
     "text": "Makes certain criticisms once leader's gone",
     "enumeration": "7"
    },
-   "solution": "ENSURES"
+   "solution": "ENSURES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ENSURES",
+    "definitions": [
+     {
+      "text": "Makes certain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "once leader's gone",
+      "for": "deletion",
+      "note": "when the leader has gone the opening letter is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "criticisms",
+      "gives": "CENSURES",
+      "note": "censures are formal rebukes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENSURES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone makes sure of certain criticisms after the boss departs.",
+     "walkthrough": "Drop the C of CENSURES.",
+     "definitionFit": "To ensure something is to make certain it happens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader's"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1083,65 @@
     "text": "Sit around then by piano, in a place where youngsters can play",
     "enumeration": "7"
    },
-   "solution": "SANDPIT"
+   "solution": "SANDPIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SANDPIT",
+    "definitions": [
+     {
+      "text": "a place where youngsters can play",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "'around' means the first item surrounds what follows"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "then",
+      "gives": "AND",
+      "note": "'and' in the sense of and then, next"
+     },
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "p is the musical abbreviation for piano, softly"
+     },
+     {
+      "clueFragment": "Sit",
+      "gives": "SIT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AND",
+      "P",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "Children sit about by a piano somewhere they can play.",
+     "walkthrough": "'By' only places the piano next to 'then'; both go inside the first word.",
+     "definitionFit": "A sandpit is a box of sand in a garden or playground for children to play in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "piano"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1155,58 @@
     "text": "Very small weapon brought outside in temper",
     "enumeration": "7"
    },
-   "solution": "SWEETEN"
+   "solution": "SWEETEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SWEETEN",
+    "definitions": [
+     {
+      "text": "temper",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought outside",
+      "for": "container",
+      "note": "something brought outside another goes round it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very small",
+      "gives": "WEE",
+      "note": "wee is Scottish for small"
+     },
+     {
+      "clueFragment": "weapon",
+      "gives": "STEN",
+      "note": "the Sten is a British submachine gun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WEE",
+      "TEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny gun is brandished outdoors in a rage.",
+     "walkthrough": "'Temper' looks like anger; it is the verb meaning to moderate. A Sten is a British submachine gun.",
+     "definitionFit": "To temper is to soften or moderate, which is what sweetening does to something harsh."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "temper"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1220,58 @@
     "text": "King in card game brother cut",
     "enumeration": "7"
    },
-   "solution": "SOLOMON"
+   "solution": "SOLOMON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SOLOMON",
+    "definitions": [
+     {
+      "text": "King",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "cutting a word shortens it by trimming its end"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "card game",
+      "gives": "SOLO",
+      "note": "solo whist is a card game"
+     },
+     {
+      "clueFragment": "brother",
+      "gives": "MONK",
+      "note": "a monk is a brother in a religious order"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOLO",
+      "MON"
+     ]
+    },
+    "explanation": {
+     "surface": "A king playing cards while his brother is snubbed.",
+     "walkthrough": "MONK loses its last letter.",
+     "definitionFit": "Solomon was the biblical king of Israel famed for his wisdom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1295,39 @@
      }
     ]
    },
-   "solution": "THEBIGSLEEP"
+   "solution": "THEBIGSLEEP",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "THE BIG SLEEP",
+    "definitions": [
+     {
+      "text": "Novel associated with Rip Van Winkle?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Novel associated with Rip Van Winkle?",
+      "note": "surface reading: a book linked to the story of Washington Irving's character"
+     },
+     {
+      "clueFragment": "Novel associated with Rip Van Winkle?",
+      "note": "setter's reading: a Raymond Chandler title that describes a twenty-year nap"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Rip Van Winkle slept for twenty years; Chandler's detective novel's title fits that long slumber, though it means death.",
+     "definitionFit": "This is Raymond Chandler's 1939 Philip Marlowe novel, whose title suits an extremely long sleep."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Novel"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1341,60 @@
     "text": "Piece of news I came across after revolution",
     "enumeration": "4"
    },
-   "solution": "ITEM"
+   "solution": "ITEM",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ITEM",
+    "definitions": [
+     {
+      "text": "Piece of news",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after revolution",
+      "for": "reversal",
+      "note": "a revolution turns something round, so the word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "came across",
+      "gives": "MET",
+      "note": "to come across someone is to meet them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "TEM"
+     ],
+     "reversals": [
+      {
+       "from": "MET",
+       "to": "TEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reports a news story they found after an uprising.",
+     "definitionFit": "An item is a single report or story in a newspaper or bulletin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolution"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1408,59 @@
     "text": "Birch in centre of willowy wood",
     "enumeration": "4"
    },
-   "solution": "LASH"
+   "solution": "LASH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LASH",
+    "definitions": [
+     {
+      "text": "Birch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre of",
+      "for": "letter_selection",
+      "note": "the centre of a word is its middle letter, the only one kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "willowy",
+      "gives": "L",
+      "select": "middle",
+      "note": "the fourth of seven letters"
+     },
+     {
+      "clueFragment": "wood",
+      "gives": "ASH",
+      "note": "ash is a type of wood"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ASH"
+     ]
+    },
+    "explanation": {
+     "surface": "A birch tree stands among willows in a wood.",
+     "walkthrough": "'Birch' looks like the tree, fitting the woodland picture; it is the verb to flog.",
+     "definitionFit": "To birch someone is to beat them with a bundle of twigs, so to lash or whip."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Birch"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1474,46 @@
     "text": "Ancient city, partly destroyed",
     "enumeration": "4"
    },
-   "solution": "TROY"
+   "solution": "TROY",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TROY",
+    "definitions": [
+     {
+      "text": "Ancient city",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "partly",
+      "for": "hidden_word",
+      "note": "'partly' means only part of the next word is used"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "destroyed",
+      "gives": "TROY",
+      "note": "the letters sit inside this word"
+     }
+    ],
+    "explanation": {
+     "surface": "An ancient city lies in partial ruins.",
+     "walkthrough": "The surface fits: Troy was famously sacked by the Greeks.",
+     "definitionFit": "Troy was the ancient city of Homer's Iliad, in what is now Turkey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "partly"
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1527,62 @@
     "text": "Concede a European king needs to be ousted",
     "enumeration": "5"
    },
-   "solution": "AGREE"
+   "solution": "AGREE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AGREE",
+    "definitions": [
+     {
+      "text": "Concede",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be ousted",
+      "for": "deletion",
+      "note": "something ousted is thrown out, so it is removed"
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "GREEK",
+      "note": "a Greek is a European"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GREE"
+     ]
+    },
+    "explanation": {
+     "surface": "A European admits his monarch must be overthrown.",
+     "walkthrough": "Remove K from A GREEK.",
+     "definitionFit": "To agree is to concede or accept that a point is right."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "king"
+    }
+   }
   },
   {
    "number": 25,
@@ -429,7 +1602,52 @@
      }
     ]
    },
-   "solution": "INEARNEST"
+   "solution": "INEARNEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IN EARNEST",
+    "definitions": [
+     {
+      "text": "resolutely",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "approach",
+      "gives": "NEAR",
+      "note": "to near is to approach"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "NEST",
+      "note": "a nest is a bird's home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "NEAR",
+      "NEST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone heads back home with determination.",
+     "definitionFit": "In earnest means seriously and with determination, which is acting resolutely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 26,
@@ -455,7 +1673,50 @@
      }
     ]
    },
-   "solution": "HAYFEVER"
+   "solution": "HAYFEVER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HAY FEVER",
+    "definitions": [
+     {
+      "text": "play",
+      "at": 41
+     }
+    ],
+    "linkWords": [
+     "attending"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Star of Oh, Mr Porter!",
+      "gives": "HAY",
+      "note": "Will Hay, the British comic actor who starred in the 1937 film Oh, Mr Porter!"
+     },
+     {
+      "clueFragment": "passion",
+      "gives": "FEVER",
+      "note": "a fever is a state of intense excitement or passion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAY",
+      "FEVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A film comedian goes to see a romantic stage drama.",
+     "walkthrough": "'Passion play' looks like a single phrase about Christ's Passion; split it, and 'play' alone is the definition.",
+     "definitionFit": "Hay Fever is a 1925 comedy by Noel Coward, a well-known stage play."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "passion"
+    }
+   }
   },
   {
    "number": 27,
@@ -469,7 +1730,64 @@
     "text": "Band from the south has re-formed",
     "enumeration": "4"
    },
-   "solution": "SASH"
+   "solution": "SASH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SASH",
+    "definitions": [
+     {
+      "text": "Band",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "re-formed",
+      "for": "anagram",
+      "note": "something re-formed is made again in a new shape, so its letters change order"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the south",
+      "gives": "S",
+      "note": "S is the abbreviation for south"
+     },
+     {
+      "clueFragment": "has",
+      "gives": "HAS",
+      "note": "these three letters are rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ASH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HAS",
+       "gives": "ASH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pop group from the south has got back together.",
+     "walkthrough": "'Band' looks like a music group, fitting 're-formed'; it is a strip of cloth.",
+     "definitionFit": "A sash is a long band of fabric worn over the shoulder or round the waist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Band"
+    }
+   }
   }
  ]
 }
