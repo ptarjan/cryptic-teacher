@@ -481,6 +481,41 @@ def unjoined(texts):
     return {k: re.sub(r"[A-Za-z]+", lambda m, k=k: split(k, m), t) for k, t in texts.items()}
 
 
+def end_stops(laid, lays, readers):
+    """`laid` with a clue's last mark (",", ";" or ":") made a stop where
+    the readings split by engine (ocr_clues.family) on how the clue ends,
+    one engine's all ending it on that mark and the other's all on a stop,
+    and the page shows the mark is the first engine's slip: its readings
+    end the page's clues on it far more often than the other engine's do
+    (ocr_clues.surer, FAMILY_SURE). No 103's Tesseract readings end clue
+    after clue "tipper," and "a deity," where RapidOCR's print the stop.
+    `lays` holds each reading's own laid clues, read by `readers` in turn."""
+    ends = {}  # engine -> {"seen": clues, mark: clues ending on it}
+    for ly, r in zip(lays, readers):
+        if e := ocr_clues.family(r):
+            got = ends.setdefault(e, {"seen": 0})
+            for t, _, _ in ly.values():
+                if t and t.strip():
+                    got["seen"] += 1
+                    got[t.strip()[-1]] = got.get(t.strip()[-1], 0) + 1
+    out = dict(laid)
+    for lid, (t, e, g) in laid.items():
+        mark = t.rstrip()[-1:] if t else ""
+        if mark not in (",", ";", ":"):
+            continue
+        by = {}
+        for ly, r in zip(lays, readers):
+            if (own := (ly.get(lid) or ("",))[0].strip()) and own[-1] in (mark, "."):
+                by.setdefault(own[-1], set()).add(ocr_clues.family(r))
+        slip, stop = by.get(mark, set()), by.get(".", set())
+        if len(slip) != 1 or len(stop) != 1 or None in slip | stop or slip == stop:
+            continue
+        a, b = ends[next(iter(slip))], ends[next(iter(stop))]
+        if ocr_clues.surer(a.get(mark, 0), a["seen"], b.get(mark, 0), b["seen"]) >= ocr_clues.FAMILY_SURE:
+            out[lid] = (t.rstrip()[:-1] + ".", e, g)
+    return out
+
+
 def vote(words, verdict, cols=None, lengths=None):
     """(verdict, {light: (text, enumeration, None)} or None) from each
     reader's words ({reader: [(x0, y0, x1, y1, text)]}): each reading's
@@ -510,15 +545,20 @@ def vote(words, verdict, cols=None, lengths=None):
     lengths = dict(lengths or {}) | {lid: ftp.count(e) for lid, (_, e, _) in laid.items() if e}
     # A linked clue's second number ("20 rev., 24. Charade:") is no part of
     # the clue's words the readings are put to.
-    stream = [LINKED_HEAD.sub(r"\1 ", t) for k, t in texts.items() if k != best and t.strip()]
+    others = [k for k, t in texts.items() if k != best and t.strip()]
+    stream = [LINKED_HEAD.sub(r"\1 ", texts[k]) for k in others]
     # The 1930s lists print no counts: a clue is then read without one.
     uncounted = not any(c["enums"] for cs in tried[0][3].values() for c in cs)
-    laid, blank = ocr_clues.reconcile(laid, stream, lengths, uncounted=uncounted)
+    # Which reading each laid clue is, so the vote knows its engine.
+    source = {lid: next((t[2] for t, ly in zip(tried, lays) if ly.get(lid) == v), None)
+              for lid, v in laid.items()}
+    laid, blank = ocr_clues.reconcile(laid, stream, lengths, uncounted=uncounted, names=others, mine=source)
     # A reversed light's head prints "rev." and a clue ends on one mark: a
     # reader taking stops for commas (No 97's Tesseract "34 rev, ... kind,")
     # outvotes neither.
     laid = {lid: (REV_MARK.sub("rev. ", END_MARKS.sub(".", t)) if t else t, e, g)
             for lid, (t, e, g) in laid.items()}
+    laid = end_stops(laid, lays, [t[2] for t in tried])
     # Each filed clue as the readings print it: its count's shape, each
     # word's capital, hyphen and spelling.
     laid, blank = ocr_clues.as_printed(texts, laid, blank, parse, lengths, uncounted=uncounted)
