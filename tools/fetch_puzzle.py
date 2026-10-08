@@ -61,6 +61,7 @@ import corroborate  # every other source we hold; see tools/corroborate.py
 import clue_types  # the closed list of clue types; see tools/clue_types.py
 import puzzle_schema  # noqa: E402 — the file's shape and presence rule; see tools/puzzle_schema.py
 import puzzle_paths  # noqa: E402 — where each file lives; see tools/puzzle_paths.py
+import deleted_paths  # noqa: E402 — the commit that last deleted a path; see tools/deleted_paths.py
 from clue_index import ClueIndex, clue_keys  # noqa: E402 — which puzzles share clues
 import groups  # noqa: E402 — linked answers; see tools/groups.py
 from groups import entry_id  # noqa: E402
@@ -915,9 +916,6 @@ def generator_of(path):
     return source.get("acquiredBy") or "tools/fetch_puzzle.py"
 
 
-NEVER_DELETED_SERIES = {"azed", "genius"}
-
-
 def committed_copy(puzzle):
     """The puzzle's file as last committed, or None: what a puzzle that was
     deleted and is being filed again looked like before. That is HEAD's copy,
@@ -926,17 +924,12 @@ def committed_copy(puzzle):
     path = puzzle_paths.file_for(puzzle)
     if path is None or not path.is_relative_to(ROOT):
         return None
-    # No file of these series has ever been deleted, so there is no copy to
-    # find; the deleted-file search below walks all of history for each puzzle.
-    if puzzle_paths.series_folder(puzzle["id"]) in NEVER_DELETED_SERIES:
-        return None
     rel = path.relative_to(ROOT).as_posix()
     out = subprocess.run(["git", "-C", str(ROOT), "show", f"HEAD:{rel}"],
                          capture_output=True, text=True)
     if out.returncode != 0:
-        gone = subprocess.run(["git", "-C", str(ROOT), "log", "-1", "--diff-filter=D",
-                               "--format=%H", "--", rel],
-                              capture_output=True, text=True).stdout.strip()
+        gone = deleted_paths.last_deletion(
+            ROOT, rel, puzzle_paths.PUZZLE_DIR.relative_to(ROOT).as_posix())
         if gone:
             out = subprocess.run(["git", "-C", str(ROOT), "show", f"{gone}^:{rel}"],
                                  capture_output=True, text=True)

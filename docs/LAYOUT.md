@@ -1936,5 +1936,10 @@ tools/test_reprints.js                        a paper that reprints another's pu
                                               and every way in opens the original
 tools/gale_arrived.py                         mark a Gale download arrived on the checklists
                                               within seconds of it landing
+tools/deleted_paths.py                        the commit that last deleted a path, read from a
+                                              cache
+tools/test_deleted_paths.sh                   does deleted_paths.last_deletion() give what `git
+                                              log -1 --diff-filter=D -- <path>` gives, as HEAD
+                                              moves forward, back, sideways and is rewritten?
 ```
 <!-- LAYOUT-END -->
