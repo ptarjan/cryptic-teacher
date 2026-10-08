@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,53 @@
     "text": "Lover's lost love in European capital",
     "enumeration": "4"
    },
-   "solution": "ROME"
+   "solution": "ROME",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ROME",
+    "definitions": [
+     {
+      "text": "European capital",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost",
+      "for": "deletion",
+      "note": "something lost is gone, so a letter standing for a word in the clue drops out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lover",
+      "gives": "ROMEO",
+      "note": "Shakespeare's Romeo is the archetypal lover"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, which looks like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROME"
+     ]
+    },
+    "explanation": {
+     "surface": "A jilted lover mourns a lost romance somewhere in a European capital.",
+     "walkthrough": "The 's is 'has': Romeo has lost his O, leaving ROME.",
+     "definitionFit": "Rome is the capital city of Italy, a European country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lover's"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +96,46 @@
     "text": "Flinch in fear on bend",
     "enumeration": "6"
    },
-   "solution": "RECOIL"
+   "solution": "RECOIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RECOIL",
+    "definitions": [
+     {
+      "text": "Flinch in fear",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on, concerning"
+     },
+     {
+      "clueFragment": "bend",
+      "gives": "COIL",
+      "note": "a coil is a loop or bend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "COIL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone startled flinches in fear as they round a corner.",
+     "definitionFit": "To recoil is to draw back sharply, a shrinking movement made from fright or disgust."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +149,74 @@
     "text": "Bodyguard died in pit on top of ridge",
     "enumeration": "6"
    },
-   "solution": "MINDER"
+   "solution": "MINDER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MINDER",
+    "definitions": [
+     {
+      "text": "Bodyguard",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it, so the first letter is lodged within the second word"
+     },
+     {
+      "text": "on top of",
+      "for": "charade",
+      "note": "in a down clue, being on top of something means coming before it"
+     },
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a down word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pit",
+      "gives": "MINE",
+      "note": "a mine is a pit dug for coal or ore"
+     },
+     {
+      "clueFragment": "died",
+      "gives": "D",
+      "note": "d is the abbreviation for died"
+     },
+     {
+      "clueFragment": "ridge",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of ridge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIN",
+      "D",
+      "E",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A bodyguard died after falling into a pit at the top of a ridge.",
+     "walkthrough": "D goes inside MINE to make MINDE, and R follows.",
+     "definitionFit": "A minder is British slang for someone hired to protect a person, a personal guard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pit"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +230,52 @@
     "text": "Leaders, real idiots, in dissaray",
     "enumeration": "10"
    },
-   "solution": "EDITORIALS"
+   "solution": "EDITORIALS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EDITORIALS",
+    "definitions": [
+     {
+      "text": "Leaders",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in dissaray",
+      "for": "anagram",
+      "note": "things in disarray are jumbled, so these letters are out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "real idiots",
+      "gives": "REALIDIOTS",
+      "note": "the ten letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REALIDIOTS",
+       "gives": "EDITORIALS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grumble that the country's leaders are idiots and everything is a mess.",
+     "walkthrough": "'Leaders' suggests politicians, but here it means newspaper leaders, the paper's opinion columns. The source misspells disarray.",
+     "definitionFit": "A leader is the British word for a newspaper's main opinion article, also called an editorial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Leaders"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +289,55 @@
     "text": "Sister in party dress can",
     "enumeration": "9"
    },
-   "solution": "DOMINICAN"
+   "solution": "DOMINICAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOMINICAN",
+    "definitions": [
+     {
+      "text": "Sister",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party"
+     },
+     {
+      "clueFragment": "dress",
+      "gives": "MINI",
+      "note": "a mini is a short dress"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "CAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "MINI",
+      "CAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A nun turns up at a party in a dress she can wear.",
+     "definitionFit": "A Dominican nun belongs to the order founded by St Dominic, and nuns are called Sister."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +351,45 @@
     "text": "What some northerners eat is rubbish",
     "enumeration": "5"
    },
-   "solution": "TRIPE"
+   "solution": "TRIPE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TRIPE",
+    "definitions": [
+     {
+      "text": "What some northerners eat",
+      "at": 0
+     },
+     {
+      "text": "rubbish",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What some northerners eat",
+      "note": "first meaning: cow's stomach lining, a traditional dish in northern England"
+     },
+     {
+      "clueFragment": "rubbish",
+      "note": "second meaning: nonsense, worthless talk"
+     }
+    ],
+    "explanation": {
+     "surface": "A southerner's sneer that northern food is rubbish.",
+     "definitionFit": "The word names both the cooked stomach of a cow, long eaten in the north of England, and nonsense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +409,40 @@
      }
     ]
    },
-   "solution": "REVISEDVERSION"
+   "solution": "REVISEDVERSION",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "REVISED VERSION",
+    "definitions": [
+     {
+      "text": "Reading this may get one over sin, might we deduce?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reading this may get one over sin",
+      "note": "surface reading: studying scripture helps a person overcome sin"
+     },
+     {
+      "clueFragment": "over sin",
+      "note": "setter's reading: rearrange the letters of these two words and you get the second word of the answer, while the first word says they have been rearranged"
+     }
+    ],
+    "explanation": {
+     "surface": "A preacher suggesting that Bible reading helps us conquer sin.",
+     "walkthrough": "A reverse clue: VERSION is OVER SIN REVISED, i.e. rearranged. The Revised Version is the 1880s English revision of the King James Bible.",
+     "definitionFit": "The Revised Version is a Victorian English translation of the Bible, read to resist temptation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +462,51 @@
      }
     ]
    },
-   "solution": "AUGRATIN"
+   "solution": "AUGRATIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AU GRATIN",
+    "definitions": [
+     {
+      "text": "Cooked, covered with breadcrumbs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "food that is off has gone bad, so these letters are spoiled and reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I turn Aga",
+      "gives": "ITURNAGA",
+      "note": "the eight letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITURNAGA",
+       "gives": "AUGRATIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook finishes a crumb-topped dish and switches the Aga off.",
+     "walkthrough": "An Aga is a heavy range cooker found in British country kitchens.",
+     "definitionFit": "Au gratin describes a dish topped with breadcrumbs or cheese and browned in the oven."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +526,67 @@
      }
     ]
    },
-   "solution": "SWEETPEA"
+   "solution": "SWEETPEA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SWEET PEA",
+    "definitions": [
+     {
+      "text": "garden plant",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wound",
+      "for": "anagram",
+      "note": "wound as in twisted, so these letters are twisted into a new order"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "going round something encloses it, so the next word sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tapes",
+      "gives": "TAPES",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "WEE",
+      "note": "wee is Scottish for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WEE",
+      "TPEA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TAPES",
+       "gives": "STPEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tapes are tied round a small garden plant to support it.",
+     "walkthrough": "Wee is Scottish and everyday British for small; 'wound' rhymes with 'round' here, not 'swooned'.",
+     "definitionFit": "The sweet pea is a climbing annual grown in gardens for its scented flowers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wound"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +614,40 @@
      }
     ]
    },
-   "solution": "JOBSFORTHEBOYS"
+   "solution": "JOBSFORTHEBOYS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "JOBS FOR THE BOYS",
+    "definitions": [
+     {
+      "text": "Favouritism in the workplace",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Favouritism in the workplace",
+      "note": "surface reading: posts handed out to friends and cronies"
+     },
+     {
+      "clueFragment": "that does not extend to girls?",
+      "note": "setter's reading: taken literally the phrase describes posts reserved for males only"
+     }
+    ],
+    "explanation": {
+     "surface": "A complaint about workplace favouritism that shuts women out.",
+     "walkthrough": "The idiom literally names roles kept for males, which the question mark plays on.",
+     "definitionFit": "The idiom describes giving posts to friends or allies rather than on merit, a form of cronyism."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "girls"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +661,49 @@
     "text": "Agree to study mould",
     "enumeration": "7"
    },
-   "solution": "CONFORM"
+   "solution": "CONFORM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONFORM",
+    "definitions": [
+     {
+      "text": "Agree",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "study",
+      "gives": "CON",
+      "note": "to con is an old word for to study or learn"
+     },
+     {
+      "clueFragment": "mould",
+      "gives": "FORM",
+      "note": "a mould gives something its form"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "FORM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone agrees to examine a mould.",
+     "definitionFit": "To conform is to comply or fall into line with others, which is to agree with them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "study"
+    }
+   }
   },
   {
    "number": 11,
@@ -225,7 +723,55 @@
      }
     ]
    },
-   "solution": "INVOGUE"
+   "solution": "INVOGUE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IN VOGUE",
+    "definitions": [
+     {
+      "text": "current",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "n is the abbreviation for name"
+     },
+     {
+      "clueFragment": "magazine",
+      "gives": "VOGUE",
+      "note": "Vogue is a fashion magazine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "N",
+      "VOGUE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone picks a magazine that is up to date.",
+     "definitionFit": "Something in vogue is fashionable right now, popular at the present time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "name"
+    }
+   }
   },
   {
    "number": 12,
@@ -245,7 +791,52 @@
      }
     ]
    },
-   "solution": "INESSENCE"
+   "solution": "INESSENCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IN ESSENCE",
+    "definitions": [
+     {
+      "text": "Substantially",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "surrounded by",
+      "gives": "IN",
+      "note": "something surrounded by a place is in it"
+     },
+     {
+      "clueFragment": "German city",
+      "gives": "ESSEN",
+      "note": "Essen is a city in the Ruhr"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "ESSEN",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A church stands enclosed within a German city.",
+     "definitionFit": "In essence means fundamentally, at heart, as substantially does in the sense of basically."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "surrounded"
+    }
+   }
   },
   {
    "number": 13,
@@ -259,7 +850,55 @@
     "text": "Celebrity, first in training to jump",
     "enumeration": "5"
    },
-   "solution": "START"
+   "solution": "START",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "START",
+    "definitions": [
+     {
+      "text": "to jump",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first in",
+      "for": "letter_selection",
+      "note": "the first in a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Celebrity",
+      "gives": "STAR",
+      "note": "a celebrity is a star"
+     },
+     {
+      "clueFragment": "training",
+      "gives": "T",
+      "select": "first",
+      "note": "opening letter of training"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity is first in line to try jumping in training.",
+     "definitionFit": "To start is to jump suddenly with surprise, the involuntary twitch of being startled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "jump"
+    }
+   }
   },
   {
    "number": 14,
@@ -283,7 +922,50 @@
      }
     ]
    },
-   "solution": "ONCLOUDNINE"
+   "solution": "ONCLOUDNINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ON CLOUD NINE",
+    "definitions": [
+     {
+      "text": "Extremely happy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "destroyed",
+      "for": "anagram",
+      "note": "something destroyed is broken up, so these letters fall apart and regroup"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nun once idol",
+      "gives": "NUNONCEIDOL",
+      "note": "the eleven letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NUNONCEIDOL",
+       "gives": "ONCLOUDNINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nun, once happy, has had her idol destroyed.",
+     "definitionFit": "To be on cloud nine is an idiom for being blissfully elated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "destroyed"
+    }
+   }
   },
   {
    "number": 15,
@@ -297,7 +979,61 @@
     "text": "Bulbs kept initially in paper",
     "enumeration": "9"
    },
-   "solution": "ONIONSKIN"
+   "solution": "ONIONSKIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ONIONSKIN",
+    "definitions": [
+     {
+      "text": "paper",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the beginning, so only the opening letter counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bulbs",
+      "gives": "ONIONS",
+      "note": "onions are bulbs"
+     },
+     {
+      "clueFragment": "kept",
+      "gives": "K",
+      "select": "first",
+      "note": "opening letter of kept"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONIONS",
+      "K",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Bulbs have been stored wrapped in paper.",
+     "definitionFit": "Onionskin is a thin translucent writing paper, used for carbon copies and airmail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bulbs"
+    }
+   }
   },
   {
    "number": 16,
@@ -311,7 +1047,53 @@
     "text": "Old copper writes down eye specialists",
     "enumeration": "8"
    },
-   "solution": "OCULISTS"
+   "solution": "OCULISTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OCULISTS",
+    "definitions": [
+     {
+      "text": "eye specialists",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "o is the abbreviation for old"
+     },
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     },
+     {
+      "clueFragment": "writes down",
+      "gives": "LISTS",
+      "note": "to list is to write things down"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "CU",
+      "LISTS"
+     ]
+    },
+    "explanation": {
+     "surface": "A veteran police officer notes down the names of eye doctors.",
+     "walkthrough": "Copper suggests a police officer, but here it is the metal's chemical symbol.",
+     "definitionFit": "An oculist is an old term for an ophthalmologist or optician, a doctor who treats vision."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 17,
@@ -325,7 +1107,53 @@
     "text": "Flares up over recently stolen photograph",
     "enumeration": "8"
    },
-   "solution": "SNAPSHOT"
+   "solution": "SNAPSHOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SNAPSHOT",
+    "definitions": [
+     {
+      "text": "photograph",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down clue one piece over another is written above it, so it comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flares up",
+      "gives": "SNAPS",
+      "note": "someone who flares up in temper snaps"
+     },
+     {
+      "clueFragment": "recently stolen",
+      "gives": "HOT",
+      "note": "hot goods are freshly stolen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNAPS",
+      "HOT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone loses their temper about stolen goods.",
+     "definitionFit": "A snapshot is a quick informal photo taken with a handheld camera."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flares"
+    }
+   }
   },
   {
    "number": 18,
@@ -339,7 +1167,53 @@
     "text": "Stable in eastern walled city",
     "enumeration": "11"
    },
-   "solution": "CONSTANTINE"
+   "solution": "CONSTANTINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONSTANTINE",
+    "definitions": [
+     {
+      "text": "walled city",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stable",
+      "gives": "CONSTANT",
+      "note": "stable means constant, unchanging"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "eastern",
+      "gives": "E",
+      "note": "e is the abbreviation for eastern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONSTANT",
+      "IN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A stable inside an eastern walled city.",
+     "walkthrough": "Stable suggests a building for horses, but here it is the adjective meaning steady.",
+     "definitionFit": "Constantine is an ancient fortified city in north-east Algeria, perched on a gorge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stable"
+    }
+   }
   },
   {
    "number": 19,
@@ -353,7 +1227,50 @@
     "text": "Horrified at hag's concoction",
     "enumeration": "6"
    },
-   "solution": "AGHAST"
+   "solution": "AGHAST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AGHAST",
+    "definitions": [
+     {
+      "text": "Horrified",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "concoction",
+      "for": "anagram",
+      "note": "a concoction is a mixture, so these letters are blended into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at hag's",
+      "gives": "ATHAGS",
+      "note": "the six letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATHAGS",
+       "gives": "AGHAST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recoils in horror at a witch's brew.",
+     "definitionFit": "Aghast means filled with shock and dismay."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "concoction"
+    }
+   }
   },
   {
    "number": 20,
@@ -367,7 +1284,49 @@
     "text": "Prison camp over in Bengal, at Siliguri",
     "enumeration": "6"
    },
-   "solution": "STALAG"
+   "solution": "STALAG",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "STALAG",
+    "definitions": [
+     {
+      "text": "Prison camp",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer is contained within the following words, running across their breaks"
+     },
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "in a down clue, turned over means read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bengal, at Siliguri",
+      "gives": "GALATS",
+      "note": "letters running across the end of Bengal and through at into Siliguri"
+     }
+    ],
+    "explanation": {
+     "surface": "A prison camp turned over somewhere in Bengal, at the town of Siliguri.",
+     "walkthrough": "Siliguri is a city in West Bengal; the letters run backwards across the words.",
+     "definitionFit": "A Stalag was a German prisoner-of-war camp for enlisted men in the Second World War."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 21,
@@ -381,7 +1340,44 @@
     "text": "Decline drinks, say",
     "enumeration": "5"
    },
-   "solution": "LAPSE"
+   "solution": "LAPSE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LAPSE",
+    "definitions": [
+     {
+      "text": "Decline",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say asks us to speak the word, so the answer is something sounding like it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drinks",
+      "gives": "LAPSE",
+      "soundsLike": "LAPS",
+      "note": "a cat laps, drinking with its tongue"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone turns down the offer of drinks.",
+     "walkthrough": "Decline looks like a verb meaning refuse, but it means a falling-off.",
+     "definitionFit": "A lapse is a falling away from a standard, a slip or deterioration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Decline"
+    }
+   }
   },
   {
    "number": 22,
@@ -395,7 +1391,50 @@
     "text": "Thinking back, criminal hid things",
     "enumeration": "9"
    },
-   "solution": "HINDSIGHT"
+   "solution": "HINDSIGHT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HINDSIGHT",
+    "definitions": [
+     {
+      "text": "Thinking back",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "criminal suggests something bent or crooked, so these letters are bent out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hid things",
+      "gives": "HIDTHINGS",
+      "note": "the nine letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HIDTHINGS",
+       "gives": "HINDSIGHT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Looking back, a crook recalls hiding stolen goods.",
+     "definitionFit": "Hindsight is understanding an event after it has happened, by looking back at it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 22,
@@ -409,7 +1448,40 @@
     "text": "Muscular dog",
     "enumeration": "5"
    },
-   "solution": "HUSKY"
+   "solution": "HUSKY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HUSKY",
+    "definitions": [
+     {
+      "text": "Muscular",
+      "at": 0
+     },
+     {
+      "text": "dog",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Muscular",
+      "note": "first meaning: big and strong, burly"
+     },
+     {
+      "clueFragment": "dog",
+      "note": "second meaning: an Arctic sled dog"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means strongly built and also names the thick-coated sled breed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -423,7 +1495,66 @@
     "text": "Check on fatality by entrance to Stormont Castle",
     "enumeration": "7"
    },
-   "solution": "SCHLOSS"
+   "solution": "SCHLOSS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SCHLOSS",
+    "definitions": [
+     {
+      "text": "Castle",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entrance to",
+      "for": "letter_selection",
+      "note": "the entrance to a word is where you go in, its opening letter"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stormont",
+      "gives": "S",
+      "select": "first",
+      "note": "opening letter of Stormont"
+     },
+     {
+      "clueFragment": "Check",
+      "gives": "CH",
+      "note": "ch is the chess abbreviation for check"
+     },
+     {
+      "clueFragment": "fatality",
+      "gives": "LOSS",
+      "note": "a fatality is a loss of life"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CH",
+      "LOSS"
+     ]
+    },
+    "explanation": {
+     "surface": "A check on a death near the entrance to Stormont Castle.",
+     "walkthrough": "Stormont is Northern Ireland's parliament building, and Stormont Castle stands nearby; Castle is actually the definition.",
+     "definitionFit": "Schloss is the German word for a castle or palace, used in English for German ones."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Castle"
+    }
+   }
   },
   {
    "number": 24,
@@ -443,7 +1574,61 @@
      }
     ]
    },
-   "solution": "KNOWALL"
+   "solution": "KNOWALL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "KNOW-ALL",
+    "definitions": [
+     {
+      "text": "Cocky type",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the word loses its final letter"
+     },
+     {
+      "text": "captured",
+      "for": "container",
+      "note": "something captured is held inside, so one piece is enclosed by another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rounded hill",
+      "gives": "KNOLL",
+      "note": "a knoll is a small rounded hill"
+     },
+     {
+      "clueFragment": "was",
+      "gives": "WAS",
+      "note": "taken as written, before shortening"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KNO",
+      "WA",
+      "LL"
+     ]
+    },
+    "explanation": {
+     "surface": "An arrogant person who took a rounded hill was almost captured.",
+     "walkthrough": "'Captured' reads as the surface's verb, but it signals the enclosure; the shortening comes first.",
+     "definitionFit": "A know-all is a person who acts as if they know everything, a conceited smart alec."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "captured"
+    }
+   }
   },
   {
    "number": 25,
@@ -457,7 +1642,39 @@
     "text": "Cool enough?",
     "enumeration": "10"
    },
-   "solution": "SATISFYING"
+   "solution": "SATISFYING",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SATISFYING",
+    "definitions": [
+     {
+      "text": "Cool enough?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cool enough?",
+      "note": "surface reading: asking whether something has chilled sufficiently"
+     },
+     {
+      "clueFragment": "Cool enough?",
+      "note": "setter's reading: cool as in slake a thirst, and enough as in meeting the need, an adjective for what fills a want"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A drink that cools you enough meets the need, which is the sense the answer has.",
+     "definitionFit": "Satisfying means fulfilling a need or desire, adequate or sufficient, as a cooling drink does for thirst."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cool"
+    }
+   }
   },
   {
    "number": 26,
@@ -471,7 +1688,47 @@
     "text": "Male part shortened",
     "enumeration": "4"
    },
-   "solution": "STAG"
+   "solution": "STAG",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STAG",
+    "definitions": [
+     {
+      "text": "Male",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortened",
+      "for": "deletion",
+      "note": "shortened means cut down, so the word loses its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part",
+      "gives": "STAGE",
+      "note": "a stage is a part or phase of a process"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAG"
+     ]
+    },
+    "explanation": {
+     "surface": "A male role has been cut down.",
+     "definitionFit": "A stag is an adult male deer, and by extension a man on his own."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   }
  ]
 }
