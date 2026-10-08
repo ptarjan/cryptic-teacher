@@ -34,6 +34,9 @@ a unit back while any unit it names is running or due (an explicit
 dependency), and `trigger` makes it due when a unit it names ended well since
 its own last start. `cls` caps how many of a kind run at once (the queue's
 LIMITS), and SLOTS caps them all.
+A backfill drains at the source's own pace, not a cadence: a unit that stops
+with work left (its wall-clock budget spent) calls backlog_left(), its end
+row says "more", and it is due again at the next tick, whatever its `every`.
 """
 import argparse
 import dataclasses
@@ -80,6 +83,15 @@ class Unit:
     #: False: a failure is retried every `retry`, never further apart (a
     #: refusal that is news about the account, not the unit).
     doubling: bool = True
+
+
+def backlog_left():
+    """Say, from inside a unit, that it stopped with backlog left: it is due
+    again at the next tick rather than after its `every`. A no-op outside a
+    unit (run by hand)."""
+    path = os.environ.get("UNIT_MORE")
+    if path:
+        Path(path).touch()
 
 
 def log(line, out=sys.stderr):
@@ -215,6 +227,8 @@ def why_due(unit, ledger, now, due_keys=()):
         if now - start["at"] < unit.retry:
             return None
         return "its last run was dropped"
+    if ok is not None and ok is end and ok.get("more"):
+        return "backlog left"
     for t in unit.trigger:
         tok = ledger.last_ok.get(t)
         if tok is not None and (start is None or tok["at"] > start["at"]):
@@ -335,6 +349,9 @@ def run(queue, key, timeout, cls, argv, tag=""):
         # a 0 that would read as the unit done.
         env["CT_LEASE_BUSY_RC"] = str(LEASE_BUSY)
         pass_fds = (fd,)
+    more = lock_path(queue, key).with_suffix(".more")
+    more.unlink(missing_ok=True)
+    env["UNIT_MORE"] = str(more)
     ledger = Ledger(queue)
     t0 = time.time()
     ledger.append({"key": key, "event": "start", "at": t0, "cls": cls, "pid": os.getpid(),
@@ -403,8 +420,11 @@ def run(queue, key, timeout, cls, argv, tag=""):
     elif stopped:
         rc = 143
     secs = time.time() - t0
-    ledger.append({"key": key, "event": "end", "at": time.time(), "rc": rc, "secs": round(secs)})
-    log(f"[{key}] end: rc={rc} in {secs:.0f}s")
+    left = more.exists()
+    more.unlink(missing_ok=True)
+    ledger.append({"key": key, "event": "end", "at": time.time(), "rc": rc, "secs": round(secs),
+                   **({"more": True} if left else {})})
+    log(f"[{key}] end: rc={rc} in {secs:.0f}s{', backlog left' if left else ''}")
     if timed_out:
         last = "\n".join(t[:200] for t in tail[-6:])
         alert(f"the {queue} unit `{key}` ran past its {timeout // 60}m limit and was killed; it is retried later and "

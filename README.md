@@ -464,7 +464,14 @@ limit, ledger row and worktree, then exits. The units are:
 1. `fetch:<fetcher>`, hourly: the newest puzzle of each series;
 2. `blog:times`, `blog:telegraph`, `bucket:telegraph`, `xval:globe`, `ft`,
    `azed`: the puzzles rebuilt from blogs and other copies, each on its own
-   cadence; each filer cross-checks and commits its own filings;
+   cadence; each filer cross-checks and commits its own filings. The
+   backfills (`bucket:telegraph`, `ft`, `azed`) have no per-run cap: each
+   works to a wall-clock budget at its source's own request pace, and one
+   that stops with backlog left runs again at the next tick
+   (`unit_queue.backlog_left`) until it is drained, two at most at once so
+   the fetchers and annotations keep their trees. Their commits name what
+   they filed, e.g. "File azed-1738, azed-1739, azed-1740 and 14 more (azed
+   backfill)";
 3. `solutions`, every three hours: re-fetches any puzzle still waiting for
    published solutions (`--refresh-unsolved`) and grades our own fills;
 4. `annotate:<id>`: Claude annotates one puzzle. Every new arrival (dated

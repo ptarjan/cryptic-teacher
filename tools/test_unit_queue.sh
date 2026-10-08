@@ -5,7 +5,8 @@
 # retry; a unit that ended well is not due again until its cadence; `cls`
 # caps how many of a kind run at once; a running unit is never started twice;
 # `after` holds a unit back while what it names is due or running; `trigger`
-# makes one due when what it names ended well since. Then a queue with tree
+# makes one due when what it names ended well since; one that reports backlog
+# left (backlog_left) runs again at the next tick, despite its cadence. Then a queue with tree
 # slots: each unit runs in its own worktree (tools/nightly_worktree.sh, CT_JOB),
 # two units in two trees at once, and a third waits for a tree.
 #
@@ -38,9 +39,13 @@ def plan(ledger, now):
         sh("a", f"echo a >>{D}/one.runs; sleep 8", timeout=30, cls="one"),
         sh("b", f"echo b >>{D}/one.runs; sleep 1", timeout=30, cls="one"),
         sh("late", f"echo late >>{D}/late.runs", timeout=30, after=("ok",), trigger=("ok",)),
+        sh("drain", f"[ -e {D}/drain.runs ] || : >\"$UNIT_MORE\"; echo run >>{D}/drain.runs",
+           timeout=30, every=3600),
     ]
 PY
 q() { python3 tools/unit_queue.py "$@"; }
+UNIT_MORE="$tmp/more" python3 -c 'import sys; sys.path.insert(0, "tools"); import unit_queue; unit_queue.backlog_left()'
+[ -e "$tmp/more" ] || { echo "FAIL: backlog_left() did not mark \$UNIT_MORE"; exit 1; }
 fail() { echo "FAIL: $*"; echo "--- log:"; cat "$tmp/main/fake.log" 2>/dev/null; exit 1; }
 ended() { python3 - "$1" <<'PY'
 import sys
@@ -64,6 +69,7 @@ grep -q "start b" <<<"$out" && fail "b started beside a although cls one allows 
 grep -q "start late" <<<"$out" && fail "late started while ok, which it is after, was due: $out"
 wait_end ok 0
 wait_end fail 2
+wait_end drain 0
 wait_end slow 124
 grep -q "slow" "$tmp/q/alerts" || fail "the overrun was not alerted"
 grep -q "^\[fail\] boom" "$tmp/main/fake.log" || fail "a unit's output is not in the log under its key"
@@ -73,12 +79,18 @@ grep -qE "start (ok|fail|slow)" <<<"$out" && fail "a unit ran again before its c
 grep -q "start a" <<<"$out" && fail "a was started twice: $out"
 grep -q "start b" <<<"$out" && fail "b started while a holds cls one: $out"
 grep -q "start late" <<<"$out" || fail "late was not started once ok ended well: $out"
+grep -q "start drain (backlog left)" <<<"$out" || fail "drain left backlog but was not started again: $out"
 wait_end a 0
 wait_end late 0
 out=$(q tick fake)
 grep -q "start b" <<<"$out" || fail "b was not started once a ended: $out"
 grep -q "start late" <<<"$out" && fail "late ran again with no new ok: $out"
 wait_end b 0
+for _ in $(seq 200); do [ "$(wc -l <"$tmp/q/drain.runs")" = 2 ] && break; sleep 0.2; done
+wait_end drain 0
+out=$(q tick fake)
+grep -q "start drain" <<<"$out" && fail "drain ran again with its backlog done: $out"
+[ "$(wc -l <"$tmp/q/drain.runs")" = 2 ] || fail "drain ran $(wc -l <"$tmp/q/drain.runs") times, not twice"
 [ "$(wc -l <"$tmp/q/ok.runs")" = 1 ] || fail "ok ran $(wc -l <"$tmp/q/ok.runs") times"
 st=$(q status fake)
 grep -q "fail .*1 failures in a row" <<<"$st" || fail "status does not show the failure: $st"

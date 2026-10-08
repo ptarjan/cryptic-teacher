@@ -131,7 +131,7 @@ def _causes():
     import andlit_azed
     out[("andlit", "not-fetched")] = Cause(
         "tools/andlit_azed.py", "the nightly fetches its Guardian copy through andlit.org.uk's "
-        "index (AZED_PER_NIGHT a night), then files it", True, False)
+        "index (oldest first, 2s apart, until it is drained), then files it", True, False)
     out[("andlit", "not-read")] = Cause(
         "tools/andlit_azed.py", "its copy is cached and no filing run has tried it: andlit_azed.py file", True, False)
     for key, means in andlit_azed.CAUSES.items():

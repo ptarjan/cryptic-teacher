@@ -2,9 +2,9 @@
 """File the Observer's Azed from the Guardian's printable copies, found
 through andlit.org.uk's Azed index.
 
-    python3 tools/andlit_azed.py fetch [--limit N]       # download the next N not yet cached
+    python3 tools/andlit_azed.py fetch [--limit N] [--budget-seconds S]   # download the next not yet cached
     python3 tools/andlit_azed.py file [--dry-run] [--numbers A-B]
-    python3 tools/andlit_azed.py nightly [--limit N]     # fetch N, then file what is cached
+    python3 tools/andlit_azed.py nightly [--budget-seconds S]   # fetch for S seconds, then file what is cached
 
 andlit.org.uk's index (puzzles.php) lists Nos 1734-2757 and 2798-2799, each
 behind puzzle_router.php, which redirects to the Guardian's own copy:
@@ -47,13 +47,19 @@ from pathlib import Path
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
 import azed_puzzles
+import downloads
 import fetch_fifteensquared as fsq
 import file_blog_puzzles
 import ft_pdf_puzzles as fpp
 import listener_puzzles as lp
-import downloads
 import reconstruct_grid as rg
-from fetch_puzzle import correct_source_answers, http_fetch, puzzle_path, write_puzzle_file
+from fetch_puzzle import (
+    correct_source_answers,
+    http_fetch,
+    puzzle_path,
+    write_puzzle_file,
+)
+from unit_queue import backlog_left
 
 SERIES = "azed"
 CACHE = downloads.ANDLIT_AZED
@@ -63,8 +69,6 @@ GENERATOR = "tools/andlit_azed.py"
 #: Seconds between requests: andlit and the Guardian's file servers are
 #: fetched one page at a time.
 PAUSE = 2.0
-#: Copies fetched a night: ~560 numbers drain in about two weeks.
-PER_NIGHT = 40
 
 #: "<a href="puzzle_router.php?src=L&puzzle_no=2600" ...>2600</a></td><td ...>10 Apr 2022</td><td>Plain</td>"
 INDEX_ROW = re.compile(r"puzzle_no=(\d+)\"[^>]*>\d+</a></td><td[^>]*>([^<]*)</td><td[^>]*>([^<]*)</td>")
@@ -130,13 +134,19 @@ def urls():
     return {int(k): v for k, v in json.loads(path.read_text()).items()} if path.exists() else {}
 
 
-def fetch(limit=None, log=print):
-    """Download the copies not yet cached of numbers not yet filed, oldest first."""
+def fetch(limit=None, budget_seconds=None, log=print, clock=time.monotonic):
+    """Download the copies not yet cached of numbers not yet filed, oldest first;
+    none is started once `budget_seconds` have passed. Returns how many the
+    budget left unasked (a number that failed is asked again next run)."""
     nums = [n for n in sorted(index(refresh=True)) if cached(n) is None
             and not puzzle_path(SERIES, n).exists()]
-    known, got = urls(), 0
+    known, got, start = urls(), 0, clock()
     (CACHE / "copies").mkdir(parents=True, exist_ok=True)
-    for n in nums[:limit]:
+    walk, unasked = nums[:limit], 0
+    for i, n in enumerate(walk):
+        if budget_seconds is not None and clock() - start >= budget_seconds:
+            unasked = len(walk) - i
+            break
         try:
             url, data = get(ROUTER.format(n))
         except urllib.error.HTTPError as e:
@@ -160,7 +170,7 @@ def fetch(limit=None, log=print):
         got += 1
         time.sleep(PAUSE)
     log(f"fetched {got} Azed copies; {max(0, len(nums) - got)} still to fetch")
-    return got
+    return unasked
 
 
 # ------------------------------------------------------------------ the HTML print pages
@@ -661,15 +671,16 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
     f = sub.add_parser("fetch")
-    f.add_argument("--limit", type=int, default=PER_NIGHT)
+    f.add_argument("--limit", type=int)
+    f.add_argument("--budget-seconds", type=float)
     g = sub.add_parser("file")
     g.add_argument("--dry-run", action="store_true")
     g.add_argument("--numbers", type=number_range)
     h = sub.add_parser("nightly")
-    h.add_argument("--limit", type=int, default=PER_NIGHT)
+    h.add_argument("--budget-seconds", type=float)
     a = ap.parse_args(argv)
-    if a.cmd in ("fetch", "nightly"):
-        fetch(a.limit)
+    if a.cmd in ("fetch", "nightly") and fetch(getattr(a, "limit", None), a.budget_seconds):
+        backlog_left()
     if a.cmd in ("file", "nightly"):
         filed, held = file(write=not getattr(a, "dry_run", False), numbers=getattr(a, "numbers", None))
         print(f"{'would file' if getattr(a, 'dry_run', False) else 'filed'} {len(filed)} Azed: "

@@ -24,7 +24,9 @@
 #                      that solve them, the Telegraph's own bucket, and the
 #                      Globe's copies of the Times Quick Cryptic.
 #   ft, azed           the FT from fifteensquared, Azed from the Guardian's
-#                      printable copies.
+#                      printable copies. These and bucket:telegraph are
+#                      backfills: one that stops with backlog left runs
+#                      again at the next tick until it is drained.
 #   blog-facts         the blog caches re-read into the site's blog hints,
 #                      tools/data/blog_facts/, after any blog fetch.
 #   ratings, checks    the SNITCH and comment ratings and the measures built
@@ -292,27 +294,28 @@ unit_blog_telegraph() {
 }
 # From 2015 the Telegraph's own bucket is the primary source: today's
 # puzzles, and blog-rebuilt files of the numbers it serves, refiled as printed.
-# A day's budget: the unit runs daily.
-TELEGRAPH_BUCKET_PER_NIGHT="${TELEGRAPH_BUCKET_PER_NIGHT:-200}"
+# Every hole, oldest first, 2s apart (fetch_telegraph.py DELAY); a run starts
+# no fetch past its budget, so it commits inside its limit, and one that
+# stopped with holes left runs again at the next tick (backlog_left).
+TELEGRAPH_BUCKET_SECONDS="${TELEGRAPH_BUCKET_SECONDS:-2400}"
 unit_bucket_telegraph() {
-  blog_chain Telegraph "fetch_telegraph.py --holes $TELEGRAPH_BUCKET_PER_NIGHT"
+  blog_chain Telegraph "fetch_telegraph.py --holes all --budget-seconds $TELEGRAPH_BUCKET_SECONDS"
 }
 # The Globe and Mail prints the Times Quick Cryptic from No 3106: its copy
 # witnesses the blog-rebuilt Quick the Times filer would file for the same
 # number, which is how a defect of the converter behind every earlier Quick
 # shows. Nothing is refiled from it; the filer files those numbers as
-# globeandmail already. Daily.
-GLOBE_XVAL_PER_NIGHT="${GLOBE_XVAL_PER_NIGHT:-60}"
+# globeandmail already. Daily; the fetch asks only for the copies not cached.
 unit_xval_globe() {
-  blog_chain Globe "cross_validate.py globe --fetch --limit $GLOBE_XVAL_PER_NIGHT" "cross_validate.py globe"
+  blog_chain Globe "cross_validate.py globe --fetch" "cross_validate.py globe"
 }
 
 # The Financial Times, rebuilt from fifteensquared's write-ups. The same chain
 # in one tool: tools/ft_puzzles.py parses the cached posts, rebuilds the newest
-# untried grids and files what passes. Bounded, because the untried are newest
-# first: the day's posts and a few of the backlog. The unit runs four times a
-# day, so FT_PER_RUN is a quarter of the old nightly 12.
-FT_PER_RUN="${FT_PER_RUN:-3}"
+# untried grids, newest first, and files what passes. The search is CPU, so a
+# run starts no rebuild past FT_GRID_SECONDS and one that stopped with posts
+# untried runs again at the next tick (backlog_left) until none is left.
+FT_GRID_SECONDS="${FT_GRID_SECONDS:-1200}"
 unit_ft() {
   local ft_out rc=0
   ft_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-ft.XXXXXX")"
@@ -320,7 +323,7 @@ unit_ft() {
     cat "$ft_out"
     alert "the fifteensquared FT fetch failed, so the FT puzzles are filed from the posts already cached:"$'\n'"\`\`\`"$'\n'"$(tail -8 "$ft_out" | cut -c1-200)"$'\n'"\`\`\`"
   fi
-  if python3 tools/ft_puzzles.py --limit "$FT_PER_RUN" >"$ft_out" 2>&1; then
+  if python3 tools/ft_puzzles.py --budget-seconds "$FT_GRID_SECONDS" >"$ft_out" 2>&1; then
     cat "$ft_out"
   else
     rc=1
@@ -333,13 +336,14 @@ unit_ft() {
 
 # The Observer's Azed from the Guardian's printable copies. tools/andlit_azed.py
 # fetches the next copies andlit.org.uk's index links (2s apart, oldest unfiled
-# first), then files every cached copy whose grid and clue list agree. Bounded
-# per day so the archive drains politely; the unit runs daily.
-AZED_PER_NIGHT="${AZED_PER_NIGHT:-40}"
+# first), starting none past AZED_FETCH_SECONDS, then files every cached copy
+# whose grid and clue list agree. One that stopped with copies left to fetch
+# runs again at the next tick (backlog_left) until andlit's index is drained.
+AZED_FETCH_SECONDS="${AZED_FETCH_SECONDS:-900}"
 unit_azed() {
   local azed_out rc=0
   azed_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-azed.XXXXXX")"
-  if python3 tools/andlit_azed.py nightly --limit "$AZED_PER_NIGHT" >"$azed_out" 2>&1; then
+  if python3 tools/andlit_azed.py nightly --budget-seconds "$AZED_FETCH_SECONDS" >"$azed_out" 2>&1; then
     grep -v '^  No ' "$azed_out"
   else
     rc=1
@@ -854,8 +858,10 @@ unit_commit() {  # subject
       printf '%s\n' "$symlinks" | while IFS= read -r link; do git rm -q --cached "$link"; done
       alert "the daily update tried to commit machine-local symlink(s): $(printf '%s ' $symlinks)- unstaged, because committed they break the Pages build for everyone. Add them to .gitignore, spelled without a trailing slash."
     fi
+    # The subject names what was filed (tools/commit_subject.py), the unit
+    # after it (daily_units.py job: a backfill's commits say so, not "daily").
     git diff --cached --quiet ||
-      git commit -m "$(printf 'Daily update: %s\n\n%s' "$1" "$(python3 tools/provenance.py trailer)")"
+      git commit -m "$(printf '%s\n\n%s' "$(git diff --cached --name-status -M -- puzzles | python3 tools/commit_subject.py "$(python3 tools/daily_units.py job "$1")")" "$(python3 tools/provenance.py trailer)")"
     # Nothing may be left behind. With one writer this is not a judgement
     # call about whose file it was: anything still showing here after `add -A` and
     # a commit is a bug, and it is work that will never reach the site. Read with
