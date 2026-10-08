@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,73 @@
     "text": "Thief and fence in possession of 1000, policeman recalled",
     "enumeration": "10"
    },
-   "solution": "PICKPOCKET"
+   "solution": "PICKPOCKET",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "PICKPOCKET",
+    "definitions": [
+     {
+      "text": "Thief",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in possession of",
+      "for": "container",
+      "note": "to be in possession of something is to hold it, so the fence holds the following letters inside it"
+     },
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "recalled is read as called back, so the policeman's word is taken backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fence",
+      "gives": "PICKET",
+      "note": "a picket is a pointed stake making up a fence"
+     },
+     {
+      "clueFragment": "1000",
+      "gives": "K",
+      "note": "K, for kilo, stands for a thousand"
+     },
+     {
+      "clueFragment": "policeman",
+      "gives": "COP",
+      "note": "slang for a police officer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIC",
+      "K",
+      "POC",
+      "KET"
+     ],
+     "reversals": [
+      {
+       "from": "COP",
+       "to": "POC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thief and a receiver of stolen goods are caught holding a thousand pounds, and an officer is called back to the scene.",
+     "walkthrough": "'Fence' looks like a second criminal beside the thief, but it is the picket that wraps around K and the reversed COP.",
+     "definitionFit": "A pickpocket is a petty thief who steals from people's pockets and bags."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fence"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +116,42 @@
     "text": "Choose the best tool for breaking rocks",
     "enumeration": "4"
    },
-   "solution": "PICK"
+   "solution": "PICK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PICK",
+    "definitions": [
+     {
+      "text": "Choose the best",
+      "at": 0
+     },
+     {
+      "text": "tool for breaking rocks",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Choose the best",
+      "note": "first meaning: to select the finest from a group"
+     },
+     {
+      "clueFragment": "tool for breaking rocks",
+      "note": "second meaning: a pointed implement on a handle used by miners"
+     }
+    ],
+    "explanation": {
+     "surface": "Advice to select the finest implement for smashing stone.",
+     "definitionFit": "The word is both a verb for selecting the choicest and a noun for the miner's pointed digging implement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "best"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +165,45 @@
     "text": "One of the Brontës, reportedly an impostor",
     "enumeration": "9"
    },
-   "solution": "CHARLATAN"
+   "solution": "CHARLATAN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CHARLATAN",
+    "definitions": [
+     {
+      "text": "an impostor",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as people say it, so the answer is how the name is spoken rather than spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One of the Brontës",
+      "gives": "CHARLATAN",
+      "soundsLike": "CHARLOTTE 'UN",
+      "note": "Charlotte Brontë, said casually as Charlotte 'un, that is 'Charlotte one'"
+     }
+    ],
+    "explanation": {
+     "surface": "A rumour that one of the famous literary sisters was secretly a fraud.",
+     "walkthrough": "Say 'Charlotte one' loosely, as 'Charlotte 'un', and it runs together into the word for a fraud.",
+     "definitionFit": "A charlatan is a fraud who pretends to skills or knowledge they lack, so an impostor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Brontës"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +223,50 @@
      }
     ]
    },
-   "solution": "PERSONALCOLUMN"
+   "solution": "PERSONALCOLUMN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PERSONAL COLUMN",
+    "definitions": [
+     {
+      "text": "Part of paper",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "producing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peculiar",
+      "gives": "PERSONAL",
+      "note": "peculiar in the sense of belonging to one person alone"
+     },
+     {
+      "clueFragment": "post",
+      "gives": "COLUMN",
+      "note": "a post or pillar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PERSONAL",
+      "COLUMN"
+     ]
+    },
+    "explanation": {
+     "surface": "Some section of a newspaper is producing strange mail.",
+     "walkthrough": "'Peculiar' reads as strange, but here it is the older sense, special to an individual; 'post' is not mail but an upright pillar.",
+     "definitionFit": "The personal column is the newspaper section carrying private notices and messages, so a part of a paper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "post"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +280,53 @@
     "text": "Richest somehow acquiring medieval instruments",
     "enumeration": "7"
    },
-   "solution": "CITHERS"
+   "solution": "CITHERS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CITHERS",
+    "definitions": [
+     {
+      "text": "medieval instruments",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "somehow suggests the letters are got into shape in some unspecified way, so they are rearranged"
+     }
+    ],
+    "linkWords": [
+     "acquiring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Richest",
+      "gives": "RICHEST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RICHEST",
+       "gives": "CITHERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The wealthiest people have somehow got hold of antique musical instruments.",
+     "definitionFit": "Citherns, or cithers, were plucked stringed instruments, close relatives of the guitar, popular in medieval and Renaissance times."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Richest"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +340,49 @@
     "text": "One choosing to drop opener - might he make one cross?",
     "enumeration": "7"
    },
-   "solution": "ELECTOR"
+   "solution": "ELECTOR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ELECTOR",
+    "definitions": [
+     {
+      "text": "might he make one cross?",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to drop opener",
+      "for": "deletion",
+      "note": "the opener of a word is its first letter, and it is dropped from the front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One choosing",
+      "gives": "SELECTOR",
+      "note": "one who chooses, as a team selector does"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELECTOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A selector decides to leave out the opening batsman; might that make the batsman angry?",
+     "walkthrough": "'Cross' looks like angry, but a voter marks a cross on a ballot paper. In cricket the opener is the batsman who starts the innings.",
+     "definitionFit": "A voter puts a cross beside a candidate's name on the ballot, so the question describes someone casting a vote."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +396,43 @@
     "text": "Rosemary, perhaps, in feather bed",
     "enumeration": "4"
    },
-   "solution": "HERB"
+   "solution": "HERB",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HERB",
+    "definitions": [
+     {
+      "text": "Rosemary, perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the run of words that follows, across the gap between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "feather bed",
+      "gives": "HERB",
+      "note": "the end of feather joined to the start of bed"
+     }
+    ],
+    "explanation": {
+     "surface": "A woman named Rosemary lies in a feather bed.",
+     "walkthrough": "'Rosemary' poses as a woman's name; it is the plant, and 'perhaps' marks it as one example.",
+     "definitionFit": "Rosemary is an aromatic plant used in cooking, one example of the category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Rosemary"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +446,52 @@
     "text": "Soil shortage duke ignored",
     "enumeration": "5"
    },
-   "solution": "EARTH"
+   "solution": "EARTH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EARTH",
+    "definitions": [
+     {
+      "text": "Soil",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignored",
+      "for": "deletion",
+      "note": "something ignored is left out, so the duke's letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shortage",
+      "gives": "DEARTH",
+      "note": "a dearth is a scarcity"
+     },
+     {
+      "clueFragment": "duke",
+      "gives": "D",
+      "note": "D is the abbreviation for duke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EARTH"
+     ]
+    },
+    "explanation": {
+     "surface": "A duke takes no notice of a shortage of soil on his estate.",
+     "definitionFit": "Earth and soil are synonyms for the ground that plants grow in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "duke"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +511,53 @@
      }
     ]
    },
-   "solution": "BASSPLAYER"
+   "solution": "BASSPLAYER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BASS PLAYER",
+    "definitions": [
+     {
+      "text": "a guitarist",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the contestant's word behind the singer's word in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "singer",
+      "gives": "BASS",
+      "note": "a bass is a singer with the lowest male voice"
+     },
+     {
+      "clueFragment": "Contestant",
+      "gives": "PLAYER",
+      "note": "a player takes part in a game or contest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BASS",
+      "PLAYER"
+     ]
+    },
+    "explanation": {
+     "surface": "A competitor on a talent show goes on after a vocalist, and turns out to be a guitarist.",
+     "definitionFit": "A bass player plays the bass guitar, so is one kind of guitarist in a band."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Contestant"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +577,56 @@
      }
     ]
    },
-   "solution": "POWERBREAKFAST"
+   "solution": "POWERBREAKFAST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POWER BREAKFAST",
+    "definitions": [
+     {
+      "text": "early business meeting",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Influence",
+      "gives": "POWER",
+      "note": "power is influence over others"
+     },
+     {
+      "clueFragment": "chance",
+      "gives": "BREAK",
+      "note": "a lucky break is a chance"
+     },
+     {
+      "clueFragment": "quick",
+      "gives": "FAST",
+      "note": "fast means quick"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POWER",
+      "BREAK",
+      "FAST"
+     ]
+    },
+    "explanation": {
+     "surface": "Exerting influence, by luck, at a hurried meeting first thing in the morning.",
+     "walkthrough": "'By chance' reads as a phrase meaning accidentally, but 'by' only links the pieces and 'chance' is BREAK.",
+     "definitionFit": "A power breakfast is a morning meal at which executives discuss business, so a business meeting held early."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chance"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +640,55 @@
     "text": "Seat I must sit in daily",
     "enumeration": "5"
    },
-   "solution": "CHAIR"
+   "solution": "CHAIR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHAIR",
+    "definitions": [
+     {
+      "text": "Seat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must sit in",
+      "for": "container",
+      "note": "sitting in something places it inside, so the single letter goes into the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "daily",
+      "gives": "CHAR",
+      "note": "a daily, in British usage, is a cleaning woman who comes in each day, also called a char"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "I",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone told they must sit in the same seat every day.",
+     "walkthrough": "'Daily' seems to mean every day, but it is the British noun for a domestic cleaner, a charwoman.",
+     "definitionFit": "A chair is a seat for one person, with a back."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "daily"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +708,55 @@
      }
     ]
    },
-   "solution": "THEBOARDS"
+   "solution": "THEBOARDS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THE BOARDS",
+    "definitions": [
+     {
+      "text": "acting profession",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Incorrect",
+      "for": "anagram",
+      "note": "something incorrect is wrongly ordered, so these letters must be put right in a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ad",
+      "gives": "AD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bothers",
+      "gives": "BOTHERS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ADBOTHERS",
+       "gives": "THEBOARDS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An inaccurate advertisement annoys members of the theatrical world.",
+     "definitionFit": "The boards are the stage, so to tread the boards is to act; the phrase stands for the theatre as a profession."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bothers"
+    }
+   }
   },
   {
    "number": 12,
@@ -239,7 +784,42 @@
      }
     ]
    },
-   "solution": "ALLOVERTHESHOP"
+   "solution": "ALLOVERTHESHOP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ALL OVER THE SHOP",
+    "definitions": [
+     {
+      "text": "In disarray",
+      "at": 0
+     },
+     {
+      "text": "everywhere",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In disarray",
+      "note": "first meaning: in a complete mess"
+     },
+     {
+      "clueFragment": "everywhere",
+      "note": "second meaning: scattered in all places"
+     }
+    ],
+    "explanation": {
+     "surface": "Things lying in a mess, scattered all over.",
+     "walkthrough": "The British idiom has both senses: wildly disorganised, and spread across every place.",
+     "definitionFit": "The informal British phrase means both chaotic and widely scattered in every direction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -259,7 +839,70 @@
      }
     ]
    },
-   "solution": "ICEMACHINE"
+   "solution": "ICEMACHINE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ICE MACHINE",
+    "definitions": [
+     {
+      "text": "Fridge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clumsy",
+      "for": "anagram",
+      "note": "clumsy handling knocks things into disorder, so the letters of the tradesman are jumbled"
+     },
+     {
+      "text": "broken by",
+      "for": "container",
+      "note": "something broken by another thing is split open around it, so the short abbreviation is parted to hold the rest"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IE",
+      "note": "i.e., id est, means that is; 'that' is shared"
+     },
+     {
+      "clueFragment": "mechanic",
+      "gives": "MECHANIC",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "CEMACHIN",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MECHANIC",
+       "gives": "CEMACHIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A refrigerator which has been broken by a ham-fisted repairman.",
+     "walkthrough": "'That is' gives IE, the abbreviation of id est, and it is split around the shuffled mechanic.",
+     "definitionFit": "An ice machine is a refrigerating appliance that makes ice, loosely a fridge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broken"
+    }
+   }
   },
   {
    "number": 14,
@@ -273,7 +916,52 @@
     "text": "Crystal getting rid of good sword",
     "enumeration": "7"
    },
-   "solution": "CUTLASS"
+   "solution": "CUTLASS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CUTLASS",
+    "definitions": [
+     {
+      "text": "sword",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting rid of",
+      "for": "deletion",
+      "note": "getting rid of something means removing it, here the letter for good"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crystal",
+      "gives": "CUTGLASS",
+      "note": "cut glass is fine crystal glassware"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUTLASS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone clears out their fine glassware and a decent blade.",
+     "definitionFit": "A cutlass is a short curved sword of the kind used by sailors and pirates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Crystal"
+    }
+   }
   },
   {
    "number": 15,
@@ -287,7 +975,68 @@
     "text": "Book about English County Council described by graduate",
     "enumeration": "7"
    },
-   "solution": "REBECCA"
+   "solution": "REBECCA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "REBECCA",
+    "definitions": [
+     {
+      "text": "Book",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "described by",
+      "for": "container",
+      "note": "to describe a figure is to draw a line around it, so the graduate's letters encircle the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "graduate",
+      "gives": "BA",
+      "note": "a Bachelor of Arts degree holder"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "County Council",
+      "gives": "CC",
+      "note": "CC is the abbreviation for County Council"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "B",
+      "E",
+      "CC",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A volume about local government, written by a university graduate.",
+     "walkthrough": "'Described' is used in its geometric sense: to describe a circle is to draw it, so the graduate's letters are drawn around the council's.",
+     "definitionFit": "Rebecca is Daphne du Maurier's celebrated 1938 novel, so it is a book."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "described"
+    }
+   }
   },
   {
    "number": 16,
@@ -301,7 +1050,53 @@
     "text": "Customers about right to send a message, briefly",
     "enumeration": "9"
    },
-   "solution": "CLIENTELE"
+   "solution": "CLIENTELE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLIENTELE",
+    "definitions": [
+     {
+      "text": "Customers",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c., circa, means about"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "LIEN",
+      "note": "a lien is a legal right to keep another's property until a debt is paid"
+     },
+     {
+      "clueFragment": "to send a message, briefly",
+      "gives": "TELE",
+      "note": "telex, a verb for sending a message by teleprinter, cut short"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LIEN",
+      "TELE"
+     ]
+    },
+    "explanation": {
+     "surface": "Shop customers are told they have a right to send a short message.",
+     "walkthrough": "'Right' is not R here but a lien, a legal claim; 'briefly' drops the last letter of telex.",
+     "definitionFit": "Clientele is the body of clients or regular customers of a business."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1110,65 @@
     "text": "Skirt around centre of Edinburgh in a taxi",
     "enumeration": "7"
    },
-   "solution": "MINICAB"
+   "solution": "MINICAB",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MINICAB",
+    "definitions": [
+     {
+      "text": "taxi",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre of",
+      "for": "letter_selection",
+      "note": "the centre of a word is its middle, so only the middle letter of the city's name is kept"
+     }
+    ],
+    "linkWords": [
+     "in a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Skirt",
+      "gives": "MINI",
+      "note": "a miniskirt, a mini"
+     },
+     {
+      "clueFragment": "around",
+      "gives": "CA",
+      "note": "ca., circa, means around"
+     },
+     {
+      "clueFragment": "Edinburgh",
+      "gives": "B",
+      "select": "middle",
+      "note": "the fifth of the nine letters is the central one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MINI",
+      "CA",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in a miniskirt rides around central Edinburgh in a cab.",
+     "walkthrough": "'Around' looks like a container signal, but it is CA, circa. A minicab is a British private-hire car booked by phone, unlike a black cab hailed in the street.",
+     "definitionFit": "A minicab is a car available for hire as a taxi."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1182,54 @@
     "text": "Obtains supply for a fortified place",
     "enumeration": "7"
    },
-   "solution": "BASTION"
+   "solution": "BASTION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BASTION",
+    "definitions": [
+     {
+      "text": "a fortified place",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supply",
+      "for": "anagram",
+      "note": "supply is read as the adverb of supple, so the letters bend flexibly into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Obtains",
+      "gives": "OBTAINS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OBTAINS",
+       "gives": "BASTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gets provisions in for a castle under siege.",
+     "walkthrough": "'Supply' looks like a noun for provisions, but it is the adverb from supple, flexibly.",
+     "definitionFit": "A bastion is a projecting part of a fortification, and by extension a stronghold."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "supply"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1243,48 @@
     "text": "Get hairdo in a place buzzing with activity?",
     "enumeration": "7"
    },
-   "solution": "BEEHIVE"
+   "solution": "BEEHIVE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BEEHIVE",
+    "definitions": [
+     {
+      "text": "hairdo",
+      "at": 4
+     },
+     {
+      "text": "a place buzzing with activity?",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "Get",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hairdo",
+      "note": "first meaning: a tall domed hairstyle of the 1960s"
+     },
+     {
+      "clueFragment": "a place buzzing with activity?",
+      "note": "second meaning: a busy place, and literally the home where bees buzz"
+     }
+    ],
+    "explanation": {
+     "surface": "Getting your hair done in a bustling salon.",
+     "walkthrough": "The question mark flags the pun: buzzing is both busy and the sound of bees.",
+     "definitionFit": "The word names both a towering bouffant hairstyle and a lively place, its literal sense being a bees' home."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "buzzing"
+    }
+   }
   },
   {
    "number": 19,
@@ -357,7 +1298,67 @@
     "text": "After duck, child tucked into cheese roll",
     "enumeration": "7"
    },
-   "solution": "BRIOCHE"
+   "solution": "BRIOCHE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BRIOCHE",
+    "definitions": [
+     {
+      "text": "roll",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After",
+      "for": "charade",
+      "note": "after places the child's letters behind the duck's in the run that goes in"
+     },
+     {
+      "text": "tucked into",
+      "for": "container",
+      "note": "tucked into means put inside, so the run goes in the middle of the cheese"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheese",
+      "gives": "BRIE",
+      "note": "a soft French cheese"
+     },
+     {
+      "clueFragment": "duck",
+      "gives": "O",
+      "note": "in cricket a duck is a score of nought, the shape of O"
+     },
+     {
+      "clueFragment": "child",
+      "gives": "CH",
+      "note": "CH is the abbreviation for child"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRI",
+      "O",
+      "CH",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Once the duck was finished, a youngster tucked into a cheese roll.",
+     "walkthrough": "'Tucked into' suggests eating, but it means placed inside; 'roll' looks like part of 'cheese roll' but is the definition.",
+     "definitionFit": "A brioche is a soft sweet French bread, often baked as a roll or bun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tucked"
+    }
+   }
   },
   {
    "number": 20,
@@ -377,7 +1378,56 @@
      }
     ]
    },
-   "solution": "CHARLESDICKENS"
+   "solution": "CHARLESDICKENS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHARLES DICKENS",
+    "definitions": [
+     {
+      "text": "writer",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out means wrong or off the mark, so these letters are not yet in the right order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Islander",
+      "gives": "ISLANDER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "checks",
+      "gives": "CHECKS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISLANDERCHECKS",
+       "gives": "CHARLESDICKENS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An island resident checks out a novelist.",
+     "walkthrough": "'Checks out' reads as a phrasal verb, but 'out' alone is the shuffle signal acting on both words.",
+     "definitionFit": "Charles Dickens was the Victorian novelist of Oliver Twist and Great Expectations, so a writer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 21,
@@ -397,7 +1447,42 @@
      }
     ]
    },
-   "solution": "ATSEA"
+   "solution": "ATSEA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AT SEA",
+    "definitions": [
+     {
+      "text": "on the ocean",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some of",
+      "for": "hidden_word",
+      "note": "some of points to a portion of the following words, letters lifted from inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what's eaten",
+      "gives": "ATSEA",
+      "note": "running across what's and eaten"
+     }
+    ],
+    "explanation": {
+     "surface": "Part of the food served aboard a ship.",
+     "definitionFit": "To be at sea is to be out sailing on the ocean, away from land."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eaten"
+    }
+   }
   },
   {
    "number": 22,
@@ -411,7 +1496,53 @@
     "text": "Tide rising? Correct",
     "enumeration": "4"
    },
-   "solution": "EDIT"
+   "solution": "EDIT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "EDIT",
+    "definitions": [
+     {
+      "text": "Correct",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down entry, rising means read from the bottom up, so the word runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tide",
+      "gives": "TIDE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDIT"
+     ],
+     "reversals": [
+      {
+       "from": "TIDE",
+       "to": "EDIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether the tide is coming in, and is told yes.",
+     "definitionFit": "To edit a text is to correct and revise it before publication."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Correct"
+    }
+   }
   },
   {
    "number": 23,
@@ -425,7 +1556,40 @@
     "text": "Night out? Not for me!",
     "enumeration": "9"
    },
-   "solution": "INSOMNIAC"
+   "solution": "INSOMNIAC",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "INSOMNIAC",
+    "definitions": [
+     {
+      "text": "Night out? Not for me!",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Night out?",
+      "note": "surface reading: an invitation to an evening of fun"
+     },
+     {
+      "clueFragment": "Not for me!",
+      "note": "setter's reading: someone who is never out for the night, in the sense of being knocked out asleep"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone turning down an invitation to an evening on the town.",
+     "walkthrough": "'Out' sounds like going out, but it is out cold, asleep; the speaker is someone who can never sleep through the night.",
+     "definitionFit": "An insomniac is a person who habitually cannot sleep, so is never out for the count at night."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 24,
@@ -439,7 +1603,57 @@
     "text": "Correct an error in short advert recruiting soldiers",
     "enumeration": "5"
    },
-   "solution": "AMEND"
+   "solution": "AMEND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AMEND",
+    "definitions": [
+     {
+      "text": "Correct an error",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recruiting",
+      "for": "container",
+      "note": "recruiting means taking people in, so the advert's letters take the soldiers inside"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "short advert",
+      "gives": "AD",
+      "note": "ad is the shortened form of advertisement"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "MEN",
+      "note": "soldiers, as the men of a unit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MEN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A mistake is put right in a brief army recruitment advertisement.",
+     "definitionFit": "To amend is to change something in order to fix a mistake in it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recruiting"
+    }
+   }
   },
   {
    "number": 25,
@@ -453,7 +1667,54 @@
     "text": "Produced round cheese",
     "enumeration": "4"
    },
-   "solution": "EDAM"
+   "solution": "EDAM",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "EDAM",
+    "definitions": [
+     {
+      "text": "cheese",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "reversal",
+      "note": "turning something round faces it the other way, so the word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Produced",
+      "gives": "MADE",
+      "note": "made means produced"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDAM"
+     ],
+     "reversals": [
+      {
+       "from": "MADE",
+       "to": "EDAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dairy has made a wheel of cheese.",
+     "walkthrough": "'Round cheese' reads as one phrase, fitting the ball-shaped cheese, but 'round' is the reversal signal.",
+     "definitionFit": "Edam is a mild Dutch cheese, famous for its red wax coating."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 26,
@@ -467,7 +1728,49 @@
     "text": "Wearing ceremonial garment causes speculation",
     "enumeration": "10"
    },
-   "solution": "INVESTMENT"
+   "solution": "INVESTMENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INVESTMENT",
+    "definitions": [
+     {
+      "text": "speculation",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "causes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wearing",
+      "gives": "IN",
+      "note": "dressed in, wearing"
+     },
+     {
+      "clueFragment": "ceremonial garment",
+      "gives": "VESTMENT",
+      "note": "a vestment is a robe worn by clergy at services"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "VESTMENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Putting on priestly robes sets tongues wagging.",
+     "definitionFit": "An investment, putting money into shares or property in hope of a return, is a form of financial speculation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "speculation"
+    }
+   }
   }
  ]
 }
