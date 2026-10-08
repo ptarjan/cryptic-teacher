@@ -523,7 +523,7 @@ def join(reading, grids, reports, read_letters):
         lid for lid, (_, e, _) in laid.items() if e and gl.al.ftp.count(e) == lengths.get(lid)})
     if blank:
         verdict["blanked"] = blank
-        reading = {**reading, "clues": {lid: {"text": t, "enumeration": e} for lid, (t, e, _) in laid.items()}}
+        reading = {**reading, "clues": {lid: {**clues[lid], "text": t, "enumeration": e} for lid, (t, e, _) in laid.items()}}
     puzzle = build(reading, rows)
     scored = sorted(((agreement(rows, r["grid"]["rows"]), i) for i, r in enumerate(reports)), reverse=True)
     if not scored or scored[0][0] < REPORT_AGREE:

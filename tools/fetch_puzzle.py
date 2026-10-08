@@ -242,11 +242,12 @@ def visible(s):
 
 def clue_words(clue):
     """A clue's words, which an annotation is written against: letters and
-    digits only, accents folded, case dropped. Punctuation, quotes, dashes and
-    spacing are typography; any other difference is a different clue, and an
-    annotation written for one does not describe the other."""
-    folded = unicodedata.normalize("NFKD", plain_text(clue) or "")
-    return re.sub(r"[^a-z0-9]", "", folded.lower())
+    digits only, in any script, accents folded, case dropped. Punctuation,
+    quotes, dashes and spacing are typography; any other difference is a
+    different clue, and an annotation written for one does not describe the
+    other."""
+    folded = unicodedata.normalize("NFKD", plain_text(clue) or "").lower()
+    return "".join(c for c in folded if c.isalnum() and not unicodedata.combining(c))
 
 
 def quoted(ann):
