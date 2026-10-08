@@ -618,7 +618,7 @@ SLIP_FLOOR = 8000
 
 
 #: The misreadings worn newsprint makes one way only: (printed, read).
-ONE_WAY = (("e", "c"),)
+ONE_WAY = (("e", "c"), ("o", "c"))
 
 
 def misread(read, printed):
@@ -627,6 +627,18 @@ def misread(read, printed):
         return False
     diff = [(p, r) for p, r in zip(printed, read) if p != r]
     return len(diff) == 1 and diff[0] in ONE_WAY
+
+
+def worn(word):
+    """The known word `word` (a non-word) is with one ONE_WAY letter worn,
+    SLIP_RATIO times commoner than any other it could be ("of" for No 3's
+    "cf"), else None."""
+    low = word.lower()
+    cands = sorted({v for i, ch in enumerate(low) for p, r in ONE_WAY if ch == r
+                    and known(v := low[:i] + p + low[i + 1:])}, key=lambda v: rank(v) or 10 ** 9)
+    if not cands or (len(cands) > 1 and (rank(cands[0]) or 10 ** 9) * SLIP_RATIO >= (rank(cands[1]) or 10 ** 9)):
+        return None
+    return cands[0]
 
 
 def common_slip(word):
@@ -1447,6 +1459,12 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=()):
             # asPrinted, which suspect() then takes.
             pick = a
             how = "as printed"
+        elif len(votes) == 1 and votes[a] > 1 and not known(a) and (pick := worn(a)):
+            # Every reading prints the same non-word, a worn letter from a
+            # known word far commoner than any other it could be (No 3's
+            # "initials cf a telegraph").
+            spelt[pick] = pick.capitalize() if w[:1].isupper() else pick
+            how = "settled by the type's wear"
         else:
             return None, (f"both read {w!r}, not a word" if votes[a] > 1
                           else f"readings differ: {w} / {' / '.join(got.values())}")
