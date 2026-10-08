@@ -364,6 +364,13 @@ check("a token asPrinted keeps is no suspect, nor bled; others still are",
       (oc.suspect("slang (from Hollywood elecampeae", printed=["(from", "elecampeae"]),
        oc.bled("slang (from Hollywood", ["(from"]), oc.suspect("An anatomatical term", printed=["(from"]),
        oc.bled("slang (from Hollywood") is not None))
+check("a word a reading broke is mended (No 4 2D, 4D, 26D, 11D)",
+      ["An Englishman who", "the development of England", "This architectural", "St. George's Day, Mr. Smith"],
+      [oc.clean(t) for t in ("An Engl ishman who", "the development ment of England", "T'his architectural",
+                             "St.George's Day, Mr.Smith")])
+check("two words, a common word ending the one before, a known elision and initials stand (mirror)",
+      ["Engl and", "go nowhere here", "happiness ness", "O'er the hills, I'm", "The U.S.A. now"],
+      [oc.clean(t) for t in ("Engl and", "go nowhere here", "happiness ness", "O'er the hills, I'm", "The U.S.A. now")])
 check("an abbreviation's stop before a small word stands; a sentence's is a comma",
       "Anag. of a lovely word, then 20 rev. and", oc.clean("Anag. of a lovely word. then 20 rev. and"))
 check("a bracket opening on a word gets its space back; a plural's (s) keeps none",
@@ -441,6 +448,27 @@ check("with no quote before it, no quote is put in (mirror)", [(400, 50, 444, 53
 check("a one-em dash run into a word is none (mirror)", [],
       oc.blank_strokes(page(text, lambda d: (d.rectangle((400, 50, 422, 52), fill=0), letters(423)(d))),
                        [LINE], WORDS, H))
+# A rule touching the word before it too: "no——could".
+ahead = lambda d: [d.rectangle((x, 44, x, 58), fill=0) for x in range(380, 399, 6)]
+check("a two-em rule run into the words either side of it is a blank", [(400, 50, 444, 53, "——")],
+      oc.blank_strokes(page(text, ahead, run_in), [LINE], WORDS, H))
+check("a one-em dash run into the words either side of it is none (mirror)", [],
+      oc.blank_strokes(page(text, ahead, lambda d: (d.rectangle((400, 50, 422, 52), fill=0), letters(423)(d))),
+                       [LINE], WORDS, H))
+# No 4 15D "bee no——" over "could draw.": a one-em rule run into the word
+# before it, ending its line.
+head = lambda d: words(d, 40, *SPANS[:2])
+em = lambda d: d.rectangle((400, 50, 430, 52), fill=0)
+check("a one-em rule run into the word before it, ending its line, is a blank (No 4 15D)",
+      [[(400, 50, 431, 53, "——")]] * 2,
+      [oc.blank_strokes(page(head, ahead, em), [(100, 40, 431, 60)], WORDS[:2] + box, H)
+       for box in ([], [(380, 43, 431, 59, "no")])])
+check("a rule through a word's middle is a mark on it, no blank (mirror)", [],
+      oc.blank_strokes(page(head, ahead, em), [(100, 40, 431, 60)], WORDS[:2] + [(395, 43, 431, 59, "no")], H))
+check("not where the line runs on after it, nor a hyphen ending its line (mirror)", [[], []],
+      [oc.blank_strokes(page(head, ahead, em), [(100, 40, 700, 60)], WORDS[:2], H),
+       oc.blank_strokes(page(head, ahead, lambda d: d.rectangle((400, 50, 412, 52), fill=0)),
+                        [(100, 40, 413, 60)], WORDS[:2], H)])
 blank = (1202, 603, 1227, 605, "——")
 readings = {"ch": [(1080, 588, 1473, 617, "And the-is heard above the")],
             "en5": [(1080, 588, 1473, 617, "And the - is heard above the")],
