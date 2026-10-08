@@ -544,6 +544,25 @@ check("an apostrophe one letter mends into a known word is that letter (No 97 6D
 check("a poet's elision and a contraction stay (mirror)",
       "The wand'ring heav'n you'll see.", oc.letter_put_back("The wand'ring heav'n you'll see."))
 
+# No 103 9D: Tesseract lost "12. In" and ran 12D's line on after 9D's stop.
+twelve = {"12-down": ("In legend wonderful test of fidelity.", None, None)}
+check("a clue running on after its stop into another laid clue's words is cut there (No 103 9D)",
+      "A pole was the sign of this house,",
+      oc.run_on("A pole was the sign of this house, legend test of fidelity,", "9-down", twelve))
+check("words after a stop that no other clue prints stay (mirror)",
+      "A pole was the sign. Its house of fidelity.",
+      oc.run_on("A pole was the sign. Its house of fidelity.", "9-down",
+                {"12-down": ("Wonderful test of a mare.", None, None)}))
+
+check("a tag other clues end on stays after the stop (mirror, No 17 38D)",
+      "Wild or tipsy. Two letters missing.",
+      oc.run_on("Wild or tipsy. Two letters missing.", "38-down",
+                {"43-across": ("Anag. of the first syllable of a starling. *One letter missing.", None, None)}))
+check("a few words another clue shares stay after the stop (mirror, No 103 41D)",
+      "Half girl half hag, a wonder of the Nile.",
+      oc.run_on("Half girl half hag, a wonder of the Nile.", "41-down",
+                {"27-down": ("Not many wonders surpass the modern one here.", None, None)}))
+
 print(f"FAILS {fails}")
 EOF
 )
