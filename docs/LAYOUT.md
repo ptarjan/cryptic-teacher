@@ -1701,11 +1701,12 @@ tools/test_gale_listener.sh                   is a saved Listener page matched b
                                               DOWN first, a heading centred over its column, a
                                               number set wide of its words, read in old-style
                                               letters ("I.", "Io.") or run into them, a list
-                                              broken by a gap, and a clue a line when
-                                              uncounted; does a page say the page its clues or
-                                              diagram are on; is each file read once, and does
-                                              the checklist mark what is saved or filed and ask
-                                              for a missing solution?
+                                              broken by a gap or run on into the next after a
+                                              heading's space, no report's prose, and a clue a
+                                              line when uncounted; does a page say the page its
+                                              clues or diagram are on; is each file read once,
+                                              and does the checklist mark what is saved or
+                                              filed and ask for a missing solution?
 tools/listener_grid.py                        reads a 1930s Listener grid off a scanned Gale
                                               page: every grid on the page found as a lattice
                                               of long rules (prose, column rules and boxes are

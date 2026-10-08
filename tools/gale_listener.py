@@ -337,6 +337,9 @@ def headed_columns(words):
     return [lines["ACROSS"], lines["DOWN"]] if lines["ACROSS"] and lines["DOWN"] else None
 
 
+#: A report's heading, "Report on Crossword No. 13", "Report on the
+#: Crossword of May 14": its prose quotes clue numbers ("solving 38 Down").
+REPORT_HEAD = re.compile(r"^\W*report\s+on\b", re.IGNORECASE)
 #: A clue number as the 1930s lists print it, "12.": where they line up
 #: is a clue column (a bare "12" may be a grid's or a sentence's).
 OPENS = re.compile(r"^\W{0,2}\d{1,2}[.,:](?![\d.])")
@@ -378,8 +381,10 @@ def numbered_columns(words):
     and from the top in the columns right of it, each clue column (where
     clue numbers line up) is cut top to bottom into runs: a line opening on
     a number and words is a clue, an indented line just under it runs on,
-    and a heading, a line that is neither, a gap, or a clue numbered 1 or 2
-    after a higher one, below a heading's space, ends the run (a bracketed pair, "4.} 29.}", does not). The
+    and a heading, a line that is neither, a gap, or a clue numbered below
+    the one before it, a heading's space under it, ends the run (No 15's
+    DOWN 22 under ACROSS 39; a bracketed pair, "4.} 29.}", does not). A
+    report's heading ends the column's lists. The
     runs, in column order, are chained into two lists by their first
     numbers: a run starting at 1 or 2 opens the second list, and any other
     run goes on whichever list's last clue it follows closest (No 97's
@@ -399,6 +404,9 @@ def numbered_columns(words):
         col = [(w[1], w[3], w[0], w[2], w[4]) for w in words if x0 <= w[0] < x1]
         run, last_y = [], None
         for line in fa.merge_rows(col):
+            if REPORT_HEAD.match(line[4]):
+                # A report's prose ("solving 38 Down") is no clue list.
+                break
             if x0 <= start[2] and line[1] <= start[3]:
                 # Above the first heading, in its columns or those left of
                 # it: the grid, the preamble, another article.
@@ -406,7 +414,7 @@ def numbered_columns(words):
             m = al.LINE_CLUE.match(line[4])
             if m and line[2] - x0 < 60 and WORDY.search(m.group(2)) and not fa.heading_of(line[4]):
                 n = int(m.group(1))
-                if run and (line[0] - last_y > fa.GAP / 2 or n <= 2 < run[-1][0] and line[0] - last_y > RESTART):
+                if run and (line[0] - last_y > fa.GAP / 2 or n < run[-1][0] and line[0] - last_y > RESTART):
                     runs.append(run)
                     run = []
                 run.append((n, [line]))
@@ -483,7 +491,7 @@ def bands(box, located):
 
 #: A page that prints a puzzle's clues or diagram elsewhere says where:
 #: "(For clues see page 1057)", "Diagram and rules on page 885".
-ELSEWHERE = re.compile(r"\b(?:clues?|diagram)\b[^.]{0,40}?\bpage\s+(\d{2,4})\b", re.IGNORECASE)
+ELSEWHERE = re.compile(r"\b(?:clues?|diagram|rules)\b[^.]{0,40}?\bpage\s+(\d{2,4})\b", re.IGNORECASE)
 
 
 def elsewhere(words):
