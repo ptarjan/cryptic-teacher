@@ -694,12 +694,13 @@ def elsewhere(words):
     return sorted({int(n) for n in ELSEWHERE.findall(" ".join(ocr_clues.lines_of(words).split()))})
 
 
-def read_page(img, key):
+def read_page(img, key, lengths=None):
     """(verdict, {light: (text, enumeration, None)} or None) for one page:
     the whole page read by every ocr_clues.READERS reader band by band, each
     reading's lists found by page_columns, and voted on (al.vote). The
     1930s lists run on above their heading in the next column, so no box
-    under a heading holds them all."""
+    under a heading holds them all. `lengths` ({light: cells}) is the
+    page's grid, when the caller has read it (al.vote)."""
     verdict = {}
     located = figures(page_words(img, key))
     if pages := elsewhere(located):
@@ -731,7 +732,7 @@ def read_page(img, key):
     if blanks := page_blanks(img, located):
         verdict["blanks"] = len(blanks)
         words = {k: ocr_clues.with_blanks(w, blanks) for k, w in words.items()}
-    return al.vote(words, verdict, cols=page_columns)
+    return al.vote(words, verdict, cols=page_columns, lengths=lengths)
 
 
 def page_blanks(img, located):

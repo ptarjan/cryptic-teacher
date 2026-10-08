@@ -574,7 +574,6 @@ def read_scan(path, number, ocr=True):
     import numpy as np
     from PIL import Image
     img = img.resize((img.width * SCAN_SCALE, img.height * SCAN_SCALE), Image.LANCZOS)
-    verdict, voted = gale_listener.read_page(img, f"azed-{sha[:16]}")
     gray = np.asarray(img.convert("L"), dtype=np.uint8)
     grids = [g for g in listener_grid.find_grids(gray) if g["rows"]]
     # The page's own grid is the biggest; the previous solution's is smaller.
@@ -583,6 +582,9 @@ def read_scan(path, number, ocr=True):
     if grid:
         fitted = listener_grid.fit(grid, listener_grid.printed_numbers(gray, grid))
         rows, exact = fitted["rows"], fitted["exact"]
+    # A grid whose numbers all fit counts each light, so a clue whose count
+    # no reader read is voted on, not held.
+    verdict, voted = gale_listener.read_page(img, f"azed-{sha[:16]}", lengths=light_lengths(rows) if exact else None)
     got = {"sha": sha, "version": SCAN_VERSION, "verdict": verdict, "rows": rows, "exact": exact,
            "clues": {k: [t, e] for k, (t, e, _g) in (voted or {}).items()}}
     SCAN_STORE.mkdir(parents=True, exist_ok=True)
@@ -634,6 +636,11 @@ def run_together(word):
                 and max(ocr_clues.rank(a) or math.inf, ocr_clues.rank(b) or math.inf) <= RUN_TOGETHER_COMMON:
             return f"{a} {b}"
     return None
+
+
+def light_lengths(rows):
+    """{"<n>-<across|down>": cells} of each light of `rows`, as the vote keys them."""
+    return {f"{n}-{d}": len(cells) for (n, d), cells in rg.light_cells(rows).items()}
 
 
 def scan_copy(got):
