@@ -137,6 +137,9 @@ print("ANSWERS", " ".join(f"{n}{d[0]}={a}" for (n, d), a in sorted(answers.items
 entries = F.entries_of(linked, answers, GRID)
 print("ENTRIES", " ".join(f"{e['number']}{e['direction'][0]}={e['answer']}" for e in entries))
 print("SEE", entries[2]["clue"])
+across = F.entries_of({"clues": [{"lights": [(1, "down"), (5, "across")], "clue": "Go to tents (5,5)",
+                                  "enumeration": "5,5"}]}, {(1, "down"): "SHOOTTENTS"}, GRID)
+print("SEEWAY", across[1]["clue"])
 
 missing = F.blog_answers(POST.replace("NEARS", "Nears"), linked["clues"])
 print("MISSING", F.entries_of(linked, missing, GRID))
@@ -189,6 +192,7 @@ check "answers read by enumeration; prose numbers ignored" \
 check "a linked answer is shared out by the grid's light lengths" \
   "1a=SATIN 4a=OPERA 5a=TENTS 1d=SHOOT 2d=TWEEN 3d=NEARS" "$(g ENTRIES)"
 check "the second light of a link points at its leader" "See 4" "$(g SEE)"
+check "a linked light running the other way names its leader's direction" "See 1 down" "$(g SEEWAY)"
 check "a light the blog does not answer gets no entries from it" "None" "$(g MISSING)"
 check "a light the blog does not answer files the puzzle unsolved" \
   "None {'origin': 'unsolved'} False" "$(g UNANSWERED)"
@@ -206,8 +210,8 @@ check "a word hyphenated to fit the line is rejoined; a compound keeps its hyphe
 check "a word rarer than its first half is still rejoined; two words that are no word keep the hyphen" \
   "despite shadowed | do it unacceptably | a level playing-field" "$(g JOINRARE)"
 check "a heading set with a zero, D0WN, still opens the down clues" "1a 4a 5a 1d 2d 3d" "$(g ZERO)"
-check "a linked head alone on its line opens the clue; its unsaid light takes its stub's section; (3’s 2) is an enumeration" \
-  "1a 4a 5a 1d 2d,5a 3d | 5 3’s 2 None 5 4-1,5 5 | None" "$(g APART)"
+check "a linked head alone on its line opens the clue; its unsaid light takes its stub's section; (3’s 2) is an enumeration, counted as entered" \
+  "1a 4a 5a 1d 2d,5a 3d | 5 3 2 None 5 4-1,5 5 | None" "$(g APART)"
 check "a clue under a head-only line starts at its next line" "Child given a tent (4-1,5)" "$(g APARTCLUE)"
 
 check "an undated number takes a day only when the printing days between its neighbours are exactly the numbers" \

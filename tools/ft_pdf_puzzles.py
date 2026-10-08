@@ -619,7 +619,8 @@ def parse_clues(text):
     unsaid_to_stub(clues)
     for c in clues:
         e = ENUM.search(c["clue"])
-        c["enumeration"] = e.group(1).strip() if e else None
+        # What the grid holds: an unentered "'s" counts nothing ("9 7").
+        c["enumeration"] = re.sub(r"['’]s", "", e.group(1)).strip() if e else None
     return {"number": number, "setter": setter, "clues": clues, "preamble": note}
 
 
@@ -755,12 +756,15 @@ def entries_of(pdf, answers, grid):
         if whole is None or len(whole) != sum(len(lights[l]) for l in c["lights"]):
             return None
         at = 0
+        lead, way = c["lights"][0]
         for i, light in enumerate(c["lights"]):
             k = len(lights[light])
-            leader = c["lights"][0][0]
+            # A light running the other way names the leader's direction, or
+            # "See 15" from 6 down is read as 15 down.
+            see = f"See {lead}" if light[1] == way else f"See {lead} {way}"
             out.append({"number": light[0], "direction": light[1],
                         "answer": whole[at:at + k] if answers is not None else None,
-                        "clue": c["clue"] if i == 0 else f"See {leader}",
+                        "clue": c["clue"] if i == 0 else see,
                         "enumeration": c["enumeration"] if i == 0 else None})
             at += k
     return out
