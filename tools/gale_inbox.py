@@ -1274,7 +1274,9 @@ def checklist(rows=None, cache=CACHE, unmatched=UNMATCHED, docs=None, status=Non
 #: Gale is asked for links (gale_docs.resolve) at most this often, whatever
 #: the tick's own schedule: the pace Paul allowed.
 LOOKUP_EVERY = 180
-#: All of a tick's Gale lookups (both papers) start within this long of it.
+#: Each paper's Gale lookups in a tick start within this long of its own
+#: start (the Times' use of its does not shorten the Listener's); the
+#: plugin's 900 s timeout covers both with room.
 GALE_SECONDS = 240
 LOOKED_UP = MIRROR.parent / "looked_up"
 
@@ -1336,11 +1338,10 @@ def sync(out=sys.stdout, force=False):
         moved = collect(out)
         changed = mirror(out)
         ask = gale_due()
-        until = time.monotonic() + GALE_SECONDS
         by_number = held()
         linked = ask and gale_docs.resolve(
             "TTDA", [(d, number_on(d, by_number)[0]) for d, _ in next_up(wanted(), staged_files(), LOOKAHEAD)], out,
-            until=until)
+            until=time.monotonic() + GALE_SECONDS)
         status = None
         if force or moved or changed or linked or time.time() - last_render() > RENDER_EVERY:
             stage(MIRROR, out=out)
@@ -1353,7 +1354,7 @@ def sync(out=sys.stdout, force=False):
             publish()
             print(f"checklist published to {GALE_ROOT}/{CHECKLIST_NAME}", file=out)
         publish_status(CHECKLIST, status)
-        gale_listener.tick(out, force, ask, until)
+        gale_listener.tick(out, force, ask, time.monotonic() + GALE_SECONDS)
     start_reads(out)
 
 
