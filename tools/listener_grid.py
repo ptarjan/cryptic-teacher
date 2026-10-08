@@ -78,6 +78,9 @@ RULE_COVER = 0.7
 RECTANGLE = 0.85
 #: A rule wanders this many pixels either way over a grid's height.
 SMEAR = 4
+#: A rule's print breaks for up to this many pixels and stays one run (No
+#: 4's England: the 40 cell's left frame breaks for 2 halfway down).
+RULE_GAP = 3
 #: A cell is a block when ink covers this share of its middle.
 BLOCK_INK = 0.6
 #: A cell side is a bar when it is this many times as wide as the thin
@@ -99,6 +102,17 @@ def runs_at_least(mask, n, axis):
     lo, hi = np.clip(j - n + 1, 0, full.shape[-1]), np.clip(j + 1, 0, full.shape[-1])
     out = (hit[..., hi] - hit[..., lo]) > 0
     return np.moveaxis(out, -1, axis)
+
+
+def bridged(mask, axis, gap=RULE_GAP):
+    """`mask` with every break of up to `gap` pixels along `axis` between
+    two Trues filled."""
+    m = mask
+    out = m.copy()
+    for a in range(1, gap + 1):
+        for b in range(1, gap + 2 - a):
+            out |= np.roll(m, a, axis) & np.roll(m, -b, axis)
+    return out
 
 
 def smeared(mask, axis, k=SMEAR):
@@ -258,7 +272,7 @@ def cell_span(patch):
 
 
 def shape(patch):
-    """The grid's outline filled in: `patch` (its pooled rules) with every
+    """The grid's outline filled in: `patch` (its pooled walls) with every
     hole the paper outside cannot reach through an opening a third of a
     cell wide, widened a pixel so a rule's smear stays inside. A frame
     printed with a shorter break stays shut (the outside floods against
@@ -291,13 +305,16 @@ def find_grids(gray):
     down = runs_at_least(ink, RULE_RUN, 0)
     step = 4
     lines = trove_grid.pooled(across | down, step)
+    # The outline's walls: a frame stroke broken for a pixel or two is one.
+    walls = trove_grid.pooled(runs_at_least(bridged(ink, 1), RULE_RUN, 1)
+                              | runs_at_least(bridged(ink, 0), RULE_RUN, 0), step)
     crossing = trove_grid.pooled(across, step) & trove_grid.pooled(down, step)
     out = []
     for area, _, _, hh, ww, top, left in trove_grid.components(lines):
         y0, x0, y1, x1 = top * step, left * step, (top + hh) * step, (left + ww) * step
         if crossing[top:top + hh, left:left + ww].sum() < MIN_CROSSINGS or hh < 20 or ww < 20:
             continue
-        inside = np.repeat(np.repeat(shape(lines[top:top + hh, left:left + ww]), step, 0), step, 1)
+        inside = np.repeat(np.repeat(shape(walls[top:top + hh, left:left + ww]), step, 0), step, 1)
         # A rule a scan has turned a little wanders over a few pixels.
         a = smeared(across[y0:y1, x0:x1], 0) & inside
         d = smeared(down[y0:y1, x0:x1], 1) & inside
