@@ -73,3 +73,25 @@ for what, have, want in cases:
     print(("ok   " if ok else "FAIL ") + what + ("" if ok else f": expected {want!r}, got {have!r}"))
 raise SystemExit(1 if fails else 0)
 PY
+
+# Does fold_reprints.counted_date take a number's own reading date, count one
+# printing day from dated neighbours either side (over a Sunday), and leave
+# the date open where a holiday makes the two counts disagree?
+python3 - <<'PY'
+import fold_reprints as F
+
+dates = {14882: "1978-04-24", 14884: "1978-04-26", 15107: "1979-12-27",
+         15109: "1979-12-29", 15111: "1980-01-02", 15200: "1980-04-14", 15202: "1980-04-16"}
+cases = (
+    ("own reading date", F.counted_date(15109, dates), "1979-12-29"),
+    ("one day from each side", F.counted_date(14883, dates), "1978-04-25"),
+    ("New Year between leaves it open", F.counted_date(15110, dates), None),
+    ("no neighbour above", F.counted_date(15300, dates), None),
+)
+fails = 0
+for what, have, want in cases:
+    ok = have == want
+    fails += not ok
+    print(("ok   " if ok else "FAIL ") + what + ("" if ok else f": expected {want!r}, got {have!r}"))
+raise SystemExit(1 if fails else 0)
+PY

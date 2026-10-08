@@ -15,7 +15,9 @@ it is found two ways:
              far better than any other, the reading printed first
   bracketed  the article sits between two matched Canberra days whose London
              numbers differ by exactly the number of Canberra cryptic days
-             between them, so each day in between is the next number
+             between them, so each day in between is the next number,
+             unless a day in between shares too few clue words with the
+             reading of its number (contradicted): the run broke there
 
 Run-edge extrapolation was measured and refused: going on from a run of
 consecutive numbers past its last matched day is right 36% of the time
@@ -153,6 +155,14 @@ def printed_between(d1, d2):
     return out
 
 
+def contradicted(text, reading):
+    """Whether article `text` cannot be the Times puzzle of `reading` (its
+    (date, clue word triples), or None where unread): it shares under
+    MATCH_SHARE of the reading's triples. A bracket whose days are true share
+    most (60% up); one a re-run broke shares none."""
+    return reading is not None and len(triples(text) & reading[1]) < MATCH_SHARE * len(reading[1])
+
+
 def number(arts, found, reads, max_span=MAX_SPAN):
     """{article id: {date, number, how, londonDate}} for matched and bracketed articles."""
     # One article a Canberra day: the matched one, else the one with most counts.
@@ -170,8 +180,11 @@ def number(arts, found, reads, max_span=MAX_SPAN):
             n = found[aid]
             out[aid] = {"date": d, "number": n, "how": "matched", "londonDate": reads[n][0]}
             anchors.append((i, n))
+    text = {aid: t for aid, _, t in arts}
     for (i1, n1), (i2, n2) in zip(anchors, anchors[1:]):
         if not (1 < i2 - i1 <= max_span and n2 - n1 == i2 - i1):
+            continue
+        if any(contradicted(text[day[days[i1 + k]][1]], reads.get(n1 + k)) for k in range(1, i2 - i1)):
             continue
         l1, l2 = reads[n1][0], reads[n2][0]
         between = printed_between(l1, l2) if l1 and l2 else []
