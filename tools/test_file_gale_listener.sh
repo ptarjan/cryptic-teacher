@@ -20,6 +20,7 @@ trap 'rm -rf "$tmp"' EXIT
 PYTHONPATH="$REPO/tools" python3 - "$tmp" <<'PY'
 import io, json, sys
 from pathlib import Path
+import fetch_puzzle
 import file_gale_listener as f
 
 tmp = Path(sys.argv[1])
@@ -200,6 +201,21 @@ check("with no report saved, No 1 files all the same, unsolved", (True, None, "n
 _, v, _ = f.join({**reading(9, TEXT), "verdict": {"seePages": [885]}}, [], [], read_letters)
 check("no grid on its pages, and the page it sends to", "grid: no unfilled grid read on its pages (it sends to p. 885)",
       v.get("lacks"))
+
+# Greek is clue words: two clues alike only in their Latin letters (No 10's
+# 20A and 3D, "... Homer.") are two clues, and keep their asPrinted Greek
+# while a pair alike in every script is blanked.
+greek = {"1-across": "αἰετὸς ὀξὺ—, Homer.", "1-down": "ψυχὴ δ᾽ ἐκ—πταμένη, Homer."}
+r = reading(8, {**TEXT, **greek, "4-down": TEXT["2-down"]})
+r["clues"]["1-across"]["asPrinted"] = ["αἰετὸς", "ὀξὺ—,"]
+puzzle, v, _ = f.join(r, [{"grid": grid, "fit": exact}], [], read_letters)
+clue = lambda lid: next(e["clue"] for e in puzzle["entries"] if f"{e['number']}-{e['direction']}" == lid)
+check("Greek clues alike in their Latin letters are not blanked; a true duplicate is (mirror)",
+      ({"2-down": "the same clue as 4-down", "4-down": "the same clue as 2-down"}, greek["1-down"], ["αἰετὸς", "ὀξὺ—,"]),
+      (v.get("blanked"), clue("1-down").get("text"), clue("1-across").get("asPrinted")))
+check("alike in their Greek letters too is the same clue", [["1-across", "1-down"]],
+      fetch_puzzle.duplicated_clues([{"number": 1, "direction": d, "clue": {"text": greek["1-across"]}}
+                                     for d in ("across", "down")]))
 
 # join() files the skipped light unclued, but flips a faint stray bar first.
 puzzle, v, _ = f.join(reading(8, {k: t for k, t in TEXT.items() if k != "6-across"}), [{"grid": grid, "fit": exact}],
