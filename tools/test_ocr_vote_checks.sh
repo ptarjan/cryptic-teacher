@@ -429,6 +429,23 @@ check("a comma glued to a capitalised word is spaced (No 97 33D \"knot,I'm\")",
 check("an initialism's comma stays (mirror)", "U.S.,UK", oc.clean("U.S.,UK"))
 check("a hyphen within a word stays (mirror)", "A well-known man, I'd say.", oc.clean("A well-known man, I'd say."))
 
+check("an opening quote glued to the word before opens the next (No 9 14A)",
+      "Milton called this 'enamelled'.", oc.clean("Milton called this‘enamelled'."))
+check("a name's quote after one capital stays put (mirror)", "O'Brien", oc.clean("O‘Brien"))
+check("a ligature is its two letters (No 9 6D \"mediæval\")", "A mediaeval weapon.", oc.clean("A mediæval weapon."))
+check("a ligature read apart still votes (No 9 6D)", ({"6-down": ("A medieval weapon.", None, None)}, {}),
+      oc.reconcile({"6-down": ("A medieval weapon.", None, None)},
+                   ["5. His first. 6. A mediæval weapon. 8. Peaty soil."], {}, uncounted=True))
+check("most readings' non-word against a slip that is no word is as printed (No 9 31D)",
+      ("Five-sevenths of a spongecake.", "as printed"),
+      oc.agree("Five-sevenths of a spongecake.", [["five", "-", "sevenths", "of", "a", "spongecake", "."],
+                                                   ["ive", "sevenths", "of", "a", "spongecalke", "."]]))
+check("closed-up known words, not any non-word: elecampeae is no compound (mirror)",
+      (True, False), (oc.closed_compound("spongecake"), oc.closed_compound("elecampeae")))
+check("a reading that prints known words there still wins (mirror)", "Five-sevenths of a sponge cake.",
+      oc.agree("Five-sevenths of a spongecake.", [["five", "-", "sevenths", "of", "a", "spongecake", "."],
+                                                   ["five", "sevenths", "of", "a", "sponge", "cake", "."]])[0])
+
 print(f"FAILS {fails}")
 EOF
 )

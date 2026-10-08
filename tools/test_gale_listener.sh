@@ -621,6 +621,61 @@ check("Azed: a gutter too narrow to see parts the lists at DOWN's numbers", want
 lent = g.lend_heads({"a": azed(), "b": azed(down="DOVVN")})
 check("Azed: a reading misreading DOWN is lent the other's", want, heads(lent["b"]))
 check("Azed: and keeps no word of its own there", False, any(w[4] == "DOVVN" for w in lent["b"]))
+# Clue lists: linked heads, misread heads, one reader's number (No 103, No 9).
+lined = al.by_lines(al.tidy("ACROSS\n24. Another.\n29, 39. In wonderful poem.\n32, 39 Sign of a tavern.\n"
+                            "DOWN\n4. Student.\n5rey.Last word.\n20 rev., 24. Charade: x.\n"))
+check("a plain linked head groups its lights (No 103 \"29, 39.\")", [[{29}, {39}], [{32}, {39}]],
+      [c["tokens"] for c in lined["across"][1:]])
+check("a clue opening on a comma is no linked head (mirror)", [[{20}]],
+      [c["tokens"] for c in al.by_lines("ACROSS\n20, Has wonderfully calming effect.\nDOWN\n1. A.\n")["across"]])
+check("rev. read \"rey.\" and glued to its number (No 103 5D)", ([{5}], "rev. Last word."),
+      (lined["down"][1]["tokens"], lined["down"][1]["text"]))
+check("the No 97 head \"20 rev., 24.\" stays linked (mirror)", ([{20}, {24}], "rev. Charade: x."),
+      (lined["down"][2]["tokens"], lined["down"][2]["text"]))
+check("a cross-reference with its 1 read as I is laid (No 103 11A)", ("See 13.", None, None),
+      al.lay(al.by_lines(al.tidy("ACROSS\n11. SeeI3.\nDOWN\n1. A.\n")))["11-across"])
+guess = set()
+laid = al.lay(al.by_lines("ACROSS\n10. Last two.\n37. Removes.\n10. Often forbidden.\nDOWN\n1. A.\n"), guess)
+check("a number below the last never displaces a light laid in order (No 103's \"10.\" for 40)",
+      ("Last two.", set()), (laid["10-across"][0], guess))
+guess = set()
+laid = al.lay(al.by_lines("ACROSS\n37. Removes.\n4 Often forbidden.\nDOWN\n1. A.\n"), guess)
+check("a light only a number below the last lays is a guess (mirror)", {"4-across"}, guess)
+one = [{"40-across": ("Often forbidden by sign.", None, None), "42-across": ("This belongs.", None, None)},
+       {"42-across": ("This belongs.", None, None)}]
+check("one reader's number, every reader's words (No 103 40A)", "Often forbidden by sign.",
+      al.pick(one, ["40. Often forbidden by sign.", "Often forbidden by sign.\n42. This belongs."])["40-across"][0])
+check("no other reading prints the words: blank (mirror)", "",
+      al.pick(one, ["40. Often forbidden by sign.", "42. This belongs."])["40-across"][0])
+rival = [one[0], {"42-across": ("This belongs.", None, None), "41-across": ("Often forbidden by sign.", None, None)}]
+check("another reading numbers the words as another light in order: blank (mirror)", "",
+      al.pick(rival, ["40. Often forbidden by sign.", "41. Often forbidden by sign."])["40-across"][0])
+runon = [{"44-across": ("rev. Its waters credited with powers.", None, None)},
+         {"43-across": ("Wrote the 19. rev. Its waters credited with powers.", None, None)}]
+check("a run-on into the words is no rival (No 103 44A)", "rev. Its waters credited with powers.",
+      al.pick(runon, ["44 rev. Its waters credited with powers.",
+                      "43. Wrote the 19.\nrev. Its waters credited with powers."])["44-across"][0])
+check("words run together are split where another reading parts them (No 9 39A)",
+      "of a reddish pulp used to add colour",
+      al.unjoined({"a": "ofa reddish pulp usedtoaddcolour", "b": "of a reddish pulp usedto add colour",
+                   "c": "x used to add colour"})["a"])
+check("a known word another reading parts stays whole (mirror)", "cannot",
+      al.unjoined({"a": "cannot", "b": "can not"})["a"])
+
+# A VERSION bump reads every saved page again.
+import tempfile
+with tempfile.TemporaryDirectory() as tmp:
+    inbox, store = Path(tmp) / "in", Path(tmp) / "store"
+    inbox.mkdir(); store.mkdir()
+    (inbox / "a.pdf").write_bytes(b"a")
+    (inbox / "b.pdf").write_bytes(b"b")
+    rows = [{"sha": g.file_hash(inbox / "a.pdf"), "version": g.VERSION - 1},
+            {"sha": g.file_hash(inbox / "b.pdf"), "version": g.VERSION}]
+    (store / g.LEDGER).write_text("".join(json.dumps(r) + "\n" for r in rows))
+    planned = [u["rel"] for u in g.plan(inbox, store)]
+    check("a page read at an older VERSION is read again", True, "a.pdf" in planned)
+    check("a page read at this VERSION is not (mirror)", False, "b.pdf" in planned)
+
 print(f"FAILS {fails}")
 sys.exit(1 if fails else 0)
 PY

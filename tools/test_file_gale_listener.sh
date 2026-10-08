@@ -94,6 +94,16 @@ one = next(e for e in built["entries"] if (e["number"], e["direction"]) == (1, "
 check("a clue's asPrinted is filed with it, and the clue is no suspect",
       (["elecampeae."], []), (one["clue"].get("asPrinted"),
                               f.ocr_clues.suspect(one["clue"]["text"], printed=one["clue"]["asPrinted"])))
+# A light the page prints with no clue (No 103's theme light 25D) is complete as
+# {"missing": true}; a clue unread is not.
+words = {lid: {"text": f"Clue {lid}."} for lid in ("1-across", "5-across", "6-across", "7-across",
+                                                   "1-down", "2-down", "3-down", "4-down")}
+reading = {"number": 103, "name": "Listener crossword No 103: Test", "date": "1931-02-04", "source": {"url": "u"}}
+built = f.build({**reading, "clues": {**words, "4-down": {"text": "", "noCluePrinted": True}}}, ["....", "....", "....", "...."])
+bare = {f"{e['number']}-{e['direction']}" for e in built["entries"] if e["clue"] == {"missing": True}}
+check("a light printed with no clue files complete", ({"4-down"}, True), (bare, f.fa.complete(built, bare)))
+built = f.build({**reading, "clues": {**words, "4-down": {"text": ""}}}, ["....", "....", "....", "...."])
+check("a clue unread is not complete, whatever it is named (mirror)", False, f.fa.complete(built, {"4-down"}))
 import validate_annotations as va
 errs = []
 va.check_no_markup({"entries": [{"number": 1, "direction": "across", "clue": {"text": "The plant elecampane.",
