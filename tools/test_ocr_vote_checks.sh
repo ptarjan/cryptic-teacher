@@ -349,6 +349,61 @@ check("or opens a quotation; a known contraction stays whole (mirror)",
 check("a word no reading prints apart is still lost (mirror)",
       None, oc.agree("She eats junkets.", [mark("4 She junkets. 5 A"), mark("4 She junkets. 5 A")])[0])
 
+
+# A printed blank ("——"): a thin rule, often fainter than the type, that no
+# reader reads alike (No 15 30A "the-is", " - ", "—"; 23D and No 17 26A
+# "——'" alone, which no reader returns at all).
+from PIL import Image, ImageDraw
+H = 20
+def page(*draw):
+    img = Image.new("L", (900, 200), 255)
+    d = ImageDraw.Draw(img)
+    for f in draw:
+        f(d)
+    return img
+def words(d, y, *spans):
+    for x0, x1 in spans:
+        d.rectangle((x0, y, x1, y + H), fill=0)
+LINE = (100, 40, 700, 60)
+rule = lambda x0, x1, y, ink=150, t=1: (lambda d: d.rectangle((x0, y, x1, y + t), fill=ink))
+SPANS = ((100, 160), (175, 230), (300, 360), (520, 700))
+text = lambda d: words(d, 40, *SPANS)
+WORDS = [(x0, 40, x1, 60, "word") for x0, x1 in SPANS]
+check("a faint rule between words is a blank; one alone under a line, a quote after it, is \"——'\"",
+      [(250, 50, 280, 52, "——"), (120, 75, 170, 77, "——'")],
+      oc.blank_strokes(page(text, rule(250, 279, 50), rule(120, 169, 75, ink=60),
+                            lambda d: d.rectangle((174, 68, 176, 73), fill=0)), [LINE], WORDS, H))
+colon = lambda d: (d.rectangle((380, 44, 382, 46), fill=0), d.rectangle((380, 56, 382, 58), fill=0))
+check("a hyphen, a rule run into a word or after a colon, an underline, a long rule and "
+      "a grid's bar are none (mirror)", [],
+      oc.blank_strokes(page(text, rule(236, 245, 50), rule(231, 262, 50), colon, rule(386, 415, 50),
+                            rule(300, 360, 62), rule(100, 700, 120),
+                            rule(400, 430, 160), lambda d: d.rectangle((395, 140, 396, 190), fill=0),
+                            lambda d: d.rectangle((435, 140, 436, 190), fill=0)),
+                       [LINE, (395, 150, 440, 175)], WORDS + [(395, 150, 440, 175, "grid")], H))
+blank = (1202, 603, 1227, 605, "——")
+readings = {"ch": [(1080, 588, 1473, 617, "And the-is heard above the")],
+            "en5": [(1080, 588, 1473, 617, "And the - is heard above the")],
+            "times": [(1156, 594, 1188, 611, "the"), (1202, 602, 1227, 605, "—"), (1246, 600, 1260, 610, "is")],
+            "page": [(1156, 594, 1188, 611, "the"), (1246, 600, 1260, 610, "is")]}
+check("each reading gets the blank where it stands, so the vote is unanimous (No 15 30A)",
+      ["And the —— is heard above the", "And the —— is heard above the", "——", "——"],
+      [oc.with_blanks(readings["ch"], [blank])[0][4], oc.with_blanks(readings["en5"], [blank])[0][4],
+       oc.with_blanks(readings["times"], [blank])[1][4], oc.with_blanks(readings["page"], [blank])[2][4]])
+check("a hyphen elsewhere in the line stays (mirror)", "Green-land and the —— is heard",
+      oc.with_blanks([(1080, 588, 1473, 617, "Green-land and the-is heard")], [(1300, 603, 1325, 605, "——")])[0][4])
+check("a quotation the vote kept shut but not open takes the mark a reading opens it with",
+      "'And the —— is heard above the lyre'.",
+      oc.reopened("And the —— is heard above the lyre'.", ["And the —— is heard above the lyre'.",
+                                                           "\u2018And the —— is heard above the lyre\u2019."]))
+check("none when no reading opens it, or it opens on another word (mirror)", [None, None],
+      [oc.reopened("And the —— is heard above the lyre'.", ["And the —— is heard above the lyre'."]),
+       oc.reopened("And the —— is heard above the lyre'.", ["'The —— is heard above the lyre'."])])
+check("a quotation parted from the comma before it, and a dash after a colon spaced",
+      ["A printer might say, 'Give me a", "Charade: — components I postpone."],
+      [oc.clean("A printer might say,'Give me a"), oc.clean("Charade: -components I postpone.")])
+check("a hyphen within a word stays (mirror)", "A well-known man, I'd say.", oc.clean("A well-known man, I'd say."))
+
 print(f"FAILS {fails}")
 EOF
 )

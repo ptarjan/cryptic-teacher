@@ -200,6 +200,144 @@ def read_words(img, which):
             for x0, y0, x1, y1, t in words]
 
 
+#: A printed blank ("——", the word a quotation leaves out) is a thin rule
+#: at mid-letter height, often fainter than the type (No 15's 30 across is
+#: grey 130-170): its ink is anything darker than BLANK_INK. It is
+#: BLANK_LONG times a word's height long at least (a hyphen is shorter),
+#: BLANK_LONGEST at most (a rule under a heading or across a column is
+#: longer), BLANK_THICK of a word's height thick at most, with nothing
+#: above or below it, and stands in a clue line or alone on the line
+#: under one.
+BLANK_INK = 175
+BLANK_LONG = 1.1
+BLANK_LONGEST = 5
+BLANK_THICK = 0.2
+#: A gap in a blank's rule (the space between the dashes of "——") at most,
+#: in a word's height.
+BLANK_GAP = 0.4
+#: How far after a blank its closing quote stands at most, in a word's
+#: height (the stop after it stands further).
+BLANK_QUOTE = 0.4
+#: The space either side of a blank at least, and a grid wall's height,
+#: in a word's height.
+BLANK_APART = 0.2
+BLANK_WALL = 1.8
+BLANK = "——"
+DASHES = re.compile(r"\s*[-‐-―_~=]+\s*")
+
+
+def blank_strokes(img, lines, words, h):
+    """[(x0, y0, x1, y1, text)] each printed blank in the clue `lines`
+    ([(x0, y0, x1, y1)], the lists' printed lines) of the page `img`, a
+    word "——" ("——'" when a closing quote follows it); `h` is a word's
+    height. A blank is a thin rule within a line, or alone just under one
+    and within its span (No 15's 23 down, "Give me a" over "——'"). No
+    reader sees a faint one, and each reads a dark one its own way
+    ("the-is", " - "). `words` ([(x0, y0, x1, y1, text)]) are the page's:
+    a rule under or through one is a mark on it, no blank."""
+    import numpy as np
+    words = [w for w in words if not DASHES.fullmatch(w[4])]
+    ink = np.asarray(img.convert("L")) < BLANK_INK
+    found, seen = [], set()
+    for y in np.flatnonzero(ink.sum(axis=1) >= 0.75 * BLANK_LONG * h):
+        y = int(y)
+        if y in seen:
+            continue
+        xs = np.flatnonzero(ink[y])
+        for run in np.split(xs, np.flatnonzero(np.diff(xs) > BLANK_GAP * h) + 1):
+            x0, x1 = int(run[0]), int(run[-1]) + 1
+            if not BLANK_LONG * h <= x1 - x0 <= BLANK_LONGEST * h or len(run) < 0.75 * (x1 - x0):
+                continue
+            span = ink[:, x0:x1].mean(axis=1)
+            y0, y1 = y, y + 1
+            while y0 > 0 and span[y0 - 1] >= 0.3:
+                y0 -= 1
+            while y1 < len(span) and span[y1] >= 0.3:
+                y1 += 1
+            if y1 - y0 > max(3, BLANK_THICK * h) or span[max(0, y0 - 3):max(0, y0 - 1)].max(initial=0) > 0.15 \
+                    or span[y1 + 1:y1 + 3].max(initial=0) > 0.15:
+                continue
+            seen.update(range(y0, y1))
+            if apart(ink, x0, y0, x1, y1, h) and placed((x0, (y0 + y1) / 2, x1), lines, h) \
+                    and not any(w[1] - 0.2 * h <= y <= w[3] + 0.2 * h and min(w[2], x1) - max(w[0], x0) > 0.3 * (x1 - x0)
+                                for w in words):
+                found.append((x0, y0, x1, y1, BLANK + ("'" if quoted(ink, x1, y0, y1, h) else "")))
+    return found
+
+
+def apart(ink, x0, y0, x1, y1, h):
+    """Whether a rule stands apart as a blank does: a space before it at any
+    height (a dash after a mark, "NOTE.\u2014Clues", "competitors:\u2014",
+    is punctuation; a colon's dots miss the rule's own rows), a space after
+    it at its height (a stop, comma or closing quote may follow), and no
+    stroke taller than BLANK_WALL words near it (a grid's line or bar
+    between its walls)."""
+    gap = max(3, int(BLANK_APART * h))
+    before = ink[max(0, int(y0 - 0.45 * h)):int(y1 + 0.45 * h), max(0, x0 - 1 - gap):max(0, x0 - 1)]
+    if before.any() or ink[y0:y1, x1 + 1:x1 + 1 + 2 * gap].any():
+        return False
+    near = ink[max(0, int(y0 - 2 * h)):int(y1 + 2 * h), max(0, int(x0 - h)):int(x1 + h)]
+    for col in near.T:
+        run = 0
+        for v in col:
+            run = run + 1 if v else 0
+            if run >= BLANK_WALL * h:
+                return False
+    return True
+
+
+def placed(stroke, lines, h):
+    """Whether a rule (x0, y, x1) stands in one of the clue `lines`, at the
+    middle of its height and within its span, or alone on the line under
+    one, under its words: not a line's underline, which runs just under
+    its letters, nor a rule outside the lists."""
+    x0, y, x1 = stroke
+    if any(l[1] + 0.25 * (l[3] - l[1]) <= y <= l[3] - 0.15 * (l[3] - l[1]) and l[0] - h <= x0 <= l[2] + 3 * h
+           for l in lines):
+        return True
+    if any(l[1] - 0.3 * h <= y <= l[3] + 0.3 * h and min(l[2], x1) > max(l[0], x0) for l in lines):
+        return False
+    return any(0.3 * h <= y - l[3] <= 1.2 * h and l[0] <= x0 < l[2] for l in lines)
+
+
+def quoted(ink, x1, y0, y1, h):
+    """Whether a closing quote stands just after a rule ending at x1: within
+    BLANK_QUOTE of a word's height to its right, ink over the rule (below
+    the line above's descenders) and none beside it, where a letter's
+    would cross (a stop below it is no matter)."""
+    right = ink[:, x1 + 1:int(x1 + BLANK_QUOTE * h)]
+    return bool(right[max(0, int(y0 - BLANK_QUOTE * h)):y0 - 1].any()) and not right[y0 - 1:y1 + 1].any()
+
+
+def with_blanks(words, blanks):
+    """A reading's `words` with each printed blank (blank_strokes) put in:
+    the dash a box reads where the blank stands made the blank, else the
+    blank set in at its place in the box's text, else a word of its own.
+    Every reading then votes the same blank."""
+    out = list(words)
+    for b in blanks:
+        mid = (b[1] + b[3]) / 2
+        over = [i for i, w in enumerate(out) if w[1] <= mid <= w[3]
+                and min(w[2], b[2]) - max(w[0], b[0]) >= 0.5 * (b[2] - b[0])]
+        if not over:
+            out.append(b)
+            continue
+        i = over[0]
+        w = out[i]
+        text = w[4]
+        at = round(((b[0] + b[2]) / 2 - w[0]) / max(1, w[2] - w[0]) * len(text))
+        near = min(DASHES.finditer(text), key=lambda m: abs((m.start() + m.end()) / 2 - at), default=None)
+        if near and abs((near.start() + near.end()) / 2 - at) <= max(3, 0.15 * len(text)):
+            a, z = near.span()
+        else:
+            # No dash read there: the blank goes in at the nearest space.
+            spaces = [m.start() for m in re.finditer(r"\s|$", text)] + [0]
+            a = z = min(spaces, key=lambda k: abs(k - at))
+        head, tail = text[:a].rstrip(), text[z:].lstrip()
+        out[i] = (*w[:4], " ".join(p for p in (head, b[4] if not tail.startswith("'") else BLANK, tail) if p))
+    return out
+
+
 def lines_of(words):
     """The words as printed rows, one a line: a word starts a new row when its
     top is below half the row's first word's height."""
@@ -1179,9 +1317,11 @@ def clean(text):
     # A dash between words is the corpus's spaced em dash, however the scan
     # set it ("time—a", "play--change", "now -- then").
     text = re.sub(r"(?<=[a-z])[ \t]*(?:—|--)[ \t]*(?=[A-Za-z])", " — ", text)
+    # So is any dash after a colon ("Charade:—components", read ": -components").
+    text = re.sub(r"(?<=[a-z]:)[ \t]*(?:—|--?|–)[ \t]*(?=[A-Za-z])", " — ", text)
     # The space after a comma, semicolon or colon between two words lost
-    # ("rum,as", "usage:acceptable").
-    text = re.sub(r"(?<=[a-z]{2})([,;:])(?=[a-z]{2})", r"\1 ", text)
+    # ("rum,as", "usage:acceptable"), or before a quotation ("say,'Give").
+    text = re.sub(r"(?<=[a-z]{2})([,;:])(?=[a-z]{2}|['\u2018\"\u201c][A-Z])", r"\1 ", text)
     # An exclamation mark read as a capital I or a one, last before the count.
     text = re.sub(r"(?<=[a-z]) [I1l](?=\s*(?:\(\s*\d|$))", "!", text)
     text = re.sub(r"(?<![\d(])\b1(?=[a-z]*\b)(?![a-z]*\s+(?:and|or|&)\s+\d)([a-z]*)", one_for_i, text)
@@ -1953,6 +2093,24 @@ def unclosed_quote(text):
     m = re.search(r"(?<=[A-Za-z][a-rt-zA-RT-Z])['\u2019](?![A-Za-z])", text or "")
     if m and not re.search(r"(?:^|(?<=[\s,;:(\u2014*\u2020\u2021]))['\"\u201c](?=[A-Za-z])|\u2018", text[:m.start()]):
         return m.start()
+    return None
+
+
+def reopened(text, readings):
+    """`text`, a clue whose quotation closes and never opens, with the
+    opening mark put back that a reading of it (`readings`) prints before
+    the same first word ("\u2018And the ..." where the vote kept "And the
+    ... lyre'."); a reader drops a faint mark far oftener than it makes one.
+    None when no reading opens it so, or the mark leaves it unclosed."""
+    first = (text or "").split(None, 1)[:1]
+    if not first or text[0] in "'\u2018\"\u201c":
+        return None
+    for r in readings:
+        m = re.match(r"\s*(['\u2018\"\u201c])(\S+)", r or "")
+        if m and m.group(2).strip(EDGE) == first[0].strip(EDGE):
+            got = ("'" if m.group(1) in "'\u2018" else '"') + text
+            if unclosed_quote(got) is None:
+                return got
     return None
 
 

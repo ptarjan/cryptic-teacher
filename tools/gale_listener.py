@@ -647,7 +647,19 @@ def read_page(img, key):
     for which in ocr_clues.READERS:
         if which not in ocr_clues.TESS_MODELS:
             words[which] = figures(reread_lines(img, key, which, [tuple(w) for w in words[which]], located))
+    if blanks := page_blanks(img, located):
+        verdict["blanks"] = len(blanks)
+        words = {k: ocr_clues.with_blanks(w, blanks) for k, w in words.items()}
     return al.vote(words, verdict, cols=page_columns)
+
+
+def page_blanks(img, located):
+    """The printed blanks ("——") in the page's clue lists
+    (ocr_clues.blank_strokes), placed by the lists' lines the page's
+    words (`located`) give."""
+    lines = [(x0, y0, x1, y1) for col in page_columns(located) or () for y0, y1, x0, x1, _ in col]
+    heights = sorted(w[3] - w[1] for w in located if re.fullmatch(r"[A-Za-z]{2,12}\W?", w[4]))
+    return ocr_clues.blank_strokes(img, lines, located, heights[len(heights) // 2]) if lines and heights else []
 
 
 def read_box(img, key, box, which):
