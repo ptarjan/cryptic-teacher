@@ -323,6 +323,44 @@ def slow(rec, max_nodes):
     return [], "no grid"
 first = T.run(where=w, solver=slow, budget_seconds=15, clock=lambda: now[0])["n"]
 print("TIME_BUDGET", list(calls), first, T.run(where=w, solver=slow, budget_seconds=15, clock=lambda: now[0])["n"], calls)
+# With the desktop named (OCR_REMOTE), a search runs there and finds what it
+# finds here, at the same node count, and here when the desktop does not
+# answer; posts search SEARCH_SLOTS at once, so three posts that each wait for
+# the other two all finish only when they run together.
+import threading
+import ocr_remote
+real_hosts, real_call, real_slots = ocr_remote.hosts, ocr_remote.call, ocr_remote.SEARCH_SLOTS
+there = []
+def over_json(name, *args, data=b"", **kwargs):  # call() as the desktop answers it
+    there.append(name)
+    result, back = ocr_remote.CALLS[name](data, *json.loads(json.dumps(args)), **kwargs)
+    return json.loads(json.dumps(result)), back
+tiny = rec_of(TINY)
+def searched():
+    b = T.Budget(10**6, log=False)
+    sols, info = b.search("answers in", T.triples(tiny), 10**5, cols=5, rows=5,
+                          words=[e["answer"] for e in T.printed(tiny)])
+    return sols, info["nodes"], b.left
+here = searched()
+ocr_remote.hosts, ocr_remote.call = (lambda: ["desk"]), over_json
+remote = searched()
+ocr_remote.call = lambda *a, **k: None
+lost = searched()
+ocr_remote.SEARCH_SLOTS = 3
+gate, met = threading.Barrier(3, timeout=5), []
+def together(rec, max_nodes):
+    try:
+        gate.wait()
+        met.append(rec["post_id"])
+    except threading.BrokenBarrierError:
+        pass
+    return [], "no grid"
+v = pathlib.Path(tempfile.mkdtemp())
+(v / "parsed.jsonl").write_text("".join(json.dumps(post(n, rec_of(TINY), "a clue")) + "\n" for n in (1, 2, 3)))
+together_n = T.run(where=v, solver=together)["n"]
+ocr_remote.hosts, ocr_remote.call, ocr_remote.SEARCH_SLOTS = real_hosts, real_call, real_slots
+print("REMOTE_SEARCH", remote == here == lost, here[0] == [TINY], there == ["reconstruct"])
+print("PARALLEL", together_n, sorted(met), sorted(json.loads(l)["post_id"] for l in (v / "attempts.jsonl").open()))
 # A grid outlives no post the parser stops reading: the run drops its row and
 # its attempt, so the filer never meets it and the post is tried again if the
 # parser reads it once more.
@@ -463,6 +501,10 @@ check "a run refuses a puzzle whose typo no word corrects" "True refused" "$(fie
 check "a tried failure is retried only when the run is told to" "[] [2]" "$(field RETRY_FAILED)"
 check "a run starts no puzzle past its time budget; the next run tries the rest" \
       "[3, 2] 2 1 [3, 2, 1]" "$(field TIME_BUDGET)"
+check "a search on the desktop finds the grids and spends the nodes a search here does, and falls back here" \
+      "True True True" "$(field REMOTE_SEARCH)"
+check "with the desktop named, posts search in parallel, each logged" \
+      "3 [1, 2, 3] [1, 2, 3]" "$(field PARALLEL)"
 check "a run drops the grid and attempt of a post the parser no longer reads" \
       "[] [1, 2, 3]" "$(field UNPARSED)"
 check "a post the parser reads again is tried again" "[9]" "$(field REPARSED)"

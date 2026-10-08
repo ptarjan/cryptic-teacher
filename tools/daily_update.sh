@@ -314,7 +314,10 @@ unit_xval_globe() {
 # in one tool: tools/ft_puzzles.py parses the cached posts, rebuilds the newest
 # untried grids, newest first, and files what passes. The search is CPU, so a
 # run starts no rebuild past FT_GRID_SECONDS and one that stopped with posts
-# untried runs again at the next tick (backlog_left) until none is left.
+# untried runs again at the next tick (backlog_left) until none is left. The
+# searches run on Paul's desktop when it answers (tools/ocr_remote.py, which
+# yields it the moment he games), ocr_remote.SEARCH_SLOTS posts at once;
+# OCR_REMOTE= keeps them here.
 FT_GRID_SECONDS="${FT_GRID_SECONDS:-1200}"
 unit_ft() {
   local ft_out rc=0
@@ -323,7 +326,8 @@ unit_ft() {
     cat "$ft_out"
     alert "the fifteensquared FT fetch failed, so the FT puzzles are filed from the posts already cached:"$'\n'"\`\`\`"$'\n'"$(tail -8 "$ft_out" | cut -c1-200)"$'\n'"\`\`\`"
   fi
-  if python3 tools/ft_puzzles.py --budget-seconds "$FT_GRID_SECONDS" >"$ft_out" 2>&1; then
+  if OCR_REMOTE="${OCR_REMOTE-micro@100.68.145.15,micro@192.168.1.198}" \
+      python3 tools/ft_puzzles.py --budget-seconds "$FT_GRID_SECONDS" >"$ft_out" 2>&1; then
     cat "$ft_out"
   else
     rc=1

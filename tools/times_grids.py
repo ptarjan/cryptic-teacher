@@ -28,6 +28,7 @@ import itertools
 import json
 import re
 import sys
+import threading
 import time
 from pathlib import Path
 
@@ -35,6 +36,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import barred_grid as bg
 import fetch_wp_blog
 import downloads
+import ocr_remote
 import parse_timesforthetimes as parser
 import reconstruct_grid as rg
 
@@ -173,6 +175,11 @@ TIMES_BLACK_RUN = 5
 #: together.
 PUZZLE_SEARCHES = 4
 
+#: Each search thread's stack, the size of macOS's main-thread stack: a
+#: search run here recurses a few frames per cell (rg.reconstruct), and a
+#: thread's default 512 KiB there is not a main thread's.
+STACK_BYTES = 8 << 20
+
 
 class Budget:
     """The nodes one puzzle may still spend, over every search solve() runs,
@@ -184,14 +191,16 @@ class Budget:
         self.spent_at = None
 
     def search(self, stage, spec, max_nodes, quiet=False, **kw):
-        """rg.reconstruct, allowed at most what this puzzle has left. A search
-        given less than it asked for and running out reads as truncated."""
+        """rg.reconstruct, allowed at most what this puzzle has left, run on
+        the desktop when OCR_REMOTE names one that answers (ocr_remote.
+        reconstruct: the same search, else here). A search given less than it
+        asked for and running out reads as truncated."""
         allowed = min(max_nodes, self.left)
         if allowed <= 0:
             self.spent_at = self.spent_at or stage
             return [], {"nodes": 0, "truncated": True}
         t = time.monotonic()
-        sols, info = rg.reconstruct(spec, max_nodes=allowed, **kw)
+        sols, info = ocr_remote.reconstruct(spec, max_nodes=allowed, **kw)
         self.left -= info.get("nodes", 0)
         if info.get("truncated") and allowed < max_nodes:
             self.spent_at = self.spent_at or stage
@@ -1068,21 +1077,8 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
     out = open_out(fresh, out_path) if write else None
     log = attempts.open("w" if fresh else "a", encoding="utf-8") if write else None
     start, due, tried = clock(), len(recs), 0
-    for i, rec in enumerate(recs, 1):
-        if budget_seconds is not None and clock() - start >= budget_seconds:
-            print(f"budget of {budget_seconds:g}s spent: {due - tried} of {due} "
-                  f"puzzle(s) left for the next run")
-            break
-        tried = i
-        lit = light_key(rec)
-        rec, made = amend(rec, settled)
-        print(f"[{i}/{len(recs)}] post {rec['post_id']} {rec['series']} "
-              f"{rec.get('number')}: {len(rec['entries'])} lights",
-              file=sys.stderr, flush=True)
-        t = time.monotonic()
-        grids, why = solver(rec, max_nodes=max_nodes)
-        print(f"  post {rec['post_id']} {why}, {time.monotonic() - t:.1f}s",
-              file=sys.stderr, flush=True)
+
+    def solved(rec, made, lit, grids, why):
         fixes = []
         if len(grids) == 1:
             fixes, refused = settle(grids[0], rec, vocab)
@@ -1109,6 +1105,50 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
             out.write(json.dumps(row(rec, grids[0], why, made + fixes),
                                  ensure_ascii=False) + "\n")
             out.flush()   # hours per run; a killed one keeps what it solved
+
+    def solving(rec):
+        t = time.monotonic()
+        grids, why = solver(rec, max_nodes=max_nodes)
+        print(f"  post {rec['post_id']} {why}, {time.monotonic() - t:.1f}s",
+              file=sys.stderr, flush=True)
+        return grids, why
+
+    # With the desktop named (OCR_REMOTE), SEARCH_SLOTS posts search at once,
+    # each thread over its own ssh session; with none, one at a time, here.
+    # A thread searching here when the desktop is lost recurses as deep as the
+    # main thread does, so it gets the main thread's stack.
+    from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, wait
+    slots = ocr_remote.SEARCH_SLOTS if ocr_remote.hosts() else 1
+    stack = threading.stack_size(STACK_BYTES)
+    try:
+        pool = ThreadPoolExecutor(max_workers=slots)
+    finally:
+        threading.stack_size(stack)
+    running, queue = {}, iter(enumerate(recs, 1))
+    with pool:
+        while True:
+            while len(running) < slots:
+                nxt = next(queue, None)
+                if nxt is None:
+                    break
+                if budget_seconds is not None and clock() - start >= budget_seconds:
+                    print(f"budget of {budget_seconds:g}s spent: {due - tried} of {due} "
+                          f"puzzle(s) left for the next run")
+                    queue = iter(())
+                    break
+                i, rec = nxt
+                tried = i
+                lit = light_key(rec)
+                rec, made = amend(rec, settled)
+                print(f"[{i}/{len(recs)}] post {rec['post_id']} {rec['series']} "
+                      f"{rec.get('number')}: {len(rec['entries'])} lights",
+                      file=sys.stderr, flush=True)
+                running[pool.submit(solving, rec)] = (rec, made, lit)
+            if not running:
+                break
+            finished, _ = wait(running, return_when=FIRST_COMPLETED)
+            for f in finished:
+                solved(*running.pop(f), *f.result())
     if out:
         out.close()
     if log:
