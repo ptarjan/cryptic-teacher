@@ -838,7 +838,9 @@ def parted(clue, others):
     "Paintedbrownrestaurantred...", and "fora" for "for a",
     whose two words the corpus's clues print far more) parted as they are, and
     two words it ran together over a stop ("to.poison", "Anag.of") parted."""
-    runs = re.findall(r"[A-Za-z]+(?:'[A-Za-z]+)*", clue)
+    # Words run together over a stop are one run here: "walls.from" is
+    # longer than any word of No 17 16D.
+    runs = re.findall(r"[A-Za-z]+(?:'[A-Za-z]+)*", re.sub(r"(?<=[A-Za-z])\.(?=[a-z]{2})", "", clue))
     longest = max((len(w) for w in runs), default=0)
     apart = {}
     for theirs in others:
@@ -1396,6 +1398,24 @@ def is_word_only_capital(word, seen):
 
 FULL_WIDTH = {c: c - 0xfee0 for c in range(0xff01, 0xff5f)}
 LIGATURES = str.maketrans({"\u00e6": "ae", "\u00c6": "Ae", "\u0153": "oe", "\u0152": "Oe"})
+#: A ligature as readers without it print it: its two letters, or the last.
+LIGATURE_E = str.maketrans({"\u00e6": "e", "\u00c6": "E", "\u0153": "e", "\u0152": "E"})
+
+
+def ligatured(text, readings):
+    """`text` (a clue voted on folded words, clean()) with each word a
+    reading prints with a ligature put back as printed: the filed word that
+    is that word folded to two letters or to its "e" ("mediæval", which No
+    9's other readers print "medieval"). A reader does not invent a
+    ligature it never saw."""
+    for raw in readings:
+        for w in set(re.findall(r"[A-Za-z\u00e6\u00c6\u0153\u0152]+", raw or "")):
+            if w == w.translate(LIGATURES) or len(w) < 3:
+                continue
+            for folded in {w.translate(LIGATURES), w.translate(LIGATURE_E)}:
+                text = re.sub(rf"\b{folded}\b", lambda m, w=w: (w[0].upper() if m.group()[0].isupper() else w[0].lower()) + w[1:],
+                              text, flags=re.IGNORECASE)
+    return text
 #: Abbreviations a clue prints with a stop before a lower-case word (the
 #: 1930s Listener's "Anag. of", "20 rev."), each a lookbehind of its own
 #: width.
@@ -2297,8 +2317,9 @@ def suspect(text, vouched=(), printed=()):
                 break
             if flat.lower() in vouched:
                 continue
-            if known(flat) or formed(plain(p).lower()):
-                continue
+            if known(flat) or formed(plain(p).lower()) or any(
+                    known(f) for f in {flat.translate(LIGATURES), flat.translate(LIGATURE_E)} - {flat}):
+                continue  # a ligature is its word's ("mediæval")
             if flat.isupper() and len(flat) <= 4:
                 continue  # an abbreviation: "RN", "TUC"
             if flat[0].islower():
