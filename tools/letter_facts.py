@@ -62,6 +62,7 @@ import random
 import re
 import sys
 import tempfile
+import threading
 import time
 from pathlib import Path
 
@@ -1782,37 +1783,70 @@ def write(corpus, votes, said=None, jobs=None):
     their order, iterable more than once (Packed); `said`, read_leads, joined
     in here where the rows lack their leads; `jobs`, the processes reading the
     clues once the lexicons are built (default one a CPU). {field: clues it was inferred in}."""
-    start = time.monotonic()
-    ours = list(annotation_rows())
-    ilex = Indicators(corpus, extra=ours)
-    n = collections.Counter(export_lexicons(Lexicon(corpus, extra=ours), ilex))
+    with timed("indicator lexicon"):
+        ours = list(annotation_rows())
+        ilex = Indicators(corpus, extra=ours)
+    with timed("block lexicon, exported"):
+        n = collections.Counter(export_lexicons(Lexicon(corpus, extra=ours), ilex))
     del ours
-    lex, dlex = Lexicon(corpus), Definitions(corpus)
+    with timed("blog-only lexicons"):
+        lex, dlex = Lexicon(corpus), Definitions(corpus)
     _WORKER.update(votes=votes, lex=lex, ilex=ilex, dlex=dlex)
-    built = time.monotonic()
-    done = _read_clues(corpus, said or {}, jobs)
-    head = next(done, None)
+    with timed("clues read and written"):
+        done = _read_clues(corpus, said or {}, jobs)
+        head = next(done, None)
 
-    def filled(f):
-        nonlocal head
-        for pid, rec in file_rows(f):
-            if head is not None and head[0] == pid:
-                new = head[1]
-                head = next(done, None)
-                if new:
-                    n.update(k for v in new.values() for k in v.get("inferred", ()))
-                    rec["entries"] = new
-            yield pid, rec
+        def filled(f):
+            nonlocal head
+            for pid, rec in file_rows(f):
+                if head is not None and head[0] == pid:
+                    new = head[1]
+                    head = next(done, None)
+                    if new:
+                        n.update(k for v in new.values() for k in v.get("inferred", ()))
+                        rec["entries"] = new
+                yield pid, rec
 
-    for f in sorted(OUT.glob("*.json")):
-        rewrite_rows(f, filled(f))
-    done.close()
+        for f in sorted(OUT.glob("*.json")):
+            rewrite_rows(f, filled(f))
+        done.close()
     _WORKER.clear()
-    print(f"letter_facts.write: lexicons built in {built - start:.0f}s, clues read in {time.monotonic() - built:.0f}s",
-          file=sys.stderr)
     if head is not None:
         sys.exit(f"letter_facts.write: {head[0]} is out of step with {OUT.relative_to(ROOT)}: corpus must be rows() in order")
     return n
+
+
+#: Seconds between the lines timed() prints while a step runs.
+HEARTBEAT = 60
+
+
+class timed:
+    """A step of a long run: while it runs, a line to stderr every HEARTBEAT
+    seconds, and one when it ends, each with the wall time so far and this
+    process's CPU seconds, so a log cut off mid-step names the step and shows
+    whether it was starved of CPU (CPU well under wall) or just long."""
+
+    def __init__(self, name):
+        self.name = name
+
+    def _line(self, state):
+        print(f"{time.strftime('%H:%M:%S')} {self.name}: {state} {time.monotonic() - self.wall:.0f}s wall, "
+              f"{time.process_time() - self.cpu:.0f}s CPU", file=sys.stderr, flush=True)
+
+    def _beat(self):
+        while not self.stop.wait(HEARTBEAT):
+            self._line("running,")
+
+    def __enter__(self):
+        self.wall, self.cpu, self.stop = time.monotonic(), time.process_time(), threading.Event()
+        self.beat = threading.Thread(target=self._beat, daemon=True)
+        self.beat.start()
+        return self
+
+    def __exit__(self, kind, *_):
+        self.stop.set()
+        self.beat.join()
+        self._line("failed after" if kind else "done in")
 
 
 #: What _puzzle_facts reads besides its puzzle: write()'s votes and
@@ -1822,9 +1856,13 @@ _WORKER = {}
 #: OCR_REMOTE (as tools/ocr_remote.py reads it) names others or is empty.
 DESKTOPS = "micro@100.68.145.15,micro@192.168.1.198"
 #: Processes reading the clues on the desktop (it has 28 threads), and the
-#: seconds after which a desktop still reading is given up on.
+#: seconds without a result after which the desktop is given up on and its
+#: remaining clues read here.
 DESKTOP_JOBS = 20
-DESKTOP_TIMEOUT = 1200
+DESKTOP_SILENCE = 300
+#: Seconds without a result after which the local pool is taken for stuck
+#: (a worker lost mid-task leaves imap waiting forever) and the run exits.
+LOCAL_SILENCE = 900
 
 
 def _puzzle_facts(item):
@@ -1839,6 +1877,12 @@ def _puzzle_facts(item):
         if found:
             new[eid] = found
     return pid, dict(sorted(new.items()))
+
+
+def _chunk_facts(items):
+    """_puzzle_facts of each of `items`: a local pool's task, so imap's
+    per-result timeout covers a chunk at a time."""
+    return [_puzzle_facts(i) for i in items]
 
 
 def _read_clues(corpus, said, jobs):
@@ -1865,7 +1909,15 @@ def _read_clues(corpus, said, jobs):
         yield from map(_puzzle_facts, puzzles(done))
         return
     with multiprocessing.get_context("fork").Pool(jobs) as pool:
-        yield from pool.imap(_puzzle_facts, puzzles(done), chunksize=16)
+        got = pool.imap(_chunk_facts, itertools.batched(puzzles(done), 16))
+        while True:
+            try:
+                yield from got.next(LOCAL_SILENCE)
+            except StopIteration:
+                return
+            except multiprocessing.TimeoutError:
+                sys.exit(f"letter_facts.write: the local pool returned nothing in {LOCAL_SILENCE}s"
+                         f" ({jobs} processes, after {done} puzzles on the desktop); a worker is lost or starved")
 
 
 class _Unavailable(Exception):
@@ -1878,7 +1930,6 @@ def _desktop_clues(puzzles):
     there at idle priority, by serve_clues; _Unavailable when none answers,
     it is busy (tools/desktop_busy.py), or it stops partway."""
     import subprocess
-    import threading
 
     import desktop_busy
     import ocr_remote
@@ -1907,14 +1958,16 @@ def _desktop_clues(puzzles):
         sent.seek(0)
         cmd = rf"{ocr_remote.HOME}\venv\Scripts\python.exe {ocr_remote.code_dir()}\tools\letter_facts.py --serve-clues"
         proc = subprocess.Popen([*desktop_busy.SSH, host, cmd], stdin=sent, stdout=subprocess.PIPE, stderr=err)
-        watchdog = threading.Timer(DESKTOP_TIMEOUT, proc.kill)
-        watchdog.start()
+        watchdog = _Silence(DESKTOP_SILENCE, proc.kill)
         try:
             while (got := pickle.load(proc.stdout)) is not None:
+                watchdog.reset()
                 yield got
         except (EOFError, pickle.UnpicklingError, OSError) as e:
             proc.kill()
             proc.wait()
+            if watchdog.fired:
+                raise _Unavailable(f"{host} sent nothing in {DESKTOP_SILENCE}s") from None
             err.seek(0)
             tail = err.read().decode(errors="replace").strip()[-300:]
             raise _Unavailable(f"{host} stopped ({type(e).__name__}, ssh exit {proc.returncode}): {tail}") from None
@@ -1923,6 +1976,28 @@ def _desktop_clues(puzzles):
             if proc.poll() is None:
                 proc.kill()
             proc.wait()
+
+
+class _Silence:
+    """Calls `then` once `limit` seconds pass without a reset(); `fired` once it has."""
+
+    def __init__(self, limit, then):
+        self.limit, self.then, self.fired = limit, then, False
+        self.last, self.stop = time.monotonic(), threading.Event()
+        threading.Thread(target=self._watch, daemon=True).start()
+
+    def _watch(self):
+        while not self.stop.wait(max(0.0, self.last + self.limit - time.monotonic())):
+            if time.monotonic() - self.last >= self.limit:
+                self.fired = True
+                self.then()
+                return
+
+    def reset(self):
+        self.last = time.monotonic()
+
+    def cancel(self):
+        self.stop.set()
 
 
 def serve_clues():

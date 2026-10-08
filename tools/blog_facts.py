@@ -58,12 +58,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
+import downloads
 from build_abbreviations import table as abbreviations_table
 from clue_types import NAMES
 from definitions import place
 from fetch_puzzle import puzzle_files, read_puzzle_file
 from groups import entry_id
-import downloads
 from puzzle_schema import order
 
 DATA = downloads.ROOT
@@ -2309,9 +2309,9 @@ def main():
     import fcntl  # not at the top: letter_facts imports this module on the desktop, and Windows has no fcntl
 
     # A full parse at nice 0 in every copy of this repo at once starves the bridge
-    # sharing this machine. So it runs niced, and one at a time machine-wide: the lock lives in $HOME, not in the checkout, so a
+    # sharing this machine. So it runs at NICE, and one at a time machine-wide: the lock lives in $HOME, not in the checkout, so a
     # second clone kept for an old-vs-new comparison waits its turn too.
-    os.nice(19)
+    renice(NICE)
     lock = open(Path.home() / ".cache" / "cryptic-blog-facts.lock", "a")  # noqa: SIM115 -- held until exit
     try:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
@@ -2352,14 +2352,29 @@ def main():
     # are not held under its corpus: both at once would be the run's peak memory.
     del best, series, spool
     import letter_facts
-    said = letter_facts.read_leads(required=True)
-    corpus = letter_facts.Packed(letter_facts.rows())
-    n = letter_facts.write(corpus, letter_facts.indicator_votes(corpus), said)
+    with letter_facts.timed("leads read"):
+        said = letter_facts.read_leads(required=True)
+    with letter_facts.timed("corpus packed"):
+        corpus = letter_facts.Packed(letter_facts.rows())
+    with letter_facts.timed("indicator votes"):
+        votes = letter_facts.indicator_votes(corpus)
+    n = letter_facts.write(corpus, votes, said)
     print(f"and read off the letters (tools/letter_facts.py): a type for {n['type']} clues the blogs "
           f"left untyped, blocks for {n['blocks']} whose blocks they left out, a definition for "
           f"{n['definition']} with none underlined, indicators for {n['indicators']} whose indicators they left out")
     if not (args.blog or args.from_dump):
         STAMP.write_text(digest + "\n")
+
+
+#: The niceness this runs at: under the bridge (0), which must stay responsive,
+#: and over the OCR backfill clients (19, tools/ocr_full_pass.sh), which have
+#: no deadline while this one has its unit's limit.
+NICE = 10
+
+
+def renice(level):
+    """Run at niceness `level`, or the current one if that is already higher."""
+    os.nice(max(0, level - os.nice(0)))
 
 
 if __name__ == "__main__":
