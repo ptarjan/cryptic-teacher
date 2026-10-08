@@ -54,6 +54,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import app_tables  # noqa: E402 — app.js's tables, read from app.js
 from annotation import whole_anagram  # tools/annotation.py
 import clue_types  # noqa: E402
+import quotes  # noqa: E402 — curl(): clue text is stored straight, shown curled
 import enumeration  # noqa: E402
 from fetch_puzzle import (  # noqa: E402 — one glob, one reader, one puzzles/ for every tool
     blog_annotation, blog_facts_for, puzzle_files, read_puzzle_file,
@@ -156,6 +157,7 @@ def hidden_span(clue, fragment, answer):
 def marked_clue(clue, marks):
     """The clue with non-overlapping spans wrapped. Overlap is a design error, so
     it raises rather than nesting tags and rendering something misleading."""
+    clue = quotes.curl(clue)        # one for one, so the marks' offsets hold
     marks = sorted(marks)
     for (_, prev_end, _), (start, _, _) in zip(marks, marks[1:]):
         if start < prev_end:
@@ -381,7 +383,7 @@ def indicator_gloss(ann, ind, family):
     answer = re.sub(r"[^A-Za-z]+", r"[^A-Za-z]*", ann["answer"].strip())
     if re.search(rf"(?<![A-Za-z]){answer}(?![A-Za-z])", tail, re.I):
         return None
-    head = f'<mark class="ind">{html.escape(ind)}</mark> {html.escape(tail)}'
+    head = f'<mark class="ind">{html.escape(quotes.curl(ind))}</mark> {html.escape(quotes.curl(tail))}'
     try:
         check_prose_stays_in_family(head, family, ann.get("type"))
     except RuntimeError:
@@ -405,12 +407,12 @@ def rungs_for(p):
     ann = p["ann"]
     label, blurb = p["family"]["label"], p["family"]["blurb"]
     def mark(i):
-        return f'<mark class="ind">{html.escape(i)}</mark>'
+        return f'<mark class="ind">{html.escape(quotes.curl(i))}</mark>'
     others = [i for i in p["indicators"] if i != p["indicator"]]
     out = [("type", html.escape(label), html.escape(first_sentence(blurb)))]
     out.append(("definition",
                 f'The definition is <mark class="def">'
-                f'{html.escape(ann["definitions"][0]["text"])}</mark>',
+                f'{html.escape(quotes.curl(ann["definitions"][0]["text"]))}</mark>',
                 "It means the same as the answer. The rest of the clue is wordplay."))
     # The annotation's gloss is one clause of a sentence written for the page,
     # so it is borrowed only where one word is being explained and the card has
@@ -428,7 +430,7 @@ def rungs_for(p):
         # unexplained claim.
         n = len(re.sub(r"[^A-Za-z]", "", p["fodder"]))
         key = "blocks"
-        fod = f'<span class="fodder">{html.escape(p["fodder"])}</span>'
+        fod = f'<span class="fodder">{html.escape(quotes.curl(p["fodder"]))}</span>'
         head = f"Rearrange {fod}"
         # In a pure anagram every indicator says the same thing; in a compound
         # one the rest do other work, and the sub-line names them, so no pink
@@ -467,7 +469,7 @@ def partial_tail(p, others, mark):
             and norm(b["clueFragment"]) != norm(p["fodder"])]
     # Two pieces fit on the line; a list that stopped short would leave the
     # reader letters short, which is the failure this exists to fix.
-    pieces = and_list([f"“{html.escape(b['clueFragment'])}” gives "
+    pieces = and_list([f"“{html.escape(quotes.curl(b['clueFragment']))}” gives "
                        f"{html.escape(letters(b['gives']))}" for b in rest]) \
         if 0 < len(rest) <= 2 else ""
     how = (f'{and_list(map(mark, others))} {"says" if len(others) == 1 else "say"} '
@@ -650,7 +652,7 @@ def alt_text(number, wanted=None):
              "the instruction words highlighted" if len(p["indicators"]) > 1 else
              "the instruction word highlighted")
     entry = next(e for e in load(number)["entries"] if entry_id(e) == wanted)
-    return (f'The cryptic clue "{entry["clue"].get("text", "")}" explained in three steps: the definition '
+    return (f'The cryptic clue "{quotes.curl(entry["clue"].get("text", ""))}" explained in three steps: the definition '
             f'highlighted, {shown}, and the answer left as empty boxes.')
 
 

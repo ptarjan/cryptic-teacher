@@ -5,7 +5,9 @@ corpus that kept what each source served would hold one clue three ways and
 compare them as three clues. Every puzzle file therefore stores ' and " only:
 fetch_puzzle.write_puzzle_file straightens every write through straighten(),
 puzzle_integrity's CURLY check refuses anything else, and app.js turns them
-back into ‘ ’ “ ” when it shows a clue (quotes.js).
+back into ‘ ’ “ ” when it shows a clue (quotes.js). The static pages and the
+social cards curl with curl() here, which has quotes.js's rules; test_quotes.js
+runs both over tools/quotes_cases.json, so they cannot drift.
 
 Each mapping is one character for one, so every offset into a clue (a
 definition's `at`, italics, a mark) means the same before and after.
@@ -15,6 +17,7 @@ definition's `at`, italics, a mark) means the same before and after.
 """
 import copy
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -22,6 +25,39 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 STRAIGHT = str.maketrans({"‘": "'", "’": "'", "“": '"', "”": '"', "`": "'"})
 CURLY = frozenset("\u2018\u2019\u201c\u201d`")
+
+
+# quotes.js's rules, character for character. \s is spelled out because JS and
+# Python disagree on which characters it holds.
+_SPACE = "\t\n\v\f\r    -     　﻿"
+_OPENS_AFTER = re.compile("[" + _SPACE + r"([{—–\-/‘“]")
+_ELISION = re.compile(
+    r"(?:tis|twas|twere|twill|twould|em|n|til|cause|neath|bout|gainst|nuff|ere|\d\d?s?)(?![A-Za-z])",
+    re.I | re.A)
+
+
+def curl(text):
+    """`text` as the page shows it: ' and " curled to ‘ ’ “ ”, one character
+    for one, so every offset into the clue still points at the same letter.
+    The same rules as quotes.js's curl: ' after a letter or digit is ’; a quote
+    at the start or after a space, bracket, dash, slash or opening quote
+    opens, except a leading elision ('tis, 'em, '90s), which is ’."""
+    s = str(text)
+    if "'" not in s and '"' not in s:
+        return s
+    out = []
+    for i, c in enumerate(s):
+        if c not in "'\"":
+            out.append(c)
+            continue
+        opens = not i or _OPENS_AFTER.match(out[-1]) is not None
+        if c == '"':
+            out.append("“" if opens else "”")
+        elif not opens or _ELISION.match(s, i + 1):
+            out.append("’")
+        else:
+            out.append("‘")
+    return "".join(out)
 
 
 def straight(text):
@@ -60,6 +96,21 @@ def straighten(puzzle):
             if isinstance(holder[key], str):
                 holder[key] = straight(holder[key])
     return puzzle
+
+
+def straighten_clues_only(record):
+    """A clues-only record (tools/clues_only.py) with its clue text straight:
+    itself when it already is, else a copy."""
+    lights = [light for d in ("across", "down") for light in (record.get("clues") or {}).get(d) or []]
+    if not any(isinstance(l.get("clue"), dict) and isinstance(l["clue"].get("text"), str)
+               and CURLY & set(l["clue"]["text"]) for l in lights):
+        return record
+    record = copy.deepcopy(record)
+    for d in ("across", "down"):
+        for light in record["clues"].get(d) or []:
+            if isinstance(light.get("clue"), dict):
+                light["clue"]["text"] = straight(light["clue"].get("text"))
+    return record
 
 
 def curly(puzzle):
