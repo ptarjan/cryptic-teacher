@@ -468,7 +468,50 @@
     "text": "Pipe hasn't opened in vessel",
     "enumeration": "4"
    },
-   "solution": "EWER"
+   "solution": "EWER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EWER",
+    "definitions": [
+     {
+      "text": "vessel",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hasn't opened",
+      "for": "deletion",
+      "note": "something that has not opened is missing its opening, so the word loses its first letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pipe",
+      "gives": "SEWER",
+      "note": "a sewer is a drainage pipe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EWER"
+     ]
+    },
+    "explanation": {
+     "surface": "A pipe has failed to open inside some kind of vessel or container.",
+     "definitionFit": "A ewer is a large jug, a vessel for holding and pouring water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pipe"
+    }
+   }
   },
   {
    "number": 7,
@@ -823,7 +866,49 @@
     "text": "Ruler that's serving as ruler, primarily",
     "enumeration": "4"
    },
-   "solution": "TSAR"
+   "solution": "TSAR",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TSAR",
+    "definitions": [
+     {
+      "text": "Ruler",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means in the first place, so only the leading letter of each word counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that's serving as ruler",
+      "gives": "TSAR",
+      "select": "first",
+      "note": "the opening letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TSAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch is described as one who rules, chiefly.",
+     "walkthrough": "The second 'ruler' looks like a repeat of the definition, but it only supplies its first letter.",
+     "definitionFit": "The tsar was the emperor of Russia, an absolute sovereign."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "serving"
+    }
+   }
   },
   {
    "number": 13,
@@ -1231,7 +1316,63 @@
      }
     ]
    },
-   "solution": "THREEMASTER"
+   "solution": "THREEMASTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "THREE-MASTER",
+    "definitions": [
+     {
+      "text": "something that would float?",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initial",
+      "for": "letter_selection",
+      "note": "an initial is the first letter of a name, so only the leading letter of that word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prime",
+      "gives": "THREE",
+      "note": "three is a prime number"
+     },
+     {
+      "clueFragment": "minister's",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of minister"
+     },
+     {
+      "clueFragment": "bloomer",
+      "gives": "ASTER",
+      "note": "something that blooms is a flower, such as an aster"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THREE",
+      "M",
+      "ASTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A Prime Minister's early blunder turns out to be a policy that might keep things afloat.",
+     "walkthrough": "'Prime Minister' reads as one title; split it, and a bloomer is a flower, not a gaffe.",
+     "definitionFit": "A three-master is a sailing ship with three masts, a vessel that stays on the water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bloomer"
+    }
+   }
   },
   {
    "number": 19,
@@ -1572,7 +1713,55 @@
     "text": "Herbivore's wish upon a star",
     "enumeration": "4"
    },
-   "solution": "VEGA"
+   "solution": "VEGA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VEGA",
+    "definitions": [
+     {
+      "text": "star",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upon",
+      "for": "charade",
+      "note": "upon means resting on top of, so in a down entry the first piece sits above the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Herbivore's wish",
+      "gives": "VEG",
+      "note": "a plant eater would wish for vegetables"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VEG",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A plant-eating animal makes a wish on a star, like the song.",
+     "walkthrough": "The surface echoes the song 'When You Wish Upon a Star'.",
+     "definitionFit": "Vega is the brightest star in the constellation Lyra."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "wish"
+    }
+   }
   },
   {
    "number": 25,
