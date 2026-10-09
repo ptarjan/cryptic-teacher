@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "Willing to learn from medical man, the Italian head of embryology",
     "enumeration": "6"
    },
-   "solution": "DOCILE"
+   "solution": "DOCILE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DOCILE",
+    "definitions": [
+     {
+      "text": "Willing to learn",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its opening letter, so only that one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "medical man",
+      "gives": "DOC",
+      "note": "a doctor, informally a doc"
+     },
+     {
+      "clueFragment": "the Italian",
+      "gives": "IL",
+      "note": "il is the Italian word for 'the'"
+     },
+     {
+      "clueFragment": "embryology",
+      "gives": "E",
+      "select": "first",
+      "note": "opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOC",
+      "IL",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone keen to be taught by a doctor who leads the embryology department in Italy.",
+     "definitionFit": "A docile pupil is submissive and easily taught, which is the original Latin sense of the word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Italian"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +104,54 @@
     "text": "Deny any connection with row about pig",
     "enumeration": "6"
    },
-   "solution": "DISOWN"
+   "solution": "DISOWN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DISOWN",
+    "definitions": [
+     {
+      "text": "Deny any connection with",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece goes round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "row",
+      "gives": "DIN",
+      "note": "a din is a loud noise, a row"
+     },
+     {
+      "clueFragment": "pig",
+      "gives": "SOW",
+      "note": "a sow is a female pig"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "SOW",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone renounces all ties after a quarrel over a pig.",
+     "definitionFit": "To disown someone is to refuse to acknowledge them as one's own or have anything to do with them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +165,51 @@
     "text": "Mo changes, changes dress",
     "enumeration": "9"
    },
-   "solution": "CHEONGSAM"
+   "solution": "CHEONGSAM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHEONGSAM",
+    "definitions": [
+     {
+      "text": "dress",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changes",
+      "for": "anagram",
+      "note": "the first 'changes' is a verb: Mo alters, so the letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mo changes",
+      "gives": "MOCHANGES",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MOCHANGES",
+       "gives": "CHEONGSAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mo keeps swapping outfits, trying on one dress after another.",
+     "walkthrough": "The first 'changes' is the anagram signal; the second is fodder along with Mo.",
+     "definitionFit": "A cheongsam is a close-fitting Chinese gown with a high collar and side slit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "changes"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +223,58 @@
     "text": "Off the booze during card game and bingo",
     "enumeration": "5"
    },
-   "solution": "LOTTO"
+   "solution": "LOTTO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LOTTO",
+    "definitions": [
+     {
+      "text": "bingo",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during places one thing within the span of another, so it goes inside"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "card game",
+      "gives": "LOO",
+      "note": "loo is an old card game"
+     },
+     {
+      "clueFragment": "Off the booze",
+      "gives": "TT",
+      "note": "TT means teetotal, abstaining from alcohol"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "TT",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sober through an evening of cards and bingo.",
+     "walkthrough": "Loo, besides being British slang for a toilet, is a seventeenth-century card game.",
+     "definitionFit": "Lotto is a game of chance with numbered cards and drawn numbers, essentially the same as bingo."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "booze"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +288,70 @@
     "text": "Son, violently attacked crossing Libya's capital, ran",
     "enumeration": "8"
    },
-   "solution": "SMUGGLED"
+   "solution": "SMUGGLED",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SMUGGLED",
+    "definitions": [
+     {
+      "text": "ran",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "one thing crossing another sits across it, so one piece goes inside the other"
+     },
+     {
+      "text": "capital",
+      "for": "letter_selection",
+      "note": "a capital is the leading letter of a word, so only the first is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "standard abbreviation for son"
+     },
+     {
+      "clueFragment": "violently attacked",
+      "gives": "MUGGED",
+      "note": "robbed with violence in the street"
+     },
+     {
+      "clueFragment": "Libya's",
+      "gives": "L",
+      "select": "first",
+      "note": "opening letter of Libya"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "MUGG",
+      "L",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A son was assaulted while crossing Libya and fled.",
+     "walkthrough": "'ran' looks like fleeing, but here it is the trade sense: to run guns or liquor is to bring them in illegally.",
+     "definitionFit": "To run contraband is to carry it secretly past customs, which is exactly what smuggling means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ran"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +371,67 @@
      }
     ]
    },
-   "solution": "MEDIASTUDIES"
+   "solution": "MEDIASTUDIES",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MEDIA STUDIES",
+    "definitions": [
+     {
+      "text": "university course",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "got hold of by",
+      "for": "container",
+      "note": "something got hold of is held, so it sits inside the holder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "graduate",
+      "gives": "MA",
+      "note": "a Master of Arts is a graduate"
+     },
+     {
+      "clueFragment": "Editor",
+      "gives": "ED",
+      "note": "standard abbreviation for editor"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "examines",
+      "gives": "STUDIES",
+      "note": "studies means looks at closely"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ED",
+      "I",
+      "A",
+      "STUDIES"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper editor, nabbed by a graduate, looks over a degree programme.",
+     "definitionFit": "Media studies is an academic subject covering newspapers, television and the internet, taught at college."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Editor"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +445,67 @@
     "text": "See supporting information about grey duck",
     "enumeration": "9"
    },
-   "solution": "GOLDENEYE"
+   "solution": "GOLDENEYE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "GOLDENEYE",
+    "definitions": [
+     {
+      "text": "duck",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece goes round the other"
+     },
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down answer, a supporting piece sits beneath the rest, holding it up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "information",
+      "gives": "GEN",
+      "note": "gen is British slang for information"
+     },
+     {
+      "clueFragment": "grey",
+      "gives": "OLD",
+      "note": "grey-haired, hence old"
+     },
+     {
+      "clueFragment": "See",
+      "gives": "EYE",
+      "note": "to eye something is to look at it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "OLD",
+      "EN",
+      "EYE"
+     ]
+    },
+    "explanation": {
+     "surface": "A birdwatcher's note: look at the facts backing up a grey duck sighting.",
+     "walkthrough": "'See' opens the clue but goes last, because it supports the rest in a down answer.",
+     "definitionFit": "The goldeneye is a diving sea duck named for its bright yellow iris."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grey"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +519,55 @@
     "text": "Belgian city, for example, in piece of fiction",
     "enumeration": "5"
    },
-   "solution": "LIEGE"
+   "solution": "LIEGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LIEGE",
+    "definitions": [
+     {
+      "text": "Belgian city",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the first piece inside the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piece of fiction",
+      "gives": "LIE",
+      "note": "a lie is an invented story"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. is the abbreviation for 'for example'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "EG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A Belgian city used as an example in a novel.",
+     "walkthrough": "'for example' looks like it signals that the city is a mere instance; it is the abbreviation.",
+     "definitionFit": "Liège is a large French-speaking city in eastern Belgium on the river Meuse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "example"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +587,47 @@
      }
     ]
    },
-   "solution": "DRYDOCK"
+   "solution": "DRYDOCK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRY DOCK",
+    "definitions": [
+     {
+      "text": "where a liner may be built",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cold",
+      "gives": "DRY",
+      "note": "a dry manner is cold and unemotional"
+     },
+     {
+      "clueFragment": "plant",
+      "gives": "DOCK",
+      "note": "dock is a broad-leaved weed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRY",
+      "DOCK"
+     ]
+    },
+    "explanation": {
+     "surface": "A chilly factory where an ocean liner might be constructed.",
+     "walkthrough": "'plant' suggests a factory, but it is the weed called dock.",
+     "definitionFit": "A dry dock is a basin that can be drained, used for building or repairing ships."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +641,64 @@
     "text": "Tea is prepared after Sunday afternoon nap",
     "enumeration": "6"
    },
-   "solution": "SIESTA"
+   "solution": "SIESTA",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "SIESTA",
+    "definitions": [
+     {
+      "text": "afternoon nap",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "something prepared has been made up or put together, so the letters are arranged anew"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sunday",
+      "gives": "S",
+      "note": "S is the abbreviation for Sunday"
+     },
+     {
+      "clueFragment": "Tea is",
+      "gives": "IESTA",
+      "note": "these letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IESTA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEAIS",
+       "gives": "IESTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Once tea has been made, it's a Sunday afternoon snooze.",
+     "walkthrough": "'after Sunday' reads as a time, but it places the Sunday letter before the rearranged tea and is.",
+     "definitionFit": "A siesta is the Spanish-style rest or short sleep taken in the early afternoon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prepared"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +712,50 @@
     "text": "Extramarital sex upset true lady",
     "enumeration": "8"
    },
-   "solution": "ADULTERY"
+   "solution": "ADULTERY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ADULTERY",
+    "definitions": [
+     {
+      "text": "Extramarital sex",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "something upset is knocked over and disordered, so the letters fall into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "true lady",
+      "gives": "TRUELADY",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRUELADY",
+       "gives": "ADULTERY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A faithful woman is distressed by her partner's affair.",
+     "definitionFit": "Adultery is sexual relations between a married person and someone other than their spouse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +775,39 @@
      }
     ]
    },
-   "solution": "OFFICERSMESS"
+   "solution": "OFFICERSMESS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "OFFICERS MESS",
+    "definitions": [
+     {
+      "text": "Place not catering for private dining?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Place not catering for private dining?",
+      "note": "surface reading: a restaurant that refuses private bookings or parties"
+     },
+     {
+      "clueFragment": "Place not catering for private dining?",
+      "note": "setter's reading: a military eating room that a private soldier may not use"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'private dining' suggests a separate room for a party; a private is the lowest army rank, barred from commissioned ranks' eating quarters.",
+     "definitionFit": "Commissioned army ranks eat in their own dining room, which enlisted men like privates cannot enter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "private"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +827,72 @@
      }
     ]
    },
-   "solution": "WINDOWFRAME"
+   "solution": "WINDOWFRAME",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "WINDOW FRAME",
+    "definitions": [
+     {
+      "text": "Sash",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to wrap",
+      "gives": "WIND",
+      "note": "to wind a bandage is to wrap it around"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "a round shape like the letter O"
+     },
+     {
+      "clueFragment": "wins",
+      "gives": "W",
+      "select": "first",
+      "note": "opening letter of wins"
+     },
+     {
+      "clueFragment": "body",
+      "gives": "FRAME",
+      "note": "a person's frame is their body"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIND",
+      "O",
+      "W",
+      "FRAME"
+     ]
+    },
+    "explanation": {
+     "surface": "A sash that winds round the waist of a body following a string of wins, like a beauty-queen's ribbon.",
+     "walkthrough": "'Sash' suggests a ribbon worn across the body, but it is the sliding frame of a sash window. 'wrap round' looks like one phrase; split it as WIND then O.",
+     "definitionFit": "A sash is the movable framed part of a window holding the glass, so it is a type of window frame."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sash"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +906,59 @@
     "text": "Novelist from district of London close to Pimlico",
     "enumeration": "3"
    },
-   "solution": "ECO"
+   "solution": "ECO",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ECO",
+    "definitions": [
+     {
+      "text": "Novelist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is where it ends, so its final letter is kept"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "district of London",
+      "gives": "EC",
+      "note": "EC is the East Central postal district of London"
+     },
+     {
+      "clueFragment": "Pimlico",
+      "gives": "O",
+      "select": "last",
+      "note": "final letter of Pimlico"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EC",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer hailing from a neighbourhood near Pimlico in London.",
+     "walkthrough": "Pimlico is an area of central London, so 'close to Pimlico' reads as a location; it means the last letter.",
+     "definitionFit": "Umberto Eco was the Italian author of the novel The Name of the Rose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 14,
@@ -271,7 +990,68 @@
      }
     ]
    },
-   "solution": "ASHOTINTHEDARK"
+   "solution": "ASHOTINTHEDARK",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "A SHOT IN THE DARK",
+    "definitions": [
+     {
+      "text": "film",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mysterious",
+      "for": "anagram",
+      "note": "something mysterious is puzzling and scrambled, so the letters are jumbled"
+     },
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter, which alone is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "death in a short",
+      "gives": "ASHOTINTHEDAR",
+      "note": "these letters rearranged"
+     },
+     {
+      "clueFragment": "Hitchcock's",
+      "gives": "K",
+      "select": "last",
+      "note": "final letter of Hitchcock"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASHOTINTHEDAR",
+      "K"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DEATHINASHORT",
+       "gives": "ASHOTINTHEDAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unexplained death in a short film, the final one Hitchcock made.",
+     "walkthrough": "Hitchcock suggests the film is his, but it is the 1964 Pink Panther comedy; only his last letter is used.",
+     "definitionFit": "A Shot in the Dark is the 1964 Blake Edwards comedy movie starring Peter Sellers as Inspector Clouseau."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hitchcock's"
+    }
+   }
   },
   {
    "number": 15,
@@ -285,7 +1065,49 @@
     "text": "Ruling passion of old boy sitting",
     "enumeration": "9"
    },
-   "solution": "OBSESSION"
+   "solution": "OBSESSION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OBSESSION",
+    "definitions": [
+     {
+      "text": "Ruling passion",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old boy",
+      "gives": "OB",
+      "note": "OB is the abbreviation for old boy, a former pupil"
+     },
+     {
+      "clueFragment": "sitting",
+      "gives": "SESSION",
+      "note": "a sitting of a court or parliament is a session"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "SESSION"
+     ]
+    },
+    "explanation": {
+     "surface": "A former pupil's consuming passion is sitting.",
+     "definitionFit": "An obsession is a fixation that dominates and governs the mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sitting"
+    }
+   }
   },
   {
    "number": 16,
@@ -299,7 +1121,66 @@
     "text": "A special characteristic, odd trait, found on Scottish island",
     "enumeration": "9"
    },
-   "solution": "ATTRIBUTE"
+   "solution": "ATTRIBUTE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ATTRIBUTE",
+    "definitions": [
+     {
+      "text": "A special characteristic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "odd",
+      "for": "anagram",
+      "note": "odd means strange or out of place, so the letters are set awry"
+     },
+     {
+      "text": "found on",
+      "for": "charade",
+      "note": "in a down answer, a piece found on another sits above it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trait",
+      "gives": "ATTRI",
+      "note": "these letters rearranged"
+     },
+     {
+      "clueFragment": "Scottish island",
+      "gives": "BUTE",
+      "note": "Bute is an island in the Firth of Clyde"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATTRI",
+      "BUTE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRAIT",
+       "gives": "ATTRI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A peculiar trait unique to the inhabitants of a Scottish island.",
+     "walkthrough": "The definition is the whole opening phrase including 'A'; 'trait' is the anagram fodder, not part of it.",
+     "definitionFit": "An attribute is a quality or feature regarded as belonging to someone or something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trait"
+    }
+   }
   },
   {
    "number": 17,
@@ -319,7 +1200,63 @@
      }
     ]
    },
-   "solution": "HAMPSTEADHEATH"
+   "solution": "HAMPSTEADHEATH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "HAMPSTEAD HEATH",
+    "definitions": [
+     {
+      "text": "a London park",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Nervous",
+      "for": "anagram",
+      "note": "someone nervous is jittery and shaken up, so the letters are disturbed"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "MP has date",
+      "gives": "HAMPSTEAD",
+      "note": "these letters rearranged"
+     },
+     {
+      "clueFragment": "with former PM",
+      "gives": "HEATH",
+      "note": "Edward Heath was UK Prime Minister 1970-74; 'with' adds him on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAMPSTEAD",
+      "HEATH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MPHASDATE",
+       "gives": "HAMPSTEAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jittery politician meets an ex-premier for a date in a London park.",
+     "definitionFit": "Hampstead Heath is a large, hilly public open space in north London."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Nervous"
+    }
+   }
   },
   {
    "number": 17,
@@ -333,7 +1270,60 @@
     "text": "Male group welcoming a court case",
     "enumeration": "7"
    },
-   "solution": "HEARING"
+   "solution": "HEARING",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HEARING",
+    "definitions": [
+     {
+      "text": "court case",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "welcoming someone takes them in, so a piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Male",
+      "gives": "HE",
+      "note": "he is the male pronoun"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "RING",
+      "note": "a ring is a group or gang"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "A",
+      "RING"
+     ]
+    },
+    "explanation": {
+     "surface": "An all-male band receives a legal action.",
+     "definitionFit": "A hearing is the trial or examination of a case before a judge or tribunal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "group"
+    }
+   }
   },
   {
    "number": 18,
@@ -347,7 +1337,46 @@
     "text": "Behind adult not inclined to leniency",
     "enumeration": "6"
    },
-   "solution": "ASTERN"
+   "solution": "ASTERN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASTERN",
+    "definitions": [
+     {
+      "text": "Behind",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "adult",
+      "gives": "A",
+      "note": "A is the film-rating abbreviation for adult"
+     },
+     {
+      "clueFragment": "not inclined to leniency",
+      "gives": "STERN",
+      "note": "strict and severe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "STERN"
+     ]
+    },
+    "explanation": {
+     "surface": "Supporting a grown-up who refuses to go easy.",
+     "definitionFit": "Astern is the nautical term for at or toward the rear of a ship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Behind"
+    }
+   }
   },
   {
    "number": 19,
@@ -361,7 +1390,43 @@
     "text": "Sky broadcast",
     "enumeration": "3"
    },
-   "solution": "AIR"
+   "solution": "AIR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AIR",
+    "definitions": [
+     {
+      "text": "Sky",
+      "at": 0
+     },
+     {
+      "text": "broadcast",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sky",
+      "note": "first meaning: the open space above the earth"
+     },
+     {
+      "clueFragment": "broadcast",
+      "note": "second meaning: to transmit on radio or television"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Sky is also a British TV company, so 'Sky broadcast' looks like a programme; the two words are separate meanings.",
+     "definitionFit": "The noun names the atmosphere overhead, and the verb means to put a show on radio or television."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Sky"
+    }
+   }
   },
   {
    "number": 20,
@@ -375,7 +1440,54 @@
     "text": "German's OK after port wine",
     "enumeration": "5"
    },
-   "solution": "RIOJA"
+   "solution": "RIOJA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RIOJA",
+    "definitions": [
+     {
+      "text": "wine",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one thing coming after another follows it, so the German word is placed second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "port",
+      "gives": "RIO",
+      "note": "Rio de Janeiro is a Brazilian port"
+     },
+     {
+      "clueFragment": "German's OK",
+      "gives": "JA",
+      "note": "ja is German for yes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIO",
+      "JA"
+     ]
+    },
+    "explanation": {
+     "surface": "A German approves of a wine served after the port.",
+     "walkthrough": "'port' tempts as a wine beside 'wine'; it is a harbour city.",
+     "definitionFit": "Rioja is a red or white Spanish table wine from the region of the same name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 21,
@@ -395,7 +1507,39 @@
      }
     ]
    },
-   "solution": "SISTERSHIPS"
+   "solution": "SISTERSHIPS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SISTER SHIPS",
+    "definitions": [
+     {
+      "text": "Relatives at sea?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Relatives at sea?",
+      "note": "surface reading: family members who are confused, or on a voyage"
+     },
+     {
+      "clueFragment": "Relatives at sea?",
+      "note": "setter's reading: vessels that are related, built to the same design"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'at sea' suggests bewildered relations; the relatives are vessels themselves.",
+     "definitionFit": "Vessels built from the same plans are called siblings of each other, so they are kin that float."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Relatives"
+    }
+   }
   },
   {
    "number": 22,
@@ -409,7 +1553,59 @@
     "text": "Pickle's fraudulent business scheme - Peregrine's first",
     "enumeration": "5"
    },
-   "solution": "SCAMP"
+   "solution": "SCAMP",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SCAMP",
+    "definitions": [
+     {
+      "text": "Pickle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter, so only that is kept"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fraudulent business scheme",
+      "gives": "SCAM",
+      "note": "a scam is a swindle"
+     },
+     {
+      "clueFragment": "Peregrine's",
+      "gives": "P",
+      "select": "first",
+      "note": "opening letter of Peregrine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCAM",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "Peregrine's first dodgy venture gets him into a pickle.",
+     "walkthrough": "'Pickle' is the British affectionate word for a mischievous child, not a jam or preserve.",
+     "definitionFit": "A little pickle and a scamp are both playful terms for a naughty, mischievous child."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Pickle"
+    }
+   }
   },
   {
    "number": 23,
@@ -423,7 +1619,66 @@
     "text": "One daughter, Isolde, possibly put on a pedestal",
     "enumeration": "8"
    },
-   "solution": "IDOLISED"
+   "solution": "IDOLISED",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "IDOLISED",
+    "definitions": [
+     {
+      "text": "put on a pedestal",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly signals one possible arrangement among many, so the letters may be reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "standard abbreviation for daughter"
+     },
+     {
+      "clueFragment": "Isolde",
+      "gives": "OLISED",
+      "note": "these letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "D",
+      "OLISED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISOLDE",
+       "gives": "OLISED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A daughter, perhaps Isolde of the legend, adored and admired by all.",
+     "definitionFit": "To put someone on a pedestal is the idiom for worshipping and admiring them uncritically."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Isolde"
+    }
+   }
   },
   {
    "number": 24,
@@ -437,7 +1692,55 @@
     "text": "Clever to bring in an English king",
     "enumeration": "6"
    },
-   "solution": "CANUTE"
+   "solution": "CANUTE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CANUTE",
+    "definitions": [
+     {
+      "text": "English king",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to bring in",
+      "for": "container",
+      "note": "to bring something in is to take it inside, so one piece holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clever",
+      "gives": "CUTE",
+      "note": "cute can mean shrewd or clever"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "AN",
+      "UTE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone smart enough to install a new monarch in England.",
+     "walkthrough": "'an' looks like part of 'an English king' but it is the piece held inside.",
+     "definitionFit": "Canute (Cnut) was the Danish ruler who reigned as monarch of England from 1016 to 1035."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "an"
+    }
+   }
   },
   {
    "number": 25,
@@ -457,7 +1760,50 @@
      }
     ]
    },
-   "solution": "GLASNOST"
+   "solution": "GLASNOST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GLASNOST",
+    "definitions": [
+     {
+      "text": "a Gorbachev initiative",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spreading",
+      "for": "anagram",
+      "note": "spreading things out scatters them, so the letters end up in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tass, long",
+      "gives": "TASSLONG",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TASSLONG",
+       "gives": "GLASNOST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Soviet news agency Tass spends ages publicising a Gorbachev policy.",
+     "definitionFit": "Glasnost, meaning openness, was Gorbachev's 1980s policy of greater transparency in Soviet government."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spreading"
+    }
+   }
   },
   {
    "number": 26,
@@ -471,7 +1817,57 @@
     "text": "Understood about place causing anger",
     "enumeration": "6"
    },
-   "solution": "SPLEEN"
+   "solution": "SPLEEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPLEEN",
+    "definitions": [
+     {
+      "text": "anger",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece goes round the other"
+     }
+    ],
+    "linkWords": [
+     "causing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Understood",
+      "gives": "SEEN",
+      "note": "to see is to understand, as in 'I see'"
+     },
+     {
+      "clueFragment": "place",
+      "gives": "PL",
+      "note": "PL is the abbreviation for place"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PL",
+      "EEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Something understood about a location provokes fury.",
+     "definitionFit": "Spleen means bad temper, from the old belief that this organ was the seat of irritability."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "place"
+    }
+   }
   }
  ]
 }
