@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "Short task involving one group of singers",
     "enumeration": "5"
    },
-   "solution": "CHOIR"
+   "solution": "CHOIR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "CHOIR",
+    "definitions": [
+     {
+      "text": "group of singers",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Short",
+      "for": "deletion",
+      "note": "something cut short has lost its tail, so the final letter goes"
+     },
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "to involve is to take in, so one piece wraps around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "task",
+      "gives": "CHORE",
+      "note": "a chore is a routine task"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHO",
+      "I",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A brief job that requires one group of singers to perform.",
+     "walkthrough": "CHORE loses its last letter to CHOR, which then wraps around I.",
+     "definitionFit": "A choir is an organised body of vocalists, often singing in church."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Short"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +104,50 @@
     "text": "Rascal is shaking girl",
     "enumeration": "8"
    },
-   "solution": "CLARISSA"
+   "solution": "CLARISSA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CLARISSA",
+    "definitions": [
+     {
+      "text": "girl",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shaking",
+      "for": "anagram",
+      "note": "shaking jumbles things up, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rascal is",
+      "gives": "RASCALIS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RASCALIS",
+       "gives": "CLARISSA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rascal is giving a girl the shivers.",
+     "definitionFit": "Clarissa is a girl's first name, also Samuel Richardson's heroine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shaking"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +161,47 @@
     "text": "Extra weight in saddle",
     "enumeration": "8"
    },
-   "solution": "OVERLOAD"
+   "solution": "OVERLOAD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OVERLOAD",
+    "definitions": [
+     {
+      "text": "Extra weight",
+      "at": 0
+     },
+     {
+      "text": "saddle",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Extra weight",
+      "note": "first meaning: a load beyond capacity"
+     },
+     {
+      "clueFragment": "saddle",
+      "note": "second meaning: to burden someone excessively"
+     }
+    ],
+    "explanation": {
+     "surface": "A jockey carrying added weight in the saddle.",
+     "walkthrough": "The saddle looks like horse tack, but to saddle someone is to burden them.",
+     "definitionFit": "The word is both a noun for excess burden and a verb meaning to encumber too heavily."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "saddle"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +221,54 @@
      }
     ]
    },
-   "solution": "REGIUSPROFESSOR"
+   "solution": "REGIUSPROFESSOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REGIUS PROFESSOR",
+    "definitions": [
+     {
+      "text": "Distinguished academic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "frightful",
+      "for": "anagram",
+      "note": "frightful suggests something dreadful or a mess, so these letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gossiper for sure",
+      "gives": "GOSSIPERFORSURE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GOSSIPERFORSURE",
+       "gives": "REGIUSPROFESSOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An eminent scholar who is undoubtedly a dreadful gossip.",
+     "walkthrough": "Regius chairs are royal professorships at old British universities such as Oxford and Cambridge.",
+     "definitionFit": "A Regius Professor holds a chair founded by the Crown, a mark of high academic standing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "frightful"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +288,51 @@
      }
     ]
    },
-   "solution": "THERIVALS"
+   "solution": "THERIVALS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THE RIVALS",
+    "definitions": [
+     {
+      "text": "a Sheridan play",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast suggests scattering widely, so the letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Relish a TV",
+      "gives": "RELISHATV",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RELISHATV",
+       "gives": "THERIVALS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone enjoying a television showing of a Sheridan comedy.",
+     "walkthrough": "Richard Brinsley Sheridan was an 18th-century Irish playwright.",
+     "definitionFit": "The Rivals (1775) is a comedy of manners written by Sheridan, featuring Mrs Malaprop."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 4,
@@ -115,7 +346,63 @@
     "text": "Discoloured, one outhouse below mountain lake",
     "enumeration": "9"
    },
-   "solution": "TARNISHED"
+   "solution": "TARNISHED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TARNISHED",
+    "definitions": [
+     {
+      "text": "Discoloured",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "below",
+      "for": "charade",
+      "note": "in a down clue below means placed underneath, so the later pieces follow the earlier one"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mountain lake",
+      "gives": "TARN",
+      "note": "a tarn is a small mountain lake"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "outhouse",
+      "gives": "SHED",
+      "note": "a shed is an outbuilding"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TARN",
+      "I",
+      "SHED"
+     ]
+    },
+    "explanation": {
+     "surface": "A faded shed sitting below a lake in the hills.",
+     "walkthrough": "In a down clue 'below' puts I and SHED under TARN.",
+     "definitionFit": "Tarnished metal has lost its lustre and become dull and stained."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "below"
+    }
+   }
   },
   {
    "number": 5,
@@ -129,7 +416,50 @@
     "text": "Not fluctuating, small odds",
     "enumeration": "5"
    },
-   "solution": "EVENS"
+   "solution": "EVENS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EVENS",
+    "definitions": [
+     {
+      "text": "odds",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not fluctuating",
+      "gives": "EVEN",
+      "note": "even means steady or constant"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVEN",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Stable betting prices with only slight odds.",
+     "walkthrough": "'small odds' looks like one phrase, but small gives a letter and odds is the definition.",
+     "definitionFit": "Evens is the betting price where the stake wins an equal amount, one-to-one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "small"
+    }
+   }
   },
   {
    "number": 6,
@@ -153,7 +483,50 @@
      }
     ]
    },
-   "solution": "IVANTHETERRIBLE"
+   "solution": "IVANTHETERRIBLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IVAN THE TERRIBLE",
+    "definitions": [
+     {
+      "text": "tsar",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "aroused",
+      "for": "anagram",
+      "note": "aroused means stirred up, so these letters are mixed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Their evil banter",
+      "gives": "THEIREVILBANTER",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THEIREVILBANTER",
+       "gives": "IVANTHETERRIBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tsar provoked by their wicked mocking.",
+     "definitionFit": "Ivan IV, known as the Terrible, was the first ruler crowned tsar of Russia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "aroused"
+    }
+   }
   },
   {
    "number": 7,
@@ -167,7 +540,56 @@
     "text": "Come on the market with a soft fruit",
     "enumeration": "6"
    },
-   "solution": "APPEAR"
+   "solution": "APPEAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APPEAR",
+    "definitions": [
+     {
+      "text": "Come on the market",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "soft",
+      "gives": "P",
+      "note": "p is piano, the musical marking for soft"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "PEAR",
+      "note": "a pear is a fruit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "P",
+      "PEAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Arriving at the market stall with a ripe fruit.",
+     "walkthrough": "'soft fruit' looks like berries; soft is P, from piano, on its own.",
+     "definitionFit": "A book or product appears when it is published or goes on sale."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "soft"
+    }
+   }
   },
   {
    "number": 8,
@@ -181,7 +603,61 @@
     "text": "Watches wife pocketing a yo-yo",
     "enumeration": "6"
    },
-   "solution": "SEESAW"
+   "solution": "SEESAW",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SEESAW",
+    "definitions": [
+     {
+      "text": "yo-yo",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pocketing",
+      "for": "container",
+      "note": "to pocket something is to put it inside, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Watches",
+      "gives": "SEES",
+      "note": "to watch is to see"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "standard abbreviation for wife"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEES",
+      "A",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "Watching a wife slipping a yo-yo into her pocket.",
+     "walkthrough": "'yo-yo' is a verb here, to go up and down.",
+     "definitionFit": "To seesaw is to swing back and forth between states, as a yo-yo rises and falls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "yo-yo"
+    }
+   }
   },
   {
    "number": 9,
@@ -195,7 +671,68 @@
     "text": "One retaliating against English sovereign after first of attacks",
     "enumeration": "7"
    },
-   "solution": "AVENGER"
+   "solution": "AVENGER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AVENGER",
+    "definitions": [
+     {
+      "text": "One retaliating",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "first of asks for only the opening letter of the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attacks",
+      "gives": "A",
+      "select": "first",
+      "note": "opening letter of attacks"
+     },
+     {
+      "clueFragment": "against",
+      "gives": "V",
+      "note": "V is short for versus, against"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "ENG",
+      "note": "standard abbreviation for English"
+     },
+     {
+      "clueFragment": "sovereign",
+      "gives": "ER",
+      "note": "Elizabeth Regina, the monarch's cipher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "V",
+      "ENG",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A counter-attacker turning on an English monarch after an opening assault.",
+     "walkthrough": "'after first of attacks' puts the A at the front of the other pieces.",
+     "definitionFit": "An avenger is someone who takes revenge, hitting back for a wrong."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sovereign"
+    }
+   }
   },
   {
    "number": 10,
@@ -209,7 +746,51 @@
     "text": "Former partner, large in size, a model",
     "enumeration": "7"
    },
-   "solution": "EXAMPLE"
+   "solution": "EXAMPLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXAMPLE",
+    "definitions": [
+     {
+      "text": "a model",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Former partner",
+      "gives": "EX",
+      "note": "an ex is a former spouse or lover"
+     },
+     {
+      "clueFragment": "large in size",
+      "gives": "AMPLE",
+      "note": "ample means generously big"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "AMPLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Describing an ex who is big and works as a fashion model.",
+     "walkthrough": "'a model' looks like a catwalk job but means a pattern to follow.",
+     "definitionFit": "An example is a model or pattern held up for others to copy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 11,
@@ -229,7 +810,65 @@
      }
     ]
    },
-   "solution": "ICLAUDIUS"
+   "solution": "ICLAUDIUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "I CLAUDIUS",
+    "definitions": [
+     {
+      "text": "novel",
+      "at": 39
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "chapter",
+      "gives": "C",
+      "note": "standard abbreviation for chapter"
+     },
+     {
+      "clueFragment": "praise",
+      "gives": "LAUD",
+      "note": "to laud is to praise"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one again"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "abbreviation for the United States"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "C",
+      "LAUD",
+      "I",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone praising an American book after reading its first chapter.",
+     "walkthrough": "'After one chapter' places I then C at the front.",
+     "definitionFit": "I, Claudius is Robert Graves's 1934 historical novel about the Roman emperor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "After"
+    }
+   }
   },
   {
    "number": 12,
@@ -243,7 +882,76 @@
     "text": "Headdress, one nicked by a despicable type on the way over",
     "enumeration": "5"
    },
-   "solution": "TIARA"
+   "solution": "TIARA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TIARA",
+    "definitions": [
+     {
+      "text": "Headdress",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the way over",
+      "for": "reversal",
+      "note": "going over turns things around, so the order is read backwards"
+     },
+     {
+      "text": "nicked by",
+      "for": "container",
+      "note": "something nicked is taken and held, so it is tucked inside"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "despicable type",
+      "gives": "RAT",
+      "note": "a rat is a contemptible person"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "I",
+      "AR",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "ARAT",
+       "to": "TARA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tiara stolen by a scoundrel while travelling.",
+     "walkthrough": "A RAT turned round is TARA, and I is slipped inside it.",
+     "definitionFit": "A tiara is a jewelled ornamental band worn on the head."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nicked"
+    }
+   }
   },
   {
    "number": 13,
@@ -257,7 +965,47 @@
     "text": "Marksman notes owl",
     "enumeration": "12"
    },
-   "solution": "SHARPSHOOTER"
+   "solution": "SHARPSHOOTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHARPSHOOTER",
+    "definitions": [
+     {
+      "text": "Marksman",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "notes",
+      "gives": "SHARPS",
+      "note": "sharps are musical notes raised a semitone"
+     },
+     {
+      "clueFragment": "owl",
+      "gives": "HOOTER",
+      "note": "an owl hoots, so it is a hooter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHARPS",
+      "HOOTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A marksman taking notes on an owl.",
+     "definitionFit": "A sharpshooter is a skilled shot, especially with a rifle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "notes"
+    }
+   }
   },
   {
    "number": 14,
@@ -271,7 +1019,39 @@
     "text": "One who may know a lot about tents?",
     "enumeration": "9"
    },
-   "solution": "OENOPHILE"
+   "solution": "OENOPHILE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "OENOPHILE",
+    "definitions": [
+     {
+      "text": "One who may know a lot about tents?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One who may know a lot about tents?",
+      "note": "surface reading: a camping expert"
+     },
+     {
+      "clueFragment": "tents",
+      "note": "setter's reading: tent is a sweet red Spanish wine, so the expert is a wine lover"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Tent is a dark red wine from Spain, once used as communion wine; the camping picture is the misdirection.",
+     "definitionFit": "An oenophile is a connoisseur of wines, who would know such a vintage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tents"
+    }
+   }
   },
   {
    "number": 15,
@@ -285,7 +1065,43 @@
     "text": "Hitting out",
     "enumeration": "8"
    },
-   "solution": "STRIKING"
+   "solution": "STRIKING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRIKING",
+    "definitions": [
+     {
+      "text": "Hitting",
+      "at": 0
+     },
+     {
+      "text": "out",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hitting",
+      "note": "first meaning: delivering a blow"
+     },
+     {
+      "clueFragment": "out",
+      "note": "second meaning: on strike, as workers who have walked out"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Hitting out' reads as one phrase about lashing out; split it into two meanings.",
+     "definitionFit": "Workers who are out are taking industrial action, refusing to work in protest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 16,
@@ -299,7 +1115,68 @@
     "text": "Extremely stiff in coach? I must leave conveyance",
     "enumeration": "8"
    },
-   "solution": "TRANSFER"
+   "solution": "TRANSFER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "container"
+    ],
+    "answer": "TRANSFER",
+    "definitions": [
+     {
+      "text": "conveyance",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremes of a word, its first and last letters"
+     },
+     {
+      "text": "I must leave",
+      "for": "deletion",
+      "note": "the letter I is told to go, so it is removed"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stiff",
+      "gives": "SF",
+      "select": "outer",
+      "note": "outside letters of stiff"
+     },
+     {
+      "clueFragment": "coach",
+      "gives": "TRAINER",
+      "note": "a trainer coaches athletes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAN",
+      "SF",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A rigid figure in a coach told to get off a vehicle.",
+     "walkthrough": "'coach' looks like a bus, which fits conveyance, but here it is a sports coach; conveyance is the legal sense of handing property over.",
+     "definitionFit": "A transfer, such as a legal conveyance of property, moves ownership from one party to another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coach"
+    }
+   }
   },
   {
    "number": 17,
@@ -319,7 +1196,65 @@
      }
     ]
    },
-   "solution": "GORDONSETTER"
+   "solution": "GORDONSETTER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "GORDON SETTER",
+    "definitions": [
+     {
+      "text": "dog",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "to cross something here is to straddle it, so one piece sits over the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stupid person",
+      "gives": "GOON",
+      "note": "a goon is a fool"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "RD",
+      "note": "standard abbreviation for road"
+     },
+     {
+      "clueFragment": "with compiler",
+      "gives": "SETTER",
+      "note": "the setter is the person who compiles a crossword"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "RD",
+      "ON",
+      "SETTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A fool stepping into traffic with a puzzle-maker and his dog.",
+     "walkthrough": "Compiler is crosswordese for the person who writes the puzzle.",
+     "definitionFit": "The Gordon setter is a black-and-tan Scottish gun dog breed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "compiler"
+    }
+   }
   },
   {
    "number": 18,
@@ -333,7 +1268,69 @@
     "text": "Child upset and tense at an order that must be obeyed",
     "enumeration": "6"
    },
-   "solution": "DIKTAT"
+   "solution": "DIKTAT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DIKTAT",
+    "definitions": [
+     {
+      "text": "an order that must be obeyed",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset means knocked over, and in a down clue that turns the word upside down"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Child",
+      "gives": "KID",
+      "note": "a kid is a child"
+     },
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T is the grammatical abbreviation for tense"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIK",
+      "T",
+      "AT"
+     ],
+     "reversals": [
+      {
+       "from": "KID",
+       "to": "DIK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A distressed, nervous child at a command they cannot refuse.",
+     "definitionFit": "A diktat is a decree imposed by authority without consent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 19,
@@ -347,7 +1344,59 @@
     "text": "Caper for which doctor is put in prison",
     "enumeration": "6"
    },
-   "solution": "GAMBOL"
+   "solution": "GAMBOL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GAMBOL",
+    "definitions": [
+     {
+      "text": "Caper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put in",
+      "for": "container",
+      "note": "put in means placed inside, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "for which"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doctor",
+      "gives": "MB",
+      "note": "MB, Bachelor of Medicine, is a doctor's degree"
+     },
+     {
+      "clueFragment": "prison",
+      "gives": "GAOL",
+      "note": "gaol is the British spelling of jail"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GA",
+      "MB",
+      "OL"
+     ]
+    },
+    "explanation": {
+     "surface": "A prank that gets a doctor locked up.",
+     "walkthrough": "'Caper' looks like a crime, but it is a playful skip.",
+     "definitionFit": "To gambol or caper is to leap and frolic playfully."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Caper"
+    }
+   }
   },
   {
    "number": 20,
@@ -361,7 +1410,50 @@
     "text": "Statue of sorcerer on island",
     "enumeration": "5"
    },
-   "solution": "IMAGE"
+   "solution": "IMAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMAGE",
+    "definitions": [
+     {
+      "text": "Statue",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "standard abbreviation for island"
+     },
+     {
+      "clueFragment": "sorcerer",
+      "gives": "MAGE",
+      "note": "a mage is a magician"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A statue of a wizard standing on an island.",
+     "walkthrough": "'on' in an across clue puts the sorcerer after the island.",
+     "definitionFit": "An image can be a carved likeness or effigy of someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1467,68 @@
     "text": "Slander a small individual I introduced",
     "enumeration": "9"
    },
-   "solution": "ASPERSION"
+   "solution": "ASPERSION",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ASPERSION",
+    "definitions": [
+     {
+      "text": "Slander",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduced",
+      "for": "container",
+      "note": "something introduced is brought in, so it goes inside another piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "individual",
+      "gives": "PERSON",
+      "note": "an individual is a person"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "S",
+      "PERS",
+      "I",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone confessing to bringing a petty person into a slander.",
+     "walkthrough": "I goes inside PERSON, after A and S.",
+     "definitionFit": "An aspersion is a damaging, often false, remark against someone's reputation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "small"
+    }
+   }
   },
   {
    "number": 21,
@@ -389,7 +1542,49 @@
     "text": "A cereal with fruit",
     "enumeration": "5"
    },
-   "solution": "ACORN"
+   "solution": "ACORN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACORN",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cereal",
+      "gives": "CORN",
+      "note": "corn is a cereal crop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CORN"
+     ]
+    },
+    "explanation": {
+     "surface": "A breakfast cereal served with fruit.",
+     "definitionFit": "The acorn is botanically the nut-fruit of the oak tree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cereal"
+    }
+   }
   },
   {
    "number": 22,
@@ -403,7 +1598,79 @@
     "text": "Sauce boat shattered when drop of chilli poured in",
     "enumeration": "7"
    },
-   "solution": "TABASCO"
+   "solution": "TABASCO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "TABASCO",
+    "definitions": [
+     {
+      "text": "Sauce",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shattered",
+      "for": "anagram",
+      "note": "a shattered thing is broken into fragments that land in a jumble"
+     },
+     {
+      "text": "drop of",
+      "for": "letter_selection",
+      "note": "a drop is a tiny amount, so only the first letter is taken"
+     },
+     {
+      "text": "poured in",
+      "for": "container",
+      "note": "poured in means added inside, so the letter goes within the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boat",
+      "gives": "BOAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as can mean when"
+     },
+     {
+      "clueFragment": "chilli",
+      "gives": "C",
+      "select": "first",
+      "note": "opening letter of chilli"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TABAS",
+      "C",
+      "O"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BOATAS",
+       "gives": "TABASO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sauceboat broke as a splash of chilli was being poured in.",
+     "walkthrough": "'Sauce boat' reads as one kitchen item; Sauce alone is the definition.",
+     "definitionFit": "Tabasco is a brand of hot pepper condiment from Louisiana."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "boat"
+    }
+   }
   },
   {
    "number": 23,
@@ -423,7 +1690,47 @@
      }
     ]
    },
-   "solution": "INBRIEF"
+   "solution": "INBRIEF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IN BRIEF",
+    "definitions": [
+     {
+      "text": "to sum up",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     },
+     {
+      "clueFragment": "barrister",
+      "gives": "BRIEF",
+      "note": "brief is slang for a lawyer, especially a barrister"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "BRIEF"
+     ]
+    },
+    "explanation": {
+     "surface": "A well-liked barrister giving a summing up.",
+     "walkthrough": "In British slang a brief is a barrister or solicitor.",
+     "definitionFit": "In brief is an adverbial phrase meaning in short or in summary."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "barrister"
+    }
+   }
   },
   {
    "number": 24,
@@ -437,7 +1744,64 @@
     "text": "Patience has dream about beheaded spy",
     "enumeration": "9"
    },
-   "solution": "TOLERANCE"
+   "solution": "TOLERANCE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TOLERANCE",
+    "definitions": [
+     {
+      "text": "Patience",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beheaded",
+      "for": "deletion",
+      "note": "beheading cuts off the head, so the first letter is removed"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece goes around the other"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dream",
+      "gives": "TRANCE",
+      "note": "a trance is a dreamlike state"
+     },
+     {
+      "clueFragment": "spy",
+      "gives": "MOLE",
+      "note": "a mole is a spy planted inside an organisation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OLE",
+      "RANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Patience dreaming about a decapitated spy.",
+     "walkthrough": "'Patience' looks like a woman's name or the card game, but it is the definition; a mole is a spy who works from inside.",
+     "definitionFit": "Tolerance is the forbearing capacity to put up with something, as patience is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Patience"
+    }
+   }
   },
   {
    "number": 25,
@@ -451,7 +1815,68 @@
     "text": "Keen listener describing good ending to programme",
     "enumeration": "5"
    },
-   "solution": "EAGER"
+   "solution": "EAGER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "EAGER",
+    "definitions": [
+     {
+      "text": "Keen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "describing",
+      "for": "container",
+      "note": "to describe a shape is to draw round it, so one piece encircles the other"
+     },
+     {
+      "text": "ending to",
+      "for": "letter_selection",
+      "note": "the ending of a word is its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "listener",
+      "gives": "EAR",
+      "note": "the ear is the organ that listens"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "standard abbreviation for good"
+     },
+     {
+      "clueFragment": "programme",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter of programme"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EA",
+      "G",
+      "E",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "An enthusiastic viewer praising a programme's finale.",
+     "walkthrough": "EAR goes around G and E.",
+     "definitionFit": "Eager and keen are synonyms for enthusiastic and impatient to act."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "listener"
+    }
+   }
   }
  ]
 }
