@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,60 @@
     "text": "Investigation about car she wrecked",
     "enumeration": "8"
    },
-   "solution": "RESEARCH"
+   "solution": "RESEARCH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "RESEARCH",
+    "definitions": [
+     {
+      "text": "Investigation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrecked",
+      "for": "anagram",
+      "note": "something wrecked is broken up, so the letters are put back together in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re is Latin-derived for 'concerning'"
+     },
+     {
+      "clueFragment": "car she",
+      "gives": "CARSHE",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "SEARCH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CARSHE",
+       "gives": "SEARCH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A probe into how some woman crashed her car.",
+     "definitionFit": "Research is systematic study, a formal kind of inquiry or investigation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +102,55 @@
     "text": "Rubbish match official guesses regularly",
     "enumeration": "6"
    },
-   "solution": "REFUSE"
+   "solution": "REFUSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "REFUSE",
+    "definitions": [
+     {
+      "text": "Rubbish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, taking every other letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "match official",
+      "gives": "REF",
+      "note": "short for referee"
+     },
+     {
+      "clueFragment": "guesses",
+      "gives": "USE",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REF",
+      "USE"
+     ]
+    },
+    "explanation": {
+     "surface": "A referee's guesswork is called rubbish.",
+     "definitionFit": "Refuse is waste matter thrown away, a synonym for rubbish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rubbish"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +164,48 @@
     "text": "Quiet massages – you might have these in bed",
     "enumeration": "6"
    },
-   "solution": "SHRUBS"
+   "solution": "SHRUBS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHRUBS",
+    "definitions": [
+     {
+      "text": "you might have these in bed",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quiet",
+      "gives": "SH",
+      "note": "the hush sound"
+     },
+     {
+      "clueFragment": "massages",
+      "gives": "RUBS",
+      "note": "a massage is a rub"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "RUBS"
+     ]
+    },
+    "explanation": {
+     "surface": "Gentle massages, the sort enjoyed lying in bed.",
+     "walkthrough": "The bed is a garden flowerbed, not one to sleep in.",
+     "definitionFit": "Bushes are planted in garden beds, so this is a definition by example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +219,67 @@
     "text": "Spy cheers up gathering information",
     "enumeration": "5"
    },
-   "solution": "AGENT"
+   "solution": "AGENT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "AGENT",
+    "definitions": [
+     {
+      "text": "Spy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the word is read from bottom to top"
+     },
+     {
+      "text": "gathering",
+      "for": "container",
+      "note": "gathering means collecting in, so the outer word holds the next one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheers",
+      "gives": "TA",
+      "note": "ta is British slang for thanks"
+     },
+     {
+      "clueFragment": "information",
+      "gives": "GEN",
+      "note": "gen is British slang for information"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GEN",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "TA",
+       "to": "AT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spy raises a glass while collecting intelligence.",
+     "walkthrough": "'Cheers' means thanks here, ta in British slang, not a toast.",
+     "definitionFit": "A secret agent is a spy working for an intelligence service."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cheers"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +293,48 @@
     "text": "Military officer's heart murmured",
     "enumeration": "7"
    },
-   "solution": "COLONEL"
+   "solution": "COLONEL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "COLONEL",
+    "definitions": [
+     {
+      "text": "Military officer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "murmured",
+      "for": "homophone",
+      "note": "something murmured is spoken softly, so we go by the sound"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heart",
+      "gives": "COLONEL",
+      "soundsLike": "KERNEL",
+      "note": "a kernel is the heart or core of something"
+     }
+    ],
+    "explanation": {
+     "surface": "An army officer's heartbeat has a murmur.",
+     "walkthrough": "A heart murmur is a medical sound, but here the murmuring signals a word said aloud.",
+     "definitionFit": "A colonel is a senior army rank, a commissioned military officer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "murmured"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +348,61 @@
     "text": "Church always seems empty at first, daughter concluded",
     "enumeration": "6"
    },
-   "solution": "CEASED"
+   "solution": "CEASED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CEASED",
+    "definitions": [
+     {
+      "text": "concluded",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "'at first' asks for the opening letter of each of the preceding words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     },
+     {
+      "clueFragment": "always seems empty",
+      "gives": "ASE",
+      "select": "first",
+      "note": "initials of the three words"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "standard abbreviation in family trees"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CE",
+      "ASE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A worshipper notices the church is always deserted and a daughter draws the conclusion.",
+     "definitionFit": "To have ceased is to have stopped or ended, a synonym for concluded."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "empty"
+    }
+   }
   },
   {
    "number": 6,
@@ -116,7 +416,64 @@
     "text": "Smashing former lover on phone with topless gent",
     "enumeration": "9"
    },
-   "solution": "EXCELLENT"
+   "solution": "EXCELLENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "EXCELLENT",
+    "definitions": [
+     {
+      "text": "Smashing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topless",
+      "for": "deletion",
+      "note": "topless means with the top, the first letter, taken off"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former lover",
+      "gives": "EX",
+      "note": "an ex"
+     },
+     {
+      "clueFragment": "phone",
+      "gives": "CELL",
+      "note": "short for cellphone"
+     },
+     {
+      "clueFragment": "gent",
+      "gives": "GENT",
+      "note": "loses its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "CELL",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A glamorous ex chats on the phone with a shirtless man.",
+     "definitionFit": "Smashing is British slang for wonderful, so it means the same as superb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Smashing"
+    }
+   }
   },
   {
    "number": 7,
@@ -130,7 +487,55 @@
     "text": "Small tavern's sozzled maids?",
     "enumeration": "8"
    },
-   "solution": "SERVANTS"
+   "solution": "SERVANTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SERVANTS",
+    "definitions": [
+     {
+      "text": "maids",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sozzled",
+      "for": "anagram",
+      "note": "sozzled is British slang for drunk, and drunk letters reel into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "abbreviation for small"
+     },
+     {
+      "clueFragment": "tavern's",
+      "gives": "TAVERNS",
+      "note": "the possessive taken as a plain S"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STAVERNS",
+       "gives": "SERVANTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The maids from a little pub are drunk.",
+     "definitionFit": "Maids are domestic servants; the question mark admits it is a definition by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sozzled"
+    }
+   }
   },
   {
    "number": 8,
@@ -144,7 +549,69 @@
     "text": "Heavy blow from side almost knocked over plant",
     "enumeration": "8"
    },
-   "solution": "DISASTER"
+   "solution": "DISASTER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "DISASTER",
+    "definitions": [
+     {
+      "text": "Heavy blow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the last letter goes"
+     },
+     {
+      "text": "knocked over",
+      "for": "reversal",
+      "note": "something knocked over ends up the other way round, so it reads backwards"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "side",
+      "gives": "SIDE",
+      "note": "loses its last letter, then turns round"
+     },
+     {
+      "clueFragment": "plant",
+      "gives": "ASTER",
+      "note": "the aster is a daisy-like flower"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "ASTER"
+     ],
+     "reversals": [
+      {
+       "from": "SID",
+       "to": "DIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boxer's side-on punch nearly flattens a flowerpot.",
+     "definitionFit": "A disaster is a calamity, figuratively a crushing blow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 9,
@@ -158,7 +625,60 @@
     "text": "Type playing lyre in times gone by",
     "enumeration": "8"
    },
-   "solution": "FORMERLY"
+   "solution": "FORMERLY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "FORMERLY",
+    "definitions": [
+     {
+      "text": "in times gone by",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "a lyre being played suggests its letters being moved about freely"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Type",
+      "gives": "FORM",
+      "note": "a type or kind is a form"
+     },
+     {
+      "clueFragment": "lyre",
+      "gives": "LYRE",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FORM",
+      "ERLY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LYRE",
+       "gives": "ERLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes how a sort of musician played the lyre in ancient days.",
+     "definitionFit": "The adverb means previously or in earlier days, exactly matching the phrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Type"
+    }
+   }
   },
   {
    "number": 10,
@@ -172,7 +692,62 @@
     "text": "Greek airman is hugging Italian opera singer? Not so",
     "enumeration": "6"
    },
-   "solution": "ICARUS"
+   "solution": "ICARUS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ICARUS",
+    "definitions": [
+     {
+      "text": "Greek airman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hugging",
+      "for": "container",
+      "note": "one thing hugging another wraps around it, so the outer word encloses the inner"
+     },
+     {
+      "text": "Not so",
+      "for": "deletion",
+      "note": "'not so' tells us to remove those two letters from the singer's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written; it surrounds the next piece"
+     },
+     {
+      "clueFragment": "Italian opera singer",
+      "gives": "CARUSO",
+      "note": "Enrico Caruso, the famous Neapolitan tenor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "CARU",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek pilot embraces a famous Italian tenor, or maybe he doesn't.",
+     "walkthrough": "'Not so' seems to deny the hug, but it actually tells you to trim the tenor's name before placing it.",
+     "definitionFit": "In Greek myth Icarus flew on wings of wax and feathers, the first legendary aviator."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "so"
+    }
+   }
   },
   {
    "number": 11,
@@ -186,7 +761,44 @@
     "text": "Some of the athletes warm up",
     "enumeration": "4"
    },
-   "solution": "HEAT"
+   "solution": "HEAT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HEAT",
+    "definitions": [
+     {
+      "text": "warm up",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some of",
+      "for": "hidden_word",
+      "note": "some of means only a part, so the letters sit inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the athletes",
+      "gives": "HEAT",
+      "note": "the letters run across the gap between the words"
+     }
+    ],
+    "explanation": {
+     "surface": "Some sportspeople do their pre-race warm-up.",
+     "walkthrough": "A heat is also an athletics qualifying race, which sits nicely in the surface.",
+     "definitionFit": "To heat something is to make it warmer, a synonym for warm up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "warm"
+    }
+   }
   },
   {
    "number": 12,
@@ -200,7 +812,46 @@
     "text": "Vessel bearing material",
     "enumeration": "9"
    },
-   "solution": "SUBSTANCE"
+   "solution": "SUBSTANCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUBSTANCE",
+    "definitions": [
+     {
+      "text": "material",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vessel",
+      "gives": "SUB",
+      "note": "a submarine is a vessel"
+     },
+     {
+      "clueFragment": "bearing",
+      "gives": "STANCE",
+      "note": "one's bearing or posture"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUB",
+      "STANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A ship carrying some cargo.",
+     "definitionFit": "Substance is physical matter, a synonym for material as a noun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bearing"
+    }
+   }
   },
   {
    "number": 13,
@@ -214,7 +865,48 @@
     "text": "Film director's lists",
     "enumeration": "5"
    },
-   "solution": "LEANS"
+   "solution": "LEANS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEANS",
+    "definitions": [
+     {
+      "text": "lists",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Film director",
+      "gives": "LEAN",
+      "note": "David Lean, director of Lawrence of Arabia"
+     },
+     {
+      "clueFragment": "'s",
+      "gives": "S",
+      "note": "the possessive ending kept as a letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEAN",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A movie director's lists, as of cast or shots.",
+     "walkthrough": "'Lists' is a verb here: a ship lists when it tilts to one side.",
+     "definitionFit": "To list, of a ship or building, is to tilt over, which is to lean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lists"
+    }
+   }
   },
   {
    "number": 14,
@@ -228,7 +920,58 @@
     "text": "The wingless bird's screech",
     "enumeration": "4"
    },
-   "solution": "HOWL"
+   "solution": "HOWL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HOWL",
+    "definitions": [
+     {
+      "text": "screech",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wingless",
+      "for": "letter_selection",
+      "note": "a word without its wings has lost its outermost letters on both sides"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The",
+      "gives": "H",
+      "select": "middle",
+      "note": "the middle letter left once the ends are clipped"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "OWL",
+      "note": "an owl is a bird"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "OWL"
+     ]
+    },
+    "explanation": {
+     "surface": "The cry of a bird that has lost its wings.",
+     "definitionFit": "A howl is a long loud cry, close in sense to a screech."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wingless"
+    }
+   }
   },
   {
    "number": 15,
@@ -242,7 +985,50 @@
     "text": "Prepared grandiose spread",
     "enumeration": "9"
    },
-   "solution": "ORGANISED"
+   "solution": "ORGANISED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ORGANISED",
+    "definitions": [
+     {
+      "text": "Prepared",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spread",
+      "for": "anagram",
+      "note": "spread out, the letters are scattered and laid out anew"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grandiose",
+      "gives": "GRANDIOSE",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GRANDIOSE",
+       "gives": "ORGANISED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lavish buffet has been laid out.",
+     "definitionFit": "Being organised means having things arranged in advance, being ready."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spread"
+    }
+   }
   },
   {
    "number": 16,
@@ -256,7 +1042,76 @@
     "text": "Part of hospital that embodies first bit of emergency care? Not half!",
     "enumeration": "7"
    },
-   "solution": "THEATRE"
+   "solution": "THEATRE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "deletion",
+     "charade"
+    ],
+    "answer": "THEATRE",
+    "definitions": [
+     {
+      "text": "Part of hospital",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first bit of",
+      "for": "letter_selection",
+      "note": "the first bit of a word is its opening letter"
+     },
+     {
+      "text": "embodies",
+      "for": "container",
+      "note": "to embody something is to hold it within, so one word goes inside another"
+     },
+     {
+      "text": "Not half",
+      "for": "deletion",
+      "note": "'not half' means only half of the word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that",
+      "gives": "THAT",
+      "note": "taken as written; it holds the next letter"
+     },
+     {
+      "clueFragment": "emergency",
+      "gives": "E",
+      "select": "first",
+      "note": "its opening letter"
+     },
+     {
+      "clueFragment": "care",
+      "gives": "CARE",
+      "note": "only its second half is kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "E",
+      "AT",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether the operating area is where emergency care starts, with a British 'Not half!' meaning 'absolutely'.",
+     "walkthrough": "'Not half!' is British slang for 'very much so', but here it literally keeps half a word, the back half.",
+     "definitionFit": "An operating theatre is the room in a hospital where surgery takes place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "half"
+    }
+   }
   },
   {
    "number": 17,
@@ -270,7 +1125,52 @@
     "text": "Plug US vice-president's proposals",
     "enumeration": "8"
    },
-   "solution": "ADVANCES"
+   "solution": "ADVANCES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADVANCES",
+    "definitions": [
+     {
+      "text": "proposals",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plug",
+      "gives": "AD",
+      "note": "an advert plugs a product"
+     },
+     {
+      "clueFragment": "US vice-president",
+      "gives": "VANCE",
+      "note": "JD Vance, US vice-president from 2025"
+     },
+     {
+      "clueFragment": "'s",
+      "gives": "S",
+      "note": "the possessive ending kept as a letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "VANCE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone promotes the American vice-president's policy ideas.",
+     "definitionFit": "Advances are overtures or offers put forward to someone, i.e. proposals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Plug"
+    }
+   }
   },
   {
    "number": 18,
@@ -284,7 +1184,65 @@
     "text": "Dad's crossing the French river for fun",
     "enumeration": "8"
    },
-   "solution": "PLEASURE"
+   "solution": "PLEASURE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PLEASURE",
+    "definitions": [
+     {
+      "text": "fun",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "crossing here means straddling, so the outer word spans the next piece"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dad's",
+      "gives": "PAS",
+      "note": "pa is dad; plus the possessive S"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "French for 'the'"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "URE",
+      "note": "the Ure is a river in Yorkshire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LE",
+      "AS",
+      "URE"
+     ]
+    },
+    "explanation": {
+     "surface": "Father wades across a river in France just to enjoy himself.",
+     "walkthrough": "The Ure is a Yorkshire river, a crossword favourite.",
+     "definitionFit": "Pleasure is enjoyment or amusement, the same thing as fun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crossing"
+    }
+   }
   },
   {
    "number": 19,
@@ -298,7 +1256,64 @@
     "text": "Joy editor recalled, given answer to a clue",
     "enumeration": "7"
    },
-   "solution": "DELIGHT"
+   "solution": "DELIGHT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DELIGHT",
+    "definitions": [
+     {
+      "text": "Joy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "to be recalled is to be called back, so the word runs backwards"
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "answer to a clue",
+      "gives": "LIGHT",
+      "note": "a light is crossword jargon for an answer in the grid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "LIGHT"
+     ],
+     "reversals": [
+      {
+       "from": "ED",
+       "to": "DE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A happy editor, brought back and handed a crossword solution.",
+     "walkthrough": "'Light' is the setters' term for an entry in a crossword grid.",
+     "definitionFit": "Delight is great pleasure, a synonym for joy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recalled"
+    }
+   }
   },
   {
    "number": 20,
@@ -312,7 +1327,65 @@
     "text": "Labour's tense as Keir's leader",
     "enumeration": "4"
    },
-   "solution": "TASK"
+   "solution": "TASK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TASK",
+    "definitions": [
+     {
+      "text": "Labour",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a word's leader is its first letter"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "grammar abbreviation"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Keir's",
+      "gives": "K",
+      "select": "first",
+      "note": "its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "AS",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "The Labour Party is on edge with Keir Starmer in charge.",
+     "walkthrough": "Keir Starmer leads the UK Labour Party, but Labour here just means work.",
+     "definitionFit": "Labour as a noun is work or toil, and a task is a piece of work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Labour"
+    }
+   }
   },
   {
    "number": 21,
@@ -326,7 +1399,64 @@
     "text": "Newspaper covering a European's ill-fortune",
     "enumeration": "4"
    },
-   "solution": "FATE"
+   "solution": "FATE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "FATE",
+    "definitions": [
+     {
+      "text": "ill-fortune",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "something covering another lies over and around it, so it encloses the next piece"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Newspaper",
+      "gives": "FT",
+      "note": "the Financial Times"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "A",
+      "T",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A paper reporting on someone from Europe's bad luck.",
+     "definitionFit": "Fate is destiny, often in the sense of a grim or unlucky end."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Newspaper"
+    }
+   }
   },
   {
    "number": 21,
@@ -340,7 +1470,57 @@
     "text": "Prefer embracing student's spirit",
     "enumeration": "7"
    },
-   "solution": "FLAVOUR"
+   "solution": "FLAVOUR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FLAVOUR",
+    "definitions": [
+     {
+      "text": "spirit",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "embracing means wrapping arms around, so the first word holds the second"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prefer",
+      "gives": "FAVOUR",
+      "note": "to favour is to prefer"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L for learner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "L",
+      "AVOUR"
+     ]
+    },
+    "explanation": {
+     "surface": "Preferring to hug a student's zest.",
+     "definitionFit": "Flavour can mean the distinctive character or essence of something, its spirit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 22,
@@ -354,7 +1534,62 @@
     "text": "Keep unclothed star in check",
     "enumeration": "6"
    },
-   "solution": "RETAIN"
+   "solution": "RETAIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RETAIN",
+    "definitions": [
+     {
+      "text": "Keep",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unclothed",
+      "for": "letter_selection",
+      "note": "stripped of clothing means losing the outer letters, keeping the inside"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "check",
+      "gives": "REIN",
+      "note": "to rein in is to check"
+     },
+     {
+      "clueFragment": "star",
+      "gives": "TA",
+      "select": "middle",
+      "note": "its middle two letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "TA",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Hold back a naked celebrity.",
+     "definitionFit": "To retain something is to continue to possess it, a synonym for keep."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "check"
+    }
+   }
   },
   {
    "number": 23,
@@ -368,7 +1603,47 @@
     "text": "Disturb snake, pulling tail",
     "enumeration": "6"
    },
-   "solution": "RATTLE"
+   "solution": "RATTLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RATTLE",
+    "definitions": [
+     {
+      "text": "Disturb",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pulling tail",
+      "for": "deletion",
+      "note": "pulling off the tail removes the final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "snake",
+      "gives": "RATTLER",
+      "note": "a rattler is a rattlesnake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RATTLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Annoy a serpent by tugging its tail.",
+     "definitionFit": "To rattle someone is to unsettle or fluster them, i.e. disturb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pulling"
+    }
+   }
   },
   {
    "number": 24,
@@ -382,7 +1657,53 @@
     "text": "Opposed to shedding stone once more",
     "enumeration": "5"
    },
-   "solution": "AGAIN"
+   "solution": "AGAIN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AGAIN",
+    "definitions": [
+     {
+      "text": "once more",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shedding",
+      "for": "deletion",
+      "note": "shedding something means dropping it, so letters are removed from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Opposed to",
+      "gives": "AGAINST",
+      "note": "against means opposed to"
+     },
+     {
+      "clueFragment": "stone",
+      "gives": "ST",
+      "note": "abbreviation for the stone, a British weight of 14 pounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone resisting losing weight a second time.",
+     "walkthrough": "A stone is a British unit of weight, abbreviated st.",
+     "definitionFit": "The adverb means a second time, the same as once more."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stone"
+    }
+   }
   },
   {
    "number": 25,
@@ -402,7 +1723,51 @@
      }
     ]
    },
-   "solution": "SOAPOPERA"
+   "solution": "SOAPOPERA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOAP OPERA",
+    "definitions": [
+     {
+      "text": "Neighbours perhaps",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "put"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lather",
+      "gives": "SOAP",
+      "note": "soap makes lather"
+     },
+     {
+      "clueFragment": "Aida",
+      "gives": "OPERA",
+      "note": "Aida is Verdi's opera"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOAP",
+      "OPERA"
+     ]
+    },
+    "explanation": {
+     "surface": "People next door smearing suds on a famous opera, absurdly.",
+     "walkthrough": "Neighbours is a long-running Australian TV serial, so the capital letter hides a proper noun.",
+     "definitionFit": "Neighbours is an example of a television serial drama of everyday life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Neighbours"
+    }
+   }
   },
   {
    "number": 26,
@@ -416,7 +1781,49 @@
     "text": "Watering hole for Aussies oddly abandoned",
     "enumeration": "5"
    },
-   "solution": "OASIS"
+   "solution": "OASIS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "OASIS",
+    "definitions": [
+     {
+      "text": "Watering hole",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly abandoned",
+      "for": "letter_selection",
+      "note": "the odd-numbered letters are abandoned, so only the even ones stay"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for Aussies",
+      "gives": "OASIS",
+      "select": "alternate",
+      "note": "second, fourth, sixth, eighth and tenth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OASIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A pub, perhaps, forsaken by Australians, oddly enough.",
+     "walkthrough": "'For' looks like a link word, but its letters are part of the fodder.",
+     "definitionFit": "An oasis is a fertile spot in a desert with water, a natural watering hole."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 27,
@@ -430,7 +1837,43 @@
     "text": "Broadcast vulgar programme",
     "enumeration": "6"
    },
-   "solution": "COURSE"
+   "solution": "COURSE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "COURSE",
+    "definitions": [
+     {
+      "text": "programme",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Broadcast",
+      "for": "homophone",
+      "note": "something broadcast is heard over the air, so the word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vulgar",
+      "gives": "COURSE",
+      "soundsLike": "COARSE",
+      "note": "coarse means vulgar, and is pronounced the same way"
+     }
+    ],
+    "explanation": {
+     "surface": "A TV channel airs a crude show.",
+     "definitionFit": "A course is a programme of study or treatment, a sequence of planned steps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "programme"
+    }
+   }
   },
   {
    "number": 28,
@@ -444,7 +1887,62 @@
     "text": "Unrelenting prisoners spank adult's rear",
     "enumeration": "8"
    },
-   "solution": "CONSTANT"
+   "solution": "CONSTANT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CONSTANT",
+    "definitions": [
+     {
+      "text": "Unrelenting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rear",
+      "for": "letter_selection",
+      "note": "the rear of a word is its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prisoners",
+      "gives": "CONS",
+      "note": "convicts"
+     },
+     {
+      "clueFragment": "spank",
+      "gives": "TAN",
+      "note": "to tan someone's hide is to beat them"
+     },
+     {
+      "clueFragment": "adult's",
+      "gives": "T",
+      "select": "last",
+      "note": "its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONS",
+      "TAN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Relentless inmates smack a grown-up's bottom.",
+     "definitionFit": "Constant means ceaseless or never easing, a synonym for unrelenting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rear"
+    }
+   }
   },
   {
    "number": 29,
@@ -458,7 +1956,66 @@
     "text": "Mysterious reversing in ship's races",
     "enumeration": "6"
    },
-   "solution": "SPEEDS"
+   "solution": "SPEEDS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SPEEDS",
+    "definitions": [
+     {
+      "text": "races",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversing",
+      "for": "reversal",
+      "note": "reversing means running backwards, so the word is read from the end"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "placed in something means put inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ship's",
+      "gives": "SS",
+      "note": "SS stands for steamship"
+     },
+     {
+      "clueFragment": "Mysterious",
+      "gives": "DEEP",
+      "note": "deep can mean obscure or mysterious"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PEED",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "DEEP",
+       "to": "PEED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Strange goings-on with a vessel backing up during regattas.",
+     "definitionFit": "To race is to go fast; speeds as a verb means hurries, a synonym for races."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "races"
+    }
+   }
   },
   {
    "number": 30,
@@ -472,7 +2029,61 @@
     "text": "See prince struggling leaving one carriage",
     "enumeration": "8"
    },
-   "solution": "PRESENCE"
+   "solution": "PRESENCE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "PRESENCE",
+    "definitions": [
+     {
+      "text": "carriage",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving one",
+      "for": "deletion",
+      "note": "one is the Roman numeral, and leaving it means it is dropped from the letters"
+     },
+     {
+      "text": "struggling",
+      "for": "anagram",
+      "note": "struggling suggests thrashing about, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See prince",
+      "gives": "SEEPRINCE",
+      "note": "letters to be rearranged, minus I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRESENCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEEPRNCE",
+       "gives": "PRESENCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Watch a royal battling to get out of a coach.",
+     "walkthrough": "'Carriage' is not a coach but a person's bearing; one is I in Roman numerals.",
+     "definitionFit": "Presence can mean an impressive bearing or deportment, which is what carriage means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "carriage"
+    }
+   }
   }
  ]
 }
