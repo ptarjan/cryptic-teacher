@@ -189,6 +189,21 @@ def plan_fetches(sources):
     return out
 
 
+def unit_title(unit):
+    """A unit's command line in ps: its kind, paper (or fetch source) and
+    edition, article or file, not the queue's."""
+    return f"edition_queue.py unit {unit['kind']} {unit['paper']} {unit['rel']}"
+
+
+def titled():
+    """Whether units can name themselves (setproctitle is installed)."""
+    try:
+        import setproctitle  # noqa: F401
+    except ImportError:
+        return False
+    return True
+
+
 def run_unit(unit, cache, puzzles, reread):
     """In the forked child: the unit's outcome (EXITS). A scan's desktop
     sessions run above the reads' (ocr_remote.PRIORITIES): a read waits on
@@ -305,6 +320,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     memory_bound = cpu_bound = False  # logged once per slice
     stopped = set()  # fetch sources started no more this run
     adopted = take_over(handoff) if handoff else {}  # pid: (unit, started), another run's
+    if not titled():
+        log("setproctitle is not installed: every unit's command line shows the queue's (pip install setproctitle)")
     for unit, _ in adopted.values():
         tried.add(key_of(unit))
         log(f"taken over: {unit['kind']} {unit['rel']}")
@@ -328,6 +345,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             code = 1
             try:
                 os.setpgid(0, 0)
+                if titled():
+                    import setproctitle
+                    setproctitle.setproctitle(unit_title(unit))
                 signal.signal(signal.SIGTERM, signal.SIG_DFL)
                 signal.signal(signal.SIGINT, signal.SIG_DFL)
                 code = EXITS.get(run_unit(unit, cache, puzzles, reread), 1)

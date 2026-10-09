@@ -124,7 +124,7 @@ jobs:
           node-version: "20"
       # Before the network is cut: the scan readers (trove_grid, the Cyclops
       # filer, the title band finder) need them.
-      - run: pip install numpy pillow pypdf opencv-python-headless
+      - run: pip install numpy pillow pypdf opencv-python-headless setproctitle
         shell: bash
       # The smoke test's per-puzzle results from earlier runs (tools/ci_cache.js):
       # the newest entry, which on master is the last master run that saved.

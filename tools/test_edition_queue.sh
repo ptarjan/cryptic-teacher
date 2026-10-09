@@ -256,6 +256,25 @@ check("a 429 lowers the pool; FETCH_OUTAGES down in a row stop the source for th
       ("at most 1 fetches at once" in err.getvalue(), "no more fetches this run" in err.getvalue(),
        "start fetch e5" in log.read_text()))
 
+# Each unit's command line names its kind, paper and edition, not the queue's.
+log.unlink()
+def own_args(unit, cache, puzzles, reread):
+    import subprocess
+    args = subprocess.run(["ps", "-o", "args=", "-p", str(os.getpid())], capture_output=True, text=True).stdout.strip()
+    with open(log, "a") as fh:
+        fh.write(f"{unit['rel']}\t{args}\n")
+    return "read" if unit["kind"] == "read" else "fetched"
+eq.run_unit = own_args
+eq.plan = units([], [("GaleTimes1988UKEnglish/1988-08-30", [])])
+eq.FETCHERS = {"src": {"plan": lambda: [{"rel": "article/120905968", "reason": "not fetched"}],
+                       "run": None, "workers": 1, "seconds": 5}}
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=1, fetch=["src"], replan=0.2)
+seen = dict(line.split("\t", 1) for line in log.read_text().splitlines())
+check("a unit's ps command line is its kind, paper and edition",
+      {"GaleTimes1988UKEnglish/1988-08-30": "edition_queue.py unit read times GaleTimes1988UKEnglish/1988-08-30",
+       "article/120905968": "edition_queue.py unit fetch src article/120905968"}, seen)
+
 # ---- --handoff: a slice's end hands its running units to the next run,
 # which counts them in its pools and does not start them again.
 log.unlink()
