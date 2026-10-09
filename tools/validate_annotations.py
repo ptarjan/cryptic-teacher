@@ -2751,13 +2751,10 @@ def check_clue_unchanged(puzzle, path, errors):
 
 
 def check_clue_rows_held(puzzle, errors):
-    """An OCR'd puzzle (provenance.OCR_CHANNELS) holds every
-    tools/data/source_clue_wrong.json row filed for it: a clue still as the
-    source served it, where the row prints it otherwise, ships the misread
-    beside the row that mends it. tools/annotate_check.py writes the rows in
-    (apply_annotations.mend_clues)."""
-    if (puzzle.get("source") or {}).get("retrievedFrom") not in provenance.OCR_CHANNELS:
-        return
+    """A puzzle holds every tools/data/source_clue_wrong.json row filed for
+    it: a clue still as the source served it, where the row prints it
+    otherwise, ships the misprint beside the row that mends it.
+    tools/annotate_check.py writes the rows in (apply_annotations.mend_clues)."""
     for e in puzzle["entries"]:
         text = e["clue"].get("text")
         printed = source_clue(puzzle.get("id"), entry_id(e), text)

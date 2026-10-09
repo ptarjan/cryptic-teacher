@@ -431,10 +431,9 @@ def apply(path, annotations, by=None):
                 f"annotated, and those annotations stay as they are — this run "
                 f"writes only {', '.join(only)} ({view_path(path).name} "
                 f"annotateOnly). Drop the other keys.")
-    # An OCR'd clue the annotator found misread lands as SOURCE_CLUE_WRONG
-    # prints it, the way a re-fetch reads every served clue.
-    if (puzzle.get("source") or {}).get("retrievedFrom") in provenance.OCR_CHANNELS:
-        mend_clues(puzzle)
+    # A clue the annotator found misprinted lands as SOURCE_CLUE_WRONG prints
+    # it, whatever channel served it.
+    mend_clues(puzzle)
     # A clue printed with no words has nothing to explain: it takes null.
     blank = {entry_id(e) for e in puzzle["entries"] if e["clue"].get("missing")}
     required = [i for i in (ids if only is None else [i for i in ids if i in only])
