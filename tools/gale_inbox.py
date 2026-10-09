@@ -59,6 +59,7 @@ from pathlib import Path
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
 import archive_coverage
+import code_reach
 import file_archive_org_puzzles as fa
 import gale_arrived
 import gale_docs
@@ -92,13 +93,13 @@ CHECKLIST = Path(os.path.expanduser("~/.cache/gale_inbox")) / CHECKLIST_NAME
 UNMATCHED = MIRROR.parent / "unmatched.json"
 #: Each inbox file's match, by name, size and mtime: a tick re-reads only what moved.
 MATCHES = MIRROR.parent / "matches.json"
-#: The code a match is read by: a change to it re-reads every file.
-MATCHER = hashlib.sha256(b"".join((TOOLS / f).read_bytes() for f in (
-    "gale_inbox.py", "file_archive_org_puzzles.py", "trove_grid.py"))).hexdigest()[:12]
+#: The code match() reaches: a change to it re-reads every file.
+MATCHER = code_reach.key("gale_inbox", {"match"})[:12]
 #: The most seconds a stage spends matching files afresh: a code change
 #: re-reads every file (minutes each batch), and the minute tick must stay
-#: short. A file not re-read yet keeps its last match (same name, size and
-#: mtime, under the code before); one never matched waits for the next tick.
+#: short. Files never matched go first, so a fresh download is never queued
+#: behind re-reads; a file not re-read yet keeps its last match (same name,
+#: size and mtime, under the code before).
 MATCH_SECONDS = 60
 #: The Downloads files already looked at and found not to be Gale's.
 SEEN = MIRROR.parent / "seen.json"
@@ -424,9 +425,9 @@ def stage(inbox=MIRROR, cache=CACHE, out=sys.stdout, unmatched=UNMATCHED, matche
     by_date = collections.defaultdict(list)
     deadline = time.monotonic() + seconds
     deferred = 0
-    for p in files:
-        st = p.stat()
-        ident = f"{p.name}\t{st.st_size}\t{int(st.st_mtime)}"
+    idents = {p: f"{p.name}\t{p.stat().st_size}\t{int(p.stat().st_mtime)}" for p in files}
+    for p in sorted(files, key=lambda p: idents[p] in stale):
+        ident = idents[p]
         k = f"{MATCHER}\t{ident}"
         m = known.get(k)
         if m is None and time.monotonic() > deadline:

@@ -142,6 +142,17 @@ g.match = saved_match
 g.stage(inbox, cache, io.StringIO(), un, g.MATCHES)
 check("within it, every file re-read under the new code and kept", True,
       all(k.startswith("changed\t") for k in json.loads(g.MATCHES.read_text())))
+# A fresh download is matched before the files a code change re-reads.
+g.MATCHER, order = "again", []
+def recorded(path, by_number):
+    order.append(path.name)
+    return saved_match(path, by_number)
+g.match = recorded
+Image.new("RGB", (400, 300), "white").save(inbox / "1999-12-31 page 1.png")
+g.stage(inbox, cache, io.StringIO(), un, g.MATCHES)
+check("a never-matched file goes first", "1999-12-31 page 1.png", order[0])
+(inbox / "1999-12-31 page 1.png").unlink()
+g.match = saved_match
 g.MATCHER = saved_matcher
 g.stage(inbox, cache, io.StringIO(), un, g.MATCHES)
 check("and its inputs are its files' (inputs_of)", first, fa.inputs_of(first, {"puzzles": []}, "times"))
