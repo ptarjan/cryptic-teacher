@@ -51,6 +51,13 @@ Each process loads all its code as it starts (code_reach.modules: lazy
 imports too), under a shared lock on the tree's code (snapshot) that
 tools/durable.sh's tree move takes whole, so none pairs modules of two
 versions of the tree.
+
+With a desktop set (OCR_REMOTE) and not busy, an archive.org or Gale read's
+request is made here as its unit starts (prepare: file_archive_org_puzzles.brief,
+this process's ledger, scans and corpus already loaded), and its unit is
+tools/edition_commit.py's: it loads only its MODULES (under the same lock),
+sends the request, waits and commits what the desktop decided; any other
+outcome runs the whole unit in its place.
 """
 import argparse
 import hashlib
@@ -88,7 +95,25 @@ def snapshot():
 
 
 _snapshot = snapshot() if __name__ == "__main__" else None
+_spec = json.loads(os.environ.get("CT_EDITION_UNIT") or "{}") if sys.argv[1:2] == ["unit"] else {}
+if _snapshot is not None and _spec.get("brief"):
+    # A read the queue prepared: its unit loads only what it commits with.
+    import edition_commit
+    edition_commit.load()
+    os.close(_snapshot)
+    try:
+        import setproctitle
+        setproctitle.setproctitle(f"edition_queue.py unit read {_spec['unit']['paper']} {_spec['unit']['rel']} (desktop)")
+    except ImportError:
+        pass
+    try:
+        sys.exit(edition_commit.main(_spec))
+    except Exception as e:  # noqa: BLE001 -- the unit's end is its exit status, logged
+        import scan_queue
+        scan_queue.failure((_spec["unit"]["rel"],), e)
+        sys.exit(1)
 import code_reach  # noqa: E402
+import edition_commit  # noqa: E402
 import fetch_archive_org_editions as fetch_ao  # noqa: E402
 import fetch_trove  # noqa: E402
 import file_archive_org_puzzles as fa  # noqa: E402
@@ -130,8 +155,7 @@ REPLAN = 60
 #: How long a stop waits for the units it TERMed before it KILLs them.
 STOP_GRACE = 30
 #: A unit's exit status: what read_unit/scan_unit/a fetcher's unit returned.
-EXITS = {"read": 0, "scanned": 0, "current": 0, "fetched": 0, "busy": 3, "held": 4, "outage": 5,
-         "throttled": 6, "disk": 7}
+EXITS = edition_commit.EXITS
 
 #: The fetch units (--fetch SOURCE): each source's plan() of units, its unit
 #: runner, how many run at once and each one's time limit. archive.org
@@ -317,6 +341,38 @@ def run_unit(unit, cache, puzzles, reread):
     return fa.read_unit(paper, unit["rel"], cache, puzzles=puzzles, reread=reread, force=unit.get("force"))
 
 
+#: Where prepare() leaves each read it made for its unit (edition_commit.load_brief removes it).
+BRIEFS = Path(os.environ.get("TMPDIR") or "/tmp") / "edition-briefs"
+
+
+def prepare(unit, cache, puzzles, reread):
+    """The file of an archive.org or Gale read unit's read made here
+    (file_archive_org_puzzles.brief), for its unit to send to the desktop
+    and commit (tools/edition_commit.py), or None: the unit runs whole (no
+    desktop set, it is busy, the read cannot be made here, or making it
+    failed, logged)."""
+    import desktop_busy
+    import ocr_remote
+    if unit["kind"] != "read" or unit["paper"] not in fa.FILERS or not ocr_remote.hosts():
+        return None
+    if desktop_busy.busy(ocr_remote.hosts()):
+        return None
+    try:
+        made = fa.brief(fa.FILERS[unit["paper"]], unit["rel"], cache, puzzles=puzzles, reread=reread,
+                        force=unit.get("force"))
+        if made is None:
+            return None
+        import tempfile
+        BRIEFS.mkdir(parents=True, exist_ok=True)
+        fd, path = tempfile.mkstemp(dir=BRIEFS, suffix=".brief")
+        os.close(fd)
+        edition_commit.save_brief(path, *made)
+        return path
+    except Exception as e:  # noqa: BLE001 -- the unit runs whole and says nothing of it; the cause is logged here
+        scan_queue.failure((unit["rel"],), e)
+        return None
+
+
 #: Each --beside run's --seconds when the queue has no --seconds of its own,
 #: and how long past its --seconds it is let run before it is killed.
 BESIDE_SECONDS = 3600
@@ -446,7 +502,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         sys.stdout.flush()
         sys.stderr.flush()
         argv = unit_argv(unit)
-        env = {**os.environ, "CT_EDITION_UNIT": json.dumps({**spec, "unit": unit})}
+        made = prepare(unit, cache, puzzles, reread)
+        env = {**os.environ, "CT_EDITION_UNIT": json.dumps({**spec, "unit": unit, **({"brief": made} if made else {})})}
         pid = os.posix_spawn(argv[0], argv, env, setpgroup=0, setsigmask=())
         running[pid] = (unit, time.monotonic())
         tried.add(key_of(unit))

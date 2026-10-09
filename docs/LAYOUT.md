@@ -1633,6 +1633,21 @@ tools/edition_queue.py                        the archive.org and Gale editions 
                                               source in a pool of its own (Trove paced to 1
                                               req/s across units); planned again every minute;
                                               `plan` prints what is due by rank
+tools/edition_commit.py                       an archive.org or Gale edition read whose request
+                                              the edition queue made
+                                              (file_archive_org_puzzles.brief, from its loaded
+                                              ledger, scans and corpus): the unit only sends it
+                                              to the desktop, waits, writes what the desktop
+                                              decided and appends the edition's row, loading
+                                              none of the reader's code; the shared filing
+                                              pieces (filer_path, the row, the inputs'
+                                              stray-clue part)
+tools/test_edition_commit.sh                  does a prepared read write what the desktop
+                                              decided and append its row, loading no tree
+                                              module past its MODULES, hand an undecided title,
+                                              a lost desktop or an edition read since to the
+                                              whole unit, and keep ocr_remote's code hash only
+                                              for the commit it was made from?
 tools/test_edition_queue.sh                   does the edition queue append rows (the last
                                               standing, a half-written line skipped), keep one
                                               unit per edition, take Gale pages saved by hand

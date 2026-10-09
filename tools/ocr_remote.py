@@ -103,12 +103,57 @@ def shipped():
             if not n.startswith(UNSHIPPED) and n != MANIFEST and (root / n).is_file()}
 
 
+#: Where code_hash() and versions() are kept for each clean commit of the
+#: tree (kept()): hashing the shipped files reads 45 MB, and versions()
+#: loads the readers' packages, in every process that opens a session.
+KEPT = Path.home() / ".cache" / "ocr_remote"
+
+
+def tree_commit():
+    """The commit the shipped files are, or None: on the desktop (MANIFEST,
+    no git) or with a file under tools/ changed from it."""
+    root = TOOLS.parent
+    if (root / MANIFEST).exists():
+        return None
+    try:
+        head = subprocess.run(["git", "-C", str(root), "rev-parse", "HEAD"], capture_output=True, text=True,
+                              check=True).stdout.strip()
+        clean = subprocess.run(["git", "-C", str(root), "diff", "--quiet", "HEAD", "--", "tools"],
+                               capture_output=True, check=False).returncode == 0
+    except (OSError, subprocess.CalledProcessError):
+        return None
+    return head if clean else None
+
+
+def kept(name, key_of, compute):
+    """compute(), kept under KEPT by key_of() (None: made afresh, kept
+    nowhere); kept only when key_of() still gives that key after it, so a
+    tree that moved meanwhile keeps nothing under the old commit."""
+    key = key_of()
+    if key is None:
+        return compute()
+    path = KEPT / f"{name}-{key}.json"
+    try:
+        return json.loads(path.read_text())
+    except (OSError, ValueError):
+        pass
+    value = compute()
+    if key_of() == key:
+        KEPT.mkdir(parents=True, exist_ok=True)
+        tmp = path.with_suffix(f".{os.getpid()}.part")
+        tmp.write_text(json.dumps(value))
+        tmp.replace(path)
+    return value
+
+
 def code_hash():
     """The hash of shipped()'s contents: the desktop directory they live in."""
-    h = hashlib.sha1()
-    for name, path in sorted(shipped().items()):
-        h.update(name.encode() + b"\0" + path.read_bytes())
-    return h.hexdigest()[:12]
+    def compute():
+        h = hashlib.sha1()
+        for name, path in sorted(shipped().items()):
+            h.update(name.encode() + b"\0" + path.read_bytes())
+        return h.hexdigest()[:12]
+    return kept("code", tree_commit, compute)
 
 
 def code_dir():
@@ -128,7 +173,39 @@ def models():
 def versions():
     """What decides a reading here: Python's minor version, the image and
     reader packages, tesseract's build, the shipped code's hash and each
-    reader model's."""
+    reader model's. Kept (kept()) by the tree's commit and what else they
+    are read from: the package directories', tesseract's and each model's
+    file stamps."""
+    return kept("versions", versions_key, read_versions)
+
+
+def versions_key():
+    """versions()'s key, or None (made afresh): the tree's commit
+    (tree_commit) with this Python, its package directories' mtimes (an
+    install or upgrade adds or renames an entry), tesseract's and each
+    model's stamp."""
+    head = tree_commit()
+    if head is None:
+        return None
+    import shutil
+
+    import ocr_clues
+
+    def stamp(path):
+        try:
+            st = os.stat(path)
+        except (OSError, TypeError):
+            return None
+        return [str(path), st.st_size, st.st_mtime_ns]
+    parts = [head, sys.version, sys.executable]
+    parts += [stamp(p) for p in sys.path if p.endswith("-packages")]
+    parts.append(stamp(shutil.which("tesseract") or ocr_clues.TESSERACT))
+    parts += [stamp(m) for _, m in sorted(models().items())]
+    return hashlib.sha1(json.dumps(parts).encode()).hexdigest()[:16]
+
+
+def read_versions():
+    """versions() read afresh."""
     from importlib.metadata import version
 
     import cv2
@@ -729,7 +806,15 @@ def edition(d, found, solutions):
     """read_edition(d, found) with `solutions` read on the desktop, the crops
     it cached written under CROPS as a read here writes them; or None when
     OCR_REMOTE is not set, the desktop is not answering or the read there
-    failed: then the caller reads it here."""
+    failed: then the caller reads it here. The desktop's answer that
+    tools/edition_commit.py's unit got and left to this one to decide
+    (CT_EDITION_ANSWER, its crops written) is taken as read there."""
+    answer = os.environ.pop("CT_EDITION_ANSWER", None)
+    if answer:
+        got = json.loads(Path(answer).read_text())
+        Path(answer).unlink()
+        if got["edition"] == f"{d.parent.name}/{d.name}":
+            return [tuple(r) for r in got["results"]], got["vlm"], None
     s = session()
     if s is None:
         return None
