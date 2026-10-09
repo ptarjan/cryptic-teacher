@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Fellow abridged short pieces of writing",
     "enumeration": "8"
    },
-   "solution": "CHAPTERS"
+   "solution": "CHAPTERS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CHAPTERS",
+    "definitions": [
+     {
+      "text": "pieces of writing",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abridged",
+      "for": "deletion",
+      "note": "an abridged text has been cut short, so the following word loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "CHAP",
+      "note": "a chap is a man or fellow"
+     },
+     {
+      "clueFragment": "short",
+      "gives": "TERSE",
+      "note": "terse means short or curt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAP",
+      "TERS"
+     ]
+    },
+    "explanation": {
+     "surface": "A man has cut down some brief written pieces, like an editor trimming essays.",
+     "walkthrough": "'Abridged' looks like it describes the writing, but it trims the word for short instead.",
+     "definitionFit": "Chapters are the sections a book is divided into, each a piece of writing in its own right."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "abridged"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,46 @@
     "text": "Company knowledgable about way of obtaining discount?",
     "enumeration": "6"
    },
-   "solution": "COUPON"
+   "solution": "COUPON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COUPON",
+    "definitions": [
+     {
+      "text": "way of obtaining discount?",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Company",
+      "gives": "CO",
+      "note": "standard abbreviation for company"
+     },
+     {
+      "clueFragment": "knowledgable about",
+      "gives": "UPON",
+      "note": "to be up on a subject is to be well informed about it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "UPON"
+     ]
+    },
+    "explanation": {
+     "surface": "A firm that knows the tricks for getting money off.",
+     "definitionFit": "A coupon is a voucher handed over to get a reduced price, one way to secure a discount."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "knowledgable"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +151,60 @@
     "text": "Wonder about brief high point for some time",
     "enumeration": "6"
    },
-   "solution": "AWHILE"
+   "solution": "AWHILE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "AWHILE",
+    "definitions": [
+     {
+      "text": "for some time",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brief",
+      "for": "deletion",
+      "note": "brief means cut short, so the word loses its last letter"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the first word goes round the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wonder",
+      "gives": "AWE",
+      "note": "awe is a feeling of wonder"
+     },
+     {
+      "clueFragment": "high point",
+      "gives": "HILL",
+      "note": "a hill is a raised point of land"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AW",
+      "HIL",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone marvels at a short-lived peak that lasts a while.",
+     "definitionFit": "Awhile is an adverb meaning for a short period, which is for some time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "high"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +218,65 @@
     "text": "Silenced and told the heartless rat off",
     "enumeration": "9"
    },
-   "solution": "THROTTLED"
+   "solution": "THROTTLED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "THROTTLED",
+    "definitions": [
+     {
+      "text": "Silenced",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartless",
+      "for": "deletion",
+      "note": "heartless means without the heart, so the middle letter of the word is removed"
+     },
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone wrong or bad, so these letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "told the",
+      "gives": "TOLDTHE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rat",
+      "gives": "RT",
+      "note": "rat without its middle letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOLDTHERT",
+       "gives": "THROTTLED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shut up and was told the cruel rat had gone off.",
+     "walkthrough": "'Told the rat off' reads as a scolding; 'off' is in fact the signal to rearrange.",
+     "definitionFit": "To throttle someone is to choke them, and figuratively to suppress or silence them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +290,66 @@
     "text": "Lead actor upset about new passionate speeches",
     "enumeration": "5"
    },
-   "solution": "RANTS"
+   "solution": "RANTS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "RANTS",
+    "definitions": [
+     {
+      "text": "passionate speeches",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset means turned upside down, which in a down clue reads the word from bottom to top"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the turned word goes round the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lead actor",
+      "gives": "STAR",
+      "note": "the star is the leading performer"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "standard abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "N",
+      "TS"
+     ],
+     "reversals": [
+      {
+       "from": "STAR",
+       "to": "RATS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A troubled leading man fumes about a fresh round of impassioned speeches.",
+     "definitionFit": "Rants are long, loud, angry speeches, which are passionate in tone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +369,67 @@
      }
     ]
    },
-   "solution": "BUSTUP"
+   "solution": "BUSTUP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "BUST-UP",
+    "definitions": [
+     {
+      "text": "argument",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "something revolutionary turns right over, so this word is read from its end back to its start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "standard abbreviation for British"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "standard abbreviation for university"
+     },
+     {
+      "clueFragment": "expresses",
+      "gives": "PUTS",
+      "note": "to put something is to express it in words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "U",
+      "STUP"
+     ],
+     "reversals": [
+      {
+       "from": "PUTS",
+       "to": "STUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A British university voices radical opinions, as student politics tends to.",
+     "walkthrough": "'Revolutionary' seems to describe the university's politics, but it turns the word for expresses round.",
+     "definitionFit": "A bust-up is an informal British term for a noisy quarrel or row."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +443,43 @@
     "text": "Useful item worth little in board game?",
     "enumeration": "5"
    },
-   "solution": "UTILE"
+   "solution": "UTILE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UTILE",
+    "definitions": [
+     {
+      "text": "Useful",
+      "at": 0
+     },
+     {
+      "text": "item worth little in board game?",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Useful",
+      "note": "first meaning: practical, of service"
+     },
+     {
+      "clueFragment": "item worth little in board game?",
+      "note": "second meaning, read as two words: a Scrabble tile bearing a vowel that scores only one point"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split the answer as U TILE: in Scrabble the U tile is worth just one point, hence the question mark.",
+     "definitionFit": "Utile is a formal or archaic adjective for useful, from the French and Latin for practical."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "item"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +493,62 @@
     "text": "Drunk full of endless hogwash in final years",
     "enumeration": "8"
    },
-   "solution": "TWILIGHT"
+   "solution": "TWILIGHT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TWILIGHT",
+    "definitions": [
+     {
+      "text": "final years",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "letter_selection",
+      "note": "endless means with both ends gone, so only the middle letters of the word are kept"
+     },
+     {
+      "text": "full of",
+      "for": "container",
+      "note": "full of means filled with, so the word for drunk takes the other piece inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drunk",
+      "gives": "TIGHT",
+      "note": "tight is informal for drunk"
+     },
+     {
+      "clueFragment": "hogwash",
+      "gives": "WIL",
+      "select": "middle",
+      "note": "the inner letters of swill, pig food, which hogwash literally is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "WIL",
+      "IGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk spouting endless nonsense in later life.",
+     "walkthrough": "Hogwash means nonsense, but its literal sense is pig swill, which is the word cut here.",
+     "definitionFit": "Twilight is the dim end of the day, used figuratively for the closing period of a life or career."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hogwash"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +562,56 @@
     "text": "Character almost went astray in The Borders?",
     "enumeration": "8"
    },
-   "solution": "PARTERRE"
+   "solution": "PARTERRE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PARTERRE",
+    "definitions": [
+     {
+      "text": "The Borders?",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter of the word is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Character",
+      "gives": "PART",
+      "note": "an actor's part is the character played"
+     },
+     {
+      "clueFragment": "went astray",
+      "gives": "ERRED",
+      "note": "to err is to go astray"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PART",
+      "ERRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A character nearly lost his way in the Scottish Borders region.",
+     "walkthrough": "The Borders is a region of southern Scotland; the question mark reinterprets it as flower borders, as in a formal garden.",
+     "definitionFit": "A parterre is a formal garden of ornamental flower beds and borders laid out in a pattern."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Borders"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +625,67 @@
     "text": "Guiding American group around empty house",
     "enumeration": "8"
    },
-   "solution": "USHERING"
+   "solution": "USHERING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "USHERING",
+    "definitions": [
+     {
+      "text": "Guiding",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "an empty word has had its inside cleared out, leaving only its first and last letters"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so the American group's words sit either side of the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "abbreviation for the United States"
+     },
+     {
+      "clueFragment": "house",
+      "gives": "HE",
+      "select": "outer",
+      "note": "the outside letters of house"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "RING",
+      "note": "a ring is a group or circle of people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "US",
+      "HE",
+      "RING"
+     ]
+    },
+    "explanation": {
+     "surface": "A band of Americans tours an abandoned house, as on a ghost-hunting trip.",
+     "walkthrough": "The American group is split in two so that it surrounds the emptied house, one part each side.",
+     "definitionFit": "Ushering means showing someone the way, leading or escorting them, which is guiding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "empty"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +699,62 @@
     "text": "Comic that is beginning to ridicule councillor",
     "enumeration": "6"
    },
-   "solution": "VIZIER"
+   "solution": "VIZIER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "VIZIER",
+    "definitions": [
+     {
+      "text": "councillor",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, which alone is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Comic",
+      "gives": "VIZ",
+      "note": "Viz is a long-running British adult humour comic magazine"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation for id est, that is"
+     },
+     {
+      "clueFragment": "ridicule",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of ridicule"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIZ",
+      "IE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A satirical magazine starts mocking a local councillor.",
+     "walkthrough": "Viz is a crude British comic magazine, which makes the mockery of a councillor plausible.",
+     "definitionFit": "A vizier was a high official or counsellor to a Muslim ruler, an adviser of state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Comic"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +768,56 @@
     "text": "Brief week in bed",
     "enumeration": "6"
    },
-   "solution": "LAWYER"
+   "solution": "LAWYER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LAWYER",
+    "definitions": [
+     {
+      "text": "Brief",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the word that follows it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "week",
+      "gives": "W",
+      "note": "standard abbreviation for week"
+     },
+     {
+      "clueFragment": "bed",
+      "gives": "LAYER",
+      "note": "a bed is a layer, as of rock or sediment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "W",
+      "YER"
+     ]
+    },
+    "explanation": {
+     "surface": "A short week spent lying in bed, perhaps with illness.",
+     "walkthrough": "'Brief' looks like an adjective for the week; it is a noun, slang for a barrister.",
+     "definitionFit": "In British slang a brief is a lawyer, especially one defending a client in court."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Brief"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +831,44 @@
     "text": "Show letters implicating junior member of parliament",
     "enumeration": "5"
    },
-   "solution": "OWLET"
+   "solution": "OWLET",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OWLET",
+    "definitions": [
+     {
+      "text": "junior member of parliament",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "implicating",
+      "for": "hidden_word",
+      "note": "to implicate is to involve or contain, so the run of letters is held within these words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Show letters",
+      "gives": "OWLET",
+      "note": "found spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Revealed correspondence incriminates a backbench MP in a political scandal.",
+     "walkthrough": "A group of owls is called a parliament, so a young bird is a junior member of one.",
+     "definitionFit": "An owlet is a young owl, and the collective noun for owls is a parliament."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "parliament"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +882,46 @@
     "text": "Announce team in America",
     "enumeration": "9"
    },
-   "solution": "STATESIDE"
+   "solution": "STATESIDE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STATESIDE",
+    "definitions": [
+     {
+      "text": "in America",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Announce",
+      "gives": "STATE",
+      "note": "to state is to announce or declare"
+     },
+     {
+      "clueFragment": "team",
+      "gives": "SIDE",
+      "note": "a side is a sports team"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STATE",
+      "SIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sports club reveals its line-up during a tour of the United States.",
+     "definitionFit": "Stateside is an informal adverb meaning in or towards the United States."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "team"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +935,62 @@
     "text": "Game play outwardly involves chance",
     "enumeration": "6"
    },
-   "solution": "PLUCKY"
+   "solution": "PLUCKY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PLUCKY",
+    "definitions": [
+     {
+      "text": "Game",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outwardly",
+      "for": "letter_selection",
+      "note": "outwardly points to the outside of the word, so only its two end letters remain"
+     },
+     {
+      "text": "involves",
+      "for": "container",
+      "note": "to involve is to wrap in, so one piece is enclosed by the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "play",
+      "gives": "PY",
+      "select": "outer",
+      "note": "the outside letters of play"
+     },
+     {
+      "clueFragment": "chance",
+      "gives": "LUCK",
+      "note": "luck is chance or fortune"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LUCK",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A game of play that depends on luck, like a card game or dice.",
+     "walkthrough": "'Game' looks like a noun introducing a sport, but here it is the adjective meaning willing and brave.",
+     "definitionFit": "Game as an adjective means ready and spirited, which is to say brave or courageous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Game"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +1004,55 @@
     "text": "Conservative fool lives for drink",
     "enumeration": "6"
    },
-   "solution": "CASSIS"
+   "solution": "CASSIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CASSIS",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "standard abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "fool",
+      "gives": "ASS",
+      "note": "an ass is a fool"
+     },
+     {
+      "clueFragment": "lives",
+      "gives": "IS",
+      "note": "to be is to exist or live"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ASS",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory idiot exists only for the bottle.",
+     "definitionFit": "Cassis is a blackcurrant liqueur, a drink often added to white wine to make kir."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lives"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1066,47 @@
     "text": "Detest crime that involves injuring men",
     "enumeration": "5"
    },
-   "solution": "ABHOR"
+   "solution": "ABHOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABHOR",
+    "definitions": [
+     {
+      "text": "Detest",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crime that involves injuring",
+      "gives": "ABH",
+      "note": "actual bodily harm, a British criminal offence of assault causing injury"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "OR",
+      "note": "other ranks: soldiers who are not officers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABH",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone loathes violent offences that hurt men.",
+     "walkthrough": "ABH, actual bodily harm, is an assault charge in English law; 'men' as OR is a military convention.",
+     "definitionFit": "To abhor something is to regard it with loathing, a strong synonym of detest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "men"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1120,78 @@
     "text": "Dislike suggestion that abruptly upset some hosts",
     "enumeration": "9"
    },
-   "solution": "ANTIPATHY"
+   "solution": "ANTIPATHY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "ANTIPATHY",
+    "definitions": [
+     {
+      "text": "Dislike",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abruptly",
+      "for": "deletion",
+      "note": "abruptly means cut off suddenly, so the word stops short of its last letter"
+     },
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "upset means thrown into disorder, so these letters are mixed up"
+     },
+     {
+      "text": "hosts",
+      "for": "container",
+      "note": "a host takes guests in, so the last word wraps round the jumbled letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suggestion",
+      "gives": "TIP",
+      "note": "a tip is a hint or suggestion"
+     },
+     {
+      "clueFragment": "that",
+      "gives": "THAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "some",
+      "gives": "ANY",
+      "note": "any can mean some, as in 'have you any?'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "TIPATH",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TIPTHA",
+       "gives": "TIPATH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Antipathy arises when a curt remark offends a number of hosts.",
+     "walkthrough": "The scrambled letters sit between the N and Y of the host word.",
+     "definitionFit": "Antipathy is a deep-seated aversion, which is a strong form of dislike."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hosts"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1205,46 @@
     "text": "Places one goes to play and bathe at respectable houses",
     "enumeration": "8"
    },
-   "solution": "THEATRES"
+   "solution": "THEATRES",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "THEATRES",
+    "definitions": [
+     {
+      "text": "Places one goes to play",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "houses",
+      "for": "hidden_word",
+      "note": "to house something is to contain it, so the answer sits inside these words"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bathe at respectable",
+      "gives": "THEATRES",
+      "note": "found running across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "Where you go to have fun and to bathe, at decent establishments.",
+     "walkthrough": "'Play' suggests leisure, but here it is a stage play.",
+     "definitionFit": "Theatres are buildings where people go to watch a play being performed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "houses"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1258,62 @@
     "text": "Barrier that hurt introduction of electric vehicle",
     "enumeration": "8"
    },
-   "solution": "BAROUCHE"
+   "solution": "BAROUCHE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BAROUCHE",
+    "definitions": [
+     {
+      "text": "vehicle",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduction of",
+      "for": "letter_selection",
+      "note": "an introduction comes at the start, so only the opening letter of the word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Barrier",
+      "gives": "BAR",
+      "note": "a bar is a barrier"
+     },
+     {
+      "clueFragment": "that hurt",
+      "gives": "OUCH",
+      "note": "ouch is what you say when something hurts"
+     },
+     {
+      "clueFragment": "electric",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter of electric"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "OUCH",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A barrier painfully halted the launch of an electric car.",
+     "walkthrough": "'Electric vehicle' suggests a modern car; the answer is the opposite, drawn by horses.",
+     "definitionFit": "A barouche is a four-wheeled horse-drawn carriage with a folding hood, a type of vehicle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "electric"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1327,55 @@
     "text": "Firm keeping nothing in store",
     "enumeration": "5"
    },
-   "solution": "HOARD"
+   "solution": "HOARD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HOARD",
+    "definitions": [
+     {
+      "text": "store",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping means holding something within, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Firm",
+      "gives": "HARD",
+      "note": "firm means solid or hard"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "nothing is zero, shaped like the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "O",
+      "ARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A company holds no stock in its shop.",
+     "walkthrough": "'Firm' and 'store' suggest a business, but firm is the adjective, and store the noun for a stockpile.",
+     "definitionFit": "A hoard is a stash or stockpile of something put by, which is a store."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Firm"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1389,55 @@
     "text": "Guarantor undoubtedly voided treaty",
     "enumeration": "6"
    },
-   "solution": "SURETY"
+   "solution": "SURETY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SURETY",
+    "definitions": [
+     {
+      "text": "Guarantor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "voided",
+      "for": "letter_selection",
+      "note": "something voided has been emptied, so only the outside letters of the word are left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "undoubtedly",
+      "gives": "SURE",
+      "note": "sure means certainly, without doubt"
+     },
+     {
+      "clueFragment": "treaty",
+      "gives": "TY",
+      "select": "outer",
+      "note": "the outside letters of treaty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SURE",
+      "TY"
+     ]
+    },
+    "explanation": {
+     "surface": "A treaty has definitely been annulled, leaving its backers exposed.",
+     "definitionFit": "A surety is a person who takes responsibility for another's debt or obligation, a guarantor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "voided"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1457,45 @@
      }
     ]
    },
-   "solution": "TAKETO"
+   "solution": "TAKETO",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TAKE TO",
+    "definitions": [
+     {
+      "text": "Like",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for the audience",
+      "for": "homophone",
+      "note": "an audience hears rather than reads, so the words are to be taken by their sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cast's second attempt",
+      "gives": "TAKE TO",
+      "soundsLike": "TAKE TWO",
+      "note": "in filming, the second shot of a scene is take two"
+     }
+    ],
+    "explanation": {
+     "surface": "The actors enjoyed their second attempt at a scene, performed before spectators.",
+     "walkthrough": "'Like' is the verb, as in to come to like someone.",
+     "definitionFit": "To take to someone is to begin to like them, so the phrase is a verbal synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Like"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1509,53 @@
     "text": "Timeless act or rock god?",
     "enumeration": "6"
    },
-   "solution": "STATUE"
+   "solution": "STATUE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STATUE",
+    "definitions": [
+     {
+      "text": "rock god?",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Timeless",
+      "for": "deletion",
+      "note": "timeless means without time, whose abbreviation is removed from the word"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "act",
+      "gives": "STATUTE",
+      "note": "a statute is an act of parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STA",
+      "TUE"
+     ]
+    },
+    "explanation": {
+     "surface": "An enduring performance from a rock star idolised as a god.",
+     "walkthrough": "'Rock god' suggests a guitar hero; the question mark reinterprets it as a deity carved from stone.",
+     "definitionFit": "A statue of a deity sculpted in stone is literally a god made of rock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rock"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1569,61 @@
     "text": "High regard for each helping to host party",
     "enumeration": "9"
    },
-   "solution": "ADORATION"
+   "solution": "ADORATION",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ADORATION",
+    "definitions": [
+     {
+      "text": "High regard",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to host",
+      "for": "container",
+      "note": "a host has guests inside, so the preceding words wrap round the party"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for each",
+      "gives": "A",
+      "note": "a as in 'two pounds a head', meaning per"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party or social event"
+     },
+     {
+      "clueFragment": "helping",
+      "gives": "RATION",
+      "note": "a ration is an allotted helping"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DO",
+      "RATION"
+     ]
+    },
+    "explanation": {
+     "surface": "Respect shown to each person who helps to throw a party.",
+     "walkthrough": "A and RATION together are the host, with the party sitting between them.",
+     "definitionFit": "Adoration is deep love and respect, which is very high regard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "helping"
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1637,62 @@
     "text": "Came up behind nurses beginning to operate",
     "enumeration": "5"
    },
-   "solution": "AROSE"
+   "solution": "AROSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AROSE",
+    "definitions": [
+     {
+      "text": "Came up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nurses",
+      "for": "container",
+      "note": "to nurse is to hold close, so the first word cradles the other piece"
+     },
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter, the only one kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "behind",
+      "gives": "ARSE",
+      "note": "arse is British slang for the backside"
+     },
+     {
+      "clueFragment": "operate",
+      "gives": "O",
+      "select": "first",
+      "note": "the first letter of operate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "O",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "Something emerged from the rear as nurses started to operate.",
+     "walkthrough": "'Behind' looks like a preposition but is the noun for the bottom.",
+     "definitionFit": "Arose is the past tense of arise, meaning rose up or came up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1706,58 @@
     "text": "Famous philanthropist from The Netherlands receiving honour",
     "enumeration": "5"
    },
-   "solution": "NOBEL"
+   "solution": "NOBEL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NOBEL",
+    "definitions": [
+     {
+      "text": "Famous philanthropist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "receiving means taking in, so the country code holds the other piece inside it"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The Netherlands",
+      "gives": "NL",
+      "note": "NL is the international code for the Netherlands"
+     },
+     {
+      "clueFragment": "honour",
+      "gives": "OBE",
+      "note": "the OBE, Order of the British Empire, is a British honour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "OBE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A well-known Dutch benefactor accepts an award.",
+     "walkthrough": "The OBE is an honour awarded by the British monarch.",
+     "definitionFit": "Alfred Nobel left his fortune to fund the Nobel Prizes, making him a renowned benefactor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Netherlands"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1771,61 @@
     "text": "Author briefly encapsulating first person in intertwined strands",
     "enumeration": "5"
    },
-   "solution": "PLAIT"
+   "solution": "PLAIT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "PLAIT",
+    "definitions": [
+     {
+      "text": "intertwined strands",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the name loses its final letter"
+     },
+     {
+      "text": "encapsulating",
+      "for": "container",
+      "note": "to encapsulate is to enclose as in a capsule, so one piece sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Author",
+      "gives": "PLATO",
+      "note": "Plato, the Greek philosopher and author of the dialogues"
+     },
+     {
+      "clueFragment": "first person",
+      "gives": "I",
+      "note": "I is the first person pronoun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLA",
+      "I",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer's short piece wraps a first-person narrator in interwoven storylines.",
+     "walkthrough": "'First person' reads as a narrative mode but just supplies the pronoun.",
+     "definitionFit": "A plait is a braid made by weaving three or more strands of hair or rope together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "strands"
+    }
+   }
   },
   {
    "number": 27,
@@ -437,7 +1839,51 @@
     "text": "Weird corona that's seen by Americans at night",
     "enumeration": "6"
    },
-   "solution": "RACOON"
+   "solution": "RACOON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RACOON",
+    "definitions": [
+     {
+      "text": "that's seen by Americans at night",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Weird",
+      "for": "anagram",
+      "note": "something weird is strange and out of its normal form, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "corona",
+      "gives": "CORONA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CORONA",
+       "gives": "RACOON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strange halo in the night sky is spotted over the United States.",
+     "walkthrough": "The surface suggests a solar or lunar corona; the definition is a nocturnal North American animal.",
+     "definitionFit": "Racoons are nocturnal mammals native to North America, so they are what Americans see after dark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "corona"
+    }
+   }
   },
   {
    "number": 28,
@@ -451,7 +1897,61 @@
     "text": "Gamble represented giving priority to adult accomplice's role",
     "enumeration": "8"
    },
-   "solution": "ABETMENT"
+   "solution": "ABETMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ABETMENT",
+    "definitions": [
+     {
+      "text": "accomplice's role",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "giving priority to",
+      "for": "deletion",
+      "note": "giving something priority puts it first, so that letter is taken from its place and set at the front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gamble",
+      "gives": "BET",
+      "note": "a bet is a gamble or wager"
+     },
+     {
+      "clueFragment": "represented",
+      "gives": "MEANT",
+      "note": "to represent something is to mean or signify it"
+     },
+     {
+      "clueFragment": "adult",
+      "gives": "A",
+      "note": "standard abbreviation for adult, as in film ratings"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BET",
+      "MENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A wager stood for putting grown-ups first.",
+     "walkthrough": "BET followed by MEANT has its A, the adult, moved out of MEANT to the very front.",
+     "definitionFit": "Abetment is the act of helping or encouraging a crime, exactly what an accomplice does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "represented"
+    }
+   }
   },
   {
    "number": 29,
@@ -465,7 +1965,53 @@
     "text": "Pin dubious statement on bias",
     "enumeration": "6"
    },
-   "solution": "SKEWER"
+   "solution": "SKEWER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SKEWER",
+    "definitions": [
+     {
+      "text": "Pin",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue, putting one thing on another places it after, so the statement follows the bias"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bias",
+      "gives": "SKEW",
+      "note": "a skew is a slant or bias"
+     },
+     {
+      "clueFragment": "dubious statement",
+      "gives": "ER",
+      "note": "er is the hesitant noise of someone unsure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKEW",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone blames a misleading claim on prejudice.",
+     "definitionFit": "A skewer is a long pin used to hold meat together while cooking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pin"
+    }
+   }
   },
   {
    "number": 30,
@@ -479,7 +2025,53 @@
     "text": "Clubs put forward additional means of attack",
     "enumeration": "8"
    },
-   "solution": "CLAYMORE"
+   "solution": "CLAYMORE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLAYMORE",
+    "definitions": [
+     {
+      "text": "means of attack",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clubs",
+      "gives": "C",
+      "note": "C is the abbreviation for clubs in card games"
+     },
+     {
+      "clueFragment": "put forward",
+      "gives": "LAY",
+      "note": "to lay a proposal is to put it forward"
+     },
+     {
+      "clueFragment": "additional",
+      "gives": "MORE",
+      "note": "more means additional or extra"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LAY",
+      "MORE"
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer's or fighter's clubs are presented as an extra weapon.",
+     "walkthrough": "'Clubs' sounds like a weapon itself, which fits the attack, but it is just the card suit.",
+     "definitionFit": "A claymore is a large two-edged Scottish broadsword, a weapon used to attack."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Clubs"
+    }
+   }
   }
  ]
 }
