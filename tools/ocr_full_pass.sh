@@ -91,10 +91,10 @@ export OCR_REMOTE="${OCR_REMOTE-micro@100.68.145.15,micro@192.168.1.198}"
 export OCR_THREADS="${OCR_THREADS:-1}"
 WORKERS="${OCR_FULL_PASS_WORKERS:-20}"
 # The last change to the scan filers that should alter past readings: a
-# printed solution grid read on its own rules, its numbered and unsure
-# cells matched to its own letters (trove_solution_ocr.read_framed), and a
-# re-read's answers merged into the held filing.
-REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-08T02:56:21+00:00}"
+# printed solution grid's frame found beside a heavy edge column, and a
+# numbered cell's letter vetoed only by its read with the number blanked
+# (trove_solution_ocr.read_framed).
+REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-09T07:33:59+00:00}"
 
 publish() {  # publish <what>: commit and push the puzzles filed so far
   durable_checkpoint "Full OCR pass: $1" || return 1
