@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Offhand about injured people with no commitments",
     "enumeration": "6"
    },
-   "solution": "CASUAL"
+   "solution": "CASUAL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CASUAL",
+    "definitions": [
+     {
+      "text": "Offhand",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no",
+      "for": "deletion",
+      "note": "having no of something means it is taken away from what comes before"
+     }
+    ],
+    "linkWords": [
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "injured people",
+      "gives": "CASUALTIES",
+      "note": "people hurt in an accident or battle are its casualties"
+     },
+     {
+      "clueFragment": "commitments",
+      "gives": "TIES",
+      "note": "obligations that bind you are ties"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CASUAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is dismissive about the wounded, who have no obligations.",
+     "walkthrough": "Remove TIES from the end of CASUALTIES; 'about' simply links definition and wordplay.",
+     "definitionFit": "An offhand manner is a relaxed, unconcerned one, which is what casual describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "commitments"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +99,42 @@
     "text": "Relief to appear in sitcom for teenagers",
     "enumeration": "7"
    },
-   "solution": "COMFORT"
+   "solution": "COMFORT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "COMFORT",
+    "definitions": [
+     {
+      "text": "Relief",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to appear in",
+      "for": "hidden_word",
+      "note": "the answer shows up inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sitcom for teenagers",
+      "gives": "COMFORT",
+      "note": "the run of letters across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A light show for young viewers offering some respite.",
+     "definitionFit": "Comfort is the easing of grief or distress, which is relief."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Relief"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +148,44 @@
     "text": "Divorce here in Croatia?",
     "enumeration": "5"
    },
-   "solution": "SPLIT"
+   "solution": "SPLIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPLIT",
+    "definitions": [
+     {
+      "text": "Divorce",
+      "at": 0
+     },
+     {
+      "text": "here in Croatia?",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Divorce",
+      "note": "first meaning: to separate, as a couple does"
+     },
+     {
+      "clueFragment": "here in Croatia?",
+      "note": "second meaning: a port city on the Dalmatian coast"
+     }
+    ],
+    "explanation": {
+     "surface": "Asking whether a marriage breakup happened in Croatia.",
+     "walkthrough": "The question mark flags the second definition as a place in Croatia defined by example.",
+     "definitionFit": "Couples who divorce separate, and Split is Croatia's second-largest city."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Divorce"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +199,61 @@
     "text": "Puts off introduction of annual time extensions among foreigners",
     "enumeration": "9"
    },
-   "solution": "ALIENATES"
+   "solution": "ALIENATES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ALIENATES",
+    "definitions": [
+     {
+      "text": "Puts off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduction of",
+      "for": "letter_selection",
+      "note": "an introduction is the opening, so the first letter of each following word is used"
+     },
+     {
+      "text": "among",
+      "for": "container",
+      "note": "something among others is placed in their midst"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "foreigners",
+      "gives": "ALIENS",
+      "note": "aliens are people from another country"
+     },
+     {
+      "clueFragment": "annual time extensions",
+      "gives": "ATE",
+      "select": "first",
+      "note": "the first letters of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALIEN",
+      "ATE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A bureaucrat discourages overseas residents by bringing in yearly deadline extensions.",
+     "definitionFit": "To alienate people is to estrange them, turning them away from you."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extensions"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +267,54 @@
     "text": "Have responsibility for poem in Old English",
     "enumeration": "7"
    },
-   "solution": "OVERSEE"
+   "solution": "OVERSEE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OVERSEE",
+    "definitions": [
+     {
+      "text": "Have responsibility for",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing set in another sits inside it, so the poem goes between the letters for Old English"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poem",
+      "gives": "VERSE",
+      "note": "a poem is a piece of verse"
+     },
+     {
+      "clueFragment": "Old English",
+      "gives": "OE",
+      "note": "OE is the standard abbreviation for Old English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "VERSE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is put in charge of a poem written in Old English, like Beowulf.",
+     "definitionFit": "To oversee something is to supervise it, being the person accountable for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "poem"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +328,64 @@
     "text": "Choose to limit time with sweetheart in work",
     "enumeration": "7"
    },
-   "solution": "OPERATE"
+   "solution": "OPERATE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "OPERATE",
+    "definitions": [
+     {
+      "text": "work",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to limit",
+      "for": "container",
+      "note": "to limit something is to enclose it within bounds"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Choose",
+      "gives": "OPT",
+      "note": "to opt is to choose"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "ERA",
+      "note": "an era is a period of time"
+     },
+     {
+      "clueFragment": "sweetheart",
+      "gives": "E",
+      "note": "the heart of sweet is its middle letter, a standard crossword reading"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OP",
+      "ERA",
+      "T",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Deciding to cut back the hours spent with one's partner at the office.",
+     "definitionFit": "To operate is to function or run, as a machine does when it works."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sweetheart"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +399,53 @@
     "text": "Loner prepared to sign up",
     "enumeration": "5"
    },
-   "solution": "ENROL"
+   "solution": "ENROL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENROL",
+    "definitions": [
+     {
+      "text": "sign up",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "something prepared has been made ready or worked on, so these letters are put into a new order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Loner",
+      "gives": "LONER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LONER",
+       "gives": "ENROL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A solitary person is finally ready to join a club.",
+     "definitionFit": "To enrol is to register as a member or student."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prepared"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +459,79 @@
     "text": "Rogue small business could be under control, finally",
     "enumeration": "9"
    },
-   "solution": "SCOUNDREL"
+   "solution": "SCOUNDREL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCOUNDREL",
+    "definitions": [
+     {
+      "text": "Rogue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "could be",
+      "for": "anagram",
+      "note": "could be suggests the next word might take another form, so its letters are reordered"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "business",
+      "gives": "CO",
+      "note": "Co is the abbreviation for company"
+     },
+     {
+      "clueFragment": "under",
+      "gives": "UNDER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "control",
+      "gives": "L",
+      "select": "last",
+      "note": "the last letter of control"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CO",
+      "UNDRE",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UNDER",
+       "gives": "UNDRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dishonest little firm might eventually be brought into line.",
+     "definitionFit": "A rogue is a dishonest rascal, which is what a scoundrel is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "control"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +545,50 @@
     "text": "Broken down! Please pass",
     "enumeration": "6"
    },
-   "solution": "ELAPSE"
+   "solution": "ELAPSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ELAPSE",
+    "definitions": [
+     {
+      "text": "pass",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Broken down",
+      "for": "anagram",
+      "note": "something broken down is in pieces, so these letters are reassembled differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Please",
+      "gives": "PLEASE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PLEASE",
+       "gives": "ELAPSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stranded motorist begs passers-by for help getting through.",
+     "definitionFit": "Time that elapses passes or goes by."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pass"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +602,66 @@
     "text": "He creates hollow teeth with gold top and bottom",
     "enumeration": "6"
    },
-   "solution": "AUTHOR"
+   "solution": "AUTHOR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AUTHOR",
+    "definitions": [
+     {
+      "text": "He creates",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hollow",
+      "for": "letter_selection",
+      "note": "a hollow thing is emptied out, leaving only its outer letters"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "top and bottom"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "teeth",
+      "gives": "TH",
+      "select": "outer",
+      "note": "the first and last letters of teeth"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is gold in heraldry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AU",
+      "TH",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A dentist works on decayed teeth, adding gold crowns and fillings.",
+     "walkthrough": "Gold is used twice: AU at the top and OR, its heraldic name, at the bottom.",
+     "definitionFit": "An author is the creator of a work, especially a writer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "teeth"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +675,64 @@
     "text": "Mass tumult I'd fermented against Europe",
     "enumeration": "9"
    },
-   "solution": "MULTITUDE"
+   "solution": "MULTITUDE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "MULTITUDE",
+    "definitions": [
+     {
+      "text": "Mass",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fermented",
+      "for": "anagram",
+      "note": "fermenting churns and transforms its contents, so these letters are stirred into a new order"
+     }
+    ],
+    "linkWords": [
+     "against"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tumult I'd",
+      "gives": "TUMULTID",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Europe",
+      "gives": "E",
+      "note": "E is the abbreviation for Europe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MULTITUD",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TUMULTID",
+       "gives": "MULTITUD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crowd in Europe whipped up into an uproar against the continent.",
+     "walkthrough": "'Against' means placed beside, so E simply follows the rearranged letters.",
+     "definitionFit": "A mass of people is a great crowd, which is a multitude."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mass"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +746,42 @@
     "text": "Drink made with Ontario jam",
     "enumeration": "5"
    },
-   "solution": "RIOJA"
+   "solution": "RIOJA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RIOJA",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "made with",
+      "for": "hidden_word",
+      "note": "the drink is said to be made out of the following words, its letters lying inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ontario jam",
+      "gives": "RIOJA",
+      "note": "the run of letters across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A cocktail mixed with Canadian preserves.",
+     "definitionFit": "Rioja is a Spanish red wine, an example of an alcoholic drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ontario"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +795,55 @@
     "text": "On many occasions Odette favours talking initially in French",
     "enumeration": "5"
    },
-   "solution": "OFTEN"
+   "solution": "OFTEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OFTEN",
+    "definitions": [
+     {
+      "text": "On many occasions",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of each of the words before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Odette favours talking",
+      "gives": "OFT",
+      "select": "first",
+      "note": "the first letters of these three words"
+     },
+     {
+      "clueFragment": "in French",
+      "gives": "EN",
+      "note": "en is French for in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFT",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "Odette, a Frenchwoman, prefers to speak in her own language.",
+     "definitionFit": "Often means frequently, happening on numerous occasions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Odette"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +857,53 @@
     "text": "Main points of denial he's fabricated",
     "enumeration": "9"
    },
-   "solution": "HEADLINES"
+   "solution": "HEADLINES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HEADLINES",
+    "definitions": [
+     {
+      "text": "Main points",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fabricated",
+      "for": "anagram",
+      "note": "something fabricated is made up, so these letters are constructed afresh in another order"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "denial he's",
+      "gives": "DENIALHES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DENIALHES",
+       "gives": "HEADLINES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The key elements of a man's made-up denial.",
+     "definitionFit": "Headlines are the most important points of a story, as in giving someone just the headlines."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "denial"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +917,59 @@
     "text": "Online forum is primarily tedious babble",
     "enumeration": "7"
    },
-   "solution": "TWITTER"
+   "solution": "TWITTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TWITTER",
+    "definitions": [
+     {
+      "text": "Online forum",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter of the next word is used"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tedious",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of tedious"
+     },
+     {
+      "clueFragment": "babble",
+      "gives": "WITTER",
+      "note": "to witter is to talk at length about trivia, a British colloquialism"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "WITTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that social media is mostly boring chatter.",
+     "walkthrough": "To witter, in British usage, is to chatter on pointlessly.",
+     "definitionFit": "Twitter is a social media platform, an internet venue for public discussion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "primarily"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +983,68 @@
     "text": "Mad to mix a gin and tonic without company",
     "enumeration": "9"
    },
-   "solution": "INDIGNANT"
+   "solution": "INDIGNANT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "INDIGNANT",
+    "definitions": [
+     {
+      "text": "Mad",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so the letters for the firm are taken out"
+     },
+     {
+      "text": "to mix",
+      "for": "anagram",
+      "note": "mixing a drink stirs it up, so these letters are blended into a new order"
+     }
+    ],
+    "linkWords": [
+     "a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gin and tonic",
+      "gives": "GINANDTONIC",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "Co is the abbreviation for company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INDIGNANT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GINANDTNI",
+       "gives": "INDIGNANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pouring a G&T while alone seems crazy.",
+     "walkthrough": "The 'a' is only surface glue; the anagram uses gin and tonic minus CO.",
+     "definitionFit": "Mad in the informal sense of angry; an indignant person is angry at unfair treatment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mad"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +1058,72 @@
     "text": "Urge former partner to get hormone treatment without oestrogen at first",
     "enumeration": "6"
    },
-   "solution": "EXHORT"
+   "solution": "EXHORT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "EXHORT",
+    "definitions": [
+     {
+      "text": "Urge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of the word just before it"
+     },
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense of outside, so the treatment wraps around the letter"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former partner",
+      "gives": "EX",
+      "note": "an ex is a former partner"
+     },
+     {
+      "clueFragment": "hormone treatment",
+      "gives": "HRT",
+      "note": "HRT is hormone replacement therapy"
+     },
+     {
+      "clueFragment": "oestrogen",
+      "gives": "O",
+      "select": "first",
+      "note": "the first letter of oestrogen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "H",
+      "O",
+      "RT"
+     ]
+    },
+    "explanation": {
+     "surface": "Pressing an ex to start hormone therapy that leaves out oestrogen.",
+     "walkthrough": "'Without' looks like it means lacking, but here it means outside: HRT goes around O.",
+     "definitionFit": "To exhort someone is to strongly encourage or press them to act."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1147,39 @@
      }
     ]
    },
-   "solution": "HITANDRUN"
+   "solution": "HITANDRUN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HIT-AND-RUN",
+    "definitions": [
+     {
+      "text": "It's not really cricket — especially not on the road!",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It's not really cricket",
+      "note": "surface reading: something unsporting, or a casual knockabout version of the game"
+     },
+     {
+      "clueFragment": "especially not on the road!",
+      "note": "setter's reading: a driver who strikes someone and flees, which is far worse than unsporting"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The informal knockabout cricket in which you must run every time you hit the ball shares its name with a driver's crime of leaving the scene of an accident. 'Not cricket' is a British idiom for unfair.",
+     "definitionFit": "The term names both a backyard cricket game and the offence of a motorist driving off after a collision."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cricket"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1199,59 @@
      }
     ]
    },
-   "solution": "ADDSUP"
+   "solution": "ADDSUP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ADDS UP",
+    "definitions": [
+     {
+      "text": "makes sense",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "between",
+      "for": "container",
+      "note": "something between two items sits inside them, so the days go between the article and the drink"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Two days",
+      "gives": "DD",
+      "note": "D is the abbreviation for day, so two of them"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "SUP",
+      "note": "to sup is to drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DD",
+      "SUP"
+     ]
+    },
+    "explanation": {
+     "surface": "Taking two days off between drinks is the sensible thing.",
+     "definitionFit": "Something that adds up is coherent or logical, so it is reasonable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1265,54 @@
     "text": "Military unit also taken in by scheme",
     "enumeration": "7"
    },
-   "solution": "PLATOON"
+   "solution": "PLATOON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PLATOON",
+    "definitions": [
+     {
+      "text": "Military unit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken in by",
+      "for": "container",
+      "note": "something taken in by another is absorbed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scheme",
+      "gives": "PLAN",
+      "note": "a scheme is a plan"
+     },
+     {
+      "clueFragment": "also",
+      "gives": "TOO",
+      "note": "too means also"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLA",
+      "TOO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "An army squad that was also fooled by a scam.",
+     "definitionFit": "A platoon is a subdivision of an army company, a small body of soldiers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "scheme"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1326,64 @@
     "text": "Annoyed with fresh start decided on",
     "enumeration": "7"
    },
-   "solution": "SETTLED"
+   "solution": "SETTLED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "SETTLED",
+    "definitions": [
+     {
+      "text": "decided on",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fresh",
+      "for": "substitution",
+      "note": "a fresh start replaces the opening letter of the word with a new one"
+     },
+     {
+      "text": "start",
+      "for": "letter_selection",
+      "note": "the word start also supplies its own opening letter as the new beginning"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Annoyed",
+      "gives": "NETTLED",
+      "note": "to be nettled is to be irritated"
+     },
+     {
+      "clueFragment": "start",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of start"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ETTLED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone irritated by having to make a new beginning.",
+     "walkthrough": "Replace the first letter of NETTLED with S.",
+     "definitionFit": "A settled matter is one that has been agreed or resolved."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "start"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1397,54 @@
     "text": "Tired general captured by secret agent",
     "enumeration": "6"
    },
-   "solution": "SLEEPY"
+   "solution": "SLEEPY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SLEEPY",
+    "definitions": [
+     {
+      "text": "Tired",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "captured by",
+      "for": "container",
+      "note": "a prisoner captured by someone is held inside their grasp"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secret agent",
+      "gives": "SPY",
+      "note": "a spy is a secret agent"
+     },
+     {
+      "clueFragment": "general",
+      "gives": "LEE",
+      "note": "Robert E Lee was the Confederate general in the American Civil War"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LEE",
+      "PY"
+     ]
+    },
+    "explanation": {
+     "surface": "An exhausted army commander taken prisoner by an undercover operative.",
+     "definitionFit": "Someone sleepy is drowsy, tired and ready for bed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "general"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1458,54 @@
     "text": "Children who don't have social workers go downhill",
     "enumeration": "7"
    },
-   "solution": "DESCEND"
+   "solution": "DESCEND",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DESCEND",
+    "definitions": [
+     {
+      "text": "go downhill",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "who don't have",
+      "for": "deletion",
+      "note": "not having something means it is missing, so those letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Children",
+      "gives": "DESCENDANTS",
+      "note": "your children are your descendants"
+     },
+     {
+      "clueFragment": "social workers",
+      "gives": "ANTS",
+      "note": "ants are social insects living in colonies, including worker ants"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DESCEND"
+     ]
+    },
+    "explanation": {
+     "surface": "Children without care staff end up deteriorating.",
+     "walkthrough": "'Social workers' looks like care professionals but means ants, social insects.",
+     "definitionFit": "To descend is to move downwards, literally to go down a slope."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "social"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1519,51 @@
     "text": "Expose cover-up by international body?",
     "enumeration": "6"
    },
-   "solution": "UNWRAP"
+   "solution": "UNWRAP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNWRAP",
+    "definitions": [
+     {
+      "text": "Expose",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "international body?",
+      "gives": "UN",
+      "note": "the UN is the United Nations"
+     },
+     {
+      "clueFragment": "cover-up",
+      "gives": "WRAP",
+      "note": "a wrap is a covering garment or wrapping"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "WRAP"
+     ]
+    },
+    "explanation": {
+     "surface": "Revealing a scandal hushed up by a global organisation.",
+     "walkthrough": "Read cryptically, a 'cover-up by the UN' is a UN wrap.",
+     "definitionFit": "To unwrap something is to remove its covering, revealing it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cover-up"
+    }
+   }
   },
   {
    "number": 22,
@@ -385,7 +1577,53 @@
     "text": "Taming her turns out to be a difficult experience",
     "enumeration": "9"
    },
-   "solution": "NIGHTMARE"
+   "solution": "NIGHTMARE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NIGHTMARE",
+    "definitions": [
+     {
+      "text": "a difficult experience",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turns out",
+      "for": "anagram",
+      "note": "something that turns out differently ends up altered, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Taming her",
+      "gives": "TAMINGHER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TAMINGHER",
+       "gives": "NIGHTMARE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Like Petruchio in The Taming of the Shrew, a man finds subduing a woman an ordeal.",
+     "definitionFit": "A nightmare is an informal word for a very unpleasant or trying ordeal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Taming"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1637,61 @@
     "text": "Draw secures extremely triumphal championship",
     "enumeration": "5"
    },
-   "solution": "TITLE"
+   "solution": "TITLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TITLE",
+    "definitions": [
+     {
+      "text": "championship",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "secures",
+      "for": "container",
+      "note": "to secure something is to hold it fast, here holding it inside"
+     },
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Draw",
+      "gives": "TIE",
+      "note": "a tie is a drawn match"
+     },
+     {
+      "clueFragment": "triumphal",
+      "gives": "TL",
+      "select": "outer",
+      "note": "the first and last letters of triumphal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "TL",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A drawn final still clinches the championship for the side.",
+     "definitionFit": "A title is a championship in sport, as in winning the league title."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Draw"
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1705,53 @@
     "text": "Set on overturning records",
     "enumeration": "5"
    },
-   "solution": "NOTES"
+   "solution": "NOTES",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "NOTES",
+    "definitions": [
+     {
+      "text": "records",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overturning",
+      "for": "reversal",
+      "note": "overturning something flips it over, so these words are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Set on",
+      "gives": "SETON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOTES"
+     ],
+     "reversals": [
+      {
+       "from": "SETON",
+       "to": "NOTES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone determined to break existing records.",
+     "definitionFit": "Notes are written records, as in taking notes of a meeting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "records"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1765,54 @@
     "text": "Recommend eating river fish",
     "enumeration": "5"
    },
-   "solution": "TROUT"
+   "solution": "TROUT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TROUT",
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "something eating another takes it inside itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Recommend",
+      "gives": "TOUT",
+      "note": "to tout is to promote or recommend"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Suggesting you dine on a freshwater fish.",
+     "definitionFit": "A trout is a freshwater fish of the salmon family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eating"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1826,50 @@
     "text": "Cook in front of red-hot kiln",
     "enumeration": "5"
    },
-   "solution": "ROAST"
+   "solution": "ROAST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROAST",
+    "definitions": [
+     {
+      "text": "Cook",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in front of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "red",
+      "gives": "R",
+      "note": "R is a standard abbreviation for red"
+     },
+     {
+      "clueFragment": "hot kiln",
+      "gives": "OAST",
+      "note": "an oast is a kiln for drying hops"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "OAST"
+     ]
+    },
+    "explanation": {
+     "surface": "A chef standing before a glowing kiln.",
+     "walkthrough": "'Red-hot' reads as one word but splits: red gives R, and hot belongs with kiln.",
+     "definitionFit": "To roast is to cook food in dry heat in an oven."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "red-hot"
+    }
+   }
   },
   {
    "number": 27,
@@ -461,7 +1889,50 @@
      }
     ]
    },
-   "solution": "ONPURPOSE"
+   "solution": "ONPURPOSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ON PURPOSE",
+    "definitions": [
+     {
+      "text": "deliberately",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Collapsed",
+      "for": "anagram",
+      "note": "something collapsed has fallen into a heap, so these letters are jumbled up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "upon ropes",
+      "gives": "UPONROPES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UPONROPES",
+       "gives": "ONPURPOSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boxer slumped onto the ropes, taking a dive intentionally.",
+     "definitionFit": "Doing something on purpose means doing it intentionally, not by accident."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Collapsed"
+    }
+   }
   },
   {
    "number": 28,
@@ -475,7 +1946,64 @@
     "text": "Old-fashioned father conceals time with new model",
     "enumeration": "7"
    },
-   "solution": "PATTERN"
+   "solution": "PATTERN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PATTERN",
+    "definitions": [
+     {
+      "text": "model",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "conceals",
+      "for": "container",
+      "note": "something that conceals another hides it inside itself"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old-fashioned father",
+      "gives": "PATER",
+      "note": "pater is a dated public-school word for father"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "T",
+      "TER",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A traditional dad hides his age when posing beside a fresh model.",
+     "definitionFit": "A pattern is a template or example to be copied, which is a model."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 29,
@@ -489,7 +2017,45 @@
     "text": "They say you honour Labour leader at one",
     "enumeration": "6"
    },
-   "solution": "UNITED"
+   "solution": "UNITED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "UNITED",
+    "definitions": [
+     {
+      "text": "at one",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "They say",
+      "for": "homophone",
+      "note": "what people say is heard rather than seen, so the sound of the phrase matters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "you honour Labour leader",
+      "gives": "UNITED",
+      "soundsLike": "YOU KNIGHTED",
+      "note": "honouring a party leader can mean giving them a knighthood"
+     }
+    ],
+    "explanation": {
+     "surface": "People say you gave an honour to the head of the Labour Party.",
+     "walkthrough": "Several Labour leaders, such as Harold Wilson, were knighted; 'you knighted' is said the same way as the answer.",
+     "definitionFit": "To be at one is to be in agreement, joined together as one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "honour"
+    }
+   }
   }
  ]
 }
