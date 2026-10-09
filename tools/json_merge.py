@@ -33,7 +33,7 @@ merge cannot place them. Here the merge is the same three-way walk, except that
 order), an entry's `annotation` is one value (two annotations are never spliced
 together; when both sides wrote one, %A's is kept, which in a rebase and in
 push_puzzle_commit.sh's merge-tree is the one already on origin and so already
-on the site), `annotatedBy` is a union, and anything else both sides changed
+on the site) and survives only beside the clue words it was written for, `annotatedBy` is a union, and anything else both sides changed
 differently is a real conflict, written with conflict markers by
 `git merge-file` so no caller can stage it as resolved. The result is written in
 write_puzzle_file's layout.
@@ -135,9 +135,26 @@ def merge_puzzle(o, a, b, path=""):
         if key == "entries" and isinstance(o, list) and \
                 [entry_key(e) for e in o] == [entry_key(e) for e in a] == \
                 [entry_key(e) for e in b]:
-            return [merge_puzzle(x, y, z, f"{path}/{entry_key(y)}")
+            return [annotated_for_clue(merge_puzzle(x, y, z, f"{path}/{entry_key(y)}"), y, z)
                     for x, y, z in zip(o, a, b)]
     raise Conflict(path or "/")
+
+
+def clue_text(e):
+    return ((e.get("clue") if isinstance(e, dict) else None) or {}).get("text") or ""
+
+
+def annotated_for_clue(merged, a, b):
+    """`merged` without its annotation unless a side holding that annotation
+    holds the merged clue's words too: one side re-reading a clue and the
+    other annotating the old words must not combine into an annotation of
+    words the entry no longer has."""
+    if not isinstance(merged, dict) or "annotation" not in merged:
+        return merged
+    if any(isinstance(s, dict) and s.get("annotation") == merged["annotation"]
+           and clue_text(s) == clue_text(merged) for s in (a, b)):
+        return merged
+    return {k: v for k, v in merged.items() if k != "annotation"}
 
 
 def main_puzzle(o_path, a_path, b_path):
