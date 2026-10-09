@@ -38,7 +38,7 @@ export POOL_LAUNCH_GAP=0.1
 POOL_CHECK_SECS=0   # a checkpoint after every run, so a width change lands at once
 POOL_SYNC_SECS=2    # and a mid-pool sync, at least once
 eval "$(grep -E '^(declare -A )?POOL_[A-Z_]+=' "$SCRIPT")"
-for fn in pool_mark pool_launch pool_reap pool_drain pool_interval_start pool_checkpoint run_pool \
+for fn in pool_live pool_mark pool_launch pool_reap pool_drain pool_interval_start pool_checkpoint run_pool \
           needs_solve solve_applied; do
   block="$(sed -n "/^$fn() {/,/^}/p" "$SCRIPT")"
   if [ -z "$block" ]; then echo "FAIL tools/prereset_backfill.sh no longer defines $fn()"; exit 1; fi
@@ -96,7 +96,13 @@ python3() {
   case "$1" in
     tools/puzzle_paths.py) echo "puzzles/x/2026/$2.json" ;;
     tools/weekly_usage.py) echo 10 ;;
-    tools/prereset_plan.py) [ "$2" = --unsolved ] && [ "$3" = "$UNSOLVED_ID" ] ;;
+    tools/prereset_plan.py)
+      case "$2" in
+        --cover-first) echo "replan" >>"$EVENTS"; cat ;;
+        --backlog) : ;;
+        *) [ "$2" = --unsolved ] && [ "$3" = "$UNSOLVED_ID" ] ;;
+      esac ;;
+    tools/failed_inputs.py) : ;;
     tools/apply_solution.py) echo "applied $2 $*" >>"$EVENTS" ;;
     tools/provenance.py) echo "Trailer: x" ;;
     tools/solve_misses.py) [ "$2" = keep-log ] ;;
@@ -188,6 +194,18 @@ stage_puzzle "$HELD_ID"
 check "a clues-only solve stages its grid and its clues-only file's removal" \
   "staged -- puzzles/*/*/$HELD_ID.json clues_only/*/$HELD_ID.json" \
   "$(grep '^staged' "$EVENTS")"
+# The re-plan blocks the shell for minutes on a loaded machine, so a reordering
+# pool re-plans once per POOL_SYNC_SECS, not at each checkpoint.
+: >"$EVENTS"
+POOL_SYNC_SECS=3600 POOL_REPLANNED_US=0
+echo 2 >"$WIDTH_FILE"
+handled=0
+queue=(); for i in $(seq 1 6); do queue+=("pooltest-$$-r$i"); done
+at=0
+out=$(run_pool "Annotate" "Annotate @ in @PATH@" 1 2>&1)
+check "a reordering pool re-plans once per sync interval, not per checkpoint" \
+  "1 checkpoints=1" \
+  "$(grep -c '^replan' "$EVENTS") checkpoints=$(( $(grep -c '^after' "$EVENTS") > 1 ))"
 grep -q '^ALERT' "$EVENTS" && { echo "FAIL alert raised: $(grep '^ALERT' "$EVENTS")"; fails=$((fails + 1)); }
 
 if [ "$fails" -gt 0 ]; then
