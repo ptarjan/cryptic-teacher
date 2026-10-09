@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,57 @@
     "text": "Battle in progress, no messing up!",
     "enumeration": "4"
    },
-   "solution": "MONS"
+   "solution": "MONS",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "MONS",
+    "definitions": [
+     {
+      "text": "Battle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer sits inside the run of words that follows, spanning two of them"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading the letters from bottom to top, backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "progress, no messing",
+      "gives": "SNOM",
+      "note": "the tail of the first word, the whole second and the head of the third"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "SNOM",
+       "to": "MONS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A commander urges an orderly advance in battle: no fooling around.",
+     "walkthrough": "The exclamation reads like an order to troops; the letters run backwards across the join of progreSS NO Messing to give MONS.",
+     "definitionFit": "Mons, in Belgium, was the site of a famous First World War battle in 1914, so the name stands for that engagement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "messing"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +99,64 @@
     "text": "Wicked name that is for villain",
     "enumeration": "6"
    },
-   "solution": "MEANIE"
+   "solution": "MEANIE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "MEANIE",
+    "definitions": [
+     {
+      "text": "villain",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Wicked",
+      "for": "anagram",
+      "note": "wicked behaviour is twisted and crooked, so the following word is bent out of shape"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "name",
+      "gives": "MEAN",
+      "note": "its four letters rearranged"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, Latin for that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEAN",
+      "IE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NAME",
+       "gives": "MEAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gives a wicked name to a villain in a story.",
+     "walkthrough": "'Wicked' looks like a description of the name, but it only tells you to rearrange it.",
+     "definitionFit": "A meanie is a nasty or ungenerous person, a mild childish word for a baddie."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Wicked"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +170,56 @@
     "text": "Vessel is entering race",
     "enumeration": "8"
    },
-   "solution": "CANISTER"
+   "solution": "CANISTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CANISTER",
+    "definitions": [
+     {
+      "text": "Vessel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "something entering goes inside, so one piece is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "race",
+      "gives": "CANTER",
+      "note": "to canter is to go at a lively pace, a horse's run short of a gallop"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAN",
+      "IS",
+      "TER"
+     ]
+    },
+    "explanation": {
+     "surface": "A boat is being entered into a regatta.",
+     "walkthrough": "CAN(IS)TER: 'race' is used loosely for a running gait.",
+     "definitionFit": "A canister is a container, and vessel is a general word for any receptacle that holds things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Vessel"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +233,44 @@
     "text": "Number of steps taken, trip",
     "enumeration": "6"
    },
-   "solution": "FLIGHT"
+   "solution": "FLIGHT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FLIGHT",
+    "definitions": [
+     {
+      "text": "Number of steps taken",
+      "at": 0
+     },
+     {
+      "text": "trip",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Number of steps taken",
+      "note": "first meaning: a run of stairs between landings"
+     },
+     {
+      "clueFragment": "trip",
+      "note": "second meaning: a journey by aeroplane"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone counts the steps they took and then stumbles.",
+     "walkthrough": "'trip' suggests a stumble on the stairs, but it means a journey by air.",
+     "definitionFit": "A staircase segment is called a flight, and so is a single journey made by plane."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "trip"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +284,56 @@
     "text": "I hope it regenerates a country",
     "enumeration": "8"
    },
-   "solution": "ETHIOPIA"
+   "solution": "ETHIOPIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ETHIOPIA",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regenerates",
+      "for": "anagram",
+      "note": "to regenerate is to rebuild in new form, so the letters are reformed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I hope it",
+      "gives": "IHOPEIT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IHOPEITA",
+       "gives": "ETHIOPIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hopes for a nation's renewal.",
+     "walkthrough": "The 'a' belongs to the letters being rearranged, leaving just 'country' as the definition.",
+     "definitionFit": "Ethiopia is a nation in the Horn of Africa, an example of the general term."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regenerates"
+    }
+   }
   },
   {
    "number": 6,
@@ -102,7 +347,58 @@
     "text": "Bed where darling tucks everyone in",
     "enumeration": "6"
    },
-   "solution": "PALLET"
+   "solution": "PALLET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PALLET",
+    "definitions": [
+     {
+      "text": "Bed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tucks",
+      "for": "container",
+      "note": "tucking someone in wraps the covers around them, so one piece encloses the other"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "darling",
+      "gives": "PET",
+      "note": "pet is an affectionate name for a loved one"
+     },
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "all means every person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ALL",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A bedtime scene: a loving parent tucks the whole family in.",
+     "walkthrough": "P(ALL)ET: the surface is a cosy picture of bedtime, which helps the bed definition hide in plain sight.",
+     "definitionFit": "A pallet is a straw mattress or makeshift bed laid on the floor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "darling"
+    }
+   }
   },
   {
    "number": 7,
@@ -116,7 +412,52 @@
     "text": "Sensed left isn't right",
     "enumeration": "4"
    },
-   "solution": "FELT"
+   "solution": "FELT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FELT",
+    "definitions": [
+     {
+      "text": "Sensed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "isn't right",
+      "for": "anagram",
+      "note": "something not right is wrong or awry, so the letters are out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "LEFT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEFT",
+       "gives": "FELT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A person senses that left is not the correct direction.",
+     "walkthrough": "'right' looks like the opposite of left, but 'isn't right' just says the letters are wrong.",
+     "definitionFit": "Felt is the past tense of feel, a synonym of sensed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 8,
@@ -140,7 +481,44 @@
      }
     ]
    },
-   "solution": "ONTHENAIL"
+   "solution": "ONTHENAIL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ON THE NAIL",
+    "definitions": [
+     {
+      "text": "Where curved scissors may be used",
+      "at": 0
+     },
+     {
+      "text": "immediately",
+      "at": 34
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where curved scissors may be used",
+      "note": "first meaning: literally, at a fingernail being trimmed"
+     },
+     {
+      "clueFragment": "immediately",
+      "note": "second meaning: an idiom for payment made at once"
+     }
+    ],
+    "explanation": {
+     "surface": "A manicure tip about when to use curved scissors.",
+     "walkthrough": "The first half is a playful literal reading; the second is the idiom 'paid on the nail', meaning paid promptly.",
+     "definitionFit": "The idiom describes cash paid straight away, without delay or credit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "immediately"
+    }
+   }
   },
   {
    "number": 9,
@@ -154,7 +532,56 @@
     "text": "North American city to change or not?",
     "enumeration": "7"
    },
-   "solution": "TORONTO"
+   "solution": "TORONTO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TORONTO",
+    "definitions": [
+     {
+      "text": "North American city",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "change",
+      "for": "anagram",
+      "note": "to change the words is to alter their order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "or not",
+      "gives": "ORNOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOORNOT",
+       "gives": "TORONTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders whether to change or not, like Hamlet.",
+     "walkthrough": "The indicator sits inside its own fodder; the letters on either side of it are mixed together.",
+     "definitionFit": "Toronto is the largest city in Canada, which lies in North America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 10,
@@ -168,7 +595,44 @@
     "text": "A little reprobate, a selfish kid",
     "enumeration": "5"
    },
-   "solution": "TEASE"
+   "solution": "TEASE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TEASE",
+    "definitions": [
+     {
+      "text": "kid",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "A little",
+      "for": "hidden_word",
+      "note": "only a little of the phrase is used, a small run of letters inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reprobate, a selfish",
+      "gives": "TEASE",
+      "note": "the end of the first word, the second, and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A description of a naughty, self-centred child.",
+     "walkthrough": "'kid' looks like a noun meaning child, but here it is the verb meaning to rib someone.",
+     "definitionFit": "To kid someone is to tease them, playfully making fun of them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "kid"
+    }
+   }
   },
   {
    "number": 11,
@@ -188,7 +652,68 @@
      }
     ]
    },
-   "solution": "SHRINKINGVIOLET"
+   "solution": "SHRINKINGVIOLET",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SHRINKING VIOLET",
+    "definitions": [
+     {
+      "text": "Mouse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "something done badly is botched and jumbled, so the letters are mixed up"
+     },
+     {
+      "text": "nipping",
+      "for": "container",
+      "note": "to nip is to pinch, gripping something between two sides"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in short evil",
+      "gives": "INSHORTEVIL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "KING",
+      "note": "a man is a piece in chess, such as the king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHRIN",
+      "KING",
+      "VIOLET"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INSHORTEVIL",
+       "gives": "SHRINVIOLET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mouse caught up in a brief bout of wickedness, biting a man.",
+     "walkthrough": "Mouse looks like the subject of the action, but it is the definition: a timid person.",
+     "definitionFit": "A shrinking violet is a very shy person, and mouse is used figuratively for someone timid and quiet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Mouse"
+    }
+   }
   },
   {
    "number": 12,
@@ -202,7 +727,48 @@
     "text": "Sharp, male wordplayer?",
     "enumeration": "7"
    },
-   "solution": "PUNGENT"
+   "solution": "PUNGENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PUNGENT",
+    "definitions": [
+     {
+      "text": "Sharp",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wordplayer",
+      "gives": "PUN",
+      "note": "the wordplay this player deals in: a pun"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "GENT",
+      "note": "a gent is a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUN",
+      "GENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A man with a sharp wit who loves wordplay.",
+     "walkthrough": "'male' comes first in the clue but last in the answer; the question mark warns that 'wordplayer' is a whimsical description, a gent of puns.",
+     "definitionFit": "Pungent means having a strong, biting smell or taste, or a cutting quality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Sharp"
+    }
+   }
   },
   {
    "number": 12,
@@ -222,7 +788,42 @@
      }
     ]
    },
-   "solution": "POPUP"
+   "solution": "POPUP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POP-UP",
+    "definitions": [
+     {
+      "text": "Appear",
+      "at": 0
+     },
+     {
+      "text": "spring-operated",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Appear",
+      "note": "first meaning: to turn up suddenly"
+     },
+     {
+      "clueFragment": "spring-operated",
+      "note": "second meaning: describing a device that springs up, like a toaster or book"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The verb is written as two words, the adjective with a hyphen; the grid ignores the difference.",
+     "definitionFit": "Things that suddenly show up are said to pop up, and a pop-up toaster ejects bread by a spring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Appear"
+    }
+   }
   },
   {
    "number": 13,
@@ -236,7 +837,68 @@
     "text": "End for Becket, turbulent priest, one predicts",
     "enumeration": "7"
    },
-   "solution": "TIPSTER"
+   "solution": "TIPSTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "TIPSTER",
+    "definitions": [
+     {
+      "text": "one predicts",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "End for",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, which is all that is kept"
+     },
+     {
+      "text": "turbulent",
+      "for": "anagram",
+      "note": "turbulence throws things into disorder, so the letters are churned up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Becket",
+      "gives": "T",
+      "select": "last",
+      "note": "its last letter"
+     },
+     {
+      "clueFragment": "priest",
+      "gives": "IPSTER",
+      "note": "its six letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "IPSTER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PRIEST",
+       "gives": "IPSTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Henry II's 'turbulent priest' Thomas Becket meets his end, as someone foretold.",
+     "walkthrough": "Henry II reputedly asked to be rid of 'this turbulent priest', and Becket was murdered in Canterbury Cathedral; the quotation disguises the anagram signal.",
+     "definitionFit": "A tipster forecasts results, such as the winners of horse races, for others to bet on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turbulent"
+    }
+   }
   },
   {
    "number": 14,
@@ -250,7 +912,55 @@
     "text": "All letters redirected, watch post",
     "enumeration": "5"
    },
-   "solution": "REMIT"
+   "solution": "REMIT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "REMIT",
+    "definitions": [
+     {
+      "text": "post",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "All letters redirected",
+      "for": "reversal",
+      "note": "every letter sent the other way means the whole word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "watch",
+      "gives": "TIMER",
+      "note": "a timer is a device for watching the time, like a stopwatch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REMIT"
+     ],
+     "reversals": [
+      {
+       "from": "TIMER",
+       "to": "REMIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A postal worker redirects all the mail while keeping watch on the post.",
+     "walkthrough": "The postal surface makes 'letters' look like mail; here it means the letters of a word.",
+     "definitionFit": "To remit is to send money, usually by mail, so it is a synonym of post as a verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 15,
@@ -270,7 +980,64 @@
      }
     ]
    },
-   "solution": "PHOTOGRAPHALBUM"
+   "solution": "PHOTOGRAPHALBUM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PHOTOGRAPH ALBUM",
+    "definitions": [
+     {
+      "text": "Collection of pictures",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fixed up",
+      "for": "anagram",
+      "note": "something fixed up is put together in a new way, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "up",
+      "gives": "UP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "aplomb",
+      "gives": "APLOMB",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Hogarth",
+      "gives": "HOGARTH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UPAPLOMBHOGARTH",
+       "gives": "PHOTOGRAPHALBUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The painter Hogarth confidently hangs a set of his pictures.",
+     "walkthrough": "'up' does double duty: it completes 'fixed up' and also supplies two letters to the fodder. William Hogarth was an 18th-century English painter and engraver.",
+     "definitionFit": "A photograph album is a book for keeping a set of photos, a collection of pictures."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hogarth"
+    }
+   }
   },
   {
    "number": 16,
@@ -284,7 +1051,65 @@
     "text": "Extraordinary love or passable for miss?",
     "enumeration": "8"
    },
-   "solution": "OVERLOOK"
+   "solution": "OVERLOOK",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "OVERLOOK",
+    "definitions": [
+     {
+      "text": "miss",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extraordinary",
+      "for": "anagram",
+      "note": "something extraordinary is out of the ordinary, so the letters leave their usual order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "love or",
+      "gives": "OVERLO",
+      "note": "these letters rearranged"
+     },
+     {
+      "clueFragment": "passable",
+      "gives": "OK",
+      "note": "OK means acceptable or passable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVERLO",
+      "OK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOVEOR",
+       "gives": "OVERLO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is this an extraordinary love, or just a passable one, for a young woman?",
+     "walkthrough": "'miss' looks like a young woman courted in the surface; it is the verb meaning fail to notice.",
+     "definitionFit": "To overlook something is to fail to notice it, which is one sense of miss."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "miss"
+    }
+   }
   },
   {
    "number": 17,
@@ -298,7 +1123,55 @@
     "text": "Heaven exists in exhibit",
     "enumeration": "8"
    },
-   "solution": "PARADISE"
+   "solution": "PARADISE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PARADISE",
+    "definitions": [
+     {
+      "text": "Heaven",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece is placed within the other piece, which surrounds it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exhibit",
+      "gives": "PARADE",
+      "note": "to parade is to show off or display"
+     },
+     {
+      "clueFragment": "exists",
+      "gives": "IS",
+      "note": "is means exists, as in 'there is'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARAD",
+      "IS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A claim that heaven is to be found in a work on show.",
+     "walkthrough": "PARAD(IS)E.",
+     "definitionFit": "Paradise is the abode of the blessed after death, another name for heaven."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exists"
+    }
+   }
   },
   {
    "number": 18,
@@ -312,7 +1185,50 @@
     "text": "Torment and carry threat",
     "enumeration": "7"
    },
-   "solution": "BUGBEAR"
+   "solution": "BUGBEAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUGBEAR",
+    "definitions": [
+     {
+      "text": "threat",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Torment",
+      "gives": "BUG",
+      "note": "to bug is to pester or annoy"
+     },
+     {
+      "clueFragment": "carry",
+      "gives": "BEAR",
+      "note": "to bear is to carry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUG",
+      "BEAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone suffers torment and must shoulder a threat.",
+     "walkthrough": "Torment looks like the definition, but it is a piece; the answer is defined by the last word.",
+     "definitionFit": "A bugbear was originally a hobgoblin used to frighten children, hence a source of dread or menace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Torment"
+    }
+   }
   },
   {
    "number": 19,
@@ -326,7 +1242,60 @@
     "text": "Single queen needed after good start",
     "enumeration": "7"
    },
-   "solution": "PIONEER"
+   "solution": "PIONEER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PIONEER",
+    "definitions": [
+     {
+      "text": "start",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "needed after",
+      "for": "charade",
+      "note": "coming after something fixes the order, so these pieces follow the next one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "PI",
+      "note": "pi is short for pious, so good in crosswords"
+     },
+     {
+      "clueFragment": "Single",
+      "gives": "ONE",
+      "note": "a single is one"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina, the Queen's cipher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "ONE",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A lone queen is required after a good opening, as in chess.",
+     "walkthrough": "'start' looks like part of 'good start'; it is the definition, a verb meaning to originate.",
+     "definitionFit": "To pioneer something is to be the first to develop it, to launch or originate it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "start"
+    }
+   }
   },
   {
    "number": 20,
@@ -340,7 +1309,51 @@
     "text": "Circles in traces of gold?",
     "enumeration": "6"
    },
-   "solution": "ORBITS"
+   "solution": "ORBITS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORBITS",
+    "definitions": [
+     {
+      "text": "Circles",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in",
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is gold in heraldry"
+     },
+     {
+      "clueFragment": "traces",
+      "gives": "BITS",
+      "note": "bits are small amounts, traces"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "BITS"
+     ]
+    },
+    "explanation": {
+     "surface": "Rings found containing small flecks of gold.",
+     "walkthrough": "'traces of gold' becomes 'bits of OR', so the pieces are written OR then BITS.",
+     "definitionFit": "Orbits are circular paths, and to orbit is to travel round, so the plural noun matches circles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Circles"
+    }
+   }
   },
   {
    "number": 21,
@@ -354,7 +1367,62 @@
     "text": "Country golf club welcoming women, initially",
     "enumeration": "6"
    },
-   "solution": "RWANDA"
+   "solution": "RWANDA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RWANDA",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "welcoming someone in means taking them inside, so one piece holds another"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the first letter only"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "golf club",
+      "gives": "RANDA",
+      "note": "the R&A, the Royal and Ancient Golf Club of St Andrews, written R AND A"
+     },
+     {
+      "clueFragment": "women",
+      "gives": "W",
+      "select": "first",
+      "note": "its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "W",
+      "ANDA"
+     ]
+    },
+    "explanation": {
+     "surface": "A country golf club finally lets women join.",
+     "walkthrough": "The R&A, golf's governing club at St Andrews in Scotland, famously admitted women members only in 2014; 'Country' looks like an adjective for the club.",
+     "definitionFit": "Rwanda is a nation in east-central Africa, an example of the general word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Country"
+    }
+   }
   },
   {
    "number": 22,
@@ -368,7 +1436,62 @@
     "text": "Fire again appropriate around bowels of hell",
     "enumeration": "7"
    },
-   "solution": "RELIGHT"
+   "solution": "RELIGHT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RELIGHT",
+    "definitions": [
+     {
+      "text": "Fire again",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means one piece is wrapped about the other"
+     },
+     {
+      "text": "bowels of",
+      "for": "letter_selection",
+      "note": "bowels are the innermost parts, so only the middle letters are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "appropriate",
+      "gives": "RIGHT",
+      "note": "right means proper or fitting"
+     },
+     {
+      "clueFragment": "hell",
+      "gives": "EL",
+      "select": "middle",
+      "note": "its middle two letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EL",
+      "IGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "It is fitting to stoke the fires in the depths of hell once more.",
+     "walkthrough": "R(EL)IGHT.",
+     "definitionFit": "To relight is to set burning once more, to kindle anew."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bowels"
+    }
+   }
   },
   {
    "number": 23,
@@ -382,7 +1505,44 @@
     "text": "Drink taster mentioned?",
     "enumeration": "6"
    },
-   "solution": "LIQUOR"
+   "solution": "LIQUOR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LIQUOR",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mentioned",
+      "for": "homophone",
+      "note": "something mentioned is spoken, so the word is judged by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taster",
+      "gives": "LIQUOR",
+      "soundsLike": "LICKER",
+      "note": "a licker tastes things with the tongue"
+     }
+    ],
+    "explanation": {
+     "surface": "A wine taster talks about a drink.",
+     "definitionFit": "Liquor is alcoholic spirit, a strong drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "taster"
+    }
+   }
   },
   {
    "number": 24,
@@ -406,7 +1566,40 @@
      }
     ]
    },
-   "solution": "BUBBLEANDSQUEAK"
+   "solution": "BUBBLEANDSQUEAK",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BUBBLE AND SQUEAK",
+    "definitions": [
+     {
+      "text": "What simmering mouse stew might do for dish?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What simmering mouse stew might do",
+      "note": "surface reading: a gruesome pot of rodent cooking on the stove"
+     },
+     {
+      "clueFragment": "for dish",
+      "note": "setter's reading: the simmering pot makes one noise and the mouse another, and together they name a dish"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks what a pot of mouse stew does as it cooks.",
+     "walkthrough": "A simmering pot gurgles and a mouse makes its little cry; the British dish is fried leftover potato and cabbage.",
+     "definitionFit": "The British dish of fried leftover potato and cabbage takes its name from the sounds it makes in the pan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "mouse"
+    }
+   }
   },
   {
    "number": 24,
@@ -420,7 +1613,43 @@
     "text": "Charge the earth?",
     "enumeration": "4"
    },
-   "solution": "BOMB"
+   "solution": "BOMB",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOMB",
+    "definitions": [
+     {
+      "text": "Charge",
+      "at": 0
+     },
+     {
+      "text": "the earth",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charge",
+      "note": "first meaning: an explosive device"
+     },
+     {
+      "clueFragment": "the earth",
+      "note": "second meaning: a fortune, as in 'it cost the earth'"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Charge the earth' sounds like overpricing; in Britain 'costs a bomb' and 'costs the earth' both mean very expensive.",
+     "definitionFit": "A bomb is an explosive device, and in British slang a large sum of money, so it matches both."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Charge"
+    }
+   }
   },
   {
    "number": 25,
@@ -434,7 +1663,55 @@
     "text": "Hold gander upside down",
     "enumeration": "4"
    },
-   "solution": "KEEP"
+   "solution": "KEEP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "KEEP",
+    "definitions": [
+     {
+      "text": "Hold",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upside down",
+      "for": "reversal",
+      "note": "turned upside down in a down clue, the word is read from the bottom up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gander",
+      "gives": "PEEK",
+      "note": "a gander is a quick look, as is a peek"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KEEP"
+     ],
+     "reversals": [
+      {
+       "from": "PEEK",
+       "to": "KEEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone holds a goose upside down.",
+     "walkthrough": "'gander' suggests a male goose; it is the slang for a look.",
+     "definitionFit": "To keep something is to retain possession of it, a synonym of hold."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "gander"
+    }
+   }
   },
   {
    "number": 26,
@@ -448,7 +1725,49 @@
     "text": "Underground I'm better, not seen regularly",
     "enumeration": "5"
    },
-   "solution": "METRO"
+   "solution": "METRO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "METRO",
+    "definitions": [
+     {
+      "text": "Underground",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen regularly",
+      "for": "letter_selection",
+      "note": "only seen at regular intervals means every other letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'm better, not",
+      "gives": "METRO",
+      "select": "alternate",
+      "note": "the second, fourth, sixth, eighth and tenth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "METRO"
+     ]
+    },
+    "explanation": {
+     "surface": "A patient insists they are feeling better yet are not seen often.",
+     "walkthrough": "Underground is the London name for the city's railway system.",
+     "definitionFit": "A metro is an underground railway in a city, such as the Paris Métro."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Underground"
+    }
+   }
   },
   {
    "number": 27,
@@ -462,7 +1781,63 @@
     "text": "Expression in dance, sure quirky",
     "enumeration": "9"
    },
-   "solution": "DISCOURSE"
+   "solution": "DISCOURSE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DISCOURSE",
+    "definitions": [
+     {
+      "text": "Expression",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "quirky",
+      "for": "anagram",
+      "note": "something quirky is odd and twisted, so the letters are put in an odd order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dance",
+      "gives": "DISCO",
+      "note": "a disco is a dance or dance party"
+     },
+     {
+      "clueFragment": "sure",
+      "gives": "URSE",
+      "note": "these letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISCO",
+      "URSE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SURE",
+       "gives": "URSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dancer is sure their moves are quirky self-expression.",
+     "definitionFit": "Discourse is spoken or written communication, a form of expressing ideas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Expression"
+    }
+   }
   }
  ]
 }
