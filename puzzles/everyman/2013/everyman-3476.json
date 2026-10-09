@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Grounds for action involving large section of will",
     "enumeration": "6"
    },
-   "solution": "CLAUSE"
+   "solution": "CLAUSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLAUSE",
+    "definitions": [
+     {
+      "text": "section of will",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "a thing that involves something takes it in, so one word wraps around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grounds for action",
+      "gives": "CAUSE",
+      "note": "a cause is a legal ground for bringing a suit"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the size abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "L",
+      "AUSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A lawyer finds grounds to sue in a big chunk of someone's will.",
+     "walkthrough": "The legal surface makes 'Grounds for action' look like part of the definition, but it is the wrapper, and the will section is the answer.",
+     "definitionFit": "A clause is a separate numbered provision in a legal document such as a testament."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Grounds"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +104,53 @@
      }
     ]
    },
-   "solution": "CAPETOWN"
+   "solution": "CAPETOWN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CAPE TOWN",
+    "definitions": [
+     {
+      "text": "South African city",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for a change",
+      "for": "anagram",
+      "note": "making a change means altering the order, so those letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "We can opt",
+      "gives": "WECANOPT",
+      "note": "the fodder, eight letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WECANOPT",
+       "gives": "CAPETOWN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Travellers decide to try somewhere different in South Africa.",
+     "definitionFit": "Cape Town is the legislative capital of South Africa, below Table Mountain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opt"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +164,63 @@
     "text": "Dressing made from first-rate cooking oil",
     "enumeration": "5"
    },
-   "solution": "AIOLI"
+   "solution": "AIOLI",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "AIOLI",
+    "definitions": [
+     {
+      "text": "Dressing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooking",
+      "for": "anagram",
+      "note": "cooking changes ingredients into something new, so the letters are mixed"
+     }
+    ],
+    "linkWords": [
+     "made from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "first-rate",
+      "gives": "AI",
+      "note": "A1 means first-rate, with the 1 read as the letter I"
+     },
+     {
+      "clueFragment": "oil",
+      "gives": "OIL",
+      "note": "fodder for the rearrangement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AI",
+      "OLI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OIL",
+       "gives": "OLI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A salad dressing produced from top-quality oil for cooking.",
+     "definitionFit": "Aioli is a garlic mayonnaise from Provence, served as a sauce or dressing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooking"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +234,67 @@
     "text": "Hat put back on after end of prayers",
     "enumeration": "7"
    },
-   "solution": "STETSON"
+   "solution": "STETSON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STETSON",
+    "definitions": [
+     {
+      "text": "Hat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter only"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says the word just before it is placed behind the letter that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "put back",
+      "gives": "STET",
+      "note": "stet is the proofreader's mark meaning restore what was deleted"
+     },
+     {
+      "clueFragment": "prayers",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of the word"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written, placed behind the chosen letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STET",
+      "S",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone replaces their hat once the prayers have finished.",
+     "walkthrough": "'Put back' looks like a turnaround signal, but it is the printer's instruction stet, which puts back a crossed-out word. 'On after end of prayers' puts the two letters behind the final S.",
+     "definitionFit": "A Stetson is a wide-brimmed cowboy hat, named after its American maker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +314,46 @@
      }
     ]
    },
-   "solution": "AFTERALL"
+   "solution": "AFTERALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AFTER ALL",
+    "definitions": [
+     {
+      "text": "in spite of everything",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Behind",
+      "gives": "AFTER",
+      "note": "behind in order means coming after"
+     },
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "everyone is all of them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AFTER",
+      "ALL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone trailing the whole field still carries on regardless.",
+     "definitionFit": "The phrase is an idiom meaning nevertheless, despite what has happened or been said."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Behind"
+    }
+   }
   },
   {
    "number": 5,
@@ -129,7 +381,55 @@
      }
     ]
    },
-   "solution": "FORTHEHIGHJUMP"
+   "solution": "FORTHEHIGHJUMP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FOR THE HIGH JUMP",
+    "definitions": [
+     {
+      "text": "About to be reprimanded",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "because of",
+      "gives": "FOR",
+      "note": "for can mean because of, as in famous for"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "field event",
+      "gives": "HIGHJUMP",
+      "note": "an athletics field event"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "THE",
+      "HIGHJUMP"
+     ]
+    },
+    "explanation": {
+     "surface": "An athlete is about to be told off over a piece written about a jumping competition.",
+     "definitionFit": "Being for the high jump is a British idiom for being in trouble and due for punishment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +443,42 @@
     "text": "Dutch scholar helping to make operas, musicals . . .",
     "enumeration": "7"
    },
-   "solution": "ERASMUS"
+   "solution": "ERASMUS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ERASMUS",
+    "definitions": [
+     {
+      "text": "Dutch scholar",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "helping to make",
+      "for": "hidden_word",
+      "note": "the answer helps to make the following words, as a run of letters inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "operas, musicals",
+      "gives": "ERASMUS",
+      "note": "spanning the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A learned Dutchman lends a hand with opera and musical theatre.",
+     "definitionFit": "Erasmus of Rotterdam was the great Renaissance humanist scholar and theologian."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "helping"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +492,64 @@
     "text": "Film of a lake in European country",
     "enumeration": "9"
    },
-   "solution": "AUSTRALIA"
+   "solution": "AUSTRALIA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AUSTRALIA",
+    "definitions": [
+     {
+      "text": "Film",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European country",
+      "gives": "AUSTRIA",
+      "note": "the Alpine republic"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the map abbreviation for lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUSTR",
+      "A",
+      "L",
+      "IA"
+     ]
+    },
+    "explanation": {
+     "surface": "A movie about a lake somewhere in Europe.",
+     "walkthrough": "The answer is also a continent, but here the definition is the 2008 Baz Luhrmann film of that name.",
+     "definitionFit": "Australia is a 2008 epic movie starring Nicole Kidman and Hugh Jackman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "European"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +563,42 @@
     "text": "Inlay in poplin in garment",
     "enumeration": "6"
    },
-   "solution": "LINING"
+   "solution": "LINING",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LINING",
+    "definitions": [
+     {
+      "text": "Inlay",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer is in the following words, a run of letters inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poplin in garment",
+      "gives": "LINING",
+      "note": "spanning the end of the first word, all of the second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A decorative inset of poplin fabric inside a piece of clothing.",
+     "definitionFit": "A lining is material laid inside a garment, an inner layer set into it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Inlay"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +618,62 @@
      }
     ]
    },
-   "solution": "ASSETSTRIPPING"
+   "solution": "ASSETSTRIPPING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ASSET-STRIPPING",
+    "definitions": [
+     {
+      "text": "Commercial practice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topless",
+      "for": "deletion",
+      "note": "without a top, the word loses its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "has",
+      "gives": "HAS",
+      "note": "taken as written before losing its top"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "SET",
+      "note": "a set is a group"
+     },
+     {
+      "clueFragment": "dancing exotically",
+      "gives": "STRIPPING",
+      "note": "dancing exotically, with clothes coming off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "SET",
+      "STRIPPING"
+     ]
+    },
+    "explanation": {
+     "surface": "A business practice involving a troupe of topless exotic dancers.",
+     "walkthrough": "'Topless' reads as part of the striptease picture but acts on the word before it. The question mark flags the playful view of stripping as dancing.",
+     "definitionFit": "Asset-stripping is buying a company cheaply and selling off its assets for profit, a corporate tactic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "topless"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +687,71 @@
     "text": "One holds a chair for female with nasty sores",
     "enumeration": "9"
    },
-   "solution": "PROFESSOR"
+   "solution": "PROFESSOR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "PROFESSOR",
+    "definitions": [
+     {
+      "text": "One holds a chair",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nasty",
+      "for": "anagram",
+      "note": "nasty sores are in a bad state, so those letters are messed up and rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "PRO",
+      "note": "pro is Latin for for, in favour of"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "sores",
+      "gives": "SORES",
+      "note": "the fodder for the rearrangement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "F",
+      "ESSOR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SORES",
+       "gives": "ESSOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone holds a chair steady for a woman suffering painful sores.",
+     "walkthrough": "'Holds a chair' reads as physically supporting furniture, but a chair is also a university post.",
+     "definitionFit": "A university professor occupies an academic chair, the senior teaching post in a department."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "chair"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +765,48 @@
     "text": "Clergyman overlooking original crime",
     "enumeration": "5"
    },
-   "solution": "ARSON"
+   "solution": "ARSON",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ARSON",
+    "definitions": [
+     {
+      "text": "crime",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overlooking original",
+      "for": "deletion",
+      "note": "overlooking the original means ignoring the very first letter, so it is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clergyman",
+      "gives": "PARSON",
+      "note": "a parson is a parish priest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARSON"
+     ]
+    },
+    "explanation": {
+     "surface": "A vicar turns a blind eye to the first sin of all.",
+     "walkthrough": "'Original crime' suggests original sin, but 'original' belongs to the wordplay: the clergyman loses his first letter.",
+     "definitionFit": "Arson is the criminal offence of deliberately setting fire to property."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "original"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +820,55 @@
     "text": "Sad being around eastern port",
     "enumeration": "7"
    },
-   "solution": "TRIESTE"
+   "solution": "TRIESTE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRIESTE",
+    "definitions": [
+     {
+      "text": "port",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being around",
+      "for": "container",
+      "note": "one word being around another means it surrounds it on both sides"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sad",
+      "gives": "TRISTE",
+      "note": "triste is a literary word, borrowed from French, for sad"
+     },
+     {
+      "clueFragment": "eastern",
+      "gives": "E",
+      "note": "E is the abbreviation for eastern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRI",
+      "E",
+      "STE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is feeling melancholy around a harbour in the east.",
+     "walkthrough": "Triste is used in English as a poetic word for sorrowful.",
+     "definitionFit": "Trieste is a major Italian seaport at the head of the Adriatic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "being"
+    }
+   }
   },
   {
    "number": 13,
@@ -253,7 +888,46 @@
      }
     ]
    },
-   "solution": "HOMERUN"
+   "solution": "HOMERUN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOME RUN",
+    "definitions": [
+     {
+      "text": "Baseball score",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "HOME",
+      "note": "someone in is at home"
+     },
+     {
+      "clueFragment": "series",
+      "gives": "RUN",
+      "note": "a run is a series, as in a run of wins"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOME",
+      "RUN"
+     ]
+    },
+    "explanation": {
+     "surface": "A tally recorded during a baseball series.",
+     "definitionFit": "In baseball a batter who rounds every base on one hit scores this, a run by a single hitter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "series"
+    }
+   }
   },
   {
    "number": 14,
@@ -277,7 +951,53 @@
      }
     ]
    },
-   "solution": "WETONESWHISTLE"
+   "solution": "WETONESWHISTLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WET ONES WHISTLE",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Wild",
+      "for": "anagram",
+      "note": "something wild is unruly and out of order, so the following letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "West hostel - wine",
+      "gives": "WESTHOSTELWINE",
+      "note": "the fodder, all fourteen letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WESTHOSTELWINE",
+       "gives": "WETONESWHISTLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker in a frontier saloon of the Wild West asks whether wine is on offer.",
+     "definitionFit": "To wet one's whistle is an idiom for having a drink, especially to quench thirst."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Wild"
+    }
+   }
   },
   {
    "number": 15,
@@ -291,7 +1011,59 @@
     "text": "Programme I came across in desk",
     "enumeration": "9"
    },
-   "solution": "TIMETABLE"
+   "solution": "TIMETABLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TIMETABLE",
+    "definitions": [
+     {
+      "text": "Programme",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "desk",
+      "gives": "TABLE",
+      "note": "a table can serve as a desk"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "came across",
+      "gives": "MET",
+      "note": "to meet someone is to come across them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "IMET",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone found a schedule while rummaging through a desk.",
+     "definitionFit": "A timetable is a programme or schedule listing when events take place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Programme"
+    }
+   }
   },
   {
    "number": 16,
@@ -305,7 +1077,55 @@
     "text": "Bones from Wounded Knee? Lots",
     "enumeration": "8"
    },
-   "solution": "SKELETON"
+   "solution": "SKELETON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SKELETON",
+    "definitions": [
+     {
+      "text": "Bones",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Wounded",
+      "for": "anagram",
+      "note": "wounded means damaged, so the letters are knocked out of shape"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Knee? Lots",
+      "gives": "KNEELOTS",
+      "note": "the fodder, eight letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "KNEELOTS",
+       "gives": "SKELETON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Remains recovered from the battlefield of Wounded Knee, many of them.",
+     "walkthrough": "Wounded Knee, South Dakota, was the site of an 1890 massacre; here 'Wounded' is the signal and 'Knee' fodder.",
+     "definitionFit": "A skeleton is the full framework of bones supporting a body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Wounded"
+    }
+   }
   },
   {
    "number": 17,
@@ -333,7 +1153,67 @@
      }
     ]
    },
-   "solution": "IMALLRIGHTJACK"
+   "solution": "IMALLRIGHTJACK",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "IM ALL RIGHT JACK",
+    "definitions": [
+     {
+      "text": "never mind the others",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "secured by",
+      "for": "container",
+      "note": "something secured by others is held fast between them, so it goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "Maiden",
+      "gives": "M",
+      "note": "M is the cricket scorecard abbreviation for a maiden over"
+     },
+     {
+      "clueFragment": "fairly good",
+      "gives": "ALLRIGHT",
+      "note": "all right means satisfactory, fairly good"
+     },
+     {
+      "clueFragment": "ball",
+      "gives": "JACK",
+      "note": "in bowls the jack is the small target ball"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "M",
+      "ALLRIGHT",
+      "JACK"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket over with no runs, plus one decent delivery, and to blazes with everyone else.",
+     "walkthrough": "The maiden sits between the one and the fairly good. In the game of bowls, players roll their balls towards a small white ball called the jack.",
+     "definitionFit": "The catchphrase expresses smug selfishness: I'm comfortable, so other people's problems are not my concern."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Maiden"
+    }
+   }
   },
   {
    "number": 18,
@@ -347,7 +1227,57 @@
     "text": "Untruths about toddler? That could be an understatement",
     "enumeration": "7"
    },
-   "solution": "LITOTES"
+   "solution": "LITOTES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LITOTES",
+    "definitions": [
+     {
+      "text": "understatement",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one thing about another goes round it"
+     }
+    ],
+    "linkWords": [
+     "That could be an"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Untruths",
+      "gives": "LIES",
+      "note": "lies are untruths"
+     },
+     {
+      "clueFragment": "toddler",
+      "gives": "TOT",
+      "note": "a tot is a small child"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "TOT",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Fibs told about a small child might be playing things down.",
+     "definitionFit": "Litotes is a figure of speech using ironic understatement, such as 'not bad' for very good."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "toddler"
+    }
+   }
   },
   {
    "number": 19,
@@ -361,7 +1291,59 @@
     "text": "After short time, Dickens character, duke, plodded wearily",
     "enumeration": "7"
    },
-   "solution": "TRUDGED"
+   "solution": "TRUDGED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRUDGED",
+    "definitions": [
+     {
+      "text": "plodded wearily",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After",
+      "for": "charade",
+      "note": "after says the following pieces come behind the first one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "short time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "Dickens character",
+      "gives": "RUDGE",
+      "note": "Barnaby Rudge, title hero of a Dickens novel"
+     },
+     {
+      "clueFragment": "duke",
+      "gives": "D",
+      "note": "D is the abbreviation for duke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RUDGE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Briefly, a Victorian character and an aristocrat trudged along wearily.",
+     "definitionFit": "To trudge is to walk slowly and heavily, as when tired."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 20,
@@ -375,7 +1357,55 @@
     "text": "Let off extra duties, initially",
     "enumeration": "6"
    },
-   "solution": "SPARED"
+   "solution": "SPARED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SPARED",
+    "definitions": [
+     {
+      "text": "Let off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the first letter of the word just before"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extra",
+      "gives": "SPARE",
+      "note": "spare means extra, surplus"
+     },
+     {
+      "clueFragment": "duties",
+      "gives": "D",
+      "select": "first",
+      "note": "its opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPARE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is excused from additional chores at the start.",
+     "definitionFit": "To be spared is to be let off, excused from a punishment or task."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "duties"
+    }
+   }
   },
   {
    "number": 21,
@@ -395,7 +1425,69 @@
      }
     ]
    },
-   "solution": "PITSTOP"
+   "solution": "PITSTOP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "and_lit"
+    ],
+    "answer": "PIT STOP",
+    "definitions": [
+     {
+      "text": "Possible reason attempt to secure TT is dashed?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dashed",
+      "for": "anagram",
+      "note": "dashed means smashed to bits, so those letters are broken up and rearranged"
+     },
+     {
+      "text": "to secure",
+      "for": "container",
+      "note": "to secure something is to hold it fast inside, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attempt",
+      "gives": "POP",
+      "note": "to have a pop is to have a go or attempt"
+     },
+     {
+      "clueFragment": "TT is",
+      "gives": "TTIS",
+      "note": "fodder for the rearrangement, taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ITST",
+      "OP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TTIS",
+       "gives": "ITST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Speculating on why a bid to win the TT motorcycle race has come to nothing.",
+     "walkthrough": "The TT is the Isle of Man Tourist Trophy motorcycle race. Read as a whole, the clue describes a halt in the pits that can wreck a racer's chances.",
+     "definitionFit": "A pit stop is a halt for fuel or repairs during a race, and a slow one can cost victory."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dashed"
+    }
+   }
   },
   {
    "number": 22,
@@ -409,7 +1501,64 @@
     "text": "Newspaper on Jura cut by pound?",
     "enumeration": "7"
    },
-   "solution": "JOURNAL"
+   "solution": "JOURNAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "JOURNAL",
+    "definitions": [
+     {
+      "text": "Newspaper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "anagram",
+      "note": "cutting a pack of cards changes the order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Jura",
+      "gives": "JURA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pound",
+      "gives": "L",
+      "note": "L, from Latin libra, is the pound sign"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONJURAL",
+       "gives": "JOURNAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A paper about the Scottish island of Jura seems to have been trimmed by a pound.",
+     "walkthrough": "Jura is an island in the Scottish Hebrides; here it is just a set of letters to rearrange.",
+     "definitionFit": "A journal is a daily newspaper or periodical publication, as in the Wall Street Journal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 23,
@@ -423,7 +1572,56 @@
     "text": "Approaches mean head of syndicate",
     "enumeration": "5"
    },
-   "solution": "NEARS"
+   "solution": "NEARS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NEARS",
+    "definitions": [
+     {
+      "text": "Approaches",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mean",
+      "gives": "NEAR",
+      "note": "near is old-fashioned British slang for stingy or mean"
+     },
+     {
+      "clueFragment": "syndicate",
+      "gives": "S",
+      "select": "first",
+      "note": "its opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEAR",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A stingy boss of a business consortium comes closer.",
+     "walkthrough": "'Mean' looks like a verb or an average, but here it is the adjective stingy.",
+     "definitionFit": "To near something is to draw closer to it, to come up to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mean"
+    }
+   }
   },
   {
    "number": 24,
@@ -437,7 +1635,54 @@
     "text": "Mechanical man, British in origin",
     "enumeration": "5"
    },
-   "solution": "ROBOT"
+   "solution": "ROBOT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ROBOT",
+    "definitions": [
+     {
+      "text": "Mechanical man",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "origin",
+      "gives": "ROOT",
+      "note": "the root of something is its origin"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "B",
+      "OT"
+     ]
+    },
+    "explanation": {
+     "surface": "An automaton that was invented in Britain.",
+     "definitionFit": "A robot is a machine built to carry out human tasks, an artificial worker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "origin"
+    }
+   }
   },
   {
    "number": 25,
@@ -451,7 +1696,53 @@
     "text": "New arrival's special art - miming",
     "enumeration": "9"
    },
-   "solution": "IMMIGRANT"
+   "solution": "IMMIGRANT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IMMIGRANT",
+    "definitions": [
+     {
+      "text": "New arrival",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "special",
+      "for": "anagram",
+      "note": "something special is out of the ordinary, so these letters take an unusual order"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "art - miming",
+      "gives": "ARTMIMING",
+      "note": "the fodder, nine letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARTMIMING",
+       "gives": "IMMIGRANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newcomer's party trick is mime.",
+     "definitionFit": "An immigrant is someone who has come to settle in a new country, a newcomer from abroad."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "special"
+    }
+   }
   },
   {
    "number": 26,
@@ -465,7 +1756,57 @@
     "text": "Event for rider in period costume, primarily",
     "enumeration": "8"
    },
-   "solution": "DRESSAGE"
+   "solution": "DRESSAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRESSAGE",
+    "definitions": [
+     {
+      "text": "Event for rider",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "charade",
+      "note": "primarily here means placed first, so the costume word leads the pair"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "costume",
+      "gives": "DRESS",
+      "note": "dress is costume or clothing"
+     },
+     {
+      "clueFragment": "period",
+      "gives": "AGE",
+      "note": "an age is a period of history"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRESS",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A horse-show event where the rider wears historical costume.",
+     "walkthrough": "'Period costume' reads as one phrase, but the two words are separate pieces, and the comma's 'primarily' puts the second one first.",
+     "definitionFit": "Dressage is an equestrian competition in which a horse and rider perform precise trained movements."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "period"
+    }
+   }
   },
   {
    "number": 27,
@@ -485,7 +1826,55 @@
      }
     ]
    },
-   "solution": "ODDSON"
+   "solution": "ODDSON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ODDS-ON",
+    "definitions": [
+     {
+      "text": "Likely",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after tells us the piece for lad comes second, behind the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rum",
+      "gives": "ODD",
+      "note": "rum is British slang for strange or odd"
+     },
+     {
+      "clueFragment": "lad",
+      "gives": "SON",
+      "note": "a son is a boy or lad"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ODD",
+      "SON"
+     ]
+    },
+    "explanation": {
+     "surface": "A young fellow who has been on the rum is probably going to be trouble.",
+     "walkthrough": "Rum here is the old British adjective meaning peculiar, not the drink.",
+     "definitionFit": "Odds-on is a betting term for a runner rated more probable than not to win."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rum"
+    }
+   }
   }
  ]
 }
