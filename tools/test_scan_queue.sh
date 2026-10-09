@@ -238,6 +238,18 @@ check("a VLM that stops answering mid-run reads as down for the rest of that wor
 print(f"FAILS {fails}")
 EOF
 )
+# A run loads the write path's modules up front, so a checkout that moves
+# mid-run cannot pair a newer puzzle_integrity with an older fetch_puzzle
+# (duplicated_clues() got an unexpected keyword argument 'one_list').
+lazy=$(cd "$REPO/tools" && nice -n 19 python3 -I -c '
+import sys; sys.path.insert(0, ".")
+import scan_queue as q
+before = {m for m in ("puzzle_integrity", "fetch_puzzle", "ocr_clues") if m in sys.modules}
+list(q.parallel([], lambda: None))
+print(sorted(before), all(m in sys.modules for m in ("puzzle_integrity", "fetch_puzzle", "ocr_clues")))
+')
+[ "$lazy" = "[] True" ] || { echo "FAIL a run loads the write path up front: $lazy"; exit 1; }
+echo "ok   a run loads the write path's modules before any item"
 echo "$out"
 grep -q '^FAILS 0$' <<<"$out" || { echo "test_scan_queue: failed"; exit 1; }
 echo "test_scan_queue: all passed"
