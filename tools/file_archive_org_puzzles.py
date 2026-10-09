@@ -526,6 +526,13 @@ def locate_grid(img, title):
             and (side != "left" or box[2] < cx) and (side != "right" or box[0] > cx)
         if clear and shaped_on(img, box):
             return box, side
+        # A grid another side's crop finds whole under the title, across its
+        # middle, is the grid under it: the one under-crop joins it to the
+        # clue column (Times 16,977) or cuts it at a title it touches
+        # (Times 14,132).
+        if box is not None and box[1] > crop[1] + 2 and box[1] >= y1 - TITLE_OVERLAP \
+                and box[0] < cx < box[2] and shaped_on(img, box):
+            return box, "below"
         first = first or box
     return first, None
 
@@ -2078,10 +2085,11 @@ def times1930_expected_number(day):
 
 
 #: "THE TIMES CROSSWORD PUZZLE No. 27"; the OCR often reads the number apart
-#: from the words, or not at all.
-TITLE_1930 = re.compile(r"^\W*(?:\S{1,8}\s+){0,3}?crossword\W{0,3}\s*puzzle\W{0,3}\s*n[o0]\W{0,3}\s*(\d{1,3})(?!\d)",
-                        re.IGNORECASE)
-TITLE_1930_BARE = re.compile(r"^\W*(?:\S{1,8}\s+){0,3}?crossword\W{0,3}\s*puzzle\W{0,3}\s*(?:n[o0]\W{0,3})?\s*\S{0,4}$",
+#: from the words, or not at all, splits "CROSS WORD" or "PUZ ZLE", reads
+#: "PUBZLE", or runs the next column's words on ahead of "TIMES".
+TITLE_1930 = re.compile(r"(?:^\W*(?:\S{1,8}\s+){0,3}?|\btimes\W{0,3}\s*)cross\s?word\W{0,3}\s*pu[zb]\s?[zb]le\W{0,3}"
+                        r"\s*n[o0]\W{0,3}\s*(\d{1,3})(?!\d)", re.IGNORECASE)
+TITLE_1930_BARE = re.compile(r"^\W*(?:\S{1,8}\s+){0,3}?cross\s?word\W{0,3}\s*pu[zb]\s?[zb]le\W{0,3}\s*(?:n[o0]\W{0,3})?\s*\S{0,4}$",
                              re.IGNORECASE)
 #: "SOLUTION OF PUZZLE No. 26", under the clues.
 SOLUTION_1930 = re.compile(r"^\W*(?:\S{1,2}\s+)?solution\s+(?:of|to)\s+puzzle\s+n[o0]\W{0,3}\s*(\d{1,3})(?!\d)", re.IGNORECASE)
@@ -2099,9 +2107,10 @@ def times1930_headings(lines):
         if m:
             sols.append((int(m[1]), box_of(ws)))
             continue
-        m = TITLE_1930.match(text)
+        m = TITLE_1930.search(text)
         if m:
-            titles.append((int(m[1]), box_of(ws), None))
+            at = [len(" ".join(w[4] for w in ws[:k])) + (k > 0) for k in range(len(ws))]
+            titles.append((int(m[1]), box_of([w for w, a in zip(ws, at) if a >= m.start()]), None))
         elif TITLE_1930_BARE.match(text):
             bare.append(box_of(ws))
     if not titles and bare and len(sols) == 1:
@@ -2443,6 +2452,10 @@ def filed_number(d, found, hit):
 #: Why a title was refused: the verdict's `cause`, which tools/coverage.py
 #: buckets by. `refused` keeps the detail for a person.
 REFUSALS = ("number-date-mismatch", "not-a-grid", "no-reading-parses", "crashed")
+#: {cause: ISO time}: an edition a title of which was refused for `cause`
+#: and read before that time is read again (due_reason), when the code
+#: behind that refusal changes; the rest of the corpus is not.
+REREAD_REFUSED = {"not-a-grid": "2026-10-09T08:30:00+00:00"}
 
 
 def refuse(verdict, cause, why):
@@ -3087,6 +3100,10 @@ def due_reason(row, inputs, sol_seen, vlm_up, reread=None):
         return "read without the VLM"
     if reread and scan_queue.read_before(row, reread):
         return "--reread"
+    for v in row.get("verdicts", ()):
+        t = REREAD_REFUSED.get(v.get("cause"))
+        if t and scan_queue.read_before(row, scan_queue.when(t)):
+            return f"refused {v['cause']} before its fix"
     return None
 
 
