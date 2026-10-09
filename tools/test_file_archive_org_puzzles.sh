@@ -1364,6 +1364,56 @@ flags = []
 puzzle_integrity.check_rewrite(held, definitions.place_puzzle(puzzle_schema.prune(copy.deepcopy(mended))), flags)
 check("a mended filing places its definitions and passes the rewrite check", [], flags)
 
+# A reader's fix to a held clue's words reaches the file (corrected_clues):
+# Listener No 3's 52D gained its opening "A". A reading that drops a real
+# word, swaps one, blanks a clue or makes one up does not land; nor does
+# one under an annotation or a source_clue_wrong row, written against the
+# held words, nor one that improves() the file (it replaces it whole).
+check("a reading adding a word, or mending a misread non-word, corrects a held clue",
+      [True, True, True], [f.corrects("Frontier cantonment.", "A Frontier cantonment."),
+                           f.corrects("Fudqe the issue", "Fudge the issue"),
+                           f.corrects("A. junction", "A junction")])
+check("a reading losing or swapping a real word, blank, unchanged or made up corrects nothing",
+      [False] * 5, [f.corrects("Frontier cantonment.", "Frontier."),
+                    f.corrects("Fudge the issue", "Judge the issue"),
+                    f.corrects("Frontier cantonment.", ""),
+                    f.corrects("A town", "A town"),
+                    f.corrects("A town", "A town xqzvb")])
+held = held_13998(["A man's man", "Occasional raid cops turn out", "Sporadic"])
+path.write_text(json.dumps(held))
+mended, now = f.mend_held(held_13998(["A man's man", "Occasional raid cops turn out for", "Sporadic"]), path)
+check("a held filing takes a reading's added word, answers kept, the rest as held",
+      ({"15-across": "Occasional raid cops turn out for"}, "ANTIMONY", "A man's man"),
+      (now, mended["entries"][1]["solution"], mended["entries"][0]["clue"]["text"]))
+flags = []
+puzzle_integrity.check_rewrite(held, mended, flags)
+check("a corrected filing passes the rewrite check", [], flags)
+check("a reading losing a held word leaves the file alone", None,
+      f.mend_held(held_13998(["A man's man", "Occasional raid cops turn", "Sporadic"]), path))
+check("a reading with a clue blank leaves the held clue alone", None,
+      f.mend_held(held_13998(["A man's man", "", "Sporadic"]), path))
+check("a reading laying another light's words on a light corrects nothing", None,
+      f.mend_held(held_13998(["A man's man", "Occasional raid cops turn out", "Occasional raid cops turn out"]), path))
+held["entries"][1]["annotation"] = {"definitions": [{"text": "turn out", "at": 21}]}
+path.write_text(json.dumps(held))
+check("an annotated held clue keeps its words and annotation", None,
+      f.mend_held(held_13998(["A man's man", "Occasional raid cops turn out for", "Sporadic"]), path))
+del held["entries"][1]["annotation"]
+path.write_text(json.dumps(held))
+import fetch_puzzle
+fetch_puzzle.SOURCE_CLUE_WRONG[("times-13998", "15-across")] = ("Occasional", "Occasional raid cops turn out", "x")
+check("a held clue a source_clue_wrong row names keeps its words", None,
+      f.mend_held(held_13998(["A man's man", "Occasional raid cops turn out for", "Sporadic"]), path))
+del fetch_puzzle.SOURCE_CLUE_WRONG[("times-13998", "15-across")]
+path.write_text(json.dumps(held_13998(["A man's man", "Occasional raid cops turn out", ""])))
+check("a reading that improves() the file is no correction: it replaces the file", None,
+      f.mend_held(held_13998(["A man's man", "Occasional raid cops turn out for", "Sporadic"]), path))
+other = held_13998(["A man's man", "Occasional raid cops turn out", "Sporadic"])
+other["source"]["acquiredBy"] = "tools/acquire_book.py"
+path.write_text(json.dumps(other))
+check("another tool's file is never corrected", None,
+      f.mend_held(held_13998(["A man's man", "Occasional raid cops turn out for", "Sporadic"]), path))
+
 check("a one read as l before a digit, and the space lost after a question mark, mended",
       "Worried? Pulse for a 19th-century school", ocr_clues.clean("Worried?Pulse for a l9th-century school"))
 
