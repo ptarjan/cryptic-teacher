@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,67 @@
     "text": "King is enthralled by modern revolutionary architect",
     "enumeration": "4"
    },
-   "solution": "WREN"
+   "solution": "WREN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "WREN",
+    "definitions": [
+     {
+      "text": "architect",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "a revolution turns something round, so the word for modern is read backwards"
+     },
+     {
+      "text": "is enthralled by",
+      "for": "container",
+      "note": "to be enthralled is to be held captive, so the king's letter sits held inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "modern",
+      "gives": "NEW",
+      "note": "modern means new"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "R is short for Rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "R",
+      "EN"
+     ],
+     "reversals": [
+      {
+       "from": "NERW",
+       "to": "WREN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch is captivated by a radical modernist designer of buildings.",
+     "walkthrough": "Sir Christopher Wren designed St Paul's Cathedral; the reversed word for modern wraps around the king's letter.",
+     "definitionFit": "Christopher Wren was the celebrated English architect of St Paul's Cathedral, so his surname is an example of an architect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +109,56 @@
     "text": "Grow mad playing electronic Scrabble for one",
     "enumeration": "8"
    },
-   "solution": "WORDGAME"
+   "solution": "WORDGAME",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "WORDGAME",
+    "definitions": [
+     {
+      "text": "Scrabble for one",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing about with the letters means arranging them freely into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grow mad",
+      "gives": "GROWMAD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "electronic",
+      "gives": "E",
+      "note": "E is the usual short form for electronic, as in e-mail"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GROWMADE",
+       "gives": "WORDGAME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone goes crazy playing the computer version of a board game.",
+     "definitionFit": "Scrabble, in which tiles are laid to form words, is an example of a puzzle played with words."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +172,47 @@
     "text": "Not all of current rail service is tripe",
     "enumeration": "8"
    },
-   "solution": "ENTRAILS"
+   "solution": "ENTRAILS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ENTRAILS",
+    "definitions": [
+     {
+      "text": "tripe",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not all of",
+      "for": "hidden_word",
+      "note": "not all of means only a run of letters inside the following words is used"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "current rail service",
+      "gives": "ENTRAILS",
+      "note": "the letters run from the end of current through rail to the start of service"
+     }
+    ],
+    "explanation": {
+     "surface": "A grumble that today's train network is rubbish, or at least partly.",
+     "walkthrough": "'Tripe' looks like slang for nonsense, but it is the stomach lining eaten as food.",
+     "definitionFit": "Tripe is the stomach lining of cattle, so it belongs to the innards or guts of an animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tripe"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +226,40 @@
     "text": "They're employed to remove unwanted guests, snappily?",
     "enumeration": "10"
    },
-   "solution": "MOUSETRAPS"
+   "solution": "MOUSETRAPS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "MOUSETRAPS",
+    "definitions": [
+     {
+      "text": "They're employed to remove unwanted guests, snappily?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They're employed to remove unwanted guests",
+      "note": "surface reading: bouncers or hosts showing gatecrashers the door"
+     },
+     {
+      "clueFragment": "snappily",
+      "note": "setter's reading: the devices snap shut, and the unwanted guests are small rodents in the house"
+     }
+    ],
+    "explanation": {
+     "surface": "Something about bouncers quickly ejecting gatecrashers from a party.",
+     "walkthrough": "'Snappily' seems to mean briskly, but it points to the spring that snaps shut on a rodent visitor.",
+     "definitionFit": "Spring-loaded traps are set to catch rodents, uninvited household pests, and they work with a snap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "snappily"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +273,58 @@
     "text": "Neat plan detailed to produce chemical compound",
     "enumeration": "5"
    },
-   "solution": "OXIDE"
+   "solution": "OXIDE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "OXIDE",
+    "definitions": [
+     {
+      "text": "chemical compound",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "detailed",
+      "for": "deletion",
+      "note": "detailed is read as de-tailed, with the last letter cut off"
+     }
+    ],
+    "linkWords": [
+     "to produce"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Neat",
+      "gives": "OX",
+      "note": "neat is an old word for cattle, so an ox"
+     },
+     {
+      "clueFragment": "plan",
+      "gives": "IDEA",
+      "note": "a plan is an idea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OX",
+      "IDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tidy, carefully itemised plan makes a chemical.",
+     "walkthrough": "'Neat' as tidy is the surface; in crosswords it is cattle, so OX.",
+     "definitionFit": "An oxide is a binary compound of oxygen with another element, such as rust on iron."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Neat"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +338,61 @@
     "text": "Working in US, job journalist added at the end",
     "enumeration": "9"
    },
-   "solution": "SUBJOINED"
+   "solution": "SUBJOINED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SUBJOINED",
+    "definitions": [
+     {
+      "text": "added at the end",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Working",
+      "for": "anagram",
+      "note": "working means the letters are put to work and reshaped into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in US, job",
+      "gives": "INUSJOB",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED is short for editor, a journalist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUBJOIN",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INUSJOB",
+       "gives": "SUBJOIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reporter took a job in America and joined the team late.",
+     "walkthrough": "'in' looks like a link but belongs to the fodder.",
+     "definitionFit": "To subjoin is to append at the end, as a postscript is tacked on below a letter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 6,
@@ -116,7 +406,58 @@
     "text": "Russian's notes filling book which is slightly annoying",
     "enumeration": "11"
    },
-   "solution": "TROUBLESOME"
+   "solution": "TROUBLESOME",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TROUBLESOME",
+    "definitions": [
+     {
+      "text": "slightly annoying",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filling",
+      "for": "container",
+      "note": "filling means going inside, so the currency sits within the book"
+     }
+    ],
+    "linkWords": [
+     "which is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "book",
+      "gives": "TOME",
+      "note": "a tome is a large book"
+     },
+     {
+      "clueFragment": "Russian's notes",
+      "gives": "ROUBLES",
+      "note": "the rouble is the Russian currency, its banknotes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ROUBLES",
+      "OME"
+     ]
+    },
+    "explanation": {
+     "surface": "Russian banknotes stuffed into a book are a mild nuisance.",
+     "walkthrough": "'Notes' suggests music, but these are banknotes.",
+     "definitionFit": "Troublesome describes something causing bother or difficulty, a mild nuisance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "notes"
+    }
+   }
   },
   {
    "number": 7,
@@ -130,7 +471,73 @@
     "text": "Religious retreat spoils area for retirement, husband claimed",
     "enumeration": "6"
    },
-   "solution": "ASHRAM"
+   "solution": "ASHRAM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "ASHRAM",
+    "definitions": [
+     {
+      "text": "Religious retreat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for retirement",
+      "for": "reversal",
+      "note": "retiring is withdrawing backwards, so the letters go into reverse"
+     },
+     {
+      "text": "claimed",
+      "for": "container",
+      "note": "something claimed is taken in and held, so the husband sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spoils",
+      "gives": "MARS",
+      "note": "to mar is to spoil, so spoils is mars"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is short for area"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the standard abbreviation for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "H",
+      "RAM"
+     ],
+     "reversals": [
+      {
+       "from": "MARSA",
+       "to": "ASRAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spiritual retreat ruins a retirement area after a husband stakes a claim.",
+     "walkthrough": "MARS + A runs backwards to ASRAM, which takes in H.",
+     "definitionFit": "An ashram is a Hindu hermitage or community where people withdraw for spiritual study."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spoils"
+    }
+   }
   },
   {
    "number": 8,
@@ -144,7 +551,54 @@
     "text": "Walked in Dorset, rambling",
     "enumeration": "6"
    },
-   "solution": "STRODE"
+   "solution": "STRODE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STRODE",
+    "definitions": [
+     {
+      "text": "Walked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rambling",
+      "for": "anagram",
+      "note": "rambling means wandering about, so the place name's letters wander into another order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dorset",
+      "gives": "DORSET",
+      "note": "taken as written; Dorset is a county in southern England"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DORSET",
+       "gives": "STRODE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone went hiking in the English county of Dorset.",
+     "walkthrough": "'Rambling' fits the walking picture perfectly, which hides its role.",
+     "definitionFit": "Strode is the past tense of stride, to walk with long steps."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rambling"
+    }
+   }
   },
   {
    "number": 9,
@@ -158,7 +612,71 @@
     "text": "Course of action oddly right on reflection",
     "enumeration": "4"
    },
-   "solution": "ROTA"
+   "solution": "ROTA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "ROTA",
+    "definitions": [
+     {
+      "text": "Course",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly asks for the letters in the odd-numbered places of the word before it"
+     },
+     {
+      "text": "on reflection",
+      "for": "reversal",
+      "note": "a reflection shows things the wrong way round, so the letters gathered so far are read backwards"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "action",
+      "gives": "ATO",
+      "select": "alternate",
+      "note": "first, third and fifth letters of action"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the usual abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "OTA"
+     ],
+     "reversals": [
+      {
+       "from": "ATOR",
+       "to": "ROTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plan of action is chosen almost at random, then rethought.",
+     "walkthrough": "'Course of action' looks like one phrase defining the answer, but only 'Course' is the definition; the wordplay starts at 'action'.",
+     "definitionFit": "A rota is a fixed round or rotation of duties, a regular course that people take turns following."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "action"
+    }
+   }
   },
   {
    "number": 10,
@@ -178,7 +696,65 @@
      }
     ]
    },
-   "solution": "BIGBROTHER"
+   "solution": "BIGBROTHER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BIG BROTHER",
+    "definitions": [
+     {
+      "text": "TV show",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "something that runs into something else ends up inside it"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means the next part comes after the film title in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hanks film",
+      "gives": "BIG",
+      "note": "Big is a 1988 Tom Hanks comedy"
+     },
+     {
+      "clueFragment": "trouble",
+      "gives": "BOTHER",
+      "note": "trouble and bother are synonyms"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket scoring abbreviation for runs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIG",
+      "BROTHER"
+     ]
+    },
+    "explanation": {
+     "surface": "A television programme scheduled after a Tom Hanks movie hits problems.",
+     "walkthrough": "Big Brother is the reality show in which housemates are filmed round the clock.",
+     "definitionFit": "Big Brother is a long-running reality television programme, so it is an instance of a TV show."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 11,
@@ -192,7 +768,50 @@
     "text": "Eccentric enraged high-ranking individual",
     "enumeration": "7"
    },
-   "solution": "GRANDEE"
+   "solution": "GRANDEE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GRANDEE",
+    "definitions": [
+     {
+      "text": "high-ranking individual",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Eccentric",
+      "for": "anagram",
+      "note": "an eccentric is off-centre and odd, so the following word's letters are put out of their usual order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "enraged",
+      "gives": "ENRAGED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ENRAGED",
+       "gives": "GRANDEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An odd, furious person of rank storms about.",
+     "definitionFit": "A grandee is a nobleman of the highest rank, originally in Spain, hence any person of great importance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Eccentric"
+    }
+   }
   },
   {
    "number": 12,
@@ -206,7 +825,66 @@
     "text": "I wrote poetry after focus of studies expanded",
     "enumeration": "11"
    },
-   "solution": "DIVERSIFIED"
+   "solution": "DIVERSIFIED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DIVERSIFIED",
+    "definitions": [
+     {
+      "text": "expanded",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "focus of",
+      "for": "letter_selection",
+      "note": "the focus is the central point, so the middle letter is taken"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the first part of the clue later in the answer than the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "studies",
+      "gives": "D",
+      "select": "middle",
+      "note": "the middle letter of this seven-letter word"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "wrote poetry",
+      "gives": "VERSIFIED",
+      "note": "to versify is to write verse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "I",
+      "VERSIFIED"
+     ]
+    },
+    "explanation": {
+     "surface": "A student explains that their poetry-writing grew out of their studies.",
+     "definitionFit": "A business that diversified branched out into new areas, so it broadened or grew its range."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "focus"
+    }
+   }
   },
   {
    "number": 13,
@@ -226,7 +904,43 @@
      }
     ]
    },
-   "solution": "ONBOARD"
+   "solution": "ONBOARD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ON BOARD",
+    "definitions": [
+     {
+      "text": "Where one sees bishops perhaps",
+      "at": 0
+     },
+     {
+      "text": "in an aeroplane?",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where one sees bishops perhaps",
+      "note": "first meaning: on a chessboard, where bishops are pieces"
+     },
+     {
+      "clueFragment": "in an aeroplane?",
+      "note": "second meaning: aboard a plane as a passenger"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Bishops suggest a church, but they are the chess pieces, found on the playing surface.",
+     "definitionFit": "Chessmen stand on the chequered playing surface, and passengers already inside a plane are said to have got aboard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bishops"
+    }
+   }
   },
   {
    "number": 14,
@@ -240,7 +954,63 @@
     "text": "Viciousness in man fighting one overlooked",
     "enumeration": "11"
    },
-   "solution": "MALEVOLENCE"
+   "solution": "MALEVOLENCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "MALEVOLENCE",
+    "definitions": [
+     {
+      "text": "Viciousness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overlooked",
+      "for": "deletion",
+      "note": "something overlooked is left out, so the letter for one goes missing"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man",
+      "gives": "MALE",
+      "note": "a man is a male"
+     },
+     {
+      "clueFragment": "fighting",
+      "gives": "VIOLENCE",
+      "note": "fighting is violence"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MALE",
+      "VOLENCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Cruelty in a brawling man is ignored by others.",
+     "walkthrough": "The numeral for one drops out of the word for fighting, leaving MALE + VOLENCE = MALEVOLENCE.",
+     "definitionFit": "Malevolence is a wish to do harm to others, close in meaning to spite or cruelty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "overlooked"
+    }
+   }
   },
   {
    "number": 15,
@@ -254,7 +1024,72 @@
     "text": "Parisian's agreement to visit large volatile Asian state",
     "enumeration": "9"
    },
-   "solution": "LOUISIANA"
+   "solution": "LOUISIANA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LOUISIANA",
+    "definitions": [
+     {
+      "text": "state",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "volatile",
+      "for": "anagram",
+      "note": "volatile means unstable, so the letters of the next word shift into a new order"
+     },
+     {
+      "text": "to visit",
+      "for": "container",
+      "note": "a visitor goes inside, so the agreement word is placed within the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the standard abbreviation for large"
+     },
+     {
+      "clueFragment": "Parisian's agreement",
+      "gives": "OUI",
+      "note": "oui is French for yes"
+     },
+     {
+      "clueFragment": "Asian",
+      "gives": "SIANA",
+      "note": "the letters of this word, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "OUI",
+      "SIANA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ASIAN",
+       "gives": "SIANA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Frenchman agrees to travel to a large, unstable country in Asia.",
+     "walkthrough": "OUI goes between L and the rearranged ASIAN; Louisiana's French heritage gives the surface an apt touch.",
+     "definitionFit": "Louisiana is one of the fifty United States, on the Gulf of Mexico."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Asian"
+    }
+   }
   },
   {
    "number": 16,
@@ -268,7 +1103,55 @@
     "text": "Princess welcoming nation's PM",
     "enumeration": "8"
    },
-   "solution": "DISRAELI"
+   "solution": "DISRAELI",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DISRAELI",
+    "definitions": [
+     {
+      "text": "PM",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "welcoming someone means taking them in, so the nation sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Princess",
+      "gives": "DI",
+      "note": "Di is Princess Diana"
+     },
+     {
+      "clueFragment": "nation's",
+      "gives": "ISRAEL",
+      "note": "Israel is a nation; the 's is joining"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ISRAEL",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A princess hosts a nation's prime minister.",
+     "walkthrough": "Benjamin Disraeli was a 19th-century British prime minister; 'Princess' is the usual crossword DI.",
+     "definitionFit": "Disraeli served twice as Britain's Prime Minister under Queen Victoria."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Princess"
+    }
+   }
   },
   {
    "number": 17,
@@ -282,7 +1165,62 @@
     "text": "Key soldiers at intervals they'd guarded",
     "enumeration": "8"
    },
-   "solution": "ESCORTED"
+   "solution": "ESCORTED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ESCORTED",
+    "definitions": [
+     {
+      "text": "guarded",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at intervals",
+      "for": "letter_selection",
+      "note": "at intervals means taking letters spaced out, every other one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Key",
+      "gives": "ESC",
+      "note": "Esc is the escape key on a keyboard"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "OR",
+      "note": "OR stands for other ranks, ordinary soldiers"
+     },
+     {
+      "clueFragment": "they'd",
+      "gives": "TED",
+      "select": "alternate",
+      "note": "first, third and fifth letters, ignoring the apostrophe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESC",
+      "OR",
+      "TED"
+     ]
+    },
+    "explanation": {
+     "surface": "Troops spaced out along a key route kept watch.",
+     "walkthrough": "'Key' looks like important; it is the computer key ESC.",
+     "definitionFit": "To escort someone is to accompany them for protection, so escorted means guarded."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Key"
+    }
+   }
   },
   {
    "number": 18,
@@ -302,7 +1240,50 @@
      }
     ]
    },
-   "solution": "ROUNDROBINS"
+   "solution": "ROUNDROBINS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROUND ROBINS",
+    "definitions": [
+     {
+      "text": "sports tournaments",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finish off",
+      "gives": "ROUND",
+      "note": "to round off is to finish off, so the phrase gives round"
+     },
+     {
+      "clueFragment": "fliers",
+      "gives": "ROBINS",
+      "note": "robins are birds, fliers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROUND",
+      "ROBINS"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to finish off some birds, or airmen, in contests.",
+     "walkthrough": "'Finish off' has to stand for 'round' because round off means finish.",
+     "definitionFit": "A round-robin is a competition format in which every entrant plays every other in turn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fliers"
+    }
+   }
   },
   {
    "number": 19,
@@ -316,7 +1297,45 @@
     "text": "Shakespearean cast member's car picked up",
     "enumeration": "6"
    },
-   "solution": "PORTIA"
+   "solution": "PORTIA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PORTIA",
+    "definitions": [
+     {
+      "text": "Shakespearean cast member",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up",
+      "for": "homophone",
+      "note": "picked up as on a radio or by ear, so the sound of a word matters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "car",
+      "gives": "PORTIA",
+      "soundsLike": "PORSCHE",
+      "note": "a German sports car brand, said the anglicised way"
+     }
+    ],
+    "explanation": {
+     "surface": "An actor in a Shakespeare play has a car that is collected.",
+     "walkthrough": "The 's in member's stands for has or is in the surface, but simply leads to the car.",
+     "definitionFit": "Portia is the heroine of The Merchant of Venice, so she is a character in a Shakespeare play."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "picked"
+    }
+   }
   },
   {
    "number": 20,
@@ -330,7 +1349,57 @@
     "text": "Fox seen in marshland north of Birmingham's centre",
     "enumeration": "6"
    },
-   "solution": "FENNEC"
+   "solution": "FENNEC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FENNEC",
+    "definitions": [
+     {
+      "text": "Fox",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "north of",
+      "for": "charade",
+      "note": "in a down answer, north of means placed above, so earlier in the word"
+     }
+    ],
+    "linkWords": [
+     "seen in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "marshland",
+      "gives": "FEN",
+      "note": "fen is flat marshy land"
+     },
+     {
+      "clueFragment": "Birmingham's centre",
+      "gives": "NEC",
+      "note": "the NEC is the National Exhibition Centre, a big venue near Birmingham"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FEN",
+      "NEC"
+     ]
+    },
+    "explanation": {
+     "surface": "A fox spotted in wetland just above a Birmingham venue.",
+     "walkthrough": "'North' tempts you to write N, but 'north of' only places the marsh above the exhibition centre in this down entry.",
+     "definitionFit": "The fennec is a small big-eared desert fox of North Africa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "centre"
+    }
+   }
   },
   {
    "number": 21,
@@ -344,7 +1413,83 @@
     "text": "Is back wearing old, flipping dated casual garments",
     "enumeration": "7"
    },
-   "solution": "ONESIES"
+   "solution": "ONESIES",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "ONESIES",
+    "definitions": [
+     {
+      "text": "casual garments",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means the little word just before it is read from end to start"
+     },
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "flipping turns the following word over so it reads backwards"
+     },
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "something wearing a garment is inside it, so one piece sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "dated",
+      "gives": "SEEN",
+      "note": "to date someone is to be seeing them, so dated gives seen"
+     },
+     {
+      "clueFragment": "Is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "NE",
+      "SI",
+      "ES"
+     ],
+     "reversals": [
+      {
+       "from": "IS",
+       "to": "SI"
+      },
+      {
+       "from": "SEEN",
+       "to": "NEES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is back in fashion wearing dated, out-of-style casual clothing.",
+     "walkthrough": "'Dated' looks like old-fashioned, but it means went out with, i.e. seen; SI goes inside NEES after O.",
+     "definitionFit": "Onesies are all-in-one loose jumpsuits worn for lounging, so they are relaxed, informal clothes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dated"
+    }
+   }
   },
   {
    "number": 22,
@@ -358,7 +1503,72 @@
     "text": "Singer conserving energy is on regularly for so long",
     "enumeration": "7"
    },
-   "solution": "CHEERIO"
+   "solution": "CHEERIO",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHEERIO",
+    "definitions": [
+     {
+      "text": "so long",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "conserving",
+      "for": "container",
+      "note": "conserving means keeping something safely inside, so the singer holds a letter"
+     },
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly takes every other letter of the words it follows"
+     },
+     {
+      "text": "for",
+      "for": "charade",
+      "note": "this word links the wordplay to the definition, the two built pieces joined in order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Singer",
+      "gives": "CHER",
+      "note": "Cher is the American pop singer"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     },
+     {
+      "clueFragment": "is on",
+      "gives": "IO",
+      "select": "alternate",
+      "note": "first and third letters of these two short words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHEER",
+      "IO"
+     ]
+    },
+    "explanation": {
+     "surface": "A singer saving her energy keeps going for ages.",
+     "walkthrough": "'So long' reads as a duration but it is the farewell; Cher wraps E, then IO follows.",
+     "definitionFit": "Cheerio is an informal British goodbye, used just like the parting phrase so long."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "long"
+    }
+   }
   },
   {
    "number": 22,
@@ -372,7 +1582,57 @@
     "text": "Trattoria chap set up acquiring capital",
     "enumeration": "5"
    },
-   "solution": "CAIRO"
+   "solution": "CAIRO",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "CAIRO",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "acquiring",
+      "for": "hidden_word",
+      "note": "acquiring means getting hold of, so the run of letters is held within the words"
+     },
+     {
+      "text": "set up",
+      "for": "reversal",
+      "note": "in a down answer, set up means lifted upward, so the letters read bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trattoria chap",
+      "gives": "ORIAC",
+      "note": "the end of trattoria plus the first letter of chap"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ORIAC",
+       "to": "CAIRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian restaurant worker raises some funds.",
+     "walkthrough": "'Capital' looks like money but is a capital city.",
+     "definitionFit": "Cairo is the capital city of Egypt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 23,
@@ -392,7 +1652,73 @@
      }
     ]
    },
-   "solution": "TANNICACID"
+   "solution": "TANNICACID",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "TANNIC ACID",
+    "definitions": [
+     {
+      "text": "beer ingredient",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "escapes",
+      "for": "deletion",
+      "note": "when something escapes it leaves, so the letter for European is removed"
+     },
+     {
+      "text": "exploding",
+      "for": "anagram",
+      "note": "an explosion scatters things, so the remaining letters are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "accident",
+      "gives": "ACCIDENT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Ian",
+      "gives": "IAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TANNICACID"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ACCIDNTIAN",
+       "gives": "TANNICACID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A European gets away from a crash in which Ian blows up, all about beer.",
+     "walkthrough": "Remove E from ACCIDENT, add IAN, and rearrange all ten letters.",
+     "definitionFit": "Tannic acid, or tannin, is used in brewing to clarify beer, so it counts as a brewing additive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exploding"
+    }
+   }
   },
   {
    "number": 24,
@@ -406,7 +1732,53 @@
     "text": "See out most mean bridge player",
     "enumeration": "4"
    },
-   "solution": "WEST"
+   "solution": "WEST",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "WEST",
+    "definitions": [
+     {
+      "text": "bridge player",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "deletion",
+      "note": "out means removed, so the word for see is taken away from the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See",
+      "gives": "LO",
+      "note": "lo is an old word meaning see or behold"
+     },
+     {
+      "clueFragment": "most mean",
+      "gives": "LOWEST",
+      "note": "the most mean, or base, is the lowest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WEST"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to look past the stingiest partner at the card table.",
+     "walkthrough": "LO, an old word for look, comes off the front of LOWEST.",
+     "definitionFit": "In bridge the four players are named after compass points, and West is one of those seats."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "mean"
+    }
+   }
   },
   {
    "number": 25,
@@ -420,7 +1792,67 @@
     "text": "Cunning scam ensnares mostly inattentive cleric",
     "enumeration": "10"
    },
-   "solution": "ARCHDEACON"
+   "solution": "ARCHDEACON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "container"
+    ],
+    "answer": "ARCHDEACON",
+    "definitions": [
+     {
+      "text": "cleric",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the last letter of the following word is dropped"
+     },
+     {
+      "text": "ensnares",
+      "for": "container",
+      "note": "to ensnare is to trap, so the pair of words holds the shortened word inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cunning",
+      "gives": "ARCH",
+      "note": "arch means slyly knowing or cunning"
+     },
+     {
+      "clueFragment": "scam",
+      "gives": "CON",
+      "note": "a con is a swindle"
+     },
+     {
+      "clueFragment": "inattentive",
+      "gives": "DEAF",
+      "note": "deaf to something means not paying attention to it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARCH",
+      "DEA",
+      "CON"
+     ]
+    },
+    "explanation": {
+     "surface": "A clever swindle traps a priest who is not paying much attention.",
+     "walkthrough": "'Cunning scam' reads as one idea, but the two words split apart to hold the shortened word between them. Deaf to something means ignoring it.",
+     "definitionFit": "An archdeacon is a senior Anglican clergyman below a bishop, so he is a cleric."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inattentive"
+    }
+   }
   },
   {
    "number": 26,
@@ -434,7 +1866,40 @@
     "text": "Take notice of opinion",
     "enumeration": "4"
    },
-   "solution": "MIND"
+   "solution": "MIND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MIND",
+    "definitions": [
+     {
+      "text": "Take notice of",
+      "at": 0
+     },
+     {
+      "text": "opinion",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Take notice of",
+      "note": "first meaning: a verb, to heed"
+     },
+     {
+      "clueFragment": "opinion",
+      "note": "second meaning: a noun, as in to be of one ... or to speak one's view"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "As a verb the word means pay heed to; as a noun it means view, as in changing one's thinking on something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
