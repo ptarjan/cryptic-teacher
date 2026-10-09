@@ -130,6 +130,10 @@ except FileNotFoundError: d = {"id": "x-1", "entries": [
 for kv in sys.argv[1:]:
     k, v = kv.split("=")
     if k == "date": d["date"] = v
+    elif k == "bare":
+        for e in d["entries"]: e.pop("annotation", None)
+    elif k.startswith("clue"):
+        d["entries"][int(k[4:])]["clue"] = {"text": v} if v else {"missing": True}
     else:
         e = d["entries"][int(k)]
         e["annotation"] = {"by": v}
@@ -160,5 +164,24 @@ git rebase -q master >/dev/null 2>&1
 check "a field both sides changed differently is a marked conflict" \
   "$([ -n "$(git ls-files -u)" ] && grep -c '^<<<<<<< ' puzzles/x/x-1.json)" 1
 git rebase --abort 2>/dev/null
+
+# One side re-reads a clue blank, the other annotates the old words
+# (times-5 4-down): the merged entry has the new clue and no annotation,
+# while an annotation written beside its own clue change survives.
+git checkout -q master; puzzle bare= clue0=Old clue1=Kept; git commit -qam clues
+git checkout -q update; git reset -q --hard master
+puzzle clue0=; git commit -qam reread
+git checkout -q master; puzzle 0=burn 1=burn; git commit -qam annotate
+git checkout -q update; git rebase -q master >/dev/null 2>&1
+check "an annotation of words the other side re-read is dropped" \
+  "$(python3 -c 'import json; d=json.load(open("puzzles/x/x-1.json")); print([(e.get("clue"), "annotation" in e) for e in d["entries"]])')" \
+  "[({'missing': True}, False), ({'text': 'Kept'}, True)]"
+git checkout -q master; puzzle date=2026-05-05; git commit -qam d3
+git checkout -q update
+python3 -c 'import json; p="puzzles/x/x-1.json"; d=json.load(open(p)); d["entries"][1].update(clue={"text": "New"}, annotation={"by": "fixer"}); open(p, "w").write(json.dumps(d, indent=1) + "\n")'
+git commit -qam fix; git rebase -q master >/dev/null 2>&1
+check "an annotation written with its own clue change is kept" \
+  "$(python3 -c 'import json; d=json.load(open("puzzles/x/x-1.json")); e=d["entries"][1]; print(e["clue"], e["annotation"])')" \
+  "{'text': 'New'} {'by': 'fixer'}"
 
 [ "$fails" = 0 ] && echo "json_merge: all checks passed" || { echo "json_merge: $fails FAILED"; exit 1; }
