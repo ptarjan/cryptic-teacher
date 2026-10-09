@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,67 @@
     "text": "Telephone back about one garden ornamental",
     "enumeration": "5"
    },
-   "solution": "LILAC"
+   "solution": "LILAC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "LILAC",
+    "definitions": [
+     {
+      "text": "garden ornamental",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "sending something back makes it run the other way, so the telephone word is read from right to left"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the turned word wraps round the number"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Telephone",
+      "gives": "CALL",
+      "note": "to call is to telephone"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "I",
+      "LAC"
+     ],
+     "reversals": [
+      {
+       "from": "CALL",
+       "to": "LLAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rings back about a single ornamental plant for the garden.",
+     "walkthrough": "CALL turned round is LLAC, and the I sits after its first L to give LILAC.",
+     "definitionFit": "Lilac is a flowering shrub grown for decoration, so it is an ornamental plant in a garden."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +110,57 @@
     "text": "Stories about wet weather in a region of France",
     "enumeration": "8"
    },
-   "solution": "LORRAINE"
+   "solution": "LORRAINE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LORRAINE",
+    "definitions": [
+     {
+      "text": "a region of France",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the stories word wraps around the weather word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stories",
+      "gives": "LORE",
+      "note": "lore is traditional stories and knowledge"
+     },
+     {
+      "clueFragment": "wet weather",
+      "gives": "RAIN",
+      "note": "rain is wet weather"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOR",
+      "RAIN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Tales are told about the rainy weather in a French region.",
+     "definitionFit": "Lorraine is a historic region of north-eastern France, bordering Germany and Luxembourg."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Stories"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +174,49 @@
     "text": "Security measure in prison makes rugby player depressed",
     "enumeration": "8"
    },
-   "solution": "LOCKDOWN"
+   "solution": "LOCKDOWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOCKDOWN",
+    "definitions": [
+     {
+      "text": "Security measure in prison",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rugby player",
+      "gives": "LOCK",
+      "note": "a lock is a second-row forward in rugby"
+     },
+     {
+      "clueFragment": "depressed",
+      "gives": "DOWN",
+      "note": "down means low in spirits"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOCK",
+      "DOWN"
+     ]
+    },
+    "explanation": {
+     "surface": "A dejected rugby forward is held in jail when the prison is sealed.",
+     "definitionFit": "A lockdown confines prisoners to their cells as an emergency security procedure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "depressed"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +236,39 @@
      }
     ]
    },
-   "solution": "CIRCUITTRAINING"
+   "solution": "CIRCUITTRAINING",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CIRCUIT TRAINING",
+    "definitions": [
+     {
+      "text": "Formula One driver's fitness regime?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Formula One driver's",
+      "note": "surface reading: a racing driver, who drives laps of a racetrack"
+     },
+     {
+      "clueFragment": "fitness regime?",
+      "note": "setter's reading: a gym routine of rotating exercise stations, named as if it were practice on a racing track"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A racing driver literally trains on a circuit, so the gym term doubles as practice laps.",
+     "definitionFit": "This exercise routine moves through a series of stations in rotation, a common way to build general fitness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Formula"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +288,64 @@
      }
     ]
    },
-   "solution": "SOBSISTER"
+   "solution": "SOBSISTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "SOB SISTER",
+    "definitions": [
+     {
+      "text": "Female journalist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "relaxing",
+      "for": "anagram",
+      "note": "relaxing loosens things up, so the letters of the word before it fall out of order"
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cries",
+      "gives": "SOBS",
+      "note": "sobs are cries"
+     },
+     {
+      "clueFragment": "tries",
+      "gives": "TRIES",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOBS",
+      "ISTER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRIES",
+       "gives": "ISTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman reporter weeps and then tries to unwind.",
+     "walkthrough": "SOBS followed by TRIES rearranged as ISTER gives SOB SISTER.",
+     "definitionFit": "A sob sister was a (typically woman) reporter writing sentimental human-interest stories, so the term names a female journalist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "relaxing"
+    }
+   }
   },
   {
    "number": 4,
@@ -115,7 +359,53 @@
     "text": "Stage favourites put up",
     "enumeration": "4"
    },
-   "solution": "STEP"
+   "solution": "STEP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "STEP",
+    "definitions": [
+     {
+      "text": "Stage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put up",
+      "for": "reversal",
+      "note": "in a down clue, putting a word up means reading it from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "favourites",
+      "gives": "PETS",
+      "note": "a teacher's pets are favourites"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEP"
+     ],
+     "reversals": [
+      {
+       "from": "PETS",
+       "to": "STEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Popular acts are put on a stage.",
+     "definitionFit": "A step is one stage in a process, so the two are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stage"
+    }
+   }
   },
   {
    "number": 5,
@@ -139,7 +429,68 @@
      }
     ]
    },
-   "solution": "BESTINSHOW"
+   "solution": "BESTINSHOW",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "BEST IN SHOW",
+    "definitions": [
+     {
+      "text": "Top dog?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tricky",
+      "for": "anagram",
+      "note": "something tricky is twisty, so the letters before it are twisted into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Famous footballer",
+      "gives": "BEST",
+      "note": "George Best, the Northern Irish Manchester United star"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "in means at home"
+     },
+     {
+      "clueFragment": "who's",
+      "gives": "WHOS",
+      "note": "taken as written, apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEST",
+      "IN",
+      "SHOW"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WHOS",
+       "gives": "SHOW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrated footballer, the top dog, relaxes at home and proves elusive.",
+     "walkthrough": "'Top dog' usually means a leader; the question mark signals it is meant literally, a winning dog.",
+     "definitionFit": "Best in Show is the supreme award at a dog show, so the winner is literally the top dog."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dog"
+    }
+   }
   },
   {
    "number": 6,
@@ -159,7 +510,72 @@
      }
     ]
    },
-   "solution": "INANIMATEOBJECT"
+   "solution": "INANIMATEOBJECT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "INANIMATE OBJECT",
+    "definitions": [
+     {
+      "text": "item",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the first part and the protest word go on either side"
+     },
+     {
+      "text": "awful",
+      "for": "anagram",
+      "note": "awful means dreadful or messed up, so the preceding letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "an item, an",
+      "gives": "ANITEMAN",
+      "note": "the anagram fodder"
+     },
+     {
+      "clueFragment": "protest",
+      "gives": "OBJECT",
+      "note": "to object is to protest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "NANIMATE",
+      "OBJECT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANITEMAN",
+       "gives": "NANIMATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complains about a dreadful product.",
+     "walkthrough": "The word item appears twice: the first, inside the fodder, gets jumbled; the last one in the clue stands alone as the definition.",
+     "definitionFit": "An inanimate object is any lifeless thing, so it is an item in the general sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "protest"
+    }
+   }
   },
   {
    "number": 7,
@@ -173,7 +589,66 @@
     "text": "Unfortunate soldier in overturned buggy",
     "enumeration": "6"
    },
-   "solution": "TRAGIC"
+   "solution": "TRAGIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TRAGIC",
+    "definitions": [
+     {
+      "text": "Unfortunate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so the soldier goes within the vehicle word"
+     },
+     {
+      "text": "overturned",
+      "for": "reversal",
+      "note": "turned over in a down clue, the vehicle word reads bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "buggy",
+      "gives": "CART",
+      "note": "a buggy is a light cart"
+     },
+     {
+      "clueFragment": "soldier",
+      "gives": "GI",
+      "note": "a GI is an American soldier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRA",
+      "GI",
+      "C"
+     ],
+     "reversals": [
+      {
+       "from": "CART",
+       "to": "TRAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unlucky soldier is trapped in an upturned vehicle.",
+     "definitionFit": "Tragic describes something disastrous or very sad, so it is a strong synonym for unfortunate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "buggy"
+    }
+   }
   },
   {
    "number": 8,
@@ -187,7 +662,46 @@
     "text": "Royal Engineers, posted, feel aggrieved",
     "enumeration": "6"
    },
-   "solution": "RESENT"
+   "solution": "RESENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RESENT",
+    "definitions": [
+     {
+      "text": "feel aggrieved",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Royal Engineers",
+      "gives": "RE",
+      "note": "RE is the abbreviation for the Royal Engineers, a British Army corps"
+     },
+     {
+      "clueFragment": "posted",
+      "gives": "SENT",
+      "note": "posted means sent by mail"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "SENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Army engineers sent overseas are unhappy about their posting.",
+     "definitionFit": "To resent something is to feel bitterness over it, which matches feeling aggrieved."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "posted"
+    }
+   }
   },
   {
    "number": 9,
@@ -201,7 +715,55 @@
     "text": "Judges 50% of recipe books",
     "enumeration": "9"
    },
-   "solution": "RECORDERS"
+   "solution": "RECORDERS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RECORDERS",
+    "definitions": [
+     {
+      "text": "Judges",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "50% of",
+      "for": "deletion",
+      "note": "fifty per cent is half, so only the first half of the recipe word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "recipe",
+      "gives": "RECIPE",
+      "note": "the first three of its six letters are kept"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "ORDERS",
+      "note": "to book a table or tickets is to order them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REC",
+      "ORDERS"
+     ]
+    },
+    "explanation": {
+     "surface": "A judge looks over half a cookery book's recipes.",
+     "walkthrough": "REC, half of RECIPE, then ORDERS. In England and Wales a recorder is a part-time judge, mostly in the Crown Court.",
+     "definitionFit": "Recorder is the title of a barrister or solicitor sitting as a part-time judge, so recorders are judges."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "books"
+    }
+   }
   },
   {
    "number": 10,
@@ -215,7 +777,67 @@
     "text": "Collect a million as head of state",
     "enumeration": "5"
    },
-   "solution": "AMASS"
+   "solution": "AMASS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "AMASS",
+    "definitions": [
+     {
+      "text": "Collect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its leading letter, so only the start of state is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "million",
+      "gives": "M",
+      "note": "M is the abbreviation for million"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "S",
+      "select": "first",
+      "note": "its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "M",
+      "AS",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gathers a million pounds while serving as a country's leader.",
+     "definitionFit": "To amass is to gather together or accumulate, a synonym of collect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 11,
@@ -229,7 +851,62 @@
     "text": "Sullen after a king shows eagerness",
     "enumeration": "6"
    },
-   "solution": "ARDOUR"
+   "solution": "ARDOUR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ARDOUR",
+    "definitions": [
+     {
+      "text": "eagerness",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the sullen word behind the other two pieces in the answer"
+     }
+    ],
+    "linkWords": [
+     "shows"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R for Rex, Latin for king"
+     },
+     {
+      "clueFragment": "Sullen",
+      "gives": "DOUR",
+      "note": "dour means sullen or stern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "DOUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch's moody companion nonetheless displays enthusiasm.",
+     "definitionFit": "Ardour is passionate enthusiasm, which is close in meaning to eagerness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sullen"
+    }
+   }
   },
   {
    "number": 12,
@@ -243,7 +920,46 @@
     "text": "Difference of opinion in mathematical operation",
     "enumeration": "8"
    },
-   "solution": "DIVISION"
+   "solution": "DIVISION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DIVISION",
+    "definitions": [
+     {
+      "text": "Difference of opinion",
+      "at": 0
+     },
+     {
+      "text": "mathematical operation",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Difference of opinion",
+      "note": "first meaning: a disagreement or split between people"
+     },
+     {
+      "clueFragment": "mathematical operation",
+      "note": "second meaning: the arithmetic of sharing a number into equal parts"
+     }
+    ],
+    "explanation": {
+     "surface": "Two people disagree about how to do a sum.",
+     "definitionFit": "The word means both a rift between factions and the arithmetic process that is the inverse of multiplying."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 13,
@@ -263,7 +979,54 @@
      }
     ]
    },
-   "solution": "STAMPEDOUT"
+   "solution": "STAMPEDOUT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "STAMPED OUT",
+    "definitions": [
+     {
+      "text": "Put a stop to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortly",
+      "for": "deletion",
+      "note": "shortly means made short, so the charge word loses its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "charge",
+      "gives": "STAMPEDE",
+      "note": "a stampede is a headlong charge"
+     },
+     {
+      "clueFragment": "abroad",
+      "gives": "OUT",
+      "note": "out means away or abroad, out of the house or country"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAMPED",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "An official halts an overseas fee soon.",
+     "definitionFit": "To stamp out is to suppress or end something completely, as you would stamp out a fire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 14,
@@ -283,7 +1046,58 @@
      }
     ]
    },
-   "solution": "NEWSTATESMAN"
+   "solution": "NEWSTATESMAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NEW STATESMAN",
+    "definitions": [
+     {
+      "text": "magazine",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "touring means going all round, so the actor's name travels round the provinces word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US actor",
+      "gives": "NEWMAN",
+      "note": "Paul Newman, the American film star"
+     },
+     {
+      "clueFragment": "provinces",
+      "gives": "STATES",
+      "note": "states are provinces of a country"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEW",
+      "STATES",
+      "MAN"
+     ]
+    },
+    "explanation": {
+     "surface": "An American film star tours the regions to promote a magazine.",
+     "walkthrough": "Paul Newman's surname is the one that splits naturally into two parts. The New Statesman is a long-running British political weekly.",
+     "definitionFit": "The New Statesman is a British weekly periodical of politics and culture, so it is an example of a magazine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "touring"
+    }
+   }
   },
   {
    "number": 15,
@@ -297,7 +1111,62 @@
     "text": "Voice of Italian, one behind counter",
     "enumeration": "8"
    },
-   "solution": "BARITONE"
+   "solution": "BARITONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BARITONE",
+    "definitions": [
+     {
+      "text": "Voice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind places the Italian piece and the number after the counter word"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "counter",
+      "gives": "BAR",
+      "note": "a bar is a counter for serving drinks"
+     },
+     {
+      "clueFragment": "Italian",
+      "gives": "IT",
+      "note": "IT is an abbreviation for Italian"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "IT",
+      "ONE"
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian bartender has a singing voice.",
+     "definitionFit": "A baritone is a male singing voice between tenor and bass."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "counter"
+    }
+   }
   },
   {
    "number": 16,
@@ -317,7 +1186,50 @@
      }
     ]
    },
-   "solution": "CHEESEIT"
+   "solution": "CHEESEIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHEESE IT",
+    "definitions": [
+     {
+      "text": "Clear off",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dolcelatte",
+      "gives": "CHEESE",
+      "note": "Dolcelatte is a soft Italian blue cheese, an example signalled by the question mark"
+     },
+     {
+      "clueFragment": "vermouth?",
+      "gives": "IT",
+      "note": "it is short for Italian vermouth, as in the drink gin and it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHEESE",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "Telling someone to go away while offering cheese and a drink.",
+     "walkthrough": "Both pieces are examples of a class, hence the question mark. Cheese it is old slang telling someone to scram.",
+     "definitionFit": "Cheese it is a dated slang command meaning run away or clear off, often used when trouble appears."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dolcelatte"
+    }
+   }
   },
   {
    "number": 17,
@@ -337,7 +1249,64 @@
      }
     ]
    },
-   "solution": "PRIMROSEPATH"
+   "solution": "PRIMROSEPATH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PRIMROSE PATH",
+    "definitions": [
+     {
+      "text": "a pleasurable way of life",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixed up",
+      "for": "anagram",
+      "note": "things mixed up are jumbled, so the letters of the words that follow are rearranged"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'm",
+      "gives": "IM",
+      "note": "taken as written, apostrophe dropped"
+     },
+     {
+      "clueFragment": "her",
+      "gives": "HER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pop star",
+      "gives": "POPSTAR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IMHERPOPSTAR",
+       "gives": "PRIMROSEPATH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fan confesses being confused alongside a celebrity singer who lives a life of luxury.",
+     "walkthrough": "'with' is part of the anagram signal phrase 'mixed up with', so it only joins the fodder words.",
+     "definitionFit": "The primrose path, a phrase from Hamlet, is a life of easy self-indulgence and pleasure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pop"
+    }
+   }
   },
   {
    "number": 18,
@@ -351,7 +1320,53 @@
     "text": "Outbreak of rabies in part of Europe",
     "enumeration": "6"
    },
-   "solution": "SERBIA"
+   "solution": "SERBIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SERBIA",
+    "definitions": [
+     {
+      "text": "part of Europe",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Outbreak of",
+      "for": "anagram",
+      "note": "an outbreak bursts out of its old form, so the disease word's letters are released in a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rabies",
+      "gives": "RABIES",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RABIES",
+       "gives": "SERBIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rabies epidemic hits one region of the continent.",
+     "definitionFit": "Serbia is a Balkan country in south-eastern Europe, so it is part of that continent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Outbreak"
+    }
+   }
   },
   {
    "number": 19,
@@ -365,7 +1380,54 @@
     "text": "Politically extreme? No Conservative spoke",
     "enumeration": "6"
    },
-   "solution": "RADIAL"
+   "solution": "RADIAL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RADIAL",
+    "definitions": [
+     {
+      "text": "spoke",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "No",
+      "for": "deletion",
+      "note": "no signals that the following letter is absent from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Politically extreme?",
+      "gives": "RADICAL",
+      "note": "radical means politically extreme"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RADIAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A political question: is a Tory-free voice extreme, said the speaker?",
+     "walkthrough": "'spoke' looks like a verb but is the noun, a wheel spoke; RADICAL loses its C.",
+     "definitionFit": "A radial is a line or part running outward from a centre, as each spoke of a wheel does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spoke"
+    }
+   }
   },
   {
    "number": 20,
@@ -379,7 +1441,52 @@
     "text": "Inspector, formerly a collier",
     "enumeration": "8"
    },
-   "solution": "EXAMINER"
+   "solution": "EXAMINER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXAMINER",
+    "definitions": [
+     {
+      "text": "Inspector",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "formerly",
+      "gives": "EX",
+      "note": "ex means former"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "collier",
+      "gives": "MINER",
+      "note": "a collier is a coal miner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "A",
+      "MINER"
+     ]
+    },
+    "explanation": {
+     "surface": "An inspector who used to work down a coal pit.",
+     "definitionFit": "An examiner is someone who inspects or tests, so the words are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "formerly"
+    }
+   }
   },
   {
    "number": 21,
@@ -393,7 +1500,65 @@
     "text": "Boil egg, mostly runny, and serve",
     "enumeration": "6"
    },
-   "solution": "OBLIGE"
+   "solution": "OBLIGE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "OBLIGE",
+    "definitions": [
+     {
+      "text": "serve",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter of the egg word is dropped"
+     },
+     {
+      "text": "runny",
+      "for": "anagram",
+      "note": "something runny flows out of shape, so the letters are poured into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boil",
+      "gives": "BOIL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "egg",
+      "gives": "EGG",
+      "note": "taken as written, losing its last letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BOILEG",
+       "gives": "OBLIGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kitchen instruction: boil the egg soft and bring it to the table.",
+     "walkthrough": "'serve' looks like part of the recipe but is the definition.",
+     "definitionFit": "To oblige someone is to do them a service or favour, so it can mean to serve."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "serve"
+    }
+   }
   },
   {
    "number": 22,
@@ -407,7 +1572,48 @@
     "text": "Famous entertainer bare? Bottom can't be seen",
     "enumeration": "4"
    },
-   "solution": "STAR"
+   "solution": "STAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STAR",
+    "definitions": [
+     {
+      "text": "Famous entertainer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bottom can't be seen",
+      "for": "deletion",
+      "note": "in a down clue the bottom is the last letter, and it going unseen means it is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bare",
+      "gives": "STARK",
+      "note": "stark means bare, as in stark naked"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity strips, but keeps their backside hidden.",
+     "definitionFit": "A star is a celebrated performer, a famous entertainer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bottom"
+    }
+   }
   },
   {
    "number": 23,
@@ -421,7 +1627,67 @@
     "text": "Pancake left in container next to one",
     "enumeration": "5"
    },
-   "solution": "BLINI"
+   "solution": "BLINI",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BLINI",
+    "definitions": [
+     {
+      "text": "Pancake",
+      "at": 0,
+      "note": "blini is strictly the plural of blin but is used as a singular"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so the letter for left goes within the container word"
+     },
+     {
+      "text": "next to",
+      "for": "charade",
+      "note": "next to means beside, so the numeral follows on directly"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "container",
+      "gives": "BIN",
+      "note": "a bin is a container"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "L",
+      "IN",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A pancake abandoned in a tin beside another one.",
+     "definitionFit": "Blini are small Russian buckwheat pancakes, often served with soured cream and caviar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "container"
+    }
+   }
   },
   {
    "number": 24,
@@ -445,7 +1711,51 @@
      }
     ]
    },
-   "solution": "ONTHENOSE"
+   "solution": "ONTHENOSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ON THE NOSE",
+    "definitions": [
+     {
+      "text": "to win",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "struggling",
+      "for": "anagram",
+      "note": "something struggling is in disarray, so the letters lose their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Honest one",
+      "gives": "HONESTONE",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HONESTONE",
+       "gives": "ONTHENOSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sincere person battling to come first.",
+     "walkthrough": "'struggling to win' reads as one phrase, but 'to win' is the definition.",
+     "definitionFit": "In betting, a stake placed on the nose is backed to finish first only, so the phrase means to win."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "struggling"
+    }
+   }
   },
   {
    "number": 25,
@@ -459,7 +1769,60 @@
     "text": "Reptile swimming at Lake Gloria",
     "enumeration": "9"
    },
-   "solution": "ALLIGATOR"
+   "solution": "ALLIGATOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALLIGATOR",
+    "definitions": [
+     {
+      "text": "Reptile",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swimming",
+      "for": "anagram",
+      "note": "swimming suggests movement all over the place, so the letters are scattered and rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Lake",
+      "gives": "L",
+      "note": "L is the map abbreviation for lake"
+     },
+     {
+      "clueFragment": "Gloria",
+      "gives": "GLORIA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATLGLORIA",
+       "gives": "ALLIGATOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reptile is spotted in the water near a woman named Gloria at a lake.",
+     "definitionFit": "An alligator is a large crocodilian, so it is one kind of reptile."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "swimming"
+    }
+   }
   },
   {
    "number": 26,
@@ -473,7 +1836,46 @@
     "text": "Shout for nurse",
     "enumeration": "5"
    },
-   "solution": "TREAT"
+   "solution": "TREAT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TREAT",
+    "definitions": [
+     {
+      "text": "Shout",
+      "at": 0
+     },
+     {
+      "text": "nurse",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shout",
+      "note": "first meaning: in British usage, a round of drinks you pay for, as in 'my shout'"
+     },
+     {
+      "clueFragment": "nurse",
+      "note": "second meaning: give medical care to a patient"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like calling out for medical help. In British slang your shout is your turn to buy the drinks.",
+     "definitionFit": "A treat is something you pay for on someone's behalf, like a shout; to treat a patient is to nurse them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Shout"
+    }
+   }
   }
  ]
 }
