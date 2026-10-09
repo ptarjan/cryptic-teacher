@@ -37,6 +37,9 @@
   "date": "2022-10-23",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -50,7 +53,44 @@
     "text": "One regularly getting more than tipsy cake",
     "enumeration": "6"
    },
-   "solution": "SPONGE"
+   "solution": "SPONGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPONGE",
+    "definitions": [
+     {
+      "text": "One regularly getting more than tipsy",
+      "at": 0
+     },
+     {
+      "text": "cake",
+      "at": 38
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One regularly getting more than tipsy",
+      "note": "first meaning: a habitual heavy drinker who soaks up liquor"
+     },
+     {
+      "clueFragment": "cake",
+      "note": "second meaning: a light airy cake"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone who keeps getting drunk on a boozy trifle-like cake.",
+     "walkthrough": "'Tipsy cake' looks like one phrase, a sherry-soaked dessert; split it and the clue ends with two separate meanings.",
+     "definitionFit": "A drunkard is called this because he soaks up drink, and the word is also a common light cake."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tipsy"
+    }
+   }
   },
   {
    "number": 1,
@@ -64,7 +104,64 @@
     "text": "Some air staff turned up for rich governor",
     "enumeration": "6"
    },
-   "solution": "SATRAP"
+   "solution": "SATRAP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SATRAP",
+    "definitions": [
+     {
+      "text": "rich governor",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turned up means the letters are read from the bottom upwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Some",
+      "gives": "PART",
+      "note": "part means some of something"
+     },
+     {
+      "clueFragment": "air staff",
+      "gives": "AS",
+      "note": "abbreviation for Air Staff"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "TRAP"
+     ],
+     "reversals": [
+      {
+       "from": "PARTAS",
+       "to": "SATRAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some members of an air force staff stood up for a wealthy ruler.",
+     "walkthrough": "PART and AS read upwards give SATRAP.",
+     "definitionFit": "A satrap was a provincial governor in ancient Persia, and by extension any wealthy, despotic petty ruler."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 2,
@@ -78,7 +175,66 @@
     "text": "Pellet mill price for head of mining",
     "enumeration": "5"
    },
-   "solution": "PRILL"
+   "solution": "PRILL",
+   "annotation": {
+    "type": [
+     "substitution",
+     "letter_selection"
+    ],
+    "answer": "PRILL",
+    "definitions": [
+     {
+      "text": "Pellet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "one thing put for another means it takes that other's place in the word"
+     },
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mill",
+      "gives": "MILL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "price",
+      "gives": "PR",
+      "note": "PR is the abbreviation for price"
+     },
+     {
+      "clueFragment": "mining",
+      "gives": "M",
+      "select": "first",
+      "note": "the letter being replaced in mill"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "ILL"
+     ]
+    },
+    "explanation": {
+     "surface": "A pellet mill's price is set for the boss of a mining firm.",
+     "walkthrough": "The M of MILL, which is the first letter of mining, is swapped for PR, leaving PRILL.",
+     "definitionFit": "A prill is a small round pellet or globule, such as of fertiliser or metal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 3,
@@ -92,7 +248,62 @@
     "text": "Vote against retaining primacy of rifles? Not in America",
     "enumeration": "4"
    },
-   "solution": "NARY"
+   "solution": "NARY",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "NARY",
+    "definitions": [
+     {
+      "text": "Not in America",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retaining",
+      "for": "container",
+      "note": "what retains something holds it within"
+     },
+     {
+      "text": "primacy of",
+      "for": "letter_selection",
+      "note": "primacy is first place, so only the opening letter counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vote against",
+      "gives": "NAY",
+      "note": "a no vote"
+     },
+     {
+      "clueFragment": "rifles",
+      "gives": "R",
+      "select": "first",
+      "note": "goes inside the vote"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NA",
+      "R",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A vote against keeping rifles first, a question about gun control in the US.",
+     "walkthrough": "Nary, as in 'nary a one', is a US and dialect word for not one.",
+     "definitionFit": "Nary is chiefly American dialect for 'not a' or 'never a', so it means not in American usage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rifles"
+    }
+   }
   },
   {
    "number": 4,
@@ -106,7 +317,59 @@
     "text": "Putting fertilizer around good for the rain tree",
     "enumeration": "6"
    },
-   "solution": "GUANGO"
+   "solution": "GUANGO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GUANGO",
+    "definitions": [
+     {
+      "text": "the rain tree",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "one thing put around another encloses it"
+     }
+    ],
+    "linkWords": [
+     "Putting",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fertilizer",
+      "gives": "GUANO",
+      "note": "bird droppings used as manure"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUAN",
+      "G",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Spreading manure around a tree is good for it.",
+     "walkthrough": "The G sits inside GUANO before its last letter.",
+     "definitionFit": "The guango is the rain tree, Samanea saman, a large tropical American shade tree."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Putting"
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +383,58 @@
     "text": "False story long ago tails off for moles",
     "enumeration": "6"
    },
-   "solution": "TALPAS"
+   "solution": "TALPAS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TALPAS",
+    "definitions": [
+     {
+      "text": "moles",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tails off",
+      "for": "deletion",
+      "note": "with their tails off, both words lose their last letters"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "False story",
+      "gives": "TALE",
+      "note": "Chambers gives 'a false story' as a sense of tale"
+     },
+     {
+      "clueFragment": "long ago",
+      "gives": "PAST",
+      "note": "the past is long ago"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAL",
+      "PAS"
+     ]
+    },
+    "explanation": {
+     "surface": "A tall tale from long ago peters out, apparently about moles.",
+     "walkthrough": "TALE and PAST each lose their final letter, giving TAL plus PAS.",
+     "definitionFit": "Talpa is the Latin name and genus of the mole, used in English for the animal; talpas is the plural."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tails"
+    }
+   }
   },
   {
    "number": 5,
@@ -134,7 +448,49 @@
     "text": "Test taken by chief Greek commander",
     "enumeration": "9"
    },
-   "solution": "TRIERARCH"
+   "solution": "TRIERARCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRIERARCH",
+    "definitions": [
+     {
+      "text": "Greek commander",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "taken by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Test",
+      "gives": "TRIER",
+      "note": "Chambers lists 'a test' as a sense of trier"
+     },
+     {
+      "clueFragment": "chief",
+      "gives": "ARCH",
+      "note": "arch- means chief, as in archbishop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRIER",
+      "ARCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A test is set by the head of a Greek army.",
+     "definitionFit": "A trierarch was the captain of a trireme, a warship of ancient Greece."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Test"
+    }
+   }
   },
   {
    "number": 6,
@@ -148,7 +504,59 @@
     "text": "Former lover is dejected as before, injection of energy needed",
     "enumeration": "6"
    },
-   "solution": "AMORET"
+   "solution": "AMORET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AMORET",
+    "definitions": [
+     {
+      "text": "Former lover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "injection of",
+      "for": "container",
+      "note": "an injection is put into something else, inside it"
+     }
+    ],
+    "linkWords": [
+     "is",
+     "needed"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dejected as before",
+      "gives": "AMORT",
+      "note": "amort is an obsolete word for dejected or lifeless, hence 'as before'"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMOR",
+      "E",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An ex-partner is depressed once more and needs a boost of energy.",
+     "walkthrough": "'Former lover' reads like an ex; here 'former' only marks the word as obsolete.",
+     "definitionFit": "Amoret is an archaic word for a sweetheart or lover, so an old-fashioned word for a beloved."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Former"
+    }
+   }
   },
   {
    "number": 7,
@@ -162,7 +570,50 @@
     "text": "Plain diet neglected, like some duck?",
     "enumeration": "9"
    },
-   "solution": "PINTAILED"
+   "solution": "PINTAILED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PINTAILED",
+    "definitions": [
+     {
+      "text": "like some duck?",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "neglected",
+      "for": "anagram",
+      "note": "something neglected falls into disorder, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plain diet",
+      "gives": "PLAINDIET",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PLAINDIET",
+       "gives": "PINTAILED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plain diet gets ignored, as a duck might do.",
+     "definitionFit": "The pintail is a duck with long pointed tail feathers, so some ducks are pintailed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "diet"
+    }
+   }
   },
   {
    "number": 8,
@@ -176,7 +627,60 @@
     "text": "Set about festive occasion with no end of homebrew",
     "enumeration": "6"
    },
-   "solution": "ASSAIL"
+   "solution": "ASSAIL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "ASSAIL",
+    "definitions": [
+     {
+      "text": "Set about",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no",
+      "for": "deletion",
+      "note": "with no means something is taken away from the word"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "festive occasion",
+      "gives": "WASSAIL",
+      "note": "a festive drinking occasion"
+     },
+     {
+      "clueFragment": "homebrew",
+      "gives": "W",
+      "select": "last",
+      "note": "the letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASSAIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A festive party sets about the drinking with no homebrew left.",
+     "walkthrough": "WASSAIL loses its W, the final letter of homebrew.",
+     "definitionFit": "To assail is to attack, and set about is an idiom for attacking someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "end"
+    }
+   }
   },
   {
    "number": 9,
@@ -190,7 +694,55 @@
     "text": "Basic piano installed in flat",
     "enumeration": "6"
    },
-   "solution": "STAPLE"
+   "solution": "STAPLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STAPLE",
+    "definitions": [
+     {
+      "text": "Basic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "installed in",
+      "for": "container",
+      "note": "something installed in a place is put inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flat",
+      "gives": "STALE",
+      "note": "flat as in beer gone stale"
+     },
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "P is the musical abbreviation for piano"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STA",
+      "P",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A basic piano is fitted in an apartment.",
+     "walkthrough": "'Flat' looks like an apartment; it means stale.",
+     "definitionFit": "A staple is a basic item, as in staple foods, the main or essential ones."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flat"
+    }
+   }
   },
   {
    "number": 10,
@@ -204,7 +756,58 @@
     "text": "African Union in rant about Albanian",
     "enumeration": "6"
    },
-   "solution": "ARNAUT"
+   "solution": "ARNAUT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ARNAUT",
+    "definitions": [
+     {
+      "text": "Albanian",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests letters moved around into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "African Union",
+      "gives": "AU",
+      "note": "AU is the abbreviation for African Union"
+     },
+     {
+      "clueFragment": "rant",
+      "gives": "RANT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AURANT",
+       "gives": "ARNAUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The African Union features in a tirade about an Albanian.",
+     "definitionFit": "An Arnaut is an Albanian, especially one serving as a soldier in the Turkish army."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 11,
@@ -218,7 +821,58 @@
     "text": "A little money on Hebridean islands for local powder",
     "enumeration": "5"
    },
-   "solution": "MUIST"
+   "solution": "MUIST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MUIST",
+    "definitions": [
+     {
+      "text": "local powder",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "A little",
+      "for": "letter_selection",
+      "note": "a little of a word is just a small part of it, its opening letter"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "money",
+      "gives": "M",
+      "select": "first",
+      "note": "the opening letter"
+     },
+     {
+      "clueFragment": "Hebridean islands",
+      "gives": "UIST",
+      "note": "North and South Uist are islands of the Outer Hebrides"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "UIST"
+     ]
+    },
+    "explanation": {
+     "surface": "A bit of cash spent on Scottish islands for some regional powder.",
+     "definitionFit": "Muist is a Scots dialect word for musk, a scented powder, so it is local to Scotland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "little"
+    }
+   }
   },
   {
    "number": 12,
@@ -232,7 +886,50 @@
     "text": "Bird given measure of feed for test in laboratory",
     "enumeration": "9"
    },
-   "solution": "TITRATION"
+   "solution": "TITRATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TITRATION",
+    "definitions": [
+     {
+      "text": "test in laboratory",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "given",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bird",
+      "gives": "TIT",
+      "note": "a small songbird"
+     },
+     {
+      "clueFragment": "measure of feed",
+      "gives": "RATION",
+      "note": "a fixed allowance of food"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIT",
+      "RATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird gets a portion of food as part of a lab experiment.",
+     "definitionFit": "Titration is a chemical analysis measuring how much reagent reacts with a solution, a routine lab test."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bird"
+    }
+   }
   },
   {
    "number": 13,
@@ -246,7 +943,49 @@
     "text": "Fabled male who murdered needing protection accordingly",
     "enumeration": "9"
    },
-   "solution": "AEGISTHUS"
+   "solution": "AEGISTHUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AEGISTHUS",
+    "definitions": [
+     {
+      "text": "Fabled male who murdered",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "protection",
+      "gives": "AEGIS",
+      "note": "under the aegis of means under the protection of"
+     },
+     {
+      "clueFragment": "accordingly",
+      "gives": "THUS",
+      "note": "thus means therefore, accordingly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AEGIS",
+      "THUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A legendary killer needs protection as a result.",
+     "definitionFit": "Aegisthus in Greek myth was Clytemnestra's lover, who murdered Agamemnon and was killed by Orestes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "accordingly"
+    }
+   }
   },
   {
    "number": 14,
@@ -260,7 +999,56 @@
     "text": "Minister's sermon a big hit",
     "enumeration": "9"
    },
-   "solution": "SERASKIER"
+   "solution": "SERASKIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SERASKIER",
+    "definitions": [
+     {
+      "text": "Minister",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sermon",
+      "gives": "SER",
+      "note": "ser. is the abbreviation for sermon"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "big hit",
+      "gives": "SKIER",
+      "note": "in cricket a skier is a ball hit high into the air"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SER",
+      "A",
+      "SKIER"
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman's sermon is a great success.",
+     "walkthrough": "'Minister' suggests a clergyman to match the sermon; it is an Ottoman war minister. The 's stands for 'is'.",
+     "definitionFit": "A seraskier was the Turkish minister of war and commander-in-chief in the Ottoman Empire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Minister"
+    }
+   }
   },
   {
    "number": 15,
@@ -274,7 +1062,50 @@
     "text": "Stokes on strike showing force in Perth",
     "enumeration": "4"
    },
-   "solution": "STAP"
+   "solution": "STAP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STAP",
+    "definitions": [
+     {
+      "text": "force in Perth",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stokes",
+      "gives": "S",
+      "note": "S is the symbol for the stokes, a unit of viscosity"
+     },
+     {
+      "clueFragment": "strike",
+      "gives": "TAP",
+      "note": "a light blow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TAP"
+     ]
+    },
+    "explanation": {
+     "surface": "Ben Stokes, on strike at the crease, shows his power in Perth.",
+     "walkthrough": "Stokes looks like the England cricketer batting in Australia; it is a physics unit. Perth is the Scottish city, marking a Scots word.",
+     "definitionFit": "Stap is a Scots word meaning to cram or stuff, that is to force something in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stokes"
+    }
+   }
   },
   {
    "number": 16,
@@ -288,7 +1119,55 @@
     "text": "Calm on cracking a century",
     "enumeration": "6"
    },
-   "solution": "ALEGGE"
+   "solution": "ALEGGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ALEGGE",
+    "definitions": [
+     {
+      "text": "Calm",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cracking",
+      "for": "container",
+      "note": "something cracking another breaks into it and ends up inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a century",
+      "gives": "AGE",
+      "note": "an age, a very long time such as a century"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "LEG",
+      "note": "in cricket the on side is also called the leg side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LEG",
+      "GE"
+     ]
+    },
+    "explanation": {
+     "surface": "Keeping calm while making a hundred runs.",
+     "walkthrough": "'On' is the cricket leg side, a convention worth knowing; 'a century' is a whole age, not the C or TON a solver reaches for first.",
+     "definitionFit": "Alegge is a Spenserian form of allege, an old word meaning to allay or calm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "century"
+    }
+   }
   },
   {
    "number": 17,
@@ -302,7 +1181,47 @@
     "text": "Put about on train?",
     "enumeration": "6"
    },
-   "solution": "RETAIL"
+   "solution": "RETAIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RETAIL",
+    "definitions": [
+     {
+      "text": "Put about",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or concerning"
+     },
+     {
+      "clueFragment": "train",
+      "gives": "TAIL",
+      "note": "the train of a gown or comet is its tail"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "TAIL"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether something was put on board a train.",
+     "walkthrough": "'Put about' reads as a sailing manoeuvre; it means spread a story around.",
+     "definitionFit": "To retail gossip is to repeat it to others, to put it about or spread it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "train"
+    }
+   }
   },
   {
    "number": 18,
@@ -316,7 +1235,79 @@
     "text": "Quietly, I try to capture knight getting value for pawn",
     "enumeration": "9"
    },
-   "solution": "PIGNORATE"
+   "solution": "PIGNORATE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PIGNORATE",
+    "definitions": [
+     {
+      "text": "pawn",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to capture",
+      "for": "container",
+      "note": "to capture something is to take it and hold it inside"
+     }
+    ],
+    "linkWords": [
+     "getting",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quietly",
+      "gives": "P",
+      "note": "p is piano, the musical direction for quietly"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "try",
+      "gives": "GO",
+      "note": "have a go means try"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "N",
+      "note": "N is the chess notation for knight"
+     },
+     {
+      "clueFragment": "value",
+      "gives": "RATE",
+      "note": "to rate is to value"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "I",
+      "G",
+      "N",
+      "O",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A chess player quietly tries to take a knight and get good value for a pawn.",
+     "walkthrough": "The knight goes inside GO. 'Pawn' looks like a chess piece; it is the verb meaning to pledge.",
+     "definitionFit": "To pignorate is to pledge or pawn something, from Latin pignus, a pledge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pawn"
+    }
+   }
   },
   {
    "number": 19,
@@ -330,7 +1321,69 @@
     "text": "Fear working in lead for unsophisticated house",
     "enumeration": "6"
    },
-   "solution": "PREFAB"
+   "solution": "PREFAB",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PREFAB",
+    "definitions": [
+     {
+      "text": "unsophisticated house",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "working suggests letters set in motion and rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is placed inside it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lead",
+      "gives": "PB",
+      "note": "Pb is the chemical symbol for lead"
+     },
+     {
+      "clueFragment": "Fear",
+      "gives": "REFA",
+      "note": "letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "REFA",
+      "B"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FEAR",
+       "gives": "REFA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fear of lead in a basic house.",
+     "definitionFit": "A prefab is a cheap house assembled from factory-made parts, a basic, plain kind of dwelling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 20,
@@ -344,7 +1397,55 @@
     "text": "Mountain hollyhock used to be slightly docked",
     "enumeration": "6"
    },
-   "solution": "WASABI"
+   "solution": "WASABI",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "WASABI",
+    "definitions": [
+     {
+      "text": "Mountain hollyhock",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "docked",
+      "for": "deletion",
+      "note": "docked means cut short, as a tail is docked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "used to be",
+      "gives": "WAS",
+      "note": "past tense of be"
+     },
+     {
+      "clueFragment": "slightly",
+      "gives": "ABIT",
+      "note": "a bit means slightly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAS",
+      "ABI"
+     ]
+    },
+    "explanation": {
+     "surface": "A mountain plant used to be a little cut back.",
+     "walkthrough": "A BIT loses its last letter.",
+     "definitionFit": "Wasabi is a Japanese plant whose name translates as 'mountain hollyhock'; its root makes the green condiment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "docked"
+    }
+   }
   },
   {
    "number": 21,
@@ -358,7 +1459,71 @@
     "text": "Foolish strike gets anonymous backing in plant",
     "enumeration": "9"
    },
-   "solution": "AMARYLLIS"
+   "solution": "AMARYLLIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "AMARYLLIS",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means going backwards, so the letters run in reverse"
+     }
+    ],
+    "linkWords": [
+     "gets",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Foolish",
+      "gives": "SILLY",
+      "note": "synonym"
+     },
+     {
+      "clueFragment": "strike",
+      "gives": "RAM",
+      "note": "to ram is to strike hard"
+     },
+     {
+      "clueFragment": "anonymous",
+      "gives": "A",
+      "note": "A is the abbreviation for anonymous"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MAR",
+      "YLLIS"
+     ],
+     "reversals": [
+      {
+       "from": "SILLYRAMA",
+       "to": "AMARYLLIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A daft industrial strike wins the support of an unnamed plant worker.",
+     "walkthrough": "SILLY, RAM and A, read backwards together, give AMARYLLIS. 'Plant' suggests a factory; it is a flower.",
+     "definitionFit": "The amaryllis is a bulbous flowering plant with large trumpet-shaped blooms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 22,
@@ -372,7 +1537,51 @@
     "text": "Jellyfish from sea north of the States?",
     "enumeration": "6"
    },
-   "solution": "MEDUSA"
+   "solution": "MEDUSA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MEDUSA",
+    "definitions": [
+     {
+      "text": "Jellyfish",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from",
+     "north of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sea",
+      "gives": "MED",
+      "note": "the Med is the Mediterranean Sea"
+     },
+     {
+      "clueFragment": "the States",
+      "gives": "USA",
+      "note": "the United States"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MED",
+      "USA"
+     ]
+    },
+    "explanation": {
+     "surface": "A jellyfish turns up from the ocean north of America.",
+     "walkthrough": "In a down clue, 'north of' puts MED above USA.",
+     "definitionFit": "A medusa is the free-swimming bell-shaped form of a jellyfish, named for the snake-haired Gorgon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "north"
+    }
+   }
   },
   {
    "number": 23,
@@ -386,7 +1595,44 @@
     "text": "One crying out like a coward, some would say",
     "enumeration": "6"
    },
-   "solution": "YELLER"
+   "solution": "YELLER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "YELLER",
+    "definitions": [
+     {
+      "text": "One crying out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some would say",
+      "for": "homophone",
+      "note": "what some would say means how the word sounds in certain speech"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like a coward",
+      "gives": "YELLER",
+      "soundsLike": "YELLOW",
+      "note": "yellow means cowardly, and in some dialects, chiefly rural American"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone shouting out like a coward, people might say.",
+     "definitionFit": "A yeller is someone who yells, that is one who shouts or cries out loudly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "coward"
+    }
+   }
   },
   {
    "number": 24,
@@ -400,7 +1646,65 @@
     "text": "Scottish noble in Sicily on vacation that's wet and sticky",
     "enumeration": "6"
    },
-   "solution": "SLOSHY"
+   "solution": "SLOSHY",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "SLOSHY",
+    "definitions": [
+     {
+      "text": "wet and sticky",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     },
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "a vacated word is emptied of its middle, leaving its outside letters"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sicily",
+      "gives": "SY",
+      "select": "outer",
+      "note": "only the outside letters remain"
+     },
+     {
+      "clueFragment": "Scottish noble",
+      "gives": "LOSH",
+      "note": "losh is a Scots exclamation form of 'Lord'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LOSH",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A Scottish lord holidaying in Sicily finds it humid.",
+     "walkthrough": "Losh is a Scots minced oath for 'Lord', so it stands in for a lord in the clue's playful sense of noble.",
+     "definitionFit": "Sloshy describes something slushy or sloppy, wet and sticky like mud or melting snow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vacation"
+    }
+   }
   },
   {
    "number": 25,
@@ -414,7 +1718,59 @@
     "text": "Spots opening for Root to get trophy at Lord's",
     "enumeration": "6"
    },
-   "solution": "RASHES"
+   "solution": "RASHES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RASHES",
+    "definitions": [
+     {
+      "text": "Spots",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening for",
+      "for": "letter_selection",
+      "note": "an opening is the very start, so only the first letter is taken"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Root",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter"
+     },
+     {
+      "clueFragment": "trophy at Lord's",
+      "gives": "ASHES",
+      "note": "the Ashes is the England-Australia cricket trophy, kept at Lord's, the London cricket ground"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ASHES"
+     ]
+    },
+    "explanation": {
+     "surface": "Openings are spotted for Joe Root to win the Ashes at Lord's.",
+     "walkthrough": "Joe Root is an England batsman, so 'opening' reads as a batting opportunity.",
+     "definitionFit": "Rashes are outbreaks of red spots on the skin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 26,
@@ -428,7 +1784,44 @@
     "text": "Grass in a row overheard",
     "enumeration": "6"
    },
-   "solution": "CEREAL"
+   "solution": "CEREAL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CEREAL",
+    "definitions": [
+     {
+      "text": "Grass",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overheard",
+      "for": "homophone",
+      "note": "overheard means caught by the ear, so it is the sound that matters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in a row",
+      "gives": "CEREAL",
+      "soundsLike": "SERIAL",
+      "note": "serial means in a series, one after another"
+     }
+    ],
+    "explanation": {
+     "surface": "A spy grasses on people in a row he has eavesdropped on.",
+     "walkthrough": "'Grass' looks like the verb to inform; it is the plant family.",
+     "definitionFit": "Cereals such as wheat, oats and barley are cultivated grasses grown for their grain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Grass"
+    }
+   }
   },
   {
    "number": 27,
@@ -442,7 +1835,63 @@
     "text": "One fuel tariff initially staggered, not used currently",
     "enumeration": "5"
    },
-   "solution": "AGAST"
+   "solution": "AGAST",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "AGAST",
+    "definitions": [
+     {
+      "text": "staggered, not used currently",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the preceding word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "fuel",
+      "gives": "GAS",
+      "note": "a fuel"
+     },
+     {
+      "clueFragment": "tariff",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GAS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone was stunned by an energy tariff that no longer applies.",
+     "walkthrough": "'Not used currently' marks the answer as an obsolete spelling.",
+     "definitionFit": "Agast is an obsolete spelling of aghast, meaning shocked or staggered."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "currently"
+    }
+   }
   },
   {
    "number": 28,
@@ -456,7 +1905,45 @@
     "text": "Short book given by northerner, originally Finnish",
     "enumeration": "4"
    },
-   "solution": "ESTH"
+   "solution": "ESTH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ESTH",
+    "definitions": [
+     {
+      "text": "Short book",
+      "at": 0
+     },
+     {
+      "text": "northerner, originally Finnish",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "given by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Short book",
+      "note": "first meaning: abbreviation for a book of the Old Testament"
+     },
+     {
+      "clueFragment": "northerner, originally Finnish",
+      "note": "second meaning: an Estonian, of a Finnic people of northern Europe"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Originally' suggests taking a first letter; it says the Estonians share Finnic origins.",
+     "definitionFit": "Esth abbreviates the Book of Esther and is also an old word for an Estonian, a Baltic Finnic people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "originally"
+    }
+   }
   },
   {
    "number": 29,
@@ -470,7 +1957,50 @@
     "text": "Old tower mostly providing honey",
     "enumeration": "4"
    },
-   "solution": "BABE"
+   "solution": "BABE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BABE",
+    "definitions": [
+     {
+      "text": "honey",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the last letter goes"
+     }
+    ],
+    "linkWords": [
+     "providing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old tower",
+      "gives": "BABEL",
+      "note": "the biblical Tower of Babel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BABE"
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient tower largely supplies honey from its bees.",
+     "definitionFit": "Babe and honey are both slang terms of endearment for a sweetheart or attractive person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "honey"
+    }
+   }
   },
   {
    "number": 30,
@@ -484,7 +2014,57 @@
     "text": "Nurse surrounded by rolls of bark in South American trees",
     "enumeration": "9"
    },
-   "solution": "QUILLAIAS"
+   "solution": "QUILLAIAS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "QUILLAIAS",
+    "definitions": [
+     {
+      "text": "South American trees",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounded by",
+      "for": "container",
+      "note": "something surrounded by another sits within it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rolls of bark",
+      "gives": "QUILLS",
+      "note": "a quill is a curled roll of dried bark, as of cinnamon"
+     },
+     {
+      "clueFragment": "Nurse",
+      "gives": "AIA",
+      "note": "aia, or ayah, is an Indian nursemaid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUILL",
+      "AIA",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A nurse is wrapped in rolls of bark among trees in South America.",
+     "definitionFit": "Quillaia is a Chilean tree, the soapbark, whose bark yields saponin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Nurse"
+    }
+   }
   },
   {
    "number": 31,
@@ -498,7 +2078,50 @@
     "text": "Area with hides for grouse-shooters in Borders",
     "enumeration": "5"
    },
-   "solution": "ABUTS"
+   "solution": "ABUTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABUTS",
+    "definitions": [
+     {
+      "text": "Borders",
+      "at": 39
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     },
+     {
+      "clueFragment": "with hides for grouse-shooters",
+      "gives": "BUTS",
+      "note": "buts is a variant spelling of butts, screens behind which grouse-shooters wait"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BUTS"
+     ]
+    },
+    "explanation": {
+     "surface": "A patch of moor with shooting hides in the Scottish Borders.",
+     "walkthrough": "'Borders' looks like the Scottish region, apt for grouse moors; it is a verb. 'With' joins the hides to the area.",
+     "definitionFit": "To abut is to border on or adjoin something, so 'borders' as a verb matches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Borders"
+    }
+   }
   },
   {
    "number": 32,
@@ -512,7 +2135,61 @@
     "text": "Society girl quiet about old Jag",
     "enumeration": "6"
    },
-   "solution": "DEBOSH"
+   "solution": "DEBOSH",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DEBOSH",
+    "definitions": [
+     {
+      "text": "Jag",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one thing about another wraps around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Society girl",
+      "gives": "DEB",
+      "note": "a debutante"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "SH",
+      "note": "a call for quiet"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEB",
+      "O",
+      "SH"
+     ]
+    },
+    "explanation": {
+     "surface": "A debutante hushes everyone about her vintage Jaguar car.",
+     "walkthrough": "SH wraps O. 'Jag' looks like the car; it means a drinking bout.",
+     "definitionFit": "Debosh is an old form of debauch, a bout of excess, and a jag is a drinking spree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Jag"
+    }
+   }
   },
   {
    "number": 33,
@@ -526,7 +2203,49 @@
     "text": "Repeated damage in northern steelyard",
     "enumeration": "6"
    },
-   "solution": "BISMAR"
+   "solution": "BISMAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BISMAR",
+    "definitions": [
+     {
+      "text": "northern steelyard",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Repeated",
+      "gives": "BIS",
+      "note": "bis means twice, an instruction to repeat"
+     },
+     {
+      "clueFragment": "damage",
+      "gives": "MAR",
+      "note": "to mar is to damage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIS",
+      "MAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Repeated damage at a steelworks in the north.",
+     "definitionFit": "A bismar is a kind of steelyard, a weighing balance, used in Orkney and Shetland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "steelyard"
+    }
+   }
   },
   {
    "number": 34,
@@ -540,7 +2259,66 @@
     "text": "Extremely clever minor bagging first spot in Reading",
     "enumeration": "6"
    },
-   "solution": "PRETTY"
+   "solution": "PRETTY",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "PRETTY",
+    "definitions": [
+     {
+      "text": "Extremely",
+      "at": 0
+     },
+     {
+      "text": "clever",
+      "at": 10
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bagging",
+      "for": "container",
+      "note": "bagging means catching and holding something inside"
+     },
+     {
+      "text": "first spot in",
+      "for": "letter_selection",
+      "note": "the first spot in a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "minor",
+      "gives": "PETTY",
+      "note": "petty means minor or trivial"
+     },
+     {
+      "clueFragment": "Reading",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "R",
+      "ETTY"
+     ]
+    },
+    "explanation": {
+     "surface": "A very bright child gets top marks in reading.",
+     "walkthrough": "Two definitions plus wordplay. 'Extremely clever' looks like one phrase, and 'extremely' tempts you to take CR, the ends of clever; it is a definition. Reading is also an English town.",
+     "definitionFit": "Pretty can mean very, as in pretty good, and in an older sense means clever or ingenious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Extremely"
+    }
+   }
   }
  ]
 }
