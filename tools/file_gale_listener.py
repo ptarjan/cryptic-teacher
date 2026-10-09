@@ -302,6 +302,39 @@ def as_page(rows, fit, clues):
     return out, notes
 
 
+#: A light a clue cites: "58 across", "7 down".
+CITE = re.compile(r"\b(\d+)(\s*-?\s*)(across|down)\b", re.IGNORECASE)
+#: A note (unstrayed, as_page) on a light the page numbers otherwise.
+RENUMBERED = re.compile(r"^printed as (\d+-(?:across|down)): the page numbers")
+
+
+def recited(clues, notes):
+    """(clues, {light: its text as printed}) with each light a clue cites by
+    its printed number cited by the number it is filed under: a page
+    numbering its lights otherwise (`notes`, RENUMBERED: No 3 prints 27 in a
+    cell starting no light and skips 47) cites them as it numbers them, so
+    "A 100 of 58 across" means the light filed as 56 across. A misprinted
+    clue number (mended's bare "printed as") is the list's slip alone, and
+    the clues cite that light rightly."""
+    to = {}
+    for mine, note in notes.items():
+        if m := RENUMBERED.match(note):
+            to[m.group(1)] = mine
+    if not to:
+        return clues, {}
+
+    def cite(m):
+        lid = to.get(f"{m.group(1)}-{m.group(3).lower()}")
+        return f"{number_of(lid)[0]}{m.group(2)}{m.group(3)}" if lid else m.group(0)
+    out, printed = {}, {}
+    for lid, c in clues.items():
+        text = CITE.sub(cite, c.get("text") or "")
+        out[lid] = {**c, "text": text} if text != (c.get("text") or "") else c
+        if out[lid] is not c:
+            printed[lid] = c["text"]
+    return out, printed
+
+
 def as_read(g, clues):
     """The fit of `g` ({"grid", "fit"}) whose rows are each side as its
     width says, numbered as the page prints (lg.as_printed: strays and
@@ -545,6 +578,12 @@ def join(reading, grids, reports, read_letters):
         verdict["flipped"] = [list(side) for side in sides]
     if notes:
         verdict["mended"] = notes
+    # The filed clue cites the numbers the solver sees; the reading in the
+    # store and this verdict keep the text as printed.
+    clues, cites = recited(clues, notes)
+    if cites:
+        verdict["cites"] = cites
+        reading = {**reading, "clues": clues}
     if fit.get("moved"):
         verdict["numberMoved"] = [list(c) for c in fit["moved"]]
     if fit.get("stray"):
