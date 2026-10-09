@@ -123,6 +123,7 @@ shows archive.org answering, so it resets the count.
 import argparse
 import collections
 import concurrent.futures
+import contextlib
 import datetime
 import gzip
 import io
@@ -267,11 +268,9 @@ def scan_aligned(xml):
 def memo(path, fn):
     """fn(path), worked out again only when the file at `path` changed (its
     mtime or size): the queue plans every minute off the same caches."""
-    try:
-        st = os.stat(path)
-    except FileNotFoundError:
+    key = file_key(path)
+    if key is None:
         return fn(path)
-    key = (st.st_mtime_ns, st.st_size)
     hit = _MEMO.get((fn, path))
     if hit is None or hit[0] != key:
         hit = _MEMO[(fn, path)] = (key, fn(path))
@@ -279,6 +278,41 @@ def memo(path, fn):
 
 
 _MEMO = {}
+#: This thread's one_pass: {path: file_key} of the files it has stat'd.
+_PASS = threading.local()
+
+
+def file_key(path):
+    """(mtime, size) of the file at `path`, None when it is missing; within
+    one_pass, each path is stat'd once."""
+    seen = getattr(_PASS, "keys", None)
+    path = os.fspath(path)
+    if seen is not None and path in seen:
+        return seen[path]
+    try:
+        st = os.stat(path)
+        key = (st.st_mtime_ns, st.st_size)
+    except FileNotFoundError:
+        key = None
+    if seen is not None:
+        seen[path] = key
+    return key
+
+
+@contextlib.contextmanager
+def one_pass():
+    """Within it, memo stats each file once and crossword_leaves works each
+    edition out once: a plan reads the siblings of every done edition
+    (load_done), each sibling's pages.json shared by up to NEIGHBOURS
+    editions, off a disk where a stat is slow."""
+    if getattr(_PASS, "keys", None) is not None:
+        yield
+        return
+    _PASS.keys, _PASS.leaves = {}, {}
+    try:
+        yield
+    finally:
+        _PASS.keys = _PASS.leaves = None
 
 
 def _misplaced_file(xml_path):
@@ -308,7 +342,7 @@ def prior_unfetched(d):
     or prior is no such page (1930-03-24's leaf 6 is sport results; its
     crossword is on leaf 4)."""
     path = os.path.join(d, "pages.json")
-    if not os.path.exists(path):
+    if file_key(path) is None:
         return False
     try:
         pages = memo(path, read_pages)
@@ -524,7 +558,7 @@ def load_done(out):
     done = set()
     path = os.path.join(out, "done.tsv")
     if os.path.exists(path):
-        with open(path) as f:
+        with one_pass(), open(path) as f:
             for line in f:
                 parts = line.rstrip("\n").split("\t")
                 if len(parts) == 3 and parts[2] == str(DETECTOR_VERSION) \
@@ -653,6 +687,16 @@ def crossword_leaves(edition_dir):
     """(fronts, backs, sized): Counters of the leaves its siblings
     (sibling_pages) print a titled crossword on, by leaf number, by distance
     from the back, and by (sibling's leaf count, leaf number)."""
+    seen = getattr(_PASS, "leaves", None)
+    if seen is None:
+        return _crossword_leaves(edition_dir)
+    key = os.fspath(edition_dir)
+    if key not in seen:
+        seen[key] = _crossword_leaves(edition_dir)
+    return seen[key]
+
+
+def _crossword_leaves(edition_dir):
     fronts, backs, sized = collections.Counter(), collections.Counter(), collections.Counter()
     for pj in sibling_pages(edition_dir):
         try:
