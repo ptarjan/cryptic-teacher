@@ -3497,7 +3497,9 @@ def corrects(was, now, printed=()):
     a word of four letters or more the clue has already; an opening word
     before the held clue's capital ("Is Be responsible", a misread
     number), save the article "A"; nor a word the corpus's clues never
-    print beside either neighbour ("have oil cut", "Vera bit Pam"). "Frontier cantonment." to "A Frontier cantonment." does; so
+    print beside either neighbour ("have oil cut", "Vera bit Pam"); the
+    article "A" goes before any word, so it needs no such pairing.
+    "Frontier cantonment." to "A Frontier cantonment." does; so
     does a change that only drops a stop after a lone letter
     (lone_stops_dropped). A reading that loses a real word, swaps one,
     reorders them, or changes other marks only (a held file's quotes are
@@ -3547,7 +3549,7 @@ def corrects(was, now, printed=()):
             return False
         if j == 0 and v != "a" and len(new) > 1 and new_t[1].group()[:1].isupper():
             return False
-        if not any(pairs.get(f"{a} {b}") for a, b in [(u, v) if k < j else (v, u) for k, u in near]):
+        if v != "a" and not any(pairs.get(f"{a} {b}") for a, b in [(u, v) if k < j else (v, u) for k, u in near]):
             return False
     return True
 
