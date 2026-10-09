@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,43 @@
     "text": "Let down sack?",
     "enumeration": "10"
    },
-   "solution": "DISAPPOINT"
+   "solution": "DISAPPOINT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DISAPPOINT",
+    "definitions": [
+     {
+      "text": "Let down",
+      "at": 0
+     },
+     {
+      "text": "sack",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Let down",
+      "note": "first meaning: fail to meet someone's hopes"
+     },
+     {
+      "clueFragment": "sack",
+      "note": "second meaning: an old sense, to remove someone from an appointment or office"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read the word as DIS-APPOINT: to undo an appointment, which is what sacking someone does.",
+     "definitionFit": "The everyday verb means to fail someone's expectations, and its archaic sense is to dismiss from a post."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sack"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +85,55 @@
     "text": "Challenge coming up in better adventure",
     "enumeration": "4"
    },
-   "solution": "DARE"
+   "solution": "DARE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "DARE",
+    "definitions": [
+     {
+      "text": "Challenge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters lie within the following words"
+     },
+     {
+      "text": "coming up",
+      "for": "reversal",
+      "note": "in a down clue, coming up means reading from bottom to top, so backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "better adventure",
+      "gives": "ERAD",
+      "note": "the letters straddle the end of the first word and the start of the second"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ERAD",
+       "to": "DARE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A challenge arises in a more exciting adventure.",
+     "definitionFit": "A dare is a challenge to do something bold or risky."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +147,61 @@
     "text": "Bit dry, crackers on it",
     "enumeration": "7"
    },
-   "solution": "SECTION"
+   "solution": "SECTION",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "SECTION",
+    "definitions": [
+     {
+      "text": "Bit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crackers",
+      "for": "anagram",
+      "note": "crackers means crazy, so the letters following are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dry",
+      "gives": "SEC",
+      "note": "sec is the wine term for dry"
+     },
+     {
+      "clueFragment": "on it",
+      "gives": "ONIT",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEC",
+      "TION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONIT",
+       "gives": "TION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bit dry, with crackers on top of it, like a cheese board.",
+     "walkthrough": "'Crackers' looks like the biscuits from the surface picture; it is the anagram signal.",
+     "definitionFit": "A section is a part or portion, so a bit of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crackers"
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +225,59 @@
      }
     ]
    },
-   "solution": "POPUPTOASTER"
+   "solution": "POPUPTOASTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "POP-UP TOASTER",
+    "definitions": [
+     {
+      "text": "Kitchen device",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fixed",
+      "for": "anagram",
+      "note": "fixed means repaired or rigged, so the letters are rebuilt into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to tap",
+      "gives": "TOTAP",
+      "note": "letters for the rearrangement"
+     },
+     {
+      "clueFragment": "purpose",
+      "gives": "PURPOSE",
+      "note": "more letters joined to the first lot"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOTAPPURPOSE",
+       "gives": "POPUPTOASTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kitchen gadget deliberately plumbed into the tap.",
+     "walkthrough": "'With' simply joins the two runs of letters that are shuffled together; 'fixed to' reads as attached but only 'fixed' is the signal.",
+     "definitionFit": "A pop-up toaster is a common kitchen appliance that ejects the bread when done."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fixed"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +291,53 @@
     "text": "This writer after clear message that's implicit",
     "enumeration": "8"
    },
-   "solution": "OVERTONE"
+   "solution": "OVERTONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERTONE",
+    "definitions": [
+     {
+      "text": "message that's implicit",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the writer's piece behind the other one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clear",
+      "gives": "OVERT",
+      "note": "overt means open and plain to see"
+     },
+     {
+      "clueFragment": "This writer",
+      "gives": "ONE",
+      "note": "the setter may refer to themself as one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVERT",
+      "ONE"
+     ]
+    },
+    "explanation": {
+     "surface": "The author follows up a plain message with something hinted at.",
+     "definitionFit": "An overtone is a subtle additional meaning, an implied message beneath the words."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "writer"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +351,54 @@
     "text": "Essence in tea urn, brewed",
     "enumeration": "6"
    },
-   "solution": "NATURE"
+   "solution": "NATURE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NATURE",
+    "definitions": [
+     {
+      "text": "Essence",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brewed",
+      "for": "anagram",
+      "note": "brewed suggests stirring things together, so the letters are mixed"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea urn",
+      "gives": "TEAURN",
+      "note": "the six letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEAURN",
+       "gives": "NATURE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A flavour essence infused in a tea urn.",
+     "walkthrough": "'Brewed' fits the tea so well that it hides its job as the anagram signal.",
+     "definitionFit": "Nature is the essential character of something, so its essence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "brewed"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +412,67 @@
     "text": "Brute sent over to collect large weight",
     "enumeration": "4"
    },
-   "solution": "KILO"
+   "solution": "KILO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "KILO",
+    "definitions": [
+     {
+      "text": "weight",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sent over",
+      "for": "reversal",
+      "note": "something sent over is flipped end to end, so the word is read backwards"
+     },
+     {
+      "text": "to collect",
+      "for": "container",
+      "note": "to collect something is to take it inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brute",
+      "gives": "OIK",
+      "note": "an oik is a crude, boorish person"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the standard abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KI",
+      "L",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "OIK",
+       "to": "KIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thug turns round to pick up something very heavy.",
+     "walkthrough": "'Large weight' looks like one phrase, but 'large' only supplies its abbreviation; 'weight' alone is the definition. An oik is British slang for a lout.",
+     "definitionFit": "A kilo, short for kilogram, is a standard unit of mass and so a weight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "large"
+    }
+   }
   },
   {
    "number": 7,
@@ -140,7 +486,51 @@
     "text": "Nanny eluding shambles",
     "enumeration": "7"
    },
-   "solution": "INDULGE"
+   "solution": "INDULGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INDULGE",
+    "definitions": [
+     {
+      "text": "Nanny",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shambles",
+      "for": "anagram",
+      "note": "a shambles is a chaotic mess, so the letters are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eluding",
+      "gives": "ELUDING",
+      "note": "the seven letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ELUDING",
+       "gives": "INDULGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A childminder slips away from a chaotic scene.",
+     "walkthrough": "'Nanny' reads as a noun for a childminder; it is the verb, to coddle.",
+     "definitionFit": "To nanny someone is to pamper or overprotect them, which is to indulge them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Nanny"
+    }
+   }
   },
   {
    "number": 8,
@@ -168,7 +558,42 @@
      }
     ]
    },
-   "solution": "OUTONALIMB"
+   "solution": "OUTONALIMB",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OUT ON A LIMB",
+    "definitions": [
+     {
+      "text": "In precarious position",
+      "at": 0
+     },
+     {
+      "text": "upon thin end of branch",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In precarious position",
+      "note": "first meaning: the idiom for being exposed and at risk"
+     },
+     {
+      "clueFragment": "upon thin end of branch",
+      "note": "second meaning, taken literally: perched far along a tree bough"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The idiom is read literally for the second meaning, which the question mark flags.",
+     "definitionFit": "The idiom means having taken a risky stance with no support, a precarious position."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 9,
@@ -182,7 +607,53 @@
     "text": "Nicest ripe bananas for beneficiaries",
     "enumeration": "10"
    },
-   "solution": "RECIPIENTS"
+   "solution": "RECIPIENTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RECIPIENTS",
+    "definitions": [
+     {
+      "text": "beneficiaries",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bananas",
+      "for": "anagram",
+      "note": "bananas is slang for crazy, so the letters go wild and are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nicest ripe",
+      "gives": "NICESTRIPE",
+      "note": "the ten letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NICESTRIPE",
+       "gives": "RECIPIENTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The best ripe bananas are handed out to grateful beneficiaries.",
+     "definitionFit": "Beneficiaries are those who receive something, which is the plain meaning of the answer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bananas"
+    }
+   }
   },
   {
    "number": 10,
@@ -196,7 +667,58 @@
     "text": "Change, with turner turning?",
     "enumeration": "4"
    },
-   "solution": "EDIT"
+   "solution": "EDIT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "EDIT",
+    "definitions": [
+     {
+      "text": "Change",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning round means the word is read back to front"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "turner",
+      "gives": "TIDE",
+      "note": "the tide is something that turns, twice a day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDIT"
+     ],
+     "reversals": [
+      {
+       "from": "TIDE",
+       "to": "EDIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about changing something on a lathe with a turner at work.",
+     "walkthrough": "'Turner' looks like a lathe worker or the painter; it is a cryptic name for the tide, which turns.",
+     "definitionFit": "To edit a text is to change or revise it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "turner"
+    }
+   }
   },
   {
    "number": 11,
@@ -216,7 +738,73 @@
      }
     ]
    },
-   "solution": "CASSETTETAPE"
+   "solution": "CASSETTETAPE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CASSETTE TAPE",
+    "definitions": [
+     {
+      "text": "Recording",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "new suggests a fresh version, so the letters are put in another order"
+     },
+     {
+      "text": "firstly",
+      "for": "letter_selection",
+      "note": "firstly says only the opening letter of that word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "test case",
+      "gives": "TESTCASE",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "listen in on",
+      "gives": "TAP",
+      "note": "to tap a phone is to listen in on it"
+     },
+     {
+      "clueFragment": "evidence",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CASSETTE",
+      "TAP",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TESTCASE",
+       "gives": "CASSETTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tape from a bugged phone becomes key evidence in a new legal test case.",
+     "definitionFit": "A cassette tape is a medium holding a sound recording, so it stands for a recording."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "new"
+    }
+   }
   },
   {
    "number": 12,
@@ -230,7 +818,53 @@
     "text": "Weakling, politician joining women's group",
     "enumeration": "4"
    },
-   "solution": "WIMP"
+   "solution": "WIMP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WIMP",
+    "definitions": [
+     {
+      "text": "Weakling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "joining",
+      "for": "charade",
+      "note": "joining says one piece is attached directly after the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "women's group",
+      "gives": "WI",
+      "note": "the Women's Institute, a British community organisation for women"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "a Member of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WI",
+      "MP"
+     ]
+    },
+    "explanation": {
+     "surface": "A feeble politician signs up to a women's organisation.",
+     "walkthrough": "The WI (Women's Institute) is a long-standing British network of women's clubs.",
+     "definitionFit": "A wimp is a feeble, timid person, a synonym for a weakling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -244,7 +878,62 @@
     "text": "Sailor and apostle wearing heavy cloth",
     "enumeration": "9"
    },
-   "solution": "TARPAULIN"
+   "solution": "TARPAULIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TARPAULIN",
+    "definitions": [
+     {
+      "text": "heavy cloth",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "charade",
+      "note": "someone wearing something is in it, so the small word meaning inside is added"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailor",
+      "gives": "TAR",
+      "note": "tar is an old word for a seaman"
+     },
+     {
+      "clueFragment": "apostle",
+      "gives": "PAUL",
+      "note": "Saint Paul the Apostle"
+     },
+     {
+      "clueFragment": "wearing",
+      "gives": "IN",
+      "note": "dressed in, so wearing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAR",
+      "PAUL",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor and a saint both dressed in heavy canvas.",
+     "definitionFit": "A tarpaulin is a heavy waterproof canvas sheet, so a kind of heavy cloth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wearing"
+    }
+   }
   },
   {
    "number": 14,
@@ -258,7 +947,46 @@
     "text": "Remove flimsy tube attached to ceiling",
     "enumeration": "10"
    },
-   "solution": "STRIPLIGHT"
+   "solution": "STRIPLIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRIPLIGHT",
+    "definitions": [
+     {
+      "text": "tube attached to ceiling",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Remove",
+      "gives": "STRIP",
+      "note": "to strip is to take off or remove"
+     },
+     {
+      "clueFragment": "flimsy",
+      "gives": "LIGHT",
+      "note": "light as in insubstantial"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRIP",
+      "LIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "An order to take down a flimsy tube fitted to the ceiling.",
+     "definitionFit": "A strip light is a long fluorescent tube lamp, usually mounted on a ceiling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Remove"
+    }
+   }
   },
   {
    "number": 15,
@@ -272,7 +1000,43 @@
     "text": "Dancing, skin becoming paler?",
     "enumeration": "8"
    },
-   "solution": "TANGOING"
+   "solution": "TANGOING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TANGOING",
+    "definitions": [
+     {
+      "text": "Dancing",
+      "at": 0
+     },
+     {
+      "text": "skin becoming paler",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dancing",
+      "note": "first meaning: performing a Latin ballroom dance"
+     },
+     {
+      "clueFragment": "skin becoming paler",
+      "note": "second meaning, split into two words: a suntan fading away"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split the answer as TAN GOING: a suntan disappearing leaves the skin paler. The question mark flags the playful second reading.",
+     "definitionFit": "Tangoing is doing the tango, the Argentine ballroom dance, so it means dancing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "skin"
+    }
+   }
   },
   {
    "number": 16,
@@ -292,7 +1056,43 @@
      }
     ]
    },
-   "solution": "ASWELL"
+   "solution": "ASWELL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AS WELL",
+    "definitions": [
+     {
+      "text": "A fop",
+      "at": 0
+     },
+     {
+      "text": "on top",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A fop",
+      "note": "first meaning, read as two words"
+     },
+     {
+      "clueFragment": "on top",
+      "note": "second meaning: in addition, besides"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A swell is a dated word for a fashionably dressed man, so 'a fop' is A SWELL; 'on top' means additionally.",
+     "definitionFit": "The phrase means also or in addition, and split differently it names a dandy with the article."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 17,
@@ -306,7 +1106,43 @@
     "text": "Slow — as a bullet?",
     "enumeration": "8"
    },
-   "solution": "SLUGGISH"
+   "solution": "SLUGGISH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SLUGGISH",
+    "definitions": [
+     {
+      "text": "Slow",
+      "at": 0
+     },
+     {
+      "text": "as a bullet",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slow",
+      "note": "first meaning: lethargic, sluggardly"
+     },
+     {
+      "clueFragment": "as a bullet",
+      "note": "second meaning: like a slug, which is slang for a bullet"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A slug is slang for a bullet, and -ish means like, so the answer can be read as bullet-like, an ironic match for something slow.",
+     "definitionFit": "Sluggish means moving with little energy or speed, a synonym for slow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bullet"
+    }
+   }
   },
   {
    "number": 18,
@@ -320,7 +1156,47 @@
     "text": "Lay out fashionable underwear",
     "enumeration": "6"
    },
-   "solution": "INVEST"
+   "solution": "INVEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INVEST",
+    "definitions": [
+     {
+      "text": "Lay out",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fashionable",
+      "gives": "IN",
+      "note": "in fashion"
+     },
+     {
+      "clueFragment": "underwear",
+      "gives": "VEST",
+      "note": "in Britain a vest is a sleeveless undershirt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "VEST"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to arrange trendy underwear for display.",
+     "walkthrough": "'Lay out' reads as arranging clothes; here it means spending money. A British vest is underwear, not a waistcoat.",
+     "definitionFit": "To lay out money is to spend it, and to invest is to put money into something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Lay"
+    }
+   }
   },
   {
    "number": 19,
@@ -334,7 +1210,68 @@
     "text": "Energy drinks tasting awful initially in organic compound",
     "enumeration": "7"
    },
-   "solution": "VITAMIN"
+   "solution": "VITAMIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "VITAMIN",
+    "definitions": [
+     {
+      "text": "organic compound",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially says just the opening letters of those words are kept"
+     },
+     {
+      "text": "drinks",
+      "for": "container",
+      "note": "something that drinks takes liquid in, so it holds the other piece inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Energy",
+      "gives": "VIM",
+      "note": "vim means vigour or energy"
+     },
+     {
+      "clueFragment": "tasting awful",
+      "gives": "TA",
+      "select": "first",
+      "note": "the opening letters of the two words"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "TA",
+      "M",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A sports drink tastes foul at first, though it is full of nutrients.",
+     "definitionFit": "Vitamins are organic compounds needed in small amounts for health."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drinks"
+    }
+   }
   },
   {
    "number": 20,
@@ -348,7 +1285,62 @@
     "text": "Desirable thing to bank a metal — this one's precious!",
     "enumeration": "8"
    },
-   "solution": "PLATINUM"
+   "solution": "PLATINUM",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PLATINUM",
+    "definitions": [
+     {
+      "text": "this one's precious",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to bank",
+      "for": "container",
+      "note": "to bank something is to put it away inside, so the other pieces go within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Desirable thing",
+      "gives": "PLUM",
+      "note": "a plum is a highly desirable prize, as in a plum job"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "metal",
+      "gives": "TIN",
+      "note": "tin is a metal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PL",
+      "A",
+      "TIN",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "Something worth putting in the bank is a precious metal.",
+     "walkthrough": "'Metal' seems to belong with the definition, but it only supplies the inner piece; 'this one's precious' points to a metal by itself.",
+     "definitionFit": "Platinum is one of the precious metals, more costly than gold at times."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 21,
@@ -362,7 +1354,58 @@
     "text": "Rest put on top of food in waste collectors",
     "enumeration": "7"
    },
-   "solution": "NAPPIES"
+   "solution": "NAPPIES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NAPPIES",
+    "definitions": [
+     {
+      "text": "waste collectors",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put on top of",
+      "for": "charade",
+      "note": "in a down entry, putting one piece on top of another means it comes first"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rest",
+      "gives": "NAP",
+      "note": "a nap is a short rest"
+     },
+     {
+      "clueFragment": "food",
+      "gives": "PIES",
+      "note": "pies are a type of food"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAP",
+      "PIES"
+     ]
+    },
+    "explanation": {
+     "surface": "Leftover food is dumped in the bins.",
+     "walkthrough": "'Rest' reads as remainder; it is a short sleep.",
+     "definitionFit": "Nappies (diapers) catch a baby's waste, so they are humorously waste collectors."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rest"
+    }
+   }
   },
   {
    "number": 22,
@@ -376,7 +1419,54 @@
     "text": "Gear selected by swimmer cyclin' over island",
     "enumeration": "6"
    },
-   "solution": "BIKINI"
+   "solution": "BIKINI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BIKINI",
+    "definitions": [
+     {
+      "text": "Gear selected by swimmer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down entry, over means the first piece sits above the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cyclin'",
+      "gives": "BIKIN",
+      "note": "the apostrophe drops the last letter, as in bikin' for biking"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIKIN",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A triathlete picks kit for swimming, then cycles across an island.",
+     "walkthrough": "'Gear' reads as bicycle gears from the surface; here it is clothing. The clipped cyclin' points to a clipped synonym.",
+     "definitionFit": "A bikini is a two-piece swimsuit, so clothing a swimmer would choose."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Gear"
+    }
+   }
   },
   {
    "number": 23,
@@ -390,7 +1480,46 @@
     "text": "Note Wagnerian work bubbling up",
     "enumeration": "9"
    },
-   "solution": "LATHERING"
+   "solution": "LATHERING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LATHERING",
+    "definitions": [
+     {
+      "text": "bubbling up",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "LA",
+      "note": "la is the sixth note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "Wagnerian work",
+      "gives": "THERING",
+      "note": "The Ring, Wagner's cycle of four operas"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "THERING"
+     ]
+    },
+    "explanation": {
+     "surface": "A critic's remark on a passage of Wagner's music rising up.",
+     "definitionFit": "Soap that is lathering is forming froth, so it is bubbling up into foam."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bubbling"
+    }
+   }
   },
   {
    "number": 24,
@@ -404,7 +1533,48 @@
     "text": "See the numbers drop away, every last one",
     "enumeration": "4"
    },
-   "solution": "ESPY"
+   "solution": "ESPY",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ESPY",
+    "definitions": [
+     {
+      "text": "See",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "every last one",
+      "for": "letter_selection",
+      "note": "the final letter of every word is the one kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the numbers drop away",
+      "gives": "ESPY",
+      "select": "last",
+      "note": "the closing letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESPY"
+     ]
+    },
+    "explanation": {
+     "surface": "Watch the figures fall, all of them, down to the last.",
+     "definitionFit": "To espy is to catch sight of, a literary synonym for to see."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "last"
+    }
+   }
   },
   {
    "number": 25,
@@ -418,7 +1588,49 @@
     "text": "Article working for unknown author",
     "enumeration": "4"
    },
-   "solution": "ANON"
+   "solution": "ANON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANON",
+    "definitions": [
+     {
+      "text": "unknown author",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Article",
+      "gives": "AN",
+      "note": "an is the indefinite article"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "on as in switched on and running"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A piece written by a writer whose name nobody knows.",
+     "definitionFit": "Anon, short for anonymous, is the credit given when a writer's name is not known."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Article"
+    }
+   }
   },
   {
    "number": 26,
@@ -432,7 +1644,46 @@
     "text": "For example, duck in cricket perhaps?",
     "enumeration": "4"
    },
-   "solution": "GAME"
+   "solution": "GAME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GAME",
+    "definitions": [
+     {
+      "text": "For example, duck",
+      "at": 0
+     },
+     {
+      "text": "cricket perhaps",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "For example, duck",
+      "note": "first meaning: wild birds hunted for sport and food"
+     },
+     {
+      "clueFragment": "cricket perhaps",
+      "note": "second meaning: a sport, of which cricket is one"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a duck, a cricket score of zero; instead duck is an example of hunted birds and cricket an example of a sport.",
+     "definitionFit": "Game covers both hunted wildlife such as duck and sports such as cricket."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 27,
@@ -446,7 +1697,47 @@
     "text": "Restriction left impression",
     "enumeration": "10"
    },
-   "solution": "LIMITATION"
+   "solution": "LIMITATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIMITATION",
+    "definitions": [
+     {
+      "text": "Restriction",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "impression",
+      "gives": "IMITATION",
+      "note": "an impression, as by a mimic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IMITATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A restriction left a mark behind.",
+     "walkthrough": "'Impression' suggests a dent or mark; here it is a comedian's impersonation.",
+     "definitionFit": "A limitation is a limit or constraint, a synonym for a restriction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "impression"
+    }
+   }
   },
   {
    "number": 28,
@@ -460,7 +1751,41 @@
     "text": "Very little in supermarket in York",
     "enumeration": "4"
    },
-   "solution": "TINY"
+   "solution": "TINY",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TINY",
+    "definitions": [
+     {
+      "text": "Very little",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the run of words that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "supermarket in York",
+      "gives": "TINY",
+      "note": "the letters run across the end of the first word, the whole second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "Not much stock in a York supermarket.",
+     "definitionFit": "Tiny means extremely small, a synonym for very little."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -480,7 +1805,51 @@
      }
     ]
    },
-   "solution": "HIGHSEASON"
+   "solution": "HIGHSEASON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HIGH SEASON",
+    "definitions": [
+     {
+      "text": "When one sees the most tourists",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "possibly"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "up",
+      "gives": "HIGH",
+      "note": "up means raised, aloft"
+     },
+     {
+      "clueFragment": "spring",
+      "gives": "SEASON",
+      "note": "spring is an example of a season, which the question mark and 'possibly' flag"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIGH",
+      "SEASON"
+     ]
+    },
+    "explanation": {
+     "surface": "A guess that tourist numbers peak when spring is in full swing.",
+     "walkthrough": "'Spring up' reads as a verb meaning to appear; split it as a season that is high.",
+     "definitionFit": "High season is the peak period of the year for travel, when resorts are busiest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spring"
+    }
+   }
   }
  ]
 }
