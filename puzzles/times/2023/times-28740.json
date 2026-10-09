@@ -23,6 +23,9 @@
   "date": "2023-10-28",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -42,7 +45,62 @@
      }
     ]
    },
-   "solution": "CAESARSALAD"
+   "solution": "CAESARSALAD",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "CAESAR SALAD",
+    "definitions": [
+     {
+      "text": "leaves meal",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ailing",
+      "for": "anagram",
+      "note": "something ailing is out of sorts, so the preceding words are put into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A scare as",
+      "gives": "ASCAREAS",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "youngster",
+      "gives": "LAD",
+      "note": "a lad is a young boy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAESARSA",
+      "LAD"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ASCAREAS",
+       "gives": "CAESARSA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sick youngster, given a fright, walks out of a meal.",
+     "walkthrough": "'Leaves' looks like a verb about the youngster departing, but it belongs to the definition: a meal made of leaves.",
+     "definitionFit": "A Caesar salad is built on romaine lettuce, so it is literally a dish of leaves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 1,
@@ -56,7 +114,42 @@
     "text": "Better policy designed to limit spending",
     "enumeration": "3"
    },
-   "solution": "CAP"
+   "solution": "CAP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CAP",
+    "definitions": [
+     {
+      "text": "Better",
+      "at": 0
+     },
+     {
+      "text": "policy designed to limit spending",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Better",
+      "note": "first meaning: to outdo or top, as in capping a story"
+     },
+     {
+      "clueFragment": "policy designed to limit spending",
+      "note": "second meaning: an upper limit placed on a budget"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Better' reads as an adjective praising the policy, but it is a verb meaning surpass.",
+     "definitionFit": "To cap something is to surpass it, and a cap is also a fixed ceiling on expenditure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Better"
+    }
+   }
   },
   {
    "number": 2,
@@ -70,7 +163,75 @@
     "text": "Bull heading for cows in rising flood",
     "enumeration": "5"
    },
-   "solution": "EDICT"
+   "solution": "EDICT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "EDICT",
+    "definitions": [
+     {
+      "text": "Bull",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down entry, rising means the word is read from bottom to top"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one letter inside the other word"
+     },
+     {
+      "text": "heading for",
+      "for": "letter_selection",
+      "note": "a heading is what comes at the top, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cows",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of cows"
+     },
+     {
+      "clueFragment": "flood",
+      "gives": "TIDE",
+      "note": "a flood tide is the incoming tide"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDI",
+      "C",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "TIDE",
+       "to": "EDIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bull charges at the cows' head while floodwater rises around them.",
+     "walkthrough": "'Bull' is not the animal but a papal bull, a formal decree.",
+     "definitionFit": "A papal bull is an official proclamation from the Pope, which is a kind of decree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bull"
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +245,65 @@
     "text": "Visionary keeping rook companion used for sport",
     "enumeration": "7"
    },
-   "solution": "ARCHERY"
+   "solution": "ARCHERY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ARCHERY",
+    "definitions": [
+     {
+      "text": "sport",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping means holding something inside, so the visionary word surrounds the others"
+     }
+    ],
+    "linkWords": [
+     "used for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Visionary",
+      "gives": "AERY",
+      "note": "aery (or airy) means ethereal or visionary"
+     },
+     {
+      "clueFragment": "rook",
+      "gives": "R",
+      "note": "R is the chess abbreviation for rook"
+     },
+     {
+      "clueFragment": "companion",
+      "gives": "CH",
+      "note": "CH is Companion of Honour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "CH",
+      "ERY"
+     ]
+    },
+    "explanation": {
+     "surface": "A dreamer with a pet rook and a friend takes up a sport.",
+     "walkthrough": "AERY is a rare spelling of airy, meaning visionary or unworldly; CH, Companion of Honour, is a British order.",
+     "definitionFit": "Archery, shooting arrows at a target with a bow, is a recognised sport."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rook"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +317,75 @@
     "text": "Sons with Hercule Poirot initially distraught in tomb",
     "enumeration": "9"
    },
-   "solution": "SEPULCHRE"
+   "solution": "SEPULCHRE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "SEPULCHRE",
+    "definitions": [
+     {
+      "text": "tomb",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "distraught",
+      "for": "anagram",
+      "note": "someone distraught is all over the place, so these letters are jumbled"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sons",
+      "gives": "S",
+      "note": "S is the abbreviation for sons"
+     },
+     {
+      "clueFragment": "Hercule",
+      "gives": "HERCULE",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "Poirot",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of Poirot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EPULCHRE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HERCULEP",
+       "gives": "EPULCHRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Agatha Christie's detective is distraught at a graveside alongside some sons.",
+     "definitionFit": "A sepulchre is a burial chamber or stone tomb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "distraught"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +399,69 @@
     "text": "Ring round when importing island flower",
     "enumeration": "5"
    },
-   "solution": "LILAC"
+   "solution": "LILAC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "LILAC",
+    "definitions": [
+     {
+      "text": "flower",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "reversal",
+      "note": "turning round sends the word back the other way"
+     },
+     {
+      "text": "importing",
+      "for": "container",
+      "note": "importing means bringing something in, so a letter goes inside"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ring",
+      "gives": "CALL",
+      "note": "to ring someone is to call them"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "I",
+      "LAC"
+     ],
+     "reversals": [
+      {
+       "from": "CALL",
+       "to": "LLAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to phone back once an island's flower shipment comes in.",
+     "definitionFit": "Lilac is a shrub bearing fragrant purple or white blossom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ring"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +475,66 @@
     "text": "Pickle's top twisted by literary matchmaker",
     "enumeration": "7"
    },
-   "solution": "DILEMMA"
+   "solution": "DILEMMA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DILEMMA",
+    "definitions": [
+     {
+      "text": "Pickle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "twisted",
+      "for": "reversal",
+      "note": "twisted round, the word for top is turned back to front"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "top",
+      "gives": "LID",
+      "note": "a lid is the top of a jar"
+     },
+     {
+      "clueFragment": "literary matchmaker",
+      "gives": "EMMA",
+      "note": "Jane Austen's Emma Woodhouse meddles in her friends' romances"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIL",
+      "EMMA"
+     ],
+     "reversals": [
+      {
+       "from": "LID",
+       "to": "DIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pickle jar's lid is twisted open by a famous fictional busybody.",
+     "walkthrough": "'Pickle' suggests the jar of preserves, but it means a tight spot.",
+     "definitionFit": "Being in a pickle means being in a predicament, a hard choice or fix."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pickle"
+    }
+   }
   },
   {
    "number": 7,
@@ -140,7 +548,50 @@
     "text": "Turkey dish unbelievably delicious for starters",
     "enumeration": "3"
    },
-   "solution": "DUD"
+   "solution": "DUD",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "DUD",
+    "definitions": [
+     {
+      "text": "Turkey",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for starters",
+      "for": "letter_selection",
+      "note": "starters are the openings, so only the first letter of each following word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dish unbelievably delicious",
+      "gives": "DUD",
+      "select": "first",
+      "note": "first letters of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUD"
+     ]
+    },
+    "explanation": {
+     "surface": "A Christmas turkey dish is praised as unbelievably delicious.",
+     "walkthrough": "Turkey here is not the bird but slang for a flop.",
+     "definitionFit": "A turkey is a failure, especially a bad film or show, and a dud is the same."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Turkey"
+    }
+   }
   },
   {
    "number": 7,
@@ -160,7 +611,46 @@
      }
     ]
    },
-   "solution": "DERRINGDO"
+   "solution": "DERRINGDO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DERRING-DO",
+    "definitions": [
+     {
+      "text": "bold action",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Operas at Bayreuth",
+      "gives": "DERRING",
+      "note": "Wagner's Der Ring cycle of four operas is performed at the Bayreuth Festival"
+     },
+     {
+      "clueFragment": "occasion",
+      "gives": "DO",
+      "note": "a do is a party or occasion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DERRING",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "An evening of Wagner at Bayreuth makes for a heroic occasion.",
+     "walkthrough": "Bayreuth is the German town whose festival stages Wagner's Ring.",
+     "definitionFit": "Derring-do is daring heroism, an old word for courageous deeds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -174,7 +664,56 @@
     "text": "Police officer delivered fish for free",
     "enumeration": "11"
    },
-   "solution": "DISENTANGLE"
+   "solution": "DISENTANGLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISENTANGLE",
+    "definitions": [
+     {
+      "text": "free",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Police officer",
+      "gives": "DI",
+      "note": "DI is a Detective Inspector"
+     },
+     {
+      "clueFragment": "delivered",
+      "gives": "SENT",
+      "note": "delivered means sent"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "ANGLE",
+      "note": "to angle is to fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "SENT",
+      "ANGLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer handed over fish in exchange for nothing.",
+     "walkthrough": "'Free' reads as an adjective (no charge), but it is a verb: to release.",
+     "definitionFit": "To free a tangle is to disentangle it, releasing whatever was caught."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "free"
+    }
+   }
   },
   {
    "number": 9,
@@ -188,7 +727,45 @@
     "text": "Cardinal rule for audition?",
     "enumeration": "9"
    },
-   "solution": "PRINCIPAL"
+   "solution": "PRINCIPAL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PRINCIPAL",
+    "definitions": [
+     {
+      "text": "Cardinal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for audition",
+      "for": "homophone",
+      "note": "an audition is a hearing, so the word is judged by its sound alone"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rule",
+      "gives": "PRINCIPAL",
+      "soundsLike": "PRINCIPLE",
+      "note": "a principle is a rule, and the two spellings sound the same"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about a guiding rule for actors trying out for a part.",
+     "walkthrough": "'Cardinal' tempts as a churchman, but it is an adjective meaning chief.",
+     "definitionFit": "Cardinal and principal both mean of first importance, as in cardinal sins or virtues."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Cardinal"
+    }
+   }
   },
   {
    "number": 10,
@@ -202,7 +779,56 @@
     "text": "Trader removing wrapping of paper for primate",
     "enumeration": "5"
    },
-   "solution": "LORIS"
+   "solution": "LORIS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LORIS",
+    "definitions": [
+     {
+      "text": "primate",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removing wrapping of",
+      "for": "deletion",
+      "note": "the wrapping is the outside, so the first and last letters are stripped away"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trader",
+      "gives": "FLORIST",
+      "note": "a florist trades in flowers"
+     },
+     {
+      "clueFragment": "paper",
+      "gives": "FT",
+      "note": "the FT is the Financial Times newspaper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LORIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A shopkeeper unwraps paper to reveal a small monkey.",
+     "walkthrough": "The trader's outer letters are exactly the two letters of the pink business paper, so removing that paper unwraps the word.",
+     "definitionFit": "The loris is a small, slow-moving nocturnal primate from South and Southeast Asia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "paper"
+    }
+   }
   },
   {
    "number": 11,
@@ -216,7 +842,43 @@
     "text": "Edith or Osbert to be agreeable?",
     "enumeration": "7"
    },
-   "solution": "SITWELL"
+   "solution": "SITWELL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SITWELL",
+    "definitions": [
+     {
+      "text": "Edith or Osbert",
+      "at": 0
+     },
+     {
+      "text": "to be agreeable",
+      "at": 16,
+      "note": "phrase read as two words, sit well"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Edith or Osbert",
+      "note": "first meaning: the surname of the literary siblings Edith and Osbert"
+     },
+     {
+      "clueFragment": "to be agreeable",
+      "note": "second meaning: to ... with someone is to suit them"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The Sitwells were a trio of 20th-century English writers.",
+     "definitionFit": "Edith and Osbert shared that family name, and something that sits well is acceptable to you."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 11,
@@ -236,7 +898,50 @@
      }
     ]
    },
-   "solution": "SWALLOWDIVE"
+   "solution": "SWALLOWDIVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SWALLOW DIVE",
+    "definitions": [
+     {
+      "text": "Descent, with arms outstretched",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "down",
+      "gives": "SWALLOW",
+      "note": "to down a drink is to swallow it"
+     },
+     {
+      "clueFragment": "sleazy club",
+      "gives": "DIVE",
+      "note": "a dive is a seedy bar or nightclub"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWALLOW",
+      "DIVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stumbles down into a seedy club, arms flailing.",
+     "walkthrough": "In a down entry, one piece over another simply comes first.",
+     "definitionFit": "A swallow dive is a plunge into water with arms spread wide like wings until just before entry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "down"
+    }
+   }
   },
   {
    "number": 12,
@@ -250,7 +955,60 @@
     "text": "Victor Hugo initially abandons composer",
     "enumeration": "7"
    },
-   "solution": "CAMPION"
+   "solution": "CAMPION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "CAMPION",
+    "definitions": [
+     {
+      "text": "composer",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandons",
+      "for": "deletion",
+      "note": "abandoning means leaving, so that letter drops out of the word"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Victor",
+      "gives": "CHAMPION",
+      "note": "a victor is a champion"
+     },
+     {
+      "clueFragment": "Hugo",
+      "gives": "H",
+      "select": "first",
+      "note": "the first letter of Hugo"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAMPION"
+     ]
+    },
+    "explanation": {
+     "surface": "Victor Hugo walks away from a musician.",
+     "walkthrough": "Victor Hugo looks like the French novelist, but the two names are split: a victor, then Hugo's first letter.",
+     "definitionFit": "Thomas Campion was an English Renaissance poet who wrote lute songs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Victor"
+    }
+   }
   },
   {
    "number": 13,
@@ -264,7 +1022,62 @@
     "text": "Evacuated translators coming in at all excited?",
     "enumeration": "5"
    },
-   "solution": "ANTSY"
+   "solution": "ANTSY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ANTSY",
+    "definitions": [
+     {
+      "text": "excited",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Evacuated",
+      "for": "letter_selection",
+      "note": "evacuated means emptied, so only the outside letters remain"
+     },
+     {
+      "text": "coming in",
+      "for": "container",
+      "note": "coming in means entering, so these letters go inside another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at all",
+      "gives": "ANY",
+      "note": "as in 'is it any good?', 'at all' equals any"
+     },
+     {
+      "clueFragment": "translators",
+      "gives": "TS",
+      "select": "outer",
+      "note": "the first and last letters of translators"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "TS",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Interpreters being evacuated, wondering whether they are worried at all.",
+     "walkthrough": "The question mark flags that the definition is a loose fit.",
+     "definitionFit": "Antsy, from having ants in your pants, means restless, agitated or excitable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Evacuated"
+    }
+   }
   },
   {
    "number": 14,
@@ -278,7 +1091,63 @@
     "text": "Unproven local shunning any number under canvas",
     "enumeration": "9"
    },
-   "solution": "TENTATIVE"
+   "solution": "TENTATIVE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TENTATIVE",
+    "definitions": [
+     {
+      "text": "Unproven",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shunning",
+      "for": "deletion",
+      "note": "shunning means avoiding, so that letter is left out of the word"
+     }
+    ],
+    "linkWords": [
+     "under"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "canvas",
+      "gives": "TENT",
+      "note": "a tent is made of canvas"
+     },
+     {
+      "clueFragment": "local",
+      "gives": "NATIVE",
+      "note": "a local is a native of the place"
+     },
+     {
+      "clueFragment": "any number",
+      "gives": "N",
+      "note": "N stands for any number in algebra"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TENT",
+      "ATIVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A villager, avoiding crowds, camps in a tent; the claim is unconfirmed.",
+     "walkthrough": "In a down entry, the native minus its N sits under the canvas word.",
+     "definitionFit": "Something tentative is provisional and not yet confirmed, so it is unproven."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "local"
+    }
+   }
   },
   {
    "number": 15,
@@ -292,7 +1161,64 @@
     "text": "Bloom's monster containing endless rage",
     "enumeration": "9"
    },
-   "solution": "HYDRANGEA"
+   "solution": "HYDRANGEA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "HYDRANGEA",
+    "definitions": [
+     {
+      "text": "Bloom",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding inside, so the monster wraps round the other word"
+     },
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "endless means the final letter is cut off"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "monster",
+      "gives": "HYDRA",
+      "note": "the Hydra was the many-headed serpent killed by Hercules"
+     },
+     {
+      "clueFragment": "rage",
+      "gives": "ANGE",
+      "note": "anger with its last letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HYDR",
+      "ANGE",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A monster is in a furious temper.",
+     "walkthrough": "'Rage' gives ANGER first, then loses its end.",
+     "definitionFit": "The hydrangea is a shrub with large rounded heads of blossom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bloom"
+    }
+   }
   },
   {
    "number": 16,
@@ -306,7 +1232,63 @@
     "text": "Critic's nonsense conveyed upset",
     "enumeration": "9"
    },
-   "solution": "DETRACTOR"
+   "solution": "DETRACTOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DETRACTOR",
+    "definitions": [
+     {
+      "text": "Critic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset in a down entry means turned upside down, so the letters read upward"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nonsense",
+      "gives": "ROT",
+      "note": "rot is rubbish or nonsense"
+     },
+     {
+      "clueFragment": "conveyed",
+      "gives": "CARTED",
+      "note": "carted means transported"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DETRAC",
+      "TOR"
+     ],
+     "reversals": [
+      {
+       "from": "ROTCARTED",
+       "to": "DETRACTOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reviewer's rubbish, carried off, upset people.",
+     "definitionFit": "A detractor is someone who disparages or criticises."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 17,
@@ -320,7 +1302,59 @@
     "text": "Distinctive character one found in Telemann potentially?",
     "enumeration": "9"
    },
-   "solution": "LINEAMENT"
+   "solution": "LINEAMENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LINEAMENT",
+    "definitions": [
+     {
+      "text": "Distinctive character",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "potentially",
+      "for": "anagram",
+      "note": "potentially means what could be made from these letters, once rearranged"
+     }
+    ],
+    "linkWords": [
+     "found in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "Telemann",
+      "gives": "TELEMANN",
+      "note": "the composer's name, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITELEMANN",
+       "gives": "LINEAMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musicologist detects an individual style in Telemann's music.",
+     "walkthrough": "Telemann was a prolific German Baroque composer.",
+     "definitionFit": "Lineaments are a person's features or distinguishing characteristics."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Telemann"
+    }
+   }
   },
   {
    "number": 18,
@@ -334,7 +1368,65 @@
     "text": "Within a day ghost leaving house",
     "enumeration": "7"
    },
-   "solution": "AMONGST"
+   "solution": "AMONGST",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "AMONGST",
+    "definitions": [
+     {
+      "text": "Within",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "leaving means departing, so those letters go out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "MON",
+      "note": "MON is short for Monday"
+     },
+     {
+      "clueFragment": "ghost",
+      "gives": "GHOST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "house",
+      "gives": "HO",
+      "note": "HO is the abbreviation for house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MON",
+      "GST"
+     ]
+    },
+    "explanation": {
+     "surface": "Within a day, the ghost moves out of the house.",
+     "definitionFit": "Amongst means in the middle of or included within a group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ghost"
+    }
+   }
   },
   {
    "number": 19,
@@ -348,7 +1440,61 @@
     "text": "Wife right on and good, or immoral?",
     "enumeration": "5"
    },
-   "solution": "WRONG"
+   "solution": "WRONG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WRONG",
+    "definitions": [
+     {
+      "text": "immoral",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "R",
+      "ON",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a wife is upright and decent or wicked.",
+     "definitionFit": "Something wrong is morally bad, so it is the opposite of righteous."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 19,
@@ -368,7 +1514,43 @@
      }
     ]
    },
-   "solution": "WALKOUT"
+   "solution": "WALKOUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WALK OUT",
+    "definitions": [
+     {
+      "text": "Stroll to court?",
+      "at": 0
+     },
+     {
+      "text": "Leave angrily",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stroll to court?",
+      "note": "first meaning: in dated British usage, couples walking out together were courting"
+     },
+     {
+      "clueFragment": "Leave angrily",
+      "note": "second meaning: to depart in protest"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Court' suggests a tennis or law court, but it means woo; walking out with someone was an old British phrase for dating.",
+     "definitionFit": "To walk out is to court someone in old usage, and also to storm off in protest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 20,
@@ -388,7 +1570,50 @@
      }
     ]
    },
-   "solution": "WEAROFF"
+   "solution": "WEAROFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WEAR OFF",
+    "definitions": [
+     {
+      "text": "go down in effect",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sport",
+      "gives": "WEAR",
+      "note": "to sport a garment is to wear it"
+     },
+     {
+      "clueFragment": "cricket side",
+      "gives": "OFF",
+      "note": "the off side is one half of a cricket field"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WEAR",
+      "OFF"
+     ]
+    },
+    "explanation": {
+     "surface": "A sporting team that struggles in practice.",
+     "walkthrough": "'Sport' looks like a noun, but it is a verb meaning to wear showily. In cricket the off side is the half of the field facing the batter.",
+     "definitionFit": "When a drug or feeling wears off, its effect diminishes and fades away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sport"
+    }
+   }
   },
   {
    "number": 21,
@@ -402,7 +1627,51 @@
     "text": "Volume of water used by female shaving",
     "enumeration": "5"
    },
-   "solution": "FLAKE"
+   "solution": "FLAKE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLAKE",
+    "definitions": [
+     {
+      "text": "shaving",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "used by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "Volume of water",
+      "gives": "LAKE",
+      "note": "a lake is a large body of water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LAKE"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman uses a quantity of water while she shaves.",
+     "walkthrough": "'Shaving' reads as the act of removing hair, but it is a noun: a thin sliver.",
+     "definitionFit": "A flake is a thin sliver or chip, like a shaving of wood or chocolate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shaving"
+    }
+   }
   },
   {
    "number": 22,
@@ -422,7 +1691,69 @@
      }
     ]
    },
-   "solution": "ALLTIME"
+   "solution": "ALLTIME",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "ALL-TIME",
+    "definitions": [
+     {
+      "text": "hitherto unsurpassed",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Beginning to",
+      "for": "letter_selection",
+      "note": "the beginning is the opening letter of the next word"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the officer inside the colour"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attack",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of attack"
+     },
+     {
+      "clueFragment": "green",
+      "gives": "LIME",
+      "note": "lime is a shade of green"
+     },
+     {
+      "clueFragment": "officer",
+      "gives": "LT",
+      "note": "LT is short for lieutenant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "L",
+      "LT",
+      "IME"
+     ]
+    },
+    "explanation": {
+     "surface": "An inexperienced officer launches an attack like none before.",
+     "walkthrough": "'Green' looks like it describes a raw officer, but it is the colour.",
+     "definitionFit": "An all-time record is the best ever achieved, never beaten up to now."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "green"
+    }
+   }
   },
   {
    "number": 23,
@@ -436,7 +1767,49 @@
     "text": "Regularly avoided kinsman, arch patriarch",
     "enumeration": "5"
    },
-   "solution": "ISAAC"
+   "solution": "ISAAC",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ISAAC",
+    "definitions": [
+     {
+      "text": "patriarch",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Regularly avoided",
+      "for": "letter_selection",
+      "note": "avoiding at regular intervals means every other letter is skipped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kinsman, arch",
+      "gives": "ISAAC",
+      "select": "alternate",
+      "note": "the second, fourth, sixth letters and so on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ISAAC"
+     ]
+    },
+    "explanation": {
+     "surface": "A sly relative is shunned at every turn.",
+     "walkthrough": "'Arch' looks like part of the definition, arch patriarch, but it is fodder.",
+     "definitionFit": "In Genesis, Isaac is one of the three patriarchs of Israel, with Abraham and Jacob."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arch"
+    }
+   }
   },
   {
    "number": 24,
@@ -450,7 +1823,56 @@
     "text": "Seeing but not missing sweet decoration",
     "enumeration": "5"
    },
-   "solution": "ICING"
+   "solution": "ICING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ICING",
+    "definitions": [
+     {
+      "text": "sweet decoration",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "missing means absent, so these letters are lost from the word"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seeing",
+      "gives": "NOTICING",
+      "note": "noticing is seeing"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICING"
+     ]
+    },
+    "explanation": {
+     "surface": "Seeing everything but never missing a thing.",
+     "walkthrough": "'Not missing' reads as one idea, never overlooking, but 'not' is the word that goes missing.",
+     "definitionFit": "Icing is the sugary coating used to decorate cakes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "not"
+    }
+   }
   },
   {
    "number": 25,
@@ -464,7 +1886,67 @@
     "text": "Help with navigation? Boats are wrecked crossing lake!",
     "enumeration": "9"
    },
-   "solution": "ASTROLABE"
+   "solution": "ASTROLABE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ASTROLABE",
+    "definitions": [
+     {
+      "text": "Help with navigation?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrecked",
+      "for": "anagram",
+      "note": "wrecked means smashed up, so these letters are reassembled"
+     },
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "crossing means going across, so the rearranged letters span the other one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boats are",
+      "gives": "BOATSARE",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the abbreviation for lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASTRO",
+      "L",
+      "ABE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BOATSARE",
+       "gives": "ASTROABE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A distress call: boats are wrecked while crossing a lake.",
+     "walkthrough": "'Help' reads as a cry for rescue, but it means a navigational aid.",
+     "definitionFit": "The astrolabe is an old instrument for measuring the altitude of stars, used by sailors to find latitude."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Help"
+    }
+   }
   },
   {
    "number": 26,
@@ -478,7 +1960,42 @@
     "text": "Food often jellied found in Aintree luncheonette",
     "enumeration": "3"
    },
-   "solution": "EEL"
+   "solution": "EEL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EEL",
+    "definitions": [
+     {
+      "text": "Food often jellied",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "hidden_word",
+      "note": "found in means the letters lie inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aintree luncheonette",
+      "gives": "EEL",
+      "note": "spans the end of the racecourse name and the start of the café"
+     }
+    ],
+    "explanation": {
+     "surface": "A traditional dish served at a snack bar at Aintree racecourse.",
+     "walkthrough": "Aintree is the Liverpool racecourse that hosts the Grand National; jellied eels are a London street food.",
+     "definitionFit": "Eels are commonly boiled and set in jelly, a classic East End dish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -492,7 +2009,44 @@
     "text": "Beast taking zig-zag course?",
     "enumeration": "3"
    },
-   "solution": "EWE"
+   "solution": "EWE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EWE",
+    "definitions": [
+     {
+      "text": "Beast",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "zig-zag course",
+      "gives": "EWE",
+      "note": "East, then West, then East again: back and forth across the compass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EWE"
+     ]
+    },
+    "explanation": {
+     "surface": "An animal that weaves back and forth as it goes.",
+     "walkthrough": "Compass points spell the route: E, W, E.",
+     "definitionFit": "A ewe is a female sheep, a farm animal or beast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "zig-zag"
+    }
+   }
   },
   {
    "number": 28,
@@ -506,7 +2060,67 @@
     "text": "Academic involves quote recalled in the exam",
     "enumeration": "11"
    },
-   "solution": "THEORETICAL"
+   "solution": "THEORETICAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "THEORETICAL",
+    "definitions": [
+     {
+      "text": "Academic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "recalled means called back, so the word runs backwards"
+     },
+     {
+      "text": "involves",
+      "for": "container",
+      "note": "involves means takes inside, so the exam phrase wraps around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the exam",
+      "gives": "THEORAL",
+      "note": "the oral is a spoken examination"
+     },
+     {
+      "clueFragment": "quote",
+      "gives": "CITE",
+      "note": "to quote a source is to cite it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THEOR",
+      "ETIC",
+      "AL"
+     ],
+     "reversals": [
+      {
+       "from": "CITE",
+       "to": "ETIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An academic question cites a quotation remembered in an exam.",
+     "walkthrough": "'Academic' looks like a scholar, but it is the adjective: of no practical relevance.",
+     "definitionFit": "An academic point is a theoretical one, of no practical consequence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Academic"
+    }
+   }
   }
  ]
 }
