@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "This part of the body turns me sick",
     "enumeration": "7"
    },
-   "solution": "STERNUM"
+   "solution": "STERNUM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STERNUM",
+    "definitions": [
+     {
+      "text": "This part of the body",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sick",
+      "for": "anagram",
+      "note": "something sick is out of sorts, so the letters are put out of their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "turns me",
+      "gives": "TURNSME",
+      "note": "the two words taken letter by letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TURNSME",
+       "gives": "STERNUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complains that a certain part of their body makes them feel nauseous.",
+     "definitionFit": "The breastbone is a bone in the chest, so it is a part of the body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turns"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +93,58 @@
     "text": "Racetrack tout's gratuity half in sterling",
     "enumeration": "7"
    },
-   "solution": "TIPSTER"
+   "solution": "TIPSTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "TIPSTER",
+    "definitions": [
+     {
+      "text": "Racetrack tout",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half",
+      "for": "deletion",
+      "note": "only half the word is kept, so the rest is dropped"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gratuity",
+      "gives": "TIP",
+      "note": "a tip is a gratuity"
+     },
+     {
+      "clueFragment": "sterling",
+      "gives": "STERLING",
+      "note": "the British currency, of which only the front half survives"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIP",
+      "STER"
+     ]
+    },
+    "explanation": {
+     "surface": "A racecourse tout is paid a small tip in British pounds.",
+     "definitionFit": "A tipster sells predictions about races, which is what a racetrack tout does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gratuity"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +158,47 @@
     "text": "Light working fabric",
     "enumeration": "5"
    },
-   "solution": "RAYON"
+   "solution": "RAYON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAYON",
+    "definitions": [
+     {
+      "text": "fabric",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Light",
+      "gives": "RAY",
+      "note": "a ray is a beam of light"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "on means operating, working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAY",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A lightweight material suitable for working clothes.",
+     "walkthrough": "'Light working' looks like a description of the fabric, but each word gives a separate piece.",
+     "definitionFit": "Rayon is a synthetic textile made from cellulose, a man-made fabric."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Light"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +212,63 @@
     "text": "Rebuke for terrible pub attack",
     "enumeration": "7"
    },
-   "solution": "UPBRAID"
+   "solution": "UPBRAID",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "UPBRAID",
+    "definitions": [
+     {
+      "text": "Rebuke",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "terrible",
+      "for": "anagram",
+      "note": "terrible suggests something in a sorry state, so the letters are muddled"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "PUB",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "attack",
+      "gives": "RAID",
+      "note": "a raid is a sudden attack"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UPB",
+      "RAID"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PUB",
+       "gives": "UPB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told off for an awful assault on a pub.",
+     "definitionFit": "To upbraid someone is to scold or reprimand them, a synonym of rebuke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "terrible"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +282,63 @@
     "text": "Emotionally hardened state with warped soul",
     "enumeration": "7"
    },
-   "solution": "CALLOUS"
+   "solution": "CALLOUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CALLOUS",
+    "definitions": [
+     {
+      "text": "Emotionally hardened",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "warped",
+      "for": "anagram",
+      "note": "a warped thing is bent out of shape, so the letters lose their order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "state",
+      "gives": "CAL",
+      "note": "an abbreviation for California, a US state"
+     },
+     {
+      "clueFragment": "soul",
+      "gives": "SOUL",
+      "note": "taken as written before rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAL",
+      "LOUS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOUL",
+       "gives": "LOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A person whose soul has become twisted is described as emotionally hard.",
+     "definitionFit": "A callous person has grown insensitive and unfeeling, the hardened state the clue describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +352,70 @@
     "text": "Foreigners on a Nile cruise to the south",
     "enumeration": "6"
    },
-   "solution": "ALIENS"
+   "solution": "ALIENS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ALIENS",
+    "definitions": [
+     {
+      "text": "Foreigners",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cruise",
+      "for": "anagram",
+      "note": "a cruise wanders about, so the letters move around"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "to the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Nile",
+      "gives": "NILE",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "south",
+      "gives": "S",
+      "note": "S is the abbreviation for south"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LIEN",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NILE",
+       "gives": "LIEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tourists from abroad sail down the Nile towards the south of Egypt.",
+     "definitionFit": "Aliens are people from another country, the legal sense of foreigners."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cruise"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +429,51 @@
     "text": "Gambling games: Tories let fly",
     "enumeration": "9"
    },
-   "solution": "LOTTERIES"
+   "solution": "LOTTERIES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LOTTERIES",
+    "definitions": [
+     {
+      "text": "Gambling games",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fly",
+      "for": "anagram",
+      "note": "letting the letters fly scatters them, so they land in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tories let",
+      "gives": "TORIESLET",
+      "note": "both words taken letter by letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TORIESLET",
+       "gives": "LOTTERIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Conservative politicians loosen the rules on gambling.",
+     "walkthrough": "Tories are members of Britain's Conservative Party.",
+     "definitionFit": "Lotteries are games of chance in which numbered tickets are drawn for prizes, a form of gambling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fly"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +487,48 @@
     "text": "Peacekeepers genteel? Not at all",
     "enumeration": "7"
    },
-   "solution": "UNCIVIL"
+   "solution": "UNCIVIL",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "charade"
+    ],
+    "answer": "UNCIVIL",
+    "definitions": [
+     {
+      "text": "Peacekeepers genteel? Not at all",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Peacekeepers",
+      "gives": "UN",
+      "note": "the United Nations sends peacekeeping forces"
+     },
+     {
+      "clueFragment": "genteel",
+      "gives": "CIVIL",
+      "note": "civil means polite, well-mannered"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "CIVIL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders whether UN peacekeepers are refined and concludes they are not.",
+     "walkthrough": "The whole clue is both wordplay and definition: peacekeepers who are anything but genteel would be rude, and the pieces spell that out.",
+     "definitionFit": "Uncivil means rude and discourteous, the opposite of polite and refined."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Peacekeepers"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +548,49 @@
      }
     ]
    },
-   "solution": "BLOCKCAPITALS"
+   "solution": "BLOCKCAPITALS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLOCK CAPITALS",
+    "definitions": [
+     {
+      "text": "large plain lettering",
+      "at": 51
+     }
+    ],
+    "linkWords": [
+     "being written in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stop",
+      "gives": "BLOCK",
+      "note": "to block is to stop"
+     },
+     {
+      "clueFragment": "Paris and Rome, for example",
+      "gives": "CAPITALS",
+      "note": "Paris and Rome are each the capital city of a country"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLOCK",
+      "CAPITALS"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to halt travel to two European cities are written in big letters.",
+     "definitionFit": "Block capitals are simple, separate upper-case letters, as asked for on official forms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Paris"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +604,45 @@
     "text": "Lively son to ask personal questions",
     "enumeration": "4"
    },
-   "solution": "SPRY"
+   "solution": "SPRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPRY",
+    "definitions": [
+     {
+      "text": "Lively",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "to ask personal questions",
+      "gives": "PRY",
+      "note": "to pry is to be nosy about private matters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PRY"
+     ]
+    },
+    "explanation": {
+     "surface": "A lively boy is busy being nosy with his questions.",
+     "definitionFit": "Spry describes someone, often older, who is active and nimble, a synonym of lively."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +656,50 @@
     "text": "Still basic new study of trajectories",
     "enumeration": "10"
    },
-   "solution": "BALLISTICS"
+   "solution": "BALLISTICS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BALLISTICS",
+    "definitions": [
+     {
+      "text": "study of trajectories",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "making something new means remaking it, so the letters form a fresh arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Still basic",
+      "gives": "STILLBASIC",
+      "note": "both words taken letter by letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STILLBASIC",
+       "gives": "BALLISTICS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone grumbles that a fresh field of research into trajectories is still rather elementary.",
+     "definitionFit": "Ballistics is the science of the flight of projectiles such as bullets and shells, the paths they follow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "new"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +713,65 @@
     "text": "South Africa includes thanks to New Zealand as part of a poem",
     "enumeration": "6"
    },
-   "solution": "STANZA"
+   "solution": "STANZA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "STANZA",
+    "definitions": [
+     {
+      "text": "part of a poem",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "includes",
+      "for": "container",
+      "note": "something that includes other things holds them inside itself"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South Africa",
+      "gives": "SA",
+      "note": "the standard abbreviation for South Africa"
+     },
+     {
+      "clueFragment": "thanks",
+      "gives": "TA",
+      "note": "ta is informal British for thank you"
+     },
+     {
+      "clueFragment": "New Zealand",
+      "gives": "NZ",
+      "note": "the standard abbreviation for New Zealand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TA",
+      "NZ",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A poem's section expresses South Africa's gratitude to New Zealand, perhaps after a rugby match.",
+     "definitionFit": "A stanza is a verse, a group of lines forming one unit of a poem."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thanks"
+    }
+   }
   },
   {
    "number": 13,
@@ -207,7 +785,70 @@
     "text": "Imagine criminal with dreadful vice at some point",
     "enumeration": "8"
    },
-   "solution": "CONCEIVE"
+   "solution": "CONCEIVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CONCEIVE",
+    "definitions": [
+     {
+      "text": "Imagine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dreadful",
+      "for": "anagram",
+      "note": "something dreadful is in a bad way, so the letters are disordered"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "criminal",
+      "gives": "CON",
+      "note": "a con is a convict, a criminal"
+     },
+     {
+      "clueFragment": "vice",
+      "gives": "VICE",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "at some point",
+      "gives": "E",
+      "note": "E, east, is one point of the compass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "CEIV",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "VICE",
+       "gives": "CEIV"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Picture a lawbreaker who has some terrible vice at some moment in time.",
+     "walkthrough": "'At some point' sounds like 'at some time', but it means a compass point.",
+     "definitionFit": "To conceive of something is to form it in the mind, to imagine it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 14,
@@ -221,7 +862,69 @@
     "text": "Tricky pedicure involving judge showing bias",
     "enumeration": "9"
    },
-   "solution": "PREJUDICE"
+   "solution": "PREJUDICE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PREJUDICE",
+    "definitions": [
+     {
+      "text": "bias",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Tricky",
+      "for": "anagram",
+      "note": "something tricky is awkward or twisted, so the letters are rearranged"
+     },
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "to involve something is to take it in, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pedicure",
+      "gives": "PEDICURE",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "judge",
+      "gives": "J",
+      "note": "J is the abbreviation for judge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRE",
+      "J",
+      "UDICE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PEDICURE",
+       "gives": "PREUDICE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A difficult foot treatment given to a judge reveals partiality.",
+     "definitionFit": "Prejudice is a preconceived opinion favouring or opposing something, which is bias."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tricky"
+    }
+   }
   },
   {
    "number": 15,
@@ -235,7 +938,76 @@
     "text": "Jack's universal tax problem? Pretend to sit side by side",
     "enumeration": "9"
    },
-   "solution": "JUXTAPOSE"
+   "solution": "JUXTAPOSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "JUXTAPOSE",
+    "definitions": [
+     {
+      "text": "sit side by side",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "problem",
+      "for": "anagram",
+      "note": "a problem is something gone wrong, so the letters are put out of order"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jack",
+      "gives": "J",
+      "note": "J is the abbreviation for jack in a pack of cards"
+     },
+     {
+      "clueFragment": "universal",
+      "gives": "U",
+      "note": "U is the film classification for universal"
+     },
+     {
+      "clueFragment": "tax",
+      "gives": "TAX",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "Pretend",
+      "gives": "POSE",
+      "note": "to pose is to pretend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "U",
+      "XTA",
+      "POSE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TAX",
+       "gives": "XTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Jack has a tax problem that applies to everyone and fakes sitting beside someone.",
+     "definitionFit": "To juxtapose things is to place them next to each other, for comparison or contrast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "universal"
+    }
+   }
   },
   {
    "number": 16,
@@ -249,7 +1021,47 @@
     "text": "Sort of fiddle with a plant",
     "enumeration": "5"
    },
-   "solution": "VIOLA"
+   "solution": "VIOLA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "VIOLA",
+    "definitions": [
+     {
+      "text": "Sort of fiddle",
+      "at": 0
+     },
+     {
+      "text": "plant",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sort of fiddle",
+      "note": "first meaning: a stringed instrument a little larger than a violin"
+     },
+     {
+      "clueFragment": "plant",
+      "note": "second meaning: a flowering plant genus that includes pansies and violets"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone tinkers with a plant, a gardener's fiddling.",
+     "walkthrough": "'Fiddle with' reads as a verb meaning tinker, but 'fiddle' is the noun for a violin.",
+     "definitionFit": "The viola is a member of the violin family, and the pansy and violet belong to the botanical genus of that name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fiddle"
+    }
+   }
   },
   {
    "number": 17,
@@ -263,7 +1075,53 @@
     "text": "Authorised agent to make enquiries about animal",
     "enumeration": "5"
    },
-   "solution": "PROXY"
+   "solution": "PROXY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PROXY",
+    "definitions": [
+     {
+      "text": "Authorised agent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one word wraps round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to make enquiries",
+      "gives": "PRY",
+      "note": "to pry is to inquire nosily"
+     },
+     {
+      "clueFragment": "animal",
+      "gives": "OX",
+      "note": "an ox is a farm animal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "OX",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A representative is sent to investigate a creature.",
+     "definitionFit": "A proxy is a person given authority to act or vote on another's behalf."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -277,7 +1135,56 @@
     "text": "Satisfied salesman's permitted to take note",
     "enumeration": "7"
    },
-   "solution": "REPLETE"
+   "solution": "REPLETE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REPLETE",
+    "definitions": [
+     {
+      "text": "Satisfied",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "to take"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "salesman",
+      "gives": "REP",
+      "note": "a rep is a sales representative"
+     },
+     {
+      "clueFragment": "permitted",
+      "gives": "LET",
+      "note": "let means allowed"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "E",
+      "note": "E is a musical note"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REP",
+      "LET",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A contented salesman has been allowed to write something down.",
+     "definitionFit": "Replete means full up, satisfied after eating plenty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 19,
@@ -291,7 +1198,69 @@
     "text": "Period in which terrible storm affected athlete",
     "enumeration": "9"
    },
-   "solution": "SPORTSMAN"
+   "solution": "SPORTSMAN",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "SPORTSMAN",
+    "definitions": [
+     {
+      "text": "athlete",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in which",
+      "for": "container",
+      "note": "a period in which things happen holds them inside it"
+     },
+     {
+      "text": "terrible",
+      "for": "anagram",
+      "note": "terrible means in a bad state, so the letters are thrown out of order"
+     }
+    ],
+    "linkWords": [
+     "affected"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Period",
+      "gives": "SPAN",
+      "note": "a span is a stretch of time"
+     },
+     {
+      "clueFragment": "storm",
+      "gives": "STORM",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "ORTSM",
+      "AN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STORM",
+       "gives": "ORTSM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An athlete's performance was hampered by a spell of bad weather.",
+     "definitionFit": "A sportsman is a man who plays sports, so an athlete is a fair example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "storm"
+    }
+   }
   },
   {
    "number": 20,
@@ -305,7 +1274,51 @@
     "text": "Desired building once lived in",
     "enumeration": "7"
    },
-   "solution": "RESIDED"
+   "solution": "RESIDED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RESIDED",
+    "definitions": [
+     {
+      "text": "once lived in",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "building",
+      "for": "anagram",
+      "note": "building means constructing, so the letters are assembled in a new way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Desired",
+      "gives": "DESIRED",
+      "note": "taken letter by letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DESIRED",
+       "gives": "RESIDED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recalls a coveted building where they used to live.",
+     "walkthrough": "'Building' reads as a noun, a house, but it is a verb telling you to rebuild the letters.",
+     "definitionFit": "To reside is to dwell somewhere; in the past tense, resided means lived in a place at an earlier time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "building"
+    }
+   }
   },
   {
    "number": 21,
@@ -319,7 +1332,70 @@
     "text": "Inept article on mother's true, unfortunately!",
     "enumeration": "7"
    },
-   "solution": "AMATEUR"
+   "solution": "AMATEUR",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "AMATEUR",
+    "definitions": [
+     {
+      "text": "Inept",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "unfortunately suggests things have gone awry, so the letters are muddled"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MA",
+      "note": "ma is an informal word for mother"
+     },
+     {
+      "clueFragment": "true",
+      "gives": "TRUE",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MA",
+      "TEUR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRUE",
+       "gives": "TEUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sadly admits that a piece written about their mother being clumsy is accurate.",
+     "definitionFit": "Amateur as an adjective means unskilled or unprofessional, hence inept."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "true"
+    }
+   }
   },
   {
    "number": 22,
@@ -333,7 +1409,49 @@
     "text": "Splendid way to get the best",
     "enumeration": "6"
    },
-   "solution": "FINEST"
+   "solution": "FINEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FINEST",
+    "definitions": [
+     {
+      "text": "the best",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Splendid",
+      "gives": "FINE",
+      "note": "fine means excellent, splendid"
+     },
+     {
+      "clueFragment": "way",
+      "gives": "ST",
+      "note": "ST, street, is a way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FINE",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "An excellent method for obtaining top quality.",
+     "definitionFit": "The finest is the superlative of fine, the very best of a kind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 23,
@@ -347,7 +1465,55 @@
     "text": "Here is a trap I designed for a beekeeper",
     "enumeration": "8"
    },
-   "solution": "APIARIST"
+   "solution": "APIARIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "APIARIST",
+    "definitions": [
+     {
+      "text": "beekeeper",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "designed",
+      "for": "anagram",
+      "note": "something designed is planned and constructed, so the letters are arranged anew"
+     }
+    ],
+    "linkWords": [
+     "Here",
+     "for a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is a trap I",
+      "gives": "ISATRAPI",
+      "note": "the words taken letter by letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISATRAPI",
+       "gives": "APIARIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shows off a trap they have built for catching a beekeeper.",
+     "definitionFit": "An apiarist keeps bees, from Latin apis meaning bee, the formal word for a beekeeper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "trap"
+    }
+   }
   },
   {
    "number": 24,
@@ -361,7 +1527,43 @@
     "text": "Flash dash!",
     "enumeration": "6"
    },
-   "solution": "STREAK"
+   "solution": "STREAK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STREAK",
+    "definitions": [
+     {
+      "text": "Flash",
+      "at": 0
+     },
+     {
+      "text": "dash",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flash",
+      "note": "first meaning: to run naked through a public place"
+     },
+     {
+      "clueFragment": "dash",
+      "note": "second meaning: to move very fast"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Both senses are verbs: one is exposing oneself in public, the other is rushing.",
+     "definitionFit": "To streak is both to run naked in public, exposing oneself, and to move at great speed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Flash"
+    }
+   }
   },
   {
    "number": 25,
@@ -375,7 +1577,63 @@
     "text": "River with unusual lure for monarch",
     "enumeration": "5"
    },
-   "solution": "RULER"
+   "solution": "RULER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "RULER",
+    "definitions": [
+     {
+      "text": "monarch",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusual",
+      "for": "anagram",
+      "note": "unusual means out of the ordinary, so the letters fall out of their normal order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "River",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     },
+     {
+      "clueFragment": "lure",
+      "gives": "LURE",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ULER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LURE",
+       "gives": "ULER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An angler uses a strange bait on a river, fishing for a king.",
+     "definitionFit": "A monarch is a sovereign who reigns over a country, a kind of ruler."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lure"
+    }
+   }
   },
   {
    "number": 26,
@@ -389,7 +1647,56 @@
     "text": "It's about mannequin going first to get changed",
     "enumeration": "10"
    },
-   "solution": "REMODELLED"
+   "solution": "REMODELLED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REMODELLED",
+    "definitions": [
+     {
+      "text": "changed",
+      "at": 40
+     }
+    ],
+    "linkWords": [
+     "It's",
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means concerning, about"
+     },
+     {
+      "clueFragment": "mannequin",
+      "gives": "MODEL",
+      "note": "a mannequin is a dummy model used to display clothes"
+     },
+     {
+      "clueFragment": "going first",
+      "gives": "LED",
+      "note": "someone who led was going first, in front"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "MODEL",
+      "LED"
+     ]
+    },
+    "explanation": {
+     "surface": "A shop dummy is first in line to have its outfit swapped.",
+     "definitionFit": "Remodelled means reshaped or reworked, that is, changed in form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "changed"
+    }
+   }
   },
   {
    "number": 27,
@@ -403,7 +1710,43 @@
     "text": "Vegetable found in Staffordshire?",
     "enumeration": "4"
    },
-   "solution": "LEEK"
+   "solution": "LEEK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEEK",
+    "definitions": [
+     {
+      "text": "Vegetable",
+      "at": 0
+     },
+     {
+      "text": "found in Staffordshire",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vegetable",
+      "note": "first meaning: an onion-family vegetable"
+     },
+     {
+      "clueFragment": "found in Staffordshire",
+      "note": "second meaning: a market town in Staffordshire, a county in the English Midlands"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark admits the second meaning is a place name rather than a definition proper: Leek is a market town in Staffordshire.",
+     "definitionFit": "The vegetable is a long onion relative and a national emblem of Wales; the place is a town in Staffordshire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "found"
+    }
+   }
   },
   {
    "number": 28,
@@ -417,7 +1760,58 @@
     "text": "Under a mountain in Scotland with topsoil but no river",
     "enumeration": "7"
    },
-   "solution": "BENEATH"
+   "solution": "BENEATH",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "BENEATH",
+    "definitions": [
+     {
+      "text": "Under",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but no",
+      "for": "deletion",
+      "note": "but no means without, so a letter is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a mountain in Scotland",
+      "gives": "BEN",
+      "note": "ben is the Scottish word for a mountain, as in Ben Nevis"
+     },
+     {
+      "clueFragment": "topsoil",
+      "gives": "EARTH",
+      "note": "earth is the soil on the ground"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEN",
+      "EATH"
+     ]
+    },
+    "explanation": {
+     "surface": "Something lies below a Scottish peak that has soil on top but no stream.",
+     "definitionFit": "Beneath is a preposition meaning below, the same sense as under."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -431,7 +1825,56 @@
     "text": "Fans love to run on Sunday",
     "enumeration": "7"
    },
-   "solution": "ADORERS"
+   "solution": "ADORERS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADORERS",
+    "definitions": [
+     {
+      "text": "Fans",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "love",
+      "gives": "ADORE",
+      "note": "to adore is to love"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     },
+     {
+      "clueFragment": "Sunday",
+      "gives": "S",
+      "note": "S is an abbreviation for Sunday"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADORE",
+      "R",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Enthusiasts enjoy going for a jog at the weekend.",
+     "definitionFit": "Adorers are people who worship or admire something, as fans do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   }
  ]
 }
