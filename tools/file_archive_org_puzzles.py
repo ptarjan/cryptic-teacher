@@ -234,9 +234,13 @@ SOLUTION = re.compile(r"^\W*solution\s+(?:t[o0n]|o[fl])\s+puzzle\s+n[o0]\.?\s*" 
 SOLUTION_LAGS = (1, 6)
 #: A solution heading as the OCR garbles it ("Solution of Push No. 15,645",
 #: "Solution to Tuzzle No I5.13S"): a word, a connective, a word, maybe "No",
-#: then the number; solution_number() decides.
-LOOSE_SOLUTION = re.compile(r"^\W*(\S{4,11})\s+(\S{1,3})\s+(\S{3,8})\s+(?:n\W?[o0°]\W{0,3}\s*)?(\S{3,7}(?:\s\S{3})?)$",
-                            re.IGNORECASE)
+#: then the number, maybe read in pieces ("15 ,751", "19,7 1 1");
+#: solution_number() decides.
+LOOSE_NUMBER = r"(?:[nm][^\s\d]{0,2}\s*)?(\S{2,7}(?:\s\S{1,4}){0,2})$"
+LOOSE_SOLUTION = re.compile(r"^\W*(\S{4,11})\s+(\S{1,3})\s+(\S{3,8})\s+" + LOOSE_NUMBER, re.IGNORECASE)
+#: The 1980s-90s heading: "The Solution" over "No 16,219".
+SOLUTION_OVER = re.compile(r"^\W*(?:the\s+)?(\S{6,10})\W*$", re.IGNORECASE)
+NUMBER_UNDER = re.compile(r"^\W*" + LOOSE_NUMBER, re.IGNORECASE)
 #: What each digit reads as: letters and marks first; a digit misread as
 #: another (8 as 3) costs half a wrong one.
 DIGIT_READS = {"0": ("ODQUoucC()", "689"), "1": ("IilLTtJj|!/]", "7"), "2": ("Zz", "7"), "3": ("B", "85"),
@@ -311,7 +315,29 @@ def solution_headings(lines, titles):
                 break
         if hit:
             found.append(hit)
+    return found + solutions_over(lines, expected)
+
+
+def solutions_over(lines, expected):
+    """[(number, box)] of each "The Solution" line (SOLUTION_OVER) with a
+    "No 16,219" line (NUMBER_UNDER, solution_number) next under it, the two
+    overlapping across."""
+    found = []
+    for ws in lines:
+        m = SOLUTION_OVER.match(" ".join(w[4] for w in ws))
+        if not m or not like(m[1], "solution"):
+            continue
+        top = box_of(ws)
+        under = [u for u in lines if u is not ws and top[3] <= box_of(u)[1] <= top[3] + 2 * (top[3] - top[1])
+                 and box_of(u)[0] < top[2] and box_of(u)[2] > top[0]]
+        for u in sorted(under, key=lambda u: box_of(u)[1])[:1]:
+            num = NUMBER_UNDER.match(" ".join(w[4] for w in u))
+            n = num and solution_number(num[1], expected)
+            if n:
+                found.append((n, box_of(ws + u)))
     return found
+
+
 #: A column line that ends the clues.
 STOP = re.compile(r"^\W*(solution|crossword|concise|times\s+two|the\s+times\s+crossword|the\s+solution\s+(?:to|of)"
                   r"|championship|jumbo|\w{0,10}\s+(of|to)\s+puzzle|\S{4,9}\s+t[ao]m+or+ow|publ\w+\s+by"

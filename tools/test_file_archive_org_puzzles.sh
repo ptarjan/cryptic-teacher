@@ -152,6 +152,16 @@ _, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 15,139"), line("
 check("a garbled number repaired to the one before the title", [15138], [n for n, _ in sols])
 _, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 13,989"), line("Solution of Puzzle No 33,988")])
 check("a misread digit repaired", [13988], [n for n, _ in sols])
+check("a misread 'No' and a number read in pieces", [[15696], [15040], [15751], [19711]],
+      [[n for n, _ in f.TIMES.headings([line(f"The Times Crossword Puzzle No {t}"), line(h)])[1]]
+       for t, h in (("15,697", "Solution of Puzzle N©. 15^96"), ("15,041", "- Solution 01 Pom. Mo 15.040"),
+                    ("15,752", "Solution of Puzzle No 15 ,751"), ("19,712", "Solution to Puzzle No 19,7 1 1"))])
+_, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 16,220", y=50), line("The Solution", 400, 900),
+                            line("No. 16,219", 410, 920)])
+check("'The Solution' over its number, the two lines one heading", [16219], [n for n, _ in sols])
+_, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 16,220", y=50), line("The Solution", 400, 900),
+                            line("No. 16,219", 1400, 920)])
+check("(mirror) a number in another column is not its", [], sols)
 _, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 15,688"), line("Solution of Puzzle No 15,682"),
                             line("Solution of Puzzle No 15,687")])
 check("a Saturday's two headings, each its own", [15682, 15687], sorted(n for n, _ in sols))
