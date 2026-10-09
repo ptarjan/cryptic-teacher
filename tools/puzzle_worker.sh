@@ -86,12 +86,13 @@ worker_annotate() {   # id log sidfile task [note] [fill]
 # accepted with the hints built on it. The verdict goes to $4; $5 is the run's
 # sid file. 0 when the fill and its hints went in. Otherwise the puzzle, its
 # rows and the run's annotation files are discarded, and the return is 2 when
-# the hints did not land (alerted); for a refused fill the solve ledger
+# the hints did not land (alerted, and recorded against the puzzle's inputs
+# when the validator refused them); for a refused fill the solve ledger
 # (tools/failed_inputs.py) records the rejection so the puzzle is not tried
 # again on the same inputs, and the return is 1 — or 2 when the ledger refused
 # the entry as transient (a lockout, the network).
 worker_apply() {   # id fill log verdict sidfile
-  local id="$1" fill="$2" log="$3" verdict="$4" sidfile="$5" judged="" said="$3" rc
+  local id="$1" fill="$2" log="$3" verdict="$4" sidfile="$5" judged="" said="$3" rc error
   restore_puzzle "$id"
   if [ -s "$fill" ]; then
     # --no-reindex: the index is the caller's to rebuild when its run ends.
@@ -109,6 +110,12 @@ worker_apply() {   # id fill log verdict sidfile
       discard_puzzle "$id"
       rm -f "tools/_ann_$id.json" "tools/_puzzle_$id.json"
       alert "$WORKER_JOB solved $id but could not put its hints back on the fill, so nothing it wrote ships:"$'\n'"\`\`\`"$'\n'"$(grep -v '^[[:space:]]*$' "$verdict" | tail -4 | cut -c1-200)"$'\n'"\`\`\`"
+      # A validator error is a verdict on what the run wrote, so the puzzle is
+      # not solved again until its inputs change. A refusal with none (no
+      # session to land them as) is ours, and says nothing about the puzzle.
+      error=$(grep -E '^  ERROR' "$verdict" | head -1 | cut -c1-200)
+      [ -z "$error" ] ||
+        python3 tools/failed_inputs.py record annotate "$id" --judged --reason "$error" || true
       return 2
     fi
     judged=--judged said="$verdict"

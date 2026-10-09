@@ -94,7 +94,7 @@ echo "done"
 STUB
 chmod +x "$stub/claude"
 # shellcheck disable=SC2329  # its stubs are called by the sourced worker
-flow() (   # mode: accepted | refused | nofill | nohints
+flow() (   # mode: accepted | refused | nofill | nohints | badhints
   PATH="$stub:$PATH" CALLS="$stub/calls" EVENTS="$stub/events"
   export CALLS
   : >"$CALLS"; : >"$EVENTS"
@@ -115,7 +115,8 @@ flow() (   # mode: accepted | refused | nofill | nohints
         echo "wrote 1 solutions" ;;
       tools/annotate_check.py)
         echo "session $CLAUDE_CODE_SESSION_ID" >>"$EVENTS"
-        [ "$MODE" = nohints ] && { echo "annotate_check $2: STOPPED — the annotations were not applied"; return 2; } ;;
+        [ "$MODE" = nohints ] && { echo "annotate_check $2: STOPPED — the annotations were not applied"; return 2; }
+        [ "$MODE" = badhints ] && { printf '  ERROR: 14A: no annotation.\nannotate_check %s: STOPPED\n' "$2"; return 2; } ;;
       tools/failed_inputs.py) echo "recorded" ;;
     esac
     return 0
@@ -165,6 +166,12 @@ check "hints that did not land reject the solve" "$(got applied)" "2"
 check "its puzzle and rows discarded, so no fill ships without them" "$(grep -c '^discard pw-test' <<<"$events")" "1"
 check "said out loud" "$(grep -c '^alert test solved pw-test-[0-9]* but could not put its hints back' <<<"$events")" "1"
 check "with nothing recorded against the fill" "$(grep -c 'failed_inputs' <<<"$events")" "0"
+
+out=$(flow badhints)
+events=$(cat "$stub/events")
+check "hints the validator refused reject the solve" "$(got applied)" "2"
+check "and are recorded against the puzzle as judged, with the error" \
+  "$(grep -c 'failed_inputs.py record annotate pw-test-[0-9]* --judged --reason   ERROR: 14A: no annotation.' <<<"$events")" "1"
 
 out=$(flow nofill)
 events=$(cat "$stub/events")
