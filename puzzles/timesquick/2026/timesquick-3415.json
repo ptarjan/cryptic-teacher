@@ -24,6 +24,9 @@
   "date": "2026-09-24",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,62 @@
     "text": "Vehicle carrying pence to hostage-taker",
     "enumeration": "6"
    },
-   "solution": "CAPTOR"
+   "solution": "CAPTOR",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CAPTOR",
+    "definitions": [
+     {
+      "text": "hostage-taker",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "a vehicle carrying a load has it inside, so the first piece holds the next two"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vehicle",
+      "gives": "CAR",
+      "note": "a car is an everyday vehicle"
+     },
+     {
+      "clueFragment": "pence",
+      "gives": "P",
+      "note": "p is the standard abbreviation for pence"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "P",
+      "TO",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A ransom note demanding a few pence be delivered by car to the kidnapper.",
+     "walkthrough": "'to' looks like a link word but is part of the cargo: the car holds both P and TO.",
+     "definitionFit": "A captor is a person who seizes and holds a prisoner, which is what a hostage-taker does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "to"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +109,57 @@
     "text": "Doctor wearing fur causes fight",
     "enumeration": "6"
    },
-   "solution": "COMBAT"
+   "solution": "COMBAT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COMBAT",
+    "definitions": [
+     {
+      "text": "fight",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "something wearing a garment is inside it, so the first piece sits within the second"
+     }
+    ],
+    "linkWords": [
+     "causes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fur",
+      "gives": "COAT",
+      "note": "an animal's fur is its coat"
+     },
+     {
+      "clueFragment": "Doctor",
+      "gives": "MB",
+      "note": "MB, Bachelor of Medicine, is a doctor's qualification"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "MB",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "A physician turning up in a fur coat provokes a brawl, perhaps with animal-rights protesters.",
+     "definitionFit": "Combat is armed or physical struggle, a synonym for a fight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +173,74 @@
     "text": "Alcoholic spy confused about drinking ultimately affecting the mind",
     "enumeration": "13"
    },
-   "solution": "PSYCHOLOGICAL"
+   "solution": "PSYCHOLOGICAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PSYCHOLOGICAL",
+    "definitions": [
+     {
+      "text": "affecting the mind",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "a confused jumble of letters must be sorted into a new order"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the very end of the word beside it, so only its last letter counts"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around, so the rearranged letters surround the single selected one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Alcoholic spy",
+      "gives": "ALCOHOLICSPY",
+      "note": "the anagram fodder, taken as written"
+     },
+     {
+      "clueFragment": "drinking",
+      "gives": "G",
+      "select": "last",
+      "note": "the final letter of drinking"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PSYCHOLO",
+      "G",
+      "ICAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALCOHOLICSPY",
+       "gives": "PSYCHOLOICAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boozy secret agent, muddled from drinking, with a mind that is suffering.",
+     "walkthrough": "'Alcoholic' looks like a description of the spy, but both words are the letters to rearrange.",
+     "definitionFit": "Psychological describes anything relating to or acting on the mental state rather than the body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Alcoholic"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +254,63 @@
     "text": "Oops! Mislaid amount for marsupial",
     "enumeration": "7"
    },
-   "solution": "OPOSSUM"
+   "solution": "OPOSSUM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "OPOSSUM",
+    "definitions": [
+     {
+      "text": "marsupial",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mislaid",
+      "for": "anagram",
+      "note": "letters that are mislaid have been put in the wrong places, so they need rearranging"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oops!",
+      "gives": "OPOS",
+      "note": "the exclamation's four letters, rearranged"
+     },
+     {
+      "clueFragment": "amount",
+      "gives": "SUM",
+      "note": "a sum is an amount, especially of money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OPOS",
+      "SUM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OOPS",
+       "gives": "OPOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone exclaims in dismay after losing a sum of money meant to buy a pet marsupial.",
+     "definitionFit": "The opossum is an American pouched mammal, so it is a marsupial like the kangaroo."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mislaid"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +324,44 @@
     "text": "Shopkeeper sounds more repulsive",
     "enumeration": "6"
    },
-   "solution": "GROCER"
+   "solution": "GROCER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GROCER",
+    "definitions": [
+     {
+      "text": "Shopkeeper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sounds",
+      "for": "homophone",
+      "note": "sounds tells us to go by how a word is spoken, not how it is written"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more repulsive",
+      "gives": "GROCER",
+      "soundsLike": "GROSSER",
+      "note": "grosser means more disgusting, and it is pronounced the same as the trader's title"
+     }
+    ],
+    "explanation": {
+     "surface": "A complaint that a particular shopkeeper is getting even more disgusting.",
+     "definitionFit": "A grocer is a retailer of food and household goods, a kind of shopkeeper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sounds"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +375,44 @@
     "text": "Where to be rescued from severe habit?",
     "enumeration": "5"
    },
-   "solution": "REHAB"
+   "solution": "REHAB",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "and_lit"
+    ],
+    "answer": "REHAB",
+    "definitions": [
+     {
+      "text": "Where to be rescued from severe habit?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "from says the letters are taken out of the following words rather than built"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "severe habit",
+      "gives": "REHAB",
+      "note": "the letters run across the join of the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about where an addict can go to escape a serious addiction.",
+     "walkthrough": "The whole clue defines the answer, while the last two words also contain it, spanning the end of severe and the start of habit.",
+     "definitionFit": "Rehab is a clinic for treating addiction, the place where people are helped out of a damaging dependency."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rescued"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +436,54 @@
      }
     ]
    },
-   "solution": "CORPSDEBALLET"
+   "solution": "CORPSDEBALLET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CORPS DE BALLET",
+    "definitions": [
+     {
+      "text": "dance company",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Loose",
+      "for": "anagram",
+      "note": "something come loose is no longer held in place, so the letters may shift around"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bolts replaced",
+      "gives": "BOLTSREPLACED",
+      "note": "the anagram fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BOLTSREPLACED",
+       "gives": "CORPSDEBALLET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stage hand fixing loose bolts on the set for a visiting dance troupe.",
+     "walkthrough": "'replaced' looks like a second anagram signal, but it is fodder; 'Loose' is the only indicator.",
+     "definitionFit": "The corps de ballet is the main body of dancers in a ballet troupe, not the soloists."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "replaced"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +503,49 @@
      }
     ]
    },
-   "solution": "REDFOX"
+   "solution": "REDFOX",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "RED FOX",
+    "definitions": [
+     {
+      "text": "animal",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner's",
+      "for": "spoonerism",
+      "note": "the Reverend Spooner was famous for swapping the opening sounds of words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "FBI agent startles",
+      "gives": "REDFOX",
+      "soundsLike": "FED ROCKS",
+      "note": "a fed is an FBI agent and rocks means startles; swap the opening sounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REDFOX"
+     ]
+    },
+    "explanation": {
+     "surface": "An American federal agent gives a wild creature a fright.",
+     "definitionFit": "The red fox is the common russet-coated wild canine, a familiar animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "startles"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +559,39 @@
     "text": "Seasonal staff needed after April?",
     "enumeration": "7"
    },
-   "solution": "MAYPOLE"
+   "solution": "MAYPOLE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "MAYPOLE",
+    "definitions": [
+     {
+      "text": "Seasonal staff needed after April?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seasonal staff",
+      "note": "surface reading: temporary workers taken on for a busy season"
+     },
+     {
+      "clueFragment": "needed after April",
+      "note": "setter's reading: a staff is a pole, and the month after April is when this one is put up for dancing"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'staff' suggests employees, but here it is a wooden pole set up for the spring festival in the month that follows April.",
+     "definitionFit": "The ribboned pole erected for dancing on the first of the month after April is a decorated staff used for one season."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "staff"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +605,43 @@
     "text": "Train department our agency retains",
     "enumeration": "9"
    },
-   "solution": "ENTOURAGE"
+   "solution": "ENTOURAGE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ENTOURAGE",
+    "definitions": [
+     {
+      "text": "Train",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retains",
+      "for": "hidden_word",
+      "note": "retains means keeps within, so the answer is held inside the run of words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "department our agency",
+      "gives": "ENTOURAGE",
+      "note": "the letters run from the end of department through our into agency"
+     }
+    ],
+    "explanation": {
+     "surface": "Bureaucratic talk about a government office's training programme.",
+     "walkthrough": "'Train' reads as a verb about teaching, but it is the noun meaning a retinue that follows someone.",
+     "definitionFit": "A train can be a body of attendants following an important person, which is exactly an entourage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Train"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +655,54 @@
     "text": "Crowd gathering love murderous monarch",
     "enumeration": "5"
    },
-   "solution": "HEROD"
+   "solution": "HEROD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HEROD",
+    "definitions": [
+     {
+      "text": "murderous monarch",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gathering",
+      "for": "container",
+      "note": "gathering means collecting up, so the first piece takes the second inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crowd",
+      "gives": "HERD",
+      "note": "a herd is a crowd, of animals or people"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, which looks like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HER",
+      "O",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A mob gathers adoration for a bloodthirsty king.",
+     "definitionFit": "Herod the Great, king of Judea, is said in the Gospels to have ordered the massacre of infants."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +716,54 @@
     "text": "Hero at Troy free from evil pains",
     "enumeration": "5"
    },
-   "solution": "ACHES"
+   "solution": "ACHES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ACHES",
+    "definitions": [
+     {
+      "text": "pains",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "free from",
+      "for": "deletion",
+      "note": "being free from something means it has been removed, so letters are taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hero at Troy",
+      "gives": "ACHILLES",
+      "note": "the Greek champion of the Trojan War"
+     },
+     {
+      "clueFragment": "evil",
+      "gives": "ILL",
+      "note": "ill as a noun means harm or evil"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACH",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "The great warrior at Troy, free of wickedness, nonetheless suffers.",
+     "walkthrough": "Take ILL out of the middle of the hero's name.",
+     "definitionFit": "Aches are dull persistent pains, so the plural noun matches the plural noun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "free"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +777,58 @@
     "text": "Graduates into pancake and pepper sauce",
     "enumeration": "7"
    },
-   "solution": "TABASCO"
+   "solution": "TABASCO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TABASCO",
+    "definitions": [
+     {
+      "text": "pepper sauce",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into means placed inside, so the first piece goes within the second"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pancake",
+      "gives": "TACO",
+      "note": "a taco is a folded maize pancake"
+     },
+     {
+      "clueFragment": "Graduates",
+      "gives": "BAS",
+      "note": "BAs are Bachelors of Arts, graduates"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "BAS",
+      "CO"
+     ]
+    },
+    "explanation": {
+     "surface": "Students tucking into pancakes doused in hot sauce.",
+     "walkthrough": "'and' looks like it joins two dishes, but it links the wordplay to the definition.",
+     "definitionFit": "Tabasco is the trade name of a fiery sauce made from red peppers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Graduates"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +842,67 @@
     "text": "Row about Finnish reversing vehicle",
     "enumeration": "9"
    },
-   "solution": "LIMOUSINE"
+   "solution": "LIMOUSINE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "LIMOUSINE",
+    "definitions": [
+     {
+      "text": "vehicle",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversing",
+      "for": "reversal",
+      "note": "reversing means going backwards, so the word is read from right to left"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece wraps around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Row",
+      "gives": "LINE",
+      "note": "a row is a line"
+     },
+     {
+      "clueFragment": "Finnish",
+      "gives": "SUOMI",
+      "note": "Suomi is the Finnish word for the Finnish language and for Finland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IMOUS",
+      "INE"
+     ],
+     "reversals": [
+      {
+       "from": "SUOMI",
+       "to": "IMOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quarrel about a Finnish driver backing up his car.",
+     "walkthrough": "'Row' suggests an argument; it is a line. Finnish speakers call their own language suomi.",
+     "definitionFit": "A limousine is a large luxurious car, often chauffeur-driven, so it is a vehicle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Row"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +916,53 @@
     "text": "I caught antelope where reindeer roam?",
     "enumeration": "7"
    },
-   "solution": "ICELAND"
+   "solution": "ICELAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ICELAND",
+    "definitions": [
+     {
+      "text": "where reindeer roam?",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "antelope",
+      "gives": "ELAND",
+      "note": "the eland is a large African antelope"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "C",
+      "ELAND"
+     ]
+    },
+    "explanation": {
+     "surface": "A hunter boasts of bagging an antelope in reindeer country.",
+     "walkthrough": "The question mark flags that reindeer roaming is a fair but loose description of the country.",
+     "definitionFit": "Reindeer were introduced to the island nation in the North Atlantic and still roam its eastern highlands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +976,48 @@
     "text": "Composer's name announced",
     "enumeration": "6"
    },
-   "solution": "HANDEL"
+   "solution": "HANDEL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HANDEL",
+    "definitions": [
+     {
+      "text": "Composer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "announced",
+      "for": "homophone",
+      "note": "something announced is spoken out, so the word is judged by its sound"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "name",
+      "gives": "HANDEL",
+      "soundsLike": "HANDLE",
+      "note": "handle is slang for a name or nickname"
+     }
+    ],
+    "explanation": {
+     "surface": "A composer's name is read out, as at a concert.",
+     "walkthrough": "'s is 'is', joining the definition to the wordplay.",
+     "definitionFit": "George Frideric Handel was the German-born composer of Messiah, so he is a composer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "name"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1031,43 @@
     "text": "Romantic proposal",
     "enumeration": "6"
    },
-   "solution": "TENDER"
+   "solution": "TENDER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TENDER",
+    "definitions": [
+     {
+      "text": "Romantic",
+      "at": 0
+     },
+     {
+      "text": "proposal",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Romantic",
+      "note": "first meaning: loving and gentle, as an adjective"
+     },
+     {
+      "clueFragment": "proposal",
+      "note": "second meaning: a formal offer or bid to supply something"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a marriage proposal, but the second sense is a business bid.",
+     "definitionFit": "The word means affectionate as an adjective and, as a noun, an offer made for a contract."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "proposal"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1081,66 @@
     "text": "Country song about broken leg",
     "enumeration": "7"
    },
-   "solution": "ALGERIA"
+   "solution": "ALGERIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ALGERIA",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken is in pieces that can be put together differently"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the first piece encloses the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "song",
+      "gives": "ARIA",
+      "note": "an aria is a solo song in opera"
+     },
+     {
+      "clueFragment": "leg",
+      "gives": "LGE",
+      "note": "the three letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LGE",
+      "RIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEG",
+       "gives": "LGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A national ballad about someone breaking a leg.",
+     "definitionFit": "Algeria is the large North African nation on the Mediterranean coast, so it is a country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broken"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1154,46 @@
     "text": "Cook with pan",
     "enumeration": "5"
    },
-   "solution": "ROAST"
+   "solution": "ROAST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROAST",
+    "definitions": [
+     {
+      "text": "Cook",
+      "at": 0
+     },
+     {
+      "text": "pan",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cook",
+      "note": "first meaning: to cook in an oven or over a fire"
+     },
+     {
+      "clueFragment": "pan",
+      "note": "second meaning: to criticise harshly, as a reviewer does"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'pan' looks like kitchenware but is the verb for slating a show.",
+     "definitionFit": "The verb means both to cook meat with dry heat and to criticise someone or something severely."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pan"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1207,60 @@
     "text": "Dodge a duke sinning woman lures in",
     "enumeration": "5"
    },
-   "solution": "EVADE"
+   "solution": "EVADE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EVADE",
+    "definitions": [
+     {
+      "text": "Dodge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lures in",
+      "for": "container",
+      "note": "luring something in draws it inside, so the woman's name encloses the other pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sinning woman",
+      "gives": "EVE",
+      "note": "Eve ate the forbidden fruit in Genesis"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "duke",
+      "gives": "D",
+      "note": "D is the abbreviation for duke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EV",
+      "AD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A noble escapes the clutches of a temptress.",
+     "definitionFit": "To dodge something is to evade it, avoiding it by quick movement or trickery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dodge"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1274,42 @@
     "text": "Cottage Estrada Chavez keeps",
     "enumeration": "5"
    },
-   "solution": "DACHA"
+   "solution": "DACHA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DACHA",
+    "definitions": [
+     {
+      "text": "Cottage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeps",
+      "for": "hidden_word",
+      "note": "keeps means holds inside, so the answer is contained within the names"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Estrada Chavez",
+      "gives": "DACHA",
+      "note": "the letters run across the end of the first name into the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A cottage owned by two Latin American politicians, Estrada and Chávez.",
+     "definitionFit": "A dacha is a Russian country house or cottage, often a summer retreat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "keeps"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1323,55 @@
     "text": "Empowered with skills in final",
     "enumeration": "7"
    },
-   "solution": "ENABLED"
+   "solution": "ENABLED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ENABLED",
+    "definitions": [
+     {
+      "text": "Empowered",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so the first piece sits within the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "final",
+      "gives": "END",
+      "note": "the end is the final part"
+     },
+     {
+      "clueFragment": "with skills",
+      "gives": "ABLE",
+      "note": "able means skilled or competent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "ABLE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A player given confidence because they used their skills in the final match.",
+     "walkthrough": "'final' reads as a cup final, but here it stands for the end.",
+     "definitionFit": "To be enabled is to be given the power or means to do something, so empowered fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "final"
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1385,56 @@
     "text": "Novel that's funny one cheers",
     "enumeration": "6"
    },
-   "solution": "LOLITA"
+   "solution": "LOLITA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOLITA",
+    "definitions": [
+     {
+      "text": "Novel",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "funny",
+      "gives": "LOL",
+      "note": "LOL, laughing out loud, is text speak for something funny"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "cheers",
+      "gives": "TA",
+      "note": "ta is British slang for thanks, like cheers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOL",
+      "I",
+      "TA"
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for a comic book that raises the spirits.",
+     "walkthrough": "Ta is informal British for thank you, which is also what cheers can mean.",
+     "definitionFit": "Lolita is Vladimir Nabokov's famous 1955 novel, so the title stands for a novel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cheers"
+    }
+   }
   },
   {
    "number": 23,
@@ -375,7 +1448,66 @@
     "text": "News boss terribly tired receives oxygen",
     "enumeration": "6"
    },
-   "solution": "EDITOR"
+   "solution": "EDITOR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EDITOR",
+    "definitions": [
+     {
+      "text": "News boss",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "terribly",
+      "for": "anagram",
+      "note": "terribly suggests something done badly, so the letters are thrown out of order"
+     },
+     {
+      "text": "receives",
+      "for": "container",
+      "note": "receiving something means taking it in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tired",
+      "gives": "EDITR",
+      "note": "the five letters rearranged"
+     },
+     {
+      "clueFragment": "oxygen",
+      "gives": "O",
+      "note": "O is the chemical symbol for oxygen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDIT",
+      "O",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TIRED",
+       "gives": "EDITR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exhausted newspaper chief needs a dose of oxygen to keep going.",
+     "definitionFit": "An editor runs a newspaper or newsroom, deciding what is published, so is the boss of the news."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "receives"
+    }
+   }
   }
  ]
 }
