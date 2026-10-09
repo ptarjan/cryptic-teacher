@@ -538,6 +538,13 @@ probe = ("import runpy, sys; sys.argv = ['edition_queue.py', '-h']\n"
 loaded = [subprocess.run([sys.executable, "-c", probe.replace("RUN", repr(run))], capture_output=True, text=True,
                          timeout=120).stderr.strip().splitlines()[-1] for run in ("__main__", "edition_queue")]
 check("a run's start loads the modules it imports lazily; a plain import does not", ["True", "False"], loaded)
+# a third-party package missing (requests, absent on CI) skips the module
+# needing it; a missing tree module still fails the start
+for blocked_mod, want in (("requests", "True"), ("fetch_ia_book", "ModuleNotFoundError")):
+    out = subprocess.run([sys.executable, "-c", f"import sys; sys.modules[{blocked_mod!r}] = None\n"
+                          + probe.replace("RUN", repr("__main__"))], capture_output=True, text=True,
+                         timeout=120).stderr.strip().splitlines()[-1]
+    check(f"a start with {blocked_mod} not installed: {want}", want, out.split(":")[0])
 lock_path = subprocess.run(["git", "rev-parse", "--path-format=absolute", "--git-path", "code.lock"],
                            capture_output=True, text=True, check=True).stdout.strip()
 with open(lock_path, "a") as lk:
