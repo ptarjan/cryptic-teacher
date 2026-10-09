@@ -831,8 +831,15 @@ def digit_word(number, read):
                                             for d, c in zip(number, read.lower()))
 
 
+#: The full stop the readings vote on: one after a lone letter with more of
+#: the clue after it, an initial's ("A. Conan Doyle", "U.S.A. and") or a
+#: speck one reader alone saw (No 3's "A. Frontier cantonment."). Any other
+#: stop ends a sentence or an abbreviation and is not voted on.
+STOP = "."
+LONE_STOP = r"(?<=(?<![A-Za-z'])[A-Za-z])\.(?=\s*[A-Za-z])"
+
 #: Punctuation inside a clue that the readings vote on like words.
-MARKS = ",;:!?"
+MARKS = ",;:!?" + STOP
 
 
 #: A number in another reading's text (a clue's number or its count), which
@@ -841,11 +848,12 @@ BREAK = "#"
 
 
 def marked(text, breaks=False):
-    """The words and the voted punctuation marks of a text, in order; with
-    `breaks`, each number too, as BREAK."""
+    """The words and the voted punctuation marks of a text (MARKS; a full
+    stop only as LONE_STOP), in order; with `breaks`, each number too, as
+    BREAK."""
     # A number naming a light ("2 down") is the clue's own text, not a bound.
     text = re.sub(r"\d+(?=\s*(?:across|down|ac|dn)\b)", " ", text, flags=re.IGNORECASE)
-    found = re.findall(r"[A-Za-z]+(?:'[A-Za-z]+)?|[" + MARKS + "]" + (r"|\d+" if breaks else ""), text)
+    found = re.findall(r"[A-Za-z]+(?:'[A-Za-z]+)?|[,;:!?]|" + LONE_STOP + (r"|\d+" if breaks else ""), text)
     return [BREAK if t[0].isdigit() else t for t in found]
 
 
@@ -1190,7 +1198,7 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=()):
     and marks (`others`: one list per reading, or one list alone). Each word
     stands when another reading has it too; else it takes the spelling the
     other readings share, else the one spelling of the three that is a
-    dictionary word. A mark no other reading has is dropped. A word no
+    dictionary word. A mark (MARKS: a stop after a lone letter too) no other reading has is dropped. A word no
     other reading has, two readings agreeing on a non-word the third does
     not, or several dictionary spellings, is a disagreement. With
     `keep_known` this reading's dictionary words are an engine's own and
@@ -1302,6 +1310,8 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=()):
         elif words_at or any(t not in MARKS for e in seen_ends for t in e):
             return None, f"the clue's {side} is lost: other readings have {' / '.join(' '.join(e) for e in seen_ends)}"
     fixes, drop, how = {}, set(), "agree"
+    # The clue's second word, past an opening letter's stop ("A. Frontier").
+    second = next((t for t in mine[1:] if t not in MARKS), "")
     for i, w in enumerate(mine):
         a = low[i]
         got = {k: v for k, v in seen[i].items() if v not in MARKS and v != BREAK}
@@ -1334,7 +1344,7 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=()):
             if others and w not in seen[i].values():
                 drop.add(i)
             continue
-        if not got and i == 0 and len(w) == 1 and len(mine) > 1 and mine[1][:1].isupper():
+        if not got and i == 0 and len(w) == 1 and second[:1].isupper():
             # A letter before the clue's capital that no other reading has
             # is a speck or a misread clue number.
             drop.add(i)
@@ -1368,7 +1378,7 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=()):
             continue
         if not got:
             return None, f"no other reading has {w!r}"
-        if (i == 0 and len(w) == 1 and len(mine) > 1 and mine[1][:1].isupper()
+        if (i == 0 and len(w) == 1 and second[:1].isupper()
                 and len(got) * 2 < printing):
             # A letter before the clue's capital that most readings printing
             # the clue lack (one that lost the clue votes on none of it).
@@ -1640,8 +1650,7 @@ def clean(text):
     # An abbreviation's stop stands: "Anag. of", "rev. and".
     text = re.sub(r"(?<=[a-z]{2})" + "".join(rf"(?<!\b{a})" for a in ABBREVIATED) + r"\.(?=\s+[a-z])", ",", text)
     # A lone "A" is no abbreviation before a lower-case word: its stop is a
-    # speck ("A. junction", No 3's 28D). The vote never sees a full stop
-    # (marked), so a stop one reading alone has would stand.
+    # speck ("A. junction", No 3's 28D), even where every reader saw it.
     text = re.sub(r"(?<![A-Za-z.'])A\.(?=\s+[a-z])", "A", text)
     # A stop read twice after a word ends no clue: "1857..", not an ellipsis.
     text = re.sub(r"(?<=\w)\.\.(?!\.)", ".", text)

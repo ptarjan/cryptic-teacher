@@ -1373,12 +1373,43 @@ check("a reading adding a word, or mending a misread non-word, corrects a held c
       [True, True, True], [f.corrects("Frontier cantonment.", "A Frontier cantonment."),
                            f.corrects("Fudqe the issue", "Fudge the issue"),
                            f.corrects("A 100 of 58 across.", "A 100 of 56 across.")])
+check("the vote's speck removal, a stop after a lone letter dropped, corrects a held clue (No 3's 27D and 50D)",
+      [True, True], [f.corrects("A. junction on the East Indian Railway.", "A junction on the East Indian Railway."),
+                     f.corrects("A. Frontier cantonment.", "A Frontier cantonment.")])
+check("other marks alone correct nothing (mirror)",
+      [False, False], [f.corrects("A town.", "A town,"), f.corrects("A. Smith wrote it", "A. Smith, wrote it")])
+# Stored archive.org readings would have landed these; each is refused, its
+# mirror taken.
+refused = [("Watch salesman with consumer", "Watch salesman with consumer sumer."),  # a neighbour's fragment
+           ("Protest over first of buses put out of service", "Protest over first of buses put out of sen service"),
+           ("Be responsible for flooring?", "Is Be responsible for flooring?"),  # an opener before a capital
+           ("How much work in Schönberg's music?", "How much work in Schö- berg's music?"),  # a hyphen split
+           ("Coin-in-the-slot source, medication?", "Coin-in-the-slot source-of medication?"),  # a short word hyphened on
+           ("Doctor enters a ring, or pulpit", "Doctor enters a ring, pulpit or pulpit"),  # a word read twice
+           ("Foolhardy in war, as Hot spur was?", "Foolhardy in war, as Hot was spur?"),  # words reordered
+           ("Distant object worth very little until 1961", "Distant object worth very little until 196"),
+           ("Controversial poet receives £1 for subsistence", "Controversial poet receives I for subsistence"),
+           ("Spirit-raising shattered Mather", "Spirit-raising shattered Mother"),  # a name to a word
+           ("Underclothing adjusted in this restaurant", "Underclothing I adjusted in this restaurant"),
+           ("In revised text pirate is the look-out man", "In La revised text pirate is the look-out man"),
+           ("Letter from the girl I have cut.", "Letter from the girl I have oil cut."),  # no corpus pair
+           ('Extend onself. There\'s time "inside"', 'Extend oneself. There\'s time "*inside"')]  # a speck symbol
+check("a re-read's fragment, opener, hyphen split, reorder, figure lost, name swapped or speck corrects nothing",
+      [], [r for r in refused if f.corrects(*r)])
+taken = [("Watch salesman with consumer", "Watch salesman with a consumer"),
+         ("in trouble, blame Ella", "If in trouble, blame Ella"),  # an opener restoring the capital
+         ("How much work Schönberg's music?", "How much work in Schönberg's music?"),
+         ("Anxious to get hearted West Indian music", "Anxious to get half-hearted West Indian music"),
+         ("Cut 3 dash during keep fit session", "Cut a dash during keep fit session"),
+         ("Drilled one of Byrun's mighty tribes", "Drilled one of Byron's mighty tribes"),
+         ("Dealer about to take manager", "Dealer about to take a manager")]
+check("(mirror) a lost article, opener, word, misread figure or name mended corrects a held clue",
+      [], [t for t in taken if not f.corrects(*t)])
 check("a reading losing or swapping a real word, blank, unchanged, marks only or made up corrects nothing",
-      [False] * 9, [f.corrects("Frontier cantonment.", "Frontier."),
+      [False] * 8, [f.corrects("Frontier cantonment.", "Frontier."),
                     f.corrects("Swearing and lying", "Swearing and lying (7). But not backward"),
                     f.corrects("A town (4)", "A town (4) 7"),
                     f.corrects('The shout "Last out"', 'The shout \u201cLast out\u201d'),
-                    f.corrects("A. junction", "A junction"),
                     f.corrects("Fudge the issue", "Judge the issue"),
                     f.corrects("Frontier cantonment.", ""),
                     f.corrects("A town", "A town"),

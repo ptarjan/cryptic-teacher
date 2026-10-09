@@ -3444,34 +3444,112 @@ def mend_held(puzzle, path, tool=TOOL):
     return old, {**fixed, **{entry_id(e): text(e["clue"]) for e in old["entries"] if entry_id(e) in lost}}
 
 
+#: A clue's words for corrects(): letters of any script ("Schönberg's"),
+#: figures, and a word's "'s".
+CLUE_TOKEN = re.compile(r"[^\W_]+(?:'[^\W_]+)?")
+#: Symbols no clue gains from a re-read: a reader's specks ('"*inside').
+SPECK_SYMBOLS = set("*~^|<>{}[]\\@#=+")
+
+
+def lone_stops_dropped(was, now):
+    """Whether `now` is `was` with one or more stops after a lone letter
+    (ocr_clues.LONE_STOP) gone and nothing else changed: the vote's speck
+    removal ("A. Frontier" to "A Frontier"), not a reader's marks."""
+    lone = re.compile(ocr_clues.LONE_STOP)
+    return lone.sub("", was) == lone.sub("", now) and len(lone.findall(was)) > len(lone.findall(now))
+
+
+def mends(w, v, was):
+    """Whether the held clue `was`'s token `w`, no word, reads `v` mended: a
+    letter misread in a word ("Fudqe", "Aristic"), a figure misread digit
+    for digit ("58" to "56"), a lone figure read for the letter it looks
+    like ("3 state", not "£1"), or a speck glued to a word or figure
+    ("2to", "E25"). A figure that loses or gains a digit ("1961" to "196")
+    is no mend."""
+    lw, lv = w.lower(), v.lower()
+    if any(c.isdigit() for c in lw + lv):
+        if lw.isdigit() and lv.isdigit():
+            return len(lw) == len(lv) and ocr_clues.within_one(lw, lv)
+        if lw.isdigit():
+            return ocr_clues.digit_word(lw, lv) and not re.search(r"[£$€]\s*" + re.escape(w) + r"\b", was)
+        return re.sub(r"\d", "", lw) == lv and ocr_clues.known(lv) or re.sub(r"\D", "", lw) == lv
+    return not ocr_clues.known(lw) and ocr_clues.within_one(lw, lv) and ocr_clues.known(lv)
+
+
+def inside(text, at):
+    """Whether the token at `at` in `text` stands inside a sentence: not the
+    clue's first, nor after a stop, query or exclamation."""
+    return bool(text[:at].strip()) and text[:at].rstrip()[-1] not in ".?!"
+
+
 def corrects(was, now, printed=()):
     """Whether the clue text `now` may replace the held `was` as a better
-    reading of the same print: `now` has words, none OCR made up
+    reading of the same print. `now` has words, none OCR made up
     (ocr_clues.suspect; a token `printed`, its asPrinted, keeps is the
-    print's), bled or strayed, and every word of `was` it lacks
-    is no word (ocr_clues.known) that `now` reads one letter away (a misread
-    mended), and its words or figures differ. "Frontier cantonment." to
-    "A Frontier cantonment." does; a reading that loses a real word, swaps
-    one, or changes only marks (a held file's quotes are straightened,
-    its specks cleaned) does not."""
+    print's), bled, strayed or a speck symbol, and splits no held word over
+    a hyphen ("Schö- berg's"). Each held word it lacks is no word that `now`
+    mends (mends): a name inside the clue (a capital) only to a name the
+    lexicon knows, never a dictionary word ("Mather" to "Mother"). Beyond
+    those it gains one dictionary word at most (a lost "A"), and not:
+    a lone "I" (a speck read as one); a capital inside the clue; a short
+    word hyphened to its neighbour ("source-of"); a fragment of its
+    longer neighbour ("consumer sumer", "be-between", "corn conversely");
+    a word of four letters or more the clue has already; an opening word
+    before the held clue's capital ("Is Be responsible", a misread
+    number), save the article "A"; nor a word the corpus's clues never
+    print beside either neighbour ("have oil cut", "Vera bit Pam"). "Frontier cantonment." to "A Frontier cantonment." does; so
+    does a change that only drops a stop after a lone letter
+    (lone_stops_dropped). A reading that loses a real word, swaps one,
+    reorders them, or changes other marks only (a held file's quotes are
+    straightened, its specks cleaned) does not."""
     if not (was or "").strip() or not ocr_clues.tokens(now or "") or now == was:
         return False
     if ocr_clues.suspect(now, printed=printed) or ocr_clues.bled(now, printed) or ocr_clues.stray(now):
         return False
-    old, new = ([w.lower() for w in re.findall(r"[A-Za-z0-9]+(?:'[A-Za-z]+)?", t)] for t in (was, now))
+    if set(now) & SPECK_SYMBOLS - set(was):
+        return False
+    old_t, new_t = list(CLUE_TOKEN.finditer(was)), list(CLUE_TOKEN.finditer(now))
+    old, new = [m.group().lower() for m in old_t], [m.group().lower() for m in new_t]
     if old == new:
+        return lone_stops_dropped(was, now)
+    for m in re.finditer(r"([^\W\d_]+)-\s+([^\W\d_]+)", now):
+        if any(ocr_clues.within_one((m[1] + m[2]).lower(), w) for w in old):
+            return False
+    gone, gained = [], []
+    for op, i1, i2, j1, j2 in SequenceMatcher(None, old, new, autojunk=False).get_opcodes():
+        if op != "equal":
+            gone += range(i1, i2)
+            gained += range(j1, j2)
+    for i in gone:
+        w = old_t[i].group()
+        name = w[:1].isupper() and inside(was, old_t[i].start())
+        fix = next((j for j in gained if mends(w, new_t[j].group(), was)
+                    and not (name and ocr_clues.is_word(new[j]))), None)
+        if fix is None:
+            return False
+        gained.remove(fix)
+    if len(gained) > 1:
         return False
-    gone, added = list(old), list(new)
-    for w in old:
-        if w in added:
-            gone.remove(w)
-            added.remove(w)
-    if not all(not ocr_clues.known(w) and any(ocr_clues.within_one(w, v) for v in added) for w in gone):
-        return False
-    # Beyond the misreads mended, one dictionary word at most is gained (a
-    # lost "A"): more is another clue run on, and a count is no word.
-    new_words = [v for v in added if not any(ocr_clues.within_one(w, v) for w in gone)]
-    return len(new_words) <= 1 and all(ocr_clues.is_word(v) for v in new_words)
+    _, pairs, _ = ocr_clues.clue_lm()
+    for j in gained:
+        v, tok = new[j], new_t[j]
+        if not ocr_clues.is_word(v) or v == "i" or tok.group()[:1].isupper() and inside(now, tok.start()):
+            return False
+        near = [(k, new[k]) for k in (j - 1, j + 1) if 0 <= k < len(new)]
+        for k, u in near:
+            glue = now[min(tok.end(), new_t[k].end()):max(tok.start(), new_t[k].start())]
+            if len(v) <= 2 and "-" in glue:
+                return False
+            if len(u) > len(v) >= 2 and (u.startswith(v) or u.endswith(v) or len(v) >= 4 and any(
+                    sum(a != b for a, b in zip(v, end)) == 1 for end in (u[:len(v)], u[-len(v):]))):
+                return False
+        if len(v) >= 4 and v in old:
+            return False
+        if j == 0 and v != "a" and len(new) > 1 and new_t[1].group()[:1].isupper():
+            return False
+        if not any(pairs.get(f"{a} {b}") for a, b in [(u, v) if k < j else (v, u) for k, u in near]):
+            return False
+    return True
 
 
 def corrected_clues(puzzle, old, skip=()):

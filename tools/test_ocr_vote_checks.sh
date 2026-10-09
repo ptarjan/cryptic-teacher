@@ -47,12 +47,19 @@ check("mirror: no reading's capital, none put in",
       "involve in charge", oc.agree("involve in charge", [["#", "involve", "in", "charge", "#"]] * 2)[0])
 
 # No 3's 52D "A Frontier cantonment.": a reading that lost the clue votes
-# on none of its words, so the letter the one printing reading shares stands;
+# on none of its words, so the letter the one printing reading shares stands,
+# and the stop after it, which that reading lacks, goes as a speck;
 # a letter most printing readings lack is a misread number (mirror).
 ch = ["#", "A", "Frontier", "cantonment.", "#", "The", "King", "Emperor.", "#"]
 lost = ["#", "A", "large", "number.", "#"]
-check("an opening letter a printing reading shares stands", "A. Frontier cantonment.",
+check("an opening letter a printing reading shares stands, its lone stop goes", "A Frontier cantonment.",
       oc.agree("A. Frontier cantonment.", [ch, lost, lost])[0])
+check("a stop after a lone letter is voted on like a comma", ["A", ".", "Conan", "Doyle", ",", "U", ".", "S", ".", "A"],
+      oc.marked("A. Conan Doyle, U.S.A."))
+check("an initial's stop every reading prints stands (mirror)", "A. Smith wrote it.",
+      oc.agree("A. Smith wrote it.", [["#"] + oc.marked("A. Smith wrote it.") + ["#"]] * 2)[0])
+check("an initial's stop one reading alone saw goes", "A Smith wrote it.",
+      oc.agree("A. Smith wrote it.", [["#"] + oc.marked("A Smith wrote it.") + ["#"]] * 2)[0])
 check("an opening letter most printing readings lack goes (mirror)", "Frontier cantonment.",
       oc.agree("A. Frontier cantonment.", [ch] + [["#", "Frontier", "cantonment.", "#"]] * 2 + [lost])[0])
 
