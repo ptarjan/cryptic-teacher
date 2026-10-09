@@ -366,6 +366,15 @@ POOL_SYNCED_US=${EPOCHREALTIME/[.,]/}
 POOL_LAUNCHED_US=0
 POOL_DONE=0              # runs finished since the checkpoint
 POOL_FIXING=0            # 1 while commit_puzzle's fix run holds this shell
+POOL_REPLANNED_US=0      # when the queue was last re-read and re-ordered
+
+# How many of POOL_RUNS are still running; the rest have finished and wait
+# for pool_reap to commit them, holding their slots until it does.
+pool_live() {
+  local p n=0
+  for p in "${!POOL_RUNS[@]}"; do kill -0 "$p" 2>/dev/null && n=$((n + 1)); done
+  echo "$n"
+}
 
 # Bring POOL_RUN_US up to now. Called before every change to the runs going, so
 # the average in flight a checkpoint logs is measured rather than the nominal
@@ -464,9 +473,13 @@ pool_interval_start() {
   # The order is tools/prereset_plan.py --cover-first's (head_of_queue), which
   # re-sorts the whole of queue[at..], so what the re-read appends takes its
   # date's place. Cut-off puzzles stay first. Anything but a whole permutation
-  # back leaves the order as it was. A dry run plans once.
+  # back leaves the order as it was. A dry run plans once. The re-plan takes
+  # minutes on a loaded machine and nothing is reaped or launched meanwhile,
+  # so it runs at most once per POOL_SYNC_SECS, not at every checkpoint.
   if [ "$POOL_REORDER" = 1 ] && [ "$at" -lt "${#queue[@]}" ] &&
+     [ $(( ${EPOCHREALTIME/[.,]/} - POOL_REPLANNED_US )) -ge $(( POOL_SYNC_SECS * 1000000 )) ] &&
      { [ "$DRY_RUN" = 0 ] || [ "$POOL_PLANNED" = 0 ]; }; then
+    POOL_REPLANNED_US=${EPOCHREALTIME/[.,]/}
     # A run lasts days: the backlog is read again, so a puzzle filed or made
     # eligible since the run started joins the queue. An id the queue already
     # holds, started or not, is not added again.
@@ -495,7 +508,7 @@ pool_interval_start() {
   pool_mark
   POOL_RUN_US=0
   POOL_STARTED_US=$POOL_MARK_US
-  echo "--- pool of $wide: ${#POOL_RUNS[@]} in flight, $(( ${#queue[@]} - at )) queued${queue[$at]:+, next ${queue[*]:$at:3}} ---"
+  echo "--- pool of $wide: ${#POOL_RUNS[@]} in flight ($(pool_live) running), $(( ${#queue[@]} - at )) queued${queue[$at]:+, next ${queue[*]:$at:3}} ---"
 }
 
 # End the interval: after_wave logs the meters and decides on its failures,
