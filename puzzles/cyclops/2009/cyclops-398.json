@@ -24,6 +24,9 @@
   "date": "2009-08-31",
   "check": "28 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,44 @@
     "text": "Loathing ... in men, Dodi Fayed, for one",
     "enumeration": "8"
    },
-   "solution": "DISTASTE"
+   "solution": "DISTASTE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DISTASTE",
+    "definitions": [
+     {
+      "text": "Loathing",
+      "at": 0
+     },
+     {
+      "text": "in men, Dodi Fayed, for one",
+      "at": 13,
+      "note": "a phrase completed by the answer read as DI'S TASTE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Loathing",
+      "note": "first meaning: strong dislike"
+     },
+     {
+      "clueFragment": "in men, Dodi Fayed, for one",
+      "note": "second meaning, read as two words: Princess Diana's preference in men, of which Dodi Fayed was an example"
+     }
+    ],
+    "explanation": {
+     "surface": "A sneer at Princess Diana's last boyfriend, Dodi Fayed, as a man to be loathed.",
+     "walkthrough": "Split the answer as DI'S TASTE: the ellipsis lets 'in men, Dodi Fayed, for one' complete the phrase 'Di's taste in men'. Dodi Fayed was Diana's companion when both died in 1997.",
+     "definitionFit": "Distaste is a feeling of aversion or dislike, a milder synonym for loathing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +91,70 @@
     "text": "Hot thing revealing mound in chic Armani bottoms",
     "enumeration": "6"
    },
-   "solution": "CHILLI"
+   "solution": "CHILLI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CHILLI",
+    "definitions": [
+     {
+      "text": "Hot thing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottoms",
+      "for": "letter_selection",
+      "note": "the bottom of a down word is its final letter, so the last letter of each word is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item placed in another means it sits inside those letters"
+     }
+    ],
+    "linkWords": [
+     "revealing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chic",
+      "gives": "C",
+      "select": "last",
+      "note": "the bottom letter of chic"
+     },
+     {
+      "clueFragment": "mound",
+      "gives": "HILL",
+      "note": "a mound is a small hill"
+     },
+     {
+      "clueFragment": "Armani",
+      "gives": "I",
+      "select": "last",
+      "note": "the bottom letter of Armani"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HILL",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in a chic Armani outfit is showing a curvy bottom that looks hot.",
+     "definitionFit": "A chilli pepper is a hot-tasting thing, so the vague definition fits it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bottoms"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +168,84 @@
     "text": "Left fly undone, covered in messy lube – that's more than enough!",
     "enumeration": "8"
    },
-   "solution": "BELLYFUL"
+   "solution": "BELLYFUL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BELLYFUL",
+    "definitions": [
+     {
+      "text": "more than enough",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "undone",
+      "for": "anagram",
+      "note": "something undone has come apart, so these letters are loosened and rearranged"
+     },
+     {
+      "text": "covered in",
+      "for": "container",
+      "note": "something covered in another thing has that thing wrapped around it"
+     },
+     {
+      "text": "messy",
+      "for": "anagram",
+      "note": "a messy thing is in disorder, so these letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "fly",
+      "gives": "FLY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lube",
+      "gives": "LUBE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "LLYF",
+      "UL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LFLY",
+       "gives": "LLYF"
+      },
+      {
+       "fodder": "LUBE",
+       "gives": "BEUL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unzipped man ends up smeared in lubricant, and the speaker has had quite enough.",
+     "walkthrough": "Two separate shuffles are needed: the letters of left and fly are rearranged, then sit inside the rearranged lube.",
+     "definitionFit": "A bellyful is as much as one can stomach, used figuratively for having had more than enough."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fly"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +259,47 @@
     "text": "Exhibitionist's turned-on bathroom feature?",
     "enumeration": "6"
    },
-   "solution": "SHOWER"
+   "solution": "SHOWER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SHOWER",
+    "definitions": [
+     {
+      "text": "Exhibitionist",
+      "at": 0
+     },
+     {
+      "text": "turned-on bathroom feature",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Exhibitionist",
+      "note": "first meaning: one who shows things off"
+     },
+     {
+      "clueFragment": "turned-on bathroom feature",
+      "note": "second meaning: the fitting you switch on to wash under"
+     }
+    ],
+    "explanation": {
+     "surface": "An exhibitionist gets aroused at the sight of bathroom fittings.",
+     "walkthrough": "'Turned-on' hints at arousal but means a tap or valve switched on so the water runs.",
+     "definitionFit": "A shower is both a spray fitting in a bathroom and, literally, a person who shows or displays."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "turned-on"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +319,55 @@
      }
     ]
    },
-   "solution": "CLOSERUN"
+   "solution": "CLOSERUN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLOSE-RUN",
+    "definitions": [
+     {
+      "text": "Nothing in it",
+      "at": 46
+     }
+    ],
+    "linkWords": [
+     ":"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "no-hoper",
+      "gives": "LOSER",
+      "note": "a no-hoper is a loser"
+     },
+     {
+      "clueFragment": "on international body",
+      "gives": "UN",
+      "note": "the United Nations is an international body; 'on' just places it after"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LOSER",
+      "UN"
+     ]
+    },
+    "explanation": {
+     "surface": "A hopeless Tory sitting on a United Nations panel declares there is nothing to report.",
+     "definitionFit": "A close-run contest is one with almost no margin between the sides, as in 'nothing in it'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "body"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +387,50 @@
      }
     ]
    },
-   "solution": "TAICHI"
+   "solution": "TAICHI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TAI CHI",
+    "definitions": [
+     {
+      "text": "Exercises",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abroad",
+      "for": "anagram",
+      "note": "abroad suggests being scattered far and wide, so the letters are spread into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hit CIA",
+      "gives": "HITCIA",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HITCIA",
+       "gives": "TAICHI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Military or physical drills strike the American spy agency overseas.",
+     "definitionFit": "Tai chi is a Chinese system of slow physical movements performed as exercise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Exercises"
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +444,74 @@
     "text": "Violence when love holds relaxed in the sack",
     "enumeration": "9"
    },
-   "solution": "BLOODSHED"
+   "solution": "BLOODSHED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BLOODSHED",
+    "definitions": [
+     {
+      "text": "Violence",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "relaxed",
+      "for": "anagram",
+      "note": "something relaxed has been loosened, so these letters fall into a different order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside its letters"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is nil in tennis, the letter O"
+     },
+     {
+      "clueFragment": "holds",
+      "gives": "HOLDS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the sack",
+      "gives": "BED",
+      "note": "the sack is slang for bed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LOODSH",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OHOLDS",
+       "gives": "LOODSH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A couple's relaxed embrace in bed turns into a violent scene.",
+     "definitionFit": "Bloodshed is the killing or wounding of people, a word for violent conflict."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "holds"
+    }
+   }
   },
   {
    "number": 8,
@@ -147,7 +525,50 @@
     "text": "Hi, Peter – outed? Please!",
     "enumeration": "7"
    },
-   "solution": "PRITHEE"
+   "solution": "PRITHEE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PRITHEE",
+    "definitions": [
+     {
+      "text": "Please!",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outed",
+      "for": "anagram",
+      "note": "being outed means being exposed and turned out, so these letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hi, Peter",
+      "gives": "HIPETER",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HIPETER",
+       "gives": "PRITHEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone greets a newly outed Peter and begs for something.",
+     "definitionFit": "Prithee is an archaic contraction of 'I pray thee', used to mean please."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outed"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +582,46 @@
     "text": "Non-PC gay's calculated praise",
     "enumeration": "4"
    },
-   "solution": "PUFF"
+   "solution": "PUFF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PUFF",
+    "definitions": [
+     {
+      "text": "Non-PC gay",
+      "at": 0
+     },
+     {
+      "text": "calculated praise",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Non-PC gay",
+      "note": "first meaning: an offensive slang word for a gay man, a variant of poof"
+     },
+     {
+      "clueFragment": "calculated praise",
+      "note": "second meaning: exaggerated commendation written to promote something"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a gay man's flattery; the two halves are separate senses of one four-letter word.",
+     "definitionFit": "A puff is promotional hype, such as a blurb, and also a dated British slur for a homosexual man."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "calculated"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +635,55 @@
     "text": "Old NT director grabbing old bag",
     "enumeration": "7"
    },
-   "solution": "HOLDALL"
+   "solution": "HOLDALL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HOLDALL",
+    "definitions": [
+     {
+      "text": "bag",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grabbing",
+      "for": "container",
+      "note": "one thing grabbing another holds it, so those letters go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old NT director",
+      "gives": "HALL",
+      "note": "Sir Peter Hall was the National Theatre's director from 1973 to 1988"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "OLD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "OLD",
+      "ALL"
+     ]
+    },
+    "explanation": {
+     "surface": "A former theatre chief seizes an elderly woman, insultingly called an old bag.",
+     "walkthrough": "'Old bag' looks like a single insult, but 'old' is wordplay and 'bag' alone is the definition. NT is the National Theatre in London.",
+     "definitionFit": "A holdall is a large soft travelling bag, so it is a particular kind of bag."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "old"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +703,51 @@
      }
     ]
    },
-   "solution": "FATALBLOW"
+   "solution": "FATALBLOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FATAL BLOW",
+    "definitions": [
+     {
+      "text": "a bang to finish you off",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "– and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "To-die-for",
+      "gives": "FATAL",
+      "note": "read literally, something you die for is deadly"
+     },
+     {
+      "clueFragment": "oral sex act",
+      "gives": "BLOW",
+      "note": "as in a blow job"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FATAL",
+      "BLOW"
+     ]
+    },
+    "explanation": {
+     "surface": "A sex act described as to die for, ending with a bang.",
+     "walkthrough": "'To-die-for' normally means wonderful, but here it is taken literally as deadly.",
+     "definitionFit": "A fatal blow is a strike that kills, and a bang is a hit, so the phrase describes one that ends you."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "To-die-for"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +761,71 @@
     "text": "All right, the intelligence service's ditched a flipping nutter",
     "enumeration": "5"
    },
-   "solution": "SICKO"
+   "solution": "SICKO",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "SICKO",
+    "definitions": [
+     {
+      "text": "nutter",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ditched",
+      "for": "deletion",
+      "note": "something ditched is thrown away, so that letter is dropped"
+     },
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "flipping something turns it over, so the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "All right",
+      "gives": "OK",
+      "note": "OK means all right"
+     },
+     {
+      "clueFragment": "the intelligence service's",
+      "gives": "CIAS",
+      "note": "the CIA is the US intelligence service, with its possessive S"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter to be dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SICKO"
+     ],
+     "reversals": [
+      {
+       "from": "OKCIS",
+       "to": "SICKO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that the security services have abandoned a crazy person.",
+     "walkthrough": "OK plus CIA'S without its A gives OKCIS, which is then read backwards.",
+     "definitionFit": "Sicko is slang for a mentally disturbed or perverted person, just as nutter is slang for a madman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flipping"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +849,44 @@
      }
     ]
    },
-   "solution": "SHITFORBRAINS"
+   "solution": "SHITFORBRAINS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SHIT FOR BRAINS",
+    "definitions": [
+     {
+      "text": "Stupid",
+      "at": 0
+     },
+     {
+      "text": "verbal diarrhoea a result of having this?",
+      "at": 7,
+      "note": "a cryptic description of the noun phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stupid",
+      "note": "first meaning: an insulting term for someone dim"
+     },
+     {
+      "clueFragment": "verbal diarrhoea a result of having this?",
+      "note": "second meaning, taken literally: if your head were full of excrement, talking rubbish would follow"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Verbal diarrhoea is endless talking; the question mark signals that the phrase is being read literally, as if the brain itself were faecal matter.",
+     "definitionFit": "Shit-for-brains is a vulgar insult for a very stupid person, used both as a noun and adjectivally."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "diarrhoea"
+    }
+   }
   },
   {
    "number": 13,
@@ -253,7 +906,65 @@
      }
     ]
    },
-   "solution": "BALDPATCH"
+   "solution": "BALDPATCH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BALD PATCH",
+    "definitions": [
+     {
+      "text": "William Hague certainly has one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "something short is lacking a bit at the end, so the final letter is cut off"
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "testicle",
+      "gives": "BALL",
+      "note": "a testicle is a ball in slang"
+     },
+     {
+      "clueFragment": "date",
+      "gives": "D",
+      "note": "D is the abbreviation for date"
+     },
+     {
+      "clueFragment": "to repair",
+      "gives": "PATCH",
+      "note": "to patch something is to repair it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAL",
+      "D",
+      "PATCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A jibe that a Tory politician is missing a testicle and needs fixing.",
+     "walkthrough": "William Hague, a former Conservative leader, has long been conspicuously bald.",
+     "definitionFit": "A bald patch is a hairless area on the scalp, which the famously hairless Hague certainly has."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "testicle"
+    }
+   }
   },
   {
    "number": 14,
@@ -267,7 +978,58 @@
     "text": "Passionless Saul fumbled with axe",
     "enumeration": "7"
    },
-   "solution": "ASEXUAL"
+   "solution": "ASEXUAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASEXUAL",
+    "definitions": [
+     {
+      "text": "Passionless",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fumbled",
+      "for": "anagram",
+      "note": "fumbled things are handled clumsily and end up out of place, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saul",
+      "gives": "SAUL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "axe",
+      "gives": "AXE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SAULAXE",
+       "gives": "ASEXUAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Saul clumsily handles an axe without any enthusiasm.",
+     "definitionFit": "Asexual means without sexual feeling or desire, which is what passionless suggests here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fumbled"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +1043,65 @@
     "text": "Pissed kinky spoon merchant getting Dante pissed",
     "enumeration": "8"
    },
-   "solution": "URINATED"
+   "solution": "URINATED",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "URINATED",
+    "definitions": [
+     {
+      "text": "Pissed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pissed",
+      "for": "anagram",
+      "note": "a drunk person staggers about, so the letters reel into a new order"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kinky spoon merchant",
+      "gives": "URI",
+      "note": "Uri Geller made his name bending spoons, so his trade is kinking them"
+     },
+     {
+      "clueFragment": "Dante",
+      "gives": "DANTE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "URI",
+      "NATED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DANTE",
+       "gives": "NATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spoon-bending showman gets the Italian poet drunk.",
+     "walkthrough": "The first 'Pissed' is the definition in its urinating sense; the second is the drunken sense used as the anagram signal.",
+     "definitionFit": "To piss is vulgar slang for to urinate, so pissed in that sense equals the past tense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pissed"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1115,47 @@
     "text": "What Archer was: accomplished – pardon?!!",
     "enumeration": "7"
    },
-   "solution": "CONDONE"
+   "solution": "CONDONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONDONE",
+    "definitions": [
+     {
+      "text": "pardon",
+      "at": 32
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What Archer was",
+      "gives": "CON",
+      "note": "Jeffrey Archer, the novelist and Tory peer, was jailed for perjury, so he was a convict"
+     },
+     {
+      "clueFragment": "accomplished",
+      "gives": "DONE",
+      "note": "something accomplished is done"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "DONE"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether the jailed peer Jeffrey Archer should be pardoned for what he achieved.",
+     "walkthrough": "CON is short for convict.",
+     "definitionFit": "To condone is to overlook or forgive an offence, so it matches pardon as a verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "accomplished"
+    }
+   }
   },
   {
    "number": 16,
@@ -319,7 +1179,56 @@
      }
     ]
    },
-   "solution": "CUTITOUT"
+   "solution": "CUTITOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CUT IT OUT",
+    "definitions": [
+     {
+      "text": "Stop",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nick",
+      "gives": "CUT",
+      "note": "to nick is to make a small cut"
+     },
+     {
+      "clueFragment": "sex",
+      "gives": "IT",
+      "note": "it is a coy word for sex"
+     },
+     {
+      "clueFragment": "abroad",
+      "gives": "OUT",
+      "note": "abroad means out of the country"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUT",
+      "IT",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells a man called Nick to stop having sex on holiday overseas.",
+     "walkthrough": "'Nick' looks like a name but is a verb meaning cut.",
+     "definitionFit": "'Cut it out!' is an idiomatic command to stop doing something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Nick"
+    }
+   }
   },
   {
    "number": 17,
@@ -333,7 +1242,66 @@
     "text": "Old-fashioned published Democrat had a shag (not married)",
     "enumeration": "8"
    },
-   "solution": "OUTDATED"
+   "solution": "OUTDATED",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "OUTDATED",
+    "definitions": [
+     {
+      "text": "Old-fashioned",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means without, so the letter for the following word is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "published",
+      "gives": "OUT",
+      "note": "a book that is out has been published"
+     },
+     {
+      "clueFragment": "Democrat",
+      "gives": "D",
+      "note": "D is the abbreviation for Democrat"
+     },
+     {
+      "clueFragment": "had a shag",
+      "gives": "MATED",
+      "note": "to mate is to have sex"
+     },
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M is the abbreviation for married, and it is the letter dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "D",
+      "ATED"
+     ]
+    },
+    "explanation": {
+     "surface": "A US politician's affair is revealed, and he is not the married one.",
+     "walkthrough": "Shag is British slang for sex.",
+     "definitionFit": "Outdated means no longer current, a direct synonym for old-fashioned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "published"
+    }
+   }
   },
   {
    "number": 18,
@@ -353,7 +1321,68 @@
      }
     ]
    },
-   "solution": "DOWNINGSTREET"
+   "solution": "DOWNINGSTREET",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "DOWNING STREET",
+    "definitions": [
+     {
+      "text": "Brown's time here running out",
+      "at": 0,
+      "note": "describes the place, a noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "a word entering others goes inside them"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "'end of' keeps only the last letter of 'Third'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Third",
+      "gives": "D",
+      "select": "last",
+      "note": "the final letter of Third"
+     },
+     {
+      "clueFragment": "admitting",
+      "gives": "OWNING",
+      "note": "owning up is admitting"
+     },
+     {
+      "clueFragment": "Way",
+      "gives": "STREET",
+      "note": "a street is a way or road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "OWNING",
+      "STREET"
+     ]
+    },
+    "explanation": {
+     "surface": "Gordon Brown's premiership is ending, as he concedes the end of New Labour's Third Way.",
+     "walkthrough": "Gordon Brown was UK Prime Minister 2007 to 2010; Downing Street holds the PM's residence. 'Admitting' looks like a container signal but supplies the inserted word.",
+     "definitionFit": "10 Downing Street is the Prime Minister's official home, where Brown's term was running down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "admitting"
+    }
+   }
   },
   {
    "number": 19,
@@ -367,7 +1396,72 @@
     "text": "So Di screwed around inside with male ageing comedian",
     "enumeration": "6"
    },
-   "solution": "WISDOM"
+   "solution": "WISDOM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "WISDOM",
+    "definitions": [
+     {
+      "text": "ageing comedian",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "screwed around",
+      "for": "anagram",
+      "note": "screwed around suggests twisting and messing about, so the letters are turned into a new order"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside means placed within the surrounding letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     },
+     {
+      "clueFragment": "So Di",
+      "gives": "SODI",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ISDO",
+      "M"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SODI",
+       "gives": "ISDO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gossip that Princess Diana was sleeping around with an elderly comic.",
+     "walkthrough": "Norman Wisdom was a slapstick comedian who was still performing in old age.",
+     "definitionFit": "Sir Norman Wisdom was a British comic actor, famous into his eighties and nineties."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "screwed"
+    }
+   }
   },
   {
    "number": 20,
@@ -381,7 +1475,64 @@
     "text": "Dwarf's arse grabbed by heartless bloke",
     "enumeration": "6"
    },
-   "solution": "GRUMPY"
+   "solution": "GRUMPY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "GRUMPY",
+    "definitions": [
+     {
+      "text": "Dwarf",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grabbed by",
+      "for": "container",
+      "note": "something grabbed by another is held inside it"
+     },
+     {
+      "text": "heartless",
+      "for": "deletion",
+      "note": "without a heart means the middle letter is taken out"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arse",
+      "gives": "RUMP",
+      "note": "the rump is the backside"
+     },
+     {
+      "clueFragment": "bloke",
+      "gives": "GUY",
+      "note": "a guy is a bloke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RUMP",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A short man's backside is grabbed by an unfeeling man.",
+     "walkthrough": "Grumpy is one of the seven dwarfs in Disney's Snow White.",
+     "definitionFit": "Grumpy is the name of one of the seven dwarfs, so he is an example of a dwarf."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dwarf's"
+    }
+   }
   },
   {
    "number": 21,
@@ -395,7 +1546,70 @@
     "text": "Partner once energy reduced gets PMT bad, so absolved",
     "enumeration": "6"
    },
-   "solution": "EXEMPT"
+   "solution": "EXEMPT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "EXEMPT",
+    "definitions": [
+     {
+      "text": "absolved",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bad",
+      "for": "anagram",
+      "note": "something bad has gone wrong, so the letters are put out of order"
+     }
+    ],
+    "linkWords": [
+     "gets",
+     "so"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Partner once",
+      "gives": "EX",
+      "note": "an ex is a former partner"
+     },
+     {
+      "clueFragment": "energy reduced",
+      "gives": "E",
+      "note": "energy cut down to its abbreviation E"
+     },
+     {
+      "clueFragment": "PMT",
+      "gives": "PMT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "E",
+      "MPT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PMT",
+       "gives": "MPT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former partner, low on energy and suffering badly from premenstrual tension, is excused.",
+     "definitionFit": "Exempt means freed from an obligation, much as absolved means released from blame or duty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Partner"
+    }
+   }
   },
   {
    "number": 22,
@@ -409,7 +1623,62 @@
     "text": "Tart embeds end of nail in nut",
     "enumeration": "4"
    },
-   "solution": "FLAN"
+   "solution": "FLAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "FLAN",
+    "definitions": [
+     {
+      "text": "Tart",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embeds",
+      "for": "container",
+      "note": "a thing that embeds another sets it firmly inside itself"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, the one kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nut",
+      "gives": "FAN",
+      "note": "a nut is an enthusiast, a fan"
+     },
+     {
+      "clueFragment": "nail",
+      "gives": "L",
+      "select": "last",
+      "note": "the final letter of nail"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "L",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A floozy hammers a nail into a nut, like a DIY job.",
+     "walkthrough": "'Tart' suggests a promiscuous woman but is the pastry. The wordplay reads right to left: the nut holds the nail's end.",
+     "definitionFit": "A flan is an open pastry case with a filling, which is a kind of tart."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tart"
+    }
+   }
   },
   {
    "number": 23,
@@ -429,7 +1698,63 @@
      }
     ]
    },
-   "solution": "ATSEA"
+   "solution": "ATSEA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "AT SEA",
+    "definitions": [
+     {
+      "text": "lost",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Muddled",
+      "for": "anagram",
+      "note": "muddled things are mixed up, so the letters are rearranged"
+     },
+     {
+      "text": "second",
+      "for": "letter_selection",
+      "note": "the second letter of the word is the one kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Labour's",
+      "gives": "A",
+      "select": 2,
+      "note": "the second letter of Labour"
+     },
+     {
+      "clueFragment": "seat",
+      "gives": "SEAT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASEAT",
+       "gives": "ATSEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A confused Labour Party loses a second parliamentary seat.",
+     "walkthrough": "'Muddled' looks like the definition at the front, but it is the anagram signal; 'lost' at the end defines.",
+     "definitionFit": "To be at sea is an idiom for being confused and not knowing what to do, that is, lost."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 24,
@@ -453,7 +1778,43 @@
      }
     ]
    },
-   "solution": "UPTHEWALL"
+   "solution": "UPTHEWALL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UP THE WALL",
+    "definitions": [
+     {
+      "text": "Mad",
+      "at": 0
+     },
+     {
+      "text": "Ivy's course fixating on erection?",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mad",
+      "note": "first meaning: furious or crazy"
+     },
+     {
+      "clueFragment": "Ivy's course fixating on erection?",
+      "note": "second meaning: climbing ivy grows along a built structure, an erection in its building sense"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Erection' teases a sexual reading, but it means a built thing; ivy clings to walls as it climbs.",
+     "definitionFit": "Driving someone 'up the wall' is an idiom for making them furious or crazy, so it means mad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "erection"
+    }
+   }
   },
   {
    "number": 25,
@@ -473,7 +1834,56 @@
      }
     ]
    },
-   "solution": "CLOSEUP"
+   "solution": "CLOSEUP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLOSE-UP",
+    "definitions": [
+     {
+      "text": "paparazzo's dream shot?",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "popping into",
+      "for": "container",
+      "note": "popping into somewhere means going inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Miss",
+      "gives": "LOSE",
+      "note": "to miss something is to lose it"
+     },
+     {
+      "clueFragment": "bra feature",
+      "gives": "CUP",
+      "note": "a bra is made of two cups"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LOSE",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman's breast pops out of her bra, the photo every paparazzo wants.",
+     "walkthrough": "'Miss' looks like a young woman but is a verb.",
+     "definitionFit": "A close-up is a photograph taken at very close range, the intimate shot a tabloid photographer craves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Miss"
+    }
+   }
   },
   {
    "number": 26,
@@ -487,7 +1897,58 @@
     "text": "Have sex with juvenile, though not hard a lot",
     "enumeration": "7"
    },
-   "solution": "UMPTEEN"
+   "solution": "UMPTEEN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "UMPTEEN",
+    "definitions": [
+     {
+      "text": "a lot",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not hard",
+      "for": "deletion",
+      "note": "not hard means without the pencil-grade letter for hard, so that letter is removed"
+     }
+    ],
+    "linkWords": [
+     "though"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Have sex with",
+      "gives": "HUMP",
+      "note": "hump is slang for having sex with"
+     },
+     {
+      "clueFragment": "juvenile",
+      "gives": "TEEN",
+      "note": "a teen is a juvenile"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UMP",
+      "TEEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A sordid line about sex with a minor, many times over.",
+     "walkthrough": "H is the standard abbreviation for hard, as on pencils.",
+     "definitionFit": "Umpteen is an informal word for an indefinitely large number, meaning a lot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hard"
+    }
+   }
   }
  ]
 }
