@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,54 @@
     "text": "Person taking sample from patient using his mop and bottle after spillage",
     "enumeration": "12"
    },
-   "solution": "PHLEBOTOMIST"
+   "solution": "PHLEBOTOMIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PHLEBOTOMIST",
+    "definitions": [
+     {
+      "text": "Person taking sample from patient",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after spillage",
+      "for": "anagram",
+      "note": "once something has been spilled, its contents lie scattered in a fresh arrangement"
+     }
+    ],
+    "linkWords": [
+     "using"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "his mop and bottle",
+      "gives": "HISMOPBOTTLE",
+      "note": "the letters of his, mop and bottle, with 'and' only joining them"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HISMOPBOTTLE",
+       "gives": "PHLEBOTOMIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hospital orderly mopping up after knocking over a bottle while a patient gives a sample.",
+     "walkthrough": "The 'and' sits between the words to be shuffled but is not part of the fodder; only his, mop and bottle are.",
+     "definitionFit": "A phlebotomist is the clinician who draws blood from patients for testing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spillage"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +97,62 @@
     "text": "Forecast by media ignoring second generation",
     "enumeration": "7"
    },
-   "solution": "PRESAGE"
+   "solution": "PRESAGE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "PRESAGE",
+    "definitions": [
+     {
+      "text": "Forecast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "to ignore something is to leave it out, so a letter is dropped here"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "media",
+      "gives": "PRESS",
+      "note": "the press is the news media"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "s is the abbreviation for second"
+     },
+     {
+      "clueFragment": "generation",
+      "gives": "AGE",
+      "note": "an age is a generation or era"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRES",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A prediction made by journalists that overlooks the next generation.",
+     "definitionFit": "To presage is to foretell or be a warning sign of something to come, a verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +166,53 @@
     "text": "Let nine off, being merciful",
     "enumeration": "7"
    },
-   "solution": "LENIENT"
+   "solution": "LENIENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LENIENT",
+    "definitions": [
+     {
+      "text": "merciful",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "food that has gone off is spoiled, so the letters are disordered"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Let nine",
+      "gives": "LETNINE",
+      "note": "the letters of let and nine together"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LETNINE",
+       "gives": "LENIENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A judge releasing nine defendants out of compassion.",
+     "definitionFit": "A lenient person is tolerant and not harsh in punishment, a direct synonym of showing mercy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +226,67 @@
     "text": "Get home in time, after very enjoyable experience with dancer",
     "enumeration": "9"
    },
-   "solution": "BALLERINA"
+   "solution": "BALLERINA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BALLERINA",
+    "definitions": [
+     {
+      "text": "dancer",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another is held inside it"
+     }
+    ],
+    "linkWords": [
+     "Get",
+     "after",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very enjoyable experience",
+      "gives": "BALL",
+      "note": "to have a ball is to have a great time"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "ERA",
+      "note": "an era is a period of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BALL",
+      "ER",
+      "IN",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to make it home on time after a great night out with a dancer.",
+     "walkthrough": "'Get home in time' reads like a curfew, but 'in' is the container signal and 'Get' only joins.",
+     "definitionFit": "A ballerina is a female ballet dancer, a specific example of a dancer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +300,43 @@
     "text": "Pound taken in Bath robbery",
     "enumeration": "5"
    },
-   "solution": "THROB"
+   "solution": "THROB",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "THROB",
+    "definitions": [
+     {
+      "text": "Pound",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken in",
+      "for": "hidden_word",
+      "note": "what is taken in is held within, so the letters sit inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bath robbery",
+      "gives": "THROB",
+      "note": "letters straddling the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A pound note stolen in a burglary in the English city of Bath.",
+     "walkthrough": "Bath is a city in south-west England; 'Pound' looks like money but is the verb.",
+     "definitionFit": "To pound and to throb both describe a heavy rhythmic beating, as of a heart or head."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pound"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +350,66 @@
     "text": "Repository for ashes found in Rome moved person attending funeral",
     "enumeration": "7"
    },
-   "solution": "MOURNER"
+   "solution": "MOURNER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MOURNER",
+    "definitions": [
+     {
+      "text": "person attending funeral",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in a place lies within it"
+     },
+     {
+      "text": "moved",
+      "for": "anagram",
+      "note": "letters that have been moved are no longer in their original places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rome",
+      "gives": "ROME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Repository for ashes",
+      "gives": "URN",
+      "note": "cremated ashes are kept in an urn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "URN",
+      "ER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROME",
+       "gives": "MOER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An urn discovered in Rome is relocated, and a mourner follows it.",
+     "definitionFit": "A mourner is someone grieving who attends a funeral, a direct description."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "moved"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +423,50 @@
     "text": "Disease breaking out in area popular with holidaymakers",
     "enumeration": "7"
    },
-   "solution": "SEASIDE"
+   "solution": "SEASIDE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEASIDE",
+    "definitions": [
+     {
+      "text": "area popular with holidaymakers",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking out",
+      "for": "anagram",
+      "note": "something breaking out escapes its usual shape, so the letters rearrange"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Disease",
+      "gives": "DISEASE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DISEASE",
+       "gives": "SEASIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An epidemic erupting in a tourist resort.",
+     "definitionFit": "The seaside is the coast as a holiday destination, a descriptive gloss."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "breaking"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +490,49 @@
      }
     ]
    },
-   "solution": "WENTDOWNWELL"
+   "solution": "WENTDOWNWELL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WENT DOWN WELL",
+    "definitions": [
+     {
+      "text": "hit the right spot",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sank",
+      "gives": "WENTDOWN",
+      "note": "a ship that sank went down"
+     },
+     {
+      "clueFragment": "shaft for extracting oil",
+      "gives": "WELL",
+      "note": "an oil well is a bored shaft"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WENTDOWN",
+      "WELL"
+     ]
+    },
+    "explanation": {
+     "surface": "Drilling an oil well that struck lucky.",
+     "definitionFit": "Something that went down well was received with pleasure, an idiom matching hitting the spot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sank"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +546,55 @@
     "text": "Outside, wanting kiss to be everlasting",
     "enumeration": "7"
    },
-   "solution": "ETERNAL"
+   "solution": "ETERNAL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ETERNAL",
+    "definitions": [
+     {
+      "text": "everlasting",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wanting",
+      "for": "deletion",
+      "note": "wanting means lacking, so a letter is missing"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Outside",
+      "gives": "EXTERNAL",
+      "note": "external means on the outside"
+     },
+     {
+      "clueFragment": "kiss",
+      "gives": "X",
+      "note": "X is the conventional kiss at the end of a letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETERNAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone left out in the cold, longing for a kiss that lasts forever.",
+     "definitionFit": "Eternal means lasting for ever, without end, the same idea as everlasting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Outside"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +608,49 @@
     "text": "Plant first of rubiaceous herbs under blackberry and raspberry bushes",
     "enumeration": "7"
    },
-   "solution": "RHUBARB"
+   "solution": "RHUBARB",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "RHUBARB",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "the first of each word means its opening letter only"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rubiaceous herbs under blackberry and raspberry bushes",
+      "gives": "RHUBARB",
+      "select": "first",
+      "note": "initial letters of these seven words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RHUBARB"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener's note about a plant growing beneath fruit bushes.",
+     "walkthrough": "'first of' applies to every word from rubiaceous to bushes, not just the first one; rubiaceous means of the madder family.",
+     "definitionFit": "Rhubarb is a garden plant grown for its edible stalks, an example of a plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +664,60 @@
     "text": "A banker with tight pants is awesome",
     "enumeration": "12"
    },
-   "solution": "BREATHTAKING"
+   "solution": "BREATHTAKING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BREATHTAKING",
+    "definitions": [
+     {
+      "text": "awesome",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pants",
+      "for": "anagram",
+      "note": "pants is British slang for rubbish, so the letters are poor and in a mess"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A banker",
+      "gives": "ABANKER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tight",
+      "gives": "TIGHT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ABANKERTIGHT",
+       "gives": "BREATHTAKING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A financier in snug trousers is a stunning sight.",
+     "walkthrough": "'With tight pants' reads like clothing; in British slang 'pants' means rubbish, so it signals the shuffle.",
+     "definitionFit": "Something breathtaking is so astonishing it makes you gasp, a synonym of awe-inspiring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pants"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +731,69 @@
     "text": "Pet zebra, without black bits, is central part of circus performers' act",
     "enumeration": "7"
    },
-   "solution": "TRAPEZE"
+   "solution": "TRAPEZE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "TRAPEZE",
+    "definitions": [
+     {
+      "text": "central part of circus performers' act",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so a letter is taken away"
+     },
+     {
+      "text": "bits",
+      "for": "anagram",
+      "note": "something in bits is broken up, so its letters are reassembled"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pet zebra",
+      "gives": "PETZEBRA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "B is the abbreviation for black, as on pencils"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAPEZE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PETZERA",
+       "gives": "TRAPEZE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A circus zebra minus its black stripes stars in the big top.",
+     "walkthrough": "Black stripes suggest the zebra's markings; it is just one letter B to remove before shuffling.",
+     "definitionFit": "A trapeze is the swinging bar at the heart of an aerial acrobatic act."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "black"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +807,55 @@
     "text": "On which to burn part of guy's skeleton, wrapped around tree?",
     "enumeration": "7"
    },
-   "solution": "BONFIRE"
+   "solution": "BONFIRE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BONFIRE",
+    "definitions": [
+     {
+      "text": "On which to burn",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrapped around",
+      "for": "container",
+      "note": "something wrapped around another encloses it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of guy's skeleton",
+      "gives": "BONE",
+      "note": "any single bone is part of a skeleton"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "FIR",
+      "note": "a fir is a conifer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BON",
+      "FIR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Bonfire Night: the guy, an effigy of Guy Fawkes burnt on 5 November, sits atop the pile.",
+     "walkthrough": "The guy is the straw effigy burnt in Britain on Bonfire Night; the question mark hints at the playful definition.",
+     "definitionFit": "A bonfire is the pile on which a guy is burnt each November, a cryptic description."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "guy's"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +869,46 @@
     "text": "Clear about time",
     "enumeration": "5"
    },
-   "solution": "OVERT"
+   "solution": "OVERT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERT",
+    "definitions": [
+     {
+      "text": "Clear",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "OVER",
+      "note": "about, as in all over or concerning"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "t is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A statement of when something is plain.",
+     "definitionFit": "Overt means open and plainly visible, not hidden, a synonym of clear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +922,61 @@
     "text": "Rebel ruins corrupt fellow",
     "enumeration": "9"
    },
-   "solution": "INSURGENT"
+   "solution": "INSURGENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "INSURGENT",
+    "definitions": [
+     {
+      "text": "Rebel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "corrupt",
+      "for": "anagram",
+      "note": "corrupted text is garbled, so its letters are muddled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ruins",
+      "gives": "RUINS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "GENT",
+      "note": "a gent is a man or fellow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INSUR",
+      "GENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RUINS",
+       "gives": "INSUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rebel destroys a crooked associate.",
+     "walkthrough": "'Rebel ruins' looks like subject and verb; 'ruins' is the fodder and 'corrupt' the signal.",
+     "definitionFit": "An insurgent is a person fighting against established authority, a noun synonym of rebel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "corrupt"
+    }
+   }
   },
   {
    "number": 15,
@@ -259,7 +996,80 @@
      }
     ]
    },
-   "solution": "SKEWWHIFF"
+   "solution": "SKEWWHIFF",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "SKEW-WHIFF",
+    "definitions": [
+     {
+      "text": "not on the level",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to welcome",
+      "for": "container",
+      "note": "to welcome someone is to take them in"
+     },
+     {
+      "text": "standing",
+      "for": "reversal",
+      "note": "standing up in a down entry means read from bottom to top"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "put into means placed inside"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He",
+      "gives": "HE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "two women",
+      "gives": "WW",
+      "note": "W is the abbreviation for woman, twice"
+     },
+     {
+      "clueFragment": "small boat",
+      "gives": "SKIFF",
+      "note": "a skiff is a light rowing boat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SK",
+      "EWWH",
+      "IFF"
+     ],
+     "reversals": [
+      {
+       "from": "HWWE",
+       "to": "EWWH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man standing up to greet two women aboard a tippy little boat.",
+     "walkthrough": "'He's' means 'He is'; in a down entry 'standing' turns the man upright, read from the bottom up.",
+     "definitionFit": "Skew-whiff is British informal for askew or crooked, so not level."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "standing"
+    }
+   }
   },
   {
    "number": 16,
@@ -273,7 +1083,51 @@
     "text": "A grim, then terribly bad, dream",
     "enumeration": "9"
    },
-   "solution": "NIGHTMARE"
+   "solution": "NIGHTMARE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NIGHTMARE",
+    "definitions": [
+     {
+      "text": "dream",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "terribly bad",
+      "for": "anagram",
+      "note": "something terribly bad is badly wrong, so its letters are wrongly placed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A grim, then",
+      "gives": "AGRIMTHEN",
+      "note": "the letters of a, grim and then"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AGRIMTHEN",
+       "gives": "NIGHTMARE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dream that starts grim and turns awful.",
+     "walkthrough": "'then' looks like a link between descriptions but is part of the fodder.",
+     "definitionFit": "A nightmare is a frightening dream, a specific kind of dream."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "then"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1147,92 @@
      }
     ]
    },
-   "solution": "GODUTCH"
+   "solution": "GODUTCH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GO DUTCH",
+    "definitions": [
+     {
+      "text": "Share the cost",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "turning up in a down entry means read from the bottom upwards"
+     },
+     {
+      "text": "nasty",
+      "for": "anagram",
+      "note": "a nasty cut is a jagged one, so its letters are messed up"
+     },
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a word in a down entry is its first letter"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "with",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "setter, say",
+      "gives": "DOG",
+      "note": "a setter is a breed of dog, as the 'say' indicates"
+     },
+     {
+      "clueFragment": "cut",
+      "gives": "CUT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "H",
+      "select": "first",
+      "note": "opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOD",
+      "UTC",
+      "H"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CUT",
+       "gives": "UTC"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "DOG",
+       "to": "GOD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Splitting the bill for a crossword setter who shows up with a nasty gash on the head.",
+     "walkthrough": "'setter' wants to be the puzzle's compiler, but here it is the dog breed.",
+     "definitionFit": "To go Dutch is the idiom for each person paying their own share of a bill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "setter"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1246,50 @@
     "text": "Untidy woman setting ugly giant to work",
     "enumeration": "7"
    },
-   "solution": "TROLLOP"
+   "solution": "TROLLOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TROLLOP",
+    "definitions": [
+     {
+      "text": "Untidy woman",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "setting",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ugly giant",
+      "gives": "TROLL",
+      "note": "a troll is an ugly giant of folklore"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op, short for opus, is a work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TROLL",
+      "OP"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman putting a monstrous creature to work.",
+     "definitionFit": "Trollop is a dated term for a slovenly or promiscuous woman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1303,46 @@
     "text": "Grid said to be fantastic",
     "enumeration": "5"
    },
-   "solution": "GREAT"
+   "solution": "GREAT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GREAT",
+    "definitions": [
+     {
+      "text": "fantastic",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said",
+      "for": "homophone",
+      "note": "said refers to how a word is spoken rather than spelt"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grid",
+      "gives": "GREAT",
+      "soundsLike": "GRATE",
+      "note": "a grate is a metal grid, as in a fireplace"
+     }
+    ],
+    "explanation": {
+     "surface": "A crossword grid being praised as excellent.",
+     "definitionFit": "Great is an informal word of approval, a synonym of terrific."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Grid"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1356,50 @@
     "text": "Relevant language for European?",
     "enumeration": "7"
    },
-   "solution": "GERMANE"
+   "solution": "GERMANE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GERMANE",
+    "definitions": [
+     {
+      "text": "Relevant",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "language",
+      "gives": "GERMAN",
+      "note": "German is a language"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GERMAN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking which language is appropriate for a European.",
+     "walkthrough": "The question mark hints that 'European' is not a nationality but a single letter.",
+     "definitionFit": "Germane means pertinent to the matter in hand, a synonym of relevant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "European"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1413,75 @@
     "text": "One test devised to rein in progress of conceited individual",
     "enumeration": "7"
    },
-   "solution": "EGOTIST"
+   "solution": "EGOTIST",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "EGOTIST",
+    "definitions": [
+     {
+      "text": "conceited individual",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "devised",
+      "for": "anagram",
+      "note": "something devised is made up afresh, so letters are rearranged"
+     },
+     {
+      "text": "to rein in",
+      "for": "container",
+      "note": "reining in means holding back inside, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "test",
+      "gives": "TEST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "progress",
+      "gives": "GO",
+      "note": "to go is to proceed or progress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "GO",
+      "TIST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITEST",
+       "gives": "ETIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exam designed to curb the advancement of a self-important person.",
+     "definitionFit": "An egotist is a self-absorbed person with an inflated sense of their own importance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "progress"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1495,50 @@
     "text": "Friend, not English, provides explanation of text",
     "enumeration": "7"
    },
-   "solution": "ENDNOTE"
+   "solution": "ENDNOTE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "charade"
+    ],
+    "answer": "ENDNOTE",
+    "definitions": [
+     {
+      "text": "explanation of text",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "provides"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Friend",
+      "gives": "END",
+      "note": "the tail of this word"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "explanation": {
+     "surface": "A friend, not being English, needs a translation provided.",
+     "walkthrough": "No indicator marks which letters of 'Friend' to keep; the setter treats it as FRI plus END, and only the closing three are used.",
+     "definitionFit": "An endnote is a note at the end of a book or chapter explaining or citing its text."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Friend"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1552,68 @@
     "text": "Sign on to upset popular wisdom about Newton",
     "enumeration": "5"
    },
-   "solution": "ENROL"
+   "solution": "ENROL",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "ENROL",
+    "definitions": [
+     {
+      "text": "Sign on",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece encircles another"
+     },
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset in a down entry means turned upside down, read bottom to top"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "popular wisdom",
+      "gives": "LORE",
+      "note": "lore is traditional knowledge passed on"
+     },
+     {
+      "clueFragment": "Newton",
+      "gives": "N",
+      "note": "N is the symbol for the newton, the unit of force"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENROL"
+     ],
+     "reversals": [
+      {
+       "from": "LORNE",
+       "to": "ENROL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Signing up to challenge received ideas about Isaac Newton.",
+     "walkthrough": "Newton looks like the scientist; here it is the unit, abbreviated.",
+     "definitionFit": "To enrol is to sign up or register for a course or organisation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Newton"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1627,50 @@
     "text": "Fight for bit of hair belonging to wizard",
     "enumeration": "7"
    },
-   "solution": "WARLOCK"
+   "solution": "WARLOCK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WARLOCK",
+    "definitions": [
+     {
+      "text": "wizard",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "for",
+     "belonging to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fight",
+      "gives": "WAR",
+      "note": "a war is a fight between nations"
+     },
+     {
+      "clueFragment": "bit of hair",
+      "gives": "LOCK",
+      "note": "a lock is a strand or tress of hair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAR",
+      "LOCK"
+     ]
+    },
+    "explanation": {
+     "surface": "A struggle over a strand of a sorcerer's hair.",
+     "definitionFit": "A warlock is a male practitioner of magic, a synonym of wizard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fight"
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1684,64 @@
     "text": "End of metatarsal amongst multiple offspring is not so developed",
     "enumeration": "7"
    },
-   "solution": "LITTLER"
+   "solution": "LITTLER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LITTLER",
+    "definitions": [
+     {
+      "text": "not so developed",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "End of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter"
+     },
+     {
+      "text": "amongst",
+      "for": "container",
+      "note": "amongst means placed in the middle of others"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "metatarsal",
+      "gives": "L",
+      "select": "last",
+      "note": "closing letter of the word"
+     },
+     {
+      "clueFragment": "multiple offspring",
+      "gives": "LITTER",
+      "note": "a litter is a brood of young born together"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LITT",
+      "L",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A foot bone in a litter of young animals is underdeveloped.",
+     "definitionFit": "Littler is the comparative of little, meaning smaller or less grown."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "metatarsal"
+    }
+   }
   },
   {
    "number": 25,
@@ -419,7 +1755,71 @@
     "text": "Setter fled with Iraqi's last article from Tehran",
     "enumeration": "7"
    },
-   "solution": "IRANIAN"
+   "solution": "IRANIAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "IRANIAN",
+    "definitions": [
+     {
+      "text": "from Tehran",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Setter",
+      "gives": "I",
+      "note": "the setter refers to themself as I"
+     },
+     {
+      "clueFragment": "fled",
+      "gives": "RAN",
+      "note": "past tense of run away"
+     },
+     {
+      "clueFragment": "Iraqi's",
+      "gives": "I",
+      "select": "last",
+      "note": "closing letter of the word"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "an is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "RAN",
+      "I",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A crossword setter escapes alongside an Iraqi's last belongings out of Tehran.",
+     "walkthrough": "Tehran is the capital of Iran, so 'from Tehran' defines the nationality adjective.",
+     "definitionFit": "Iranian describes a person or thing originating in Iran, whose capital is Tehran."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 26,
@@ -443,7 +1843,64 @@
      }
     ]
    },
-   "solution": "CHAPELOFREST"
+   "solution": "CHAPELOFREST",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CHAPEL OF REST",
+    "definitions": [
+     {
+      "text": "undertaker's parlour",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suspect",
+      "for": "anagram",
+      "note": "a suspect arrangement is a dubious one, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Male",
+      "gives": "CHAP",
+      "note": "a chap is a man"
+     },
+     {
+      "clueFragment": "left rose",
+      "gives": "LEFTROSE",
+      "note": "the letters of left and rose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAP",
+      "ELOFREST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEFTROSE",
+       "gives": "ELOFREST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shady man leaves a rose in a funeral home.",
+     "walkthrough": "'suspect' reads as a noun describing the male, but it is an adjective signalling the shuffle.",
+     "definitionFit": "A chapel of rest is a room at a funeral home where the body lies before the funeral."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suspect"
+    }
+   }
   }
  ]
 }
