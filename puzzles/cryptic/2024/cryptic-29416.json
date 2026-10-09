@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,54 @@
     "text": "Auditorium bag, not old",
     "enumeration": "4"
    },
-   "solution": "HALL"
+   "solution": "HALL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HALL",
+    "definitions": [
+     {
+      "text": "Auditorium",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "'not' tells you to leave the following word out of the bag word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bag",
+      "gives": "HOLDALL",
+      "note": "a holdall is a large travelling bag"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "OLD",
+      "note": "taken as written, the letters to remove"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ALL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describing a concert hall's bag, perhaps a lost-property item that is new.",
+     "walkthrough": "Remove OLD from HOLDALL and HALL is left.",
+     "definitionFit": "A hall is a large room or building for concerts and lectures, the same thing as an auditorium."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "old"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +97,61 @@
     "text": "Old vehicles from church, with a bold, colourful display on Sabbath",
     "enumeration": "8"
    },
-   "solution": "CHARIOTS"
+   "solution": "CHARIOTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHARIOTS",
+    "definitions": [
+     {
+      "text": "Old vehicles",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the standard abbreviation for church"
+     },
+     {
+      "clueFragment": "with a",
+      "gives": "A",
+      "note": "the article taken as written"
+     },
+     {
+      "clueFragment": "bold, colourful display",
+      "gives": "RIOT",
+      "note": "a riot of colour is a vivid, bold display"
+     },
+     {
+      "clueFragment": "on Sabbath",
+      "gives": "S",
+      "note": "S is an abbreviation for Sabbath, placed last"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "A",
+      "RIOT",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Antique carriages turn out from church in a bright parade on Sunday.",
+     "definitionFit": "Chariots were the two-wheeled horse-drawn carts of ancient warfare and racing, plainly vehicles of old."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "display"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +165,53 @@
     "text": "Dramatist put away? No way!",
     "enumeration": "4"
    },
-   "solution": "INGE"
+   "solution": "INGE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "INGE",
+    "definitions": [
+     {
+      "text": "Dramatist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "No",
+      "for": "deletion",
+      "note": "'No way!' read literally orders the word for a way to be dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "put away",
+      "gives": "INGEST",
+      "note": "to put away food is to eat or ingest it"
+     },
+     {
+      "clueFragment": "way",
+      "gives": "ST",
+      "note": "ST, street, is a way; these letters are removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Was the playwright locked up? Surely not!",
+     "walkthrough": "William Inge was an American playwright (Picnic, Bus Stop). Take ST from INGEST.",
+     "definitionFit": "William Inge wrote plays for Broadway in the 1950s, so he is a dramatist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +225,58 @@
     "text": "IT broadcast with Naples' most outspoken",
     "enumeration": "8"
    },
-   "solution": "PLAINEST"
+   "solution": "PLAINEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PLAINEST",
+    "definitions": [
+     {
+      "text": "most outspoken",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast seed is scattered, so these letters are flung into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "IT",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Naples'",
+      "gives": "NAPLES",
+      "note": "the city name taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITNAPLES",
+       "gives": "PLAINEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Information technology aired alongside a Neapolitan programme is the bluntest of the lot.",
+     "definitionFit": "Plain speech is frank and direct, so the plainest speaker is the most outspoken."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +290,43 @@
     "text": "Horse you could tell the time by?",
     "enumeration": "6"
    },
-   "solution": "HUNTER"
+   "solution": "HUNTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HUNTER",
+    "definitions": [
+     {
+      "text": "Horse",
+      "at": 0
+     },
+     {
+      "text": "you could tell the time by",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Horse",
+      "note": "first meaning: a horse bred and ridden for fox-hunting"
+     },
+     {
+      "clueFragment": "you could tell the time by",
+      "note": "second meaning: a pocket watch with a hinged metal cover over the face"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark admits the joke of a horse that tells the time; the second meaning is a full-hunter pocket watch.",
+     "definitionFit": "The word names both a sturdy riding horse used in the hunting field and a lidded pocket watch, an item you read the time from."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Horse"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +340,65 @@
     "text": "Youngster going round ship getting kicks – overbearing type",
     "enumeration": "10"
    },
-   "solution": "BOSSYBOOTS"
+   "solution": "BOSSYBOOTS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BOSSYBOOTS",
+    "definitions": [
+     {
+      "text": "overbearing type",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going round",
+      "for": "container",
+      "note": "going round something means surrounding it, so one piece is wrapped about another"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Youngster",
+      "gives": "BOY",
+      "note": "a boy is a youngster"
+     },
+     {
+      "clueFragment": "ship",
+      "gives": "SS",
+      "note": "SS, steamship, prefixes ship names"
+     },
+     {
+      "clueFragment": "kicks",
+      "gives": "BOOTS",
+      "note": "to boot is to kick"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "SS",
+      "Y",
+      "BOOTS"
+     ]
+    },
+    "explanation": {
+     "surface": "A lad circling a vessel and lashing out with his feet is behaving like a domineering tyrant.",
+     "walkthrough": "'Kicks' looks like thrills, but it is the verb for striking with a foot; the ship goes inside the youngster.",
+     "definitionFit": "Bossyboots is an informal British label for someone who keeps ordering others about."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "kicks"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +412,52 @@
     "text": "Needing specs to see one's old photograph",
     "enumeration": "6"
    },
-   "solution": "MYOPIC"
+   "solution": "MYOPIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MYOPIC",
+    "definitions": [
+     {
+      "text": "Needing specs to see",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one's",
+      "gives": "MY",
+      "note": "my is what one says of what is one's own"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is a standard abbreviation for old"
+     },
+     {
+      "clueFragment": "photograph",
+      "gives": "PIC",
+      "note": "pic is short for picture or photograph"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MY",
+      "O",
+      "PIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone needs glasses to look at an old snapshot of themselves.",
+     "definitionFit": "A short-sighted person cannot see distant things clearly without spectacles, which is what myopia means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one's"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +471,59 @@
     "text": "Stag do evening eventually starts with Rex",
     "enumeration": "4"
    },
-   "solution": "DEER"
+   "solution": "DEER",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "DEER",
+    "definitions": [
+     {
+      "text": "Stag",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts",
+      "for": "letter_selection",
+      "note": "starts points to the opening letter of each of the following words"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "do evening eventually",
+      "gives": "DEE",
+      "select": "first",
+      "note": "the opening letters of these three words"
+     },
+     {
+      "clueFragment": "Rex",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A stag party night ends, at last, with someone called Rex.",
+     "walkthrough": "'Stag do' looks like a bachelor party; 'Stag' alone is the definition and 'do' starts the letter run.",
+     "definitionFit": "A stag is a male deer, so the animal is named by its male example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "do"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +537,55 @@
     "text": "White female featured in article",
     "enumeration": "5"
    },
-   "solution": "ASHEN"
+   "solution": "ASHEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ASHEN",
+    "definitions": [
+     {
+      "text": "White",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "featured in",
+      "for": "container",
+      "note": "something featured in another sits inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "an is the indefinite article"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "SHE",
+      "note": "she is the female pronoun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SHE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A pale woman appears in a magazine story.",
+     "walkthrough": "'Article' looks like a piece in a magazine, but it is the grammatical article.",
+     "definitionFit": "Ashen describes a face gone pale grey with shock, a synonym for white in that sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +599,58 @@
     "text": "Blood cell cycle out – rebooted with drug",
     "enumeration": "9"
    },
-   "solution": "LEUCOCYTE"
+   "solution": "LEUCOCYTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LEUCOCYTE",
+    "definitions": [
+     {
+      "text": "Blood cell",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rebooted",
+      "for": "anagram",
+      "note": "rebooting restarts a system afresh, so these letters are set up again in a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cycle out",
+      "gives": "CYCLEOUT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CYCLEOUTE",
+       "gives": "LEUCOCYTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A computer instruction: end the blood-cell cycle and restart the system with a drug.",
+     "definitionFit": "A leucocyte is a white blood cell, the body's infection fighter, so it is one kind of blood cell."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rebooted"
+    }
+   }
   },
   {
    "number": 11,
@@ -173,7 +664,70 @@
     "text": "Lawbreaker demanding tip to store working crane",
     "enumeration": "9"
    },
-   "solution": "LARCENIST"
+   "solution": "LARCENIST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LARCENIST",
+    "definitions": [
+     {
+      "text": "Lawbreaker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "something working is in operation, so these letters are worked into a new arrangement"
+     },
+     {
+      "text": "to store",
+      "for": "container",
+      "note": "to store something is to hold it inside, so one piece keeps another within"
+     }
+    ],
+    "linkWords": [
+     "demanding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tip",
+      "gives": "LIST",
+      "note": "to tip and to list both mean to lean over"
+     },
+     {
+      "clueFragment": "crane",
+      "gives": "ARCEN",
+      "note": "the word crane rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ARCEN",
+      "IST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CRANE",
+       "gives": "ARCEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A criminal insists that a builder's crane be kept at the rubbish dump.",
+     "walkthrough": "'Tip' looks like a rubbish dump, but here it means lean, LIST; the shuffled crane goes inside it.",
+     "definitionFit": "A larcenist commits larceny, the crime of theft, so is a lawbreaker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tip"
+    }
+   }
   },
   {
    "number": 12,
@@ -187,7 +741,64 @@
     "text": "Policeman's drink on retirement",
     "enumeration": "5"
    },
-   "solution": "SUPER"
+   "solution": "SUPER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SUPER",
+    "definitions": [
+     {
+      "text": "Policeman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on retirement",
+      "for": "reversal",
+      "note": "retirement is a going back, so the small word before it is read backwards"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "SUP",
+      "note": "to sup is to drink"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or concerning; it is turned round"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUP",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "RE",
+       "to": "ER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer's tipple after leaving the force.",
+     "walkthrough": "SUP, then RE read backwards as ER. A super is short for a superintendent, a senior British police rank.",
+     "definitionFit": "Super is the informal short form of superintendent, a senior officer rank in British police forces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retirement"
+    }
+   }
   },
   {
    "number": 13,
@@ -201,7 +812,67 @@
     "text": "Northerner – I say! – bagging Dior creation",
     "enumeration": "7"
    },
-   "solution": "GEORDIE"
+   "solution": "GEORDIE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GEORDIE",
+    "definitions": [
+     {
+      "text": "Northerner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "creation",
+      "for": "anagram",
+      "note": "a fashion creation is something made up, so these letters are made into a new order"
+     },
+     {
+      "text": "bagging",
+      "for": "container",
+      "note": "bagging something captures it, so one piece is held inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I say!",
+      "gives": "GEE",
+      "note": "gee is an exclamation of surprise, like I say!"
+     },
+     {
+      "clueFragment": "Dior",
+      "gives": "ORDI",
+      "note": "the designer's name rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GE",
+      "ORDI",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DIOR",
+       "gives": "ORDI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man from the north exclaims as he snaps up a Dior design.",
+     "walkthrough": "The jumbled DIOR goes inside GEE. A Geordie is a native of Newcastle upon Tyne in north-east England.",
+     "definitionFit": "A Geordie comes from Tyneside in north-east England, so is one particular kind of northerner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "creation"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +886,62 @@
     "text": "Top soldier and officer going round Spain",
     "enumeration": "5"
    },
-   "solution": "GILET"
+   "solution": "GILET",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "GILET",
+    "definitions": [
+     {
+      "text": "Top",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going round",
+      "for": "container",
+      "note": "going round something encircles it, so the officer's letters wrap about the country"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldier",
+      "gives": "GI",
+      "note": "a GI is an American soldier"
+     },
+     {
+      "clueFragment": "officer",
+      "gives": "LT",
+      "note": "LT abbreviates lieutenant"
+     },
+     {
+      "clueFragment": "Spain",
+      "gives": "E",
+      "note": "E is the international vehicle code for Spain (España)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GI",
+      "L",
+      "E",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A senior soldier and a fellow officer tour Spain.",
+     "walkthrough": "'Top soldier' reads as a commander, but 'Top' is the definition. E for Spain comes from international car plates (España).",
+     "definitionFit": "A gilet is a sleeveless padded jacket or waistcoat, an upper garment and so a top."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Top"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +955,68 @@
     "text": "Sound as a bell, taking in Saigon excursion, being a doctor?",
     "enumeration": "10"
    },
-   "solution": "DIAGNOSING"
+   "solution": "DIAGNOSING",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DIAGNOSING",
+    "definitions": [
+     {
+      "text": "being a doctor?",
+      "at": 45,
+      "note": "the question mark flags a definition by example: diagnosing is what a doctor does"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excursion",
+      "for": "anagram",
+      "note": "an excursion is a wandering trip, so the city's letters roam into a new order"
+     },
+     {
+      "text": "taking in",
+      "for": "container",
+      "note": "taking something in absorbs it, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sound as a bell",
+      "gives": "DING",
+      "note": "ding is the sound a bell makes"
+     },
+     {
+      "clueFragment": "Saigon",
+      "gives": "IAGNOS",
+      "note": "the city name rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IAGNOS",
+      "ING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SAIGON",
+       "gives": "IAGNOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A medic, fit as a fiddle, fits in a trip to Saigon.",
+     "walkthrough": "'Sound as a bell' suggests perfect health, but it is the noise a bell makes. The rearranged SAIGON goes inside DING.",
+     "definitionFit": "Diagnosing illness is a core part of a physician's job, so it is a fair example of acting as a doctor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Sound"
+    }
+   }
   },
   {
    "number": 15,
@@ -243,7 +1030,51 @@
     "text": "Medieval instrument about to be given a novel name",
     "enumeration": "7"
    },
-   "solution": "REBECCA"
+   "solution": "REBECCA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REBECCA",
+    "definitions": [
+     {
+      "text": "a novel name",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "to be given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Medieval instrument",
+      "gives": "REBEC",
+      "note": "a rebec is a medieval bowed string instrument"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "CA",
+      "note": "CA, circa, means about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REBEC",
+      "CA"
+     ]
+    },
+    "explanation": {
+     "surface": "An old stringed instrument is going to be given an original name.",
+     "walkthrough": "'Novel' looks like it means new, but it points to a book title: Daphne du Maurier's Rebecca.",
+     "definitionFit": "Rebecca is a woman's name that also titles Daphne du Maurier's famous novel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 16,
@@ -257,7 +1088,48 @@
     "text": "Musical sort of basket, open-ended",
     "enumeration": "5"
    },
-   "solution": "ANNIE"
+   "solution": "ANNIE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ANNIE",
+    "definitions": [
+     {
+      "text": "Musical",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "open-ended",
+      "for": "deletion",
+      "note": "open-ended means with the ends removed, so the first and last letters go"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sort of basket",
+      "gives": "PANNIER",
+      "note": "a pannier is a basket slung on a bicycle or a pack animal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANNIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A hamper used in a stage show has its top left open.",
+     "walkthrough": "PANNIER without its first and last letters.",
+     "definitionFit": "Annie is the Broadway musical about the orphan Little Orphan Annie, so it is a stage musical."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "open-ended"
+    }
+   }
   },
   {
    "number": 17,
@@ -271,7 +1143,61 @@
     "text": "No limits to returning serfs' fever",
     "enumeration": "5"
    },
-   "solution": "LASSA"
+   "solution": "LASSA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion"
+    ],
+    "answer": "LASSA",
+    "definitions": [
+     {
+      "text": "fever",
+      "at": 30,
+      "note": "Lassa names the fever; the answer is the first word of Lassa fever"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back, so the word is read from end to start"
+     },
+     {
+      "text": "No limits to",
+      "for": "deletion",
+      "note": "without limits means without its boundary letters, so first and last are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "serfs'",
+      "gives": "VASSALS",
+      "note": "vassals were feudal serfs; read backwards this gives SLASSAV"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LASSA"
+     ],
+     "reversals": [
+      {
+       "from": "VASSALS",
+       "to": "SLASSAV"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Peasants coming home bring a fever with no bounds.",
+     "walkthrough": "Reverse VASSALS and strip both ends.",
+     "definitionFit": "Lassa fever is a viral haemorrhagic illness named after a town in Nigeria, so Lassa stands for that fever."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "limits"
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +1221,55 @@
    "group": [
     "18-across",
     "26-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TOM JONES",
+    "definitions": [
+     {
+      "text": "Singer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "appearing in",
+      "for": "container",
+      "note": "appearing in something means being inside it, so the name goes within the books"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scholarly books",
+      "gives": "TOMES",
+      "note": "tomes are large, weighty books"
+     },
+     {
+      "clueFragment": "Jack",
+      "gives": "JON",
+      "note": "Jack is a pet form of John, here spelt JON"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOM",
+      "JON",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "A vocalist called Jack features in academic volumes.",
+     "walkthrough": "'Singer' could suggest a bird; it is the Welsh pop star. Jack is a traditional pet form of John.",
+     "definitionFit": "Sir Tom Jones is the Welsh pop vocalist famous for It's Not Unusual and Delilah."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Jack"
+    }
+   }
   },
   {
    "number": 19,
@@ -309,7 +1283,77 @@
     "text": "Doctor carries one thing around for a certain time",
     "enumeration": "8"
    },
-   "solution": "MIDNIGHT"
+   "solution": "MIDNIGHT",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram",
+     "charade"
+    ],
+    "answer": "MIDNIGHT",
+    "definitions": [
+     {
+      "text": "a certain time",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carries",
+      "for": "container",
+      "note": "carrying something means holding it, so the doctor's letters enclose the one"
+     },
+     {
+      "text": "around",
+      "for": "anagram",
+      "note": "around here means turned about and jumbled, so the word's letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor",
+      "gives": "MD",
+      "note": "MD, Doctor of Medicine"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "thing",
+      "gives": "NIGHT",
+      "note": "the word thing rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "I",
+      "D",
+      "NIGHT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THING",
+       "gives": "NIGHT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A physician carries a single item around for some specific hour.",
+     "walkthrough": "I goes inside MD, then THING is rearranged after it.",
+     "definitionFit": "Midnight is twelve o'clock at night, one exact hour, so it is a particular time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "thing"
+    }
+   }
   },
   {
    "number": 20,
@@ -323,7 +1367,42 @@
     "text": "Cold English houses of the past",
     "enumeration": "5"
    },
-   "solution": "OLDEN"
+   "solution": "OLDEN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OLDEN",
+    "definitions": [
+     {
+      "text": "of the past",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "houses",
+      "for": "hidden_word",
+      "note": "houses means contains, so the phrase before it holds the answer within its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cold English",
+      "gives": "OLDEN",
+      "note": "the letters run across the gap between the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Chilly English homes belonged to bygone days.",
+     "definitionFit": "Olden is an old-fashioned adjective meaning belonging to former times, as in the olden days."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "houses"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1422,39 @@
      }
     ]
    },
-   "solution": "DRAGRACE"
+   "solution": "DRAGRACE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DRAG RACE",
+    "definitions": [
+     {
+      "text": "Put your foot down (ostentatiously high-heeled?) to take part in this contest",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Put your foot down",
+      "note": "surface reading: to accelerate hard in a car, or to insist firmly"
+     },
+     {
+      "clueFragment": "(ostentatiously high-heeled?)",
+      "note": "setter's reading: the bracket hints at flamboyant cross-dressing in stilettos, the other sense of the first word of the contest"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The contest is a sprint between cars from a standing start, where the driver floors the pedal; the bracket adds the joke of a race run in drag, wearing showy high heels.",
+     "definitionFit": "A drag race is a short acceleration contest between two cars over a straight quarter-mile."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "high-heeled"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1468,75 @@
     "text": "Bird caught outside one avian centre, which didn't go down well",
     "enumeration": "7"
    },
-   "solution": "TITANIC"
+   "solution": "TITANIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "TITANIC",
+    "definitions": [
+     {
+      "text": "which didn't go down well",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside means wrapped around, so the first pair of pieces surround the next"
+     },
+     {
+      "text": "centre",
+      "for": "letter_selection",
+      "note": "'centre' keeps only the middle letter of 'avian'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bird",
+      "gives": "TIT",
+      "note": "a tit is a small songbird"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "AN",
+      "note": "an means one"
+     },
+     {
+      "clueFragment": "avian",
+      "gives": "I",
+      "select": "middle",
+      "note": "the middle letter of avian"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C stands for caught in cricket scoring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIT",
+      "AN",
+      "I",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird nabbed outside, at the heart of some bird sanctuary, was not well received.",
+     "walkthrough": "TIT and C go outside AN and I: TIT, AN, I, C. The definition is ironic: the ship certainly went down, but not well.",
+     "definitionFit": "The Titanic sank disastrously on its maiden voyage in 1912, an ill-fated going-down, which the clue wryly understates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 23,
@@ -371,7 +1550,53 @@
     "text": "Flog a church set of Old Testament books",
     "enumeration": "6"
    },
-   "solution": "TANACH"
+   "solution": "TANACH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TANACH",
+    "definitions": [
+     {
+      "text": "set of Old Testament books",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flog",
+      "gives": "TAN",
+      "note": "to tan someone's hide is to beat them"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH abbreviates church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAN",
+      "A",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to sell off a church's set of scriptures.",
+     "walkthrough": "'Flog' could mean sell, but here it means beat, TAN.",
+     "definitionFit": "The Tanach is the Hebrew Bible, the Jewish canon that Christians call the Old Testament."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Flog"
+    }
+   }
   },
   {
    "number": 24,
@@ -385,7 +1610,61 @@
     "text": "Bully and lout backing up a dishonest tradesman",
     "enumeration": "6"
    },
-   "solution": "COWBOY"
+   "solution": "COWBOY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "COWBOY",
+    "definitions": [
+     {
+      "text": "dishonest tradesman",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing up",
+      "for": "reversal",
+      "note": "backing up in a down answer means moving upward, so the word is read in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bully",
+      "gives": "COW",
+      "note": "to cow someone is to bully them"
+     },
+     {
+      "clueFragment": "lout",
+      "gives": "YOB",
+      "note": "yob is British slang for a lout; reversed it reads BOY"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COW",
+      "BOY"
+     ],
+     "reversals": [
+      {
+       "from": "YOB",
+       "to": "BOY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bully and a thug support a crooked tradesman.",
+     "walkthrough": "COW, then YOB read upward. 'Bully' looks like a noun but works as the verb, to intimidate.",
+     "definitionFit": "In British slang a cowboy is an unqualified or unscrupulous builder or tradesman who does shoddy work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bully"
+    }
+   }
   },
   {
    "number": 25,
@@ -399,7 +1678,49 @@
     "text": "US state has scope to perform a dental operation",
     "enumeration": "7"
    },
-   "solution": "DESCALE"
+   "solution": "DESCALE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DESCALE",
+    "definitions": [
+     {
+      "text": "perform a dental operation",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US state",
+      "gives": "DE",
+      "note": "DE is the postal code for Delaware"
+     },
+     {
+      "clueFragment": "has scope",
+      "gives": "SCALE",
+      "note": "scope and scale both mean extent; has joins the two pieces"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "SCALE"
+     ]
+    },
+    "explanation": {
+     "surface": "An American state has the remit to carry out dentistry.",
+     "definitionFit": "To descale teeth is to remove tartar from them, a routine procedure at the dentist or hygienist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scope"
+    }
+   }
   },
   {
    "number": 26,
@@ -426,7 +1747,50 @@
     "text": "Stick with British post",
     "enumeration": "4"
    },
-   "solution": "JAMB"
+   "solution": "JAMB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JAMB",
+    "definitions": [
+     {
+      "text": "post",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stick",
+      "gives": "JAM",
+      "note": "to jam is to stick fast"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B abbreviates British"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JAM",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "Persevere with Royal Mail.",
+     "walkthrough": "'Post' looks like mail, but it is an upright of a door frame.",
+     "definitionFit": "A jamb is an upright side piece of a door or window frame, effectively a vertical post."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "post"
+    }
+   }
   },
   {
    "number": 27,
@@ -450,7 +1814,43 @@
      }
     ]
    },
-   "solution": "WAITFORIT"
+   "solution": "WAITFORIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WAIT FOR IT",
+    "definitions": [
+     {
+      "text": "Don't jump the gun",
+      "at": 0
+     },
+     {
+      "text": "hang on pending the computer experts",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Don't jump the gun",
+      "note": "first meaning: a call to hold back until the right moment"
+     },
+     {
+      "clueFragment": "hang on pending the computer experts",
+      "note": "second meaning, read literally: wait until IT, the information technology staff, arrive"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "IT is the usual office name for the computer support department, so the phrase reads literally as waiting for them.",
+     "definitionFit": "The phrase is a drill-sergeant's or comedian's call to hold off acting until the proper moment, and literally means awaiting IT."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "experts"
+    }
+   }
   },
   {
    "number": 28,
@@ -464,7 +1864,58 @@
     "text": "Passion tree with bifurcate tip",
     "enumeration": "4"
    },
-   "solution": "FIRE"
+   "solution": "FIRE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "FIRE",
+    "definitions": [
+     {
+      "text": "Passion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tip",
+      "for": "letter_selection",
+      "note": "the tip of a word is its end, so only its final letter is kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tree",
+      "gives": "FIR",
+      "note": "a fir is a conifer"
+     },
+     {
+      "clueFragment": "bifurcate",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A forked tree top fuels desire.",
+     "definitionFit": "Fire is used figuratively for burning ardour or intense emotion, a synonym for passion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bifurcate"
+    }
+   }
   },
   {
    "number": 29,
@@ -478,7 +1929,68 @@
     "text": "Story about disposing of Roger's trinkets",
     "enumeration": "4"
    },
-   "solution": "TOYS"
+   "solution": "TOYS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "TOYS",
+    "definitions": [
+     {
+      "text": "trinkets",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disposing of",
+      "for": "deletion",
+      "note": "disposing of something gets rid of it, so a letter is removed"
+     },
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests moving things around, so the remaining letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Story",
+      "gives": "STORY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Roger",
+      "gives": "R",
+      "note": "Roger is the radio code word for R; it is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOYS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STOY",
+       "gives": "TOYS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tale of Roger throwing out his knick-knacks.",
+     "walkthrough": "Take R from STORY, then rearrange the rest.",
+     "definitionFit": "Toys can mean trifles or baubles of little value, much the same as trinkets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Roger"
+    }
+   }
   },
   {
    "number": 30,
@@ -492,7 +2004,57 @@
     "text": "Old PC from celebrated British designer, short of some memory",
     "enumeration": "9"
    },
-   "solution": "MACINTOSH"
+   "solution": "MACINTOSH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MACINTOSH",
+    "definitions": [
+     {
+      "text": "Old PC",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short of",
+      "for": "deletion",
+      "note": "short of means lacking, so the following piece is taken away"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "celebrated British designer",
+      "gives": "MACKINTOSH",
+      "note": "Charles Rennie Mackintosh, the Glasgow architect and designer"
+     },
+     {
+      "clueFragment": "some memory",
+      "gives": "K",
+      "note": "K, a kilobyte, is a small amount of computer memory; removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAC",
+      "INTOSH"
+     ]
+    },
+    "explanation": {
+     "surface": "A vintage computer from a famous British designer is low on memory.",
+     "walkthrough": "Remove K from MACKINTOSH.",
+     "definitionFit": "The Apple Macintosh, launched in 1984, is an early personal computer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "memory"
+    }
+   }
   },
   {
    "number": 31,
@@ -506,7 +2068,59 @@
     "text": "Staggering mythical bird at Killarney's outskirts",
     "enumeration": "5"
    },
-   "solution": "ROCKY"
+   "solution": "ROCKY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ROCKY",
+    "definitions": [
+     {
+      "text": "Staggering",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outskirts",
+      "for": "letter_selection",
+      "note": "the outskirts of a town are its edges, so only the outer letters of the place name are used"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mythical bird",
+      "gives": "ROC",
+      "note": "the roc is a giant bird of Arabian legend"
+     },
+     {
+      "clueFragment": "Killarney's",
+      "gives": "KY",
+      "select": "outer",
+      "note": "the first and last letters of the town's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROC",
+      "KY"
+     ]
+    },
+    "explanation": {
+     "surface": "A legendary bird reels around the edge of an Irish town.",
+     "walkthrough": "'Staggering' looks like amazing, but it means unsteady on the feet.",
+     "definitionFit": "Rocky means unsteady or wobbly, as of someone tottering, so it fits staggering in that sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Staggering"
+    }
+   }
   }
  ]
 }
