@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,67 @@
     "text": "Animal is holding a large ornamental plant",
     "enumeration": "6"
    },
-   "solution": "OXALIS"
+   "solution": "OXALIS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "OXALIS",
+    "definitions": [
+     {
+      "text": "ornamental plant",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "something holding another thing has it inside, so one piece wraps round the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Animal",
+      "gives": "OX",
+      "note": "an ox is a farm animal"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OX",
+      "A",
+      "L",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "A zoo creature is clutching a big decorative pot plant.",
+     "walkthrough": "'Animal is' reads as subject and verb, but the 'is' is wordplay too, sitting after the large.",
+     "definitionFit": "Oxalis, or wood sorrel, is a clover-like plant grown in gardens and pots for its leaves and flowers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Animal"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +110,50 @@
     "text": "In possession of wing, no problem",
     "enumeration": "6"
    },
-   "solution": "OWNING"
+   "solution": "OWNING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OWNING",
+    "definitions": [
+     {
+      "text": "In possession of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "problem",
+      "for": "anagram",
+      "note": "a problem is something gone wrong, so the letters before it are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wing, no",
+      "gives": "WINGNO",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WINGNO",
+       "gives": "OWNING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone owns a building wing and shrugs that it is no trouble at all.",
+     "definitionFit": "Owning something means having it as your property, the same as being in possession of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "problem"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +167,54 @@
     "text": "Machinery introduced hasn't one robot",
     "enumeration": "9"
    },
-   "solution": "AUTOMATON"
+   "solution": "AUTOMATON",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AUTOMATON",
+    "definitions": [
+     {
+      "text": "robot",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hasn't",
+      "for": "deletion",
+      "note": "hasn't means lacks, so a letter is taken away from the longer word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Machinery introduced",
+      "gives": "AUTOMATION",
+      "note": "bringing in machines to do work is automation"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUTOMAT",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Factory machines have arrived but there is still no robot among them.",
+     "walkthrough": "Remove the I from AUTOMATION to leave AUTOMATON.",
+     "definitionFit": "An automaton is a self-operating machine, a mechanical figure that acts by itself, essentially a robot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "introduced"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +234,46 @@
      }
     ]
    },
-   "solution": "ISPY"
+   "solution": "ISPY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "I-SPY",
+    "definitions": [
+     {
+      "text": "How 007 describes his career",
+      "at": 0
+     },
+     {
+      "text": "observation game",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "How 007 describes his career",
+      "note": "James Bond, agent 007, would sum up his job by saying he spies"
+     },
+     {
+      "clueFragment": "observation game",
+      "note": "the children's guessing game '... with my little eye'"
+     }
+    ],
+    "explanation": {
+     "surface": "James Bond explains his job while playing a game of spotting things.",
+     "definitionFit": "I-spy is a children's game where one player names a letter and others guess the object seen; a spy would also say he spies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "career"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +287,49 @@
     "text": "One sliding on ice is fish, right?",
     "enumeration": "6"
    },
-   "solution": "SKATER"
+   "solution": "SKATER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SKATER",
+    "definitions": [
+     {
+      "text": "One sliding on ice",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "SKATE",
+      "note": "a skate is a flat fish related to rays"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKATE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether the creature gliding across the ice is really a fish.",
+     "definitionFit": "A skater is a person who glides over ice on blades, a noun phrase matching the clue's one sliding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fish"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +343,39 @@
     "text": "Australian jumper?",
     "enumeration": "8"
    },
-   "solution": "KANGAROO"
+   "solution": "KANGAROO",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "KANGAROO",
+    "definitions": [
+     {
+      "text": "Australian jumper?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Australian jumper?",
+      "note": "surface reading: a woolly pullover from Australia, since a jumper is British for a sweater"
+     },
+     {
+      "clueFragment": "Australian jumper?",
+      "note": "setter's reading: an Australian animal that moves by jumping"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In Britain a jumper is a knitted sweater, which is where the surface sends you; the question mark flags the second sense, something that jumps.",
+     "definitionFit": "The marsupial native to Australia is famous for hopping on its powerful hind legs, so it is a jumper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "jumper"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +389,51 @@
     "text": "Drink through side, but not end",
     "enumeration": "3"
    },
-   "solution": "TEA"
+   "solution": "TEA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TEA",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but not end",
+      "for": "deletion",
+      "note": "excluding the end means the final letter is cut off the word"
+     }
+    ],
+    "linkWords": [
+     "through"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "side",
+      "gives": "TEAM",
+      "note": "a side is a sports team"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone drinks through the side of a cup, though not at its tip.",
+     "walkthrough": "TEAM loses its last letter.",
+     "definitionFit": "Tea is the hot beverage brewed from leaves, a classic everyday drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "side"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +447,60 @@
     "text": "Referee almost destroyed jacket",
     "enumeration": "6"
    },
-   "solution": "REEFER"
+   "solution": "REEFER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "REEFER",
+    "definitions": [
+     {
+      "text": "jacket",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is dropped"
+     },
+     {
+      "text": "destroyed",
+      "for": "anagram",
+      "note": "something destroyed is broken apart, so its letters are rebuilt in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Referee",
+      "gives": "REFEREE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REEFER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REFERE",
+       "gives": "REEFER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A match official almost wrecked a coat.",
+     "walkthrough": "REFEREE minus its last E leaves REFERE, which is rearranged.",
+     "definitionFit": "A reefer is a thick, close-fitting double-breasted jacket of the kind worn by sailors."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Referee"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +514,56 @@
     "text": "Catch – a number thrown back",
     "enumeration": "3"
    },
-   "solution": "NET"
+   "solution": "NET",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "NET",
+    "definitions": [
+     {
+      "text": "Catch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "thrown back",
+      "for": "reversal",
+      "note": "thrown back means sent the other way, so the word is read in reverse"
+     }
+    ],
+    "linkWords": [
+     "–"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a number",
+      "gives": "TEN",
+      "note": "ten is a number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NET"
+     ],
+     "reversals": [
+      {
+       "from": "TEN",
+       "to": "NET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An angler counts a fish caught and then throws it back into the water.",
+     "definitionFit": "To net something is to catch it, as a fisherman catches fish in a net."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thrown"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +577,64 @@
     "text": "Monarch put ten in pot, then dined",
     "enumeration": "9"
    },
-   "solution": "POTENTATE"
+   "solution": "POTENTATE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "POTENTATE",
+    "definitions": [
+     {
+      "text": "Monarch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing put in another sits inside it, so the first piece goes within the second"
+     }
+    ],
+    "linkWords": [
+     "put",
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ten",
+      "gives": "TEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pot",
+      "gives": "POT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dined",
+      "gives": "ATE",
+      "note": "to dine is to eat; past tense ate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POTENT",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A king throws ten coins into the kitty and then sits down to eat.",
+     "walkthrough": "The poker-table scene is the disguise: both pot and ten are used literally.",
+     "definitionFit": "A potentate is a ruler with great power, such as a king or other monarch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pot"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +654,49 @@
      }
     ]
    },
-   "solution": "TRYINGOUT"
+   "solution": "TRYINGOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRYING OUT",
+    "definitions": [
+     {
+      "text": "Undergoing selection procedures",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "annoying",
+      "gives": "TRYING",
+      "note": "trying means testing your patience"
+     },
+     {
+      "clueFragment": "away from home",
+      "gives": "OUT",
+      "note": "someone away from home is out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRYING",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Going through job interviews is irritating when you have to travel for them.",
+     "definitionFit": "Trying out is auditioning or competing for a place, as hopefuls do in team or casting selection."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "annoying"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +710,42 @@
     "text": "When a Mexican grabs celebrity",
     "enumeration": "4"
    },
-   "solution": "NAME"
+   "solution": "NAME",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NAME",
+    "definitions": [
+     {
+      "text": "celebrity",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grabs",
+      "for": "hidden_word",
+      "note": "grabbing means seizing and holding, so the phrase holds the answer within its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "When a Mexican",
+      "gives": "NAME",
+      "note": "the letters run across the words in the middle"
+     }
+    ],
+    "explanation": {
+     "surface": "A Mexican fan seizes a famous star.",
+     "definitionFit": "A big name is a famous person, so name alone stands for a celebrity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grabs"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +759,76 @@
     "text": "Explosive film, one with varied depth, is back",
     "enumeration": "8"
    },
-   "solution": "DYNAMITE"
+   "solution": "DYNAMITE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DYNAMITE",
+    "definitions": [
+     {
+      "text": "Explosive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is back",
+      "for": "reversal",
+      "note": "being back means facing the other way, so the whole string is read from the end"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "film",
+      "gives": "ET",
+      "note": "E.T. is Spielberg's film about an alien"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral for one"
+     },
+     {
+      "clueFragment": "varied",
+      "gives": "MANY",
+      "note": "varied, in the sense of numerous and diverse"
+     },
+     {
+      "clueFragment": "depth",
+      "gives": "D",
+      "note": "D is the abbreviation for depth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "YNAM",
+      "I",
+      "TE"
+     ],
+     "reversals": [
+      {
+       "from": "ETIMANYD",
+       "to": "DYNAMITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An action film full of varied depth is returning to cinemas.",
+     "walkthrough": "Varied stands for many in the loose sense of numerous and diverse; the whole string is assembled first and only then turned round.",
+     "definitionFit": "Dynamite is a blasting explosive made from nitroglycerine, invented by Alfred Nobel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "film"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +842,60 @@
     "text": "Means of protection in case urn breaks",
     "enumeration": "9"
    },
-   "solution": "INSURANCE"
+   "solution": "INSURANCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "INSURANCE",
+    "definitions": [
+     {
+      "text": "Means of protection",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaks",
+      "for": "anagram",
+      "note": "when something breaks it falls to pieces, so these letters reassemble differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "case urn",
+      "gives": "SURANCE",
+      "note": "the seven letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "SURANCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CASEURN",
+       "gives": "SURANCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cover is taken out in case a precious vase gets broken.",
+     "definitionFit": "Insurance is a policy that pays out after loss or damage, guarding against financial harm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +915,58 @@
      }
     ]
    },
-   "solution": "GREATAPE"
+   "solution": "GREATAPE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GREAT APE",
+    "definitions": [
+     {
+      "text": "Primate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "being outside means surrounding, so one piece wraps the other"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fruit",
+      "gives": "GRAPE",
+      "note": "a grape is a fruit"
+     },
+     {
+      "clueFragment": "devour",
+      "gives": "EAT",
+      "note": "to devour is to eat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GR",
+      "EAT",
+      "APE"
+     ]
+    },
+    "explanation": {
+     "surface": "A monkey goes off to gobble fruit out in the open.",
+     "walkthrough": "'Outside' reads like eating outdoors, but it tells you the fruit wraps round the eating.",
+     "definitionFit": "Great apes are the large primates: gorillas, chimpanzees, bonobos and orangutans."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "outside"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +980,70 @@
     "text": "Maybe rusty about year in Rome being oppresive",
     "enumeration": "9"
    },
-   "solution": "TYRANNOUS"
+   "solution": "TYRANNOUS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TYRANNOUS",
+    "definitions": [
+     {
+      "text": "oppresive",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Maybe",
+      "for": "anagram",
+      "note": "maybe suggests one possible version, so the letters take another form"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece surrounds the other"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rusty",
+      "gives": "TYRUS",
+      "note": "the five letters to rearrange"
+     },
+     {
+      "clueFragment": "year in Rome",
+      "gives": "ANNO",
+      "note": "anno is Latin for in the year, as in anno Domini"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TYR",
+      "ANNO",
+      "US"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RUSTY",
+       "gives": "TYRUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something a bit rusty about the old Roman empire's harsh rule.",
+     "walkthrough": "The rearranged RUSTY wraps round ANNO. The source spells oppressive with a single S.",
+     "definitionFit": "Tyrannous describes the cruel, harsh rule of a tyrant, which is oppressive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rusty"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1057,55 @@
     "text": "One turn by the Parisian in the republic",
     "enumeration": "6"
    },
-   "solution": "ANGOLA"
+   "solution": "ANGOLA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANGOLA",
+    "definitions": [
+     {
+      "text": "the republic",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "AN",
+      "note": "an is the indefinite article, meaning one"
+     },
+     {
+      "clueFragment": "turn",
+      "gives": "GO",
+      "note": "your go is your turn in a game"
+     },
+     {
+      "clueFragment": "the Parisian",
+      "gives": "LA",
+      "note": "la is French for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "GO",
+      "LA"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller takes one turn with a Frenchman somewhere in the country.",
+     "definitionFit": "Angola is a republic in south-west Africa, a former Portuguese colony."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Parisian"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1119,55 @@
     "text": "Cat found in loo etc, round the bend",
     "enumeration": "6"
    },
-   "solution": "OCELOT"
+   "solution": "OCELOT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OCELOT",
+    "definitions": [
+     {
+      "text": "Cat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round the bend",
+      "for": "anagram",
+      "note": "round the bend means crazy, so the letters go wild into a new order"
+     }
+    ],
+    "linkWords": [
+     "found in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loo etc",
+      "gives": "LOOETC",
+      "note": "the six letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LOOETC",
+       "gives": "OCELOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cat has turned up in the toilet and elsewhere, around the U-bend of the plumbing.",
+     "walkthrough": "A loo is a toilet in British English.",
+     "definitionFit": "The ocelot is a spotted wild cat of Central and South America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bend"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1181,47 @@
     "text": "Sister to keep scoffing here in Warwickshire",
     "enumeration": "8"
    },
-   "solution": "NUNEATON"
+   "solution": "NUNEATON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NUNEATON",
+    "definitions": [
+     {
+      "text": "here in Warwickshire",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sister",
+      "gives": "NUN",
+      "note": "a nun is a religious sister"
+     },
+     {
+      "clueFragment": "to keep scoffing",
+      "gives": "EATON",
+      "note": "keep going is go on, so keep eating is eat on; scoffing is eating greedily"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUN",
+      "EATON"
+     ]
+    },
+    "explanation": {
+     "surface": "A nun holds on to her greedy eating habits in an English county.",
+     "walkthrough": "Warwickshire is a county in the English Midlands; 'here' points to a place in it. To scoff is British slang for wolfing food.",
+     "definitionFit": "Nuneaton is a market town in northern Warwickshire, so it is a place there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "keep"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1235,46 @@
     "text": "In October I chanced on Morecambe",
     "enumeration": "4"
    },
-   "solution": "ERIC"
+   "solution": "ERIC",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ERIC",
+    "definitions": [
+     {
+      "text": "Morecambe",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "in signals that the answer sits inside the following words, spanning their boundaries"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "October I chanced",
+      "gives": "ERIC",
+      "note": "the letters run from the end of the first word across into the third"
+     }
+    ],
+    "explanation": {
+     "surface": "One autumn day I happened upon a seaside town in Lancashire.",
+     "walkthrough": "Morecambe looks like the Lancashire resort but stands for the comedian Eric Morecambe, of the British double act Morecambe and Wise.",
+     "definitionFit": "Eric was the first name of comic Eric Morecambe, so his surname clues it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Morecambe"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1288,42 @@
     "text": "Country in their annals",
     "enumeration": "4"
    },
-   "solution": "IRAN"
+   "solution": "IRAN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "IRAN",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in signals that the answer is held inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "their annals",
+      "gives": "IRAN",
+      "note": "the letters straddle the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A nation recorded in a people's historical chronicles.",
+     "definitionFit": "Iran is a nation in western Asia, formerly known as Persia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "annals"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1343,49 @@
      }
     ]
    },
-   "solution": "OLDMASTER"
+   "solution": "OLDMASTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OLD MASTER",
+    "definitions": [
+     {
+      "text": "famous painter",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aged",
+      "gives": "OLD",
+      "note": "aged means old"
+     },
+     {
+      "clueFragment": "teacher",
+      "gives": "MASTER",
+      "note": "a schoolmaster is a teacher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OLD",
+      "MASTER"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly schoolteacher who is also a renowned artist.",
+     "definitionFit": "An Old Master is a great European painter from before about 1800, such as Rembrandt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "teacher"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1399,57 @@
     "text": "Nitwit throws out student, that's the point",
     "enumeration": "3"
    },
-   "solution": "DOT"
+   "solution": "DOT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DOT",
+    "definitions": [
+     {
+      "text": "the point",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "throws out",
+      "for": "deletion",
+      "note": "throwing out means removing, so a letter is taken away from the word"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nitwit",
+      "gives": "DOLT",
+      "note": "a dolt is a stupid person"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L for learner, from the L-plates on a learner driver's car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A fool expels a student, which is the whole purpose.",
+     "walkthrough": "DOLT without L leaves DOT.",
+     "definitionFit": "A dot is a small round mark, a point, as in a decimal point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1463,39 @@
     "text": "Sporting circle?",
     "enumeration": "3"
    },
-   "solution": "NIL"
+   "solution": "NIL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NIL",
+    "definitions": [
+     {
+      "text": "Sporting circle?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sporting circle?",
+      "note": "surface reading: a group of sports enthusiasts or a club"
+     },
+     {
+      "clueFragment": "Sporting circle?",
+      "note": "setter's reading: the round figure 0 seen on a scoreboard"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A circle here is the shape of a zero, and in sport a zero score has its own word.",
+     "definitionFit": "Nil is the word for zero in sports scores, written as a round 0."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "circle"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1509,50 @@
     "text": "Learnt to play the horn",
     "enumeration": "6"
    },
-   "solution": "ANTLER"
+   "solution": "ANTLER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANTLER",
+    "definitions": [
+     {
+      "text": "the horn",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to play",
+      "for": "anagram",
+      "note": "to play is to fool around, so the letters are moved freely into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Learnt",
+      "gives": "LEARNT",
+      "note": "the six letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEARNT",
+       "gives": "ANTLER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has learnt how to play the French horn.",
+     "definitionFit": "An antler is the branched bony horn growing on the head of a deer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "horn"
+    }
+   }
   },
   {
    "number": 25,
@@ -407,7 +1566,50 @@
     "text": "Global body to have break from public disorder",
     "enumeration": "6"
    },
-   "solution": "UNREST"
+   "solution": "UNREST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNREST",
+    "definitions": [
+     {
+      "text": "public disorder",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "to have",
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Global body",
+      "gives": "UN",
+      "note": "the UN, the United Nations, is a worldwide organisation"
+     },
+     {
+      "clueFragment": "break",
+      "gives": "REST",
+      "note": "a break is a rest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "REST"
+     ]
+    },
+    "explanation": {
+     "surface": "The United Nations wants a pause from rioting in the streets.",
+     "definitionFit": "Unrest is a state of agitation and dissatisfaction among a population, often with protests."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "break"
+    }
+   }
   }
  ]
 }
