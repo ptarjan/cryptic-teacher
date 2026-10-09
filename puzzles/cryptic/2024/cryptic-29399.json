@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,45 @@
     "text": "Remind actor to be punctual",
     "enumeration": "6"
    },
-   "solution": "PROMPT"
+   "solution": "PROMPT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PROMPT",
+    "definitions": [
+     {
+      "text": "Remind actor",
+      "at": 0
+     },
+     {
+      "text": "punctual",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Remind actor",
+      "note": "first meaning: to feed a forgotten line to a performer"
+     },
+     {
+      "clueFragment": "punctual",
+      "note": "second meaning: on time, without delay"
+     }
+    ],
+    "explanation": {
+     "surface": "A stage manager nags a performer about turning up on time.",
+     "definitionFit": "The word is a verb for cueing a performer's forgotten line and an adjective for arriving exactly on schedule."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Remind"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +88,57 @@
     "text": "Inhaling one, smoker becomes more bloated",
     "enumeration": "7"
    },
-   "solution": "PUFFIER"
+   "solution": "PUFFIER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PUFFIER",
+    "definitions": [
+     {
+      "text": "more bloated",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Inhaling",
+      "for": "container",
+      "note": "inhaling means taking in, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "becomes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smoker",
+      "gives": "PUFFER",
+      "note": "a smoker puffs on a cigarette"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUFF",
+      "I",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A smoker who takes in another cigarette swells up.",
+     "definitionFit": "Puffy means swollen, so the comparative describes something more swollen or bloated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Inhaling"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +158,43 @@
      }
     ]
    },
-   "solution": "ONOFF"
+   "solution": "ONOFF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ON-OFF",
+    "definitions": [
+     {
+      "text": "Switch positions",
+      "at": 0
+     },
+     {
+      "text": "without consistency",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Switch positions",
+      "note": "first meaning: the two settings of a simple switch"
+     },
+     {
+      "clueFragment": "without consistency",
+      "note": "second meaning: intermittent, as in an on-and-off relationship"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Switch positions' sounds like swapping places, but it names the two settings of a light switch.",
+     "definitionFit": "A two-setting switch has these states, and something intermittent or erratic is also described this way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Switch"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +208,39 @@
     "text": "One is responsible for gripping pages",
     "enumeration": "9"
    },
-   "solution": "PAPERCLIP"
+   "solution": "PAPERCLIP",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PAPERCLIP",
+    "definitions": [
+     {
+      "text": "One is responsible for gripping pages",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One is responsible for gripping pages",
+      "note": "surface reading: an author who writes a page-turner"
+     },
+     {
+      "clueFragment": "gripping pages",
+      "note": "setter's reading: physically holding sheets of paper together"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Gripping' suggests an exciting book; it is literal, a small wire clasp holding sheets.",
+     "definitionFit": "This bent wire office item clamps several sheets together, literally holding onto them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gripping"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +254,50 @@
     "text": "Tasteless dip is in preparation",
     "enumeration": "7"
    },
-   "solution": "INSIPID"
+   "solution": "INSIPID",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INSIPID",
+    "definitions": [
+     {
+      "text": "Tasteless",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in preparation",
+      "for": "anagram",
+      "note": "something in preparation is being mixed and made up, so the letters are being reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dip is in",
+      "gives": "DIPISIN",
+      "note": "taken as written, seven letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DIPISIN",
+       "gives": "INSIPID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook admits the dip being made for the party has no flavour.",
+     "definitionFit": "Insipid food lacks flavour, so it is a direct synonym for bland or tasteless."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "preparation"
+    }
+   }
   },
   {
    "number": 4,
@@ -109,7 +311,49 @@
     "text": "Provisional team I am to join",
     "enumeration": "7"
    },
-   "solution": "INTERIM"
+   "solution": "INTERIM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INTERIM",
+    "definitions": [
+     {
+      "text": "Provisional",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to join"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "team",
+      "gives": "INTER",
+      "note": "Inter Milan, the Italian football club"
+     },
+     {
+      "clueFragment": "I am",
+      "gives": "IM",
+      "note": "contracted as I'm"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTER",
+      "IM"
+     ]
+    },
+    "explanation": {
+     "surface": "A player says they will sign for a club on a temporary deal.",
+     "definitionFit": "An interim arrangement is temporary, in place only until a permanent one is made."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "team"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +367,55 @@
     "text": "Auction includes hard rock",
     "enumeration": "5"
    },
-   "solution": "SHALE"
+   "solution": "SHALE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHALE",
+    "definitions": [
+     {
+      "text": "rock",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "includes",
+      "for": "container",
+      "note": "includes means holds within, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Auction",
+      "gives": "SALE",
+      "note": "an auction is a sale"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H for hard, as on pencils"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "H",
+      "ALE"
+     ]
+    },
+    "explanation": {
+     "surface": "An auction lot features some hard rock music memorabilia.",
+     "walkthrough": "'hard rock' reads as a music genre, but hard gives one letter and rock alone is the definition.",
+     "definitionFit": "Shale is a fine-grained sedimentary rock that splits into thin layers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hard"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +429,48 @@
     "text": "I have many gods, a nature one above all?",
     "enumeration": "9"
    },
-   "solution": "PANTHEIST"
+   "solution": "PANTHEIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PANTHEIST",
+    "definitions": [
+     {
+      "text": "I have many gods",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a nature one",
+      "gives": "PAN",
+      "note": "Pan is the Greek god of nature and the wild"
+     },
+     {
+      "clueFragment": "above all",
+      "gives": "THEIST",
+      "note": "above all others is 'the 1st', with the digit 1 read as the letter I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAN",
+      "THEIST"
+     ]
+    },
+    "explanation": {
+     "surface": "A worshipper of many deities wonders if a nature god outranks the rest.",
+     "walkthrough": "The wordplay reads 'Pan the 1st': the nature god as the first above all others.",
+     "definitionFit": "Pantheism identifies God with the universe, and many pantheists accept or tolerate worship of numerous deities."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "above"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +484,61 @@
     "text": "Daughter at cathedral city losing some energy: nothing sinister about this",
     "enumeration": "6"
    },
-   "solution": "DEXTER"
+   "solution": "DEXTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "DEXTER",
+    "definitions": [
+     {
+      "text": "nothing sinister about this",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing some energy",
+      "for": "deletion",
+      "note": "losing some means part of the supply is lost, so one of the matching letters goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     },
+     {
+      "clueFragment": "cathedral city",
+      "gives": "EXETER",
+      "note": "Exeter, the cathedral city in Devon"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "EXTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A daughter living in a cathedral city is tired but harmless.",
+     "walkthrough": "Exeter has two E's after the X; only one is lost, which is why the clue says 'some'.",
+     "definitionFit": "In heraldry dexter is the right side and sinister the left, so dexter is the opposite of sinister."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sinister"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +552,58 @@
     "text": "Hit gym for exercise to get strong",
     "enumeration": "6"
    },
-   "solution": "MIGHTY"
+   "solution": "MIGHTY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MIGHTY",
+    "definitions": [
+     {
+      "text": "strong",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for exercise",
+      "for": "anagram",
+      "note": "exercise means moving about, so the letters are put through a workout into a new order"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hit",
+      "gives": "HIT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gym",
+      "gives": "GYM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HITGYM",
+       "gives": "MIGHTY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trainer's advice: go to the gym and work out to build strength.",
+     "definitionFit": "Mighty means powerful, a direct synonym for strong."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exercise"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +617,39 @@
     "text": "Mark that shows one has passed",
     "enumeration": "9"
    },
-   "solution": "FOOTPRINT"
+   "solution": "FOOTPRINT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FOOTPRINT",
+    "definitions": [
+     {
+      "text": "Mark that shows one has passed",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mark that shows one has passed",
+      "note": "surface reading: an exam result showing a pass"
+     },
+     {
+      "clueFragment": "one has passed",
+      "note": "setter's reading: passed means walked by, leaving an impression of a sole in the ground"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Mark' and 'passed' suggest an exam grade; the passing is literal walking, and the mark is left in mud or sand.",
+     "definitionFit": "The impression left on the ground by a walker's shoe is evidence that someone went by that way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "passed"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +663,47 @@
     "text": "Appropriate evidence from ballot paper one has voted for princess?",
     "enumeration": "5"
    },
-   "solution": "ANNEX"
+   "solution": "ANNEX",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANNEX",
+    "definitions": [
+     {
+      "text": "Appropriate",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "princess",
+      "gives": "ANNE",
+      "note": "Princess Anne, the British Princess Royal"
+     },
+     {
+      "clueFragment": "evidence from ballot paper one has voted",
+      "gives": "X",
+      "note": "the cross a voter marks on the ballot paper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANNE",
+      "X"
+     ]
+    },
+    "explanation": {
+     "surface": "A cross on a ballot paper proves the voter backed the princess.",
+     "walkthrough": "The clue reads X for Anne, so the princess comes first and the cross follows. 'Appropriate' is the verb, not the adjective.",
+     "definitionFit": "To annex territory is to seize it for oneself, which is what appropriate means as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Appropriate"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +717,44 @@
     "text": "Conclude wearing mink will be picked up",
     "enumeration": "5"
    },
-   "solution": "INFER"
+   "solution": "INFER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "INFER",
+    "definitions": [
+     {
+      "text": "Conclude",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "will be picked up",
+      "for": "homophone",
+      "note": "picking up a sound means hearing it, so what counts is how the phrase is said"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wearing mink",
+      "gives": "INFER",
+      "soundsLike": "IN FUR",
+      "note": "someone wearing mink is dressed in fur"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone guesses that a lady in a mink coat will be collected by a chauffeur.",
+     "definitionFit": "To infer is to reach a conclusion by reasoning from evidence, the verb sense of conclude."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "mink"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +768,39 @@
     "text": "Bit of luck perhaps after finding this on the hoof",
     "enumeration": "9"
    },
-   "solution": "HORSESHOE"
+   "solution": "HORSESHOE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HORSESHOE",
+    "definitions": [
+     {
+      "text": "Bit of luck perhaps after finding this on the hoof",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bit of luck perhaps after finding this on the hoof",
+      "note": "surface reading: a stroke of fortune met in passing, 'on the hoof' meaning casually"
+     },
+     {
+      "clueFragment": "on the hoof",
+      "note": "setter's reading: the thing literally sits on a hoof and is a traditional lucky charm"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'On the hoof' is an idiom for doing something without planning; here it is literal, the iron nailed under a hoof, which is also hung up for luck.",
+     "definitionFit": "The U-shaped iron fitted to a hoof is a well-known good-luck token, so finding one is lucky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hoof"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +814,39 @@
     "text": "Such a wealthy family unlikely to be Republicans?",
     "enumeration": "7"
    },
-   "solution": "ROYALTY"
+   "solution": "ROYALTY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ROYALTY",
+    "definitions": [
+     {
+      "text": "Such a wealthy family unlikely to be Republicans?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Such a wealthy family unlikely to be Republicans?",
+      "note": "surface reading: a rich American dynasty and its party politics"
+     },
+     {
+      "clueFragment": "Republicans",
+      "note": "setter's reading: republicans want no monarch, so a ruling family would hardly be among them"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Republicans' suggests the US party; read as opponents of monarchy, the family is the reigning one.",
+     "definitionFit": "Kings, queens and their relatives form a rich family that obviously would not want monarchy abolished."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Republicans"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +870,43 @@
      }
     ]
    },
-   "solution": "YOUNAMEIT"
+   "solution": "YOUNAMEIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "YOU NAME IT",
+    "definitions": [
+     {
+      "text": "What to do for new baby?",
+      "at": 0
+     },
+     {
+      "text": "Anything",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What to do for new baby?",
+      "note": "first meaning: an instruction to the parents to choose a name"
+     },
+     {
+      "clueFragment": "Anything",
+      "note": "second meaning: the phrase for whatever you care to mention"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The phrase is read literally as an order to give the baby a name, and idiomatically as 'whatever you like'.",
+     "definitionFit": "The idiom offers an open list of possibilities, meaning any item at all."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "baby"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +920,57 @@
     "text": "Page I'm to edit, a flyer in black and white",
     "enumeration": "6"
    },
-   "solution": "MAGPIE"
+   "solution": "MAGPIE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MAGPIE",
+    "definitions": [
+     {
+      "text": "a flyer in black and white",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to edit",
+      "for": "anagram",
+      "note": "editing text changes and rearranges it, so the letters are put into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Page",
+      "gives": "PAGE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I'm",
+      "gives": "IM",
+      "note": "taken as written, apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PAGEIM",
+       "gives": "MAGPIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An editor has a black-and-white advertising leaflet to work on.",
+     "walkthrough": "'Flyer' looks like a printed leaflet, fitting page and edit, but it is a bird.",
+     "definitionFit": "The magpie is a bird with distinctive pied plumage, so a black and white flier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flyer"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +984,56 @@
     "text": "Grand Eastern terminus in development?",
     "enumeration": "9"
    },
-   "solution": "GESTATION"
+   "solution": "GESTATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GESTATION",
+    "definitions": [
+     {
+      "text": "development",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grand",
+      "gives": "G",
+      "note": "G is the abbreviation for grand, a thousand"
+     },
+     {
+      "clueFragment": "Eastern",
+      "gives": "E",
+      "note": "E for eastern"
+     },
+     {
+      "clueFragment": "terminus",
+      "gives": "STATION",
+      "note": "a terminus is the end station of a line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "E",
+      "STATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A grand railway terminus in the east is being redeveloped.",
+     "walkthrough": "'Grand Eastern terminus' sounds like the name of a station, but it splits into three pieces.",
+     "definitionFit": "Gestation is the period of growth of a baby in the womb, or figuratively of an idea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Grand"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1047,69 @@
     "text": "After massage on back go for physical exercise",
     "enumeration": "6"
    },
-   "solution": "BURPEE"
+   "solution": "BURPEE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "BURPEE",
+    "definitions": [
+     {
+      "text": "physical exercise",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on back",
+      "for": "reversal",
+      "note": "going back means running the other way, so the word is read from its end"
+     },
+     {
+      "text": "After",
+      "for": "charade",
+      "note": "says the second piece comes after the first in the answer"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "massage",
+      "gives": "RUB",
+      "note": "to massage is to rub"
+     },
+     {
+      "clueFragment": "go",
+      "gives": "PEE",
+      "note": "to go, informally, is to urinate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUR",
+      "PEE"
+     ],
+     "reversals": [
+      {
+       "from": "RUB",
+       "to": "BUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A physiotherapist, having massaged a patient's back, sends them off for a workout.",
+     "walkthrough": "'Go' in the bathroom sense is a common crossword trick.",
+     "definitionFit": "A burpee is a squat-thrust exercise combining a squat, plank and jump, used in fitness workouts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "go"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1123,58 @@
     "text": "Struggling, hence an upgrade needed",
     "enumeration": "7"
    },
-   "solution": "ENHANCE"
+   "solution": "ENHANCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENHANCE",
+    "definitions": [
+     {
+      "text": "upgrade",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Struggling",
+      "for": "anagram",
+      "note": "something struggling is in disorder, so the letters are thrown into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "needed"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hence",
+      "gives": "HENCE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HENCEAN",
+       "gives": "ENHANCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A failing business concludes it must improve.",
+     "definitionFit": "To enhance something is to improve its quality, the verb sense of upgrade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Struggling"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1188,59 @@
     "text": "Content indicator has husband horribly aghast",
     "enumeration": "7"
    },
-   "solution": "HASHTAG"
+   "solution": "HASHTAG",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HASHTAG",
+    "definitions": [
+     {
+      "text": "Content indicator",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "horribly",
+      "for": "anagram",
+      "note": "something done horribly is badly messed up, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the standard abbreviation for husband"
+     },
+     {
+      "clueFragment": "aghast",
+      "gives": "AGHAST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HAGHAST",
+       "gives": "HASHTAG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A husband is horrified by what some label on a social post shows.",
+     "walkthrough": "'has' looks like part of the wordplay, but only H and the six letters of aghast are shuffled; 'has' joins definition to wordplay.",
+     "definitionFit": "On social media a word after the # symbol labels what a post is about, flagging its topic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Content"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1254,53 @@
     "text": "Hound is down regularly in this bay",
     "enumeration": "6"
    },
-   "solution": "HUDSON"
+   "solution": "HUDSON",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "HUDSON",
+    "definitions": [
+     {
+      "text": "this bay",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hound is down",
+      "gives": "HUDSON",
+      "select": "alternate",
+      "note": "first, third, fifth and so on of these letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HUDSON"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog lies down every so often on the shore of a bay.",
+     "walkthrough": "'Hound' hints at baying dogs, but the bay is a body of water.",
+     "definitionFit": "Hudson Bay is the vast inland sea in northern Canada."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bay"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1314,46 @@
     "text": "Rather like Marx to be bad-tempered",
     "enumeration": "7"
    },
-   "solution": "GROUCHY"
+   "solution": "GROUCHY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GROUCHY",
+    "definitions": [
+     {
+      "text": "Rather like Marx",
+      "at": 0
+     },
+     {
+      "text": "bad-tempered",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rather like Marx",
+      "note": "first meaning: resembling Groucho Marx, the comedian"
+     },
+     {
+      "clueFragment": "bad-tempered",
+      "note": "second meaning: grumpy and irritable"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Marx suggests Karl, but it is Groucho, one of the Marx Brothers; the word adds -y to his name.",
+     "definitionFit": "A grouchy person is irritable and complaining, a synonym for bad-tempered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Marx"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1367,52 @@
     "text": "Townsman drops hot snack",
     "enumeration": "6"
    },
-   "solution": "BURGER"
+   "solution": "BURGER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BURGER",
+    "definitions": [
+     {
+      "text": "snack",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drops",
+      "for": "deletion",
+      "note": "drops means lets fall away, so a letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Townsman",
+      "gives": "BURGHER",
+      "note": "a burgher is a citizen of a town"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H for hot, as on taps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BURGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A townsman lets his warm snack fall.",
+     "definitionFit": "A burger is a minced-meat patty in a bun, a common fast-food snack."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hot"
+    }
+   }
   },
   {
    "number": 22,
@@ -385,7 +1426,55 @@
     "text": "Brazen, say, you steal an outhouse",
     "enumeration": "9"
    },
-   "solution": "UNABASHED"
+   "solution": "UNABASHED",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "UNABASHED",
+    "definitions": [
+     {
+      "text": "Brazen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say asks for the spoken form of the next word, which is a single letter sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "you",
+      "gives": "U",
+      "soundsLike": "YOU",
+      "note": "the letter U is pronounced like the word you"
+     },
+     {
+      "clueFragment": "steal",
+      "gives": "NAB",
+      "note": "to nab is to snatch or steal"
+     },
+     {
+      "clueFragment": "an outhouse",
+      "gives": "ASHED",
+      "note": "an outhouse is a shed"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone shamelessly accuses another of pinching a garden building.",
+     "definitionFit": "Someone unabashed feels no embarrassment, which is the shameless boldness that brazen describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1488,47 @@
     "text": "Looking for roof-beam to be shortened at one end",
     "enumeration": "5"
    },
-   "solution": "AFTER"
+   "solution": "AFTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AFTER",
+    "definitions": [
+     {
+      "text": "Looking for",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be shortened at one end",
+      "for": "deletion",
+      "note": "shortening at one end trims the word, here dropping the first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "roof-beam",
+      "gives": "RAFTER",
+      "note": "a rafter is a sloping roof timber"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AFTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A builder searches for a roof timber that needs trimming.",
+     "definitionFit": "To be after something is to seek it, as in 'he's after a job', meaning looking for."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Looking"
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1542,44 @@
     "text": "Somewhat inappropriate to buy on this",
     "enumeration": "5"
    },
-   "solution": "APPRO"
+   "solution": "APPRO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "APPRO",
+    "definitions": [
+     {
+      "text": "to buy on this",
+      "at": 23,
+      "note": "the answer completes the phrase 'on ...'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means only part of the next word is used, a run of letters inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inappropriate",
+      "gives": "APPRO",
+      "note": "the letters run from the third to the seventh of this word"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone says it is a bit unsuitable to purchase under these terms.",
+     "walkthrough": "Buying 'on appro' (short for approval) means taking goods home with the right to return them.",
+     "definitionFit": "The phrase 'on appro' describes a trial purchase, so it is the arrangement one buys on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "inappropriate"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1593,50 @@
     "text": "Contemptuous expression putting pressure on playwright",
     "enumeration": "5"
    },
-   "solution": "PSHAW"
+   "solution": "PSHAW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PSHAW",
+    "definitions": [
+     {
+      "text": "Contemptuous expression",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "putting",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pressure",
+      "gives": "P",
+      "note": "P is the symbol for pressure"
+     },
+     {
+      "clueFragment": "playwright",
+      "gives": "SHAW",
+      "note": "George Bernard Shaw, the Irish dramatist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "SHAW"
+     ]
+    },
+    "explanation": {
+     "surface": "A critic scoffs while pressuring a dramatist.",
+     "definitionFit": "Pshaw is an old-fashioned interjection voicing impatience or disdain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pressure"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1650,49 @@
     "text": "Grey with worry that's serious",
     "enumeration": "5"
    },
-   "solution": "GREAT"
+   "solution": "GREAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GREAT",
+    "definitions": [
+     {
+      "text": "serious",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grey",
+      "gives": "GR",
+      "note": "GR is a dictionary abbreviation for grey"
+     },
+     {
+      "clueFragment": "worry",
+      "gives": "EAT",
+      "note": "to eat someone is to worry them, as in what's eating you"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GR",
+      "EAT"
+     ]
+    },
+    "explanation": {
+     "surface": "A person going grey from anxiety has a grave problem.",
+     "definitionFit": "Great can mean considerable or significant, as in great danger, a sense shared with serious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Grey"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1706,54 @@
     "text": "From an earlier age one has moved into Chile",
     "enumeration": "9"
    },
-   "solution": "NEOLITHIC"
+   "solution": "NEOLITHIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEOLITHIC",
+    "definitions": [
+     {
+      "text": "From an earlier age",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moved",
+      "for": "anagram",
+      "note": "moved means shifted about, so the letters change places"
+     }
+    ],
+    "linkWords": [
+     "one has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "into Chile",
+      "gives": "INTOCHILE",
+      "note": "taken as written, nine letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INTOCHILE",
+       "gives": "NEOLITHIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An immigrant from an older generation has settled in South America.",
+     "walkthrough": "'one has moved into' reads as a single migration, but the fodder is just 'into Chile'.",
+     "definitionFit": "The Neolithic period is the New Stone Age, a prehistoric era long before recorded history."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "into"
+    }
+   }
   },
   {
    "number": 28,
@@ -469,7 +1767,46 @@
     "text": "One out of work on Scottish island",
     "enumeration": "7"
    },
-   "solution": "RETIREE"
+   "solution": "RETIREE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RETIREE",
+    "definitions": [
+     {
+      "text": "One out of work",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or concerning"
+     },
+     {
+      "clueFragment": "Scottish island",
+      "gives": "TIREE",
+      "note": "Tiree is an island in the Inner Hebrides"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "TIREE"
+     ]
+    },
+    "explanation": {
+     "surface": "An unemployed person is living on a Scottish island.",
+     "definitionFit": "A pensioner who has stopped working for good is no longer in employment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 29,
@@ -489,7 +1826,47 @@
      }
     ]
    },
-   "solution": "ONEWAY"
+   "solution": "ONEWAY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ONE-WAY",
+    "definitions": [
+     {
+      "text": "A particular method",
+      "at": 0
+     },
+     {
+      "text": "such a mirror",
+      "at": 28,
+      "note": "the answer is the kind of mirror, used as an adjective"
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A particular method",
+      "note": "first meaning: a single way of doing something"
+     },
+     {
+      "clueFragment": "such a mirror",
+      "note": "second meaning: a mirror that is a window from one side only"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first sense is two words, a single approach; the second is the hyphenated adjective, as in police interview rooms.",
+     "definitionFit": "A one-way mirror reflects on one side but can be seen through from the other, as in interrogation rooms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "method"
+    }
+   }
   }
  ]
 }
