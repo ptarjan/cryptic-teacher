@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,66 @@
     "text": "Eatery has starter of rissoles in gravy",
     "enumeration": "6"
    },
-   "solution": "BISTRO"
+   "solution": "BISTRO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BISTRO",
+    "definitions": [
+     {
+      "text": "Eatery",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starter of",
+      "for": "letter_selection",
+      "note": "a starter is the first course, so only the opening letter of the next word is used"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece is placed inside another, tucked into the brand name that follows"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gravy",
+      "gives": "BISTO",
+      "note": "Bisto is a long-established British brand of gravy granules"
+     },
+     {
+      "clueFragment": "rissoles",
+      "gives": "R",
+      "select": "first",
+      "note": "opening letter of rissoles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIST",
+      "R",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A restaurant serves rissoles in gravy as its first course.",
+     "walkthrough": "Bisto is the famous British gravy brand; the single letter goes inside it after BIST.",
+     "definitionFit": "A bistro is a small, informal restaurant, so it is a kind of eatery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "starter"
+    }
+   }
   },
   {
    "number": 2,
@@ -57,7 +119,85 @@
      }
     ]
    },
-   "solution": "INSEVENTHHEAVEN"
+   "solution": "INSEVENTHHEAVEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "IN SEVENTH HEAVEN",
+    "definitions": [
+     {
+      "text": "over the moon",
+      "at": 62
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to just the first letter of the word before it"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "one piece is put into another, so it sits inside it"
+     }
+    ],
+    "linkWords": [
+     "to get",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Batting",
+      "gives": "IN",
+      "note": "a cricket side that is batting is said to be in"
+     },
+     {
+      "clueFragment": "side",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of side"
+     },
+     {
+      "clueFragment": "happening",
+      "gives": "EVENT",
+      "note": "a happening is an event"
+     },
+     {
+      "clueFragment": "safe area",
+      "gives": "HAVEN",
+      "note": "a haven is a place of safety"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "HE",
+      "note": "a man is referred to as he"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "S",
+      "EVENT",
+      "H",
+      "HE",
+      "AVEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A batting team is delighted when something happens to get a batsman home safely.",
+     "walkthrough": "The man goes in right after the first letter of the safe area, which is why the answer has two H's in a row.",
+     "definitionFit": "Both phrases are idioms for being blissfully happy and elated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "safe"
+    }
+   }
   },
   {
    "number": 3,
@@ -71,7 +211,56 @@
     "text": "Endlessly groom large dog",
     "enumeration": "5"
    },
-   "solution": "TRAIL"
+   "solution": "TRAIL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TRAIL",
+    "definitions": [
+     {
+      "text": "dog",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endlessly",
+      "for": "deletion",
+      "note": "without an end, so the final letter of the word is cut off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "groom",
+      "gives": "TRAIN",
+      "note": "to groom someone for a role is to train them"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the standard abbreviation for large, as on clothing labels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAI",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is forever grooming an enormous hound.",
+     "walkthrough": "'Dog' looks like the animal in the surface, but here it is a verb, meaning to follow closely.",
+     "definitionFit": "To dog someone is to follow or shadow them persistently, which is to trail them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dog"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +280,79 @@
      }
     ]
    },
-   "solution": "ORANGUTAN"
+   "solution": "ORANGUTAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ORANG-UTAN",
+    "definitions": [
+     {
+      "text": "Primate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter, attached here to the word god"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "these letters are put inside the following words"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "managed",
+      "gives": "RAN",
+      "note": "to manage a business is to run it; past tense ran"
+     },
+     {
+      "clueFragment": "godhead",
+      "gives": "G",
+      "select": "first",
+      "note": "the head, or first letter, of god"
+     },
+     {
+      "clueFragment": "published",
+      "gives": "OUT",
+      "note": "a book that is published is out"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "an is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "RAN",
+      "G",
+      "UT",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A church leader got a deity's image into a printed piece.",
+     "walkthrough": "'Primate' suggests an archbishop alongside 'godhead', but it is the ape. RANG sits inside OUTAN, after its first letter.",
+     "definitionFit": "The orang-utan is a great ape of Borneo and Sumatra, and apes are primates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Primate"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +366,83 @@
     "text": "Snag with Thailand ending revolutionary conflict has Obama losing heart",
     "enumeration": "8"
    },
-   "solution": "DRAWBACK"
+   "solution": "DRAWBACK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "DRAWBACK",
+    "definitions": [
+     {
+      "text": "Snag",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending",
+      "for": "letter_selection",
+      "note": "the ending of a word is its final letter only"
+     },
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "something revolutionary turns round, so the word is read from the back"
+     },
+     {
+      "text": "losing heart",
+      "for": "deletion",
+      "note": "the heart is the middle, so the central letters of the name are taken out"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thailand",
+      "gives": "D",
+      "select": "last",
+      "note": "last letter of Thailand"
+     },
+     {
+      "clueFragment": "conflict",
+      "gives": "WAR",
+      "note": "a war is an armed conflict"
+     },
+     {
+      "clueFragment": "Obama",
+      "gives": "BARACK",
+      "note": "Barack is Obama's first name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RAW",
+      "BACK"
+     ],
+     "reversals": [
+      {
+       "from": "WAR",
+       "to": "RAW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political problem: a revolutionary war in Thailand leaves the US president dispirited.",
+     "walkthrough": "The heart of BARACK is the middle pair RA, which comes out.",
+     "definitionFit": "A snag is a hidden problem or disadvantage, which is what a drawback is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Obama"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +456,55 @@
     "text": "Imagined setter in fear!",
     "enumeration": "7"
    },
-   "solution": "DREAMED"
+   "solution": "DREAMED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DREAMED",
+    "definitions": [
+     {
+      "text": "Imagined",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one word sits inside the other, enclosed by the word for terror"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fear",
+      "gives": "DREAD",
+      "note": "dread is great fear"
+     },
+     {
+      "clueFragment": "setter",
+      "gives": "ME",
+      "note": "the crossword setter refers to themself as me"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DREA",
+      "ME",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter claims to have pictured themself in a state of terror.",
+     "walkthrough": "Setters often call themselves 'setter' or 'this writer' to mean ME.",
+     "definitionFit": "To dream something up is to imagine it, so dreamed is the past tense of that sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "setter"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +518,53 @@
     "text": "Need to pursue a cry of woe",
     "enumeration": "5"
    },
-   "solution": "ALACK"
+   "solution": "ALACK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALACK",
+    "definitions": [
+     {
+      "text": "cry of woe",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to pursue",
+      "for": "charade",
+      "note": "pursuing means following behind, so the first word comes after the next one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Need",
+      "gives": "LACK",
+      "note": "a need is a lack of something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LACK"
+     ]
+    },
+    "explanation": {
+     "surface": "Wanting to chase after something makes one cry out in sorrow.",
+     "definitionFit": "Alack is an old exclamation of regret or sorrow, as in alas and alack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pursue"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +578,48 @@
     "text": "Worst fear is a computer problem to put up with",
     "enumeration": "7"
    },
-   "solution": "BUGBEAR"
+   "solution": "BUGBEAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUGBEAR",
+    "definitions": [
+     {
+      "text": "Worst fear",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a computer problem",
+      "gives": "BUG",
+      "note": "a bug is a fault in a program"
+     },
+     {
+      "clueFragment": "to put up with",
+      "gives": "BEAR",
+      "note": "to bear something is to tolerate it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUG",
+      "BEAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's greatest dread is a computer glitch they must tolerate.",
+     "definitionFit": "A bugbear is an object of persistent dread or irritation, close to a worst fear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +639,54 @@
      }
     ]
    },
-   "solution": "CANTERBURYTALES"
+   "solution": "CANTERBURYTALES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CANTERBURY TALES",
+    "definitions": [
+     {
+      "text": "pilgrims' stories",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set out",
+      "for": "anagram",
+      "note": "to set things out is to lay them in a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Can't betray rules",
+      "gives": "CANTBETRAYRULES",
+      "note": "the letters of these words, ignoring the apostrophe"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CANTBETRAYRULES",
+       "gives": "CANTERBURYTALES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Those who cannot break the rules have them laid down for pilgrims.",
+     "walkthrough": "The apostrophe in Can't is ignored, as punctuation always is.",
+     "definitionFit": "Chaucer's Canterbury Tales are told by pilgrims riding to the shrine of Thomas Becket."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +700,72 @@
     "text": "Made non-starter sequel to hit space adventure",
     "enumeration": "8"
    },
-   "solution": "ESCAPADE"
+   "solution": "ESCAPADE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "charade"
+    ],
+    "answer": "ESCAPADE",
+    "definitions": [
+     {
+      "text": "adventure",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hit",
+      "for": "anagram",
+      "note": "something hit is knocked about, so its letters are jumbled"
+     },
+     {
+      "text": "non-starter",
+      "for": "deletion",
+      "note": "with no starter, the word loses its first letter"
+     },
+     {
+      "text": "sequel to",
+      "for": "charade",
+      "note": "a sequel comes after, so the first part is placed behind the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "space",
+      "gives": "SPACE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Made",
+      "gives": "MADE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESCAP",
+      "ADE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SPACE",
+       "gives": "ESCAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A follow-up to a smash-hit space adventure film was made.",
+     "walkthrough": "'Hit' looks like a box-office success, but it is the shuffle signal for the word after it.",
+     "definitionFit": "An escapade is a daring or reckless adventure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hit"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +779,59 @@
     "text": "Paganini endlessly suffering heart disease",
     "enumeration": "6"
    },
-   "solution": "ANGINA"
+   "solution": "ANGINA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ANGINA",
+    "definitions": [
+     {
+      "text": "heart disease",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without ends, so both the first and last letters are removed"
+     },
+     {
+      "text": "suffering",
+      "for": "anagram",
+      "note": "something suffering is in a bad way, so its letters are disordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paganini",
+      "gives": "PAGANINI",
+      "note": "the Italian violinist's name, taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANGINA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AGANIN",
+       "gives": "ANGINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The great violinist suffered endlessly from a heart condition.",
+     "definitionFit": "Angina is chest pain caused by restricted blood flow to the heart, a form of heart disease."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suffering"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +845,65 @@
     "text": "Circle around loo in place where getting runs is likely!",
     "enumeration": "4"
    },
-   "solution": "OVAL"
+   "solution": "OVAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "OVAL",
+    "definitions": [
+     {
+      "text": "place where getting runs is likely",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "turned around, the word is read from back to front"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Circle",
+      "gives": "O",
+      "note": "the letter O is circular"
+     },
+     {
+      "clueFragment": "loo",
+      "gives": "LAV",
+      "note": "lav, short for lavatory, is another word for loo"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "VAL"
+     ],
+     "reversals": [
+      {
+       "from": "LAV",
+       "to": "VAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A toilet joke: sitting round the loo is where you'd expect to get the runs.",
+     "walkthrough": "The Oval is a London cricket ground, where runs are scored; the runs is also slang for diarrhoea.",
+     "definitionFit": "The Oval is a Test cricket venue, and cricket is the game in which batsmen score runs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +917,58 @@
     "text": "He organises shooting sessions with goalie after match",
     "enumeration": "10"
    },
-   "solution": "GAMEKEEPER"
+   "solution": "GAMEKEEPER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GAMEKEEPER",
+    "definitions": [
+     {
+      "text": "He organises shooting sessions",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the goalie word behind the word for match"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "match",
+      "gives": "GAME",
+      "note": "a match is a game"
+     },
+     {
+      "clueFragment": "goalie",
+      "gives": "KEEPER",
+      "note": "a goalie is a goalkeeper, or keeper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAME",
+      "KEEPER"
+     ]
+    },
+    "explanation": {
+     "surface": "A football coach runs shooting practice with the goalkeeper after a match.",
+     "walkthrough": "'Shooting' suggests shots at goal, but it means hunting game birds.",
+     "definitionFit": "A gamekeeper manages an estate's game birds and runs the shoots held there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shooting"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +982,61 @@
     "text": "Creepy-crawly, pointlessly biting fellow, spread disease",
     "enumeration": "6"
    },
-   "solution": "INFECT"
+   "solution": "INFECT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "INFECT",
+    "definitions": [
+     {
+      "text": "spread disease",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pointlessly",
+      "for": "deletion",
+      "note": "with no point, so the letter standing for a compass point is removed"
+     },
+     {
+      "text": "biting",
+      "for": "container",
+      "note": "biting something holds it between the jaws, so one piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Creepy-crawly",
+      "gives": "INSECT",
+      "note": "a creepy-crawly is an insect"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "F",
+      "note": "F is the abbreviation for fellow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "F",
+      "ECT"
+     ]
+    },
+    "explanation": {
+     "surface": "A bug that bites a man for no reason passes on an illness.",
+     "walkthrough": "S for south is the compass point that comes out of INSECT before F goes in.",
+     "definitionFit": "To infect is to pass a disease on to someone, which is how a disease is spread."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pointlessly"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +1050,66 @@
     "text": "Identify O'Connor's house by Finisterre",
     "enumeration": "8"
    },
-   "solution": "DESCRIBE"
+   "solution": "DESCRIBE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DESCRIBE",
+    "definitions": [
+     {
+      "text": "Identify",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Finis",
+      "for": "letter_selection",
+      "note": "finis is Latin for the end, so only the final letter of the place name counts"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "O'Connor's",
+      "gives": "DES",
+      "note": "Des O'Connor was a long-running British TV host and singer"
+     },
+     {
+      "clueFragment": "house",
+      "gives": "CRIB",
+      "note": "crib is slang for a home"
+     },
+     {
+      "clueFragment": "Finisterre",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of Finisterre, a Spanish cape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DES",
+      "CRIB",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Pinpoint where Des O'Connor's house is, near Cape Finisterre.",
+     "walkthrough": "Finisterre means 'end of the earth', and the setter reads it as the end of the word itself.",
+     "definitionFit": "To describe a thing is to depict it in words, which can identify or characterise it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Finisterre"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +1123,82 @@
     "text": "Cockney chars raised whip-round with brilliance",
     "enumeration": "9"
    },
-   "solution": "SPLENDOUR"
+   "solution": "SPLENDOUR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "SPLENDOUR",
+    "definitions": [
+     {
+      "text": "brilliance",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cockney",
+      "for": "deletion",
+      "note": "Cockney speakers drop the H at the start of a word"
+     },
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down answer, raised means written from bottom to top"
+     },
+     {
+      "text": "whip",
+      "for": "anagram",
+      "note": "to whip something is to beat it up, so the word after it is scrambled"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chars",
+      "gives": "HELPS",
+      "note": "chars are cleaning women, also called daily helps"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "ROUND",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPLE",
+      "NDOUR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROUND",
+       "gives": "NDOUR"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "ELPS",
+       "to": "SPLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "East End cleaners held a collection for someone with great style.",
+     "walkthrough": "'Whip-round' looks like one word for a collection, but splits into the signal and its fodder. A char is a British cleaning lady.",
+     "definitionFit": "Splendour is magnificent brightness or grandeur, so it means brilliance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "whip-round"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1212,81 @@
     "text": "Old joke about chicken crossing street even aunt will follow",
     "enumeration": "8"
    },
-   "solution": "CHESTNUT"
+   "solution": "CHESTNUT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "CHESTNUT",
+    "definitions": [
+     {
+      "text": "Old joke",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "crossing the street here means taking it inside, so it goes into the bird"
+     },
+     {
+      "text": "even",
+      "for": "letter_selection",
+      "note": "even means the letters in even-numbered places, the second and fourth"
+     },
+     {
+      "text": "will follow",
+      "for": "charade",
+      "note": "these letters come after the rest at the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "C stands for circa, Latin for about"
+     },
+     {
+      "clueFragment": "chicken",
+      "gives": "HEN",
+      "note": "a hen is a chicken"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street"
+     },
+     {
+      "clueFragment": "aunt",
+      "gives": "UT",
+      "select": "alternate",
+      "note": "second and fourth letters of aunt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HE",
+      "ST",
+      "N",
+      "UT"
+     ]
+    },
+    "explanation": {
+     "surface": "Even an aunt will repeat the gag about why the chicken crossed the road.",
+     "walkthrough": "The surface itself cites the most famous chestnut of all.",
+     "definitionFit": "A chestnut is a joke or story so stale from retelling that everyone knows it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "crossing"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1306,48 @@
      }
     ]
    },
-   "solution": "SETFREE"
+   "solution": "SETFREE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SET FREE",
+    "definitions": [
+     {
+      "text": "Deliver",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "TV",
+      "gives": "SET",
+      "note": "a TV is a television set"
+     },
+     {
+      "clueFragment": "for nothing",
+      "gives": "FREE",
+      "note": "something for nothing costs nothing, so it is free"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SET",
+      "FREE"
+     ]
+    },
+    "explanation": {
+     "surface": "Bring a television round without charging.",
+     "walkthrough": "'Deliver' suggests a courier, but here it means to rescue, as in 'deliver us from evil'.",
+     "definitionFit": "To deliver someone is to rescue or liberate them from captivity or danger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Deliver"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1361,70 @@
     "text": "Drunkard, having left after double parking, got into row",
     "enumeration": "7"
    },
-   "solution": "TIPPLER"
+   "solution": "TIPPLER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TIPPLER",
+    "definitions": [
+     {
+      "text": "Drunkard",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after puts this letter behind the doubled parking symbol"
+     },
+     {
+      "text": "got into",
+      "for": "container",
+      "note": "getting into something means going inside it"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "double parking",
+      "gives": "PP",
+      "note": "P is the parking symbol, doubled here"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "row",
+      "gives": "TIER",
+      "note": "a tier is a row, as of seats"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "PPL",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk who left the car double-parked then got into a fight.",
+     "walkthrough": "'Row' looks like a quarrel, rhyming with cow, but it is a line of seats.",
+     "definitionFit": "A tippler is a habitual drinker, one who tipples, so a drunkard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1438,65 @@
     "text": "Remove tab from veritably hideous uniform",
     "enumeration": "6"
    },
-   "solution": "LIVERY"
+   "solution": "LIVERY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "LIVERY",
+    "definitions": [
+     {
+      "text": "uniform",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Remove",
+      "for": "deletion",
+      "note": "removing takes the named letters away from the longer word"
+     },
+     {
+      "text": "hideous",
+      "for": "anagram",
+      "note": "hideous means ugly and misshapen, so the remaining letters are put in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tab",
+      "gives": "TAB",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "veritably",
+      "gives": "VERITABLY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIVERY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "VERILY",
+       "gives": "LIVERY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Take the label off a truly ugly uniform.",
+     "walkthrough": "The T, A and B come out of VERITABLY wherever they sit, leaving six letters to shuffle.",
+     "definitionFit": "A livery is the distinctive uniform worn by servants or members of a guild."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tab"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1520,63 @@
      }
     ]
    },
-   "solution": "FELTTIPPEN"
+   "solution": "FELTTIPPEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FELT-TIP PEN",
+    "definitions": [
+     {
+      "text": "writer",
+      "at": 49
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Touched",
+      "gives": "FELT",
+      "note": "felt is the past tense of feel, to touch"
+     },
+     {
+      "clueFragment": "advice",
+      "gives": "TIP",
+      "note": "a tip is a piece of advice"
+     },
+     {
+      "clueFragment": "page",
+      "gives": "P",
+      "note": "P is the abbreviation for page"
+     },
+     {
+      "clueFragment": "print spacing",
+      "gives": "EN",
+      "note": "an en is a printer's unit of space, half an em"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FELT",
+      "TIP",
+      "P",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "An author is moved by advice on page layout and typesetting.",
+     "walkthrough": "'Writer' suggests an author, but it is a thing that writes.",
+     "definitionFit": "A felt-tip pen is an instrument for writing, so it is a writer in the literal sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "writer"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1590,69 @@
     "text": "King aboard rough ride gets irritated",
     "enumeration": "5"
    },
-   "solution": "IRKED"
+   "solution": "IRKED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "IRKED",
+    "definitions": [
+     {
+      "text": "irritated",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rough",
+      "for": "anagram",
+      "note": "a rough version is crude and disordered, so the letters are rearranged"
+     },
+     {
+      "text": "aboard",
+      "for": "container",
+      "note": "aboard means on board, so one piece is carried inside the other"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ride",
+      "gives": "RIDE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IR",
+      "K",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RIDE",
+       "gives": "IRED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch on a bumpy journey becomes annoyed.",
+     "definitionFit": "To be irked is to be annoyed or irritated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rough"
+    }
+   }
   },
   {
    "number": 22,
@@ -385,7 +1672,67 @@
      }
     ]
    },
-   "solution": "UPTO"
+   "solution": "UPTO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "UP TO",
+    "definitions": [
+     {
+      "text": "Capable of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "work",
+      "for": "anagram",
+      "note": "to work something is to knead and reshape it, so the letters move"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one letter is placed inside the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "workout",
+      "gives": "OUT",
+      "note": "the word after the signal work, taken as written"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the symbol for power in physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "P",
+      "TO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OUT",
+       "gives": "UTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is fit enough for a power workout.",
+     "walkthrough": "'Workout' looks like one word, but splits into the signal and its fodder.",
+     "definitionFit": "If you are up to a task, you are able or fit enough to do it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "workout"
+    }
+   }
   },
   {
    "number": 22,
@@ -399,7 +1746,45 @@
     "text": "Escort American girl",
     "enumeration": "5"
    },
-   "solution": "USHER"
+   "solution": "USHER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "USHER",
+    "definitions": [
+     {
+      "text": "Escort",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is short for United States, hence American"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "HER",
+      "note": "a girl is referred to as her"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "US",
+      "HER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone accompanies a young woman from the States.",
+     "definitionFit": "An usher guides people to their seats, so to usher is to escort."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -413,7 +1798,89 @@
     "text": "Composer from Denmark hosts ball in Victoria and Albert's capital",
     "enumeration": "6"
    },
-   "solution": "DVORAK"
+   "solution": "DVORAK",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DVORAK",
+    "definitions": [
+     {
+      "text": "Composer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hosts",
+      "for": "container",
+      "note": "a host holds others inside, so the code for the country surrounds what follows"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the ball sits inside the queen's royal initials"
+     },
+     {
+      "text": "capital",
+      "for": "letter_selection",
+      "note": "a capital is a first letter, so only the start of the name is used"
+     },
+     {
+      "text": "and",
+      "for": "charade",
+      "note": "and simply joins one piece onto the next"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Denmark",
+      "gives": "DK",
+      "note": "DK is the international code for Denmark"
+     },
+     {
+      "clueFragment": "Victoria",
+      "gives": "VR",
+      "note": "VR stands for Victoria Regina, Queen Victoria's royal cipher"
+     },
+     {
+      "clueFragment": "ball",
+      "gives": "O",
+      "note": "a ball is round like the letter O"
+     },
+     {
+      "clueFragment": "Albert's",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter of Albert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "V",
+      "O",
+      "R",
+      "A",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "A Danish composer is staging a ball at the V&A museum in London.",
+     "walkthrough": "The V&A is the Victoria and Albert Museum in London; here Victoria is her royal cipher VR, with the ball nested inside it.",
+     "definitionFit": "Antonín Dvořák was a Czech composer, best known for the New World Symphony."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ball"
+    }
+   }
   },
   {
    "number": 24,
@@ -427,7 +1894,81 @@
     "text": "Sneaky way out of swimming baths back to house on banks of lake",
     "enumeration": "8"
    },
-   "solution": "LOOPHOLE"
+   "solution": "LOOPHOLE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LOOPHOLE",
+    "definitions": [
+     {
+      "text": "Sneaky way out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means reading the word from its end to its start"
+     },
+     {
+      "text": "banks of",
+      "for": "letter_selection",
+      "note": "the banks are the edges, so just the outer letters of the word are used"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "on here means placed beside, with the next pieces added after"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "swimming baths",
+      "gives": "POOL",
+      "note": "a swimming pool"
+     },
+     {
+      "clueFragment": "to house",
+      "gives": "HO",
+      "note": "HO is the abbreviation for house"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "LE",
+      "select": "outer",
+      "note": "first and last letters of lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOOP",
+      "HO",
+      "LE"
+     ],
+     "reversals": [
+      {
+       "from": "POOL",
+       "to": "LOOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky escape route from the pool back to a lakeside house.",
+     "definitionFit": "A loophole is an ambiguity that lets someone evade a rule, a crafty means of escape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "swimming"
+    }
+   }
   },
   {
    "number": 25,
@@ -441,7 +1982,67 @@
     "text": "Create purpose in green movement",
     "enumeration": "8"
    },
-   "solution": "ENGENDER"
+   "solution": "ENGENDER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ENGENDER",
+    "definitions": [
+     {
+      "text": "Create",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "movement",
+      "for": "anagram",
+      "note": "movement shifts the letters into a different order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one word is set inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "green",
+      "gives": "GREEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "purpose",
+      "gives": "END",
+      "note": "an end is an aim or purpose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENG",
+      "END",
+      "ER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GREEN",
+       "gives": "ENGER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Give the environmental movement a sense of purpose.",
+     "walkthrough": "'Green movement' reads as environmentalism; it is a word and its shuffle signal.",
+     "definitionFit": "To engender is to cause or bring something into being, so to create it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "movement"
+    }
+   }
   },
   {
    "number": 26,
@@ -455,7 +2056,46 @@
     "text": "Some native deer are strangely the least widely known",
     "enumeration": "6"
    },
-   "solution": "RAREST"
+   "solution": "RAREST",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RAREST",
+    "definitions": [
+     {
+      "text": "least widely known",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means only part of the following words is used"
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "native deer are strangely",
+      "gives": "RAREST",
+      "note": "the letters run across these words, from the end of deer"
+     }
+    ],
+    "explanation": {
+     "surface": "Some local deer are oddly the most obscure kind.",
+     "walkthrough": "'Strangely' looks like a shuffle signal, but the letters appear in order.",
+     "definitionFit": "Rare means uncommon or seldom met with, so the rarest is the least commonly known."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "strangely"
+    }
+   }
   }
  ]
 }
