@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,67 @@
      }
     ]
    },
-   "solution": "BRUSHOFF"
+   "solution": "BRUSHOFF",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BRUSH-OFF",
+    "definitions": [
+     {
+      "text": "Snub",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suppressing",
+      "for": "container",
+      "note": "suppressing means holding something down inside, so one piece is held within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former US president",
+      "gives": "BUSH",
+      "note": "George Bush, either of the two presidents of that name"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     },
+     {
+      "clueFragment": "of",
+      "gives": "OF",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the standard abbreviation for female"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "R",
+      "USH",
+      "OF",
+      "F"
+     ]
+    },
+    "explanation": {
+     "surface": "A snub delivered by an ex-president who kept a woman's rights down.",
+     "definitionFit": "A brush-off is a curt rejection or dismissal, the noun equivalent of a snub."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +116,68 @@
     "text": "Reverse taxi over top of kerb",
     "enumeration": "4"
    },
-   "solution": "BACK"
+   "solution": "BACK",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BACK",
+    "definitions": [
+     {
+      "text": "Reverse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over, so the word is read from right to left"
+     },
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a down word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taxi",
+      "gives": "CAB",
+      "note": "a cab is a taxi"
+     },
+     {
+      "clueFragment": "kerb",
+      "gives": "K",
+      "select": "first",
+      "note": "first letter of kerb"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAC",
+      "K"
+     ],
+     "reversals": [
+      {
+       "from": "CAB",
+       "to": "BAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A taxi reversing over the kerb.",
+     "walkthrough": "'Reverse' looks like the driving instruction, but it is the definition; kerb is the British spelling of curb.",
+     "definitionFit": "To back a vehicle is to drive it in reverse, so both are verbs for moving backwards."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Reverse"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +191,42 @@
     "text": "State without a highway? Not all of it",
     "enumeration": "4"
    },
-   "solution": "UTAH"
+   "solution": "UTAH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "UTAH",
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not all of it",
+      "for": "hidden_word",
+      "note": "only part of the phrase is used, so the solution sits inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "without a highway",
+      "gives": "UTAH",
+      "note": "letters running across withOUT A Highway"
+     }
+    ],
+    "explanation": {
+     "surface": "Asking whether some US state lacks a major road.",
+     "definitionFit": "Utah is one of the fifty states of the USA, in the Mountain West."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +240,51 @@
     "text": "Buddy attached to golf club in LA?",
     "enumeration": "9"
    },
-   "solution": "HOLLYWOOD"
+   "solution": "HOLLYWOOD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOLLYWOOD",
+    "definitions": [
+     {
+      "text": "in LA?",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "attached to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Buddy",
+      "gives": "HOLLY",
+      "note": "Buddy Holly, the 1950s rock and roll singer"
+     },
+     {
+      "clueFragment": "golf club",
+      "gives": "WOOD",
+      "note": "a wood is a type of golf club"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOLLY",
+      "WOOD"
+     ]
+    },
+    "explanation": {
+     "surface": "A pal joining a Los Angeles golf club.",
+     "walkthrough": "'Buddy' reads as a friend, but it is Buddy Holly. The definition is thin: it names the district by where it is.",
+     "definitionFit": "Hollywood is a district of Los Angeles, home of the American film industry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Buddy"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +298,46 @@
     "text": "Bilge in bows?",
     "enumeration": "12"
    },
-   "solution": "FIDDLESTICKS"
+   "solution": "FIDDLESTICKS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FIDDLESTICKS",
+    "definitions": [
+     {
+      "text": "Bilge",
+      "at": 0
+     },
+     {
+      "text": "bows",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bilge",
+      "note": "first meaning: nonsense, rubbish"
+     },
+     {
+      "clueFragment": "bows",
+      "note": "second meaning: the bows used to play violins, read as two words"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Bilge and bows suggest a ship's hull; the second definition splits the answer into fiddle sticks, the bows of a fiddle.",
+     "definitionFit": "The word is an exclamation meaning nonsense, and split it names the sticks that play fiddles, that is violin bows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bows"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +351,55 @@
     "text": "Virginia Lake and Greek character dance",
     "enumeration": "6"
    },
-   "solution": "VALETA"
+   "solution": "VALETA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VALETA",
+    "definitions": [
+     {
+      "text": "dance",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Virginia",
+      "gives": "VA",
+      "note": "VA is the postal abbreviation for the US state of Virginia"
+     },
+     {
+      "clueFragment": "Lake",
+      "gives": "L",
+      "note": "L is the map abbreviation for lake"
+     },
+     {
+      "clueFragment": "Greek character",
+      "gives": "ETA",
+      "note": "eta is the seventh letter of the Greek alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VA",
+      "L",
+      "ETA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Virginia, a lake and a Greek figure combine in a scene of dancing.",
+     "definitionFit": "The valeta is an old-time ballroom dance in triple time, popular in British dance halls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Virginia"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +413,64 @@
     "text": "Apart from a cold dessert served up",
     "enumeration": "5"
    },
-   "solution": "ALOOF"
+   "solution": "ALOOF",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ALOOF",
+    "definitions": [
+     {
+      "text": "Apart",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "served up",
+      "for": "reversal",
+      "note": "in a down entry, served up means brought upwards, so the letters run from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cold dessert",
+      "gives": "FOOL",
+      "note": "a fool is a cold pudding of fruit purée and cream"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LOOF"
+     ],
+     "reversals": [
+      {
+       "from": "FOOL",
+       "to": "LOOF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cold pudding put on the table, kept apart from the rest.",
+     "walkthrough": "A fool is a British dessert of puréed fruit folded into cream.",
+     "definitionFit": "Aloof means standing apart, distant and reserved from others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Apart"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +490,55 @@
      }
     ]
    },
-   "solution": "EASYVIRTUE"
+   "solution": "EASYVIRTUE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EASY VIRTUE",
+    "definitions": [
+     {
+      "text": "play",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cast",
+      "for": "anagram",
+      "note": "cast means thrown about, so the letters are scattered and reset"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Austere, Ivy",
+      "gives": "AUSTEREIVY",
+      "note": "the ten letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AUSTEREIVY",
+       "gives": "EASYVIRTUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stern actress called Ivy being given a role in a stage production.",
+     "walkthrough": "'Cast' fits the theatre picture, but it signals the letters are thrown about.",
+     "definitionFit": "Easy Virtue is a 1920s comedy by Noël Coward, later filmed twice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +552,53 @@
     "text": "Returns hat lost in Scottish resort",
     "enumeration": "10"
    },
-   "solution": "ANSTRUTHER"
+   "solution": "ANSTRUTHER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANSTRUTHER",
+    "definitions": [
+     {
+      "text": "Scottish resort",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost",
+      "for": "anagram",
+      "note": "something lost has gone astray, so these letters wander into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Returns hat",
+      "gives": "RETURNSHAT",
+      "note": "the ten letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RETURNSHAT",
+       "gives": "ANSTRUTHER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone handing back a hat that went missing at a Scottish holiday town.",
+     "definitionFit": "Anstruther is a fishing village and seaside resort in the East Neuk of Fife, Scotland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Returns"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +612,54 @@
     "text": "Cleaner circumspect about boy",
     "enumeration": "8"
    },
-   "solution": "CHARLADY"
+   "solution": "CHARLADY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHARLADY",
+    "definitions": [
+     {
+      "text": "Cleaner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one word goes around the other, as a fence runs about a field"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "circumspect",
+      "gives": "CHARY",
+      "note": "chary means wary or cautious"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "LAD",
+      "note": "a lad is a boy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAR",
+      "LAD",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A cleaner is wary around a young lad.",
+     "definitionFit": "A charlady is a British term for a woman employed to clean houses or offices, a hired cleaner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +673,59 @@
     "text": "Craft's required to catch small crows",
     "enumeration": "6"
    },
-   "solution": "BOASTS"
+   "solution": "BOASTS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BOASTS",
+    "definitions": [
+     {
+      "text": "crows",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to catch",
+      "for": "container",
+      "note": "to catch something is to hold it inside, so one piece is put within the other"
+     }
+    ],
+    "linkWords": [
+     "required"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Craft's",
+      "gives": "BOATS",
+      "note": "boats are craft; the 's is just the possessive of the surface"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small, as on clothing labels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOA",
+      "S",
+      "TS"
+     ]
+    },
+    "explanation": {
+     "surface": "Boats being needed to trap little crows, the black birds.",
+     "walkthrough": "'Crows' looks like the birds, but it is the verb: to crow is to brag.",
+     "definitionFit": "To crow is to brag triumphantly, so someone who crows boasts; both are third-person verbs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "crows"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +739,39 @@
     "text": "One out and about after retiring?",
     "enumeration": "12"
    },
-   "solution": "SOMNAMBULIST"
+   "solution": "SOMNAMBULIST",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SOMNAMBULIST",
+    "definitions": [
+     {
+      "text": "One out and about after retiring?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One out and about after retiring?",
+      "note": "surface reading: an active pensioner enjoying life after leaving work"
+     },
+     {
+      "clueFragment": "retiring",
+      "note": "setter's reading: retiring means going to bed, so this is someone who walks about while asleep"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Retiring suggests leaving a job; here it means going to bed at night.",
+     "definitionFit": "A sleepwalker gets up and wanders around after going to bed, still asleep."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "retiring"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +791,54 @@
      }
     ]
    },
-   "solution": "YELLOWFEVER"
+   "solution": "YELLOWFEVER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "YELLOW FEVER",
+    "definitions": [
+     {
+      "text": "Disease",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "may make",
+      "for": "anagram",
+      "note": "the following words are material that may be made into something else, so their letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "one"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "feel very low",
+      "gives": "FEELVERYLOW",
+      "note": "the eleven letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FEELVERYLOW",
+       "gives": "YELLOWFEVER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An illness can leave a person feeling miserable.",
+     "walkthrough": "The surface is perfectly natural; nothing hints that the last three words are raw letters.",
+     "definitionFit": "Yellow fever is a tropical viral infection spread by mosquitoes, named for the jaundice it causes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "make"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +858,50 @@
      }
     ]
    },
-   "solution": "BRASSBANDS"
+   "solution": "BRASSBANDS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRASS BANDS",
+    "definitions": [
+     {
+      "text": "Groups of musicians",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "may bring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "money",
+      "gives": "BRASS",
+      "note": "brass is British slang for money"
+     },
+     {
+      "clueFragment": "belts",
+      "gives": "BANDS",
+      "note": "a belt is a band, as of cloth or leather"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRASS",
+      "BANDS"
+     ]
+    },
+    "explanation": {
+     "surface": "Bands of musicians might bring along money belts.",
+     "walkthrough": "Brass is northern British slang for money ('where there's muck there's brass').",
+     "definitionFit": "Brass bands are ensembles of brass instrument players, a strong tradition in northern England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "belts"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +915,52 @@
     "text": "Skinniest wins crates (bubbly)",
     "enumeration": "10"
    },
-   "solution": "SCRAWNIEST"
+   "solution": "SCRAWNIEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCRAWNIEST",
+    "definitions": [
+     {
+      "text": "Skinniest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bubbly",
+      "for": "anagram",
+      "note": "bubbly suggests fizzing and churning, so these letters are stirred into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wins crates",
+      "gives": "WINSCRATES",
+      "note": "the ten letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WINSCRATES",
+       "gives": "SCRAWNIEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The thinnest contestant takes home crates of champagne.",
+     "walkthrough": "Bubbly is also slang for champagne, which fits the crates the surface describes.",
+     "definitionFit": "Scrawny means thin and bony, so the scrawniest is the thinnest of all."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bubbly"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +974,47 @@
     "text": "Page clergyman shortly",
     "enumeration": "5"
    },
-   "solution": "RECTO"
+   "solution": "RECTO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RECTO",
+    "definitions": [
+     {
+      "text": "Page",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortly",
+      "for": "deletion",
+      "note": "said shortly means cut short, so the word loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clergyman",
+      "gives": "RECTOR",
+      "note": "a rector is a parish priest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RECTO"
+     ]
+    },
+    "explanation": {
+     "surface": "A young page boy summoning the vicar in a moment.",
+     "definitionFit": "The recto is the right-hand page of an open book, as opposed to the verso on the left."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Page"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1028,65 @@
     "text": "Training college and sanatorium close to old wood",
     "enumeration": "9"
    },
-   "solution": "SANDHURST"
+   "solution": "SANDHURST",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SANDHURST",
+    "definitions": [
+     {
+      "text": "Training college",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only the last letter is kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sanatorium",
+      "gives": "SAN",
+      "note": "san is a common short form of sanatorium, a school sickroom"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "D",
+      "select": "last",
+      "note": "the final letter of old"
+     },
+     {
+      "clueFragment": "wood",
+      "gives": "HURST",
+      "note": "hurst is an old word for a wooded hill or copse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAN",
+      "D",
+      "HURST"
+     ]
+    },
+    "explanation": {
+     "surface": "A college and a hospital standing beside an ancient wood.",
+     "walkthrough": "Sandhurst, in Berkshire, is the Royal Military Academy where British Army officers are trained.",
+     "definitionFit": "The Royal Military Academy Sandhurst is the British Army's officer training college."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1110,71 @@
      }
     ]
    },
-   "solution": "HITANDRUN"
+   "solution": "HITANDRUN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HIT-AND-RUN",
+    "definitions": [
+     {
+      "text": "Type of road accident",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter is kept"
+     }
+    ],
+    "linkWords": [
+     "caused by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "him",
+      "gives": "H",
+      "select": "first",
+      "note": "first letter of him"
+     },
+     {
+      "clueFragment": "Italian",
+      "gives": "IT",
+      "note": "It. is the abbreviation for Italian"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "with in the sense of plus"
+     },
+     {
+      "clueFragment": "ladder",
+      "gives": "RUN",
+      "note": "a ladder is a run in tights or stockings"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "IT",
+      "AND",
+      "RUN"
+     ]
+    },
+    "explanation": {
+     "surface": "A road accident blamed on an Italian man carrying a ladder.",
+     "walkthrough": "Ladder is the British term for a run in a stocking, which the surface hides behind the image of a man carrying one.",
+     "definitionFit": "A hit-and-run is a collision in which the driver leaves the scene without stopping."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ladder"
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1194,50 @@
      }
     ]
    },
-   "solution": "STANDFIRM"
+   "solution": "STANDFIRM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STAND FIRM",
+    "definitions": [
+     {
+      "text": "Refuse to abandon",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one's opinion",
+      "gives": "STAND",
+      "note": "one's stand on an issue is one's opinion or position"
+     },
+     {
+      "clueFragment": "partnerhip at company",
+      "gives": "FIRM",
+      "note": "a firm is a business partnership or company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAND",
+      "FIRM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone declining to abandon a view about a business partnership.",
+     "walkthrough": "'Partnerhip' is the source's typo for partnership. The surface reads the whole first half as the definition, but the opinion part supplies the first word.",
+     "definitionFit": "To stand firm is to keep one's position and not yield, which is refusing to abandon a position."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opinion"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1251,63 @@
     "text": "Right about crops, primarily barley",
     "enumeration": "5"
    },
-   "solution": "TRUCE"
+   "solution": "TRUCE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "TRUCE",
+    "definitions": [
+     {
+      "text": "barley",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one word goes around the other, enclosing it"
+     },
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Right",
+      "gives": "TRUE",
+      "note": "right in the sense of correct"
+     },
+     {
+      "clueFragment": "crops",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of crops"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRU",
+      "C",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer considering the right approach to crops, especially barley.",
+     "walkthrough": "'Barley' looks like one of the crops, but it is the definition: in northern English and Scottish playgrounds, children call 'barley!' to claim a pause in a game.",
+     "definitionFit": "Barley is a dialect children's call for a time-out in play, a playground truce."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "barley"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1321,72 @@
     "text": "Knight, leading small number in rear, controlled fire in battle",
     "enumeration": "11"
    },
-   "solution": "BANNOCKBURN"
+   "solution": "BANNOCKBURN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BANNOCKBURN",
+    "definitions": [
+     {
+      "text": "battle",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leading",
+      "for": "charade",
+      "note": "leading means going in front, so one piece is placed before the other"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places those pieces inside another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rear",
+      "gives": "BACK",
+      "note": "the rear is the back"
+     },
+     {
+      "clueFragment": "Knight",
+      "gives": "N",
+      "note": "N is the chess notation for a knight"
+     },
+     {
+      "clueFragment": "small number",
+      "gives": "NO",
+      "note": "no. is the short form of number"
+     },
+     {
+      "clueFragment": "controlled fire",
+      "gives": "BURN",
+      "note": "a controlled burn is a deliberately set fire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "NNO",
+      "CK",
+      "BURN"
+     ]
+    },
+    "explanation": {
+     "surface": "A knight ahead of a small troop at the back, firing under control in battle.",
+     "walkthrough": "Knight is N in chess notation, since K is taken by the king. Bannockburn (1314) was Robert the Bruce's victory over the English.",
+     "definitionFit": "Bannockburn is the 1314 battle in Scotland where Robert the Bruce defeated Edward II."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Knight"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1400,49 @@
     "text": "Hardy dog with no lead?",
     "enumeration": "5"
    },
-   "solution": "OLLIE"
+   "solution": "OLLIE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OLLIE",
+    "definitions": [
+     {
+      "text": "Hardy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no lead",
+      "for": "deletion",
+      "note": "a word with no lead has lost its leading letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog",
+      "gives": "COLLIE",
+      "note": "a collie is a sheepdog breed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OLLIE"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a tough dog is off its leash.",
+     "walkthrough": "Hardy is Oliver 'Ollie' Hardy of Laurel and Hardy, not the adjective; lead is a dog's leash, the British sense.",
+     "definitionFit": "Oliver Hardy, the comedian of Laurel and Hardy, was known as Ollie."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hardy"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1456,43 @@
     "text": "Expensive honey",
     "enumeration": "4"
    },
-   "solution": "DEAR"
+   "solution": "DEAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DEAR",
+    "definitions": [
+     {
+      "text": "Expensive",
+      "at": 0
+     },
+     {
+      "text": "honey",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Expensive",
+      "note": "first meaning: costly"
+     },
+     {
+      "clueFragment": "honey",
+      "note": "second meaning: a term of endearment, darling"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests pricey honey from a jar; honey is really a pet name.",
+     "definitionFit": "The word means costly and is also an affectionate address, like sweetheart."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "honey"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1506,60 @@
     "text": "Feel sorry for mine and yours at first",
     "enumeration": "4"
    },
-   "solution": "PITY"
+   "solution": "PITY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PITY",
+    "definitions": [
+     {
+      "text": "Feel sorry for",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter only"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mine",
+      "gives": "PIT",
+      "note": "a pit is a coal mine"
+     },
+     {
+      "clueFragment": "yours",
+      "gives": "Y",
+      "select": "first",
+      "note": "first letter of yours"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Sympathising with my situation and then with yours first.",
+     "walkthrough": "'Mine' looks like a possessive paired with yours, but it is the noun: a coal mine.",
+     "definitionFit": "To pity someone is to feel compassion or sorrow for them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "mine"
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1573,49 @@
     "text": "Want the Parisian to give a pointer",
     "enumeration": "6"
    },
-   "solution": "NEEDLE"
+   "solution": "NEEDLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NEEDLE",
+    "definitions": [
+     {
+      "text": "pointer",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "to give a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Want",
+      "gives": "NEED",
+      "note": "to want is to need"
+     },
+     {
+      "clueFragment": "the Parisian",
+      "gives": "LE",
+      "note": "le is French for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEED",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Wanting a Paris native to give you a tip.",
+     "definitionFit": "A needle is a pointer, as on a compass or dial gauge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pointer"
+    }
+   }
   },
   {
    "number": 25,
@@ -423,7 +1629,49 @@
     "text": "Former PM departs, joining one from Haifa maybe",
     "enumeration": "8"
    },
-   "solution": "DISRAELI"
+   "solution": "DISRAELI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISRAELI",
+    "definitions": [
+     {
+      "text": "Former PM",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "joining"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "departs",
+      "gives": "D",
+      "note": "D is the timetable abbreviation for departs"
+     },
+     {
+      "clueFragment": "one from Haifa maybe",
+      "gives": "ISRAELI",
+      "note": "Haifa is a city in Israel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ISRAELI"
+     ]
+    },
+    "explanation": {
+     "surface": "An ex-prime minister leaves to link up with someone from Haifa.",
+     "definitionFit": "Benjamin Disraeli was a Victorian British Prime Minister, twice in office."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "departs"
+    }
+   }
   },
   {
    "number": 26,
@@ -437,7 +1685,55 @@
     "text": "Dog in street, barking",
     "enumeration": "6"
    },
-   "solution": "SETTER"
+   "solution": "SETTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SETTER",
+    "definitions": [
+     {
+      "text": "Dog",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "barking",
+      "for": "anagram",
+      "note": "barking is British slang for mad, so the word is to be jumbled up"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "street",
+      "gives": "STREET",
+      "note": "the six letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STREET",
+       "gives": "SETTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog out on the road, yapping away.",
+     "walkthrough": "'Barking' fits the dog perfectly, but here it is British slang for crazy (barking mad).",
+     "definitionFit": "A setter is a breed of gun dog, such as the Irish or English setter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "barking"
+    }
+   }
   },
   {
    "number": 27,
@@ -451,7 +1747,60 @@
     "text": "Mean to eat mostly raw fish",
     "enumeration": "8"
    },
-   "solution": "STINGRAY"
+   "solution": "STINGRAY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "STINGRAY",
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the last letter goes"
+     },
+     {
+      "text": "to eat",
+      "for": "container",
+      "note": "eating takes something inside, so one word goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mean",
+      "gives": "STINGY",
+      "note": "mean in the sense of tight-fisted"
+     },
+     {
+      "clueFragment": "raw",
+      "gives": "RA",
+      "note": "raw without its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STING",
+      "RA",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Meaning to eat most of a fish uncooked, as in sushi.",
+     "definitionFit": "A stingray is a flat cartilaginous fish with a venomous barbed tail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mean"
+    }
+   }
   }
  ]
 }
