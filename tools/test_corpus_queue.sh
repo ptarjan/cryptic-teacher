@@ -11,7 +11,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT
-HOME="$tmp" python3 - <<'PY'
+HOME="$tmp" CT_DOWNLOADS="$tmp/downloads" python3 - <<'PY'
 import fcntl, json, os, sys, time
 sys.path.insert(0, "tools")
 from pathlib import Path
