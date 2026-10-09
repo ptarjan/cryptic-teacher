@@ -606,6 +606,119 @@ def answer_by_enum(line, enum):
     return " ".join(got)
 
 
+#: Marks a blogger types ahead of the answer: ".LEADERSHIP.", "*NOEL –" (a
+#: themed light), "{NATIONALISM)", "[UNASPIRING –", "(on edit): BURN –".
+LEAD_MARKS = re.compile(r"^(?:\s*\(on edit\)\s*:)?[\s.*{\[]+", re.I)
+#: A struck letter, "[-f]ELL", "BUMBLE BEE[-b]": not in the answer.
+STRUCK = re.compile(r"\[-[a-z]+\]")
+#: An apostrophe bracketed as the blogger's working: "I[’]LL SAY".
+BRACKETED_APOSTROPHE = re.compile(r"\[([\u2019'])\]")
+#: An answer in ordinary case, ended by a dash or an equals sign: "gallycrow
+#: –", "s kosh – KOS...", "xanthan gum –", "Adrianne = the inner letters".
+PLAIN_ANSWER = re.compile(r"^([A-Za-z][a-z'\u2019 \-]*?[a-z])\s*(?:[\u2013\u2014=]|-\s|-$)")
+#: Prose ahead of the answer in capitals: "The very beautiful NEFERTITI",
+#: "The YELLOW BOOK was", "Simon ARMITAGE (not yet...)", "A cryptic
+#: definition of AVERSION THERAPY". Words that build wordplay ("An anagram
+#: of TOAST", "Hidden in GHANA USE") are not prose a printed answer follows.
+PROSE_LEAD = re.compile(
+    r"^(?:(?i:(?:a\s+)?(?:cryptic|double)\s+definition\s+of\s+)"
+    r"|(?:\(?[A-Z]?[a-z][a-z\u2019']*\)?\s+){1,5})(?=[A-Z]{2})")
+WORDPLAY_WORDS = frozenset(
+    "anagram anagrams of in inside into around about round reversed reversal "
+    "reverse back hidden sounds sound like homophone plus and with without "
+    "after before is are gives giving from containing contains by then to on "
+    "under over put take place remove first last letters letter initial "
+    "half part minus less".split())
+#: Single words a hint opens with that are never its answer.
+PROSE_WORDS = frozenset(
+    "anagram charade hidden homophone definition cryptic double triple "
+    "lurker spoonerism reversal container insertion deletion".split())
+#: A charade printed piece by piece, each with its meaning after an equals
+#: sign: "SUBJECT = one that's ruled, MATTER = to be important",
+#: "KEY=Caribbean island,PAD=home", "A,P=page,EX=from".
+GLOSSED_PIECE = re.compile(r"\s*([A-Z][A-Z\u2019'.]*)(?=\s*[=,.\u2013\u2014]|\s+-\s|\s*$)")
+NEXT_PIECE = re.compile(r",(?=\s*[A-Z][A-Z\u2019'.]*(?:\s*[=,.]|\s*$))")
+
+
+def _by_enum(letters, enum):
+    """Letters broken where the enumeration breaks: "GALLYCROW", "5-4" ->
+    "GALLY-CROW"."""
+    out, pos = "", 0
+    for i, part in enumerate(re.split(r"(\d+)", enum)):
+        if i % 2:
+            out += letters[pos:pos + int(part)]
+            pos += int(part)
+        elif out and i < len(re.split(r"(\d+)", enum)) - 1:
+            out += "-" if re.search(r"[\-\u2013]", part) else " "
+    return out
+
+
+def answer_read_harder(line, enum):
+    """The printed answer answer_by_enum cannot read, or None.
+
+    Each shape here is one the blogs really print, and each must give exactly
+    the letters the enumeration counts: marks ahead of the answer or struck
+    letters inside it, an answer in ordinary case before its dash, prose
+    ahead of an answer in capitals, and a charade printed as glossed pieces.
+    """
+    counts = [int(n) for n in re.findall(r"\d+", enum or "")]
+    if not counts:
+        return None
+    total = sum(counts)
+    line = "".join(c for c in unicodedata.normalize("NFKD", line)
+                   if not unicodedata.combining(c))
+    clean = BRACKETED_APOSTROPHE.sub(r"\1", LEAD_MARKS.sub("", STRUCK.sub("", line)))
+    if clean != line:
+        got = answer_by_enum(clean, enum)
+        printed = printed_answer(clean)
+        if got:
+            return got
+        if printed and enum_fits(printed, enum):
+            return _by_enum(re.sub(r"[^A-Z]", "", printed), enum)
+    plain = PLAIN_ANSWER.match(clean)
+    # Capitalised, only one word: "Two definitions –", "Lego time –", "Nice
+    # clue –" are the blogger talking, and "Anagram –" is wordplay.
+    if plain and plain.group(1)[0].isupper() and (
+            re.search(r"[\s\-]", plain.group(1))
+            or plain.group(1).lower() in WORDPLAY_WORDS | PROSE_WORDS):
+        plain = None
+    if plain and len(re.sub(r"[^A-Za-z]", "", plain.group(1))) == total:
+        return _by_enum(re.sub(r"[^A-Z]", "", plain.group(1).upper()), enum)
+    lead = PROSE_LEAD.match(clean)
+    prose = lead and re.findall(r"[a-z]+", lead.group(0).lower())
+    if prose and ("definition" in prose or not set(prose) & WORDPLAY_WORDS):
+        words, pos = [], lead.end()
+        for n in counts:
+            m = CAPS_WORD.match(clean, pos)
+            if not m or len(re.sub(r"[^A-Z]", "", m.group(1))) != n:
+                break
+            words.append(m.group(1))
+            pos = m.end()
+        else:
+            if not re.match(r"[A-Za-z]", clean[pos:pos + 1]):
+                return " ".join(words)
+    first = GLOSSED_PIECE.match(clean)
+    if first and re.match(r"\s*[=,]", clean[first.end():]):
+        got, pos = [], 0
+        while sum(map(len, got)) < total:
+            m = GLOSSED_PIECE.match(clean, pos)
+            if not m:
+                return None
+            got.append(re.sub(r"[^A-Z]", "", m.group(1)))
+            pos = m.end()
+            if sum(map(len, got)) >= total:
+                break
+            if clean[pos:pos + 1] != ",":
+                nxt = NEXT_PIECE.search(clean, pos)
+                if not nxt or "=" not in clean[pos:nxt.start()]:
+                    return None
+                pos = nxt.start()
+            pos += 1
+        if len(got) > 1 and sum(map(len, got)) == total:
+            return _by_enum("".join(got), enum)
+    return None
+
+
 #: A printed answer the blogger ended with a dash: "PINCH POINT - PINCH...".
 #: That is the answer as they meant it, and an enumeration disagreeing with it
 #: is the typo -- "(5)" for (5,5) -- so it is never cut down to fit.
@@ -1047,7 +1160,7 @@ def read_entries(rendered):
         if clued and (printed is None or (len(lights) == 1
                                           and not enum_fits(printed, enum)
                                           and not DASH_ENDED.match(ln))):
-            printed = answer_by_enum(ln, enum) or printed
+            printed = answer_by_enum(ln, enum) or answer_read_harder(ln, enum) or printed
         if printed and lights is not None:
             flush(printed)
             lights, clue, enum = None, None, None
