@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,67 @@
      }
     ]
    },
-   "solution": "PROCESSEDCHEESE"
+   "solution": "PROCESSEDCHEESE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PROCESSED CHEESE",
+    "definitions": [
+     {
+      "text": "Big Mac ingredient",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Oddly",
+      "for": "letter_selection",
+      "note": "oddly points to the letters in the first, third and fifth places of the word that follows"
+     },
+     {
+      "text": "having first",
+      "for": "charade",
+      "note": "the letters just picked out must have the next two pieces placed ahead of them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dealt with",
+      "gives": "PROCESSED",
+      "note": "a claim or an order that has been dealt with has been processed"
+     },
+     {
+      "clueFragment": "revolutionary",
+      "gives": "CHE",
+      "note": "Che Guevara, the Argentine-born revolutionary"
+     },
+     {
+      "clueFragment": "easier",
+      "gives": "ESE",
+      "select": "alternate",
+      "note": "the odd-numbered letters of easier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROCESSED",
+      "CHE",
+      "ESE"
+     ]
+    },
+    "explanation": {
+     "surface": "A fussy diner, having already eaten, tackles a revolutionary new burger more easily.",
+     "walkthrough": "The clue is read back to front: the odd letters of 'easier' come last, with PROCESSED and CHE placed first. A Big Mac is McDonald's best-known burger.",
+     "definitionFit": "The Big Mac famously contains a slice of factory-made processed cheese among its fillings, so it is an example of an ingredient."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +116,71 @@
     "text": "Steep climbs with number on crew who can deliver",
     "enumeration": "9"
    },
-   "solution": "POSTWOMAN"
+   "solution": "POSTWOMAN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "POSTWOMAN",
+    "definitions": [
+     {
+      "text": "who can deliver",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbs",
+      "for": "reversal",
+      "note": "in a down clue something that climbs reads from bottom to top, so the word is turned round"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Steep",
+      "gives": "SOP",
+      "note": "to sop is to soak or steep something in liquid"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "TWO",
+      "note": "two is a number"
+     },
+     {
+      "clueFragment": "crew",
+      "gives": "MAN",
+      "note": "to man a ship is to crew it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POS",
+      "TWO",
+      "MAN"
+     ],
+     "reversals": [
+      {
+       "from": "SOP",
+       "to": "POS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sheer ascents, done with a numbered team who can supply what is needed.",
+     "walkthrough": "'Steep' looks like an adjective for a slope; here it is the verb meaning soak, which gives SOP, read upwards as POS.",
+     "definitionFit": "A postwoman's job is delivering the mail, so she is someone who can deliver letters and parcels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Steep"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +194,77 @@
     "text": "Taxing cash after banks rejected gold put up by America",
     "enumeration": "7"
    },
-   "solution": "ONEROUS"
+   "solution": "ONEROUS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "ONEROUS",
+    "definitions": [
+     {
+      "text": "Taxing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after banks rejected",
+      "for": "deletion",
+      "note": "the banks of a word are its two outer letters, and rejecting them leaves only the inside"
+     },
+     {
+      "text": "put up",
+      "for": "reversal",
+      "note": "in a down clue putting something up means writing it from the bottom upwards"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cash",
+      "gives": "MONEY",
+      "note": "cash is money"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is the heraldic word for gold"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "the US, the United States of America"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONE",
+      "RO",
+      "US"
+     ],
+     "reversals": [
+      {
+       "from": "OR",
+       "to": "RO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Taxation of money once the banks have refused gold reserves offered by America.",
+     "walkthrough": "MONEY with its outer letters gone leaves ONE; OR turned upwards gives RO; then US.",
+     "definitionFit": "Taxing in the sense of demanding or burdensome is a close synonym of onerous, as in an onerous duty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "banks"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +278,60 @@
     "text": "Occasionally meant wound is recorded",
     "enumeration": "8"
    },
-   "solution": "ENROLLED"
+   "solution": "ENROLLED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ENROLLED",
+    "definitions": [
+     {
+      "text": "recorded",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means only now and then, so only every other letter of the next word is kept"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meant",
+      "gives": "EN",
+      "select": "alternate",
+      "note": "the second and fourth letters of meant"
+     },
+     {
+      "clueFragment": "wound",
+      "gives": "ROLLED",
+      "note": "wound in the sense of coiled or turned into a roll"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "ROLLED"
+     ]
+    },
+    "explanation": {
+     "surface": "A wound inflicted by accident, now and again, has been officially noted down.",
+     "walkthrough": "'Wound' looks like an injury; it is the past tense of wind, as in wound up into a roll.",
+     "definitionFit": "To be enrolled is to have one's name entered on a register or list, that is, recorded."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wound"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +345,60 @@
     "text": "Sierra regularly parking under branch",
     "enumeration": "5"
    },
-   "solution": "SPRIG"
+   "solution": "SPRIG",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SPRIG",
+    "definitions": [
+     {
+      "text": "branch",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every second letter of the next word is kept"
+     },
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down clue being under something means sitting below it, so this part follows the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sierra",
+      "gives": "S",
+      "note": "Sierra is S in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "parking",
+      "gives": "PRIG",
+      "select": "alternate",
+      "note": "the first, third, fifth and seventh letters of parking"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PRIG"
+     ]
+    },
+    "explanation": {
+     "surface": "A car parked beneath a tree branch in the Sierra mountains on a regular basis.",
+     "definitionFit": "A sprig is a small shoot or twig, a little branch cut from a plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sierra"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +412,62 @@
     "text": "Shock retrospective rescued gallery",
     "enumeration": "9"
    },
-   "solution": "DEVASTATE"
+   "solution": "DEVASTATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DEVASTATE",
+    "definitions": [
+     {
+      "text": "Shock",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retrospective",
+      "for": "reversal",
+      "note": "a retrospective looks backwards, so the word that follows is read from its end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rescued",
+      "gives": "SAVED",
+      "note": "rescued means saved"
+     },
+     {
+      "clueFragment": "gallery",
+      "gives": "TATE",
+      "note": "the Tate is the famous London art gallery"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEVAS",
+      "TATE"
+     ],
+     "reversals": [
+      {
+       "from": "SAVED",
+       "to": "DEVAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Surprise as a gallery's retrospective exhibition rescues it from closure.",
+     "walkthrough": "'Retrospective' looks like an art show, which fits the gallery; it is the instruction to read SAVED backwards as DEVAS.",
+     "definitionFit": "To devastate someone is to shock and overwhelm them with grief, so the two verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "retrospective"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +481,62 @@
     "text": "Hard once a state captures a soldier",
     "enumeration": "6"
    },
-   "solution": "HUSSAR"
+   "solution": "HUSSAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HUSSAR",
+    "definitions": [
+     {
+      "text": "soldier",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "captures",
+      "for": "container",
+      "note": "to capture something is to hold it inside, so the state wraps round the next letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hard",
+      "gives": "H",
+      "note": "H is the abbreviation for hard, as on pencils"
+     },
+     {
+      "clueFragment": "once a state",
+      "gives": "USSR",
+      "note": "the USSR, the Soviet state that no longer exists"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "USS",
+      "A",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A tough former nation takes a soldier prisoner.",
+     "walkthrough": "'Once a state' means a former state, the Soviet Union, which wraps round A after H.",
+     "definitionFit": "A hussar is a light cavalry soldier, originally from Hungary, so a kind of soldier."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "once"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +550,67 @@
     "text": "Involve ball going into middle of green when spun",
     "enumeration": "7"
    },
-   "solution": "EMBROIL"
+   "solution": "EMBROIL",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "EMBROIL",
+    "definitions": [
+     {
+      "text": "Involve",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going into middle of",
+      "for": "container",
+      "note": "going into the middle of something means being placed inside it between its halves"
+     },
+     {
+      "text": "when spun",
+      "for": "reversal",
+      "note": "spinning turns a thing round, so the whole result is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "green",
+      "gives": "LIME",
+      "note": "lime is a shade of green"
+     },
+     {
+      "clueFragment": "ball",
+      "gives": "ORB",
+      "note": "an orb is a ball or sphere"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "BRO",
+      "IL"
+     ],
+     "reversals": [
+      {
+       "from": "LIORBME",
+       "to": "EMBROIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golf or snooker shot: the ball reaching the middle of the green with spin on it.",
+     "walkthrough": "'Green' looks like a golf green, which suits the ball, but it is a shade of the colour; and 'spun' turns the whole thing round, not just the ball.",
+     "definitionFit": "To embroil someone is to involve them in a conflict or difficult situation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "green"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +624,50 @@
     "text": "Pitchers meanwhile throw the quicker balls last of all",
     "enumeration": "5"
    },
-   "solution": "EWERS"
+   "solution": "EWERS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "EWERS",
+    "definitions": [
+     {
+      "text": "Pitchers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of all",
+      "for": "letter_selection",
+      "note": "the last of all the words means the final letter of every word in the run"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meanwhile throw the quicker balls",
+      "gives": "EWERS",
+      "select": "last",
+      "note": "the final letters of the five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EWERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Cricket: the bowlers meanwhile save their faster deliveries for the end.",
+     "walkthrough": "'Pitchers' and 'throw' push towards baseball or bowling, but the pitchers are jugs.",
+     "definitionFit": "A ewer is a large jug with a wide spout, and a pitcher is another word for a jug."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pitchers"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +681,65 @@
     "text": "The woman making rare move to become Match of the Day pundit?",
     "enumeration": "7"
    },
-   "solution": "SHEARER"
+   "solution": "SHEARER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "SHEARER",
+    "definitions": [
+     {
+      "text": "Match of the Day pundit?",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "move",
+      "for": "anagram",
+      "note": "making the letters move means shifting them into a new order"
+     }
+    ],
+    "linkWords": [
+     "making",
+     "to become"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The woman",
+      "gives": "SHE",
+      "note": "she is the pronoun for the woman"
+     },
+     {
+      "clueFragment": "rare",
+      "gives": "RARE",
+      "note": "taken as written before rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHE",
+      "ARER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RARE",
+       "gives": "ARER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman makes the unusual career move into football punditry on the BBC.",
+     "walkthrough": "Match of the Day is the BBC's long-running football highlights show; Alan Shearer, the former England striker, is one of its pundits. The question mark flags that this is one example.",
+     "definitionFit": "Alan Shearer is a regular expert analyst on the programme, so the surname names one of its pundits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "woman"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +753,62 @@
     "text": "Workable if making a design essentially obvious",
     "enumeration": "7"
    },
-   "solution": "VISIBLE"
+   "solution": "VISIBLE",
+   "annotation": {
+    "type": [
+     "substitution",
+     "letter_selection"
+    ],
+    "answer": "VISIBLE",
+    "definitions": [
+     {
+      "text": "obvious",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "if making a",
+      "for": "substitution",
+      "note": "making the letter into something else means swapping that letter out for the new pair"
+     },
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is its core, so only its middle letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Workable",
+      "gives": "VIABLE",
+      "note": "a workable plan is viable"
+     },
+     {
+      "clueFragment": "design",
+      "gives": "SI",
+      "select": "middle",
+      "note": "the two middle letters of design"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "SI",
+      "BLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A design is workable if it makes its essential purpose clear.",
+     "walkthrough": "The A of VIABLE is replaced by SI, the heart of 'design'.",
+     "definitionFit": "Something visible can be seen, and something obvious is plain to see, so the adjectives are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "design"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +822,47 @@
     "text": "Try to get whiskey glasses",
     "enumeration": "3"
    },
-   "solution": "WOO"
+   "solution": "WOO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WOO",
+    "definitions": [
+     {
+      "text": "Try to get",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "whiskey",
+      "gives": "W",
+      "note": "Whiskey is W in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "glasses",
+      "gives": "OO",
+      "note": "two round letters that look like a pair of spectacles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "OO"
+     ]
+    },
+    "explanation": {
+     "surface": "Attempting to obtain whiskey tumblers.",
+     "walkthrough": "'Glasses' looks like drinking glasses to go with the whiskey; it is spectacles, drawn as two rings.",
+     "definitionFit": "To woo is to court someone or seek their support, trying to win them over."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "glasses"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +876,83 @@
     "text": "Biggest part of Last Leg is starting with introduction from Adam Hills nailing MPs?",
     "enumeration": "11"
    },
-   "solution": "LEGISLATORS"
+   "solution": "LEGISLATORS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LEGISLATORS",
+    "definitions": [
+     {
+      "text": "MPs?",
+      "at": 79
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Biggest part of",
+      "for": "letter_selection",
+      "note": "the biggest part of a word, read as its capital letter, is the upper-case initial"
+     },
+     {
+      "text": "is starting with",
+      "for": "charade",
+      "note": "starting with means the following words come at the front, ahead of the letter just found"
+     },
+     {
+      "text": "introduction from",
+      "for": "letter_selection",
+      "note": "an introduction is the opening, so only the first letter of the name is used"
+     }
+    ],
+    "linkWords": [
+     "nailing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leg is",
+      "gives": "LEGIS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Last",
+      "gives": "L",
+      "select": "first",
+      "note": "the capital L, the largest letter of the word"
+     },
+     {
+      "clueFragment": "Adam",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of Adam"
+     },
+     {
+      "clueFragment": "Hills",
+      "gives": "TORS",
+      "note": "tors are rocky hills, as on Dartmoor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEGIS",
+      "L",
+      "A",
+      "TORS"
+     ]
+    },
+    "explanation": {
+     "surface": "Comedian Adam Hills, host of the TV satire The Last Leg, skewering politicians in his opening.",
+     "walkthrough": "The Last Leg is a Channel 4 topical comedy show hosted by Adam Hills; 'Biggest part' playfully means the capital letter of 'Last'. LEG IS comes first, then L, A and TORS.",
+     "definitionFit": "Members of Parliament make the country's laws, so they are examples of lawmakers; the question mark marks the example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Biggest"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +972,57 @@
      }
     ]
    },
-   "solution": "MASTERPLAN"
+   "solution": "MASTERPLAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "MASTER PLAN",
+    "definitions": [
+     {
+      "text": "Long-term strategy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "most of a word means all of it except its final letter"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "control",
+      "gives": "MASTER",
+      "note": "to master something is to control it"
+     },
+     {
+      "clueFragment": "factory",
+      "gives": "PLANT",
+      "note": "a plant is an industrial factory"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MASTER",
+      "PLAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A business plan to take control of the larger part of a factory.",
+     "definitionFit": "A masterplan is a comprehensive plan for the future, which is a long-term strategy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "control"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +1036,89 @@
     "text": "Scramble panda car using energy to cover every area with time to complete previous case",
     "enumeration": "9"
    },
-   "solution": "PRECEDENT"
+   "solution": "PRECEDENT",
+   "annotation": {
+    "type": [
+     "substitution",
+     "anagram",
+     "charade"
+    ],
+    "answer": "PRECEDENT",
+    "definitions": [
+     {
+      "text": "previous case",
+      "at": 74
+     }
+    ],
+    "indicators": [
+     {
+      "text": "using",
+      "for": "substitution",
+      "note": "using one letter in place of another signals a swap of letters inside the phrase"
+     },
+     {
+      "text": "to cover",
+      "for": "substitution",
+      "note": "covering a letter means laying another over it, so each such letter is swapped out"
+     },
+     {
+      "text": "Scramble",
+      "for": "anagram",
+      "note": "scrambling mixes things up, so the letters are jumbled into a new order"
+     },
+     {
+      "text": "to complete",
+      "for": "charade",
+      "note": "completing means coming at the end, so this piece is tacked on last"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "panda car",
+      "gives": "PANDACAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy in physics"
+     },
+     {
+      "clueFragment": "every area",
+      "note": "a is the abbreviation for area; every A in the phrase is replaced"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRECEDEN",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PENDECER",
+       "gives": "PRECEDEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer is told to rush the patrol car around every district in the nick of time.",
+     "walkthrough": "A panda car is British slang for a small police patrol car. Each A in it becomes E, giving PENDECER, which is jumbled and finished with T.",
+     "definitionFit": "In law a precedent is an earlier decided case that guides later rulings, so it is a previous case."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Scramble"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1132,44 @@
     "text": "Channel took off by the sound of it",
     "enumeration": "4"
    },
-   "solution": "FLUE"
+   "solution": "FLUE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FLUE",
+    "definitions": [
+     {
+      "text": "Channel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it",
+      "for": "homophone",
+      "note": "judging by the sound tells us the spelling is chosen to match how the word is said"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "took off",
+      "gives": "FLUE",
+      "soundsLike": "FLEW",
+      "note": "a plane that took off flew"
+     }
+    ],
+    "explanation": {
+     "surface": "A TV channel seemingly took off, judging by the sound.",
+     "walkthrough": "'Channel' suggests a broadcaster or waterway; here it is a duct.",
+     "definitionFit": "A flue is a duct or passage carrying smoke and gases from a fire, so a kind of channel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Channel"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1183,76 @@
     "text": "Appearance made by em-cee performing without right info",
     "enumeration": "9"
    },
-   "solution": "EMERGENCE"
+   "solution": "EMERGENCE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EMERGENCE",
+    "definitions": [
+     {
+      "text": "Appearance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "performing",
+      "for": "anagram",
+      "note": "performing is acting out, so the letters are worked into a new form"
+     },
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense means outside, so these letters go round the next pieces"
+     }
+    ],
+    "linkWords": [
+     "made by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "em-cee",
+      "gives": "EMCEE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "info",
+      "gives": "GEN",
+      "note": "gen is British slang for information"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EME",
+      "R",
+      "GEN",
+      "CE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EMCEE",
+       "gives": "EMECE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A master of ceremonies makes a stage appearance without the right information.",
+     "walkthrough": "'Without' looks like lacking, but here it means outside. Gen is British slang for information, as in 'get the gen'.",
+     "definitionFit": "Emergence is the act of coming into view, which is an appearance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1272,48 @@
      }
     ]
    },
-   "solution": "STOODOUT"
+   "solution": "STOODOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STOOD OUT",
+    "definitions": [
+     {
+      "text": "was obvious",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rose",
+      "gives": "STOOD",
+      "note": "to rise from a seat is to stand, so rose gives stood"
+     },
+     {
+      "clueFragment": "in bloom",
+      "gives": "OUT",
+      "note": "flowers that are out are in bloom"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOOD",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A rose in flower was conspicuous in the garden.",
+     "walkthrough": "'Rose' looks like the flower, and 'in bloom' encourages that; it is the past tense of rise.",
+     "definitionFit": "Something that stood out was conspicuous, which means it was obvious to everyone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Rose"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1327,65 @@
     "text": "Having removed embarrassing smell, scientist brought back stink",
     "enumeration": "4"
    },
-   "solution": "NIFF"
+   "solution": "NIFF",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "NIFF",
+    "definitions": [
+     {
+      "text": "stink",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Having removed",
+      "for": "deletion",
+      "note": "having removed something means taking those letters away from the word"
+     },
+     {
+      "text": "brought back",
+      "for": "reversal",
+      "note": "bringing something back sends it the other way, so the letters read from the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "embarrassing smell",
+      "gives": "BO",
+      "note": "BO, body odour, is the classic embarrassing smell"
+     },
+     {
+      "clueFragment": "scientist",
+      "gives": "BOFFIN",
+      "note": "a boffin is British slang for a scientist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIFF"
+     ],
+     "reversals": [
+      {
+       "from": "FFIN",
+       "to": "NIFF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scientist got rid of a whiff of body odour, but brought back a stench.",
+     "walkthrough": "BOFFIN loses BO to leave FFIN, which is reversed. Niff is British slang for a bad smell.",
+     "definitionFit": "A niff is an unpleasant smell in British slang, which is a stink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brought"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1405,55 @@
      }
     ]
    },
-   "solution": "FACEOFF"
+   "solution": "FACEOFF",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FACE-OFF",
+    "definitions": [
+     {
+      "text": "confrontation",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to hide",
+      "for": "container",
+      "note": "hiding something means keeping it inside, so one word is wrapped round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bother",
+      "gives": "FAFF",
+      "note": "faff is British slang for time-wasting bother"
+     },
+     {
+      "clueFragment": "business leader",
+      "gives": "CEO",
+      "note": "a chief executive officer leads a business"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FA",
+      "CEO",
+      "FF"
+     ]
+    },
+    "explanation": {
+     "surface": "An awkward attempt to conceal the boss's argument.",
+     "walkthrough": "'Bother' is a noun here: faff is British slang for fuss or hassle, as in 'what a faff'.",
+     "definitionFit": "A face-off is a direct confrontation between rivals, as at the start of an ice hockey play."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bother"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1467,65 @@
     "text": "Stupidly repeat cycle ignoring tip from Noddy Holder",
     "enumeration": "10"
    },
-   "solution": "RECEPTACLE"
+   "solution": "RECEPTACLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "RECEPTACLE",
+    "definitions": [
+     {
+      "text": "Holder",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring tip from",
+      "for": "deletion",
+      "note": "ignoring the tip of a word means leaving out its end letter from the letters used"
+     },
+     {
+      "text": "Stupidly",
+      "for": "anagram",
+      "note": "doing something stupidly suggests a muddled result, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "repeat cycle",
+      "gives": "REPEATCYCLE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Noddy",
+      "gives": "Y",
+      "select": "last",
+      "note": "the tip, or end letter, of Noddy"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REPEATCCLE",
+       "gives": "RECEPTACLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint about Slade's singer, playing the same song on a foolish loop.",
+     "walkthrough": "Noddy Holder is the singer of the British glam-rock band Slade, so 'Holder' pretends to be his surname. Drop the Y from 'repeat cycle' and jumble the rest.",
+     "definitionFit": "A receptacle is a container, something that holds whatever is put in it, so a holder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Holder"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1539,71 @@
     "text": "Hundreds taking time on motorway in China",
     "enumeration": "7"
    },
-   "solution": "CERAMIC"
+   "solution": "CERAMIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "substitution",
+     "container"
+    ],
+    "answer": "CERAMIC",
+    "definitions": [
+     {
+      "text": "China",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking something in means holding it inside, so the pair goes round the rest"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue one piece on another sits above it, so it comes first"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hundreds",
+      "gives": "CC",
+      "note": "C is the Roman numeral for a hundred, and the plural asks for two of them"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "ERA",
+      "note": "an era is a period of time"
+     },
+     {
+      "clueFragment": "motorway",
+      "gives": "M1",
+      "note": "the M1 is England's main north-south motorway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ERAMI",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "Hundreds spend time on the expressways of China.",
+     "walkthrough": "The 1 of the M1 is read as the Roman numeral I. 'China' at the start hides its lower-case sense, the porcelain.",
+     "definitionFit": "China is fine porcelain, which is a type of ceramic ware made from fired clay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1617,78 @@
     "text": "Primate is upset with bishop, say, touring Italy",
     "enumeration": "6"
    },
-   "solution": "SIMIAN"
+   "solution": "SIMIAN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "SIMIAN",
+    "definitions": [
+     {
+      "text": "Primate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue upsetting a word turns it upside down, reading from the bottom"
+     },
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "touring a place means going all around it, so one word encloses the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bishop, say",
+      "gives": "MAN",
+      "note": "a bishop is an example of a man, a chess piece"
+     },
+     {
+      "clueFragment": "Italy",
+      "gives": "I",
+      "note": "I is the international vehicle code for Italy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "M",
+      "I",
+      "AN"
+     ],
+     "reversals": [
+      {
+       "from": "IS",
+       "to": "SI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An archbishop is upset that a bishop is touring Italy.",
+     "walkthrough": "'Primate' looks like a senior churchman, matching the bishop; it is the ape sense. IS turned up gives SI, then MAN surrounds I.",
+     "definitionFit": "Simian means relating to apes and monkeys, and as a noun names an ape or monkey, which is a primate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Primate"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1702,86 @@
     "text": "Perhaps Prince covers No. 1 from Peter Gabriel – ultimately having a try in various keys?",
     "enumeration": "11"
    },
-   "solution": "ARCHIPELAGO"
+   "solution": "ARCHIPELAGO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "ARCHIPELAGO",
+    "definitions": [
+     {
+      "text": "various keys",
+      "at": 76
+     }
+    ],
+    "indicators": [
+     {
+      "text": "No. 1 from",
+      "for": "letter_selection",
+      "note": "the number one letter of a word is its very first"
+     },
+     {
+      "text": "covers",
+      "for": "container",
+      "note": "to cover something is to wrap round it, so the prince's name goes outside"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter of the name is kept"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps Prince",
+      "gives": "ARCHIE",
+      "note": "Prince Archie, son of the Duke and Duchess of Sussex, is one example"
+     },
+     {
+      "clueFragment": "Peter",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of Peter"
+     },
+     {
+      "clueFragment": "Gabriel",
+      "gives": "L",
+      "select": "last",
+      "note": "the final letter of Gabriel"
+     },
+     {
+      "clueFragment": "a try",
+      "gives": "AGO",
+      "note": "a go is a try"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARCHI",
+      "P",
+      "E",
+      "L",
+      "A",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "Prince performs a cover of a Peter Gabriel song, trying it out in various musical keys.",
+     "walkthrough": "'Prince' and 'keys' suggest the singer and music; the prince is Archie, and the keys are low islands, as in the Florida Keys.",
+     "definitionFit": "An archipelago is a group of islands, and keys (cays) are small low islands, so a chain of them fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "keys"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1795,61 @@
     "text": "Journalist supporting American politician is excited",
     "enumeration": "5"
    },
-   "solution": "AMPED"
+   "solution": "AMPED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMPED",
+    "definitions": [
+     {
+      "text": "excited",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down clue the supporting piece sits underneath, so it goes after the rest"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "an MP is a Member of Parliament"
+     },
+     {
+      "clueFragment": "Journalist",
+      "gives": "ED",
+      "note": "ED, the editor, is the crossword's usual journalist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MP",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A reporter backing an American politician is thrilled.",
+     "definitionFit": "Amped is informal for excited and full of energy, like an amplified signal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1869,49 @@
      }
     ]
    },
-   "solution": "ATSEA"
+   "solution": "ATSEA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "AT SEA",
+    "definitions": [
+     {
+      "text": "lost",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means a part of something, so the letters sit inside the run of words"
+     },
+     {
+      "text": "Reversing",
+      "for": "reversal",
+      "note": "reversing goes backwards, so the run of letters is read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Skoda estate",
+      "gives": "AESTA",
+      "note": "the letters straddling the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A driver backing a Skoda estate car is rather disoriented.",
+     "walkthrough": "An estate is the British term for a station wagon.",
+     "definitionFit": "To be at sea is an idiom for being confused and bewildered, that is, lost."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Reversing"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1925,46 @@
     "text": "Kid's newspaper",
     "enumeration": "3"
    },
-   "solution": "RAG"
+   "solution": "RAG",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RAG",
+    "definitions": [
+     {
+      "text": "Kid",
+      "at": 0
+     },
+     {
+      "text": "newspaper",
+      "at": 6
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kid",
+      "note": "first meaning: to tease someone"
+     },
+     {
+      "clueFragment": "newspaper",
+      "note": "second meaning: a low-quality newspaper"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Kid's' reads as a child's paper; the apostrophe-s is just 'is' joining two meanings.",
+     "definitionFit": "To rag someone is to tease them, as to kid is; a rag is also slang for a trashy newspaper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Kid"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1978,54 @@
     "text": "Sketch crocodile for opening",
     "enumeration": "7"
    },
-   "solution": "PROFILE"
+   "solution": "PROFILE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROFILE",
+    "definitions": [
+     {
+      "text": "Sketch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for opening",
+      "for": "charade",
+      "note": "an opening is a start, so this piece goes at the front of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "PRO",
+      "note": "pro means in favour of"
+     },
+     {
+      "clueFragment": "crocodile",
+      "gives": "FILE",
+      "note": "a crocodile is a line of schoolchildren walking in pairs, which is a file"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "FILE"
+     ]
+    },
+    "explanation": {
+     "surface": "Drawing a crocodile to begin an art lesson.",
+     "walkthrough": "'Crocodile' is not the reptile: in Britain it is a line of schoolchildren walking two by two.",
+     "definitionFit": "A profile is a short descriptive article or an outline drawing of a face, both senses of a sketch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crocodile"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +2039,44 @@
     "text": "Mackintosh possibly breaks – how many bits are missing?",
     "enumeration": "7"
    },
-   "solution": "SHOWMAN"
+   "solution": "SHOWMAN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SHOWMAN",
+    "definitions": [
+     {
+      "text": "Mackintosh possibly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bits are missing",
+      "for": "hidden_word",
+      "note": "with bits missing at both ends, only a stretch from the middle of the run is left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "breaks – how many",
+      "gives": "SHOWMAN",
+      "note": "the letters run across the words"
+     }
+    ],
+    "explanation": {
+     "surface": "A raincoat tears, and someone asks how many pieces have gone.",
+     "walkthrough": "'Mackintosh' looks like a raincoat; it is Sir Cameron Mackintosh, the theatre producer behind Les Misérables and Cats.",
+     "definitionFit": "A showman is a flamboyant producer of entertainment, and Cameron Mackintosh is a famous example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mackintosh"
+    }
+   }
   },
   {
    "number": 28,
@@ -475,7 +2096,53 @@
      }
     ]
    },
-   "solution": "DEFINITEARTICLE"
+   "solution": "DEFINITEARTICLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "DEFINITE ARTICLE",
+    "definitions": [
+     {
+      "text": "The",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "idiotic",
+      "for": "anagram",
+      "note": "something idiotic is senseless, so the letters are muddled into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teen clarified it",
+      "gives": "TEENCLARIFIEDIT",
+      "note": "taken as written before rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEENCLARIFIEDIT",
+       "gives": "DEFINITEARTICLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dim teenager explained the matter.",
+     "walkthrough": "'The' looks like the start of the sentence but is the definition on its own, the word 'the' itself.",
+     "definitionFit": "In English grammar 'the' is the definite article, the determiner pointing to a specific thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "The"
+    }
+   }
   }
  ]
 }
