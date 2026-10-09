@@ -21,9 +21,11 @@ import subprocess
 #: not gate them).
 FLOOR = int(os.environ.get("CT_MEM_FLOOR") or 3 << 30)
 UNIT = 600 << 20
-#: Runnable processes per core past which no unit starts (CT_LOAD_PER_CORE
-#: overrides: tests run ticks on a host whose own load must not gate them).
-LOAD_PER_CORE = float(os.environ.get("CT_LOAD_PER_CORE") or 6)
+#: Runnable processes per core past which no unit starts: 2 keeps a 4-core
+#: host under load 8, so the bridge and an interactive shell still get a core
+#: (CT_LOAD_PER_CORE overrides: tests run ticks on a host whose own load must
+#: not gate them).
+LOAD_PER_CORE = float(os.environ.get("CT_LOAD_PER_CORE") or 2)
 
 _MAC = ("vm.page_free_count", "vm.page_speculative_count", "vm.page_purgeable_count",
         "vm.page_pageable_external_count")
