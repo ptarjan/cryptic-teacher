@@ -23,6 +23,9 @@
   "date": "2023-11-15",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,61 @@
     "text": "Pass through edges of thoroughfare packed with partygoers",
     "enumeration": "8"
    },
-   "solution": "TRAVERSE"
+   "solution": "TRAVERSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TRAVERSE",
+    "definitions": [
+     {
+      "text": "Pass through",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "edges of",
+      "for": "letter_selection",
+      "note": "the edges of a word are its outermost letters, first and last"
+     },
+     {
+      "text": "packed with",
+      "for": "container",
+      "note": "something packed with a crowd holds it inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thoroughfare",
+      "gives": "TE",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     },
+     {
+      "clueFragment": "partygoers",
+      "gives": "RAVERS",
+      "note": "ravers are people who go to wild parties"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RAVERS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A busy street crammed with revellers heading out for the night.",
+     "definitionFit": "To traverse a place is to cross or travel through it, a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pass"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +107,59 @@
     "text": "Step required to break lock and gain unlawful entry",
     "enumeration": "8"
    },
-   "solution": "TRESPASS"
+   "solution": "TRESPASS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRESPASS",
+    "definitions": [
+     {
+      "text": "gain unlawful entry",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "required to break",
+      "for": "container",
+      "note": "to break something is to get into it, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lock",
+      "gives": "TRESS",
+      "note": "a tress is a lock of hair"
+     },
+     {
+      "clueFragment": "Step",
+      "gives": "PAS",
+      "note": "pas is a step in ballet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRES",
+      "PAS",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A burglar's guide: you'll need to force the lock to get in.",
+     "walkthrough": "'Lock' suggests a door, but it is a lock of hair.",
+     "definitionFit": "To trespass is to go onto land or property without the right to, which is unlawful entry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lock"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +173,58 @@
     "text": "Grieve endlessly following a romantic affair",
     "enumeration": "5"
    },
-   "solution": "AMOUR"
+   "solution": "AMOUR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "AMOUR",
+    "definitions": [
+     {
+      "text": "romantic affair",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "endlessly means without its end, so the last letter is cut"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following places this item behind the next piece in order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Grieve",
+      "gives": "MOURN",
+      "note": "to mourn is to grieve"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MOUR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone grieving without end after a love affair.",
+     "definitionFit": "Amour is a French borrowing for a love affair, especially a secret one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -92,7 +252,50 @@
      }
     ]
    },
-   "solution": "EVERYNOWANDTHEN"
+   "solution": "EVERYNOWANDTHEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EVERY NOW AND THEN",
+    "definitions": [
+     {
+      "text": "sometimes",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Terribly",
+      "for": "anagram",
+      "note": "terribly suggests something done badly, so the letters come out in a mess"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nervy when on date",
+      "gives": "NERVYWHENONDATE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NERVYWHENONDATE",
+       "gives": "EVERYNOWANDTHEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who is occasionally a bag of nerves on a date.",
+     "definitionFit": "Every now and then means occasionally, at irregular intervals, the same as sometimes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Terribly"
+    }
+   }
   },
   {
    "number": 4,
@@ -106,7 +309,61 @@
     "text": "Piece of bagel placed in dry container",
     "enumeration": "7"
    },
-   "solution": "SECTION"
+   "solution": "SECTION",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SECTION",
+    "definitions": [
+     {
+      "text": "Piece",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "placed in",
+      "for": "container",
+      "note": "placed in means put inside, so one item sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dry",
+      "gives": "SEC",
+      "note": "sec is the wine term for dry"
+     },
+     {
+      "clueFragment": "container",
+      "gives": "TIN",
+      "note": "a tin is a container"
+     },
+     {
+      "clueFragment": "bagel",
+      "gives": "O",
+      "note": "a bagel is ring-shaped like the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEC",
+      "TI",
+      "O",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A bit of bagel stored in an airtight box to keep it dry.",
+     "definitionFit": "A section is a part cut off or separated from a whole, so a piece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bagel"
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +377,47 @@
     "text": "Front component removed from funny eyepiece",
     "enumeration": "6"
    },
-   "solution": "OCULAR"
+   "solution": "OCULAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OCULAR",
+    "definitions": [
+     {
+      "text": "eyepiece",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Front component removed from",
+      "for": "deletion",
+      "note": "removing the front component means the opening letter of the next word is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "funny",
+      "gives": "JOCULAR",
+      "note": "jocular means humorous or joking"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OCULAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A novelty eyepiece with a bit missing from its front.",
+     "definitionFit": "An ocular is the lens nearest the eye in a microscope or telescope, another name for that optical part."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "component"
+    }
+   }
   },
   {
    "number": 6,
@@ -148,7 +445,51 @@
      }
     ]
    },
-   "solution": "CLOSEBUTNOCIGAR"
+   "solution": "CLOSEBUTNOCIGAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CLOSE BUT NO CIGAR",
+    "definitions": [
+     {
+      "text": "You almost succeeded",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new, so the letters come in a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "locating obscure",
+      "gives": "LOCATINGOBSCURE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LOCATINGOBSCURE",
+       "gives": "CLOSEBUTNOCIGAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for nearly tracking down a little-known book.",
+     "walkthrough": "'Novel' reads as a book, but it is the signal that the letters are new-made.",
+     "definitionFit": "Close but no cigar is an idiom telling someone they nearly managed it but fell short."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 7,
@@ -162,7 +503,60 @@
     "text": "Current facility supporting large debt",
     "enumeration": "9"
    },
-   "solution": "LIABILITY"
+   "solution": "LIABILITY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIABILITY",
+    "definitions": [
+     {
+      "text": "debt",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down entry, supporting puts these pieces underneath the next one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     },
+     {
+      "clueFragment": "Current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     },
+     {
+      "clueFragment": "facility",
+      "gives": "ABILITY",
+      "note": "a facility is an aptitude or ability"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "I",
+      "ABILITY"
+     ]
+    },
+    "explanation": {
+     "surface": "A present-day building propping up a big loan.",
+     "walkthrough": "'Current facility' suggests a present loan arrangement; current is electrical and facility a skill.",
+     "definitionFit": "A liability is something owed, an obligation on a balance sheet, so a debt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Current"
+    }
+   }
   },
   {
    "number": 8,
@@ -176,7 +570,59 @@
     "text": "Welsh chap inviting me in for chips and dips for two",
     "enumeration": "6"
    },
-   "solution": "RHYMES"
+   "solution": "RHYMES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RHYMES",
+    "definitions": [
+     {
+      "text": "chips and dips for two",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inviting",
+      "for": "container",
+      "note": "inviting someone in takes them inside, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Welsh chap",
+      "gives": "RHYS",
+      "note": "Rhys is a typical Welsh man's name"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RHY",
+      "ME",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A Welshman asking me round for a snack for two.",
+     "walkthrough": "'Chips and dips for two' reads as a snack; it is two words that sound alike at the end.",
+     "definitionFit": "Chips and dips form a pair of words that rhyme, so they are an example of rhymes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "chips"
+    }
+   }
   },
   {
    "number": 9,
@@ -190,7 +636,46 @@
     "text": "Valuable things like TVs?",
     "enumeration": "6"
    },
-   "solution": "ASSETS"
+   "solution": "ASSETS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASSETS",
+    "definitions": [
+     {
+      "text": "Valuable things",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like",
+      "gives": "AS",
+      "note": "as means like, in the same way"
+     },
+     {
+      "clueFragment": "TVs",
+      "gives": "SETS",
+      "note": "televisions are sets"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "SETS"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether televisions count as valuables.",
+     "definitionFit": "Assets are possessions of value, the things that make up someone's property."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "like"
+    }
+   }
   },
   {
    "number": 10,
@@ -204,7 +689,48 @@
     "text": "Ignoring the odds, tell couple to run off together",
     "enumeration": "5"
    },
-   "solution": "ELOPE"
+   "solution": "ELOPE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ELOPE",
+    "definitions": [
+     {
+      "text": "run off together",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ignoring the odds",
+      "for": "letter_selection",
+      "note": "ignoring the odd-numbered positions leaves only the second, fourth, sixth letters and so on"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tell couple",
+      "gives": "ELOPE",
+      "select": "alternate",
+      "note": "the even-placed letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELOPE"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to a pair to defy the bookmakers' odds and run away together.",
+     "definitionFit": "To elope is for a couple to run away secretly in order to marry, matching the phrase exactly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "odds"
+    }
+   }
   },
   {
    "number": 11,
@@ -218,7 +744,74 @@
     "text": "Bird — a crow, say — possibly eating spiders at first",
     "enumeration": "9"
    },
-   "solution": "CASSOWARY"
+   "solution": "CASSOWARY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CASSOWARY",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly signals that the letters could be arranged in some other way"
+     },
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of the word before it"
+     },
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "something eating another takes it inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a crow, say",
+      "gives": "ACROWSAY",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "spiders",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of spiders"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAS",
+      "S",
+      "OWARY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ACROWSAY",
+       "gives": "CASOWARY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird, perhaps a crow, snacking on spiders.",
+     "walkthrough": "'A crow, say' reads as the example of a bird, but it is only letters to rearrange.",
+     "definitionFit": "The cassowary is a large flightless bird of New Guinea and northern Australia, so it is an example of a bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crow"
+    }
+   }
   },
   {
    "number": 12,
@@ -238,7 +831,61 @@
      }
     ]
    },
-   "solution": "PARTYLINE"
+   "solution": "PARTYLINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PARTY LINE",
+    "definitions": [
+     {
+      "text": "set of policies",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken in by",
+      "for": "container",
+      "note": "being taken in by something means being held inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "long",
+      "gives": "PINE",
+      "note": "to pine is to long or yearn"
+     },
+     {
+      "clueFragment": "Cultured",
+      "gives": "ARTY",
+      "note": "arty means interested in the arts"
+     },
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "note": "L is the abbreviation for Liberal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ARTY",
+      "L",
+      "INE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cultivated Liberal swallowing a lengthy political programme.",
+     "definitionFit": "A party line is the official policy stance a political party expects its members to follow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "long"
+    }
+   }
   },
   {
    "number": 13,
@@ -252,7 +899,46 @@
     "text": "The best European diet",
     "enumeration": "5"
    },
-   "solution": "ELITE"
+   "solution": "ELITE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELITE",
+    "definitions": [
+     {
+      "text": "The best",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "diet",
+      "gives": "LITE",
+      "note": "lite describes a low-calorie diet version of a food or drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LITE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone touting the finest slimming plan on the Continent.",
+     "definitionFit": "The elite are the top, most select group, so the word stands for the best people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "diet"
+    }
+   }
   },
   {
    "number": 14,
@@ -266,7 +952,62 @@
     "text": "Gentleman left ring burning for some meat",
     "enumeration": "7"
    },
-   "solution": "SIRLOIN"
+   "solution": "SIRLOIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SIRLOIN",
+    "definitions": [
+     {
+      "text": "some meat",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gentleman",
+      "gives": "SIR",
+      "note": "sir is the form of address for a gentleman"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "O is ring-shaped"
+     },
+     {
+      "clueFragment": "burning",
+      "gives": "IN",
+      "note": "a fire that is still burning is said to be in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIR",
+      "L",
+      "O",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A man leaving the gas ring on while cooking a joint.",
+     "walkthrough": "'Burning' as IN is the sense of a fire being kept in overnight.",
+     "definitionFit": "Sirloin is a prime cut of beef from the loin, so it is an example of meat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 15,
@@ -280,7 +1021,68 @@
     "text": "Tough soldiers not speaking about the final part of WWII",
     "enumeration": "9"
    },
-   "solution": "RESILIENT"
+   "solution": "RESILIENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "RESILIENT",
+    "definitions": [
+     {
+      "text": "Tough",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the final part of",
+      "for": "letter_selection",
+      "note": "the final part of a word is its last letter"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldiers",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers, a British Army corps"
+     },
+     {
+      "clueFragment": "not speaking",
+      "gives": "SILENT",
+      "note": "silent means not speaking"
+     },
+     {
+      "clueFragment": "WWII",
+      "gives": "I",
+      "select": "last",
+      "note": "the last character of WWII"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "SIL",
+      "I",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Hardy troops keeping quiet about the end of the Second World War.",
+     "definitionFit": "Resilient means able to recover from difficulty, which is a sense of tough."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "WWII"
+    }
+   }
   },
   {
    "number": 16,
@@ -294,7 +1096,50 @@
     "text": "Thick slice of bread I put safely back",
     "enumeration": "6"
    },
-   "solution": "STUPID"
+   "solution": "STUPID",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "STUPID",
+    "definitions": [
+     {
+      "text": "Thick",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "slice of",
+      "for": "hidden_word",
+      "note": "a slice is a part cut from something whole, so the letters are taken from inside the words"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "putting something back here means reading the letters in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bread I put safely",
+      "gives": "DIPUTS",
+      "note": "these letters run across the words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone stowing a thick piece of bread away for later.",
+     "walkthrough": "'Thick slice of bread' looks like one phrase; Thick is the definition, and slice of signals the hidden letters.",
+     "definitionFit": "Thick is an informal word for unintelligent, the same meaning as stupid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Thick"
+    }
+   }
   },
   {
    "number": 17,
@@ -318,7 +1163,60 @@
      }
     ]
    },
-   "solution": "IDARESAY"
+   "solution": "IDARESAY",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "I DARE SAY",
+    "definitions": [
+     {
+      "text": "it seems to me",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "horribly",
+      "for": "anagram",
+      "note": "horribly suggests something mangled, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "sad year",
+      "gives": "SADYEAR",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "DARESAY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SADYEAR",
+       "gives": "DARESAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone remarking that the past twelve months have been dreadful.",
+     "definitionFit": "I dare say is a phrase offering a tentative opinion, meaning I suppose or it seems to me."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "One"
+    }
+   }
   },
   {
    "number": 18,
@@ -332,7 +1230,58 @@
     "text": "Family-friendly car in close to immaculate condition",
     "enumeration": "6"
    },
-   "solution": "ESTATE"
+   "solution": "ESTATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ESTATE",
+    "definitions": [
+     {
+      "text": "Family-friendly car",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so its last letter is taken"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "immaculate",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of immaculate"
+     },
+     {
+      "clueFragment": "condition",
+      "gives": "STATE",
+      "note": "a state is a condition, as in a state of repair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "STATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A used-car advert for a family car in mint condition.",
+     "definitionFit": "An estate is the British name for a station wagon, a car with a large rear load space suited to families."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 19,
@@ -352,7 +1301,65 @@
      }
     ]
    },
-   "solution": "EVENUP"
+   "solution": "EVENUP",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "reversal"
+    ],
+    "answer": "EVEN UP",
+    "definitions": [
+     {
+      "text": "square",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "largely",
+      "for": "deletion",
+      "note": "largely means most of it, so the last letter is dropped"
+     },
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down entry, upset turns things upside down, so the order runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Joke",
+      "gives": "PUN",
+      "note": "a pun is a joke on words"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "EVER",
+      "note": "ever means always"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVENUP"
+     ],
+     "reversals": [
+      {
+       "from": "PUNEVE",
+       "to": "EVENUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gag that always mostly causes offence.",
+     "definitionFit": "To square things is to make them equal or settle them, which is to even them up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "square"
+    }
+   }
   },
   {
    "number": 20,
@@ -366,7 +1373,60 @@
     "text": "Exasperated PA losing head in front of journalist",
     "enumeration": "7"
    },
-   "solution": "ANNOYED"
+   "solution": "ANNOYED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ANNOYED",
+    "definitions": [
+     {
+      "text": "Exasperated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing head",
+      "for": "deletion",
+      "note": "losing its head means the first letter is cut off"
+     },
+     {
+      "text": "in front of",
+      "for": "charade",
+      "note": "in front of places the first piece ahead of the next one in sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "PA",
+      "gives": "TANNOY",
+      "note": "a Tannoy is a public address system, a trade name used generically in Britain"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED is short for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANNOY",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "An irritated personal assistant pushed aside by a reporter.",
+     "walkthrough": "PA reads as a personal assistant, but it is a public address system; Tannoy is the British brand name for one.",
+     "definitionFit": "Exasperated means irritated or vexed, which is what being annoyed is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "PA"
+    }
+   }
   },
   {
    "number": 20,
@@ -380,7 +1440,57 @@
     "text": "Author mostly concerned with having no luxuries",
     "enumeration": "7"
    },
-   "solution": "AUSTERE"
+   "solution": "AUSTERE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "AUSTERE",
+    "definitions": [
+     {
+      "text": "having no luxuries",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter goes"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Author",
+      "gives": "AUSTEN",
+      "note": "Jane Austen, the novelist"
+     },
+     {
+      "clueFragment": "concerned",
+      "gives": "RE",
+      "note": "re means concerning or about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUSTE",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer who mainly cared about living without comforts.",
+     "definitionFit": "Austere means severely simple and plain, lacking any comforts or luxuries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "concerned"
+    }
+   }
   },
   {
    "number": 21,
@@ -394,7 +1504,62 @@
     "text": "American city gift stores selling tat, primarily",
     "enumeration": "6"
    },
-   "solution": "BOSTON"
+   "solution": "BOSTON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BOSTON",
+    "definitions": [
+     {
+      "text": "American city",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily points to the primary, opening letters of the words"
+     },
+     {
+      "text": "stores",
+      "for": "container",
+      "note": "something that stores another keeps it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gift",
+      "gives": "BOON",
+      "note": "a boon is a gift or blessing"
+     },
+     {
+      "clueFragment": "selling tat",
+      "gives": "ST",
+      "select": "first",
+      "note": "the first letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "ST",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A US city where gift shops peddle mostly cheap souvenirs.",
+     "walkthrough": "'Stores' looks like shops, but it is a verb meaning holds.",
+     "definitionFit": "Boston is the capital of Massachusetts, an example of a city in the United States."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stores"
+    }
+   }
   },
   {
    "number": 22,
@@ -408,7 +1573,67 @@
     "text": "After knocking back ten, was the boss tipsy?",
     "enumeration": "5"
    },
-   "solution": "OILED"
+   "solution": "OILED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "OILED",
+    "definitions": [
+     {
+      "text": "tipsy",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocking back",
+      "for": "reversal",
+      "note": "knocking back turns the item round, so its characters run the other way"
+     },
+     {
+      "text": "After",
+      "for": "charade",
+      "note": "after places the following piece behind the earlier one in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ten",
+      "gives": "IO",
+      "note": "ten written as 10 resembles the letters I and O"
+     },
+     {
+      "clueFragment": "was the boss",
+      "gives": "LED",
+      "note": "the boss led the team"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OI",
+      "LED"
+     ],
+     "reversals": [
+      {
+       "from": "IO",
+       "to": "OI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After downing ten drinks, was the manager drunk?",
+     "walkthrough": "'Knocking back' suggests drinking but here turns the 10 round.",
+     "definitionFit": "Oiled is British slang for drunk, as in well-oiled, so it fits tipsy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "knocking"
+    }
+   }
   },
   {
    "number": 23,
@@ -428,7 +1653,69 @@
      }
     ]
    },
-   "solution": "EASYCHAIR"
+   "solution": "EASYCHAIR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "EASY CHAIR",
+    "definitions": [
+     {
+      "text": "comfy seat",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremities, the first and last letters"
+     },
+     {
+      "text": "fitted with",
+      "for": "container",
+      "note": "something fitted with an item has it put inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Every single",
+      "gives": "EACH",
+      "note": "each means every single one"
+     },
+     {
+      "clueFragment": "snazzy",
+      "gives": "SY",
+      "select": "outer",
+      "note": "the outer letters of snazzy"
+     },
+     {
+      "clueFragment": "carriage",
+      "gives": "AIR",
+      "note": "air means bearing or carriage, as in a confident air"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EA",
+      "SY",
+      "CH",
+      "AIR"
+     ]
+    },
+    "explanation": {
+     "surface": "Each railway carriage kitted out with smart, comfortable seating.",
+     "walkthrough": "'Carriage' looks like a railway coach, but it is posture or bearing, which AIR also means.",
+     "definitionFit": "An easy chair is a large, upholstered armchair built for relaxing in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "carriage"
+    }
+   }
   },
   {
    "number": 24,
@@ -442,7 +1729,45 @@
     "text": "Tolerate everything that hurts!",
     "enumeration": "5"
    },
-   "solution": "ALLOW"
+   "solution": "ALLOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALLOW",
+    "definitions": [
+     {
+      "text": "Tolerate",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "everything",
+      "gives": "ALL",
+      "note": "all means everything"
+     },
+     {
+      "clueFragment": "that hurts!",
+      "gives": "OW",
+      "note": "ow is a cry of pain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "OW"
+     ]
+    },
+    "explanation": {
+     "surface": "A cry of putting up with pain from every quarter.",
+     "definitionFit": "To allow something is to permit or put up with it, which is to tolerate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -456,7 +1781,50 @@
     "text": "Shelter to use here in a storm",
     "enumeration": "9"
    },
-   "solution": "TREEHOUSE"
+   "solution": "TREEHOUSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TREEHOUSE",
+    "definitions": [
+     {
+      "text": "Shelter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in a storm",
+      "for": "anagram",
+      "note": "a storm throws everything into disorder, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to use here",
+      "gives": "TOUSEHERE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOUSEHERE",
+       "gives": "TREEHOUSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A suggestion of where to take cover when the weather turns.",
+     "definitionFit": "A treehouse is a small hut built in branches, a structure giving shelter or a hideaway."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "storm"
+    }
+   }
   },
   {
    "number": 26,
@@ -470,7 +1838,55 @@
     "text": "Festivities drag in the end, unfortunately",
     "enumeration": "5"
    },
-   "solution": "GALAS"
+   "solution": "GALAS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GALAS",
+    "definitions": [
+     {
+      "text": "Festivities",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the end",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drag",
+      "gives": "G",
+      "select": "last",
+      "note": "the last letter of drag"
+     },
+     {
+      "clueFragment": "unfortunately",
+      "gives": "ALAS",
+      "note": "alas is an exclamation of regret"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ALAS"
+     ]
+    },
+    "explanation": {
+     "surface": "Parties that sadly go on far too long.",
+     "definitionFit": "Galas are grand public celebrations or festive occasions, a plural synonym for festivities."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drag"
+    }
+   }
   },
   {
    "number": 27,
@@ -484,7 +1900,53 @@
     "text": "Bearing in mind love liberates hearts",
     "enumeration": "6"
    },
-   "solution": "NOTING"
+   "solution": "NOTING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "NOTING",
+    "definitions": [
+     {
+      "text": "Bearing in mind",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "liberates",
+      "for": "deletion",
+      "note": "to liberate something is to set it free, so it leaves the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "love",
+      "gives": "NOTHING",
+      "note": "love means nothing, a zero score in tennis"
+     },
+     {
+      "clueFragment": "hearts",
+      "gives": "H",
+      "note": "H is the abbreviation for hearts, a suit of cards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOTING"
+     ]
+    },
+    "explanation": {
+     "surface": "A romantic notion that love sets hearts free.",
+     "walkthrough": "The heartwarming sentiment hides a tennis score and a card suit.",
+     "definitionFit": "Noting something means taking notice of it, keeping it in mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 28,
@@ -498,7 +1960,59 @@
     "text": "Unruly individual crude after drink? Indeed!",
     "enumeration": "8"
    },
-   "solution": "TEARAWAY"
+   "solution": "TEARAWAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEARAWAY",
+    "definitions": [
+     {
+      "text": "Unruly individual",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the following item behind the earlier one in sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "TEA",
+      "note": "tea is a drink"
+     },
+     {
+      "clueFragment": "crude",
+      "gives": "RAW",
+      "note": "raw means crude or unrefined"
+     },
+     {
+      "clueFragment": "Indeed",
+      "gives": "AY",
+      "note": "ay (aye) means yes, indeed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEA",
+      "RAW",
+      "AY"
+     ]
+    },
+    "explanation": {
+     "surface": "A rowdy youth who turns uncouth after a few drinks, and how.",
+     "definitionFit": "A tearaway is a reckless, wild young person, which is what an unruly individual is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Indeed"
+    }
+   }
   }
  ]
 }
