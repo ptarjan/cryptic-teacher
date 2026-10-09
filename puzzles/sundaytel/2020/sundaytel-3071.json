@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,55 @@
     "text": "Make wider street to cut through Scottish mountain",
     "enumeration": "7"
    },
-   "solution": "BROADEN"
+   "solution": "BROADEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BROADEN",
+    "definitions": [
+     {
+      "text": "Make wider",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to cut through",
+      "for": "container",
+      "note": "something that cuts through another sits inside it, splitting it in two"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scottish mountain",
+      "gives": "BEN",
+      "note": "Ben is the Scottish word for a mountain, as in Ben Nevis"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ROAD",
+      "note": "a street is a road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ROAD",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "Road planners widen a street by driving it through a Highland peak.",
+     "walkthrough": "Ben is the usual Scottish name for a mountain, as in Ben Nevis; the street splits it after its first letter.",
+     "definitionFit": "To broaden something is to increase its width, a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +97,42 @@
     "text": "Stand in robe, a royal",
     "enumeration": "4"
    },
-   "solution": "BEAR"
+   "solution": "BEAR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "BEAR",
+    "definitions": [
+     {
+      "text": "Stand",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer sits inside the run of words that follows, spanning their joins"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "robe, a royal",
+      "gives": "BEAR",
+      "note": "the end of robe, then a, then the start of royal"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone stands in ceremonial robes, a royal personage.",
+     "definitionFit": "To bear something is to stand or tolerate it, as in 'I can't stand it'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stand"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +146,67 @@
     "text": "Get article in paper written up",
     "enumeration": "6"
    },
-   "solution": "GATHER"
+   "solution": "GATHER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "GATHER",
+    "definitions": [
+     {
+      "text": "Get",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "written up",
+      "for": "reversal",
+      "note": "in a down entry, writing something up means reading its letters from bottom to top"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the article goes inside the other word, placed within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "paper",
+      "gives": "RAG",
+      "note": "a rag is slang for a low-quality newspaper"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GA",
+      "THE",
+      "R"
+     ],
+     "reversals": [
+      {
+       "from": "RAG",
+       "to": "GAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A journalist gets an article into the paper, written up.",
+     "walkthrough": "The reversal happens first, then the article goes inside; rag is a dismissive word for a newspaper.",
+     "definitionFit": "To gather is to understand or infer, which is one sense of get, as in 'I get it'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +220,49 @@
     "text": "Ali once requiring extra weapon",
     "enumeration": "8"
    },
-   "solution": "CLAYMORE"
+   "solution": "CLAYMORE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLAYMORE",
+    "definitions": [
+     {
+      "text": "weapon",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "requiring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ali once",
+      "gives": "CLAY",
+      "note": "Muhammad Ali was born Cassius Clay"
+     },
+     {
+      "clueFragment": "extra",
+      "gives": "MORE",
+      "note": "more means extra, additional"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLAY",
+      "MORE"
+     ]
+    },
+    "explanation": {
+     "surface": "A boxing champion of old needs an additional weapon.",
+     "definitionFit": "A claymore is a large two-edged Scottish broadsword."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "once"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +276,48 @@
     "text": "Nut, noodle and sausage",
     "enumeration": "10"
    },
-   "solution": "HEADBANGER"
+   "solution": "HEADBANGER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEADBANGER",
+    "definitions": [
+     {
+      "text": "Nut",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "noodle",
+      "gives": "HEAD",
+      "note": "noodle is slang for the head"
+     },
+     {
+      "clueFragment": "sausage",
+      "gives": "BANGER",
+      "note": "a banger is British slang for a sausage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEAD",
+      "BANGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A shopping list or a dinner: a nut, some noodles and a sausage.",
+     "walkthrough": "Nut, noodle and sausage all look like a list of foods; nut is in fact the definition and the other two build the answer.",
+     "definitionFit": "A headbanger is slang for a crazy or fanatical person, as is a nut."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "noodle"
+    }
+   }
   },
   {
    "number": 6,
@@ -102,7 +331,70 @@
     "text": "Wonder if king has fed camel I trained?",
     "enumeration": "7"
    },
-   "solution": "MIRACLE"
+   "solution": "MIRACLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MIRACLE",
+    "definitions": [
+     {
+      "text": "Wonder",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trained",
+      "for": "anagram",
+      "note": "trained suggests drilled into a new shape, so the letters are rearranged"
+     },
+     {
+      "text": "has fed",
+      "for": "container",
+      "note": "something fed goes into a mouth, so the king letter is taken inside the other letters"
+     }
+    ],
+    "linkWords": [
+     "if"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "camel I",
+      "gives": "CAMELI",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R, from Latin rex, is the abbreviation for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "R",
+      "ACLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CAMELI",
+       "gives": "MIACLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Would it be a marvel if the king fed a camel he had trained?",
+     "definitionFit": "A miracle is a wonder, an extraordinary and astonishing event."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "trained"
+    }
+   }
   },
   {
    "number": 7,
@@ -116,7 +408,43 @@
     "text": "Guns and other weapons, eleven in London",
     "enumeration": "7"
    },
-   "solution": "ARSENAL"
+   "solution": "ARSENAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ARSENAL",
+    "definitions": [
+     {
+      "text": "Guns and other weapons",
+      "at": 0
+     },
+     {
+      "text": "eleven in London",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guns and other weapons",
+      "note": "first meaning: a store of weapons"
+     },
+     {
+      "clueFragment": "eleven in London",
+      "note": "second meaning: a London football club, whose team is an eleven"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Arsenal is a North London football club nicknamed the Gunners; a football side is an eleven.",
+     "definitionFit": "An arsenal is a collection of weapons, and also the name of a famous London football team."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "eleven"
+    }
+   }
   },
   {
    "number": 8,
@@ -136,7 +464,53 @@
      }
     ]
    },
-   "solution": "SLOEGIN"
+   "solution": "SLOEGIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SLOE GIN",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tipsy",
+      "for": "anagram",
+      "note": "tipsy means unsteady from drink, so the letters stagger into a new order"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "legions",
+      "gives": "LEGIONS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEGIONS",
+       "gives": "SLOEGIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A liqueur strong enough to get whole Roman legions drunk.",
+     "definitionFit": "Sloe gin is a liqueur made by steeping sloes in gin, so it is a drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "legions"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +530,48 @@
      }
     ]
    },
-   "solution": "PLAYINGCARD"
+   "solution": "PLAYINGCARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLAYING CARD",
+    "definitions": [
+     {
+      "text": "Joker, say",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "up against",
+      "gives": "PLAYING",
+      "note": "a team playing another is up against it"
+     },
+     {
+      "clueFragment": "wit",
+      "gives": "CARD",
+      "note": "a card is an amusing, witty person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLAYING",
+      "CARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A comedian is pitted against a quick-witted rival.",
+     "walkthrough": "'Joker' looks like a comedian, but it is the wild card in a pack; 'say' marks it as one example.",
+     "definitionFit": "The joker is one example of a playing card, found in most packs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Joker"
+    }
+   }
   },
   {
    "number": 10,
@@ -170,7 +585,67 @@
     "text": "Rotten pear smothered in fresh cheese",
     "enumeration": "10"
    },
-   "solution": "CAERPHILLY"
+   "solution": "CAERPHILLY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CAERPHILLY",
+    "definitions": [
+     {
+      "text": "cheese",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rotten",
+      "for": "anagram",
+      "note": "something rotten has gone bad and broken down, so these letters fall into a new order"
+     },
+     {
+      "text": "smothered in",
+      "for": "container",
+      "note": "smothered in means wrapped up and covered by, so one part sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pear",
+      "gives": "PEAR",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "fresh",
+      "gives": "CHILLY",
+      "note": "fresh weather is cool or chilly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "AERP",
+      "HILLY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PEAR",
+       "gives": "AERP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spoiled pear is buried under a heap of fresh cheese.",
+     "walkthrough": "'Fresh' sits beside cheese as if describing it, but it means cool and supplies the outer letters.",
+     "definitionFit": "Caerphilly is a crumbly white cheese named after a town in South Wales."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fresh"
+    }
+   }
   },
   {
    "number": 11,
@@ -184,7 +659,42 @@
     "text": "Expensive treasure",
     "enumeration": "4"
    },
-   "solution": "DEAR"
+   "solution": "DEAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DEAR",
+    "definitions": [
+     {
+      "text": "Expensive",
+      "at": 0
+     },
+     {
+      "text": "treasure",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Expensive",
+      "note": "first meaning: costly"
+     },
+     {
+      "clueFragment": "treasure",
+      "note": "second meaning: a beloved person, a term of endearment"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Treasure looks like a noun for riches, but here it is an affectionate name for someone loved.",
+     "definitionFit": "Dear means high in price, and 'a dear' or 'a treasure' is a lovable person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "treasure"
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +708,76 @@
     "text": "Joy read novel about protagonist initially in danger",
     "enumeration": "8"
    },
-   "solution": "JEOPARDY"
+   "solution": "JEOPARDY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "JEOPARDY",
+    "definitions": [
+     {
+      "text": "danger",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new, so the letters are made into a fresh arrangement"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word before it"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the rearranged letters surround the single letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Joy read",
+      "gives": "JOYREAD",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "protagonist",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter of protagonist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JEO",
+      "P",
+      "ARDY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "JOYREAD",
+       "gives": "JEOARDY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Joy reads a thriller about a hero who starts off in peril.",
+     "definitionFit": "Jeopardy is danger or risk of loss, as in 'in jeopardy'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 13,
@@ -218,7 +797,39 @@
      }
     ]
    },
-   "solution": "PLUMTOMATO"
+   "solution": "PLUMTOMATO",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PLUM TOMATO",
+    "definitions": [
+     {
+      "text": "Large fruit — or two?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Large fruit",
+      "note": "surface reading: a big piece of fruit"
+     },
+     {
+      "clueFragment": "or two?",
+      "note": "setter's reading: the name is made of two different fruit names joined together"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The answer is a large variety of a salad fruit, and its two words are each the name of a fruit.",
+     "definitionFit": "A large, oval tomato variety used in cooking, whose first word is itself a stone fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "two"
+    }
+   }
   },
   {
    "number": 14,
@@ -232,7 +843,46 @@
     "text": "Zero get better: how might medicine be taken?",
     "enumeration": "6"
    },
-   "solution": "ORALLY"
+   "solution": "ORALLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORALLY",
+    "definitions": [
+     {
+      "text": "how might medicine be taken?",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Zero",
+      "gives": "O",
+      "note": "O looks like zero"
+     },
+     {
+      "clueFragment": "get better",
+      "gives": "RALLY",
+      "note": "to rally is to recover, get better"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "RALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A patient with nothing left must recover: how should the medicine be given?",
+     "definitionFit": "Medicine taken orally is swallowed by mouth, answering the question how."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "better"
+    }
+   }
   },
   {
    "number": 15,
@@ -252,7 +902,43 @@
      }
     ]
    },
-   "solution": "CUTTINGEDGE"
+   "solution": "CUTTINGEDGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CUTTING-EDGE",
+    "definitions": [
+     {
+      "text": "Modern",
+      "at": 0
+     },
+     {
+      "text": "requirement of a tailor?",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Modern",
+      "note": "first meaning: at the forefront, the latest"
+     },
+     {
+      "clueFragment": "requirement of a tailor?",
+      "note": "second meaning, taken literally: a sharp blade a tailor needs for cloth"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the literal reading: a tailor's scissors need a sharp edge.",
+     "definitionFit": "Cutting-edge describes the most advanced, up-to-date work; literally it is the sharp side of a blade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "requirement"
+    }
+   }
   },
   {
    "number": 16,
@@ -266,7 +952,52 @@
     "text": "A truism I debunked, sweet!",
     "enumeration": "8"
    },
-   "solution": "TIRAMISU"
+   "solution": "TIRAMISU",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TIRAMISU",
+    "definitions": [
+     {
+      "text": "sweet",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "debunked",
+      "for": "anagram",
+      "note": "something debunked is taken apart and exposed, so the letters are broken up and reset"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A truism I",
+      "gives": "ATRUISMI",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATRUISMI",
+       "gives": "TIRAMISU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone happily exposes a cliché as false: how sweet!",
+     "walkthrough": "'Sweet!' reads as an exclamation of delight, but it is the British word for a dessert.",
+     "definitionFit": "Tiramisu is an Italian dessert, and a sweet is the British term for a pudding course."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sweet"
+    }
+   }
   },
   {
    "number": 17,
@@ -280,7 +1011,69 @@
     "text": "House is victorious or accepts defeat, at first",
     "enumeration": "7"
    },
-   "solution": "WINDSOR"
+   "solution": "WINDSOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "WINDSOR",
+    "definitions": [
+     {
+      "text": "House",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of the word before it"
+     },
+     {
+      "text": "accepts",
+      "for": "container",
+      "note": "to accept is to take in, so the single letter goes inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is victorious",
+      "gives": "WINS",
+      "note": "wins means is victorious"
+     },
+     {
+      "clueFragment": "defeat",
+      "gives": "D",
+      "select": "first",
+      "note": "the opening letter of defeat"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIN",
+      "D",
+      "S",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A sporting side either wins or concedes defeat, at the start.",
+     "walkthrough": "The defeat letter goes inside the verb for winning, not between the two words as the surface order suggests.",
+     "definitionFit": "Windsor is the name of the British royal house, a house meaning a dynasty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "House"
+    }
+   }
   },
   {
    "number": 18,
@@ -294,7 +1087,57 @@
     "text": "European snail a titlark's gobbled up",
     "enumeration": "7"
    },
-   "solution": "ITALIAN"
+   "solution": "ITALIAN",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ITALIAN",
+    "definitions": [
+     {
+      "text": "European",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gobbled",
+      "for": "hidden_word",
+      "note": "something gobbled has been swallowed whole and sits inside the words"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means the letters read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "snail a titlark",
+      "gives": "NAILATI",
+      "note": "the end of snail, a, and the start of titlark"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "NAILATI",
+       "to": "ITALIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small bird, the titlark, has swallowed a snail.",
+     "walkthrough": "Reading snail a tit backwards gives the answer; a titlark is a pipit.",
+     "definitionFit": "An Italian is a native of Italy, a European country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gobbled"
+    }
+   }
   },
   {
    "number": 19,
@@ -308,7 +1151,42 @@
     "text": "Young trash",
     "enumeration": "6"
    },
-   "solution": "LITTER"
+   "solution": "LITTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LITTER",
+    "definitions": [
+     {
+      "text": "Young",
+      "at": 0
+     },
+     {
+      "text": "trash",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Young",
+      "note": "first meaning: a brood of baby animals born together"
+     },
+     {
+      "clueFragment": "trash",
+      "note": "second meaning: rubbish left lying about"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Young reads as an adjective, but here it is the noun for offspring.",
+     "definitionFit": "A litter is a set of young born at one time, and also scattered rubbish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Young"
+    }
+   }
   },
   {
    "number": 20,
@@ -322,7 +1200,70 @@
     "text": "Guilty lot in prison, courage not entirely returning",
     "enumeration": "8"
    },
-   "solution": "CULPRITS"
+   "solution": "CULPRITS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "reversal"
+    ],
+    "answer": "CULPRITS",
+    "definitions": [
+     {
+      "text": "Guilty lot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not entirely",
+      "for": "deletion",
+      "note": "not entirely means one letter short, so the final letter is dropped"
+     },
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back, so the combined letters are read from the end"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prison",
+      "gives": "STIR",
+      "note": "stir is slang for prison"
+     },
+     {
+      "clueFragment": "courage",
+      "gives": "PLUCK",
+      "note": "pluck is courage; dropping its last letter leaves PLUC"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CULP",
+      "RITS"
+     ],
+     "reversals": [
+      {
+       "from": "STIRPLUC",
+       "to": "CULPRITS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A band of guilty people sit in jail, their nerve failing as they go back.",
+     "walkthrough": "'In prison' reads as one phrase, but in is only a link and prison alone gives STIR.",
+     "definitionFit": "Culprits are the people responsible for wrongdoing, a guilty group."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returning"
+    }
+   }
   },
   {
    "number": 21,
@@ -336,7 +1277,62 @@
     "text": "Heavy, heavy bags ending in storage",
     "enumeration": "6"
    },
-   "solution": "LEADEN"
+   "solution": "LEADEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LEADEN",
+    "definitions": [
+     {
+      "text": "Heavy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending in",
+      "for": "letter_selection",
+      "note": "ending in points to the last letter of the word that follows"
+     },
+     {
+      "text": "bags",
+      "for": "container",
+      "note": "to bag something is to put it in a bag, so the other word holds the letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heavy",
+      "gives": "LADEN",
+      "note": "laden means heavily loaded"
+     },
+     {
+      "clueFragment": "storage",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of storage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "E",
+      "ADEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A heavily loaded vehicle packs away bags at the end of storage.",
+     "walkthrough": "The second 'heavy' is not a repeat definition; it supplies the outer word.",
+     "definitionFit": "Leaden means heavy, like lead, and is used of weighty limbs or skies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bags"
+    }
+   }
   },
   {
    "number": 22,
@@ -350,7 +1346,49 @@
     "text": "A barrier for first man",
     "enumeration": "4"
    },
-   "solution": "ADAM"
+   "solution": "ADAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADAM",
+    "definitions": [
+     {
+      "text": "first man",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "barrier",
+      "gives": "DAM",
+      "note": "a dam is a barrier across water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A barricade erected for the first man of a group.",
+     "definitionFit": "In the Bible, Adam was the first human being created."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "barrier"
+    }
+   }
   },
   {
    "number": 23,
@@ -364,7 +1402,55 @@
     "text": "Article men flogged in commercial",
     "enumeration": "10"
    },
-   "solution": "MERCANTILE"
+   "solution": "MERCANTILE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MERCANTILE",
+    "definitions": [
+     {
+      "text": "commercial",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flogged",
+      "for": "anagram",
+      "note": "flogged means beaten, so the letters are knocked about into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Article men",
+      "gives": "ARTICLEMEN",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARTICLEMEN",
+       "gives": "MERCANTILE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Men selling goods in a television advert.",
+     "walkthrough": "'Flogged' also means sold, which fits the surface of salesmen in a commercial.",
+     "definitionFit": "Mercantile means relating to trade and merchants, so commercial."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flogged"
+    }
+   }
   },
   {
    "number": 24,
@@ -378,7 +1464,42 @@
     "text": "Second parasite",
     "enumeration": "4"
    },
-   "solution": "TICK"
+   "solution": "TICK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TICK",
+    "definitions": [
+     {
+      "text": "Second",
+      "at": 0
+     },
+     {
+      "text": "parasite",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "note": "first meaning: a moment, a brief instant"
+     },
+     {
+      "clueFragment": "parasite",
+      "note": "second meaning: a blood-sucking arachnid"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Just a tick' is British for 'just a second'.",
+     "definitionFit": "A tick is a brief instant, and also a small parasite that feeds on blood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Second"
+    }
+   }
   },
   {
    "number": 25,
@@ -392,7 +1513,54 @@
     "text": "Quiz after party game",
     "enumeration": "7"
    },
-   "solution": "CONTEST"
+   "solution": "CONTEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONTEST",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the first-named piece behind the second in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "CON",
+      "note": "Con is short for the Conservative Party"
+     },
+     {
+      "clueFragment": "Quiz",
+      "gives": "TEST",
+      "note": "a quiz is a test"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "TEST"
+     ]
+    },
+    "explanation": {
+     "surface": "A quiz held after a party game.",
+     "walkthrough": "'Party game' reads as one phrase, but the clue splits after party.",
+     "definitionFit": "A contest is a game or competition between rivals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 26,
@@ -406,7 +1574,50 @@
     "text": "Old British soldier redeployed to cadre",
     "enumeration": "7"
    },
-   "solution": "REDCOAT"
+   "solution": "REDCOAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REDCOAT",
+    "definitions": [
+     {
+      "text": "Old British soldier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "redeployed",
+      "for": "anagram",
+      "note": "redeployed means moved into new positions, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to cadre",
+      "gives": "TOCADRE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOCADRE",
+       "gives": "REDCOAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A veteran soldier is transferred to a new unit of officers.",
+     "definitionFit": "Redcoats were British soldiers of past centuries, named for their scarlet tunics."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cadre"
+    }
+   }
   }
  ]
 }
