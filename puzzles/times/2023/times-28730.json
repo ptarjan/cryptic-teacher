@@ -23,6 +23,9 @@
   "date": "2023-10-10",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,55 @@
     "text": "Old money duke occasionally unchaste",
     "enumeration": "5"
    },
-   "solution": "DUCAT"
+   "solution": "DUCAT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DUCAT",
+    "definitions": [
+     {
+      "text": "Old money",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "something done only occasionally happens at intervals, so only every other letter of the next word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "duke",
+      "gives": "D",
+      "note": "D is the standard abbreviation for duke"
+     },
+     {
+      "clueFragment": "unchaste",
+      "gives": "UCAT",
+      "select": "alternate",
+      "note": "the first, third, fifth and seventh letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "UCAT"
+     ]
+    },
+    "explanation": {
+     "surface": "An aristocrat of old whose wealth came with a loose reputation.",
+     "definitionFit": "A ducat was a gold or silver coin once used across Europe, so it is a historical currency."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unchaste"
+    }
+   }
   },
   {
    "number": 1,
@@ -56,7 +107,67 @@
      }
     ]
    },
-   "solution": "DOCTORJEKYLL"
+   "solution": "DOCTORJEKYLL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DOCTOR JEKYLL",
+    "definitions": [
+     {
+      "text": "physician",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Funny",
+      "for": "anagram",
+      "note": "funny here means odd or peculiar, so the letters that follow are put into a strange new order"
+     },
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "to entertain a guest is to take them in, so the jumbled letters hold another piece inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "joke drolly",
+      "gives": "DOORJEKYLL",
+      "note": "the ten letters of both words, rearranged"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the usual abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "CT",
+      "ORJEKYLL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "JOKEDROLLY",
+       "gives": "DOORJEKYLL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor who amuses the court with dry wit, like a royal jester.",
+     "walkthrough": "CT goes in after the first two letters of the jumble.",
+     "definitionFit": "Stevenson's Dr Jekyll is a fictional medical man who turns into Mr Hyde, so he is an example of a physician."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Funny"
+    }
+   }
   },
   {
    "number": 2,
@@ -70,7 +181,51 @@
     "text": "Cut meat desire following slight stomach upset",
     "enumeration": "5"
    },
-   "solution": "CARVE"
+   "solution": "CARVE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CARVE",
+    "definitions": [
+     {
+      "text": "Cut meat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following slight stomach upset",
+      "for": "anagram",
+      "note": "a slight upset in the stomach means only the middle of the word is disturbed, just two neighbouring letters swapping places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "desire",
+      "gives": "CRAVE",
+      "note": "to crave is to desire strongly"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CRAVE",
+       "gives": "CARVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A craving for meat that comes on after a bout of indigestion.",
+     "walkthrough": "Only the second and third letters change places, a 'slight' disturbance in the middle of the word.",
+     "definitionFit": "To carve is to slice a joint of meat for serving, a verb matching the imperative-looking definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stomach"
+    }
+   }
   },
   {
    "number": 3,
@@ -90,7 +245,60 @@
      }
     ]
    },
-   "solution": "TOOKSHAPE"
+   "solution": "TOOKSHAPE",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "TOOK SHAPE",
+    "definitions": [
+     {
+      "text": "Came together",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for Spooner",
+      "for": "spoonerism",
+      "note": "Reverend Spooner famously swapped the opening sounds of words, so the starts of the two words here trade places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "did rock",
+      "gives": "SHOOK",
+      "note": "to rock something is to shake it; past tense"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "TAPE",
+      "note": "to tape is to record"
+     },
+     {
+      "clueFragment": "did rock record",
+      "gives": "TOOK SHAPE",
+      "soundsLike": "SHOOK TAPE",
+      "note": "say the two words with their opening sounds swapped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOOK",
+      "SHAPE"
+     ]
+    },
+    "explanation": {
+     "surface": "A band that played rock music and made a recording together.",
+     "walkthrough": "Swap the opening sounds SH and T of the two words to get the answer.",
+     "definitionFit": "When a plan takes shape its parts come together into a definite form, an idiom for coalescing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rock"
+    }
+   }
   },
   {
    "number": 4,
@@ -104,7 +312,73 @@
     "text": "Sumptuous taste, mostly ace £1 sandwiches",
     "enumeration": "8"
    },
-   "solution": "PALATIAL"
+   "solution": "PALATIAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "container"
+    ],
+    "answer": "PALATIAL",
+    "definitions": [
+     {
+      "text": "Sumptuous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means most but not all of the word, so its final letter is dropped"
+     },
+     {
+      "text": "sandwiches",
+      "for": "container",
+      "note": "to sandwich something is to place it between two layers, so the number is held inside the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taste",
+      "gives": "PALATE",
+      "note": "a palate is a sense of taste"
+     },
+     {
+      "clueFragment": "ace",
+      "gives": "A",
+      "note": "A is the card abbreviation for ace"
+     },
+     {
+      "clueFragment": "£",
+      "gives": "L",
+      "note": "L, from Latin libra, is the abbreviation for pound"
+     },
+     {
+      "clueFragment": "1",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PALAT",
+      "I",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone with refined taste lavishing money on an ace, as in a luxury lifestyle.",
+     "walkthrough": "PALAT plus A and L forms a casing around I, which sits between the T and the A.",
+     "definitionFit": "Palatial describes something as grand and luxurious as a palace, a close synonym of sumptuous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sandwiches"
+    }
+   }
   },
   {
    "number": 4,
@@ -118,7 +392,62 @@
     "text": "Dad's traversing peak of Moroccan plains",
     "enumeration": "6"
    },
-   "solution": "PAMPAS"
+   "solution": "PAMPAS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PAMPAS",
+    "definitions": [
+     {
+      "text": "plains",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "traversing",
+      "for": "container",
+      "note": "to traverse is to go across, so the father's word stretches across and around the letter that follows"
+     },
+     {
+      "text": "peak of",
+      "for": "letter_selection",
+      "note": "the peak is the top, which in a down answer is the opening letter of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dad's",
+      "gives": "PAPAS",
+      "note": "papa is dad; plural reading of the possessive"
+     },
+     {
+      "clueFragment": "Moroccan",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "M",
+      "PAS"
+     ]
+    },
+    "explanation": {
+     "surface": "Father crossing the summit of a mountain in Morocco.",
+     "walkthrough": "Dad's is read as 'papas' (Dad's = dads), and M is placed after the opening PA.",
+     "definitionFit": "The pampas are the vast grassy lowlands of Argentina and Uruguay, so they are plains."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "peak"
+    }
+   }
   },
   {
    "number": 5,
@@ -138,7 +467,60 @@
      }
     ]
    },
-   "solution": "LINGERON"
+   "solution": "LINGERON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "LINGER ON",
+    "definitions": [
+     {
+      "text": "Hang around",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stolen",
+      "for": "deletion",
+      "note": "if something is stolen it is taken away, so those letters are removed from the garment word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "underwear",
+      "gives": "LINGERIE",
+      "note": "lingerie is women's underwear"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, 'that is'"
+     },
+     {
+      "clueFragment": "wearing",
+      "gives": "ON",
+      "note": "clothes being worn are on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LINGER",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A thief wearing the underwear he has stolen.",
+     "definitionFit": "To linger on is to stay longer than expected, a phrasal verb meaning to hang around."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "wearing"
+    }
+   }
   },
   {
    "number": 6,
@@ -152,7 +534,61 @@
     "text": "Penniless subject admitting vote is harmful",
     "enumeration": "5"
    },
-   "solution": "TOXIC"
+   "solution": "TOXIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TOXIC",
+    "definitions": [
+     {
+      "text": "harmful",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Penniless",
+      "for": "deletion",
+      "note": "penniless means without a penny, and a penny is abbreviated P, so that letter goes"
+     },
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "to admit someone is to let them in, so the shortened word takes a letter inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "subject",
+      "gives": "TOPIC",
+      "note": "a topic is a subject of discussion"
+     },
+     {
+      "clueFragment": "vote",
+      "gives": "X",
+      "note": "a cross marks a vote on a ballot paper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "X",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A broke citizen's vote does harm to the state.",
+     "walkthrough": "P is the abbreviation for penny, the coin a penniless person lacks.",
+     "definitionFit": "Toxic means poisonous, and by extension anything that causes damage or harm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "subject"
+    }
+   }
   },
   {
    "number": 7,
@@ -166,7 +602,82 @@
     "text": "Coming inside undressed, sailor boy turned up — such muscle!",
     "enumeration": "9"
    },
-   "solution": "ABDOMINAL"
+   "solution": "ABDOMINAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "ABDOMINAL",
+    "definitions": [
+     {
+      "text": "such muscle!",
+      "at": 48,
+      "note": "the definition is adjectival: describing a muscle of this kind"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "undressed",
+      "for": "letter_selection",
+      "note": "undressed means stripped of its outer covering, so the first and last letters are taken off"
+     },
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down answer turning a word up makes it read from bottom to top, backwards"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside tells us the stripped word goes within another piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sailor",
+      "gives": "AB",
+      "note": "AB, able seaman, is the usual crossword sailor"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "LAD",
+      "note": "a lad is a boy"
+     },
+     {
+      "clueFragment": "Coming",
+      "gives": "OMIN",
+      "select": "middle",
+      "note": "the word without its outer letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "D",
+      "OMIN",
+      "AL"
+     ],
+     "reversals": [
+      {
+       "from": "LAD",
+       "to": "DAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A naked sailor boy turns up indoors, showing off his physique.",
+     "walkthrough": "In a down entry 'turned up' reads naturally as reversal; the stripped word then sits inside the reversed boy.",
+     "definitionFit": "Abdominal muscles are the 'abs' of the belly, so the adjective describes that kind of muscle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "undressed"
+    }
+   }
   },
   {
    "number": 8,
@@ -186,7 +697,63 @@
      }
     ]
    },
-   "solution": "CARBONMONOXIDE"
+   "solution": "CARBONMONOXIDE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CARBON MONOXIDE",
+    "definitions": [
+     {
+      "text": "harmful, tasteless stuff",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Zany",
+      "for": "anagram",
+      "note": "zany means crazy and erratic, so these letters are scrambled into a new order"
+     },
+     {
+      "text": "receives",
+      "for": "container",
+      "note": "to receive something is to take it in, so the scrambled letters hold another inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bronx comedian",
+      "gives": "BRONXCOMEDIAN",
+      "note": "the fodder letters"
+     },
+     {
+      "clueFragment": "Oscar",
+      "gives": "O",
+      "note": "Oscar is O in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BRONXCOMEDIANO",
+       "gives": "CARBONMONOXIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crazy New York comic wins an Oscar for a tasteless, harmful act.",
+     "walkthrough": "'Tasteless' looks like a jibe at the comedian's humour; it is literal, describing a gas with no flavour.",
+     "definitionFit": "Carbon monoxide is a poisonous gas with no colour, smell or flavour, hence harmful and tasteless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tasteless"
+    }
+   }
   },
   {
    "number": 9,
@@ -206,7 +773,67 @@
      }
     ]
    },
-   "solution": "ASCENSIONDAY"
+   "solution": "ASCENSIONDAY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ASCENSION DAY",
+    "definitions": [
+     {
+      "text": "Holy Thursday",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sadly",
+      "for": "anagram",
+      "note": "sadly suggests something gone wrong or badly, so the letters are disordered"
+     },
+     {
+      "text": "involves",
+      "for": "container",
+      "note": "to involve is to wrap up or include, so one word encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "always",
+      "gives": "AY",
+      "note": "ay (aye) is an old word for always"
+     },
+     {
+      "clueFragment": "dissonance",
+      "gives": "SCENSIONDA",
+      "note": "its letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SCENSIONDA",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DISSONANCE",
+       "gives": "SCENSIONDA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lament that this sacred day always brings musical discord.",
+     "walkthrough": "Ay, meaning ever or always, survives in poetry and Scots.",
+     "definitionFit": "Ascension Day, forty days after Easter, always falls on a Thursday, and is also called Holy Thursday."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dissonance"
+    }
+   }
   },
   {
    "number": 10,
@@ -220,7 +847,68 @@
     "text": "Exaggerate the introduction of obscure poetry full of rubbish",
     "enumeration": "9"
    },
-   "solution": "OVERSTATE"
+   "solution": "OVERSTATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "OVERSTATE",
+    "definitions": [
+     {
+      "text": "Exaggerate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the introduction of",
+      "for": "letter_selection",
+      "note": "an introduction comes first, so only the opening letter of the word is used"
+     },
+     {
+      "text": "full of",
+      "for": "container",
+      "note": "something full of a thing holds it inside, so the poetry word wraps around the rubbish word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "obscure",
+      "gives": "O",
+      "select": "first",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "poetry",
+      "gives": "VERSE",
+      "note": "verse is poetry"
+     },
+     {
+      "clueFragment": "rubbish",
+      "gives": "TAT",
+      "note": "tat is cheap, worthless stuff"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "VERS",
+      "TAT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A critic overstating how obscure and rubbishy some poetry is.",
+     "definitionFit": "To overstate is to say more than the facts warrant, a direct synonym of exaggerate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rubbish"
+    }
+   }
   },
   {
    "number": 11,
@@ -234,7 +922,50 @@
     "text": "Academic stream pursued by American novelist and essayist",
     "enumeration": "5"
    },
-   "solution": "CAMUS"
+   "solution": "CAMUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAMUS",
+    "definitions": [
+     {
+      "text": "novelist and essayist",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "pursued by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Academic stream",
+      "gives": "CAM",
+      "note": "the Cam is the river flowing through Cambridge, a university town"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is short for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAM",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A university river followed along by an American writer.",
+     "walkthrough": "'Pursued by' puts the American piece after the stream.",
+     "definitionFit": "Albert Camus, the French author of The Outsider and The Myth of Sisyphus, wrote both novels and essays."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stream"
+    }
+   }
   },
   {
    "number": 12,
@@ -248,7 +979,61 @@
     "text": "Man left holding a dog",
     "enumeration": "6"
    },
-   "solution": "JACKAL"
+   "solution": "JACKAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "JACKAL",
+    "definitions": [
+     {
+      "text": "dog",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "to hold something is to keep it within your grasp, so the word for a man plus left wraps around the article"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man",
+      "gives": "JACK",
+      "note": "jack is a generic word for a man, as in every man jack"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JACK",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A man who has gone off leaving someone to look after his dog.",
+     "walkthrough": "JACK and L together hold A between them.",
+     "definitionFit": "A jackal is a wild member of the dog family found in Africa and Asia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 13,
@@ -262,7 +1047,54 @@
     "text": "Dreary toast the French consumed",
     "enumeration": "9"
    },
-   "solution": "CHEERLESS"
+   "solution": "CHEERLESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHEERLESS",
+    "definitions": [
+     {
+      "text": "Dreary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "consumed",
+      "for": "container",
+      "note": "something consumed is taken in, so the toast word swallows the French article"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "toast",
+      "gives": "CHEERS",
+      "note": "cheers is said when raising a toast"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LES",
+      "note": "les is French for 'the' (plural)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHEER",
+      "LES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A dismal toast given while the French ate their meal.",
+     "definitionFit": "Cheerless describes something gloomy and lacking any brightness, which is what dreary means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "toast"
+    }
+   }
   },
   {
    "number": 14,
@@ -276,7 +1108,67 @@
     "text": "Famous statue put back outside former capital city university",
     "enumeration": "8"
    },
-   "solution": "SORBONNE"
+   "solution": "SORBONNE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SORBONNE",
+    "definitions": [
+     {
+      "text": "university",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put back",
+      "for": "reversal",
+      "note": "put back means returned the way it came, so the statue's name is read backwards"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside means the reversed word goes around the city"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Famous statue",
+      "gives": "EROS",
+      "note": "the statue of Eros stands in London's Piccadilly Circus"
+     },
+     {
+      "clueFragment": "former capital city",
+      "gives": "BONN",
+      "note": "Bonn was the capital of West Germany"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOR",
+      "BONN",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "EROS",
+       "to": "SORE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A well-known statue returned to the grounds of a university in a former capital.",
+     "walkthrough": "The Piccadilly Circus statue, popularly called Eros, is a London landmark.",
+     "definitionFit": "The Sorbonne is the historic university in Paris, so it is a university by name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "statue"
+    }
+   }
   },
   {
    "number": 15,
@@ -290,7 +1182,61 @@
     "text": "A serial wife-killer, depressed poet swallows drug",
     "enumeration": "9"
    },
-   "solution": "BLUEBEARD"
+   "solution": "BLUEBEARD",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BLUEBEARD",
+    "definitions": [
+     {
+      "text": "A serial wife-killer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallows",
+      "for": "container",
+      "note": "to swallow is to take in, so the poet word encloses the drug"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "depressed",
+      "gives": "BLUE",
+      "note": "feeling blue is feeling depressed"
+     },
+     {
+      "clueFragment": "poet",
+      "gives": "BARD",
+      "note": "a bard is a poet"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLUE",
+      "B",
+      "E",
+      "ARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A gloomy poet who kills his wives, swallowing pills.",
+     "definitionFit": "Bluebeard is the folk-tale nobleman who murdered a succession of wives, an archetypal serial killer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "depressed"
+    }
+   }
   },
   {
    "number": 16,
@@ -304,7 +1250,53 @@
     "text": "Terribly sore knee that might become inflamed",
     "enumeration": "8"
    },
-   "solution": "KEROSENE"
+   "solution": "KEROSENE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "KEROSENE",
+    "definitions": [
+     {
+      "text": "that might become inflamed",
+      "at": 19,
+      "note": "a descriptive phrase standing for a noun: something that might catch fire"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Terribly",
+      "for": "anagram",
+      "note": "terribly suggests badly out of order, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sore knee",
+      "gives": "SOREKNEE",
+      "note": "the fodder letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SOREKNEE",
+       "gives": "KEROSENE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painful knee joint that could swell up and become inflamed.",
+     "walkthrough": "'Inflamed' reads as medical swelling, but here it means set on fire.",
+     "definitionFit": "Kerosene is paraffin, a fuel oil that can be set alight, so it might become inflamed in the literal sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "inflamed"
+    }
+   }
   },
   {
    "number": 17,
@@ -324,7 +1316,64 @@
      }
     ]
    },
-   "solution": "KEENEYED"
+   "solution": "KEENEYED",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "KEEN-EYED",
+    "definitions": [
+     {
+      "text": "Observer so described?",
+      "at": 41,
+      "note": "the definition describes an observer; the answer is an adjective"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "acquiring",
+      "for": "container",
+      "note": "acquiring means taking on, so the crucial word takes the evening word inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crucial",
+      "gives": "KEY",
+      "note": "key means crucial"
+     },
+     {
+      "clueFragment": "Evening",
+      "gives": "EEN",
+      "note": "e'en is the poetic contraction of evening"
+     },
+     {
+      "clueFragment": "newspaper boss",
+      "gives": "ED",
+      "note": "ED is short for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "EEN",
+      "EY",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "An important editor takes on the Evening Observer newspaper.",
+     "walkthrough": "The Observer is a British Sunday paper, which makes it look like a title; here it means a watcher. E'EN goes after the K.",
+     "definitionFit": "A good observer has sharp sight, so keen-eyed describes such a person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Observer"
+    }
+   }
   },
   {
    "number": 18,
@@ -338,7 +1387,49 @@
     "text": "Doubts question put to charity",
     "enumeration": "6"
    },
-   "solution": "QUALMS"
+   "solution": "QUALMS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "QUALMS",
+    "definitions": [
+     {
+      "text": "Doubts",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "put to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "question",
+      "gives": "QU",
+      "note": "QU is an abbreviation for question"
+     },
+     {
+      "clueFragment": "charity",
+      "gives": "ALMS",
+      "note": "alms are charitable gifts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QU",
+      "ALMS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone raising doubts and questioning a charity.",
+     "definitionFit": "Qualms are uneasy misgivings, a plural noun matching doubts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "charity"
+    }
+   }
   },
   {
    "number": 19,
@@ -352,7 +1443,46 @@
     "text": "Upper-class fur available for exploitation",
     "enumeration": "6"
    },
-   "solution": "USABLE"
+   "solution": "USABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "USABLE",
+    "definitions": [
+     {
+      "text": "available for exploitation",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Upper-class",
+      "gives": "U",
+      "note": "U stands for upper-class"
+     },
+     {
+      "clueFragment": "fur",
+      "gives": "SABLE",
+      "note": "sable is a costly fur"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "SABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Posh people's furs being exploited for profit.",
+     "definitionFit": "Something usable can be put to use, so it is available to be exploited."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fur"
+    }
+   }
   },
   {
    "number": 20,
@@ -366,7 +1496,43 @@
     "text": "Playing slowly a necessity for popular golfer",
     "enumeration": "5"
    },
-   "solution": "LARGO"
+   "solution": "LARGO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LARGO",
+    "definitions": [
+     {
+      "text": "Playing slowly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a necessity for",
+      "for": "hidden_word",
+      "note": "something that is a necessity for a phrase is an essential part of it, so the answer is found within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "popular golfer",
+      "gives": "LARGO",
+      "note": "inside, across the word break"
+     }
+    ],
+    "explanation": {
+     "surface": "A well-liked golfer needs to play at a slow pace.",
+     "walkthrough": "'Playing slowly' looks like slow play on the golf course; it is the musical direction.",
+     "definitionFit": "Largo is a tempo marking telling musicians to perform slowly and broadly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Playing"
+    }
+   }
   },
   {
    "number": 21,
@@ -380,7 +1546,52 @@
     "text": "G8 say or voice Tweets every now and again",
     "enumeration": "5"
    },
-   "solution": "OCTET"
+   "solution": "OCTET",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "OCTET",
+    "definitions": [
+     {
+      "text": "G8 say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "every now and again",
+      "for": "letter_selection",
+      "note": "now and again means at regular intervals, so only every second letter is taken"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "voice Tweets",
+      "gives": "OCTET",
+      "select": "alternate",
+      "note": "the second, fourth, sixth, eighth and tenth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OCTET"
+     ]
+    },
+    "explanation": {
+     "surface": "World leaders at a summit speaking their minds on social media posts.",
+     "walkthrough": "The G8 was a forum of eight leading nations, so it is an example of a group of eight.",
+     "definitionFit": "An octet is any set of eight, and the G8 was a group of eight countries."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "G8"
+    }
+   }
   },
   {
    "number": 22,
@@ -400,7 +1611,78 @@
      }
     ]
    },
-   "solution": "OSSOBUCCO"
+   "solution": "OSSOBUCCO",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "OSSO BUCCO",
+    "definitions": [
+     {
+      "text": "Italian food",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fed",
+      "for": "container",
+      "note": "something fed has food put into it, so the old firm letters take the other pieces inside"
+     },
+     {
+      "text": "retired",
+      "for": "reversal",
+      "note": "retired means withdrawn or gone back, so the pieces are read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is short for old"
+     },
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     },
+     {
+      "clueFragment": "top man",
+      "gives": "BOSS",
+      "note": "the boss is the top man"
+     },
+     {
+      "clueFragment": "firm",
+      "gives": "CO",
+      "note": "Co is short for company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "SSOBUC",
+      "CO"
+     ],
+     "reversals": [
+      {
+       "from": "CUBOSS",
+       "to": "SSOBUC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A long-established company feeding its retired policeman, the old boss.",
+     "walkthrough": "'Copper' looks like a policeman but is the metal, and 'retired' acts on both the metal and the top man together.",
+     "definitionFit": "Osso bucco is a Milanese dish of braised veal shanks, so it is Italian food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 23,
@@ -414,7 +1696,39 @@
     "text": "Line dance?",
     "enumeration": "5"
    },
-   "solution": "CONGA"
+   "solution": "CONGA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CONGA",
+    "definitions": [
+     {
+      "text": "Line dance?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Line dance?",
+      "note": "surface reading: country-and-western line dancing, with dancers in rows"
+     },
+     {
+      "clueFragment": "Line dance?",
+      "note": "setter's reading: a Latin party dance done in a single snaking queue, each dancer holding the one in front"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags that 'line dance' is meant literally, a dance in one line, not the cowboy style.",
+     "definitionFit": "This Cuban dance is performed by people in a single file, hip to hip, so it is literally danced in a line."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Line"
+    }
+   }
   },
   {
    "number": 24,
@@ -434,7 +1748,69 @@
      }
     ]
    },
-   "solution": "FEATHERBRAINED"
+   "solution": "FEATHERBRAINED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "FEATHER-BRAINED",
+    "definitions": [
+     {
+      "text": "Empty-headed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the first letter of the Irish insult is used"
+     },
+     {
+      "text": "punches",
+      "for": "container",
+      "note": "a punch lands inside someone's guard, so the letter goes into the parent word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dad",
+      "gives": "FATHER",
+      "note": "dad is father"
+     },
+     {
+      "clueFragment": "eejit",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter; eejit is Irish slang for idiot"
+     },
+     {
+      "clueFragment": "hit on the noggin",
+      "gives": "BRAINED",
+      "note": "to brain someone is to strike them on the head; noggin is slang for head"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "E",
+      "ATHER",
+      "BRAINED"
+     ]
+    },
+    "explanation": {
+     "surface": "A foolish lad hits his father on the head in a family brawl.",
+     "walkthrough": "E goes after the F.",
+     "definitionFit": "Feather-brained means silly, as if the head held nothing weightier than feathers, so empty-headed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "punches"
+    }
+   }
   },
   {
    "number": 25,
@@ -458,7 +1834,50 @@
      }
     ]
    },
-   "solution": "ASITWERE"
+   "solution": "ASITWERE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AS IT WERE",
+    "definitions": [
+     {
+      "text": "so to speak",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when running",
+      "for": "anagram",
+      "note": "running suggests letters on the move, so they shift into a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sweatier",
+      "gives": "SWEATIER",
+      "note": "the fodder letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SWEATIER",
+       "gives": "ASITWERE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jogger gets sweatier while out on a run, figuratively speaking.",
+     "definitionFit": "As it were and so to speak are both phrases used to flag an expression as figurative."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "running"
+    }
+   }
   },
   {
    "number": 26,
@@ -472,7 +1891,61 @@
     "text": "Current article features in humourless journal",
     "enumeration": "5"
    },
-   "solution": "DIARY"
+   "solution": "DIARY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DIARY",
+    "definitions": [
+     {
+      "text": "journal",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "features in",
+      "for": "container",
+      "note": "to feature in something is to appear within it, so the first pieces sit inside the humourless word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "A is the indefinite article"
+     },
+     {
+      "clueFragment": "humourless",
+      "gives": "DRY",
+      "note": "dry can mean dull and lacking humour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IA",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "An up-to-date piece appears in a dull periodical.",
+     "walkthrough": "'Current' seems to mean topical; it is the physics symbol.",
+     "definitionFit": "A diary is a daily personal record, a kind of journal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Current"
+    }
+   }
   }
  ]
 }
