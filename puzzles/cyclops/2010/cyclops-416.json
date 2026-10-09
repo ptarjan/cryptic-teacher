@@ -24,6 +24,9 @@
   "date": "2010-05-10",
   "check": "28 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,75 @@
     "text": "End of the dire PM – ruined lives – a superficial thing",
     "enumeration": "9"
    },
-   "solution": "EPIDERMIS"
+   "solution": "EPIDERMIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "EPIDERMIS",
+    "definitions": [
+     {
+      "text": "a superficial thing",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "End of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that one is kept"
+     },
+     {
+      "text": "ruined",
+      "for": "anagram",
+      "note": "something ruined has been wrecked, so the words before it are broken up and rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the word 'the'"
+     },
+     {
+      "clueFragment": "dire PM",
+      "gives": "DIREPM",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "lives",
+      "gives": "IS",
+      "note": "to live is to be, so 'lives' can mean 'is'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "PIDERM",
+      "IS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DIREPM",
+       "gives": "PIDERM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gloomy jibe that a dreadful Prime Minister wrecks lives and is all surface with no depth.",
+     "walkthrough": "'Lives' gives IS in the sense 'exists'; EPIDERMIS is read literally as a superficial thing.",
+     "definitionFit": "The epidermis is the outer layer of skin, literally a thing lying on the surface of the body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "superficial"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +122,55 @@
     "text": "Evans, having been dehospitalised, is a disaster",
     "enumeration": "6"
    },
-   "solution": "CRISIS"
+   "solution": "CRISIS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CRISIS",
+    "definitions": [
+     {
+      "text": "a disaster",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having been dehospitalised",
+      "for": "deletion",
+      "note": "taking the hospital out of someone means dropping the map abbreviation for a hospital from the name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Evans",
+      "gives": "CHRIS",
+      "note": "Chris Evans, the British radio and TV presenter"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRIS",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity just discharged from hospital is in a bad way.",
+     "walkthrough": "H is the standard abbreviation for hospital (as on road signs), so removing it from CHRIS leaves CRIS.",
+     "definitionFit": "A crisis is a moment of acute trouble or danger, a near synonym for a disaster."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Evans"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +184,71 @@
     "text": "Bang Lola stupid? Not an earthly!",
     "enumeration": "6"
    },
-   "solution": "GLOBAL"
+   "solution": "GLOBAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "GLOBAL",
+    "definitions": [
+     {
+      "text": "earthly",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stupid",
+      "for": "anagram",
+      "note": "something stupid is muddled or senseless, so the letters are jumbled"
+     },
+     {
+      "text": "Not",
+      "for": "deletion",
+      "note": "'not' tells the solver these letters are absent from the mix"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bang",
+      "gives": "BANG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Lola",
+      "gives": "LOLA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "the letters to be taken away from the mix"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GLOBAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BGLOLA",
+       "gives": "GLOBAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks if Lola is stupid and gets the slangy reply 'not an earthly', meaning not a chance.",
+     "walkthrough": "'Not an earthly' is a British idiom for 'no chance at all', which hides the definition at the very end.",
+     "definitionFit": "Global means relating to the whole world, so it can stand in for earthly as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "earthly"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +262,54 @@
     "text": "Dodgy football side hides debt",
     "enumeration": "8"
    },
-   "solution": "SPURIOUS"
+   "solution": "SPURIOUS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPURIOUS",
+    "definitions": [
+     {
+      "text": "Dodgy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hides",
+      "for": "container",
+      "note": "to hide something is to keep it inside, so one piece wraps around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "football side",
+      "gives": "SPURS",
+      "note": "Spurs is the nickname of Tottenham Hotspur, a London football club"
+     },
+     {
+      "clueFragment": "debt",
+      "gives": "IOU",
+      "note": "an IOU is a written acknowledgement of a debt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPUR",
+      "IOU",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A football club with shady accounts conceals what it owes.",
+     "definitionFit": "Spurious means false or not genuine, which matches the informal sense of dodgy as untrustworthy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "side"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +337,63 @@
      }
     ]
    },
-   "solution": "ALLPISSANDWIND"
+   "solution": "ALLPISSANDWIND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALL PISS AND WIND",
+    "definitions": [
+     {
+      "text": "Blustering politicians 8dn often are",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "wanting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "all means everyone"
+     },
+     {
+      "clueFragment": "to be a peer",
+      "gives": "PISS",
+      "note": "read as 'pee-er', one who pees; to piss is to be one"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "and means together with"
+     },
+     {
+      "clueFragment": "roll",
+      "gives": "WIND",
+      "note": "to roll something up is to wind it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "PISS",
+      "AND",
+      "WIND"
+     ]
+    },
+    "explanation": {
+     "surface": "Campaigning politicians all longing for a seat in the House of Lords along with the trappings.",
+     "walkthrough": "The joke is reading 'peer' (a lord) as someone who pees. 8dn points to ELECTIONEERING, the answer to 8-down.",
+     "definitionFit": "'All piss and wind' is a crude British idiom for someone full of empty talk and bluster, as campaigning politicians often are."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "peer"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +407,57 @@
     "text": "A titled person matters if secreting drugs",
     "enumeration": "8"
    },
-   "solution": "COUNTESS"
+   "solution": "COUNTESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COUNTESS",
+    "definitions": [
+     {
+      "text": "A titled person",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "secreting",
+      "for": "container",
+      "note": "to secrete is to hide away, so one piece is tucked inside another"
+     }
+    ],
+    "linkWords": [
+     "if"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "matters",
+      "gives": "COUNTS",
+      "note": "something that matters counts"
+     },
+     {
+      "clueFragment": "drugs",
+      "gives": "ES",
+      "note": "E is slang for an ecstasy tablet, plural Es"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COUNT",
+      "ES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that being titled is only important if you are hiding drugs.",
+     "definitionFit": "A countess is the wife of an earl or count, or holds that rank herself, so she bears a noble title."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "matters"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +471,50 @@
     "text": "Standard fancy woman of Charles, the Irish leader",
     "enumeration": "7"
    },
-   "solution": "PARNELL"
+   "solution": "PARNELL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARNELL",
+    "definitions": [
+     {
+      "text": "the Irish leader",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Standard",
+      "gives": "PAR",
+      "note": "par is the standard or norm"
+     },
+     {
+      "clueFragment": "fancy woman of Charles",
+      "gives": "NELL",
+      "note": "Nell Gwyn was the mistress of King Charles II"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "NELL"
+     ]
+    },
+    "explanation": {
+     "surface": "Reads like gossip about the usual mistress of a man called Charles, who led the Irish.",
+     "walkthrough": "The Charles in the clue points two ways: Charles II, whose mistress was Nell Gwyn, and Charles Stewart Parnell, whose own affair with Kitty O'Shea ruined him.",
+     "definitionFit": "Charles Stewart Parnell led the Irish Parliamentary Party and the Home Rule movement in the 1880s."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Charles"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +528,61 @@
     "text": "One gin and erectile dysfunction – it's coming to its climax",
     "enumeration": "14"
    },
-   "solution": "ELECTIONEERING"
+   "solution": "ELECTIONEERING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ELECTIONEERING",
+    "definitions": [
+     {
+      "text": "it's coming to its climax",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dysfunction",
+      "for": "anagram",
+      "note": "a dysfunction is a failure to work properly, so the letters fall out of order"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "–"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One gin",
+      "gives": "ONEGIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "erectile",
+      "gives": "ERECTILE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONEGINERECTILE",
+       "gives": "ELECTIONEERING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A smutty picture of a drink and impotence on the way to the bedroom finale.",
+     "walkthrough": "The 'climax' is innocently the run-up to polling day, when campaigning peaks.",
+     "definitionFit": "Electioneering is campaigning, which builds to its peak as the vote approaches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "climax"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +602,46 @@
      }
     ]
    },
-   "solution": "PULLOUT"
+   "solution": "PULLOUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PULL-OUT",
+    "definitions": [
+     {
+      "text": "Pope's contraception advice",
+      "at": 0
+     },
+     {
+      "text": "magazine section",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pope's contraception advice",
+      "note": "first meaning: withdrawal, the only method the Catholic church tolerates short of abstinence, crudely put"
+     },
+     {
+      "clueFragment": "magazine section",
+      "note": "second meaning: a detachable supplement inside a magazine"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The Catholic church forbids artificial contraception, so the joke is that withdrawal is the Pope's advice.",
+     "definitionFit": "The phrase is both the imperative 'withdraw' and the noun for a removable section of a publication."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "magazine"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +669,47 @@
     "text": "Insult MP, Butcher",
     "enumeration": "9"
    },
-   "solution": "DISMEMBER"
+   "solution": "DISMEMBER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISMEMBER",
+    "definitions": [
+     {
+      "text": "Butcher",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Insult",
+      "gives": "DIS",
+      "note": "to dis is slang for to insult"
+     },
+     {
+      "clueFragment": "MP",
+      "gives": "MEMBER",
+      "note": "an MP is a Member of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "MEMBER"
+     ]
+    },
+    "explanation": {
+     "surface": "A short headline: someone insults an MP named Butcher.",
+     "walkthrough": "Butcher looks like a surname, but it is a verb meaning cut up.",
+     "definitionFit": "To dismember is to cut off the limbs, as a butcher carves a carcass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Butcher"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +723,63 @@
     "text": "Member Enclosure 1, Sandown's first",
     "enumeration": "5"
    },
-   "solution": "PENIS"
+   "solution": "PENIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PENIS",
+    "definitions": [
+     {
+      "text": "Member",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Enclosure",
+      "gives": "PEN",
+      "note": "a pen is an enclosure for animals"
+     },
+     {
+      "clueFragment": "1",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "Sandown's",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of Sandown"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEN",
+      "I",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Reads like a racecourse signpost: the members' enclosure number one at Sandown Park.",
+     "walkthrough": "Sandown Park is an English racecourse, and racecourses have a Members' Enclosure; the capitalised 'Member' is the definition.",
+     "definitionFit": "Member is a familiar euphemism for the male organ."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Member"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +793,55 @@
     "text": "Dotty tries to engage once more in parliamentary business",
     "enumeration": "5"
    },
-   "solution": "RESIT"
+   "solution": "RESIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RESIT",
+    "definitions": [
+     {
+      "text": "engage once more in parliamentary business",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dotty",
+      "for": "anagram",
+      "note": "dotty means crazy, so the letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tries",
+      "gives": "TRIES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRIES",
+       "gives": "RESIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An eccentric attempts to get back into the work of Parliament.",
+     "walkthrough": "Parliament 'sits' when in session, so to sit again is to engage once more in its business.",
+     "definitionFit": "To resit is to sit again, and a sitting is the period when Parliament conducts business."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dotty"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +861,62 @@
      }
     ]
    },
-   "solution": "LOOKSEE"
+   "solution": "LOOKSEE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "LOOK-SEE",
+    "definitions": [
+     {
+      "text": "gander",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kinky",
+      "for": "anagram",
+      "note": "kinky means twisted, so the word before it is bent out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ladies possibly",
+      "gives": "LOO",
+      "note": "the Ladies is a public toilet, a loo; 'possibly' marks it as one example"
+     },
+     {
+      "clueFragment": "seek",
+      "gives": "SEEK",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOO",
+      "KSEE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEEK",
+       "gives": "KSEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Women looking for a pervy male goose.",
+     "walkthrough": "Gander looks like the male goose; it is informal British for a quick look.",
+     "definitionFit": "A look-see is a quick inspection, and 'have a gander' is British slang for having a look."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "gander"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +936,64 @@
      }
     ]
    },
-   "solution": "EASYPEASY"
+   "solution": "EASYPEASY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "EASY-PEASY",
+    "definitions": [
+     {
+      "text": "No problem",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to vacillate",
+      "for": "anagram",
+      "note": "to vacillate is to waver back and forth, so the letters shift about"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "'ayes'",
+      "gives": "AYES",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "vegetable-like",
+      "gives": "PEASY",
+      "note": "like a pea, the vegetable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EASY",
+      "PEASY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AYES",
+       "gives": "EASY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An easy vote in the Commons where wavering yes votes are oddly like greens.",
+     "definitionFit": "Easy-peasy is a childish British phrase for very easy, just as 'no problem' signals a simple task."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "ayes"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1013,47 @@
      }
     ]
    },
-   "solution": "INSHORT"
+   "solution": "INSHORT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IN SHORT",
+    "definitions": [
+     {
+      "text": "Briefly",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of the clique",
+      "gives": "IN",
+      "note": "to be in is to belong to the favoured group"
+     },
+     {
+      "clueFragment": "no friend of Blair",
+      "gives": "SHORT",
+      "note": "Clare Short, the Labour cabinet minister who resigned over Tony Blair's Iraq war"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "SHORT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone briefly part of the inner circle who fell out with Tony Blair.",
+     "walkthrough": "Clare Short was International Development Secretary and became a fierce critic of Blair after resigning in 2003.",
+     "definitionFit": "'In short' means to put it briefly, an adverbial phrase like 'briefly'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Briefly"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1073,77 @@
      }
     ]
    },
-   "solution": "SELFPITY"
+   "solution": "SELFPITY",
+   "annotation": {
+    "type": [
+     "substitution",
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "SELF-PITY",
+    "definitions": [
+     {
+      "text": "Quality of 'misery memoirs'",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "traded for",
+      "for": "substitution",
+      "note": "a thing traded for another is swapped out, so one letter is exchanged for a different one"
+     },
+     {
+      "text": "makes",
+      "for": "anagram",
+      "note": "to make something out of material is to form a new shape, so the letters are rebuilt in a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spit",
+      "gives": "SPIT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "life",
+      "gives": "LIFE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the letter to be swapped out of the second word"
+     },
+     {
+      "clueFragment": "agony",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of agony"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SELFPITY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SPITLYFE",
+       "gives": "SELFPITY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gibe that miserable memoirs make readers spit, the author having swapped a life for wallowing in pain.",
+     "walkthrough": "Replace the I in LIFE with Y to get LYFE, then rearrange it with SPIT. 'Misery memoirs' are a genre of tell-all books about abusive childhoods.",
+     "definitionFit": "Self-pity is wallowing in one's own sorrows, the defining mood of the misery memoir genre."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "spit"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1157,64 @@
     "text": "The one mentioned by Blair – i.e. lacking as a has-been PM",
     "enumeration": "8"
    },
-   "solution": "THATCHER"
+   "solution": "THATCHER",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "THATCHER",
+    "definitions": [
+     {
+      "text": "has-been PM",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking means going without, so the letters named just before are taken out"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "as a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The one mentioned",
+      "gives": "THAT",
+      "note": "that points to the one already referred to"
+     },
+     {
+      "clueFragment": "Blair",
+      "gives": "CHERIE",
+      "note": "Cherie Blair, Tony Blair's wife"
+     },
+     {
+      "clueFragment": "i.e.",
+      "gives": "IE",
+      "note": "the letters to be dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THAT",
+      "CHER"
+     ]
+    },
+    "explanation": {
+     "surface": "Tony Blair mentions a predecessor who is now out of power.",
+     "walkthrough": "'Blair' looks like Tony but means his wife Cherie; dropping I and E from her name leaves CHER.",
+     "definitionFit": "Margaret Thatcher was Prime Minister from 1979 to 1990, so by the time of this clue a former PM."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Blair"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1228,78 @@
     "text": "City of sawn-off shotguns, initially half each",
     "enumeration": "7"
    },
-   "solution": "SWANSEA"
+   "solution": "SWANSEA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "SWANSEA",
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "sawn-off suggests something cut and disordered, so 'off' signals the letters going awry"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter is kept"
+     },
+     {
+      "text": "half",
+      "for": "deletion",
+      "note": "taking half of a word means losing the rest, here keeping the front portion"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sawn",
+      "gives": "SAWN",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "shotguns",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of shotguns"
+     },
+     {
+      "clueFragment": "each",
+      "gives": "EACH",
+      "note": "taken as written, then cut in half"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWAN",
+      "S",
+      "EA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SAWN",
+       "gives": "SWAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A city's gangsters each get half the sawn-off shotguns.",
+     "definitionFit": "Swansea is a coastal city in south Wales."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1319,70 @@
      }
     ]
    },
-   "solution": "LIEBACK"
+   "solution": "LIEBACK",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "LIE BACK",
+    "definitions": [
+     {
+      "text": "take a rest",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all over",
+      "for": "container",
+      "note": "something all over another covers it on every side, so one piece wraps around the other"
+     },
+     {
+      "text": "retiring",
+      "for": "reversal",
+      "note": "retiring means drawing back, so the name is read in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Apply tongue",
+      "gives": "LICK",
+      "note": "to lick is to apply the tongue"
+     },
+     {
+      "clueFragment": "ex-President of USA",
+      "gives": "ABE",
+      "note": "Abe Lincoln, sixteenth US President"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "EBA",
+      "CK"
+     ],
+     "reversals": [
+      {
+       "from": "ABE",
+       "to": "EBA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lurid image of licking a former US President before having a lie-down.",
+     "definitionFit": "To lie back is to recline and relax, which is taking a rest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "retiring"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1396,63 @@
     "text": "Kelvin on NASA's \"liberal\" state",
     "enumeration": "6"
    },
-   "solution": "KANSAS"
+   "solution": "KANSAS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "KANSAS",
+    "definitions": [
+     {
+      "text": "state",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "liberal",
+      "for": "anagram",
+      "note": "a liberal treatment is a free one, so the letters are freely rearranged"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kelvin",
+      "gives": "K",
+      "note": "K is the symbol for kelvin, the unit of temperature"
+     },
+     {
+      "clueFragment": "NASA's",
+      "gives": "NASAS",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "ANSAS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NASAS",
+       "gives": "ANSAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Kelvin comments on the space agency being 'liberal' about the state.",
+     "definitionFit": "Kansas is one of the fifty US states, in the Midwest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "liberal"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1466,51 @@
     "text": "Hairy pair of investigators getting their ends away",
     "enumeration": "5"
    },
-   "solution": "DICEY"
+   "solution": "DICEY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "DICEY",
+    "definitions": [
+     {
+      "text": "Hairy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting their ends away",
+      "for": "deletion",
+      "note": "with their ends taken away, each word loses its last letter; the phrase is also slang for having sex"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pair of investigators",
+      "gives": "DICKEYE",
+      "note": "two slang words for a detective: dick and (private) eye"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIC",
+      "EY"
+     ]
+    },
+    "explanation": {
+     "surface": "Two detectives, one hirsute, having sex, in British slang.",
+     "walkthrough": "'Getting your end away' is British slang for having sex; here it simply drops each word's last letter.",
+     "definitionFit": "Hairy is informal British for risky or frightening, the same as dicey."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Hairy"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1524,51 @@
     "text": "Brian and his mater's alcoholic successor",
     "enumeration": "6"
    },
-   "solution": "CHASER"
+   "solution": "CHASER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHASER",
+    "definitions": [
+     {
+      "text": "alcoholic successor",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brian",
+      "gives": "CHAS",
+      "note": "Private Eye calls Prince Charles 'Brian'; Chas is short for Charles"
+     },
+     {
+      "clueFragment": "his mater",
+      "gives": "ER",
+      "note": "his mother is the Queen, Elizabeth Regina"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAS",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Reads like a remark about a family's heir with a drink problem.",
+     "walkthrough": "Private Eye nicknames the Queen 'Brenda' and Prince Charles 'Brian'; mater is old school slang for mother.",
+     "definitionFit": "A chaser is a drink taken straight after another, such as beer after a shot of spirits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "successor"
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1586,64 @@
    "group": [
     "24-down",
     "10-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ACID TEST",
+    "definitions": [
+     {
+      "text": "Searching examination",
+      "at": 10
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "a drunk person is unsteady and confused, so the letters reel into a new order"
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "cite \"DTs\"",
+      "gives": "CITEDTS",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CIDTEST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CITEDTS",
+       "gives": "CIDTEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tough test that leaves someone so drunk they claim delirium tremens.",
+     "walkthrough": "DTs are delirium tremens, the shakes from alcohol withdrawal, which fits the drunk surface.",
+     "definitionFit": "An acid test is a decisive trial of worth, originally nitric acid used to test gold."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1657,51 @@
     "text": "Skip gives head to Brenda",
     "enumeration": "5"
    },
-   "solution": "CAPER"
+   "solution": "CAPER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAPER",
+    "definitions": [
+     {
+      "text": "Skip",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "gives"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "head",
+      "gives": "CAP",
+      "note": "a cap is the top or head of something"
+     },
+     {
+      "clueFragment": "Brenda",
+      "gives": "ER",
+      "note": "Private Eye's nickname for the Queen, Elizabeth Regina"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAP",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A boat's skipper offers oral sex to a woman named Brenda.",
+     "walkthrough": "Skip looks like a captain; it is a verb for a frisky jump.",
+     "definitionFit": "To caper is to skip or dance about playfully."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Skip"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1715,50 @@
     "text": "Frank scoffed as one who'll be 8dn",
     "enumeration": "9"
    },
-   "solution": "CANDIDATE"
+   "solution": "CANDIDATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CANDIDATE",
+    "definitions": [
+     {
+      "text": "one who'll be 8dn",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frank",
+      "gives": "CANDID",
+      "note": "frank means candid"
+     },
+     {
+      "clueFragment": "scoffed",
+      "gives": "ATE",
+      "note": "to scoff is to eat greedily"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CANDID",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Frank mocked a would-be campaigner.",
+     "walkthrough": "8dn is ELECTIONEERING, the answer to 8-down. Scoffed looks like 'mocked'; it is British slang for ate.",
+     "definitionFit": "A candidate standing for office will spend the run-up to polling day campaigning for votes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "scoffed"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1772,43 @@
     "text": "Feature of bidet: enteritis tension relaxer",
     "enumeration": "7"
    },
-   "solution": "DETENTE"
+   "solution": "DETENTE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DETENTE",
+    "definitions": [
+     {
+      "text": "tension relaxer",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Feature of",
+      "for": "hidden_word",
+      "note": "a feature of something is part of it, so the letters lie inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bidet: enteritis",
+      "gives": "DETENTE",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A bidet as a soothing remedy for inflamed bowels.",
+     "definitionFit": "Détente is an easing of hostility between nations, a relaxing of political tension."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "relaxer"
+    }
+   }
   },
   {
    "number": 28,
@@ -469,7 +1822,62 @@
     "text": "Cameron's second day shift, an 8dn speech?",
     "enumeration": "7"
    },
-   "solution": "ADDRESS"
+   "solution": "ADDRESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ADDRESS",
+    "definitions": [
+     {
+      "text": "an 8dn speech",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "second",
+      "for": "letter_selection",
+      "note": "the second of a word is its letter in position two, so just that one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cameron's",
+      "gives": "A",
+      "select": 2,
+      "note": "the letter in second place in Cameron"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "the standard abbreviation for day"
+     },
+     {
+      "clueFragment": "shift",
+      "gives": "DRESS",
+      "note": "a shift is a simple straight dress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "D",
+      "DRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "David Cameron's second day at work, delivering a campaign speech.",
+     "walkthrough": "Shift looks like a work period; it is a loose dress. 8dn is ELECTIONEERING.",
+     "definitionFit": "An address is a formal speech, such as one delivered on the campaign trail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shift"
+    }
+   }
   }
  ]
 }
