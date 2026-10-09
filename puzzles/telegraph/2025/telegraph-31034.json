@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,67 @@
     "text": "George Best, one saved by gold fortune",
     "enumeration": "9"
    },
-   "solution": "AUTOPILOT"
+   "solution": "AUTOPILOT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AUTOPILOT",
+    "definitions": [
+     {
+      "text": "George",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "saved by",
+      "for": "container",
+      "note": "something saved is held safe inside its rescuer, so these words sit within the outer pair"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "Best",
+      "gives": "TOP",
+      "note": "the best is the top"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "fortune",
+      "gives": "LOT",
+      "note": "one's lot is one's fortune or destiny"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AU",
+      "TOPI",
+      "LOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A tribute to footballer George Best, a man rescued by his golden fortune.",
+     "walkthrough": "George Best the footballer is a red herring: 'George' alone is the definition, and 'Best' gives the first inner piece. AU and LOT surround TOP and I.",
+     "definitionFit": "George is old pilots' slang for an aircraft's automatic steering system, so the name stands for the device."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Best"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +109,52 @@
     "text": "Timeless headdress associated with the city",
     "enumeration": "5"
    },
-   "solution": "URBAN"
+   "solution": "URBAN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "URBAN",
+    "definitions": [
+     {
+      "text": "associated with the city",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Timeless",
+      "for": "deletion",
+      "note": "time is abbreviated to a single letter, and 'less' says that letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "headdress",
+      "gives": "TURBAN",
+      "note": "a wound cloth headdress"
+     },
+     {
+      "clueFragment": "Timeless",
+      "gives": "T",
+      "note": "T is the abbreviation for time, here taken away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "URBAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Some timeless piece of headwear is linked with city fashion.",
+     "definitionFit": "Urban is the adjective for things belonging to towns and cities."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Timeless"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +168,51 @@
     "text": "Choice elixir served initially with a twist",
     "enumeration": "6"
    },
-   "solution": "OPTION"
+   "solution": "OPTION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OPTION",
+    "definitions": [
+     {
+      "text": "Choice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "served initially with a twist",
+      "for": "anagram",
+      "note": "a twist applied at the start means the opening letters of the word are swapped round"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "elixir",
+      "gives": "POTION",
+      "note": "an elixir is a magic or medicinal potion"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "POTION",
+       "gives": "OPTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bartender serves a choice elixir garnished with a twist of peel.",
+     "walkthrough": "Only the first two letters of the elixir trade places; the rest stays as it was.",
+     "definitionFit": "An option is a choice, the thing one may pick from alternatives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "twist"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +226,47 @@
     "text": "Meaning setter's left on board",
     "enumeration": "6"
    },
-   "solution": "IMPORT"
+   "solution": "IMPORT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPORT",
+    "definitions": [
+     {
+      "text": "Meaning",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "setter's",
+      "gives": "IM",
+      "note": "the setter refers to themself, so 'setter is' becomes I'M"
+     },
+     {
+      "clueFragment": "left on board",
+      "gives": "PORT",
+      "note": "port is the left side of a ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "PORT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notes the meaning of a setter leaving something lying on a board.",
+     "walkthrough": "'On board' means aboard ship, where left is port.",
+     "definitionFit": "The import of a statement is its significance or sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +280,47 @@
     "text": "Worked topless smeared in grease",
     "enumeration": "5"
    },
-   "solution": "OILED"
+   "solution": "OILED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OILED",
+    "definitions": [
+     {
+      "text": "smeared in grease",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topless",
+      "for": "deletion",
+      "note": "without its top, a down word loses its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Worked",
+      "gives": "TOILED",
+      "note": "toiled means worked hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OILED"
+     ]
+    },
+    "explanation": {
+     "surface": "A mechanic worked shirtless, covered in grease.",
+     "definitionFit": "Something oiled has been coated or lubricated with an oily substance such as grease."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "topless"
+    }
+   }
   },
   {
    "number": 6,
@@ -102,7 +334,52 @@
     "text": "Rock musician not so pious",
     "enumeration": "13"
    },
-   "solution": "SANCTIMONIOUS"
+   "solution": "SANCTIMONIOUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SANCTIMONIOUS",
+    "definitions": [
+     {
+      "text": "pious",
+      "at": 21,
+      "note": "the answer means making a show of piety, which the surface's 'not so pious' hints at"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rock",
+      "for": "anagram",
+      "note": "to rock is to shake, so the following letters are tossed about"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "musician not so",
+      "gives": "MUSICIANNOTSO",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MUSICIANNOTSO",
+       "gives": "SANCTIMONIOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rock musician is said to be not especially devout.",
+     "walkthrough": "'Rock musician' reads as one phrase, but 'Rock' is the signal and 'musician not so' the letters.",
+     "definitionFit": "Sanctimonious describes a self-righteous, outwardly pious manner, a sneering sense of devout."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rock"
+    }
+   }
   },
   {
    "number": 7,
@@ -122,7 +399,69 @@
      }
     ]
    },
-   "solution": "SCRAMBLEDEGGS"
+   "solution": "SCRAMBLEDEGGS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SCRAMBLED EGGS",
+    "definitions": [
+     {
+      "text": "for breakfast?",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item placed in another sits within it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leave",
+      "gives": "SCRAM",
+      "note": "scram is a slangy order to leave at once"
+     },
+     {
+      "clueFragment": "bed",
+      "gives": "BED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L for learner, a student driver"
+     },
+     {
+      "clueFragment": "urges",
+      "gives": "EGGS",
+      "note": "to egg on is to urge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCRAM",
+      "BLED",
+      "EGGS"
+     ]
+    },
+    "explanation": {
+     "surface": "A student is told to get out of bed and go for breakfast.",
+     "walkthrough": "L, the learner's plate, goes inside BED. The question mark flags a definition by example.",
+     "definitionFit": "Scrambled eggs is a common breakfast dish, so this is a definition by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "urges"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +481,54 @@
      }
     ]
    },
-   "solution": "LAMBETHPALACE"
+   "solution": "LAMBETHPALACE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LAMBETH PALACE",
+    "definitions": [
+     {
+      "text": "the archbishop's place",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stews",
+      "for": "anagram",
+      "note": "stewing jumbles ingredients together in a pot"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cheap meatball",
+      "gives": "CHEAPMEATBALL",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHEAPMEATBALL",
+       "gives": "LAMBETHPALACE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cheap meatball stews are being served at the archbishop's residence.",
+     "definitionFit": "Lambeth Palace is the London residence of the Archbishop of Canterbury, head of the Church of England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "stews"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +542,62 @@
     "text": "University friend, graduate in advanced position by degrees",
     "enumeration": "9"
    },
-   "solution": "GRADUALLY"
+   "solution": "GRADUALLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "GRADUALLY",
+    "definitions": [
+     {
+      "text": "by degrees",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in advanced position",
+      "for": "container",
+      "note": "placed in a forward position means it comes before the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "graduate",
+      "gives": "GRAD",
+      "note": "grad is short for graduate"
+     },
+     {
+      "clueFragment": "University",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "ALLY",
+      "note": "an ally is a friend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRAD",
+      "U",
+      "ALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A university friend is a graduate already in a senior post.",
+     "walkthrough": "University and friend come first in the clue, but the graduate is moved to the front.",
+     "definitionFit": "Gradually means step by step, little by little, which is what by degrees expresses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "degrees"
+    }
+   }
   },
   {
    "number": 10,
@@ -176,7 +617,62 @@
      }
     ]
    },
-   "solution": "FANCYTHAT"
+   "solution": "FANCYTHAT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "FANCY THAT",
+    "definitions": [
+     {
+      "text": "Well I never",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "the one wearing the clothes is inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "get attracted to",
+      "gives": "FANCY",
+      "note": "to fancy someone is to be attracted to them"
+     },
+     {
+      "clueFragment": "shabby clothes",
+      "gives": "TAT",
+      "note": "tat is cheap, shabby stuff"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FANCY",
+      "T",
+      "H",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is surprised to find themselves drawn to a husband in scruffy clothes.",
+     "walkthrough": "Tat is British slang for cheap, tasteless or worn-out goods.",
+     "definitionFit": "Both are exclamations of surprise, interchangeable interjections."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wearing"
+    }
+   }
   },
   {
    "number": 11,
@@ -190,7 +686,54 @@
     "text": "Navy welcomes environmentally friendly task for US soldiers",
     "enumeration": "5"
    },
-   "solution": "RECON"
+   "solution": "RECON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RECON",
+    "definitions": [
+     {
+      "text": "task for US soldiers",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcomes",
+      "for": "container",
+      "note": "a host who welcomes guests takes them inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Navy",
+      "gives": "RN",
+      "note": "the Royal Navy"
+     },
+     {
+      "clueFragment": "environmentally friendly",
+      "gives": "ECO",
+      "note": "eco- denotes green, environmentally friendly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ECO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "The navy takes on a green mission alongside American troops.",
+     "definitionFit": "Recon is American military slang for reconnaissance, a scouting mission."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "welcomes"
+    }
+   }
   },
   {
    "number": 12,
@@ -204,7 +747,57 @@
     "text": "A helpful item brought back for Roman divinity",
     "enumeration": "5"
    },
-   "solution": "DIANA"
+   "solution": "DIANA",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "DIANA",
+    "definitions": [
+     {
+      "text": "Roman divinity",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought back",
+      "for": "reversal",
+      "note": "something brought back returns the way it came, so the phrase is read backwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A helpful item",
+      "gives": "ANAID",
+      "note": "a helpful item is an aid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIANA"
+     ],
+     "reversals": [
+      {
+       "from": "ANAID",
+       "to": "DIANA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A useful object is returned as an offering to a Roman deity.",
+     "walkthrough": "'A' must be expanded to AN, as English grammar requires before AID.",
+     "definitionFit": "Diana was the Roman goddess of the hunt and the moon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "item"
+    }
+   }
   },
   {
    "number": 13,
@@ -218,7 +811,52 @@
     "text": "The number one evil spirit denied freedom from punishment",
     "enumeration": "5"
    },
-   "solution": "UNITY"
+   "solution": "UNITY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "UNITY",
+    "definitions": [
+     {
+      "text": "The number one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "denied",
+      "for": "deletion",
+      "note": "the spirit is refused its place, so it is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "freedom from punishment",
+      "gives": "IMPUNITY",
+      "note": "impunity is exemption from punishment"
+     },
+     {
+      "clueFragment": "evil spirit",
+      "gives": "IMP",
+      "note": "an imp is a small devil"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNITY"
+     ]
+    },
+    "explanation": {
+     "surface": "The chief demon is refused immunity from punishment.",
+     "definitionFit": "Unity is the mathematical term for one, the quantity of a single whole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 13,
@@ -232,7 +870,54 @@
     "text": "Female taken on by army detachment out of shape",
     "enumeration": "5"
    },
-   "solution": "UNFIT"
+   "solution": "UNFIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "UNFIT",
+    "definitions": [
+     {
+      "text": "out of shape",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken on by",
+      "for": "container",
+      "note": "a unit that takes someone on enlists them, bringing them within its ranks"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "army detachment",
+      "gives": "UNIT",
+      "note": "a unit is a detachment of soldiers"
+     },
+     {
+      "clueFragment": "Female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "F",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman recruited into an army section is not physically fit.",
+     "definitionFit": "Unfit means in poor physical condition, lacking fitness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "taken"
+    }
+   }
   },
   {
    "number": 14,
@@ -246,7 +931,72 @@
     "text": "India had upset head of oriental state",
     "enumeration": "5"
    },
-   "solution": "IDAHO"
+   "solution": "IDAHO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "IDAHO",
+    "definitions": [
+     {
+      "text": "state",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "upset means knocked over and disturbed, so the letters fall into a new order"
+     },
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "India",
+      "gives": "I",
+      "note": "I is India in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "had",
+      "gives": "HAD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "oriental",
+      "gives": "O",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDAH",
+      "O"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IHAD",
+       "gives": "IDAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "India had upset the leader of an Eastern state.",
+     "definitionFit": "Idaho is one of the fifty states of the USA."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "India"
+    }
+   }
   },
   {
    "number": 15,
@@ -260,7 +1010,63 @@
     "text": "Chay at sea on top of this craft?",
     "enumeration": "5"
    },
-   "solution": "YACHT"
+   "solution": "YACHT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "YACHT",
+    "definitions": [
+     {
+      "text": "Chay at sea on top of this craft?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "at sea means confused or all over the place"
+     },
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a down word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chay",
+      "gives": "CHAY",
+      "note": "the name taken as written"
+     },
+     {
+      "clueFragment": "this",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHAYT",
+       "gives": "YACHT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Chay Blyth sailing aboard his boat.",
+     "walkthrough": "Chay Blyth is a famous British yachtsman who sailed single-handed round the world, so the whole clue describes him on his vessel.",
+     "definitionFit": "A yacht is a sailing craft, exactly the vessel a long-distance sailor like Chay Blyth would be on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +1080,46 @@
     "text": "Highly motivated daughter torn",
     "enumeration": "6"
    },
-   "solution": "DRIVEN"
+   "solution": "DRIVEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRIVEN",
+    "definitions": [
+     {
+      "text": "Highly motivated",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     },
+     {
+      "clueFragment": "torn",
+      "gives": "RIVEN",
+      "note": "riven means split or torn apart"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RIVEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A highly ambitious daughter feels pulled in two directions.",
+     "definitionFit": "A driven person is strongly motivated, impelled by ambition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "torn"
+    }
+   }
   },
   {
    "number": 17,
@@ -288,7 +1133,43 @@
     "text": "Language that might be written by gum!",
     "enumeration": "6"
    },
-   "solution": "ARABIC"
+   "solution": "ARABIC",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ARABIC",
+    "definitions": [
+     {
+      "text": "Language",
+      "at": 0
+     },
+     {
+      "text": "that might be written by gum",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Language",
+      "note": "first meaning: the language of the Arab world"
+     },
+     {
+      "clueFragment": "that might be written by gum",
+      "note": "second meaning: the word that may follow gum, naming a plant resin"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'By gum!' looks like a northern English exclamation of surprise, but it means the word placed next to 'gum'.",
+     "definitionFit": "Arabic is a Semitic language, and gum arabic is an adhesive resin from acacia trees."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gum"
+    }
+   }
   },
   {
    "number": 18,
@@ -302,7 +1183,65 @@
     "text": "Father caught smuggling a new currency",
     "enumeration": "5"
    },
-   "solution": "FRANC"
+   "solution": "FRANC",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FRANC",
+    "definitions": [
+     {
+      "text": "currency",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "smuggling",
+      "for": "container",
+      "note": "smuggled goods are hidden inside something else"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Father",
+      "gives": "FR",
+      "note": "Fr is the abbreviation for Father, a priest's title"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c is the cricket scorecard abbreviation for caught"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FR",
+      "AN",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A priest is arrested for smuggling in a new form of money.",
+     "walkthrough": "FR and C wrap round A and N.",
+     "definitionFit": "The franc was the currency of France and is still that of Switzerland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 19,
@@ -316,7 +1255,43 @@
     "text": "South American resident beset by mega gout inflammation",
     "enumeration": "6"
    },
-   "solution": "AGOUTI"
+   "solution": "AGOUTI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AGOUTI",
+    "definitions": [
+     {
+      "text": "South American resident",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beset by",
+      "for": "hidden_word",
+      "note": "something beset is surrounded on all sides, so it lies inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mega gout inflammation",
+      "gives": "AGOUTI",
+      "note": "found running across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A South American is suffering from a severe flare-up of gout.",
+     "walkthrough": "'Resident' suggests a person, but it is an animal living there.",
+     "definitionFit": "The agouti is a rodent native to Central and South America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "resident"
+    }
+   }
   },
   {
    "number": 20,
@@ -330,7 +1305,56 @@
     "text": "Frank polishes front of Tesla",
     "enumeration": "6"
    },
-   "solution": "HONEST"
+   "solution": "HONEST",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "HONEST",
+    "definitions": [
+     {
+      "text": "Frank",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front of",
+      "for": "letter_selection",
+      "note": "the front of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "polishes",
+      "gives": "HONES",
+      "note": "hones means sharpens or polishes"
+     },
+     {
+      "clueFragment": "Tesla",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HONES",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Frank polishes the front of his Tesla car.",
+     "walkthrough": "'Frank' looks like a man's name, but it is the adjective meaning candid.",
+     "definitionFit": "Frank and honest both describe someone open and truthful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Frank"
+    }
+   }
   },
   {
    "number": 21,
@@ -344,7 +1368,62 @@
     "text": "Solicitor eating starter of raw fish",
     "enumeration": "5"
    },
-   "solution": "TROUT"
+   "solution": "TROUT",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "TROUT",
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "what is eaten ends up inside the eater"
+     },
+     {
+      "text": "starter of",
+      "for": "letter_selection",
+      "note": "a starter comes first, so only the opening letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Solicitor",
+      "gives": "TOUT",
+      "note": "a tout solicits custom, so is a solicitor in that sense"
+     },
+     {
+      "clueFragment": "raw",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A lawyer eats a raw fish starter.",
+     "walkthrough": "A solicitor is a British lawyer, but here it is one who solicits trade.",
+     "definitionFit": "The trout is a freshwater fish of the salmon family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Solicitor"
+    }
+   }
   },
   {
    "number": 22,
@@ -358,7 +1437,61 @@
     "text": "Element of Republican bill starts to inspire urban myth",
     "enumeration": "6"
    },
-   "solution": "RADIUM"
+   "solution": "RADIUM",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "RADIUM",
+    "definitions": [
+     {
+      "text": "Element",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "starts are opening letters, one taken from each word after"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     },
+     {
+      "clueFragment": "bill",
+      "gives": "AD",
+      "note": "an ad, or advertisement, is a bill or poster"
+     },
+     {
+      "clueFragment": "inspire urban myth",
+      "gives": "IUM",
+      "select": "first",
+      "note": "first letters of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "AD",
+      "IUM"
+     ]
+    },
+    "explanation": {
+     "surface": "Part of a Republican bill is designed to start an urban myth.",
+     "definitionFit": "Radium is a radioactive chemical element, discovered by the Curies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bill"
+    }
+   }
   },
   {
    "number": 23,
@@ -372,7 +1505,61 @@
     "text": "Handy American hybrid fuel",
     "enumeration": "6"
    },
-   "solution": "USEFUL"
+   "solution": "USEFUL",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "USEFUL",
+    "definitions": [
+     {
+      "text": "Handy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hybrid",
+      "for": "anagram",
+      "note": "a hybrid is a mixture, so the letters are mixed up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US for the United States"
+     },
+     {
+      "clueFragment": "fuel",
+      "gives": "FUEL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "US",
+      "EFUL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FUEL",
+       "gives": "EFUL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hybrid fuel is convenient in America.",
+     "walkthrough": "'Hybrid fuel' reads as a car topic, but hybrid is the mixing signal.",
+     "definitionFit": "Handy and useful both mean serviceable and convenient."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hybrid"
+    }
+   }
   },
   {
    "number": 24,
@@ -386,7 +1573,62 @@
     "text": "Owner of estate car finally settled claims",
     "enumeration": "5"
    },
-   "solution": "LAIRD"
+   "solution": "LAIRD",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "LAIRD",
+    "definitions": [
+     {
+      "text": "Owner of estate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very last letter of the word before"
+     },
+     {
+      "text": "claims",
+      "for": "container",
+      "note": "to claim something is to take hold of it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "settled",
+      "gives": "LAID",
+      "note": "laid as in settled down or put to rest"
+     },
+     {
+      "clueFragment": "car",
+      "gives": "R",
+      "select": "last",
+      "note": "last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAI",
+      "R",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "The owner of an estate car finally settles some claims.",
+     "walkthrough": "'Estate car' is a station wagon, but estate belongs to the definition and car to the wordplay. A laird is a Scottish landowner.",
+     "definitionFit": "A laird is a Scottish landed proprietor, the owner of an estate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "car"
+    }
+   }
   },
   {
    "number": 25,
@@ -400,7 +1642,51 @@
     "text": "Wee tot before atomic crisis?",
     "enumeration": "5"
    },
-   "solution": "DRAMA"
+   "solution": "DRAMA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRAMA",
+    "definitions": [
+     {
+      "text": "crisis",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "?"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wee tot",
+      "gives": "DRAM",
+      "note": "a dram is a small tot of whisky, wee in Scots"
+     },
+     {
+      "clueFragment": "atomic",
+      "gives": "A",
+      "note": "A for atomic, as in A-bomb"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRAM",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A small child stands in front of an atomic disaster.",
+     "walkthrough": "'Wee tot' suggests a little child, but a tot is also a small measure of spirits.",
+     "definitionFit": "A drama can mean an exciting or troublesome event, a crisis or fuss."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tot"
+    }
+   }
   },
   {
    "number": 26,
@@ -414,7 +1700,48 @@
     "text": "Goddess periodically ignored forgery law",
     "enumeration": "5"
    },
-   "solution": "FREYA"
+   "solution": "FREYA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "FREYA",
+    "definitions": [
+     {
+      "text": "Goddess",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "periodically ignored",
+      "for": "letter_selection",
+      "note": "letters are skipped at regular intervals, so every other one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "forgery law",
+      "gives": "FREYA",
+      "select": "alternate",
+      "note": "first, third, fifth and so on of the letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FREYA"
+     ]
+    },
+    "explanation": {
+     "surface": "A goddess sometimes disregards the law against forgery.",
+     "definitionFit": "Freya is the Norse goddess of love and fertility."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ignored"
+    }
+   }
   },
   {
    "number": 26,
@@ -428,7 +1755,46 @@
     "text": "Fahrenheit isn't – commonly speaking – difficult to make out",
     "enumeration": "5"
    },
-   "solution": "FAINT"
+   "solution": "FAINT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FAINT",
+    "definitions": [
+     {
+      "text": "difficult to make out",
+      "at": 39
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fahrenheit",
+      "gives": "F",
+      "note": "F is the abbreviation for Fahrenheit"
+     },
+     {
+      "clueFragment": "isn't – commonly speaking",
+      "gives": "AINT",
+      "note": "ain't is the colloquial form of isn't"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "AINT"
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that, colloquially, Fahrenheit is not hard to understand.",
+     "definitionFit": "Faint means weak or indistinct, hard to see or hear clearly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "commonly"
+    }
+   }
   },
   {
    "number": 27,
@@ -448,7 +1814,52 @@
      }
     ]
    },
-   "solution": "LUNATICFRINGE"
+   "solution": "LUNATICFRINGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LUNATIC FRINGE",
+    "definitions": [
+     {
+      "text": "Cult fanatics",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crackers",
+      "for": "anagram",
+      "note": "crackers is slang for crazy, so the letters run wild"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flaunting rice",
+      "gives": "FLAUNTINGRICE",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FLAUNTINGRICE",
+       "gives": "LUNATICFRINGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cult members show off their rice crackers.",
+     "walkthrough": "'Rice crackers' looks like a snack, but crackers is the signal and rice joins the letters before it.",
+     "definitionFit": "The lunatic fringe is the extreme, fanatical minority of a movement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "crackers"
+    }
+   }
   },
   {
    "number": 28,
@@ -462,7 +1873,51 @@
     "text": "More placid, gentle sounding order of nuns",
     "enumeration": "9"
    },
-   "solution": "CARMELITE"
+   "solution": "CARMELITE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CARMELITE",
+    "definitions": [
+     {
+      "text": "order of nuns",
+      "at": 29,
+      "note": "the answer names a member of the order, or the order as an adjective"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sounding",
+      "for": "homophone",
+      "note": "sounding means the words are to be heard rather than spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "More placid",
+      "gives": "CARMEL",
+      "soundsLike": "CALMER",
+      "note": "more placid means calmer; in a non-rhotic British accent the two sound alike"
+     },
+     {
+      "clueFragment": "gentle",
+      "gives": "ITE",
+      "soundsLike": "LIGHT",
+      "note": "a gentle touch is a light one"
+     }
+    ],
+    "explanation": {
+     "surface": "A calmer, softer-voiced order of nuns.",
+     "walkthrough": "The homophone relies on a British accent that drops the R, so CALMER and CARMEL-A sound close.",
+     "definitionFit": "The Carmelites are a Catholic religious order, with enclosed communities of nuns."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gentle"
+    }
+   }
   }
  ]
 }
