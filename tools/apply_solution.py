@@ -232,6 +232,20 @@ def check_printed(puzzle, fill):
             if normalise(fill.get(eid, "")) != normalise(answer)]
 
 
+def check_writeup(puzzle):
+    """A grid whose answers a blog's write-up printed is never solved over: the
+    write-up is the answer key, so a light it left blank is one its parser
+    could not read, and a model's fill there would turn every answer the blog
+    printed into "unverified". The parser is what gets mended."""
+    if "blog" not in provenance.solution_detail(puzzle):
+        return []
+    blank = [entry_id(e) for e in puzzle["entries"] if not (e.get("solution") or "").strip()]
+    url = (puzzle.get("solutions") or {}).get("url")
+    return [f"answers are {url}'s write-up, which the blog parser read no answer from "
+            f"for {', '.join(blank) or 'no light'}: mend the parser and re-file, "
+            "do not solve over a published key"]
+
+
 def check_sources(puzzle, fill, sources=None):
     """Every answer another source prints for this puzzle that the fill does
     not have, as problems. A fill that agrees with its own crossings can still
@@ -403,8 +417,8 @@ def main():
     cells, crossings, problems = check_fill(puzzle, fill)
     # The grid before the fill: a fill that agrees with an incoherent grid has
     # agreed with nothing, so nothing may be written into one.
-    problems = (check_geometry(puzzle) + problems + check_definitions(puzzle, defs)
-                + check_printed(puzzle, fill))
+    problems = (check_writeup(puzzle) + check_geometry(puzzle) + problems
+                + check_definitions(puzzle, defs) + check_printed(puzzle, fill))
     if not problems:
         problems = check_sources(puzzle, fill)
     print(f"{args.number}: {len(puzzle['entries'])} entries, {len(fill)} answers given, "
