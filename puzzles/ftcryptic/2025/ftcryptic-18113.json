@@ -24,6 +24,9 @@
   "date": "2025-07-22",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,69 @@
     "text": "Remove last of ancient vehicles from the east",
     "enumeration": "8"
    },
-   "solution": "SUBTRACT"
+   "solution": "SUBTRACT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "SUBTRACT",
+    "definitions": [
+     {
+      "text": "Remove",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter, so only the end of ancient is kept"
+     },
+     {
+      "text": "from the east",
+      "for": "reversal",
+      "note": "in an across clue, reading from the east means reading right to left, so everything is turned around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ancient",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of ancient"
+     },
+     {
+      "clueFragment": "vehicles",
+      "gives": "CARTBUS",
+      "note": "two vehicles, a cart and a bus"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUB",
+      "TRAC",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "TCARTBUS",
+       "to": "SUBTRACT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Clearing away the final relic among some antique carriages that arrived from the east.",
+     "walkthrough": "The vehicles are two separate ones, CART and BUS, which follow T before the whole string is reversed.",
+     "definitionFit": "To subtract is to take away or deduct, so it is a synonym of remove."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "east"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +116,56 @@
     "text": "Mate's back, wanting an E",
     "enumeration": "6"
    },
-   "solution": "SPOUSE"
+   "solution": "SPOUSE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SPOUSE",
+    "definitions": [
+     {
+      "text": "Mate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wanting",
+      "for": "deletion",
+      "note": "wanting means lacking, so the named letter is missing from the word"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "back",
+      "gives": "ESPOUSE",
+      "note": "to espouse a cause is to back or support it"
+     },
+     {
+      "clueFragment": "an E",
+      "gives": "E",
+      "note": "the letter itself, taken off the front"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPOUSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's partner has a bad back and is hoping for a top grade.",
+     "walkthrough": "'Mate's back' reads as a body part; the 's is just a link and back is the verb espouse.",
+     "definitionFit": "A mate in the sense of a marriage partner is a husband or wife, which is what a spouse is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +179,45 @@
     "text": "Reportedly second-choice goalie, one needing some protection",
     "enumeration": "9"
    },
-   "solution": "BEEKEEPER"
+   "solution": "BEEKEEPER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BEEKEEPER",
+    "definitions": [
+     {
+      "text": "one needing some protection",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "reportedly signals that the words are heard spoken rather than read"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second-choice goalie",
+      "gives": "BEEKEEPER",
+      "soundsLike": "B KEEPER",
+      "note": "the second-choice team is the B team, so its goalie is a B keeper"
+     }
+    ],
+    "explanation": {
+     "surface": "Commentary on a reserve goalkeeper who needs shielding from the opposition.",
+     "walkthrough": "The protection is the veil and gloves worn when handling hives, not a defensive wall in front of a goal.",
+     "definitionFit": "A person tending hives wears protective clothing against stings, so a beekeeper is someone needing some protection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "protection"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +231,57 @@
     "text": "What's specified in contract of theatre director on way up",
     "enumeration": "5"
    },
-   "solution": "RIDER"
+   "solution": "RIDER",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "RIDER",
+    "definitions": [
+     {
+      "text": "What's specified in contract",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of",
+      "for": "hidden_word",
+      "note": "of here means taken from within, so the letters come out of the words that follow"
+     },
+     {
+      "text": "on way up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading from bottom to top, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "theatre director",
+      "gives": "REDIR",
+      "note": "sitting across the junction of the two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "REDIR",
+       "to": "RIDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The demands written into a stage director's contract as their career climbs.",
+     "walkthrough": "Famously, performers' riders list what they want provided backstage, so the definition fits the theatrical surface.",
+     "definitionFit": "A rider is an added clause or schedule of requirements attached to a contract, such as a performer's backstage demands."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "director"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +295,47 @@
     "text": "Party type, as Queen Camilla is?",
     "enumeration": "7"
    },
-   "solution": "CONSORT"
+   "solution": "CONSORT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONSORT",
+    "definitions": [
+     {
+      "text": "as Queen Camilla is?",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Party",
+      "gives": "CON",
+      "note": "short for Conservative, a UK political party"
+     },
+     {
+      "clueFragment": "type",
+      "gives": "SORT",
+      "note": "a sort is a type or kind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "SORT"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking what kind of party-goer Queen Camilla is.",
+     "walkthrough": "Camilla's title for years was Queen Consort, the wife of the reigning King Charles III.",
+     "definitionFit": "A consort is the spouse of a reigning monarch, and Camilla's official title was Queen Consort."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Party"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +349,46 @@
     "text": "Trouble in top boys' school",
     "enumeration": "6"
    },
-   "solution": "HARROW"
+   "solution": "HARROW",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HARROW",
+    "definitions": [
+     {
+      "text": "Trouble",
+      "at": 0
+     },
+     {
+      "text": "top boys' school",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trouble",
+      "note": "first meaning: to distress or torment"
+     },
+     {
+      "clueFragment": "top boys' school",
+      "note": "second meaning: the famous English public school for boys in north-west London"
+     }
+    ],
+    "explanation": {
+     "surface": "A boy at an elite school has got himself into bother.",
+     "walkthrough": "Harrow is one of England's most famous fee-paying boarding schools, alma mater of Churchill.",
+     "definitionFit": "To harrow is to cause distress, and Harrow is a leading English public school for boys."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Trouble"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +402,59 @@
     "text": "A foreign national, from Turkey perhaps",
     "enumeration": "9"
    },
-   "solution": "ANATOLIAN"
+   "solution": "ANATOLIAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANATOLIAN",
+    "definitions": [
+     {
+      "text": "from Turkey perhaps",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "foreign",
+      "for": "anagram",
+      "note": "foreign suggests something made strange and unfamiliar, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "national",
+      "gives": "NATIONAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANATIONAL",
+       "gives": "ANATOLIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An overseas citizen who may well be a Turk.",
+     "walkthrough": "Anatolia is the Asian peninsula making up most of Turkey; 'perhaps' marks the definition as an example.",
+     "definitionFit": "Anatolian describes someone or something from Anatolia, the region forming most of modern Turkey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "foreign"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +468,63 @@
     "text": "Dance with sailor, keeling over after drink",
     "enumeration": "5"
    },
-   "solution": "RUMBA"
+   "solution": "RUMBA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "RUMBA",
+    "definitions": [
+     {
+      "text": "Dance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeling over",
+      "for": "reversal",
+      "note": "a ship keeling over capsizes, turning upside down, which in a down clue flips the letters"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "RUM",
+      "note": "a spirit"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "AB",
+      "note": "able seaman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUM",
+      "BA"
+     ],
+     "reversals": [
+      {
+       "from": "AB",
+       "to": "BA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunken sailor dancing until he falls over.",
+     "definitionFit": "The rumba is a Cuban ballroom dance, so it is an example of a dance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +544,39 @@
      }
     ]
    },
-   "solution": "WARCHEST"
+   "solution": "WARCHEST",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "WAR CHEST",
+    "definitions": [
+     {
+      "text": "Ready for a fight?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ready for a fight?",
+      "note": "surface reading: prepared and eager for combat"
+     },
+     {
+      "clueFragment": "Ready",
+      "note": "setter's reading: ready as in readies, slang for cash, so this is money set aside for a fight"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Ready' looks like an adjective meaning prepared, but it is a noun, as in 'the ready', meaning cash.",
+     "definitionFit": "A war chest is a fund of money reserved for a campaign or conflict, literally the ready for a fight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ready"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +590,41 @@
     "text": "More than one finished cooked to a frazzle?",
     "enumeration": "8"
    },
-   "solution": "OVERDONE"
+   "solution": "OVERDONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERDONE",
+    "definitions": [
+     {
+      "text": "cooked to a frazzle?",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "More than one finished",
+      "gives": "OVERDONE",
+      "note": "two words that each mean finished, as in the phrase over and done"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVERDONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook finishes several dishes and leaves them burnt to a crisp.",
+     "walkthrough": "'More than one finished' asks for two synonyms of finished: OVER and DONE, which sit side by side.",
+     "definitionFit": "Food that is overdone has been cooked too long, and a frazzle is the burnt extreme of that."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "More"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +638,44 @@
     "text": "The Speaker's destiny increasingly untroubled",
     "enumeration": "6"
    },
-   "solution": "CALMER"
+   "solution": "CALMER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CALMER",
+    "definitions": [
+     {
+      "text": "increasingly untroubled",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "The Speaker's",
+      "for": "homophone",
+      "note": "a speaker's version is what is heard said out loud, not how it is written"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "destiny",
+      "gives": "CALMER",
+      "soundsLike": "KARMA",
+      "note": "karma is fate or destiny"
+     }
+    ],
+    "explanation": {
+     "surface": "The Commons Speaker's fate is to grow ever more serene.",
+     "walkthrough": "The match relies on a non-rhotic British accent, where the r in calmer is silent.",
+     "definitionFit": "Calmer is the comparative of calm, meaning more untroubled than before."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Speaker's"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +689,49 @@
     "text": "German chap baring bottom?",
     "enumeration": "4"
    },
-   "solution": "OTTO"
+   "solution": "OTTO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "OTTO",
+    "definitions": [
+     {
+      "text": "German chap",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "baring",
+      "for": "letter_selection",
+      "note": "baring strips off the outer covering, so the outside letters go and the inner part stays"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bottom",
+      "gives": "OTTO",
+      "select": "middle",
+      "note": "the inside of the word with its first and last letters stripped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OTTO"
+     ]
+    },
+    "explanation": {
+     "surface": "A German man mooning someone.",
+     "definitionFit": "Otto is a common German male first name, so it is an example of a German chap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bottom"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +745,47 @@
     "text": "Complete quiet always for the poet",
     "enumeration": "5"
    },
-   "solution": "SHEER"
+   "solution": "SHEER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHEER",
+    "definitions": [
+     {
+      "text": "Complete",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quiet",
+      "gives": "SH",
+      "note": "the hush sound asking for quiet"
+     },
+     {
+      "clueFragment": "always for the poet",
+      "gives": "EER",
+      "note": "e'er is the poetic contraction of ever"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "EER"
+     ]
+    },
+    "explanation": {
+     "surface": "A poet demanding total, permanent silence.",
+     "walkthrough": "Poets drop letters for metre, giving e'er for ever and o'er for over.",
+     "definitionFit": "Sheer means utter or absolute, as in sheer nonsense, so it is a synonym of complete."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Complete"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +799,50 @@
     "text": "Poet's oath upset person with healing hands",
     "enumeration": "9"
    },
-   "solution": "OSTEOPATH"
+   "solution": "OSTEOPATH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OSTEOPATH",
+    "definitions": [
+     {
+      "text": "person with healing hands",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "something upset is knocked over and disordered, so these letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poet's oath",
+      "gives": "POETSOATH",
+      "note": "every letter of the two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "POETSOATH",
+       "gives": "OSTEOPATH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet's solemn vow distresses a faith healer.",
+     "definitionFit": "An osteopath treats patients by manipulating bones and muscles by hand, a manual therapist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +856,46 @@
     "text": "Bottle of gin perhaps",
     "enumeration": "6"
    },
-   "solution": "SPIRIT"
+   "solution": "SPIRIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPIRIT",
+    "definitions": [
+     {
+      "text": "Bottle",
+      "at": 0
+     },
+     {
+      "text": "gin perhaps",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bottle",
+      "note": "first meaning: courage or nerve, as British slang has it"
+     },
+     {
+      "clueFragment": "gin perhaps",
+      "note": "second meaning: a distilled alcoholic drink, of which gin is one"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a bottle of gin; in fact bottle is British slang for courage, which is spirit.",
+     "definitionFit": "Spirit means courage or mettle, and also a strong distilled drink such as gin or vodka."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bottle"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +909,50 @@
     "text": "Regret Sun somehow on the rise again",
     "enumeration": "9"
    },
-   "solution": "RESURGENT"
+   "solution": "RESURGENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RESURGENT",
+    "definitions": [
+     {
+      "text": "on the rise again",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "somehow says the letters arrive in some unstated other order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Regret Sun",
+      "gives": "REGRETSUN",
+      "note": "every letter of the two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REGRETSUN",
+       "gives": "RESURGENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sorry to see the sun rising once more.",
+     "definitionFit": "Resurgent describes something reviving and gaining strength again after a decline."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sun"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +966,70 @@
     "text": "On reflection I think no American is threatening",
     "enumeration": "7"
    },
-   "solution": "OMINOUS"
+   "solution": "OMINOUS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "OMINOUS",
+    "definitions": [
+     {
+      "text": "threatening",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "On reflection",
+      "for": "reversal",
+      "note": "a reflection in a mirror is back to front, so the letters are read the other way"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I think",
+      "gives": "IMO",
+      "note": "the texting abbreviation for in my opinion"
+     },
+     {
+      "clueFragment": "no",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "abbreviation for United States"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OMI",
+      "NO",
+      "US"
+     ],
+     "reversals": [
+      {
+       "from": "IMO",
+       "to": "OMI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Having thought it over, someone decides no American is menacing.",
+     "walkthrough": "'On reflection' sounds like 'having thought again' but it turns only IMO around.",
+     "definitionFit": "Ominous means suggesting that something bad is about to happen, which is menacing or threatening."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reflection"
+    }
+   }
   },
   {
    "number": 17,
@@ -281,7 +1043,68 @@
     "text": "Spring in Nigeria almost too hot",
     "enumeration": "9"
    },
-   "solution": "ORIGINATE"
+   "solution": "ORIGINATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ORIGINATE",
+    "definitions": [
+     {
+      "text": "Spring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite the whole, so the word loses its final letter"
+     },
+     {
+      "text": "hot",
+      "for": "anagram",
+      "note": "hot can mean stirred up or agitated, so the letters are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nigeria",
+      "gives": "NIGERIA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "too",
+      "gives": "TO",
+      "note": "the word cut short by one letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORIGINATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NIGERIATO",
+       "gives": "ORIGINATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Springtime in Nigeria is nearly too hot to bear.",
+     "walkthrough": "'Spring' looks like the season, and 'too hot' like a weather report; spring is the verb, and hot is the anagram signal.",
+     "definitionFit": "To spring from something is to arise or come from it, which is to originate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hot"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1124,48 @@
      }
     ]
    },
-   "solution": "SHEDEVIL"
+   "solution": "SHEDEVIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHE-DEVIL",
+    "definitions": [
+     {
+      "text": "This woman won't",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cast off",
+      "gives": "SHED",
+      "note": "to shed is to cast off, as a snake its skin"
+     },
+     {
+      "clueFragment": "wickedness",
+      "gives": "EVIL",
+      "note": "evil is wickedness"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHED",
+      "EVIL"
+     ]
+    },
+    "explanation": {
+     "surface": "An appeal to give up sin, which one woman refuses.",
+     "walkthrough": "The definition leans on the wordplay: she is the woman who won't shed evil, a she-devil.",
+     "definitionFit": "A she-devil is a cruel, malicious woman, one who would never give up her wicked ways."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cast"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1179,50 @@
     "text": "Is Sarah making a hot sauce?",
     "enumeration": "7"
    },
-   "solution": "HARISSA"
+   "solution": "HARISSA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HARISSA",
+    "definitions": [
+     {
+      "text": "a hot sauce",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "making",
+      "for": "anagram",
+      "note": "making means forming something new out of raw material, so these letters are reshaped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is Sarah",
+      "gives": "ISSARAH",
+      "note": "every letter of the two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISSARAH",
+       "gives": "HARISSA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering whether Sarah is preparing a spicy condiment.",
+     "definitionFit": "Harissa is a fiery North African chilli paste, an example of a hot sauce."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "making"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1236,48 @@
     "text": "Mythical vessel slowly heading off",
     "enumeration": "4"
    },
-   "solution": "ARGO"
+   "solution": "ARGO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ARGO",
+    "definitions": [
+     {
+      "text": "Mythical vessel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading off",
+      "for": "deletion",
+      "note": "the heading of a word is its first letter, and off says that letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slowly",
+      "gives": "LARGO",
+      "note": "the musical direction meaning slowly and broadly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARGO"
+     ]
+    },
+    "explanation": {
+     "surface": "A legendary ship departing at a leisurely pace.",
+     "walkthrough": "Largo is the Italian tempo marking for a very slow pace.",
+     "definitionFit": "The Argo was the ship of Jason and the Argonauts in Greek legend."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1291,59 @@
     "text": "Relative in Lubyanka finally set free",
     "enumeration": "6"
    },
-   "solution": "AUNTIE"
+   "solution": "AUNTIE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AUNTIE",
+    "definitions": [
+     {
+      "text": "Relative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points at the closing letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lubyanka",
+      "gives": "A",
+      "select": "last",
+      "note": "the final letter of Lubyanka"
+     },
+     {
+      "clueFragment": "set free",
+      "gives": "UNTIE",
+      "note": "to untie is to loosen bonds and set free"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "UNTIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A family member at last released from the Lubyanka.",
+     "walkthrough": "The Lubyanka is the Moscow headquarters and prison of the KGB.",
+     "definitionFit": "An auntie is an informal word for an aunt, a family relative."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "finally"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1357,48 @@
     "text": "Cruel for a Cockney, being without guile",
     "enumeration": "7"
    },
-   "solution": "ARTLESS"
+   "solution": "ARTLESS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ARTLESS",
+    "definitions": [
+     {
+      "text": "without guile",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for a Cockney",
+      "for": "homophone",
+      "note": "Cockneys famously drop the h sound, so the word is as such a speaker would say it"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cruel",
+      "gives": "ARTLESS",
+      "soundsLike": "'EARTLESS",
+      "note": "heartless means cruel, said without its opening h"
+     }
+    ],
+    "explanation": {
+     "surface": "A Cockney who is cruel yet entirely innocent.",
+     "walkthrough": "A Cockney is a working-class Londoner whose accent drops the h, so heart becomes 'art.",
+     "definitionFit": "Artless means simple and natural, without cunning or deceit, which is being without guile."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Cruel"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1412,49 @@
     "text": "About to give up and go back",
     "enumeration": "6"
    },
-   "solution": "RECEDE"
+   "solution": "RECEDE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RECEDE",
+    "definitions": [
+     {
+      "text": "go back",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "About",
+      "gives": "RE",
+      "note": "re means concerning or about"
+     },
+     {
+      "clueFragment": "to give up",
+      "gives": "CEDE",
+      "note": "to cede is to surrender or give up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "CEDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone about to quit and retreat.",
+     "definitionFit": "To recede is to move back or withdraw, as tide or a hairline does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "About"
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1468,47 @@
     "text": "Utterly depressed by the Tories?",
     "enumeration": "9"
    },
-   "solution": "DOWNRIGHT"
+   "solution": "DOWNRIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOWNRIGHT",
+    "definitions": [
+     {
+      "text": "Utterly",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "depressed",
+      "gives": "DOWN",
+      "note": "feeling down is feeling depressed"
+     },
+     {
+      "clueFragment": "by the Tories",
+      "gives": "RIGHT",
+      "note": "the Tories are the party of the political right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOWN",
+      "RIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone thoroughly miserable about the Conservative government.",
+     "walkthrough": "Tory is the everyday name for a member of Britain's Conservative Party, on the right.",
+     "definitionFit": "Downright is an adverb meaning thoroughly or completely, as in downright rude."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "depressed"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1522,47 @@
     "text": "Go round with something on your shoe?",
     "enumeration": "5"
    },
-   "solution": "WHEEL"
+   "solution": "WHEEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WHEEL",
+    "definitions": [
+     {
+      "text": "Go round",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     },
+     {
+      "clueFragment": "something on your shoe",
+      "gives": "HEEL",
+      "note": "the raised part at the back of a shoe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HEEL"
+     ]
+    },
+    "explanation": {
+     "surface": "Turning around with something stuck to your footwear.",
+     "walkthrough": "'Something on your shoe' suggests mud or gum; it is the heel, part of the shoe itself.",
+     "definitionFit": "To wheel is to turn or swing round in a circle, so it is a synonym of go round."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "something"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1576,43 @@
     "text": "Catch an Edith Piaf number",
     "enumeration": "5"
    },
-   "solution": "SEIZE"
+   "solution": "SEIZE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SEIZE",
+    "definitions": [
+     {
+      "text": "Catch",
+      "at": 0
+     },
+     {
+      "text": "an Edith Piaf number",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Catch",
+      "note": "first meaning: to grab or take hold of"
+     },
+     {
+      "clueFragment": "an Edith Piaf number",
+      "note": "second meaning: the French word for sixteen, a number Piaf would use"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A Piaf number looks like one of her songs; it is a number in her language, French.",
+     "definitionFit": "To seize is to grab hold of, and seize is French for sixteen, a number the French singer Piaf would say."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1626,55 @@
     "text": "Hard-up family thrown into street",
     "enumeration": "5"
    },
-   "solution": "SKINT"
+   "solution": "SKINT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SKINT",
+    "definitions": [
+     {
+      "text": "Hard-up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "thrown into",
+      "for": "container",
+      "note": "something thrown into a place ends up inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "standard abbreviation for street"
+     },
+     {
+      "clueFragment": "family",
+      "gives": "KIN",
+      "note": "kin are relatives"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "KIN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A broke family evicted onto the street.",
+     "walkthrough": "Skint is British slang for having no money.",
+     "definitionFit": "Skint is informal British for penniless, which is being hard-up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thrown"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1688,68 @@
     "text": "Panorama first to report on end of the Observer",
     "enumeration": "6"
    },
-   "solution": "VIEWER"
+   "solution": "VIEWER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "VIEWER",
+    "definitions": [
+     {
+      "text": "Observer",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its last letter, so only that letter is kept"
+     },
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first picks out the opening letter of the word after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Panorama",
+      "gives": "VIEW",
+      "note": "a panorama is a wide view"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the"
+     },
+     {
+      "clueFragment": "report",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of report"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIEW",
+      "E",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A BBC current-affairs show is the first to report on the end of the Observer newspaper.",
+     "walkthrough": "Panorama is a BBC TV documentary programme and The Observer a Sunday newspaper; the R placed on the E means after it in an across entry.",
+     "definitionFit": "A viewer is someone who watches or looks on, which is an observer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Panorama"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1763,64 @@
     "text": "Feel uneasy about information in hospital grounds",
     "enumeration": "8"
    },
-   "solution": "HESITATE"
+   "solution": "HESITATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HESITATE",
+    "definitions": [
+     {
+      "text": "Feel uneasy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one thing inside another"
+     }
+    ],
+    "linkWords": [
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the map symbol for hospital"
+     },
+     {
+      "clueFragment": "grounds",
+      "gives": "ESTATE",
+      "note": "an estate is a property's grounds"
+     },
+     {
+      "clueFragment": "information",
+      "gives": "I",
+      "note": "I is the symbol for an information point"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ES",
+      "I",
+      "TATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A patient anxious about the information posted around the hospital grounds.",
+     "definitionFit": "To hesitate is to pause through doubt or unease before acting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grounds"
+    }
+   }
   },
   {
    "number": 28,
@@ -469,7 +1834,62 @@
     "text": "Precocious girl devouring old books in LA",
     "enumeration": "6"
    },
-   "solution": "LOLITA"
+   "solution": "LOLITA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LOLITA",
+    "definitions": [
+     {
+      "text": "Precocious girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "devouring",
+      "for": "container",
+      "note": "something devouring another takes it inside itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "LA",
+      "gives": "LA",
+      "note": "Los Angeles"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "standard abbreviation for old"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "LIT",
+      "note": "lit is short for literature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "O",
+      "LIT",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A clever young girl in Los Angeles reading old books voraciously.",
+     "walkthrough": "The title girl of Nabokov's novel has given her name to any sexually precocious young girl.",
+     "definitionFit": "Lolita, from Nabokov's novel, has become a byword for a precocious, seductive young girl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "devouring"
+    }
+   }
   },
   {
    "number": 29,
@@ -493,7 +1913,71 @@
      }
     ]
    },
-   "solution": "ASITWERE"
+   "solution": "ASITWERE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "AS IT WERE",
+    "definitions": [
+     {
+      "text": "In a way",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "leaving means departing from, so the named letter goes out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "model",
+      "gives": "SIT",
+      "note": "to sit for an artist is to model"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "standard abbreviation for wife"
+     },
+     {
+      "clueFragment": "at this point",
+      "gives": "HERE",
+      "note": "here means at this point"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "standard abbreviation for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SIT",
+      "W",
+      "ERE"
+     ]
+    },
+    "explanation": {
+     "surface": "A model wife who walks out on her husband, in a manner of speaking.",
+     "definitionFit": "As it were is a hedge meaning so to speak or in a manner of speaking, which is in a way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "model"
+    }
+   }
   }
  ]
 }
