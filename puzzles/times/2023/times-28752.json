@@ -23,6 +23,9 @@
   "date": "2023-11-11",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,65 @@
     "text": "Serious medic has white coat at the front",
     "enumeration": "7"
    },
-   "solution": "DRASTIC"
+   "solution": "DRASTIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DRASTIC",
+    "definitions": [
+     {
+      "text": "Serious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the front",
+      "for": "letter_selection",
+      "note": "the front of a word is its opening letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "medic",
+      "gives": "DR",
+      "note": "DR is the abbreviation for doctor"
+     },
+     {
+      "clueFragment": "white",
+      "gives": "ASTI",
+      "note": "Asti is a white wine from Piedmont"
+     },
+     {
+      "clueFragment": "coat",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter of coat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "ASTI",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A grave doctor in a white lab coat, seen from the front.",
+     "walkthrough": "'White coat' reads as one phrase, but the two words must be split: white is the wine, coat supplies a single letter.",
+     "definitionFit": "Drastic measures are severe or extreme ones, a close synonym for serious in the sense of grave."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "white"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +111,53 @@
     "text": "Wrongly claimed to make a kind of point",
     "enumeration": "7"
    },
-   "solution": "DECIMAL"
+   "solution": "DECIMAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DECIMAL",
+    "definitions": [
+     {
+      "text": "a kind of point",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Wrongly",
+      "for": "anagram",
+      "note": "something done wrongly is put out of its proper order, so the letters get rearranged"
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "claimed",
+      "gives": "CLAIMED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CLAIMED",
+       "gives": "DECIMAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wrongly asserted something just to score a point in an argument.",
+     "definitionFit": "A decimal point is the dot separating whole numbers from fractions, so decimal names one kind of point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +171,55 @@
     "text": "Where films are seen live, large number's coming in",
     "enumeration": "8"
    },
-   "solution": "ARTHOUSE"
+   "solution": "ARTHOUSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ARTHOUSE",
+    "definitions": [
+     {
+      "text": "Where films are seen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming in",
+      "for": "container",
+      "note": "coming in means entering, so one piece is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "live",
+      "gives": "ARE",
+      "note": "to be or exist, as in 'we are'"
+     },
+     {
+      "clueFragment": "large number's",
+      "gives": "THOUS",
+      "note": "THOU is short for a thousand, plus the S of the possessive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "THOUS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A cinema where films are shown live while a huge crowd files in.",
+     "walkthrough": "THOU for a thousand is informal British usage; the apostrophe-S is kept as a letter.",
+     "definitionFit": "An art house is a cinema specialising in independent and foreign films, so it is a place where films are screened."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "live"
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +239,43 @@
      }
     ]
    },
-   "solution": "TOWIT"
+   "solution": "TOWIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TO WIT",
+    "definitions": [
+     {
+      "text": "Namely",
+      "at": 0
+     },
+     {
+      "text": "what one may do with a broken-down vehicle",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Namely",
+      "note": "first meaning: that is to say"
+     },
+     {
+      "clueFragment": "what one may do with a broken-down vehicle",
+      "note": "second meaning: haul it away behind another vehicle"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The phrase splits differently in the second reading: a stiff connective becomes a verb plus a pronoun.",
+     "definitionFit": "The formal phrase introduces a specification, just like 'that is', while read literally it is the act of hauling a car."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Namely"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +289,62 @@
     "text": "Bordeaux, say, is protected by peaceful religious doctrine",
     "enumeration": "9"
    },
-   "solution": "CALVINISM"
+   "solution": "CALVINISM",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CALVINISM",
+    "definitions": [
+     {
+      "text": "religious doctrine",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is protected by",
+      "for": "container",
+      "note": "something protected by another is surrounded and shielded by it, so it sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peaceful",
+      "gives": "CALM",
+      "note": "calm means tranquil"
+     },
+     {
+      "clueFragment": "Bordeaux, say",
+      "gives": "VIN",
+      "note": "Bordeaux is an example of French wine, vin"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAL",
+      "VIN",
+      "IS",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A bottle of Bordeaux kept safe by a calm, devout believer.",
+     "walkthrough": "'Bordeaux, say' points to the French word for wine because the region is French, not to claret.",
+     "definitionFit": "Calvinism is the Protestant theology developed from the teachings of John Calvin, a body of religious belief."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bordeaux"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +358,62 @@
     "text": "Hanging frame in atelier, painter succeeded",
     "enumeration": "5"
    },
-   "solution": "ARRAS"
+   "solution": "ARRAS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ARRAS",
+    "definitions": [
+     {
+      "text": "Hanging",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "frame in",
+      "for": "letter_selection",
+      "note": "a frame is the border around a picture, so only the edge letters of the word are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "atelier",
+      "gives": "AR",
+      "select": "outer",
+      "note": "the first and last letters of atelier"
+     },
+     {
+      "clueFragment": "painter",
+      "gives": "RA",
+      "note": "RA is a Royal Academician, a crossword painter"
+     },
+     {
+      "clueFragment": "succeeded",
+      "gives": "S",
+      "note": "S is the abbreviation for succeeded in genealogies"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "RA",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "In a studio, a painter has managed to hang a picture frame.",
+     "walkthrough": "'Hanging frame' looks like one thing; the noun Hanging is the definition and frame is the selector.",
+     "definitionFit": "An arras is a tapestry wall hanging, named after the French town famous for weaving them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "frame"
+    }
+   }
   },
   {
    "number": 5,
@@ -126,7 +427,84 @@
     "text": "A cop turning up in case of larceny in New York City",
     "enumeration": "6"
    },
-   "solution": "ALBANY"
+   "solution": "ALBANY",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "ALBANY",
+    "definitions": [
+     {
+      "text": "New York City",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down clue, turning up means the word is read from bottom to top"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other's shell"
+     },
+     {
+      "text": "case of",
+      "for": "letter_selection",
+      "note": "the case of a word is its outer shell, so only the end letters are kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cop",
+      "gives": "NAB",
+      "note": "to cop or nab is to catch"
+     },
+     {
+      "clueFragment": "larceny",
+      "gives": "LY",
+      "select": "outer",
+      "note": "the first and last letters of larceny"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "L",
+      "BAN",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "NAB",
+       "to": "BAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer appears at a theft case in Manhattan.",
+     "walkthrough": "'Cop' looks like a police officer, but it is the verb meaning to catch. The definition means a city of New York, not New York City itself.",
+     "definitionFit": "Albany is the state capital of New York, so it is a city in New York State."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cop"
+    }
+   }
   },
   {
    "number": 6,
@@ -140,7 +518,54 @@
     "text": "Once again, release children after lesson in school",
     "enumeration": "7"
    },
-   "solution": "REISSUE"
+   "solution": "REISSUE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REISSUE",
+    "definitions": [
+     {
+      "text": "Once again, release",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the word it follows second, so the clue's order is turned around in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lesson in school",
+      "gives": "RE",
+      "note": "RE is Religious Education, a school subject in Britain"
+     },
+     {
+      "clueFragment": "children",
+      "gives": "ISSUE",
+      "note": "issue means offspring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "ISSUE"
+     ]
+    },
+    "explanation": {
+     "surface": "Children let out once more after a school lesson.",
+     "walkthrough": "The children come after the lesson in the answer, though they come first in the clue.",
+     "definitionFit": "To reissue a book or record is to publish it a second time, a release repeated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "release"
+    }
+   }
   },
   {
    "number": 7,
@@ -154,7 +579,42 @@
     "text": "Sign in music compositions, e.g. notation in part",
     "enumeration": "5"
    },
-   "solution": "SEGNO"
+   "solution": "SEGNO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SEGNO",
+    "definitions": [
+     {
+      "text": "Sign in music",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in part",
+      "for": "hidden_word",
+      "note": "only a part of the phrase is used, so the letters lie inside consecutive words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "compositions, e.g. notation",
+      "gives": "SEGNO",
+      "note": "running across the end of compositions, all of e.g. and the start of notation"
+     }
+    ],
+    "explanation": {
+     "surface": "A musical sign found in compositions, as in notation.",
+     "walkthrough": "The definition is honest here; the trap is that it reads as part of the hiding phrase.",
+     "definitionFit": "Segno is the Italian-named symbol in a score marking where a repeat begins or ends."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -168,7 +628,50 @@
     "text": "The Spanish going after Gulf state's port wine",
     "enumeration": "8"
    },
-   "solution": "MUSCATEL"
+   "solution": "MUSCATEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MUSCATEL",
+    "definitions": [
+     {
+      "text": "wine",
+      "at": 42
+     }
+    ],
+    "linkWords": [
+     "going after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gulf state's port",
+      "gives": "MUSCAT",
+      "note": "Muscat is the capital and chief port of Oman"
+     },
+     {
+      "clueFragment": "The Spanish",
+      "gives": "EL",
+      "note": "el is Spanish for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MUSCAT",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "Spanish traders heading for a Gulf port.",
+     "walkthrough": "'Port wine' reads as one thing, but port belongs to the wordplay.",
+     "definitionFit": "Muscatel is a sweet dessert wine made from muscat grapes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 9,
@@ -182,7 +685,69 @@
     "text": "Complete United fan accepting City's number one",
     "enumeration": "5"
    },
-   "solution": "UNCUT"
+   "solution": "UNCUT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "UNCUT",
+    "definitions": [
+     {
+      "text": "Complete",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "accepting means taking in, so one piece goes inside the other"
+     },
+     {
+      "text": "number one",
+      "for": "letter_selection",
+      "note": "number one points to the opening letter only"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "United",
+      "gives": "U",
+      "note": "U is the abbreviation for United in team names"
+     },
+     {
+      "clueFragment": "fan",
+      "gives": "NUT",
+      "note": "a nut is an enthusiast"
+     },
+     {
+      "clueFragment": "City's",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter of City"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "N",
+      "C",
+      "UT"
+     ]
+    },
+    "explanation": {
+     "surface": "A dedicated Manchester United supporter taking in a City star.",
+     "walkthrough": "The football rivalry of United and City is pure surface.",
+     "definitionFit": "An uncut version is complete and unabridged, with nothing removed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "United"
+    }
+   }
   },
   {
    "number": 10,
@@ -196,7 +761,59 @@
     "text": "You and I are going to live in good health and felicity",
     "enumeration": "9"
    },
-   "solution": "WELLBEING"
+   "solution": "WELLBEING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WELLBEING",
+    "definitions": [
+     {
+      "text": "health and felicity",
+      "at": 36
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You and I are going to",
+      "gives": "WELL",
+      "note": "we'll is short for we will"
+     },
+     {
+      "clueFragment": "live",
+      "gives": "BE",
+      "note": "to be is to exist"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WELL",
+      "BE",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A couple planning a healthy, happy life together.",
+     "walkthrough": "'In good health' reads as a phrase, but the definition starts at health.",
+     "definitionFit": "Wellbeing is the state of being comfortable, healthy and happy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "good"
+    }
+   }
   },
   {
    "number": 11,
@@ -210,7 +827,62 @@
     "text": "Toll cut by old legislator — this may stimulate growth",
     "enumeration": "7"
    },
-   "solution": "COMPOST"
+   "solution": "COMPOST",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "COMPOST",
+    "definitions": [
+     {
+      "text": "this may stimulate growth",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut by",
+      "for": "container",
+      "note": "a word cut by others is split open, with them inserted in the gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Toll",
+      "gives": "COST",
+      "note": "a toll is a charge or cost"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "legislator",
+      "gives": "MP",
+      "note": "MP is a Member of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "O",
+      "MP",
+      "OST"
+     ]
+    },
+    "explanation": {
+     "surface": "A charge reduced by a former politician to boost the economy.",
+     "walkthrough": "The insertion goes straight after the C of the toll word.",
+     "definitionFit": "Compost is decayed organic matter added to soil as fertiliser to help plants grow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "growth"
+    }
+   }
   },
   {
    "number": 12,
@@ -224,7 +896,67 @@
     "text": "Absurd figure, one running supermarket forgetting opening time",
     "enumeration": "7"
    },
-   "solution": "IONESCO"
+   "solution": "IONESCO",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "IONESCO",
+    "definitions": [
+     {
+      "text": "Absurd figure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "forgetting opening",
+      "for": "deletion",
+      "note": "forgetting the opening means leaving off the first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "running",
+      "gives": "ON",
+      "note": "a machine that is on is running"
+     },
+     {
+      "clueFragment": "supermarket",
+      "gives": "TESCO",
+      "note": "Tesco is Britain's largest supermarket chain"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "ON",
+      "ESCO"
+     ]
+    },
+    "explanation": {
+     "surface": "A ridiculous character who runs a supermarket and forgets the opening time.",
+     "walkthrough": "The T removed from the chain's name is the time, its opening letter.",
+     "definitionFit": "Eugène Ionesco was a leading playwright of the Theatre of the Absurd."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Absurd"
+    }
+   }
   },
   {
    "number": 13,
@@ -238,7 +970,62 @@
     "text": "Getting hold of article, claim it's working like a charm",
     "enumeration": "10"
    },
-   "solution": "TALISMANIC"
+   "solution": "TALISMANIC",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "TALISMANIC",
+    "definitions": [
+     {
+      "text": "like a charm",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Getting hold of",
+      "for": "container",
+      "note": "getting hold of means grasping, so one piece is held inside the other"
+     },
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "working means in motion and being processed, so the letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "an is the indefinite article"
+     },
+     {
+      "clueFragment": "claim it's",
+      "gives": "CLAIMITS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CLAIMITSAN",
+       "gives": "TALISMANIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Seizing an object, someone says it works like a charm.",
+     "walkthrough": "'Working like a charm' is an idiom, but it splits: working is the signal and the definition is the last three words.",
+     "definitionFit": "Talismanic means having the magical protective power of a talisman, which is a charm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 14,
@@ -252,7 +1039,81 @@
     "text": "People in capital thus raised capital to invest in earnest, periodically",
     "enumeration": "9"
    },
-   "solution": "ATHENIANS"
+   "solution": "ATHENIANS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ATHENIANS",
+    "definitions": [
+     {
+      "text": "People in capital",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue, raised means read from the bottom upwards"
+     },
+     {
+      "text": "periodically",
+      "for": "letter_selection",
+      "note": "periodically means at regular intervals, so every other letter is kept"
+     },
+     {
+      "text": "to invest in",
+      "for": "container",
+      "note": "to invest money in something is to put it inside, so one piece goes into another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thus",
+      "gives": "THEN",
+      "note": "then can mean therefore"
+     },
+     {
+      "clueFragment": "capital",
+      "gives": "AI",
+      "note": "A1 means first-rate, with 1 read as I"
+     },
+     {
+      "clueFragment": "earnest",
+      "gives": "ANS",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters of earnest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "THEN",
+      "IA",
+      "NS"
+     ],
+     "reversals": [
+      {
+       "from": "AI",
+       "to": "IA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Raising money in the capital to invest seriously from time to time.",
+     "walkthrough": "Capital appears twice: first in the definition, then as the slang adjective A1, meaning excellent.",
+     "definitionFit": "Athenians are the inhabitants of Athens, the Greek capital."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 15,
@@ -266,7 +1127,56 @@
     "text": "Interlaced threads in jacket for Madame? Zip it",
     "enumeration": "4"
    },
-   "solution": "MESH"
+   "solution": "MESH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MESH",
+    "definitions": [
+     {
+      "text": "Interlaced threads",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "jacket for",
+      "for": "letter_selection",
+      "note": "a jacket is the outer covering, so only the outside letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Madame",
+      "gives": "ME",
+      "select": "outer",
+      "note": "the first and last letters of Madame"
+     },
+     {
+      "clueFragment": "Zip it",
+      "gives": "SH",
+      "note": "both are demands for silence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "SH"
+     ]
+    },
+    "explanation": {
+     "surface": "Interwoven threads of a jacket for a lady with a zip.",
+     "walkthrough": "Zip it is slang for be quiet, as is the hushing sound.",
+     "definitionFit": "Mesh is a material of interlaced strands forming a net."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Zip"
+    }
+   }
   },
   {
    "number": 16,
@@ -280,7 +1190,63 @@
     "text": "Basil, say, in warm pork pie? I'm uncertain eating it",
     "enumeration": "8"
    },
-   "solution": "HOTELIER"
+   "solution": "HOTELIER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HOTELIER",
+    "definitions": [
+     {
+      "text": "Basil, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "eating swallows something, so it ends up inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "warm",
+      "gives": "HOT",
+      "note": "hot means very warm"
+     },
+     {
+      "clueFragment": "I'm uncertain",
+      "gives": "ER",
+      "note": "the sound of hesitation"
+     },
+     {
+      "clueFragment": "pork pie",
+      "gives": "LIE",
+      "note": "pork pie is rhyming slang for lie (porky)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOT",
+      "E",
+      "LIE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Basil the herb in a hot pork pie, the eater unsure.",
+     "walkthrough": "Basil Fawlty runs the hotel in the British sitcom Fawlty Towers; the surface tricks you into the herb. 'It' refers to the pork pie.",
+     "definitionFit": "Basil Fawlty is a famous fictional hotel keeper, so he is an example of a hotel owner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Basil"
+    }
+   }
   },
   {
    "number": 17,
@@ -294,7 +1260,66 @@
     "text": "Scary beast perhaps rose up, mounted by cruciverbalists",
     "enumeration": "8"
    },
-   "solution": "WEREWOLF"
+   "solution": "WEREWOLF",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "WEREWOLF",
+    "definitions": [
+     {
+      "text": "Scary beast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the word is read from the bottom"
+     },
+     {
+      "text": "mounted by",
+      "for": "charade",
+      "note": "in a down clue, mounted by means another piece sits on top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cruciverbalists",
+      "gives": "WE",
+      "note": "the solvers and setter of crosswords, ourselves"
+     },
+     {
+      "clueFragment": "perhaps rose",
+      "gives": "FLOWER",
+      "note": "a rose is an example of a flower"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WE",
+      "REWOLF"
+     ],
+     "reversals": [
+      {
+       "from": "FLOWER",
+       "to": "REWOLF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A frightening monster rises, and crossword fans climb on it.",
+     "walkthrough": "Rose looks like a verb paired with up; it is the flower.",
+     "definitionFit": "A werewolf is a folklore man turned wolf, a frightening creature of horror films."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rose"
+    }
+   }
   },
   {
    "number": 18,
@@ -308,7 +1333,39 @@
     "text": "Undergoing effects of inflation, one stays afloat?",
     "enumeration": "4"
    },
-   "solution": "LILO"
+   "solution": "LILO",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LILO",
+    "definitions": [
+     {
+      "text": "Undergoing effects of inflation, one stays afloat?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Undergoing effects of inflation",
+      "note": "surface reading: something affected by rising prices in an economy"
+     },
+     {
+      "clueFragment": "one stays afloat",
+      "note": "setter's reading: a thing blown up with air that floats on water"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Inflation suggests economics, but here it is pumping air in; a lilo is the British name for an inflatable airbed.",
+     "definitionFit": "A lilo is an inflatable mattress used for floating in a pool or the sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "inflation"
+    }
+   }
   },
   {
    "number": 19,
@@ -322,7 +1379,58 @@
     "text": "Record of Spooner's lavatory decor",
     "enumeration": "7"
    },
-   "solution": "LOGBOOK"
+   "solution": "LOGBOOK",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "LOGBOOK",
+    "definitions": [
+     {
+      "text": "Record",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner's",
+      "for": "spoonerism",
+      "note": "Spooner famously swapped the opening sounds of words, so the starts are exchanged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lavatory",
+      "gives": "BOG",
+      "note": "bog is British slang for toilet"
+     },
+     {
+      "clueFragment": "decor",
+      "gives": "LOOK",
+      "note": "the look or style of a room"
+     },
+     {
+      "clueFragment": "lavatory decor",
+      "gives": "LOGBOOK",
+      "soundsLike": "BOG LOOK",
+      "note": "swapping the opening consonants"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOGBOOK"
+     ]
+    },
+    "explanation": {
+     "surface": "A record of how the Reverend Spooner decorated his toilet.",
+     "definitionFit": "A logbook is a written record, especially of a voyage or a vehicle's history."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 20,
@@ -336,7 +1444,67 @@
     "text": "I may be smoking marijuana behind niche — my bad!",
     "enumeration": "10"
    },
-   "solution": "CHIMNEYPOT"
+   "solution": "CHIMNEYPOT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "CHIMNEYPOT",
+    "definitions": [
+     {
+      "text": "I may be smoking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bad",
+      "for": "anagram",
+      "note": "something gone bad is spoiled and out of order, so the letters are scrambled"
+     },
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind places one piece after the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "niche — my",
+      "gives": "NICHEMY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "marijuana",
+      "gives": "POT",
+      "note": "pot is slang for marijuana"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHIMNEY",
+      "POT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NICHEMY",
+       "gives": "CHIMNEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone confesses to smoking marijuana in an alcove: my bad!",
+     "walkthrough": "'My bad' is slang for my mistake, but here it is fodder plus the signal. The definition is the chimney pot speaking.",
+     "definitionFit": "A chimney pot sits atop a chimney, so smoke comes out of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "smoking"
+    }
+   }
   },
   {
    "number": 21,
@@ -350,7 +1518,48 @@
     "text": "I don't know this person's voice",
     "enumeration": "7"
    },
-   "solution": "PASSIVE"
+   "solution": "PASSIVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PASSIVE",
+    "definitions": [
+     {
+      "text": "voice",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I don't know",
+      "gives": "PASS",
+      "note": "what a quiz contestant says when stumped"
+     },
+     {
+      "clueFragment": "this person's",
+      "gives": "IVE",
+      "note": "this person is I, and I's here means I has, so I've"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PASS",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fails to recognise a person's voice.",
+     "walkthrough": "The 's is read as has, not as a possessive.",
+     "definitionFit": "In grammar, passive is a voice of the verb, contrasted with active."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "voice"
+    }
+   }
   },
   {
    "number": 22,
@@ -364,7 +1573,54 @@
     "text": "Ground so bare? It's the wind, according to 14",
     "enumeration": "6"
    },
-   "solution": "BOREAS"
+   "solution": "BOREAS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BOREAS",
+    "definitions": [
+     {
+      "text": "the wind, according to 14",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ground",
+      "for": "anagram",
+      "note": "ground means crushed and broken up, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "so bare",
+      "gives": "SOBARE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SOBARE",
+       "gives": "BOREAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bare ground caused by the wind, say the Greeks.",
+     "walkthrough": "14 refers to the ATHENIANS entry; the ancient Greeks personified the winds.",
+     "definitionFit": "Boreas was the Greek god of the north wind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ground"
+    }
+   }
   },
   {
    "number": 23,
@@ -378,7 +1634,65 @@
     "text": "Hard to squeeze into longer pants and hat",
     "enumeration": "7"
    },
-   "solution": "LEGHORN"
+   "solution": "LEGHORN",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "LEGHORN",
+    "definitions": [
+     {
+      "text": "hat",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to squeeze into",
+      "for": "container",
+      "note": "squeezing into something means getting inside it"
+     },
+     {
+      "text": "pants",
+      "for": "anagram",
+      "note": "pants is British slang for rubbish, so the letters are bad and get rearranged"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hard",
+      "gives": "H",
+      "note": "H is the abbreviation for hard, as on pencils"
+     },
+     {
+      "clueFragment": "longer",
+      "gives": "LONGER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LONGHER",
+       "gives": "LEGHORN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Struggling to squeeze into longer trousers and a hat.",
+     "walkthrough": "Pants looks like trousers, but it is British slang for poor, and signals the shuffle.",
+     "definitionFit": "A leghorn is a straw hat made from plaited Italian wheat straw, named after Livorno."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pants"
+    }
+   }
   },
   {
    "number": 23,
@@ -392,7 +1706,47 @@
     "text": "English artist having the blues track",
     "enumeration": "5"
    },
-   "solution": "LOWRY"
+   "solution": "LOWRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOWRY",
+    "definitions": [
+     {
+      "text": "English artist",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "having the blues",
+      "gives": "LOW",
+      "note": "feeling low means feeling sad"
+     },
+     {
+      "clueFragment": "track",
+      "gives": "RY",
+      "note": "RY is the abbreviation for railway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOW",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "An English painter with a blues song.",
+     "walkthrough": "The blues and track hint at music, but they are sadness and railway.",
+     "definitionFit": "L. S. Lowry was the English painter of industrial northern scenes with matchstick figures."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "track"
+    }
+   }
   },
   {
    "number": 24,
@@ -406,7 +1760,64 @@
     "text": "Figures cutting cuticle evenly, getting knife, say",
     "enumeration": "7"
    },
-   "solution": "UTENSIL"
+   "solution": "UTENSIL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "UTENSIL",
+    "definitions": [
+     {
+      "text": "knife, say",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cutting",
+      "for": "container",
+      "note": "cutting into something means going inside it"
+     },
+     {
+      "text": "evenly",
+      "for": "letter_selection",
+      "note": "evenly means the letters in even positions are kept"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cuticle",
+      "gives": "UIL",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters of cuticle"
+     },
+     {
+      "clueFragment": "Figures",
+      "gives": "TENS",
+      "note": "tens are numbers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "TENS",
+      "IL"
+     ]
+    },
+    "explanation": {
+     "surface": "Manicure scene: someone trimming a cuticle neatly with a knife.",
+     "definitionFit": "A knife is an example of a utensil, a tool used in the kitchen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Figures"
+    }
+   }
   },
   {
    "number": 24,
@@ -420,7 +1831,60 @@
     "text": "Baby carriers Henry's daughter put under empty unit",
     "enumeration": "5"
    },
-   "solution": "UTERI"
+   "solution": "UTERI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "UTERI",
+    "definitions": [
+     {
+      "text": "Baby carriers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "deletion",
+      "note": "empty removes the inside, so only the outer letters remain"
+     }
+    ],
+    "linkWords": [
+     "put under"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unit",
+      "gives": "UT",
+      "select": "outer",
+      "note": "the first and last letters of unit"
+     },
+     {
+      "clueFragment": "Henry's daughter",
+      "gives": "ERI",
+      "note": "ER I is Queen Elizabeth I, daughter of Henry VIII"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UT",
+      "ERI"
+     ]
+    },
+    "explanation": {
+     "surface": "Henry VIII's daughter placed under a vacant unit.",
+     "walkthrough": "ER stands for Elizabeth Regina; the first Elizabeth was Henry VIII's daughter.",
+     "definitionFit": "Uteri, plural of uterus, are wombs, the organs that carry babies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "carriers"
+    }
+   }
   },
   {
    "number": 25,
@@ -434,7 +1898,78 @@
     "text": "Comprehensive school's head, after jam, tucked into whiskey and beer",
     "enumeration": "9"
    },
-   "solution": "WHOLESALE"
+   "solution": "WHOLESALE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "WHOLESALE",
+    "definitions": [
+     {
+      "text": "Comprehensive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     },
+     {
+      "text": "tucked into",
+      "for": "container",
+      "note": "tucked into means placed inside"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "whiskey",
+      "gives": "W",
+      "note": "whiskey is the NATO alphabet word for W"
+     },
+     {
+      "clueFragment": "jam",
+      "gives": "HOLE",
+      "note": "in a jam means in a hole, a difficult situation"
+     },
+     {
+      "clueFragment": "school's",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of school"
+     },
+     {
+      "clueFragment": "beer",
+      "gives": "ALE",
+      "note": "ale is a beer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HOLE",
+      "S",
+      "ALE"
+     ]
+    },
+    "explanation": {
+     "surface": "A comprehensive head teacher, in a jam, drinks whiskey and beer.",
+     "walkthrough": "Comprehensive looks like the British school type, but it means all-inclusive.",
+     "definitionFit": "Wholesale means extensive and indiscriminate, as in wholesale changes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Comprehensive"
+    }
+   }
   },
   {
    "number": 26,
@@ -448,7 +1983,63 @@
     "text": "Sheepish classical sextet admitted to taking drug",
     "enumeration": "5"
    },
-   "solution": "OVINE"
+   "solution": "OVINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OVINE",
+    "definitions": [
+     {
+      "text": "Sheepish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitted to",
+      "for": "container",
+      "note": "admitted to means let inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taking",
+      "gives": "ON",
+      "note": "on a drug means taking it"
+     },
+     {
+      "clueFragment": "classical sextet",
+      "gives": "VI",
+      "note": "VI is the Roman numeral six"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "VI",
+      "N",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Embarrassed classical musicians caught taking drugs.",
+     "walkthrough": "Sheepish suggests embarrassment, but here it means literally of sheep; classical means Roman.",
+     "definitionFit": "Ovine means relating to sheep, from the Latin ovis."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sheepish"
+    }
+   }
   },
   {
    "number": 27,
@@ -462,7 +2053,51 @@
     "text": "Why you might say former US leader's gracious",
     "enumeration": "5"
    },
-   "solution": "YIKES"
+   "solution": "YIKES",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "YIKES",
+    "definitions": [
+     {
+      "text": "gracious",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "you might say",
+      "for": "homophone",
+      "note": "you might say means said out loud, so sound counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Why",
+      "gives": "Y",
+      "soundsLike": "WHY",
+      "note": "the letter name sounds the same"
+     },
+     {
+      "clueFragment": "former US leader's",
+      "gives": "IKES",
+      "note": "Ike was Eisenhower, plus the S of the possessive"
+     }
+    ],
+    "explanation": {
+     "surface": "Why would anyone say a former US president is gracious?",
+     "walkthrough": "Gracious is the exclamation, as in 'good gracious!', not kindly.",
+     "definitionFit": "Both are exclamations of surprise or alarm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gracious"
+    }
+   }
   },
   {
    "number": 28,
@@ -476,7 +2111,61 @@
     "text": "A little cold Sprite and bits of fish knocked back",
     "enumeration": "7"
    },
-   "solution": "SNIFFLE"
+   "solution": "SNIFFLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SNIFFLE",
+    "definitions": [
+     {
+      "text": "A little cold",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocked back",
+      "for": "reversal",
+      "note": "knocked back means sent backwards, so read in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sprite",
+      "gives": "ELF",
+      "note": "an elf is a sprite"
+     },
+     {
+      "clueFragment": "bits of fish",
+      "gives": "FINS",
+      "note": "fins are parts of a fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNIF",
+      "FLE"
+     ],
+     "reversals": [
+      {
+       "from": "ELFFINS",
+       "to": "SNIFFLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cold soft drink and fish bits knocked back.",
+     "walkthrough": "Sprite and knocked back suggest drinks; Sprite is a fairy.",
+     "definitionFit": "A sniffle is a slight cold, with a runny nose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sprite"
+    }
+   }
   }
  ]
 }
