@@ -181,10 +181,17 @@ discard_puzzle() {
 # is left staged, so the next puzzle's commit cannot carry this one.
 stage_puzzle() {
   local -a spec
+  local try
   puzzle_specs "$1" spec
-  git add -A -- "${spec[@]}" && python3 tools/own_rows.py stage "$1" && return 0
-  # shellcheck disable=SC2046  # one path per line, none with a space
-  git reset -q -- "${spec[@]}" $(python3 tools/own_rows.py paths)
+  # ct-index.lock orders the burn's own runs, but any other git command in
+  # this tree (a status, a sync) holds index.lock for a moment, so a refused
+  # add is tried again before the run is given up.
+  for try in 1 2 3 4 5; do
+    git add -A -- "${spec[@]}" && python3 tools/own_rows.py stage "$1" && return 0
+    # shellcheck disable=SC2046  # one path per line, none with a space
+    git reset -q -- "${spec[@]}" $(python3 tools/own_rows.py paths)
+    [ "$try" -lt 5 ] && sleep 2
+  done
   return 1
 }
 
