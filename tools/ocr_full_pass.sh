@@ -188,7 +188,7 @@ finish() {  # finish <rc>: say so and exit
 TROVE_WORKERS="${OCR_FULL_PASS_TROVE_WORKERS:-6}"
 slices "editions off archive.org and Gale, Trove articles, Listener pages, and their fetches" python3 tools/edition_queue.py run \
   --reread "$REREAD_BEFORE" --out "$HOME/.cache/archive_org_crops/unfiled" --trove-workers "$TROVE_WORKERS" \
-  --fetch archive.org --fetch trove || finish 1
+  --fetch trove || finish 1
 # Fill the canberra files' empty answers from solution grids fetched since
 # they were filed (a puzzle's solution prints in a later article).
 nice -n 19 python3 tools/trove_solution_ocr.py --fill ||
