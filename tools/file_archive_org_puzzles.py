@@ -167,6 +167,8 @@ import vlm_reader as vlm
 from file_penguin_puzzle import separators
 from groups import entry_id
 import downloads
+import edition_commit
+from edition_commit import filer_path, held_paths, strayed  # noqa: F401 -- ocr_remote's and the tests'
 from ocr_clues import (
     READERS,
     UPSCALE,
@@ -186,7 +188,7 @@ SERIES = "times"
 CACHE = downloads.ARCHIVE_ORG
 CROPS = Path(os.path.expanduser("~/.cache/archive_org_crops"))
 SOURCE = downloads.ARCHIVE_ORG_SOURCE
-TOOL = "tools/file_archive_org_puzzles.py"
+TOOL = edition_commit.TOOL
 #: archive.org's Times items.
 ITEM = re.compile(r"NewsUK(19\d\d)UKEnglish$")
 #: The Gale page images tools/gale_inbox.py lays out as Times editions of the
@@ -3169,29 +3171,8 @@ def inputs_of(files_hash, found, series):
     by the inputs after its write, so an edition is read once for it: a
     clue the read could not mend (a reading on another grid) stays as it
     is until the edition's other inputs move."""
-    extra = reprint_key([p["number"] for p in found["puzzles"]], series)
     numbers = [p["number"] for p in found["puzzles"]]
-    if any(strayed(json.loads(path.read_text())) for path in held_paths(series, numbers)):
-        extra = (extra or "") + "+strayed"
-    return f"{files_hash}+{extra}" if extra else files_hash
-
-
-def held_paths(series, numbers):
-    """The corpus files this tool filed for puzzles `numbers` of `series`."""
-    from fetch_puzzle import puzzle_path
-    out = []
-    for n in numbers:
-        path = puzzle_path(series, n)
-        if path.exists() and (json.loads(path.read_text()).get("source") or {}).get("acquiredBy") == TOOL:
-            out.append(path)
-    return out
-
-
-def strayed(puzzle):
-    """The lights of a puzzle whose clue ocr_clues.stray flags (a doubled
-    word, a stray letter)."""
-    return {entry_id(e) for e in puzzle.get("entries") or ()
-            if ocr_clues.stray((e.get("clue") or {}).get("text") or "")}
+    return edition_commit.inputs(files_hash, reprint_key(numbers, series), series, numbers)
 
 
 def due_reason(row, inputs, sol_seen, vlm_up, reread=None):
@@ -3394,9 +3375,24 @@ def read_unit(paper, rel, cache=CACHE, ledger=None, puzzles=None, source=SOURCE,
         return "read"
 
 
+def brief(paper, rel, cache=CACHE, ledger=None, puzzles=None, source=SOURCE, reread=None, force=False):
+    """(desktop request header, its tar, the row's context) of read_unit's
+    read, made here (the edition queue, its ledger, scans and corpus
+    loaded) for tools/edition_commit.py's unit to send and commit; None when
+    read_unit has to run: its scan is stale, or it is not due."""
+    ledger = ledger_of(cache, paper, ledger)
+    dirs = _PLANNED_DIRS.get((str(cache), paper.key))
+    if dirs is not None and Path(cache) / rel not in dirs:
+        dirs = [*dirs, Path(cache) / rel]
+    return _run(cache, False, ledger, None, puzzles, None, source, paper, None, 1, reread, editions=[rel],
+                unit={"force": force, "dirs": dirs, "brief": True})
+
+
 def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, workers, reread, editions=None,
          scan_new=True, newer=None, unit=None):
-    from fetch_puzzle import write_puzzle_file
+    prepared = bool((unit or {}).get("brief"))
+    # A row appended past here is one brief()'s unit looks for (edition_commit.read_since).
+    ledger_size = ledger.stat().st_size if prepared and ledger.exists() else 0
     known = load_known(ledger)
     # A unit (read_unit) adds the rows it changed to the ledger; a run
     # holding the ledger's lock throughout rewrites it whole.
@@ -3436,6 +3432,8 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
             scans[rels[d]] = row["scan"]
         else:
             unscanned[d] = fh
+    if prepared and unscanned:
+        return None
     # Without scan_new, an edition whose read waits on a scan is left for
     # the run that scans; every other edition's last scan stands.
     held_back = set()
@@ -3488,6 +3486,20 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
     queue = scan_queue.order(keys, {d: known[rels[d]] for d in due}, lambda row: "inputs" not in row)
     if limit is not None:
         queue = queue[:limit]
+    if prepared:
+        if not queue:
+            return None
+        import ocr_remote
+        d = queue[0]
+        h, sol_seen, fh = due[d]
+        found = scans[rels[d]]
+        set_solutions(solutions, puzzles)
+        head, tar = ocr_remote.edition_request(d, found, solutions)
+        return head, tar, {
+            "rel": rels[d], "ledger": str(ledger), "ledgerSize": ledger_size, "series": paper.series,
+            "puzzles": puzzles and str(puzzles), "source": str(source), "crops": str(CROPS), "found": found,
+            "filesHash": fh, "solutionsSeen": sol_seen, "scanKey": scan_key(), "vlmVersion": vlm.version(),
+            "reprints": reprint_key([p["number"] for p in found["puzzles"]], paper.series)}
     fresh = 0
     for (d, found), (results, vlm_ok, *decided) in scan_queue.parallel(
             [(d, scans[rels[d]]) for d in queue], read_edition, workers, deadline,
@@ -3496,42 +3508,22 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
         h, sol_seen, fh = due[d]
         fresh += 1
 
-        def commit(where, puzzle, verdict):
-            """Write `puzzle` where `where` names (filer_path): True when
-            written; a source copy (where None) as the raw reading."""
-            if where is None:
-                source.mkdir(parents=True, exist_ok=True)
-                (source / f"{puzzle['id']}.json").write_text(json.dumps(puzzle, indent=1))
-                return True
-            return scan_queue.file_puzzle(write_puzzle_file, TOOL, filer_path(where, paper.series, puzzles),
-                                          puzzle, verdict)
-        verdicts = []
+        commit = edition_commit.writer(source, paper.series, puzzles)
         if decided and decided[0] is not None:
             # Decided on the desktop: only its writes are made here.
-            for verdict, writes in decided[0]:
-                for where, puzzle in writes:
-                    if write:
-                        commit(where and tuple(where), puzzle, verdict)
-                verdicts.append(verdict)
+            verdicts = edition_commit.commit_decided(decided[0], commit if write else None)
         else:
+            verdicts = []
             for verdict, puzzle in results:
                 decide(verdict, puzzle, paper.series, puzzles, held, commit if write else None)
                 verdicts.append(verdict)
         # Keyed by the inputs after this read's writes: a stray clue it
         # mended no longer makes the edition due.
         h = inputs_of(fh, found, paper.series)
-        known[rel] = {"edition": rel, "inputs": h, "scan": found, "filesHash": fh, "scanKey": scan_key(),
-                      "solutionsSeen": sol_seen, "verdicts": verdicts, "readAt": scan_queue.now()}
-        if seen_by and vlm_ok:
-            known[rel]["vlm"] = seen_by
+        known[rel] = edition_commit.row(rel, h, found, fh, scan_key(), sol_seen, verdicts, vlm_ok and seen_by)
         changed.add(rel)
         flush()
-        progress(f"read {rel}: " + ("; ".join(
-            f"{v['number']} " + ("wrote " + v["id"] if v.get("wrote") else
-                                 v.get("skip") or v.get("refused") or v.get("refusedWrite")
-                                 or ("write failed: " + v["writeFailed"] if v.get("writeFailed") else None)
-                                 or v.get("id") or "read")[:60]
-            for v in verdicts) or "nothing filed"))
+        progress(edition_commit.read_line(rel, verdicts))
     flush()
     tally = report(known[rels[d]] for d in dirs if rels[d] in known)
     if len(due) > fresh:
@@ -3541,18 +3533,6 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
     for k in sorted(tally):
         print(f"  {tally[k]:5d}  {k}", file=out)
     return list(known.values())
-
-
-def filer_path(where, series, puzzles, root=None):
-    """The file a decide() write names: ("held", number), the corpus file of
-    `series`-`number` (puzzle_path), or ("out", id), `puzzles`' copy of it
-    (destination). `root` (the desktop's copy of those files) puts both
-    under it."""
-    from fetch_puzzle import puzzle_path
-    kind, key = where
-    if root is not None:
-        return Path(root) / kind / f"{key}.json"
-    return puzzle_path(series, key) if kind == "held" else Path(puzzles) / f"{key}.json"
 
 
 def decide(verdict, puzzle, series, puzzles, held, commit, path=filer_path):
