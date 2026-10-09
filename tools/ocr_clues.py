@@ -2540,13 +2540,15 @@ def strays(text):
     Clues print none of these: each is one reading's speck or doubled line
     the vote left in."""
     raw = (text or "").split()
-    _, pair, _ = clue_lm()
+
+    def pair():
+        return clue_lm()[1]  # loaded only for a clue that asks it (most never do)
     bare = [r.strip(EDGE) for r in raw]
     out = []
     for k in range(1, len(raw)):
         a, b = bare[k - 1], bare[k]
         if a.isalpha() and len(a) > 1 and a.lower() == b.lower() and raw[k - 1] == a and raw[k].startswith(b) \
-                and pair.get(f"{a.lower()} {a.lower()}", 0) < DOUBLE_FLOOR:
+                and pair().get(f"{a.lower()} {a.lower()}", 0) < DOUBLE_FLOOR:
             out.append((k, "a word doubled"))
     seen = set()
     for k, w in enumerate(bare):
@@ -2555,7 +2557,7 @@ def strays(text):
                 and raw[k] == w and not raw[k - 1].endswith(OPENS_NEXT) and bare[k - 1].isalpha() \
                 and heads and raw[k + 1][0].islower():
             before, after = bare[k - 1].lower(), heads[0].lower()
-            if not pair.get(f"{w.lower()} {after}") and pair.get(f"{before} {after}"):
+            if not pair().get(f"{w.lower()} {after}") and pair().get(f"{before} {after}"):
                 out.append((k, "an earlier word repeated inside the clue"))
         seen.update(t.lower() for t in tokens(raw[k]))
     for k, s in enumerate(bare):
