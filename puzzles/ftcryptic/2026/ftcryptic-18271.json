@@ -24,6 +24,9 @@
   "date": "2026-01-19",
   "check": "grid rebuilt from the blog's light list (unique, linked answer split by the grid); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,84 @@
     "text": "Starter cheers athletes, nearly all passing early leaders",
     "enumeration": "6"
    },
-   "solution": "CANAPE"
+   "solution": "CANAPE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "CANAPE",
+    "definitions": [
+     {
+      "text": "Starter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "early leaders",
+      "for": "letter_selection",
+      "note": "leaders are the front runners, so each following word gives up only its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheers",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "athletes",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "nearly",
+      "gives": "N",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "all",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "passing",
+      "gives": "P",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "early",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "A",
+      "N",
+      "A",
+      "P",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A race report: the crowd cheers as nearly all the athletes overtake the early front runners.",
+     "walkthrough": "'Leaders' is the selector applying to every word from 'cheers' to 'early', including 'early' itself.",
+     "definitionFit": "A canapé is a small savoury served before a meal, so it is an appetiser or starter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leaders"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +131,65 @@
     "text": "Tony Curtis' half confused state",
     "enumeration": "7"
    },
-   "solution": "COUNTRY"
+   "solution": "COUNTRY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "COUNTRY",
+    "definitions": [
+     {
+      "text": "state",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half",
+      "for": "deletion",
+      "note": "only half of the surname is wanted, so its back three letters are dropped"
+     },
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "a confused set of letters is muddled up and must be put in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tony",
+      "gives": "TONY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Curtis'",
+      "gives": "CURTIS",
+      "note": "the actor's surname, of which only the first half is kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COUNTRY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TONYCUR",
+       "gives": "COUNTRY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The film star Tony Curtis is half confused, in a muddled state.",
+     "walkthrough": "The whole first name joins the first half of Curtis (CUR) before the jumble.",
+     "definitionFit": "State in the political sense is a nation, which is what a country is: a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +209,77 @@
      }
     ]
    },
-   "solution": "NOPROBLEM"
+   "solution": "NOPROBLEM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "NO PROBLEM",
+    "definitions": [
+     {
+      "text": "You're welcome",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Foot",
+      "for": "letter_selection",
+      "note": "the foot of a word is its bottom end, so only the final letter of the name is used"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the investigation word wraps around the letter from the name"
+     },
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding means having inside, so the pleasure word grips everything that follows it"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "express pleasure",
+      "gives": "NOM",
+      "note": "the sound of enjoying food, as in 'nom nom'"
+     },
+     {
+      "clueFragment": "investigation",
+      "gives": "PROBE",
+      "note": "a probe is an inquiry"
+     },
+     {
+      "clueFragment": "Michael",
+      "gives": "L",
+      "select": "last",
+      "note": "the foot or last letter of Michael"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "PROB",
+      "L",
+      "E",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "An invitation to be pleased about some inquiry into Michael Foot, the former Labour Party leader.",
+     "walkthrough": "Michael Foot led Britain's Labour Party; here 'Foot' just picks the last letter. 'Nom nom' is informal for relishing food.",
+     "definitionFit": "Both are casual replies to thanks, telling someone the favour was no trouble: an idiomatic equivalent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Foot"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +293,43 @@
     "text": "Drink carrier",
     "enumeration": "6"
    },
-   "solution": "PORTER"
+   "solution": "PORTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PORTER",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     },
+     {
+      "text": "carrier",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drink",
+      "note": "first meaning: a dark beer"
+     },
+     {
+      "clueFragment": "carrier",
+      "note": "second meaning: a person who carries luggage"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read together it suggests a drinks crate or delivery van; the two words are separate meanings.",
+     "definitionFit": "Porter is a dark brown beer brewed from roasted malt, and also a hotel or station employee who carries bags."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "carrier"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +349,65 @@
      }
     ]
    },
-   "solution": "TRADEGAP"
+   "solution": "TRADEGAP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TRADE GAP",
+    "definitions": [
+     {
+      "text": "country's balance",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set back",
+      "for": "reversal",
+      "note": "set back suggests moving backwards, so the joined words are read from end to start"
+     }
+    ],
+    "linkWords": [
+     "to be",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Servant",
+      "gives": "PAGE",
+      "note": "a page is a boy servant"
+     },
+     {
+      "clueFragment": "bound",
+      "gives": "DART",
+      "note": "to dart is to dash or bound"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAD",
+      "EGAP"
+     ],
+     "reversals": [
+      {
+       "from": "PAGEDART",
+       "to": "TRADEGAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A servant destined to suffer a setback, for the sake of national balance.",
+     "walkthrough": "'Bound' looks like 'destined' but is a verb meaning leap.",
+     "definitionFit": "A trade gap is the shortfall when a nation's imports exceed its exports, a figure in its balance of payments."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bound"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +421,51 @@
     "text": "Fancy-free hazard",
     "enumeration": "4"
    },
-   "solution": "REEF"
+   "solution": "REEF",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REEF",
+    "definitions": [
+     {
+      "text": "hazard",
+      "at": 11
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fancy",
+      "for": "anagram",
+      "note": "fancy here means elaborate or decorated, so the letters are dressed up in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "free",
+      "gives": "FREE",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FREE",
+       "gives": "REEF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Being fancy-free, unattached and carefree, can itself be a danger.",
+     "walkthrough": "'Fancy-free' reads as one word but splits into the anagram signal and its letters.",
+     "definitionFit": "A reef is a ridge of rock or coral near the surface, a well-known danger to shipping."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fancy"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +479,78 @@
     "text": "Compass provides spacemen with last gasp help to return",
     "enumeration": "8"
    },
-   "solution": "DIAPASON"
+   "solution": "DIAPASON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "DIAPASON",
+    "definitions": [
+     {
+      "text": "Compass",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "last tells us to keep only the closing letter of the word that follows"
+     },
+     {
+      "text": "to return",
+      "for": "reversal",
+      "note": "returning means going back the way you came, so the whole string is read right to left"
+     }
+    ],
+    "linkWords": [
+     "provides",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spacemen",
+      "gives": "NOSA",
+      "note": "the Norwegian Space Agency"
+     },
+     {
+      "clueFragment": "gasp",
+      "gives": "P",
+      "select": "last",
+      "note": "last letter of gasp"
+     },
+     {
+      "clueFragment": "help",
+      "gives": "AID",
+      "note": "aid means help"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIA",
+      "P",
+      "ASON"
+     ],
+     "reversals": [
+      {
+       "from": "NOSAPAID",
+       "to": "DIAPASON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Astronauts at their last gasp are given a compass to help them get home.",
+     "walkthrough": "The spacemen are not NASA but NOSA, Norway's space agency. All the pieces are joined then turned round.",
+     "definitionFit": "A diapason is the full range of an instrument or voice, and compass is the musical word for that range."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Compass"
+    }
+   }
   },
   {
    "number": 7,
@@ -166,7 +583,54 @@
      }
     ]
    },
-   "solution": "PARTONE"
+   "solution": "PARTONE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PART ONE",
+    "definitions": [
+     {
+      "text": "first instalment",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "included in",
+      "for": "container",
+      "note": "included in means placed inside, so the first word goes within the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cut down",
+      "gives": "PARE",
+      "note": "to pare is to trim or reduce"
+     },
+     {
+      "clueFragment": "A lot",
+      "gives": "TON",
+      "note": "a ton, as in 'tons of', is a lot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "TON",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A lot of material was cut from the opening episode.",
+     "definitionFit": "Part one is the opening section of a serial, i.e. its first instalment: a direct equivalent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lot"
+    }
+   }
   },
   {
    "number": 9,
@@ -180,7 +644,54 @@
     "text": "Judge fashionable new leader of realm",
     "enumeration": "6"
    },
-   "solution": "UMPIRE"
+   "solution": "UMPIRE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "UMPIRE",
+    "definitions": [
+     {
+      "text": "Judge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new leader of",
+      "for": "substitution",
+      "note": "a new leader replaces the old one, so the opening letter of the following word is swapped out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fashionable",
+      "gives": "U",
+      "note": "U means upper-class, socially acceptable"
+     },
+     {
+      "clueFragment": "realm",
+      "gives": "EMPIRE",
+      "note": "an empire is a realm"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "MPIRE"
+     ]
+    },
+    "explanation": {
+     "surface": "Assessing a stylish new ruler of the kingdom.",
+     "walkthrough": "U replaces the E at the head of EMPIRE.",
+     "definitionFit": "An umpire officiates and rules on disputes in a game, so acts as a judge: a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Judge"
+    }
+   }
   },
   {
    "number": 10,
@@ -194,7 +705,60 @@
     "text": "Bottle emptied before party becomes thrash",
     "enumeration": "8"
    },
-   "solution": "BELABOUR"
+   "solution": "BELABOUR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BELABOUR",
+    "definitions": [
+     {
+      "text": "thrash",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "emptied",
+      "for": "letter_selection",
+      "note": "an emptied word has lost its contents, leaving only its outside letters"
+     }
+    ],
+    "linkWords": [
+     "becomes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bottle",
+      "gives": "BE",
+      "select": "outer",
+      "note": "outer letters of bottle"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "LABOUR",
+      "note": "the Labour Party, a British political party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "LABOUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A bottle finished off before the party, and the evening turns into a wild bash.",
+     "walkthrough": "'Before' just orders the pieces. 'Thrash' plays on its slang sense of party.",
+     "definitionFit": "To belabour is to beat or attack soundly, and thrash means to beat: a verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "thrash"
+    }
+   }
   },
   {
    "number": 11,
@@ -208,7 +772,46 @@
     "text": "Cutting bone with zinc is ordinarily involved",
     "enumeration": "7"
    },
-   "solution": "INCISOR"
+   "solution": "INCISOR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "INCISOR",
+    "definitions": [
+     {
+      "text": "Cutting bone",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved",
+      "for": "hidden_word",
+      "note": "involved means enclosed or wrapped up, so the answer lies inside the run of words"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "zinc is ordinarily",
+      "gives": "INCISOR",
+      "note": "spans the end of zinc, all of is, and the start of ordinarily"
+     }
+    ],
+    "explanation": {
+     "surface": "A medical-sounding note that zinc is normally present in bone being cut.",
+     "walkthrough": "A tooth is not strictly a bone, but the definition is fair loosely.",
+     "definitionFit": "An incisor is a front tooth used for biting and slicing, a cutting tooth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Cutting"
+    }
+   }
   },
   {
    "number": 12,
@@ -222,7 +825,51 @@
     "text": "Working pony went cheap",
     "enumeration": "8"
    },
-   "solution": "TWOPENNY"
+   "solution": "TWOPENNY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TWOPENNY",
+    "definitions": [
+     {
+      "text": "cheap",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Working",
+      "for": "anagram",
+      "note": "working implies the letters are being worked over and rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pony went",
+      "gives": "PONYWENT",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PONYWENT",
+       "gives": "TWOPENNY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A working horse was sold off for little money.",
+     "walkthrough": "'Went cheap' looks like a sale, but 'went' is fodder; 'cheap' alone defines. Twopenny is the old British two-pence price.",
+     "definitionFit": "Something twopenny costs only two old pence, hence trifling or worthless: a slightly dated synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "went"
+    }
+   }
   },
   {
    "number": 13,
@@ -236,7 +883,56 @@
     "text": "Consider odd boot protection in the garden",
     "enumeration": "6"
    },
-   "solution": "GAZEBO"
+   "solution": "GAZEBO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GAZEBO",
+    "definitions": [
+     {
+      "text": "protection in the garden",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "odd",
+      "for": "letter_selection",
+      "note": "odd picks the letters in odd-numbered places, the first and third"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Consider",
+      "gives": "GAZE",
+      "note": "to gaze at is to look at, consider"
+     },
+     {
+      "clueFragment": "boot",
+      "gives": "BO",
+      "select": "alternate",
+      "note": "letters one and three of boot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAZE",
+      "BO"
+     ]
+    },
+    "explanation": {
+     "surface": "Think about an unusual boot to protect plants in the garden.",
+     "walkthrough": "'Odd boot' looks like a mismatched shoe.",
+     "definitionFit": "A gazebo is a roofed open structure in a garden, giving shelter from sun or rain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "odd"
+    }
+   }
   },
   {
    "number": 14,
@@ -250,7 +946,48 @@
     "text": "Stony cold roast",
     "enumeration": "7"
    },
-   "solution": "DEADPAN"
+   "solution": "DEADPAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DEADPAN",
+    "definitions": [
+     {
+      "text": "Stony",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "DEAD",
+      "note": "dead as in cold, lifeless"
+     },
+     {
+      "clueFragment": "roast",
+      "gives": "PAN",
+      "note": "to pan is to criticise harshly, roast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEAD",
+      "PAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A cold roast as hard as stone.",
+     "walkthrough": "'Cold roast' suggests leftover meat; roast here is the verb to slate.",
+     "definitionFit": "A deadpan or stony face shows no emotion: an expressionless synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "roast"
+    }
+   }
   },
   {
    "number": 15,
@@ -264,7 +1001,46 @@
     "text": "Key to university",
     "enumeration": "4"
    },
-   "solution": "YALE"
+   "solution": "YALE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "YALE",
+    "definitions": [
+     {
+      "text": "Key",
+      "at": 0
+     },
+     {
+      "text": "university",
+      "at": 7
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Key",
+      "note": "first meaning: a brand of lock and its key"
+     },
+     {
+      "clueFragment": "university",
+      "note": "second meaning: the Ivy League college in Connecticut"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like the secret of getting into university.",
+     "definitionFit": "Yale is a trademark for cylinder locks and their keys, and also a famous American university."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Key"
+    }
+   }
   },
   {
    "number": 16,
@@ -288,7 +1064,43 @@
      }
     ]
    },
-   "solution": "NINETOFIVE"
+   "solution": "NINETOFIVE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NINE-TO-FIVE",
+    "definitions": [
+     {
+      "text": "4.51",
+      "at": 0
+     },
+     {
+      "text": "shift",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "4.51",
+      "note": "first meaning: a clock time, nine minutes before five o'clock"
+     },
+     {
+      "clueFragment": "shift",
+      "note": "second meaning: an ordinary working day in an office"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "4.51 looks like a train timetable; read it as a time said aloud.",
+     "definitionFit": "A nine-to-five job is a regular office working day, the standard shift for many workers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "4.51"
+    }
+   }
   },
   {
    "number": 17,
@@ -312,7 +1124,50 @@
      }
     ]
    },
-   "solution": "INTHELEAD"
+   "solution": "INTHELEAD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IN THE LEAD",
+    "definitions": [
+     {
+      "text": "First",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in a knot",
+      "for": "anagram",
+      "note": "something in a knot is tangled, so the letters are twisted out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tie handle",
+      "gives": "TIEHANDLE",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TIEHANDLE",
+       "gives": "INTHELEAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for tying something: first knot the handle.",
+     "definitionFit": "Being in the lead means ahead of everyone else, i.e. placed first in a race."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tie"
+    }
+   }
   },
   {
    "number": 18,
@@ -326,7 +1181,68 @@
     "text": "Many misplay tuba and horn finale",
     "enumeration": "8"
    },
-   "solution": "ABUNDANT"
+   "solution": "ABUNDANT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ABUNDANT",
+    "definitions": [
+     {
+      "text": "Many",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finale",
+      "for": "letter_selection",
+      "note": "a finale is the ending, so only the closing letter of the instrument word is used"
+     },
+     {
+      "text": "misplay",
+      "for": "anagram",
+      "note": "to misplay is to play wrongly, so the letters come out in the wrong order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tuba",
+      "gives": "TUBA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "horn",
+      "gives": "N",
+      "select": "last",
+      "note": "last letter of horn"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TUBAANDN",
+       "gives": "ABUNDANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Plenty of musicians fluff the tuba part and the closing horn passage.",
+     "walkthrough": "'And' looks like a link word but is part of the fodder.",
+     "definitionFit": "Abundant means plentiful, existing in large quantity, so close to many in sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "and"
+    }
+   }
   },
   {
    "number": 19,
@@ -346,7 +1262,50 @@
      }
     ]
    },
-   "solution": "DUMBBLONDE"
+   "solution": "DUMBBLONDE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DUMB BLONDE",
+    "definitions": [
+     {
+      "text": "caricature",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Speechless",
+      "gives": "DUMB",
+      "note": "dumb means unable to speak"
+     },
+     {
+      "clueFragment": "fair",
+      "gives": "BLONDE",
+      "note": "fair-haired"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUMB",
+      "BLONDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Left speechless at a cartoon drawn at the funfair.",
+     "walkthrough": "'Fair' suggests a funfair caricaturist; it means fair-haired.",
+     "definitionFit": "The dumb blonde is a stereotype of a pretty but foolish fair-haired woman, a caricature figure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "fair"
+    }
+   }
   },
   {
    "number": 19,
@@ -360,7 +1319,47 @@
     "text": "Report man in crane",
     "enumeration": "7"
    },
-   "solution": "DERRICK"
+   "solution": "DERRICK",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "DERRICK",
+    "definitions": [
+     {
+      "text": "crane",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Report",
+      "for": "homophone",
+      "note": "a report is something spoken and heard, so the name is taken by its sound"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man",
+      "gives": "DERRICK",
+      "soundsLike": "DEREK",
+      "note": "a man's name, here Derek"
+     }
+    ],
+    "explanation": {
+     "surface": "Reporting a man stuck in a crane.",
+     "walkthrough": "Any man's name could do; the definition narrows it to Derek.",
+     "definitionFit": "A derrick is a lifting crane with a boom, the kind used on oil rigs and in docks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Report"
+    }
+   }
   },
   {
    "number": 20,
@@ -374,7 +1373,43 @@
     "text": "Pickle mix",
     "enumeration": "4"
    },
-   "solution": "STEW"
+   "solution": "STEW",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STEW",
+    "definitions": [
+     {
+      "text": "Pickle",
+      "at": 0
+     },
+     {
+      "text": "mix",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pickle",
+      "note": "first meaning: a state of agitation or trouble"
+     },
+     {
+      "clueFragment": "mix",
+      "note": "second meaning: a jumbled mixture, a hotchpotch"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Both words look culinary, but 'pickle' is the predicament.",
+     "definitionFit": "To be in a stew or in a pickle is to be in a mess or difficulty, and a stew is also a medley."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pickle"
+    }
+   }
   },
   {
    "number": 21,
@@ -388,7 +1423,43 @@
     "text": "Not oriental spaghetti perhaps",
     "enumeration": "7"
    },
-   "solution": "WESTERN"
+   "solution": "WESTERN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WESTERN",
+    "definitions": [
+     {
+      "text": "Not oriental",
+      "at": 0
+     },
+     {
+      "text": "spaghetti perhaps",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not oriental",
+      "note": "first meaning: belonging to the West, not the East"
+     },
+     {
+      "clueFragment": "spaghetti perhaps",
+      "note": "second meaning: a cowboy film, of which the Italian-made spaghetti kind is one"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Spaghetti looks like Italian food; it is the cowboy-film genre.",
+     "definitionFit": "Western is the opposite of eastern or oriental, and a spaghetti western is a cowboy movie made in Italy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spaghetti"
+    }
+   }
   },
   {
    "number": 22,
@@ -402,7 +1473,56 @@
     "text": "Gaudy, strong-hearted clown",
     "enumeration": "6"
    },
-   "solution": "ROCOCO"
+   "solution": "ROCOCO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ROCOCO",
+    "definitions": [
+     {
+      "text": "Gaudy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hearted",
+      "for": "letter_selection",
+      "note": "the heart is the centre, so only the middle letters of the word attached are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strong",
+      "gives": "RO",
+      "select": "middle",
+      "note": "the middle two letters of strong"
+     },
+     {
+      "clueFragment": "clown",
+      "gives": "COCO",
+      "note": "Coco the Clown, a famous circus clown"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "COCO"
+     ]
+    },
+    "explanation": {
+     "surface": "A garish, brave-hearted circus clown.",
+     "walkthrough": "Coco the Clown was a famous British circus performer.",
+     "definitionFit": "Rococo is the florid eighteenth-century decorative style, so the word means over-ornate or flashy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "strong-hearted"
+    }
+   }
   },
   {
    "number": 23,
@@ -416,7 +1536,60 @@
     "text": "Order member's home to be covered with rubbish",
     "enumeration": "6"
    },
-   "solution": "RODENT"
+   "solution": "RODENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RODENT",
+    "definitions": [
+     {
+      "text": "Order member",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covered with",
+      "for": "container",
+      "note": "covered with means wrapped in, so the first word sits inside the second"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rubbish",
+      "gives": "ROT",
+      "note": "rot means nonsense, rubbish"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "DEN",
+      "note": "an animal's home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "DEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A monk's home will be buried under rubbish.",
+     "walkthrough": "'Order member' suggests a monk or nun; the order is the zoological Rodentia.",
+     "definitionFit": "Rodents form the order Rodentia in biological classification, so any rodent is a member of that order."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Order"
+    }
+   }
   },
   {
    "number": 24,
@@ -430,7 +1603,42 @@
     "text": "Toy truck",
     "enumeration": "5"
    },
-   "solution": "DOLLY"
+   "solution": "DOLLY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DOLLY",
+    "definitions": [
+     {
+      "text": "Toy",
+      "at": 0
+     },
+     {
+      "text": "truck",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Toy",
+      "note": "first meaning: a child's doll"
+     },
+     {
+      "clueFragment": "truck",
+      "note": "second meaning: a low wheeled platform for moving heavy loads or cameras"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a toy lorry. The puzzle's theme is Dolly Parton.",
+     "definitionFit": "A dolly is a child's word for a doll, and also a small wheeled trolley for shifting loads."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "truck"
+    }
+   }
   },
   {
    "number": 25,
@@ -444,7 +1652,54 @@
     "text": "Old drivers lost in conflicts",
     "enumeration": "8"
    },
-   "solution": "WAGONERS"
+   "solution": "WAGONERS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WAGONERS",
+    "definitions": [
+     {
+      "text": "Old drivers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one word inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conflicts",
+      "gives": "WARS",
+      "note": "wars are conflicts"
+     },
+     {
+      "clueFragment": "lost",
+      "gives": "GONE",
+      "note": "gone means lost"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WA",
+      "GONE",
+      "RS"
+     ]
+    },
+    "explanation": {
+     "surface": "Former drivers who went missing in wartime.",
+     "definitionFit": "Wagoners drove horse-drawn wagons, an occupation of the past, hence old drivers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "lost"
+    }
+   }
   },
   {
    "number": 26,
@@ -458,7 +1713,63 @@
     "text": "Principal dancer enjoys all-new overtures",
     "enumeration": "4"
    },
-   "solution": "DEAN"
+   "solution": "DEAN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "DEAN",
+    "definitions": [
+     {
+      "text": "Principal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overtures",
+      "for": "letter_selection",
+      "note": "overtures are openings, so each word contributes just its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dancer",
+      "gives": "D",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "enjoys",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "all-new",
+      "gives": "AN",
+      "select": "first",
+      "note": "first letters of all and new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "E",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "The lead dancer enjoys entirely fresh introductions.",
+     "walkthrough": "'Principal dancer' looks like a ballet term, but only 'Principal' defines.",
+     "definitionFit": "A dean is the head of a college or faculty, so a principal in the academic sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Principal"
+    }
+   }
   },
   {
    "number": 27,
@@ -478,7 +1789,52 @@
      }
     ]
    },
-   "solution": "ILLFATED"
+   "solution": "ILLFATED",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "ILL-FATED",
+    "definitions": [
+     {
+      "text": "Unlucky",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the radio",
+      "for": "homophone",
+      "note": "on the radio we only hear words, so the spelling may differ from what is said"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poorly",
+      "gives": "ILL",
+      "note": "ill means poorly"
+     },
+     {
+      "clueFragment": "celebrated",
+      "gives": "FATED",
+      "soundsLike": "FETED",
+      "note": "feted means celebrated"
+     }
+    ],
+    "explanation": {
+     "surface": "It is bad luck to receive a poor reception on air.",
+     "definitionFit": "Ill-fated means doomed or destined for misfortune, a near synonym of unlucky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "celebrated"
+    }
+   }
   },
   {
    "number": 28,
@@ -492,7 +1848,43 @@
     "text": "Woman hit by 24",
     "enumeration": "6"
    },
-   "solution": "JOLENE"
+   "solution": "JOLENE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "JOLENE",
+    "definitions": [
+     {
+      "text": "Woman",
+      "at": 0
+     },
+     {
+      "text": "hit by 24",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Woman",
+      "note": "first meaning: a woman's first name"
+     },
+     {
+      "clueFragment": "hit by 24",
+      "note": "second meaning: a hit song by Dolly (Parton), the answer to 24-down"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a woman struck by a toy truck; 'hit' is a chart success and 24 is Dolly.",
+     "definitionFit": "Jolene is a girl's name, and Dolly Parton's 1973 song of that title was one of her biggest hits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hit"
+    }
+   }
   },
   {
    "number": 29,
@@ -506,7 +1898,53 @@
     "text": "Pitch after openers' foundation",
     "enumeration": "8"
    },
-   "solution": "KEYSTONE"
+   "solution": "KEYSTONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KEYSTONE",
+    "definitions": [
+     {
+      "text": "foundation",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says which piece comes second, so the pitch word follows the openers"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "openers'",
+      "gives": "KEYS",
+      "note": "keys open locks"
+     },
+     {
+      "clueFragment": "Pitch",
+      "gives": "TONE",
+      "note": "pitch in the musical sense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KEYS",
+      "TONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket pitch prepared after the opening batsmen have done their groundwork.",
+     "definitionFit": "A keystone is the central supporting stone of an arch, and figuratively the basis on which something rests."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "openers'"
+    }
+   }
   },
   {
    "number": 30,
@@ -530,7 +1968,39 @@
    "group": [
     "30-across",
     "7-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GOLDEN GLOBE",
+    "definitions": [
+     {
+      "text": "Sunscreen award?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sunscreen",
+      "note": "surface reading: a lotion protecting skin from the sun"
+     },
+     {
+      "clueFragment": "Sunscreen award?",
+      "note": "setter's reading: the sun described as a shining yellow sphere, also a prize for screen acting"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split 'sunscreen' into sun and screen: one phrase describes the sun and is also a Hollywood film and TV award.",
+     "definitionFit": "The sun is a gleaming yellow orb, and the Hollywood Foreign Press award for film and television bears the same name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sunscreen"
+    }
+   }
   }
  ]
 }
