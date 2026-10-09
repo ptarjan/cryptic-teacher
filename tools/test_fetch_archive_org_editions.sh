@@ -43,7 +43,7 @@ with contextlib.redirect_stdout(io.StringIO()):
 # Page selection: an edition whose text shows no daily crossword title also
 # fetches its last leaf and the leaves its item's other editions print the
 # crossword on; one whose text shows the title fetches only that page.
-import json, os
+import collections, json, os
 item = tempfile.mkdtemp()
 for name, leaves, leaf in (("1980-04-15_1", 28, 27), ("1980-04-17_3", 30, 29), ("1980-04-18_4", 28, 21)):
     os.makedirs(f"{item}/{name}")
@@ -140,6 +140,19 @@ check("mirror: one same-sized sibling is no vote", 31 not in fa.prior_leaves(big
 check("an edition lacking its same-sized siblings' leaf: due again", fa.prior_unfetched(big))
 small = sized("1998-11-25_9", 52, [{"leaf": n, "prior": True} for n in fa.prior_leaves(f"{mixed}/x", 52)])
 check("mirror: an edition holding its own size's leaves: not due", not fa.prior_unfetched(small))
+# One plan (load_done) stats each sibling's pages.json once, not once per
+# edition per crossword_leaves call, and reaches the same verdicts.
+eds = sorted(f"{mixed}/{n}" for n in os.listdir(mixed))
+apart = [fa.prior_unfetched(d) for d in eds]
+stats, real_stat = collections.Counter(), os.stat
+os.stat = lambda p, *a, **k: (stats.update([os.fspath(p)]), real_stat(p, *a, **k))[1]
+try:
+    with fa.one_pass():
+        together = [fa.prior_unfetched(d) for d in eds]
+finally:
+    os.stat = real_stat
+check("one pass: the same verdicts as edition by edition", together == apart and any(apart))
+check("one pass: each pages.json stat'd once", max(stats.values()) == 1 and f"{big}/pages.json" in stats)
 check("a Times Two title is no daily title", not fa.titled({"headings": two}))
 check("mirror: the daily title still is", fa.titled({"headings": daily}))
 check("Times Two pages cast no vote", 51 not in fa.crossword_leaves(big)[0])
