@@ -23,6 +23,9 @@
   "date": "2023-11-04",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,75 @@
     "text": "After tan, ultimately, a holidaymaker removing nothing? Hardly!",
     "enumeration": "8"
    },
-   "solution": "NATURIST"
+   "solution": "NATURIST",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "NATURIST",
+    "definitions": [
+     {
+      "text": "After tan, ultimately, a holidaymaker removing nothing? Hardly!",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the very end, so only the closing letter of the preceding word is kept"
+     },
+     {
+      "text": "removing",
+      "for": "deletion",
+      "note": "removing tells us to take a letter out of the word for a holidaymaker"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tan",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of tan"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "holidaymaker",
+      "gives": "TOURIST",
+      "note": "a holidaymaker is a tourist"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "nothing is zero, the letter O, which is taken out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "A",
+      "TURIST"
+     ]
+    },
+    "explanation": {
+     "surface": "A sunbathing holidaymaker seems to be keeping all their clothes on, then the clue exclaims that this is hardly so.",
+     "walkthrough": "Read whole, the clue describes the answer: a holidaymaker who removes nothing? Hardly, since this one removes everything, tan lines and all.",
+     "definitionFit": "A nudist on holiday strips off entirely, the very opposite of someone who removes no clothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nothing"
+    }
+   }
   },
   {
    "number": 2,
@@ -56,7 +127,72 @@
      }
     ]
    },
-   "solution": "ALIBABA"
+   "solution": "ALIBABA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ALI BABA",
+    "definitions": [
+     {
+      "text": "Woodcutter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cutting",
+      "for": "deletion",
+      "note": "cutting means the word for an excuse is trimmed, losing its final letter"
+     },
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly asks for the letters in the odd-numbered positions of the word before it"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "excuse",
+      "gives": "ALIBI",
+      "note": "an alibi is an excuse; it loses its last letter"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "beam",
+      "gives": "BA",
+      "select": "alternate",
+      "note": "the first and third letters of beam"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALIB",
+      "A",
+      "BA"
+     ]
+    },
+    "explanation": {
+     "surface": "A woodcutter explains away some oddly cut timber.",
+     "walkthrough": "The 's is a link ('s = has, meaning the wordplay leads to it). In the Arabian Nights tale, the hero who finds the forty thieves' cave is a poor woodcutter.",
+     "definitionFit": "The hero of the Arabian Nights story of the forty thieves earns his living chopping wood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "beam"
+    }
+   }
   },
   {
    "number": 3,
@@ -70,7 +206,69 @@
     "text": "With little hope of one descending on concert, yours truly performs!",
     "enumeration": "11"
    },
-   "solution": "UNPROMISING"
+   "solution": "UNPROMISING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNPROMISING",
+    "definitions": [
+     {
+      "text": "With little hope",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "descending on",
+      "for": "charade",
+      "note": "in a down entry, coming down on something means sitting directly above it, so this piece goes first"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "UN",
+      "note": "'un is dialect for one, as in young 'un"
+     },
+     {
+      "clueFragment": "concert",
+      "gives": "PROM",
+      "note": "a prom is a promenade concert"
+     },
+     {
+      "clueFragment": "yours truly",
+      "gives": "I",
+      "note": "the setter referring to themselves"
+     },
+     {
+      "clueFragment": "performs",
+      "gives": "SING",
+      "note": "to sing is to perform"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "PROM",
+      "I",
+      "SING"
+     ]
+    },
+    "explanation": {
+     "surface": "A gloomy performer, about to step onto a concert stage, doubts how the show will go.",
+     "walkthrough": "In a down clue, 'descending on' places the first piece on top of the next. 'Un' for one is the dialect form heard in young 'un.",
+     "definitionFit": "Something unpromising shows few signs of future success, so it offers little hope."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "descending"
+    }
+   }
   },
   {
    "number": 4,
@@ -84,7 +282,56 @@
     "text": "Bungling but penitent revolutionary guards",
     "enumeration": "5"
    },
-   "solution": "INEPT"
+   "solution": "INEPT",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "INEPT",
+    "definitions": [
+     {
+      "text": "Bungling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "guards",
+      "for": "hidden_word",
+      "note": "the words guard, or hold within them, a run of consecutive letters"
+     },
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "something revolutionary turns over, so the held letters are read back to front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "but penitent",
+      "gives": "TPENI",
+      "note": "the letters spanning the end of but and the start of penitent"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "TPENI",
+       "to": "INEPT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clumsy but remorseful rebel stands guard.",
+     "definitionFit": "Inept describes someone lacking skill, which is what bungling conveys."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 5,
@@ -98,7 +345,68 @@
     "text": "Initially troops in disarray used to shelter from attack",
     "enumeration": "7"
    },
-   "solution": "TESTUDO"
+   "solution": "TESTUDO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "TESTUDO",
+    "definitions": [
+     {
+      "text": "shelter from attack",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initially",
+      "for": "letter_selection",
+      "note": "initially asks for just the opening letter of the next word"
+     },
+     {
+      "text": "in disarray",
+      "for": "anagram",
+      "note": "in disarray means thrown into confusion, so the following letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "troops",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of troops"
+     },
+     {
+      "clueFragment": "used to",
+      "gives": "USEDTO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ESTUDO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "USEDTO",
+       "gives": "ESTUDO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers in a muddle fall back on their usual cover against an assault.",
+     "walkthrough": "The surface paints routed troops; the definition is the Roman formation in which soldiers locked shields overhead.",
+     "definitionFit": "A testudo was the Roman tortoise formation of overlapping shields protecting soldiers from missiles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "used"
+    }
+   }
   },
   {
    "number": 6,
@@ -112,7 +420,65 @@
     "text": "In battalion's first reserve, I would add muscle",
     "enumeration": "6"
    },
-   "solution": "BICEPS"
+   "solution": "BICEPS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BICEPS",
+    "definitions": [
+     {
+      "text": "muscle",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first asks for only the opening letter of the word battalion"
+     }
+    ],
+    "linkWords": [
+     "In"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "battalion's",
+      "gives": "B",
+      "select": "first",
+      "note": "the opening letter of battalion"
+     },
+     {
+      "clueFragment": "reserve",
+      "gives": "ICE",
+      "note": "reserve in the sense of cool aloofness, ice"
+     },
+     {
+      "clueFragment": "I would add",
+      "gives": "PS",
+      "note": "a postscript is what a letter-writer adds at the end"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ICE",
+      "PS"
+     ]
+    },
+    "explanation": {
+     "surface": "An officer suggests strengthening the reserve unit of a battalion.",
+     "walkthrough": "'Reserve' looks like military reinforcements, but it means coolness of manner. PS is the postscript tag added below a letter.",
+     "definitionFit": "The biceps is the large muscle at the front of the upper arm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reserve"
+    }
+   }
   },
   {
    "number": 6,
@@ -132,7 +498,52 @@
      }
     ]
    },
-   "solution": "BLOODCELL"
+   "solution": "BLOODCELL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BLOOD CELL",
+    "definitions": [
+     {
+      "text": "one of many in circulation",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new or unusual, so the letters are given a fresh arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old Belloc",
+      "gives": "OLDBELLOC",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OLDBELLOC",
+       "gives": "BLOODCELL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old novel by Hilaire Belloc is one of many copies still being passed around.",
+     "walkthrough": "'In circulation' suggests books in print or on loan; here it is the circulation of the blood.",
+     "definitionFit": "Blood cells are carried in vast numbers around the body by the circulatory system."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "circulation"
+    }
+   }
   },
   {
    "number": 7,
@@ -146,7 +557,50 @@
     "text": "Cold welcome for the true origin of Xmas",
     "enumeration": "3"
    },
-   "solution": "CHI"
+   "solution": "CHI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHI",
+    "definitions": [
+     {
+      "text": "the true origin of Xmas",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on a tap"
+     },
+     {
+      "clueFragment": "welcome",
+      "gives": "HI",
+      "note": "hi is a word of greeting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HI"
+     ]
+    },
+    "explanation": {
+     "surface": "Christmas gets a frosty reception from purists who object to the abbreviation Xmas.",
+     "walkthrough": "The X in Xmas is not a crossing-out but the Greek letter that begins the Greek name of Christ.",
+     "definitionFit": "Xmas is formed from the Greek letter that opens Christos, so that letter is where the X really comes from."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "true"
+    }
+   }
   },
   {
    "number": 8,
@@ -160,7 +614,50 @@
     "text": "Model's rapid delivery: by November",
     "enumeration": "7"
    },
-   "solution": "PATTERN"
+   "solution": "PATTERN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PATTERN",
+    "definitions": [
+     {
+      "text": "Model",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rapid delivery",
+      "gives": "PATTER",
+      "note": "patter is fast, glib talk"
+     },
+     {
+      "clueFragment": "November",
+      "gives": "N",
+      "note": "N is November in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PATTER",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion model speaks quickly, or a courier promises delivery by November.",
+     "definitionFit": "A pattern is a template or example to be copied, as a model is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "delivery"
+    }
+   }
   },
   {
    "number": 9,
@@ -174,7 +671,43 @@
     "text": "Artist whose career is taking off?",
     "enumeration": "13"
    },
-   "solution": "IMPRESSIONIST"
+   "solution": "IMPRESSIONIST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IMPRESSIONIST",
+    "definitions": [
+     {
+      "text": "Artist",
+      "at": 0
+     },
+     {
+      "text": "whose career is taking off?",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Artist",
+      "note": "first meaning: a painter of the school of Monet and Renoir"
+     },
+     {
+      "clueFragment": "whose career is taking off?",
+      "note": "second meaning: an entertainer who mimics people, taking them off"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Taking off' looks like a career that is soaring; it is the British sense of imitating someone for comic effect.",
+     "definitionFit": "The word names both a member of a French painting movement and a performer who does impersonations of famous people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 10,
@@ -194,7 +727,58 @@
      }
     ]
    },
-   "solution": "EATOUT"
+   "solution": "EATOUT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "EAT OUT",
+    "definitions": [
+     {
+      "text": "visit restaurant?",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stopping first",
+      "for": "deletion",
+      "note": "stopping the first means halting the opening letter, so it is dropped"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Act as",
+      "gives": "BEA",
+      "note": "to act as something is to be a"
+     },
+     {
+      "clueFragment": "solicitor",
+      "gives": "TOUT",
+      "note": "a tout solicits custom or tickets"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EA",
+      "TOUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A lawyer stops work first to go out for a meal.",
+     "walkthrough": "'Solicitor' suggests a British lawyer, but here it is someone touting for business. The phrase BE A TOUT loses its first letter.",
+     "definitionFit": "To eat out is to have a meal away from home, typically at a restaurant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "solicitor"
+    }
+   }
   },
   {
    "number": 11,
@@ -208,7 +792,71 @@
     "text": "Still bright, short pants, maybe worn by maidens by day",
     "enumeration": "8"
    },
-   "solution": "UNDIMMED"
+   "solution": "UNDIMMED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "UNDIMMED",
+    "definitions": [
+     {
+      "text": "Still bright",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means cut off, so the word for pants drops its last letter"
+     },
+     {
+      "text": "worn by",
+      "for": "container",
+      "note": "a garment worn by people is around them, so this goes outside the next piece"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pants, maybe",
+      "gives": "UNDIES",
+      "note": "pants in the British sense, underwear; the S is lost"
+     },
+     {
+      "clueFragment": "maidens",
+      "gives": "MM",
+      "note": "M is a maiden over in cricket scoring, doubled for the plural"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D is the abbreviation for day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNDI",
+      "MM",
+      "E",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Young women in short trousers, worn during the day, still look bright.",
+     "walkthrough": "In Britain pants are underpants. In cricket a maiden is an over with no runs, recorded as M.",
+     "definitionFit": "Undimmed means not having lost brightness, so it is still shining as before."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "maidens"
+    }
+   }
   },
   {
    "number": 12,
@@ -228,7 +876,60 @@
      }
     ]
    },
-   "solution": "MICROCREDIT"
+   "solution": "MICROCREDIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MICRO-CREDIT",
+    "definitions": [
+     {
+      "text": "advances from bank",
+      "at": 46
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "MI",
+      "note": "mi is a note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "creature in river",
+      "gives": "CROC",
+      "note": "a crocodile, short form, lives in rivers"
+     },
+     {
+      "clueFragment": "brightly coloured",
+      "gives": "RED",
+      "note": "red is a bright colour"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "CROC",
+      "RED",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A colourful crocodile emerges from the water onto the riverbank.",
+     "walkthrough": "'Bank' looks like the river's edge from the surface; it is a lender making small loans.",
+     "definitionFit": "Microcredit is the system of very small loans made to poor borrowers, typically by specialist banks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 13,
@@ -242,7 +943,69 @@
     "text": "One's deified, having died in China in ancient city",
     "enumeration": "10"
    },
-   "solution": "PALINDROME"
+   "solution": "PALINDROME",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PALINDROME",
+    "definitions": [
+     {
+      "text": "One's deified",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the single letter for died inside the run of words that follows"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "China",
+      "gives": "PAL",
+      "note": "china plate is rhyming slang for mate, a pal"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "died",
+      "gives": "D",
+      "note": "d is the abbreviation for died"
+     },
+     {
+      "clueFragment": "ancient city",
+      "gives": "ROME",
+      "note": "Rome is the great city of antiquity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PALIN",
+      "D",
+      "ROME"
+     ]
+    },
+    "explanation": {
+     "surface": "A figure deified after dying in China, in the ancient city.",
+     "walkthrough": "The first 'in' places the letter, the second is taken as written. 'Deified' looks like making a god; it is a word that reads the same both ways, so the definition is by example.",
+     "definitionFit": "The word deified spells the same backwards and forwards, making it an example of such a word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "deified"
+    }
+   }
   },
   {
    "number": 14,
@@ -256,7 +1019,49 @@
     "text": "Move quickly to get on panel",
     "enumeration": "9"
    },
-   "solution": "DASHBOARD"
+   "solution": "DASHBOARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DASHBOARD",
+    "definitions": [
+     {
+      "text": "panel",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Move quickly",
+      "gives": "DASH",
+      "note": "to dash is to move quickly"
+     },
+     {
+      "clueFragment": "get on",
+      "gives": "BOARD",
+      "note": "to board is to get on a vehicle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DASH",
+      "BOARD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hurries to catch a train, or to join a committee.",
+     "definitionFit": "A dashboard is the instrument panel in front of a driver."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "panel"
+    }
+   }
   },
   {
    "number": 15,
@@ -270,7 +1075,64 @@
     "text": "Inclined not to lose heart, if not exactly upfront",
     "enumeration": "4"
    },
-   "solution": "CANT"
+   "solution": "CANT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CANT",
+    "definitions": [
+     {
+      "text": "Inclined",
+      "at": 0,
+      "note": "past participle; the answer is the verb or the adjective meaning slanting"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to lose heart",
+      "for": "deletion",
+      "note": "losing heart means the central letter of the word is removed"
+     },
+     {
+      "text": "upfront",
+      "for": "charade",
+      "note": "upfront says the approximate abbreviation is placed at the front"
+     }
+    ],
+    "linkWords": [
+     "if"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not exactly",
+      "gives": "CA",
+      "note": "ca is circa, approximately"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written, then its middle letter goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tends not to get discouraged, even if they are not entirely straightforward.",
+     "walkthrough": "'Not exactly upfront' sounds like evasive behaviour; split, it means circa placed first.",
+     "definitionFit": "Cant means to tilt or slope, so a canted surface is one set at a slant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upfront"
+    }
+   }
   },
   {
    "number": 16,
@@ -284,7 +1146,60 @@
     "text": "One shown around foodstore",
     "enumeration": "4"
    },
-   "solution": "DELI"
+   "solution": "DELI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DELI",
+    "definitions": [
+     {
+      "text": "foodstore",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "around means turned about, so the combined letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "shown",
+      "gives": "LED",
+      "note": "shown the way, guided"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEL",
+      "I"
+     ],
+     "reversals": [
+      {
+       "from": "ILED",
+       "to": "DELI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A customer is given a tour of a food shop.",
+     "definitionFit": "A deli, short for delicatessen, is a shop selling prepared foods and fine ingredients."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shown"
+    }
+   }
   },
   {
    "number": 17,
@@ -298,7 +1213,62 @@
     "text": "As strong gust changing direction, head for yacht",
     "enumeration": "7"
    },
-   "solution": "EQUALLY"
+   "solution": "EQUALLY",
+   "annotation": {
+    "type": [
+     "substitution",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EQUALLY",
+    "definitions": [
+     {
+      "text": "As",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changing direction",
+      "for": "substitution",
+      "note": "changing direction swaps one compass point for another in the word for a gust"
+     },
+     {
+      "text": "head for",
+      "for": "letter_selection",
+      "note": "head for means the leading letter of the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strong gust",
+      "gives": "SQUALL",
+      "note": "a squall is a sudden violent wind; its S (south) becomes E (east)"
+     },
+     {
+      "clueFragment": "yacht",
+      "gives": "Y",
+      "select": "first",
+      "note": "the opening letter of yacht"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EQUALL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor notes that a gust has veered round as it heads for a yacht.",
+     "walkthrough": "'As' looks like a mere joining word, but it is the definition: as tall as means equally tall.",
+     "definitionFit": "In comparisons, as means to the same degree, which is what equally expresses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "As"
+    }
+   }
   },
   {
    "number": 18,
@@ -312,7 +1282,51 @@
     "text": "Period before spring was enthralling",
     "enumeration": "10"
    },
-   "solution": "SPELLBOUND"
+   "solution": "SPELLBOUND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPELLBOUND",
+    "definitions": [
+     {
+      "text": "was enthralling",
+      "at": 21,
+      "note": "the answer is the past tense of spellbind"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Period",
+      "gives": "SPELL",
+      "note": "a spell is a period of time"
+     },
+     {
+      "clueFragment": "spring",
+      "gives": "BOUND",
+      "note": "to bound is to spring or leap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPELL",
+      "BOUND"
+     ]
+    },
+    "explanation": {
+     "surface": "A stretch of time just before springtime was captivating.",
+     "walkthrough": "'Spring' suggests the season; it is the verb meaning to leap.",
+     "definitionFit": "To spellbind is to enthral, so its past tense means held spectators enthralled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spring"
+    }
+   }
   },
   {
    "number": 19,
@@ -326,7 +1340,52 @@
     "text": "What could make me a lord?",
     "enumeration": "7"
    },
-   "solution": "EARLDOM"
+   "solution": "EARLDOM",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram"
+    ],
+    "answer": "EARLDOM",
+    "definitions": [
+     {
+      "text": "What could make me a lord?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "What could make",
+      "for": "anagram",
+      "note": "what could make asks what these letters might be made into once reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "me a lord",
+      "gives": "MEALORD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MEALORD",
+       "gives": "EARLDOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders what honour would raise them to the peerage.",
+     "walkthrough": "The whole clue is both the wordplay and the definition: being granted this title would indeed make you a lord.",
+     "definitionFit": "Receiving an earldom makes the holder an earl, a member of the British peerage addressed as Lord."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "make"
+    }
+   }
   },
   {
    "number": 20,
@@ -340,7 +1399,64 @@
     "text": "Relatives of writer turned up with hacks",
     "enumeration": "7"
    },
-   "solution": "NEPHEWS"
+   "solution": "NEPHEWS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NEPHEWS",
+    "definitions": [
+     {
+      "text": "Relatives",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turned up means read from bottom to top, backwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "writer",
+      "gives": "PEN",
+      "note": "a pen is a writing instrument"
+     },
+     {
+      "clueFragment": "hacks",
+      "gives": "HEWS",
+      "note": "to hack at something is to hew it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEP",
+      "HEWS"
+     ],
+     "reversals": [
+      {
+       "from": "PEN",
+       "to": "NEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer's relatives arrive along with some journalists.",
+     "walkthrough": "'Hacks' suggests journalists, but it is the verb meaning chops.",
+     "definitionFit": "Nephews are a sibling's sons, and so family relatives."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hacks"
+    }
+   }
   },
   {
    "number": 21,
@@ -360,7 +1476,56 @@
      }
     ]
    },
-   "solution": "NUDGEBAR"
+   "solution": "NUDGEBAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NUDGE BAR",
+    "definitions": [
+     {
+      "text": "grill for the motorist",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "in places the letter for good inside the venue named next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "1's pub, maybe",
+      "gives": "NUDEBAR",
+      "note": "a bar for naturists, the answer to 1 across"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUD",
+      "G",
+      "EBAR"
+     ]
+    },
+    "explanation": {
+     "surface": "At a naturists' pub, a decent grilled meal is offered to drivers.",
+     "walkthrough": "'Grill' suggests food; here it is a metal frame. A nudge bar, also called a bull bar, is fitted to the front of a vehicle.",
+     "definitionFit": "A nudge bar is a protective metal grille fitted across the front of a car or truck."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "grill"
+    }
+   }
   },
   {
    "number": 22,
@@ -374,7 +1539,68 @@
     "text": "Sweet drink to have in your youth, primarily",
     "enumeration": "6"
    },
-   "solution": "SYRUPY"
+   "solution": "SYRUPY",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SYRUPY",
+    "definitions": [
+     {
+      "text": "Sweet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to have in",
+      "for": "container",
+      "note": "to have something in is to hold it, so the drink goes around the next piece"
+     },
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily asks for the first letter of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "SUP",
+      "note": "to sup is to drink"
+     },
+     {
+      "clueFragment": "your",
+      "gives": "YR",
+      "note": "yr is the abbreviated form of your"
+     },
+     {
+      "clueFragment": "youth",
+      "gives": "Y",
+      "select": "first",
+      "note": "the opening letter of youth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "YR",
+      "UP",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A sweet drink is something to enjoy when you are young.",
+     "definitionFit": "Syrupy means thick and sugary like syrup, so very sweet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "youth"
+    }
+   }
   },
   {
    "number": 22,
@@ -388,7 +1614,59 @@
     "text": "Some yarn in English used in film",
     "enumeration": "5"
    },
-   "solution": "SKEIN"
+   "solution": "SKEIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SKEIN",
+    "definitions": [
+     {
+      "text": "Some yarn",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "used in",
+      "for": "container",
+      "note": "used in means put to work inside, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "film",
+      "gives": "SKIN",
+      "note": "a skin is a thin film, as on custard"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SK",
+      "E",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A story told in English is used in a movie.",
+     "walkthrough": "'Yarn' and 'film' both suggest storytelling; one is wool, the other a thin layer.",
+     "definitionFit": "A skein is a loosely coiled length of yarn or thread."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "yarn"
+    }
+   }
   },
   {
    "number": 23,
@@ -416,7 +1694,51 @@
      }
     ]
    },
-   "solution": "LIVEANDLETDIE"
+   "solution": "LIVEANDLETDIE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LIVE AND LET DIE",
+    "definitions": [
+     {
+      "text": "Picture",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to disorder",
+      "for": "anagram",
+      "note": "led to disorder means brought into a jumbled state, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "evidential, led",
+      "gives": "EVIDENTIALLED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EVIDENTIALLED",
+       "gives": "LIVEANDLETDIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A photograph used as evidence caused chaos.",
+     "walkthrough": "'Picture' suggests a photograph, but it means a film: the 1973 James Bond movie.",
+     "definitionFit": "Live and Let Die is a James Bond film, and picture is a common word for a movie."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Picture"
+    }
+   }
   },
   {
    "number": 24,
@@ -430,7 +1752,56 @@
     "text": "Useless when one's no longer in front",
     "enumeration": "3"
    },
-   "solution": "VAN"
+   "solution": "VAN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "VAN",
+    "definitions": [
+     {
+      "text": "front",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no longer in",
+      "for": "deletion",
+      "note": "no longer in means the single letter has gone from the word"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Useless",
+      "gives": "VAIN",
+      "note": "a vain effort is a useless one"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "I",
+      "note": "I is the Roman numeral for one, which is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VA",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone feels useless once no longer at the forefront.",
+     "definitionFit": "The van is the leading part of an army or movement, short for vanguard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "front"
+    }
+   }
   },
   {
    "number": 25,
@@ -444,7 +1815,66 @@
     "text": "Celebrated study, The Writer's Husband, recalled",
     "enumeration": "6"
    },
-   "solution": "HYMNED"
+   "solution": "HYMNED",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "HYMNED",
+    "definitions": [
+     {
+      "text": "Celebrated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "recalled means called back, so the whole sequence is read in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "study",
+      "gives": "DEN",
+      "note": "a den is a private study"
+     },
+     {
+      "clueFragment": "The Writer's",
+      "gives": "MY",
+      "note": "the writer's means belonging to the setter, so my"
+     },
+     {
+      "clueFragment": "Husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "YM",
+      "NED"
+     ],
+     "reversals": [
+      {
+       "from": "DENMYH",
+       "to": "HYMNED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A well-known study titled The Writer's Husband is remembered.",
+     "definitionFit": "To hymn something is to praise it in song, so hymned means celebrated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "study"
+    }
+   }
   },
   {
    "number": 26,
@@ -458,7 +1888,51 @@
     "text": "Notes time is extremely short?",
     "enumeration": "8"
    },
-   "solution": "MINUTEST"
+   "solution": "MINUTEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MINUTEST",
+    "definitions": [
+     {
+      "text": "extremely short?",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Notes",
+      "gives": "MINUTES",
+      "note": "minutes are written notes of a meeting"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MINUTES",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Taking the minutes of a meeting leaves very little time.",
+     "walkthrough": "The question mark flags that short here means small in size rather than brief in time.",
+     "definitionFit": "Minutest is the superlative of minute, meaning tiny, so it describes something extremely small."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Notes"
+    }
+   }
   }
  ]
 }
