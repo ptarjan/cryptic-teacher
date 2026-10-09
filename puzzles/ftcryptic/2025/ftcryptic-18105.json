@@ -24,6 +24,9 @@
   "date": "2025-07-14",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,46 @@
     "text": "Praise popular seabird",
     "enumeration": "6"
    },
-   "solution": "PUFFIN"
+   "solution": "PUFFIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PUFFIN",
+    "definitions": [
+     {
+      "text": "seabird",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Praise",
+      "gives": "PUFF",
+      "note": "to puff is to praise extravagantly, as in a puff piece"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "what is in is fashionable or popular"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUFF",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A birdwatcher heaps praise on a well-loved seabird.",
+     "definitionFit": "The puffin is a stubby, brightly billed bird of North Atlantic cliffs, so seabird is its category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Praise"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +93,62 @@
     "text": "Dog register including one boxer",
     "enumeration": "8"
    },
-   "solution": "PUGILIST"
+   "solution": "PUGILIST",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PUGILIST",
+    "definitions": [
+     {
+      "text": "boxer",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including means the register takes something inside it, wrapped around the extra piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dog",
+      "gives": "PUG",
+      "note": "a pug is a small flat-faced breed of dog"
+     },
+     {
+      "clueFragment": "register",
+      "gives": "LIST",
+      "note": "a register is a list of names"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUG",
+      "I",
+      "LIST"
+     ]
+    },
+    "explanation": {
+     "surface": "A kennel club enters one boxer dog on its register.",
+     "walkthrough": "Boxer looks like the dog breed next to Dog and register, but it means a fighter in the ring.",
+     "definitionFit": "A pugilist is a formal or jocular word for a prizefighter, someone who boxes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "boxer"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +162,62 @@
     "text": "Yield clear returns, intentionally disregarded",
     "enumeration": "9"
    },
-   "solution": "FORGOTTEN"
+   "solution": "FORGOTTEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "FORGOTTEN",
+    "definitions": [
+     {
+      "text": "intentionally disregarded",
+      "at": 21,
+      "note": "the answer is a past participle; 'forgotten' here means wilfully overlooked"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returns",
+      "for": "reversal",
+      "note": "something that returns goes back the way it came, so this word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yield",
+      "gives": "FORGO",
+      "note": "to forgo is to give up or yield something"
+     },
+     {
+      "clueFragment": "clear",
+      "gives": "NETT",
+      "note": "nett profit is what is cleared after deductions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FORGO",
+      "TTEN"
+     ],
+     "reversals": [
+      {
+       "from": "NETT",
+       "to": "TTEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An investment whose clear returns were ignored on purpose by its owner.",
+     "walkthrough": "'Clear returns' reads like profits coming back, but returns is the instruction to reverse the word for clear.",
+     "definitionFit": "Something forgotten in this sense has been put out of mind deliberately, left out of consideration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "returns"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +231,58 @@
     "text": "Element of travel sickness around Ely?",
     "enumeration": "4"
    },
-   "solution": "ISLE"
+   "solution": "ISLE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ISLE",
+    "definitions": [
+     {
+      "text": "Ely?",
+      "at": 34,
+      "note": "definition by example, signalled by the question mark"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Element of",
+      "for": "hidden_word",
+      "note": "an element of something is a part of it, so the letters are a run inside the following words"
+     },
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "turned around means facing the other way, so the run is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "travel sickness",
+      "gives": "ELSI",
+      "note": "a run of letters spanning the end of travel and the start of sickness"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ELSI",
+       "to": "ISLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone feels a bit queasy on the way round Ely.",
+     "walkthrough": "Ely in Cambridgeshire was historically the Isle of Ely, raised ground in the Fens, hence the question mark for an example.",
+     "definitionFit": "Ely is one instance of an isle, being the old name of the fenland island on which the cathedral city stands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Element"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +296,59 @@
     "text": "Are incoherent after extremely shambolic emergency take-off",
     "enumeration": "8"
    },
-   "solution": "SCRAMBLE"
+   "solution": "SCRAMBLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCRAMBLE",
+    "definitions": [
+     {
+      "text": "emergency take-off",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the two extremes of the word, its very first and very last letters"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shambolic",
+      "gives": "SC",
+      "select": "outer",
+      "note": "the outside letters of the word shambolic"
+     },
+     {
+      "clueFragment": "Are incoherent",
+      "gives": "RAMBLE",
+      "note": "to ramble is to talk incoherently"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SC",
+      "RAMBLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Pilots babble in panic after a chaotic emergency take-off.",
+     "walkthrough": "After here places the extremes of shambolic before the word for being incoherent.",
+     "definitionFit": "A scramble is the urgent launch of fighter aircraft to meet a threat, an emergency take-off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "after"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +362,60 @@
     "text": "Constant boundless zaniness in setters?",
     "enumeration": "7"
    },
-   "solution": "CANINES"
+   "solution": "CANINES",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CANINES",
+    "definitions": [
+     {
+      "text": "setters?",
+      "at": 31,
+      "note": "the answer is the class to which setters belong"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boundless",
+      "for": "deletion",
+      "note": "with no bounds the word loses its edges, so its first and last letters go"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Constant",
+      "gives": "C",
+      "note": "C is the standard symbol for a constant, such as the speed of light"
+     },
+     {
+      "clueFragment": "zaniness",
+      "gives": "ANINES",
+      "note": "the word zaniness with its first and last letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ANINES"
+     ]
+    },
+    "explanation": {
+     "surface": "Crossword setters are endlessly zany, perhaps.",
+     "walkthrough": "Setters looks like the people who compile crosswords; here they are gun dogs, hence the question mark.",
+     "definitionFit": "Setters are a breed of gun dog, and canines is the collective term for dogs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "setters"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +429,66 @@
     "text": "Increase in adjusted per capita income at last",
     "enumeration": "10"
    },
-   "solution": "APPRECIATE"
+   "solution": "APPRECIATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "APPRECIATE",
+    "definitions": [
+     {
+      "text": "Increase",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "adjusted",
+      "for": "anagram",
+      "note": "figures that have been adjusted are altered, so these letters are put into a new order"
+     },
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the final letter of the word just before it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "per capita",
+      "gives": "PERCAPITA",
+      "note": "used as written"
+     },
+     {
+      "clueFragment": "income",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of income"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PERCAPITAE",
+       "gives": "APPRECIATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An economist notes a rise in per capita income once figures are adjusted.",
+     "walkthrough": "The economics vocabulary makes adjusted look like inflation-adjusted, but it reworks the letters of per capita with the tail of income.",
+     "definitionFit": "Assets appreciate when they grow in value, so the verb means to increase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "adjusted"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +502,60 @@
     "text": "Briefly regretting tailing black bear",
     "enumeration": "5"
    },
-   "solution": "BRUIN"
+   "solution": "BRUIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BRUIN",
+    "definitions": [
+     {
+      "text": "bear",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the word loses its final letter"
+     },
+     {
+      "text": "tailing",
+      "for": "charade",
+      "note": "tailing means following behind, so this piece comes after the colour"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "B is the abbreviation for black, as on pencils"
+     },
+     {
+      "clueFragment": "regretting",
+      "gives": "RUING",
+      "note": "to rue is to regret, so regretting is ruing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RUIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A black bear briefly regrets following someone.",
+     "walkthrough": "Black bear reads as one animal, but black supplies a letter and bear alone is the definition.",
+     "definitionFit": "Bruin is a traditional nickname for a bear, from the Dutch for brown, as in folk tales."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "black"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +575,48 @@
      }
     ]
    },
-   "solution": "EVERSO"
+   "solution": "EVERSO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EVER SO",
+    "definitions": [
+     {
+      "text": "Frightfully",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "backside",
+      "gives": "VERSO",
+      "note": "the verso is the back side of a page"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "VERSO"
+     ]
+    },
+    "explanation": {
+     "surface": "An English bottom is a frightful sight.",
+     "walkthrough": "Backside suggests a bottom; it is the reverse side of a leaf in a book.",
+     "definitionFit": "Ever so and frightfully are both intensifying adverbs meaning very, in a rather posh British register."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "backside"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +630,66 @@
     "text": "'Imagine' is almost perfect hit single, ultimately",
     "enumeration": "6"
    },
-   "solution": "IDEATE"
+   "solution": "IDEATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "IDEATE",
+    "definitions": [
+     {
+      "text": "'Imagine'",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the word drops its last letter"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so the final letters of the next two words are taken"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "perfect",
+      "gives": "IDEAL",
+      "note": "ideal means perfect"
+     },
+     {
+      "clueFragment": "hit single",
+      "gives": "TE",
+      "select": "last",
+      "note": "the last letters of hit and of single"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDEA",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "John Lennon's Imagine is nearly the perfect hit single.",
+     "walkthrough": "The quote marks make 'Imagine' look like the Lennon song title; it is just the verb.",
+     "definitionFit": "To ideate is to form an idea in the mind, which is to imagine or conceive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Imagine"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +709,51 @@
      }
     ]
    },
-   "solution": "GERMLADEN"
+   "solution": "GERMLADEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GERM-LADEN",
+    "definitions": [
+     {
+      "text": "Insalubrious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rioting",
+      "for": "anagram",
+      "note": "rioting suggests disorder and chaos, so these letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ragmen led",
+      "gives": "RAGMENLED",
+      "note": "used as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RAGMENLED",
+       "gives": "GERMLADEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grubby band of rag-and-bone men lead a riot.",
+     "walkthrough": "Ragmen are rag-and-bone men, street dealers in old clothes and scrap.",
+     "definitionFit": "Insalubrious means unhealthy or dirty, and something full of microbes is unwholesome in exactly that way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "led"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +767,47 @@
     "text": "Quietly insulting Mrs Grundy",
     "enumeration": "5"
    },
-   "solution": "PRUDE"
+   "solution": "PRUDE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRUDE",
+    "definitions": [
+     {
+      "text": "Mrs Grundy",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quietly",
+      "gives": "P",
+      "note": "p, for piano, is the musical direction meaning quietly"
+     },
+     {
+      "clueFragment": "insulting",
+      "gives": "RUDE",
+      "note": "rude means insulting or offensive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RUDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone quietly insults a woman called Mrs Grundy.",
+     "walkthrough": "Mrs Grundy is a character from an 18th-century English play whose name became shorthand for a narrow-minded moraliser.",
+     "definitionFit": "Mrs Grundy personifies conventional prudishness, so she stands for someone easily shocked by impropriety."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Quietly"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +821,58 @@
     "text": "Twisted Kitty's kink",
     "enumeration": "4"
    },
-   "solution": "LOOP"
+   "solution": "LOOP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "LOOP",
+    "definitions": [
+     {
+      "text": "kink",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Twisted",
+      "for": "reversal",
+      "note": "twisted round means turned to face the other way, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kitty",
+      "gives": "POOL",
+      "note": "a kitty is a pool of shared money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOOP"
+     ],
+     "reversals": [
+      {
+       "from": "POOL",
+       "to": "LOOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deviant cat has an odd kink.",
+     "walkthrough": "Kitty suggests a cat; it is a shared fund of money.",
+     "definitionFit": "A kink in a rope or wire is a twist, a small curl or coil in the line."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Kitty"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +892,51 @@
      }
     ]
    },
-   "solution": "LAWNTENNIS"
+   "solution": "LAWNTENNIS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LAWN TENNIS",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing about with letters means moving them round, so these are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lenin wasn't",
+      "gives": "LENINWASNT",
+      "note": "used as written, ignoring the apostrophe"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LENINWASNT",
+       "gives": "LAWNTENNIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The revolutionary Lenin was not one for playing games.",
+     "definitionFit": "Lawn tennis is the full name of the racket sport, so it is a specific game."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Lenin"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +956,56 @@
      }
     ]
    },
-   "solution": "DECREENISI"
+   "solution": "DECREENISI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DECREE NISI",
+    "definitions": [
+     {
+      "text": "court order",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "affected",
+      "for": "anagram",
+      "note": "something affected has been altered by an outside influence, so these letters change order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Residence",
+      "gives": "RESIDENCE",
+      "note": "used as written"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RESIDENCEI",
+       "gives": "DECREENISI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A court order has an effect on where someone currently lives.",
+     "walkthrough": "Current looks like an adjective meaning present, but it is the physics symbol.",
+     "definitionFit": "A decree nisi was the provisional court ruling in English divorce proceedings, a type of court order."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 15,
@@ -277,7 +1025,49 @@
      }
     ]
    },
-   "solution": "SOTHERE"
+   "solution": "SOTHERE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SO THERE",
+    "definitions": [
+     {
+      "text": "Defiant words",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drunk",
+      "gives": "SOT",
+      "note": "a sot is a habitual drunk"
+     },
+     {
+      "clueFragment": "at this point",
+      "gives": "HERE",
+      "note": "here means at this place or point"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOT",
+      "HERE"
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk shouts defiance at this moment.",
+     "definitionFit": "So there is a childish retort of triumph or defiance, a phrase thrown out to end an argument."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 16,
@@ -291,7 +1081,56 @@
     "text": "Revealing agent harbouring Philby",
     "enumeration": "6"
    },
-   "solution": "SKIMPY"
+   "solution": "SKIMPY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SKIMPY",
+    "definitions": [
+     {
+      "text": "Revealing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "harbouring",
+      "for": "container",
+      "note": "harbouring means sheltering inside, so one piece is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agent",
+      "gives": "SPY",
+      "note": "a spy is a secret agent"
+     },
+     {
+      "clueFragment": "Philby",
+      "gives": "KIM",
+      "note": "Kim Philby was the British intelligence officer who spied for the Soviets"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "KIM",
+      "PY"
+     ]
+    },
+    "explanation": {
+     "surface": "An agent who sheltered the traitor Philby is exposed.",
+     "walkthrough": "Revealing suggests unmasking a mole; here it describes scanty clothing.",
+     "definitionFit": "A skimpy outfit covers little, so it is revealing in the sense of showing a lot of skin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Revealing"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1144,71 @@
     "text": "Training facility in China was essentially established by Gunners",
     "enumeration": "9"
    },
-   "solution": "PALAESTRA"
+   "solution": "PALAESTRA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PALAESTRA",
+    "definitions": [
+     {
+      "text": "Training facility",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "essentially points to the essence or core of the word, its central letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "China",
+      "gives": "PAL",
+      "note": "china is rhyming slang for mate, from china plate, and a mate is a pal"
+     },
+     {
+      "clueFragment": "was",
+      "gives": "A",
+      "select": "middle",
+      "note": "the central letter of was"
+     },
+     {
+      "clueFragment": "established",
+      "gives": "EST",
+      "note": "est. is the abbreviation for established"
+     },
+     {
+      "clueFragment": "Gunners",
+      "gives": "RA",
+      "note": "RA is the Royal Artillery, whose soldiers are gunners"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAL",
+      "A",
+      "EST",
+      "RA"
+     ]
+    },
+    "explanation": {
+     "surface": "Arsenal, the Gunners, set up a training ground in China.",
+     "walkthrough": "China and Gunners suggest Arsenal football club's overseas academy; China is cockney rhyming slang and Gunners the Royal Artillery.",
+     "definitionFit": "A palaestra was the wrestling school or exercise ground of ancient Greece, a place for athletic training."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1222,60 @@
     "text": "Endures storms on a submarine",
     "enumeration": "8"
    },
-   "solution": "UNDERSEA"
+   "solution": "UNDERSEA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNDERSEA",
+    "definitions": [
+     {
+      "text": "submarine",
+      "at": 20,
+      "note": "used as an adjective, below the sea"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "storms",
+      "for": "anagram",
+      "note": "storms throw things about violently, so these letters are tossed into a new order"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Endures",
+      "gives": "ENDURES",
+      "note": "used as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "used as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ENDURESA",
+       "gives": "UNDERSEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A submarine crew rides out storms at sea.",
+     "walkthrough": "Submarine looks like the vessel, a noun; it is the adjective meaning under the sea.",
+     "definitionFit": "Submarine as an adjective means existing or happening beneath the surface of the sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "submarine"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1289,62 @@
     "text": "Noisy sleeper more upset about onset of nightmares",
     "enumeration": "6"
    },
-   "solution": "SNORER"
+   "solution": "SNORER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SNORER",
+    "definitions": [
+     {
+      "text": "Noisy sleeper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "onset of",
+      "for": "letter_selection",
+      "note": "the onset is the beginning, so only the first letter of the next word is used"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece goes outside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more upset",
+      "gives": "SORER",
+      "note": "sorer means more upset or aggrieved"
+     },
+     {
+      "clueFragment": "nightmares",
+      "gives": "N",
+      "select": "first",
+      "note": "the first letter of nightmares"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "N",
+      "ORER"
+     ]
+    },
+    "explanation": {
+     "surface": "A restless sleeper grows more distressed as nightmares begin.",
+     "walkthrough": "Upset looks like an anagram signal; 'more upset' is just a comparative adjective.",
+     "definitionFit": "Someone who snores makes a rasping noise while asleep, so a snorer is a noisy sleeper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1358,56 @@
     "text": "Relative bitten by bug, causing laughter",
     "enumeration": "7"
    },
-   "solution": "RISIBLE"
+   "solution": "RISIBLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RISIBLE",
+    "definitions": [
+     {
+      "text": "causing laughter",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bitten by",
+      "for": "container",
+      "note": "something bitten is held between the jaws, so one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bug",
+      "gives": "RILE",
+      "note": "to bug someone is to annoy or rile them"
+     },
+     {
+      "clueFragment": "Relative",
+      "gives": "SIB",
+      "note": "sib is short for sibling, a relative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RI",
+      "SIB",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A relative gets bitten by an insect, which everyone finds hilarious.",
+     "walkthrough": "Bug looks like an insect; it is the verb meaning annoy.",
+     "definitionFit": "Risible means laughable, provoking laughter, often with ridicule."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bug"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1421,46 @@
     "text": "Some marital infidelity is remedy for restlessness",
     "enumeration": "7"
    },
-   "solution": "RITALIN"
+   "solution": "RITALIN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RITALIN",
+    "definitions": [
+     {
+      "text": "remedy for restlessness",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means a portion of the words that follow, so the letters lie inside them"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "marital infidelity",
+      "gives": "RITALIN",
+      "note": "a run of letters spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Cheating on a spouse is offered as a cure for being restless.",
+     "definitionFit": "Ritalin is a brand of methylphenidate, prescribed for hyperactivity and attention disorders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "infidelity"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1474,57 @@
     "text": "Endings of Goldfinger and The Servant reportedly filmed again",
     "enumeration": "6"
    },
-   "solution": "REMADE"
+   "solution": "REMADE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "homophone",
+     "charade"
+    ],
+    "answer": "REMADE",
+    "definitions": [
+     {
+      "text": "filmed again",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endings of",
+      "for": "letter_selection",
+      "note": "endings means the final letters of the words that follow are taken"
+     },
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as it is said, so the word is replaced by one that is pronounced the same"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Goldfinger and The",
+      "gives": "RE",
+      "select": "last",
+      "note": "the last letters of Goldfinger and The; 'and' just links them"
+     },
+     {
+      "clueFragment": "Servant",
+      "gives": "MADE",
+      "soundsLike": "MAID",
+      "note": "a maid is a servant"
+     }
+    ],
+    "explanation": {
+     "surface": "Goldfinger and The Servant are 1960s films that were later remade.",
+     "walkthrough": "The Servant (1963) and Goldfinger (1964) look like a pair of titles, but The is split off and Servant stands alone.",
+     "definitionFit": "A film that has been remade has been shot again as a new version."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Servant"
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1538,52 @@
     "text": "Writer stays married, in the same place",
     "enumeration": "6"
    },
-   "solution": "IBIDEM"
+   "solution": "IBIDEM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IBIDEM",
+    "definitions": [
+     {
+      "text": "in the same place",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writer",
+      "gives": "I",
+      "note": "the setter, as writer of the clue, refers to themselves as I"
+     },
+     {
+      "clueFragment": "stays",
+      "gives": "BIDE",
+      "note": "to bide is to stay or remain"
+     },
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M is the abbreviation for married"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "BIDE",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "An author remains married and lives in the same house.",
+     "definitionFit": "Ibidem is the Latin footnote term meaning in the same source, literally in the same place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Writer"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1597,52 @@
     "text": "Taxing the boomers misguidedly",
     "enumeration": "10"
    },
-   "solution": "BOTHERSOME"
+   "solution": "BOTHERSOME",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BOTHERSOME",
+    "definitions": [
+     {
+      "text": "Taxing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "misguidedly",
+      "for": "anagram",
+      "note": "acting misguidedly means going the wrong way, so these letters end up out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the boomers",
+      "gives": "THEBOOMERS",
+      "note": "used as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THEBOOMERS",
+       "gives": "BOTHERSOME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A government taxes baby boomers, wrongly.",
+     "walkthrough": "Taxing looks like a tax policy; it means demanding or irksome.",
+     "definitionFit": "Something taxing makes heavy demands and wears you out, so it is troublesome or annoying."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Taxing"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1656,61 @@
     "text": "Goes off to support Tooting's foremost revolutionaries",
     "enumeration": "5"
    },
-   "solution": "TROTS"
+   "solution": "TROTS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TROTS",
+    "definitions": [
+     {
+      "text": "revolutionaries",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "foremost",
+      "for": "letter_selection",
+      "note": "foremost means at the very front, so only the first letter is taken"
+     },
+     {
+      "text": "to support",
+      "for": "charade",
+      "note": "in a down answer a support sits underneath, so this piece comes below the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tooting's",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of Tooting"
+     },
+     {
+      "clueFragment": "Goes off",
+      "gives": "ROTS",
+      "note": "food that goes off rots"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ROTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Revolutionaries go off to back the leading figures in Tooting.",
+     "walkthrough": "Tooting is a district of south London, long associated with left-wing politics through 'Citizen Smith'.",
+     "definitionFit": "Trots is a colloquial, often dismissive, name for Trotskyists, far-left revolutionaries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "foremost"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1724,47 @@
     "text": "Read out part of rosary for venerable saint",
     "enumeration": "4"
    },
-   "solution": "BEDE"
+   "solution": "BEDE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BEDE",
+    "definitions": [
+     {
+      "text": "venerable saint",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Read out",
+      "for": "homophone",
+      "note": "read out means spoken aloud, so the word is swapped for one sounding identical"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of rosary",
+      "gives": "BEDE",
+      "soundsLike": "BEAD",
+      "note": "a rosary is a string of beads"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone reads out a portion of the rosary for a holy saint.",
+     "walkthrough": "The Venerable Bede was the 8th-century Northumbrian monk and historian; venerable is part of his customary title.",
+     "definitionFit": "Bede is the English saint always styled the Venerable Bede, so the description identifies him."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Read"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1778,53 @@
     "text": "Intermittently hit outlaw in scrap",
     "enumeration": "4"
    },
-   "solution": "IOTA"
+   "solution": "IOTA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "IOTA",
+    "definitions": [
+     {
+      "text": "scrap",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Intermittently",
+      "for": "letter_selection",
+      "note": "intermittently means at intervals, so every other letter is kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hit outlaw",
+      "gives": "IOTA",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters of hit outlaw"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IOTA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone occasionally strikes an outlaw during a fight.",
+     "walkthrough": "Scrap looks like a fight, fitting the outlaw scene; it is a tiny bit.",
+     "definitionFit": "An iota, the smallest Greek letter, means a very small amount, a scrap or jot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "scrap"
+    }
+   }
   },
   {
    "number": 27,
@@ -459,7 +1838,60 @@
     "text": "Sexy in short dark loincloth",
     "enumeration": "5"
    },
-   "solution": "DHOTI"
+   "solution": "DHOTI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "DHOTI",
+    "definitions": [
+     {
+      "text": "loincloth",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means cut down, so the word loses its last letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so the first piece goes within the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dark",
+      "gives": "DIM",
+      "note": "dim means dark or poorly lit"
+     },
+     {
+      "clueFragment": "Sexy",
+      "gives": "HOT",
+      "note": "hot means sexy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "HOT",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone looks sexy wearing a short, dark loincloth.",
+     "definitionFit": "A dhoti is the length of cloth worn by Indian men, wrapped round the waist and legs like a loincloth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 28,
@@ -473,7 +1905,48 @@
     "text": "Slags off poor kissers",
     "enumeration": "9"
    },
-   "solution": "BADMOUTHS"
+   "solution": "BADMOUTHS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BADMOUTHS",
+    "definitions": [
+     {
+      "text": "Slags off",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poor",
+      "gives": "BAD",
+      "note": "poor means bad, of low quality"
+     },
+     {
+      "clueFragment": "kissers",
+      "gives": "MOUTHS",
+      "note": "kisser is slang for mouth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAD",
+      "MOUTHS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone disparages people who are bad at kissing.",
+     "walkthrough": "To slag off is British slang for criticising someone harshly.",
+     "definitionFit": "To badmouth someone is to criticise them maliciously, the same as slagging them off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "kissers"
+    }
+   }
   },
   {
    "number": 29,
@@ -487,7 +1960,61 @@
     "text": "Inopportune film Ms Moore backed",
     "enumeration": "8"
    },
-   "solution": "MISTIMED"
+   "solution": "MISTIMED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "MISTIMED",
+    "definitions": [
+     {
+      "text": "Inopportune",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backed",
+      "for": "reversal",
+      "note": "backed means moved backwards, so the name is read from end to start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "film",
+      "gives": "MIST",
+      "note": "a film is a thin layer, like a mist on glass"
+     },
+     {
+      "clueFragment": "Ms Moore",
+      "gives": "DEMI",
+      "note": "Demi Moore is the American film actress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIST",
+      "IMED"
+     ],
+     "reversals": [
+      {
+       "from": "DEMI",
+       "to": "IMED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actress backed a film that came out at a bad time.",
+     "walkthrough": "Film looks like a movie, matching Ms Moore; it is a thin haze.",
+     "definitionFit": "Something mistimed is done at the wrong moment, which is what inopportune means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "film"
+    }
+   }
   },
   {
    "number": 30,
@@ -501,7 +2028,57 @@
     "text": "Runs out of wine and curry",
     "enumeration": "6"
    },
-   "solution": "MASALA"
+   "solution": "MASALA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MASALA",
+    "definitions": [
+     {
+      "text": "curry",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of",
+      "for": "deletion",
+      "note": "out of means removed from, so the letter for runs is taken away from the wine"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Runs",
+      "gives": "R",
+      "note": "R is the cricket scorecard abbreviation for runs"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "MARSALA",
+      "note": "Marsala is a fortified wine from Sicily"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "SALA"
+     ]
+    },
+    "explanation": {
+     "surface": "A dinner party runs out of wine and curry.",
+     "walkthrough": "Runs out of looks like a supply running dry, but runs is the letter and out of the removal.",
+     "definitionFit": "A masala is a spiced South Asian dish, so it is a type of curry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Runs"
+    }
+   }
   }
  ]
 }
