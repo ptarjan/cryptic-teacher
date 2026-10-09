@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,57 @@
     "text": "Charlie's into footwear that's a disgrace",
     "enumeration": "7"
    },
-   "solution": "SCANDAL"
+   "solution": "SCANDAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCANDAL",
+    "definitions": [
+     {
+      "text": "a disgrace",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'s into",
+      "for": "container",
+      "note": "'Charlie is into' the footwear, so the letter for Charlie sits inside the shoe word"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "footwear",
+      "gives": "SANDAL",
+      "note": "an open summer shoe"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "ANDAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's footwear has become an embarrassment to them.",
+     "definitionFit": "A scandal is a shameful affair, an outrage that brings public dishonour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Charlie"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +100,66 @@
     "text": "Secretive envelope with payment for the output of Thames Water?",
     "enumeration": "6"
    },
-   "solution": "SEWAGE"
+   "solution": "SEWAGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SEWAGE",
+    "definitions": [
+     {
+      "text": "the output of Thames Water?",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "envelope",
+      "for": "letter_selection",
+      "note": "an envelope is the outside wrapping, so only the outermost letters of the word before it are kept"
+     },
+     {
+      "text": "with",
+      "for": "container",
+      "note": "the envelope holds the next item, so the payment goes inside the kept pair"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Secretive",
+      "gives": "SE",
+      "select": "outer",
+      "note": "first and last letters of Secretive"
+     },
+     {
+      "clueFragment": "payment",
+      "gives": "WAGE",
+      "note": "a wage is a payment for work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "WAG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A secret envelope of cash paid to a water company sounds like a corruption story.",
+     "walkthrough": "Thames Water is the privatised utility supplying London, often criticised for discharging untreated waste into rivers; the question mark flags the jibe.",
+     "definitionFit": "Sewage is waste water, and the utility's sewers handle it, so it is ironically called the company's output."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "envelope"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +173,42 @@
     "text": "Each one welcomed to a pizza pie celebration",
     "enumeration": "6"
    },
-   "solution": "APIECE"
+   "solution": "APIECE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "APIECE",
+    "definitions": [
+     {
+      "text": "Each one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcomed to",
+      "for": "hidden_word",
+      "note": "the answer has been welcomed into the following words, so it lies inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pizza pie celebration",
+      "gives": "APIECE",
+      "note": "the letters run across the end of pizza, all of pie and the start of celebration"
+     }
+    ],
+    "explanation": {
+     "surface": "At a pizza party, every guest is greeted at the door.",
+     "definitionFit": "Apiece is an adverb meaning for each one, as in a pound apiece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "welcomed"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +222,64 @@
     "text": "Fed up with sexual vilifying",
     "enumeration": "10"
    },
-   "solution": "DEFAMATORY"
+   "solution": "DEFAMATORY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DEFAMATORY",
+    "definitions": [
+     {
+      "text": "vilifying",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue 'up' means the word is read from the bottom, backwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fed",
+      "gives": "FED",
+      "note": "taken as written, then turned upwards"
+     },
+     {
+      "clueFragment": "sexual",
+      "gives": "AMATORY",
+      "note": "amatory means relating to sexual love"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEF",
+      "AMATORY"
+     ],
+     "reversals": [
+      {
+       "from": "FED",
+       "to": "DEF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is tired of sexual smears.",
+     "walkthrough": "'Fed up' reads as one idiom meaning annoyed; it is split into a word and its reversal signal.",
+     "definitionFit": "Defamatory statements damage a reputation, which is exactly what vilifying words do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +293,63 @@
     "text": "In the morning, everyone turned into a beast",
     "enumeration": "5"
    },
-   "solution": "LLAMA"
+   "solution": "LLAMA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LLAMA",
+    "definitions": [
+     {
+      "text": "a beast",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned",
+      "for": "reversal",
+      "note": "turned round means the joined letters are read in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In the morning",
+      "gives": "AM",
+      "note": "a.m., ante meridiem"
+     },
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "all means everyone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LLA",
+      "MA"
+     ],
+     "reversals": [
+      {
+       "from": "AMALL",
+       "to": "LLAMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A werewolf-style tale: overnight the whole group became an animal.",
+     "definitionFit": "The llama is a South American animal, a beast of burden used to carry loads."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +363,60 @@
     "text": "Worker was returning tool",
     "enumeration": "7"
    },
-   "solution": "HANDSAW"
+   "solution": "HANDSAW",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "HANDSAW",
+    "definitions": [
+     {
+      "text": "tool",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back, so the word was is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Worker",
+      "gives": "HAND",
+      "note": "a hand is a manual worker, as in farmhand"
+     },
+     {
+      "clueFragment": "was",
+      "gives": "WAS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAND",
+      "SAW"
+     ],
+     "reversals": [
+      {
+       "from": "WAS",
+       "to": "SAW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A labourer was bringing back an implement they had borrowed.",
+     "definitionFit": "A handsaw is a saw worked by one hand, a carpenter's standard implement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Worker"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +430,57 @@
     "text": "Speak to the man first to get a turban?",
     "enumeration": "9"
    },
-   "solution": "HEADDRESS"
+   "solution": "HEADDRESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEADDRESS",
+    "definitions": [
+     {
+      "text": "a turban?",
+      "at": 30,
+      "note": "a turban is an example of the answer, hence the question mark"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "charade",
+      "note": "first tells us the man's word comes before the speaking word, not after it"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the man",
+      "gives": "HE",
+      "note": "the pronoun for a man"
+     },
+     {
+      "clueFragment": "Speak to",
+      "gives": "ADDRESS",
+      "note": "to address someone is to speak to them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "ADDRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to talk to a shop's owner before buying a turban.",
+     "definitionFit": "A turban is a wrapped cloth worn on the head, one example of the broader category of head coverings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Speak"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +494,59 @@
     "text": "Love Bruce's finale in The River",
     "enumeration": "4"
    },
-   "solution": "NILE"
+   "solution": "NILE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NILE",
+    "definitions": [
+     {
+      "text": "The River",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finale",
+      "for": "letter_selection",
+      "note": "a finale is the closing part, so only the final letter of the name is used"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love",
+      "gives": "NIL",
+      "note": "love is zero in tennis scoring"
+     },
+     {
+      "clueFragment": "Bruce's",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of Bruce"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIL",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Fans enjoy the closing number of a Bruce Springsteen gig, playing his song The River.",
+     "walkthrough": "The River is a Bruce Springsteen song and album, which makes the surface hang together.",
+     "definitionFit": "The Nile is the river par excellence, the longest in Africa, often called simply the River in Egypt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Bruce's"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +560,63 @@
     "text": "Pleasure seeker's location? Say why boozer must be in there!",
     "enumeration": "8"
    },
-   "solution": "SYBARITE"
+   "solution": "SYBARITE",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade",
+     "container"
+    ],
+    "answer": "SYBARITE",
+    "definitions": [
+     {
+      "text": "Pleasure seeker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Say",
+      "for": "homophone",
+      "note": "say means speak the word aloud and take a letter that sounds like it"
+     },
+     {
+      "text": "must be in there",
+      "for": "container",
+      "note": "the two pieces must sit inside the location word"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "location",
+      "gives": "SITE",
+      "note": "a site is a location"
+     },
+     {
+      "clueFragment": "why",
+      "gives": "Y",
+      "soundsLike": "WHY",
+      "note": "the letter Y is pronounced like why"
+     },
+     {
+      "clueFragment": "boozer",
+      "gives": "BAR",
+      "note": "a boozer is British slang for a pub or bar"
+     }
+    ],
+    "explanation": {
+     "surface": "A puzzled question about where a hedonist goes, answered with why a pub must be there.",
+     "definitionFit": "A sybarite is someone devoted to luxury and indulgence, named after the reputedly decadent Greek city of Sybaris."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "location"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +630,61 @@
     "text": "Little knowledge extremely dangerous when most don't work",
     "enumeration": "8"
    },
-   "solution": "WEEKENDS"
+   "solution": "WEEKENDS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "WEEKENDS",
+    "definitions": [
+     {
+      "text": "when most don't work",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremes of the next word, its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Little",
+      "gives": "WEE",
+      "note": "wee is Scottish for small"
+     },
+     {
+      "clueFragment": "knowledge",
+      "gives": "KEN",
+      "note": "ken is knowledge, as in beyond one's ken"
+     },
+     {
+      "clueFragment": "dangerous",
+      "gives": "DS",
+      "select": "outer",
+      "note": "first and last letters of dangerous"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WEE",
+      "KEN",
+      "DS"
+     ]
+    },
+    "explanation": {
+     "surface": "A twist on the proverb that a little knowledge is a dangerous thing.",
+     "definitionFit": "Saturdays and Sundays are the days off for most employees, a descriptive definition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +698,50 @@
     "text": "This perhaps starts with hyacinths in full flower",
     "enumeration": "5"
    },
-   "solution": "WHIFF"
+   "solution": "WHIFF",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection"
+    ],
+    "answer": "WHIFF",
+    "definitions": [
+     {
+      "text": "This perhaps starts with hyacinths in full flower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts",
+      "for": "letter_selection",
+      "note": "starts means the opening letters of each of the following words are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with hyacinths in full flower",
+      "gives": "WHIFF",
+      "select": "first",
+      "note": "initial letters of the five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHIFF"
+     ]
+    },
+    "explanation": {
+     "surface": "A smell of spring that begins when the hyacinths bloom.",
+     "walkthrough": "The whole clue is the definition too: a scent that arrives with blooming hyacinths is a brief puff of fragrance.",
+     "definitionFit": "A whiff is a faint smell, the kind of scent blooming hyacinths give off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "starts"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +755,72 @@
     "text": "Westward island volcanic eruption in which one's ready",
     "enumeration": "9"
    },
-   "solution": "AVAILABLE"
+   "solution": "AVAILABLE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "reversal"
+    ],
+    "answer": "AVAILABLE",
+    "definitions": [
+     {
+      "text": "ready",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in which",
+      "for": "container",
+      "note": "the volcanic eruption has 'one' in which it sits, so one goes inside it"
+     },
+     {
+      "text": "Westward",
+      "for": "reversal",
+      "note": "in an across clue westward means right to left, so all the letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "island",
+      "gives": "ELBA",
+      "note": "Elba, Napoleon's island of exile"
+     },
+     {
+      "clueFragment": "volcanic eruption",
+      "gives": "LAVA",
+      "note": "lava is molten rock erupted by a volcano"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVAIL",
+      "ABLE"
+     ],
+     "reversals": [
+      {
+       "from": "ELBALIAVA",
+       "to": "AVAILABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "On an island's western side a volcano erupts, and someone is prepared.",
+     "walkthrough": "One goes into lava after its first letter, and that is joined after the island; the whole string is then reversed.",
+     "definitionFit": "Something available is at hand and can be used, so it is ready."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Westward"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +840,59 @@
      }
     ]
    },
-   "solution": "GOCOMMANDO"
+   "solution": "GOCOMMANDO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GO COMMANDO",
+    "definitions": [
+     {
+      "text": "Discard pants",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to get into",
+      "for": "container",
+      "note": "one word has to get into the other, so it is placed inside it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mucky stuff",
+      "gives": "GOO",
+      "note": "goo is sticky muck"
+     },
+     {
+      "clueFragment": "order",
+      "gives": "COMMAND",
+      "note": "a command is an order"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "COMMAND",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to strip off underwear before wallowing in mud.",
+     "walkthrough": "Pants is British for underpants, not trousers.",
+     "definitionFit": "To go commando is the slang idiom for wearing no underwear, so it means abandoning one's pants."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +906,50 @@
     "text": "Not quite short of cheese",
     "enumeration": "4"
    },
-   "solution": "BRIE"
+   "solution": "BRIE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BRIE",
+    "definitions": [
+     {
+      "text": "cheese",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not quite",
+      "for": "deletion",
+      "note": "not quite means falling just short, so the word loses its last letter"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "short",
+      "gives": "BRIEF",
+      "note": "brief means short"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRIE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone almost out of cheese.",
+     "definitionFit": "Brie is a soft French cheese with a white rind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +963,50 @@
     "text": "Secret files and a disc to be formatted",
     "enumeration": "10"
    },
-   "solution": "CLASSIFIED"
+   "solution": "CLASSIFIED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CLASSIFIED",
+    "definitions": [
+     {
+      "text": "Secret",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be formatted",
+      "for": "anagram",
+      "note": "formatting a disc rewrites its contents, so the letters are arranged anew"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "files and a disc",
+      "gives": "FILESADISC",
+      "note": "the letters of files, a and disc; 'and' joins them"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FILESADISC",
+       "gives": "CLASSIFIED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Confidential documents and a computer disk are due to be wiped.",
+     "definitionFit": "Classified information is officially restricted, kept secret from the public."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "formatted"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +1020,50 @@
     "text": "Mosaic sale settled after a fashion",
     "enumeration": "11"
    },
-   "solution": "TESSELLATED"
+   "solution": "TESSELLATED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TESSELLATED",
+    "definitions": [
+     {
+      "text": "Mosaic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after a fashion",
+      "for": "anagram",
+      "note": "after a fashion means in a loose, rough way, so the letters are only approximately kept in order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sale settled",
+      "gives": "SALESETTLED",
+      "note": "the letters of both words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SALESETTLED",
+       "gives": "TESSELLATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The sale of a mosaic was more or less agreed.",
+     "definitionFit": "A tessellated surface is laid with small tiles, called tesserae, fitting together as in a mosaic floor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fashion"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1077,43 @@
     "text": "Boats that deliver beer or sherry",
     "enumeration": "9"
    },
-   "solution": "SCHOONERS"
+   "solution": "SCHOONERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCHOONERS",
+    "definitions": [
+     {
+      "text": "Boats",
+      "at": 0
+     },
+     {
+      "text": "that deliver beer or sherry",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boats",
+      "note": "first meaning: sailing ships with fore-and-aft rigging"
+     },
+     {
+      "clueFragment": "that deliver beer or sherry",
+      "note": "second meaning: tall glasses from which beer or sherry is drunk"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface pictures cargo vessels carrying drink; the second meaning is the glassware that serves it.",
+     "definitionFit": "The word names both a two-masted sailing vessel and a large drinking glass, for beer in Australia or sherry in Britain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "deliver"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1127,64 @@
     "text": "I came up and had a meal to bring about weight loss",
     "enumeration": "8"
    },
-   "solution": "EMACIATE"
+   "solution": "EMACIATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "EMACIATE",
+    "definitions": [
+     {
+      "text": "bring about weight loss",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue 'up' means these words are read from the bottom, backwards"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I came",
+      "gives": "ICAME",
+      "note": "the two words as written"
+     },
+     {
+      "clueFragment": "had a meal",
+      "gives": "ATE",
+      "note": "ate means had a meal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMACI",
+      "ATE"
+     ],
+     "reversals": [
+      {
+       "from": "ICAME",
+       "to": "EMACI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone arrived and dined, ironically in order to slim.",
+     "definitionFit": "To emaciate is to make abnormally thin, causing extreme loss of flesh."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "meal"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1198,43 @@
     "text": "Potential loser may be grounded",
     "enumeration": "8"
    },
-   "solution": "UNDERDOG"
+   "solution": "UNDERDOG",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UNDERDOG",
+    "definitions": [
+     {
+      "text": "Potential loser",
+      "at": 0
+     },
+     {
+      "text": "may be grounded",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Potential loser",
+      "note": "first meaning: the competitor expected to lose"
+     },
+     {
+      "clueFragment": "may be grounded",
+      "note": "second, cryptic meaning: a hound put beneath the ground, a dog that is under"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split the answer into two words: a dog that is below, as if buried or kept down, is 'grounded'.",
+     "definitionFit": "The underdog is the contestant judged likely to be beaten, so a possible loser."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "grounded"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1248,58 @@
     "text": "First of rebels replaced by second royal supporters",
     "enumeration": "11"
    },
-   "solution": "MONARCHISTS"
+   "solution": "MONARCHISTS",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "MONARCHISTS",
+    "definitions": [
+     {
+      "text": "royal supporters",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replaced by",
+      "for": "substitution",
+      "note": "replaced by tells us one part is swapped out for something else"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rebels",
+      "gives": "ANARCHISTS",
+      "note": "anarchists rebel against all authority"
+     },
+     {
+      "clueFragment": "First of",
+      "gives": "A",
+      "note": "the first letter of the rebels' word, which is removed"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "MO",
+      "note": "a mo is a moment, a second"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "NARCHISTS"
+     ]
+    },
+    "explanation": {
+     "surface": "The leading rebels are swapped for a second group who back the crown.",
+     "definitionFit": "Monarchists favour keeping a king or queen, so they support royalty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1313,50 @@
     "text": "Leaves item of jewellery to change hands",
     "enumeration": "6"
    },
-   "solution": "ROCKET"
+   "solution": "ROCKET",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "ROCKET",
+    "definitions": [
+     {
+      "text": "Leaves",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to change hands",
+      "for": "substitution",
+      "note": "hands are left and right, so changing hands swaps the letter for left with the one for right"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "item of jewellery",
+      "gives": "LOCKET",
+      "note": "a locket is a pendant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "OCKET"
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of jewellery is departing as it gets sold to a new owner.",
+     "walkthrough": "'Leaves' looks like a verb but is a noun: rocket is a peppery salad leaf, called arugula in the US.",
+     "definitionFit": "Rocket is a salad plant eaten for its leaves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Leaves"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1370,53 @@
     "text": "Rise of exotic dances",
     "enumeration": "6"
    },
-   "solution": "ASCEND"
+   "solution": "ASCEND",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASCEND",
+    "definitions": [
+     {
+      "text": "Rise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exotic",
+      "for": "anagram",
+      "note": "exotic means strange and foreign, so the letters appear in an unfamiliar arrangement"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dances",
+      "gives": "DANCES",
+      "note": "the letters of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DANCES",
+       "gives": "ASCEND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The growing popularity of foreign dance styles.",
+     "definitionFit": "To ascend is to go up, the verb sense of rise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rise"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1430,42 @@
     "text": "Showed off team",
     "enumeration": "4"
    },
-   "solution": "CREW"
+   "solution": "CREW",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CREW",
+    "definitions": [
+     {
+      "text": "Showed off",
+      "at": 0
+     },
+     {
+      "text": "team",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Showed off",
+      "note": "first meaning: an old past tense of crow, to boast"
+     },
+     {
+      "clueFragment": "team",
+      "note": "second meaning: a group working together, as on a ship"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Crew as a past tense of crow survives mainly in the cock crew; crowed is the usual form.",
+     "definitionFit": "A crew is a group of people working together, and crowing means boasting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Showed"
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1479,57 @@
     "text": "Prophet tours capital to find bloodsuckers",
     "enumeration": "10"
    },
-   "solution": "MOSQUITOES"
+   "solution": "MOSQUITOES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MOSQUITOES",
+    "definitions": [
+     {
+      "text": "bloodsuckers",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tours",
+      "for": "container",
+      "note": "to tour a place is to go round it, so the prophet surrounds the city"
+     }
+    ],
+    "linkWords": [
+     "to find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prophet",
+      "gives": "MOSES",
+      "note": "Moses, the Old Testament prophet"
+     },
+     {
+      "clueFragment": "capital",
+      "gives": "QUITO",
+      "note": "Quito is the capital of Ecuador"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOS",
+      "QUITO",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "A holy man's journey round a capital city, which ends in insects.",
+     "definitionFit": "Female mosquitoes feed on blood, making them proverbial bloodsuckers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 23,
@@ -375,7 +1543,47 @@
     "text": "Reported partners of locks and docks",
     "enumeration": "5"
    },
-   "solution": "QUAYS"
+   "solution": "QUAYS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "QUAYS",
+    "definitions": [
+     {
+      "text": "docks",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reported",
+      "for": "homophone",
+      "note": "reported means passed on by word of mouth, so we want a word that sounds the same"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "partners of locks",
+      "gives": "QUAYS",
+      "soundsLike": "KEYS",
+      "note": "keys are paired with locks"
+     }
+    ],
+    "explanation": {
+     "surface": "A canal report about locks and docks.",
+     "definitionFit": "Quays are landing places beside water where ships load, so wharves or docks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "locks"
+    }
+   }
   },
   {
    "number": 24,
@@ -389,7 +1597,56 @@
     "text": "Record, second from Jo Brand",
     "enumeration": "4"
    },
-   "solution": "LOGO"
+   "solution": "LOGO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LOGO",
+    "definitions": [
+     {
+      "text": "Brand",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "second from",
+      "for": "letter_selection",
+      "note": "second from means the second letter of the next name is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Record",
+      "gives": "LOG",
+      "note": "a log is a record, as in a ship's log"
+     },
+     {
+      "clueFragment": "Jo",
+      "gives": "O",
+      "select": 2,
+      "note": "second letter of Jo"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOG",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A record from the comedian Jo Brand.",
+     "walkthrough": "Jo Brand is a British stand-up comic; her surname is the definition.",
+     "definitionFit": "A logo is the symbol that identifies a company or product, its brand mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Brand"
+    }
+   }
   },
   {
    "number": 25,
@@ -403,7 +1660,46 @@
     "text": "Stars as a central character in Greek mythology",
     "enumeration": "9"
    },
-   "solution": "ANDROMEDA"
+   "solution": "ANDROMEDA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ANDROMEDA",
+    "definitions": [
+     {
+      "text": "Stars",
+      "at": 0
+     },
+     {
+      "text": "a central character in Greek mythology",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stars",
+      "note": "first meaning: a northern constellation"
+     },
+     {
+      "clueFragment": "a central character in Greek mythology",
+      "note": "second meaning: the princess chained to a rock and rescued by Perseus"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Stars as' reads like an actor playing a role in a film; it is the constellation named after the heroine.",
+     "definitionFit": "The constellation and the princess share a name, since the Greeks placed her figure among the stars."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stars"
+    }
+   }
   },
   {
    "number": 26,
@@ -417,7 +1713,42 @@
     "text": "Linen from Calvin Klein",
     "enumeration": "5"
    },
-   "solution": "INKLE"
+   "solution": "INKLE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "INKLE",
+    "definitions": [
+     {
+      "text": "Linen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "from means drawn out of, so the letters are taken from inside the name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Calvin Klein",
+      "gives": "INKLE",
+      "note": "the letters run across the end of Calvin and the start of Klein"
+     }
+    ],
+    "explanation": {
+     "surface": "Linen clothing from the designer Calvin Klein.",
+     "definitionFit": "Inkle is a narrow linen tape or the thread used to weave it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Calvin"
+    }
+   }
   },
   {
    "number": 27,
@@ -431,7 +1762,62 @@
     "text": "Immerse Señor Gonzales – outwardly distraught",
     "enumeration": "7"
    },
-   "solution": "ENGROSS"
+   "solution": "ENGROSS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ENGROSS",
+    "definitions": [
+     {
+      "text": "Immerse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outwardly",
+      "for": "letter_selection",
+      "note": "outwardly means only the outside of the surname is kept, its first and last letters"
+     },
+     {
+      "text": "distraught",
+      "for": "anagram",
+      "note": "distraught means deeply upset, so the letters are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Señor",
+      "gives": "SENOR",
+      "note": "taken as written, ignoring the tilde"
+     },
+     {
+      "clueFragment": "Gonzales",
+      "gives": "GS",
+      "select": "outer",
+      "note": "first and last letters of Gonzales"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SENORGS",
+       "gives": "ENGROSS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Plunging Mr Gonzales into water, who appears upset.",
+     "definitionFit": "To engross is to absorb someone's attention wholly, a figurative sense of immerse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Immerse"
+    }
+   }
   },
   {
    "number": 28,
@@ -445,7 +1831,58 @@
     "text": "Calmed by medication, James Joyce finally went out",
     "enumeration": "7"
    },
-   "solution": "SEDATED"
+   "solution": "SEDATED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SEDATED",
+    "definitions": [
+     {
+      "text": "Calmed by medication",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the final letters of the two names before it"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "James Joyce",
+      "gives": "SE",
+      "select": "last",
+      "note": "last letters of James and Joyce"
+     },
+     {
+      "clueFragment": "went out",
+      "gives": "DATED",
+      "note": "to date is to go out with someone romantically"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "DATED"
+     ]
+    },
+    "explanation": {
+     "surface": "A tranquillised James Joyce at last went out.",
+     "definitionFit": "A sedated patient has been given a sedative drug to make them calm or sleepy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   }
  ]
 }
