@@ -66,7 +66,7 @@ broken("SHAPE", lambda p: p["unclued"][0].__setitem__("cells", own[:1]) or
 PY
 )
 grep -q '^GOOD ' <<<"$out" || { echo "$out"; exit 1; }
-has() { if grep "^$1 " <<<"$out" | grep -qF -- "$2"; then echo "  ok: $3"; else
+has() { if grep "^$1 " <<<"$out" | grep -F -- "$2" >/dev/null; then echo "  ok: $3"; else
   echo "  FAIL: $3"$'\n'"    want $2 in"$'\n'"    $(grep "^$1 " <<<"$out")"; fails=$((fails + 1)); fi; }
 
 same "a puzzle with an unclued light over a black square and printed letters is written" \

@@ -29,7 +29,7 @@ parent=$(git rev-parse --verify -q "$commit^") || {
 for attempt in 1 2 3 4 5 6; do
   if ! out=$(git fetch -q origin master 2>&1); then
     printf '%s\n' "$out" >&2
-    printf '%s' "$out" | grep -q "cannot lock ref" || exit 1
+    printf '%s' "$out" | grep "cannot lock ref" >/dev/null || exit 1
     sleep "$attempt"; continue
   fi
   base=$(git rev-parse origin/master)
@@ -49,7 +49,7 @@ for attempt in 1 2 3 4 5 6; do
     git commit-tree "$tree" -p "$base") || exit 1
   out=$(git push -q origin "$sha:refs/heads/master" 2>&1) && exit 0
   printf '%s\n' "$out" >&2
-  printf '%s' "$out" | grep -qE "rejected|fetch first|non-fast-forward|cannot lock ref" || exit 1
+  printf '%s' "$out" | grep -E "rejected|fetch first|non-fast-forward|cannot lock ref" >/dev/null || exit 1
   echo "push_puzzle_commit: origin/master moved under us (attempt $attempt), rebuilding" >&2
   sleep "$attempt"
 done
