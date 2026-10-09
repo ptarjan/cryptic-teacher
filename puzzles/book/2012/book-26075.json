@@ -23,8 +23,15 @@
   }
  },
  "solutions": {
-  "origin": "unsolved"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-09",
+  "check": "28 entries, 58 crossings, 0 conflicts",
+  "officialKey": "never"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,8 +42,76 @@
    },
    "length": 10,
    "clue": {
-    "text": "\"1 Mostly worked as fisherman, taking in quite peculiar behaviour of surfers?",
+    "text": "Mostly worked as fisherman, taking in quite peculiar behaviour of surfers?",
     "enumeration": "10"
+   },
+   "solution": "NETIQUETTE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "NETIQUETTE",
+    "definitions": [
+     {
+      "text": "behaviour of surfers?",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mostly",
+      "for": "deletion",
+      "note": "mostly means nearly all of it, so the final letter of the word is dropped"
+     },
+     {
+      "text": "peculiar",
+      "for": "anagram",
+      "note": "something peculiar is odd or out of shape, so these letters are put into a strange new order"
+     },
+     {
+      "text": "taking in",
+      "for": "container",
+      "note": "to take something in is to hold it inside, so one piece goes into the middle of another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "worked as fisherman",
+      "gives": "NETTED",
+      "note": "a fisherman who works with a net has netted his catch"
+     },
+     {
+      "clueFragment": "quite",
+      "gives": "QUITE",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NET",
+      "IQUET",
+      "TE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "QUITE",
+       "gives": "IQUET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An angler who spends spare time studying the odd ways of wave-riders.",
+     "walkthrough": "The rearranged letters sit inside the shortened fishing word, after its third letter. The surfers are web surfers, not beach ones.",
+     "definitionFit": "Netiquette is the code of polite conduct expected of people using the internet, who are said to surf the web."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "surfers"
+    }
    }
   },
   {
@@ -50,6 +125,43 @@
    "clue": {
     "text": "Brass bottle's top",
     "enumeration": "4"
+   },
+   "solution": "NECK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NECK",
+    "definitions": [
+     {
+      "text": "Brass",
+      "at": 0
+     },
+     {
+      "text": "bottle's top",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brass",
+      "note": "first meaning: cheek or nerve"
+     },
+     {
+      "clueFragment": "bottle's top",
+      "note": "second meaning: the narrow upper part of a bottle"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a brass bottle, but brass is slang for impudence.",
+     "definitionFit": "Neck is British slang for impudence, like brass, and also names the narrow upper part of a bottle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Brass"
+    }
    }
   },
   {
@@ -63,6 +175,63 @@
    "clue": {
     "text": "Vehicle, expensive vehicle, not quite fitting in the yard",
     "enumeration": "7"
+   },
+   "solution": "TROLLEY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TROLLEY",
+    "definitions": [
+     {
+      "text": "Vehicle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not quite",
+      "for": "deletion",
+      "note": "not quite means falling just short, so the final letter is dropped"
+     },
+     {
+      "text": "fitting in",
+      "for": "container",
+      "note": "fitting in places one piece snugly inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the yard",
+      "gives": "TY",
+      "select": "first",
+      "note": "the opening letters of these two words"
+     },
+     {
+      "clueFragment": "expensive vehicle",
+      "gives": "ROLLER",
+      "note": "a Roller is slang for a Rolls-Royce"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ROLLE",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A pricey car that will not quite fit into the yard.",
+     "walkthrough": "ROLLER minus its last letter goes between T and Y. Nothing in the clue signals taking the first letters of 'the yard', so that part of the parse is loose.",
+     "definitionFit": "A trolley is a small wheeled cart, and in some places a name for a tram, so it is a vehicle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fitting"
+    }
    }
   },
   {
@@ -82,6 +251,64 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "QUEENSCOUNSEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "QUEEN'S COUNSEL",
+    "definitions": [
+     {
+      "text": "Senior lawyer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "letting slip",
+      "for": "anagram",
+      "note": "letting things slip lets them fall out of place, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New York area",
+      "gives": "QUEENS",
+      "note": "Queens is one of New York City's five boroughs"
+     },
+     {
+      "clueFragment": "no clues",
+      "gives": "NOCLUES",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUEENS",
+      "COUNSEL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOCLUES",
+       "gives": "COUNSEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A top New York attorney gives nothing away.",
+     "walkthrough": "'Letting slip no clues' looks like discretion, but the two words are the letters to rearrange.",
+     "definitionFit": "Queen's Counsel is the title of a senior barrister in Britain, appointed on merit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "slip"
+    }
    }
   },
   {
@@ -95,6 +322,63 @@
    "clue": {
     "text": "Unoccupied? Look to replace time in occupation",
     "enumeration": "6"
+   },
+   "solution": "EMPLOY",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "EMPLOY",
+    "definitions": [
+     {
+      "text": "occupation",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to replace",
+      "for": "substitution",
+      "note": "to replace says one piece takes the place of another inside the word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unoccupied",
+      "gives": "EMPTY",
+      "note": "a place unoccupied is empty"
+     },
+     {
+      "clueFragment": "Look",
+      "gives": "LO",
+      "note": "lo! is an old word meaning look"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMP",
+      "LO",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone without a job is told to find a new one.",
+     "walkthrough": "'Unoccupied?' looks like the definition at the start, but it is the word worked on; the definition is the last word.",
+     "definitionFit": "Employ means employment or a job, as in 'in the employ of', so it is a person's occupation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Unoccupied"
+    }
    }
   },
   {
@@ -108,6 +392,60 @@
    "clue": {
     "text": "Skilful chess champion participated, losing Queen",
     "enumeration": "8"
+   },
+   "solution": "TALENTED",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "TALENTED",
+    "definitions": [
+     {
+      "text": "Skilful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing something means going without it, so that letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chess champion",
+      "gives": "TAL",
+      "note": "Mikhail Tal was world chess champion in 1960"
+     },
+     {
+      "clueFragment": "participated",
+      "gives": "ENTERED",
+      "note": "someone who participated entered the contest"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "R",
+      "note": "R, for Regina, is the abbreviation for queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAL",
+      "ENTED"
+     ]
+    },
+    "explanation": {
+     "surface": "A gifted chess master played on even after giving up his queen.",
+     "walkthrough": "The chess setting makes Queen look like the piece, but it stands for R, removed from ENTERED.",
+     "definitionFit": "Talented means having natural ability, which is what skilful describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Queen"
+    }
    }
   },
   {
@@ -121,6 +459,47 @@
    "clue": {
     "text": "Theoretical physicist's a dull lecturer to hear",
     "enumeration": "4"
+   },
+   "solution": "BOHR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BOHR",
+    "definitions": [
+     {
+      "text": "Theoretical physicist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to hear",
+      "for": "homophone",
+      "note": "to hear points to what the words sound like when spoken, not how they are written"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a dull lecturer",
+      "gives": "BOHR",
+      "soundsLike": "BORE",
+      "note": "a tedious speaker is a bore"
+     }
+    ],
+    "explanation": {
+     "surface": "A jibe that some great scientist was tedious in the lecture hall.",
+     "definitionFit": "Niels Bohr was the Danish physicist whose theory of the atom underpins quantum mechanics."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lecturer"
+    }
    }
   },
   {
@@ -134,6 +513,65 @@
    "clue": {
     "text": "Drugs work? Is getting worried at heart",
     "enumeration": "7"
+   },
+   "solution": "OPIATES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OPIATES",
+    "definitions": [
+     {
+      "text": "Drugs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at heart",
+      "for": "container",
+      "note": "at heart means in the very middle, so that piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op is short for opus, a work"
+     },
+     {
+      "clueFragment": "Is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "worried",
+      "gives": "ATE",
+      "note": "worried as in 'what's eating you?', so ate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OP",
+      "I",
+      "ATE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Do these medicines really work? An anxious patient asks.",
+     "walkthrough": "Worried here means troubled, as in 'what's eating you?', so its past tense is the eating word.",
+     "definitionFit": "Opiates are drugs derived from opium, such as morphine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worried"
+    }
    }
   },
   {
@@ -147,6 +585,83 @@
    "clue": {
     "text": "Unusual boat and sailor left in stormy mere",
     "enumeration": "10"
+   },
+   "solution": "REMARKABLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "REMARKABLE",
+    "definitions": [
+     {
+      "text": "Unusual",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stormy",
+      "for": "anagram",
+      "note": "a stormy sea is churned up, so the letters are thrown into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the vessel, sailor and left inside the rearranged word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boat",
+      "gives": "ARK",
+      "note": "Noah's ark is the famous boat"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "AB",
+      "note": "AB, able-bodied seaman, is a sailor"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "mere",
+      "gives": "MERE",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REM",
+      "ARK",
+      "AB",
+      "L",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MERE",
+       "gives": "REME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An odd vessel with a sailor stranded on a rough lake.",
+     "walkthrough": "A mere is a lake, an old and poetic word still used in English place names.",
+     "definitionFit": "Remarkable means worthy of notice because out of the ordinary, which is what unusual describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mere"
+    }
    }
   },
   {
@@ -166,6 +681,59 @@
       "mark": "-"
      }
     ]
+   },
+   "solution": "CLOSEUP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLOSE-UP",
+    "definitions": [
+     {
+      "text": "the big picture",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other, here the failure inside the prize"
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trophy",
+      "gives": "CUP",
+      "note": "a cup is a common sporting trophy"
+     },
+     {
+      "clueFragment": "Fail to win",
+      "gives": "LOSE",
+      "note": "to lose is to fail to win"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LOSE",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A sports pundit shrugging off a lost final as part of the wider view.",
+     "walkthrough": "'The big picture' looks like the overall view, but it means a shot in which the subject fills the frame and looks big.",
+     "definitionFit": "A close-up is a camera shot taken near the subject, so it shows that subject large on screen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "big"
+    }
    }
   },
   {
@@ -179,6 +747,60 @@
    "clue": {
     "text": "Reactive metal ignited gas, forcing the Spanish to flee",
     "enumeration": "7"
+   },
+   "solution": "LITHIUM",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "LITHIUM",
+    "definitions": [
+     {
+      "text": "Reactive metal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "forcing the Spanish to flee",
+      "for": "deletion",
+      "note": "making something flee drives it out, so those letters leave the word for the gas"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ignited",
+      "gives": "LIT",
+      "note": "something ignited has been lit"
+     },
+     {
+      "clueFragment": "gas",
+      "gives": "HELIUM",
+      "note": "helium is a light, unreactive gas"
+     },
+     {
+      "clueFragment": "the Spanish",
+      "gives": "EL",
+      "note": "el is Spanish for 'the'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIT",
+      "HIUM"
+     ]
+    },
+    "explanation": {
+     "surface": "A lab accident: a metal sparks, gas catches fire, and the Spanish visitors run for it.",
+     "walkthrough": "The surface pictures Spaniards fleeing a fire; really the Spanish article simply leaves the gas's name.",
+     "definitionFit": "Lithium is an alkali metal that reacts readily with water and air, so it is kept under oil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Spanish"
+    }
    }
   },
   {
@@ -202,6 +824,60 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "THEGRIMREAPER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "THE GRIM REAPER",
+    "definitions": [
+     {
+      "text": "death?",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of place",
+      "for": "anagram",
+      "note": "letters out of place have to be put back in a different order"
+     }
+    ],
+    "linkWords": [
+     "when encountering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agree mirth",
+      "gives": "AGREEMIRTH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "PER",
+      "note": "a as in 'ten pounds a head', meaning per"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AGREEMIRTHPER",
+       "gives": "THEGRIMREAPER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Laughter is out of place when someone has just died.",
+     "walkthrough": "The small word 'a' is easy to read past; it supplies PER for the mix. The question mark marks the definition as a personification.",
+     "definitionFit": "The Grim Reaper is the hooded figure with a scythe who personifies death."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "a"
+    }
    }
   },
   {
@@ -221,6 +897,52 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "LINCOLNCENTER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "LINCOLN CENTER",
+    "definitions": [
+     {
+      "text": "Playing in concert, Nell ... finds herself here?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Playing",
+      "for": "anagram",
+      "note": "playing suggests the words are being performed freely, so their letters are moved about"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in concert, Nell",
+      "gives": "INCONCERTNELL",
+      "note": "every letter of these three words is used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INCONCERTNELL",
+       "gives": "LINCOLNCENTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A performer called Nell, booked for a concert, ends up at a famous venue.",
+     "walkthrough": "The whole clue is both the wordplay and the definition. The American spelling CENTER is needed; the crossings confirm the final ER.",
+     "definitionFit": "The Lincoln Center is New York's performing arts complex, home to concert halls, so a musician playing there would find herself in it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Nell"
+    }
    }
   },
   {
@@ -232,8 +954,78 @@
    },
    "length": 10,
    "clue": {
-    "text": "work on soul with art, possibly praising pagan gods",
+    "text": "I work on soul with art, possibly praising pagan gods",
     "enumeration": "10"
+   },
+   "solution": "IDOLATROUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "IDOLATROUS",
+    "definitions": [
+     {
+      "text": "praising pagan gods",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly hints the words are one arrangement of several, so their letters are shuffled"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "DO",
+      "note": "to do is to work"
+     },
+     {
+      "clueFragment": "soul",
+      "gives": "SOUL",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "art",
+      "gives": "ART",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "DO",
+      "LATROUS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOULART",
+       "gives": "LATROUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An artist pours their spirit into work that celebrates heathen deities.",
+     "walkthrough": "I and DO come first, then SOUL and ART rearranged.",
+     "definitionFit": "Idolatrous means given to worshipping idols, the images of false or pagan gods."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "soul"
+    }
    }
   },
   {
@@ -253,6 +1045,55 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "DRYICE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DRY ICE",
+    "definitions": [
+     {
+      "text": "it merely looks like steam",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one word wraps around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gamble",
+      "gives": "DICE",
+      "note": "to dice is to gamble, as with dice"
+     },
+     {
+      "clueFragment": "railway",
+      "gives": "RY",
+      "note": "RY is the standard abbreviation for railway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RY",
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "A wager on the railway, and the cloud around an engine turns out to be fake steam.",
+     "walkthrough": "The railway and steam point to steam trains, but the vapour here is a stage effect.",
+     "definitionFit": "Dry ice is frozen carbon dioxide, which gives off a white fog used on stage to imitate mist or steam."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "steam"
+    }
    }
   },
   {
@@ -266,6 +1107,71 @@
    "clue": {
     "text": "Failed banker swallowing arsenic, in a state",
     "enumeration": "8"
+   },
+   "solution": "NEBRASKA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NEBRASKA",
+    "definitions": [
+     {
+      "text": "a state",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Failed",
+      "for": "anagram",
+      "note": "something that has failed has collapsed, so its letters are reassembled differently"
+     },
+     {
+      "text": "swallowing",
+      "for": "container",
+      "note": "swallowing takes something inside, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "banker",
+      "gives": "BANKER",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "arsenic",
+      "gives": "AS",
+      "note": "As is the chemical symbol for arsenic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEBR",
+      "AS",
+      "KA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BANKER",
+       "gives": "NEBRKA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ruined banker takes poison and is found in a bad way.",
+     "walkthrough": "'In a state' reads as 'very upset', but 'a state' is the definition and 'in' only joins it on.",
+     "definitionFit": "Nebraska is one of the fifty states of the USA, in the Great Plains."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "state"
+    }
    }
   },
   {
@@ -279,6 +1185,56 @@
    "clue": {
     "text": "Water creature — make mistake, putting it in sink?",
     "enumeration": "8"
+   },
+   "solution": "TERRAPIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TERRAPIN",
+    "definitions": [
+     {
+      "text": "Water creature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "putting it in",
+      "for": "container",
+      "note": "putting it in places the first piece inside the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sink",
+      "gives": "TAPIN",
+      "note": "in golf, to sink a short putt is to tap it in"
+     },
+     {
+      "clueFragment": "make mistake",
+      "gives": "ERR",
+      "note": "to err is to make a mistake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ERR",
+      "APIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Fumbling an aquatic animal into the kitchen sink.",
+     "walkthrough": "'Putting' and 'sink' look domestic, but they are golf: a tap-in sinks the ball, and ERR goes inside it after T.",
+     "definitionFit": "A terrapin is a small freshwater turtle, an animal that lives in water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sink"
+    }
    }
   },
   {
@@ -292,6 +1248,79 @@
    "clue": {
     "text": "Genuine backing about our following British working man",
     "enumeration": "8"
+   },
+   "solution": "LABOURER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "container"
+    ],
+    "answer": "LABOURER",
+    "definitions": [
+     {
+      "text": "working man",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means going backwards, so the word is read from end to start"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following says one piece comes straight after the other"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the other pieces go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Genuine",
+      "gives": "REAL",
+      "note": "genuine means real"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "our",
+      "gives": "OUR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "B",
+      "OUR",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "REAL",
+       "to": "LAER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sincere support from us for the ordinary British worker.",
+     "walkthrough": "'Backing' looks like support for the worker, but it turns the word for genuine round.",
+     "definitionFit": "A labourer does manual work for wages, the classic image of the working man."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
    }
   },
   {
@@ -303,8 +1332,54 @@
    },
    "length": 7,
    "clue": {
-    "text": "Word for \"drink supplier unknown to lexicographer",
+    "text": "Word for drink supplier unknown to lexicographer",
     "enumeration": "7"
+   },
+   "solution": "BREWERY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BREWERY",
+    "definitions": [
+     {
+      "text": "Word for drink supplier",
+      "at": 0,
+      "note": "the clue frames the definition as 'a word for drink supplier'"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lexicographer",
+      "gives": "BREWER",
+      "note": "E. Cobham Brewer compiled Brewer's Dictionary of Phrase and Fable"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "y is one of the algebraic unknowns"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BREWER",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A dictionary compiler has never come across the word for a drinks maker.",
+     "walkthrough": "'Unknown to lexicographer' looks like a word missing from a dictionary, but it is the unknown Y added to the lexicographer.",
+     "definitionFit": "A brewery is the business that makes and supplies beer, so it supplies drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "unknown"
+    }
    }
   },
   {
@@ -316,8 +1391,66 @@
    },
    "length": 6,
    "clue": {
-    "text": "Aperson dismissing half of it as 'not ethical'",
+    "text": "A person dismissing half of it as 'not ethical'",
     "enumeration": "6"
+   },
+   "solution": "AMORAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "AMORAL",
+    "definitions": [
+     {
+      "text": "'not ethical'",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half of",
+      "for": "letter_selection",
+      "note": "half of a two-letter word is a single letter, here the back half"
+     },
+     {
+      "text": "dismissing",
+      "for": "deletion",
+      "note": "dismissing sends something away, so that letter is removed"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A person",
+      "gives": "AMORTAL",
+      "note": "A taken as written, and a person is a mortal"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "T",
+      "select": "last",
+      "note": "the second half of this two-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMOR",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sniffily dismissing something as unethical.",
+     "walkthrough": "A MORTAL loses its T to leave AMORAL.",
+     "definitionFit": "Amoral describes someone or something without moral principles, outside ethics altogether."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dismissing"
+    }
    }
   },
   {
@@ -331,6 +1464,60 @@
    "clue": {
     "text": "Wine container, top off, overturned",
     "enumeration": "7"
+   },
+   "solution": "RETSINA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "RETSINA",
+    "definitions": [
+     {
+      "text": "Wine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top off",
+      "for": "deletion",
+      "note": "with its top off, a down word loses its first letter"
+     },
+     {
+      "text": "overturned",
+      "for": "reversal",
+      "note": "something overturned is upside down, so in a down entry the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "container",
+      "gives": "CANISTER",
+      "note": "a canister is a container"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RETSINA"
+     ],
+     "reversals": [
+      {
+       "from": "ANISTER",
+       "to": "RETSINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bottle or cask of wine knocked over with its lid off.",
+     "walkthrough": "'Wine container' reads as one thing, a carafe or cask, but Wine alone is the definition.",
+     "definitionFit": "Retsina is a Greek white wine flavoured with pine resin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "container"
+    }
    }
   },
   {
@@ -344,6 +1531,74 @@
    "clue": {
     "text": "Roman general snaps up one heading for Ostia",
     "enumeration": "6"
+   },
+   "solution": "SCIPIO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SCIPIO",
+    "definitions": [
+     {
+      "text": "Roman general",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means the word is read from bottom to top"
+     },
+     {
+      "text": "heading for",
+      "for": "letter_selection",
+      "note": "a heading is the top, so just the first letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "snaps",
+      "gives": "PICS",
+      "note": "snaps are photos, or pics"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "Ostia",
+      "gives": "O",
+      "select": "first",
+      "note": "the first letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCIP",
+      "I",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "PICS",
+       "to": "SCIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Roman commander seizes someone on the road to Ostia, the port of ancient Rome.",
+     "walkthrough": "'Snaps up' looks like seizing, but snaps are photos and up turns them round.",
+     "definitionFit": "Scipio Africanus was the Roman general who defeated Hannibal at Zama in 202 BC."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "snaps"
+    }
    }
   },
   {
@@ -363,6 +1618,67 @@
       "mark": "-"
      }
     ]
+   },
+   "solution": "TREASURECHEST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TREASURE CHEST",
+    "definitions": [
+     {
+      "text": "Source of wealth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "within",
+      "for": "container",
+      "note": "within puts the word for certainty inside the word for reach"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts that combination inside the word for the match"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cricket match",
+      "gives": "TEST",
+      "note": "a Test is an international cricket match"
+     },
+     {
+      "clueFragment": "reach",
+      "gives": "REACH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "certainly",
+      "gives": "SURE",
+      "note": "sure! means certainly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "REA",
+      "SURE",
+      "CH",
+      "EST"
+     ]
+    },
+    "explanation": {
+     "surface": "A batsman's fortune seems close at hand during a big game.",
+     "walkthrough": "Two nested containers: the innermost goes inside reach, and that whole goes inside the match after its first letter.",
+     "definitionFit": "A treasure chest is a box full of valuables, and figuratively any rich supply of good things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reach"
+    }
    }
   },
   {
@@ -376,6 +1692,53 @@
    "clue": {
     "text": "Fail to apply, missing one burst of activity",
     "enumeration": "4"
+   },
+   "solution": "WAVE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "WAVE",
+    "definitions": [
+     {
+      "text": "burst of activity",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "missing means going without, so that letter is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fail to apply",
+      "gives": "WAIVE",
+      "note": "to waive a rule is to decline to apply it"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WA",
+      "VE"
+     ]
+    },
+    "explanation": {
+     "surface": "Neglecting to put in an application, then a sudden flurry of effort.",
+     "definitionFit": "A wave is a sudden surge of something, as in a crime wave or a wave of strikes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "apply"
+    }
    }
   },
   {
@@ -389,6 +1752,50 @@
    "clue": {
     "text": "Cricket and athletics events to occupy same period?",
     "enumeration": "7"
+   },
+   "solution": "OVERLAP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERLAP",
+    "definitions": [
+     {
+      "text": "to occupy same period?",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cricket",
+      "gives": "OVER",
+      "note": "an over is a set of six balls bowled in cricket"
+     },
+     {
+      "clueFragment": "athletics events",
+      "gives": "LAP",
+      "note": "a lap is one circuit of the track in athletics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "LAP"
+     ]
+    },
+    "explanation": {
+     "surface": "A sports scheduler worrying that a cricket match and an athletics meeting clash.",
+     "walkthrough": "The question mark covers 'occupy same period', which defines the word as two things sharing time.",
+     "definitionFit": "Two events overlap when part of one happens during part of the other."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "events"
+    }
    }
   },
   {
@@ -402,6 +1809,70 @@
    "clue": {
     "text": "Seasoning soft food recipe? One starts in kitchen area",
     "enumeration": "7"
+   },
+   "solution": "PAPRIKA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PAPRIKA",
+    "definitions": [
+     {
+      "text": "Seasoning",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts",
+      "for": "letter_selection",
+      "note": "the starts of words are their opening letters only"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soft food",
+      "gives": "PAP",
+      "note": "pap is soft mushy food for babies or invalids"
+     },
+     {
+      "clueFragment": "recipe",
+      "gives": "R",
+      "note": "R is the abbreviation for recipe, from Latin recipe, 'take'"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "kitchen area",
+      "gives": "KA",
+      "select": "first",
+      "note": "the opening letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAP",
+      "R",
+      "I",
+      "KA"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook wondering about a recipe for a bland dish, set in the kitchen.",
+     "definitionFit": "Paprika is a red powdered spice made from dried sweet peppers, used to season food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recipe"
+    }
    }
   },
   {
@@ -415,6 +1886,59 @@
    "clue": {
     "text": "Prince's destination - the blue yonder, with second of helicopters",
     "enumeration": "4"
+   },
+   "solution": "SKYE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SKYE",
+    "definitions": [
+     {
+      "text": "Prince's destination",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "second of",
+      "for": "letter_selection",
+      "note": "second of picks out the letter in position two of the next word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the blue yonder",
+      "gives": "SKY",
+      "note": "the wild blue yonder is the sky"
+     },
+     {
+      "clueFragment": "helicopters",
+      "gives": "E",
+      "select": 2,
+      "note": "the second letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKY",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A royal flies off into the distance by helicopter.",
+     "walkthrough": "Bonnie Prince Charlie escaped 'over the sea to Skye' in 1746, as the Skye Boat Song tells.",
+     "definitionFit": "Skye is the Hebridean island where Bonnie Prince Charlie fled after his defeat at Culloden."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Prince's"
+    }
    }
   },
   {
@@ -438,6 +1962,43 @@
       "mark": "-"
      }
     ]
+   },
+   "solution": "INYOURFACE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IN-YOUR-FACE",
+    "definitions": [
+     {
+      "text": "Aggressive",
+      "at": 0
+     },
+     {
+      "text": "positioning of the eyes?",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aggressive",
+      "note": "first meaning: blatantly confrontational"
+     },
+     {
+      "clueFragment": "positioning of the eyes?",
+      "note": "second meaning, taken literally: where your eyes sit"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the second meaning as a literal reading of the phrase.",
+     "definitionFit": "The idiom describes bold, confrontational behaviour, and read literally it is where a person's eyes are placed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "positioning"
+    }
    }
   }
  ]
