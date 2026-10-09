@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Drug cut by an individual at end of counter",
     "enumeration": "9"
    },
-   "solution": "BARBITONE"
+   "solution": "BARBITONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BARBITONE",
+    "definitions": [
+     {
+      "text": "Drug",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "at end of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "counter",
+      "gives": "BAR",
+      "note": "a bar is the counter where drinks are served"
+     },
+     {
+      "clueFragment": "cut",
+      "gives": "BIT",
+      "note": "a cut is a portion, a bit of something"
+     },
+     {
+      "clueFragment": "an individual",
+      "gives": "ONE",
+      "note": "one is a single individual"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "BIT",
+      "ONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dealer's drug is cut by somebody standing at the end of a bar.",
+     "walkthrough": "'cut' looks like a dealer diluting the drug, but it is a noun for a portion; 'at end of' puts the cut and the individual after the counter.",
+     "definitionFit": "Barbitone is a barbiturate sedative, so it is a drug in the pharmaceutical sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +105,56 @@
      }
     ]
    },
-   "solution": "BONAFIDE"
+   "solution": "BONAFIDE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "BONA FIDE",
+    "definitions": [
+     {
+      "text": "Genuine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means only part of the run of words is used"
+     },
+     {
+      "text": "in retirement",
+      "for": "reversal",
+      "note": "retiring means withdrawing backwards, and this is a down clue read upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jedi fan obsesses",
+      "gives": "EDIFANOB",
+      "note": "the letters spanning the end of the first word to the start of the third"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "EDIFANOB",
+       "to": "BONAFIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A real Star Wars fan keeps obsessing even after retiring.",
+     "definitionFit": "Bona fide is Latin for 'in good faith' and is used to mean real or authentic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retirement"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +168,64 @@
     "text": "New version of note welcomed by timeless band",
     "enumeration": "5"
    },
-   "solution": "REMIX"
+   "solution": "REMIX",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "REMIX",
+    "definitions": [
+     {
+      "text": "New version",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "timeless",
+      "for": "deletion",
+      "note": "timeless means without time, whose abbreviation is removed"
+     },
+     {
+      "text": "welcomed by",
+      "for": "container",
+      "note": "a welcomed guest is taken inside, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "band",
+      "gives": "TREX",
+      "note": "T. Rex was a 1970s British glam rock band"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "MI",
+      "note": "mi is the third note of the sol-fa scale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "MI",
+      "X"
+     ]
+    },
+    "explanation": {
+     "surface": "A band revisits an old note in a new arrangement of its song.",
+     "walkthrough": "Removing T (time) from T. REX leaves REX, which takes MI inside.",
+     "definitionFit": "A remix is a new version of a recording, made by altering the balance of the original tracks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "timeless"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +239,81 @@
     "text": "Home County mostly moved coal and tin given to rebellion",
     "enumeration": "14"
    },
-   "solution": "INSURRECTIONAL"
+   "solution": "INSURRECTIONAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "INSURRECTIONAL",
+    "definitions": [
+     {
+      "text": "given to rebellion",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter is dropped"
+     },
+     {
+      "text": "moved",
+      "for": "anagram",
+      "note": "letters that are moved are shifted into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Home",
+      "gives": "IN",
+      "note": "to be in is to be at home"
+     },
+     {
+      "clueFragment": "County",
+      "gives": "SURREY",
+      "note": "Surrey is one of the Home Counties around London"
+     },
+     {
+      "clueFragment": "coal",
+      "gives": "COAL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tin",
+      "gives": "TIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "SURRE",
+      "CTIONAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COALTIN",
+       "gives": "CTIONAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Home County shifted its coal and tin, then turned to revolt.",
+     "walkthrough": "'Home County' looks like one phrase, the Home Counties being those around London, but Home and County split into separate pieces.",
+     "definitionFit": "Insurrectional describes an uprising, so someone given to rebellion is insurrectional in outlook."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Home"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +327,55 @@
     "text": "Sequence essentially replaced by binary digit for Telstar?",
     "enumeration": "7"
    },
-   "solution": "ORBITER"
+   "solution": "ORBITER",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "ORBITER",
+    "definitions": [
+     {
+      "text": "Telstar?",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially replaced by",
+      "for": "substitution",
+      "note": "the essential part is the centre, which is swapped out for something else"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sequence",
+      "gives": "ORDER",
+      "note": "an order is a sequence"
+     },
+     {
+      "clueFragment": "binary digit",
+      "gives": "BIT",
+      "note": "bit is short for binary digit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "BIT",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Part of the coding sequence on the Telstar satellite was swapped for a single bit.",
+     "walkthrough": "The middle D of ORDER gives way to BIT. The question mark shows Telstar is an example, not a synonym.",
+     "definitionFit": "Telstar was an early communications satellite, an example of a craft that circles the Earth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Sequence"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +389,62 @@
     "text": "Fugitive starts to seek cover after breaking weapon",
     "enumeration": "7"
    },
-   "solution": "ESCAPEE"
+   "solution": "ESCAPEE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ESCAPEE",
+    "definitions": [
+     {
+      "text": "Fugitive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "starts are beginnings, so only the opening letters of the next words are kept"
+     },
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "breaking into something means getting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weapon",
+      "gives": "EPEE",
+      "note": "an épée is a fencing sword"
+     },
+     {
+      "clueFragment": "seek cover after",
+      "gives": "SCA",
+      "select": "first",
+      "note": "the initial letters of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "SCA",
+      "PEE"
+     ]
+    },
+    "explanation": {
+     "surface": "A runaway hunts for shelter after smashing a gun.",
+     "walkthrough": "'after' looks like a link word, but it supplies its first letter too.",
+     "definitionFit": "An escapee is someone who has escaped, a fugitive on the run."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "after"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +458,43 @@
     "text": "Parcel up music in auditorium",
     "enumeration": "4"
    },
-   "solution": "WRAP"
+   "solution": "WRAP",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WRAP",
+    "definitions": [
+     {
+      "text": "Parcel up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in auditorium",
+      "for": "homophone",
+      "note": "an auditorium is where things are heard, so the word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "music",
+      "gives": "WRAP",
+      "soundsLike": "RAP",
+      "note": "rap is a style of spoken music"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is told to pack up the music being played in a concert hall.",
+     "definitionFit": "To wrap a parcel is to parcel it up in paper, a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "auditorium"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +514,76 @@
      }
     ]
    },
-   "solution": "REEDORGAN"
+   "solution": "REEDORGAN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "REED ORGAN",
+    "definitions": [
+     {
+      "text": "instrument",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "in a down clue climbing means read upwards, from end to start"
+     },
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "to carry something is to hold it, so one piece sits between the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two climbing ungulates",
+      "gives": "DEER",
+      "note": "the first hoofed animal, a deer"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is gold in heraldry"
+     },
+     {
+      "clueFragment": "ungulates",
+      "gives": "NAG",
+      "note": "the second hoofed animal, a nag or horse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REED",
+      "OR",
+      "GAN"
+     ],
+     "reversals": [
+      {
+       "from": "DEER",
+       "to": "REED"
+      },
+      {
+       "from": "NAG",
+       "to": "GAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pair of mountain goats carry a load of gold up a slope.",
+     "walkthrough": "Ungulates are hoofed mammals; each of the two is reversed, and together they hold OR between them.",
+     "definitionFit": "A reed organ, such as a harmonium, is a keyboard instrument sounded by vibrating reeds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "climbing"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +597,65 @@
     "text": "Bird safe lifting tail perched on line",
     "enumeration": "6"
    },
-   "solution": "PETREL"
+   "solution": "PETREL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PETREL",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lifting tail",
+      "for": "reversal",
+      "note": "in a down clue, lifting the tail turns its last two letters upward, so they swap order"
+     }
+    ],
+    "linkWords": [
+     "perched on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "safe",
+      "gives": "PETER",
+      "note": "peter is old criminal slang for a safe"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PET",
+      "RE",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "ER",
+       "to": "RE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird sits on a wire above a safe, flicking up its tail.",
+     "walkthrough": "PETER with its tail ER turned up becomes PETRE, which sits on L in this down clue.",
+     "definitionFit": "A petrel is a seabird that skims low over the ocean waves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "safe"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +675,51 @@
      }
     ]
    },
-   "solution": "CARTRIDGEPAPER"
+   "solution": "CARTRIDGEPAPER",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "CARTRIDGE PAPER",
+    "definitions": [
+     {
+      "text": "material for artists",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner's",
+      "for": "spoonerism",
+      "note": "Reverend Spooner swapped the opening sounds of words, so the starts are exchanged"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game escapade",
+      "gives": "CARTRIDGEPAPER",
+      "soundsLike": "PARTRIDGE CAPER",
+      "note": "partridge is a game bird and a caper is an escapade"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARTRIDGEPAPER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's madcap stunt turns out to be fodder for an art class.",
+     "definitionFit": "Cartridge paper is thick, rough drawing paper favoured by artists for sketching."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +733,69 @@
     "text": "Calls sailor back when one American's left",
     "enumeration": "5"
    },
-   "solution": "NAMES"
+   "solution": "NAMES",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion"
+    ],
+    "answer": "NAMES",
+    "definitions": [
+     {
+      "text": "Calls",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the word is read from its end to its start"
+     },
+     {
+      "text": "left",
+      "for": "deletion",
+      "note": "something that has left is no longer there, so it is taken out"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sailor",
+      "gives": "SEAMAN",
+      "note": "a seaman is a sailor"
+     },
+     {
+      "clueFragment": "one American",
+      "gives": "A",
+      "note": "A is the abbreviation for American; only one of the two As goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAM",
+      "ES"
+     ],
+     "reversals": [
+      {
+       "from": "SEAMAN",
+       "to": "NAMAES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor phones home once one American shipmate has gone.",
+     "walkthrough": "SEAMAN reversed is NAMAES; dropping one A leaves NAMES.",
+     "definitionFit": "To name someone is to call them something, so 'calls' as a verb matches 'names'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +809,62 @@
     "text": "Cleaner energy embraced by bankrupt capital",
     "enumeration": "9"
    },
-   "solution": "BUCHAREST"
+   "solution": "BUCHAREST",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BUCHAREST",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embraced by",
+      "for": "container",
+      "note": "being embraced means being held inside another's arms, so these letters go within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bankrupt",
+      "gives": "BUST",
+      "note": "to go bust is to go bankrupt"
+     },
+     {
+      "clueFragment": "Cleaner",
+      "gives": "CHAR",
+      "note": "a char is a cleaning lady, an old British term"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BU",
+      "CHAR",
+      "E",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "A cleaner kind of energy is taken up by a failing city's finances.",
+     "walkthrough": "'Cleaner energy' reads like green power, but it is a char (a British cleaning woman) plus E, sitting inside BUST.",
+     "definitionFit": "Bucharest is the capital city of Romania."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cleaner"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +878,50 @@
     "text": "Dance in red on Trump's number one news channel?",
     "enumeration": "7"
    },
-   "solution": "FOXTROT"
+   "solution": "FOXTROT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FOXTROT",
+    "definitions": [
+     {
+      "text": "Dance",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trump's number one news channel",
+      "gives": "FOX",
+      "note": "Fox News is the channel Trump favours"
+     },
+     {
+      "clueFragment": "red",
+      "gives": "TROT",
+      "note": "a Trot, short for Trotskyist, is a red, a left-winger"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOX",
+      "TROT"
+     ]
+    },
+    "explanation": {
+     "surface": "A left-wing radical dances across the screen of Trump's favourite news network.",
+     "walkthrough": "'on' places the red after the channel. The question mark flags that Fox being Trump's top channel is a jokey description.",
+     "definitionFit": "The foxtrot is a ballroom dance with slow and quick steps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "red"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +935,51 @@
     "text": "Surface defect ruined the Polo",
     "enumeration": "7"
    },
-   "solution": "POTHOLE"
+   "solution": "POTHOLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "POTHOLE",
+    "definitions": [
+     {
+      "text": "Surface defect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ruined",
+      "for": "anagram",
+      "note": "something ruined is wrecked out of its proper form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Polo",
+      "gives": "THEPOLO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THEPOLO",
+       "gives": "POTHOLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dent in the bodywork has spoiled someone's Volkswagen Polo.",
+     "walkthrough": "The Polo is a small Volkswagen car, which makes 'surface defect' look like scratched paintwork.",
+     "definitionFit": "A pothole is a hole worn in a road's surface, a defect in it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "ruined"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +993,62 @@
     "text": "Officer's trial around 22.00 sapping the spirits",
     "enumeration": "13"
    },
-   "solution": "DISHEARTENING"
+   "solution": "DISHEARTENING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DISHEARTENING",
+    "definitions": [
+     {
+      "text": "sapping the spirits",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so one piece wraps round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Officer's",
+      "gives": "DIS",
+      "note": "DI is a Detective Inspector, a police officer, plus the 's"
+     },
+     {
+      "clueFragment": "trial",
+      "gives": "HEARING",
+      "note": "a hearing is a trial in court"
+     },
+     {
+      "clueFragment": "22.00",
+      "gives": "TEN",
+      "note": "22.00 on the 24-hour clock is ten at night"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "HEAR",
+      "TEN",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer's late-night court case drags on, wearing everyone down.",
+     "walkthrough": "22.00 on the 24-hour clock is ten in the evening; DI is a Detective Inspector.",
+     "definitionFit": "Something disheartening causes loss of hope, which is what sapping someone's spirits does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "22.00"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1062,51 @@
     "text": "Calls in IT to organise trace",
     "enumeration": "9"
    },
-   "solution": "SCINTILLA"
+   "solution": "SCINTILLA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCINTILLA",
+    "definitions": [
+     {
+      "text": "trace",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to organise",
+      "for": "anagram",
+      "note": "organising means putting into a different arrangement, so the letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Calls in IT",
+      "gives": "CALLSINIT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CALLSINIT",
+       "gives": "SCINTILLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone phones the IT department to get a fault tracked down.",
+     "walkthrough": "'trace' tempts as a verb about tracking calls, but it is a noun meaning a tiny amount.",
+     "definitionFit": "A scintilla is a tiny trace or particle, as in 'not a scintilla of evidence'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trace"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1126,63 @@
      }
     ]
    },
-   "solution": "BESTIARY"
+   "solution": "BESTIARY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "BESTIARY",
+    "definitions": [
+     {
+      "text": "Animal Studies",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dismissing",
+      "for": "deletion",
+      "note": "dismissing sends someone away, so that letter is removed"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Top",
+      "gives": "BEST",
+      "note": "the best is the top"
+     },
+     {
+      "clueFragment": "journal",
+      "gives": "DIARY",
+      "note": "a diary is a daily journal"
+     },
+     {
+      "clueFragment": "duke",
+      "gives": "D",
+      "note": "D is the abbreviation for duke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEST",
+      "IARY"
+     ]
+    },
+    "explanation": {
+     "surface": "A leading journal turns down a duke's paper on animal research.",
+     "walkthrough": "'duke's' reads as possessive, but the 's is 'is', linking wordplay to the definition.",
+     "definitionFit": "A bestiary is a medieval book of descriptions of real and fabulous beasts, a collection of animal studies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "duke's"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1196,58 @@
     "text": "Niece isn't struggling with Gran's stubbornness",
     "enumeration": "13"
    },
-   "solution": "INTRANSIGENCE"
+   "solution": "INTRANSIGENCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INTRANSIGENCE",
+    "definitions": [
+     {
+      "text": "stubbornness",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "struggling",
+      "for": "anagram",
+      "note": "struggling suggests thrashing about, so these letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Niece isn't",
+      "gives": "NIECEISNT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Gran",
+      "gives": "GRAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NIECEISNTGRAN",
+       "gives": "INTRANSIGENCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A niece finds her grandmother's obstinacy hard to deal with.",
+     "definitionFit": "Intransigence is a refusal to change one's views, which is stubbornness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "struggling"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1261,66 @@
     "text": "Contractors on island wearing brown stay dry",
     "enumeration": "7"
    },
-   "solution": "ABSTAIN"
+   "solution": "ABSTAIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ABSTAIN",
+    "definitions": [
+     {
+      "text": "stay dry",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "something worn is wrapped around the wearer, so one letter goes inside"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Contractors",
+      "gives": "ABS",
+      "note": "the abs are abdominal muscles, which contract"
+     },
+     {
+      "clueFragment": "brown",
+      "gives": "TAN",
+      "note": "tan is a light brown"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABS",
+      "TA",
+      "I",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Builders on a sunny island, browned by the sun, keep out of the rain.",
+     "walkthrough": "'Contractors' suggests builders, but here it means muscles that contract. TAN wears (wraps) I.",
+     "definitionFit": "To stay dry is to refrain from alcohol, and to abstain is to go without drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Contractors"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1334,68 @@
     "text": "Muslim oddly upset over hands-on therapy",
     "enumeration": "7"
    },
-   "solution": "SHIATSU"
+   "solution": "SHIATSU",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "SHIATSU",
+    "definitions": [
+     {
+      "text": "hands-on therapy",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly keeps the first, third and fifth letters of the following word"
+     },
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over means flipped round, so the kept letters go in the opposite order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Muslim",
+      "gives": "SHIA",
+      "note": "a Shia is a Muslim of the Shiite branch"
+     },
+     {
+      "clueFragment": "upset",
+      "gives": "UST",
+      "select": "alternate",
+      "note": "the odd-numbered letters of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHIA",
+      "TSU"
+     ],
+     "reversals": [
+      {
+       "from": "UST",
+       "to": "TSU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A distressed Muslim finds relief in a physical massage treatment.",
+     "walkthrough": "'upset' looks like the reversal signal, but it is the source word; 'over' does the turning.",
+     "definitionFit": "Shiatsu is a Japanese massage using finger pressure, a therapy literally applied by hand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1409,63 @@
     "text": "Dog occupying empty pen not at all clean",
     "enumeration": "6"
    },
-   "solution": "SMUTTY"
+   "solution": "SMUTTY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SMUTTY",
+    "definitions": [
+     {
+      "text": "not at all clean",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "emptying removes the contents, leaving only the outside letters"
+     },
+     {
+      "text": "occupying",
+      "for": "container",
+      "note": "to occupy a place is to be inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pen",
+      "gives": "SY",
+      "select": "outer",
+      "note": "a sty is a pig pen; its outside letters remain"
+     },
+     {
+      "clueFragment": "Dog",
+      "gives": "MUTT",
+      "note": "a mutt is a mongrel dog"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "MUTT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog has moved into a vacant pigpen, which is filthy.",
+     "walkthrough": "'not at all clean' reads as literally dirty, but it means rude or indecent.",
+     "definitionFit": "Smutty means indecent or vulgar, the opposite of clean in the sense of decent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pen"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1479,62 @@
     "text": "4s perhaps jammed by core of Martians' signals",
     "enumeration": "7"
    },
-   "solution": "MOTIONS"
+   "solution": "MOTIONS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MOTIONS",
+    "definitions": [
+     {
+      "text": "signals",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "core of",
+      "for": "letter_selection",
+      "note": "the core is the centre, so only the middle letters of the word are kept"
+     },
+     {
+      "text": "jammed by",
+      "for": "container",
+      "note": "being jammed by something means having it wedged inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "4s perhaps",
+      "gives": "MOONS",
+      "note": "4 down is a satellite, and moons are natural satellites, so they are examples"
+     },
+     {
+      "clueFragment": "Martians",
+      "gives": "TI",
+      "select": "middle",
+      "note": "the two central letters of this eight-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "TI",
+      "ONS"
+     ]
+    },
+    "explanation": {
+     "surface": "Alien signals from Mars are jamming the satellites.",
+     "walkthrough": "'4s' refers to the answer to 4 down, an orbiter; moons orbit planets, so they are orbiters. 'perhaps' marks them as an example.",
+     "definitionFit": "Motions are gestures, movements of the hand made to signal to someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "jammed"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1548,49 @@
     "text": "Prosthesis setter's placed at front of factory",
     "enumeration": "7"
    },
-   "solution": "IMPLANT"
+   "solution": "IMPLANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPLANT",
+    "definitions": [
+     {
+      "text": "Prosthesis",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "placed at front of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "setter's",
+      "gives": "IM",
+      "note": "the setter is 'I', so setter's = I'M, I am"
+     },
+     {
+      "clueFragment": "factory",
+      "gives": "PLANT",
+      "note": "a plant is a factory or works"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "PLANT"
+     ]
+    },
+    "explanation": {
+     "surface": "The puzzle setter says an artificial part was fitted at the front of a factory.",
+     "definitionFit": "An implant is an artificial device put into the body, a kind of prosthesis."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "setter's"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1604,67 @@
     "text": "Currency raised saves pence a month",
     "enumeration": "5"
    },
-   "solution": "APRIL"
+   "solution": "APRIL",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "APRIL",
+    "definitions": [
+     {
+      "text": "month",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "saves",
+      "for": "container",
+      "note": "saving something means keeping it inside, so one letter goes in"
+     },
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue raising means reading upwards, end to start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Currency",
+      "gives": "LIRA",
+      "note": "the lira was Italy's currency"
+     },
+     {
+      "clueFragment": "pence",
+      "gives": "P",
+      "note": "p is the abbreviation for pence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "P",
+      "RIL"
+     ],
+     "reversals": [
+      {
+       "from": "LIRPA",
+       "to": "APRIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A currency that rises in value saves pennies over a month.",
+     "walkthrough": "LIRA holds P to make LIRPA, which reads upwards in this down clue.",
+     "definitionFit": "April is the fourth month of the year."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1684,65 @@
      }
     ]
    },
-   "solution": "TELLAPART"
+   "solution": "TELLAPART",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TELL APART",
+    "definitions": [
+     {
+      "text": "Distinguish between",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "archer",
+      "gives": "TELL",
+      "note": "William Tell, the legendary Swiss archer"
+     },
+     {
+      "clueFragment": "craft",
+      "gives": "ART",
+      "note": "an art is a craft or skill"
+     },
+     {
+      "clueFragment": "old man",
+      "gives": "PA",
+      "note": "pa is a father, one's old man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TELL",
+      "A",
+      "PA",
+      "RT"
+     ]
+    },
+    "explanation": {
+     "surface": "Telling apart an archer and an elderly man aboard a boat.",
+     "walkthrough": "'Craft' suggests a boat, but here it means a skill.",
+     "definitionFit": "To tell two things apart is to see the difference between them, to distinguish between them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "craft"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1756,58 @@
     "text": "One serving in the military holds Mass for city",
     "enumeration": "5"
    },
-   "solution": "PARMA"
+   "solution": "PARMA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PARMA",
+    "definitions": [
+     {
+      "text": "city",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holds",
+      "for": "container",
+      "note": "holding something means keeping it within, so one piece sits inside the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One serving in the military",
+      "gives": "PARA",
+      "note": "a para is a paratrooper, a soldier"
+     },
+     {
+      "clueFragment": "Mass",
+      "gives": "M",
+      "note": "M is the symbol for mass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "M",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier holds a Catholic service on behalf of a city.",
+     "walkthrough": "Mass looks religious, but it is the physics symbol M.",
+     "definitionFit": "Parma is a city in northern Italy, famous for ham and cheese."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mass"
+    }
+   }
   },
   {
    "number": 26,
@@ -427,7 +1821,50 @@
     "text": "Bit of China my mum Anne regularly avoided",
     "enumeration": "4"
    },
-   "solution": "YUAN"
+   "solution": "YUAN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "YUAN",
+    "definitions": [
+     {
+      "text": "Bit of China",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly avoided",
+      "for": "letter_selection",
+      "note": "avoiding at regular intervals means every other letter is skipped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "my mum Anne",
+      "gives": "YUAN",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YUAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's mother Anne regularly steers clear of fine porcelain.",
+     "walkthrough": "'Bit of China' suggests crockery, but it means a piece of the country's money.",
+     "definitionFit": "The yuan is the basic unit of currency of China, so a coin is a bit of Chinese money."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 27,
@@ -441,7 +1878,62 @@
     "text": "Head hosting English gathering without taking sides",
     "enumeration": "9"
    },
-   "solution": "NEUTRALLY"
+   "solution": "NEUTRALLY",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "NEUTRALLY",
+    "definitions": [
+     {
+      "text": "without taking sides",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hosting",
+      "for": "container",
+      "note": "a host has a guest inside the house, so one letter goes within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Head",
+      "gives": "NUT",
+      "note": "nut is slang for the head"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "gathering",
+      "gives": "RALLY",
+      "note": "a rally is a mass gathering"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "E",
+      "UT",
+      "RALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A head teacher hosts an English meeting while staying impartial.",
+     "walkthrough": "'Head' suggests a head teacher, but it is slang for the skull.",
+     "definitionFit": "Acting neutrally means behaving impartially, favouring neither party."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Head"
+    }
+   }
   }
  ]
 }
