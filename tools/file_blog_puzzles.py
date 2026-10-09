@@ -26,8 +26,9 @@ The blog's answers are a solver's write-up, not the paper's key, so
 solutions.blog names the blog (series.py's `blog`) and solutions.origin says so.
 
 A file already on disk is never rewritten but for its date, which facts
-arriving later can prove, a placeholder setter the post names, and what the
-source's `tidy` changes in its clues (retext): by then it may carry
+arriving later can prove, a placeholder setter the post names, what the
+source's `tidy` changes in its clues (retext), and a light it left blank
+that the blog's post now answers (fill_blanks): by then it may carry
 annotations. One whose clues or answers no longer match what this
 would write is named, so a correction made upstream is seen rather than lost.
 """
@@ -494,6 +495,43 @@ def content(puzzle):
             for e in puzzle["entries"]]
 
 
+def fill_blanks(held, puzzle):
+    """(entries, n): `held`'s entries with each light it left blank given the
+    answer `puzzle`, built from the same blog post, now reads for it.
+
+    A parser fix that reads an answer the blog printed all along fills the
+    light it left blank; nothing else in the file changes. Only a blog
+    write-up's own blanks are filled, only from the same post, and only where
+    the light is the same cells and every letter agrees with the answers
+    already crossing it, so a grid rebuilt differently is never mixed in."""
+    hs, ps = held.get("solutions") or {}, puzzle.get("solutions") or {}
+    if hs.get("origin") != "writeup" or not ps.get("blog") or (
+            hs.get("url"), hs.get("blog")) != (ps.get("url"), ps.get("blog")):
+        return held["entries"], 0
+
+    def cells(e):
+        x, y = e["position"]["x"], e["position"]["y"]
+        across = e["direction"] == "across"
+        return [(x + i, y) if across else (x, y + i) for i in range(e["length"])]
+
+    grid = {}
+    for e in held["entries"]:
+        grid.update(zip(cells(e), e.get("solution") or ""))
+    built = {(e["number"], e["direction"]): e for e in puzzle["entries"]}
+    out, n = [], 0
+    for e in held["entries"]:
+        b = built.get((e["number"], e["direction"]))
+        if (not e.get("solution") and b and b.get("solution")
+                and b["position"] == e["position"] and b["length"] == e["length"]
+                and len(b["solution"]) == e["length"]
+                and all(grid.get(c, ch) == ch for c, ch in zip(cells(e), b["solution"]))):
+            e = {**e, "solution": b["solution"]}
+            grid.update(zip(cells(e), b["solution"]))
+            n += 1
+        out.append(e)
+    return out, n
+
+
 def retext(puzzle, tidy):
     """`puzzle` with `tidy` applied to each clue's printed line, and how many
     clues it changed. Only the words change: a clue whose count would change,
@@ -626,6 +664,7 @@ def run(source, grids, parsed, write=True, newest=None):
     typed = typed_counts(recs.values())
     filed, kept, drifted = collections.Counter(), 0, []
     redated, renamed, retold = collections.Counter(), collections.Counter(), collections.Counter()
+    answered = collections.Counter()
     refused = []
     order = sorted(claims.items(), key=lambda kv: (kv[0][0], -kv[0][1] if newest else kv[0][1]))
     for (series, number), claim in order:
@@ -665,6 +704,10 @@ def run(source, grids, parsed, write=True, newest=None):
                 if n:
                     fix["entries"] = tidied["entries"]
                     retold[series] += 1
+            entries, n = fill_blanks({**held, **fix}, puzzle)
+            if n:
+                fix["entries"] = entries
+                answered[series] += n
             if puzzle["date"] and (series_meta.puzzle_day(held)
                                    != series_meta.puzzle_day(puzzle)):
                 fix["date"] = puzzle["date"]
@@ -712,6 +755,10 @@ def run(source, grids, parsed, write=True, newest=None):
         print(f"{'would tidy the clues of' if not write else 'tidied the clues of'} "
               f"{sum(retold.values())}: "
               + ", ".join(f"{s} {n}" for s, n in sorted(retold.items())))
+    if answered:
+        print(f"{'would answer' if not write else 'answered'} {sum(answered.values())} "
+              "blank light(s) from the blog: "
+              + ", ".join(f"{s} {n}" for s, n in sorted(answered.items())))
     for note in notes:
         print(f"  date: {note}")
     for why in refused[:20]:
