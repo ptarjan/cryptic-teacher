@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,60 @@
     "text": "Divine – like songs of devotion making them come together",
     "enumeration": "7"
    },
-   "solution": "ANGELIC"
+   "solution": "ANGELIC",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "ANGELIC",
+    "definitions": [
+     {
+      "text": "Divine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "making",
+      "for": "substitution",
+      "note": "making one word into another here means swapping a chunk of the first for something new"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like songs of devotion",
+      "gives": "ANTHEMIC",
+      "note": "anthems are songs of devotion, so music like them is anthemic"
+     },
+     {
+      "clueFragment": "them",
+      "gives": "THEM",
+      "note": "the word itself, the chunk to be swapped out"
+     },
+     {
+      "clueFragment": "come together",
+      "gives": "GEL",
+      "note": "to gel is to come together"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "GEL",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "Heavenly hymns that unite a congregation in song.",
+     "walkthrough": "'Making them come together' reads as uniting the singers, but it tells you to swap the word them for a synonym of come together.",
+     "definitionFit": "Angelic means heavenly or saintly, a near synonym of divine as an adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "them"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +103,49 @@
     "text": "Skin marked with spots – this company make tablets",
     "enumeration": "5"
    },
-   "solution": "APPLE"
+   "solution": "APPLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "APPLE",
+    "definitions": [
+     {
+      "text": "this company make tablets",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Skin",
+      "for": "deletion",
+      "note": "to skin something is to strip off its outside, so the first and last letters go"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "marked with spots",
+      "gives": "DAPPLED",
+      "note": "dappled means marked with patches or spots"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APPLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Fruit skin spotted with blemishes, linked to a firm making tablets.",
+     "walkthrough": "Tablets look like pills from a drug company, but here they are iPads.",
+     "definitionFit": "Apple is the technology company that makes the iPad tablet computer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tablets"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +159,62 @@
     "text": "Ewoks regularly interrupting happily without co-ordination",
     "enumeration": "7"
    },
-   "solution": "GAWKILY"
+   "solution": "GAWKILY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GAWKILY",
+    "definitions": [
+     {
+      "text": "without co-ordination",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter"
+     },
+     {
+      "text": "interrupting",
+      "for": "container",
+      "note": "to interrupt something is to break into the middle of it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "happily",
+      "gives": "GAILY",
+      "note": "gaily means happily"
+     },
+     {
+      "clueFragment": "Ewoks",
+      "gives": "WK",
+      "select": "alternate",
+      "note": "second and fourth letters of Ewoks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GA",
+      "WK",
+      "ILY"
+     ]
+    },
+    "explanation": {
+     "surface": "Ewoks, the furry creatures from Star Wars, bumbling in happily and clumsily.",
+     "definitionFit": "Gawkily means in an awkward, ungainly way, the manner of someone lacking co-ordination."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Ewoks"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +228,43 @@
     "text": "Play about singer?",
     "enumeration": "4"
    },
-   "solution": "LARK"
+   "solution": "LARK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LARK",
+    "definitions": [
+     {
+      "text": "Play about",
+      "at": 0
+     },
+     {
+      "text": "singer",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Play about",
+      "note": "first meaning: to fool around"
+     },
+     {
+      "clueFragment": "singer",
+      "note": "second meaning: a songbird, the skylark"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like asking whether a play is about a singer; the question mark flags the bird.",
+     "definitionFit": "To lark about is to fool around playfully, and the lark is a bird famous for its song."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "singer"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +284,81 @@
      }
     ]
    },
-   "solution": "CROSSWORDPUZZLE"
+   "solution": "CROSSWORDPUZZLE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CROSSWORD PUZZLE",
+    "definitions": [
+     {
+      "text": "This",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "in a down clue over means turned over, read from the bottom up"
+     },
+     {
+      "text": "focus of",
+      "for": "letter_selection",
+      "note": "the focus of a word is its centre, the middle letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "angry",
+      "gives": "CROSS",
+      "note": "cross means angry"
+     },
+     {
+      "clueFragment": "argument",
+      "gives": "ROW",
+      "note": "a row is a noisy quarrel"
+     },
+     {
+      "clueFragment": "Freddie",
+      "gives": "D",
+      "select": "middle",
+      "note": "the middle letter of Freddie"
+     },
+     {
+      "clueFragment": "Fox",
+      "gives": "PUZZLE",
+      "note": "to fox someone is to baffle them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CROSS",
+      "WOR",
+      "D",
+      "PUZZLE"
+     ],
+     "reversals": [
+      {
+       "from": "ROW",
+       "to": "WOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Reads like a row about an actor named Freddie Fox.",
+     "walkthrough": "'This' is the definition: the very thing being solved. Freddie Fox is a British actor, a red herring of a name.",
+     "definitionFit": "The thing you are solving is itself a grid of clues and answers, so 'this' points at it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fox"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +372,71 @@
     "text": "Grow to accept self at the outset – key for this type of therapy",
     "enumeration": "7"
    },
-   "solution": "GESTALT"
+   "solution": "GESTALT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "GESTALT",
+    "definitions": [
+     {
+      "text": "this type of therapy",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the outset",
+      "for": "letter_selection",
+      "note": "at the outset points to the opening letter of the word before it"
+     },
+     {
+      "text": "to accept",
+      "for": "container",
+      "note": "to accept something is to take it in, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grow",
+      "gives": "GET",
+      "note": "to get, as in get bigger, is to grow"
+     },
+     {
+      "clueFragment": "self",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of self"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "ALT",
+      "note": "the Alt key on a computer keyboard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GE",
+      "S",
+      "T",
+      "ALT"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to develop self-acceptance, with a key note for a kind of therapy.",
+     "definitionFit": "Gestalt therapy is a school of psychotherapy focused on awareness of the whole present experience."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 5,
@@ -129,7 +456,51 @@
      }
     ]
    },
-   "solution": "GOLDENDELICIOUS"
+   "solution": "GOLDENDELICIOUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GOLDEN DELICIOUS",
+    "definitions": [
+     {
+      "text": "1 down",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "anagram",
+      "note": "to gee something up is to stir it, so these letters are mixed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Did collusion gee",
+      "gives": "DIDCOLLUSIONGEE",
+      "note": "all fifteen letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DIDCOLLUSIONGEE",
+       "gives": "GOLDENDELICIOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question of whether a conspiracy spurred on a tech company.",
+     "walkthrough": "1 down is APPLE, read here as the fruit rather than the company.",
+     "definitionFit": "Golden Delicious is a popular variety of yellow-green eating fruit, one example of an apple."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "collusion"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +514,73 @@
     "text": "Enough – it's broken fine cutting saw",
     "enumeration": "10"
    },
-   "solution": "SATISFYING"
+   "solution": "SATISFYING",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SATISFYING",
+    "definitions": [
+     {
+      "text": "Enough",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "broken things are smashed apart, so these letters are rearranged"
+     },
+     {
+      "text": "cutting",
+      "for": "container",
+      "note": "cutting into something means going inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "saw",
+      "gives": "SAYING",
+      "note": "a saw is an old proverb or saying"
+     },
+     {
+      "clueFragment": "it's",
+      "gives": "ITS",
+      "note": "taken as written, apostrophe dropped"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the pencil-grade abbreviation for fine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "TISF",
+      "YING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITSF",
+       "gives": "TISF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A carpenter's saw broken, but cutting finely enough.",
+     "walkthrough": "Saw looks like the tool but is a saying, a proverb.",
+     "definitionFit": "Satisfying can mean adequate, meeting the need, close in sense to enough."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "saw"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +594,75 @@
     "text": "Fatty Arbuckle's coat worn by alkie having taken hem up a little",
     "enumeration": "7"
    },
-   "solution": "ADIPOSE"
+   "solution": "ADIPOSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "ADIPOSE",
+    "definitions": [
+     {
+      "text": "Fatty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coat",
+      "for": "letter_selection",
+      "note": "a coat is the outer layer, so the first and last letters"
+     },
+     {
+      "text": "having taken hem up a little",
+      "for": "anagram",
+      "note": "hem is the bottom edge, so the end letter is moved up one place"
+     },
+     {
+      "text": "worn by",
+      "for": "container",
+      "note": "something worn by a person wraps around them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arbuckle's",
+      "gives": "AE",
+      "select": "outer",
+      "note": "first and last letters of Arbuckle"
+     },
+     {
+      "clueFragment": "alkie",
+      "gives": "DIPSO",
+      "note": "dipso is slang for an alcoholic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DIPOS",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DIPSO",
+       "gives": "DIPOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Silent film star Fatty Arbuckle's coat, worn by a drunk who shortened the hem.",
+     "walkthrough": "In a down entry the bottom letter is the hem, so raising it a little means moving the final letter up one place. Fatty Arbuckle was a silent-film comedian.",
+     "definitionFit": "Adipose means consisting of or relating to fat, as in adipose tissue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "hem"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +676,66 @@
     "text": "They have faith in model with hold-up stockings to begin with",
     "enumeration": "7"
    },
-   "solution": "THEISTS"
+   "solution": "THEISTS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "THEISTS",
+    "definitions": [
+     {
+      "text": "They have faith",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to begin with",
+      "for": "letter_selection",
+      "note": "to begin with points at the opening letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "model",
+      "gives": "T",
+      "note": "the Model T, the classic Ford car"
+     },
+     {
+      "clueFragment": "hold-up",
+      "gives": "HEIST",
+      "note": "a heist is a robbery, a hold-up"
+     },
+     {
+      "clueFragment": "stockings",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of stockings"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HEIST",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Faith placed in a model wearing hold-up stockings.",
+     "walkthrough": "Hold-up stockings stay up without suspenders, but hold-up here is a robbery.",
+     "definitionFit": "Theists are people who believe in a god, so they have religious faith."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hold-up"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +755,48 @@
      }
     ]
    },
-   "solution": "POWERTOOL"
+   "solution": "POWERTOOL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POWER TOOL",
+    "definitions": [
+     {
+      "text": "jigsaw?",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "P",
+      "gives": "POWER",
+      "note": "P is the symbol for power in physics"
+     },
+     {
+      "clueFragment": "perhaps pick",
+      "gives": "TOOL",
+      "note": "a pick is an example of a tool, hence perhaps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POWER",
+      "TOOL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stammering over whether to choose a jigsaw puzzle.",
+     "walkthrough": "The jigsaw here is the electric saw, not the puzzle, though the puzzle theme pushes the other way.",
+     "definitionFit": "A jigsaw is an electric saw for curved cuts, one example of a motorised workshop implement, hence the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "jigsaw"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +810,46 @@
     "text": "Rubbish effect of drug, ecstasy",
     "enumeration": "5"
    },
-   "solution": "TRIPE"
+   "solution": "TRIPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRIPE",
+    "definitions": [
+     {
+      "text": "Rubbish",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "effect of drug",
+      "gives": "TRIP",
+      "note": "a trip is the experience a hallucinogen produces"
+     },
+     {
+      "clueFragment": "ecstasy",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRIP",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Dismissing the effects of a drug like ecstasy as nonsense.",
+     "definitionFit": "Tripe, literally stomach lining eaten as food, is everyday slang for nonsense or worthless talk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rubbish"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +863,44 @@
     "text": "Send out Vegemite sandwiches",
     "enumeration": "4"
    },
-   "solution": "EMIT"
+   "solution": "EMIT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EMIT",
+    "definitions": [
+     {
+      "text": "Send out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sandwiches",
+      "for": "hidden_word",
+      "note": "a word that sandwiches others holds them inside it, so look within the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vegemite",
+      "gives": "EMIT",
+      "note": "the middle letters of Vegemite"
+     }
+    ],
+    "explanation": {
+     "surface": "Sending out Vegemite sandwiches, as in a lunch order.",
+     "walkthrough": "Vegemite is an Australian yeast spread; the surface reads sandwiches as food.",
+     "definitionFit": "To emit is to give off or discharge, a direct synonym of send out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sandwiches"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +914,75 @@
     "text": "Working in operas with bass singers – ultimately, they're often cast",
     "enumeration": "10"
    },
-   "solution": "ASPERSIONS"
+   "solution": "ASPERSIONS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ASPERSIONS",
+    "definitions": [
+     {
+      "text": "they're often cast",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the end, so the closing letters of the words before it"
+     },
+     {
+      "text": "Working",
+      "for": "anagram",
+      "note": "something working is in operation and being reworked, so its letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "operas",
+      "gives": "OPERAS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bass",
+      "gives": "S",
+      "select": "last",
+      "note": "last letter of bass"
+     },
+     {
+      "clueFragment": "singers",
+      "gives": "S",
+      "select": "last",
+      "note": "last letter of singers"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INOPERASSS",
+       "gives": "ASPERSIONS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician working in operas with bass singers who are often cast in roles.",
+     "walkthrough": "'Cast' looks like casting singers in opera, but it is the verb in the fixed phrase cast aspersions.",
+     "definitionFit": "Aspersions are damaging remarks, and the idiom says one casts them on someone's character."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 13,
@@ -253,7 +1002,51 @@
      }
     ]
    },
-   "solution": "HALFNELSON"
+   "solution": "HALFNELSON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HALF NELSON",
+    "definitions": [
+     {
+      "text": "hold",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drink",
+      "gives": "HALF",
+      "note": "a half is half a pint of beer"
+     },
+     {
+      "clueFragment": "famous sailor",
+      "gives": "NELSON",
+      "note": "Admiral Lord Nelson"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HALF",
+      "NELSON"
+     ]
+    },
+    "explanation": {
+     "surface": "Having a drink with a famous sailor in a ship's hold.",
+     "walkthrough": "Hold looks like the cargo space of a ship, but it is a wrestling grip.",
+     "definitionFit": "A half nelson is a wrestling grip with one arm levered behind the opponent's neck."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hold"
+    }
+   }
   },
   {
    "number": 14,
@@ -267,7 +1060,68 @@
     "text": "When making a comeback, synth pop act must take on any current producer",
     "enumeration": "6"
    },
-   "solution": "DYNAMO"
+   "solution": "DYNAMO",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "DYNAMO",
+    "definitions": [
+     {
+      "text": "current producer",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must take on",
+      "for": "container",
+      "note": "to take on is to take in, so the second piece is placed inside the first"
+     },
+     {
+      "text": "When making a comeback",
+      "for": "reversal",
+      "note": "making a comeback means coming back, so the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "synth pop act",
+      "gives": "OMD",
+      "note": "Orchestral Manoeuvres in the Dark, an English synth-pop band"
+     },
+     {
+      "clueFragment": "any",
+      "gives": "ANY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "YNA",
+      "MO"
+     ],
+     "reversals": [
+      {
+       "from": "OMANYD",
+       "to": "DYNAMO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A synth-pop band reforming and taking on any current music producer.",
+     "walkthrough": "The insertion happens first; only then is the whole lot read backwards. 'Current producer' means electricity, not a modern record producer.",
+     "definitionFit": "A dynamo is a generator that turns motion into electric current."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +1135,62 @@
     "text": "Reason to moisturise my skin – finally getting into habit",
     "enumeration": "7"
    },
-   "solution": "DRYNESS"
+   "solution": "DRYNESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DRYNESS",
+    "definitions": [
+     {
+      "text": "Reason to moisturise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally picks out the closing letter of each word before it"
+     },
+     {
+      "text": "getting into",
+      "for": "container",
+      "note": "getting into something means going inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "habit",
+      "gives": "DRESS",
+      "note": "a habit is a garment, as worn by a nun"
+     },
+     {
+      "clueFragment": "my skin",
+      "gives": "YN",
+      "select": "last",
+      "note": "last letters of my and skin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "YN",
+      "ESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A note on why one's skin needs moisturiser, mentioning habit.",
+     "walkthrough": "'My skin' looks like the outside of the word my; here finally takes the end of both words.",
+     "definitionFit": "Dryness of skin is the condition that a moisturiser is applied to cure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "habit"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1204,48 @@
     "text": "Prepared cheese – one that sets?",
     "enumeration": "7"
    },
-   "solution": "BRIEFED"
+   "solution": "BRIEFED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRIEFED",
+    "definitions": [
+     {
+      "text": "Prepared",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheese",
+      "gives": "BRIE",
+      "note": "a soft French cheese"
+     },
+     {
+      "clueFragment": "one that sets?",
+      "gives": "FED",
+      "note": "Fed is this puzzle's setter, one who sets crosswords"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRIE",
+      "FED"
+     ]
+    },
+    "explanation": {
+     "surface": "Prepared cheese that sets, like a cheesemaker's curd.",
+     "walkthrough": "'Sets' suggests setting cheese or jelly, but it means setting puzzles: the setter's own pseudonym.",
+     "definitionFit": "To be briefed is to be prepared with information before a task."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sets"
+    }
+   }
   },
   {
    "number": 16,
@@ -309,7 +1259,84 @@
     "text": "Maybe roll ball back inspiring finish from Messi with famous Argentine supporting",
     "enumeration": "7"
    },
-   "solution": "BRIOCHE"
+   "solution": "BRIOCHE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "BRIOCHE",
+    "definitions": [
+     {
+      "text": "Maybe roll",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means the letters run backwards"
+     },
+     {
+      "text": "finish from",
+      "for": "letter_selection",
+      "note": "the finish of a word is its last letter"
+     },
+     {
+      "text": "inspiring",
+      "for": "container",
+      "note": "inspiring literally breathes in, so a letter is taken inside"
+     }
+    ],
+    "linkWords": [
+     "supporting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ball",
+      "gives": "ORB",
+      "note": "an orb is a ball or sphere"
+     },
+     {
+      "clueFragment": "Messi",
+      "gives": "I",
+      "select": "last",
+      "note": "last letter of Messi"
+     },
+     {
+      "clueFragment": "famous Argentine",
+      "gives": "CHE",
+      "note": "Che Guevara, the Argentine revolutionary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BR",
+      "I",
+      "O",
+      "CHE"
+     ],
+     "reversals": [
+      {
+       "from": "ORB",
+       "to": "BRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Football commentary: Messi rolls the ball back and another Argentine backs him up.",
+     "walkthrough": "In a down clue CHE supporting means placed beneath what comes before. The football scene hides Che Guevara.",
+     "definitionFit": "A brioche is a sweet, rich French bread, perhaps made as a roll, hence maybe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "roll"
+    }
+   }
   },
   {
    "number": 17,
@@ -323,7 +1350,43 @@
     "text": "Most stupid birds might be found here?",
     "enumeration": "7"
    },
-   "solution": "INANEST"
+   "solution": "INANEST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INANEST",
+    "definitions": [
+     {
+      "text": "Most stupid",
+      "at": 0
+     },
+     {
+      "text": "birds might be found here?",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Most stupid",
+      "note": "first meaning: the silliest of all"
+     },
+     {
+      "clueFragment": "birds might be found here?",
+      "note": "second meaning, read in three words"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half is a cryptic reading: split the answer as IN A NEST, where birds are found.",
+     "definitionFit": "Inanest is the superlative of inane, meaning silly or pointless, so most stupid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "birds"
+    }
+   }
   },
   {
    "number": 18,
@@ -337,7 +1400,67 @@
     "text": "Big character from Leeds United boxing with a coach",
     "enumeration": "6"
    },
-   "solution": "LANDAU"
+   "solution": "LANDAU",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LANDAU",
+    "definitions": [
+     {
+      "text": "coach",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Big character from",
+      "for": "letter_selection",
+      "note": "the big character from a word is its capital letter, its first"
+     },
+     {
+      "text": "boxing",
+      "for": "container",
+      "note": "boxing means enclosing in a box, so the outer letters hold the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leeds",
+      "gives": "L",
+      "select": "first",
+      "note": "the capital at the front of Leeds"
+     },
+     {
+      "clueFragment": "with a",
+      "gives": "ANDA",
+      "note": "with is AND, plus A as written"
+     },
+     {
+      "clueFragment": "United",
+      "gives": "U",
+      "note": "U is the standard abbreviation for United in team names"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ANDA",
+      "U"
+     ]
+    },
+    "explanation": {
+     "surface": "A star player from Leeds United football club, boxing with a coach.",
+     "walkthrough": "L and U, from Leeds United, enclose AND A.",
+     "definitionFit": "A landau is a four-wheeled horse-drawn carriage with a folding top, an old sort of coach."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coach"
+    }
+   }
   },
   {
    "number": 19,
@@ -351,7 +1474,70 @@
     "text": "Truss very upset after a fitting",
     "enumeration": "7"
    },
-   "solution": "APROPOS"
+   "solution": "APROPOS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "APROPOS",
+    "definitions": [
+     {
+      "text": "fitting",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue upset means turned upside down, so read from the bottom"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Truss",
+      "gives": "PROP",
+      "note": "a truss is a supporting frame, a prop"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "SO",
+      "note": "so means very"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PROP",
+      "OS"
+     ],
+     "reversals": [
+      {
+       "from": "SO",
+       "to": "OS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone trussed up and very distressed after a fitting at the tailor's.",
+     "walkthrough": "'Fitting' reads as a tailor's session, but it is the adjective meaning suitable.",
+     "definitionFit": "Apropos means appropriate or opportune, a synonym of fitting as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Truss"
+    }
+   }
   },
   {
    "number": 20,
@@ -365,7 +1551,85 @@
     "text": "In taking just seconds, lawyer advising her client initially to enter dock reveals incompetence",
     "enumeration": "10"
    },
-   "solution": "INADEQUACY"
+   "solution": "INADEQUACY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "INADEQUACY",
+    "definitions": [
+     {
+      "text": "incompetence",
+      "at": 83
+     }
+    ],
+    "indicators": [
+     {
+      "text": "just seconds",
+      "for": "letter_selection",
+      "note": "just seconds means only the second letters of the following words"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word before it"
+     },
+     {
+      "text": "to enter",
+      "for": "container",
+      "note": "to enter something is to go inside it"
+     }
+    ],
+    "linkWords": [
+     "taking",
+     "reveals"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lawyer advising her",
+      "gives": "ADE",
+      "select": 2,
+      "note": "second letters of lawyer, advising and her"
+     },
+     {
+      "clueFragment": "dock",
+      "gives": "QUAY",
+      "note": "a quay is a dock for ships"
+     },
+     {
+      "clueFragment": "client",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of client"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "ADE",
+      "QUA",
+      "C",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A lawyer who keeps advising a client briefly in the dock, showing incompetence.",
+     "walkthrough": "The legal scene makes dock look like the courtroom dock, but it is a harbour landing place.",
+     "definitionFit": "Inadequacy is a lack of the required ability, a synonym of incompetence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dock"
+    }
+   }
   },
   {
    "number": 21,
@@ -379,7 +1643,62 @@
     "text": "Group supporting TT race on vacation lining field",
     "enumeration": "4"
    },
-   "solution": "AREA"
+   "solution": "AREA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AREA",
+    "definitions": [
+     {
+      "text": "field",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "on vacation means emptied out, so only the outer letters remain"
+     },
+     {
+      "text": "lining",
+      "for": "container",
+      "note": "a lining sits inside, so these letters go within the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Group supporting TT",
+      "gives": "AA",
+      "note": "Alcoholics Anonymous supports those staying teetotal, TT"
+     },
+     {
+      "clueFragment": "race",
+      "gives": "RE",
+      "select": "outer",
+      "note": "race with its middle emptied"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "RE",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A support group at the Isle of Man TT motorbike race, out on a field during the holidays.",
+     "walkthrough": "TT is teetotal here, and the group that supports it is Alcoholics Anonymous, AA.",
+     "definitionFit": "A field, as in a field of study or expertise, is an area."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "TT"
+    }
+   }
   },
   {
    "number": 22,
@@ -393,7 +1712,66 @@
     "text": "Rear Admiral essentially struggling to get drier",
     "enumeration": "5"
    },
-   "solution": "AIRER"
+   "solution": "AIRER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "AIRER",
+    "definitions": [
+     {
+      "text": "drier",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is its heart, the middle letter"
+     },
+     {
+      "text": "struggling",
+      "for": "anagram",
+      "note": "struggling suggests things thrown about, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rear",
+      "gives": "REAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Admiral",
+      "gives": "I",
+      "select": "middle",
+      "note": "the middle letter of Admiral"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REARI",
+       "gives": "AIRER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Rear Admiral struggling to get his kit dry.",
+     "walkthrough": "'Rear Admiral' reads as one naval rank, but only the second word is cut down.",
+     "definitionFit": "An airer is a frame on which washed clothes are hung to dry, a laundry drier."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Admiral"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1785,49 @@
     "text": "That woman's love for leading man",
     "enumeration": "4"
    },
-   "solution": "HERO"
+   "solution": "HERO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HERO",
+    "definitions": [
+     {
+      "text": "leading man",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "That woman's",
+      "gives": "HER",
+      "note": "her is the possessive for that woman"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HER",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman's love for the leading man of a film.",
+     "definitionFit": "The hero is the chief male character of a story, a leading man."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 24,
@@ -421,7 +1841,59 @@
     "text": "Leaves old politician out of stuff",
     "enumeration": "5"
    },
-   "solution": "CRESS"
+   "solution": "CRESS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CRESS",
+    "definitions": [
+     {
+      "text": "Leaves",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of",
+      "for": "deletion",
+      "note": "taking things out of a word means removing those letters from it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stuff",
+      "gives": "COMPRESS",
+      "note": "to stuff something is to pack or compress it"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "a Member of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RESS"
+     ]
+    },
+    "explanation": {
+     "surface": "An old politician walks out of some situation.",
+     "walkthrough": "Remove O and MP from COMPRESS. 'Leaves' reads as a verb but is the noun, salad leaves.",
+     "definitionFit": "Cress is a plant whose small peppery leaves are eaten in salads and sandwiches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Leaves"
+    }
+   }
   },
   {
    "number": 25,
@@ -435,7 +1907,39 @@
     "text": "One might show pride in their work?",
     "enumeration": "9"
    },
-   "solution": "ZOOKEEPER"
+   "solution": "ZOOKEEPER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ZOOKEEPER",
+    "definitions": [
+     {
+      "text": "One might show pride in their work?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One might show pride in their work?",
+      "note": "surface reading: a worker who takes satisfaction in a job well done"
+     },
+     {
+      "clueFragment": "pride",
+      "note": "setter's reading: a pride is a group of lions, which this worker might display to visitors"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Showing pride in one's work sounds like professional satisfaction, but a pride is a group of lions, shown to the public at work.",
+     "definitionFit": "A keeper at a zoo exhibits and cares for animals, a lion pride among them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pride"
+    }
+   }
   },
   {
    "number": 26,
@@ -449,7 +1953,72 @@
     "text": "Agreement starts in 8, 9 and 10 plus 12 in extremis",
     "enumeration": "7"
    },
-   "solution": "ENTENTE"
+   "solution": "ENTENTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ENTENTE",
+    "definitions": [
+     {
+      "text": "Agreement",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts in",
+      "for": "letter_selection",
+      "note": "starts means the opening letters of the numbers that follow"
+     },
+     {
+      "text": "in extremis",
+      "for": "letter_selection",
+      "note": "in extremis means at the extremes, so only the first and last letters"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "plus"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "8, 9",
+      "gives": "EN",
+      "select": "first",
+      "note": "first letters of eight and nine"
+     },
+     {
+      "clueFragment": "10",
+      "gives": "TEN",
+      "note": "the number ten written as a word"
+     },
+     {
+      "clueFragment": "12",
+      "gives": "TE",
+      "select": "outer",
+      "note": "first and last letters of twelve"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "TEN",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "An agreement starting in clues 8, 9 and 10, plus 12, in an emergency.",
+     "walkthrough": "The numbers look like cross-references to other clues in the grid but are just the words eight, nine, ten and twelve.",
+     "definitionFit": "An entente is a friendly understanding between nations, as in the Entente Cordiale."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "8"
+    }
+   }
   },
   {
    "number": 27,
@@ -463,7 +2032,79 @@
     "text": "13, assuming pawn shop primarily goes with gold for finance",
     "enumeration": "7"
    },
-   "solution": "SPONSOR"
+   "solution": "SPONSOR",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SPONSOR",
+    "definitions": [
+     {
+      "text": "finance",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "assuming",
+      "for": "container",
+      "note": "assuming something is taking it on, so these letters take in another piece"
+     },
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily points to the first letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "13",
+      "gives": "SON",
+      "note": "clue 13 is a half nelson, and the second half of the word nelson is these letters"
+     },
+     {
+      "clueFragment": "pawn",
+      "gives": "P",
+      "note": "P is the chess notation for pawn"
+     },
+     {
+      "clueFragment": "shop",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of shop"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is gold in heraldry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "ON",
+      "S",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pawning goods with gold to raise finance.",
+     "walkthrough": "The answer to 13 is HALF NELSON, so take half of NELSON, then put P inside it: S(P)ON. The pawnbroker scene hides the chess pawn.",
+     "definitionFit": "To sponsor something is to fund it, which is what finance means as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pawn"
+    }
+   }
   }
  ]
 }
