@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,55 @@
     "text": "Fat and short politician",
     "enumeration": "5"
    },
-   "solution": "PLUMP"
+   "solution": "PLUMP",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "PLUMP",
+    "definitions": [
+     {
+      "text": "Fat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "something short is cut down, so the word before loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "and",
+      "gives": "PLU",
+      "note": "'and' is PLUS, cut short"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "a Member of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLU",
+      "MP"
+     ]
+    },
+    "explanation": {
+     "surface": "A description of a stocky, rotund politician.",
+     "walkthrough": "'Short politician' looks like one unit, but 'short' trims the 'and' (PLUS), and the politician stands alone.",
+     "definitionFit": "Plump is a mild adjective for someone carrying extra weight, a gentler synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "and"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +97,53 @@
     "text": "Trump perhaps remaining under pressure",
     "enumeration": "9"
    },
-   "solution": "PRESIDENT"
+   "solution": "PRESIDENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRESIDENT",
+    "definitions": [
+     {
+      "text": "Trump perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down entry, one piece written under another simply follows it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pressure",
+      "gives": "P",
+      "note": "P is the physics symbol for pressure"
+     },
+     {
+      "clueFragment": "remaining",
+      "gives": "RESIDENT",
+      "note": "someone remaining in a place lives there"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RESIDENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A political jibe about Trump hanging on in office under pressure.",
+     "definitionFit": "Donald Trump has held the office of US President, so he is an example of one, hence 'perhaps'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "remaining"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +157,56 @@
     "text": "Upper-class twit and European get together",
     "enumeration": "5"
    },
-   "solution": "UNITE"
+   "solution": "UNITE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNITE",
+    "definitions": [
+     {
+      "text": "get together",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Upper-class",
+      "gives": "U",
+      "note": "U is the old label for upper-class usage"
+     },
+     {
+      "clueFragment": "twit",
+      "gives": "NIT",
+      "note": "a nit is a fool"
+     },
+     {
+      "clueFragment": "and",
+      "note": "joins the pieces"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "NIT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A posh fool and a continental meet up.",
+     "definitionFit": "To unite is to join or come together, a direct verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "twit"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +220,43 @@
     "text": "Secret, Tommy?",
     "enumeration": "7"
    },
-   "solution": "PRIVATE"
+   "solution": "PRIVATE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PRIVATE",
+    "definitions": [
+     {
+      "text": "Secret",
+      "at": 0
+     },
+     {
+      "text": "Tommy",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Secret",
+      "note": "first meaning: confidential, not public"
+     },
+     {
+      "clueFragment": "Tommy",
+      "note": "second meaning: a Tommy is a British soldier, typically of the lowest rank"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Tommy, or Tommy Atkins, is the old nickname for an ordinary British soldier; the question mark flags that he is one example of the rank.",
+     "definitionFit": "The word means confidential as an adjective and names the lowest army rank as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tommy"
+    }
+   }
   },
   {
    "number": 4,
@@ -94,7 +276,48 @@
      }
     ]
    },
-   "solution": "HOTPOTATO"
+   "solution": "HOTPOTATO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOT POTATO",
+    "definitions": [
+     {
+      "text": "Controversial issue",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "animated",
+      "gives": "HOT",
+      "note": "heated, excited"
+     },
+     {
+      "clueFragment": "King Edward, possibly",
+      "gives": "POTATO",
+      "note": "King Edward is a well-known British potato variety"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOT",
+      "POTATO"
+     ]
+    },
+    "explanation": {
+     "surface": "An excited King Edward suggests a royal stirring up controversy.",
+     "walkthrough": "King Edward is not a monarch here but a variety of potato common in British shops.",
+     "definitionFit": "A hot potato is an idiom for a matter too sensitive or awkward to handle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "King"
+    }
+   }
   },
   {
    "number": 4,
@@ -108,7 +331,61 @@
     "text": "Difficult keeping ordinary small squirrels away",
     "enumeration": "6"
    },
-   "solution": "HOARDS"
+   "solution": "HOARDS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HOARDS",
+    "definitions": [
+     {
+      "text": "squirrels away",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping means holding something within, so one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Difficult",
+      "gives": "HARD",
+      "note": "a direct synonym"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the clothing-size abbreviation"
+     },
+     {
+      "clueFragment": "ordinary",
+      "gives": "O",
+      "note": "O is the abbreviation for ordinary, as in O level"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "O",
+      "ARD",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "It is hard work for a small creature to keep stashing its winter stores.",
+     "definitionFit": "To squirrel away is an idiom for stockpiling, which is what someone who hoards does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "ordinary"
+    }
+   }
   },
   {
    "number": 5,
@@ -122,7 +399,58 @@
     "text": "Tense about a certain value",
     "enumeration": "8"
    },
-   "solution": "TREASURE"
+   "solution": "TREASURE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TREASURE",
+    "definitions": [
+     {
+      "text": "value",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tense",
+      "gives": "T",
+      "note": "grammar abbreviation"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means concerning"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "certain",
+      "gives": "SURE",
+      "note": "a direct synonym"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RE",
+      "A",
+      "SURE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is nervous about a definite valuation.",
+     "definitionFit": "To treasure is a verb meaning to prize or hold dear, as is value."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "value"
+    }
+   }
   },
   {
    "number": 6,
@@ -136,7 +464,53 @@
     "text": "Arrive after incorrect result",
     "enumeration": "7"
    },
-   "solution": "OUTCOME"
+   "solution": "OUTCOME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTCOME",
+    "definitions": [
+     {
+      "text": "result",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the first-named piece behind the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "incorrect",
+      "gives": "OUT",
+      "note": "out as in wide of the mark, wrong"
+     },
+     {
+      "clueFragment": "Arrive",
+      "gives": "COME",
+      "note": "a direct synonym"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "COME"
+     ]
+    },
+    "explanation": {
+     "surface": "Arriving late yields the wrong result.",
+     "definitionFit": "An outcome is the consequence or end result of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "incorrect"
+    }
+   }
   },
   {
    "number": 7,
@@ -150,7 +524,64 @@
     "text": "Acknowledgement from District Attorney turning up with assignment",
     "enumeration": "9"
    },
-   "solution": "ADMISSION"
+   "solution": "ADMISSION",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ADMISSION",
+    "definitions": [
+     {
+      "text": "Acknowledgement",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down entry, turning up means reading the letters from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "from",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "District Attorney",
+      "gives": "DA",
+      "note": "DA is the US abbreviation"
+     },
+     {
+      "clueFragment": "assignment",
+      "gives": "MISSION",
+      "note": "a task one is sent on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "MISSION"
+     ],
+     "reversals": [
+      {
+       "from": "DA",
+       "to": "AD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prosecutor shows up on a job and makes a confession.",
+     "definitionFit": "An admission is an acknowledgement or confession that something is true."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 8,
@@ -164,7 +595,48 @@
     "text": "Move falteringly taking top off stranger",
     "enumeration": "5"
    },
-   "solution": "ODDER"
+   "solution": "ODDER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ODDER",
+    "definitions": [
+     {
+      "text": "stranger",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking top off",
+      "for": "deletion",
+      "note": "removing the top of a down word means dropping its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Move falteringly",
+      "gives": "DODDER",
+      "note": "to totter unsteadily"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ODDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A doddering person removes their hat in front of an unfamiliar visitor.",
+     "walkthrough": "'Stranger' reads as a noun, a person; it is the comparative adjective meaning more peculiar.",
+     "definitionFit": "Odder is the comparative of odd, meaning more strange or unusual."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stranger"
+    }
+   }
   },
   {
    "number": 9,
@@ -178,7 +650,61 @@
     "text": "Get rid of priest friend hides at home",
     "enumeration": "9"
    },
-   "solution": "ELIMINATE"
+   "solution": "ELIMINATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ELIMINATE",
+    "definitions": [
+     {
+      "text": "Get rid of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hides",
+      "for": "container",
+      "note": "a thing that hides another keeps it tucked inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "priest",
+      "gives": "ELI",
+      "note": "Eli is the Old Testament priest, a crossword regular"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "MATE",
+      "note": "a direct synonym"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "to be in is to be at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELI",
+      "M",
+      "IN",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to dispose of a cleric whose friend hides out at his house.",
+     "definitionFit": "To eliminate is to remove or dispose of something completely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hides"
+    }
+   }
   },
   {
    "number": 10,
@@ -192,7 +718,49 @@
     "text": "Some lad imitated retreating chicken",
     "enumeration": "5"
    },
-   "solution": "TIMID"
+   "solution": "TIMID",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "TIMID",
+    "definitions": [
+     {
+      "text": "chicken",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means only part of the following words is used"
+     },
+     {
+      "text": "retreating",
+      "for": "reversal",
+      "note": "something retreating goes backwards, so the letters run right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lad imitated",
+      "gives": "DIMIT",
+      "note": "a run of consecutive letters across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A boy did an impression of a chicken running away.",
+     "walkthrough": "'Chicken' sits at the end as an animal for the impression, but it is the slang for cowardly.",
+     "definitionFit": "Calling someone chicken is slang for cowardly, so it means fearful or timid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "chicken"
+    }
+   }
   },
   {
    "number": 11,
@@ -206,7 +774,66 @@
     "text": "Country clubs in denial, unfortunately",
     "enumeration": "7"
    },
-   "solution": "ICELAND"
+   "solution": "ICELAND",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ICELAND",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "something gone unfortunately has gone wrong, so the letters fall out of order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first piece inside the letters that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "denial",
+      "gives": "DENIAL",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "clubs",
+      "gives": "C",
+      "note": "C is the card-suit abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "C",
+      "ELAND"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DENIAL",
+       "gives": "IELAND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nation's sports clubs are sadly in denial.",
+     "definitionFit": "Iceland is a North Atlantic island nation, an example of a country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clubs"
+    }
+   }
   },
   {
    "number": 12,
@@ -220,7 +847,65 @@
     "text": "Apron's so tangled adult's scratched back",
     "enumeration": "7"
    },
-   "solution": "SPONSOR"
+   "solution": "SPONSOR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SPONSOR",
+    "definitions": [
+     {
+      "text": "back",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scratched",
+      "for": "deletion",
+      "note": "something scratched from a list is struck out and removed"
+     },
+     {
+      "text": "tangled",
+      "for": "anagram",
+      "note": "tangled things are twisted out of their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Apron's so",
+      "gives": "APRONSSO",
+      "note": "the letters to work with"
+     },
+     {
+      "clueFragment": "adult",
+      "gives": "A",
+      "note": "A is the film-rating abbreviation for adult"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPONSOR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PRONSSO",
+       "gives": "SPONSOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A twisted apron strap has left an adult with a scratch on the back.",
+     "walkthrough": "'Back' looks like the body part that got scratched; it is the verb meaning to support financially.",
+     "definitionFit": "To sponsor someone is to back them with money or support."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 13,
@@ -234,7 +919,76 @@
     "text": "Simpler answer in test, essentially, that is right",
     "enumeration": "6"
    },
-   "solution": "EASIER"
+   "solution": "EASIER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "EASIER",
+    "definitions": [
+     {
+      "text": "Simpler",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is its core, so only its central letters are kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the preceding piece inside the following one"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "test",
+      "gives": "ES",
+      "select": "middle",
+      "note": "the two central letters"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IE",
+      "note": "'that is' is i.e., id est"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAS",
+      "IE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A student hopes an answer in a test will be the easy, correct one.",
+     "walkthrough": "'That is' together gives IE, the abbreviation of Latin id est.",
+     "definitionFit": "Easier is the comparative of easy, meaning less difficult."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "essentially"
+    }
+   }
   },
   {
    "number": 14,
@@ -248,7 +1002,61 @@
     "text": "Frightening bird grabbing rodent's tail",
     "enumeration": "9"
    },
-   "solution": "STARTLING"
+   "solution": "STARTLING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STARTLING",
+    "definitions": [
+     {
+      "text": "Frightening",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tail",
+      "for": "letter_selection",
+      "note": "a tail is the end, so only the last letter is kept"
+     },
+     {
+      "text": "grabbing",
+      "for": "container",
+      "note": "grabbing something means holding it, so one piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bird",
+      "gives": "STARLING",
+      "note": "a common songbird"
+     },
+     {
+      "clueFragment": "rodent's",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR",
+      "T",
+      "LING"
+     ]
+    },
+    "explanation": {
+     "surface": "A scary picture of a bird snatching a rat by the tail.",
+     "definitionFit": "Startling means alarming or causing sudden fright."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tail"
+    }
+   }
   },
   {
    "number": 15,
@@ -262,7 +1070,60 @@
     "text": "Welcome sound of a bell after endless hunger",
     "enumeration": "8"
    },
-   "solution": "GREETING"
+   "solution": "GREETING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "GREETING",
+    "definitions": [
+     {
+      "text": "Welcome",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "without an end, so the word's last letter is dropped"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the bell sound behind the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hunger",
+      "gives": "GREED",
+      "note": "hunger as in avid desire"
+     },
+     {
+      "clueFragment": "sound of a bell",
+      "gives": "TING",
+      "note": "the ringing note of a small bell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREE",
+      "TING"
+     ]
+    },
+    "explanation": {
+     "surface": "A dinner bell greets the starving.",
+     "walkthrough": "'Sound of' suggests a homophone, but TING is simply the noise a bell makes.",
+     "definitionFit": "A greeting is a welcome given on meeting someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Welcome"
+    }
+   }
   },
   {
    "number": 16,
@@ -282,7 +1143,44 @@
      }
     ]
    },
-   "solution": "GREATBEAR"
+   "solution": "GREATBEAR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GREAT BEAR",
+    "definitions": [
+     {
+      "text": "group of stars",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "reportedly means as heard spoken, so the words are taken by sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "irritate nude",
+      "gives": "GREATBEAR",
+      "soundsLike": "GRATE BARE",
+      "note": "to grate is to irritate; bare means nude"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone claims a nude person is annoying.",
+     "definitionFit": "The Great Bear, Ursa Major, is a constellation, a named group of stars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nude"
+    }
+   }
   },
   {
    "number": 17,
@@ -296,7 +1194,52 @@
     "text": "Get rude apes bananas",
     "enumeration": "8"
    },
-   "solution": "PERSUADE"
+   "solution": "PERSUADE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PERSUADE",
+    "definitions": [
+     {
+      "text": "Get",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bananas",
+      "for": "anagram",
+      "note": "going bananas is slang for going crazy, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rude apes",
+      "gives": "RUDEAPES",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RUDEAPES",
+       "gives": "PERSUADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to fetch bananas for some ill-mannered apes.",
+     "walkthrough": "'Bananas' looks like the apes' food, but it is slang for crazy.",
+     "definitionFit": "To get someone to do something is to persuade or induce them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bananas"
+    }
+   }
   },
   {
    "number": 18,
@@ -310,7 +1253,62 @@
     "text": "Each Conservative inside steals buns",
     "enumeration": "8"
    },
-   "solution": "TEACAKES"
+   "solution": "TEACAKES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TEACAKES",
+    "definitions": [
+     {
+      "text": "buns",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside places the preceding pieces within the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "steals",
+      "gives": "TAKES",
+      "note": "to take is to steal"
+     },
+     {
+      "clueFragment": "Each",
+      "gives": "EA",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "EA",
+      "C",
+      "AKES"
+     ]
+    },
+    "explanation": {
+     "surface": "Every Tory in the building pinches the buns.",
+     "walkthrough": "Teacakes are a British baked treat: light, sweet, often fruited buns usually served toasted and buttered.",
+     "definitionFit": "A teacake is a type of sweet bun, so plural buns matches plural teacakes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "steals"
+    }
+   }
   },
   {
    "number": 19,
@@ -324,7 +1322,61 @@
     "text": "Leave a party with old knight",
     "enumeration": "7"
    },
-   "solution": "ABANDON"
+   "solution": "ABANDON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABANDON",
+    "definitions": [
+     {
+      "text": "Leave",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "BAND",
+      "note": "a party as in a group of people"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "N",
+      "note": "N is the chess notation for knight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BAND",
+      "O",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone walks out of a party alongside an elderly knight.",
+     "definitionFit": "To abandon is to desert or leave behind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 20,
@@ -338,7 +1390,55 @@
     "text": "Worth embracing new pop star?",
     "enumeration": "6"
    },
-   "solution": "PRINCE"
+   "solution": "PRINCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PRINCE",
+    "definitions": [
+     {
+      "text": "pop star?",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "embracing means wrapping around, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Worth",
+      "gives": "PRICE",
+      "note": "what something is worth"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRI",
+      "N",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a fresh pop star is worth the hype.",
+     "walkthrough": "The question mark marks a definition by example: Prince was the American pop star.",
+     "definitionFit": "Prince, the Minneapolis singer behind Purple Rain, was a famous pop musician."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Worth"
+    }
+   }
   },
   {
    "number": 21,
@@ -352,7 +1452,43 @@
     "text": "Puts back wheels again?",
     "enumeration": "7"
    },
-   "solution": "RETURNS"
+   "solution": "RETURNS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RETURNS",
+    "definitions": [
+     {
+      "text": "Puts back",
+      "at": 0
+     },
+     {
+      "text": "wheels again?",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Puts back",
+      "note": "first meaning: replaces something where it was"
+     },
+     {
+      "clueFragment": "wheels again?",
+      "note": "second meaning: read as ..., turns once more, as a wheel does"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the playful split of the word into RE plus TURNS.",
+     "definitionFit": "Returns means puts back, and broken up it means turns again, like wheeling round once more."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wheels"
+    }
+   }
   },
   {
    "number": 22,
@@ -366,7 +1502,53 @@
     "text": "Male insect is creature with large, spiny forelegs",
     "enumeration": "6"
    },
-   "solution": "MANTIS"
+   "solution": "MANTIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MANTIS",
+    "definitions": [
+     {
+      "text": "creature with large, spiny forelegs",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Male",
+      "gives": "M",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "insect",
+      "gives": "ANT",
+      "note": "a familiar insect"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ANT",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "A field-guide description of a male insect with big spiked front legs.",
+     "walkthrough": "The surface reads as one sentence of natural history, but the first three words are the wordplay.",
+     "definitionFit": "The mantis is an insect known for its raised, spiked front legs used to seize prey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Male"
+    }
+   }
   },
   {
    "number": 23,
@@ -380,7 +1562,49 @@
     "text": "Stay away from young lady's weapon",
     "enumeration": "7"
    },
-   "solution": "CUTLASS"
+   "solution": "CUTLASS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CUTLASS",
+    "definitions": [
+     {
+      "text": "weapon",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stay away from",
+      "gives": "CUT",
+      "note": "to cut a class is to skip it"
+     },
+     {
+      "clueFragment": "young lady",
+      "gives": "LASS",
+      "note": "a girl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUT",
+      "LASS"
+     ]
+    },
+    "explanation": {
+     "surface": "A warning to keep clear of a girl's weapon.",
+     "definitionFit": "A cutlass is a short curved sword, the classic pirate weapon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Stay"
+    }
+   }
   },
   {
    "number": 23,
@@ -394,7 +1618,61 @@
     "text": "Hiding place a child found in church",
     "enumeration": "5"
    },
-   "solution": "CACHE"
+   "solution": "CACHE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CACHE",
+    "definitions": [
+     {
+      "text": "Hiding place",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in a place is located inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "child",
+      "gives": "CH",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "A",
+      "CH",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A child is discovered hiding out in a church.",
+     "definitionFit": "A cache is a secret store or hiding place for valuables or supplies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "found"
+    }
+   }
   },
   {
    "number": 24,
@@ -408,7 +1686,55 @@
     "text": "Pull half of that belt",
     "enumeration": "7"
    },
-   "solution": "ATTRACT"
+   "solution": "ATTRACT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ATTRACT",
+    "definitions": [
+     {
+      "text": "Pull",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half of",
+      "for": "letter_selection",
+      "note": "half of a word means keeping only two of its four letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that",
+      "gives": "AT",
+      "select": "last",
+      "note": "the back half"
+     },
+     {
+      "clueFragment": "belt",
+      "gives": "TRACT",
+      "note": "a belt of land is a tract"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "TRACT"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to tug on part of a belt.",
+     "definitionFit": "To attract is to pull or draw towards, as a magnet does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "belt"
+    }
+   }
   },
   {
    "number": 25,
@@ -422,7 +1748,71 @@
     "text": "A struggle before mobile finally is switched on",
     "enumeration": "5"
    },
-   "solution": "AWARE"
+   "solution": "AWARE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AWARE",
+    "definitions": [
+     {
+      "text": "switched on",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end, so only the last letter is used"
+     },
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "before places the struggle ahead of the next piece"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "struggle",
+      "gives": "WAR",
+      "note": "a conflict"
+     },
+     {
+      "clueFragment": "mobile",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "WAR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A battle to get a mobile phone turned on.",
+     "walkthrough": "'Switched on' reads as a phone being turned on; it is slang for alert.",
+     "definitionFit": "Switched on is informal for alert or well informed, which is what aware means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mobile"
+    }
+   }
   },
   {
    "number": 26,
@@ -436,7 +1826,61 @@
     "text": "Shouted about wine crossing Italy",
     "enumeration": "5"
    },
-   "solution": "CRIED"
+   "solution": "CRIED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CRIED",
+    "definitions": [
+     {
+      "text": "Shouted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "crossing means going across, so the wine word spans the country letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c. for circa, about"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "RED",
+      "note": "red wine"
+     },
+     {
+      "clueFragment": "Italy",
+      "gives": "I",
+      "note": "I is Italy's international vehicle code"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "R",
+      "I",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone yelled about wine on a trip across Italy.",
+     "definitionFit": "To cry out is to shout, so cried is a past-tense synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 27,
@@ -450,7 +1894,61 @@
     "text": "What patient might get a newspaper career, unusually?",
     "enumeration": "9"
    },
-   "solution": "AFTERCARE"
+   "solution": "AFTERCARE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "AFTERCARE",
+    "definitions": [
+     {
+      "text": "What patient might get",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusually",
+      "for": "anagram",
+      "note": "unusually means not in the normal way, so the letters are arranged differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "newspaper",
+      "gives": "FT",
+      "note": "the Financial Times"
+     },
+     {
+      "clueFragment": "career",
+      "gives": "CAREER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AFTCAREER",
+       "gives": "AFTERCARE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering what career a patient might be offered by a newspaper.",
+     "definitionFit": "Aftercare is the follow-up treatment a patient receives after hospital or surgery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "newspaper"
+    }
+   }
   },
   {
    "number": 28,
@@ -464,7 +1962,52 @@
     "text": "Plots in Greene's novel",
     "enumeration": "9"
    },
-   "solution": "ENGINEERS"
+   "solution": "ENGINEERS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENGINEERS",
+    "definitions": [
+     {
+      "text": "Plots",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new and different, so the letters take a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in Greene's",
+      "gives": "INGREENES",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INGREENES",
+       "gives": "ENGINEERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Plot points in one of Graham Greene's novels.",
+     "walkthrough": "'Plots' looks like a noun, story lines of a novel; it is the verb meaning contrives.",
+     "definitionFit": "To engineer an outcome is to contrive or plot it, so engineers means plots."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Plots"
+    }
+   }
   },
   {
    "number": 29,
@@ -478,7 +2021,64 @@
     "text": "Curse from don after start of seminar",
     "enumeration": "5"
    },
-   "solution": "SWEAR"
+   "solution": "SWEAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SWEAR",
+    "definitions": [
+     {
+      "text": "Curse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start is the beginning, so only the first letter is used"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the don word behind the other piece"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seminar",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter"
+     },
+     {
+      "clueFragment": "don",
+      "gives": "WEAR",
+      "note": "to don clothes is to put them on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WEAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A university lecturer swears as a seminar gets going.",
+     "walkthrough": "'Don' looks like the university lecturer; it is the verb meaning put on.",
+     "definitionFit": "To swear is to curse, using bad language."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "don"
+    }
+   }
   }
  ]
 }
