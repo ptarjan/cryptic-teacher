@@ -117,6 +117,22 @@ bare = {f"{e['number']}-{e['direction']}" for e in built["entries"] if e["clue"]
 check("a light printed with no clue files complete", ({"4-down"}, True), (bare, f.fa.complete(built, bare)))
 built = f.build({**reading, "clues": {**words, "4-down": {"text": ""}}}, ["....", "....", "....", "...."])
 check("a clue unread is not complete, whatever it is named (mirror)", False, f.fa.complete(built, {"4-down"}))
+
+# A page numbering its lights otherwise (No 3) cites them so too: the filed
+# clue cites the filed number, the verdict keeps the printed text.
+notes = {"56-across": "printed as 58-across: the page numbers its lights as printed",
+         "41-across": "printed as 42-across: the page numbers [5, 3] 27, a cell starting no light"}
+cl = {"57-down": {"text": "A 100 of 58 across."}, "60-down": {"text": "We turn to 42 Across for this."},
+      "46-across": {"text": "Part of 7 down."}, "56-across": {"text": "A large number."}}
+got, printed = f.recited(cl, notes)
+check("a clue citing a renumbered light cites its filed number; the printed text kept",
+      (["A 100 of 56 across.", "We turn to 41 Across for this.", "Part of 7 down."],
+       {"57-down": "A 100 of 58 across.", "60-down": "We turn to 42 Across for this."}),
+      ([got[k]["text"] for k in ("57-down", "60-down", "46-across")], printed))
+check("a misprinted clue number (mended's bare note) re-cites nothing (mirror)", (cl, {}),
+      f.recited(cl, {"56-across": "printed as 58-across"}))
+check("a citation of a light the page numbers as filed, or in the other list, stays (mirror)",
+      ("Part of 58 down.", {}), (lambda r: (r[0]["x"]["text"], r[1]))(f.recited({"x": {"text": "Part of 58 down."}}, notes)))
 import validate_annotations as va
 errs = []
 va.check_no_markup({"entries": [{"number": 1, "direction": "across", "clue": {"text": "The plant elecampane.",
