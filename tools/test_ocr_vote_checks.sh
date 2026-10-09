@@ -807,6 +807,24 @@ check("a clue's last word is not paired with the next clue's number (mirror)",
 check("No 3 36A, its 'in' read '111' by ch, agrees", "A not infrequent occurrence in India.",
       oc.agree("A not infrequent occurrence in India.", [mark("36 A not infrequent occurrence 111 India. 37 A town")])[0])
 
+check("a word split at a kept line-end hyphen another reading has whole is joined (times-14057 23A)",
+      "Suitable wear with a bowler?",
+      oc.agree(oc.join_split("Suirable wear wtth a bow- Ier?", [["#", "Suitable", "wear", "with", "a", "bowler", "?", "#"],
+                                                                ["Suitable", "wear", "with", "a", "bow", "ler", "?", "#"]]),
+               [["#", "Suitable", "wear", "with", "a", "bowler", "?", "#"],
+                ["Suitable", "wear", "with", "a", "bow", "ler", "?", "#"]])[0])
+check("a word split at a speck read as a comma is joined (times-17868 18A)",
+      "Letters to a girl in uniform giving directions?",
+      oc.agree(oc.join_split("Letters to a girl in.uniform giy, ing directions?",
+                             [["Letters", "to", "a", "girl", "in", "uniform", "giving", "directions", "?", "#"]]),
+               [["Letters", "to", "a", "girl", "in", "uniform", "giving", "directions", "?", "#"]])[0])
+check("two words with a comma between stay apart (mirror)", "Cats, dogs and mice",
+      oc.join_split("Cats, dogs and mice", [["Cats", "catdogs", "and", "mice"]]))
+check("pieces another reading has apart stay apart (mirror)", "a bow- Ier",
+      oc.join_split("a bow- Ier", [["a", "bowler"], ["a", "bow", "ier"]]))
+check("pieces two lexicon words could spell stay apart (mirror)", "a bow- Ier",
+      oc.join_split("a bow- Ier", [["a", "bowler"], ["a", "bower"]]))
+
 print(f"FAILS {fails}")
 EOF
 )

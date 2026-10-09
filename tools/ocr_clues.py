@@ -1915,21 +1915,35 @@ def numbers_joined(clue, streams):
 def join_split(clue, others):
     """The clue with two of its words run together where most other readings
     have them as one lexicon word: a word the print broke over a line end
-    whose hyphen this reading lost ("par simony" for "parsimony")."""
+    whose hyphen this reading lost ("par simony" for "parsimony"). Two
+    pieces across the line end's hyphen this reading kept, or across a
+    speck read as a comma or stop ("bow- Ier", "giy, ing"), not both words
+    and neither one letter nor an apostrophe's tail ("lady's, rather"), are
+    run together when another reading has the one lexicon word they spell,
+    or one a letter from it, and none has the pieces apart: the vote then
+    settles its spelling."""
     if not others:
         return clue
     held = [{w.lower() for w in t} for t in others]
     k = 0
     while True:
-        m = re.compile(r"\b([A-Za-z]+) ([a-z]+)\b").search(clue, k)
+        m = re.compile(r"(?<![\w'‘’])([A-Za-z]+)(-? |[,.] ?)([A-Za-z]+)\b").search(clue, k)
         if not m:
             return clue
-        whole = (m.group(1) + m.group(2)).lower()
-        if sum(whole in h for h in held) * 2 > len(others) and is_word(whole):
-            clue = clue[:m.start()] + m.group(1) + m.group(2) + clue[m.end():]
+        a, b = m.group(1).lower(), m.group(3).lower()
+        whole = a + b
+        if m.group(2) == " ":
+            ok = m.group(3).islower() and sum(whole in h for h in held) * 2 > len(others) and is_word(whole)
+        else:
+            spelt = {w for h in held for w in h if w.isalpha() and is_word(w)
+                     and (w == whole or (len(whole) > 4 and within_one(whole, w)))}
+            ok = (len(spelt) == 1 and min(len(a), len(b)) > 1 and not (is_word(a) and is_word(b))
+                  and not any(a in h and b in h for h in held))
+        if ok:
+            clue = clue[:m.start()] + m.group(1) + m.group(3) + clue[m.end():]
             k = m.start()
         else:
-            k = m.start(2)
+            k = m.start(3)
 
 
 def cut_at_count(text, enum):
