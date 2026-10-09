@@ -16,8 +16,10 @@ holds back only CPU-bound starts on a host already oversubscribed."""
 import os
 import subprocess
 
-#: Memory (bytes) that must stay available after a start, and one unit's share.
-FLOOR = 3 << 30
+#: Memory (bytes) that must stay available after a start, and one unit's share
+#: (CT_MEM_FLOOR overrides: tests run ticks on a host whose own memory must
+#: not gate them).
+FLOOR = int(os.environ.get("CT_MEM_FLOOR") or 3 << 30)
 UNIT = 600 << 20
 #: Runnable processes per core past which no unit starts (CT_LOAD_PER_CORE
 #: overrides: tests run ticks on a host whose own load must not gate them).

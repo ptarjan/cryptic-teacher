@@ -834,6 +834,9 @@ tools/ci_shards.js                            splits the test scripts across the
                                               parallel jobs, so the suite takes as long as its
                                               slowest single script rather than all of them
                                               added up
+tools/pre_push.py                             the pre-push hook's check (.githooks/pre-push):
+                                              refuses in seconds a push that would turn CI red,
+                                              saying why
 tools/test_ci_coverage.js                     checks every test in tools/ is run, in exactly
                                               one shard, by the workflow a later push cannot
                                               cancel, so no check is quietly optional
