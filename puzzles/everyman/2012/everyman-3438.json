@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,48 @@
     "text": "Awful smell coming from small freshwater fish",
     "enumeration": "6"
    },
-   "solution": "STENCH"
+   "solution": "STENCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STENCH",
+    "definitions": [
+     {
+      "text": "Awful smell",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "coming from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the standard abbreviation for small"
+     },
+     {
+      "clueFragment": "freshwater fish",
+      "gives": "TENCH",
+      "note": "the tench is a European freshwater fish of the carp family"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TENCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A dreadful pong rising from a little river fish someone has left out.",
+     "definitionFit": "A stench is a strong and very unpleasant odour, a straight synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +91,70 @@
     "text": "Head of state rests uneasily showing strain",
     "enumeration": "6"
    },
-   "solution": "STRESS"
+   "solution": "STRESS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "STRESS",
+    "definitions": [
+     {
+      "text": "strain",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uneasily",
+      "for": "anagram",
+      "note": "something resting uneasily shifts about, so the letters of the word before it are rearranged"
+     },
+     {
+      "text": "Head of",
+      "for": "letter_selection",
+      "note": "'Head of' keeps only the first letter of 'state'"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "state",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of state"
+     },
+     {
+      "clueFragment": "rests",
+      "gives": "TRESS",
+      "note": "the five letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRESS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RESTS",
+       "gives": "TRESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A national leader sleeps badly, visibly worn down by the pressures of office.",
+     "definitionFit": "Stress and strain are both words for mental or physical pressure and tension."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Head"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +168,43 @@
     "text": "Develop complex",
     "enumeration": "9"
    },
-   "solution": "ELABORATE"
+   "solution": "ELABORATE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ELABORATE",
+    "definitions": [
+     {
+      "text": "Develop",
+      "at": 0
+     },
+     {
+      "text": "complex",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Develop",
+      "note": "first meaning: a verb, to work out in more detail"
+     },
+     {
+      "clueFragment": "complex",
+      "note": "second meaning: an adjective, intricate and detailed"
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to build a compound, perhaps a housing estate or a chemical.",
+     "walkthrough": "The verb and the adjective are spelt alike but pronounced differently: the verb ends in a long 'ate', the adjective in a short one.",
+     "definitionFit": "To elaborate is to expand on something in detail, and an elaborate plan is an intricate, involved one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "complex"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +218,65 @@
     "text": "Mysterious tomb, one discovered by leader of Crusades",
     "enumeration": "7"
    },
-   "solution": "CRYPTIC"
+   "solution": "CRYPTIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CRYPTIC",
+    "definitions": [
+     {
+      "text": "Mysterious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "'leader of' keeps only the first letter of 'Crusades'"
+     }
+    ],
+    "linkWords": [
+     "discovered by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tomb",
+      "gives": "CRYPT",
+      "note": "a crypt is an underground burial chamber"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "Crusades",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of Crusades"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRYPT",
+      "I",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzling grave unearthed by a medieval crusading commander.",
+     "walkthrough": "'Discovered by' just places the leader's letter after the rest.",
+     "definitionFit": "Cryptic means having a hidden or obscure meaning, hence puzzling or enigmatic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "discovered"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +290,62 @@
     "text": "Charm, a cross, last in market",
     "enumeration": "6"
    },
-   "solution": "AMULET"
+   "solution": "AMULET",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "AMULET",
+    "definitions": [
+     {
+      "text": "Charm",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last in",
+      "for": "letter_selection",
+      "note": "only the final letter of the following word is wanted, not the whole word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cross",
+      "gives": "MULE",
+      "note": "a mule is a cross between a horse and a donkey"
+     },
+     {
+      "clueFragment": "market",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of market"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MULE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of trinkets on sale at a stall: a lucky charm, a crucifix.",
+     "walkthrough": "'Cross' suggests a crucifix, fitting the charm; here it means a hybrid animal.",
+     "definitionFit": "An amulet is a small object worn as a charm to ward off evil or bring luck."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +359,42 @@
     "text": "Bullfighter in form at a do recently",
     "enumeration": "7"
    },
-   "solution": "MATADOR"
+   "solution": "MATADOR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MATADOR",
+    "definitions": [
+     {
+      "text": "Bullfighter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer sits inside the run of words that follows, spanning their boundaries"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "form at a do recently",
+      "gives": "MATADOR",
+      "note": "concealed across form, at, a, do and recently"
+     }
+    ],
+    "explanation": {
+     "surface": "A bullfighter who was on top form at a recent party.",
+     "definitionFit": "A matador is the performer who kills the bull in a Spanish bullfight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "form"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +408,56 @@
     "text": "Knight having no chance to find weapon",
     "enumeration": "5"
    },
-   "solution": "LANCE"
+   "solution": "LANCE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LANCE",
+    "definitions": [
+     {
+      "text": "weapon",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having no",
+      "for": "deletion",
+      "note": "having none of something means it is taken away from the word before"
+     }
+    ],
+    "linkWords": [
+     "to find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Knight",
+      "gives": "LANCELOT",
+      "note": "Sir Lancelot, knight of King Arthur's Round Table"
+     },
+     {
+      "clueFragment": "chance",
+      "gives": "LOT",
+      "note": "a lot is a chance or fate, as in casting lots"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A knight with no hope of victory goes looking for something to fight with.",
+     "walkthrough": "Removing LOT from the end of Arthur's knight Lancelot leaves the answer, appropriately his own weapon.",
+     "definitionFit": "A lance is the long spear carried by a mounted knight when jousting or charging."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chance"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +471,53 @@
     "text": "Paper in stand is English",
     "enumeration": "8"
    },
-   "solution": "TREATISE"
+   "solution": "TREATISE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TREATISE",
+    "definitions": [
+     {
+      "text": "Paper",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stand",
+      "gives": "TREAT",
+      "note": "to stand someone a drink is to treat them"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TREAT",
+      "IS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper on a newsstand is an English one.",
+     "walkthrough": "'Paper' looks like a newspaper; it means a scholarly written study.",
+     "definitionFit": "A treatise is a formal written essay or study of a subject, an academic paper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stand"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +531,48 @@
     "text": "Prepared to study unknown quantity",
     "enumeration": "5"
    },
-   "solution": "READY"
+   "solution": "READY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "READY",
+    "definitions": [
+     {
+      "text": "Prepared",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "study",
+      "gives": "READ",
+      "note": "to read a subject is to study it at university"
+     },
+     {
+      "clueFragment": "unknown quantity",
+      "gives": "Y",
+      "note": "x, y and z are unknowns in algebra"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "READ",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A student all set to tackle an algebra problem.",
+     "definitionFit": "Ready and prepared both mean set up and fit for action."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +586,42 @@
     "text": "Material wealth",
     "enumeration": "9"
    },
-   "solution": "SUBSTANCE"
+   "solution": "SUBSTANCE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SUBSTANCE",
+    "definitions": [
+     {
+      "text": "Material",
+      "at": 0
+     },
+     {
+      "text": "wealth",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Material",
+      "note": "first meaning: physical matter, stuff"
+     },
+     {
+      "clueFragment": "wealth",
+      "note": "second meaning: riches"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read together it looks like 'material wealth', worldly riches; it splits into two separate meanings.",
+     "definitionFit": "Substance is matter of a particular kind, and also possessions or means, as in a man of substance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Material"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +641,47 @@
      }
     ]
    },
-   "solution": "SERVICEFLAT"
+   "solution": "SERVICEFLAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SERVICE FLAT",
+    "definitions": [
+     {
+      "text": "sort of accommodation",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Make fit for use",
+      "gives": "SERVICE",
+      "note": "to service a machine is to maintain it in working order"
+     },
+     {
+      "clueFragment": "low",
+      "gives": "FLAT",
+      "note": "flat means low and level"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SERVICE",
+      "FLAT"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to renovate a cheap, basic kind of lodging.",
+     "walkthrough": "A service flat is a British term for a rented apartment that comes with cleaning and other housekeeping provided.",
+     "definitionFit": "It is a type of apartment where domestic services are included in the rent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "low"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +701,48 @@
      }
     ]
    },
-   "solution": "BROUGHTDOWN"
+   "solution": "BROUGHTDOWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BROUGHT DOWN",
+    "definitions": [
+     {
+      "text": "delivered from London?",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Preferred",
+      "gives": "BROUGHT",
+      "note": "to prefer charges is to bring them against someone"
+     },
+     {
+      "clueFragment": "feathers",
+      "gives": "DOWN",
+      "note": "down is a bird's soft fine feathers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BROUGHT",
+      "DOWN"
+     ]
+    },
+    "explanation": {
+     "surface": "Choosing quilts filled with plumage that were shipped out from the capital.",
+     "walkthrough": "In British usage one travels 'down' from London to the provinces, so goods sent out of the capital are fancifully carried down; the question mark flags the pun.",
+     "definitionFit": "Brought means delivered, and British convention treats London as up, so anything leaving it goes down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Preferred"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +756,56 @@
     "text": "Scout, first to salute English dramatist",
     "enumeration": "7"
    },
-   "solution": "SPOTTER"
+   "solution": "SPOTTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SPOTTER",
+    "definitions": [
+     {
+      "text": "Scout",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first to",
+      "for": "letter_selection",
+      "note": "first to means only the opening letter of the next word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "salute",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of salute"
+     },
+     {
+      "clueFragment": "English dramatist",
+      "gives": "POTTER",
+      "note": "Dennis Potter, English writer of The Singing Detective"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "POTTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A Boy Scout is the first to salute a famous English playwright.",
+     "walkthrough": "'Scout' suggests the youth movement; here it means a lookout or talent finder.",
+     "definitionFit": "A spotter, like a scout, is someone who watches out for and identifies things or talent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Scout"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +819,67 @@
     "text": "Daughter coming in to mend broken piece",
     "enumeration": "7"
    },
-   "solution": "ODDMENT"
+   "solution": "ODDMENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ODDMENT",
+    "definitions": [
+     {
+      "text": "piece",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming in",
+      "for": "container",
+      "note": "coming in means entering, so one part is placed inside another"
+     },
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken is in pieces, so the preceding letters are put back together differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to mend",
+      "gives": "ODMENT",
+      "note": "the six letters rearranged"
+     },
+     {
+      "clueFragment": "Daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OD",
+      "D",
+      "MENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOMEND",
+       "gives": "ODMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl comes round to repair something that has broken.",
+     "walkthrough": "The anagram of 'to mend' is split after OD to let the daughter's D in.",
+     "definitionFit": "An oddment is a leftover bit or scrap, a piece remaining from something larger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broken"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +899,43 @@
      }
     ]
    },
-   "solution": "MARCHINGORDERS"
+   "solution": "MARCHINGORDERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MARCHING ORDERS",
+    "definitions": [
+     {
+      "text": "Notice",
+      "at": 0
+     },
+     {
+      "text": "what's given to departing soldiers?",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Notice",
+      "note": "first meaning: a dismissal, being told to leave a job"
+     },
+     {
+      "clueFragment": "what's given to departing soldiers?",
+      "note": "second meaning, taken literally: the instructions troops receive to set off"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark marks the second meaning as a literal reading of an idiom.",
+     "definitionFit": "Being given one's marching orders is an idiom for being sacked, which is getting one's notice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Notice"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +949,67 @@
     "text": "Forceful eastern regent implicated in charge",
     "enumeration": "9"
    },
-   "solution": "ENERGETIC"
+   "solution": "ENERGETIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ENERGETIC",
+    "definitions": [
+     {
+      "text": "Forceful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "implicated",
+      "for": "anagram",
+      "note": "being implicated means being mixed up in something, so these letters are mixed up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eastern",
+      "gives": "E",
+      "note": "E is the abbreviation for eastern"
+     },
+     {
+      "clueFragment": "regent",
+      "gives": "NERGET",
+      "note": "the six letters rearranged"
+     },
+     {
+      "clueFragment": "in charge",
+      "gives": "IC",
+      "note": "IC is the standard abbreviation for in charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "NERGET",
+      "IC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REGENT",
+       "gives": "NERGET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A powerful Oriental ruler is accused of involvement in a crime.",
+     "walkthrough": "'Charge' suggests an accusation, chiming with 'implicated'; it is the abbreviation IC.",
+     "definitionFit": "Energetic means full of vigour and force, so forceful is a near synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 15,
@@ -285,7 +1033,53 @@
      }
     ]
    },
-   "solution": "STEPONIT"
+   "solution": "STEPONIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STEP ON IT",
+    "definitions": [
+     {
+      "text": "Be quick",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'s lost",
+      "for": "anagram",
+      "note": "something lost has gone astray, so the letters wander into a new order"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "set point",
+      "gives": "STEPONIT",
+      "note": "all eight letters rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SETPOINT",
+       "gives": "STEPONIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis coach urges a player to hurry or the set point will slip away.",
+     "definitionFit": "Step on it is an idiom from pressing the accelerator, meaning hurry up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lost"
+    }
+   }
   },
   {
    "number": 16,
@@ -305,7 +1099,66 @@
      }
     ]
    },
-   "solution": "THEENTERTAINER"
+   "solution": "THEENTERTAINER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "THE ENTERTAINER",
+    "definitions": [
+     {
+      "text": "Osborne play",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one part inside the letters of the following words"
+     },
+     {
+      "text": "revised",
+      "for": "anagram",
+      "note": "a revised text has been reworked, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "theatre in",
+      "gives": "THETAINER",
+      "note": "the nine letters rearranged"
+     },
+     {
+      "clueFragment": "Come onto the stage",
+      "gives": "ENTER",
+      "note": "an actor's entrance is marked Enter in a script"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "ENTER",
+      "TAINER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THEATREIN",
+       "gives": "THETAINER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor's cue to walk on in a theatre staging a revival of an Osborne drama.",
+     "walkthrough": "The anagram of 'theatre in' splits after THE to take the stage direction inside.",
+     "definitionFit": "John Osborne wrote this 1957 play about the faded music-hall performer Archie Rice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -325,7 +1178,66 @@
      }
     ]
    },
-   "solution": "NESTEGG"
+   "solution": "NESTEGG",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "NEST EGG",
+    "definitions": [
+     {
+      "text": "savings",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first part inside the word for information"
+     },
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "in a down clue, over means turned upside down, so the result reads from the bottom up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "information",
+      "gives": "GEN",
+      "note": "gen is British slang for information"
+     },
+     {
+      "clueFragment": "Gathers",
+      "gives": "GETS",
+      "note": "to gather is to get or collect"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "STEG",
+      "G"
+     ],
+     "reversals": [
+      {
+       "from": "GGETSEN",
+       "to": "NESTEGG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone collects financial information about their savings.",
+     "definitionFit": "A nest egg is a sum of money saved up for the future."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 18,
@@ -339,7 +1251,68 @@
     "text": "A whole number teeing off close to marker",
     "enumeration": "7"
    },
-   "solution": "INTEGER"
+   "solution": "INTEGER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "INTEGER",
+    "definitions": [
+     {
+      "text": "A whole number",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone wrong, so the letters before it are out of order"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its final letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teeing",
+      "gives": "INTEGE",
+      "note": "the six letters rearranged"
+     },
+     {
+      "clueFragment": "marker",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of marker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTEGE",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEEING",
+       "gives": "INTEGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer teeing off near a numbered course marker.",
+     "walkthrough": "'Teeing off' looks like a single golf phrase, but 'off' is the anagram signal.",
+     "definitionFit": "An integer is a number with no fractional part, a whole number."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 19,
@@ -353,7 +1326,55 @@
     "text": "Smart spook snatching short sleep",
     "enumeration": "6"
    },
-   "solution": "SNAPPY"
+   "solution": "SNAPPY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SNAPPY",
+    "definitions": [
+     {
+      "text": "Smart",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "snatching",
+      "for": "container",
+      "note": "snatching means grabbing and holding, so one word takes another inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spook",
+      "gives": "SPY",
+      "note": "a spook is slang for a spy"
+     },
+     {
+      "clueFragment": "short sleep",
+      "gives": "NAP",
+      "note": "a nap is a brief sleep"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "NAP",
+      "PY"
+     ]
+    },
+    "explanation": {
+     "surface": "A well-dressed secret agent grabs forty winks on the job.",
+     "walkthrough": "'Smart' could mean clever or well dressed; it is the stylish sense.",
+     "definitionFit": "Snappy can mean stylish or smart, as in a snappy dresser."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spook"
+    }
+   }
   },
   {
    "number": 20,
@@ -367,7 +1388,52 @@
     "text": "Soldier, in consequence, left umbrella",
     "enumeration": "7"
    },
-   "solution": "PARASOL"
+   "solution": "PARASOL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARASOL",
+    "definitions": [
+     {
+      "text": "umbrella",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldier",
+      "gives": "PARA",
+      "note": "a para is a paratrooper"
+     },
+     {
+      "clueFragment": "in consequence",
+      "gives": "SO",
+      "note": "so means therefore, as a result"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARA",
+      "SO",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier, as a result, abandoned his brolly.",
+     "definitionFit": "A parasol is a light umbrella carried to give shade from the sun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 21,
@@ -381,7 +1447,70 @@
     "text": "Ladies' man finding note in changing room",
     "enumeration": "5"
    },
-   "solution": "ROMEO"
+   "solution": "ROMEO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ROMEO",
+    "definitions": [
+     {
+      "text": "Ladies' man",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the note inside the other letters"
+     },
+     {
+      "text": "changing",
+      "for": "anagram",
+      "note": "changing means altering the letters into a different order"
+     }
+    ],
+    "linkWords": [
+     "finding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "room",
+      "gives": "ROMO",
+      "note": "the four letters rearranged"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "E",
+      "note": "E is a note of the musical scale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROM",
+      "E",
+      "O"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROOM",
+       "gives": "ROMO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A womaniser leaves a love letter in the changing room.",
+     "walkthrough": "'Changing room' reads as one place, but 'changing' is the anagram signal for 'room'.",
+     "definitionFit": "A Romeo, after Shakespeare's hero, is a man known for romancing women."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "changing"
+    }
+   }
   },
   {
    "number": 22,
@@ -395,7 +1524,62 @@
     "text": "Figure old scam must take in mark",
     "enumeration": "7"
    },
-   "solution": "OCTAGON"
+   "solution": "OCTAGON",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OCTAGON",
+    "definitions": [
+     {
+      "text": "Figure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must take in",
+      "for": "container",
+      "note": "taking something in means holding it inside, so the word for scam surrounds the next part"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "scam",
+      "gives": "CON",
+      "note": "a con is a swindle"
+     },
+     {
+      "clueFragment": "mark",
+      "gives": "TAG",
+      "note": "a tag is a label or identifying mark"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "C",
+      "TAG",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A figure on an old fraud must take in a mark, the swindler's target.",
+     "walkthrough": "'Mark' hints at a con artist's victim, fitting the scam; it is a label.",
+     "definitionFit": "An octagon is a geometric figure with eight sides."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Figure"
+    }
+   }
   },
   {
    "number": 23,
@@ -415,7 +1599,65 @@
      }
     ]
    },
-   "solution": "NUMBERTEN"
+   "solution": "NUMBERTEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "NUMBER TEN",
+    "definitions": [
+     {
+      "text": "a political address",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "resort",
+      "for": "anagram",
+      "note": "re-sort means sort again, putting the letters into a fresh order"
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frozen",
+      "gives": "NUMB",
+      "note": "numb with cold"
+     },
+     {
+      "clueFragment": "enter",
+      "gives": "ERTEN",
+      "note": "the five letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUMB",
+      "ERTEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ENTER",
+       "gives": "ERTEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Chilled visitors arrive at a holiday spot to deliver a campaign speech.",
+     "walkthrough": "'Resort' looks like a holiday place; read as re-sort it means rearrange. 'Address' is a location, not a speech.",
+     "definitionFit": "Number Ten Downing Street is the official residence of the British Prime Minister."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "address"
+    }
+   }
   },
   {
    "number": 24,
@@ -435,7 +1677,43 @@
      }
     ]
    },
-   "solution": "GETUP"
+   "solution": "GETUP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GET UP",
+    "definitions": [
+     {
+      "text": "Rouse oneself",
+      "at": 0
+     },
+     {
+      "text": "dress",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rouse oneself",
+      "note": "first meaning: rise from bed"
+     },
+     {
+      "clueFragment": "dress",
+      "note": "second meaning: an outfit, especially an odd one"
+     }
+    ],
+    "explanation": {
+     "surface": "Morning routine: wake, then put clothes on.",
+     "walkthrough": "'Dress' looks like a verb following on; it is the noun for a costume, written with a hyphen.",
+     "definitionFit": "To get up is to rise from bed, and a get-up is a set of clothes or costume."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dress"
+    }
+   }
   },
   {
    "number": 25,
@@ -449,7 +1727,53 @@
     "text": "Hard to acquire right container for animals to drink out of",
     "enumeration": "6"
    },
-   "solution": "TROUGH"
+   "solution": "TROUGH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TROUGH",
+    "definitions": [
+     {
+      "text": "container for animals to drink out of",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to acquire",
+      "for": "container",
+      "note": "acquiring something means taking it in, so a letter is placed inside the word for hard"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hard",
+      "gives": "TOUGH",
+      "note": "tough means difficult or hard"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "OUGH"
+     ]
+    },
+    "explanation": {
+     "surface": "It's difficult to get hold of the correct water vessel for livestock.",
+     "definitionFit": "A trough is a long open box holding water or feed for farm animals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -463,7 +1787,50 @@
     "text": "Little boy, after short time, becomes difficult",
     "enumeration": "6"
    },
-   "solution": "TRICKY"
+   "solution": "TRICKY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRICKY",
+    "definitions": [
+     {
+      "text": "difficult",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "becomes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "short time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "Little boy",
+      "gives": "RICKY",
+      "note": "a pet form of the name Richard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RICKY"
+     ]
+    },
+    "explanation": {
+     "surface": "A small child, after a brief period, starts to play up.",
+     "walkthrough": "'After' puts the boy's name after the T.",
+     "definitionFit": "Tricky means awkward to deal with, needing skill or care."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Little"
+    }
+   }
   }
  ]
 }
