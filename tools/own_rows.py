@@ -4,6 +4,7 @@
     python3 tools/own_rows.py stage ID    # index: HEAD's file + ID's rows as the tree has them
     python3 tools/own_rows.py revert ID   # tree: ID's rows put back as HEAD has them
     python3 tools/own_rows.py paths       # the files holding those rows, one per line
+    python3 tools/own_rows.py graft ID DIR  # tree: ID's rows put back as DIR's copies have them
 
 The pre-reset backfill runs several puzzles at once in one tree, and every run
 files its source corrections as rows of shared files: SOURCE_CLUE_WRONG and
@@ -16,7 +17,10 @@ version with only ID's rows changed straight into the index, and the rows the
 puzzles still in flight filed stay in the tree for their own commits. `revert`
 is the discard: the puzzle file goes back to HEAD, so its rows do too. `paths`
 is the list every other commit of the burn leaves out, so no row reaches
-master before the clue it corrects.
+master before the clue it corrects. `graft` is the restore of a run that was
+interrupted: DIR holds copies of those files from the tree it ran in
+(tools/puzzle_worker.sh worker_set_aside), and ID's rows come back from them
+onto whatever the tree holds now.
 
 A row is keyed by its puzzle id: the key itself when it is a string, its first
 element when it is a tuple. Its text is its whole lines, with the comment lines
@@ -155,9 +159,26 @@ def revert(pid):
             print(f"  [{pid}] put its rows of {rel} back as HEAD has them")
 
 
+def graft(pid, donor_dir):
+    for rel in (REL, *DATA_RELS):
+        donor = Path(donor_dir) / rel
+        if not donor.is_file():
+            continue
+        path = TOOLS.parent / rel
+        text = path.read_text()
+        merge = splice if rel == REL else splice_json
+        kept = merge(text, donor.read_text(), pid)
+        if kept != text:
+            path.write_text(kept)
+            print(f"  [{pid}] put its rows of {rel} back as the interrupted run left them")
+
+
 def main(argv):
     if argv == ["paths"]:
         print("\n".join((REL, *DATA_RELS)))
+        return
+    if len(argv) == 3 and argv[0] == "graft":
+        graft(argv[1], argv[2])
         return
     if len(argv) != 2 or argv[0] not in ("stage", "revert"):
         raise SystemExit(__doc__)

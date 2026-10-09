@@ -38,8 +38,9 @@ check "nothing calls a solve-only run" \
 loop=$(awk '/^    for num in \$pending; do$/,/^    done$/' tools/daily_update.sh)
 check "the nightly calls worker_annotate once, inside its loop, with the fill" \
   "$(grep -c '^[^#]*worker_annotate ' tools/daily_update.sh) $(grep -c 'worker_annotate .*"\$fill"$' <<<"$loop")" "1 1"
+# shellcheck disable=SC2016  # the patterns match the literal text
 check "the nightly sets a fill path only for an unsolved id" \
-  "$(grep -c '^[^#]*fill="\$work_dir' tools/daily_update.sh) $(grep -A1 '\*" \$num "\*)' <<<"$loop" | grep -c 'fill="\$work_dir')" "1 1"
+  "$(grep -c '^[^#]*fill="\${sidfile%.sid}\.fill"' tools/daily_update.sh) $(grep -A1 '\*" \$num "\*)' <<<"$loop" | grep -c 'fill="\${sidfile')" "1 1"
 check "the nightly checks the fill once, after the run" \
   "$(grep -c '^[^#]*worker_apply ' tools/daily_update.sh) $(awk '/worker_annotate /{a=NR} /worker_apply /{p=NR} END{print (a && p && a < p)}' <<<"$loop")" "1 1"
 # The burn: run_claude is the one caller of worker_annotate, and only
@@ -47,8 +48,9 @@ check "the nightly checks the fill once, after the run" \
 check "the burn calls worker_annotate only from run_claude, with the fill" \
   "$(grep -c '^[^#]*worker_annotate ' tools/prereset_backfill.sh) $(awk '/^run_claude\(\) \{/,/^\}/' tools/prereset_backfill.sh | grep -c 'worker_annotate .*"\$fill"$')" "1 1"
 launch=$(awk '/^pool_launch\(\) \{/,/^\}/' tools/prereset_backfill.sh)
+# shellcheck disable=SC2016  # the patterns match the literal text
 check "only the annotate pool gives a run a fill path" \
-  "$(grep -c '^[^#]*fill="/tmp/ct-prereset-\$id\.fill"$' tools/prereset_backfill.sh) $(grep -B2 'fill="/tmp' <<<"$launch" | grep -c 'WAVE_WHAT" = Annotate')" "1 1"
+  "$(grep -c '^[^#]*fill="\$RUNS/\$id\.fill"$' tools/prereset_backfill.sh) $(grep -B3 'fill="\$RUNS' <<<"$launch" | grep -c 'WAVE_WHAT" = Annotate')" "1 1"
 check "the burn checks the fill only through solve_applied" \
   "$(grep -c '^[^#]*worker_apply ' tools/prereset_backfill.sh) $(awk '/^solve_applied\(\) \{/,/^\}/' tools/prereset_backfill.sh | grep -c 'worker_apply ')" "1 1"
 
@@ -192,7 +194,7 @@ prefix_args() (   # id fill
   CLAUDE_HEADLESS=(--strict-mcp-config) WORKER_MODEL=opus WORKER_EFFORT=medium WORKER_WRAP="" WORKER_JOB=test
   . tools/puzzle_worker.sh
   session_id() { echo sid-x; }
-  session_exists() { false; }
+  session_here() { false; }
   worker_annotate "$1" "$stub/log" "$stub/sid-$1" "Annotate $1." "" "$2" >/dev/null
   awk 'm { m = 0; print "<masked>"; next }
        /^--(session-id|allowedTools|max-turns)$/ { m = 1 } { print }' "$PREFIX"

@@ -1970,5 +1970,8 @@ tools/test_deleted_paths.sh                   does deleted_paths.last_deletion()
 tools/test_clue_index.sh                      does StoredClueIndex answer exactly what
                                               ClueIndex.build() answers, as files are added,
                                               edited and deleted, and when its store is corrupt?
+tools/test_worker_resume.sh                   does a run stopped from outside resume its own
+                                              conversation, with its edits back when that is
+                                              honest and a note saying so when not?
 ```
 <!-- LAYOUT-END -->

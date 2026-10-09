@@ -77,6 +77,9 @@ export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 # what is done with it, the same code the nightly (tools/daily_update.sh)
 # runs; this script only picks and paces the ids.
 . "$REPO/tools/puzzle_worker.sh"
+# Each run's sid file and fill, kept where a restart and the tree's reset leave
+# them (worker_runs), so a run the restart stopped resumes.
+RUNS="$(worker_runs prereset_backfill)" || exit 1
 
 # This run's own output, so the exit trap can report any failure line nobody
 # wrote an alert for. See alert_run_failures in alert.sh.
@@ -168,11 +171,11 @@ trap 'exit 129' HUP
 trap 'exit 130' INT
 trap 'exit 143' TERM
 trap 'rm -f "$LOCK/pid"; rmdir "$LOCK" 2>/dev/null; sleep 1; alert_run_failures "$RUN_LOG"; rm -f "$RUN_LOG"' EXIT
-# Session ids and resume notes belong to the run that wrote them. Left behind by
-# a run that stopped before its retry, they would have tonight's first attempt
-# resume a conversation about a worktree that has since been reset out from
-# under it — and be told to carry on from edits that are no longer there.
-rm -f /tmp/ct-prereset-*.sid /tmp/ct-prereset-*.resume
+# A resume note is written for a retry in the same process, about the tree as it
+# was then. A run this start finds still recorded in $RUNS was stopped by the
+# restart, and its note is written afresh at its launch (worker_put_back), about
+# the tree as it is now.
+rm -f /tmp/ct-prereset-*.resume
 
 # The run is bounded by the weekly reset, which is a timestamp the usage API
 # hands over on request — never a time of day guessed at. Exit 3 (a reset rolled
@@ -262,6 +265,20 @@ requeue_failed() {
   queue=("${queue[@]:0:$at}" "${back[@]}" "${queue[@]:$at}")
 }
 
+# Put the queued ids whose runs a restart stopped (a record left in $RUNS) at
+# the front of queue[at..], and keep them there through the re-plan: their
+# conversations are already paid for.
+resumed=" "
+resumed_first() {
+  local id first=() rest=()
+  for id in "${queue[@]:$at}"; do
+    if [ -s "$RUNS/$id.sid" ]; then first+=("$id"); resumed="$resumed$id "; else rest+=("$id"); fi
+  done
+  [ ${#first[@]} -eq 0 ] && return 0
+  echo "resuming first, stopped by the restart: ${first[*]}"
+  queue=("${queue[@]:0:$at}" "${first[@]}" ${rest[@]+"${rest[@]}"})
+}
+
 # Run one claude task against the repo. Returns non-zero if the run failed.
 #
 # Its output goes to a file named after the puzzle rather than to the log, because
@@ -273,7 +290,7 @@ requeue_failed() {
 # out the wordplay and written half the answers down; a fresh -p throws that
 # thinking away and buys it a second time. Resuming replays the transcript and
 # carries on from the reasoning already paid for. The session lives in
-# /tmp/ct-prereset-<id>.sid.
+# $RUNS/<id>.sid.
 #
 # With a third argument the puzzle has no key, and the run solves it cold first,
 # writing its fill there (tools/puzzle_worker.sh); it writes the copy it
@@ -292,7 +309,7 @@ run_claude() {
   # The annotate prompt names this copy, which leaves out the solutions detail:
   # that names the blog, which annotate_check.py discloses only once the run is stuck.
   [ -n "$fill" ] || python3 tools/annotate_check.py --view "$tag" >/dev/null
-  worker_annotate "$tag" "$log" "/tmp/ct-prereset-$tag.sid" "$prompt" "$note" "$fill"
+  worker_annotate "$tag" "$log" "$RUNS/$tag.sid" "$prompt" "$note" "$fill"
   local rc=$?
   # Running out of window is how this job is SUPPOSED to end, so a plain failure
   # stays quiet. A broken login is a different animal: it fails identically, at
@@ -312,12 +329,13 @@ needs_solve() { python3 tools/prereset_plan.py --unsolved "$1"; }
 # ships nothing and is recorded in the solve ledger, which keeps it out of the
 # queue until its inputs change.
 solve_applied() {
-  local id="$1" fill="/tmp/ct-prereset-$1.fill" verdict="/tmp/ct-prereset-$1.verdict"
+  local id="$1" fill="$RUNS/$1.fill" verdict="/tmp/ct-prereset-$1.verdict"
   if [ "$DRY_RUN" = 1 ]; then
     echo "  [$id] would apply the fill"
-  elif ! worker_apply "$id" "$fill" "/tmp/ct-prereset-$id.txt" "$verdict" "/tmp/ct-prereset-$id.sid"; then
+  elif ! worker_apply "$id" "$fill" "/tmp/ct-prereset-$id.txt" "$verdict" "$RUNS/$id.sid"; then
     echo "  [$id] solve rejected, nothing it wrote ships: $(grep -v '^[[:space:]]*$' "$verdict" | tail -1 | cut -c1-200)"
-    rm -f "$fill" "$verdict" "/tmp/ct-prereset-$id.sid"
+    rm -f "$verdict"
+    worker_forget "$RUNS/$id.sid"
     return 1
   fi
   rm -f "$fill" "$verdict"
@@ -338,7 +356,7 @@ on_fix_run() { pool_mark; POOL_FIXING="$1"; }
 #   $1 the puzzle id  $2 the commit message prefix
 handle_failed_run() {
   tail -5 "/tmp/ct-prereset-$1.txt" 2>/dev/null | sed "s/^/  [$1] failed: /"
-  worker_failed "$1" "$2" "/tmp/ct-prereset-$1.resume" "/tmp/ct-prereset-$1.sid" || true
+  worker_failed "$1" "$2" "/tmp/ct-prereset-$1.resume" "$RUNS/$1.sid" || true
 }
 
 # --- the rolling pool ----------------------------------------------------------
@@ -390,11 +408,17 @@ pool_launch() {
   wait_us=$(( POOL_LAUNCHED_US + POOL_LAUNCH_GAP_US - ${EPOCHREALTIME/[.,]/} ))
   [ "$wait_us" -gt 0 ] && sleep "$(printf '%d.%06d' $((wait_us / 1000000)) $((wait_us % 1000000)))"
   local again=""
+  # A run the restart stopped: its files back, and the note to resume it with.
+  [ -s "/tmp/ct-prereset-$id.resume" ] ||
+    worker_put_back "$id" "$WAVE_WHAT" "/tmp/ct-prereset-$id.resume" "$RUNS/$id.sid" >/dev/null
   [ -s "/tmp/ct-prereset-$id.resume" ] && again=", picking up its cut-off conversation"
   pool_mark
-  if [ "$WAVE_WHAT" = Annotate ] && needs_solve "$id"; then
+  # A conversation that began with a cold solve keeps its fill, and has it
+  # checked, however much of the grid its edits filled in.
+  if [ "$WAVE_WHAT" = Annotate ] &&
+     { [ "$(worker_kind "$RUNS/$id.sid")" = solve ] || needs_solve "$id"; }; then
     again="$again, solving it first"
-    fill="/tmp/ct-prereset-$id.fill"
+    fill="$RUNS/$id.fill"
   fi
   prompt="${POOL_TMPL//@PATH@/$(python3 tools/puzzle_paths.py "$id")}"
   run_claude "$id" "${prompt//@/$id}" "$fill" &
@@ -439,10 +463,9 @@ pool_reap() {
   if [ -n "${POOL_SOLVING[$pid]:-}" ]; then
     unset "POOL_SOLVING[$pid]"
     # Cut off, most likely by a lockout, before its fill went in: requeued to
-    # be solved again from the start.
+    # resume that conversation, its fill as it left it.
     if [ "$rc" -ne 0 ] && [ -z "$(git status --porcelain -- "$(puzzle_spec "$id")")" ]; then
-      tail -5 "/tmp/ct-prereset-$id.txt" 2>/dev/null | sed "s/^/  [$id] solve failed: /"
-      rm -f "/tmp/ct-prereset-$id.fill" "/tmp/ct-prereset-$id.sid"
+      handle_failed_run "$id" "$WAVE_WHAT"
       WAVE_FAILED_IDS+=("$id")
       return
     fi
@@ -496,7 +519,7 @@ pool_interval_start() {
     POOL_PLANNED=1
     local reordered
     reordered=($(printf '%s\n' "${queue[@]:$at}" \
-      | python3 tools/prereset_plan.py --cover-first "$requeued" || true))
+      | python3 tools/prereset_plan.py --cover-first "$requeued$resumed" || true))
     [ "${#reordered[@]}" -eq $(( ${#queue[@]} - at )) ] \
       && queue=("${queue[@]:0:$at}" "${reordered[@]}")
   fi
@@ -536,6 +559,7 @@ pool_checkpoint() {
 run_pool() {
   WAVE_WHAT="$1" POOL_TMPL="$2" POOL_REORDER="${3:-0}" POOL_PLANNED=0
   local stop=0
+  resumed_first
   pool_interval_start
   while :; do
     if [ "$stop" = 0 ] && past_deadline; then echo "deadline reached — stopping"; stop=1; fi
@@ -741,7 +765,8 @@ drop_failed() {
   local id
   for id in ${WAVE_FAILED_IDS[@]+"${WAVE_FAILED_IDS[@]}"}; do
     echo "  [$id] failed with the five-hour window at ${1}% — not a lockout, dropped for this run"
-    rm -f "/tmp/ct-prereset-$id.resume" "/tmp/ct-prereset-$id.sid"
+    rm -f "/tmp/ct-prereset-$id.resume"
+    worker_forget "$RUNS/$id.sid"
     [ "$DRY_RUN" = 1 ] && continue
     discard_puzzle "$id"
     [ "$WAVE_WHAT" = Annotate ] || continue
@@ -756,7 +781,7 @@ drop_failed() {
 commit_puzzle() {
   local id="$1" what="$2"
   if [ "$DRY_RUN" = 1 ]; then echo "  would commit $what $id"; return 0; fi
-  worker_finish "$id" "$what" "/tmp/ct-prereset-$id.sid" "/tmp/ct-prereset-$id.txt"
+  worker_finish "$id" "$what" "$RUNS/$id.sid" "/tmp/ct-prereset-$id.txt"
   case $? in
     0) return 0 ;;
     2) queue=("${queue[@]:0:$at}" "$id" "${queue[@]:$at}")

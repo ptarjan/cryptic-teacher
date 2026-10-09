@@ -231,6 +231,10 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
       echo "WORKTREE: fetch failed — working from whatever origin/master was last known" >&2
     }
     _ct_follow_origin
+    # A run the reset below would rob of its edits, stopped by a restart or its
+    # unit's time limit, has them set aside beside its record first, for the
+    # next launch of its puzzle to put back (tools/puzzle_worker.sh).
+    ( . "$_ct_main/tools/puzzle_worker.sh" && worker_set_aside_tree "$_ct_tree" )
     # A job that files into git as it goes (tools/durable.sh) sets
     # CT_SALVAGE_PATHS: any local commit a dropped run (SIGKILL, OOM, reboot,
     # a failed push) left, and what it filed under those paths uncommitted

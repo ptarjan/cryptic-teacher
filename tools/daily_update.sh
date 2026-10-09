@@ -616,14 +616,21 @@ unit_annotate() {  # id [solve]
         stop_budget=1
         break
       fi
-      sidfile="$work_dir/$num.sid"
+      # The conversation's record, where a unit killed mid-run (its time limit,
+      # a restart) leaves it for the next unit given this puzzle, in whichever
+      # tree: that one resumes it (worker_put_back), its edits put back.
+      sidfile="$(worker_runs daily_update)/$num.sid"
+      ann_resume=""
+      worker_put_back "$num" Annotate "$work_dir/$num.resume" "$sidfile" &&
+        ann_resume=$(cat "$work_dir/$num.resume")
+      [ "$(worker_kind "$sidfile")" = solve ] && unsolved="$unsolved $num"
       # An answerless puzzle is solved in the run that annotates it, and
       # nowhere else (see unit_annotate's header). That run writes the copy it annotates
       # (annotate_check.py --view) once its fill is in.
       fill="" verdict=""
       case " $unsolved " in
         *" $num "*)
-          fill="$work_dir/$num.fill" verdict="$work_dir/$num.verdict"
+          fill="${sidfile%.sid}.fill" verdict="$work_dir/$num.verdict"
           ann_file="tools/_puzzle_$num.json"
           echo "solving puzzle $num cold and annotating it with Claude Code... (session ${session:-unknown}%)" ;;
         *)
@@ -649,7 +656,7 @@ unit_annotate() {  # id [solve]
       # The conversation is fixed before the first attempt and named in
       # $sidfile, because a run that dies has already been paid for: a retry
       # resumes it.
-      ann_note=""
+      ann_note="$ann_resume"
       ann_ok=""
       ann_retried=0
       ann_timeout=""
@@ -671,6 +678,7 @@ unit_annotate() {  # id [solve]
           ann_timeout="$num ran past ${ANNOTATE_MAX_MINUTES}m without finishing and was stopped"
           echo "  $ann_timeout"
           record_annotate_failure "$num" "$ann_timeout"
+          worker_forget "$sidfile"
           annotate_alert "$num" "$ann_timeout" "$ann_sid"
           lost_ids="$lost_ids $num"
           break
@@ -699,7 +707,7 @@ unit_annotate() {  # id [solve]
         cat "$verdict"
         if [ "$applied" -ne 0 ]; then
           echo "solve of $num rejected — nothing the run wrote ships"
-          rm -f "$sidfile"
+          worker_forget "$sidfile"
           # The lines travel in the alert. A solve failure is a bug in this
           # repo far more often than a hard crossword, and the reader needs the
           # applier's complaint and the model's last words to tell which.
