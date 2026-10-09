@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,49 @@
     "text": "Romeo joins musical theatre company in US city",
     "enumeration": "4"
    },
-   "solution": "RENO"
+   "solution": "RENO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RENO",
+    "definitions": [
+     {
+      "text": "US city",
+      "at": 39
+     }
+    ],
+    "linkWords": [
+     "joins"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "Romeo is R in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "musical theatre company",
+      "gives": "ENO",
+      "note": "English National Opera, the London opera company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ENO"
+     ]
+    },
+    "explanation": {
+     "surface": "An actor called Romeo signs up with a touring company playing an American city.",
+     "definitionFit": "Reno is a city in Nevada, famous for gambling and quick divorces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Romeo"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +92,50 @@
     "text": "European operating systems for trade fairs",
     "enumeration": "5"
    },
-   "solution": "EXPOS"
+   "solution": "EXPOS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXPOS",
+    "definitions": [
+     {
+      "text": "trade fairs",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "standard abbreviation for European"
+     },
+     {
+      "clueFragment": "operating systems",
+      "gives": "XPOS",
+      "note": "two systems: Windows XP, and OS, the abbreviation for operating system"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "XPOS"
+     ]
+    },
+    "explanation": {
+     "surface": "Software from European firms showcased at industry exhibitions.",
+     "walkthrough": "The plural 'systems' is read as two of them: XP, the Windows version, and the generic abbreviation OS.",
+     "definitionFit": "An expo is a large exhibition, and trade fairs are commercial exhibitions of that kind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "systems"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +149,62 @@
     "text": "Smelly rubbish on road finally swept",
     "enumeration": "7"
    },
-   "solution": "ODORANT"
+   "solution": "ODORANT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ODORANT",
+    "definitions": [
+     {
+      "text": "Smelly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word beside it"
+     },
+     {
+      "text": "rubbish",
+      "for": "anagram",
+      "note": "rubbish, read as a verb or as junk, says the letters are a mess to be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on road",
+      "gives": "ONROAD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "swept",
+      "gives": "T",
+      "select": "last",
+      "note": "last letter of swept"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONROADT",
+       "gives": "ODORANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stinking rubbish lying in the road has at last been cleared away.",
+     "definitionFit": "As an adjective, odorant means giving off a smell, a fancier word for smelly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rubbish"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +218,50 @@
     "text": "Press one to change message back",
     "enumeration": "8"
    },
-   "solution": "RESPONSE"
+   "solution": "RESPONSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RESPONSE",
+    "definitions": [
+     {
+      "text": "message back",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to change",
+      "for": "anagram",
+      "note": "changing the letters means putting them in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Press one",
+      "gives": "PRESSONE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PRESSONE",
+       "gives": "RESPONSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An automated phone menu: press one to alter the message you send in return.",
+     "definitionFit": "A reply sent in return to a communication is a response."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Press"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +275,61 @@
     "text": "Yankee feeds crew unlimited whisky",
     "enumeration": "3"
    },
-   "solution": "RYE"
+   "solution": "RYE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RYE",
+    "definitions": [
+     {
+      "text": "whisky",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unlimited",
+      "for": "letter_selection",
+      "note": "without limits means the word loses its boundary letters at both ends"
+     },
+     {
+      "text": "feeds",
+      "for": "container",
+      "note": "one thing feeding another goes into it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crew",
+      "gives": "RE",
+      "select": "middle",
+      "note": "crew with its first and last letters removed"
+     },
+     {
+      "clueFragment": "Yankee",
+      "gives": "Y",
+      "note": "Yankee is Y in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "Y",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An American hands out unlimited whisky to a ship's crew.",
+     "definitionFit": "Rye is whisky distilled from rye grain, especially in North America."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "feeds"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +343,51 @@
     "text": "Flying squad eyes new suspect",
     "enumeration": "7"
    },
-   "solution": "SWEENEY"
+   "solution": "SWEENEY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SWEENEY",
+    "definitions": [
+     {
+      "text": "Flying squad",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suspect",
+      "for": "anagram",
+      "note": "suspect as an adjective means dodgy, not to be trusted as it stands, so the letters need rearranging"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eyes new",
+      "gives": "EYESNEW",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EYESNEW",
+       "gives": "SWEENEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Detectives from a police unit size up a fresh suspect.",
+     "walkthrough": "The Flying Squad is a Metropolitan Police robbery unit; Cockney rhyming slang calls it the Sweeney, from Sweeney Todd.",
+     "definitionFit": "Sweeney is London slang for the Flying Squad, made famous by the 1970s TV police drama."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suspect"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +411,62 @@
      }
     ]
    },
-   "solution": "ONHERTOES"
+   "solution": "ONHERTOES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ON HER TOES",
+    "definitions": [
+     {
+      "text": "Alert, for a woman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the single letter inside the longer word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "performing",
+      "gives": "ON",
+      "note": "a performer is on, on stage"
+     },
+     {
+      "clueFragment": "lead roles",
+      "gives": "HEROES",
+      "note": "the heroes are the leading parts in a story"
+     },
+     {
+      "clueFragment": "tango",
+      "gives": "T",
+      "note": "tango is T in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "HER",
+      "T",
+      "OES"
+     ]
+    },
+    "explanation": {
+     "surface": "A dancer is on her toes, alert while performing the tango in a starring role.",
+     "walkthrough": "The phrase is 'on his toes' or 'on her toes'; 'for a woman' tells you which pronoun to use.",
+     "definitionFit": "To be on one's toes is an idiom for being ready and watchful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "tango"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +480,44 @@
     "text": "Dandy waves at sea",
     "enumeration": "5"
    },
-   "solution": "SWELL"
+   "solution": "SWELL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SWELL",
+    "definitions": [
+     {
+      "text": "Dandy",
+      "at": 0
+     },
+     {
+      "text": "waves at sea",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dandy",
+      "note": "first meaning: a fashionable, smartly dressed man"
+     },
+     {
+      "clueFragment": "waves at sea",
+      "note": "second meaning: the long rolling movement of the open ocean"
+     }
+    ],
+    "explanation": {
+     "surface": "A well-dressed man waves from a ship.",
+     "walkthrough": "'Waves' reads as a verb, the dandy waving; it is the noun, the rolling sea.",
+     "definitionFit": "A swell is old slang for a stylish gent, and also the heave of the ocean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "waves"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +531,56 @@
     "text": "Male band led by American conducting",
     "enumeration": "8"
    },
-   "solution": "USHERING"
+   "solution": "USHERING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "USHERING",
+    "definitions": [
+     {
+      "text": "conducting",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "led by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "abbreviation for American, as in US"
+     },
+     {
+      "clueFragment": "Male",
+      "gives": "HE",
+      "note": "the male pronoun"
+     },
+     {
+      "clueFragment": "band",
+      "gives": "RING",
+      "note": "a ring is a circular band"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "US",
+      "HE",
+      "RING"
+     ]
+    },
+    "explanation": {
+     "surface": "An all-male group fronted by an American, with the leader conducting.",
+     "walkthrough": "'led by' places the American piece in front of the rest.",
+     "definitionFit": "Ushering someone means guiding or escorting them, the sense of conducting a visitor somewhere."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "conducting"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +600,56 @@
      }
     ]
    },
-   "solution": "ISUPPOSE"
+   "solution": "ISUPPOSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "I SUPPOSE",
+    "definitions": [
+     {
+      "text": "Grudging acceptance",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cockney male's",
+      "gives": "IS",
+      "note": "his with the h dropped, as a Cockney would say it"
+     },
+     {
+      "clueFragment": "cheery",
+      "gives": "UP",
+      "note": "up as in upbeat, in good spirits"
+     },
+     {
+      "clueFragment": "attitude",
+      "gives": "POSE",
+      "note": "an attitude is a bodily posture, a pose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "UP",
+      "POSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Londoner's sunny outlook is accepted only reluctantly.",
+     "walkthrough": "Cockney speech drops the h, so his becomes 'is. 'Attitude' here is the posture sense, as in striking an attitude.",
+     "definitionFit": "Saying 'I suppose' is how one concedes a point without enthusiasm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "attitude"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +663,50 @@
     "text": "Similar sounds in London's city gardens",
     "enumeration": "6"
    },
-   "solution": "ECHOES"
+   "solution": "ECHOES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ECHOES",
+    "definitions": [
+     {
+      "text": "Similar sounds",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "London's city",
+      "gives": "EC",
+      "note": "EC is the postcode district of the City of London"
+     },
+     {
+      "clueFragment": "gardens",
+      "gives": "HOES",
+      "note": "to garden is to hoe; read as a verb"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EC",
+      "HOES"
+     ]
+    },
+    "explanation": {
+     "surface": "Sounds bounce around the gardens of the City of London.",
+     "walkthrough": "'gardens' looks like a noun but is the verb: one who gardens hoes.",
+     "definitionFit": "Echoes are reflected repetitions of a sound, so similar sounds heard again."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gardens"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +720,47 @@
     "text": "Entertaining lady on stage is happy leaving the wings",
     "enumeration": "6"
    },
-   "solution": "GEISHA"
+   "solution": "GEISHA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GEISHA",
+    "definitions": [
+     {
+      "text": "Entertaining lady",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving the wings",
+      "for": "hidden_word",
+      "note": "with the wings cut away only the inner run of letters is left"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stage is happy",
+      "gives": "GEISHA",
+      "note": "the letters run across the three words once their ends are trimmed"
+     }
+    ],
+    "explanation": {
+     "surface": "A performer is happy to step out from the theatre wings onto the stage.",
+     "walkthrough": "'Wings' suggests the sides of a theatre stage; here it means the outer letters of the phrase.",
+     "definitionFit": "A geisha is a Japanese hostess trained to entertain guests with music, dance and conversation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wings"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +774,50 @@
     "text": "Supply the bread for Spooner's foul-smelling dish",
     "enumeration": "8"
    },
-   "solution": "BANKROLL"
+   "solution": "BANKROLL",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "BANKROLL",
+    "definitions": [
+     {
+      "text": "Supply the bread for",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner's",
+      "for": "spoonerism",
+      "note": "Spooner's tells us to swap the opening sounds of two words, as the reverend did"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "foul-smelling dish",
+      "gives": "BANKROLL",
+      "soundsLike": "RANK BOWL",
+      "note": "rank means foul-smelling and a bowl is a dish; swap their first sounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BANKROLL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is asked to provide bread to go with a nasty-smelling meal.",
+     "walkthrough": "'Bread' is slang for money, not the loaf the surface suggests.",
+     "definitionFit": "To bankroll a venture is to finance it, and bread is slang for money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bread"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +831,59 @@
     "text": "Posh jeweller's opening in Brighton, with a great deal",
     "enumeration": "7"
    },
-   "solution": "BOODLES"
+   "solution": "BOODLES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BOODLES",
+    "definitions": [
+     {
+      "text": "Posh jeweller's",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "the opening of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brighton",
+      "gives": "B",
+      "select": "first",
+      "note": "first letter of Brighton"
+     },
+     {
+      "clueFragment": "a great deal",
+      "gives": "OODLES",
+      "note": "oodles means lots"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "OODLES"
+     ]
+    },
+    "explanation": {
+     "surface": "An upmarket jeweller opens a Brighton branch at a bargain.",
+     "walkthrough": "Boodles is a British luxury jewellery firm; 'a great deal' looks like a bargain but means a lot.",
+     "definitionFit": "Boodles is the name of an upmarket British jewellery retailer, so its shop is the posh jeweller's."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "deal"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +897,49 @@
     "text": "Record deduction, taking 50% off",
     "enumeration": "4"
    },
-   "solution": "DISC"
+   "solution": "DISC",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DISC",
+    "definitions": [
+     {
+      "text": "Record",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking 50% off",
+      "for": "deletion",
+      "note": "removing fifty percent leaves just half of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deduction",
+      "gives": "DISCOUNT",
+      "note": "a discount is a deduction from the price"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISC"
+     ]
+    },
+    "explanation": {
+     "surface": "A record reduction in price: half off everything.",
+     "walkthrough": "The second half of the eight-letter word is dropped. 'Record deduction' reads as an all-time high, but 'Record' is the definition.",
+     "definitionFit": "A disc is a gramophone record or other recording medium."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Record"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +953,67 @@
     "text": "Intriguing links college graduate found between taste and sex",
     "enumeration": "9"
    },
-   "solution": "CLICKBAIT"
+   "solution": "CLICKBAIT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CLICKBAIT",
+    "definitions": [
+     {
+      "text": "Intriguing links",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found between",
+      "for": "container",
+      "note": "found between places the middle pieces inside the two others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taste",
+      "gives": "LICK",
+      "note": "to lick is to taste"
+     },
+     {
+      "clueFragment": "sex",
+      "gives": "IT",
+      "note": "it is a familiar euphemism for sex"
+     },
+     {
+      "clueFragment": "college",
+      "gives": "C",
+      "note": "standard abbreviation for college"
+     },
+     {
+      "clueFragment": "graduate",
+      "gives": "BA",
+      "note": "a Bachelor of Arts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LICK",
+      "BA",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A college graduate is found caught up in eye-catching links to food and sex.",
+     "walkthrough": "'It' is a long-standing euphemism for sex. 'links' sounds like connections between the things named, but it is the definition: web links.",
+     "definitionFit": "Clickbait is online content with teasing headlines designed to tempt people into following the link."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "links"
+    }
+   }
   },
   {
    "number": 15,
@@ -283,7 +1037,43 @@
      }
     ]
    },
-   "solution": "TWOBYFOUR"
+   "solution": "TWOBYFOUR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TWO-BY-FOUR",
+    "definitions": [
+     {
+      "text": "Timber",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heard",
+      "for": "homophone",
+      "note": "heard means what follows is going by sound, not spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "also something purchased, pro",
+      "gives": "TWOBYFOUR",
+      "soundsLike": "TOO BUY FOR",
+      "note": "also is too, something purchased is a buy, pro is for"
+     }
+    ],
+    "explanation": {
+     "surface": "A tradesperson hears about buying timber as well.",
+     "definitionFit": "A two-by-four is a standard length of sawn timber, two inches by four in section."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pro"
+    }
+   }
   },
   {
    "number": 16,
@@ -297,7 +1087,60 @@
     "text": "Enjoyed trustworthy but not competent cast",
     "enumeration": "8"
    },
-   "solution": "RELISHED"
+   "solution": "RELISHED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RELISHED",
+    "definitions": [
+     {
+      "text": "Enjoyed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but not competent",
+      "for": "deletion",
+      "note": "but not means take away the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trustworthy",
+      "gives": "RELIABLE",
+      "note": "trustworthy means dependable"
+     },
+     {
+      "clueFragment": "competent",
+      "gives": "ABLE",
+      "note": "competent means capable"
+     },
+     {
+      "clueFragment": "cast",
+      "gives": "SHED",
+      "note": "to cast is to throw off, as a snake sheds skin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RELI",
+      "SHED"
+     ]
+    },
+    "explanation": {
+     "surface": "A reviewer liked a reliable but not very competent acting cast.",
+     "walkthrough": "'cast' reads as actors; it is the verb meaning throw off.",
+     "definitionFit": "To relish something is to take great pleasure in it, so relished is a synonym of enjoyed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 17,
@@ -317,7 +1160,65 @@
      }
     ]
    },
-   "solution": "GOINGSLOW"
+   "solution": "GOINGSLOW",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "GOING SLOW",
+    "definitions": [
+     {
+      "text": "being deliberately unproductive",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cuts",
+      "for": "container",
+      "note": "cutting into something means going inside it"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "decorations",
+      "gives": "GONGS",
+      "note": "gongs is British slang for medals"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "down",
+      "gives": "LOW",
+      "note": "feeling down is feeling low"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "I",
+      "NGS",
+      "LOW"
+     ]
+    },
+    "explanation": {
+     "surface": "A worker is slow taking down the decorations, deliberately dawdling.",
+     "walkthrough": "Gongs are British slang for medals or honours.",
+     "definitionFit": "A go-slow is industrial action where workers slow down on purpose, so going slow is a protest of low output."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "decorations"
+    }
+   }
   },
   {
    "number": 18,
@@ -337,7 +1238,55 @@
      }
     ]
    },
-   "solution": "GEORGEI"
+   "solution": "GEORGEI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GEORGE I",
+    "definitions": [
+     {
+      "text": "a Hanoverian",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Scrambled",
+      "for": "anagram",
+      "note": "scrambled things are mixed up out of their original order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "egg, or ei",
+      "gives": "EGGOREI",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EGGOREI",
+       "gives": "GEORGEI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Scrambled egg, or the German word for egg, served to a royal.",
+     "walkthrough": "Ei is German for egg, a nod to the German-born king. George I was the first Hanoverian monarch of Britain.",
+     "definitionFit": "George I was the first British king from the House of Hanover, so he is a Hanoverian."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "ei"
+    }
+   }
   },
   {
    "number": 19,
@@ -351,7 +1300,43 @@
     "text": "Lecturer's correcting text",
     "enumeration": "7"
    },
-   "solution": "WRITING"
+   "solution": "WRITING",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WRITING",
+    "definitions": [
+     {
+      "text": "text",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Lecturer's",
+      "for": "homophone",
+      "note": "a lecturer speaks, so what follows is taken by its spoken sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "correcting",
+      "gives": "WRITING",
+      "soundsLike": "RIGHTING",
+      "note": "righting a wrong is correcting it"
+     }
+    ],
+    "explanation": {
+     "surface": "A lecturer marks and corrects an essay.",
+     "definitionFit": "Writing is written text, the words set down on a page."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lecturer's"
+    }
+   }
   },
   {
    "number": 20,
@@ -365,7 +1350,48 @@
     "text": "Consequently see music one performs?",
     "enumeration": "4"
    },
-   "solution": "SOLO"
+   "solution": "SOLO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOLO",
+    "definitions": [
+     {
+      "text": "music one performs?",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Consequently",
+      "gives": "SO",
+      "note": "so means therefore"
+     },
+     {
+      "clueFragment": "see",
+      "gives": "LO",
+      "note": "lo is an old word for look or see"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "LO"
+     ]
+    },
+    "explanation": {
+     "surface": "So, look at the music someone plays.",
+     "walkthrough": "The question mark flags the wordplay on 'one': a piece performed by one person.",
+     "definitionFit": "A solo is a piece of music played or sung by a single performer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "see"
+    }
+   }
   },
   {
    "number": 21,
@@ -385,7 +1411,72 @@
      }
     ]
    },
-   "solution": "GODKNOWS"
+   "solution": "GODKNOWS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GOD KNOWS",
+    "definitions": [
+     {
+      "text": "beats me",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ends in",
+      "for": "letter_selection",
+      "note": "the ends of words are their last letters"
+     }
+    ],
+    "linkWords": [
+     "-"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Game",
+      "gives": "GO",
+      "note": "Go is a Japanese board game"
+     },
+     {
+      "clueFragment": "supposed deadlock",
+      "gives": "DK",
+      "select": "last",
+      "note": "last letters of the two words"
+     },
+     {
+      "clueFragment": "immediately",
+      "gives": "NOW",
+      "note": "now means at once"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "standard abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "DK",
+      "NOW",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A game ends in what looks like stalemate, and then the son suddenly beats his parent.",
+     "walkthrough": "'beats me' is the colloquial 'I have no idea', not a defeat.",
+     "definitionFit": "Both 'God knows' and 'beats me' are idioms for admitting one has no idea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "beats"
+    }
+   }
   },
   {
    "number": 22,
@@ -399,7 +1490,47 @@
     "text": "Lyric connected with theatre",
     "enumeration": "5"
    },
-   "solution": "ODEON"
+   "solution": "ODEON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ODEON",
+    "definitions": [
+     {
+      "text": "theatre",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lyric",
+      "gives": "ODE",
+      "note": "an ode is a lyric poem"
+     },
+     {
+      "clueFragment": "connected with",
+      "gives": "ON",
+      "note": "on as in a book on birds, meaning about or connected with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ODE",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Something to do with the Lyric, a London theatre.",
+     "walkthrough": "The Lyric is a real London theatre, which hides that 'Lyric' is the poem here.",
+     "definitionFit": "Odeon is a chain of cinemas, and also the ancient Greek word for a building for music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lyric"
+    }
+   }
   },
   {
    "number": 23,
@@ -413,7 +1544,50 @@
     "text": "Funny poem is set as task",
     "enumeration": "6"
    },
-   "solution": "IMPOSE"
+   "solution": "IMPOSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IMPOSE",
+    "definitions": [
+     {
+      "text": "set as task",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Funny",
+      "for": "anagram",
+      "note": "funny in the sense of odd or peculiar, so the letters come out strangely ordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poem is",
+      "gives": "POEMIS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "POEMIS",
+       "gives": "IMPOSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A teacher sets a comic poem as homework.",
+     "definitionFit": "To impose is to lay a duty or burden on someone, setting it for them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 24,
@@ -427,7 +1601,48 @@
     "text": "Unmetered parking went up",
     "enumeration": "5"
    },
-   "solution": "PROSE"
+   "solution": "PROSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROSE",
+    "definitions": [
+     {
+      "text": "Unmetered",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parking",
+      "gives": "P",
+      "note": "P is the road-sign abbreviation for parking"
+     },
+     {
+      "clueFragment": "went up",
+      "gives": "ROSE",
+      "note": "rose is the past tense of rise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ROSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Parking charges have gone up now the meters are gone.",
+     "walkthrough": "'Unmetered' suggests parking meters; it means without poetic metre.",
+     "definitionFit": "Prose is ordinary writing without verse rhythm, the opposite of poetry with a set metre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Unmetered"
+    }
+   }
   },
   {
    "number": 25,
@@ -441,7 +1656,58 @@
     "text": "What parts chimed in show again?",
     "enumeration": "6"
    },
-   "solution": "REHANG"
+   "solution": "REHANG",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REHANG",
+    "definitions": [
+     {
+      "text": "show again",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "parts",
+      "for": "container",
+      "note": "something parting another splits it open and sits within"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chimed",
+      "gives": "RANG",
+      "note": "bells chimed, or rang"
+     },
+     {
+      "clueFragment": "What",
+      "gives": "EH",
+      "note": "eh? is a request to repeat, like what?"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EH",
+      "ANG"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled question about which sections of a show the bells rang in.",
+     "walkthrough": "'What' looks like the start of a question; it is the exclamation eh.",
+     "definitionFit": "Galleries rehang pictures when they put them on display again in a fresh arrangement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "What"
+    }
+   }
   },
   {
    "number": 26,
@@ -467,7 +1733,62 @@
      }
     ]
    },
-   "solution": "BOILOVER"
+   "solution": "BOILOVER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BOIL OVER",
+    "definitions": [
+     {
+      "text": "let emotions show",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "number one",
+      "for": "letter_selection",
+      "note": "number one is the first in line, so the opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bruce's",
+      "gives": "B",
+      "select": "first",
+      "note": "first letter of Bruce"
+     },
+     {
+      "clueFragment": "Hey!",
+      "gives": "OI",
+      "note": "oi! is a shout to get attention"
+     },
+     {
+      "clueFragment": "Baby",
+      "gives": "LOVER",
+      "note": "baby as a term of endearment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "OI",
+      "LOVER"
+     ]
+    },
+    "explanation": {
+     "surface": "Springsteen's chart-topping song 'Hey! Baby' gets everyone emotional.",
+     "walkthrough": "Bruce suggests Springsteen; it only supplies a letter.",
+     "definitionFit": "To boil over is to lose control of one's feelings, as a pan spills when too hot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 26,
@@ -481,7 +1802,55 @@
     "text": "Head on board, US sailor coming over",
     "enumeration": "3"
    },
-   "solution": "BOG"
+   "solution": "BOG",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "BOG",
+    "definitions": [
+     {
+      "text": "Head on board",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming over",
+      "for": "reversal",
+      "note": "coming over suggests turning over, so the word is read the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US sailor",
+      "gives": "GOB",
+      "note": "gob is American slang for a seaman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOG"
+     ],
+     "reversals": [
+      {
+       "from": "GOB",
+       "to": "BOG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A US sailor comes aboard and heads for the ship.",
+     "walkthrough": "On a ship the toilet is the head; bog is British slang for toilet.",
+     "definitionFit": "A bog is a toilet in British slang, and the head is the toilet aboard ship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Head"
+    }
+   }
   },
   {
    "number": 27,
@@ -495,7 +1864,70 @@
     "text": "A night at sea east of New York, just one example",
     "enumeration": "8"
    },
-   "solution": "ANYTHING"
+   "solution": "ANYTHING",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ANYTHING",
+    "definitions": [
+     {
+      "text": "just one example",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "at sea means confused and all over the place"
+     }
+    ],
+    "linkWords": [
+     "east of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "New York",
+      "gives": "NY",
+      "note": "standard abbreviation for New York"
+     },
+     {
+      "clueFragment": "night",
+      "gives": "THING",
+      "note": "night with its letters jumbled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NY",
+      "THING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NIGHT",
+       "gives": "THING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A night out sailing off the coast of New York.",
+     "walkthrough": "'east of' puts the jumbled word after NY, as east is to the right on a map.",
+     "definitionFit": "Anything means whatever one item you like, any single example at all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sea"
+    }
+   }
   },
   {
    "number": 28,
@@ -509,7 +1941,66 @@
     "text": "Grand old estate left by sugar magnate is sold",
     "enumeration": "4"
    },
-   "solution": "GOES"
+   "solution": "GOES",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "GOES",
+    "definitions": [
+     {
+      "text": "is sold",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left by",
+      "for": "deletion",
+      "note": "left by means abandoned, so the named letters are departed from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grand",
+      "gives": "G",
+      "note": "G for grand, a thousand"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "standard abbreviation for old"
+     },
+     {
+      "clueFragment": "estate",
+      "gives": "ESTATE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sugar magnate",
+      "gives": "TATE",
+      "note": "Henry Tate, of the Tate & Lyle sugar company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "O",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "A grand old country estate abandoned by a sugar baron is put on the market.",
+     "walkthrough": "Henry Tate founded the sugar firm that became Tate & Lyle, and the Tate gallery.",
+     "definitionFit": "At an auction, an item that goes is sold, as in 'going, going, gone'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   }
  ]
 }
