@@ -82,7 +82,9 @@ the OCR has garbled it or the page has no text, so the leaves the paper
 usually prints it on are fetched too, marked prior: the edition's last leaf
 (the 1970s-80s Times back page, ~90% of filed ones) and the PRIOR_LEAVES
 commonest crossword leaves of the item's other cached editions, counted both
-from the front and from the back (prior_leaves). The filer reads their titles
+from the front and from the back (prior_leaves); an item holding one edition
+alone (the 1930 Times prints its crossword on leaf 4 or 6) counts the
+editions of the items nearest it by date instead (sibling_pages). The filer reads their titles
 by image (ocr_titles). An edition none of whose fetched leaves holds a title
 is one whose scan lacks the crossword page. So is the page densest with
 clue enumerations, DENSE_ENUMS or more, marked dense: the 1970s-80s OCR
@@ -95,7 +97,10 @@ A rerun skips every edition in done.tsv at the current DETECTOR_VERSION,
 except one whose per-page words (pagetext.json.gz beside a djvu.xml.gz) hold
 an OBJECT on a leaf other than the one its PAGE names (misplaced): that
 edition is fetched again by the whole-djvu.xml path, and its changed files
-make the filer read it again.
+make the filer read it again. So is one of an item named with its date, no
+daily title on its fetched pages and no text-shown crossword page among the
+leaves its neighbours print it on most (prior_unfetched): only the
+prior_leaves it lacks are fetched.
 Bumping DETECTOR_VERSION re-runs detection from the cached djvu.xml and
 fetches only the page images it newly finds; no text is downloaded again.
 
@@ -142,6 +147,10 @@ DETECTOR_VERSION = 6
 #: How many of the leaves its item's other editions print their crossword on
 #: an edition with no crossword title in its text also fetches (prior_leaves).
 PRIOR_LEAVES = 2
+#: An item holding one edition alone (the 1930 Times: an item an issue) has no
+#: other editions to count: prior_leaves counts the editions of this many
+#: items nearest it by date whose names match its own up to the date.
+NEIGHBOURS = 30
 EMPTY_OCR_CHARS = 200
 #: The fewest clue enumerations ("(5)", "(3,4)") on the page an edition
 #: with no crossword title in its text fetches as its densest (crossword_hits).
@@ -279,6 +288,36 @@ def words_misplaced(d):
     if not (os.path.exists(os.path.join(d, "pagetext.json.gz")) and os.path.exists(xml_path)):
         return False
     return memo(xml_path, _misplaced_file)
+
+
+def stale(d):
+    """Whether a done edition is fetched again: words_misplaced or prior_unfetched."""
+    return words_misplaced(d) or prior_unfetched(d)
+
+
+def prior_unfetched(d):
+    """Whether an edition of an item named with its date (an item an issue:
+    the 1930 Times), with no daily crossword title on the pages it fetched,
+    has no page its text shows a crossword on
+    (detect) among the leaves its neighbours (sibling_pages) print it on most
+    often: it is fetched again, for the prior_leaves it lacks. A page fetched
+    only as dense, blank or prior is no such page (1930-03-24's leaf 6 is
+    sport results; its crossword is on leaf 4)."""
+    path = os.path.join(d, "pages.json")
+    if not ITEM_DATED.fullmatch(Path(d).parent.name) or not os.path.exists(path):
+        return False
+    try:
+        pages = memo(path, read_pages)
+    except (OSError, ValueError):
+        return False
+    hits = pages.get("crossword_pages") or ()
+    if any(titled(h) or h.get("pdf") for h in hits):
+        return False
+    shown = {h["leaf"] for h in hits if not any(h.get(k) for k in GUESSED)}
+    fronts, _ = crossword_leaves(d)
+    common = {n for n, _ in fronts.most_common(PRIOR_LEAVES)}
+    return bool(common) and not common & shown \
+        and bool(set(prior_leaves(d, pages["leaves"])) - {h["leaf"] for h in hits})
 
 
 class Fetcher:
@@ -486,7 +525,7 @@ def load_done(out):
             for line in f:
                 parts = line.rstrip("\n").split("\t")
                 if len(parts) == 3 and parts[2] == str(DETECTOR_VERSION) \
-                        and not words_misplaced(os.path.join(out, parts[0], slug_of(parts[0], parts[1]))):
+                        and not stale(os.path.join(out, parts[0], slug_of(parts[0], parts[1]))):
                     done.add((parts[0], parts[1]))
     return done
 
@@ -548,23 +587,80 @@ def titled(hit):
     return any(NUMBERED.search(h) and not NOT_DAILY.search(h) for h in hit.get("headings") or ())
 
 
-def prior_leaves(edition_dir, count):
-    """The leaves of an edition of `count` leaves its crossword most likely
-    lies on: its last, and the PRIOR_LEAVES commonest leaves holding a titled
-    crossword in its item's other cached editions, by leaf number and by
-    distance from the back."""
+#: The marks of a crossword_hits page fetched with no crossword in its text.
+GUESSED = ("prior", "dense", "ocr_empty", "unit_trust")
+ITEM_DATED = re.compile(r"(.+?)_(\d{4}-\d{2}-\d{2})_[^/]*")
+
+
+def iso_day(text):
+    """The day number of an ISO date, or None for one no calendar holds."""
+    try:
+        return datetime.date.fromisoformat(text).toordinal()
+    except ValueError:
+        return None
+
+
+def sibling_pages(edition_dir):
+    """The pages.json paths prior_leaves counts: those of the item's other
+    editions, or, for an item holding this edition alone, those of the
+    NEIGHBOURS items nearest it by date named like it up to the date
+    ("per_times_the-times_1930-02-17_45439": "per_times_the-times")."""
+    d = Path(edition_dir)
+    own = [d.parent / e / "pages.json" for e in memo(d.parent, subdirs) if e != d.name]
+    m = ITEM_DATED.fullmatch(d.parent.name)
+    day = m and iso_day(m[2])
+    if own or not day:
+        return own
+    near = sorted((abs(iso_day(date) - day), item) for prefix, date, item in memo(d.parent.parent, dated_items)
+                  if prefix == m[1] and item != d.parent.name)
+    return [d.parent.parent / item / e / "pages.json" for _, item in near[:NEIGHBOURS]
+            for e in memo(d.parent.parent / item, subdirs)]
+
+
+def subdirs(path):
+    """The names of the directories in `path` (an item's editions)."""
+    try:
+        return sorted(e.name for e in os.scandir(path) if e.is_dir())
+    except FileNotFoundError:
+        return []
+
+
+def dated_items(root):
+    """[(name up to the date, ISO date, item)] of the items under `root` named with a date."""
+    out = []
+    for item in os.listdir(root):
+        m = ITEM_DATED.fullmatch(item)
+        if m and iso_day(m[2]):
+            out.append((m[1], m[2], item))
+    return out
+
+
+def read_pages(path):
+    return json.loads(Path(path).read_text())
+
+
+def crossword_leaves(edition_dir):
+    """(fronts, backs): Counters of the leaves its siblings (sibling_pages)
+    print a titled crossword on, by leaf number and by distance from the back."""
     fronts, backs = collections.Counter(), collections.Counter()
-    for pj in Path(edition_dir).parent.glob("*/pages.json"):
-        if pj.parent.name == Path(edition_dir).name:
-            continue
+    for pj in sibling_pages(edition_dir):
         try:
-            pages = json.loads(pj.read_text())
+            pages = memo(pj, read_pages)
         except (OSError, ValueError):
             continue
         for hit in pages.get("crossword_pages") or ():
             if titled(hit):
                 fronts[hit["leaf"]] += 1
                 backs[pages["leaves"] - 1 - hit["leaf"]] += 1
+    return fronts, backs
+
+
+def prior_leaves(edition_dir, count):
+    """The leaves of an edition of `count` leaves its crossword most likely
+    lies on: its last, and the PRIOR_LEAVES commonest leaves holding a titled
+    crossword in its siblings (crossword_leaves), by leaf number and by
+    distance from the back."""
+    fronts, backs = crossword_leaves(edition_dir)
     leaves = {count - 1} | {n for n, _ in fronts.most_common(PRIOR_LEAVES)} \
         | {count - 1 - n for n, _ in backs.most_common(PRIOR_LEAVES)}
     return sorted(n for n in leaves if 0 <= n < count)
@@ -974,7 +1070,7 @@ def edition_done(out, item, name):
                 return False
     except FileNotFoundError:
         return False
-    return not words_misplaced(os.path.join(out, item, slug_of(item, name)))
+    return not stale(os.path.join(out, item, slug_of(item, name)))
 
 
 def main():

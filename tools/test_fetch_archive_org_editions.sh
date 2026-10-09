@@ -87,6 +87,33 @@ check("a titled page found: no unit trust page",
 check("a titled page found: no dense page",
       [h["leaf"] for h in fa.crossword_hits([*cryptic[:11], dense[11], *cryptic[12:]], prior)] == [13])
 
+# An item holding one edition alone (the 1930 Times: an item an issue) counts
+# the crossword leaves of the items nearest it by date named like it; a done
+# edition with no title and no text-shown page among those leaves is due again.
+root = tempfile.mkdtemp()
+def edition(item, leaves, hits):
+    os.makedirs(f"{root}/{item}/{item}")
+    with open(f"{root}/{item}/{item}/pages.json", "w") as f:
+        json.dump({"leaves": leaves, "crossword_pages": hits}, f)
+    return f"{root}/{item}/{item}"
+title = ["THE TIMES CROSSWORD PUZZLE No. 12"]
+for i, (day, leaf) in enumerate((("02-14", 6), ("02-15", 4), ("02-18", 6), ("02-19", 6))):
+    edition(f"per_times_the-times_1930-{day}_{45437 + i}", 26, [{"leaf": leaf, "headings": title}])
+edition("per_times_the-times_1930-06-02_45528", 26, [{"leaf": 9, "headings": title}] * 3)
+edition("per_sunday-times_sunday-times_1930-02-16_5575", 26, [{"leaf": 11, "headings": title}])
+fa.NEIGHBOURS = 4
+lone = edition("per_times_the-times_1930-02-17_45439", 26, [{"leaf": 5, "dense": True}, {"leaf": 25, "prior": True}])
+prior = fa.prior_leaves(lone, 26)
+check("an item's lone edition: the nearest same-named items' crossword leaves are prior",
+      {4, 6, 25} <= set(prior) and not {9, 11} & set(prior))
+check("lone edition fetched dense and last leaves only: due again", fa.prior_unfetched(lone))
+dense6 = edition("per_times_the-times_1930-03-24_45469", 26, [{"leaf": 6, "dense": True}, {"leaf": 25, "prior": True}])
+check("lone edition whose leaf 6 is only the densest: due again", fa.prior_unfetched(dense6))
+shown = edition("per_times_the-times_1930-02-20_45441", 26, [{"leaf": 6, "headings": ["CROSSWORD PUZZLE"]}, {"leaf": 25, "prior": True}])
+check("lone edition whose text shows a crossword on a common leaf: not due", not fa.prior_unfetched(shown))
+whole = edition("per_times_the-times_1930-02-21_45442", 26, [{"leaf": n, "prior": True} for n in prior])
+check("lone edition holding every prior leaf: not due", not fa.prior_unfetched(whole))
+
 # Listings: a PDF archive.org never OCR'd is an edition, read by image;
 # a run caches every yearly item's listing before it fetches any edition.
 scan = "Image Container PDF"
