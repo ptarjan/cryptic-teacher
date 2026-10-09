@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "Grade in form if last in history",
     "enumeration": "8"
    },
-   "solution": "CLASSIFY"
+   "solution": "CLASSIFY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CLASSIFY",
+    "definitions": [
+     {
+      "text": "Grade",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last in",
+      "for": "letter_selection",
+      "note": "'last in' points to the closing letter of the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "form",
+      "gives": "CLASS",
+      "note": "a school form is a class"
+     },
+     {
+      "clueFragment": "if",
+      "gives": "IF",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "history",
+      "gives": "Y",
+      "select": "last",
+      "note": "final letter of history"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLASS",
+      "IF",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A teacher ranks a pupil's form work, with history being the weakest subject.",
+     "definitionFit": "To classify things is to sort them into ranks or categories, which is what grading does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "form"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +104,60 @@
     "text": "Endless money in old gaming house",
     "enumeration": "6"
    },
-   "solution": "CASINO"
+   "solution": "CASINO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CASINO",
+    "definitions": [
+     {
+      "text": "gaming house",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endless",
+      "for": "deletion",
+      "note": "without an end, so the final letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "money",
+      "gives": "CASH",
+      "note": "cash is money"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAS",
+      "IN",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Bottomless funds in an old gambling den.",
+     "definitionFit": "A casino is a building where gambling games are played, a gaming house."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +171,69 @@
     "text": "Block damaged van, one on left",
     "enumeration": "5"
    },
-   "solution": "ANVIL"
+   "solution": "ANVIL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ANVIL",
+    "definitions": [
+     {
+      "text": "Block",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "damaged",
+      "for": "anagram",
+      "note": "something damaged is broken up, so its letters are reordered"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "van",
+      "gives": "VAN",
+      "note": "letters to be rearranged"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANV",
+      "I",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "VAN",
+       "gives": "ANV"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A broken-down van has been blocking the road with someone on the left.",
+     "definitionFit": "An anvil is the heavy iron block on which a blacksmith hammers metal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Block"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +247,45 @@
     "text": "A slight injury causing one to withdraw",
     "enumeration": "7"
    },
-   "solution": "SCRATCH"
+   "solution": "SCRATCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCRATCH",
+    "definitions": [
+     {
+      "text": "A slight injury",
+      "at": 0
+     },
+     {
+      "text": "withdraw",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "causing one to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A slight injury",
+      "note": "first meaning: a minor mark on the skin"
+     },
+     {
+      "clueFragment": "withdraw",
+      "note": "second meaning: to pull out of a race or contest"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface implies a minor injury forcing an athlete out; the two halves are separate meanings.",
+     "definitionFit": "A competitor who is scratched is struck off the entry list, and a scratch is also a light graze."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "withdraw"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +305,50 @@
      }
     ]
    },
-   "solution": "FRINGEBENEFITS"
+   "solution": "FRINGEBENEFITS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FRINGE BENEFITS",
+    "definitions": [
+     {
+      "text": "Perks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worried",
+      "for": "anagram",
+      "note": "worried in the sense of tugged and shaken about, so the letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "infer gifts - been",
+      "gives": "INFERGIFTSBEEN",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INFERGIFTSBEEN",
+       "gives": "FRINGEBENEFITS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone receiving perks is asked whether they worried people would read them as bribes.",
+     "definitionFit": "Fringe benefits are extras given to employees on top of salary, such as a company car."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worried"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +362,49 @@
     "text": "Credit is doubled in unstable period",
     "enumeration": "6"
    },
-   "solution": "CRISIS"
+   "solution": "CRISIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRISIS",
+    "definitions": [
+     {
+      "text": "unstable period",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Credit",
+      "gives": "CR",
+      "note": "CR is the standard abbreviation for credit"
+     },
+     {
+      "clueFragment": "is doubled",
+      "gives": "ISIS",
+      "note": "the word is written twice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CR",
+      "ISIS"
+     ]
+    },
+    "explanation": {
+     "surface": "Talk of credit being doubled during a period of financial turbulence.",
+     "definitionFit": "A crisis is a time of intense difficulty or instability, when things may tip either way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "doubled"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +418,54 @@
     "text": "Criminal erupted, it's alleged",
     "enumeration": "7"
    },
-   "solution": "REPUTED"
+   "solution": "REPUTED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REPUTED",
+    "definitions": [
+     {
+      "text": "it's alleged",
+      "at": 18,
+      "note": "a phrase standing for the adjective"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Criminal",
+      "for": "anagram",
+      "note": "criminal suggests something wrong or corrupt, so the letters are bent out of order"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "erupted",
+      "gives": "ERUPTED",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ERUPTED",
+       "gives": "REPUTED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A news report claims a criminal lost their temper.",
+     "definitionFit": "Reputed means generally said or believed to be so, which is what is alleged."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Criminal"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +479,62 @@
     "text": "Plot involving a shop attendant",
     "enumeration": "9"
    },
-   "solution": "SATELLITE"
+   "solution": "SATELLITE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SATELLITE",
+    "definitions": [
+     {
+      "text": "attendant",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "involving means taking in, so one part holds the other inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plot",
+      "gives": "SITE",
+      "note": "a plot of land is a site"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "shop",
+      "gives": "TELL",
+      "note": "to shop someone is to inform on them, to tell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "A",
+      "TELL",
+      "ITE"
+     ]
+    },
+    "explanation": {
+     "surface": "A scheme in which a shop assistant is implicated.",
+     "walkthrough": "'Shop attendant' reads as one phrase, but shop is the British slang verb to grass someone up, and attendant alone is the definition.",
+     "definitionFit": "A satellite is a follower or hanger-on that accompanies a more important figure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "shop"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +548,49 @@
     "text": "Seeing that note is genuine",
     "enumeration": "7"
    },
-   "solution": "SINCERE"
+   "solution": "SINCERE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SINCERE",
+    "definitions": [
+     {
+      "text": "genuine",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seeing that",
+      "gives": "SINCE",
+      "note": "since means seeing that, because"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "RE",
+      "note": "the second note of the sol-fa scale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SINCE",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "An argument that because the note exists, it must be authentic.",
+     "definitionFit": "Sincere means honest and free of pretence, so genuine in feeling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +610,53 @@
      }
     ]
    },
-   "solution": "INSIDERDEALING"
+   "solution": "INSIDERDEALING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INSIDER DEALING",
+    "definitions": [
+     {
+      "text": "Illegal trading",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abroad",
+      "for": "anagram",
+      "note": "abroad here means scattered widely, so the letters are spread into a new order"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "daring sideline",
+      "gives": "DARINGSIDELINE",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DARINGSIDELINE",
+       "gives": "INSIDERDEALING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone runs a bold sideline in unlawful trade overseas.",
+     "definitionFit": "Insider dealing is buying or selling shares using confidential information, which is a crime."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "abroad"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +670,62 @@
     "text": "Significant event involving forgotten English monarch",
     "enumeration": "9"
    },
-   "solution": "SOVEREIGN"
+   "solution": "SOVEREIGN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SOVEREIGN",
+    "definitions": [
+     {
+      "text": "monarch",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "something involving another wraps around it, so one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Significant event",
+      "gives": "SIGN",
+      "note": "an omen or portent, an event that signifies something"
+     },
+     {
+      "clueFragment": "forgotten",
+      "gives": "OVER",
+      "note": "a thing that is over and done with is past and forgotten"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "OVER",
+      "E",
+      "IGN"
+     ]
+    },
+    "explanation": {
+     "surface": "A historic occasion concerning an English king or queen nobody now remembers.",
+     "walkthrough": "'Significant event' looks like a description of the historic occasion, but it is an omen; forgotten means done with and past.",
+     "definitionFit": "A sovereign is a supreme ruler, the usual formal word for a king or queen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "forgotten"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +745,46 @@
      }
     ]
    },
-   "solution": "PUTON"
+   "solution": "PUTON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PUT ON",
+    "definitions": [
+     {
+      "text": "Present",
+      "at": 0
+     },
+     {
+      "text": "don",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Present",
+      "note": "first meaning: to stage a show or play"
+     },
+     {
+      "clueFragment": "don",
+      "note": "second meaning: to dress oneself in clothing"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Don' looks like a university lecturer receiving a gift; here it is the verb to don clothes.",
+     "definitionFit": "A theatre puts on a play, presenting it, and you put on a coat, donning it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "don"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +798,45 @@
     "text": "There's nothing in canteen I like",
     "enumeration": "3"
    },
-   "solution": "NIL"
+   "solution": "NIL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NIL",
+    "definitions": [
+     {
+      "text": "nothing",
+      "at": 8
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "'in' says the letters are found inside the following run of words"
+     }
+    ],
+    "linkWords": [
+     "There's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "canteen I like",
+      "gives": "NIL",
+      "note": "spans the end of canteen, I and the start of like"
+     }
+    ],
+    "explanation": {
+     "surface": "A grumble that the staff canteen offers nothing worth eating.",
+     "definitionFit": "Nil is the word for zero, used especially in sports scores."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "canteen"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +856,68 @@
      }
     ]
    },
-   "solution": "TAGLIATELLE"
+   "solution": "TAGLIATELLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TAGLIATELLE",
+    "definitions": [
+     {
+      "text": "Pasta dish?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bananas",
+      "for": "anagram",
+      "note": "slang for crazy, so the letters go wild and get rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one set of letters is placed in another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "story",
+      "gives": "TALE",
+      "note": "a story is a tale"
+     },
+     {
+      "clueFragment": "Gill ate",
+      "gives": "GILLATE",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "GLIATEL",
+      "LE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GILLATE",
+       "gives": "GLIATEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tale of someone named Gill who, oddly, ate bananas with her pasta.",
+     "walkthrough": "Bananas look like Gill's meal, but the word signals the rearrangement. The question mark admits the pasta itself is the dish in question.",
+     "definitionFit": "Tagliatelle is a ribbon-shaped Italian pasta, often served as a dish with sauce."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bananas"
+    }
+   }
   },
   {
    "number": 14,
@@ -263,7 +941,50 @@
      }
     ]
    },
-   "solution": "ONTHEBREADLINE"
+   "solution": "ONTHEBREADLINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ON THE BREADLINE",
+    "definitions": [
+     {
+      "text": "Impoverished",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "free",
+      "for": "anagram",
+      "note": "letters set free are released from their order and can be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hebridean let on",
+      "gives": "HEBRIDEANLETON",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HEBRIDEANLETON",
+       "gives": "ONTHEBREADLINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poor islander from the Hebrides, Scottish western islands, revealed that something was free.",
+     "definitionFit": "The idiom describes living at the poverty level, with barely enough money to buy food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "free"
+    }
+   }
   },
   {
    "number": 15,
@@ -277,7 +998,53 @@
     "text": "Fruit drink that's delicious in the East",
     "enumeration": "9"
    },
-   "solution": "NECTARINE"
+   "solution": "NECTARINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NECTARINE",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink that's delicious",
+      "gives": "NECTAR",
+      "note": "nectar is a delicious drink, of the gods in myth"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the East",
+      "gives": "E",
+      "note": "E is the abbreviation for east"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NECTAR",
+      "IN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A fruit drink tasted somewhere in the Orient proves delicious.",
+     "walkthrough": "'Fruit drink' looks like one phrase; fruit alone is the definition.",
+     "definitionFit": "A nectarine is a smooth-skinned variety of peach, a stone fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 16,
@@ -301,7 +1068,43 @@
      }
     ]
    },
-   "solution": "DUCKSANDDRAKES"
+   "solution": "DUCKSANDDRAKES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DUCKS AND DRAKES",
+    "definitions": [
+     {
+      "text": "Game",
+      "at": 0
+     },
+     {
+      "text": "birds",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Game",
+      "note": "first meaning: the pastime of skimming flat stones across water"
+     },
+     {
+      "clueFragment": "birds",
+      "note": "second meaning: female and male ducks"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Game birds' reads as one phrase about shooting, but it splits into two separate meanings.",
+     "definitionFit": "The stone-skipping pastime is named after these waterfowl, a drake being a male duck."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Game"
+    }
+   }
   },
   {
    "number": 16,
@@ -321,7 +1124,68 @@
      }
     ]
    },
-   "solution": "DOGTAGS"
+   "solution": "DOGTAGS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "DOG TAGS",
+    "definitions": [
+     {
+      "text": "identity discs",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "original",
+      "for": "letter_selection",
+      "note": "the original of something is where it starts, its opening letter"
+     },
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "one part holds the other inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Follows",
+      "gives": "DOGS",
+      "note": "to dog someone is to follow them"
+     },
+     {
+      "clueFragment": "trooper's",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of trooper"
+     },
+     {
+      "clueFragment": "silver",
+      "gives": "AG",
+      "note": "chemical symbol for silver"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOG",
+      "T",
+      "AG",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone trails a soldier who wears silver identification discs.",
+     "definitionFit": "Dog tags are the metal identity discs worn around the neck by military personnel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Follows"
+    }
+   }
   },
   {
    "number": 17,
@@ -335,7 +1199,50 @@
     "text": "Treason involved a politician",
     "enumeration": "7"
    },
-   "solution": "SENATOR"
+   "solution": "SENATOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SENATOR",
+    "definitions": [
+     {
+      "text": "a politician",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved",
+      "for": "anagram",
+      "note": "involved means entangled, so the letters are mixed up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Treason",
+      "gives": "TREASON",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TREASON",
+       "gives": "SENATOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician was implicated in betraying the state.",
+     "definitionFit": "A senator is an elected member of a senate, a legislator."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "involved"
+    }
+   }
   },
   {
    "number": 18,
@@ -349,7 +1256,44 @@
     "text": "A sailor reportedly set about",
     "enumeration": "7"
    },
-   "solution": "ASSAULT"
+   "solution": "ASSAULT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ASSAULT",
+    "definitions": [
+     {
+      "text": "set about",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as heard, so the words are judged by their sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A sailor",
+      "gives": "ASSAULT",
+      "soundsLike": "A SALT",
+      "note": "an old salt is a veteran sailor"
+     }
+    ],
+    "explanation": {
+     "surface": "News that a seaman launched into some task.",
+     "definitionFit": "To set about someone is to attack them physically, an idiom for assault."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 19,
@@ -363,7 +1307,52 @@
     "text": "A goddess duke entertained",
     "enumeration": "6"
    },
-   "solution": "AMUSED"
+   "solution": "AMUSED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMUSED",
+    "definitions": [
+     {
+      "text": "entertained",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "goddess",
+      "gives": "MUSE",
+      "note": "the Muses were Greek goddesses of the arts"
+     },
+     {
+      "clueFragment": "duke",
+      "gives": "D",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MUSE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A goddess and a duke hosted guests.",
+     "definitionFit": "To be amused is to be entertained, made to laugh or smile."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "entertained"
+    }
+   }
   },
   {
    "number": 20,
@@ -383,7 +1372,71 @@
      }
     ]
    },
-   "solution": "GRANNYFLATS"
+   "solution": "GRANNYFLATS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "GRANNY FLATS",
+    "definitions": [
+     {
+      "text": "apartments",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to secure",
+      "for": "container",
+      "note": "securing something means holding it firmly within, so one part encloses the others"
+     }
+    ],
+    "linkWords": [
+     "needed"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Subsidies",
+      "gives": "GRANTS",
+      "note": "grants are subsidies"
+     },
+     {
+      "clueFragment": "NY",
+      "gives": "NY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "LA",
+      "gives": "LA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRAN",
+      "NY",
+      "F",
+      "LA",
+      "TS"
+     ]
+    },
+    "explanation": {
+     "surface": "Funding is needed to buy apartments in New York and Los Angeles for a woman.",
+     "walkthrough": "A granny flat is a British term for a self-contained annexe built for an elderly relative.",
+     "definitionFit": "Granny flats are small self-contained apartments attached to a family house."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "NY"
+    }
+   }
   },
   {
    "number": 21,
@@ -397,7 +1450,56 @@
     "text": "Mother, foolish on reflection",
     "enumeration": "3"
    },
-   "solution": "DAM"
+   "solution": "DAM",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "DAM",
+    "definitions": [
+     {
+      "text": "Mother",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on reflection",
+      "for": "reversal",
+      "note": "a mirror reflection shows things back to front, so the word is read the other way"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "foolish",
+      "gives": "MAD",
+      "note": "mad means foolish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAM"
+     ],
+     "reversals": [
+      {
+       "from": "MAD",
+       "to": "DAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone, thinking it over, calls their mother foolish.",
+     "definitionFit": "Dam is the term for the mother of an animal, especially a horse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reflection"
+    }
+   }
   },
   {
    "number": 21,
@@ -411,7 +1513,46 @@
     "text": "Doctor behind plan",
     "enumeration": "5"
    },
-   "solution": "DRAFT"
+   "solution": "DRAFT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRAFT",
+    "definitions": [
+     {
+      "text": "plan",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor",
+      "gives": "DR",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "behind",
+      "gives": "AFT",
+      "note": "aft means at the back, of a ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "AFT"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor stands behind a proposal.",
+     "definitionFit": "A draft is a preliminary version or outline, a plan to be refined."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "number": 22,
@@ -431,7 +1572,42 @@
      }
     ]
    },
-   "solution": "ALIST"
+   "solution": "ALIST",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "A LIST",
+    "definitions": [
+     {
+      "text": "Group of celebs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "'in' says the letters lie inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bali, stars",
+      "gives": "ALIST",
+      "note": "runs across the end of Bali and the start of stars"
+     }
+    ],
+    "explanation": {
+     "surface": "A gathering of celebrities holidaying in Bali, the stars of the show.",
+     "definitionFit": "The A-list is the top tier of famous people, the most sought-after guests."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stars"
+    }
+   }
   },
   {
    "number": 23,
@@ -445,7 +1621,51 @@
     "text": "More than one hearing insult - bar involved",
     "enumeration": "9"
    },
-   "solution": "TRIBUNALS"
+   "solution": "TRIBUNALS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRIBUNALS",
+    "definitions": [
+     {
+      "text": "More than one hearing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved",
+      "for": "anagram",
+      "note": "involved means tangled up, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "insult - bar",
+      "gives": "INSULTBAR",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INSULTBAR",
+       "gives": "TRIBUNALS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Several court hearings about an insult that took place in a pub.",
+     "walkthrough": "'Bar' suggests the legal profession, fitting the hearings, but it simply supplies letters.",
+     "definitionFit": "Tribunals are bodies that hold hearings to settle disputes, so the plural means several hearings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 24,
@@ -459,7 +1679,57 @@
     "text": "Do wrong in attempt to provide drink",
     "enumeration": "6"
    },
-   "solution": "SHERRY"
+   "solution": "SHERRY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHERRY",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "to provide"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attempt",
+      "gives": "SHY",
+      "note": "a shy is a throw or attempt"
+     },
+     {
+      "clueFragment": "Do wrong",
+      "gives": "ERR",
+      "note": "to err is to do wrong"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "ERR",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone misbehaves while trying to serve the drinks.",
+     "definitionFit": "Sherry is a fortified wine from southern Spain, served as an aperitif."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "attempt"
+    }
+   }
   },
   {
    "number": 25,
@@ -473,7 +1743,72 @@
     "text": "Worried, head of Abbotsleigh having to stay in school nursing it",
     "enumeration": "8"
    },
-   "solution": "AGITATED"
+   "solution": "AGITATED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "AGITATED",
+    "definitions": [
+     {
+      "text": "Worried",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its opening letter"
+     },
+     {
+      "text": "nursing",
+      "for": "container",
+      "note": "nursing something means holding it close, so one piece wraps around another"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Abbotsleigh",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter of Abbotsleigh"
+     },
+     {
+      "clueFragment": "having to stay in school",
+      "gives": "GATED",
+      "note": "a gated pupil is confined to school grounds as a punishment"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "G",
+      "IT",
+      "ATED"
+     ]
+    },
+    "explanation": {
+     "surface": "A worried headmistress at Abbotsleigh, a girls' school, has to stay on site looking after something.",
+     "walkthrough": "Gated is British school slang for being confined to the premises as a punishment.",
+     "definitionFit": "Agitated means anxious and stirred up, a synonym for being worried."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   }
  ]
 }
