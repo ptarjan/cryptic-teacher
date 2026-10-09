@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,46 @@
     "text": "Fish hearts going bad",
     "enumeration": "7"
    },
-   "solution": "HERRING"
+   "solution": "HERRING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HERRING",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hearts",
+      "gives": "H",
+      "note": "H is the abbreviation for hearts in card games"
+     },
+     {
+      "clueFragment": "going bad",
+      "gives": "ERRING",
+      "note": "erring means straying from the right path"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ERRING"
+     ]
+    },
+    "explanation": {
+     "surface": "A fish whose hearts have started to rot.",
+     "definitionFit": "The herring is a common silvery food fish of the North Atlantic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hearts"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +89,69 @@
     "text": "Men in Hawaii area snubbed, as far as I can see?",
     "enumeration": "7"
    },
-   "solution": "HORIZON"
+   "solution": "HORIZON",
+   "annotation": {
+    "type": [
+     "container",
+     "deletion",
+     "charade"
+    ],
+    "answer": "HORIZON",
+    "definitions": [
+     {
+      "text": "as far as I can see?",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the soldiers inside the state abbreviation"
+     },
+     {
+      "text": "snubbed",
+      "for": "deletion",
+      "note": "snubbed suggests a nose cut short, so the last letter of the area word goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hawaii",
+      "gives": "HI",
+      "note": "HI is the US postal code for Hawaii"
+     },
+     {
+      "clueFragment": "Men",
+      "gives": "OR",
+      "note": "OR, other ranks, means soldiers who are not officers"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "ZONE",
+      "note": "a zone is an area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "OR",
+      "I",
+      "ZON"
+     ]
+    },
+    "explanation": {
+     "surface": "Men in a part of Hawaii ignored, so far as the speaker knows.",
+     "walkthrough": "As far as I can see reads as a figure of speech; taken literally, it is the limit of a viewer's sight.",
+     "definitionFit": "The horizon is the line where earth meets sky, the farthest point visible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "snubbed"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +165,87 @@
     "text": "What's taken up half of garden with tangled boundless growth?",
     "enumeration": "7"
    },
-   "solution": "RAGWORT"
+   "solution": "RAGWORT",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "reversal",
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "RAGWORT",
+    "definitions": [
+     {
+      "text": "What's taken up half of garden with tangled boundless growth?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half of",
+      "for": "letter_selection",
+      "note": "half of a word keeps its first three of six letters"
+     },
+     {
+      "text": "taken up",
+      "for": "reversal",
+      "note": "in a down entry, taken up means read upwards, from bottom to top"
+     },
+     {
+      "text": "boundless",
+      "for": "deletion",
+      "note": "boundless means without bounds, so the first and last letters go"
+     },
+     {
+      "text": "tangled",
+      "for": "anagram",
+      "note": "tangled means twisted together, so the remaining letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "garden",
+      "gives": "GAR",
+      "select": "first",
+      "note": "the first half of garden"
+     },
+     {
+      "clueFragment": "growth",
+      "gives": "ROWT",
+      "note": "growth with its outer letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAG",
+      "WORT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROWT",
+       "gives": "WORT"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "GAR",
+       "to": "RAG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener's complaint about a weed overrunning half the plot.",
+     "walkthrough": "The whole clue also defines: ragwort is a weed that spreads untidily over neglected ground. Wort is an old word for plant.",
+     "definitionFit": "Ragwort is a yellow-flowered weed, poisonous to livestock, that colonises untended land."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "taken"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +259,54 @@
     "text": "Start enjoying crossing river",
     "enumeration": "5"
    },
-   "solution": "INTRO"
+   "solution": "INTRO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "INTRO",
+    "definitions": [
+     {
+      "text": "Start",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "crossing means spanning over, so the word for enjoying straddles the river abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "enjoying",
+      "gives": "INTO",
+      "note": "to be into something is to enjoy it"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INT",
+      "R",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Setting off happily over a river.",
+     "definitionFit": "An intro is an introduction, the opening part or start of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "enjoying"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +320,62 @@
     "text": "Picture snapper framing boy on island",
     "enumeration": "9"
    },
-   "solution": "GLADIATOR"
+   "solution": "GLADIATOR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GLADIATOR",
+    "definitions": [
+     {
+      "text": "Picture",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "framing",
+      "for": "container",
+      "note": "framing means surrounding like a frame, so the reptile goes round the boy and island"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "snapper",
+      "gives": "GATOR",
+      "note": "a gator, short for alligator, is a creature with snapping jaws"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "LAD",
+      "note": "a lad is a boy"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "LAD",
+      "I",
+      "ATOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A photographer framing a boy on an island.",
+     "walkthrough": "Picture snapper suggests a photographer; picture is a film and snapper an alligator.",
+     "definitionFit": "Gladiator is a 2000 Ridley Scott film, and picture is an informal word for a film."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "snapper"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +389,67 @@
     "text": "Trump (American Truss) throwing a fit",
     "enumeration": "7"
    },
-   "solution": "CAPABLE"
+   "solution": "CAPABLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CAPABLE",
+    "definitions": [
+     {
+      "text": "fit",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "throwing",
+      "for": "deletion",
+      "note": "throwing something away discards it, so a letter is dropped from the truss"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trump",
+      "gives": "CAP",
+      "note": "to cap something is to outdo or trump it"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "Truss",
+      "gives": "BALE",
+      "note": "a bale is a trussed bundle of hay"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter thrown out of the bundle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAP",
+      "A",
+      "BLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Donald Trump and Liz Truss, a former British prime minister, having a tantrum together.",
+     "walkthrough": "The capitals make Trump and Truss look like the two politicians; here they are a verb and a bundle of hay, with the A removed from BALE.",
+     "definitionFit": "Someone fit for a task is competent enough, able to do it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Truss"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +463,47 @@
     "text": "Small volume published, say",
     "enumeration": "5"
    },
-   "solution": "CLOUT"
+   "solution": "CLOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLOUT",
+    "definitions": [
+     {
+      "text": "say",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small volume",
+      "gives": "CL",
+      "note": "CL is the abbreviation for centilitre, a small volume"
+     },
+     {
+      "clueFragment": "published",
+      "gives": "OUT",
+      "note": "a book that is out has been published"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CL",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A slim book released, for instance.",
+     "walkthrough": "Say looks like 'for example' but is a noun meaning influence, as in having a say.",
+     "definitionFit": "Clout means influence or power, as does having a say in something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +523,62 @@
      }
     ]
    },
-   "solution": "PIEDPIPER"
+   "solution": "PIEDPIPER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PIED PIPER",
+    "definitions": [
+     {
+      "text": "One who entices",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means encircling, so the support goes round the quoted words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "support",
+      "gives": "PIER",
+      "note": "a pier is a supporting pillar"
+     },
+     {
+      "clueFragment": "Ed",
+      "gives": "ED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Stone",
+      "gives": "PIP",
+      "note": "a pip is a fruit stone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "ED",
+      "PIP",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Backing for the Ed Stone, the slogan-carved slab Ed Miliband unveiled before the 2015 UK election.",
+     "walkthrough": "The quotes make it look like one name; Ed and Stone are separate pieces.",
+     "definitionFit": "The Pied Piper lured the rats and then the children out of Hamelin, so the name means a seductive leader."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Stone"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +592,74 @@
     "text": "Cross old dog keeping cost up",
     "enumeration": "7"
    },
-   "solution": "BEEFALO"
+   "solution": "BEEFALO",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "BEEFALO",
+    "definitions": [
+     {
+      "text": "Cross",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping means holding on to, so the dog encloses the cost"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "LAB",
+      "note": "a lab is a Labrador, a breed of dog"
+     },
+     {
+      "clueFragment": "cost",
+      "gives": "FEE",
+      "note": "a fee is a cost or charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "EEF",
+      "AL",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "OLAFEEB",
+       "to": "BEEFALO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly dog in a bad mood about rising expenses.",
+     "walkthrough": "Cross looks like the adjective for angry, but it is the noun for a hybrid animal.",
+     "definitionFit": "A beefalo is a hybrid bred from domestic cattle and the American bison."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cross"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +673,61 @@
     "text": "Unopened message about the setter's tip",
     "enumeration": "7"
    },
-   "solution": "EXTREME"
+   "solution": "EXTREME",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "EXTREME",
+    "definitions": [
+     {
+      "text": "tip",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unopened",
+      "for": "deletion",
+      "note": "unopened means without its opening, so the first letter of the message goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "message",
+      "gives": "TEXT",
+      "note": "a text is a phone message"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "the setter's",
+      "gives": "ME",
+      "note": "the setter refers to themself as me"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXT",
+      "RE",
+      "ME"
+     ]
+    },
+    "explanation": {
+     "surface": "A text left unread about some advice from the crossword's author.",
+     "walkthrough": "Tip suggests advice, but it means the far end, the extreme.",
+     "definitionFit": "The extreme of something is its furthest point or tip."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tip"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +747,43 @@
      }
     ]
    },
-   "solution": "REGATTA"
+   "solution": "REGATTA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "REGATTA",
+    "definitions": [
+     {
+      "text": "Meet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "plenty of",
+      "for": "hidden_word",
+      "note": "plenty of something is a large share but not all, so the letters come from inside the run of words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "humour, e.g. at Taskmaster",
+      "gives": "REGATTA",
+      "note": "the letters run across the end of humour, all of e.g. and at, and the start of Taskmaster"
+     }
+    ],
+    "explanation": {
+     "surface": "A comedy show, Taskmaster, full of laughs.",
+     "walkthrough": "Taskmaster is a British TV comedy panel game.",
+     "definitionFit": "A regatta is a sporting meet of rowing or sailing races."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Meet"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +797,66 @@
     "text": "Love poetry shunned by son at feast?",
     "enumeration": "7"
    },
-   "solution": "OVEREAT"
+   "solution": "OVEREAT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "OVEREAT",
+    "definitions": [
+     {
+      "text": "feast?",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shunned by",
+      "for": "deletion",
+      "note": "shunned means avoided, so the letter for son is kept out of the poetry"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love",
+      "gives": "O",
+      "note": "love is zero in tennis, the letter O"
+     },
+     {
+      "clueFragment": "poetry",
+      "gives": "VERSE",
+      "note": "verse is poetry"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "VERE",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "A son who refuses to listen to love poems at a banquet.",
+     "walkthrough": "The question mark flags that feasting need not mean too much; overindulging is one kind of feasting.",
+     "definitionFit": "To feast is to eat lavishly, and overeating is eating more than is needed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "feast"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +870,66 @@
     "text": "Look after trimmed pelt import for animal expert",
     "enumeration": "9"
    },
-   "solution": "ZOOLOGIST"
+   "solution": "ZOOLOGIST",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ZOOLOGIST",
+    "definitions": [
+     {
+      "text": "animal expert",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trimmed",
+      "for": "deletion",
+      "note": "trimmed means cut short, so the last letter of the word for pelt goes"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the look word following the trimmed verb"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pelt",
+      "gives": "ZOOM",
+      "note": "to pelt along is to rush or zoom"
+     },
+     {
+      "clueFragment": "Look",
+      "gives": "LO",
+      "note": "lo is an old word for look!"
+     },
+     {
+      "clueFragment": "import",
+      "gives": "GIST",
+      "note": "the import of a speech is its gist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ZOO",
+      "LO",
+      "GIST"
+     ]
+    },
+    "explanation": {
+     "surface": "Caring for a cut-down animal skin brought in from abroad.",
+     "walkthrough": "Pelt looks like a skin, matching the animal theme, but it is the verb meaning to race.",
+     "definitionFit": "A zoologist is a scientist who studies animals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pelt"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +943,46 @@
     "text": "Power behind trophy",
     "enumeration": "5"
    },
-   "solution": "PLATE"
+   "solution": "PLATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLATE",
+    "definitions": [
+     {
+      "text": "trophy",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Power",
+      "gives": "P",
+      "note": "P is the symbol for power"
+     },
+     {
+      "clueFragment": "behind",
+      "gives": "LATE",
+      "note": "behind schedule means late"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LATE"
+     ]
+    },
+    "explanation": {
+     "surface": "The force that drives a team to a cup win.",
+     "definitionFit": "A plate is a prize in racing or other sport, often a silver dish given to the winner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +996,66 @@
     "text": "Mark and Matthew etc taking over church",
     "enumeration": "5"
    },
-   "solution": "NOTCH"
+   "solution": "NOTCH",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "NOTCH",
+    "definitions": [
+     {
+      "text": "Mark",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking in something means holding it, so the books enclose the cricket abbreviation"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Matthew etc",
+      "gives": "NT",
+      "note": "Matthew and the other gospels are in the New Testament, NT"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scorer's abbreviation for an over"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the abbreviation for church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "O",
+      "T",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "Two gospel writers, Mark and Matthew, taking charge of a church.",
+     "walkthrough": "Mark looks like part of the list of evangelists, but it is the definition, set off by and.",
+     "definitionFit": "A notch is a small cut or nick made as a mark or tally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mark"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +1069,53 @@
     "text": "Who might share a kettle of hot water in Yorkshire Tea",
     "enumeration": "9"
    },
-   "solution": "HOUSEMATE"
+   "solution": "HOUSEMATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOUSEMATE",
+    "definitions": [
+     {
+      "text": "Who might share a kettle",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the abbreviation for hot on taps"
+     },
+     {
+      "clueFragment": "water in Yorkshire",
+      "gives": "OUSE",
+      "note": "the Ouse is a Yorkshire river"
+     },
+     {
+      "clueFragment": "Tea",
+      "gives": "MATE",
+      "note": "maté is a South American herbal tea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "OUSE",
+      "MATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Putting the kettle on for a cup of the Yorkshire Tea brand.",
+     "walkthrough": "Yorkshire Tea is a popular British tea brand; the clue splits it so Yorkshire goes with the river and Tea is maté.",
+     "definitionFit": "A housemate lives in the same house, so shares the kitchen and its kettle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Tea"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1129,66 @@
     "text": "Ring style incorporating large creature but not small one",
     "enumeration": "9"
    },
-   "solution": "TELEPHONE"
+   "solution": "TELEPHONE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TELEPHONE",
+    "definitions": [
+     {
+      "text": "Ring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "incorporating",
+      "for": "container",
+      "note": "incorporating means taking into the body, so the style word wraps round the creature"
+     },
+     {
+      "text": "but not",
+      "for": "deletion",
+      "note": "but not excludes something, so the small creature is taken out of the large one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "style",
+      "gives": "TONE",
+      "note": "tone is a manner or style"
+     },
+     {
+      "clueFragment": "large creature",
+      "gives": "ELEPHANT",
+      "note": "an elephant is a large animal"
+     },
+     {
+      "clueFragment": "small one",
+      "gives": "ANT",
+      "note": "an ant is a small creature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ELEPH",
+      "ONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A ring designed with a big animal but not a little one.",
+     "walkthrough": "Ring is a verb meaning to call, not jewellery.",
+     "definitionFit": "To ring someone, in British usage, is to telephone them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ring"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1202,60 @@
     "text": "Wrongly taking extraordinarily clear wisdom",
     "enumeration": "9"
    },
-   "solution": "LARCENOUS"
+   "solution": "LARCENOUS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "LARCENOUS",
+    "definitions": [
+     {
+      "text": "Wrongly taking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extraordinarily",
+      "for": "anagram",
+      "note": "extraordinarily means out of the ordinary way, so the letters are put in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clear",
+      "gives": "CLEAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "wisdom",
+      "gives": "NOUS",
+      "note": "nous is common sense or wisdom"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LARCE",
+      "NOUS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CLEAR",
+       "gives": "LARCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Being mistaken while seeming remarkably wise.",
+     "definitionFit": "Larceny is theft, so larcenous describes someone given to stealing what is not theirs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Wrongly"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1275,66 @@
      }
     ]
    },
-   "solution": "CONQUEROR"
+   "solution": "CONQUEROR",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "CONQUEROR",
+    "definitions": [
+     {
+      "text": "William?",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "using",
+      "for": "substitution",
+      "note": "using one thing in the word means bringing in a fresh part"
+     },
+     {
+      "text": "to cover",
+      "for": "substitution",
+      "note": "to cover for someone is to stand in for them, so the French word takes the other part's place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Entertainer",
+      "gives": "CONJUROR",
+      "note": "a conjuror is a magician who entertains"
+     },
+     {
+      "clueFragment": "that in France",
+      "gives": "QUE",
+      "note": "que is French for that"
+     },
+     {
+      "clueFragment": "half of Just",
+      "gives": "JU",
+      "note": "the first half of the word just, which is what gets replaced"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "QUE",
+      "ROR"
+     ]
+    },
+    "explanation": {
+     "surface": "A performer standing in for the boy hero of the Just William books.",
+     "walkthrough": "Just William is a series of children's books about a scrape-prone schoolboy; only the William part defines, as William the Conqueror.",
+     "definitionFit": "William I of England is known as William the Conqueror, so a conqueror is one William."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Just"
+    }
+   }
   },
   {
    "number": 17,
@@ -317,7 +1348,64 @@
     "text": "Tendency of capital to stop etc in recession",
     "enumeration": "7"
    },
-   "solution": "CLIMATE"
+   "solution": "CLIMATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "CLIMATE",
+    "definitions": [
+     {
+      "text": "Tendency",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to stop",
+      "for": "container",
+      "note": "stopping a gap plugs it, so the capital goes inside the other letters"
+     },
+     {
+      "text": "in recession",
+      "for": "reversal",
+      "note": "recession is moving backwards, so the abbreviation is written in reverse"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "etc",
+      "gives": "CTE",
+      "note": "the abbreviation for et cetera written backwards"
+     },
+     {
+      "clueFragment": "capital",
+      "gives": "LIMA",
+      "note": "Lima is the capital of Peru"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LIMA",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "An economist warning about money flows halting during a downturn.",
+     "walkthrough": "Capital and recession suggest economics; capital is a city and recession a backward move.",
+     "definitionFit": "The climate of opinion is its prevailing trend or tendency."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 18,
@@ -331,7 +1419,66 @@
     "text": "Subtle nude dancing entertains party",
     "enumeration": "7"
    },
-   "solution": "NUANCED"
+   "solution": "NUANCED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NUANCED",
+    "definitions": [
+     {
+      "text": "Subtle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dancing",
+      "for": "anagram",
+      "note": "dancing moves around, so the letters are rearranged"
+     },
+     {
+      "text": "entertains",
+      "for": "container",
+      "note": "entertaining guests means having them in, so the rearranged letters hold the party"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nude",
+      "gives": "NUDE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "ANC",
+      "note": "the ANC, African National Congress, is a South African political party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NU",
+      "ANC",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NUDE",
+       "gives": "NUED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tasteful naked dance performed at a party.",
+     "definitionFit": "Nuanced means having fine shades of meaning, so it is subtle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 19,
@@ -345,7 +1492,47 @@
     "text": "More mature epitaph for US TV show?",
     "enumeration": "5"
    },
-   "solution": "RIPER"
+   "solution": "RIPER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RIPER",
+    "definitions": [
+     {
+      "text": "More mature",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "epitaph",
+      "gives": "RIP",
+      "note": "RIP, rest in peace, is a standard epitaph"
+     },
+     {
+      "clueFragment": "US TV show",
+      "gives": "ER",
+      "note": "ER is an American hospital drama"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIP",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "An older gravestone line for a cancelled American programme.",
+     "definitionFit": "Riper is the comparative of ripe, which means fully developed or mature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "epitaph"
+    }
+   }
   },
   {
    "number": 20,
@@ -365,7 +1552,46 @@
      }
     ]
    },
-   "solution": "PORKPIE"
+   "solution": "PORKPIE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PORK PIE",
+    "definitions": [
+     {
+      "text": "Dish",
+      "at": 0
+     },
+     {
+      "text": "invention",
+      "at": 7
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dish",
+      "note": "first meaning: a raised pastry filled with chopped pork"
+     },
+     {
+      "clueFragment": "invention",
+      "note": "second meaning: a lie, in Cockney rhyming slang"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The possessive makes it look like a recipe's creator; the two words are separate meanings. Rhyming slang turns lie into pork pie, often shortened to porky.",
+     "definitionFit": "A pork pie is a classic British savoury pie, and in rhyming slang it means a lie, a made-up story."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "invention"
+    }
+   }
   },
   {
    "number": 21,
@@ -379,7 +1605,51 @@
     "text": "Red coat with light stole",
     "enumeration": "7"
    },
-   "solution": "RUSTLED"
+   "solution": "RUSTLED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RUSTLED",
+    "definitions": [
+     {
+      "text": "stole",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Red coat",
+      "gives": "RUST",
+      "note": "rust is the red coating that forms on iron"
+     },
+     {
+      "clueFragment": "light",
+      "gives": "LED",
+      "note": "an LED, light-emitting diode, is a light"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUST",
+      "LED"
+     ]
+    },
+    "explanation": {
+     "surface": "A scarlet jacket and a lamp went missing.",
+     "walkthrough": "Stole looks like a shawl to go with the coat, but it is the past tense of steal.",
+     "definitionFit": "To rustle is to steal livestock, so rustled means stole."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stole"
+    }
+   }
   },
   {
    "number": 22,
@@ -393,7 +1663,54 @@
     "text": "Bread's inside that is empty",
     "enumeration": "5"
    },
-   "solution": "INANE"
+   "solution": "INANE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "INANE",
+    "definitions": [
+     {
+      "text": "empty",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside means placed within, so the bread goes into the abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, that is"
+     },
+     {
+      "clueFragment": "Bread",
+      "gives": "NAN",
+      "note": "nan is a variant spelling of naan, an Indian flatbread"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "NAN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "The middle of the loaf has nothing in it.",
+     "definitionFit": "Inane means silly or lacking sense, empty of meaning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "inside"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1724,54 @@
     "text": "He is cutting sign for reference",
     "enumeration": "9"
    },
-   "solution": "THESAURUS"
+   "solution": "THESAURUS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THESAURUS",
+    "definitions": [
+     {
+      "text": "reference",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cutting",
+      "for": "container",
+      "note": "cutting into something goes inside it, so the first words sit within the sign"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sign",
+      "gives": "TAURUS",
+      "note": "Taurus is a sign of the zodiac"
+     },
+     {
+      "clueFragment": "He is",
+      "gives": "HES",
+      "note": "he's is the short form of he is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HES",
+      "AURUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A man slicing through a signpost to point the way.",
+     "definitionFit": "A thesaurus is a reference book listing words with similar meanings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sign"
+    }
+   }
   },
   {
    "number": 23,
@@ -421,7 +1785,68 @@
     "text": "Head of Tudor house standing by",
     "enumeration": "5"
    },
-   "solution": "TIMES"
+   "solution": "TIMES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "TIMES",
+    "definitions": [
+     {
+      "text": "by",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     },
+     {
+      "text": "standing",
+      "for": "reversal",
+      "note": "in a down entry, standing means upright, so the word is read from the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tudor",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of Tudor"
+     },
+     {
+      "clueFragment": "house",
+      "gives": "SEMI",
+      "note": "a semi is a semi-detached house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "IMES"
+     ],
+     "reversals": [
+      {
+       "from": "SEMI",
+       "to": "IMES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The owner of an old Tudor home waiting nearby.",
+     "walkthrough": "A semi is a British house joined to one neighbour; by is the multiplication sign, as in three by four.",
+     "definitionFit": "In arithmetic, by and times both mean multiplied by."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "by"
+    }
+   }
   },
   {
    "number": 24,
@@ -435,7 +1860,56 @@
     "text": "An editorial department ultimately missing high-profile features?",
     "enumeration": "5"
    },
-   "solution": "ANDES"
+   "solution": "ANDES",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ANDES",
+    "definitions": [
+     {
+      "text": "high-profile features?",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately missing",
+      "for": "deletion",
+      "note": "ultimately missing means lacking at the end, so the final letter of the department goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "An",
+      "gives": "AN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "editorial department",
+      "gives": "DESK",
+      "note": "a newspaper desk is an editorial department"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "DES"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper section without its big feature articles.",
+     "walkthrough": "Features suggests newspaper articles; here they are features of the landscape, and high-profile means tall.",
+     "definitionFit": "The Andes are the South American mountain range, landscape features with a high profile."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "features"
+    }
+   }
   },
   {
    "number": 25,
@@ -449,7 +1923,73 @@
     "text": "A strange calm curtailed icy hail",
     "enumeration": "7"
    },
-   "solution": "ACCLAIM"
+   "solution": "ACCLAIM",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ACCLAIM",
+    "definitions": [
+     {
+      "text": "hail",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strange",
+      "for": "anagram",
+      "note": "strange means odd or out of order, so these letters are rearranged"
+     },
+     {
+      "text": "curtailed",
+      "for": "deletion",
+      "note": "curtailed means having the tail cut off, so the last letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "calm",
+      "gives": "CALM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "icy",
+      "gives": "IC",
+      "note": "icy without its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CCLAIM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CALMIC",
+       "gives": "CCLAIM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An oddly short, still spell of freezing weather.",
+     "walkthrough": "Hail looks like frozen rain to match icy, but it is the verb meaning to praise.",
+     "definitionFit": "To hail someone is to greet or praise them publicly, which is to acclaim them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hail"
+    }
+   }
   },
   {
    "number": 26,
@@ -463,7 +2003,74 @@
     "text": "Oscar sadly lied about father loving mother?",
     "enumeration": "7"
    },
-   "solution": "OEDIPAL"
+   "solution": "OEDIPAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "OEDIPAL",
+    "definitions": [
+     {
+      "text": "loving mother?",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sadly",
+      "for": "anagram",
+      "note": "sadly suggests something gone wrong, so the letters of lied are jumbled"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the jumbled letters go round the father"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oscar",
+      "gives": "O",
+      "note": "Oscar is O in the NATO alphabet"
+     },
+     {
+      "clueFragment": "lied",
+      "gives": "LIED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "father",
+      "gives": "PA",
+      "note": "pa is an informal word for father"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "EDI",
+      "PA",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LIED",
+       "gives": "EDIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Oscar told a sad lie about his dad's love for his mum.",
+     "walkthrough": "The question mark marks a loose definition: the Oedipus complex is a son's desire for his mother.",
+     "definitionFit": "Oedipal describes a son's attraction to his mother, after the Greek king who unknowingly married his."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "father"
+    }
+   }
   },
   {
    "number": 27,
@@ -477,7 +2084,64 @@
     "text": "Permanent resettlement of Leeds including north and south",
     "enumeration": "7"
    },
-   "solution": "ENDLESS"
+   "solution": "ENDLESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENDLESS",
+    "definitions": [
+     {
+      "text": "Permanent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "resettlement of",
+      "for": "anagram",
+      "note": "resettlement moves things to new places, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "including"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leeds",
+      "gives": "LEEDS",
+      "note": "the city name taken as written"
+     },
+     {
+      "clueFragment": "north",
+      "gives": "N",
+      "note": "N is the abbreviation for north"
+     },
+     {
+      "clueFragment": "south",
+      "gives": "S",
+      "note": "S is the abbreviation for south"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEEDSNS",
+       "gives": "ENDLESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lasting rehousing scheme for Leeds that takes in both ends of the country.",
+     "walkthrough": "Leeds is a city in Yorkshire, northern England.",
+     "definitionFit": "Something endless goes on for ever, so it is permanent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "resettlement"
+    }
+   }
   },
   {
    "number": 28,
@@ -491,7 +2155,73 @@
     "text": "Defer tariffs at last, with dollar overtaking pound",
     "enumeration": "7"
    },
-   "solution": "SUSPEND"
+   "solution": "SUSPEND",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SUSPEND",
+    "definitions": [
+     {
+      "text": "Defer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the final letter of the word before it"
+     },
+     {
+      "text": "overtaking",
+      "for": "container",
+      "note": "overtaking here means taking over, so the currency surrounds the pound"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tariffs",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of tariffs"
+     },
+     {
+      "clueFragment": "dollar",
+      "gives": "USD",
+      "note": "USD is the currency code for the US dollar"
+     },
+     {
+      "clueFragment": "pound",
+      "gives": "PEN",
+      "note": "a pound is an enclosure for animals, a pen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "US",
+      "PEN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Postponing import duties as the dollar overtakes sterling.",
+     "walkthrough": "Pound looks like money next to dollar, but it is an animal enclosure.",
+     "definitionFit": "To suspend something is to put it off for a while, to postpone it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pound"
+    }
+   }
   }
  ]
 }
