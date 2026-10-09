@@ -384,6 +384,8 @@ class Beside:
 mem_gate_reader = None
 #: What the CPU gate reads (tests swap it); None is mem_gate.load.
 cpu_gate_reader = None
+#: What the burn-first gate reads (tests swap it); None is mem_gate.burn_state.
+burn_gate_reader = None
 
 
 def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=None, workers=WORKERS,
@@ -418,6 +420,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
              **{f"fetch {src}": FETCHERS[src]["workers"] for src in fetch}}
     outages = dict.fromkeys(fetch, 0)
     memory_bound = cpu_bound = False  # logged once per slice
+    burn_bound = False  # logged once each time the burn starts starving
     stopped = set()  # fetch sources started no more this run
     adopted = {**(take_over(handoff) if handoff else {}), **(take_over(resume) if resume else {})}  # pid: (unit, started)
     if not titled():
@@ -540,12 +543,18 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             free[slot_of(u)] = free.get(slot_of(u), 0) - 1
         begun_now = 0
         held_back = cpu_held = False
+        starved = mem_gate.burn_starved(burn_gate_reader)
+        if starved and not burn_bound:
+            log(f"{mem_gate.burn_line(starved)} ({len(running) + len(adopted)} running are left alone)")
+        burn_bound = bool(starved)
         for u in scans + reads + fetches:
             if not may_start() or free[slot_of(u)] <= 0 or key_of(u) in tried:
                 continue
             if u["kind"] == "read" and any((u["paper"], r) in pending for r in u["needs"]):
                 continue
             if u["kind"] == "read" and u["reason"] == "scan stale" and any((u["paper"], r) in rescanned for r in u["needs"]):
+                continue
+            if starved:
                 continue
             if not mem_gate.room(begun_now, mem_gate_reader):
                 held_back = True

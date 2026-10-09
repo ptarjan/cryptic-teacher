@@ -12,9 +12,19 @@ from sysctl, times the page size. None when neither can be read (then
 `cpu_room()` is the same question for CPU: the one-minute load average,
 plus the units begun this pass, under LOAD_PER_CORE per core. A unit that
 waits on the desktop or the network sleeps and adds no load, so the gate
-holds back only CPU-bound starts on a host already oversubscribed."""
+holds back only CPU-bound starts on a host already oversubscribed.
+
+`burn_starved()` puts the pre-reset burn first: tools/prereset_plan.py
+writes BURN_STATE (its need, memory cap, cpu cap and width) at every plan,
+and while its cpu cap holds it below what its need and memory allow, no
+unit starts, so the cores the queue would take go to the burn. A state
+older than BURN_STALE_S, or none, means no burn is planning: no gate."""
+import functools
+import json
 import os
 import subprocess
+import time
+from pathlib import Path
 
 #: Memory (bytes) that must stay available after a start, and one unit's share
 #: (CT_MEM_FLOOR overrides: tests run ticks on a host whose own memory must
@@ -70,3 +80,52 @@ def cpu_room(started=0, reader=None, cores=None, per_core=LOAD_PER_CORE):
     now = (reader or load)()
     cores = cores or os.cpu_count()
     return now is None or not cores or now + started < per_core * cores
+
+
+#: The burn's plan, in the main checkout (CT_BURN_STATE overrides: tests run
+#: ticks on a host whose own burn must not gate them), and the age past which
+#: it is no burn's: the planner re-plans at every 300s pool checkpoint.
+BURN_STATE = ".prereset.width"
+BURN_STALE_S = 900
+
+
+@functools.lru_cache(maxsize=1)
+def main_checkout():
+    if os.environ.get("CT_MAIN_CHECKOUT"):
+        return Path(os.environ["CT_MAIN_CHECKOUT"])
+    common = subprocess.run(["git", "-C", str(Path(__file__).resolve().parent), "rev-parse",
+                             "--path-format=absolute", "--git-common-dir"],
+                            capture_output=True, text=True, check=True, timeout=10).stdout.strip()
+    return Path(common).parent
+
+
+def burn_state(path=None, now=None):
+    """The burn's last plan as a dict, or None when there is none, it cannot
+    be read, or it is older than BURN_STALE_S."""
+    try:
+        path = Path(path or os.environ.get("CT_BURN_STATE") or main_checkout() / BURN_STATE)
+        if (now or time.time()) - path.stat().st_mtime > BURN_STALE_S:
+            return None
+        state = json.loads(path.read_text())
+    except (OSError, ValueError, subprocess.SubprocessError):
+        return None
+    return state if isinstance(state, dict) else None
+
+
+def burn_starved(reader=None):
+    """The burn's plan (reader's, else burn_state's) when its cpu cap holds it
+    below its need and its memory cap, else None."""
+    state = (reader or burn_state)()
+    if not state:
+        return None
+    need, mem, cpu = state.get("need"), state.get("mem"), state.get("cpu")
+    if not isinstance(need, (int, float)) or not isinstance(cpu, (int, float)):
+        return None
+    allowed = need if not isinstance(mem, (int, float)) else min(need, mem)
+    return state if cpu < allowed else None
+
+
+def burn_line(state):
+    """Why a gated queue starts nothing, from burn_starved's plan."""
+    return (f"burn-first: the burn's cpu cap is {state['cpu']} runs, below the {state['need']} it needs; "
+            "no unit starts until it has its width")

@@ -24,6 +24,7 @@ vlm_reader.reachable = lambda *a, **k: False
 import file_archive_org_puzzles as f
 import edition_queue as eq
 eq.cpu_gate_reader = lambda: 0.0  # this host's load must not gate the tests' starts
+os.environ["CT_BURN_STATE"] = os.path.join(os.environ["TMP"], "no-burn")  # nor this host's burn
 
 fails = 0
 def check(what, want, got):
@@ -527,6 +528,50 @@ for reader, want in ((lambda: 1 * G, (0, 1)), (lambda: 16 * G, (3, 0))):
         uq.tick("fake")
     check("tick: units started / memory-bound lines", want, (len(spawned), out.getvalue().count("memory-bound")))
 uq.MEM_READER = None
+
+# ---- burn first: while the burn's cpu cap holds it below its need, no unit starts
+capped = {"need": 8, "mem": 20, "cpu": 3, "width": 3}
+enough = {"need": 8, "mem": 20, "cpu": 9, "width": 8}
+check("burn_starved: cpu-capped below its need gates", capped, mg.burn_starved(lambda: capped))
+check("burn_starved: cpu cap at or over the need does not", None, mg.burn_starved(lambda: enough))
+check("burn_starved: memory, not cpu, holding it back does not", None,
+      mg.burn_starved(lambda: {"need": 8, "mem": 2, "cpu": 3, "width": 2}))
+check("burn_starved: no need or no cpu reading does not", (None, None),
+      (mg.burn_starved(lambda: {"need": None, "mem": 20, "cpu": 3}),
+       mg.burn_starved(lambda: {"need": 8, "mem": 20, "cpu": None})))
+state = T / "burn.width"
+state.write_text(json.dumps(capped))
+check("burn_state: a fresh plan is read", capped, mg.burn_state(state))
+os.utime(state, (time.time() - mg.BURN_STALE_S - 60,) * 2)
+check("burn_state: a stale plan (no burn planning) is none, so no gate", (None, None),
+      (mg.burn_state(state), mg.burn_starved(lambda: mg.burn_state(state))))
+check("burn_state: no plan or a garbled one is none", (None, None),
+      (mg.burn_state(T / "absent"), (state.write_text("{oops"), mg.burn_state(state))[1]))
+eq.plan = units([], [(f"b{k}", []) for k in range(3)])
+log.unlink(missing_ok=True)
+eq.burn_gate_reader = lambda: capped
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, seconds=2.2, replan=0.5)
+check("the burn cpu-capped: nothing starts, and it says so once", (False, 1),
+      (log.exists(), err.getvalue().count("burn-first")))
+# mirror: the burn with its width starts every unit and never says burn-first
+eq.burn_gate_reader = lambda: enough
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, replan=0.5)
+check("the burn with its width: every unit starts, no burn-first line", (3, 0),
+      (sum(" start " in l for l in log.read_text().splitlines()), err.getvalue().count("burn-first")))
+eq.burn_gate_reader = None
+uq.MEM_READER = lambda: 16 * G
+for reader, want in ((lambda: capped, (0, 1)), (lambda: enough, (3, 0)), (lambda: None, (3, 0))):
+    uq.BURN_READER = reader
+    spawned.clear()
+    out = io.StringIO()
+    with contextlib.redirect_stdout(out):
+        uq.tick("fake")
+    check("tick: units started / burn-first lines", want, (len(spawned), out.getvalue().count("burn-first")))
+uq.BURN_READER = uq.MEM_READER = None
 
 # ---- one version of the code a process: a start loads its lazy imports
 # too (the write path's puzzle_integrity), under code.lock; a tree move

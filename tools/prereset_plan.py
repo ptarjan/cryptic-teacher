@@ -47,6 +47,7 @@ import sys
 import time
 from pathlib import Path
 
+import mem_gate
 import series
 
 REPO = Path(__file__).resolve().parent.parent
@@ -460,6 +461,17 @@ def bridge_spend(now=None):
                                                now - rise[1] * 3600, now))
 
 
+def publish(path, need, mem, cpu, w):
+    """The plan for the OCR queues' burn-first gate (mem_gate.burn_starved),
+    replaced whole so a reader never sees half of it."""
+    tmp = path.with_name(path.name + ".tmp")
+    try:
+        tmp.write_text(json.dumps({"need": need, "mem": mem, "cpu": cpu, "width": w}) + "\n")
+        tmp.replace(path)
+    except OSError as exc:
+        print(f"width: {path} not written: {exc}", file=sys.stderr)
+
+
 def width(arg=None, floor=1):
     """The width to keep in flight, from the live weekly meter and reset, the
     bridge's measured spend, the burn's rate and last width, the five-hour to
@@ -488,6 +500,7 @@ def width(arg=None, floor=1):
     load = cpu_load(home / CPU_STATE)
     cpu = cpu_cap(*load, os.cpu_count(), len(rss)) if load else None
     w = width_for(runs_needed, mem, cpu, current, floor)
+    publish(home / mem_gate.BURN_STATE, runs_needed, mem, cpu, w)
     shown = (f"{bridge:.1f} pts/h" if bridge is not None else "unread")
     cores = (f"others {load[0]:.2f} burn {load[1]:.2f} of {os.cpu_count()} cores"
              if load else "cores unread")
@@ -526,7 +539,7 @@ def self_test():
            + first_self_test() + backlog_self_test())
     n = (len(covers) + len(WIDTH_CASES) + len(NEED_CASES) + len(MODE_CASES) + len(MEM_CASES)
          + len(CPU_CASES) + len(METER_CASES) + len(RATIO_CASES) + 21 + len(TAG_CASES) + 2 + len(FIRST_CASES) + 3 + 4
-         + len(BACKLOG_CASES) + 3)
+         + len(BACKLOG_CASES) + 4)
     print(f"prereset plan self-test FAILED: {bad} of {n}" if bad
           else f"prereset plan self-test: {n} cases pass")
     return 1 if bad else 0
@@ -685,14 +698,26 @@ def width_self_test():
     def unreadable(_group):
         raise RuntimeError("no reading")
     weekly_usage.usage_pct = unreadable
-    try:
-        got = width("7")
-        if not isinstance(got, int) or got < 1:
-            print(f"FAIL width() with the meter unread = {got!r} (want a positive int)",
-                  file=sys.stderr)
-            bad += 1
-    finally:
-        weekly_usage.usage_pct = real
+    import tempfile
+    saved = os.environ.get("CT_MAIN_CHECKOUT")
+    with tempfile.TemporaryDirectory() as tmp:
+        os.environ["CT_MAIN_CHECKOUT"] = tmp  # the live checkout's state stays the burn's
+        try:
+            got = width("7")
+            if not isinstance(got, int) or got < 1:
+                print(f"FAIL width() with the meter unread = {got!r} (want a positive int)",
+                      file=sys.stderr)
+                bad += 1
+            plan = json.loads((Path(tmp) / mem_gate.BURN_STATE).read_text())
+            if plan.get("width") != got or "cpu" not in plan or plan.get("need") is not None:
+                print(f"FAIL width() published {plan} (want width {got}, need None)", file=sys.stderr)
+                bad += 1
+        finally:
+            weekly_usage.usage_pct = real
+            if saved is None:
+                os.environ.pop("CT_MAIN_CHECKOUT", None)
+            else:
+                os.environ["CT_MAIN_CHECKOUT"] = saved
     return bad
 
 
