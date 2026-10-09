@@ -23,6 +23,9 @@
   "date": "2023-10-31",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,59 @@
     "text": "Spouse in extremis — case for narcotic?",
     "enumeration": "8"
    },
-   "solution": "SEDATIVE"
+   "solution": "SEDATIVE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SEDATIVE",
+    "definitions": [
+     {
+      "text": "narcotic",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in extremis",
+      "for": "letter_selection",
+      "note": "Latin for 'at the extremes', so only the outermost letters of the word are kept"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spouse",
+      "gives": "SE",
+      "select": "outer",
+      "note": "first and last letters of the word"
+     },
+     {
+      "clueFragment": "case",
+      "gives": "DATIVE",
+      "note": "the dative is a grammatical case"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "DATIVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A wife at the end of her tether might seem a case for drugs.",
+     "walkthrough": "'Case' is not a container or a legal matter but a grammatical case, as in Latin's nominative, accusative, dative.",
+     "definitionFit": "A sedative is a calming drug, and narcotic is used loosely for any such sleep-inducing medicine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +105,47 @@
     "text": "Victim needing help, according to the announcer",
     "enumeration": "6"
    },
-   "solution": "SUCKER"
+   "solution": "SUCKER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SUCKER",
+    "definitions": [
+     {
+      "text": "Victim",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "according to the announcer",
+      "for": "homophone",
+      "note": "an announcer speaks the word, so we go by its sound rather than its spelling"
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "help",
+      "gives": "SUCKER",
+      "soundsLike": "SUCCOUR",
+      "note": "succour means help or relief"
+     }
+    ],
+    "explanation": {
+     "surface": "A victim in distress, with someone on the radio appealing for assistance.",
+     "definitionFit": "A sucker is a dupe, someone easily conned, so a victim of a swindle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "announcer"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +159,55 @@
     "text": "Indicate one can become a medical practitioner",
     "enumeration": "9"
    },
-   "solution": "DIETICIAN"
+   "solution": "DIETICIAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DIETICIAN",
+    "definitions": [
+     {
+      "text": "medical practitioner",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "can become",
+      "for": "anagram",
+      "note": "the letters are able to turn into something else, so they are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Indicate",
+      "gives": "INDICATE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INDICATEI",
+       "gives": "DIETICIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A careers adviser pointing out that someone could train as a doctor.",
+     "definitionFit": "A dietician is a health professional advising on nutrition, a loose kind of medical practitioner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Indicate"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +221,44 @@
     "text": "Parades one's needlework perhaps",
     "enumeration": "7"
    },
-   "solution": "TATTOOS"
+   "solution": "TATTOOS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TATTOOS",
+    "definitions": [
+     {
+      "text": "Parades",
+      "at": 0
+     },
+     {
+      "text": "one's needlework perhaps",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Parades",
+      "note": "first meaning: military displays, as at Edinburgh Castle"
+     },
+     {
+      "clueFragment": "one's needlework perhaps",
+      "note": "second meaning: designs inked into the skin with a needle"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone showing off their embroidery.",
+     "walkthrough": "A military tattoo is an evening show of marching bands; 'needlework' is a playful nod to the tattooist's needle.",
+     "definitionFit": "The word names both ceremonial military displays and skin pictures made by needle pricks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "needlework"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +272,77 @@
     "text": "Vicar up against ecclesiastical head's pizzazz",
     "enumeration": "5"
    },
-   "solution": "VERVE"
+   "solution": "VERVE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "VERVE",
+    "definitions": [
+     {
+      "text": "pizzazz",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means reading the word from bottom to top, backwards"
+     },
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "'head' keeps only the first letter of 'ecclesiastical'"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vicar",
+      "gives": "REV",
+      "note": "Rev is short for Reverend, a vicar's title"
+     },
+     {
+      "clueFragment": "against",
+      "gives": "V",
+      "note": "v for versus"
+     },
+     {
+      "clueFragment": "ecclesiastical",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VER",
+      "V",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "REV",
+       "to": "VER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vicar standing up to the bishop with plenty of flair.",
+     "walkthrough": "'Head' here takes the first letter of 'ecclesiastical' rather than meaning a bishop.",
+     "definitionFit": "Verve and pizzazz are synonyms for lively energy and style."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +356,53 @@
     "text": "Killer getting rid of poet's wife",
     "enumeration": "6"
    },
-   "solution": "HITMAN"
+   "solution": "HITMAN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HITMAN",
+    "definitions": [
+     {
+      "text": "Killer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting rid of",
+      "for": "deletion",
+      "note": "getting rid of something removes it, so a letter is dropped from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poet",
+      "gives": "WHITMAN",
+      "note": "Walt Whitman, the American poet"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "w is the abbreviation for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HITMAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A murderer disposing of a poet's spouse.",
+     "walkthrough": "Whitman minus his W leaves the answer.",
+     "definitionFit": "A hitman is a hired assassin, a professional killer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wife"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +416,62 @@
     "text": "Animal smell a local possesses",
     "enumeration": "7"
    },
-   "solution": "INHUMAN"
+   "solution": "INHUMAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "INHUMAN",
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possesses",
+      "for": "container",
+      "note": "to possess is to hold, so the outer word holds the others inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "local",
+      "gives": "INN",
+      "note": "a local is a neighbourhood pub, here an inn"
+     },
+     {
+      "clueFragment": "smell",
+      "gives": "HUM",
+      "note": "hum is British slang for a bad smell"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "HUM",
+      "A",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "The local pub smells of animals.",
+     "walkthrough": "In Britain 'the local' is one's nearby pub, and 'hum' is slang for a stink.",
+     "definitionFit": "Animal as an adjective means brutish or bestial, which is what inhuman behaviour is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Animal"
+    }
+   }
   },
   {
    "number": 7,
@@ -140,7 +491,67 @@
      }
     ]
    },
-   "solution": "MYBAD"
+   "solution": "MYBAD",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "MY BAD",
+    "definitions": [
+     {
+      "text": "admission of error",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "making retraction",
+      "for": "reversal",
+      "note": "a retraction draws something back, so the word is read the other way round"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "absurd",
+      "gives": "MAD",
+      "note": "mad can mean crazy or absurd"
+     },
+     {
+      "clueFragment": "Times",
+      "gives": "BY",
+      "note": "as in multiplication: three times four is three by four"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "YB",
+      "AD"
+     ],
+     "reversals": [
+      {
+       "from": "BY",
+       "to": "YB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Times newspaper printing a correction for a ridiculous mistake.",
+     "walkthrough": "'Times' looks like the newspaper but is the multiplication sign, read as 'by'.",
+     "definitionFit": "This is a casual idiom someone says to own up that a mistake was theirs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Times"
+    }
+   }
   },
   {
    "number": 8,
@@ -154,7 +565,63 @@
     "text": "School returning suit — is there money in it?",
     "enumeration": "8"
    },
-   "solution": "NOTECASE"
+   "solution": "NOTECASE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NOTECASE",
+    "definitions": [
+     {
+      "text": "is there money in it?",
+      "at": 24,
+      "note": "a question standing for a noun: something that holds money"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "something returning goes back the way it came, so the word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "School",
+      "gives": "ETON",
+      "note": "Eton, the English public school"
+     },
+     {
+      "clueFragment": "suit",
+      "gives": "CASE",
+      "note": "a suit at law is a case"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOTE",
+      "CASE"
+     ],
+     "reversals": [
+      {
+       "from": "ETON",
+       "to": "NOTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wondering whether a returning school's lawsuit will pay.",
+     "walkthrough": "'Suit' is a lawsuit, not clothing.",
+     "definitionFit": "A notecase is an old-fashioned word for a wallet for banknotes, which does hold money."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "suit"
+    }
+   }
   },
   {
    "number": 9,
@@ -168,7 +635,62 @@
     "text": "Gloomy academic, exhausted, drinking whiskey",
     "enumeration": "8"
    },
-   "solution": "DOWNBEAT"
+   "solution": "DOWNBEAT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "DOWNBEAT",
+    "definitions": [
+     {
+      "text": "Gloomy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drinking",
+      "for": "container",
+      "note": "something drinking takes a liquid inside it, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "academic",
+      "gives": "DON",
+      "note": "a don is a university lecturer"
+     },
+     {
+      "clueFragment": "whiskey",
+      "gives": "W",
+      "note": "Whiskey is W in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "exhausted",
+      "gives": "BEAT",
+      "note": "beat means worn out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "W",
+      "N",
+      "BEAT"
+     ]
+    },
+    "explanation": {
+     "surface": "A tired, miserable professor hitting the whiskey.",
+     "walkthrough": "The don, not the whole charade, does the drinking.",
+     "definitionFit": "Downbeat means pessimistic or low in mood, the same as gloomy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "whiskey"
+    }
+   }
   },
   {
    "number": 10,
@@ -192,7 +714,43 @@
      }
     ]
    },
-   "solution": "CREATUREOFHABIT"
+   "solution": "CREATUREOFHABIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CREATURE OF HABIT",
+    "definitions": [
+     {
+      "text": "One stuck in a rut",
+      "at": 0
+     },
+     {
+      "text": "a monk perhaps",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One stuck in a rut",
+      "note": "first meaning: a person who sticks to routine"
+     },
+     {
+      "clueFragment": "a monk perhaps",
+      "note": "second meaning, playful: a being clothed in a monk's robe"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A habit is also a monk's or nun's garment, so a monk is literally a creature in a habit.",
+     "definitionFit": "The phrase is an idiom for a person who always does the same things, and punningly a robed religious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "monk"
+    }
+   }
   },
   {
    "number": 11,
@@ -206,7 +764,57 @@
     "text": "Example of classic tale ending too soon, in my opinion",
     "enumeration": "7"
    },
-   "solution": "EPITOME"
+   "solution": "EPITOME",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "EPITOME",
+    "definitions": [
+     {
+      "text": "Example",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending too soon",
+      "for": "deletion",
+      "note": "stopping early cuts off the final letter of the word"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "classic tale",
+      "gives": "EPI",
+      "note": "an epic with its last letter cut"
+     },
+     {
+      "clueFragment": "in my opinion",
+      "gives": "TO ME",
+      "note": "as in 'to me, it seems...'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EPI",
+      "TOME"
+     ]
+    },
+    "explanation": {
+     "surface": "A literary critic judging that a classic story finishes prematurely.",
+     "definitionFit": "An epitome is a perfect example or embodiment of a type."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Example"
+    }
+   }
   },
   {
    "number": 12,
@@ -220,7 +828,66 @@
     "text": "Vagrant unsettled briefly among CID",
     "enumeration": "7"
    },
-   "solution": "NOMADIC"
+   "solution": "NOMADIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "NOMADIC",
+    "definitions": [
+     {
+      "text": "Vagrant",
+      "at": 0,
+      "note": "used as an adjective: wandering"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "making a word brief means clipping off its last letter"
+     },
+     {
+      "text": "unsettled",
+      "for": "anagram",
+      "note": "unsettled letters are disturbed from their order and rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "among",
+      "gives": "AMON",
+      "note": "the word with its last letter cut"
+     },
+     {
+      "clueFragment": "CID",
+      "gives": "CID",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOMADIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AMONCID",
+       "gives": "NOMADIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A homeless man, troubled, held among the detectives.",
+     "walkthrough": "CID is the Criminal Investigation Department, Britain's plain-clothes police; here just letters for the mix. 'Vagrant' looks like a noun but works as an adjective.",
+     "definitionFit": "Vagrant as an adjective means roaming without a fixed home, just as nomadic does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unsettled"
+    }
+   }
   },
   {
    "number": 13,
@@ -234,7 +901,69 @@
     "text": "With no guarantee of noticing singer's back in race",
     "enumeration": "8"
    },
-   "solution": "MISSABLE"
+   "solution": "MISSABLE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "MISSABLE",
+    "definitions": [
+     {
+      "text": "With no guarantee of noticing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the word is read from end to start"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece sits inside the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "race",
+      "gives": "MILE",
+      "note": "the mile is a running race"
+     },
+     {
+      "clueFragment": "singer",
+      "gives": "BASS",
+      "note": "a bass is a low-voiced singer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "SSAB",
+      "LE"
+     ],
+     "reversals": [
+      {
+       "from": "BASS",
+       "to": "SSAB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A singer returning to compete in a race and perhaps going unseen.",
+     "definitionFit": "Something missable could easily be overlooked, so there's no guarantee anyone will notice it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "race"
+    }
+   }
   },
   {
    "number": 14,
@@ -248,7 +977,55 @@
     "text": "Attempting to deceive FBI, flung out",
     "enumeration": "8"
    },
-   "solution": "BLUFFING"
+   "solution": "BLUFFING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BLUFFING",
+    "definitions": [
+     {
+      "text": "Attempting to deceive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "letters thrown out of place are scattered and reassembled differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "FBI",
+      "gives": "FBI",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "flung",
+      "gives": "FLUNG",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FBIFLUNG",
+       "gives": "BLUFFING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A suspect thrown out by federal agents after trying to fool them.",
+     "definitionFit": "Bluffing is pretending, to mislead someone about your intentions or strength."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flung"
+    }
+   }
   },
   {
    "number": 15,
@@ -262,7 +1039,61 @@
     "text": "Calls for new copper to confiscate drugs",
     "enumeration": "5"
    },
-   "solution": "NEEDS"
+   "solution": "NEEDS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "NEEDS",
+    "definitions": [
+     {
+      "text": "Calls for",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to confiscate",
+      "for": "container",
+      "note": "confiscating takes something into one's keeping, so one piece holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "n is the abbreviation for new"
+     },
+     {
+      "clueFragment": "copper",
+      "gives": "DS",
+      "note": "DS is a Detective Sergeant, a police officer"
+     },
+     {
+      "clueFragment": "drugs",
+      "gives": "EE",
+      "note": "E is ecstasy, so two Es are drugs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "EE",
+      "DS"
+     ]
+    },
+    "explanation": {
+     "surface": "A rookie police officer seizing narcotics.",
+     "walkthrough": "'New' and 'copper' join first; that pair then takes in the drugs. Copper is British slang for a police officer.",
+     "definitionFit": "To call for something is to require it, and needs is the same verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 16,
@@ -276,7 +1107,75 @@
     "text": "Did judge set date and time for son to visit?",
     "enumeration": "9"
    },
-   "solution": "ESTIMATED"
+   "solution": "ESTIMATED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ESTIMATED",
+    "definitions": [
+     {
+      "text": "Did judge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set",
+      "for": "anagram",
+      "note": "to set things is to arrange them, so these letters are put into a new order"
+     },
+     {
+      "text": "to visit",
+      "for": "container",
+      "note": "a visitor goes inside, so this letter is placed within the others"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "date",
+      "gives": "DATE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "TIME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "s is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "S",
+      "TIMATED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DATETIME",
+       "gives": "ETIMATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Did a magistrate fix when a son could come and see his parent?",
+     "walkthrough": "'Did judge' looks like a question about a court, but it is the definition: the past tense of judge, as in guessing.",
+     "definitionFit": "Estimated means roughly calculated or assessed, the past tense of judging an amount."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "judge"
+    }
+   }
   },
   {
    "number": 17,
@@ -290,7 +1189,50 @@
     "text": "Already shaved and dressed?",
     "enumeration": "8"
    },
-   "solution": "PREPARED"
+   "solution": "PREPARED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PREPARED",
+    "definitions": [
+     {
+      "text": "dressed",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Already",
+      "gives": "PRE",
+      "note": "the prefix meaning beforehand"
+     },
+     {
+      "clueFragment": "shaved",
+      "gives": "PARED",
+      "note": "pared means trimmed or shaved off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRE",
+      "PARED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone already shaved and dressed, ready for the day.",
+     "walkthrough": "Dressed is used in the culinary sense, as a dressed crab or salad is made ready to serve.",
+     "definitionFit": "Dressed food has been made ready to eat, which is to say prepared."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dressed"
+    }
+   }
   },
   {
    "number": 18,
@@ -310,7 +1252,72 @@
      }
     ]
    },
-   "solution": "RUNUP"
+   "solution": "RUNUP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "RUN-UP",
+    "definitions": [
+     {
+      "text": "approach",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "only the letters in the odd-numbered positions are kept"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turning about means facing the other way, so the word is read backwards"
+     },
+     {
+      "text": "After",
+      "for": "charade",
+      "note": "after this first piece, the next one follows directly on"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rout",
+      "gives": "RU",
+      "select": "alternate",
+      "note": "first and third letters"
+     },
+     {
+      "clueFragment": "joke",
+      "gives": "PUN",
+      "note": "a pun is a play on words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "NUP"
+     ],
+     "reversals": [
+      {
+       "from": "PUN",
+       "to": "NUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After a heavy defeat, a strange quip about tactics.",
+     "definitionFit": "A run-up is the approach to an event or a jump, as in the run-up to an election."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rout"
+    }
+   }
   },
   {
    "number": 19,
@@ -324,7 +1331,55 @@
     "text": "Rider favouring face guard almost to the end",
     "enumeration": "7"
    },
-   "solution": "PROVISO"
+   "solution": "PROVISO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "PROVISO",
+    "definitions": [
+     {
+      "text": "Rider",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost to the end",
+      "for": "deletion",
+      "note": "going nearly all the way stops short of the last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "favouring",
+      "gives": "PRO",
+      "note": "pro means in favour of"
+     },
+     {
+      "clueFragment": "face guard",
+      "gives": "VISO",
+      "note": "a visor shields the face; here it lacks its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "VISO"
+     ]
+    },
+    "explanation": {
+     "surface": "A horse rider liking a face shield.",
+     "walkthrough": "'Rider' is not a jockey but an added condition, as in a rider to a contract.",
+     "definitionFit": "A proviso is a condition attached to an agreement, which a rider also is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Rider"
+    }
+   }
   },
   {
    "number": 20,
@@ -348,7 +1403,43 @@
      }
     ]
    },
-   "solution": "UPTODATE"
+   "solution": "UPTODATE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UP-TO-DATE",
+    "definitions": [
+     {
+      "text": "Ready for romantic encounter",
+      "at": 0
+     },
+     {
+      "text": "now",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ready for romantic encounter",
+      "note": "first meaning, playful: game for a romantic outing"
+     },
+     {
+      "clueFragment": "now",
+      "note": "second meaning: current, modern"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first half is read as 'up to (go on a) date', a whimsical split of the phrase.",
+     "definitionFit": "The phrase normally means current or fashionable, which is what 'now' means as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "romantic"
+    }
+   }
   },
   {
    "number": 21,
@@ -362,7 +1453,49 @@
     "text": "Hand over power as days unfold",
     "enumeration": "7"
    },
-   "solution": "DEVOLVE"
+   "solution": "DEVOLVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DEVOLVE",
+    "definitions": [
+     {
+      "text": "Hand over power",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "days",
+      "gives": "D",
+      "note": "d is the abbreviation for days"
+     },
+     {
+      "clueFragment": "unfold",
+      "gives": "EVOLVE",
+      "note": "to evolve is to develop or unfold gradually"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "EVOLVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Authority being transferred over the course of days.",
+     "definitionFit": "To devolve is to transfer powers to a lower or regional authority."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unfold"
+    }
+   }
   },
   {
    "number": 22,
@@ -376,7 +1509,56 @@
     "text": "A foreign socialist, reportedly still on the shelf?",
     "enumeration": "6"
    },
-   "solution": "UNREAD"
+   "solution": "UNREAD",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "UNREAD",
+    "definitions": [
+     {
+      "text": "still on the shelf?",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "foreign",
+      "for": "charade",
+      "note": "a word for 'a' in another language is needed here, namely French"
+     },
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "what is reported is heard, so the sound of the word matters, not its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "UN",
+      "note": "French for 'a'"
+     },
+     {
+      "clueFragment": "socialist",
+      "gives": "READ",
+      "soundsLike": "RED",
+      "note": "a red is a left-winger"
+     }
+    ],
+    "explanation": {
+     "surface": "A foreign left-winger, it is said, is still unmarried.",
+     "walkthrough": "'On the shelf' suggests someone left unmarried, but here it is a book nobody has opened.",
+     "definitionFit": "An unread book sits on the shelf untouched, never having been opened."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shelf"
+    }
+   }
   },
   {
    "number": 23,
@@ -396,7 +1578,63 @@
      }
     ]
    },
-   "solution": "PEELOFF"
+   "solution": "PEELOFF",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "PEEL OFF",
+    "definitions": [
+     {
+      "text": "strip",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Stupidly",
+      "for": "anagram",
+      "note": "acting stupidly means behaving in a muddled way, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "making you"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "elope",
+      "gives": "ELOPE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "two females",
+      "gives": "FF",
+      "note": "f is the abbreviation for female, twice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEELO",
+      "FF"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ELOPE",
+       "gives": "PEELO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Running off foolishly with two women leaves you stripped bare.",
+     "definitionFit": "To peel off is to take off clothes, especially quickly or one layer at a time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Stupidly"
+    }
+   }
   },
   {
    "number": 24,
@@ -410,7 +1648,49 @@
     "text": "Let Liberal moving south stand",
     "enumeration": "5"
    },
-   "solution": "EASEL"
+   "solution": "EASEL",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "EASEL",
+    "definitions": [
+     {
+      "text": "stand",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Liberal moving south",
+      "for": "cycling",
+      "note": "in a down entry, south is downwards, so the L for Liberal shifts from the top to the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Let",
+      "gives": "LEASE",
+      "note": "to let a property is to lease it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EASE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Allowing a Liberal politician to move south and stand for election.",
+     "walkthrough": "'Stand' looks like a verb about elections but is the noun, an artist's stand.",
+     "definitionFit": "An easel is a frame or stand holding a painter's canvas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stand"
+    }
+   }
   },
   {
    "number": 25,
@@ -424,7 +1704,50 @@
     "text": "Beware of Caligula — he's a brute",
     "enumeration": "7"
    },
-   "solution": "CAVEMAN"
+   "solution": "CAVEMAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAVEMAN",
+    "definitions": [
+     {
+      "text": "brute",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "'s a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beware of Caligula",
+      "gives": "CAVE",
+      "note": "cave is Latin for beware, the language of the emperor Caligula"
+     },
+     {
+      "clueFragment": "he",
+      "gives": "MAN",
+      "note": "he refers to a male person, a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAVE",
+      "MAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A warning about the notoriously cruel Roman emperor.",
+     "walkthrough": "Caligula only signals that the word is Latin; 'cave!' was schoolboy slang for a lookout's warning.",
+     "definitionFit": "A caveman is figuratively a crude, uncivilized man, a brute."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Caligula"
+    }
+   }
   },
   {
    "number": 25,
@@ -438,7 +1761,50 @@
     "text": "Incompetent monarch changing sides",
     "enumeration": "5"
    },
-   "solution": "CLOWN"
+   "solution": "CLOWN",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "CLOWN",
+    "definitions": [
+     {
+      "text": "Incompetent",
+      "at": 0,
+      "note": "an adjective standing for a noun: an incompetent person"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changing sides",
+      "for": "substitution",
+      "note": "sides are right and left, so the R for right is swapped for an L for left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "monarch",
+      "gives": "CROWN",
+      "note": "the Crown stands for the monarch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "L",
+      "OWN"
+     ]
+    },
+    "explanation": {
+     "surface": "A useless king switching allegiance.",
+     "definitionFit": "A clown is a fool or bungler, someone incompetent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sides"
+    }
+   }
   },
   {
    "number": 26,
@@ -458,7 +1824,39 @@
      }
     ]
    },
-   "solution": "RUSSIANROULETTE"
+   "solution": "RUSSIANROULETTE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "RUSSIAN ROULETTE",
+    "definitions": [
+     {
+      "text": "Chancy affair where spinning round might get you shot?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chancy affair",
+      "note": "surface reading: a risky venture"
+     },
+     {
+      "clueFragment": "spinning round might get you shot",
+      "note": "setter's reading: the revolver's cylinder is spun and the round is a bullet"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Round' is a bullet, and 'spinning' the cylinder of a revolver; the surface suggests a dance or a twirl ending in a photograph.",
+     "definitionFit": "This lethal gambling game involves spinning a revolver's chamber holding one bullet and firing at oneself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 27,
@@ -472,7 +1870,47 @@
     "text": "Surgery on Barbie maybe helping?",
     "enumeration": "6"
    },
-   "solution": "DOLLOP"
+   "solution": "DOLLOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOLLOP",
+    "definitions": [
+     {
+      "text": "helping",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Barbie maybe",
+      "gives": "DOLL",
+      "note": "Barbie is a famous doll"
+     },
+     {
+      "clueFragment": "Surgery",
+      "gives": "OP",
+      "note": "op is short for operation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOLL",
+      "OP"
+     ]
+    },
+    "explanation": {
+     "surface": "Is cosmetic surgery on a Barbie doll beneficial?",
+     "walkthrough": "'Helping' looks like a verb but is a noun, a serving of food.",
+     "definitionFit": "A dollop is a shapeless lump of food served out, a portion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "helping"
+    }
+   }
   },
   {
    "number": 28,
@@ -486,7 +1924,42 @@
     "text": "One arriving at altar as planned",
     "enumeration": "8"
    },
-   "solution": "INTENDED"
+   "solution": "INTENDED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INTENDED",
+    "definitions": [
+     {
+      "text": "One arriving at altar",
+      "at": 0
+     },
+     {
+      "text": "as planned",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One arriving at altar",
+      "note": "first meaning: a future spouse"
+     },
+     {
+      "clueFragment": "as planned",
+      "note": "second meaning: meant, deliberate"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "As a noun the word means one's fiancé or fiancée; as an adjective it means deliberate.",
+     "definitionFit": "The noun denotes a betrothed person heading for the wedding, and the adjective describes something purposed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arriving"
+    }
+   }
   }
  ]
 }
