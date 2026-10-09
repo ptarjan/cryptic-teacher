@@ -11,7 +11,6 @@ StoredClueIndex answers the same questions off a sqlite store of every file
 content's clue keys, keyed by git blob sha, so a write looks up its own clues
 instead of parsing the whole corpus first.
 """
-import fcntl
 import hashlib
 import inspect
 import json
@@ -224,6 +223,7 @@ class StoredClueIndex:
         rows = {blob: (rid, pid, n) for rid, blob, pid, n in
                 conn.execute("SELECT id, blob, pid, nkeys FROM rows")}
         if any(files[n] not in rows for n in names):
+            import fcntl
             with open(path.with_name(path.name + ".lock"), "a") as lock:
                 fcntl.flock(lock, fcntl.LOCK_EX)
                 rows = {blob: (rid, pid, n) for rid, blob, pid, n in
