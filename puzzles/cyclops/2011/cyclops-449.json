@@ -24,6 +24,9 @@
   "date": "2011-08-15",
   "check": "29 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -43,7 +46,42 @@
      }
     ]
    },
-   "solution": "JOINUP"
+   "solution": "JOINUP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "JOIN UP",
+    "definitions": [
+     {
+      "text": "Get into the armed forces",
+      "at": 0
+     },
+     {
+      "text": "put the pieces back together",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get into the armed forces",
+      "note": "first meaning: to enlist as a soldier"
+     },
+     {
+      "clueFragment": "put the pieces back together",
+      "note": "second meaning: to connect separate parts again"
+     }
+    ],
+    "explanation": {
+     "surface": "A recruit hoping the army will make them whole again.",
+     "definitionFit": "The phrasal verb means both enlisting in the military and literally reconnecting broken parts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 2,
@@ -57,7 +95,69 @@
     "text": "Maxwell's end involved e.g. yacht – \"pre-entrance to God's house\"",
     "enumeration": "8"
    },
-   "solution": "LYCHGATE"
+   "solution": "LYCHGATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "LYCHGATE",
+    "definitions": [
+     {
+      "text": "pre-entrance to God's house",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end",
+      "for": "letter_selection",
+      "note": "a name's end is its final letter, so only the last letter of the surname is kept"
+     },
+     {
+      "text": "involved",
+      "for": "anagram",
+      "note": "involved suggests tangled up, so the letters that follow are mixed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maxwell's",
+      "gives": "L",
+      "select": "last",
+      "note": "last letter of the surname Maxwell"
+     },
+     {
+      "clueFragment": "e.g. yacht",
+      "gives": "YCHGATE",
+      "note": "the letters of these words, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "YCHGATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EGYACHT",
+       "gives": "YCHGATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Recalls Robert Maxwell, the press baron who died falling from his yacht, with a mock-pious epitaph.",
+     "walkthrough": "Robert Maxwell, the newspaper owner, met his end off his yacht in 1991, so the surface reads as a jibe about where he went next.",
+     "definitionFit": "A lychgate is the roofed gateway into a churchyard, standing before the church door."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "end"
+    }
+   }
   },
   {
    "number": 3,
@@ -71,7 +171,62 @@
     "text": "Kate to Wills: \"Get pickled, taking Philip's lead\"",
     "enumeration": "6"
    },
-   "solution": "SPOUSE"
+   "solution": "SPOUSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SPOUSE",
+    "definitions": [
+     {
+      "text": "Kate to Wills",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lead",
+      "for": "letter_selection",
+      "note": "a name's lead is its opening letter, so just the first letter is wanted"
+     },
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking means grabbing hold of something, so one word takes another inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get pickled",
+      "gives": "SOUSE",
+      "note": "to souse is to pickle or steep in brine, also slang for getting drunk"
+     },
+     {
+      "clueFragment": "Philip's",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of Philip"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "OUSE"
+     ]
+    },
+    "explanation": {
+     "surface": "The Duchess urging Prince William to get drunk like his grandfather Prince Philip.",
+     "definitionFit": "Kate Middleton is Prince William's wife, so what she is to him is his marriage partner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "pickled"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +240,55 @@
     "text": "Warning: pressure by sexual partner that's done to get you worked up",
     "enumeration": "8"
    },
-   "solution": "FOREPLAY"
+   "solution": "FOREPLAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FOREPLAY",
+    "definitions": [
+     {
+      "text": "that's done to get you worked up",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Warning",
+      "gives": "FORE",
+      "note": "the warning shout of a golfer"
+     },
+     {
+      "clueFragment": "pressure",
+      "gives": "P",
+      "note": "P is the physics symbol for pressure"
+     },
+     {
+      "clueFragment": "sexual partner",
+      "gives": "LAY",
+      "note": "slang for someone you sleep with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FORE",
+      "P",
+      "LAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A caution about being pushed by a lover into something meant to arouse you.",
+     "definitionFit": "Foreplay is the sexual stimulation that comes before intercourse, intended to arouse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Warning"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +302,62 @@
     "text": "Balls up, luvvie-style? Get going!",
     "enumeration": "6"
    },
-   "solution": "DECAMP"
+   "solution": "DECAMP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DECAMP",
+    "definitions": [
+     {
+      "text": "Get going!",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the word is read from bottom to top, backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Balls",
+      "gives": "ED",
+      "note": "Ed Balls, the Labour politician"
+     },
+     {
+      "clueFragment": "luvvie-style",
+      "gives": "CAMP",
+      "note": "theatrical and affected, in the manner of a luvvie (a gushing actor)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "CAMP"
+     ],
+     "reversals": [
+      {
+       "from": "ED",
+       "to": "DE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mock-theatrical shout of dismay at a cock-up, ordering someone off.",
+     "walkthrough": "'Balls up' reads as the British slang for a botch; here Balls is the shadow minister Ed Balls, turned upwards. A luvvie is a gushing, affected actor.",
+     "definitionFit": "To decamp is to leave suddenly, so as a command it means clear off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Balls"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +371,74 @@
     "text": "Liberal, oily MPs accepting \"Clegg's leader\" – another opportunity for a British fiasco?",
     "enumeration": "8"
    },
-   "solution": "OLYMPICS"
+   "solution": "OLYMPICS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "OLYMPICS",
+    "definitions": [
+     {
+      "text": "another opportunity for a British fiasco",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Liberal",
+      "for": "anagram",
+      "note": "liberal means free with things, so the letters are treated freely and rearranged"
+     },
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a name's leader is its front letter, so only the first is taken"
+     },
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "accepting means taking in, so the rearranged letters admit another inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oily MPs",
+      "gives": "OLYMPIS",
+      "note": "the letters of these words, rearranged"
+     },
+     {
+      "clueFragment": "Clegg's",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of Nick Clegg, Liberal Democrat leader"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OLYMPI",
+      "C",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OILYMPS",
+       "gives": "OLYMPIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sneer at greasy Lib Dem politicians backing their leader before London hosts the Games.",
+     "walkthrough": "'Liberal' looks like a party label beside Clegg, but it is the signal to rearrange.",
+     "definitionFit": "The 2012 Olympic Games in London were, in the satirist's eyes, a fresh chance for national embarrassment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Liberal"
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +458,67 @@
      }
     ]
    },
-   "solution": "COOLOFF"
+   "solution": "COOLOFF",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "COOL OFF",
+    "definitions": [
+     {
+      "text": "Calm down!",
+      "at": 1
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initial",
+      "for": "letter_selection",
+      "note": "an initial is the opening letter of a name, so only that one is taken"
+     },
+     {
+      "text": "agitating",
+      "for": "anagram",
+      "note": "agitating means shaking up, so the letters are stirred into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cameron's",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of Cameron"
+     },
+     {
+      "clueFragment": "of 'fool'",
+      "gives": "OOLOFF",
+      "note": "these two words' letters, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OOLOFF"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OFFOOL",
+       "gives": "OOLOFF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Recalls David Cameron's 'Calm down, dear' jibe, provoking a fool.",
+     "definitionFit": "To cool off is to calm down after anger, so the imperative matches the exclamation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "of"
+    }
+   }
   },
   {
    "number": 8,
@@ -147,7 +532,76 @@
     "text": "One affected when Europe's wrecked (Greece finally having gone)",
     "enumeration": "6"
    },
-   "solution": "POSEUR"
+   "solution": "POSEUR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "POSEUR",
+    "definitions": [
+     {
+      "text": "One affected",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very last letter of the country's name"
+     },
+     {
+      "text": "having gone",
+      "for": "deletion",
+      "note": "something that has gone is no longer there, so that letter is removed"
+     },
+     {
+      "text": "wrecked",
+      "for": "anagram",
+      "note": "something wrecked is smashed up, so the letters are broken and reassembled"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Europe's",
+      "gives": "EUROPES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Greece",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of Greece"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POSEUR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EUROPS",
+       "gives": "POSEUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Comment on the eurozone crisis, with Europe ruined and Greece crashing out.",
+     "walkthrough": "Remove one E from the letters of EUROPES, leaving EUROPS, then rearrange.",
+     "definitionFit": "A poseur is someone with affected, pretentious manners, putting on airs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "affected"
+    }
+   }
   },
   {
    "number": 9,
@@ -161,7 +615,42 @@
     "text": "Posh cars, coarsened birds",
     "enumeration": "7"
    },
-   "solution": "ROLLERS"
+   "solution": "ROLLERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROLLERS",
+    "definitions": [
+     {
+      "text": "Posh cars",
+      "at": 0
+     },
+     {
+      "text": "coarsened birds",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Posh cars",
+      "note": "first meaning: casual short form for Rolls-Royces"
+     },
+     {
+      "clueFragment": "coarsened birds",
+      "note": "second meaning: a family of brightly coloured birds; coarsened hints at slang shortening"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Both senses are informal: Rollers for Rolls-Royce cars, and the roller is also a real bird, its name roughened from the full form.",
+     "definitionFit": "Roller names both a luxury Rolls-Royce car in slang and a family of crow-sized, colourful birds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "birds"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +678,81 @@
     "text": "Ex-leader putting her bust into naff, unprepossessing tops",
     "enumeration": "5"
    },
-   "solution": "NEHRU"
+   "solution": "NEHRU",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "NEHRU",
+    "definitions": [
+     {
+      "text": "Ex-leader",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bust",
+      "for": "anagram",
+      "note": "bust means broken, so the letters are smashed and rebuilt in a new order"
+     },
+     {
+      "text": "putting",
+      "for": "container",
+      "note": "putting something into another places it inside"
+     },
+     {
+      "text": "tops",
+      "for": "letter_selection",
+      "note": "the tops of words are their first letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "naff",
+      "gives": "N",
+      "select": "first",
+      "note": "first letter of naff"
+     },
+     {
+      "clueFragment": "her",
+      "gives": "EHR",
+      "note": "the word her, rearranged"
+     },
+     {
+      "clueFragment": "unprepossessing",
+      "gives": "U",
+      "select": "first",
+      "note": "first letter of unprepossessing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "EHR",
+      "U"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HER",
+       "gives": "EHR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman squeezing her bosom into unflattering, tacky tops.",
+     "walkthrough": "'Bust' and 'tops' both look like clothing talk; one rearranges, the other takes first letters. Naff is British slang for tacky.",
+     "definitionFit": "Jawaharlal Nehru was India's first prime minister, a former national leader."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bust"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +776,72 @@
      }
     ]
    },
-   "solution": "ONTHEBALL"
+   "solution": "ONTHEBALL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "charade"
+    ],
+    "answer": "ON THE BALL",
+    "definitions": [
+     {
+      "text": "Alert to new ideas",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sadly",
+      "for": "anagram",
+      "note": "sadly suggests things have gone wrong, so the letters are put in a disordered arrangement"
+     },
+     {
+      "text": "get end away",
+      "for": "deletion",
+      "note": "getting the end away means the last letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not he",
+      "gives": "ONTHE",
+      "note": "these letters, rearranged"
+     },
+     {
+      "clueFragment": "maybe Ed",
+      "gives": "BALLS",
+      "note": "Ed Balls, the Labour politician, is an example of an Ed"
+     },
+     {
+      "clueFragment": "just needs",
+      "note": "surface padding linking the Ed to the instruction that follows"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONTHE",
+      "BALL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOTHE",
+       "gives": "ONTHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bemoaning Ed Balls' lack of fresh ideas, with a smutty hint that he just needs sex.",
+     "walkthrough": "'Get one's end away' is British slang for having sex; here it simply strips the last letter from BALLS.",
+     "definitionFit": "Being on the ball means being quick, sharp and aware, receptive to what is happening."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "end"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +855,55 @@
     "text": "Personal problem after lay that merely makes you feel better",
     "enumeration": "7"
    },
-   "solution": "PLACEBO"
+   "solution": "PLACEBO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLACEBO",
+    "definitions": [
+     {
+      "text": "that merely makes you feel better",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says the personal problem is placed behind the word for lay, not before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lay",
+      "gives": "PLACE",
+      "note": "to lay something is to place it"
+     },
+     {
+      "clueFragment": "Personal problem",
+      "gives": "BO",
+      "note": "BO, body odour, is a personal hygiene problem"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLACE",
+      "BO"
+     ]
+    },
+    "explanation": {
+     "surface": "Body odour following a one-night stand, and a remedy that only works in the mind.",
+     "walkthrough": "'Lay' tempts as the sexual noun, as in 4 down; here it is the verb place.",
+     "definitionFit": "A placebo is a dummy treatment with no active drug, helping only through the patient's belief."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lay"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +917,67 @@
     "text": "Return of disease – Dicky Rees guards genital area",
     "enumeration": "7"
    },
-   "solution": "RELAPSE"
+   "solution": "RELAPSE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RELAPSE",
+    "definitions": [
+     {
+      "text": "Return of disease",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dicky",
+      "for": "anagram",
+      "note": "dicky is British slang for unsound or shaky, so the letters are jumbled"
+     },
+     {
+      "text": "guards",
+      "for": "container",
+      "note": "guarding something means surrounding it protectively, so one part goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rees",
+      "gives": "RESE",
+      "note": "the name Rees, rearranged"
+     },
+     {
+      "clueFragment": "genital area",
+      "gives": "LAP",
+      "note": "the lap is the front of the lower body when seated"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "LAP",
+      "SE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REES",
+       "gives": "RESE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Rees protecting his crotch, alongside a disease coming back.",
+     "definitionFit": "A relapse is when a patient's illness returns after apparent recovery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dicky"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +1001,60 @@
      }
     ]
    },
-   "solution": "TWENTYFIVEYEARS"
+   "solution": "TWENTYFIVEYEARS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TWENTY-FIVE YEARS",
+    "definitions": [
+     {
+      "text": "Ian's term, as editor",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put out",
+      "for": "anagram",
+      "note": "put out means upset and disturbed, so the letters are disarranged"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Verify any tweet",
+      "gives": "VERIFYANYTWEET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Sun",
+      "gives": "S",
+      "note": "S abbreviates Sunday, or sun"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VERIFYANYTWEETS",
+       "gives": "TWENTYFIVEYEARS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tabloid instruction to check Twitter stories, aimed at the Sun newspaper.",
+     "walkthrough": "The Sun is the British tabloid in the surface, but supplies only S here. Ian Hislop became Private Eye's editor in 1986, so this issue marks his quarter century.",
+     "definitionFit": "Ian Hislop's tenure as editor of Private Eye had run a quarter of a century by 2011."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Sun"
+    }
+   }
   },
   {
    "number": 15,
@@ -283,7 +1072,51 @@
    "group": [
     "15-down",
     "21-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TICKLED PINK",
+    "definitions": [
+     {
+      "text": "Victoria certainly wasn't",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "given the old trout treatment",
+      "gives": "TICKLED",
+      "note": "trout can be caught by gently stroking them underwater, an old poaching method"
+     },
+     {
+      "clueFragment": "gay",
+      "gives": "PINK",
+      "note": "pink is associated with gay culture, as in the pink pound"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TICKLED",
+      "PINK"
+     ]
+    },
+    "explanation": {
+     "surface": "Queen Victoria pointedly not being amused by a gay man's crude groping.",
+     "walkthrough": "Queen Victoria is famous for 'We are not amused'. 'Old trout' looks like an insult to her, but refers to the fish and tickling them.",
+     "definitionFit": "Being tickled pink means being greatly amused or delighted, the opposite of Victoria's famous frostiness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trout"
+    }
+   }
   },
   {
    "number": 16,
@@ -297,7 +1130,39 @@
     "text": "One who, in the past, appreciated a nice rack?",
     "enumeration": "8"
    },
-   "solution": "TORTURER"
+   "solution": "TORTURER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TORTURER",
+    "definitions": [
+     {
+      "text": "One who, in the past, appreciated a nice rack?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "appreciated a nice rack",
+      "note": "surface reading: a man ogling a woman's bosom, rack being slang for breasts"
+     },
+     {
+      "clueFragment": "One who, in the past",
+      "note": "setter's reading: someone in history who made good use of the rack, the stretching device"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The rack was an instrument for stretching victims in old interrogations; the slang sense of breasts is the decoy.",
+     "definitionFit": "An interrogator of old would value a good rack, the device used to inflict pain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rack"
+    }
+   }
   },
   {
    "number": 17,
@@ -311,7 +1176,52 @@
     "text": "Instruction to one who plays with sex aid endlessly ...",
     "enumeration": "7"
    },
-   "solution": "VIBRATO"
+   "solution": "VIBRATO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "VIBRATO",
+    "definitions": [
+     {
+      "text": "Instruction to one who plays",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "endlessly means without its end, so the last letter is cut off"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sex aid",
+      "gives": "VIBRATOR",
+      "note": "a vibrator is a sex toy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIBRATO"
+     ]
+    },
+    "explanation": {
+     "surface": "Smutty direction to someone playing with a sex toy that never stops.",
+     "walkthrough": "'One who plays' reads as someone playing with themselves; it is a musician.",
+     "definitionFit": "Vibrato is a musical direction to a performer to make the note pulse slightly in pitch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plays"
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1235,70 @@
     "text": "'Patronage' means one American getting shafted by Ginger?",
     "enumeration": "8"
    },
-   "solution": "AUSPICES"
+   "solution": "AUSPICES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "AUSPICES",
+    "definitions": [
+     {
+      "text": "Patronage",
+      "at": 1
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting shafted",
+      "for": "anagram",
+      "note": "being shafted means being done over, so the letters are wrecked and rearranged"
+     }
+    ],
+    "linkWords": [
+     "means",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a, meaning one"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "abbreviation for the United States"
+     },
+     {
+      "clueFragment": "Ginger",
+      "gives": "SPICE",
+      "note": "ginger is a spice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "USPICES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "USSPICE",
+       "gives": "USPICES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American being cheated by a redhead, with patronage the theme.",
+     "walkthrough": "'Ginger' looks like a redhead (or Ginger Spice); it is just the spice.",
+     "definitionFit": "Under someone's auspices means with their support or sponsorship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ginger"
+    }
+   }
   },
   {
    "number": 19,
@@ -345,7 +1318,56 @@
      }
     ]
    },
-   "solution": "COVERUP"
+   "solution": "COVERUP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COVER UP",
+    "definitions": [
+     {
+      "text": "Whitewash",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside places one part within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of bra",
+      "gives": "CUP",
+      "note": "a bra has two cups"
+     },
+     {
+      "clueFragment": "balls",
+      "gives": "OVER",
+      "note": "in cricket an over is a set of six balls"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OVER",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "Something stuffed inside a bra cup to cover up.",
+     "walkthrough": "In cricket an over is six balls bowled by one bowler; 'balls' looks bawdy.",
+     "definitionFit": "A whitewash is a concealment of wrongdoing, the same thing as a cover-up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "balls"
+    }
+   }
   },
   {
    "number": 20,
@@ -359,7 +1381,61 @@
     "text": "Testicles at first stored in glass bottles – very important for a body",
     "enumeration": "6"
    },
-   "solution": "VITALS"
+   "solution": "VITALS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "VITALS",
+    "definitions": [
+     {
+      "text": "very important for a body",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter only"
+     },
+     {
+      "text": "stored in",
+      "for": "container",
+      "note": "stored in means placed inside a holder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "glass bottles",
+      "gives": "VIALS",
+      "note": "vials are small glass bottles"
+     },
+     {
+      "clueFragment": "Testicles",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of testicles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "T",
+      "ALS"
+     ]
+    },
+    "explanation": {
+     "surface": "Testicles preserved in jars, as in a medical museum.",
+     "definitionFit": "The vitals are the essential organs, such as heart and lungs, that the body cannot survive without."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Testicles"
+    }
+   }
   },
   {
    "number": 21,
@@ -393,7 +1469,51 @@
      }
     ]
    },
-   "solution": "BEARSUP"
+   "solution": "BEARSUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEARS UP",
+    "definitions": [
+     {
+      "text": "keeps cheerful",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "'s on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maybe Rupert",
+      "gives": "BEAR",
+      "note": "Rupert Bear, the British children's cartoon character, is a bear"
+     },
+     {
+      "clueFragment": "the booze",
+      "gives": "SUP",
+      "note": "to sup is to drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEAR",
+      "SUP"
+     ]
+    },
+    "explanation": {
+     "surface": "Rupert Murdoch hitting the bottle under pressure.",
+     "walkthrough": "Rupert looks like Murdoch, beleaguered over phone hacking; he is Rupert Bear, a children's comic-strip bear.",
+     "definitionFit": "To bear up is to stay brave and cheerful under strain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Rupert"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1527,57 @@
     "text": "After one, seniors start missing things growing big",
     "enumeration": "6"
    },
-   "solution": "ALDERS"
+   "solution": "ALDERS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ALDERS",
+    "definitions": [
+     {
+      "text": "things growing big",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start missing",
+      "for": "deletion",
+      "note": "a start that is missing means the first letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "After"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a, meaning one"
+     },
+     {
+      "clueFragment": "seniors",
+      "gives": "ELDERS",
+      "note": "elders are older people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LDERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Older people, one by one, forgetting things, while something grows.",
+     "definitionFit": "Alders are trees, which are things that grow to a large size."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "missing"
+    }
+   }
   },
   {
    "number": 24,
@@ -427,7 +1597,60 @@
      }
     ]
    },
-   "solution": "PAYOFF"
+   "solution": "PAYOFF",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PAY-OFF",
+    "definitions": [
+     {
+      "text": "punchline",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned round, so the word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Talk",
+      "gives": "YAP",
+      "note": "to yap is to chatter"
+     },
+     {
+      "clueFragment": "sick",
+      "gives": "OFF",
+      "note": "feeling off means unwell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAY",
+      "OFF"
+     ],
+     "reversals": [
+      {
+       "from": "YAP",
+       "to": "PAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Discussing a joke in poor taste.",
+     "definitionFit": "The payoff of a joke is its climax, the line that delivers the laugh."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sick"
+    }
+   }
   },
   {
    "number": 25,
@@ -441,7 +1664,76 @@
     "text": "State of endless bad odour in Italian corruption",
     "enumeration": "9"
    },
-   "solution": "LITHUANIA"
+   "solution": "LITHUANIA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "LITHUANIA",
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "endless means without an ending, so the last letter goes"
+     },
+     {
+      "text": "corruption",
+      "for": "anagram",
+      "note": "corruption is a spoiling, so the letters are disordered"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one part within another"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Italian",
+      "gives": "LITANIA",
+      "note": "the letters of Italian, rearranged"
+     },
+     {
+      "clueFragment": "bad odour",
+      "gives": "HUM",
+      "note": "a hum is British slang for a bad smell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIT",
+      "HU",
+      "ANIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITALIAN",
+       "gives": "LITANIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Italian politics smelling of corruption.",
+     "walkthrough": "'State' looks like a condition; it is a country.",
+     "definitionFit": "Lithuania is a Baltic country, a sovereign nation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "State"
+    }
+   }
   },
   {
    "number": 26,
@@ -459,7 +1751,51 @@
    "group": [
     "26-across",
     "10-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DAILY STAR",
+    "definitions": [
+     {
+      "text": "Cheap rag",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a cleaner",
+      "gives": "DAILY",
+      "note": "a daily is a British term for a domestic cleaner who comes in every day"
+     },
+     {
+      "clueFragment": "energy source",
+      "gives": "STAR",
+      "note": "a star, like the sun, is a source of energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAILY",
+      "STAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheap cloth that turns into a greener, cleaner power supply.",
+     "walkthrough": "'Cheap rag' seems a duster beside 'cleaner'; it is a tabloid newspaper.",
+     "definitionFit": "The Daily Star is a downmarket British tabloid newspaper, and rag is slang for a paper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rag"
+    }
+   }
   },
   {
    "number": 27,
@@ -473,7 +1809,65 @@
     "text": "LibDem-Conservative leaders in \"partnership performance\" – how sweet!",
     "enumeration": "6"
    },
-   "solution": "DULCET"
+   "solution": "DULCET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DULCET",
+    "definitions": [
+     {
+      "text": "sweet",
+      "at": 63
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders",
+      "for": "letter_selection",
+      "note": "leaders of words are their first letters"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one part within another"
+     }
+    ],
+    "linkWords": [
+     "how"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "partnership performance",
+      "gives": "DUET",
+      "note": "a duet is a performance by two"
+     },
+     {
+      "clueFragment": "LibDem-Conservative",
+      "gives": "LC",
+      "select": "first",
+      "note": "first letters of LibDem and Conservative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DU",
+      "LC",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "Mocking the coalition as a cosy double act.",
+     "walkthrough": "The 2010 UK coalition joined the Liberal Democrats and the Conservatives.",
+     "definitionFit": "Dulcet means sweet and soothing, usually of sounds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "partnership"
+    }
+   }
   },
   {
    "number": 28,
@@ -487,7 +1881,39 @@
     "text": "Don't feel this if you're rough",
     "enumeration": "8"
    },
-   "solution": "YOURSELF"
+   "solution": "YOURSELF",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "YOURSELF",
+    "definitions": [
+     {
+      "text": "Don't feel this if you're rough",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Don't feel this",
+      "note": "surface reading: avoid touching something if you are clumsy"
+     },
+     {
+      "clueFragment": "if you're rough",
+      "note": "setter's reading: rough means unwell, and an unwell person says they are not feeling quite themselves"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In British usage feeling rough means feeling ill, and the idiom is 'not feeling yourself'.",
+     "definitionFit": "The reflexive pronoun completes the idiom about being off-colour or unwell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rough"
+    }
+   }
   }
  ]
 }
