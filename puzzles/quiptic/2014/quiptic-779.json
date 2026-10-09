@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,47 @@
      }
     ]
    },
-   "solution": "DISCOUNTSTORE"
+   "solution": "DISCOUNTSTORE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISCOUNT STORE",
+    "definitions": [
+     {
+      "text": "Cut-price outlet",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ignores",
+      "gives": "DISCOUNTS",
+      "note": "to discount something is to disregard it"
+     },
+     {
+      "clueFragment": "rent",
+      "gives": "TORE",
+      "note": "rent as the past tense of rend, to rip apart"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISCOUNTS",
+      "TORE"
+     ]
+    },
+    "explanation": {
+     "surface": "A bargain shop that pays no attention to what its landlord demands.",
+     "walkthrough": "'Rent' looks like a noun for money owed; here it is the verb rend in the past tense.",
+     "definitionFit": "A shop selling goods below normal prices is a retail business known by exactly this name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rent"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +96,68 @@
     "text": "Terribly impoverished, he'd leave and perform without a script",
     "enumeration": "9"
    },
-   "solution": "IMPROVISE"
+   "solution": "IMPROVISE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "IMPROVISE",
+    "definitions": [
+     {
+      "text": "perform without a script",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leave",
+      "for": "deletion",
+      "note": "the letters spelling the following word depart from the longer word, so they are taken away"
+     },
+     {
+      "text": "Terribly",
+      "for": "anagram",
+      "note": "something done terribly is done badly, so the remaining letters come out in a disordered arrangement"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "impoverished",
+      "gives": "IMPOVERISHED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "he'd",
+      "gives": "HED",
+      "note": "the letters of the contraction, apostrophe dropped, are the ones removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMPROVISE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IMPOVERIS",
+       "gives": "IMPROVISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man left penniless walks out and starts making things up as he goes along.",
+     "walkthrough": "Removing H, E, D from IMPOVERISHED leaves IMPOVERIS, whose letters rearrange to IMPROVISE.",
+     "definitionFit": "To improvise is to perform spontaneously, inventing the words or music on the spot rather than following a prepared text."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Terribly"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +171,66 @@
     "text": "Vice president supports large number on strike",
     "enumeration": "5"
    },
-   "solution": "CLAMP"
+   "solution": "CLAMP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLAMP",
+    "definitions": [
+     {
+      "text": "Vice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down answer, one thing sitting on another is placed above it"
+     },
+     {
+      "text": "supports",
+      "for": "charade",
+      "note": "in a down answer, what supports something sits underneath it, so it comes last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "large number",
+      "gives": "C",
+      "note": "C is the Roman numeral for a hundred"
+     },
+     {
+      "clueFragment": "strike",
+      "gives": "LAM",
+      "note": "to lam is to hit hard"
+     },
+     {
+      "clueFragment": "president",
+      "gives": "P",
+      "note": "P is a standard abbreviation for president"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LAM",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A vice president backs a mass walkout of workers.",
+     "walkthrough": "'Vice president' reads as a job title, but 'Vice' alone is the definition, the workshop tool.",
+     "definitionFit": "A vice is a gripping tool with jaws that holds work steady, and a clamp is a near-identical holding device."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Vice"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +244,60 @@
     "text": "Worry peacekeeping organisation never works",
     "enumeration": "7"
    },
-   "solution": "UNNERVE"
+   "solution": "UNNERVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "UNNERVE",
+    "definitions": [
+     {
+      "text": "Worry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "works",
+      "for": "anagram",
+      "note": "the letters are worked, that is shaped and reprocessed, into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peacekeeping organisation",
+      "gives": "UN",
+      "note": "the United Nations runs peacekeeping missions"
+     },
+     {
+      "clueFragment": "never",
+      "gives": "NEVER",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "NERVE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEVER",
+       "gives": "NERVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pessimist complains that the international peacekeeping body never achieves anything.",
+     "definitionFit": "To unnerve someone is to make them anxious and lose confidence, which is a transitive sense of worry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "works"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +311,51 @@
     "text": "Boy gets killed by bears",
     "enumeration": "7"
    },
-   "solution": "TEDDIES"
+   "solution": "TEDDIES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEDDIES",
+    "definitions": [
+     {
+      "text": "bears",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boy",
+      "gives": "TED",
+      "note": "a boy's name, short for Edward"
+     },
+     {
+      "clueFragment": "gets killed",
+      "gives": "DIES",
+      "note": "someone killed dies"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TED",
+      "DIES"
+     ]
+    },
+    "explanation": {
+     "surface": "A grim news item: a boy is mauled to death by wild bears.",
+     "walkthrough": "The bears sound like wild animals but are soft toys.",
+     "definitionFit": "Teddies are stuffed toy bears, so the plural noun is a familiar example of the definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bears"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +379,46 @@
      }
     ]
    },
-   "solution": "TAKEAHIKE"
+   "solution": "TAKEAHIKE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TAKE A HIKE",
+    "definitions": [
+     {
+      "text": "Go for a walk",
+      "at": 0
+     },
+     {
+      "text": "get lost",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go for a walk",
+      "note": "first meaning: literally set off on a hike"
+     },
+     {
+      "clueFragment": "get lost",
+      "note": "second meaning: a rude dismissal, telling someone to go away"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a rambler losing the path; the second phrase is really the idiom for clearing off.",
+     "definitionFit": "The idiom is both a literal instruction to go walking and a slangy way of telling someone to clear off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lost"
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +432,51 @@
     "text": "Short chat with religious leader",
     "enumeration": "5"
    },
-   "solution": "RABBI"
+   "solution": "RABBI",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RABBI",
+    "definitions": [
+     {
+      "text": "religious leader",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Short",
+      "for": "deletion",
+      "note": "a word cut short loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chat",
+      "gives": "RABBIT",
+      "note": "British slang: to rabbit, or rabbit on, is to chatter at length"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RABBI"
+     ]
+    },
+    "explanation": {
+     "surface": "A brief conversation with a cleric.",
+     "walkthrough": "RABBIT for chat is from Cockney rhyming slang (rabbit and pork, talk); dropping its last letter leaves RABBI.",
+     "definitionFit": "A rabbi is a Jewish teacher and leader of a congregation, so the title fits a religious leader."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Short"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +504,66 @@
      }
     ]
    },
-   "solution": "CUTTOTHECHASE"
+   "solution": "CUTTOTHECHASE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CUT TO THE CHASE",
+    "definitions": [
+     {
+      "text": "skipped the preliminaries",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing sitting in another goes inside it, here inside the words that follow"
+     }
+    ],
+    "linkWords": [
+     "gets",
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     },
+     {
+      "clueFragment": "shot",
+      "gives": "TOT",
+      "note": "a shot of spirits is a tot"
+     },
+     {
+      "clueFragment": "the pursuit",
+      "gives": "THECHASE",
+      "note": "a pursuit is a chase"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CU",
+      "T",
+      "TOT",
+      "HECHASE"
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer is shot during a pursuit, after rushing in without preparation.",
+     "walkthrough": "'Shot' suggests gunfire, but it is a small drink, and it lodges just after the first letter of the pursuit.",
+     "definitionFit": "The idiom means got straight to the point, past tense here, matching an action that bypassed any opening formalities."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +583,62 @@
      }
     ]
    },
-   "solution": "PENNYFARTHING"
+   "solution": "PENNYFARTHING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PENNY-FARTHING",
+    "definitions": [
+     {
+      "text": "Old transport",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "gets",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "PENNY",
+      "note": "a girl's name"
+     },
+     {
+      "clueFragment": "a long way",
+      "gives": "FAR",
+      "note": "far means a long way off"
+     },
+     {
+      "clueFragment": "meagre",
+      "gives": "THIN",
+      "note": "meagre means scanty or thin"
+     },
+     {
+      "clueFragment": "gallon",
+      "gives": "G",
+      "note": "G is an abbreviation for gallon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PENNY",
+      "FAR",
+      "THIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "An antiquated vehicle takes a girl a great distance on barely any fuel.",
+     "definitionFit": "The Victorian bicycle with a huge front wheel and tiny rear one is a historic means of getting about."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gallon"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +652,72 @@
     "text": "A French aircraft bearing north to Germany's not scheduled",
     "enumeration": "9"
    },
-   "solution": "UNPLANNED"
+   "solution": "UNPLANNED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "UNPLANNED",
+    "definitions": [
+     {
+      "text": "not scheduled",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bearing",
+      "for": "container",
+      "note": "something bearing a load carries it within, so it holds the next item"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A French",
+      "gives": "UN",
+      "note": "un is French for a"
+     },
+     {
+      "clueFragment": "aircraft",
+      "gives": "PLANE",
+      "note": "an aircraft is a plane"
+     },
+     {
+      "clueFragment": "north",
+      "gives": "N",
+      "note": "N is the compass abbreviation for north"
+     },
+     {
+      "clueFragment": "Germany",
+      "gives": "D",
+      "note": "D is the international vehicle code for Germany (Deutschland)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "PLA",
+      "N",
+      "NE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A French jet heading north for Germany is an unscheduled flight.",
+     "walkthrough": "'Bearing north' reads as a compass heading, but bearing means carrying.",
+     "definitionFit": "Something unplanned was not arranged in advance, which is what unscheduled means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bearing"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +731,45 @@
     "text": "Oxford college principal's male, reportedly",
     "enumeration": "5"
    },
-   "solution": "KEBLE"
+   "solution": "KEBLE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "KEBLE",
+    "definitions": [
+     {
+      "text": "Oxford college",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "what is reported is heard rather than seen, so the sound matters, not the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "principal's male",
+      "gives": "KEBLE",
+      "soundsLike": "KEY BULL",
+      "note": "principal means key or main, and a bull is a male animal; said together they make the college name"
+     }
+    ],
+    "explanation": {
+     "surface": "A rumour that the head of an Oxford college is a man.",
+     "walkthrough": "'Principal' looks like the college head, but it is the adjective meaning main.",
+     "definitionFit": "Keble is one of the constituent colleges of the University of Oxford, founded in 1870."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "principal's"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +783,64 @@
     "text": "Soldiers having bad time when retreating",
     "enumeration": "5"
    },
-   "solution": "TROOP"
+   "solution": "TROOP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TROOP",
+    "definitions": [
+     {
+      "text": "Soldiers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retreating",
+      "for": "reversal",
+      "note": "a retreating force goes back the way it came, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "having",
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bad",
+      "gives": "POOR",
+      "note": "poor means of low quality"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ROOP"
+     ],
+     "reversals": [
+      {
+       "from": "POORT",
+       "to": "TROOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An army unit suffers a rough spell while falling back.",
+     "definitionFit": "A troop is a unit of soldiers, especially in cavalry or artillery, and troops means soldiers generally."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retreating"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +854,63 @@
     "text": "Endlessly regret island people's downfall",
     "enumeration": "9"
    },
-   "solution": "RUINATION"
+   "solution": "RUINATION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RUINATION",
+    "definitions": [
+     {
+      "text": "downfall",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endlessly",
+      "for": "deletion",
+      "note": "without its end, a word loses the final letter"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "regret",
+      "gives": "RUE",
+      "note": "to rue is to regret"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is an abbreviation for island"
+     },
+     {
+      "clueFragment": "people",
+      "gives": "NATION",
+      "note": "a nation is a people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "I",
+      "NATION"
+     ]
+    },
+    "explanation": {
+     "surface": "Islanders lament forever the collapse of their community.",
+     "definitionFit": "Ruination is the state of being ruined, so it names a collapse or destruction just like the definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "people's"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +924,65 @@
     "text": "The first student caught with weed?",
     "enumeration": "7"
    },
-   "solution": "THISTLE"
+   "solution": "THISTLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THISTLE",
+    "definitions": [
+     {
+      "text": "weed",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caught",
+      "for": "container",
+      "note": "a thing that has caught something holds it, so the next pieces go inside"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "first",
+      "gives": "IST",
+      "note": "1st, with the digit read as the letter I"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L is for learner, as on a British learner driver's plate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "IST",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "The top student was caught smoking cannabis.",
+     "walkthrough": "'Weed' suggests cannabis; it is a garden plant. 'First' is written as the numeral form with I standing for 1.",
+     "definitionFit": "The thistle is a prickly plant that gardeners treat as an unwanted, invasive growth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "weed"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +1002,69 @@
      }
     ]
    },
-   "solution": "TAROTCARD"
+   "solution": "TAROTCARD",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TAROT CARD",
+    "definitions": [
+     {
+      "text": "used to tell fortunes",
+      "at": 27,
+      "note": "a descriptive phrase standing for a noun: a thing used to tell fortunes"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rising",
+      "for": "reversal",
+      "note": "in a down answer, rising means read from the bottom up, so backwards"
+     },
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly means taking only the letters in odd-numbered positions"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "actor at",
+      "gives": "ACTORAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "RADA",
+      "gives": "RD",
+      "select": "alternate",
+      "note": "first and third letters of the drama school's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAROTCA",
+      "RD"
+     ],
+     "reversals": [
+      {
+       "from": "ACTORAT",
+       "to": "TAROTCA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An up-and-coming student at drama school is oddly employed as a fortune teller.",
+     "walkthrough": "RADA is the Royal Academy of Dramatic Art, a London drama school. 'Rising actor' sounds like a promising performer; Rising is the reversal signal.",
+     "definitionFit": "Tarot cards are a deck dealt out by readers who claim to predict a person's future."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rising"
+    }
+   }
   },
   {
    "number": 16,
@@ -291,7 +1084,57 @@
      }
     ]
    },
-   "solution": "SPINOFF"
+   "solution": "SPINOFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPIN-OFF",
+    "definitions": [
+     {
+      "text": "Holby City, for one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one piece placed after another comes second in the answer"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "media hype",
+      "gives": "SPIN",
+      "note": "spin is the slanted presentation of news by publicists"
+     },
+     {
+      "clueFragment": "disappointing",
+      "gives": "OFF",
+      "note": "off as in below standard: an off performance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPIN",
+      "OFF"
+     ]
+    },
+    "explanation": {
+     "surface": "A TV critic complains that a hospital drama fails to live up to its publicity.",
+     "walkthrough": "Holby City was a BBC hospital drama derived from the long-running series Casualty.",
+     "definitionFit": "A show created from an existing programme's characters or setting is a derivative series, an example being this hospital drama."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Holby"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1158,46 @@
      }
     ]
    },
-   "solution": "OUTOFDATE"
+   "solution": "OUTOFDATE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OUT-OF-DATE",
+    "definitions": [
+     {
+      "text": "Having no partner for the evening",
+      "at": 0
+     },
+     {
+      "text": "uncool",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Having no partner for the evening",
+      "note": "first meaning, read whimsically: without a date for the night"
+     },
+     {
+      "clueFragment": "uncool",
+      "note": "second meaning: old-fashioned, behind the times"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first half is a playful literal reading of the phrase; the second is its usual sense.",
+     "definitionFit": "Taken literally the phrase means lacking a date; in its normal sense it means obsolete or unfashionable, which is uncool."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "partner"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1211,57 @@
     "text": "Study book added line on forehead!",
     "enumeration": "7"
    },
-   "solution": "EYEBROW"
+   "solution": "EYEBROW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EYEBROW",
+    "definitions": [
+     {
+      "text": "on forehead",
+      "at": 22,
+      "note": "elliptical: what sits on the forehead"
+     }
+    ],
+    "linkWords": [
+     "added"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Study",
+      "gives": "EYE",
+      "note": "to eye something is to study it"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is an abbreviation for book"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "ROW",
+      "note": "a row is a line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EYE",
+      "B",
+      "ROW"
+     ]
+    },
+    "explanation": {
+     "surface": "Reading too much has added a wrinkle to someone's brow.",
+     "walkthrough": "The definition is loose: the answer is something found on the forehead, and the whole clue nudges toward it.",
+     "definitionFit": "Eyebrows are the arches of hair that grow just above the eyes, at the bottom of the forehead."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1275,63 @@
     "text": "Lighter from Western Isles approaching jetty",
     "enumeration": "7"
    },
-   "solution": "WISPIER"
+   "solution": "WISPIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WISPIER",
+    "definitions": [
+     {
+      "text": "Lighter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "approaching",
+      "for": "charade",
+      "note": "what comes before something approaches it, so these come first"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Western",
+      "gives": "W",
+      "note": "W is the abbreviation for western"
+     },
+     {
+      "clueFragment": "Isles",
+      "gives": "IS",
+      "note": "Is is an abbreviation for islands or isles"
+     },
+     {
+      "clueFragment": "jetty",
+      "gives": "PIER",
+      "note": "a pier is a jetty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "IS",
+      "PIER"
+     ]
+    },
+    "explanation": {
+     "surface": "A cigarette lighter brought over from the Hebrides arrives at the landing stage.",
+     "walkthrough": "'Lighter' suggests a flame or a barge; it is the comparative adjective, more delicate.",
+     "definitionFit": "Wispier means thinner and more delicate, like a wisp of smoke, so it is a comparative of light in weight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lighter"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1351,83 @@
      }
     ]
    },
-   "solution": "REENTER"
+   "solution": "REENTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "reversal"
+    ],
+    "answer": "RE-ENTER",
+    "definitions": [
+     {
+      "text": "go in again",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "redeployed",
+      "for": "anagram",
+      "note": "troops redeployed are moved into new positions, so these letters are rearranged"
+     },
+     {
+      "text": "turn",
+      "for": "reversal",
+      "note": "to turn the preceding word is to flip it round so it reads backwards"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldiers",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers, a British army corps"
+     },
+     {
+      "clueFragment": "ten",
+      "gives": "TEN",
+      "note": "its letters rearranged"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "ENT",
+      "ER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEN",
+       "gives": "ENT"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "RE",
+       "to": "ER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A squad is redeployed, makes an about-turn and heads back in.",
+     "walkthrough": "'About turn' reads as the drill command, but 'about' gives RE and 'turn' reverses it.",
+     "definitionFit": "To re-enter is to come into a place once more, which is a direct synonym for the phrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 20,
@@ -377,7 +1441,66 @@
     "text": "Run out to watch gripping motor race with a prize for the winner",
     "enumeration": "7"
    },
-   "solution": "ROSETTE"
+   "solution": "ROSETTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ROSETTE",
+    "definitions": [
+     {
+      "text": "a prize for the winner",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gripping",
+      "for": "container",
+      "note": "something gripping another holds it tight inside"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Run out",
+      "gives": "RO",
+      "note": "ro is the cricket scorecard abbreviation for run out"
+     },
+     {
+      "clueFragment": "watch",
+      "gives": "SEE",
+      "note": "to watch is to see"
+     },
+     {
+      "clueFragment": "motor race",
+      "gives": "TT",
+      "note": "the TT, Tourist Trophy, is the Isle of Man motorcycle race"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "SE",
+      "TT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A spectator hurries off to see a motor race where the winner gets a prize.",
+     "walkthrough": "'Run out' is a cricket dismissal, written ro on a scorecard; the Isle of Man TT is a famous motorcycle race.",
+     "definitionFit": "A rosette is a rosebud-shaped ribbon badge awarded to winners at shows and contests."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Run"
+    }
+   }
   },
   {
    "number": 21,
@@ -391,7 +1514,83 @@
     "text": "Husband with fourth cigar burning is so afflicted by bad breath",
     "enumeration": "9"
    },
-   "solution": "HALITOSIS"
+   "solution": "HALITOSIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "HALITOSIS",
+    "definitions": [
+     {
+      "text": "bad breath",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fourth",
+      "for": "letter_selection",
+      "note": "fourth picks out the letter in fourth position of the next word"
+     },
+     {
+      "text": "afflicted",
+      "for": "anagram",
+      "note": "letters afflicted are troubled and knocked out of their proper order"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     },
+     {
+      "clueFragment": "cigar",
+      "gives": "A",
+      "select": 4,
+      "note": "its fourth letter"
+     },
+     {
+      "clueFragment": "burning",
+      "gives": "LIT",
+      "note": "lit means alight, burning"
+     },
+     {
+      "clueFragment": "is so",
+      "gives": "ISSO",
+      "note": "its letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "A",
+      "LIT",
+      "OSIS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISSO",
+       "gives": "OSIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man who smokes cigars suffers terribly from bad breath.",
+     "definitionFit": "Halitosis is the medical term for an unpleasant smell on the breath."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "afflicted"
+    }
+   }
   },
   {
    "number": 22,
@@ -405,7 +1604,59 @@
     "text": "Branch office opening in state of uncertainty",
     "enumeration": "5"
    },
-   "solution": "LIMBO"
+   "solution": "LIMBO",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LIMBO",
+    "definitions": [
+     {
+      "text": "state of uncertainty",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "the opening of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Branch",
+      "gives": "LIMB",
+      "note": "a limb is a branch of a tree"
+     },
+     {
+      "clueFragment": "office",
+      "gives": "O",
+      "select": "first",
+      "note": "its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIMB",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A local branch office launching is in a state of uncertainty.",
+     "walkthrough": "'Branch office' reads as one phrase but splits into two pieces.",
+     "definitionFit": "Being in limbo means being stuck in an unresolved, waiting condition with no decision made."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Branch"
+    }
+   }
   },
   {
    "number": 23,
@@ -419,7 +1670,65 @@
     "text": "20%, if cutting foot, go to hospital",
     "enumeration": "5"
    },
-   "solution": "FIFTH"
+   "solution": "FIFTH",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "FIFTH",
+    "definitions": [
+     {
+      "text": "20%",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cutting",
+      "for": "container",
+      "note": "a word cutting into another is inserted into it"
+     }
+    ],
+    "linkWords": [
+     "go to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "foot",
+      "gives": "FT",
+      "note": "ft is the abbreviation for foot"
+     },
+     {
+      "clueFragment": "if",
+      "gives": "IF",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the abbreviation for hospital, as on road signs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "IF",
+      "T",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A medical warning: if a fifth of your foot is cut off, go to hospital.",
+     "walkthrough": "'Cutting foot' sounds like an injury, but it means the little word goes inside the abbreviation.",
+     "definitionFit": "Twenty per cent is one part in five, so it is the fraction this ordinal names."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "cutting"
+    }
+   }
   },
   {
    "number": 23,
@@ -433,7 +1742,65 @@
     "text": "Fellow, putting energies into car, becomes more relaxed",
     "enumeration": "5"
    },
-   "solution": "FREER"
+   "solution": "FREER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "FREER",
+    "definitions": [
+     {
+      "text": "more relaxed",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "putting",
+      "for": "container",
+      "note": "putting something into another places it inside"
+     }
+    ],
+    "linkWords": [
+     "becomes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "F",
+      "note": "F is an abbreviation for fellow"
+     },
+     {
+      "clueFragment": "car",
+      "gives": "RR",
+      "note": "RR is Rolls-Royce, the luxury car"
+     },
+     {
+      "clueFragment": "energies",
+      "gives": "EE",
+      "note": "E for energy, twice for the plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "R",
+      "EE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A man who puts more effort into his car comes to feel calmer.",
+     "walkthrough": "The car here is a Rolls-Royce, abbreviated as two letters; energies, plural, gives two letters as well.",
+     "definitionFit": "Freer means less constrained, looser in manner, which matches being more at ease."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "energies"
+    }
+   }
   },
   {
    "number": 24,
@@ -447,7 +1814,69 @@
     "text": "When retiring, doctor has a dance",
     "enumeration": "5"
    },
-   "solution": "SAMBA"
+   "solution": "SAMBA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SAMBA",
+    "definitions": [
+     {
+      "text": "dance",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retiring",
+      "for": "reversal",
+      "note": "retiring means withdrawing backwards, so the word reads the other way"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "When",
+      "gives": "AS",
+      "note": "as can mean when, as in as I arrived"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MB",
+      "note": "MB is Bachelor of Medicine, a doctor's degree"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "MB",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "AS",
+       "to": "SA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "At bedtime, a doctor takes a turn on the dance floor.",
+     "definitionFit": "The samba is a lively Brazilian ballroom and carnival dance, an example of the general term."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retiring"
+    }
+   }
   },
   {
    "number": 25,
@@ -471,7 +1900,43 @@
      }
     ]
    },
-   "solution": "INTHEMAIN"
+   "solution": "INTHEMAIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IN THE MAIN",
+    "definitions": [
+     {
+      "text": "Generally",
+      "at": 0
+     },
+     {
+      "text": "found at sea",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Generally",
+      "note": "first meaning: for the most part, on the whole"
+     },
+     {
+      "clueFragment": "found at sea",
+      "note": "second meaning, read literally: in the ocean, the main being a poetic word for the sea"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The main is an old poetic name for the open sea, as in the Spanish Main.",
+     "definitionFit": "The idiom means mostly or usually, and literally describes something located out on the ocean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "found"
+    }
+   }
   },
   {
    "number": 26,
@@ -491,7 +1956,50 @@
      }
     ]
    },
-   "solution": "BORDERTERRIER"
+   "solution": "BORDERTERRIER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BORDER TERRIER",
+    "definitions": [
+     {
+      "text": "hunting dog",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "injured",
+      "for": "anagram",
+      "note": "something injured is damaged out of its proper shape, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bet rider error",
+      "gives": "BETRIDERERROR",
+      "note": "its letters rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BETRIDERERROR",
+       "gives": "BORDERTERRIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A punter backed a jockey whose mistake led to a fall and injury.",
+     "definitionFit": "The Border terrier is a small rough-coated breed from the Scottish-English border, bred to bolt foxes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "injured"
+    }
+   }
   }
  ]
 }
