@@ -469,7 +469,7 @@ unit_solutions() {
   # happens on a night nobody knows in advance — but the miss trailer is a lie
   # when there are no misses.
   if [ -n "$graded" ]; then
-    if printf %s "$graded" | grep -q "^  miss "; then
+    if printf %s "$graded" | grep "^  miss " >/dev/null; then
       alert "a puzzle we solved ourselves has been graded against
 published answers (the paper's key, or a solver's write-up):
 
@@ -838,7 +838,7 @@ $bad_hints"
 # the tick's annotation queue (daily_units.py keyed --record).
 unit_commit() {  # subject
   python3 tools/daily_units.py keyed --record
-  if git status --porcelain -- puzzles | grep -q .; then
+  if git status --porcelain -- puzzles | grep . >/dev/null; then
     blog_chain Corroboration "cross_validate.py all --new --apply"
   fi
   # The annotation payloads apply_annotations.py consumed. Gitignored (tools/_*),
@@ -1323,7 +1323,7 @@ pending="${fresh:+$fresh }$pending"
 # is bought twice by the two jobs at once; new arrivals stay here. Its lock
 # names its pid (see its own lock_is_dead).
 burn_pid=$(cat "${CT_WORKTREE_ROOT:-$HOME/.cryptic-teacher}/prereset_backfill/.prereset.lock/pid" 2>/dev/null)
-if [ -n "$kept" ] && [ -n "$burn_pid" ] && ps -o command= -p "$burn_pid" 2>/dev/null | grep -q prereset_backfill; then
+if [ -n "$kept" ] && [ -n "$burn_pid" ] && ps -o command= -p "$burn_pid" 2>/dev/null | grep prereset_backfill >/dev/null; then
   echo "the burn (pid $burn_pid) is draining the backlog; leaving it $kept"
   kept=""
 fi

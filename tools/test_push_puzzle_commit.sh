@@ -91,7 +91,7 @@ git fetch -q origin master
 missing=0
 for i in $(seq "$rounds"); do
   git cat-file -e "origin/master:puzzles/s/2026/new-$i.json" 2>/dev/null || missing=$((missing + 1))
-  git cat-file -p origin/master:other.txt | grep -qx "new $i" || { echo "FAIL: other clone's line $i was reverted"; rc=1; }
+  git cat-file -p origin/master:other.txt | grep -x "new $i" >/dev/null || { echo "FAIL: other clone's line $i was reverted"; rc=1; }
 done
 [ "$missing" = 0 ] || { echo "FAIL: $missing puzzles never reached origin/master"; rc=1; }
 [ "$(git rev-list --count "$head_before..HEAD")" = "$rounds" ] ||
