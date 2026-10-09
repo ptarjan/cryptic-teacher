@@ -247,6 +247,7 @@ def launch(dry):
     STATE_DIR.mkdir(parents=True, exist_ok=True)
     EXIT.unlink(missing_ok=True)
     env = {k: v for k, v in os.environ.items() if k not in ("CT_IN_WORKTREE", "CT_MAIN_CHECKOUT")}
+    marks = ledger_marks()  # before the pass can write a row
     with open(LOG, "a") as log:
         p = subprocess.Popen(command(), stdout=log, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL,
                              start_new_session=True, env=env, cwd=ROOT)
@@ -255,7 +256,7 @@ def launch(dry):
         if start:
             break
         time.sleep(0.1)
-    RUNNING.write_text(json.dumps({"name": NAME, "pid": p.pid, "start": start, "ledgers": ledger_marks(),
+    RUNNING.write_text(json.dumps({"name": NAME, "pid": p.pid, "start": start, "ledgers": marks,
                                    "launched": datetime.datetime.now().astimezone().isoformat(timespec="seconds")}))
     print(f"started the full pass (pid {p.pid}); log {LOG}")
 

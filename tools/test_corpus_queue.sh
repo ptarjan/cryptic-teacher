@@ -75,7 +75,12 @@ def run_pass(body):
 st = run_pass("exit 0")
 assert args.read_text().strip() == "", "the pass takes no arguments: no edition list"
 assert st["lastExit"]["rc"] == 0 and st["deadLaunches"] == 0, st
+# (mirror) a pass that writes its row before launch() has its pid's start time
+# still made progress: the marks are taken before it runs.
+slow_start = q.proc_start
+q.proc_start = lambda pid: (time.sleep(0.5), slow_start(pid))[1]
 assert run_pass(f"echo row >> {ledger}; exit 1")["deadLaunches"] == 0, "an unfinished pass that read a source made progress"
+q.proc_start = slow_start
 q.FETCHED[0].parent.mkdir(parents=True, exist_ok=True)
 assert run_pass(f"echo edition >> {q.FETCHED[0]}; exit 1")["deadLaunches"] == 0, "one that fetched made progress"
 assert run_pass("exit 1")["deadLaunches"] == 1, "one that read and fetched nothing is a dead launch"
