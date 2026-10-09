@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,69 @@
     "text": "Infectious bugs in river coming up under log",
     "enumeration": "8"
    },
-   "solution": "LISTERIA"
+   "solution": "LISTERIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LISTERIA",
+    "definitions": [
+     {
+      "text": "Infectious bugs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming up",
+      "for": "reversal",
+      "note": "in a down clue, a word coming up is read from bottom to top, so backwards"
+     },
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down entry, being under something means sitting below it, so this piece follows the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "log",
+      "gives": "LIST",
+      "note": "a log is a record or list"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "AIRE",
+      "note": "the Aire is a river in Yorkshire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIST",
+      "ERIA"
+     ],
+     "reversals": [
+      {
+       "from": "AIRE",
+       "to": "ERIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Germs from a polluted river drifting up beneath a floating log.",
+     "walkthrough": "'under log' places the reversed river beneath the log in the down entry. The Aire is a river in northern England.",
+     "definitionFit": "Listeria is a genus of bacteria that causes food poisoning, so they are infectious germs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "log"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +111,42 @@
     "text": "Equitable market",
     "enumeration": "4"
    },
-   "solution": "FAIR"
+   "solution": "FAIR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FAIR",
+    "definitions": [
+     {
+      "text": "Equitable",
+      "at": 0
+     },
+     {
+      "text": "market",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Equitable",
+      "note": "first meaning: just, even-handed"
+     },
+     {
+      "clueFragment": "market",
+      "note": "second meaning: a gathering for selling goods"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests economics' fair-market ideal; the two words are simply two senses of one word.",
+     "definitionFit": "The word is both an adjective meaning just and a noun for a periodic gathering of traders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "market"
+    }
+   }
   },
   {
    "number": 3,
@@ -66,7 +166,46 @@
      }
     ]
    },
-   "solution": "REDHOT"
+   "solution": "REDHOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RED-HOT",
+    "definitions": [
+     {
+      "text": "incandescent",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ruby",
+      "gives": "RED",
+      "note": "ruby is a shade of red"
+     },
+     {
+      "clueFragment": "stolen",
+      "gives": "HOT",
+      "note": "slang: stolen goods are hot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RED",
+      "HOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A ruby has been stolen and someone is incandescent with rage.",
+     "definitionFit": "Something glowing with heat is red-hot; incandescent means glowing from intense heat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "incandescent"
+    }
+   }
   },
   {
    "number": 4,
@@ -80,7 +219,66 @@
     "text": "Doctor not ever injecting bishop — not allowed",
     "enumeration": "8"
    },
-   "solution": "VERBOTEN"
+   "solution": "VERBOTEN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "VERBOTEN",
+    "definitions": [
+     {
+      "text": "not allowed",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so the letters are rearranged"
+     },
+     {
+      "text": "injecting",
+      "for": "container",
+      "note": "an injection puts one thing inside another, so a piece goes into the middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not ever",
+      "gives": "NOTEVER",
+      "note": "the two words supply the letters to rearrange"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VER",
+      "B",
+      "OTEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOTEVER",
+       "gives": "VEROTEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor who never gives a bishop an injection because it is forbidden.",
+     "definitionFit": "Verboten is German for forbidden, borrowed into English for something prohibited."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +298,53 @@
      }
     ]
    },
-   "solution": "DININGROOM"
+   "solution": "DININGROOM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DINING ROOM",
+    "definitions": [
+     {
+      "text": "chamber",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pandemonium",
+      "gives": "DIN",
+      "note": "a din is a loud uproar"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tidy",
+      "gives": "GROOM",
+      "note": "to groom is to tidy one's appearance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIN",
+      "IN",
+      "GROOM"
+     ]
+    },
+    "explanation": {
+     "surface": "Chaos breaking out in a room that had been kept neat.",
+     "walkthrough": "'in' looks like a container signal but is simply its own two letters in the chain.",
+     "definitionFit": "A dining room is a particular room of a house, and chamber is an old word for a room."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +358,70 @@
     "text": "Classes are set up after fellow ultimately lost",
     "enumeration": "6"
    },
-   "solution": "GENERA"
+   "solution": "GENERA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "reversal"
+    ],
+    "answer": "GENERA",
+    "definitions": [
+     {
+      "text": "Classes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately lost",
+      "for": "deletion",
+      "note": "the final letter, the ultimate one, goes missing from the word for fellow"
+     },
+     {
+      "text": "set up",
+      "for": "reversal",
+      "note": "in a down clue, setting up means turning the letters to read upwards"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fellow",
+      "gives": "GENT",
+      "note": "a gent is a man or fellow"
+     },
+     {
+      "clueFragment": "are",
+      "gives": "ARE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEN",
+      "ERA"
+     ],
+     "reversals": [
+      {
+       "from": "ARE",
+       "to": "ERA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lessons arranged after a man finally went missing.",
+     "walkthrough": "'after' places the reversed word behind the shortened fellow.",
+     "definitionFit": "Genera, plural of genus, are taxonomic classes of living things grouping related species."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Classes"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +435,68 @@
     "text": "First of grids in metal moulded binder",
     "enumeration": "8"
    },
-   "solution": "LIGAMENT"
+   "solution": "LIGAMENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "LIGAMENT",
+    "definitions": [
+     {
+      "text": "binder",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "First of",
+      "for": "letter_selection",
+      "note": "only the opening letter of the following word is wanted"
+     },
+     {
+      "text": "moulded",
+      "for": "anagram",
+      "note": "moulding reshapes material, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grids",
+      "gives": "G",
+      "select": "first",
+      "note": "the initial letter of grids"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written, part of the material to rearrange"
+     },
+     {
+      "clueFragment": "metal",
+      "gives": "METAL",
+      "note": "taken as written, part of the material to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GINMETAL",
+       "gives": "LIGAMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A metal binding clip cast in a mould, starting from a grid pattern.",
+     "walkthrough": "'in' reads as a link to metal but is part of the letters to be moulded.",
+     "definitionFit": "A ligament is a band of tissue that ties bones together, so it binds them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "binder"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +510,58 @@
     "text": "Found in pile of refuse, receptacle for vegetable",
     "enumeration": "6"
    },
-   "solution": "TURNIP"
+   "solution": "TURNIP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TURNIP",
+    "definitions": [
+     {
+      "text": "vegetable",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Found in",
+      "for": "container",
+      "note": "something found in a place sits inside it, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pile of refuse",
+      "gives": "TIP",
+      "note": "in Britain a tip is a rubbish dump"
+     },
+     {
+      "clueFragment": "receptacle",
+      "gives": "URN",
+      "note": "an urn is a vase-like container"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "URN",
+      "IP"
+     ]
+    },
+    "explanation": {
+     "surface": "A container turned up on a rubbish heap, used for holding vegetables.",
+     "walkthrough": "A tip is the everyday British word for a rubbish dump.",
+     "definitionFit": "A turnip is a white root vegetable grown for eating and for fodder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Found"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +575,55 @@
     "text": "Journalist once working in computer science walked out",
     "enumeration": "6"
    },
-   "solution": "EXITED"
+   "solution": "EXITED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EXITED",
+    "definitions": [
+     {
+      "text": "walked out",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working in",
+      "for": "container",
+      "note": "someone working in a field is placed inside it, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Journalist once",
+      "gives": "EXED",
+      "note": "a former editor is an ex-ed"
+     },
+     {
+      "clueFragment": "computer science",
+      "gives": "IT",
+      "note": "IT, information technology, stands for computing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "IT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A former journalist who took a job in computing has quit.",
+     "walkthrough": "ED, an editor, is the standard crossword journalist; EX marks a former one, and IT goes between the two parts.",
+     "definitionFit": "Exited means left a place, which is what someone who walked out did."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 10,
@@ -170,7 +637,56 @@
     "text": "Celeb is damn contrary",
     "enumeration": "4"
    },
-   "solution": "STAR"
+   "solution": "STAR",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "STAR",
+    "definitions": [
+     {
+      "text": "Celeb",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contrary",
+      "for": "reversal",
+      "note": "contrary means going the opposite way, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "damn",
+      "gives": "RATS",
+      "note": "'rats!' is an exclamation of annoyance like 'damn!'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR"
+     ],
+     "reversals": [
+      {
+       "from": "RATS",
+       "to": "STAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity who is awkward and contrary, damn them.",
+     "definitionFit": "A celeb, short for celebrity, is a famous person, often called a star."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "contrary"
+    }
+   }
   },
   {
    "number": 11,
@@ -190,7 +706,43 @@
      }
     ]
    },
-   "solution": "HARDBOILED"
+   "solution": "HARDBOILED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HARD-BOILED",
+    "definitions": [
+     {
+      "text": "Showing lack of sympathy",
+      "at": 0
+     },
+     {
+      "text": "not good for soldiers?",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Showing lack of sympathy",
+      "note": "first meaning: tough and unsentimental"
+     },
+     {
+      "clueFragment": "not good for soldiers?",
+      "note": "second meaning: an egg cooked so firm that strips of toast cannot be dipped in it"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Soldiers here are not troops but British nursery slang for fingers of toast dipped into a soft runny egg yolk; a firmly cooked egg is useless for them.",
+     "definitionFit": "A hard-boiled person is callous and tough, while a hard-boiled egg has a solid yolk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "soldiers"
+    }
+   }
   },
   {
    "number": 12,
@@ -204,7 +756,58 @@
     "text": "Principal on board, sure clever",
     "enumeration": "6"
    },
-   "solution": "BRIGHT"
+   "solution": "BRIGHT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BRIGHT",
+    "definitions": [
+     {
+      "text": "clever",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Principal",
+      "for": "letter_selection",
+      "note": "principal means foremost, so only the leading letter of the next word counts"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "board",
+      "gives": "B",
+      "select": "first",
+      "note": "the initial letter of board"
+     },
+     {
+      "clueFragment": "sure",
+      "gives": "RIGHT",
+      "note": "'right' and 'sure' are both words of agreement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "The headteacher, sitting on the board, is certainly smart.",
+     "definitionFit": "A bright person is quick-witted, a common synonym for intelligent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Principal"
+    }
+   }
   },
   {
    "number": 13,
@@ -218,7 +821,67 @@
     "text": "So beer casually drunk by murderous, unwanted companion of lovers",
     "enumeration": "10"
    },
-   "solution": "GOOSEBERRY"
+   "solution": "GOOSEBERRY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GOOSEBERRY",
+    "definitions": [
+     {
+      "text": "unwanted companion of lovers",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "casually",
+      "for": "anagram",
+      "note": "done casually means carelessly, so the letters fall into a loose new order"
+     },
+     {
+      "text": "drunk by",
+      "for": "container",
+      "note": "something drunk by another is taken inside it, so one piece is swallowed by the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "murderous",
+      "gives": "GORY",
+      "note": "gory means bloody, involving killing"
+     },
+     {
+      "clueFragment": "So beer",
+      "gives": "SOBEER",
+      "note": "the two words supply the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "OSEBER",
+      "RY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOBEER",
+       "gives": "OSEBER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A killer downing beer casually while tagging along with a courting couple.",
+     "walkthrough": "'To play gooseberry' is a British idiom for being the third person in the way of a couple.",
+     "definitionFit": "In British idiom a gooseberry is the unwanted third person accompanying a pair of lovers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 14,
@@ -232,7 +895,51 @@
     "text": "Key altering after transposition",
     "enumeration": "8"
    },
-   "solution": "INTEGRAL"
+   "solution": "INTEGRAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INTEGRAL",
+    "definitions": [
+     {
+      "text": "Key",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after transposition",
+      "for": "anagram",
+      "note": "transposing means switching positions, so the letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "altering",
+      "gives": "ALTERING",
+      "note": "the word supplies the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALTERING",
+       "gives": "INTEGRAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician's key changing once a piece has been transposed.",
+     "walkthrough": "'Key' sounds musical alongside transposition, but it is the adjective meaning essential.",
+     "definitionFit": "Something key is essential to the whole, which is what integral means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Key"
+    }
+   }
   },
   {
    "number": 15,
@@ -252,7 +959,49 @@
      }
     ]
    },
-   "solution": "ATONCE"
+   "solution": "ATONCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AT ONCE",
+    "definitions": [
+     {
+      "text": "without delay",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "joining"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Loads",
+      "gives": "ATON",
+      "note": "'a ton' is informal for a great amount, as in loads"
+     },
+     {
+      "clueFragment": "Church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATON",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "Crowds rushing to join the church straight away.",
+     "definitionFit": "At once is an idiom for immediately, that is, without any delay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Loads"
+    }
+   }
   },
   {
    "number": 16,
@@ -266,7 +1015,53 @@
     "text": "Car heads off for game",
     "enumeration": "8"
    },
-   "solution": "CHARADES"
+   "solution": "CHARADES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHARADES",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off suggests things gone wrong or out of order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Car heads",
+      "gives": "CARHEADS",
+      "note": "the two words supply the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CARHEADS",
+       "gives": "CHARADES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Car fans setting off to play a game.",
+     "definitionFit": "Charades is a party game in which players mime words for others to guess."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heads"
+    }
+   }
   },
   {
    "number": 17,
@@ -280,7 +1075,43 @@
     "text": "Many still awaiting relation?",
     "enumeration": "6"
    },
-   "solution": "UNTOLD"
+   "solution": "UNTOLD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UNTOLD",
+    "definitions": [
+     {
+      "text": "Many",
+      "at": 0
+     },
+     {
+      "text": "still awaiting relation?",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Many",
+      "note": "first meaning: too numerous to count"
+     },
+     {
+      "clueFragment": "still awaiting relation?",
+      "note": "second meaning: a story not yet related, that is not yet narrated"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Relation' looks like a family member, but here it is the act of relating a tale.",
+     "definitionFit": "Untold describes a vast uncountable amount and also a story nobody has yet narrated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "relation"
+    }
+   }
   },
   {
    "number": 18,
@@ -294,7 +1125,53 @@
     "text": "Looking at dropping ad initially — it's saucy",
     "enumeration": "8"
    },
-   "solution": "DRESSING"
+   "solution": "DRESSING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DRESSING",
+    "definitions": [
+     {
+      "text": "it's saucy",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropping",
+      "for": "deletion",
+      "note": "dropping means letting go, so a piece is removed from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Looking at",
+      "gives": "ADDRESSING",
+      "note": "addressing a problem or a person means facing and looking at it"
+     },
+     {
+      "clueFragment": "ad initially",
+      "note": "the two letters to remove from the start"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRESSING"
+     ]
+    },
+    "explanation": {
+     "surface": "Studying an advert, at first sight it seems rather risqué.",
+     "walkthrough": "'initially' says where the advert's two letters come off: the front.",
+     "definitionFit": "A dressing is a sauce poured over salad, so it is something saucy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "saucy"
+    }
+   }
   },
   {
    "number": 19,
@@ -314,7 +1191,53 @@
      }
     ]
    },
-   "solution": "SLIPUP"
+   "solution": "SLIPUP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SLIP-UP",
+    "definitions": [
+     {
+      "text": "Mistake",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipped over",
+      "for": "reversal",
+      "note": "flipping something over turns it end to end, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "class members",
+      "gives": "PUPILS",
+      "note": "pupils are members of a school class"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLIPUP"
+     ],
+     "reversals": [
+      {
+       "from": "PUPILS",
+       "to": "SLIPUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An error made when students in a class were turned upside down.",
+     "definitionFit": "A slip-up is an informal word for a careless error or blunder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flipped"
+    }
+   }
   },
   {
    "number": 20,
@@ -334,7 +1257,43 @@
      }
     ]
    },
-   "solution": "AFTERALL"
+   "solution": "AFTERALL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AFTER ALL",
+    "definitions": [
+     {
+      "text": "Bringing up the rear",
+      "at": 0
+     },
+     {
+      "text": "despite expectations",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bringing up the rear",
+      "note": "first meaning: coming behind everyone else"
+     },
+     {
+      "clueFragment": "despite expectations",
+      "note": "second meaning: in spite of what was anticipated"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first sense is read literally, word by word: positioned behind the whole lot.",
+     "definitionFit": "Taken literally the phrase means behind everybody; as an idiom it means contrary to what was expected."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rear"
+    }
+   }
   },
   {
    "number": 21,
@@ -348,7 +1307,47 @@
     "text": "Chilled, back intuitive approach",
     "enumeration": "6"
    },
-   "solution": "FROZEN"
+   "solution": "FROZEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FROZEN",
+    "definitions": [
+     {
+      "text": "Chilled",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "back",
+      "gives": "FRO",
+      "note": "fro means backwards, as in to and fro"
+     },
+     {
+      "clueFragment": "intuitive approach",
+      "gives": "ZEN",
+      "note": "Zen is a Buddhist approach stressing intuition over reasoning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRO",
+      "ZEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A relaxed person returning to a calm, intuitive outlook.",
+     "walkthrough": "'back' looks like a turnaround signal but is the word fro itself.",
+     "definitionFit": "Something frozen has been chilled below freezing point until solid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 22,
@@ -362,7 +1361,43 @@
     "text": "Song with less feeling?",
     "enumeration": "6"
    },
-   "solution": "NUMBER"
+   "solution": "NUMBER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NUMBER",
+    "definitions": [
+     {
+      "text": "Song",
+      "at": 0
+     },
+     {
+      "text": "with less feeling?",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Song",
+      "note": "first meaning: a musical piece in a show"
+     },
+     {
+      "clueFragment": "with less feeling?",
+      "note": "second meaning: more numb, the comparative of numb"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two readings are pronounced differently: one rhymes with 'lumber', the other drops the B sound.",
+     "definitionFit": "A number is a song in a performance, and something more numb has less physical feeling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "feeling"
+    }
+   }
   },
   {
    "number": 22,
@@ -376,7 +1411,58 @@
     "text": "Require lead shortened by half for pointer",
     "enumeration": "6"
    },
-   "solution": "NEEDLE"
+   "solution": "NEEDLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "NEEDLE",
+    "definitions": [
+     {
+      "text": "pointer",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortened by half",
+      "for": "deletion",
+      "note": "cutting something by half removes half its letters, keeping only the front part"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Require",
+      "gives": "NEED",
+      "note": "to require is to need"
+     },
+     {
+      "clueFragment": "lead",
+      "gives": "LEAD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEED",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Needing a shortened dog lead for a pointer dog.",
+     "walkthrough": "A pointer is a breed of dog, and lead is its leash, but the answer is the pointer on a dial.",
+     "definitionFit": "A needle is the indicator on a gauge or compass that points to a reading."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "pointer"
+    }
+   }
   },
   {
    "number": 23,
@@ -396,7 +1482,63 @@
      }
     ]
    },
-   "solution": "FOREXAMPLE"
+   "solution": "FOREXAMPLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FOR EXAMPLE",
+    "definitions": [
+     {
+      "text": "say",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind places the first-named word after what follows it in the clue"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "government department",
+      "gives": "FO",
+      "note": "the FO is the Foreign Office, a British ministry"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "REX",
+      "note": "rex is Latin for king"
+     },
+     {
+      "clueFragment": "Liberal",
+      "gives": "AMPLE",
+      "note": "liberal can mean plentiful or generous"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FO",
+      "REX",
+      "AMPLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Liberal politician trailing a ministry and the monarch, so to speak.",
+     "walkthrough": "'Liberal' looks like the party, but it means generous in amount. The Foreign Office is Britain's ministry for foreign affairs.",
+     "definitionFit": "Say can introduce an instance, exactly as the phrase meaning 'as an instance' does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Liberal"
+    }
+   }
   },
   {
    "number": 24,
@@ -410,7 +1552,43 @@
     "text": "Lovely woman stood up",
     "enumeration": "4"
    },
-   "solution": "ROSE"
+   "solution": "ROSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROSE",
+    "definitions": [
+     {
+      "text": "Lovely woman",
+      "at": 0
+     },
+     {
+      "text": "stood up",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lovely woman",
+      "note": "first meaning: a beauty"
+     },
+     {
+      "clueFragment": "stood up",
+      "note": "second meaning: past tense of rise"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'stood up' suggests a date that never came; it is just the past tense of rising to one's feet.",
+     "definitionFit": "A beautiful woman is often called a rose, and rose is also the past tense of rise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stood"
+    }
+   }
   },
   {
    "number": 24,
@@ -424,7 +1602,47 @@
     "text": "Grand Prix perhaps coming up in Monte Carlo",
     "enumeration": "4"
    },
-   "solution": "RACE"
+   "solution": "RACE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "RACE",
+    "definitions": [
+     {
+      "text": "Grand Prix perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the words that follow"
+     },
+     {
+      "text": "coming up",
+      "for": "reversal",
+      "note": "in a down clue, coming up means reading from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Monte Carlo",
+      "gives": "ECAR",
+      "note": "the run of letters across the two words, from the end of the first into the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A Grand Prix approaching in Monte Carlo, as the Monaco race does.",
+     "definitionFit": "A Grand Prix is an example of a motor race, hence 'perhaps' in the clue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -444,7 +1662,43 @@
      }
     ]
    },
-   "solution": "DEARME"
+   "solution": "DEARME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DEAR ME",
+    "definitions": [
+     {
+      "text": "Gosh",
+      "at": 0
+     },
+     {
+      "text": "I come at a price!",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gosh",
+      "note": "first meaning: a mild exclamation of surprise"
+     },
+     {
+      "clueFragment": "I come at a price!",
+      "note": "second meaning: read as 'expensive, that is what I am'"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half is read literally: someone saying they are costly.",
+     "definitionFit": "The phrase is a mild exclamation of dismay like gosh, and literally says the speaker is expensive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "price"
+    }
+   }
   },
   {
    "number": 26,
@@ -458,7 +1712,50 @@
     "text": "Birds in places all at sea",
     "enumeration": "8"
    },
-   "solution": "PELICANS"
+   "solution": "PELICANS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PELICANS",
+    "definitions": [
+     {
+      "text": "Birds",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all at sea",
+      "for": "anagram",
+      "note": "all at sea means confused and disordered, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in places",
+      "gives": "INPLACES",
+      "note": "the two words supply the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INPLACES",
+       "gives": "PELICANS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Seabirds dotted in various spots across the ocean.",
+     "definitionFit": "Pelicans are large waterbirds with a throat pouch for catching fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   }
  ]
 }
