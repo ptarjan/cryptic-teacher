@@ -24,6 +24,9 @@
   "date": "2025-07-15",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,58 @@
     "text": "Occupant's monthly payment includes the team",
     "enumeration": "8"
    },
-   "solution": "RESIDENT"
+   "solution": "RESIDENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RESIDENT",
+    "definitions": [
+     {
+      "text": "Occupant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "includes",
+      "for": "container",
+      "note": "something that includes another thing holds it inside itself, so one word wraps the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "monthly payment",
+      "gives": "RENT",
+      "note": "rent is typically paid every month"
+     },
+     {
+      "clueFragment": "the team",
+      "gives": "SIDE",
+      "note": "a side is a sports team"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "SIDE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A tenant's monthly bill somehow covers the whole team.",
+     "walkthrough": "The 's is 'is', joining the definition to the wordplay; the team sits inside the payment.",
+     "definitionFit": "A resident is a person who lives in a place, the occupier of a home."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "team"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +105,37 @@
     "text": "Go here on holiday?",
     "enumeration": "6"
    },
-   "solution": "RESORT"
+   "solution": "RESORT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "RESORT",
+    "definitions": [
+     {
+      "text": "Go here on holiday?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go here on holiday?",
+      "note": "surface reading: a question about where to travel for a break"
+     },
+     {
+      "clueFragment": "Go here",
+      "note": "setter's reading: the clue simply describes a holiday destination, a place people go to for their break"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue is barely cryptic: the question mark flags that the whole phrase describes a kind of place rather than giving wordplay.",
+     "definitionFit": "A resort is a seaside or mountain destination that holidaymakers travel to."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +149,60 @@
     "text": "Firstly she has to embezzle, then gamble",
     "enumeration": "9"
    },
-   "solution": "SPECULATE"
+   "solution": "SPECULATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SPECULATE",
+    "definitions": [
+     {
+      "text": "gamble",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Firstly",
+      "for": "letter_selection",
+      "note": "firstly points to the opening letter of the word that follows"
+     }
+    ],
+    "linkWords": [
+     "has to",
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "she",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of she"
+     },
+     {
+      "clueFragment": "embezzle",
+      "gives": "PECULATE",
+      "note": "to peculate is to embezzle public money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PECULATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman must first steal funds, then bet them.",
+     "walkthrough": "PECULATE is a formal word for embezzling, especially of public funds.",
+     "definitionFit": "To speculate is to risk money on uncertain ventures in hope of profit, a kind of gambling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "has"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +216,54 @@
     "text": "Not sausage, David, stewed — it's bad for you",
     "enumeration": "15"
    },
-   "solution": "DISADVANTAGEOUS"
+   "solution": "DISADVANTAGEOUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DISADVANTAGEOUS",
+    "definitions": [
+     {
+      "text": "bad for you",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stewed",
+      "for": "anagram",
+      "note": "stewing cooks things into a jumbled mixture, so the letters are mixed up"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not sausage, David",
+      "gives": "NOTSAUSAGEDAVID",
+      "note": "taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOTSAUSAGEDAVID",
+       "gives": "DISADVANTAGEOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells David to stew something other than sausage, since it is unhealthy.",
+     "definitionFit": "Something disadvantageous works against you, putting you at a harmful disadvantage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "stewed"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +277,64 @@
     "text": "Material for grannie with damaged knee",
     "enumeration": "7"
    },
-   "solution": "NANKEEN"
+   "solution": "NANKEEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "NANKEEN",
+    "definitions": [
+     {
+      "text": "Material",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "damaged",
+      "for": "anagram",
+      "note": "a damaged thing is knocked out of shape, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grannie",
+      "gives": "NAN",
+      "note": "nan is an informal word for grandmother"
+     },
+     {
+      "clueFragment": "knee",
+      "gives": "KNEE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAN",
+      "KEEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "KNEE",
+       "gives": "KEEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cloth bought to bandage a grandmother's injured knee.",
+     "definitionFit": "Nankeen is a yellowish cotton cloth, originally from Nanjing, so it is a fabric."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Material"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +348,55 @@
     "text": "Negotiate breaking one's standards",
     "enumeration": "6"
    },
-   "solution": "IDEALS"
+   "solution": "IDEALS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IDEALS",
+    "definitions": [
+     {
+      "text": "standards",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "breaking into something means entering it, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one's",
+      "gives": "IS",
+      "note": "one is I, and 's is a contraction of is; the pair is split open"
+     },
+     {
+      "clueFragment": "Negotiate",
+      "gives": "DEAL",
+      "note": "to deal is to negotiate or trade"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "DEAL",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Bargaining that compromises a person's principles.",
+     "walkthrough": "One's is read as I plus 's, i.e. IS, and the dealing breaks in between them.",
+     "definitionFit": "Ideals are the principles or benchmarks of perfection a person aims at, their moral standards."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one's"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +416,51 @@
      }
     ]
    },
-   "solution": "DEFINITEARTICLE"
+   "solution": "DEFINITEARTICLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DEFINITE ARTICLE",
+    "definitions": [
+     {
+      "text": "The",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "complex",
+      "for": "anagram",
+      "note": "something complex is intricate and tangled, so the letters are tangled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tenet I clarified",
+      "gives": "TENETICLARIFIED",
+      "note": "taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TENETICLARIFIED",
+       "gives": "DEFINITEARTICLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An involved principle that someone has explained.",
+     "walkthrough": "The first word looks like part of the surface sentence, but it is the whole definition: grammar's name for 'the'.",
+     "definitionFit": "In English grammar 'the' is called the definite article, as opposed to the indefinite 'a'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "The"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +474,48 @@
     "text": "Tony, for example, a child under the care of a court",
     "enumeration": "5"
    },
-   "solution": "AWARD"
+   "solution": "AWARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AWARD",
+    "definitions": [
+     {
+      "text": "Tony, for example",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "child under the care of a court",
+      "gives": "WARD",
+      "note": "a ward of court is a child placed under the court's protection"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "WARD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Tony is a youngster in the court's custody.",
+     "walkthrough": "Tony looks like a man's name, but it is the American theatre prize.",
+     "definitionFit": "The Tony is an annual prize for Broadway theatre, so it is an example of an award."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tony"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +529,61 @@
     "text": "Sentimentality of school master, cutting some of dance",
     "enumeration": "8"
    },
-   "solution": "SCHMALTZ"
+   "solution": "SCHMALTZ",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SCHMALTZ",
+    "definitions": [
+     {
+      "text": "Sentimentality",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cutting some of",
+      "for": "deletion",
+      "note": "cutting and keeping only some of a word means a letter is chopped away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "SCH",
+      "note": "SCH is a standard abbreviation for school"
+     },
+     {
+      "clueFragment": "master",
+      "gives": "M",
+      "note": "M is an abbreviation for master, as in an MA degree"
+     },
+     {
+      "clueFragment": "dance",
+      "gives": "WALTZ",
+      "note": "the waltz is a ballroom dance; its first letter is cut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCH",
+      "M",
+      "ALTZ"
+     ]
+    },
+    "explanation": {
+     "surface": "A soppy schoolteacher cutting in on part of a dance.",
+     "walkthrough": "Only the head of the dance is lost, leaving its last four letters.",
+     "definitionFit": "Schmaltz, Yiddish for chicken fat, is slang for excessive, cloying sentimentality in art or music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cutting"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +597,48 @@
     "text": "Is south-west paradise here?",
     "enumeration": "6"
    },
-   "solution": "SWEDEN"
+   "solution": "SWEDEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "and_lit"
+    ],
+    "answer": "SWEDEN",
+    "definitions": [
+     {
+      "text": "Is south-west paradise here?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "south-west",
+      "gives": "SW",
+      "note": "SW is the compass abbreviation for south-west"
+     },
+     {
+      "clueFragment": "paradise",
+      "gives": "EDEN",
+      "note": "Eden is the biblical paradise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SW",
+      "EDEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller wonders whether heaven lies in the south-west.",
+     "walkthrough": "The whole clue doubles as the definition: a country praised as an earthly paradise, with the question mark admitting the joke.",
+     "definitionFit": "Sweden is a Scandinavian country often held up as an ideal place to live, hence a possible paradise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "here"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +652,44 @@
     "text": "Searches out disciples, we hear",
     "enumeration": "5"
    },
-   "solution": "SEEKS"
+   "solution": "SEEKS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SEEKS",
+    "definitions": [
+     {
+      "text": "Searches out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "we hear points to what is spoken, so the sound matters rather than the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "disciples",
+      "gives": "SEEKS",
+      "soundsLike": "SIKHS",
+      "note": "the word Sikh means disciple in Punjabi"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone hunting for followers.",
+     "definitionFit": "To seek is to look for something, so one who seeks searches it out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "disciples"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +703,50 @@
     "text": "\"Welsh fans upset\" — it may interrupt broadcast",
     "enumeration": "9"
    },
-   "solution": "NEWSFLASH"
+   "solution": "NEWSFLASH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEWSFLASH",
+    "definitions": [
+     {
+      "text": "it may interrupt broadcast",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "upset means knocked over, so the letters fall into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Welsh fans",
+      "gives": "WELSHFANS",
+      "note": "taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WELSHFANS",
+       "gives": "NEWSFLASH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A headline about upset Welsh supporters, perhaps after a lost match.",
+     "definitionFit": "A newsflash is an urgent bulletin that breaks into normal programming, interrupting a broadcast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +760,47 @@
     "text": "Puritan, corpulent school boss",
     "enumeration": "9"
    },
-   "solution": "ROUNDHEAD"
+   "solution": "ROUNDHEAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROUNDHEAD",
+    "definitions": [
+     {
+      "text": "Puritan",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "corpulent",
+      "gives": "ROUND",
+      "note": "round means plump or stout"
+     },
+     {
+      "clueFragment": "school boss",
+      "gives": "HEAD",
+      "note": "the head teacher runs a school"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROUND",
+      "HEAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A strait-laced, portly headmaster.",
+     "walkthrough": "Roundheads were the Parliamentarian side in the English Civil War, many of them Puritans.",
+     "definitionFit": "Roundhead was the nickname for Puritan supporters of Parliament, from their close-cropped hair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "school"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +814,52 @@
     "text": "Russian girl and Roman goddess, cycling",
     "enumeration": "5"
    },
-   "solution": "NADIA"
+   "solution": "NADIA",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "NADIA",
+    "definitions": [
+     {
+      "text": "Russian girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cycling",
+      "for": "cycling",
+      "note": "cycling means going round, so letters are moved from the front of the word to the back"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Roman goddess",
+      "gives": "DIANA",
+      "note": "Diana is the Roman goddess of hunting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NADIA"
+     ]
+    },
+    "explanation": {
+     "surface": "A Russian girl and a goddess out on bicycles together.",
+     "walkthrough": "The first two letters of the goddess go round to the end.",
+     "definitionFit": "Nadia is a common Russian girl's name, short for Nadezhda, meaning hope."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "cycling"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +873,59 @@
     "text": "Biblical land providing half of the cake and bread",
     "enumeration": "6"
    },
-   "solution": "CANAAN"
+   "solution": "CANAAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CANAAN",
+    "definitions": [
+     {
+      "text": "Biblical land",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half of",
+      "for": "deletion",
+      "note": "taking half of a word drops the rest of its letters"
+     }
+    ],
+    "linkWords": [
+     "providing",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the cake",
+      "gives": "CAKE",
+      "note": "only its first two letters are kept"
+     },
+     {
+      "clueFragment": "bread",
+      "gives": "NAAN",
+      "note": "naan is a flatbread from South Asian cooking"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "NAAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A promised land offering cake and bread.",
+     "walkthrough": "The land of milk and honey becomes, in the surface, a land of cake and bread.",
+     "definitionFit": "Canaan is the Promised Land of the Old Testament, the territory given to the Israelites."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bread"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +949,60 @@
      }
     ]
    },
-   "solution": "NOTALOT"
+   "solution": "NOTALOT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "NOT A LOT",
+    "definitions": [
+     {
+      "text": "Little",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rough",
+      "for": "anagram",
+      "note": "a rough version is not exact, so the letters come out in a loose order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "number",
+      "gives": "NO",
+      "note": "NO is the abbreviation for number"
+     },
+     {
+      "clueFragment": "total",
+      "gives": "TOTAL",
+      "note": "taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "TALOT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOTAL",
+       "gives": "TALOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small figure arrived at by an approximate sum.",
+     "definitionFit": "Not a lot is an everyday phrase meaning only a small amount, so little."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rough"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1022,51 @@
      }
     ]
    },
-   "solution": "LIGHTYEAR"
+   "solution": "LIGHTYEAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIGHT YEAR",
+    "definitions": [
+     {
+      "text": "long distance",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "on",
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Land",
+      "gives": "LIGHT",
+      "note": "to light on is to land or settle on something"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "YEAR",
+      "note": "a year is a period of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIGHT",
+      "YEAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Touching down on schedule after a long trip.",
+     "walkthrough": "In a down clue, 'on' puts the first piece above the second.",
+     "definitionFit": "A light year is the distance light travels in a year, nearly six trillion miles, an astronomical length."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Land"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1080,59 @@
     "text": "Burns almost twenty churches' exteriors",
     "enumeration": "8"
    },
-   "solution": "SCORCHES"
+   "solution": "SCORCHES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SCORCHES",
+    "definitions": [
+     {
+      "text": "Burns",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is left off"
+     },
+     {
+      "text": "exteriors",
+      "for": "deletion",
+      "note": "keeping only the exteriors means the inner part is thrown away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "twenty",
+      "gives": "SCORE",
+      "note": "a score is twenty; its last letter goes"
+     },
+     {
+      "clueFragment": "churches'",
+      "gives": "CHURCHES",
+      "note": "only the two letters at each end survive, the middle URC is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCOR",
+      "CHES"
+     ]
+    },
+    "explanation": {
+     "surface": "A fire-raiser who torched nearly twenty church buildings.",
+     "definitionFit": "To scorch is to burn the surface of something, so scorches is a synonym for burns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Burns"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1146,48 @@
     "text": "Fast cat is no sportsman, we're told",
     "enumeration": "7"
    },
-   "solution": "CHEETAH"
+   "solution": "CHEETAH",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CHEETAH",
+    "definitions": [
+     {
+      "text": "Fast cat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we're told",
+      "for": "homophone",
+      "note": "being told something means hearing it, so the spoken sound counts"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no sportsman",
+      "gives": "CHEETAH",
+      "soundsLike": "CHEATER",
+      "note": "someone who cheats is no true sportsman"
+     }
+    ],
+    "explanation": {
+     "surface": "A quick athlete is accused of foul play.",
+     "walkthrough": "In British, non-rhotic speech the final R is silent, so the two words sound alike.",
+     "definitionFit": "The cheetah is the fastest land animal, a big cat that sprints after prey."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cat"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1201,47 @@
     "text": "Killer decapitated US poet",
     "enumeration": "6"
    },
-   "solution": "HITMAN"
+   "solution": "HITMAN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HITMAN",
+    "definitions": [
+     {
+      "text": "Killer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "decapitated",
+      "for": "deletion",
+      "note": "decapitated means the head is cut off, so the first letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US poet",
+      "gives": "WHITMAN",
+      "note": "Walt Whitman, the American poet of Leaves of Grass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HITMAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A murderer beheads an American poet.",
+     "definitionFit": "A hitman is a professional assassin hired to kill people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "decapitated"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1265,50 @@
      }
     ]
    },
-   "solution": "TEAMGB"
+   "solution": "TEAMGB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEAM G B",
+    "definitions": [
+     {
+      "text": "our Olympic sports stars",
+      "at": 41
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Afternoon meal",
+      "gives": "TEA",
+      "note": "afternoon tea is a light British meal"
+     },
+     {
+      "clueFragment": "by popular sports car",
+      "gives": "MGB",
+      "note": "the MGB was a hugely popular British sports car; 'by' just places it next"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEA",
+      "MGB"
+     ]
+    },
+    "explanation": {
+     "surface": "Tea served beside a classic roadster for the national athletes.",
+     "walkthrough": "The MGB was a two-seater made by the British firm MG from 1962 to 1980.",
+     "definitionFit": "Team GB is the branding used for the British Olympic squad, whose athletes are 'ours' to a British setter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "popular"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1322,55 @@
     "text": "Venetian artist with link to river. See!",
     "enumeration": "7"
    },
-   "solution": "TIEPOLO"
+   "solution": "TIEPOLO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TIEPOLO",
+    "definitions": [
+     {
+      "text": "Venetian artist",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "link",
+      "gives": "TIE",
+      "note": "a tie is a link or bond"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "PO",
+      "note": "the Po is Italy's longest river"
+     },
+     {
+      "clueFragment": "See!",
+      "gives": "LO",
+      "note": "lo is an old exclamation meaning look or see"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIE",
+      "PO",
+      "LO"
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian painter connected with a river, pointed out to the reader.",
+     "definitionFit": "Giovanni Battista Tiepolo was an eighteenth-century painter from Venice, famed for ceiling frescoes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "link"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1384,44 @@
     "text": "Foil, we hear, rose high",
     "enumeration": "6"
    },
-   "solution": "SOARED"
+   "solution": "SOARED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SOARED",
+    "definitions": [
+     {
+      "text": "rose high",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "we hear points to what is spoken, so only the sound matters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Foil",
+      "gives": "SOARED",
+      "soundsLike": "SWORD",
+      "note": "a foil is a light fencing sword"
+     }
+    ],
+    "explanation": {
+     "surface": "A fencing weapon flew upward.",
+     "walkthrough": "The match relies on British, non-rhotic speech, where both sound like 'sawd'.",
+     "definitionFit": "To soar is to fly or climb high, so soared means rose high."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Foil"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1435,56 @@
     "text": "Contrite, I step outside",
     "enumeration": "5"
    },
-   "solution": "RUING"
+   "solution": "RUING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RUING",
+    "definitions": [
+     {
+      "text": "Contrite",
+      "at": 0,
+      "note": "an adjective; the answer is a participle used adjectivally"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "one thing outside another wraps around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "step",
+      "gives": "RUNG",
+      "note": "a rung is a step on a ladder"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "I",
+      "NG"
+     ]
+    },
+    "explanation": {
+     "surface": "A remorseful person steps out of the room.",
+     "walkthrough": "Read 'I, step outside' — the step goes around the I.",
+     "definitionFit": "To rue is to regret, so someone ruing something is regretful, sorry, contrite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "step"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1498,42 @@
     "text": "First section cut out of thin trousers",
     "enumeration": "5"
    },
-   "solution": "INTRO"
+   "solution": "INTRO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "INTRO",
+    "definitions": [
+     {
+      "text": "First section",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut out of",
+      "for": "hidden_word",
+      "note": "something cut out of a longer piece is a portion lifted from inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thin trousers",
+      "gives": "INTRO",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A tailor snips a first panel from slim trousers.",
+     "definitionFit": "An intro, short for introduction, is the opening part of a song or piece of writing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 24,
@@ -425,7 +1553,46 @@
      }
     ]
    },
-   "solution": "TWENTYTWO"
+   "solution": "TWENTYTWO",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TWENTY-TWO",
+    "definitions": [
+     {
+      "text": "A couple of little ducks",
+      "at": 0
+     },
+     {
+      "text": "line on a rugby pitch",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A couple of little ducks",
+      "note": "first meaning: the bingo call 'two little ducks' stands for the number ..., the 2s looking like ducks"
+     },
+     {
+      "clueFragment": "line on a rugby pitch",
+      "note": "second meaning: the line marked ... metres from each try line in rugby union"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Bingo callers give each number a rhyme or picture; 'two little ducks' is 22. A rugby pitch has a line 22 metres out from each goal line.",
+     "definitionFit": "The same number names both the bingo call and the marked line on a rugby field, known simply as the twenty-two."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "ducks"
+    }
+   }
   },
   {
    "number": 25,
@@ -445,7 +1612,48 @@
      }
     ]
    },
-   "solution": "HOTPOTATO"
+   "solution": "HOTPOTATO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOT POTATO",
+    "definitions": [
+     {
+      "text": "a tricky case",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stolen",
+      "gives": "HOT",
+      "note": "hot is slang for stolen goods"
+     },
+     {
+      "clueFragment": "jacket",
+      "gives": "POTATO",
+      "note": "a jacket potato is a baked potato in its skin, so jacket suggests potato"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOT",
+      "POTATO"
+     ]
+    },
+    "explanation": {
+     "surface": "A pilfered coat makes for a difficult matter.",
+     "walkthrough": "A jacket potato is the British name for a baked potato.",
+     "definitionFit": "A hot potato is an idiom for a controversial issue that nobody wants to handle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "jacket"
+    }
+   }
   },
   {
    "number": 26,
@@ -459,7 +1667,60 @@
     "text": "Cordelia's opening her father's net",
     "enumeration": "5"
    },
-   "solution": "CLEAR"
+   "solution": "CLEAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CLEAR",
+    "definitions": [
+     {
+      "text": "net",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "an opening is the start of something, so just the initial letter is used"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cordelia",
+      "gives": "C",
+      "select": "first",
+      "note": "the initial of the name"
+     },
+     {
+      "clueFragment": "her father",
+      "gives": "LEAR",
+      "note": "in Shakespeare's King Lear, Cordelia is Lear's youngest daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LEAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Shakespeare's Cordelia uses her father's fishing net.",
+     "walkthrough": "Both 's are 'has' or 'is', joining the pieces; net is a verb, meaning to earn after costs.",
+     "definitionFit": "To clear a sum is to make it as profit after expenses, just as to net it is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "net"
+    }
+   }
   },
   {
    "number": 27,
@@ -473,7 +1734,58 @@
     "text": "Married partner outside of ship by river",
     "enumeration": "6"
    },
-   "solution": "SPOUSE"
+   "solution": "SPOUSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SPOUSE",
+    "definitions": [
+     {
+      "text": "Married partner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside of",
+      "for": "letter_selection",
+      "note": "the outside of a word is its edges, so its first and last letters are kept"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ship",
+      "gives": "SP",
+      "select": "outer",
+      "note": "the end letters of ship"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "OUSE",
+      "note": "the Ouse is a river in England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "OUSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A husband or wife waits by the riverbank outside a ship.",
+     "definitionFit": "A spouse is a husband or wife, the person one is married to."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "outside"
+    }
+   }
   },
   {
    "number": 28,
@@ -493,7 +1805,53 @@
      }
     ]
    },
-   "solution": "LOPEARED"
+   "solution": "LOPEARED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOP-EARED",
+    "definitions": [
+     {
+      "text": "like a rabbit",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bound along",
+      "gives": "LOPE",
+      "note": "to lope is to run along with long bounding strides"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "shade",
+      "gives": "RED",
+      "note": "red is a shade of colour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOPE",
+      "A",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "Something bounding along, a shadow like a rabbit.",
+     "walkthrough": "Shade means a colour here, not shadow.",
+     "definitionFit": "Lop-eared describes ears that droop down, as on the lop breed of rabbit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shade"
+    }
+   }
   }
  ]
 }
