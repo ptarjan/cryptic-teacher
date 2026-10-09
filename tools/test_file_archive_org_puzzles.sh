@@ -1096,6 +1096,25 @@ for r in range(15):
         heavy[(top + foot) // 2 - 3:(top + foot) // 2 + 3, 7:39] = True
 ys, xs = tso.rules(np.where(heavy, 0, 255).astype(np.uint8), edge)
 check("a frame beside a heavy edge column found within 2px of its middle", True, abs(xs[0] - 2) <= 2)
+# numbers_printed(): a Times solution grid from the mid-1980s prints no clue
+# numbers; blanking its numbered cells' corners makes a D a sure J (20006
+# DELETE lost), so only a grid whose numbered corners carry ink is blanked.
+lts = tso.lights(grid17246)
+numbered = {cells[0]: n for (n, _), cells in lts.items()}
+cells = {rc for c in lts.values() for rc in c}
+def solution_ink(numbers_too):
+    a = np.zeros((side, side), bool)
+    for k, e in enumerate(edges):
+        a[:, max(0, e - 2):e + 3] = a[max(0, e - 2):e + 3, :] = True
+    for r, c in cells:
+        a[edges[r] + 12:edges[r + 1] - 12, edges[c] + 18:edges[c] + 24] = True
+        if numbers_too and (r, c) in numbered:
+            a[edges[r] + 4:edges[r] + 14, edges[c] + 4:edges[c] + 12] = True
+    return np.where(a, 0, 255).astype(np.uint8)
+inner = list(map(float, edges))
+check("a grid printing its clue numbers is read as one; the same letters without them are not",
+      (True, False), tuple(bool(tso.numbers_printed(solution_ink(n), inner, inner, numbered, cells))
+                           for n in (True, False)))
 check("run-together words of 3+ letters are an answer only when read whole: not A + ALLEY, A + DO + IS + ON",
       (False, False, True, True, False),
       (tso.answer("AALLEY", set()), tso.answer("AALLEY", {"AALLEY"}), tso.answer("TUCKSHOP", {"TUCKSHOP"}),

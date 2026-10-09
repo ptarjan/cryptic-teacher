@@ -94,7 +94,7 @@ WORKERS="${OCR_FULL_PASS_WORKERS:-20}"
 # printed solution grid's frame found beside a heavy edge column, and a
 # numbered cell's letter vetoed only by its read with the number blanked
 # (trove_solution_ocr.read_framed).
-REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-09T07:33:59+00:00}"
+REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-09T23:18:55+00:00}"
 
 publish() {  # publish <what>: commit and push the puzzles filed so far
   durable_checkpoint "Full OCR pass: $1" || return 1
