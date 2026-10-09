@@ -76,7 +76,7 @@ reached = {d for m, d in code_reach.reach("file_archive_org_puzzles", f.SCAN_ROO
            if m == "file_archive_org_puzzles"}
 check("the scan key follows every name scan() reaches: the title pattern, the title OCR, the Gale page's "
       "headings and their band re-reads, the 1930 headings, the Paper method scan calls", set(),
-      {"TITLE", "SOLUTION", "ocr_titles", "ocr_headings", "mend_misreads", "solution_bands", "SOLUTION_BAND",
+      {"TITLE", "SOLUTION", "ocr_titles", "ocr_headings", "mend_misreads", "solution_bands", "band_solutions", "SOLUTION_BAND",
        "times1930_headings", "Paper.headings"} - reached)
 check("and not the filing code: a change to it rescans nothing", set(), {"read_puzzle", "read_solution"} & reached)
 # The mirror: the key moves with code scan() runs and stays with code it
@@ -1879,6 +1879,40 @@ f.ocr_headings = lambda img, paper, key: ([(15683, (0, 0, 1, 1), None, ["ch", "e
 check("a scan drops a solution numbered like its own edition's title", [15682],
       [s["number"] for s in f._scan(gd)["solutions"]])
 f.ocr_headings, f.ocr_titles = saved_h, saved_t
+# A Times leaf whose archive.org text garbles its solution heading ("Solution
+# to Puzzle No 21X162", 1996-05-09) has the heading's band read by our
+# readers: a number half of them read one SOLUTION_LAGS before a title
+# stands. The mirrors: one reader alone, or a number neither lag gives, is
+# no heading; a text that reads the heading is not read again.
+saved_bw, saved_sb = f.band_words, f.solution_bands
+f.solution_bands = lambda img, words: [(0, 0, 400, 40)]
+def band_reads(texts):
+    f.band_words = lambda img, band, which, path: ([(10, 10, 60, 30, "Solution"), (70, 10, 90, 30, "to"),
+                                                    (100, 10, 150, 30, "Puzzle"), (160, 10, 180, 30, "No"),
+                                                    (190, 10, 260, 30, texts[which])] if texts.get(which) else [])
+    return [n for n, _ in f.band_solutions(page_img, [20163], [], "band_test")]
+check("a garbled text heading is read in its band by our readers", [20162],
+      band_reads({"ch": "20. 162", "en5": "20,162", "times": "20,162"}))
+check("(mirror) one reader alone is no heading", [], band_reads({"times": "20,162"}))
+check("(mirror) a number neither lag before a title gives is no heading", [],
+      band_reads({"ch": "20,150", "en5": "20,150", "times": "20,150"}))
+td = Path(os.environ["TMP"]) / "NewsUK1996UKEnglish" / "1996-05-09_65575"
+td.mkdir(parents=True)
+page_img.save(td / "leaf_0023.jpg")
+(td / "djvu.xml.gz").write_bytes(b"")
+(td / "pages.json").write_text(json.dumps({"date": "1996-05-09", "item": "NewsUK1996UKEnglish",
+                                           "crossword_pages": [{"leaf": 23}]}))
+saved_ll, called = f.leaf_lines, []
+band_reads({"ch": "20,162", "en5": "20,162", "times": "20,162"})
+f.solution_bands = lambda img, words: called.append(1) or [(0, 0, 400, 40)]
+for heading, want in (("Solution to Puzzle No 21X162", ([20162], [1])),
+                      ("Solution to Puzzle No 20,162", ([20162], []))):
+    called.clear()
+    f.leaf_lines = lambda path, leaves, h=heading: {23: [line("THE TIMES CROSSWORD NO 20,163", y=100), line(h, y=900)]}
+    got = f._scan(td)
+    check(f"a Times text leaf reading {heading!r} under its title: the band re-read only when the text has no heading",
+          want, ([s["number"] for s in got["solutions"]], called))
+f.band_words, f.solution_bands, f.leaf_lines = saved_bw, saved_sb, saved_ll
 # A reader timing out on a whole Gale page (tesseract, 300s, Gale
 # 1987-08-06) reads nothing; the others' title still stands.
 import subprocess

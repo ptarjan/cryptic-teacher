@@ -1637,6 +1637,9 @@ def _scan(d):
             titles, sols = paper.headings(text[leaf])
             titles = [(n, box, setter, None) for n, box, setter in titles] or \
                 ocr_titles(page(d, leaf), paper, datetime.date.fromisoformat(pages["date"]), f"{d.name}_{leaf}")
+            if paper is TIMES and titles and not sols:
+                sols = band_solutions(page(d, leaf), [t[0] for t in titles], text[leaf],
+                                      f"{d.parent.name}_{d.name}_{leaf}")
         for n, box, setter, readers in titles:
             found["puzzles"].append({"number": n, "leaf": leaf, "box": box,
                                      **({"setterRead": setter} if setter else {}),
@@ -1906,6 +1909,29 @@ def ocr_headings(img, paper, key):
     return ([(n, reads[0][1], reads[0][2], [r[0] for r in reads]) for n, reads in titles.items()
              if len(reads) >= least or n - 1 in sols],
             [(n, reads[0][1]) for n, reads in sols.items()])
+
+
+def band_solutions(img, titles, lines, key):
+    """[(number, box)] of the solution headings on a Times leaf whose
+    archive.org text `lines` reads none for its titles `titles` ("Solution,
+    of PnzZle-No'lS^GZ" for 15,562, "No 164750" for 16,950): each band
+    solution_bands() finds off the text's words, read by every reader, and a
+    number standing where at least half read it as a heading one
+    SOLUTION_LAGS before a title (solution_headings)."""
+    reads = {}
+    for band in solution_bands(img, [w for ws in lines for w in ws]):
+        for which in READERS:
+            path = CROPS / "titles" / f"{key}_{'_'.join(map(str, band))}.{reader_key(which)}.json"
+            try:
+                words = [(*w[:4], mend_misreads(w[4])) for w in band_words(img, band, which, path)]
+            except subprocess.TimeoutExpired:  # this reader read nothing; the vote still needs half of READERS
+                words = []
+            rows = row_lines(words)
+            rows += [ln[k:] for ln in rows for k in range(1, len(ln)) if HEADING_START.match(ln[k][4])]
+            for n, b in solution_headings(rows, titles):
+                if which not in (r[0] for r in reads.get(n, ())):
+                    reads.setdefault(n, []).append((which, b))
+    return [(n, r[0][1]) for n, r in reads.items() if len(r) >= len(READERS) / 2]
 
 
 def page(d, leaf):
