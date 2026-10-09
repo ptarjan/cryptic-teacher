@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Drop is put into drink",
     "enumeration": "6"
    },
-   "solution": "DISOWN"
+   "solution": "DISOWN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DISOWN",
+    "definitions": [
+     {
+      "text": "Drop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put into",
+      "for": "container",
+      "note": "something put into another thing ends up inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "DOWN",
+      "note": "to down a drink is to swallow it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IS",
+      "OWN"
+     ]
+    },
+    "explanation": {
+     "surface": "Somebody's tipple has had something dropped into it.",
+     "walkthrough": "'Drop' looks like a noun, a drop of drink, but it is the verb meaning abandon; 'drink' is the verb too, to swallow.",
+     "definitionFit": "To drop someone in the sense of abandoning or repudiating them is to disown them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Drop"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,55 @@
     "text": "Section in contract withdrawn",
     "enumeration": "7"
    },
-   "solution": "DEBITED"
+   "solution": "DEBITED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEBITED",
+    "definitions": [
+     {
+      "text": "withdrawn",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece within the other, as a clause sits within a document"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Section",
+      "gives": "BIT",
+      "note": "a bit is a section or part"
+     },
+     {
+      "clueFragment": "contract",
+      "gives": "DEED",
+      "note": "a deed is a legal contract"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "BIT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A clause of an agreement has been pulled out.",
+     "walkthrough": "'Contract' tempts as the verb meaning shrink; it is the noun, a legal document.",
+     "definitionFit": "Money debited from an account has been withdrawn or taken out of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "contract"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +160,42 @@
     "text": "Remove untidy vegetation",
     "enumeration": "5"
    },
-   "solution": "SCRUB"
+   "solution": "SCRUB",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCRUB",
+    "definitions": [
+     {
+      "text": "Remove",
+      "at": 0
+     },
+     {
+      "text": "untidy vegetation",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Remove",
+      "note": "first meaning: to cancel or delete, as in scrubbing a plan"
+     },
+     {
+      "clueFragment": "untidy vegetation",
+      "note": "second meaning: rough, stunted bushes and undergrowth"
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to clear away a scruffy patch of plants.",
+     "definitionFit": "The word is both an informal verb for cancelling something and a noun for straggly low-growing shrubland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Remove"
+    }
+   }
   },
   {
    "number": 3,
@@ -104,7 +238,67 @@
      }
     ]
    },
-   "solution": "TWOINCH"
+   "solution": "TWOINCH",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TWO-INCH",
+    "definitions": [
+     {
+      "text": "not long?",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fuelled",
+      "for": "container",
+      "note": "a machine that is fuelled has its fuel put inside it"
+     },
+     {
+      "text": "found after",
+      "for": "charade",
+      "note": "found after places one piece behind the other in reading order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "little time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "Oxygen",
+      "gives": "O",
+      "note": "O is the chemical symbol for oxygen"
+     },
+     {
+      "clueFragment": "lifting device",
+      "gives": "WINCH",
+      "note": "a winch hauls loads up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "W",
+      "O",
+      "INCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A crane running on oxygen turns up shortly afterwards.",
+     "walkthrough": "O goes inside WINCH, after its W, and T stands in front: T-W-O-INCH.",
+     "definitionFit": "Something only two inches in length is short, hence the question mark on a definition by example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Oxygen"
+    }
+   }
   },
   {
    "number": 4,
@@ -133,7 +327,61 @@
     "4-down",
     "5-down",
     "23-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TURN THE OTHER CHEEK",
+    "definitions": [
+     {
+      "text": "let it go",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shown after",
+      "for": "charade",
+      "note": "shown after puts the first-named piece at the end, behind the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "performance",
+      "gives": "TURN",
+      "note": "a turn is a performer's act on stage"
+     },
+     {
+      "clueFragment": "Congress",
+      "gives": "THE OTHER",
+      "note": "congress in its sense of sex"
+     },
+     {
+      "clueFragment": "Insolence",
+      "gives": "CHEEK",
+      "note": "cheek is rude impudence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TURN",
+      "THEOTHER",
+      "CHEEK"
+     ]
+    },
+    "explanation": {
+     "surface": "After a rude display, a legislature decides to drop the matter.",
+     "walkthrough": "'Congress' looks like the US legislature but means sexual intercourse, which British slang calls 'the other'.",
+     "definitionFit": "To turn the other cheek is to refuse to retaliate, letting an offence pass without response."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Congress"
+    }
+   }
   },
   {
    "number": 5,
@@ -172,7 +420,76 @@
      }
     ]
    },
-   "solution": "NOPROBLEM"
+   "solution": "NOPROBLEM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "container"
+    ],
+    "answer": "NO PROBLEM",
+    "definitions": [
+     {
+      "text": "a piece of cake",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Short",
+      "for": "deletion",
+      "note": "short means cut off, so the word loses its final letter"
+     },
+     {
+      "text": "served up",
+      "for": "reversal",
+      "note": "in a down clue, served up means the word is read from bottom to top"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into places one piece within the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "investigation",
+      "gives": "PROBE",
+      "note": "a probe is an inquiry"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "MELON",
+      "note": "a melon is a fruit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "PROB",
+      "LEM"
+     ],
+     "reversals": [
+      {
+       "from": "MELON",
+       "to": "NOLEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brief inquiry into fruit, offered as dessert alongside cake.",
+     "walkthrough": "'Served up' suits the dessert picture, but in a down clue it turns the fruit upside down.",
+     "definitionFit": "A piece of cake is an idiom for something easy, which is exactly what no problem describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "cake"
+    }
+   }
   },
   {
    "number": 7,
@@ -186,7 +503,55 @@
     "text": "String runs through pipes",
     "enumeration": "6"
    },
-   "solution": "HORSES"
+   "solution": "HORSES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HORSES",
+    "definitions": [
+     {
+      "text": "String",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "through",
+      "for": "container",
+      "note": "something running through another passes inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     },
+     {
+      "clueFragment": "pipes",
+      "gives": "HOSES",
+      "note": "hoses are flexible pipes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "R",
+      "SES"
+     ]
+    },
+    "explanation": {
+     "surface": "A cord is threaded down some tubing.",
+     "walkthrough": "'String' looks like cord, but it is a trainer's string, the set of racehorses in one stable.",
+     "definitionFit": "A racing stable's string is the group of horses it trains, so horses can stand for a string."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "String"
+    }
+   }
   },
   {
    "number": 8,
@@ -200,7 +565,56 @@
     "text": "*one* flight",
     "enumeration": "6"
    },
-   "solution": "STAIRS"
+   "solution": "STAIRS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STAIRS",
+    "definitions": [
+     {
+      "text": "flight",
+      "at": 6
+     }
+    ],
+    "indicators": [
+     {
+      "text": "*one*",
+      "for": "container",
+      "note": "the word one is printed with a symbol on either side of it, so it sits between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "*one*",
+      "gives": "STARS",
+      "note": "asterisks are typographic stars, and two of them flank the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STA",
+      "I",
+      "RS"
+     ]
+    },
+    "explanation": {
+     "surface": "A single journey by air, emphasised.",
+     "walkthrough": "The asterisks are part of the wordplay: an asterisk is a star, so this is one inside STARS. Fifteensquared commenters noted the markup is an old convention for bold, which hides the trick.",
+     "definitionFit": "A flight is a set of steps between floors, so the plural noun stairs matches it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flight"
+    }
+   }
   },
   {
    "number": 9,
@@ -214,7 +628,70 @@
     "text": "Gentleman sent back in exchange for lawyer",
     "enumeration": "9"
    },
-   "solution": "BARRISTER"
+   "solution": "BARRISTER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "BARRISTER",
+    "definitions": [
+     {
+      "text": "lawyer",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sent back",
+      "for": "reversal",
+      "note": "something sent back goes the other way, so the word is read from the end"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gentleman",
+      "gives": "SIR",
+      "note": "sir is the title for a gentleman"
+     },
+     {
+      "clueFragment": "exchange",
+      "gives": "BARTER",
+      "note": "to barter is to trade goods in exchange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "RIS",
+      "TER"
+     ],
+     "reversals": [
+      {
+       "from": "SIR",
+       "to": "RIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man is returned as part of a swap for a lawyer, like a prisoner trade.",
+     "walkthrough": "In Britain a barrister is the kind of lawyer who argues cases in court, as distinct from a solicitor.",
+     "definitionFit": "A barrister is a British courtroom lawyer, the kind qualified to argue cases in the higher courts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exchange"
+    }
+   }
   },
   {
    "number": 10,
@@ -228,7 +705,42 @@
     "text": "Excitable, somewhat touchy perhaps",
     "enumeration": "5"
    },
-   "solution": "HYPER"
+   "solution": "HYPER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HYPER",
+    "definitions": [
+     {
+      "text": "Excitable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means only part of the following words is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "touchy perhaps",
+      "gives": "HYPER",
+      "note": "the run of letters across the join of these two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A description of an irritable, jumpy personality.",
+     "definitionFit": "Hyper is an informal adjective for someone overexcited and highly strung."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "somewhat"
+    }
+   }
   },
   {
    "number": 11,
@@ -255,7 +767,51 @@
     "text": "Cook tries open sandwich",
     "enumeration": "9"
    },
-   "solution": "INTERPOSE"
+   "solution": "INTERPOSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INTERPOSE",
+    "definitions": [
+     {
+      "text": "sandwich",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cook",
+      "for": "anagram",
+      "note": "to cook something is to cook the books, rigging and rearranging it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tries open",
+      "gives": "TRIESOPEN",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRIESOPEN",
+       "gives": "INTERPOSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kitchen instruction to make an open sandwich.",
+     "walkthrough": "'Sandwich' looks like a noun in the kitchen picture, but it is the verb meaning to put something between two others.",
+     "definitionFit": "To interpose is to place something between other things, which is what sandwiching does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sandwich"
+    }
+   }
   },
   {
    "number": 13,
@@ -269,7 +825,45 @@
     "text": "It becomes more peaceful for wild animals",
     "enumeration": "7"
    },
-   "solution": "DINGOES"
+   "solution": "DINGOES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DINGOES",
+    "definitions": [
+     {
+      "text": "wild animals",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It becomes more peaceful",
+      "gives": "DIN GOES",
+      "note": "when the noise departs, a place grows quieter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DINGOES"
+     ]
+    },
+    "explanation": {
+     "surface": "Some state of affairs turns out calmer for creatures in the wild.",
+     "walkthrough": "Read the wordplay as a scene: things become more peaceful when the din goes. Split DIN GOES differently and it is DINGOES.",
+     "definitionFit": "Dingoes are the wild dogs of Australia, untamed animals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "peaceful"
+    }
+   }
   },
   {
    "number": 14,
@@ -298,7 +892,40 @@
     "14-down",
     "3-down",
     "25-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NOTHING TO WRITE HOME ABOUT",
+    "definitions": [
+     {
+      "text": "Average",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Average postcard",
+      "note": "surface reading: an ordinary, run-of-the-mill holiday card"
+     },
+     {
+      "clueFragment": "postcard unnecessary then?",
+      "note": "setter's reading: if a postcard is not needed, there is no news worth sending to the family"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone decides an ordinary postcard is not worth sending.",
+     "walkthrough": "The phrase is taken literally: no postcard is needed when there is no news.",
+     "definitionFit": "The idiom describes something unremarkable or mediocre, which is what average means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "postcard"
+    }
+   }
   },
   {
    "number": 15,
@@ -312,7 +939,86 @@
     "text": "Hands down back of settee, a number of items not quite retrieved, unknown quantity",
     "enumeration": "6"
    },
-   "solution": "EASILY"
+   "solution": "EASILY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "EASILY",
+    "definitions": [
+     {
+      "text": "Hands down",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back of",
+      "for": "letter_selection",
+      "note": "back of means only the final letter of the word is kept"
+     },
+     {
+      "text": "not quite",
+      "for": "deletion",
+      "note": "not quite means the word falls just short, losing its last letter"
+     },
+     {
+      "text": "retrieved",
+      "for": "reversal",
+      "note": "retrieved is read as re-, back, so the word is turned round"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "settee",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of settee"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "number of items",
+      "gives": "LIST",
+      "note": "a list is a set of items"
+     },
+     {
+      "clueFragment": "unknown quantity",
+      "gives": "Y",
+      "note": "algebra uses Y for an unknown"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "A",
+      "SIL",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "LIS",
+       "to": "SIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone digs behind the sofa cushions and comes up with a few lost things.",
+     "walkthrough": "LIST loses its T, then the remaining LIS is turned round. 'Hands down' looks like part of the rummaging but is the definition.",
+     "definitionFit": "Winning hands down means winning with no effort at all, which is to win easily."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Hands"
+    }
+   }
   },
   {
    "number": 16,
@@ -332,7 +1038,67 @@
      }
     ]
    },
-   "solution": "SINEPROLE"
+   "solution": "SINEPROLE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SINE PROLE",
+    "definitions": [
+     {
+      "text": "without children",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means read from the bottom to the top"
+     },
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "over in a down clue puts the first piece above the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cock",
+      "gives": "PENIS",
+      "note": "cock is slang for the male organ"
+     },
+     {
+      "clueFragment": "character",
+      "gives": "ROLE",
+      "note": "a role is a character in a play"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SINEP",
+      "ROLE"
+     ],
+     "reversals": [
+      {
+       "from": "PENIS",
+       "to": "SINEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A blunder over a part means someone is left childless.",
+     "walkthrough": "'Cock-up' is British slang for a blunder, but here it is split: cock, then up as the reversal signal. Sine prole is a Latin legal phrase.",
+     "definitionFit": "Sine prole is legal Latin meaning without issue, used in genealogies for people who died childless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Cock-up"
+    }
+   }
   },
   {
    "number": 17,
@@ -352,7 +1118,63 @@
      }
     ]
    },
-   "solution": "ATREST"
+   "solution": "ATREST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AT REST",
+    "definitions": [
+     {
+      "text": "still",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leader in",
+      "for": "letter_selection",
+      "note": "the leader of a word is its first letter"
+     },
+     {
+      "text": "preserved by",
+      "for": "container",
+      "note": "something preserved is kept enclosed, held within the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Russian",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of Russian"
+     },
+     {
+      "clueFragment": "a paper",
+      "gives": "A TEST",
+      "note": "a paper is an exam, a test"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "T",
+      "R",
+      "EST"
+     ]
+    },
+    "explanation": {
+     "surface": "A Russian figurehead kept safe by some newspaper, even now.",
+     "walkthrough": "R goes inside A TEST. 'Paper' suggests a newspaper, but it is an exam paper; 'still' looks like 'even now' but is the adjective.",
+     "definitionFit": "Something at rest is motionless, the adjectival sense of still."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "paper"
+    }
+   }
   },
   {
    "number": 18,
@@ -372,7 +1194,55 @@
      }
     ]
    },
-   "solution": "TOORDER"
+   "solution": "TOORDER",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TO ORDER",
+    "definitions": [
+     {
+      "text": "As requested",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pulled up",
+      "for": "reversal",
+      "note": "a plant pulled up comes out of the ground, and in a down clue up means read bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "19 down",
+      "gives": "RED ROOT",
+      "note": "the answer to 19 down, a radish, is a red root"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOORDER"
+     ],
+     "reversals": [
+      {
+       "from": "REDROOT",
+       "to": "TOORDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vegetable from another clue is harvested on request.",
+     "walkthrough": "The cross-reference is not replaced by its answer but by a description of it: a radish is a red root.",
+     "definitionFit": "Something made to order is made as the customer asked, as requested."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pulled"
+    }
+   }
   },
   {
    "number": 19,
@@ -386,7 +1256,61 @@
     "text": "A cruciverbalist residing in Split given new identity",
     "enumeration": "7"
    },
-   "solution": "RENAMED"
+   "solution": "RENAMED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RENAMED",
+    "definitions": [
+     {
+      "text": "given new identity",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "residing in",
+      "for": "container",
+      "note": "someone residing in a place lives inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cruciverbalist",
+      "gives": "ME",
+      "note": "the setter, a crossword compiler, refers to himself as me"
+     },
+     {
+      "clueFragment": "Split",
+      "gives": "REND",
+      "note": "to rend is to tear apart"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REN",
+      "A",
+      "ME",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A crossword setter living in the Croatian city of Split takes on a fresh name.",
+     "walkthrough": "'Split' looks like the Croatian city, but it is the verb for tearing.",
+     "definitionFit": "Someone renamed has been given a different name and so a new identity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Split"
+    }
+   }
   },
   {
    "number": 19,
@@ -400,7 +1324,66 @@
     "text": "Edible plant, a food under review, originally",
     "enumeration": "6"
    },
-   "solution": "RADISH"
+   "solution": "RADISH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RADISH",
+    "definitions": [
+     {
+      "text": "Edible plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to the beginning, the opening letter of the word"
+     },
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "under in a down clue puts the earlier pieces below the last one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "review",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of review"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "food",
+      "gives": "DISH",
+      "note": "a dish is food served at a meal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "A",
+      "DISH"
+     ]
+    },
+    "explanation": {
+     "surface": "A restaurant critic is assessing a vegetable dish.",
+     "definitionFit": "The radish is a plant grown for its peppery edible root."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "review"
+    }
+   }
   },
   {
    "number": 20,
@@ -414,7 +1397,46 @@
     "text": "Follow communist, gentle pace",
     "enumeration": "7"
    },
-   "solution": "DOGTROT"
+   "solution": "DOGTROT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOGTROT",
+    "definitions": [
+     {
+      "text": "gentle pace",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Follow",
+      "gives": "DOG",
+      "note": "to dog someone is to tail them"
+     },
+     {
+      "clueFragment": "communist",
+      "gives": "TROT",
+      "note": "Trot is short for a Trotskyist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOG",
+      "TROT"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to tail a left-winger at an easy walk.",
+     "definitionFit": "A dogtrot is a gentle, easy-going trot, a slow steady pace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Follow"
+    }
+   }
   },
   {
    "number": 21,
@@ -428,7 +1450,71 @@
     "text": "Pants, where fire breaks out in lying?",
     "enumeration": "6"
    },
-   "solution": "BRIEFS"
+   "solution": "BRIEFS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BRIEFS",
+    "definitions": [
+     {
+      "text": "Pants",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaks out",
+      "for": "anagram",
+      "note": "a fire breaking out spreads wildly, so its letters scatter into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fire",
+      "gives": "FIRE",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "lying",
+      "gives": "BS",
+      "note": "BS, short for bullshit, is lying nonsense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RIEF",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FIRE",
+       "gives": "RIEF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nod to the playground chant 'liar, liar, pants on fire'.",
+     "walkthrough": "In British English 'pants' are underpants, which is why briefs fit; BS is a coarse abbreviation for nonsense.",
+     "definitionFit": "Briefs are close-fitting underpants, which British English calls pants."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pants"
+    }
+   }
   },
   {
    "number": 22,
@@ -448,7 +1534,62 @@
      }
     ]
    },
-   "solution": "RAINCLOUD"
+   "solution": "RAINCLOUD",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "RAIN CLOUD",
+    "definitions": [
+     {
+      "text": "what's up?",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Travelling",
+      "for": "anagram",
+      "note": "travelling means moving about, so these letters move into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in car",
+      "gives": "INCAR",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "thunderous",
+      "gives": "LOUD",
+      "note": "thunderous means very loud"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAINC",
+      "LOUD"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INCAR",
+       "gives": "RAINC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A noisy drive prompts the question of what is going on.",
+     "walkthrough": "The definition reads 'what's up' literally: if there is thunder, the thing overhead in the sky is a rain cloud.",
+     "definitionFit": "A rain cloud is what hangs up in the sky in thundery weather, so it answers the literal question."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 23,
@@ -475,7 +1616,56 @@
     "text": "Bump on the rear sounded – little accident",
     "enumeration": "5"
    },
-   "solution": "PRANG"
+   "solution": "PRANG",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PRANG",
+    "definitions": [
+     {
+      "text": "little accident",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the rear",
+      "for": "letter_selection",
+      "note": "the rear of a word is its tail end, so only its final letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bump",
+      "gives": "P",
+      "select": "last",
+      "note": "the last letter of bump"
+     },
+     {
+      "clueFragment": "sounded",
+      "gives": "RANG",
+      "note": "a bell that sounded rang"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RANG"
+     ]
+    },
+    "explanation": {
+     "surface": "A minor knock to the back of a car, with a bang.",
+     "walkthrough": "'Bump' looks like the definition of a minor crash, but only its final letter is used. A prang is British slang for a minor collision.",
+     "definitionFit": "A prang is informal British for a minor crash, especially a small car accident."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bump"
+    }
+   }
   },
   {
    "number": 25,
@@ -502,7 +1692,49 @@
     "text": "Hunter with shaved head, one might be bald",
     "enumeration": "5"
    },
-   "solution": "EAGLE"
+   "solution": "EAGLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EAGLE",
+    "definitions": [
+     {
+      "text": "one might be bald",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with shaved head",
+      "for": "deletion",
+      "note": "a shaved head has lost its top, so the word loses its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hunter",
+      "gives": "BEAGLE",
+      "note": "the beagle is a hunting hound"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAGLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A hunter with a shaven scalp could be mistaken for being bald.",
+     "walkthrough": "'Bald' seems to follow on from the shaved head, but it names the American bald eagle.",
+     "definitionFit": "The bald eagle is a well-known species, so an eagle is something that might be bald."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bald"
+    }
+   }
   },
   {
    "number": 27,
@@ -516,7 +1748,61 @@
     "text": "Shame miserable clothing is being worn by husband",
     "enumeration": "9"
    },
-   "solution": "DISHONOUR"
+   "solution": "DISHONOUR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DISHONOUR",
+    "definitions": [
+     {
+      "text": "Shame",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clothing",
+      "for": "container",
+      "note": "clothing wraps around a body, so one piece encloses the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "being worn by husband",
+      "gives": "HON",
+      "note": "something worn by a husband is on him: H, the abbreviation for husband, carrying ON"
+     },
+     {
+      "clueFragment": "miserable",
+      "gives": "DOUR",
+      "note": "dour means gloomy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IS",
+      "HON",
+      "OUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A man is humiliated by wearing drab clothes.",
+     "walkthrough": "Something worn by a husband is on him, so the husband's H comes first with ON after it; the gloomy word then wraps around the lot.",
+     "definitionFit": "Dishonour is disgrace or loss of respect, so it is a synonym of shame."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clothing"
+    }
+   }
   },
   {
    "number": 28,
@@ -540,7 +1826,66 @@
    "group": [
     "28-across",
     "11-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SNOOKER TABLE",
+    "definitions": [
+     {
+      "text": "pocketed item?",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "insert is read as two parts, in plus the rest, and in places the first piece inside the rest"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Corner",
+      "gives": "NOOK",
+      "note": "a nook is a corner"
+     },
+     {
+      "clueFragment": "insert",
+      "gives": "SERT",
+      "note": "insert read as in plus sert: in is the container signal, and the remaining letters are kept"
+     },
+     {
+      "clueFragment": "fit",
+      "gives": "ABLE",
+      "note": "fit to do something means able to do it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "NOOK",
+      "ERT",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to fit a corner piece, perhaps on something with pockets.",
+     "walkthrough": "The word insert is split as in plus SERT. 'Corner' itself means snooker, a red herring for anyone hunting the first word.",
+     "definitionFit": "A snooker table has six pockets for the balls, so it is an item fitted with pockets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "insert"
+    }
+   }
   },
   {
    "number": 29,
@@ -560,7 +1905,57 @@
      }
     ]
    },
-   "solution": "BEATIT"
+   "solution": "BEATIT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BEAT IT",
+    "definitions": [
+     {
+      "text": "on your bike!",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the limits",
+      "for": "letter_selection",
+      "note": "the limits of a word are its two ends, its outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Balance",
+      "gives": "BE",
+      "select": "outer",
+      "note": "the first and last letters of balance"
+     },
+     {
+      "clueFragment": "having sex",
+      "gives": "AT IT",
+      "note": "couples at it are having sex"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "ATIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A cyclist steadies their balance while getting amorous in the saddle.",
+     "walkthrough": "'On your bike' is British slang for go away; it is the definition, not a cycling scene.",
+     "definitionFit": "Beat it and on your bike are both slangy commands telling someone to leave."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bike"
+    }
+   }
   }
  ]
 }
