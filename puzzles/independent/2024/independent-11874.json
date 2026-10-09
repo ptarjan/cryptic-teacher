@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,59 @@
     "text": "I study more, initially, after school break",
     "enumeration": "6"
    },
-   "solution": "SCHISM"
+   "solution": "SCHISM",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SCHISM",
+    "definitions": [
+     {
+      "text": "break",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points at the opening letter of each of the words just before it"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "SCH",
+      "note": "SCH is the standard abbreviation for school"
+     },
+     {
+      "clueFragment": "I study more",
+      "gives": "ISM",
+      "select": "first",
+      "note": "first letters of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCH",
+      "ISM"
+     ]
+    },
+    "explanation": {
+     "surface": "A pupil vows to work harder once the school holiday arrives.",
+     "walkthrough": "'after school' places the abbreviation first; the initials follow it.",
+     "definitionFit": "A schism is a split or division within a group, so a break in that sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "break"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +102,69 @@
     "text": "Marry one's husband after son reveals nationality",
     "enumeration": "7"
    },
-   "solution": "SWEDISH"
+   "solution": "SWEDISH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SWEDISH",
+    "definitions": [
+     {
+      "text": "nationality",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says the piece it governs comes second, so the son goes before the marriage"
+     }
+    ],
+    "linkWords": [
+     "reveals"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the usual abbreviation for son"
+     },
+     {
+      "clueFragment": "Marry",
+      "gives": "WED",
+      "note": "to marry is to wed"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "IS",
+      "note": "one is I, and the 's adds S"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WED",
+      "IS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A wedding announcement that somehow discloses where the couple come from.",
+     "walkthrough": "'after son' moves the son's letter to the front of the build.",
+     "definitionFit": "Swedish describes the citizenship or national identity of someone from Sweden, an adjective of nationality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Marry"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +178,51 @@
     "text": "Porthole with a gap is welcome",
     "enumeration": "5"
    },
-   "solution": "HULLO"
+   "solution": "HULLO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HULLO",
+    "definitions": [
+     {
+      "text": "welcome",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Porthole",
+      "gives": "HULL",
+      "note": "the Port part: Hull is an English port city on the Humber"
+     },
+     {
+      "clueFragment": "with a gap",
+      "gives": "O",
+      "note": "the hole part: a gap or hole looks like the round letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HULL",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone finds a gap where a porthole should be and treats it as a greeting.",
+     "walkthrough": "Split Porthole into Port and hole and convert each: the port city, then the round letter for a hole or gap.",
+     "definitionFit": "Hullo is a variant spelling of hello, a greeting used to welcome someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Porthole"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +236,61 @@
     "text": "Drink more rum, boss",
     "enumeration": "7"
    },
-   "solution": "SUPREMO"
+   "solution": "SUPREMO",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "SUPREMO",
+    "definitions": [
+     {
+      "text": "boss",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rum",
+      "for": "anagram",
+      "note": "rum as an adjective means odd or strange, so the preceding word is put in a strange order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drink",
+      "gives": "SUP",
+      "note": "to sup is to drink"
+     },
+     {
+      "clueFragment": "more",
+      "gives": "REMO",
+      "note": "the letters of this word rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUP",
+      "REMO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MORE",
+       "gives": "REMO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boss at the bar orders another rum.",
+     "walkthrough": "'rum' looks like the drink being ordered; it is the adjective meaning odd.",
+     "definitionFit": "A supremo is the person in overall charge of an organisation, an informal word for a boss."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rum"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +304,42 @@
     "text": "Bear market displays reserve",
     "enumeration": "7"
    },
-   "solution": "EARMARK"
+   "solution": "EARMARK",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EARMARK",
+    "definitions": [
+     {
+      "text": "reserve",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "displays",
+      "for": "hidden_word",
+      "note": "the phrase displays the answer within its own letters, spanning the word break"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bear market",
+      "gives": "EARMARK",
+      "note": "letters running from the second letter of the first word into the second word"
+     }
+    ],
+    "explanation": {
+     "surface": "A falling stock market prompts investors to keep funds in reserve.",
+     "definitionFit": "To earmark funds is to set them aside for a purpose, the same as reserving them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "displays"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +353,70 @@
     "text": "Clear end of day, without question, revealing quickness of thought",
     "enumeration": "6"
    },
-   "solution": "ACUITY"
+   "solution": "ACUITY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ACUITY",
+    "definitions": [
+     {
+      "text": "quickness of thought",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so the letter standing for question is taken away"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "end of picks only the final letter of the following word"
+     }
+    ],
+    "linkWords": [
+     "revealing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clear",
+      "gives": "ACQUIT",
+      "note": "to clear someone of a charge is to acquit them"
+     },
+     {
+      "clueFragment": "question",
+      "gives": "Q",
+      "note": "Q is the abbreviation for question, removed here"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "Y",
+      "select": "last",
+      "note": "the last letter of day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACUIT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A defendant cleared at the close of the day without cross-examination shows a sharp mind.",
+     "walkthrough": "Take Q out of ACQUIT, then add the final letter of day.",
+     "definitionFit": "Acuity is sharpness or keenness, especially of mind or senses, matching quickness of thought."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Clear"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +430,71 @@
     "text": "I will notice them returning about decoration",
     "enumeration": "9"
    },
-   "solution": "MEDALLION"
+   "solution": "MEDALLION",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MEDALLION",
+    "definitions": [
+     {
+      "text": "decoration",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way they came, so the words before are read from the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I will",
+      "gives": "ILL",
+      "note": "the contraction I'll"
+     },
+     {
+      "clueFragment": "notice",
+      "gives": "AD",
+      "note": "an ad is a notice in a paper"
+     },
+     {
+      "clueFragment": "them",
+      "gives": "EM",
+      "note": "informal 'em for them"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "ON",
+      "note": "on can mean about, as in a talk on a subject"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEDALLI",
+      "ON"
+     ],
+     "reversals": [
+      {
+       "from": "ILLADEM",
+       "to": "MEDALLI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone promises to spot certain people coming back regarding some ornament.",
+     "walkthrough": "Only the first three pieces turn round; the word for about is then added to the end.",
+     "definitionFit": "A medallion is a large medal or round ornamental disc worn as an adornment, a decoration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "notice"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +514,57 @@
      }
     ]
    },
-   "solution": "RATRACE"
+   "solution": "RATRACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAT RACE",
+    "definitions": [
+     {
+      "text": "mad scramble",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "to get",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hint",
+      "gives": "TRACE",
+      "note": "a trace is a slight hint of something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "A",
+      "TRACE"
+     ]
+    },
+    "explanation": {
+     "surface": "Racing off to pick up a clue during a frantic treasure hunt.",
+     "walkthrough": "'Run' tempts as RACE, but here it is just the single letter from cricket scoring.",
+     "definitionFit": "The rat race is the frantic competitive struggle of modern working life, a mad scramble for success."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Run"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +584,40 @@
      }
     ]
    },
-   "solution": "BOTTOMLESSPIT"
+   "solution": "BOTTOMLESSPIT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BOTTOMLESS PIT",
+    "definitions": [
+     {
+      "text": "abyss",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Irrational clue",
+      "note": "surface reading: a clue that makes no sense"
+     },
+     {
+      "clueFragment": "found in abyss",
+      "note": "setter's reading: a clue with no ground or base beneath it is unfathomable, like a hole without end, which names the abyss"
+     }
+    ],
+    "explanation": {
+     "surface": "A solver grumbles about an illogical clue lost in the depths.",
+     "walkthrough": "An irrational clue is groundless and unfathomable, words that also describe a hole without end; the answer is that hole, defined by abyss.",
+     "definitionFit": "A bottomless pit is a chasm so deep it seems to have no floor, which is an abyss."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Irrational"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +631,52 @@
     "text": "Male cooks dinner for one",
     "enumeration": "4"
    },
-   "solution": "MEAL"
+   "solution": "MEAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MEAL",
+    "definitions": [
+     {
+      "text": "dinner for one",
+      "at": 11
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooks",
+      "for": "anagram",
+      "note": "cooking transforms ingredients, so the letters of the word are prepared in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Male",
+      "gives": "MALE",
+      "note": "the fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MALE",
+       "gives": "MEAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man living alone prepares supper for himself.",
+     "walkthrough": "'for one' means dinner is one example, not a single diner.",
+     "definitionFit": "Dinner is one kind of meal, an example of the general term for an occasion of eating."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +690,71 @@
     "text": "Virtue having reserve of money for head of business's remarkable insight",
     "enumeration": "10"
    },
-   "solution": "PROFUNDITY"
+   "solution": "PROFUNDITY",
+   "annotation": {
+    "type": [
+     "substitution",
+     "letter_selection"
+    ],
+    "answer": "PROFUNDITY",
+    "definitions": [
+     {
+      "text": "remarkable insight",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "for means in place of, so one piece is swapped in where another stood"
+     },
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "head of picks only the opening letter of the next word"
+     }
+    ],
+    "linkWords": [
+     "having",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Virtue",
+      "gives": "PROBITY",
+      "note": "probity is honesty, a virtue"
+     },
+     {
+      "clueFragment": "reserve of money",
+      "gives": "FUND",
+      "note": "a fund is money set aside"
+     },
+     {
+      "clueFragment": "business",
+      "gives": "B",
+      "select": "first",
+      "note": "first letter of business, the one replaced"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "FUND",
+      "ITY"
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for a company chief's honesty and the financial reserves behind a brilliant idea.",
+     "walkthrough": "In PROBITY, swap the B for FUND.",
+     "definitionFit": "Profundity is depth of thought or understanding, so a remarkable insight is an instance of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reserve"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +768,57 @@
     "text": "Twice one's charged one penny to stop unemployment benefit",
     "enumeration": "6"
    },
-   "solution": "DIPOLE"
+   "solution": "DIPOLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DIPOLE",
+    "definitions": [
+     {
+      "text": "Twice one's charged",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to stop",
+      "for": "container",
+      "note": "to stop means to plug a gap, so these letters go inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unemployment benefit",
+      "gives": "DOLE",
+      "note": "the dole is British slang for unemployment benefit"
+     },
+     {
+      "clueFragment": "one penny",
+      "gives": "IP",
+      "note": "I is the Roman numeral for one, and P the abbreviation for penny"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "I",
+      "P",
+      "OLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone on benefits complains of being billed twice, a penny each time.",
+     "walkthrough": "The dole is Britain's informal name for unemployment benefit. The definition is cryptic: a dipole carries two opposite charges, so it is 'twice charged'.",
+     "definitionFit": "A dipole is a pair of equal and opposite electric charges or poles separated by a small distance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "charged"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +838,76 @@
      }
     ]
    },
-   "solution": "TOTALWAR"
+   "solution": "TOTALWAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TOTAL WAR",
+    "definitions": [
+     {
+      "text": "Fighting with no rules",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "a revolution turns something right round, so the word before is read backwards"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shot",
+      "gives": "TOT",
+      "note": "a tot is a shot of spirits"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the abbreviation for lake"
+     },
+     {
+      "clueFragment": "untrained",
+      "gives": "RAW",
+      "note": "a raw recruit is untrained"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOT",
+      "A",
+      "L",
+      "WAR"
+     ],
+     "reversals": [
+      {
+       "from": "RAW",
+       "to": "WAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A green rebel fires a gun beside a lake, ignoring every convention of combat.",
+     "walkthrough": "The reversed piece comes last in the answer though it comes second in the clue; 'by' puts it beside the others.",
+     "definitionFit": "Total war is conflict waged without limits on targets or methods, ignoring the usual conventions of warfare."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +927,65 @@
      }
     ]
    },
-   "solution": "CHATROOMS"
+   "solution": "CHATROOMS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CHAT ROOMS",
+    "definitions": [
+     {
+      "text": "conference venues?",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "anagram",
+      "note": "around suggests the letters are moved about and scattered into another order"
+     }
+    ],
+    "linkWords": [
+     "after",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea",
+      "gives": "CHA",
+      "note": "cha is slang for tea"
+     },
+     {
+      "clueFragment": "Motors",
+      "gives": "TROOMS",
+      "note": "the letters of this word rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "TROOMS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MOTORS",
+       "gives": "TROOMS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cars driven about after a tea break at a conference centre.",
+     "walkthrough": "The question mark flags that these conferences are online conversations rather than meetings in halls.",
+     "definitionFit": "Chat rooms are online spaces where many people converse together, a playful kind of conference venue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Motors"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +999,56 @@
     "text": "Foreign delivery ignoring old and established practice",
     "enumeration": "9"
    },
-   "solution": "TRADITION"
+   "solution": "TRADITION",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TRADITION",
+    "definitions": [
+     {
+      "text": "established practice",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "ignoring means leaving out, so the letters for old are dropped"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Foreign delivery",
+      "gives": "EXTRADITION",
+      "note": "handing a suspect over to a foreign country"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "EX",
+      "note": "ex means former or old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRADITION"
+     ]
+    },
+    "explanation": {
+     "surface": "A long-standing custom of sending fugitives abroad.",
+     "walkthrough": "Remove EX from the front of EXTRADITION.",
+     "definitionFit": "A tradition is a custom handed down over time, an established way of doing things."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "delivery"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1062,52 @@
     "text": "Terrible funeral song not good",
     "enumeration": "4"
    },
-   "solution": "DIRE"
+   "solution": "DIRE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DIRE",
+    "definitions": [
+     {
+      "text": "Terrible",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means without, so the letter for good is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "funeral song",
+      "gives": "DIRGE",
+      "note": "a dirge is a lament for the dead"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A critic pans the music played at a funeral.",
+     "definitionFit": "Dire means dreadful or extremely bad, a direct synonym of terrible."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "good"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1121,69 @@
     "text": "Attractive woman briefly claims the heart of William Tell",
     "enumeration": "4"
    },
-   "solution": "BLAB"
+   "solution": "BLAB",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "BLAB",
+    "definitions": [
+     {
+      "text": "Tell",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the final letter is dropped"
+     },
+     {
+      "text": "claims",
+      "for": "container",
+      "note": "to claim is to take hold of, so the outer word holds the selected letter"
+     },
+     {
+      "text": "the heart of",
+      "for": "letter_selection",
+      "note": "the heart is the centre, so only the middle letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attractive woman",
+      "gives": "BABE",
+      "note": "a babe is slang for an attractive woman, shortened here"
+     },
+     {
+      "clueFragment": "William",
+      "gives": "L",
+      "select": "middle",
+      "note": "the central letter of this seven-letter name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "L",
+      "AB"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman seeks to win over the Swiss archer of legend.",
+     "walkthrough": "'William Tell' reads as the folk hero, but Tell is the definition, split away from William.",
+     "definitionFit": "To blab is to tell secrets indiscreetly, a verb matching tell in the sense of revealing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Tell"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1197,50 @@
     "text": "Bobby walked round this reportedly to arrest Bohemian",
     "enumeration": "7"
    },
-   "solution": "BEATNIK"
+   "solution": "BEATNIK",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "BEATNIK",
+    "definitions": [
+     {
+      "text": "Bohemian",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as heard said, so the word is given by its sound not its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bobby walked round this",
+      "gives": "BEAT",
+      "note": "a bobby is a British policeman, who walks his patrol route"
+     },
+     {
+      "clueFragment": "to arrest",
+      "gives": "NIK",
+      "soundsLike": "NICK",
+      "note": "to nick is British slang for to arrest"
+     }
+    ],
+    "explanation": {
+     "surface": "A policeman patrols around a place to detain a free-living artist.",
+     "walkthrough": "A bobby is a British police officer, and his regular patrol route is his beat; nick is British slang for arrest.",
+     "definitionFit": "A beatnik was a member of the 1950s Beat Generation, an unconventional, artistic Bohemian type."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bobby"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1254,72 @@
     "text": "Member of clergy nearly late to get ice-cream with sprinkles on vacation",
     "enumeration": "9"
    },
-   "solution": "DEACONESS"
+   "solution": "DEACONESS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DEACONESS",
+    "definitions": [
+     {
+      "text": "Member of clergy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nearly",
+      "for": "deletion",
+      "note": "nearly means not quite all, so the last letter is dropped"
+     },
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "on vacation means emptied out, so only the outer letters remain"
+     }
+    ],
+    "linkWords": [
+     "to get",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "late",
+      "gives": "DEAD",
+      "note": "the late means the dead, cut short here"
+     },
+     {
+      "clueFragment": "ice-cream",
+      "gives": "CONE",
+      "note": "an ice-cream cone"
+     },
+     {
+      "clueFragment": "sprinkles",
+      "gives": "SS",
+      "select": "outer",
+      "note": "first and last letters of sprinkles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEA",
+      "CONE",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "A cleric, almost running late, buys an ice cream with sprinkles while on holiday.",
+     "walkthrough": "'on vacation' looks like a holiday but means emptied: remove the inside of the word.",
+     "definitionFit": "A deaconess is a woman holding the office of deacon in some churches, a member of the clergy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vacation"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1333,57 @@
     "text": "Boy working next to church making pale green porcelain",
     "enumeration": "7"
    },
-   "solution": "CELADON"
+   "solution": "CELADON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CELADON",
+    "definitions": [
+     {
+      "text": "pale green porcelain",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "next to",
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     },
+     {
+      "clueFragment": "Boy",
+      "gives": "LAD",
+      "note": "a lad is a boy"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CE",
+      "LAD",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A lad with a job near a church crafts fine pottery.",
+     "walkthrough": "'next to church' puts the church's letters ahead of the rest.",
+     "definitionFit": "Celadon is a Chinese stoneware or porcelain with a distinctive pale grey-green glaze."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1397,46 @@
     "text": "Small fall?",
     "enumeration": "7"
    },
-   "solution": "STUMBLE"
+   "solution": "STUMBLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "and_lit"
+    ],
+    "answer": "STUMBLE",
+    "definitions": [
+     {
+      "text": "Small fall?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "fall",
+      "gives": "TUMBLE",
+      "note": "a tumble is a fall"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TUMBLE"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The whole clue is the definition, while its two words also build the answer.",
+     "definitionFit": "A stumble is a trip or lurch that nearly ends in a fall, a minor version of one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1450,58 @@
     "text": "Banker welcoming European's guide to life?",
     "enumeration": "6"
    },
-   "solution": "GENOME"
+   "solution": "GENOME",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GENOME",
+    "definitions": [
+     {
+      "text": "guide to life?",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "welcoming means letting someone in, so one letter goes inside the other word"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Banker",
+      "gives": "GNOME",
+      "note": "the Gnomes of Zurich is a nickname for Swiss bankers"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "E",
+      "NOME"
+     ]
+    },
+    "explanation": {
+     "surface": "A banker greets a continental visitor and offers advice on living.",
+     "walkthrough": "'Banker' suggests money, but the Gnomes of Zurich are Swiss financiers. The question mark marks the definition as playful.",
+     "definitionFit": "A genome is the full set of an organism's genetic instructions, effectively the blueprint for building life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Banker"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1515,61 @@
     "text": "Mechanism for measuring crimes blocked by police, essentially",
     "enumeration": "8"
    },
-   "solution": "CALIPERS"
+   "solution": "CALIPERS",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "CALIPERS",
+    "definitions": [
+     {
+      "text": "Mechanism for measuring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blocked by",
+      "for": "container",
+      "note": "blocked by means obstructed from within, so the selected letters sit inside the word for crimes"
+     },
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "essentially points to the essence, the core of the word, so the middle letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crimes",
+      "gives": "CAPERS",
+      "note": "a caper is a crime, especially a heist"
+     },
+     {
+      "clueFragment": "police",
+      "gives": "LI",
+      "select": "middle",
+      "note": "the two central letters of police"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "LI",
+      "PERS"
+     ]
+    },
+    "explanation": {
+     "surface": "A device that gauges how far the police have curbed crime.",
+     "definitionFit": "Calipers are an instrument with two hinged legs used for measuring thickness or diameter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crimes"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1583,41 @@
     "text": "Class length",
     "enumeration": "6"
    },
-   "solution": "LEAGUE"
+   "solution": "LEAGUE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEAGUE",
+    "definitions": [
+     {
+      "text": "Class",
+      "at": 0
+     },
+     {
+      "text": "length",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Class",
+      "note": "first meaning: a level of quality"
+     },
+     {
+      "clueFragment": "length",
+      "note": "second meaning: an old unit of distance of about three miles"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "League means a grade or standard of ability, and also an obsolete measure of distance of roughly three miles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "length"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1631,55 @@
     "text": "Calm a boring colleague",
     "enumeration": "5"
    },
-   "solution": "ALLAY"
+   "solution": "ALLAY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ALLAY",
+    "definitions": [
+     {
+      "text": "Calm",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boring",
+      "for": "container",
+      "note": "boring means drilling into, so the single letter goes inside the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "colleague",
+      "gives": "ALLY",
+      "note": "an ally is a partner or colleague"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "A",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Soothe a co-worker who drones on.",
+     "walkthrough": "'boring' looks like dull, describing the colleague; it is the insertion signal.",
+     "definitionFit": "To allay fears is to calm or quieten them, a verb meaning to soothe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boring"
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1699,60 @@
      }
     ]
    },
-   "solution": "INDIGOBIRD"
+   "solution": "INDIGOBIRD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INDIGO BIRD",
+    "definitions": [
+     {
+      "text": "Bunting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "snarled",
+      "for": "anagram",
+      "note": "snarled means tangled, so the letters are knotted into a new order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boring",
+      "gives": "BORING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I'd repeatedly",
+      "gives": "IDID",
+      "note": "the contraction written twice"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BORINGIDID",
+       "gives": "INDIGOBIRD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone growls that decorative flags are dull, saying it again and again.",
+     "walkthrough": "'Bunting' suggests flags, but here it is a small songbird.",
+     "definitionFit": "The indigo bunting is a North American songbird; indigo bird is another name for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bunting"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1766,51 @@
     "text": "Rounded projection in theatre initially absent",
     "enumeration": "4"
    },
-   "solution": "LOBE"
+   "solution": "LOBE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LOBE",
+    "definitions": [
+     {
+      "text": "Rounded projection",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially absent",
+      "for": "deletion",
+      "note": "initially absent says the opening letter is missing, so the word loses its first letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "theatre",
+      "gives": "GLOBE",
+      "note": "the Globe is Shakespeare's theatre in London"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOBE"
+     ]
+    },
+    "explanation": {
+     "surface": "Something sticks out in a theatre where the opening is missing.",
+     "walkthrough": "The Globe is the London playhouse associated with Shakespeare; drop its first letter.",
+     "definitionFit": "A lobe is a rounded part that projects or hangs, such as an earlobe or a lobe of a leaf."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "theatre"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1824,44 @@
     "text": "Broker interrupts Musk interrogation",
     "enumeration": "7"
    },
-   "solution": "SKINTER"
+   "solution": "SKINTER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SKINTER",
+    "definitions": [
+     {
+      "text": "Broker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupts",
+      "for": "hidden_word",
+      "note": "the answer breaks into the run of the words that follow, sitting across their boundary"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Musk interrogation",
+      "gives": "SKINTER",
+      "note": "the end of the name runs into the start of the next word"
+     }
+    ],
+    "explanation": {
+     "surface": "A financial broker barges into the questioning of Elon Musk.",
+     "walkthrough": "'Broker' reads as a dealer, but it is 'more broke': skint is British slang for having no money.",
+     "definitionFit": "Skinter is the comparative of skint, British slang for penniless, so it means more broke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Broker"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1875,66 @@
     "text": "Last couple to sharpen axes with me - a catalyst for change",
     "enumeration": "6"
    },
-   "solution": "ENZYME"
+   "solution": "ENZYME",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ENZYME",
+    "definitions": [
+     {
+      "text": "a catalyst for change",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Last couple",
+      "for": "letter_selection",
+      "note": "last couple means the final pair of letters of the next word"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sharpen",
+      "gives": "EN",
+      "select": "last",
+      "note": "final two letters"
+     },
+     {
+      "clueFragment": "axes",
+      "gives": "ZY",
+      "note": "z and y are axes on a graph"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "ZY",
+      "ME"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to whet the hatchets with me, a spur to action.",
+     "walkthrough": "'axes' suggests hatchets, but it is the mathematical axes, here z and y.",
+     "definitionFit": "An enzyme is a biological catalyst, a protein that speeds up chemical reactions in living things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "axes"
+    }
+   }
   }
  ]
 }
