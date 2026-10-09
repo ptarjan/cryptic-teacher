@@ -24,6 +24,9 @@
   "date": "2025-08-13",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,61 @@
     "text": "Help to cover one end of lamp shade",
     "enumeration": "5"
    },
-   "solution": "BLACK"
+   "solution": "BLACK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BLACK",
+    "definitions": [
+     {
+      "text": "shade",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "one end of",
+      "for": "letter_selection",
+      "note": "an end of a word is one of its two outer letters, here the opening one"
+     },
+     {
+      "text": "to cover",
+      "for": "container",
+      "note": "something that covers another wraps round it, so one piece goes outside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Help",
+      "gives": "BACK",
+      "note": "to back someone is to help or support them"
+     },
+     {
+      "clueFragment": "lamp",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of lamp"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "L",
+      "ACK"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks for a hand putting a shade over one end of a lamp.",
+     "definitionFit": "Black is a colour, and shade is a common word for a colour or tone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shade"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +108,61 @@
     "text": "Something brought by the waiter containing dry, skinned fish",
     "enumeration": "5"
    },
-   "solution": "BRILL"
+   "solution": "BRILL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BRILL",
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "skinned",
+      "for": "letter_selection",
+      "note": "a skinned word has lost its outer layer, leaving only its inside letters"
+     },
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "one piece holds another inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Something brought by the waiter",
+      "gives": "BILL",
+      "note": "a waiter brings the bill at the end of a meal"
+     },
+     {
+      "clueFragment": "dry",
+      "gives": "R",
+      "select": "middle",
+      "note": "the middle letter of dry, its outer letters stripped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "R",
+      "ILL"
+     ]
+    },
+    "explanation": {
+     "surface": "A waiter serves a dish of dried, skinned fish.",
+     "definitionFit": "Brill is a European flatfish, close relative of the turbot, eaten as a delicacy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "skinned"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +176,66 @@
     "text": "Artificial intelligence supported by loaded nerd who tried to take over the world?",
     "enumeration": "9"
    },
-   "solution": "ALEXANDER"
+   "solution": "ALEXANDER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ALEXANDER",
+    "definitions": [
+     {
+      "text": "who tried to take over the world?",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loaded",
+      "for": "anagram",
+      "note": "loaded is slang for drunk, and a drunk word staggers into a new order"
+     },
+     {
+      "text": "supported by",
+      "for": "charade",
+      "note": "in a down entry, something supported sits above what holds it up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Artificial intelligence",
+      "gives": "ALEXA",
+      "note": "Alexa is Amazon's AI voice assistant"
+     },
+     {
+      "clueFragment": "nerd",
+      "gives": "NDER",
+      "note": "the letters of nerd rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALEXA",
+      "NDER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NERD",
+       "gives": "NDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy geek's AI plots world domination, like a villain in a techno-thriller.",
+     "walkthrough": "The definition reads like a description of the nerd, but it points to Alexander the Great.",
+     "definitionFit": "Alexander the Great conquered most of the known world of his day, so he is one who tried to rule it all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "loaded"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +249,70 @@
     "text": "Spades removed from trash and extension emptied to make room",
     "enumeration": "7"
    },
-   "solution": "KITCHEN"
+   "solution": "KITCHEN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "KITCHEN",
+    "definitions": [
+     {
+      "text": "room",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removed from",
+      "for": "deletion",
+      "note": "taking something away from a word leaves it a letter shorter"
+     },
+     {
+      "text": "emptied",
+      "for": "letter_selection",
+      "note": "an emptied word has had its insides taken out, keeping only its first and last letters"
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spades",
+      "gives": "S",
+      "note": "S is the abbreviation for spades in cards; this letter is taken out"
+     },
+     {
+      "clueFragment": "trash",
+      "gives": "KITSCH",
+      "note": "kitsch is tasteless, trashy art"
+     },
+     {
+      "clueFragment": "extension",
+      "gives": "EN",
+      "select": "outer",
+      "note": "the first and last letters of extension"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KITCH",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "Clearing out rubbish and an emptied extension to free up space in the house.",
+     "walkthrough": "The S comes out of the middle of KITSCH, leaving KITCH.",
+     "definitionFit": "A kitchen is a room in a house where food is cooked."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extension"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +326,53 @@
     "text": "Children jump out in front",
     "enumeration": "9"
    },
-   "solution": "OFFSPRING"
+   "solution": "OFFSPRING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OFFSPRING",
+    "definitions": [
+     {
+      "text": "Children",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in front",
+      "for": "charade",
+      "note": "placing a word in front puts it before the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "out",
+      "gives": "OFF",
+      "note": "off and out both mean away or departed"
+     },
+     {
+      "clueFragment": "jump",
+      "gives": "SPRING",
+      "note": "to spring is to jump"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFF",
+      "SPRING"
+     ]
+    },
+    "explanation": {
+     "surface": "Kids leaping out ahead of the others.",
+     "definitionFit": "Offspring are a person's children or descendants."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "jump"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +386,69 @@
     "text": "Happen to finally see copper on robber's tail",
     "enumeration": "5"
    },
-   "solution": "OCCUR"
+   "solution": "OCCUR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "homophone",
+     "charade"
+    ],
+    "answer": "OCCUR",
+    "definitions": [
+     {
+      "text": "Happen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of the word before it"
+     },
+     {
+      "text": "tail",
+      "for": "letter_selection",
+      "note": "a word's tail is its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "O",
+      "select": "last",
+      "note": "the last letter of to"
+     },
+     {
+      "clueFragment": "see",
+      "gives": "C",
+      "soundsLike": "SEE",
+      "note": "the letter C is pronounced like the word see"
+     },
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     },
+     {
+      "clueFragment": "robber's",
+      "gives": "R",
+      "select": "last",
+      "note": "the last letter of robber"
+     }
+    ],
+    "explanation": {
+     "surface": "A policeman finally catches up with a fleeing robber.",
+     "walkthrough": "Copper suggests a police officer chasing the robber, but here it is the metal. The homophone of see has no separate signal: C is simply the letter that sounds like it.",
+     "definitionFit": "To occur is to happen or take place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 5,
@@ -127,7 +468,70 @@
      }
     ]
    },
-   "solution": "FOLICACID"
+   "solution": "FOLICACID",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "anagram"
+    ],
+    "answer": "FOLIC ACID",
+    "definitions": [
+     {
+      "text": "Something inside leaves",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the centre of",
+      "for": "letter_selection",
+      "note": "the centre of a long word is its middle pair of letters"
+     },
+     {
+      "text": "through",
+      "for": "container",
+      "note": "one piece runs through the middle of another, ending up inside it"
+     },
+     {
+      "text": "bum",
+      "for": "anagram",
+      "note": "bum as an adjective means bad or faulty, so the letters are in a broken order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extortionately",
+      "gives": "IO",
+      "select": "middle",
+      "note": "the two central letters of this fourteen-letter word"
+     },
+     {
+      "clueFragment": "flaccid",
+      "gives": "FLACCID",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FLACCIOID",
+       "gives": "FOLICACID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rude remark about someone's saggy backside costing a fortune.",
+     "walkthrough": "The IO goes into FLACCID and the whole lot is then rearranged.",
+     "definitionFit": "Folic acid, a B vitamin, takes its name from the Latin for leaf because it was first found in spinach and other leafy greens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "bum"
+    }
+   }
   },
   {
    "number": 6,
@@ -141,7 +545,50 @@
     "text": "Go over 70, say, in alley",
     "enumeration": "7"
    },
-   "solution": "PASSAGE"
+   "solution": "PASSAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PASSAGE",
+    "definitions": [
+     {
+      "text": "alley",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go over",
+      "gives": "PASS",
+      "note": "to pass is to go over or across"
+     },
+     {
+      "clueFragment": "70, say",
+      "gives": "AGE",
+      "note": "seventy is an example of an age; say marks it as one instance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PASS",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A speeding driver goes over seventy in a narrow lane.",
+     "walkthrough": "70 reads as a speed limit, but it stands for a person's age.",
+     "definitionFit": "A passage is a narrow way between buildings, much as an alley is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "70,"
+    }
+   }
   },
   {
    "number": 7,
@@ -155,7 +602,41 @@
     "text": "Some deride a scientist's theories",
     "enumeration": "5"
    },
-   "solution": "IDEAS"
+   "solution": "IDEAS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "IDEAS",
+    "definitions": [
+     {
+      "text": "theories",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "only some of the following words' letters are used, a run lying inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deride a scientist's",
+      "gives": "IDEAS",
+      "note": "the run starts near the end of deride and finishes at the start of scientist's"
+     }
+    ],
+    "explanation": {
+     "surface": "Some people mock a scientist's theories.",
+     "definitionFit": "Ideas and theories are both notions or proposed explanations."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +650,46 @@
     "text": "Those attending car accident turn up uninvited",
     "enumeration": "9"
    },
-   "solution": "GATECRASH"
+   "solution": "GATECRASH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GATECRASH",
+    "definitions": [
+     {
+      "text": "turn up uninvited",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Those attending",
+      "gives": "GATE",
+      "note": "a gate is the number of people attending a sports event"
+     },
+     {
+      "clueFragment": "car accident",
+      "gives": "CRASH",
+      "note": "a crash is a collision between vehicles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GATE",
+      "CRASH"
+     ]
+    },
+    "explanation": {
+     "surface": "Spectators drawn to a road accident arrive without being asked.",
+     "definitionFit": "To gatecrash is to attend a party or event without an invitation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "attending"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +703,51 @@
     "text": "Weirdly, Neil and Di act exactly the same",
     "enumeration": "9"
    },
-   "solution": "IDENTICAL"
+   "solution": "IDENTICAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IDENTICAL",
+    "definitions": [
+     {
+      "text": "exactly the same",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Weirdly",
+      "for": "anagram",
+      "note": "something done weirdly is done strangely, so the letters fall in an odd order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Neil and Di act",
+      "gives": "NEILDIACT",
+      "note": "the letters of the two names and the verb, with and as a joining word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NEILDIACT",
+       "gives": "IDENTICAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A couple, Neil and Di, oddly behave in exactly the same way.",
+     "walkthrough": "The and simply joins the two names and is not part of the letters used.",
+     "definitionFit": "Identical things match in every detail, with no difference at all."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Weirdly"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +761,54 @@
     "text": "Virtuous woman eating small dessert",
     "enumeration": "5"
    },
-   "solution": "SWEET"
+   "solution": "SWEET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SWEET",
+    "definitions": [
+     {
+      "text": "dessert",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "whatever eats something takes it inside itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Virtuous woman",
+      "gives": "ST",
+      "note": "ST, saint, the abbreviation for a holy person"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "WEE",
+      "note": "wee is Scottish for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WEE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A well-behaved woman tucks into a little pudding.",
+     "definitionFit": "Sweet is the British word for the dessert course of a meal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Virtuous"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +822,56 @@
     "text": "Hide article penned by purveyor of nonsense",
     "enumeration": "7"
    },
-   "solution": "LEATHER"
+   "solution": "LEATHER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LEATHER",
+    "definitions": [
+     {
+      "text": "Hide",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "penned by",
+      "for": "container",
+      "note": "something penned is shut in a pen, enclosed by the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "purveyor of nonsense",
+      "gives": "LEAR",
+      "note": "Edward Lear wrote nonsense verse such as The Owl and the Pussy-cat"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEA",
+      "THE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer of nonsense pens a piece and tucks it away.",
+     "walkthrough": "Hide looks like a verb, but it is the noun for an animal's skin.",
+     "definitionFit": "Leather is tanned animal hide, so the two name the same material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Hide"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +885,47 @@
     "text": "How might one describe Lord of the Flies? 'Schoolchildren in charge'?",
     "enumeration": "7"
    },
-   "solution": "CLASSIC"
+   "solution": "CLASSIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLASSIC",
+    "definitions": [
+     {
+      "text": "How might one describe Lord of the Flies?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Schoolchildren",
+      "gives": "CLASS",
+      "note": "a class is a group of schoolchildren"
+     },
+     {
+      "clueFragment": "in charge",
+      "gives": "IC",
+      "note": "IC is the abbreviation for in charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLASS",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "Lord of the Flies is summed up as a story of schoolboys running things themselves.",
+     "walkthrough": "William Golding's novel shows stranded schoolboys ruling themselves, so the wordplay doubles as a plot summary.",
+     "definitionFit": "Golding's novel is a celebrated, enduring work of literature, which is what a classic is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +939,64 @@
     "text": "One gets carried away sculpting sand close to dune",
     "enumeration": "5"
    },
-   "solution": "SEDAN"
+   "solution": "SEDAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SEDAN",
+    "definitions": [
+     {
+      "text": "One gets carried away",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is where it ends, its final letter"
+     },
+     {
+      "text": "sculpting",
+      "for": "anagram",
+      "note": "sculpting shapes material into a new form, so the letters are remodelled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sand",
+      "gives": "SAND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dune",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of dune"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SANDE",
+       "gives": "SEDAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone becomes absorbed in building sandcastles by a dune.",
+     "walkthrough": "Carried away suggests enthusiasm; it means literally carried, as in a sedan chair borne on poles.",
+     "definitionFit": "A sedan chair is an enclosed seat carried on poles by bearers, so whoever rides in one is carried."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "carried"
+    }
+   }
   },
   {
    "number": 13,
@@ -259,7 +1016,39 @@
      }
     ]
    },
-   "solution": "SOFTDRINK"
+   "solution": "SOFTDRINK",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SOFT DRINK",
+    "definitions": [
+     {
+      "text": "Order given to the driver?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Order given to the driver?",
+      "note": "surface reading: an instruction to a chauffeur or cabbie"
+     },
+     {
+      "clueFragment": "Order given to the driver?",
+      "note": "setter's reading: what a designated driver asks for at the bar, something without alcohol"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Order sounds like a command, but it is a drinks order, and the driver cannot drink alcohol.",
+     "definitionFit": "A soft drink is non-alcoholic, the usual choice for someone who has to drive home."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Order"
+    }
+   }
   },
   {
    "number": 14,
@@ -273,7 +1062,79 @@
     "text": "York's centre-half and left-winger alongside an assortment of star players",
     "enumeration": "9"
    },
-   "solution": "ORCHESTRA"
+   "solution": "ORCHESTRA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "ORCHESTRA",
+    "definitions": [
+     {
+      "text": "players",
+      "at": 67
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre-half",
+      "for": "letter_selection",
+      "note": "the central half of a four-letter word is its middle two letters"
+     },
+     {
+      "text": "an assortment of",
+      "for": "anagram",
+      "note": "an assortment is a mixed collection, so the letters come mixed up"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "alongside"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "York's",
+      "gives": "OR",
+      "select": "middle",
+      "note": "the two middle letters of York"
+     },
+     {
+      "clueFragment": "left-winger",
+      "gives": "CHE",
+      "note": "Che Guevara, the Marxist revolutionary, a famous figure of the political left"
+     },
+     {
+      "clueFragment": "star",
+      "gives": "STRA",
+      "note": "the letters of star rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "CHE",
+      "STRA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STAR",
+       "gives": "STRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football report on York City's defender and winger lining up with a team of stars.",
+     "walkthrough": "Centre-half and left-winger are football positions, but here one picks letters and the other is a revolutionary.",
+     "definitionFit": "An orchestra is a body of musicians who play together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "left-winger"
+    }
+   }
   },
   {
    "number": 14,
@@ -287,7 +1148,57 @@
     "text": "Undressed lovers sketch figures in red",
     "enumeration": "9"
    },
-   "solution": "OVERDRAFT"
+   "solution": "OVERDRAFT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OVERDRAFT",
+    "definitions": [
+     {
+      "text": "figures in red",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Undressed",
+      "for": "letter_selection",
+      "note": "an undressed word has its outer covering stripped, losing its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lovers",
+      "gives": "OVER",
+      "select": "middle",
+      "note": "lovers without its first and last letters"
+     },
+     {
+      "clueFragment": "sketch",
+      "gives": "DRAFT",
+      "note": "a draft is a rough sketch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "DRAFT"
+     ]
+    },
+    "explanation": {
+     "surface": "Naked lovers drawn by an artist working in red.",
+     "walkthrough": "In red means in debt on a bank statement, not the colour of the drawing.",
+     "definitionFit": "An overdraft takes a bank balance below zero, and such figures are said to be in the red."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "figures"
+    }
+   }
   },
   {
    "number": 15,
@@ -307,7 +1218,61 @@
      }
     ]
    },
-   "solution": "TRIPLESEC"
+   "solution": "TRIPLESEC",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "TRIPLE SEC",
+    "definitions": [
+     {
+      "text": "Liqueur",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "amongst",
+      "for": "container",
+      "note": "something amongst others is placed in their midst"
+     },
+     {
+      "text": "a jumble of",
+      "for": "anagram",
+      "note": "a jumble is a disordered heap, so the letters are disordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "receipts",
+      "gives": "RECEIPTS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RECEIPTSL",
+       "gives": "TRIPLESEC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bottle of liqueur left in a pile of shop receipts.",
+     "definitionFit": "Triple sec is a clear orange-flavoured liqueur, as used in a margarita."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 16,
@@ -327,7 +1292,65 @@
      }
     ]
    },
-   "solution": "FORCEFEED"
+   "solution": "FORCEFEED",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "FORCE-FEED",
+    "definitions": [
+     {
+      "text": "impose a way of thinking",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drugged",
+      "for": "container",
+      "note": "a drugged person has a drug put inside them"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Police officers",
+      "gives": "FORCE",
+      "note": "the force is the police"
+     },
+     {
+      "clueFragment": "American agent",
+      "gives": "FED",
+      "note": "a fed is an FBI agent in US slang"
+     },
+     {
+      "clueFragment": "drugged",
+      "gives": "E",
+      "note": "E is ecstasy, the drug"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FORCE",
+      "F",
+      "E",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Police dope a US agent to brainwash him, like a spy thriller.",
+     "walkthrough": "Drugged does double duty here: it signals the insertion and supplies the E.",
+     "definitionFit": "To force-feed ideas is to press them on someone against their will, like feeding by force."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "drugged"
+    }
+   }
   },
   {
    "number": 17,
@@ -341,7 +1364,72 @@
     "text": "Bring forth fruit thief smuggling cherimoya peel in books",
     "enumeration": "7"
    },
-   "solution": "EVOCATE"
+   "solution": "EVOCATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "EVOCATE",
+    "definitions": [
+     {
+      "text": "Bring forth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "peel",
+      "for": "letter_selection",
+      "note": "the peel of a fruit is its outside, here the outer letters of the word"
+     },
+     {
+      "text": "smuggling",
+      "for": "container",
+      "note": "a smuggler carries something hidden inside"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fruit thief",
+      "gives": "EVE",
+      "note": "Eve took the forbidden fruit in Genesis"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "OT",
+      "note": "OT, the Old Testament, a set of books"
+     },
+     {
+      "clueFragment": "cherimoya",
+      "gives": "CA",
+      "select": "outer",
+      "note": "the first and last letters of cherimoya"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EV",
+      "OCAT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A shoplifter sneaks an exotic fruit out tucked into books.",
+     "walkthrough": "CA goes into OT, and that goes into EVE. A cherimoya is a South American custard apple.",
+     "definitionFit": "To evocate is an old form of evoke, meaning to call up or bring forth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "thief"
+    }
+   }
   },
   {
    "number": 18,
@@ -355,7 +1443,42 @@
     "text": "Carefully consider plan out loud",
     "enumeration": "5"
    },
-   "solution": "WEIGH"
+   "solution": "WEIGH",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WEIGH",
+    "definitions": [
+     {
+      "text": "Carefully consider",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out loud",
+      "for": "homophone",
+      "note": "said out loud, a word is judged by its sound rather than its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plan",
+      "gives": "WEIGH",
+      "soundsLike": "WAY",
+      "note": "a way is a plan or method"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is told to think a scheme over carefully and talk it through.",
+     "definitionFit": "To weigh options is to consider them carefully, balancing one against another."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -369,7 +1492,60 @@
     "text": "Cover of Whigfield's number one by Eminem?",
     "enumeration": "7"
    },
-   "solution": "WRAPPER"
+   "solution": "WRAPPER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "WRAPPER",
+    "definitions": [
+     {
+      "text": "Cover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "number one",
+      "for": "letter_selection",
+      "note": "number one means the first, so the first letter"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Whigfield's",
+      "gives": "W",
+      "select": "first",
+      "note": "the first letter of Whigfield"
+     },
+     {
+      "clueFragment": "Eminem?",
+      "gives": "RAPPER",
+      "note": "Eminem is a famous rapper, an example, hence the question mark"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "RAPPER"
+     ]
+    },
+    "explanation": {
+     "surface": "Eminem covers Whigfield's chart-topper, a pop-music odd couple.",
+     "walkthrough": "Whigfield had a 1994 number one with Saturday Night, and a cover version sounds like the point; cover is the definition.",
+     "definitionFit": "A wrapper is an outer covering, such as the paper round a sweet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Cover"
+    }
+   }
   },
   {
    "number": 19,
@@ -383,7 +1559,66 @@
     "text": "Did a second bridge player put in card?",
     "enumeration": "7"
    },
-   "solution": "DIAMOND"
+   "solution": "DIAMOND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DIAMOND",
+    "definitions": [
+     {
+      "text": "card",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put in",
+      "for": "container",
+      "note": "pieces put in are placed inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Did",
+      "gives": "DID",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "MO",
+      "note": "a mo is a moment, a second"
+     },
+     {
+      "clueFragment": "bridge player",
+      "gives": "N",
+      "note": "North is one of the four players at bridge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "A",
+      "MO",
+      "N",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether another bridge player played a card.",
+     "definitionFit": "A diamond is a playing card of the suit marked with red lozenges."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 20,
@@ -403,7 +1638,63 @@
      }
     ]
    },
-   "solution": "ADDUP"
+   "solution": "ADDUP",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ADD UP",
+    "definitions": [
+     {
+      "text": "total",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "the party holds the number inside itself"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "political party",
+      "gives": "DUP",
+      "note": "the Democratic Unionist Party of Northern Ireland"
+     },
+     {
+      "clueFragment": "500",
+      "gives": "D",
+      "note": "D is 500 in Roman numerals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "D",
+      "D",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A party has 500 members altogether.",
+     "definitionFit": "To add up is to total figures by summing them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -417,7 +1708,56 @@
     "text": "Buy wife pale yellow trousers",
     "enumeration": "7"
    },
-   "solution": "SWALLOW"
+   "solution": "SWALLOW",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SWALLOW",
+    "definitions": [
+     {
+      "text": "Buy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trousers",
+      "for": "container",
+      "note": "used as a verb, to trouser something is to pocket it, holding it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pale yellow",
+      "gives": "SALLOW",
+      "note": "sallow skin has a sickly pale yellow tinge"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "W",
+      "ALLOW"
+     ]
+    },
+    "explanation": {
+     "surface": "A shopping instruction to purchase pale yellow trousers for one's wife.",
+     "walkthrough": "Buy is the informal sense of believe, as in I don't buy that story; trousers is a verb, not a garment.",
+     "definitionFit": "To swallow a story is to accept it as true, just as one may buy it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trousers"
+    }
+   }
   },
   {
    "number": 21,
@@ -431,7 +1771,66 @@
     "text": "Barman that is beginning to serve at opening",
     "enumeration": "5"
    },
-   "solution": "SATIE"
+   "solution": "SATIE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SATIE",
+    "definitions": [
+     {
+      "text": "Barman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "at opening"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "serve",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of serve"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation for that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AT",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pub barman is about to start serving as the doors open.",
+     "walkthrough": "Barman means a composer, a man who writes bars of music. S and AT come at the opening, ahead of IE.",
+     "definitionFit": "Erik Satie was a French composer, and a composer writes music in bars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Barman"
+    }
+   }
   },
   {
    "number": 22,
@@ -445,7 +1844,54 @@
     "text": "They move first and knock into you and me",
     "enumeration": "5"
    },
-   "solution": "WHITE"
+   "solution": "WHITE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WHITE",
+    "definitions": [
+     {
+      "text": "They move first",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "one piece goes into another, ending up inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "you and me",
+      "gives": "WE",
+      "note": "we is you and me together"
+     },
+     {
+      "clueFragment": "knock",
+      "gives": "HIT",
+      "note": "to knock is to hit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HIT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone moves first and bumps into the two of us.",
+     "definitionFit": "In chess the side playing White always makes the opening move."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "move"
+    }
+   }
   },
   {
    "number": 23,
@@ -459,7 +1905,43 @@
     "text": "Country hotel's nearby",
     "enumeration": "5"
    },
-   "solution": "INDIA"
+   "solution": "INDIA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INDIA",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     },
+     {
+      "text": "hotel's nearby",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Country",
+      "note": "first meaning: the South Asian nation"
+     },
+     {
+      "clueFragment": "hotel's nearby",
+      "note": "second meaning: in the NATO phonetic alphabet, the code word right after Hotel"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a travel ad for a country hotel; Hotel is the code word for H, and the next letter's code word follows it.",
+     "definitionFit": "India is both a country and the radio code word for I, which follows Hotel for H in the alphabet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hotel's"
+    }
+   }
   },
   {
    "number": 24,
@@ -473,7 +1955,49 @@
     "text": "Distribute pittas in a set of small dishes",
     "enumeration": "9"
    },
-   "solution": "ANTIPASTI"
+   "solution": "ANTIPASTI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANTIPASTI",
+    "definitions": [
+     {
+      "text": "set of small dishes",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Distribute",
+      "for": "anagram",
+      "note": "distributing things spreads them about, so the letters are scattered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pittas in a",
+      "gives": "PITTASINA",
+      "note": "the letters of these three words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PITTASINA",
+       "gives": "ANTIPASTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Handing round pitta bread on a selection of small plates.",
+     "definitionFit": "Antipasti are Italian starters, an assortment of small dishes served before the main meal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -493,7 +2017,65 @@
      }
     ]
    },
-   "solution": "KIPPERTIE"
+   "solution": "KIPPERTIE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "KIPPER TIE",
+    "definitions": [
+     {
+      "text": "Neckwear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader leaving",
+      "for": "deletion",
+      "note": "when the leader leaves, the first letter drops away"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "UKIP",
+      "gives": "UKIP",
+      "note": "the UK Independence Party"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "PER",
+      "note": "per means for each, as in ten pounds a head"
+     },
+     {
+      "clueFragment": "football match?",
+      "gives": "TIE",
+      "note": "a tie is a knockout football match, as in a cup tie"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KIP",
+      "PER",
+      "TIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A UKIP leader walks out of a football game, wearing loud neckwear.",
+     "walkthrough": "The U of UKIP is dropped. The surface also hints at Kippers, the nickname for UKIP supporters.",
+     "definitionFit": "A kipper tie is a very wide, brightly patterned necktie fashionable in the 1970s."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "leaving"
+    }
+   }
   },
   {
    "number": 26,
@@ -507,7 +2089,59 @@
     "text": "Look around vacant caravanette next to playground",
     "enumeration": "5"
    },
-   "solution": "RECCE"
+   "solution": "RECCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RECCE",
+    "definitions": [
+     {
+      "text": "Look around",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "vacant",
+      "for": "letter_selection",
+      "note": "a vacant word has nothing inside, keeping only its outer letters"
+     }
+    ],
+    "linkWords": [
+     "next to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "playground",
+      "gives": "REC",
+      "note": "the rec is a recreation ground, a public playing field"
+     },
+     {
+      "clueFragment": "caravanette",
+      "gives": "CE",
+      "select": "outer",
+      "note": "the first and last letters of caravanette"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REC",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "Checking out an empty camper van parked by a play area.",
+     "walkthrough": "A caravanette is a British word for a small camper van.",
+     "definitionFit": "A recce, short for reconnaissance, is a scouting look around a place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vacant"
+    }
+   }
   }
  ]
 }
