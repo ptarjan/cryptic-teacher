@@ -18,12 +18,39 @@
   "gridOrigin": "reconstructed"
  },
  "solutions": {
-  "origin": "writeup",
-  "blog": "timesforthetimes",
-  "url": "https://timesforthetimes.co.uk/quick-cryptic-2471-by-felix",
-  "date": "2023-08-29",
-  "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-09",
+  "check": "24 entries, 36 crossings, 0 conflicts, agrees with the 23 answers the paper printed",
+  "printed": {
+   "1-down": "MISHMASH",
+   "2-down": "TYPING",
+   "3-down": "TWOTIMER",
+   "4-down": "FARM",
+   "5-down": "PETROL",
+   "6-down": "LESS",
+   "7-across": "LILY",
+   "8-across": "WHATEVER",
+   "9-across": "THRIFT",
+   "10-across": "MOROSE",
+   "11-across": "HANG",
+   "13-down": "RESTCURE",
+   "14-down": "NICHOLAS",
+   "15-across": "THEATRES",
+   "16-down": "ABSURD",
+   "17-across": "JACK",
+   "17-down": "JOINTS",
+   "18-across": "OFFSET",
+   "19-down": "FIVE",
+   "20-down": "TREE",
+   "21-across": "CHINOS",
+   "22-across": "OVERHEAR",
+   "23-across": "TSAR"
+  }
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +64,65 @@
     "text": "Hotchpotch of notes heaped originally on potato dish",
     "enumeration": "8"
    },
-   "solution": "MISHMASH"
+   "solution": "MISHMASH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MISHMASH",
+    "definitions": [
+     {
+      "text": "Hotchpotch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to the start of the word, so only its opening letter is used"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "notes",
+      "gives": "MIS",
+      "note": "mi is a note of the sol-fa scale, so several of them are mis"
+     },
+     {
+      "clueFragment": "heaped",
+      "gives": "H",
+      "select": "first",
+      "note": "the first letter of heaped"
+     },
+     {
+      "clueFragment": "potato dish",
+      "gives": "MASH",
+      "note": "mash is mashed potato"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIS",
+      "H",
+      "MASH"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook piles a scruffy heap of notes onto a plate of potatoes.",
+     "walkthrough": "'On' in a down clue puts the first part above the second, so the notes and the H sit on top of the mash.",
+     "definitionFit": "A mishmash is a confused jumble of things, exactly what a hotchpotch is: a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "notes"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +136,43 @@
     "text": "Using keypad facility, PIN gets shrunk",
     "enumeration": "6"
    },
-   "solution": "TYPING"
+   "solution": "TYPING",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TYPING",
+    "definitions": [
+     {
+      "text": "Using keypad",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shrunk",
+      "for": "hidden_word",
+      "note": "the phrase is trimmed at both ends, shrinking it down to a run of letters inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "facility, PIN gets",
+      "gives": "TYPING",
+      "note": "the run of letters starting at the end of facility and running into gets"
+     }
+    ],
+    "explanation": {
+     "surface": "A cash machine's keypad works, but the PIN number someone keys in gets cut short.",
+     "walkthrough": "'Keypad facility' looks like one phrase, but the definition stops at keypad and the letters come from facility onwards.",
+     "definitionFit": "Typing is pressing keys to enter text, which is what working a keypad involves: a descriptive synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "facility"
+    }
+   }
   },
   {
    "number": 3,
@@ -71,7 +192,40 @@
      }
     ]
    },
-   "solution": "TWOTIMER"
+   "solution": "TWOTIMER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TWO-TIMER",
+    "definitions": [
+     {
+      "text": "One cheating on a second occasion?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One cheating",
+      "note": "surface reading: an unfaithful partner"
+     },
+     {
+      "clueFragment": "on a second occasion?",
+      "note": "setter's reading: someone doing a thing for the second time, a literal 'second timer'"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is caught being unfaithful again, a repeat offender.",
+     "walkthrough": "The question mark flags that the answer is read literally as a person doing something a second time.",
+     "definitionFit": "A two-timer is a partner who cheats by seeing someone else on the side: an idiom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "occasion"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +239,45 @@
     "text": "Ranch maybe a long way — miles",
     "enumeration": "4"
    },
-   "solution": "FARM"
+   "solution": "FARM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FARM",
+    "definitions": [
+     {
+      "text": "Ranch maybe",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a long way",
+      "gives": "FAR",
+      "note": "far means a long way off"
+     },
+     {
+      "clueFragment": "miles",
+      "gives": "M",
+      "note": "M is the standard abbreviation for miles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAR",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A ranch out in the country, perhaps a long way off, miles from anywhere.",
+     "definitionFit": "A ranch is a large kind of farm for raising cattle, so 'maybe' marks it as an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +291,48 @@
     "text": "Fuel oddly eliminated speed: turmoil!",
     "enumeration": "6"
    },
-   "solution": "PETROL"
+   "solution": "PETROL",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "PETROL",
+    "definitions": [
+     {
+      "text": "Fuel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly eliminated",
+      "for": "letter_selection",
+      "note": "removing the letters in odd positions leaves only every second letter, starting with the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "speed: turmoil",
+      "gives": "PETROL",
+      "select": "alternate",
+      "note": "the even-placed letters of speed and turmoil read together"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PETROL"
+     ]
+    },
+    "explanation": {
+     "surface": "A fuel shortage brings driving to a halt, and the roads fall into chaos.",
+     "definitionFit": "Petrol is the British word for gasoline, the fuel burned in most car engines."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eliminated"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +346,58 @@
     "text": "Not so many of the French soldiers at the borders",
     "enumeration": "4"
    },
-   "solution": "LESS"
+   "solution": "LESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LESS",
+    "definitions": [
+     {
+      "text": "Not so many",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the borders",
+      "for": "letter_selection",
+      "note": "borders are the edges, so only the first and last letters are taken"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "SS",
+      "select": "outer",
+      "note": "the first and last letters of soldiers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "Fewer French troops are stationed along the frontier.",
+     "definitionFit": "Less is used informally for fewer, a smaller number of something: a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "borders"
+    }
+   }
   },
   {
    "number": 7,
@@ -127,7 +411,55 @@
     "text": "Girl of fifty-one, large Yankee",
     "enumeration": "4"
    },
-   "solution": "LILY"
+   "solution": "LILY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LILY",
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fifty-one",
+      "gives": "LI",
+      "note": "LI is 51 in Roman numerals"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large, as on clothing labels"
+     },
+     {
+      "clueFragment": "Yankee",
+      "gives": "Y",
+      "note": "Yankee is Y in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "L",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A large American girl, fifty-one years old.",
+     "definitionFit": "Lily is a girl's first name, and setters use 'girl' to stand for any such name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Yankee"
+    }
+   }
   },
   {
    "number": 8,
@@ -141,7 +473,42 @@
     "text": "Some raw hate, verbal, of any kind",
     "enumeration": "8"
    },
-   "solution": "WHATEVER"
+   "solution": "WHATEVER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "WHATEVER",
+    "definitions": [
+     {
+      "text": "of any kind",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means only a portion of the following words is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "raw hate, verbal",
+      "gives": "WHATEVER",
+      "note": "the letters run from the end of raw through hate and into verbal"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone vents raw spoken hatred of every sort.",
+     "definitionFit": "Whatever can follow a noun to mean of any sort at all, as in 'no doubt whatever': a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "verbal"
+    }
+   }
   },
   {
    "number": 9,
@@ -155,7 +522,59 @@
     "text": "Split on extreme points of Turkish economy",
     "enumeration": "6"
    },
-   "solution": "THRIFT"
+   "solution": "THRIFT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "THRIFT",
+    "definitions": [
+     {
+      "text": "economy",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extreme points of",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so its first and last letters are taken"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turkish",
+      "gives": "TH",
+      "select": "outer",
+      "note": "the first and last letters of Turkish"
+     },
+     {
+      "clueFragment": "Split",
+      "gives": "RIFT",
+      "note": "a rift is a split or breach"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "RIFT"
+     ]
+    },
+    "explanation": {
+     "surface": "Turkey's economy is torn by disagreement over its key targets.",
+     "walkthrough": "The split is placed on, meaning after, the two letters from Turkish.",
+     "definitionFit": "Thrift is careful saving and spending, the same as economy in its sense of frugality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "economy"
+    }
+   }
   },
   {
    "number": 10,
@@ -169,7 +588,48 @@
     "text": "Sullen medic stood up",
     "enumeration": "6"
    },
-   "solution": "MOROSE"
+   "solution": "MOROSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOROSE",
+    "definitions": [
+     {
+      "text": "Sullen",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "medic",
+      "gives": "MO",
+      "note": "MO is a medical officer"
+     },
+     {
+      "clueFragment": "stood up",
+      "gives": "ROSE",
+      "note": "rose means got up or stood up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "ROSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A grumpy doctor was let down by a date who never came.",
+     "walkthrough": "'Stood up' suggests a jilted date, but it is simply rose.",
+     "definitionFit": "Morose means gloomy and bad-tempered, a close synonym of sullen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stood"
+    }
+   }
   },
   {
    "number": 11,
@@ -183,7 +643,55 @@
     "text": "Old Dynasty showing finally to be suspended",
     "enumeration": "4"
    },
-   "solution": "HANG"
+   "solution": "HANG",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HANG",
+    "definitions": [
+     {
+      "text": "to be suspended",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end of the word, so its last letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old Dynasty",
+      "gives": "HAN",
+      "note": "the Han dynasty ruled China from about 200 BC"
+     },
+     {
+      "clueFragment": "showing",
+      "gives": "G",
+      "select": "last",
+      "note": "the final letter of showing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A historic dynasty is about to be put on hold.",
+     "definitionFit": "To hang is to be suspended from above, as a picture hangs from a hook: a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "suspended"
+    }
+   }
   },
   {
    "number": 12,
@@ -196,6 +704,50 @@
    "clue": {
     "text": "Contrary gardener to come down in a state",
     "enumeration": "8"
+   },
+   "solution": "MARYLAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MARYLAND",
+    "definitions": [
+     {
+      "text": "state",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "in a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Contrary gardener",
+      "gives": "MARY",
+      "note": "from the nursery rhyme 'Mary, Mary, quite contrary, how does your garden grow?'"
+     },
+     {
+      "clueFragment": "to come down",
+      "gives": "LAND",
+      "note": "to land is to come down to the ground"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MARY",
+      "LAND"
+     ]
+    },
+    "explanation": {
+     "surface": "A cantankerous gardener comes down from a ladder in a state of agitation.",
+     "walkthrough": "'In a state' reads as being upset, but state is the definition and 'in a' links it.",
+     "definitionFit": "Maryland is one of the fifty United States, on the east coast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
    }
   },
   {
@@ -216,7 +768,39 @@
      }
     ]
    },
-   "solution": "RESTCURE"
+   "solution": "RESTCURE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "REST-CURE",
+    "definitions": [
+     {
+      "text": "What's doing nothing for your recovery?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doing nothing for your recovery",
+      "note": "surface reading: something useless that fails to help you get better"
+     },
+     {
+      "clueFragment": "What's doing nothing",
+      "note": "setter's reading: a treatment that consists of doing nothing, prescribed so you recover"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The phrase 'doing nothing for' usually means being no help, but here doing nothing is itself the treatment.",
+     "definitionFit": "A rest cure is a medical regime of prolonged rest and inactivity to restore health."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nothing"
+    }
+   }
   },
   {
    "number": 14,
@@ -230,7 +814,69 @@
     "text": "Parsons perhaps chaotically clash on introduction of ideas",
     "enumeration": "8"
    },
-   "solution": "NICHOLAS"
+   "solution": "NICHOLAS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "NICHOLAS",
+    "definitions": [
+     {
+      "text": "Parsons perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduction of",
+      "for": "letter_selection",
+      "note": "an introduction is the opening, so just the first letter of the next word is used"
+     },
+     {
+      "text": "chaotically",
+      "for": "anagram",
+      "note": "chaotically means in disorder, so the letters are scrambled into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clash",
+      "gives": "CLASH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ideas",
+      "gives": "I",
+      "select": "first",
+      "note": "the first letter of ideas"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CLASHONI",
+       "gives": "NICHOLAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Clergymen argue noisily when new ideas are brought in.",
+     "walkthrough": "Parsons looks like clergy, but it is Nicholas Parsons, the long-serving British host of the radio panel game Just a Minute.",
+     "definitionFit": "Nicholas is the first name of the broadcaster Parsons, so 'perhaps' marks one bearer of the name as an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Parsons"
+    }
+   }
   },
   {
    "number": 15,
@@ -244,7 +890,55 @@
     "text": "Dramatic scenes as tether broken",
     "enumeration": "8"
    },
-   "solution": "THEATRES"
+   "solution": "THEATRES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THEATRES",
+    "definitions": [
+     {
+      "text": "Dramatic scenes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken has its parts out of place, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tether",
+      "gives": "TETHER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASTETHER",
+       "gives": "THEATRES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tethered animal breaks free, causing a dramatic commotion.",
+     "definitionFit": "Theatres are places, or fields of action, where dramatic events take place: a looser synonym for scenes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dramatic"
+    }
+   }
   },
   {
    "number": 16,
@@ -258,7 +952,69 @@
     "text": "Ridiculous having a bus moving on road",
     "enumeration": "6"
    },
-   "solution": "ABSURD"
+   "solution": "ABSURD",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ABSURD",
+    "definitions": [
+     {
+      "text": "Ridiculous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving",
+      "for": "anagram",
+      "note": "moving means the letters shift position, so they are rearranged"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bus",
+      "gives": "BUS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "RD",
+      "note": "Rd is the abbreviation for road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BSU",
+      "RD"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BUS",
+       "gives": "BSU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It would be silly to let a bus drive along the road.",
+     "definitionFit": "Absurd means wildly unreasonable or laughable, a straightforward synonym of ridiculous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "moving"
+    }
+   }
   },
   {
    "number": 17,
@@ -272,7 +1028,43 @@
     "text": "Means to raise flag",
     "enumeration": "4"
    },
-   "solution": "JACK"
+   "solution": "JACK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "JACK",
+    "definitions": [
+     {
+      "text": "Means to raise",
+      "at": 0
+     },
+     {
+      "text": "flag",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Means to raise",
+      "note": "first meaning: a device for lifting a car off the ground"
+     },
+     {
+      "clueFragment": "flag",
+      "note": "second meaning: a ship's flag, as in the Union flag"
+     }
+    ],
+    "explanation": {
+     "surface": "A rope or pulley is a way to hoist a flag up a pole.",
+     "walkthrough": "The surface joins the two into flag-raising, but they are separate meanings.",
+     "definitionFit": "A jack lifts a vehicle, and a jack is also a small flag flown at a ship's bow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Means"
+    }
+   }
   },
   {
    "number": 17,
@@ -286,7 +1078,45 @@
     "text": "Clubs for smokers?",
     "enumeration": "6"
    },
-   "solution": "JOINTS"
+   "solution": "JOINTS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "JOINTS",
+    "definitions": [
+     {
+      "text": "Clubs",
+      "at": 0
+     },
+     {
+      "text": "for smokers",
+      "at": 6,
+      "note": "a cryptic hint: things for smokers to smoke"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clubs",
+      "note": "first meaning: informal slang for nightclubs or bars"
+     },
+     {
+      "clueFragment": "for smokers",
+      "note": "second meaning: rolled cannabis cigarettes, something for smokers"
+     }
+    ],
+    "explanation": {
+     "surface": "Venues where patrons are still allowed to light up.",
+     "walkthrough": "The question mark flags that the second half is a loose, playful definition: these are what smokers smoke.",
+     "definitionFit": "Joints are informal places such as bars or clubs, and also cannabis cigarettes rolled by hand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Clubs"
+    }
+   }
   },
   {
    "number": 18,
@@ -300,7 +1130,47 @@
     "text": "Compensated for non-functioning television?",
     "enumeration": "6"
    },
-   "solution": "OFFSET"
+   "solution": "OFFSET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OFFSET",
+    "definitions": [
+     {
+      "text": "Compensated for",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "non-functioning",
+      "gives": "OFF",
+      "note": "a device that is off is not working"
+     },
+     {
+      "clueFragment": "television?",
+      "gives": "SET",
+      "note": "a television is a TV set"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFF",
+      "SET"
+     ]
+    },
+    "explanation": {
+     "surface": "A broken TV was refunded, someone being compensated for it.",
+     "definitionFit": "To offset is to balance out or make up for something, as gains offset losses: a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "television"
+    }
+   }
   },
   {
    "number": 19,
@@ -314,7 +1184,50 @@
     "text": "A number one has to pursue loudly",
     "enumeration": "4"
    },
-   "solution": "FIVE"
+   "solution": "FIVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FIVE",
+    "definitions": [
+     {
+      "text": "A number",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to pursue"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loudly",
+      "gives": "F",
+      "note": "f, forte, is the musical direction to play loudly"
+     },
+     {
+      "clueFragment": "one has",
+      "gives": "IVE",
+      "note": "I've is short for I have, where one is I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Several people are made to give chase while shouting.",
+     "walkthrough": "'To pursue' puts the I've after the F, as a follower comes behind.",
+     "definitionFit": "Five is a cardinal number, so 'a number' is a general term with this as an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "loudly"
+    }
+   }
   },
   {
    "number": 20,
@@ -328,7 +1241,53 @@
     "text": "Ash maybe, and last bits of burnt rubber, lie here",
     "enumeration": "4"
    },
-   "solution": "TREE"
+   "solution": "TREE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TREE",
+    "definitions": [
+     {
+      "text": "Ash maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last bits of",
+      "for": "letter_selection",
+      "note": "the last bits of words are their final letters, so only those are kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "burnt rubber, lie here",
+      "gives": "TREE",
+      "select": "last",
+      "note": "the final letters of burnt, rubber, lie and here"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TREE"
+     ]
+    },
+    "explanation": {
+     "surface": "After a fire, ash and the remains of burnt rubber are left lying here.",
+     "walkthrough": "Ash looks like what burning leaves behind; here it is the tree.",
+     "definitionFit": "The ash is a common deciduous tree, so 'maybe' marks it as one example of the kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ash"
+    }
+   }
   },
   {
    "number": 21,
@@ -342,7 +1301,61 @@
     "text": "Briefly opted to hold in trousers",
     "enumeration": "6"
    },
-   "solution": "CHINOS"
+   "solution": "CHINOS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "CHINOS",
+    "definitions": [
+     {
+      "text": "trousers",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the word loses its final letter"
+     },
+     {
+      "text": "to hold",
+      "for": "container",
+      "note": "to hold something is to keep it inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "opted",
+      "gives": "CHOSE",
+      "note": "chose means opted"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "IN",
+      "OS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone quickly decided to keep wearing their trousers.",
+     "walkthrough": "CHOSE cut short becomes CHOS, which then holds IN.",
+     "definitionFit": "Chinos are casual trousers made of cotton twill, so they are one kind of trousers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hold"
+    }
+   }
   },
   {
    "number": 22,
@@ -356,7 +1369,44 @@
     "text": "Catch \"This is where you'll find me!\" being said?",
     "enumeration": "8"
    },
-   "solution": "OVERHEAR"
+   "solution": "OVERHEAR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "OVERHEAR",
+    "definitions": [
+     {
+      "text": "Catch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being said",
+      "for": "homophone",
+      "note": "being said means the words are spoken, so their sound matters rather than their spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "\"This is where you'll find me!\"",
+      "gives": "OVERHEAR",
+      "soundsLike": "OVER HERE",
+      "note": "the call someone makes to show where they are"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone calls out their location, and another person happens to catch it.",
+     "definitionFit": "To overhear is to catch words not meant for you, using catch in the sense of hear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Catch"
+    }
+   }
   },
   {
    "number": 23,
@@ -370,7 +1420,71 @@
     "text": "Autocrat in capital of Russia sat awkwardly",
     "enumeration": "4"
    },
-   "solution": "TSAR"
+   "solution": "TSAR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TSAR",
+    "definitions": [
+     {
+      "text": "Autocrat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awkwardly",
+      "for": "anagram",
+      "note": "awkwardly means clumsily, out of its natural arrangement, so the letters are rearranged"
+     },
+     {
+      "text": "capital of",
+      "for": "letter_selection",
+      "note": "a capital is an upper-case first letter, so only the start of the word is taken"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sat",
+      "gives": "SAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Russia",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of Russia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TSA",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SAT",
+       "gives": "TSA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A despot sits uncomfortably in Moscow, the Russian capital.",
+     "walkthrough": "'Capital of Russia' wants to be Moscow; it is only the letter R.",
+     "definitionFit": "A tsar was the absolute ruler of imperial Russia, an autocrat by definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   }
  ]
 }
