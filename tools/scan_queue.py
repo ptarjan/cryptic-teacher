@@ -373,7 +373,7 @@ def flagged_requests():
 VOTE_MENDED = (
     ("2026-10-09T07:56:00+00:00", ("a stray mark inside a word", "end is lost: other readings have",
                                    "start is lost: other readings have")),
-    ("2026-10-09T09:00:00+00:00", ("no reading laid a clue on it",)),
+    ("2026-10-09T09:45:00+00:00", ("no reading laid a clue on it",)),
 )
 
 
