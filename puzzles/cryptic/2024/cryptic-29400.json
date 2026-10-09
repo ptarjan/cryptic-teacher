@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,44 @@
     "text": "Check roadside's sound",
     "enumeration": "4"
    },
-   "solution": "CURB"
+   "solution": "CURB",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CURB",
+    "definitions": [
+     {
+      "text": "Check",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sound",
+      "for": "homophone",
+      "note": "a sound is something heard, so the word for roadside counts only for how it is spoken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "roadside's",
+      "gives": "CURB",
+      "soundsLike": "KERB",
+      "note": "the kerb is the stone edge of a road, which in Britain is spelt with a K"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks for the noise at the side of the road to be inspected.",
+     "walkthrough": "In British spelling the roadside edge is a KERB; the restraint, which sounds identical, is spelt CURB.",
+     "definitionFit": "To curb something is to restrain or hold it back, which is one sense of check."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Check"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +87,75 @@
     "text": "Mounted a Grease production finally, in which, potentially, 22 ac./8",
     "enumeration": "6"
    },
-   "solution": "NEBULA"
+   "solution": "NEBULA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "letter_selection"
+    ],
+    "answer": "NEBULA",
+    "definitions": [
+     {
+      "text": "in which, potentially, 22 ac./8",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mounted",
+      "for": "reversal",
+      "note": "in a down entry, mounted means set upwards, so the letters are read from bottom to top"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points at the closing letter of the word just before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Grease",
+      "gives": "LUBE",
+      "note": "lube is short for lubricant, a grease"
+     },
+     {
+      "clueFragment": "production",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter of production"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "EBUL",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "ALUBEN",
+       "to": "NEBULA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone staged the musical Grease, in which some young performer might be discovered.",
+     "walkthrough": "The definition leans on the linked answer at 22 and 8, A STAR IS BORN: a NEBULA is the gas cloud where stars form.",
+     "definitionFit": "Stars form when gas and dust in an interstellar cloud collapse, so a nebula is a stellar nursery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mounted"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +187,80 @@
    "group": [
     "3-down",
     "13-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "DYING OF THE LIGHT",
+    "definitions": [
+     {
+      "text": "a poetic death",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only the last letter is kept"
+     },
+     {
+      "text": "drifting",
+      "for": "anagram",
+      "note": "things drifting move about aimlessly, so these letters wander out of order"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into tells us the preceding letters go inside the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bliss",
+      "gives": "DELIGHT",
+      "note": "delight is a synonym of bliss; it is split open as D...ELIGHT"
+     },
+     {
+      "clueFragment": "Journey's",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of journey"
+     },
+     {
+      "clueFragment": "night of",
+      "gives": "INGOFTH",
+      "note": "the seven letters of these two words, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "Y",
+      "INGOFTH",
+      "ELIGHT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NIGHTOF",
+       "gives": "INGOFTH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dreamy line about a traveller drifting through the night into happiness.",
+     "walkthrough": "The answer is from Dylan Thomas's poem: 'Rage, rage against the dying of the light'.",
+     "definitionFit": "In the Thomas villanelle the fading of daylight stands for death, so the phrase is a poet's figure for dying."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "drifting"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +274,46 @@
     "text": "Mountain area service provided",
     "enumeration": "6"
    },
-   "solution": "MASSIF"
+   "solution": "MASSIF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MASSIF",
+    "definitions": [
+     {
+      "text": "Mountain area",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "service",
+      "gives": "MASS",
+      "note": "Mass is a church service"
+     },
+     {
+      "clueFragment": "provided",
+      "gives": "IF",
+      "note": "provided as a conjunction means if"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MASS",
+      "IF"
+     ]
+    },
+    "explanation": {
+     "surface": "A mountain region where a church service is laid on.",
+     "definitionFit": "A massif is a compact group of mountains forming one upland block, a mountainous region."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +327,76 @@
     "text": "Private duel botched by duke after a brief time",
     "enumeration": "8"
    },
-   "solution": "SECLUDED"
+   "solution": "SECLUDED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "deletion"
+    ],
+    "answer": "SECLUDED",
+    "definitions": [
+     {
+      "text": "Private",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "botched",
+      "for": "anagram",
+      "note": "something botched is bungled and put together wrongly, so the letters are jumbled"
+     },
+     {
+      "text": "brief",
+      "for": "deletion",
+      "note": "brief means cut short, so the word for time loses its ending"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a brief time",
+      "gives": "SEC",
+      "note": "a second, shortened to sec"
+     },
+     {
+      "clueFragment": "duel",
+      "gives": "LUDE",
+      "note": "the letters of duel rearranged"
+     },
+     {
+      "clueFragment": "duke",
+      "gives": "D",
+      "note": "D is the abbreviation for duke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEC",
+      "LUDE",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DUEL",
+       "gives": "LUDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A private duel bungled by an aristocrat after a moment's hesitation.",
+     "walkthrough": "The order is set by 'by duke after a brief time': the time piece comes first, the jumbled duel next, the duke last.",
+     "definitionFit": "A secluded place is hidden away from others, so it is private in the sense of out of public view."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Private"
+    }
+   }
   },
   {
    "number": 6,
@@ -140,7 +429,49 @@
      }
     ]
    },
-   "solution": "STRINGUP"
+   "solution": "STRINGUP",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "STRING UP",
+    "definitions": [
+     {
+      "text": "Lynch",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Way",
+      "gives": "ST",
+      "note": "St is the abbreviation for street, a way"
+     },
+     {
+      "clueFragment": "to call someone",
+      "gives": "RINGUP",
+      "note": "to ring someone up is to call them by phone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "RINGUP"
+     ]
+    },
+    "explanation": {
+     "surface": "A way of addressing someone by the name Lynch.",
+     "walkthrough": "The quotation marks make Lynch look like a surname, as in David Lynch; it is the verb.",
+     "definitionFit": "To string someone up is to hang them, especially without trial, which is what lynching means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Lynch"
+    }
+   }
   },
   {
    "number": 8,
@@ -177,7 +508,50 @@
      }
     ]
    },
-   "solution": "USEBYDATE"
+   "solution": "USEBYDATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "USE-BY DATE",
+    "definitions": [
+     {
+      "text": "Don't eat after this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "perverse",
+      "for": "anagram",
+      "note": "perverse means contrary and twisted, so the letters are turned awry"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tuesday – be",
+      "gives": "TUESDAYBE",
+      "note": "the letters of these two words, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TUESDAYBE",
+       "gives": "USEBYDATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A defiant instruction to fast after a certain weekday.",
+     "definitionFit": "The use-by date printed on food is the last day it should be eaten, so it is the point after which you shouldn't."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Tuesday"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +565,46 @@
     "text": "Unfashionable party cap",
     "enumeration": "5"
    },
-   "solution": "OUTDO"
+   "solution": "OUTDO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTDO",
+    "definitions": [
+     {
+      "text": "cap",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unfashionable",
+      "gives": "OUT",
+      "note": "out means no longer in fashion"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is an informal word for a party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "An unstylish hat worn to a party.",
+     "definitionFit": "To cap something is to better or surpass it, as in capping a joke, the same as outdoing it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cap"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +618,57 @@
     "text": "Grizzly, being initially bankrupt?",
     "enumeration": "5"
    },
-   "solution": "BRUIN"
+   "solution": "BRUIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BRUIN",
+    "definitions": [
+     {
+      "text": "Grizzly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "being",
+      "gives": "B",
+      "select": "first",
+      "note": "the first letter of being"
+     },
+     {
+      "clueFragment": "bankrupt",
+      "gives": "RUIN",
+      "note": "to bankrupt someone is to ruin them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RUIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a grumpy person is going broke from the start.",
+     "walkthrough": "Grizzly looks like an adjective for grumbling; here it is the noun, a grizzly bear.",
+     "definitionFit": "Bruin is a traditional folk name for a bear, and a grizzly is a species of bear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Grizzly"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +682,61 @@
     "text": "Rescue tank one installed in exhibition room",
     "enumeration": "9"
    },
-   "solution": "SALVATION"
+   "solution": "SALVATION",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SALVATION",
+    "definitions": [
+     {
+      "text": "Rescue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "installed in",
+      "for": "container",
+      "note": "something installed in a room is placed inside it, so these letters go within the word for room"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exhibition room",
+      "gives": "SALON",
+      "note": "a salon is a gallery or hall where art is exhibited; it is opened up as SAL...ON"
+     },
+     {
+      "clueFragment": "tank",
+      "gives": "VAT",
+      "note": "a vat is a large tank for liquids"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAL",
+      "VAT",
+      "I",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A tank, a military vehicle, put on display in a museum gallery.",
+     "definitionFit": "Salvation is deliverance from harm or danger, so it serves as a noun meaning rescue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tank"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +756,50 @@
      }
     ]
    },
-   "solution": "LEADOFF"
+   "solution": "LEADOFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEAD OFF",
+    "definitions": [
+     {
+      "text": "Start",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "toxic element",
+      "gives": "LEAD",
+      "note": "lead is a poisonous metallic element"
+     },
+     {
+      "clueFragment": "ill",
+      "gives": "OFF",
+      "note": "feeling off means feeling unwell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEAD",
+      "OFF"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone first falls sick after exposure to a poisonous metal.",
+     "walkthrough": "'After' sets the order: the word for ill follows the element.",
+     "definitionFit": "To lead off is to begin or open proceedings, the same as to start."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Start"
+    }
+   }
   },
   {
    "number": 13,
@@ -266,7 +826,59 @@
     "text": "High road at last gets uneven",
     "enumeration": "7"
    },
-   "solution": "DRUGGED"
+   "solution": "DRUGGED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DRUGGED",
+    "definitions": [
+     {
+      "text": "High",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points at the closing letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "road",
+      "gives": "D",
+      "select": "last",
+      "note": "the last letter of road"
+     },
+     {
+      "clueFragment": "uneven",
+      "gives": "RUGGED",
+      "note": "rugged ground is rough and uneven"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RUGGED"
+     ]
+    },
+    "explanation": {
+     "surface": "A mountain road that finally turns bumpy.",
+     "walkthrough": "High looks like height on a road; it means intoxicated.",
+     "definitionFit": "Someone drugged is under the influence of narcotics, which is the slang sense of high."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "High"
+    }
+   }
   },
   {
    "number": 15,
@@ -280,7 +892,66 @@
     "text": "Tungsten's unstable around lithium – troublesome",
     "enumeration": "10"
    },
-   "solution": "UNSETTLING"
+   "solution": "UNSETTLING",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "UNSETTLING",
+    "definitions": [
+     {
+      "text": "troublesome",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unstable",
+      "for": "anagram",
+      "note": "unstable means liable to fall apart, so the letters break up and re-form"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around says the rearranged letters wrap themselves about the chemical symbol"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tungsten's",
+      "gives": "UNSETTNG",
+      "note": "the letters of tungsten rearranged, split as UNSETT...NG"
+     },
+     {
+      "clueFragment": "lithium",
+      "gives": "LI",
+      "note": "Li is the chemical symbol for lithium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNSETT",
+      "LI",
+      "NG"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TUNGSTEN",
+       "gives": "UNSETTNG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chemistry note that a tungsten compound with lithium is unstable and hard to handle.",
+     "definitionFit": "Something unsettling disturbs or upsets people, so it is troublesome."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unstable"
+    }
+   }
   },
   {
    "number": 16,
@@ -294,7 +965,57 @@
     "text": "Flights requiring instrument's rotation",
     "enumeration": "5"
    },
-   "solution": "DARTS"
+   "solution": "DARTS",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "DARTS",
+    "definitions": [
+     {
+      "text": "Flights",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rotation",
+      "for": "reversal",
+      "note": "a rotation turns something round, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "requiring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "instrument",
+      "gives": "STRAD",
+      "note": "a Strad, short for Stradivarius, is a famous violin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DARTS"
+     ],
+     "reversals": [
+      {
+       "from": "STRAD",
+       "to": "DARTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Air travel that needs a musical instrument to be turned round.",
+     "walkthrough": "Flights looks like air travel; it names darts by their feathered tails, a part standing for the whole.",
+     "definitionFit": "Every dart has a flight, the vane at its tail, so the flights stand in for the darts themselves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Flights"
+    }
+   }
   },
   {
    "number": 17,
@@ -321,7 +1042,63 @@
     "text": "Subcontinental city before rain spread about the land",
     "enumeration": "8"
    },
-   "solution": "AGRARIAN"
+   "solution": "AGRARIAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "AGRARIAN",
+    "definitions": [
+     {
+      "text": "about the land",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spread",
+      "for": "anagram",
+      "note": "spread out means scattered, so the letters are dispersed into a new order"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Subcontinental city",
+      "gives": "AGRA",
+      "note": "Agra is the Indian city of the Taj Mahal"
+     },
+     {
+      "clueFragment": "rain",
+      "gives": "RIAN",
+      "note": "the letters of rain rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGRA",
+      "RIAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAIN",
+       "gives": "RIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Monsoon rain sweeping over the countryside around an Indian city.",
+     "definitionFit": "Agrarian means relating to farmland and its cultivation, that is, concerning the land."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spread"
+    }
+   }
   },
   {
    "number": 19,
@@ -345,7 +1122,66 @@
    "group": [
     "19-across",
     "17-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RED GIANT",
+    "definitions": [
+     {
+      "text": "possible star role",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "debut",
+      "for": "letter_selection",
+      "note": "a debut is a first appearance, so only the opening letter is taken"
+     }
+    ],
+    "linkWords": [
+     "offers"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "On",
+      "gives": "RE",
+      "note": "re means on, as in concerning"
+     },
+     {
+      "clueFragment": "director's",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of director"
+     },
+     {
+      "clueFragment": "Titanic",
+      "gives": "GIANT",
+      "note": "titanic means huge, giant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "D",
+      "GIANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A director's first film, Titanic, gives an actor a big starring part.",
+     "walkthrough": "Titanic suggests the film; it is just an adjective for huge. The star is a celestial one.",
+     "definitionFit": "A red giant is a phase in a star's life, so it is a part a star may come to play."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Titanic"
+    }
+   }
   },
   {
    "number": 19,
@@ -359,7 +1195,64 @@
     "text": "Put off taking vehicle to north, went back the same way",
     "enumeration": "8"
    },
-   "solution": "RETRACED"
+   "solution": "RETRACED",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "RETRACED",
+    "definitions": [
+     {
+      "text": "went back the same way",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking means holding within, so the word for put off encloses the vehicle"
+     },
+     {
+      "text": "to north",
+      "for": "reversal",
+      "note": "in a down entry, heading north means reading upwards, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Put off",
+      "gives": "DETER",
+      "note": "to deter is to put off; it is opened up as DE...TER"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "CAR",
+      "note": "a car is a vehicle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RETRACED"
+     ],
+     "reversals": [
+      {
+       "from": "DECARTER",
+       "to": "RETRACED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller, delayed by a car heading north, returns by the same route.",
+     "definitionFit": "To retrace your steps is to go back along the route you came by."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Put"
+    }
+   }
   },
   {
    "number": 20,
@@ -377,7 +1270,58 @@
    "group": [
     "20-across",
     "6-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SUPERNOVA",
+    "definitions": [
+     {
+      "text": "brilliant body transformation",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Great",
+      "gives": "SUPER",
+      "note": "super means great, excellent"
+     },
+     {
+      "clueFragment": "month",
+      "gives": "NOV",
+      "note": "Nov is the calendar abbreviation for November"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUPER",
+      "NOV",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "An advert promising a month-long programme to give you a dazzling physique makeover.",
+     "walkthrough": "Body transformation sounds like a gym promise; the body is celestial.",
+     "definitionFit": "A supernova is a star's explosive end, when it suddenly brightens enormously as it is transformed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "body"
+    }
+   }
   },
   {
    "number": 21,
@@ -391,7 +1335,58 @@
     "text": "It's wrong to bind hands, causing distress",
     "enumeration": "7"
    },
-   "solution": "TORMENT"
+   "solution": "TORMENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TORMENT",
+    "definitions": [
+     {
+      "text": "distress",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to bind",
+      "for": "container",
+      "note": "binding something wraps around it, so the word for wrong goes round the word for hands"
+     }
+    ],
+    "linkWords": [
+     "causing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It's wrong",
+      "gives": "TORT",
+      "note": "a tort is a civil wrong in law; it is opened up as TOR...T"
+     },
+     {
+      "clueFragment": "hands",
+      "gives": "MEN",
+      "note": "hands are workers, men, as in all hands on deck"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOR",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A moral warning that tying someone's hands is cruel.",
+     "walkthrough": "Hands are not body parts but labourers, a common crossword sense.",
+     "definitionFit": "Torment is severe mental or physical suffering, a strong form of distress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hands"
+    }
+   }
   },
   {
    "number": 22,
@@ -423,7 +1418,60 @@
    "group": [
     "22-across",
     "8-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "A STAR IS BORN",
+    "definitions": [
+     {
+      "text": "Classic film",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as can mean when, as in 'as I arrived'"
+     },
+     {
+      "clueFragment": "Jack",
+      "gives": "TAR",
+      "note": "jack and tar are both old words for a sailor"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dropped",
+      "gives": "BORN",
+      "note": "animals are said to drop their young, so dropped means born"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "TAR",
+      "IS",
+      "BORN"
+     ]
+    },
+    "explanation": {
+     "surface": "A film plot where a character called Jack is sacked.",
+     "walkthrough": "The surface nods to the 2018 remake, where the fading singer Jack makes way for the rising star.",
+     "definitionFit": "A Star Is Born is a Hollywood film first made in 1937 and remade several times, so a classic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dropped"
+    }
+   }
   },
   {
    "number": 22,
@@ -437,7 +1485,54 @@
     "text": "Discrimination shown by moving images",
     "enumeration": "6"
    },
-   "solution": "AGEISM"
+   "solution": "AGEISM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AGEISM",
+    "definitions": [
+     {
+      "text": "Discrimination",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving",
+      "for": "anagram",
+      "note": "moving letters are shifted about from where they started"
+     }
+    ],
+    "linkWords": [
+     "shown by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "images",
+      "gives": "IMAGES",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IMAGES",
+       "gives": "AGEISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Prejudice revealed by emotionally powerful pictures.",
+     "walkthrough": "Moving looks like 'touching' describing the images; it is the anagram signal.",
+     "definitionFit": "Ageism is prejudice or unfair treatment of people because of their age, a kind of discrimination."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "moving"
+    }
+   }
   },
   {
    "number": 23,
@@ -451,7 +1546,55 @@
     "text": "Bar hosts film marketing activity",
     "enumeration": "6"
    },
-   "solution": "RETAIL"
+   "solution": "RETAIL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RETAIL",
+    "definitions": [
+     {
+      "text": "marketing activity",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hosts",
+      "for": "container",
+      "note": "a host has guests inside, so the word for bar holds the film"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bar",
+      "gives": "RAIL",
+      "note": "a rail is a bar; it is opened up as R...AIL"
+     },
+     {
+      "clueFragment": "film",
+      "gives": "ET",
+      "note": "E.T. is Spielberg's film about an extra-terrestrial"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ET",
+      "AIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A pub screens a movie as a promotional stunt.",
+     "walkthrough": "Bar suggests a pub; it is a rod.",
+     "definitionFit": "Retail is the selling of goods to the public, the commercial activity at the end of marketing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bar"
+    }
+   }
   },
   {
    "number": 24,
@@ -465,7 +1608,66 @@
     "text": "Shock absorber from wagon that is circling trail",
     "enumeration": "9"
    },
-   "solution": "CARTILAGE"
+   "solution": "CARTILAGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CARTILAGE",
+    "definitions": [
+     {
+      "text": "Shock absorber",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circling",
+      "for": "container",
+      "note": "circling means going all the way round, so the abbreviation wraps the word for trail"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wagon",
+      "gives": "CART",
+      "note": "a cart is a wagon"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. abbreviates id est, Latin for that is; it is opened up as I...E"
+     },
+     {
+      "clueFragment": "trail",
+      "gives": "LAG",
+      "note": "to lag is to trail behind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CART",
+      "I",
+      "LAG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A wagon's suspension, salvaged from a cart travelling round a track.",
+     "walkthrough": "Shock absorber sounds like vehicle suspension, which suits the wagon; it is part of the body.",
+     "definitionFit": "Cartilage is the firm flexible tissue that cushions joints, so it absorbs shocks in the body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Shock"
+    }
+   }
   },
   {
    "number": 24,
@@ -479,7 +1681,50 @@
     "text": "One with little experience to lead a country",
     "enumeration": "4"
    },
-   "solution": "CUBA"
+   "solution": "CUBA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CUBA",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "to lead"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One with little experience",
+      "gives": "CUB",
+      "note": "a cub reporter or cub scout is a novice"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUB",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A novice chosen to run a nation.",
+     "walkthrough": "'To lead' reads as a job; here it only says the novice comes first.",
+     "definitionFit": "Cuba is an island nation in the Caribbean, so it is an example of a country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 25,
@@ -493,7 +1738,47 @@
     "text": "Trendy state, 28",
     "enumeration": "4"
    },
-   "solution": "INKY"
+   "solution": "INKY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INKY",
+    "definitions": [
+     {
+      "text": "28",
+      "at": 14,
+      "note": "refers to the answer at 28 across, BLACK"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trendy",
+      "gives": "IN",
+      "note": "in means fashionable"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "KY",
+      "note": "KY is the postal abbreviation for Kentucky, a US state"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "KY"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashionable US state, with a cross-reference.",
+     "definitionFit": "Inky means dark like ink, so it is a synonym of black."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 26,
@@ -507,7 +1792,59 @@
     "text": "Latin 'h' (not 'i') equals 'lock'",
     "enumeration": "5"
    },
-   "solution": "LATCH"
+   "solution": "LATCH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "LATCH",
+    "definitions": [
+     {
+      "text": "lock",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not 'i'",
+      "for": "deletion",
+      "note": "not tells us the named letter is taken away from the spelt-out name"
+     }
+    ],
+    "linkWords": [
+     "equals"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Latin",
+      "gives": "L",
+      "note": "L is the abbreviation for Latin"
+     },
+     {
+      "clueFragment": "'h'",
+      "gives": "AITCH",
+      "note": "aitch is how the letter h is written out as a word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ATCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A grammar note claiming a Latin letter is the same as a lock.",
+     "walkthrough": "The letter h spelt out is AITCH; removing its I and putting the Latin abbreviation in front gives the answer.",
+     "definitionFit": "A latch is a simple bar fastening for a door or gate, which works as a lock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Latin"
+    }
+   }
   },
   {
    "number": 27,
@@ -544,7 +1881,52 @@
    "group": [
     "28-across",
     "27-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLACK HOLE",
+    "definitions": [
+     {
+      "text": "there's no escaping it",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     },
+     {
+      "clueFragment": "shortage",
+      "gives": "LACK",
+      "note": "a lack is a shortage"
+     },
+     {
+      "clueFragment": "predicament",
+      "gives": "HOLE",
+      "note": "being in a hole means being in trouble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LACK",
+      "HOLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A financial trap where a lack of books leaves you stuck for good.",
+     "definitionFit": "A black hole's gravity is so strong that nothing, not even light, can get out once inside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "predicament"
+    }
+   }
   },
   {
    "number": 29,
@@ -558,7 +1940,79 @@
     "text": "Key European city: it's about to get US city backing",
     "enumeration": "9"
    },
-   "solution": "ESSENTIAL"
+   "solution": "ESSENTIAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ESSENTIAL",
+    "definitions": [
+     {
+      "text": "Key",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned around, so the short word is read backwards"
+     },
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means going in reverse, so the city abbreviation runs right to left"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European city",
+      "gives": "ESSEN",
+      "note": "Essen is a city in western Germany"
+     },
+     {
+      "clueFragment": "it's",
+      "gives": "IT",
+      "note": "the word it, taken from it's"
+     },
+     {
+      "clueFragment": "US city",
+      "gives": "LA",
+      "note": "LA is Los Angeles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESSEN",
+      "TI",
+      "AL"
+     ],
+     "reversals": [
+      {
+       "from": "IT",
+       "to": "TI"
+      },
+      {
+       "from": "LA",
+       "to": "AL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An important European city is about to receive American support.",
+     "walkthrough": "Key looks like an adjective for the city; it is the definition on its own.",
+     "definitionFit": "Something key is crucial or indispensable, which is what essential means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Key"
+    }
+   }
   }
  ]
 }
