@@ -335,6 +335,44 @@ check("a stop run between two words another reading prints apart: a speck after 
       "An antidote to poison.", oc.agree("An antidote to.poison.", [mark("2 An antidote to poison. 3 An")])[0])
 check("and an abbreviation's after no word", "Anag. of a lovely word",
       oc.agree("Anag.of a lovely word", [mark("7 Anag. of a lovely word 8 The")])[0])
+# times-13867: specks between words, read as a middle dot, a stop a space
+# off the word, or after a real mark.
+check("a middle-dot speck between words another reading prints apart is parted",
+      "A bit of a step up", oc.agree("A bit of a\u00b7step up", [mark("29 A bit of a step up (5). 30")])[0])
+check("a stop a space off the next word, after a capitalised word, is a speck",
+      "The beggar whose fingers", oc.agree("The .beggar whose fingers", [mark("18 The beggar whose fingers 19")])[0])
+check("a comma before a speck stays when another reading prints it",
+      "It's a test, for him", oc.agree("It's a test,\u00b7for him", [mark("2 It's a test, for him (5). 3")])[0])
+check("an abbreviation's stop stays though the abbreviation is a word",
+      "Rev. of nothing", oc.agree("Rev.of nothing", [mark("2 Rev. of nothing (5). 3")])[0])
+check("a speck between two words the corpus pairs is parted though no reading does",
+      "Bits of the cake", oc.agree("Bits of.the cake", [mark("2 Bits of.the cake (5). 3")])[0])
+check("a speck inside a misread word is no break (mirror)",
+      "Snar.es", oc.parted("Snar.es", [mark("2 Snar.es (5). 3")]))
+check("initials' possessive is printed, no stray mark", [], oc.suspect("The P.M.'s house"))
+check("a stop then a hyphen after a word is a stray mark (times-13703 8D)",
+      [("gear-housing.-", "a stray mark inside a word")], oc.suspect("Worn rubber gear-housing.- for a motorist"))
+# times-13958 4D, times-13821 18D: a clue cut at a line wrap.
+check("a lost end most readings print alike, misreads aside, goes in",
+      ("greyhound", "track", "?"),
+      oc.end_voted([("me", "nor"), ("greyhound", "track", "?"), ("greyhound", "track", "?")], 0, "end"))
+check("a lost end the readings misread differently takes the one dictionary spelling",
+      ("to", "bluebeard"),
+      oc.end_voted([("to", "bluebeard"), ("to", "blucbeard"), ("to", "blucbeard")], 0, "end"))
+check("no end is lost when this clue's last word holds it, run together (mirror)", None,
+      oc.end_voted([("headed",), (",", "headed"), ("headed",)], 1, "end", ["them", "lighrheaded"]))
+check("no end is lost when more readings print the clue with nothing there (mirror)", None,
+      oc.end_voted([("headed",), ("headed",)], 2, "end", ["them", "light"]))
+check("a short start is a misread number, not a lost word (mirror)", None,
+      oc.end_voted([("is",), ("is",)], 0, "start", ["a", "word"]))
+check("a short end is a misread count, not a lost word (mirror)", None,
+      oc.end_voted([("si",), ("si",), ("si",)], 0, "end", ["notes"]))
+check("an end that is the clue's own words again is misaligned, not lost (mirror)", None,
+      oc.end_voted([("also", "foreign"), ("also", "foreign")], 0, "end", ["craft", "foreign"]))
+check("an abbreviation's stop run into the next word is parted after its last letter",
+      "E.g. sights and sounds", oc.agree("E.g.sights and sounds", [mark("3 E.g. sights and sounds (5) 4")])[0])
+check("an end with no dictionary spelling stays lost (mirror)", None,
+      oc.end_voted([("idiosyncracy",), ("idiosynericy",), ("idiosyncracy",)], 0, "end"))
 check("a rare word another reading prints as two common ones is parted",
       "Ireland for a hill.", oc.agree("Ireland fora hill.", [mark("27 Ireland for a hill. 28 An")])[0])
 check("a whole clue this reading ran together that another prints apart is parted",

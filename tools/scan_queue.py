@@ -364,8 +364,32 @@ def flagged_requests():
             for i, (f, key, row) in sorted(known.items()) if i in ids and read_before(row, t)]
 
 
+#: The last clue-vote change that mends blanks a held scan read left: each
+#: archive.org edition read before it with a clue held blank for one of
+#: VOTE_MENDS (ocr_clues: a speck between two words, a clue cut at a line
+#: wrap) is read again.
+VOTE_MENDED_AT = "2026-10-09T07:56:00+00:00"
+VOTE_MENDS = ("a stray mark inside a word", "end is lost: other readings have",
+              "start is lost: other readings have")
+
+
+def vote_mended_requests():
+    """A request per held archive.org puzzle VOTE_MENDED_AT may now file: a
+    verdict with no file written, a clue blank for one of VOTE_MENDS, read
+    before VOTE_MENDED_AT. Derived from the ledger, so the re-read closes it."""
+    t = when(VOTE_MENDED_AT)
+    out = []
+    for i, (f, key, row) in sorted(sources().items()):
+        if f != "archive" or not read_before(row, t):
+            continue
+        v = next((v for v in row.get("verdicts") or () if v.get("id") == i), {})
+        if not v.get("wrote") and any(m in why for why in (v.get("blank") or {}).values() for m in VOTE_MENDS):
+            out.append({"id": i, "filer": f, "source": key, "why": ["voteMended"], "requestedAt": VOTE_MENDED_AT})
+    return out
+
+
 def all_open_requests():
-    return open_requests() + flagged_requests()
+    return open_requests() + flagged_requests() + vote_mended_requests()
 
 
 def request_reread(puzzle, clues, why):
