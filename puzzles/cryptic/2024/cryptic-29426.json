@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Currency in Europe's obsolete",
     "enumeration": "4"
    },
-   "solution": "PESO"
+   "solution": "PESO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PESO",
+    "definitions": [
+     {
+      "text": "Currency",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "'in' says the answer sits inside the run of words that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Europe's obsolete",
+      "gives": "PESO",
+      "note": "the letters run across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A remark that some former European money is no longer in use.",
+     "walkthrough": "The surface steers you to the old pre-euro currencies; the answer is spanning Europe's obsolete.",
+     "definitionFit": "The peso is the monetary unit of Mexico and several other Latin American countries."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "obsolete"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +92,56 @@
      }
     ]
    },
-   "solution": "SCREWTOP"
+   "solution": "SCREWTOP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCREW TOP",
+    "definitions": [
+     {
+      "text": "closer",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held in",
+      "for": "container",
+      "note": "something held in another thing sits inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Party",
+      "gives": "CREW",
+      "note": "a crew is a party or gang of people"
+     },
+     {
+      "clueFragment": "check",
+      "gives": "STOP",
+      "note": "to check something is to stop it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CREW",
+      "TOP"
+     ]
+    },
+    "explanation": {
+     "surface": "A political party kept in check, perhaps nearing the close of its campaign.",
+     "walkthrough": "'Closer' is read as one who closes, not as nearer, and 'Party' is a gang rather than a political party.",
+     "definitionFit": "A screw top is a lid that twists shut, so it is something that closes a bottle or jar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "closer"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +155,48 @@
     "text": "Very exciting tomorrow, something Rishi deprived of?",
     "enumeration": "6"
    },
-   "solution": "FRISKY"
+   "solution": "FRISKY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FRISKY",
+    "definitions": [
+     {
+      "text": "Very exciting",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tomorrow",
+      "gives": "FRI",
+      "note": "the puzzle ran on Thursday 4 July 2024, election day, so tomorrow was Friday, abbreviated Fri"
+     },
+     {
+      "clueFragment": "something Rishi deprived of",
+      "gives": "SKY",
+      "note": "Rishi Sunak said in a campaign interview that he went without Sky TV as a child"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRI",
+      "SKY"
+     ]
+    },
+    "explanation": {
+     "surface": "A jibe that the day after the election will be thrilling, and something Rishi Sunak once claimed to have gone without.",
+     "walkthrough": "Sky is the British satellite TV service; Sunak's claim to have grown up without it was widely mocked.",
+     "definitionFit": "Frisky means lively and playful, a loose synonym for exciting or high-spirited."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tomorrow"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +210,77 @@
     "text": "Tomorrow's headache, Matt? Member gone and Michael too – Labour's back!",
     "enumeration": "8"
    },
-   "solution": "HANGOVER"
+   "solution": "HANGOVER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "HANGOVER",
+    "definitions": [
+     {
+      "text": "Tomorrow's headache",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gone",
+      "for": "deletion",
+      "note": "something gone is taken away, so that part is dropped from the name before it"
+     },
+     {
+      "text": "back",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter, the only one kept"
+     }
+    ],
+    "linkWords": [
+     "too"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Matt",
+      "gives": "HANCOCK",
+      "note": "Matt Hancock, the former Conservative health secretary"
+     },
+     {
+      "clueFragment": "Member",
+      "gives": "COCK",
+      "note": "a vulgar word for the male member"
+     },
+     {
+      "clueFragment": "Michael",
+      "gives": "GOVE",
+      "note": "Michael Gove, Conservative cabinet minister who stood down at the 2024 election"
+     },
+     {
+      "clueFragment": "Labour's",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of Labour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAN",
+      "GOVE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Election-night gloom for the Tories: Hancock and Gove are gone, and Labour has returned.",
+     "walkthrough": "Take the member out of HANCOCK, then add GOVE and the last letter of Labour to get HANGOVER.",
+     "definitionFit": "A hangover is the headache that follows a night of drinking, here the day after election night."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Member"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +294,46 @@
     "text": "What things can only get for Rishi's campaign official?",
     "enumeration": "6"
    },
-   "solution": "BETTER"
+   "solution": "BETTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BETTER",
+    "definitions": [
+     {
+      "text": "What things can only get",
+      "at": 0
+     },
+     {
+      "text": "Rishi's campaign official",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What things can only get",
+      "note": "first meaning: 'Things Can Only Get ...' was Labour's 1997 campaign anthem"
+     },
+     {
+      "clueFragment": "Rishi's campaign official",
+      "note": "second meaning: one who bets, as some Conservative campaign staff were found to have bet on the election date"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The 2024 campaign had a scandal over Tory aides placing bets on when the election would be called, so the official is a gambler.",
+     "definitionFit": "The word is both the comparative of good, completing the song title, and a noun for a person who places wagers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "official"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +347,63 @@
     "text": "Rishi, say, tax-cutting leader of Opposition?",
     "enumeration": "4"
    },
-   "solution": "TORY"
+   "solution": "TORY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TORY",
+    "definitions": [
+     {
+      "text": "Rishi, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "the leader of a word is its first letter, the one kept here"
+     },
+     {
+      "text": "cutting",
+      "for": "container",
+      "note": "a letter cutting into a word sits within it, splitting it in two"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tax",
+      "gives": "TRY",
+      "note": "to tax someone's patience is to try it"
+     },
+     {
+      "clueFragment": "Opposition",
+      "gives": "O",
+      "select": "first",
+      "note": "the opening letter of Opposition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "O",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A question whether Rishi Sunak will be the tax-cutting Leader of the Opposition after the election.",
+     "walkthrough": "The O goes into TRY. 'Leader of Opposition' looks like the parliamentary title but just gives its first letter.",
+     "definitionFit": "Sunak was the Conservative leader, and Tory is the everyday name for a member of Britain's Conservative Party."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +417,72 @@
     "text": "Something toxic with Plaid Cymru, and Liz Trussed?",
     "enumeration": "7"
    },
-   "solution": "MERCURY"
+   "solution": "MERCURY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MERCURY",
+    "definitions": [
+     {
+      "text": "Something toxic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Plaid",
+      "for": "anagram",
+      "note": "plaid is a tartan cloth, criss-crossed, so the word beside it is woven into a new order"
+     },
+     {
+      "text": "Trussed",
+      "for": "container",
+      "note": "something trussed is bound up inside a wrapping, so one piece is held within the other"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cymru",
+      "gives": "CYMRU",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Liz",
+      "gives": "ER",
+      "note": "Elizabeth Regina, the late Queen's cipher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ER",
+      "CURY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CYMRU",
+       "gives": "MCURY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something poisonous involving the Welsh nationalist party Plaid Cymru and former PM Liz Truss.",
+     "walkthrough": "Plaid Cymru is the Welsh nationalist party, but 'Plaid' is the tartan anagram signal, and 'Trussed' puns on former PM Liz Truss.",
+     "definitionFit": "Mercury is a heavy metal whose vapour and compounds are poisonous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Plaid"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +496,54 @@
     "text": "Country dispensing with old Conservative PM?",
     "enumeration": "7"
    },
-   "solution": "CAMERON"
+   "solution": "CAMERON",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CAMERON",
+    "definitions": [
+     {
+      "text": "Conservative PM",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dispensing with",
+      "for": "deletion",
+      "note": "dispensing with something means doing without it, so that letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Country",
+      "gives": "CAMEROON",
+      "note": "the West African nation"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAMER",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking which nation has given up on its former Conservative prime minister.",
+     "walkthrough": "Remove one O from CAMEROON. 'Old' looks attached to the PM but is the letter dropped.",
+     "definitionFit": "David Cameron led the Conservative Party and was UK prime minister from 2010 to 2016."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "old"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +557,43 @@
     "text": "Fossil fuel, Rishi's confessed addiction",
     "enumeration": "4"
    },
-   "solution": "COKE"
+   "solution": "COKE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COKE",
+    "definitions": [
+     {
+      "text": "Fossil fuel",
+      "at": 0
+     },
+     {
+      "text": "Rishi's confessed addiction",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fossil fuel",
+      "note": "first meaning: the solid fuel made by heating coal"
+     },
+     {
+      "clueFragment": "Rishi's confessed addiction",
+      "note": "second meaning: Sunak has admitted to being hooked on Coca-Cola"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Confessed addiction' hints at the drug, but Sunak's admitted habit was the fizzy drink.",
+     "definitionFit": "Coke is both a coal-derived fuel and the short name for Coca-Cola, which Sunak called his vice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "addiction"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +607,62 @@
     "text": "Looking to the left, further thought surely vital",
     "enumeration": "9"
    },
-   "solution": "SPRIGHTLY"
+   "solution": "SPRIGHTLY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SPRIGHTLY",
+    "definitions": [
+     {
+      "text": "vital",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Looking to the left",
+      "for": "reversal",
+      "note": "facing leftward means reading backwards, against the normal direction of English text"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "further thought",
+      "gives": "PS",
+      "note": "a postscript adds a further thought to a letter"
+     },
+     {
+      "clueFragment": "surely",
+      "gives": "RIGHTLY",
+      "note": "rightly, as in 'surely so', with certainty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "RIGHTLY"
+     ],
+     "reversals": [
+      {
+       "from": "PS",
+       "to": "SP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A voter leaning left, adding that surely it is a vital point.",
+     "walkthrough": "The left-versus-right politics of the surface hides the turnaround: 'Looking to the left' means read right to left.",
+     "definitionFit": "Sprightly means lively and full of energy, which is what vital can mean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +676,64 @@
     "text": "Reform tries to react, sending those coming in away – certainly not my cup of tea!",
     "enumeration": "9"
    },
-   "solution": "RISTRETTO"
+   "solution": "RISTRETTO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "RISTRETTO",
+    "definitions": [
+     {
+      "text": "certainly not my cup of tea!",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sending those coming in away",
+      "for": "letter_selection",
+      "note": "the inner letters are dispatched, leaving only the two at the outside of the word"
+     },
+     {
+      "text": "Reform",
+      "for": "anagram",
+      "note": "to reform is to form again, rebuilding the letters in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tries to",
+      "gives": "TRIESTO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "react",
+      "gives": "RT",
+      "select": "outer",
+      "note": "the first and last letters of react"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRIESTORT",
+       "gives": "RISTRETTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Reform UK trying to respond by deporting immigrants, a policy the setter does not care for.",
+     "walkthrough": "Reform UK is Nigel Farage's party with a hard line on immigration. The definition is playful: a ristretto is coffee, so literally not tea.",
+     "definitionFit": "A ristretto is a very short, concentrated espresso, a coffee rather than a cup of tea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Reform"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +747,56 @@
     "text": "Mean Conservative, shabby, premier to go?",
     "enumeration": "5"
    },
-   "solution": "CATTY"
+   "solution": "CATTY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CATTY",
+    "definitions": [
+     {
+      "text": "Mean",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "premier to go",
+      "for": "deletion",
+      "note": "the premier is the first in line, and it departs, so the opening letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "shabby",
+      "gives": "TATTY",
+      "note": "tatty means worn and shabby"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ATTY"
+     ]
+    },
+    "explanation": {
+     "surface": "A spiteful remark about a scruffy Tory whose prime minister must go.",
+     "walkthrough": "'Premier' suggests the PM but means the first letter of the word before it.",
+     "definitionFit": "Catty means spiteful or malicious in speech, a sense of mean as unkind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "premier"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +810,47 @@
     "text": "6 party, flat",
     "enumeration": "5"
    },
-   "solution": "CONDO"
+   "solution": "CONDO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONDO",
+    "definitions": [
+     {
+      "text": "flat",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "6",
+      "gives": "CON",
+      "note": "the answer to 6 is TORY, and Con is the short form of Conservative"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party or celebration"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory party held in an apartment.",
+     "walkthrough": "The cross-reference points to a Tory; CON stands in for it.",
+     "definitionFit": "A condo, short for condominium, is an apartment in a building of individually owned units."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +864,69 @@
     "text": "Needing regeneration, Reeves leading the way – it's most brutal",
     "enumeration": "8"
    },
-   "solution": "SEVEREST"
+   "solution": "SEVEREST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SEVEREST",
+    "definitions": [
+     {
+      "text": "most brutal",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Needing regeneration",
+      "for": "anagram",
+      "note": "regeneration rebuilds something from its parts, so the name is remade in another order"
+     },
+     {
+      "text": "leading",
+      "for": "charade",
+      "note": "leading means going in front, so the rebuilt name comes before the next piece"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reeves",
+      "gives": "REEVES",
+      "note": "Rachel Reeves, Labour's shadow chancellor in 2024"
+     },
+     {
+      "clueFragment": "the way",
+      "gives": "ST",
+      "note": "St is the abbreviation for street, a way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEVERE",
+      "ST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REEVES",
+       "gives": "SEVERE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rachel Reeves taking the lead on economic regeneration, with spending cuts at their harshest.",
+     "walkthrough": "'Leading' tells you the shuffled name comes before ST.",
+     "definitionFit": "Severest is the superlative of severe, meaning harshest, so it fits brutal in its most extreme form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "regeneration"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +940,56 @@
     "text": "Knack lost by leader on the hustings – tribal language?",
     "enumeration": "5"
    },
-   "solution": "SIOUX"
+   "solution": "SIOUX",
+   "annotation": {
+    "type": [
+     "deletion",
+     "homophone"
+    ],
+    "answer": "SIOUX",
+    "definitions": [
+     {
+      "text": "tribal language",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost by",
+      "for": "deletion",
+      "note": "something lost by a person is no longer with them, so that sound is taken away"
+     },
+     {
+      "text": "on the hustings",
+      "for": "homophone",
+      "note": "the hustings are where candidates make speeches, so this works by sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leader",
+      "gives": "SUNAK",
+      "note": "Rishi Sunak, the Conservative leader in 2024"
+     },
+     {
+      "clueFragment": "Knack",
+      "gives": "SIOUX",
+      "soundsLike": "SUE",
+      "note": "say the leader's surname as 'Sue-nack' and drop the 'nack' sound"
+     }
+    ],
+    "explanation": {
+     "surface": "A party leader losing his touch on the campaign trail.",
+     "walkthrough": "Sunak spoken aloud is 'Sue' plus 'knack'; lose the knack and 'Sue' remains, spelt as the tribe's name.",
+     "definitionFit": "Sioux is a family of Native American languages spoken by the Lakota, Dakota and related peoples."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Knack"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +1003,55 @@
     "text": "Party seeking Independence Day to wrap up a kind of election",
     "enumeration": "4"
    },
-   "solution": "SNAP"
+   "solution": "SNAP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SNAP",
+    "definitions": [
+     {
+      "text": "kind of election",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to wrap up",
+      "for": "container",
+      "note": "wrapping something up encloses it, so the party's letters go round the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Party seeking Independence Day",
+      "gives": "SNP",
+      "note": "the Scottish National Party wants a day of independence for Scotland"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SN",
+      "A",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "The Scottish nationalists hoping an election will bring Scotland its independence day.",
+     "walkthrough": "The A goes inside SNP.",
+     "definitionFit": "A snap election is one called suddenly, earlier than expected, as the 2024 UK election was."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Day"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1065,51 @@
     "text": "Horrifying thing not having capital for nurse",
     "enumeration": "5"
    },
-   "solution": "CARER"
+   "solution": "CARER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CARER",
+    "definitions": [
+     {
+      "text": "nurse",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not having capital",
+      "for": "deletion",
+      "note": "the capital of a word is its first letter, and here it is missing"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Horrifying thing",
+      "gives": "SCARER",
+      "note": "something that frightens is a scarer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARER"
+     ]
+    },
+    "explanation": {
+     "surface": "A frightening prospect: no money for nursing care.",
+     "walkthrough": "'Capital' looks like money but means the opening letter, S.",
+     "definitionFit": "A carer looks after someone sick or disabled, as a nurse does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1129,56 @@
      }
     ]
    },
-   "solution": "CRUDEOIL"
+   "solution": "CRUDEOIL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CRUDE OIL",
+    "definitions": [
+     {
+      "text": "what's the alternative?",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "plugging",
+      "for": "container",
+      "note": "a plug fills a hole, so this piece is pushed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Offensive",
+      "gives": "RUDE",
+      "note": "rude means offensive or vulgar"
+     },
+     {
+      "clueFragment": "wind",
+      "gives": "COIL",
+      "note": "to wind something is to coil it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RUDE",
+      "OIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A rude remark promoting wind power, met with the question of what else would do.",
+     "walkthrough": "RUDE goes into COIL. 'Wind' reads as wind power; its other sense, to coil, supplies the letters, and crude oil is the fossil alternative to wind energy.",
+     "definitionFit": "Unrefined petroleum is the fossil-fuel alternative that wind power is meant to replace."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wind"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1192,60 @@
     "text": "Foot in door with pained expression, might one be slated?",
     "enumeration": "4"
    },
-   "solution": "ROOF"
+   "solution": "ROOF",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ROOF",
+    "definitions": [
+     {
+      "text": "might one be slated?",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Foot in",
+      "for": "letter_selection",
+      "note": "the foot of a word is its bottom or final letter, the one kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "door",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of door"
+     },
+     {
+      "clueFragment": "pained expression",
+      "gives": "OOF",
+      "note": "oof is what you say when hurt or winded"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "OOF"
+     ]
+    },
+    "explanation": {
+     "surface": "A canvasser getting a foot in the door and a groan, wondering if they'll be slated.",
+     "walkthrough": "'Slated' suggests criticised; here it means covered with slates.",
+     "definitionFit": "Roofs are commonly covered with slate tiles, so a roof is a thing that gets slated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "slated"
+    }
+   }
   },
   {
    "number": 17,
@@ -317,7 +1265,46 @@
      }
     ]
    },
-   "solution": "REDSHIFT"
+   "solution": "REDSHIFT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RED SHIFT",
+    "definitions": [
+     {
+      "text": "Astronomical effect",
+      "at": 0
+     },
+     {
+      "text": "swing towards Labour",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Astronomical effect",
+      "note": "first meaning: the stretching of light from receding galaxies to longer wavelengths"
+     },
+     {
+      "clueFragment": "swing towards Labour",
+      "note": "second meaning: a move by voters to the party whose colour is red"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Astronomical' also suggests a huge swing, which the 2024 landslide was.",
+     "definitionFit": "Red is Labour's party colour, so a shift to red is a swing to Labour, and the same phrase names the physics effect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Astronomical"
+    }
+   }
   },
   {
    "number": 18,
@@ -331,7 +1318,44 @@
     "text": "Politician snarky in speech?",
     "enumeration": "8"
    },
-   "solution": "MORDAUNT"
+   "solution": "MORDAUNT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MORDAUNT",
+    "definitions": [
+     {
+      "text": "Politician",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in speech",
+      "for": "homophone",
+      "note": "spoken words are heard rather than read, so this works by sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "snarky",
+      "gives": "MORDAUNT",
+      "soundsLike": "MORDANT",
+      "note": "mordant means sharply sarcastic or biting"
+     }
+    ],
+    "explanation": {
+     "surface": "A politician being sarcastic in a speech.",
+     "definitionFit": "Penny Mordaunt is a Conservative politician who lost her seat at the 2024 election."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "speech"
+    }
+   }
   },
   {
    "number": 19,
@@ -345,7 +1369,59 @@
     "text": "Rayner's moral responsibility with record investment?",
     "enumeration": "6"
    },
-   "solution": "DEPUTY"
+   "solution": "DEPUTY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEPUTY",
+    "definitions": [
+     {
+      "text": "Rayner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "investment",
+      "for": "container",
+      "note": "investing something means putting it inside, here placing one piece within the other"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "moral responsibility",
+      "gives": "DUTY",
+      "note": "a duty is a moral obligation"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "EP",
+      "note": "an EP is an extended-play record"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "EP",
+      "UTY"
+     ]
+    },
+    "explanation": {
+     "surface": "Angela Rayner's sense of moral duty, alongside investment in the record.",
+     "walkthrough": "'Rayner's' is read as 'Rayner is', so the name alone is the definition.",
+     "definitionFit": "Angela Rayner was Labour's deputy leader, so she is a deputy, a second-in-command."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "investment"
+    }
+   }
   },
   {
    "number": 20,
@@ -359,7 +1435,58 @@
     "text": "Shower elected, given keys to number ten",
     "enumeration": "5"
    },
-   "solution": "INDEX"
+   "solution": "INDEX",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INDEX",
+    "definitions": [
+     {
+      "text": "Shower",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "given",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "elected",
+      "gives": "IN",
+      "note": "a candidate who is elected is in"
+     },
+     {
+      "clueFragment": "keys",
+      "gives": "DE",
+      "note": "D and E are musical keys"
+     },
+     {
+      "clueFragment": "number ten",
+      "gives": "X",
+      "note": "X is the Roman numeral for ten"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "DE",
+      "X"
+     ]
+    },
+    "explanation": {
+     "surface": "A useless lot elected and handed the keys to Number Ten Downing Street.",
+     "walkthrough": "'Shower' is a British insult for a useless bunch; here it is one who shows, and Number Ten, the PM's residence, is just X.",
+     "definitionFit": "An index is a pointer or indicator, something that shows where things are."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Shower"
+    }
+   }
   },
   {
    "number": 20,
@@ -373,7 +1500,49 @@
     "text": "Brainwash, throwing up a little corporal: it's Nigel!",
     "enumeration": "6"
    },
-   "solution": "INSTIL"
+   "solution": "INSTIL",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "INSTIL",
+    "definitions": [
+     {
+      "text": "Brainwash",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a little",
+      "for": "hidden_word",
+      "note": "only a small part of the words is wanted, a run of letters inside them"
+     },
+     {
+      "text": "throwing up",
+      "for": "reversal",
+      "note": "in a down entry, thrown up means read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "corporal: it's Nigel",
+      "gives": "LITSNI",
+      "note": "the letters run from the end of corporal through the start of Nigel"
+     }
+    ],
+    "explanation": {
+     "surface": "A disgusted reaction to a little corporal's propaganda, revealed as Nigel Farage.",
+     "walkthrough": "'Little corporal' was Napoleon's nickname, and Nigel is Farage; the reversed run gives INSTIL.",
+     "definitionFit": "To instil an idea is to fix it gradually in someone's mind, close to indoctrination."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "throwing"
+    }
+   }
   },
   {
    "number": 21,
@@ -387,7 +1556,60 @@
     "text": "On two wings, Tories and DUP labouring",
     "enumeration": "9"
    },
-   "solution": "DIPTEROUS"
+   "solution": "DIPTEROUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DIPTEROUS",
+    "definitions": [
+     {
+      "text": "On two wings",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "labouring",
+      "for": "anagram",
+      "note": "labouring means working hard, and worked letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tories",
+      "gives": "TORIES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "DUP",
+      "gives": "DUP",
+      "note": "taken as written; the Democratic Unionist Party of Northern Ireland"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TORIESDUP",
+       "gives": "DIPTEROUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Tories and the DUP, both on the right wing, struggling at the polls.",
+     "walkthrough": "'Labouring' teases the Labour party but just shuffles the letters. 'Two wings' suggests political wings.",
+     "definitionFit": "Dipterous describes true flies, insects of the order Diptera, which have a single pair of wings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wings"
+    }
+   }
   },
   {
    "number": 21,
@@ -407,7 +1629,61 @@
      }
     ]
    },
-   "solution": "DDAY"
+   "solution": "DDAY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "D-DAY",
+    "definitions": [
+     {
+      "text": "When",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "took",
+      "for": "deletion",
+      "note": "with 'off' later, to take something off is to remove it from the name"
+     },
+     {
+      "text": "off",
+      "for": "deletion",
+      "note": "completes 'took off', signalling letters stripped out of the leader's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party leader",
+      "gives": "EDDAVEY",
+      "note": "Ed Davey, leader of the Liberal Democrats"
+     },
+     {
+      "clueFragment": "eve",
+      "gives": "EVE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "DA",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking when a party leader skipped the evening's events, recalling Sunak leaving the D-Day commemorations early.",
+     "walkthrough": "Remove E, V and E from ED DAVEY. Davey also made headlines in 2024 with campaign stunts like falling off a paddleboard.",
+     "definitionFit": "D-Day is the date of the 1944 Normandy landings, and more generally the day something is set to happen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "eve"
+    }
+   }
   },
   {
    "number": 22,
@@ -427,7 +1703,43 @@
      }
     ]
    },
-   "solution": "HAHA"
+   "solution": "HAHA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HA-HA",
+    "definitions": [
+     {
+      "text": "Trench dug",
+      "at": 0
+     },
+     {
+      "text": "yah boo sucks!",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trench dug",
+      "note": "first meaning: a sunken ditch serving as a fence in a landscaped garden"
+     },
+     {
+      "clueFragment": "yah boo sucks!",
+      "note": "second meaning: a mocking laugh"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A ha-ha is a ditch with a wall on one side, keeping livestock out without blocking the view. 'Yah boo sucks' is British playground taunting.",
+     "definitionFit": "The word names both a garden ditch-barrier and a jeering laugh at someone's misfortune."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dug"
+    }
+   }
   },
   {
    "number": 23,
@@ -441,7 +1753,48 @@
     "text": "Debt: remove lid from jar",
     "enumeration": "4"
    },
-   "solution": "HOCK"
+   "solution": "HOCK",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HOCK",
+    "definitions": [
+     {
+      "text": "Debt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "remove lid from",
+      "for": "deletion",
+      "note": "the lid is the top, which in a down entry is the first letter, taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jar",
+      "gives": "SHOCK",
+      "note": "a jar is a jolt or shock"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOCK"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to open a jar, under a heading about debt.",
+     "walkthrough": "'Jar' looks like a container to open, but it is a jolt.",
+     "definitionFit": "To be in hock is to be in debt, or to have pawned something, so hock stands for debt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "jar"
+    }
+   }
   },
   {
    "number": 24,
@@ -455,7 +1808,55 @@
     "text": "Leader befitting in marked man?",
     "enumeration": "7"
    },
-   "solution": "CAPTAIN"
+   "solution": "CAPTAIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CAPTAIN",
+    "definitions": [
+     {
+      "text": "Leader",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another sits within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "befitting",
+      "gives": "APT",
+      "note": "apt means suitable or befitting"
+     },
+     {
+      "clueFragment": "marked man",
+      "gives": "CAIN",
+      "note": "in Genesis, God put a mark on Cain after he killed Abel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "APT",
+      "AIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A leader worthy of a man singled out as a target.",
+     "walkthrough": "The mark of Cain, from Genesis, is the biblical sign that made him a marked man.",
+     "definitionFit": "A captain is the leader of a team or a ship's commander."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "marked"
+    }
+   }
   },
   {
    "number": 25,
@@ -469,7 +1870,73 @@
     "text": "Count endless data on card after opening of ballot",
     "enumeration": "7"
    },
-   "solution": "BINFACE"
+   "solution": "BINFACE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "BINFACE",
+    "definitions": [
+     {
+      "text": "Count",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening of",
+      "for": "letter_selection",
+      "note": "the opening of a word is its first letter, the only one kept"
+     },
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "without an end means the final letter is cut off"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ballot",
+      "gives": "B",
+      "select": "first",
+      "note": "the first letter of ballot"
+     },
+     {
+      "clueFragment": "data",
+      "gives": "INFO",
+      "note": "info is short for information, data"
+     },
+     {
+      "clueFragment": "card",
+      "gives": "ACE",
+      "note": "an ace is a playing card"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "INF",
+      "ACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A returning officer counting votes, with data on cards once the ballot opens.",
+     "walkthrough": "'Count' looks like a verb about tallying votes; it is the title of Count Binface, a costumed joke candidate who stands against prime ministers.",
+     "definitionFit": "Count Binface is a satirical candidate with a bin for a head who stood against Sunak in 2024."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Count"
+    }
+   }
   }
  ]
 }
