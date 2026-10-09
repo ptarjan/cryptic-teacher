@@ -61,6 +61,48 @@ check("a second ask of the same image is the cache's", ("ACROSS\n1 Clue (5)", 1)
       (vlm.ask(img, "read it"), len(calls)))
 urllib.request.urlopen = real
 
+# The desktop sends the bytes png() makes here, so the Mac keys its cache
+# without decoding or encoding anything.
+import random
+random.seed(3)
+noisy = Image.new("RGB", (300, 200))
+noisy.putdata([tuple(random.choice((0, 90, 255)) for _ in range(3)) for _ in range(300 * 200)])
+noisy = noisy.resize((600, 400))
+check("png_as() makes png()'s bytes for this host's encoder, in every mode it takes",
+      [True] * 4, [vlm.png_as(noisy.convert(m), vlm.encoder()) == vlm.png(noisy.convert(m))
+                   for m in vlm.FILTERED_MODES])
+check("png_as() makes nothing for another encoder or a palette image", (None, None),
+      (vlm.png_as(noisy, "0.0.0/1.3.1"), vlm.png_as(noisy.convert("P"), vlm.encoder())))
+import ocr_remote
+asked = []
+kept = vlm.ask, vlm.ask_png
+vlm.ask_png = lambda data, prompt, n: asked.append(data) or "png reply"
+vlm.ask = lambda im, prompt, n: asked.append(im.size) or "image reply"
+data = vlm.png(img)
+class Pipe:
+    """A desktop asking twice, the first in this host's PNG, then answering."""
+    def __init__(self):
+        self.answers = [{"ask": "p", "max_tokens": 9, "png": True, "bytes": len(data)},
+                        {"ask": "p", "max_tokens": 9, "bytes": len(data)}, {"results": []}]
+        self.payloads, self.replies = [data, data, b""], []
+        self.proc = self
+        self.stdin = self
+    def send(self, head, data):
+        pass
+    def answer(self, timeout):
+        return self.answers.pop(0)
+    def payload(self, n, timeout):
+        return self.payloads.pop(0)
+    def write(self, line):
+        self.replies.append(json.loads(line)["text"])
+    def flush(self):
+        pass
+pipe = Pipe()
+ocr_remote.Session.edition(pipe, {}, b"")
+vlm.ask, vlm.ask_png = kept
+check("an ask in this host's PNG is answered from its bytes, any other from the decoded image",
+      ([data, (400, 300)], ["png reply", "image reply"]), (asked, pipe.replies))
+
 # Each column cropped to its own lines, not the window's shared right edge.
 wins = [(10, 200, 390, 0), (200, 390, 390, 0)]
 readings = [[[(20, 40, 15, 180, "1 Left clue (5)")], [(30, 60, 210, 380, "2 Right (4)")]]]
