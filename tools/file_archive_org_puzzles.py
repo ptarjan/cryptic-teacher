@@ -3450,19 +3450,28 @@ def corrects(was, now, printed=()):
     (ocr_clues.suspect; a token `printed`, its asPrinted, keeps is the
     print's), bled or strayed, and every word of `was` it lacks
     is no word (ocr_clues.known) that `now` reads one letter away (a misread
-    mended). "Frontier cantonment." to "A Frontier cantonment." does; a
-    reading that loses a real word, or swaps one, does not."""
+    mended), and its words or figures differ. "Frontier cantonment." to
+    "A Frontier cantonment." does; a reading that loses a real word, swaps
+    one, or changes only marks (a held file's quotes are straightened,
+    its specks cleaned) does not."""
     if not (was or "").strip() or not ocr_clues.tokens(now or "") or now == was:
         return False
     if ocr_clues.suspect(now, printed=printed) or ocr_clues.bled(now, printed) or ocr_clues.stray(now):
         return False
-    old, new = ([w.lower() for w in ocr_clues.tokens(t)] for t in (was, now))
+    old, new = ([w.lower() for w in re.findall(r"[A-Za-z0-9]+(?:'[A-Za-z]+)?", t)] for t in (was, now))
+    if old == new:
+        return False
     gone, added = list(old), list(new)
     for w in old:
         if w in added:
             gone.remove(w)
             added.remove(w)
-    return all(not ocr_clues.known(w) and any(ocr_clues.within_one(w, v) for v in added) for w in gone)
+    if not all(not ocr_clues.known(w) and any(ocr_clues.within_one(w, v) for v in added) for w in gone):
+        return False
+    # Beyond the misreads mended, one dictionary word at most is gained (a
+    # lost "A"): more is another clue run on, and a count is no word.
+    new_words = [v for v in added if not any(ocr_clues.within_one(w, v) for w in gone)]
+    return len(new_words) <= 1 and all(ocr_clues.is_word(v) for v in new_words)
 
 
 def corrected_clues(puzzle, old, skip=()):
