@@ -29,6 +29,17 @@ def check(what, want, got):
         print(f"FAIL {what}: expected {want!r}, got {got!r}")
 
 rows = {"a": {"readAt": "2026-10-02"}, "c": {"readAt": "2026-09-01"}, "d": {}}
+# A held clue the vote now mends (VOTE_MENDS) asks its edition read again,
+# once: a read after VOTE_MENDED_AT closes it; other blanks ask nothing.
+_sources = q.sources
+row = lambda at, why: {"readAt": at, "verdicts": [{"id": "times-1", "blank": {"2-down": why}}]}
+q.sources = lambda: {"times-1": ("archive", "ed/1", row("2026-10-01T00:00:00+00:00", "'wear.for': a stray mark inside a word"))}
+check("a held speck-joined clue asks its edition read again", ["ed/1"], [r["source"] for r in q.vote_mended_requests()])
+q.sources = lambda: {"times-1": ("archive", "ed/1", row("2099-01-01T00:00:00+00:00", "'wear.for': a stray mark inside a word"))}
+check("read since, it asks nothing (mirror)", [], q.vote_mended_requests())
+q.sources = lambda: {"times-1": ("archive", "ed/1", row("2026-10-01T00:00:00+00:00", "readings differ: jo / lo"))}
+check("another blank asks nothing (mirror)", [], q.vote_mended_requests())
+q.sources = _sources
 check("never read first in the caller's order, then the stale oldest-read first (none: first)",
       ["b", "e", "d", "c", "a"],
       q.order(["a", "b", "c", "d", "e"], rows, lambda row: row is None))

@@ -914,6 +914,18 @@ def another_clue(pairs, low, theirs, clues):
     return any(len(c) == len(span) and all(similar(a, b) >= PRINTS_SIMILAR for a, b in zip(c, span)) for c in clues)
 
 
+#: Marks no clue prints: a speck our readers read as a middle dot or bullet.
+SPECKS = "\u00b7\u2022"
+#: A speck between two words, read as a stop, a colon, a middle dot, or a
+#: real mark with a dot after it; a stop alone may stand a space off the
+#: second word ("The .beggar").
+SPECK_JOIN = re.compile(r"(?<![\w.'\u2019])([A-Za-z]+(?:'[A-Za-z]+)?)"
+                        r"( ?[.:\u00b7\u2022]{1,2}|[,;:!?][\u00b7\u2022]| ?\.(?=[a-z]))([A-Za-z]+)\b(?![.'\u2019]?[A-Za-z])")
+#: How often the corpus's clues must print two words side by side for a
+#: speck between them to part them when no other reading does ("of.the").
+SPECK_PAIRS = 20
+
+
 def parted(clue, others):
     """`clue` with a non-word in it that another reading prints as two or
     more words ("theplant", "favouriteVictorian", a whole clue
@@ -922,7 +934,7 @@ def parted(clue, others):
     two words it ran together over a stop ("to.poison", "Anag.of") parted."""
     # Words run together over a stop are one run here: "walls.from" is
     # longer than any word of No 17 16D.
-    runs = re.findall(r"[A-Za-z]+(?:'[A-Za-z]+)*", re.sub(r"(?<=[A-Za-z])\.(?=[a-z]{2})", "", clue))
+    runs = re.findall(r"[A-Za-z]+(?:'[A-Za-z]+)*", re.sub(r"(?<=[A-Za-z])(?: ?[.:\u00b7\u2022]{1,2}|[,;:!?][\u00b7\u2022])(?=[A-Za-z])", "", clue))
     longest = max((len(w) for w in runs), default=0)
     apart = {}
     for theirs in others:
@@ -935,8 +947,11 @@ def parted(clue, others):
                 sizes.append(len(w))
                 if len(sizes) > 1:
                     apart.setdefault(joined, list(sizes))
-    marked_apart = {(a + c).lower() for theirs in others for a, b, c in zip(theirs, theirs[1:], theirs[2:])
-                    if a.isalpha() and b in MARKS and c.isalpha()}
+    marked_apart = {}
+    for theirs in others:
+        for a, b, c in zip(theirs, theirs[1:], theirs[2:]):
+            if a.replace("'", "").isalpha() and b in MARKS and c.isalpha():
+                marked_apart.setdefault((a + c).lower(), set()).add(b)
 
     words, pairs, _ = clue_lm()
 
@@ -966,13 +981,32 @@ def parted(clue, others):
         return " ".join(out)
 
     def stop(m):
-        # A stop between two words another reading prints side by side:
-        # after a word, a speck ("to.poison"); after no word, an
+        # A speck between two words (SPECK_JOIN: "to.poison", "a·step",
+        # "test,·for", "The .beggar"): parted where another reading prints
+        # the two side by side, or where both are words the corpus's clues
+        # print as a pair SPECK_PAIRS times; never in a word ("Snar.es"),
+        # which suspect() holds. A real mark before the speck stays when
+        # another reading prints it there; after no word, a stop is an
         # abbreviation's ("Anag.of").
-        a, b = m.group(1), m.group(2)
-        if (a + b).lower() not in apart and (a + b).lower() not in marked_apart:
+        a, sp, b = m.group(1), m.group(2).strip(), m.group(3)
+        joined = (a + b).lower()
+        mark = sp[0] if sp[0] in ",;:!?" and len(sp) > 1 else ""
+        if sp.strip(SPECKS) == "" or sp[0] in ",;!?":
+            pass  # a speck no clue prints, or a mark and one
+        elif not b[0].islower() or len(b) < 2:
             return m.group()
-        return f"{a} {b}" if a.islower() and is_word(a) else f"{a}. {b}"
+        if is_word(joined):
+            return m.group()  # a word with a speck in it ("Snar.es")
+        said = joined in apart or joined in marked_apart
+        if not said and not (len(a) > 1 and len(b) > 1 and is_word(a.lower()) and is_word(b.lower())
+                             and pairs.get(f"{a.lower()} {b.lower()}", 0) >= SPECK_PAIRS):
+            return m.group()
+        if mark and mark not in marked_apart.get(joined, ()):
+            mark = ""
+        if sp[0] == "." and (re.fullmatch("|".join(ABBREVIATED), a) or not is_word(a.lower().split("'")[0])):
+            return f"{a}. {b}"
+        return f"{a}{mark} {b}"
+
     def quote(m):
         # An apostrophe between two words another reading prints apart: a
         # plural's possessive after an s ("soldiers' tea"), else a quotation
@@ -981,7 +1015,12 @@ def parted(clue, others):
         if (a + b).lower() not in apart or known(m.group().lower()):
             return m.group()
         return f"{a}' {b}" if a[-1] in "sS" else f"{a} '{b}"
-    clue = re.sub(r"\b([A-Za-z]+)\.([a-z]{2,})\b", stop, clue)
+    clue = SPECK_JOIN.sub(stop, clue)
+    # An abbreviation's last letter run into the next word ("E.g.sights",
+    # "i.e.fleshless"), which SPECK_JOIN's word may not follow a stop into.
+    clue = re.sub(r"(?<=[A-Za-z]\.)([A-Za-z])\.([a-z]{2,})\b",
+                  lambda m: f"{m[1]}. {m[2]}" if (m[1] + m[2]).lower() in apart or
+                  (m[1] + m[2]).lower() in marked_apart else m[0], clue)
     clue = re.sub(r"\b([A-Za-z]{2,})'([A-Za-z]{2,})\b", quote, clue)
     return re.sub(r"[A-Za-z]+(?:'[A-Za-z]+)*", lambda m: part(m) if len(m.group()) >= 4 else m.group(), clue)
 
@@ -1059,6 +1098,60 @@ def ends_joined(theirs, low):
         if last or first:
             out[k:k + 2] = [a + b.lower()]
     return out
+
+
+#: How alike two readings' words must be to spell one lost end (end_voted).
+END_SIMILAR = 0.75
+#: The fewest letters a lost end must hold (end_voted): a shorter one is
+#: a clue number or count misread ("is" for 15, "si" for (5)).
+END_LETTERS = 4
+
+
+def end_voted(ends, quiet, side, own=()):
+    """The words a clue lost at one end (a tail cut at a line wrap, "light-"
+    over "headed"), as the other readings print them, or None: their ends
+    (`ends`, each a tuple of words and marks) read alike word for word,
+    misreads aside ("to bluebeard" / "to blucbeard"), in more of the readings
+    that see an end than not, and in more than print the clue with nothing
+    there (`quiet`), and not run into this clue's own word at that end
+    (`own`, its lower-case words). Each word is the dictionary spelling
+    most of them print, or the one they print at all; a mark goes in when
+    most of them print it. None when any word has no dictionary spelling."""
+    stripped = [tuple(t for t in e if t not in MARKS) for e in ends]
+    worded = [(e, w) for e, w in zip(ends, stripped) if w]
+    if not worded:
+        return None
+
+    def alike(a, b):
+        return len(a) == len(b) and all(x == y or similar(x, y) >= END_SIMILAR or within_one(x, y)
+                                        for x, y in zip(a, b))
+    groups = [[(e, w) for e, w in worded if alike(w, base)] for _, base in worded]
+    best = max(groups, key=len)
+    if len(best) < 2 or len(best) * 2 <= len(worded) or len(best) <= quiet:
+        return None
+    words = []
+    for k in range(len(best[0][1])):
+        spelt = [w[k] for _, w in best if is_word(w[k]) or known(w[k])]
+        if not spelt or len(set(spelt)) > 1 and spelt.count(max(spelt, key=spelt.count)) * 2 <= len(best):
+            return None
+        words.append(max(spelt, key=spelt.count))
+    if sum(map(len, words)) < END_LETTERS or any(len(w) < 2 for w in words):
+        return None
+    if any(len(w) > 3 and alike((w,), (o,)) for w in words for o in own):
+        return None  # the clue's own words again: misaligned, not lost
+    # This clue's own edge word may hold the words, run together and
+    # misread ("lighrheaded" before "headed"): nothing was lost.
+    edge = (own[-1] if side == "end" else own[0]) if own else ""
+    piece = words[-1] if side == "end" else words[0]
+    if len(edge) > len(piece):
+        cut = edge[-len(piece):] if side == "end" else edge[:len(piece)]
+        if within_one(cut, piece) or similar(cut, piece) >= END_SIMILAR:
+            return None
+    # Each end with the voted spellings in, marks as it prints them.
+    spelt = [tuple(next(it) if t not in MARKS else t for t in e)
+             for e, _ in best for it in [iter(words)]]
+    most = max(spelt, key=spelt.count)
+    return most if spelt.count(most) * 2 > len(best) else tuple(words)
 
 
 #: The most letters of a word only one reading has that the corpus may put
@@ -1307,6 +1400,10 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=()):
         if (seen_ends.count(top) * 2 > len(others) and all(is_word(t) for t in words_at)):
             g = 0 if side == "start" else len(mine)
             adds[g] = adds.get(g, []) + [" ".join(top)] if top else adds.get(g, [])
+        elif (lost := end_voted(seen_ends, sum(1 for e in got_ends if e == ()), side,
+                                [w for w in low if w not in MARKS and w != BREAK])):
+            g = 0 if side == "start" else len(mine)
+            adds[g] = adds.get(g, []) + [" ".join(lost)]
         elif words_at or any(t not in MARKS for e in seen_ends for t in e):
             return None, f"the clue's {side} is lost: other readings have {' / '.join(' '.join(e) for e in seen_ends)}"
     fixes, drop, how = {}, set(), "agree"
@@ -2307,6 +2404,8 @@ MARK_IN_WORD = re.compile(r"[^\W\d_][^\w\s'\u2019\-&/.]+[^\W\d_]|[^\W\d_]['\u201
 #: A capital after small letters, the word's last letter or inside a word
 #: no dictionary knows ("bacK", "RcbufT", "ofTer"); not "McX" or "O'X".
 CAPS_IN_WORD = re.compile(r"[a-z][A-Z]")
+#: Initials' possessive, which clues print: "P.M.'s", "N.C.O.'s".
+INITIALS_OWN = re.compile(r"(?:[A-Z]\.){2,}['\u2019]s")
 #: OCR's commonest letter slips, both ways, for the misread-name test.
 NAME_SLIPS = SLIPS + (("v", "y"),)
 #: Characters stripped off a token's ends before it is judged.
@@ -2544,6 +2643,11 @@ def suspect(text, vouched=(), printed=()):
             continue
         if DIGIT_IN_WORD.search(s) and not COUNTED.fullmatch(s.lstrip("£$")):
             out.append((raw, "a digit inside a word"))
+            continue
+        if re.search(r"[A-Za-z]\.-(?!-)", raw):
+            out.append((raw, "a stray mark inside a word"))  # "housing.-"
+            continue
+        if INITIALS_OWN.fullmatch(s):
             continue
         if MARK_IN_WORD.search(s) or JUNK.search(raw) or re.search(r"[a-z]{2}\.[a-z]{2}", s):
             out.append((raw, "a stray mark inside a word"))
