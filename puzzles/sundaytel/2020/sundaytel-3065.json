@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,53 @@
     "text": "Pull charge up",
     "enumeration": "4"
    },
-   "solution": "DRAW"
+   "solution": "DRAW",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "DRAW",
+    "definitions": [
+     {
+      "text": "Pull",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the word is read from the bottom to the top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "charge",
+      "gives": "WARD",
+      "note": "a ward is someone placed in another's charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRAW"
+     ],
+     "reversals": [
+      {
+       "from": "WARD",
+       "to": "DRAW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to pull a charge up, as if hauling a load or a prisoner.",
+     "definitionFit": "To draw a cart or a curtain is to haul or pull it, a plain synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +95,65 @@
     "text": "Wipe new suits with end of sleeve",
     "enumeration": "6"
    },
-   "solution": "TISSUE"
+   "solution": "TISSUE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "TISSUE",
+    "definitions": [
+     {
+      "text": "Wipe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "new suggests the letters are made over into a fresh order"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "end of asks for just the final letter of the following word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suits",
+      "gives": "SUITS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sleeve",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of sleeve"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SUITSE",
+       "gives": "TISSUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cleaning new suits by rubbing them with a cuff.",
+     "definitionFit": "A tissue is a paper handkerchief, used as a noun for something you wipe with."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suits"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +167,52 @@
     "text": "Nuns depart after duffing up boxers, say?",
     "enumeration": "10"
    },
-   "solution": "UNDERPANTS"
+   "solution": "UNDERPANTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNDERPANTS",
+    "definitions": [
+     {
+      "text": "boxers, say?",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after duffing up",
+      "for": "anagram",
+      "note": "duffing up is British slang for beating up, so the words are knocked about out of shape"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nuns depart",
+      "gives": "NUNSDEPART",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NUNSDEPART",
+       "gives": "UNDERPANTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nuns leave after beating up some prizefighters.",
+     "walkthrough": "Boxers look like fighters, especially beside duffing up, but they are boxer shorts; 'say' and the question mark flag a definition by example.",
+     "definitionFit": "Boxer shorts are one style of men's undergarment, an example of the wider category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "boxers"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +226,54 @@
     "text": "Initially, smelly fish stink",
     "enumeration": "6"
    },
-   "solution": "STENCH"
+   "solution": "STENCH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STENCH",
+    "definitions": [
+     {
+      "text": "stink",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initially",
+      "for": "letter_selection",
+      "note": "initially points at the opening letter of the next word only"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smelly",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of smelly"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "TENCH",
+      "note": "a tench is a freshwater fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TENCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A fish that smells bad gives off a stink from the start.",
+     "definitionFit": "A stench is a strong, foul smell, a direct synonym for a stink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +287,57 @@
     "text": "Smug: as a swine entertaining king",
     "enumeration": "8"
    },
-   "solution": "PRIGGISH"
+   "solution": "PRIGGISH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PRIGGISH",
+    "definitions": [
+     {
+      "text": "Smug",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "to entertain a guest is to take them in, so one piece holds the other"
+     }
+    ],
+    "linkWords": [
+     ":"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as a swine",
+      "gives": "PIGGISH",
+      "note": "like a pig"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R for rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "R",
+      "IGGISH"
+     ]
+    },
+    "explanation": {
+     "surface": "A smug person compared to a pig hosting a monarch.",
+     "definitionFit": "Priggish means self-righteously proper, sharing the self-satisfied tone of smug."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "entertaining"
+    }
+   }
   },
   {
    "number": 6,
@@ -102,7 +351,42 @@
     "text": "Challenger in sportswoman, tiring",
     "enumeration": "4"
    },
-   "solution": "ANTI"
+   "solution": "ANTI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ANTI",
+    "definitions": [
+     {
+      "text": "Challenger",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sportswoman, tiring",
+      "gives": "ANTI",
+      "note": "spans the end of sportswoman and the start of tiring"
+     }
+    ],
+    "explanation": {
+     "surface": "A rival appears within a tiring sportswoman.",
+     "definitionFit": "An anti is a person opposed to something, so one who challenges or contests it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Challenger"
+    }
+   }
   },
   {
    "number": 7,
@@ -116,7 +400,63 @@
     "text": "Potential flower perhaps ideal for developing bloom",
     "enumeration": "8"
    },
-   "solution": "BUDDLEIA"
+   "solution": "BUDDLEIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "BUDDLEIA",
+    "definitions": [
+     {
+      "text": "bloom",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "developing",
+      "for": "anagram",
+      "note": "something developing changes shape, so the word's letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Potential flower perhaps",
+      "gives": "BUD",
+      "note": "a bud is a flower yet to open"
+     },
+     {
+      "clueFragment": "ideal",
+      "gives": "DLEIA",
+      "note": "the letters of ideal rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUD",
+      "DLEIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IDEAL",
+       "gives": "DLEIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener's view that a bud may be perfect for growing into a flower.",
+     "definitionFit": "Buddleia is a flowering shrub, the butterfly bush, so a bloom by way of example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "developing"
+    }
+   }
   },
   {
    "number": 8,
@@ -130,7 +470,63 @@
     "text": "French cakes prepared, then mixed in eels!",
     "enumeration": "10"
    },
-   "solution": "MADELEINES"
+   "solution": "MADELEINES",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "MADELEINES",
+    "definitions": [
+     {
+      "text": "French cakes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixed",
+      "for": "anagram",
+      "note": "mixed means the following letters are stirred into a new order"
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prepared",
+      "gives": "MADE",
+      "note": "made as in made ready"
+     },
+     {
+      "clueFragment": "in eels",
+      "gives": "LEINES",
+      "note": "the letters of in eels rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MADE",
+      "LEINES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INEELS",
+       "gives": "LEINES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A baker's horror: French cakes made and then mixed with eels.",
+     "definitionFit": "Madeleines are small shell-shaped sponge cakes from France, famous from Proust."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 9,
@@ -144,7 +540,44 @@
     "text": "Power drops from the sky, it's said?",
     "enumeration": "5"
    },
-   "solution": "REIGN"
+   "solution": "REIGN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "REIGN",
+    "definitions": [
+     {
+      "text": "Power",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "it's said",
+      "for": "homophone",
+      "note": "it's said means the word is to be heard spoken rather than read"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drops from the sky",
+      "gives": "REIGN",
+      "soundsLike": "RAIN",
+      "note": "rain is water drops falling from the sky"
+     }
+    ],
+    "explanation": {
+     "surface": "A riddle asking whether power falls from the heavens.",
+     "definitionFit": "A reign is a monarch's period of rule, so sovereign power or authority."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Power"
+    }
+   }
   },
   {
    "number": 10,
@@ -158,7 +591,63 @@
     "text": "I appreciate that natural gambolling in hairy creature",
     "enumeration": "9"
    },
-   "solution": "TARANTULA"
+   "solution": "TARANTULA",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "TARANTULA",
+    "definitions": [
+     {
+      "text": "hairy creature",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gambolling",
+      "for": "anagram",
+      "note": "gambolling is skipping about playfully, so the letters jump into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I appreciate that",
+      "gives": "TA",
+      "note": "ta is British informal thanks"
+     },
+     {
+      "clueFragment": "natural",
+      "gives": "RANTULA",
+      "note": "the letters of natural rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "RANTULA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NATURAL",
+       "gives": "RANTULA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone grateful for a hairy animal's natural frolicking.",
+     "definitionFit": "A tarantula is a large spider covered in bristly hair, an apt description."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "natural"
+    }
+   }
   },
   {
    "number": 11,
@@ -172,7 +661,47 @@
     "text": "Film partners when playing tough",
     "enumeration": "7"
    },
-   "solution": "WESTERN"
+   "solution": "WESTERN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WESTERN",
+    "definitions": [
+     {
+      "text": "Film",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "partners when playing",
+      "gives": "WE",
+      "note": "West and East are partners at the bridge table"
+     },
+     {
+      "clueFragment": "tough",
+      "gives": "STERN",
+      "note": "stern means harsh or tough"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WE",
+      "STERN"
+     ]
+    },
+    "explanation": {
+     "surface": "A film about partners who get tough when they play.",
+     "walkthrough": "In bridge the four players are named by compass points, and West and East play as a pair.",
+     "definitionFit": "A western is a genre film set in the American Wild West, so one kind of film."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 12,
@@ -186,7 +715,46 @@
     "text": "Cook, good poser!",
     "enumeration": "7"
    },
-   "solution": "GRIDDLE"
+   "solution": "GRIDDLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRIDDLE",
+    "definitions": [
+     {
+      "text": "Cook",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "poser",
+      "gives": "RIDDLE",
+      "note": "a poser is a puzzling question"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RIDDLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for a cook who sets good puzzles.",
+     "definitionFit": "To griddle food is to cook it on a flat iron plate, a specific way of cooking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "poser"
+    }
+   }
   },
   {
    "number": 13,
@@ -200,7 +768,43 @@
     "text": "Very dear soak",
     "enumeration": "5"
    },
-   "solution": "STEEP"
+   "solution": "STEEP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STEEP",
+    "definitions": [
+     {
+      "text": "Very dear",
+      "at": 0
+     },
+     {
+      "text": "soak",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very dear",
+      "note": "first meaning: excessively expensive"
+     },
+     {
+      "clueFragment": "soak",
+      "note": "second meaning: to leave immersed in liquid"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a beloved drunkard; the two parts are a price adjective and a verb for immersing.",
+     "definitionFit": "A steep price is a high one, and to steep tea or fruit is to let it soak."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "soak"
+    }
+   }
   },
   {
    "number": 13,
@@ -214,7 +818,67 @@
     "text": "Pressure beneath same cracked sewer?",
     "enumeration": "10"
    },
-   "solution": "SEAMSTRESS"
+   "solution": "SEAMSTRESS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SEAMSTRESS",
+    "definitions": [
+     {
+      "text": "sewer?",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cracked",
+      "for": "anagram",
+      "note": "something cracked is broken apart, so these letters are reassembled differently"
+     },
+     {
+      "text": "beneath",
+      "for": "charade",
+      "note": "in a down clue, beneath puts one piece lower in the column than the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "same",
+      "gives": "SEAM",
+      "note": "the letters of same rearranged"
+     },
+     {
+      "clueFragment": "Pressure",
+      "gives": "STRESS",
+      "note": "stress is pressure or strain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEAM",
+      "STRESS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SAME",
+       "gives": "SEAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drain that has cracked under the same pressure.",
+     "walkthrough": "Sewer suggests a drainpipe, but it is read as one who sews; the question mark flags the shift in pronunciation.",
+     "definitionFit": "A seamstress is a woman who sews for a living, literally a sewer of cloth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sewer"
+    }
+   }
   },
   {
    "number": 14,
@@ -228,7 +892,48 @@
     "text": "Musical composition that may go to one's head?",
     "enumeration": "9"
    },
-   "solution": "HAIRPIECE"
+   "solution": "HAIRPIECE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HAIRPIECE",
+    "definitions": [
+     {
+      "text": "that may go to one's head?",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Musical",
+      "gives": "HAIR",
+      "note": "Hair is a 1960s rock musical"
+     },
+     {
+      "clueFragment": "composition",
+      "gives": "PIECE",
+      "note": "a piece is a musical or written composition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAIR",
+      "PIECE"
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of music so catchy it goes to your head.",
+     "walkthrough": "Musical composition reads as one phrase, but Musical is the show Hair and composition a separate piece.",
+     "definitionFit": "A hairpiece is a toupee or wig, which is literally worn on the head."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Musical"
+    }
+   }
   },
   {
    "number": 15,
@@ -248,7 +953,56 @@
      }
     ]
    },
-   "solution": "PAGETURNER"
+   "solution": "PAGETURNER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PAGE-TURNER",
+    "definitions": [
+     {
+      "text": "great book",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down clue, under places one piece below the other in the column"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "servant",
+      "gives": "PAGE",
+      "note": "a page is a young servant or attendant"
+     },
+     {
+      "clueFragment": "Master",
+      "gives": "TURNER",
+      "note": "J. M. W. Turner, the English painter, is an Old Master"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAGE",
+      "TURNER"
+     ]
+    },
+    "explanation": {
+     "surface": "A master and servant pairing in a classic novel.",
+     "definitionFit": "A page-turner is a gripping book that compels the reader onward, an idiom for a great read."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Master"
+    }
+   }
   },
   {
    "number": 16,
@@ -272,7 +1026,43 @@
      }
     ]
    },
-   "solution": "AGAINSTTHEGRAIN"
+   "solution": "AGAINSTTHEGRAIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AGAINST THE GRAIN",
+    "definitions": [
+     {
+      "text": "Contrary to what is expected",
+      "at": 0
+     },
+     {
+      "text": "unlikely to drink whisky?",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Contrary to what is expected",
+      "note": "first meaning: an idiom for going against the natural inclination"
+     },
+     {
+      "clueFragment": "unlikely to drink whisky?",
+      "note": "second meaning, whimsical: opposed to grain whisky"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Grain whisky is whisky distilled from cereals other than malted barley, so someone set against it would refuse a dram.",
+     "definitionFit": "The idiom comes from cutting wood across its fibres, meaning to act contrary to natural tendency."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "whisky"
+    }
+   }
   },
   {
    "number": 17,
@@ -286,7 +1076,63 @@
     "text": "Skill shown, I start to weave line",
     "enumeration": "8"
    },
-   "solution": "ARTISTRY"
+   "solution": "ARTISTRY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ARTISTRY",
+    "definitions": [
+     {
+      "text": "Skill",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to weave",
+      "for": "anagram",
+      "note": "weaving interlaces strands into a new pattern, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "shown,"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I start",
+      "gives": "ARTIST",
+      "note": "the letters of I start rearranged"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "RY",
+      "note": "RY is short for railway, a line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARTIST",
+      "RY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISTART",
+       "gives": "ARTIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A weaver showing their skill as they begin a line of thread.",
+     "definitionFit": "Artistry is creative skill or craftsmanship, a close synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 18,
@@ -300,7 +1146,46 @@
     "text": "50/50 chance: fix sudden descent of aeroplane",
     "enumeration": "8"
    },
-   "solution": "TAILSPIN"
+   "solution": "TAILSPIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAILSPIN",
+    "definitions": [
+     {
+      "text": "sudden descent of aeroplane",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "50/50 chance",
+      "gives": "TAILS",
+      "note": "tails is one side of a tossed coin, an even chance"
+     },
+     {
+      "clueFragment": "fix",
+      "gives": "PIN",
+      "note": "to pin is to fix in place"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAILS",
+      "PIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Odds of a plane plunging when something is fixed or rigged.",
+     "definitionFit": "A tailspin is a steep spiralling dive of an aircraft, often out of control."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fix"
+    }
+   }
   },
   {
    "number": 19,
@@ -314,7 +1199,65 @@
     "text": "Pleased day is left to escape competitors",
     "enumeration": "9"
    },
-   "solution": "SATISFIED"
+   "solution": "SATISFIED",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SATISFIED",
+    "definitions": [
+     {
+      "text": "Pleased",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to escape",
+      "for": "deletion",
+      "note": "escape means getting out, so that letter leaves the word it was in"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "day",
+      "gives": "SAT",
+      "note": "Sat is short for Saturday"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "competitors",
+      "gives": "FIELD",
+      "note": "the field is everyone competing in a race"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is short for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAT",
+      "IS",
+      "FIED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone happy that the day has come to escape rivals.",
+     "definitionFit": "Satisfied means content or gratified, the same feeling as pleased."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 20,
@@ -328,7 +1271,46 @@
     "text": "Party learned how much medicine to prescribe",
     "enumeration": "6"
    },
-   "solution": "DOSAGE"
+   "solution": "DOSAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOSAGE",
+    "definitions": [
+     {
+      "text": "how much medicine to prescribe",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Party",
+      "gives": "DO",
+      "note": "a do is a party"
+     },
+     {
+      "clueFragment": "learned",
+      "gives": "SAGE",
+      "note": "sage means wise or learned"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "SAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor at a party who knows how much to prescribe.",
+     "definitionFit": "A dosage is the measured amount of a drug to be taken, which a doctor sets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "learned"
+    }
+   }
   },
   {
    "number": 21,
@@ -342,7 +1324,56 @@
     "text": "Capital I invested in large containers",
     "enumeration": "5"
    },
-   "solution": "TUNIS"
+   "solution": "TUNIS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TUNIS",
+    "definitions": [
+     {
+      "text": "Capital",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "invested in",
+      "for": "container",
+      "note": "money invested in something is put inside it, so one piece goes into the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "large containers",
+      "gives": "TUNS",
+      "note": "a tun is a large cask"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUN",
+      "I",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "An investor saying they put capital into big containers, like shipping.",
+     "walkthrough": "Capital and invested suggest finance, but Capital is a capital city.",
+     "definitionFit": "Tunis is the capital city of Tunisia in North Africa."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Capital"
+    }
+   }
   },
   {
    "number": 22,
@@ -356,7 +1387,43 @@
     "text": "Baby crab?",
     "enumeration": "6"
    },
-   "solution": "NIPPER"
+   "solution": "NIPPER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NIPPER",
+    "definitions": [
+     {
+      "text": "Baby",
+      "at": 0
+     },
+     {
+      "text": "crab?",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Baby",
+      "note": "first meaning: British informal word for a small child"
+     },
+     {
+      "clueFragment": "crab?",
+      "note": "second meaning: something that nips with its claws"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a young crab, but the two words define separately; the question mark marks the crab as an example of something that pinches.",
+     "definitionFit": "A nipper is British slang for a young child, and a crab nips with its pincers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Baby"
+    }
+   }
   },
   {
    "number": 23,
@@ -370,7 +1437,63 @@
     "text": "Bacon: artist she reveals on the periphery?",
     "enumeration": "7"
    },
-   "solution": "RASHERS"
+   "solution": "RASHERS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "RASHERS",
+    "definitions": [
+     {
+      "text": "Bacon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the periphery",
+      "for": "letter_selection",
+      "note": "the periphery is the outside edge, so only the two end letters are wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA, Royal Academician, is an artist"
+     },
+     {
+      "clueFragment": "she",
+      "gives": "SHE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "reveals",
+      "gives": "RS",
+      "select": "outer",
+      "note": "first and last letters of reveals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "SHE",
+      "RS"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist hints at Francis Bacon, who painted on the edges of things.",
+     "walkthrough": "Bacon tempts as the painter beside artist, but it is the meat.",
+     "definitionFit": "Rashers are thin slices of bacon, so the plural noun stands for bacon itself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bacon"
+    }
+   }
   },
   {
    "number": 24,
@@ -384,7 +1507,52 @@
     "text": "Clock where time speeds up gradually, all concluding",
     "enumeration": "4"
    },
-   "solution": "ESPY"
+   "solution": "ESPY",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ESPY",
+    "definitions": [
+     {
+      "text": "Clock",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all concluding",
+      "for": "letter_selection",
+      "note": "concluding points at endings, so each word gives only its final letter"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time speeds up gradually",
+      "gives": "ESPY",
+      "select": "last",
+      "note": "last letters of time, speeds, up and gradually"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESPY"
+     ]
+    },
+    "explanation": {
+     "surface": "A clock on which time gradually speeds up.",
+     "walkthrough": "Clock looks like a timepiece but is British slang for notice.",
+     "definitionFit": "To clock someone in British slang is to spot them, the same as espy, to catch sight of."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Clock"
+    }
+   }
   },
   {
    "number": 25,
@@ -398,7 +1566,68 @@
     "text": "Spinning of spider catching insect finally — like a bumblebee?",
     "enumeration": "7"
    },
-   "solution": "STRIPED"
+   "solution": "STRIPED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "anagram"
+    ],
+    "answer": "STRIPED",
+    "definitions": [
+     {
+      "text": "like a bumblebee?",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spinning of",
+      "for": "anagram",
+      "note": "spinning turns things round and round, so the letters are tumbled into a new order"
+     },
+     {
+      "text": "catching",
+      "for": "container",
+      "note": "catching means trapping something inside, so one piece is taken in"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally asks for the closing letter of the word before"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spider",
+      "gives": "SPIDER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "insect",
+      "gives": "T",
+      "select": "last",
+      "note": "last letter of insect"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SPIDERT",
+       "gives": "STRIPED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spider spinning its web to trap an insect such as a bumblebee.",
+     "definitionFit": "Bumblebees have bands of black and yellow, so they are striped; the question mark marks the example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Spinning"
+    }
+   }
   },
   {
    "number": 26,
@@ -412,7 +1641,42 @@
     "text": "Take out dried fruit",
     "enumeration": "4"
    },
-   "solution": "DATE"
+   "solution": "DATE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DATE",
+    "definitions": [
+     {
+      "text": "Take out",
+      "at": 0
+     },
+     {
+      "text": "dried fruit",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Take out",
+      "note": "first meaning: to go out with someone romantically"
+     },
+     {
+      "clueFragment": "dried fruit",
+      "note": "second meaning: the sweet fruit of a palm, usually sold dried"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Take out sounds like removing something from the fruit; it is the courting sense.",
+     "definitionFit": "To date someone is to take them out socially, and a date is a palm fruit often eaten dried."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 27,
@@ -426,7 +1690,42 @@
     "text": "Strong binding",
     "enumeration": "9"
    },
-   "solution": "STRAPPING"
+   "solution": "STRAPPING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRAPPING",
+    "definitions": [
+     {
+      "text": "Strong",
+      "at": 0
+     },
+     {
+      "text": "binding",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Strong",
+      "note": "first meaning: big and sturdily built"
+     },
+     {
+      "clueFragment": "binding",
+      "note": "second meaning: tying up with straps"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Strong binding reads as one phrase about a sturdy cord; the words are separate meanings.",
+     "definitionFit": "A strapping lad is tall and robust, and strapping is also material used to bind or fasten."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "binding"
+    }
+   }
   },
   {
    "number": 28,
@@ -440,7 +1739,51 @@
     "text": "Figure removing coat for competition",
     "enumeration": "5"
    },
-   "solution": "EVENT"
+   "solution": "EVENT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EVENT",
+    "definitions": [
+     {
+      "text": "competition",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removing coat",
+      "for": "deletion",
+      "note": "taking off a coat strips away the outer layer, so the end letters go"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Figure",
+      "gives": "SEVENTY",
+      "note": "seventy is a number, a figure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A model removing a coat to enter a contest.",
+     "walkthrough": "Figure suggests a person's shape, but it is a number.",
+     "definitionFit": "An event is a single contest within a sports meeting, such as the high jump."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Figure"
+    }
+   }
   }
  ]
 }
