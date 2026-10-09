@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,71 @@
     "text": "In Paris I work on a ruddy odd quiz show",
     "enumeration": "8"
    },
-   "solution": "JEOPARDY"
+   "solution": "JEOPARDY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "JEOPARDY",
+    "definitions": [
+     {
+      "text": "quiz show",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "odd",
+      "for": "letter_selection",
+      "note": "odd here means the odd-numbered positions, so only the first, third and fifth letters of the word are kept"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In Paris I",
+      "gives": "JE",
+      "note": "je is French for I"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op is short for opus, a work"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ruddy",
+      "gives": "RDY",
+      "select": "alternate",
+      "note": "letters 1, 3 and 5 of ruddy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JE",
+      "OP",
+      "A",
+      "RDY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in Paris boasts of working on a strange, flushed-faced television quiz programme.",
+     "walkthrough": "JEOPARDY! is the long-running American TV quiz show where contestants phrase answers as questions.",
+     "definitionFit": "Jeopardy! is a famous example of a television quiz programme, so the general term covers it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "odd"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +114,47 @@
     "text": "Fancy Welshman?",
     "enumeration": "4"
    },
-   "solution": "WHIM"
+   "solution": "WHIM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WHIM",
+    "definitions": [
+     {
+      "text": "Fancy",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Welsh",
+      "gives": "W",
+      "note": "W is the standard abbreviation for Welsh"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "HIM",
+      "note": "him refers to a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HIM"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Welshman reads as one word, but it splits into Welsh and man; the question mark warns of the trick.",
+     "definitionFit": "A fancy, as a noun, is a sudden impulsive desire or notion, the same as a passing caprice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Welshman"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +168,49 @@
     "text": "Home country's far from the sea",
     "enumeration": "6"
    },
-   "solution": "INLAND"
+   "solution": "INLAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INLAND",
+    "definitions": [
+     {
+      "text": "far from the sea",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Home",
+      "gives": "IN",
+      "note": "being in means being at home"
+     },
+     {
+      "clueFragment": "country",
+      "gives": "LAND",
+      "note": "a land is a country"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "LAND"
+     ]
+    },
+    "explanation": {
+     "surface": "A statement that someone's native country is landlocked, nowhere near the coast.",
+     "definitionFit": "Inland describes a place situated in the interior of a region, away from any coastline."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Home"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +224,58 @@
     "text": "Longing to get rid of cap on Sunday pay",
     "enumeration": "8"
    },
-   "solution": "EARNINGS"
+   "solution": "EARNINGS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "EARNINGS",
+    "definitions": [
+     {
+      "text": "pay",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to get rid of cap",
+      "for": "deletion",
+      "note": "the cap of a word is its top or first letter, and getting rid of it drops that letter"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Longing",
+      "gives": "YEARNING",
+      "note": "a yearning is a longing"
+     },
+     {
+      "clueFragment": "Sunday",
+      "gives": "S",
+      "note": "S is the abbreviation for Sunday"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EARNING",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A wish to stop wearing a hat when collecting a Sunday wage packet.",
+     "walkthrough": "Remove the leading Y from the word for longing, then add the Sunday abbreviation at the end.",
+     "definitionFit": "Earnings are the money received for work, which is what pay means as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cap"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +289,65 @@
     "text": "Accidentally conspire, keeping quiet, with suppression of information",
     "enumeration": "10"
    },
-   "solution": "CENSORSHIP"
+   "solution": "CENSORSHIP",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "CENSORSHIP",
+    "definitions": [
+     {
+      "text": "suppression of information",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping something means holding it inside, so one piece is held within the other"
+     },
+     {
+      "text": "Accidentally",
+      "for": "anagram",
+      "note": "something done accidentally is done haphazardly, so the letters come out in a random order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conspire",
+      "gives": "CONSPIRE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "SH",
+      "note": "sh is the call for quiet"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CONSPIRESH",
+       "gives": "CENSORSHIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Plotters accidentally end up hushing things up, linked to keeping information from the public.",
+     "walkthrough": "The hush sound goes in with the eight letters of conspire, and all ten are rearranged.",
+     "definitionFit": "Censorship is the official banning or suppressing of books, news or other information."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Accidentally"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +367,62 @@
      }
     ]
    },
-   "solution": "GIVEUP"
+   "solution": "GIVEUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GIVE UP",
+    "definitions": [
+     {
+      "text": "Stop",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldier",
+      "gives": "GI",
+      "note": "a GI is an American soldier"
+     },
+     {
+      "clueFragment": "against",
+      "gives": "V",
+      "note": "v is short for versus, against"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "at university",
+      "gives": "UP",
+      "note": "a student at university is said to be up, in British usage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GI",
+      "V",
+      "E",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier is halted for siding against the English while studying.",
+     "walkthrough": "Being up means being in residence at a university, as in going up to Oxford.",
+     "definitionFit": "To give up is to stop doing something, a phrasal verb meaning quit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "against"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +436,67 @@
     "text": "Engineer in charge pursues blokes drinking tea",
     "enumeration": "8"
    },
-   "solution": "MECHANIC"
+   "solution": "MECHANIC",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MECHANIC",
+    "definitions": [
+     {
+      "text": "Engineer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drinking",
+      "for": "container",
+      "note": "drinking takes something in, so one word swallows another"
+     },
+     {
+      "text": "pursues",
+      "for": "charade",
+      "note": "to pursue is to follow behind, so the first piece goes after the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blokes",
+      "gives": "MEN",
+      "note": "blokes are men"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "CHA",
+      "note": "cha is a slang word for tea"
+     },
+     {
+      "clueFragment": "in charge",
+      "gives": "IC",
+      "note": "IC is the abbreviation for in charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "CHA",
+      "N",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "The engineer in charge follows a group of men having their tea break.",
+     "walkthrough": "The tea word sits inside the blokes, and the in-charge abbreviation is placed after them.",
+     "definitionFit": "A mechanic is a skilled worker who repairs machines, a kind of engineer in everyday speech."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Engineer"
+    }
+   }
   },
   {
    "number": 8,
@@ -143,7 +516,61 @@
      }
     ]
    },
-   "solution": "COMEBY"
+   "solution": "COMEBY",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "COME BY",
+    "definitions": [
+     {
+      "text": "Visit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one word inside the other, which surrounds it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horse",
+      "gives": "COB",
+      "note": "a cob is a sturdy short-legged horse"
+     },
+     {
+      "clueFragment": "setter",
+      "gives": "ME",
+      "note": "the setter refers to themself as me"
+     },
+     {
+      "clueFragment": "yard",
+      "gives": "Y",
+      "note": "Y is the abbreviation for yard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "ME",
+      "B",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An invitation to drop in on the crossword setter, who is with a horse in the yard.",
+     "definitionFit": "To come by is an informal phrasal verb for making a short visit to someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "setter"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +584,56 @@
     "text": "She's a foremost essayist",
     "enumeration": "6"
    },
-   "solution": "AMELIA"
+   "solution": "AMELIA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMELIA",
+    "definitions": [
+     {
+      "text": "She",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "foremost",
+      "gives": "M",
+      "note": "read as fore-most: the front of the word most"
+     },
+     {
+      "clueFragment": "essayist",
+      "gives": "ELIA",
+      "note": "Elia was the pen name of the English essayist Charles Lamb"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "M",
+      "ELIA"
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for a woman as a leading writer of essays.",
+     "walkthrough": "Foremost has to be split into fore and most. ELIA, Charles Lamb's pen name, is a crossword favourite for essayist.",
+     "definitionFit": "Amelia is a girl's name, so she is a fair stand-in for any female person with that name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "foremost"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +647,56 @@
     "text": "Charts turnover of unsolicited emails",
     "enumeration": "4"
    },
-   "solution": "SPAM"
+   "solution": "SPAM",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SPAM",
+    "definitions": [
+     {
+      "text": "unsolicited emails",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turnover",
+      "for": "reversal",
+      "note": "a turnover flips something round, so the word is read from the other end"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charts",
+      "gives": "MAPS",
+      "note": "maps are charts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPAM"
+     ],
+     "reversals": [
+      {
+       "from": "MAPS",
+       "to": "SPAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A graph showing the amount of junk email in circulation.",
+     "definitionFit": "Spam is the collective name for unwanted bulk messages sent to many inboxes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turnover"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +710,54 @@
     "text": "Make arrangements for priest after today",
     "enumeration": "10"
    },
-   "solution": "ADMINISTER"
+   "solution": "ADMINISTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADMINISTER",
+    "definitions": [
+     {
+      "text": "Make arrangements for",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means the first piece is written following the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "today",
+      "gives": "AD",
+      "note": "AD, anno Domini, labels the present era of years"
+     },
+     {
+      "clueFragment": "priest",
+      "gives": "MINISTER",
+      "note": "a minister is a member of the clergy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "MINISTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Organising things for a clergyman once the day's business is over.",
+     "walkthrough": "Today is AD because we are living in the years anno Domini, the era after Christ.",
+     "definitionFit": "To administer something is to manage and organise it, making the arrangements for it to run."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "today"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +771,69 @@
     "text": "Took issue with guard about hiding key",
     "enumeration": "6"
    },
-   "solution": "ARGUED"
+   "solution": "ARGUED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ARGUED",
+    "definitions": [
+     {
+      "text": "Took issue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests letters moved around, so the word is rearranged"
+     },
+     {
+      "text": "hiding",
+      "for": "container",
+      "note": "hiding something keeps it tucked inside, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guard",
+      "gives": "GUARD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "E",
+      "note": "E is a musical key"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARGU",
+      "E",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GUARD",
+       "gives": "ARGUD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone quarrelled with a security guard who was concealing a key.",
+     "definitionFit": "To take issue is to disagree or dispute, which is what arguing means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +847,83 @@
     "text": "United Nations voting model's within due process and corruption-free",
     "enumeration": "10"
    },
-   "solution": "UNPOLLUTED"
+   "solution": "UNPOLLUTED",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "UNPOLLUTED",
+    "definitions": [
+     {
+      "text": "corruption-free",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "process",
+      "for": "anagram",
+      "note": "to process something is to work it over, so the letters are rearranged"
+     },
+     {
+      "text": "within",
+      "for": "container",
+      "note": "within places one piece inside the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "United Nations",
+      "gives": "UN",
+      "note": "UN is the abbreviation for United Nations"
+     },
+     {
+      "clueFragment": "voting",
+      "gives": "POLL",
+      "note": "a poll is a vote"
+     },
+     {
+      "clueFragment": "due",
+      "gives": "DUE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "model",
+      "gives": "T",
+      "note": "the Model T was Ford's famous car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "POLL",
+      "U",
+      "T",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DUE",
+       "gives": "UED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A UN-supervised election follows due process and is free of corruption.",
+     "walkthrough": "Due process looks like the legal phrase, but process works on due alone; the model letter then sits after its first letter.",
+     "definitionFit": "Unpolluted means clean and untainted, and something free of corruption is likewise untainted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "process"
+    }
+   }
   },
   {
    "number": 14,
@@ -227,7 +937,70 @@
     "text": "Papa's stuck in routine after fund's lost all his money",
     "enumeration": "8"
    },
-   "solution": "BANKRUPT"
+   "solution": "BANKRUPT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BANKRUPT",
+    "definitions": [
+     {
+      "text": "lost all his money",
+      "at": 37,
+      "note": "a verb phrase, read as 'has lost all his money', for an adjective"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuck in",
+      "for": "container",
+      "note": "stuck in means lodged inside, so one piece goes within the other"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means the first piece follows the second"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fund",
+      "gives": "BANK",
+      "note": "a bank is a fund or store of money"
+     },
+     {
+      "clueFragment": "routine",
+      "gives": "RUT",
+      "note": "a rut is a dull routine"
+     },
+     {
+      "clueFragment": "Papa",
+      "gives": "P",
+      "note": "Papa is P in the phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BANK",
+      "RU",
+      "P",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Father is trapped in a dull existence after his investment fund has gone under.",
+     "definitionFit": "Someone bankrupt is legally insolvent, having no money left to pay what they owe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fund"
+    }
+   }
   },
   {
    "number": 15,
@@ -241,7 +1014,58 @@
     "text": "Yep, pie's cooked — hurray!",
     "enumeration": "6"
    },
-   "solution": "YIPPEE"
+   "solution": "YIPPEE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "YIPPEE",
+    "definitions": [
+     {
+      "text": "hurray",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooked means prepared or doctored, so the letters are mixed into a new order"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yep",
+      "gives": "YEP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pie",
+      "gives": "PIE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "YEPPIE",
+       "gives": "YIPPEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheerful cry that the pie has finished baking.",
+     "definitionFit": "Both are exclamations of delight or celebration, interchangeable as cheers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooked"
+    }
+   }
   },
   {
    "number": 16,
@@ -255,7 +1079,70 @@
     "text": "Issues over group with a title",
     "enumeration": "8"
    },
-   "solution": "EMANATES"
+   "solution": "EMANATES",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EMANATES",
+    "definitions": [
+     {
+      "text": "Issues",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "over in a down clue means turned upside down, so the whole string runs backwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "group",
+      "gives": "SET",
+      "note": "a set is a group"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "title",
+      "gives": "NAME",
+      "note": "a title is a name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMAN",
+      "A",
+      "TES"
+     ],
+     "reversals": [
+      {
+       "from": "SETANAME",
+       "to": "EMANATES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Problems arising from a group gaining a title.",
+     "walkthrough": "Issues looks like a noun, problems, but it is a verb: flows out.",
+     "definitionFit": "To emanate is to issue or flow out from a source."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Issues"
+    }
+   }
   },
   {
    "number": 17,
@@ -269,7 +1156,72 @@
     "text": "Condition a mother to accept son having time with husband",
     "enumeration": "6"
    },
-   "solution": "ASTHMA"
+   "solution": "ASTHMA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ASTHMA",
+    "definitions": [
+     {
+      "text": "Condition",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to accept",
+      "for": "container",
+      "note": "accepting something means taking it in, so the outer word holds the others"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MA",
+      "note": "ma is mother"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "STH",
+      "MA"
+     ]
+    },
+    "explanation": {
+     "surface": "A family situation in which a mother takes in her son along with her husband.",
+     "definitionFit": "Asthma is a medical condition, a chronic disease affecting the airways."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Condition"
+    }
+   }
   },
   {
    "number": 18,
@@ -283,7 +1235,57 @@
     "text": "Fish tanks losing large number is one of the signs of winter",
     "enumeration": "8"
    },
-   "solution": "AQUARIUS"
+   "solution": "AQUARIUS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AQUARIUS",
+    "definitions": [
+     {
+      "text": "one of the signs of winter",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing something means it is taken away, so that letter is removed"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fish tanks",
+      "gives": "AQUARIUMS",
+      "note": "aquariums are tanks for fish"
+     },
+     {
+      "clueFragment": "large number",
+      "gives": "M",
+      "note": "M is the Roman numeral for a thousand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AQUARIUS"
+     ]
+    },
+    "explanation": {
+     "surface": "Empty fish tanks are a telltale sign that winter has arrived.",
+     "walkthrough": "Signs reads as indications, but means signs of the zodiac. Aquarius covers late January to mid-February.",
+     "definitionFit": "Aquarius is the zodiac sign for people born from about 20 January to 18 February, in northern winter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "signs"
+    }
+   }
   },
   {
    "number": 19,
@@ -297,7 +1299,74 @@
     "text": "Street-ravaged dog takes on energy from pudding",
     "enumeration": "6"
    },
-   "solution": "STODGE"
+   "solution": "STODGE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "STODGE",
+    "definitions": [
+     {
+      "text": "pudding",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ravaged",
+      "for": "anagram",
+      "note": "ravaged means wrecked, so the word's letters are scrambled"
+     },
+     {
+      "text": "takes on",
+      "for": "charade",
+      "note": "taking something on means adding it, so the last piece is attached at the end"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Street",
+      "gives": "ST",
+      "note": "St is the abbreviation for street"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "DOG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "ODG",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DOG",
+       "gives": "ODG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stray dog on a ruined street gets its strength from a pudding.",
+     "definitionFit": "Stodge is heavy, filling food, especially a thick pudding such as a steamed sponge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ravaged"
+    }
+   }
   },
   {
    "number": 20,
@@ -311,7 +1380,70 @@
     "text": "Beginning to grasp wife in Los Angeles is faithful",
     "enumeration": "8"
    },
-   "solution": "STALWART"
+   "solution": "STALWART",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STALWART",
+    "definitions": [
+     {
+      "text": "faithful",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to grasp",
+      "for": "container",
+      "note": "grasping something holds it inside, so one piece surrounds another"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beginning",
+      "gives": "START",
+      "note": "a start is a beginning"
+     },
+     {
+      "clueFragment": "Los Angeles",
+      "gives": "LA",
+      "note": "LA is the abbreviation for Los Angeles"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STA",
+      "L",
+      "W",
+      "A",
+      "RT"
+     ]
+    },
+    "explanation": {
+     "surface": "The first step in holding on to a spouse in LA is loyalty.",
+     "walkthrough": "The wife letter goes inside LA, and that pair goes inside the beginning word after its third letter.",
+     "definitionFit": "A stalwart supporter is loyal and dependable, the same as faithful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Beginning"
+    }
+   }
   },
   {
    "number": 21,
@@ -331,7 +1463,70 @@
      }
     ]
    },
-   "solution": "TEEHEE"
+   "solution": "TEEHEE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TEE-HEE",
+    "definitions": [
+     {
+      "text": "Laugh",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "something leaving goes away, so that letter is taken out"
+     },
+     {
+      "text": "brought in",
+      "for": "container",
+      "note": "brought in means put inside, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "at",
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tent",
+      "gives": "TEPEE",
+      "note": "a tepee is a conical tent"
+     },
+     {
+      "clueFragment": "Penny",
+      "gives": "P",
+      "note": "P is the abbreviation for penny"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "H",
+      "note": "H is slang for heroin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEE",
+      "H",
+      "EE"
+     ]
+    },
+    "explanation": {
+     "surface": "Mocking a woman named Penny who left a tent after drugs were smuggled in.",
+     "walkthrough": "Penny looks like a woman's name but it is the coin. Take its letter out of the tent, then put the drug letter into the middle.",
+     "definitionFit": "Tee-hee is a giggle or titter, a word for a laugh that imitates the sound."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Penny"
+    }
+   }
   },
   {
    "number": 22,
@@ -345,7 +1540,71 @@
     "text": "Very old city has a river enshrouded in mist",
     "enumeration": "6"
    },
-   "solution": "VAPOUR"
+   "solution": "VAPOUR",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "VAPOUR",
+    "definitions": [
+     {
+      "text": "mist",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enshrouded",
+      "for": "container",
+      "note": "something enshrouded is wrapped up inside, so it goes within the other piece"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very",
+      "gives": "V",
+      "note": "V is the abbreviation for very"
+     },
+     {
+      "clueFragment": "old city",
+      "gives": "UR",
+      "note": "Ur was an ancient city of Mesopotamia"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "PO",
+      "note": "the Po is the main river of Italy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "A",
+      "PO",
+      "UR"
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient city with its river hidden in fog.",
+     "walkthrough": "The very letter and the old city join first, and the a-plus-river pair sits between them.",
+     "definitionFit": "Mist is fine water vapour hanging in the air, so the broader term covers it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Very"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1618,70 @@
     "text": "Carry out investigation about oil extract from flower",
     "enumeration": "6"
    },
-   "solution": "VIOLET"
+   "solution": "VIOLET",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "VIOLET",
+    "definitions": [
+     {
+      "text": "flower",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extract",
+      "for": "anagram",
+      "note": "an extract is something processed out of raw material, so the letters are reworked"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece surrounds the other"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Carry out investigation",
+      "gives": "VET",
+      "note": "to vet is to examine or check carefully"
+     },
+     {
+      "clueFragment": "oil",
+      "gives": "OIL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "IOL",
+      "ET"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OIL",
+       "gives": "IOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Researching the essential oil drawn from a flower.",
+     "walkthrough": "Oil extract looks like perfumery, but extract is the signal to rearrange the oil letters.",
+     "definitionFit": "The violet is a small purple-flowered plant, an example of a flower."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extract"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1709,55 @@
      }
     ]
    },
-   "solution": "GETUPANDGO"
+   "solution": "GETUPANDGO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GET-UP-AND-GO",
+    "definitions": [
+     {
+      "text": "drive",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to repair",
+      "for": "anagram",
+      "note": "repairing something means putting its parts back together in working order, so the letters are rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ganged up",
+      "gives": "GANGEDUP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written; the same word also opens the signal phrase"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GANGEDUPTO",
+       "gives": "GETUPANDGO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "People banded together to fix a driveway, or a car's drive.",
+     "definitionFit": "Get-up-and-go is energy and enthusiasm, the same as drive in the sense of motivation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drive"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1771,69 @@
     "text": "Writer O'Brien is wild without measure",
     "enumeration": "4"
    },
-   "solution": "BIRO"
+   "solution": "BIRO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "BIRO",
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so those letters are taken away"
+     },
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "wild means out of control, so the letters are scattered into a new order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "O'Brien",
+      "gives": "OBRIEN",
+      "note": "the name without its apostrophe"
+     },
+     {
+      "clueFragment": "measure",
+      "gives": "EN",
+      "note": "an en is a printer's measure of width"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIRO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OBRI",
+       "gives": "BIRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A novelist named O'Brien is going wild beyond all measure.",
+     "walkthrough": "Writer suggests an author, given O'Brien, but it is a ballpoint pen. A biro is the British word for a ballpoint.",
+     "definitionFit": "A biro is a ballpoint pen, and a pen is a thing that writes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Writer"
+    }
+   }
   },
   {
    "number": 24,
@@ -415,7 +1847,61 @@
     "text": "I quit bad habit in Somerset",
     "enumeration": "4"
    },
-   "solution": "BATH"
+   "solution": "BATH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "BATH",
+    "definitions": [
+     {
+      "text": "in Somerset",
+      "at": 17,
+      "note": "a prepositional phrase standing for a place in Somerset"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "I quit",
+      "for": "deletion",
+      "note": "quit means leave, so the single letter named goes out of the word"
+     },
+     {
+      "text": "bad",
+      "for": "anagram",
+      "note": "bad suggests something spoiled, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "habit",
+      "gives": "HABIT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BATH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HABT",
+       "gives": "BATH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gave up a bad habit while living in Somerset.",
+     "walkthrough": "Bath is a Georgian spa city in the English county of Somerset.",
+     "definitionFit": "The city of Bath lies in Somerset, so the phrase points to a place found there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bad"
+    }
+   }
   },
   {
    "number": 25,
@@ -429,7 +1915,61 @@
     "text": "Bishop's jurisdiction keeps soldiers' quarter peaceful",
     "enumeration": "6"
    },
-   "solution": "SERENE"
+   "solution": "SERENE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SERENE",
+    "definitions": [
+     {
+      "text": "peaceful",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeps",
+      "for": "container",
+      "note": "keeps means holds inside, so the outer word surrounds the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bishop's jurisdiction",
+      "gives": "SEE",
+      "note": "a see is the area a bishop governs"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "RE",
+      "note": "RE, the Royal Engineers, is a British Army corps"
+     },
+     {
+      "clueFragment": "quarter",
+      "gives": "N",
+      "note": "N, north, is one of the four quarters of the compass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "RE",
+      "N",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A diocese gives troops a quarter of the city where they can rest in peace.",
+     "definitionFit": "Serene describes a calm, untroubled state, the same as peaceful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "quarter"
+    }
+   }
   },
   {
    "number": 26,
@@ -443,7 +1983,81 @@
     "text": "Returning full-time university student's after flat with lots going on",
     "enumeration": "8"
    },
-   "solution": "EVENTFUL"
+   "solution": "EVENTFUL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "EVENTFUL",
+    "definitions": [
+     {
+      "text": "with lots going on",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Returning",
+      "for": "reversal",
+      "note": "returning means coming back the way it went, so that abbreviation runs backwards"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means the first pieces follow the last one"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flat",
+      "gives": "EVEN",
+      "note": "flat means even, level"
+     },
+     {
+      "clueFragment": "full-time",
+      "gives": "FT",
+      "note": "FT is the abbreviation for full-time"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L, the learner plate, stands for a student"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVEN",
+      "TF",
+      "U",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "FT",
+       "to": "TF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student back at university full-time moves into a flat with a busy social life.",
+     "walkthrough": "Flat looks like a home, but it means level. L is a learner, from the L-plates on British learner drivers' cars.",
+     "definitionFit": "An eventful period is one full of incidents and happenings, so lots is going on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flat"
+    }
+   }
   }
  ]
 }
