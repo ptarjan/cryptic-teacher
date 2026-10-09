@@ -1041,6 +1041,30 @@ inner = edges[1:-1]
 check("each inner rule of an uneven, sheared grid found within 2px",
       (True, True), (max(abs(a - b) for a, b in zip(xs[1:-1], inner)) <= 2,
                      max(abs(a - b) for a, b in zip(ys[1:-1], inner)) <= 2))
+# A heavy print's edge column, blocks every other row and fat letters
+# between, is ink down most of its first cell: the frame's middle is still
+# at the frame (Times 1981-10-15 put it a third of a cell in, and lost the
+# column's letters).
+edge = ["#" + "." * 14 if r % 2 else "." * 15 for r in range(15)]
+heavy = np.zeros((side, side), bool)
+for k, e in enumerate(edges):
+    w = 4 if k in (0, len(edges) - 1) else 2
+    heavy[:, max(0, e - w):e + w + 1] = True
+    heavy[max(0, e - w):e + w + 1, :] = True
+for r in range(15):
+    top, foot = edges[r], edges[r + 1]
+    if r % 2:
+        heavy[top:foot + 1, :edges[1] + 1] = True
+    else:
+        # An H: two fat uprights and a bar, paper between them.
+        heavy[top + 8:foot - 8, 7:16] = heavy[top + 8:foot - 8, 30:39] = True
+        heavy[(top + foot) // 2 - 3:(top + foot) // 2 + 3, 7:39] = True
+ys, xs = tso.rules(np.where(heavy, 0, 255).astype(np.uint8), edge)
+check("a frame beside a heavy edge column found within 2px of its middle", True, abs(xs[0] - 2) <= 2)
+check("run-together words of 3+ letters are an answer only when read whole: not A + ALLEY, A + DO + IS + ON",
+      (False, False, True, True, False),
+      (tso.answer("AALLEY", set()), tso.answer("AALLEY", {"AALLEY"}), tso.answer("TUCKSHOP", {"TUCKSHOP"}),
+       tso.answer("ALLEY", set()), tso.answer("ADOISON", {"ADOISON"})))
 
 # read_solution(): the solution grid under its heading, answers keyed as
 # trove_solution_ocr.fill() looks them up, nothing from a grid of other blocks.

@@ -38,8 +38,11 @@ of a page) is read by read_framed instead:
      other, are taken (matched_letters). The match must agree with the
      recogniser: a letter some full-length read gave the cell (as printed,
      or with its number's corner blanked), and no other letter read there
-     surely; a letter that leaves a crossing light no word is not taken.
-  4. A light is accepted when every cell is read and its word is known().
+     surely (in a numbered cell, read with the corner blanked: with it a T
+     reads as a sure Y); a letter that leaves a crossing light neither a
+     word nor a whole read is not taken.
+  4. A light is accepted when every cell is read and its word is answer():
+     one known() word, or words of 3+ letters run together and read whole.
 
 read_grid_letters reads a Listener report's filled grid the same way, on
 the lattice listener_grid finds and the lights of the puzzle's own grid.
@@ -242,18 +245,21 @@ def rules(gray, grid):
     for an image that is the grid (frame to frame, straightened()). A
     printed lattice's pitch is uneven, so each inner rule is found on its
     own, near its even place, where ink runs along every pair of lights it
-    parts (a letter's stroke runs along few of them)."""
+    parts (a letter's stroke runs along few of them). The frame's middle
+    lies between its outer edge and where the ink along the edge's lights
+    stops (along a block, or a heavy letter, the whole line stays ink)."""
     n = len(grid)
     ink = gray < trove_grid.otsu(gray)
     x0, y0, pw, ph = lattice(gray, n, tight=True)
 
-    def axis(start, pitch, across, prof, both, along):
+    def axis(start, pitch, across, both, edge, along):
+        def span(j):
+            return int(across[0] + (j + 0.2) * across[1]), int(across[0] + (j + 0.8) * across[1])
         out = [start]
         for k in range(1, n):
             guess = start + k * pitch
             lo, hi = round(guess - RULE_REACH * pitch), round(guess + RULE_REACH * pitch)
-            segs = [along(lo, hi, int(across[0] + (j + 0.2) * across[1]), int(across[0] + (j + 0.8) * across[1]))
-                    for j in range(n) if both(k, j)]
+            segs = [along(lo, hi, *span(j)) for j in range(n) if both(k, j)]
             if not segs:
                 out.append(guess)
                 continue
@@ -265,19 +271,27 @@ def rules(gray, grid):
             while b < len(seg) - 1 and seg[b + 1] >= top - 0.05:
                 b += 1
             out.append(lo + (a + b) / 2)
-        # The frame's middle, not its outer edge.
-        a = int(start)
-        while a + 1 < len(prof) and prof[a + 1] > 0.5:
-            a += 1
-        b = min(int(start + n * pitch), len(prof) - 1)
-        while b > 0 and prof[b - 1] > 0.5:
-            b -= 1
-        return [(start + a) / 2] + out[1:] + [(start + n * pitch + b) / 2]
+        size = ink.shape[0] if along is rows else ink.shape[1]
 
-    ys = axis(y0, ph, (x0, pw), ink.mean(1), lambda k, j: grid[k - 1][j] != "#" and grid[k][j] != "#",
-              lambda lo, hi, a, b: ink[lo:hi + 1, a:b].mean(1))
-    xs = axis(x0, pw, (y0, ph), ink.mean(0), lambda k, j: grid[j][k - 1] != "#" and grid[j][k] != "#",
-              lambda lo, hi, a, b: ink[a:b, lo:hi + 1].mean(0))
+        def inner(outer, k, step):
+            lit = [span(j) for j in range(n) if edge(k, j)] or [span(j) for j in range(n)]
+            at, reach = outer, round(RULE_REACH * pitch)
+            while 0 <= at + step < size and abs(at + step - outer) <= reach and \
+                    np.mean([along(at + step, at + step, a, b)[0] for a, b in lit]) > 0.5:
+                at += step
+            return at
+        first, last = int(start), min(int(start + n * pitch), size - 1)
+        return [(first + inner(first, 0, 1)) / 2] + out[1:] + [(last + inner(last, n - 1, -1)) / 2]
+
+    def rows(lo, hi, a, b):
+        return ink[lo:hi + 1, a:b].mean(1)
+
+    def cols(lo, hi, a, b):
+        return ink[a:b, lo:hi + 1].mean(0)
+    ys = axis(y0, ph, (x0, pw), lambda k, j: grid[k - 1][j] != "#" and grid[k][j] != "#",
+              lambda k, j: grid[k][j] != "#", rows)
+    xs = axis(x0, pw, (y0, ph), lambda k, j: grid[j][k - 1] != "#" and grid[j][k] != "#",
+              lambda k, j: grid[j][k] != "#", cols)
     return ys, xs
 
 
@@ -493,7 +507,7 @@ MATCH_MARGIN = 0.05
 MATCH_SPREAD, MATCH_TRIES, MATCH_CELLS = 0.15, 4, 3
 
 
-def matched_letters(read, glyphs, numbers, lts, allowed=None):
+def matched_letters(read, glyphs, numbers, lts, allowed=None, printed=None):
     """{cell: letter} for the cells `read` ({cell: letter}, the recogniser's
     sure letters of the cells with no clue number) leaves unread, by glyph:
     each is matched to the mean glyph of each letter read (letter_models),
@@ -502,9 +516,11 @@ def matched_letters(read, glyphs, numbers, lts, allowed=None):
     the recogniser's evidence, see read_framed) are tried, and a cell whose
     best match is not allowed is left unread: the glyph and the recogniser
     must agree. A light with up to MATCH_CELLS cells unread takes the
-    likeliest letters that make it known(), by MATCH_MARGIN over any other
-    known() reading; each settled letter then counts in its crossing light,
-    until none settles."""
+    likeliest letters that make it an answer(), by MATCH_MARGIN over any other
+    such reading; each settled letter then counts in its crossing light,
+    until none settles. A crossing it fills must be known() too, or a word
+    a recogniser read that light as whole (`printed`: {light key: reads};
+    a name such as OTRANTO is no known() word)."""
     models = letter_models(glyphs, read)
     tries = {}
     for rc in glyphs:
@@ -520,13 +536,16 @@ def matched_letters(read, glyphs, numbers, lts, allowed=None):
         for rc in cells:
             through.setdefault(rc, []).append(cells)
 
+    reads = {tuple(cells): (printed or {}).get(key, ()) for key, cells in lts.items()}
+
     def fits(cells, have):
-        """Whether the light can still be a known() word: with one cell open,
-        some letter there makes one; with more, it may."""
+        """Whether the light can still be a known() or printed word: with
+        one cell open, some letter there makes one; with more, it may."""
         open_ = [rc for rc in cells if rc not in have]
         if len(open_) > 1:
             return True
-        return any(known("".join(have.get(rc) or ch for rc in cells)) for ch in (AZ if open_ else "-"))
+        return any(known(w) or w in reads[tuple(cells)]
+                   for w in ("".join(have.get(rc) or ch for rc in cells) for ch in (AZ if open_ else "-")))
 
     settled = True
     while settled:
@@ -540,8 +559,8 @@ def matched_letters(read, glyphs, numbers, lts, allowed=None):
                 got = dict(zip(open_, (ch for ch, _ in combo)))
                 word = "".join(letters.get(rc) or got[rc] for rc in cells)
                 have = {**letters, **got}
-                if known(word) and all(fits(other, have) for rc in open_ for other in through[rc]
-                                       if other is not cells):
+                if answer(word, reads[tuple(cells)]) and all(fits(other, have) for rc in open_
+                                                             for other in through[rc] if other is not cells):
                     words.append((sum(s for _, s in combo), got))
             words.sort(key=lambda t: -t[0])
             if words and (len(words) == 1 or words[0][0] - words[1][0] >= MATCH_MARGIN * len(open_)):
@@ -598,8 +617,9 @@ def read_framed(image, grid):
     sure, full = read_lights(lts, lambda r, c: between(gray, ys, xs, r, c))
     read = {rc: ch for rc, ch in sure_letters(sure).items() if rc not in numbers}
     # A cell's letter must be one some full-length read gave it, plain or
-    # with its number's corner blanked, and no letter either way read
-    # surely there may be another.
+    # with its number's corner blanked, and no letter read surely there may
+    # be another: either way in a plain cell, blanked in a numbered one
+    # (with its number a T reads as a sure Y, a D as a sure B).
     blanked, blanked_full = read_lights(lts, unmarked)
     allowed = {}
     for words in (full, blanked_full):
@@ -607,11 +627,12 @@ def read_framed(image, grid):
             for w in ws:
                 for rc, ch in zip(lts[key], w):
                     allowed.setdefault(rc, set()).add(ch)
-    for reads in (sure_letters(sure), sure_letters(blanked)):
+    for reads in (read, sure_letters(blanked)):
         for rc, ch in reads.items():
             allowed[rc] = allowed.get(rc, set()) & {ch}
     glyphs = {rc: glyph(gray, ys, xs, *rc) for cells in lts.values() for rc in cells}
-    matched = matched_letters(read, glyphs, numbers, lts, allowed)
+    printed = {k: full.get(k, set()) | blanked_full.get(k, set()) for k in lts}
+    matched = matched_letters(read, glyphs, numbers, lts, allowed, printed)
     letters = {**read, **matched}
     # A light read_answers' plain reading accepts (every cell sure, the whole
     # word read) stands too where each numbered cell's sure letter is its
@@ -621,7 +642,7 @@ def read_framed(image, grid):
     for key, cells in lts.items():
         if all(rc in letters for rc in cells):
             word = "".join(letters[rc] for rc in cells)
-            if known(word):
+            if answer(word, printed[key]):
                 accepted[key] = word
         elif all(rc in every for rc in cells):
             word = "".join(every[rc] for rc in cells)
@@ -686,6 +707,23 @@ ENDINGS = ("s", "ed", "ing", "er", "est")
 E_ENDINGS = ("d", "r", "st")
 #: The endings after which a plural takes -es (box, bush, church, potato).
 ES_AFTER = ("s", "x", "z", "ch", "sh", "o")
+
+
+def answer(word, reads):
+    """Whether a light's letters may be filed: one known() word, or words of
+    three letters or more run together that a recogniser read the light as
+    whole (`reads`). A misread letter leaves junk run-togethers: HALLEY
+    read as A + ALLEY, ADDISON as A + DO + IS + ON."""
+    if not known(word):
+        return False
+    w = word.lower()
+    if w in _WORDS:
+        return True
+    ends = {0}
+    for i in range(3, len(w) + 1):
+        if any(j in ends and w[j:i] in _WORDS for j in range(i - 2)):
+            ends.add(i)
+    return word in reads and len(w) in ends
 
 
 def known(word):
