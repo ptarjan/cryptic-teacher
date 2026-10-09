@@ -4429,9 +4429,12 @@
     // word anyone would pick.
     if (rung === "blocks") {
       const lit = clueMarks(e);
+      // A word is lit by a mark on its letters. A punctuation link word ("muses,")
+      // lights the comma welded to the word, not the word.
+      const wordStart = (tok) => tok.i + tok.text.search(/[A-Za-z0-9]/);
+      const wordEnd = (tok) => tok.i + tok.text.length - tok.text.split("").reverse().join("").search(/[A-Za-z0-9]/);
       const open = tokens.filter((tok, n) => target.indexOf(n) < 0 && known.indexOf(n) < 0 &&
-        /[A-Za-z0-9]/.test(tok.text) &&
-        !lit.some((m) => m.i < tok.i + tok.text.length && tok.i < m.i + m.len));
+        /[A-Za-z0-9]/.test(tok.text) && !lit.some((m) => m.i < wordEnd(tok) && wordStart(tok) < m.i + m.len));
       if (!open.length) return null;
     }
     // The spans, not just their union: which words belong to which indicator is
