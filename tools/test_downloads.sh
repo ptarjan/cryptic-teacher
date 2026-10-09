@@ -47,6 +47,11 @@ if bad:
 print(f"ok: {len(files)} files keep their downloads under tools/downloads.py's ROOT")
 PY
 
+# Importing downloads without CT_DOWNLOADS must not exit where the media disk's
+# path is absent (CI, the site build): 124 tools import it.
+env -u CT_DOWNLOADS python3 -c 'import sys; sys.path.insert(0, "tools"); import downloads' &&
+  echo "ok: downloads imports without CT_DOWNLOADS"
+
 # migrate() unlinks an old path left as a symlink, moves in a real one, and
 # refuses to choose between two copies.
 tmp=$(mktemp -d)

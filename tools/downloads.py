@@ -14,8 +14,16 @@ they stay on the Mac's media disk, /Volumes/Media/Gale crosswords
 import os
 from pathlib import Path
 
+# The Mac's media disk, at the same path on the Mac and in the bridge
+# container (a bind mount). On the boot disk the downloads filled the Mac.
 # CT_DOWNLOADS moves the whole root, for a test that must not touch the real one.
-ROOT = Path(os.environ.get("CT_DOWNLOADS") or Path.home() / "cryptic-setter-data")
+ROOT = Path(os.environ.get("CT_DOWNLOADS") or "/Volumes/Media/cryptic-setter-data")
+# Only the real disk holds this file: with Media unmounted the path is an empty
+# folder (Docker makes one for the mount), and filling it would fill the boot disk.
+# Where the path is absent (CI, the site build) nothing can be written there,
+# so importing stays harmless.
+if not os.environ.get("CT_DOWNLOADS") and ROOT.exists() and not (ROOT / ".on-media-disk").exists():
+    raise SystemExit(f"{ROOT}/.on-media-disk is missing: the media disk is not mounted")
 
 # archive.org newspaper scans, <item>/<date>_<issue>/, and the filer's ledger
 # (tools/fetch_archive_org_editions.py, tools/file_archive_org_puzzles.py).

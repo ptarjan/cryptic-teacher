@@ -619,9 +619,10 @@ as the generated regions of this file.
 ### Downloaded source material
 
 Everything a fetcher downloads lives outside the repo under one root,
-`~/cryptic-setter-data` (`python3 tools/downloads.py` prints it), one folder per
-source. `tools/downloads.py` is the only place a folder is named, and
-`tools/test_downloads.sh` fails on a download path spelled anywhere else.
+`/Volumes/Media/cryptic-setter-data` on the Mac's media disk (`python3
+tools/downloads.py` prints it), one folder per source. `tools/downloads.py` is
+the only place a folder is named, and `tools/test_downloads.sh` fails on a
+download path spelled anywhere else.
 
 | Folder | What is in it | Filled by |
 |---|---|---|
