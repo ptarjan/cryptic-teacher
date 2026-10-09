@@ -106,9 +106,25 @@ b = {"39-across": ("Junction for Dehra Dun.", None, None), "40-across": ("India'
 c = {"39-across": ("Junction for Dehra Dun.", None, None), "2-across": ("India's greatest neighbour,", None, None)}
 got = al.pick([a, b, c], guessed=[set(), set(), {"2-across"}])
 check("a clue two readings number apart goes where a third reading's figures end",
-      ("India's greatest neighbour", ""), (got["42-across"][0], got["40-across"][0]))
+      ("India's greatest neighbour", False), (got["42-across"][0], "40-across" in got))
 got = al.pick([a, b, {"39-across": ("Junction for Dehra Dun.", None, None)}])
 check("without a third reading's figures neither is laid (mirror)", ("", ""), (got["42-across"][0], got["40-across"][0]))
+
+# A light one reading alone lays is dropped on no evidence of a light: its
+# words another light's agreed clue (No 3's Tesseract laying 16D as 16A),
+# its number out of order, or its words no clue. Laid by two, or a sound
+# clue nothing else holds, it stays blank: a clue to read.
+a = {"16-down": ("Termination meaning meadow.", None, None), "17-down": ("A town in Assam.", None, None)}
+b = dict(a)
+c = {"16-across": ("Termination meaning meadow.", None, None), "8-across": ("A of the fof", None, None),
+     "41-across": ("1t1cttll UL ( 411 te", None, None)}
+got = al.pick([a, b, c], guessed=[set(), set(), {"8-across"}])
+check("a light one reading lays on no evidence is dropped", ["16-down", "17-down"], sorted(got))
+c = {"16-across": ("A tree that grows in Burma.", None, None)}
+check("a sound clue one reading alone lays stays blank (mirror)", ("", True),
+      (al.pick([a, b, c])["16-across"][0], "16-across" in al.pick([a, b, c])))
+d = {"16-across": ("A shrub of Burma.", None, None)}
+check("a light two readings lay unlike stays blank (mirror)", "", al.pick([a, c, d])["16-across"][0])
 
 # A number out of order whose last figure is its lookalike's (old-style 8
 # read "3", 9 read "0") is the one number between its neighbours it gives;

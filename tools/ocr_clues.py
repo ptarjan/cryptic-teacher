@@ -1238,6 +1238,7 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=()):
     seen = [{} for _ in mine]  # i -> {reading k: its word}
     extra = [{} for _ in range(len(mine) + 1)]  # gap before i -> {word: readings}
     leads, trails = [], []
+    printing = 0  # the other readings that print the clue
     for k, theirs in enumerate(others):
         theirs = ends_joined(rejoin(unglued(theirs, low), low), low)
         at = 0
@@ -1248,6 +1249,7 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=()):
             leads.append(None)
             trails.append(None)
             continue
+        printing += 1
         lead, trail = ends(pairs, theirs)
         leads.append(lead)
         trails.append(trail)
@@ -1367,7 +1369,9 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=()):
         if not got:
             return None, f"no other reading has {w!r}"
         if (i == 0 and len(w) == 1 and len(mine) > 1 and mine[1][:1].isupper()
-                and len(got) * 2 < len(others)):
+                and len(got) * 2 < printing):
+            # A letter before the clue's capital that most readings printing
+            # the clue lack (one that lost the clue votes on none of it).
             drop.add(i)
             continue
         votes = {a: 1}
