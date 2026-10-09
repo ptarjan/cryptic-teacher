@@ -44,7 +44,7 @@ def plan(ledger, now):
     ]
 PY
 # This host's own load must not gate the ticks under test.
-export CT_LOAD_PER_CORE=1e9 CT_MEM_FLOOR=1
+export CT_LOAD_PER_CORE=1e9 CT_MEM_FLOOR=1 CT_BURN_STATE="$tmp/no-burn"
 q() { python3 tools/unit_queue.py "$@"; }
 UNIT_MORE="$tmp/more" python3 -c 'import sys; sys.path.insert(0, "tools"); import unit_queue; unit_queue.backlog_left()'
 [ -e "$tmp/more" ] || { echo "FAIL: backlog_left() did not mark \$UNIT_MORE"; exit 1; }
