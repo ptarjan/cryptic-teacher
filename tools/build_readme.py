@@ -574,6 +574,7 @@ LAYOUT = [
     ("fetching", "tools/deleted_paths.py", "the commit that last deleted a path, read from a cache"),
     ("fetching", "tools/test_deleted_paths.sh", "does deleted_paths.last_deletion() give what `git log -1 --diff-filter=D -- <path>` gives, as HEAD moves forward, back, sideways and is rewritten?"),
     ("fetching", "tools/test_clue_index.sh", "does StoredClueIndex answer exactly what ClueIndex.build() answers, as files are added, edited and deleted, and when its store is corrupt?"),
+    ("fetching", "tools/test_worker_resume.sh", "does a run stopped from outside resume its own conversation, with its edits back when that is honest and a note saying so when not?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

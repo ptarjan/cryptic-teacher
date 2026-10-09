@@ -23,7 +23,7 @@ git config --global --get init.defaultBranch >/dev/null 2>&1 || true
 git init -q --bare "$tmp/origin.git"
 git init -q "$tmp/main"
 mkdir -p "$tmp/main/tools"
-cp "$ROOT/tools/nightly_worktree.sh" "$ROOT/tools/unstage_unparsable.sh" "$ROOT/tools/alert.sh" "$tmp/main/tools/"
+cp "$ROOT/tools/nightly_worktree.sh" "$ROOT/tools/unstage_unparsable.sh" "$ROOT/tools/alert.sh" "$ROOT/tools/puzzle_worker.sh" "$tmp/main/tools/"
 for stub in fetch_puzzle build_abbreviations; do
   printf '%s\n' '#!/usr/bin/env python3' 'import os, sys' \
     'open(os.path.basename(sys.argv[0]) + ".ran", "w").close()' \

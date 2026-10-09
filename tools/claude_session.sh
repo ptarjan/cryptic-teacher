@@ -33,6 +33,19 @@ session_exists() {
             -name "$1.jsonl" 2>/dev/null | head -1)" ]
 }
 
+# The CLI resumes a conversation only from the project directory of the cwd it
+# runs in (the path with every character but a letter or digit made a dash), so
+# one begun in another tree, a daily unit retried in a sibling tree, is copied
+# into this tree's first. 0 when it is here.
+session_here() {
+  local root="${CLAUDE_CONFIG_DIR:-$HOME/.claude}/projects" here src
+  [ -n "${1:-}" ] || return 1
+  here="$root/$(pwd -P | sed 's/[^A-Za-z0-9]/-/g')"
+  [ -f "$here/$1.jsonl" ] && return 0
+  src=$(find "$root" -maxdepth 2 -name "$1.jsonl" 2>/dev/null | head -1)
+  [ -n "$src" ] && mkdir -p "$here" && cp "$src" "$here/"
+}
+
 # Headless runs read the repo's settings alone: no user plugins, MCP servers or
 # auto-memory, which put ~8k tokens in every turn and drew a third of sessions
 # into the memory directory. The 5-minute cache, because nine turn gaps in ten

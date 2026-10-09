@@ -23,7 +23,7 @@ fails=0
 check() { if [ "$2" = "$3" ]; then echo "  ok: $1"; else
   echo "  FAIL: $1"$'\n'"    expected: $3"$'\n'"    got:      $2"; fails=$((fails + 1)); fi; }
 
-block=$(awk '/^      ann_note=""$/,/^      done$/' tools/daily_update.sh)
+block=$(awk '/^      ann_note="\$ann_resume"$/,/^      done$/' tools/daily_update.sh)
 [ -n "$block" ] ||
   { echo "FAIL: the retry loop is no longer where this test reads it from"; exit 1; }
 . tools/puzzle_worker.sh
@@ -92,7 +92,8 @@ run() {  # $1 = MODE ("" for a clean first run),
   local ann_rc ann_timeout lost_ids="" ann_sid fill="${FILL:-}"
   # The variable that ends the night. The cap firing must not set it.
   local stop_reason=""
-  local ann_note ann_ok ann_retried
+  # shellcheck disable=SC2034  # ann_resume is read by the block
+  local ann_note ann_ok ann_retried ann_resume=""
   run_log=$(mktemp)
   capped=""
   record_annotate_failure() { capped="$2"; }

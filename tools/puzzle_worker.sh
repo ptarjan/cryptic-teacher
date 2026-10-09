@@ -28,6 +28,106 @@
 # cached prefix always matches.
 
 worker_sid() { local sid _; [ -s "$1" ] && read -r sid _ <"$1" && printf '%s\n' "$sid"; }
+worker_kind() { local _ kind=""; [ -s "$1" ] && read -r _ kind _ <"$1"; printf '%s\n' "$kind"; }
+
+# --- interrupted runs ----------------------------------------------------------
+# A run can be stopped from outside (a restart, its unit's time limit) with its
+# conversation on disk and its edits in a tree the next start resets. So every
+# conversation's sid file lives in the git dir all trees share,
+# ct-runs/<job>/<id>.sid, beside <id>.tree (the tree it runs in) and <id>.fill
+# (a cold solve's fill). It is forgotten when the puzzle's fate is settled
+# (worker_finish, a rejected solve, a dropped run); one still there when its id
+# is next launched is an interrupted run, and that launch resumes it
+# (worker_put_back). A record a day old is dropped instead: its tree has moved on.
+worker_runs() {   # job -> its record directory, made if missing
+  local d
+  d="$(git rev-parse --path-format=absolute --git-common-dir)/ct-runs/$1" &&
+    mkdir -p "$d" && printf '%s\n' "$d"
+}
+worker_forget() {   # sidfile
+  local rec="${1%.sid}"
+  rm -rf "$rec.sid" "$rec.tree" "$rec.fill" "$rec.aside"
+}
+worker_stale() { [ -n "$(find "$1" -mmin +1440 2>/dev/null)" ]; }
+
+# Copy what an interrupted run left in tree $1 beside its record (sid file $2)
+# before anything resets that tree: its puzzle's files as the tree has them
+# (edited, new, or a promoted clues-only file deleted), its annotation files,
+# its tables of source corrections, and the commit those are edits of.
+# Read-only on the tree, and once per record.
+worker_set_aside() {   # tree sidfile
+  local tree="$1" rec="${2%.sid}" id p
+  id=$(basename "$rec")
+  [ -e "$rec.aside" ] && return 0
+  if ! { mkdir -p "$rec.aside/files" "$rec.aside/rows" &&
+         git -C "$tree" rev-parse HEAD >"$rec.aside/base"; }; then
+    rm -rf "$rec.aside"
+    return 1
+  fi
+  while IFS= read -r p; do
+    [ -f "$tree/$p" ] || continue
+    mkdir -p "$rec.aside/files/$(dirname "$p")" && cp -p "$tree/$p" "$rec.aside/files/$p"
+  done < <(git -C "$tree" ls-files -m -o --exclude-standard -- "$(puzzle_spec "$id")" "$(clues_spec "$id")"
+           cd "$tree" && ls "tools/_ann_$id.json" "tools/_puzzle_$id.json" 2>/dev/null)
+  git -C "$tree" ls-files -d -- "$(puzzle_spec "$id")" "$(clues_spec "$id")" >"$rec.aside/deleted"
+  while IFS= read -r p; do
+    git -C "$tree" diff --quiet HEAD -- "$p" && continue
+    mkdir -p "$rec.aside/rows/$(dirname "$p")" && cp -p "$tree/$p" "$rec.aside/rows/$p"
+  done < <(cd "$tree" && python3 tools/own_rows.py paths)
+}
+
+# Every record of any job that ran in tree $1, set aside: called before the
+# tree is reset (tools/nightly_worktree.sh). Stale records are dropped here.
+worker_set_aside_tree() {   # tree
+  local runs sid
+  runs="$(git -C "$1" rev-parse --path-format=absolute --git-common-dir)/ct-runs"
+  [ -d "$runs" ] || return 0
+  for sid in "$runs"/*/*.sid; do
+    [ -f "$sid" ] || continue
+    if worker_stale "$sid"; then worker_forget "$sid"; continue; fi
+    [ "$(cat "${sid%.sid}.tree" 2>/dev/null)" = "$1" ] || continue
+    worker_set_aside "$1" "$sid" ||
+      echo "could not set aside $(basename "${sid%.sid}")'s interrupted run in $1" >&2
+  done
+  # What a forgotten record left (an aside, a fill) goes a day after it.
+  find "$runs" -mindepth 2 -maxdepth 2 ! -name '*.sid' -mmin +2880 -exec rm -rf {} + 2>/dev/null
+  return 0
+}
+
+# Before id $1 is launched: when its record (sid file $4) is still there, the
+# last run on it was interrupted, and this launch resumes that conversation.
+# Its set-aside files come back into this tree only when HEAD holds the
+# puzzle's files as the commit they are edits of did: master has not touched
+# the puzzle since. Then worker_failed's rule decides what is kept. Writes the
+# note to resume with to $3; 0 when there is one, 1 when the id starts fresh.
+worker_put_back() {   # id what notefile sidfile
+  local id="$1" what="$2" notefile="$3" sidfile="$4" rec="${4%.sid}" sid tree p moved=""
+  [ -s "$sidfile" ] || return 1
+  sid=$(worker_sid "$sidfile")
+  if worker_stale "$sidfile" || ! session_exists "$sid"; then
+    worker_forget "$sidfile"
+    return 1
+  fi
+  tree=$(cat "$rec.tree" 2>/dev/null)
+  [ -n "$tree" ] && [ "$tree" != "$(pwd -P)" ] && [ -d "$tree" ] && worker_set_aside "$tree" "$sidfile"
+  if [ -d "$rec.aside" ]; then
+    if git diff --quiet "$(cat "$rec.aside/base")" HEAD -- "$(puzzle_spec "$id")" "$(clues_spec "$id")" 2>/dev/null; then
+      restore_puzzle "$id"
+      while IFS= read -r p; do
+        mkdir -p "$(dirname "$p")" && cp -p "$rec.aside/files/$p" "$p"
+      done < <(cd "$rec.aside/files" && find . -type f | sed 's|^\./||')
+      while IFS= read -r p; do rm -f "$p"; done <"$rec.aside/deleted"
+      python3 tools/own_rows.py graft "$id" "$rec.aside/rows"
+    else
+      moved=1
+    fi
+    rm -rf "$rec.aside"
+  fi
+  echo "  [$id] resuming its interrupted conversation"
+  worker_failed "$id" "$what" "$notefile" "$sidfile" \
+    "were stopped from outside (the job restarted or hit its time limit)" "$moved"
+  return 0
+}
 
 # Annotate $1, transcript to $2, in the conversation sid file $3 names.
 #   $4 the task, worded for a fresh run
@@ -44,12 +144,13 @@ worker_sid() { local sid _; [ -s "$1" ] && read -r sid _ <"$1" && printf '%s\n' 
 worker_annotate() {   # id log sidfile task [note] [fill]
   local id="$1" log="$2" sidfile="$3" prompt="$4" note="${5:-}" fill="${6:-}"
   local sid="" kind="" sess=() tools="Read,Write,Edit,Bash(python3 *),Bash(node *)"
-  [ -s "$sidfile" ] && read -r sid kind <"$sidfile"
-  if [ -n "$note" ] && session_exists "$sid"; then
+  [ -s "$sidfile" ] && read -r sid kind _ <"$sidfile"
+  if [ -n "$note" ] && session_here "$sid"; then
     sess=(--resume "$sid")
     prompt="$note"
+    touch "$sidfile"
   else
-    rm -f "$sidfile"
+    worker_forget "$sidfile"
     kind=""
     if [ -n "$fill" ]; then
       kind=solve
@@ -59,6 +160,7 @@ worker_annotate() {   # id log sidfile task [note] [fill]
     if sid=$(session_id); then
       sess=(--session-id "$sid")
       echo "$sid${kind:+ $kind}" >"$sidfile"
+      pwd -P >"${sidfile%.sid}.tree"
     fi
   fi
   [ "$kind" = solve ] || tools="$tools,WebSearch,WebFetch"
@@ -245,28 +347,31 @@ worker_reopen() {   # id run-file-copy entry...
   echo "  [$id] $out; to be solved again"
 }
 
-# A run that failed. One cut off by a lockout usually leaves real work behind:
-# some clues annotated, the rest untouched, and that file still validates.
-# Throwing it away means paying for those clues again, so it is kept, and a
-# note for a retry that resumes the same conversation is written to $3. A
-# half-written one — the run died mid-edit — is worth nothing: it is put back,
-# and its conversation (sid file $4) forgotten, since it describes edits no
-# longer on disk. 0 when kept.
-worker_failed() {   # id what notefile sidfile
-  local id="$1" what="$2" seen
+# A run that failed or was stopped. One cut off by a lockout usually leaves
+# real work behind: some clues annotated, the rest untouched, and that file
+# still validates. Throwing it away means paying for those clues again, so it
+# is kept. A half-written one — the run died mid-edit — is put back. Either way
+# the conversation (sid file $4) is resumed by the retry, since its reasoning is
+# the expensive part: the note written to $3 says what it finds on disk.
+# $5 says how it was stopped; $6 set means master changed the puzzle meanwhile,
+# so nothing it wrote to the puzzle came back. 0 when its edits were kept.
+worker_failed() {   # id what notefile sidfile [how] [moved]
+  local id="$1" what="$2" how="${5:-were cut off by a usage limit, which has since cleared}" seen intact=""
   # What the retry is told to look at: the annotate run's copy, never the
   # puzzle itself, which names the blog.
   seen=$(python3 tools/puzzle_paths.py "$id")
   [ "$what" = Annotate ] && seen="tools/_puzzle_$id.json"
-  if [ -n "$(git status --porcelain -- "$(puzzle_spec "$id")")" ] &&
+  if [ -z "${6:-}" ] && [ -n "$(git status --porcelain -- "$(puzzle_spec "$id")")" ] &&
      python3 tools/validate_annotations.py "$id" >/dev/null 2>&1; then
-    echo "  [$id] run failed — keeping what it finished, the file still validates"
-    printf '%s\n' "You were cut off by a usage limit. The limit has since cleared and your edits to $seen are exactly as you left them. Pick up where you stopped, finish the task you were given, and run python3 tools/annotate_check.py $id until it reports clean. Do not commit." >"$3"
+    echo "  [$id] run stopped — keeping what it finished, the file still validates"
+    printf '%s\n' "You $how. Your edits to $seen are exactly as you left them. Pick up where you stopped, finish the task you were given, and run python3 tools/annotate_check.py $id until it reports clean. Do not commit." >"$3"
     return 0
   fi
-  echo "  [$id] run failed — discarding its changes"
+  echo "  [$id] run stopped — discarding its changes to the puzzle, keeping its conversation"
   discard_puzzle "$id"
-  rm -f "$4"
+  [ -s "tools/_ann_$id.json" ] && intact="tools/_ann_$id.json"
+  [ -s "${4%.sid}.fill" ] && intact="${intact:+$intact and }${4%.sid}.fill"
+  printf '%s\n' "You $how. The puzzle file is now as committed on master${6:+, which changed it while you were stopped, so read it again first}; any edits you had made to it are gone.${intact:+ $intact is as you left it.} What you worked out is still above: redo from it whatever is missing rather than working it out again, finish the task you were given, and run python3 tools/annotate_check.py $id until it reports clean. Do not commit." >"$3"
   return 1
 }
 
@@ -283,6 +388,12 @@ worker_failed() {   # id what notefile sidfile
 # is the waste this avoids. Only this puzzle is validated: a whole-tree run
 # would fail for a sibling still mid-write.
 worker_finish() {   # id what sidfile log
+  _worker_finish "$@"
+  local rc=$?
+  worker_forget "$3"
+  return $rc
+}
+_worker_finish() {
   local id="$1" what="$2" sidfile="$3" log="$4" vlog file reopen ran loss
   vlog="$(mktemp "${TMPDIR:-/tmp}/cryptic-validate.XXXXXX")"
   if ! python3 tools/validate_annotations.py "$id" >"$vlog" 2>&1; then
