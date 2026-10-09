@@ -229,6 +229,89 @@ TITLE = re.compile(r"^\W*(?:(?!(?:sunday|conc\w*|jumbo|two|quick|\w*stener|solut
                    r"([\dTIil][.,]?\s?\d[^\w\s]{0,2}\s?\d\s?\d\s?\d)(?!\d)", re.IGNORECASE)
 #: The previous puzzle's solution, printed under the clues ("to" read "tn").
 SOLUTION = re.compile(r"^\W*solution\s+(?:t[o0n]|o[fl])\s+puzzle\s+n[o0]\.?\s*" + NUMBER, re.I)
+#: How many puzzles before a page's title the solutions under it are: the day
+#: before's, and on a Saturday also the prize from the Saturday before.
+SOLUTION_LAGS = (1, 6)
+#: A solution heading as the OCR garbles it ("Solution of Push No. 15,645",
+#: "Solution to Tuzzle No I5.13S"): a word, a connective, a word, maybe "No",
+#: then the number; solution_number() decides.
+LOOSE_SOLUTION = re.compile(r"^\W*(\S{4,11})\s+(\S{1,3})\s+(\S{3,8})\s+(?:n\W?[o0°]\W{0,3}\s*)?(\S{3,7}(?:\s\S{3})?)$",
+                            re.IGNORECASE)
+#: What each digit reads as: letters and marks first; a digit misread as
+#: another (8 as 3) costs half a wrong one.
+DIGIT_READS = {"0": ("ODQUoucC()", "689"), "1": ("IilLTtJj|!/]", "7"), "2": ("Zz", "7"), "3": ("B", "85"),
+               "4": ("Aa", "1"), "5": ("Ss$", "63"), "6": ("Gb", "580"), "7": ("?", "12"),
+               "8": ("BS&", "3605"), "9": ("gq", "0")}
+#: The most a misread number may cost (solution_number: a wrong digit 2, a
+#: digit-for-digit misread 1, one dropped or extra 2).
+REPAIR_COST = 2
+
+
+def read_cost(read, want):
+    """What it costs to read the digits `want` as `read` (separators gone)."""
+    def at(r, w):
+        letters, digits_ = DIGIT_READS[w]
+        return 0 if r == w or r in letters else 1 if r in digits_ else 2
+    if len(read) == len(want):
+        return sum(at(r, w) for r, w in zip(read, want))
+    if len(read) == len(want) - 1:
+        return 2 + min(read_cost(read, want[:k] + want[k + 1:]) for k in range(len(want)))
+    if len(read) == len(want) + 1:
+        return 2 + min(read_cost(read[:k] + read[k + 1:], want) for k in range(len(read)))
+    return REPAIR_COST + 1
+
+
+def solution_number(text, expected):
+    """The number of `expected` a heading's misread number `text` is, or
+    None: the one it costs least to read as (read_cost, at most
+    REPAIR_COST), and no other as cheap. A clean read near one expected
+    but not it ("15,683" under the title 15,683) is the title or the
+    heading misread, and which is unknowable: None."""
+    read = re.sub(r"[\s,.^'*`’\-]", "", text)
+    if read.isdigit() and int(read) in expected:
+        return int(read)
+    if read.isdigit() and any(abs(int(read) - e) < 10 for e in expected):
+        return None
+    costs = sorted((read_cost(read, str(e)), e) for e in expected)
+    if costs and costs[0][0] <= REPAIR_COST and (len(costs) == 1 or costs[1][0] > costs[0][0]):
+        return costs[0][1]
+    return None
+
+
+def like(word, model):
+    return SequenceMatcher(None, word.lower(), model).ratio() >= 0.6
+
+
+def solution_headings(lines, titles):
+    """[(number, box)] of the solution headings on a leaf whose titles are
+    `titles`: each line, or its tail past a clue column the OCR ran it on
+    from, reading as LOOSE_SOLUTION with "solution" or "puzzle" like
+    itself, whose number is one SOLUTION_LAGS before a title
+    (solution_number). With no title read, SOLUTION's exact headings."""
+    if not titles:
+        return headings(lines, SOLUTION)
+    expected = {t - lag for t in titles for lag in SOLUTION_LAGS}
+    found = []
+    for ws in lines:
+        hit = None
+        for k in range(len(ws)):
+            text = ""
+            for j in range(k, len(ws)):
+                text = (text + " " + ws[j][4]).strip()
+                m = LOOSE_SOLUTION.match(text)
+                if not m or not (like(m[1], "solution") or like(m[3], "puzzle")) or re.search(r"\d", m[1] + m[3]):
+                    continue
+                n = solution_number(m[4], expected)
+                if n is not None:
+                    part = ws[k:j + 1]
+                    hit = (n, (min(v[0] for v in part), min(v[1] for v in part),
+                               max(v[2] for v in part), max(v[3] for v in part)))
+                    break
+            if hit:
+                break
+        if hit:
+            found.append(hit)
+    return found
 #: A column line that ends the clues.
 STOP = re.compile(r"^\W*(solution|crossword|concise|times\s+two|the\s+times\s+crossword|the\s+solution\s+(?:to|of)"
                   r"|championship|jumbo|\w{0,10}\s+(of|to)\s+puzzle|\S{4,9}\s+t[ao]m+or+ow|publ\w+\s+by"
@@ -1484,6 +1567,11 @@ def _scan(d):
                                      **({"titleReadBy": readers} if readers else {})})
         for n, box in sols:
             found["solutions"].append({"number": n, "leaf": leaf, "box": box})
+    # A puzzle's solution prints in a later edition, never its own: one
+    # numbered like a title here is a misread heading (15,682's grid read as
+    # 15,683's under 15,683).
+    titled = {p["number"] for p in found["puzzles"]}
+    found["solutions"] = [s for s in found["solutions"] if s["number"] not in titled]
     return found
 
 
@@ -2029,7 +2117,8 @@ class Paper:
             return guardian_headings(lines)
         if self.key == "telegraph":
             return telegraph_headings(lines)
-        return ([(n, box, None) for n, box in headings(lines, TITLE)], headings(lines, SOLUTION))
+        titles = headings(lines, TITLE)
+        return [(n, box, None) for n, box in titles], solution_headings(lines, [n for n, _ in titles])
 
 
 #: The 1930 Times: archive.org's pub_times, one item an issue
