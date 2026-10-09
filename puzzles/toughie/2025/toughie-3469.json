@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "Believe dog to be delicate creature",
     "enumeration": "11"
    },
-   "solution": "SWALLOWTAIL"
+   "solution": "SWALLOWTAIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SWALLOWTAIL",
+    "definitions": [
+     {
+      "text": "delicate creature",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Believe",
+      "gives": "SWALLOW",
+      "note": "to swallow a story is to believe it"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "TAIL",
+      "note": "to dog or tail someone is to follow them closely"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWALLOW",
+      "TAIL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone credits their pet dog with being a fragile little thing.",
+     "walkthrough": "'Believe' and 'dog' look like a statement about a pet, but both are verbs: swallow (accept credulously) and tail (follow).",
+     "definitionFit": "The swallowtail is a butterfly, and a butterfly is a classic example of a fragile, delicate insect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "dog"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +99,40 @@
      }
     ]
    },
-   "solution": "WHITECHRISTMAS"
+   "solution": "WHITECHRISTMAS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "WHITE CHRISTMAS",
+    "definitions": [
+     {
+      "text": "Old dreamer's single winter blanket?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old dreamer's single",
+      "note": "surface: an old man dreaming under a single winter bedcover; setter's reading: the old hit song (a 'single') about dreaming, sung by Bing Crosby"
+     },
+     {
+      "clueFragment": "winter blanket?",
+      "note": "surface: a bedcover for cold nights; setter's reading: a blanket of snow lying over the festive day"
+     }
+    ],
+    "explanation": {
+     "surface": "An elderly sleeper makes do with just one blanket in winter.",
+     "walkthrough": "The dreamer is the singer of 'I'm dreaming of a ...', the famous 1942 record, and the blanket is snow; 'single' is the record, not the bed.",
+     "definitionFit": "The song's title names a festive day with snow on the ground, a snowy blanket in winter, and it was a hit single."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "single"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +146,47 @@
     "text": "Large pond, bit of snow skimmed off?",
     "enumeration": "4"
    },
-   "solution": "LAKE"
+   "solution": "LAKE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LAKE",
+    "definitions": [
+     {
+      "text": "Large pond",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "skimmed off",
+      "for": "deletion",
+      "note": "skimming takes off the very top layer, so the first letter of the word is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bit of snow",
+      "gives": "FLAKE",
+      "note": "a snowflake is a small piece of snow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAKE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone skims a snowflake off the surface of a big pond.",
+     "definitionFit": "A lake is a body of standing water, jokingly a pond on a large scale."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "skimmed"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +200,74 @@
     "text": "Absurd disagreement beginning in Yorkshire, increasingly interminable in English county",
     "enumeration": "8"
    },
-   "solution": "OXYMORON"
+   "solution": "OXYMORON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "container"
+    ],
+    "answer": "OXYMORON",
+    "definitions": [
+     {
+      "text": "Absurd disagreement",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning in",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, so only that letter is used"
+     },
+     {
+      "text": "interminable",
+      "for": "deletion",
+      "note": "without a termination, so the word loses its final letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the letters so far are placed inside the county's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yorkshire",
+      "gives": "Y",
+      "select": "first",
+      "note": "first letter of Yorkshire"
+     },
+     {
+      "clueFragment": "increasingly",
+      "gives": "MORE",
+      "note": "more and more, increasingly"
+     },
+     {
+      "clueFragment": "English county",
+      "gives": "OXON",
+      "note": "Oxon is the standard abbreviation for Oxfordshire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OX",
+      "Y",
+      "MOR",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A county quarrel that began in Yorkshire grows without end.",
+     "walkthrough": "Oxon is the short form of Oxfordshire, from its Latin name.",
+     "definitionFit": "An oxymoron joins contradictory terms, like 'deafening silence', so it is a self-disagreement that sounds absurd."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "increasingly"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +287,63 @@
      }
     ]
    },
-   "solution": "TOPDOG"
+   "solution": "TOPDOG",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TOP DOG",
+    "definitions": [
+     {
+      "text": "big daddy",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lifted up",
+      "for": "reversal",
+      "note": "in a down entry, lifting the letters up means reading them from the bottom, so they run backwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Father",
+      "gives": "GOD",
+      "note": "God the Father"
+     },
+     {
+      "clueFragment": "prize",
+      "gives": "POT",
+      "note": "a pot is a trophy, a prize cup"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOP",
+      "DOG"
+     ],
+     "reversals": [
+      {
+       "from": "GODPOT",
+       "to": "TOPDOG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dad hoists a trophy above his head in triumph.",
+     "definitionFit": "Big daddy is slang for the dominant person, the boss, which is what the phrase for the leader of the pack means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Father"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +357,51 @@
     "text": "Regularly find clue is not doing a lot",
     "enumeration": "4"
    },
-   "solution": "IDLE"
+   "solution": "IDLE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "IDLE",
+    "definitions": [
+     {
+      "text": "not doing a lot",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter of the words is taken"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "find clue",
+      "gives": "IDLE",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A solver who keeps finding the clue sits there doing little.",
+     "definitionFit": "Being inactive or lazy is exactly doing very little; the adjective fits after 'is'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Regularly"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +421,69 @@
      }
     ]
    },
-   "solution": "CARDINALWOLSEY"
+   "solution": "CARDINALWOLSEY",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CARDINAL WOLSEY",
+    "definitions": [
+     {
+      "text": "Royal advisor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backfiring",
+      "for": "reversal",
+      "note": "something backfiring goes the wrong way, so these two words are read in reverse"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "red",
+      "gives": "CARDINAL",
+      "note": "cardinal is a deep scarlet colour"
+     },
+     {
+      "clueFragment": "certainly",
+      "gives": "YES",
+      "note": "yes, certainly"
+     },
+     {
+      "clueFragment": "blue",
+      "gives": "LOW",
+      "note": "feeling blue is feeling low"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARDINAL",
+      "WOLSEY"
+     ],
+     "reversals": [
+      {
+       "from": "YESLOW",
+       "to": "WOLSEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A royal counsellor dressed in red finds a blue plan going wrong.",
+     "walkthrough": "The red is apt: Thomas Wolsey, Henry VIII's chief minister, was a cardinal and wore cardinal red.",
+     "definitionFit": "Thomas Wolsey was the chief minister and counsellor to King Henry VIII."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "blue"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +503,56 @@
      }
     ]
    },
-   "solution": "DESSERTWINE"
+   "solution": "DESSERTWINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DESSERT WINE",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Drunk",
+      "for": "anagram",
+      "note": "a drunk person's words come out jumbled, so these letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "resisted",
+      "gives": "RESISTED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "NEW",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RESISTEDNEW",
+       "gives": "DESSERTWINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk turned down yet another drink.",
+     "walkthrough": "'new' is tempting as the abbreviation N, but here all three letters are needed in the mix.",
+     "definitionFit": "A dessert wine is a sweet wine served with pudding, a kind of drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Drunk"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +572,73 @@
      }
     ]
    },
-   "solution": "MICKEYSPILLANE"
+   "solution": "MICKEYSPILLANE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "MICKEY SPILLANE",
+    "definitions": [
+     {
+      "text": "crime writer",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the first two words go inside the scrambled cinema"
+     },
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "upset means knocked over and disordered, so these letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Critical",
+      "gives": "KEY",
+      "note": "something critical is key, essential"
+     },
+     {
+      "clueFragment": "accident",
+      "gives": "SPILL",
+      "note": "a spill is a small accident or tumble"
+     },
+     {
+      "clueFragment": "cinema",
+      "gives": "CINEMA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIC",
+      "KEY",
+      "SPILL",
+      "ANE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CINEMA",
+       "gives": "MICANE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A serious mishap at the pictures upsets an author of thrillers.",
+     "definitionFit": "Mickey Spillane was the American author of the hard-boiled Mike Hammer detective novels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Critical"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +658,46 @@
      }
     ]
    },
-   "solution": "PENALTYKICK"
+   "solution": "PENALTYKICK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PENALTY KICK",
+    "definitions": [
+     {
+      "text": "attempt on goal",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fine",
+      "gives": "PENALTY",
+      "note": "a fine is a penalty"
+     },
+     {
+      "clueFragment": "give up",
+      "gives": "KICK",
+      "note": "to kick a habit is to give it up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PENALTY",
+      "KICK"
+     ]
+    },
+    "explanation": {
+     "surface": "Pay a fine, then give up on goal-scoring.",
+     "definitionFit": "In football a penalty kick is a free shot at goal from the penalty spot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fine"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +711,56 @@
     "text": "Old PM back in the office",
     "enumeration": "4"
    },
-   "solution": "EDEN"
+   "solution": "EDEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EDEN",
+    "definitions": [
+     {
+      "text": "Old PM",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back in",
+      "for": "letter_selection",
+      "note": "the back of a word is its end, so only its last letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of the"
+     },
+     {
+      "clueFragment": "office",
+      "gives": "DEN",
+      "note": "a den is a private room used as a study or office"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "DEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A former Prime Minister returns to work at his desk.",
+     "walkthrough": "'back in the office' reads as one phrase, but it splits: the back of 'the', then the office. Anthony Eden was UK Prime Minister in the 1950s.",
+     "definitionFit": "Sir Anthony Eden was British Prime Minister from 1955 to 1957, so he is a former premier."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +774,61 @@
     "text": "Element reverend originally introduced to blessing",
     "enumeration": "5"
    },
-   "solution": "BORON"
+   "solution": "BORON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BORON",
+    "definitions": [
+     {
+      "text": "Element",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to the origin of the word, its opening letter"
+     },
+     {
+      "text": "introduced to",
+      "for": "container",
+      "note": "the single letter is put inside the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reverend",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of reverend"
+     },
+     {
+      "clueFragment": "blessing",
+      "gives": "BOON",
+      "note": "a boon is a blessing or benefit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "R",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A vicar first brings a blessing into a ceremony.",
+     "definitionFit": "Boron is a chemical element, number 5 in the periodic table."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reverend"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +842,55 @@
     "text": "Novel does for poetry",
     "enumeration": "4"
    },
-   "solution": "ODES"
+   "solution": "ODES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ODES",
+    "definitions": [
+     {
+      "text": "poetry",
+      "at": 15,
+      "note": "a mass noun standing for a plural: odes are pieces of poetry"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Novel",
+      "for": "anagram",
+      "note": "novel means new, so the word is made anew in a fresh order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "does",
+      "gives": "DOES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DOES",
+       "gives": "ODES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A novel will do as well as poetry.",
+     "walkthrough": "'Novel' looks like the book; it is the instruction to rearrange.",
+     "definitionFit": "Odes are lyric poems, so collectively they are poetry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Novel"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +904,46 @@
     "text": "Property equally prepared",
     "enumeration": "5"
    },
-   "solution": "ASSET"
+   "solution": "ASSET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASSET",
+    "definitions": [
+     {
+      "text": "Property",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "equally",
+      "gives": "AS",
+      "note": "as in 'as good', meaning equally"
+     },
+     {
+      "clueFragment": "prepared",
+      "gives": "SET",
+      "note": "set, as in ready"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "SET"
+     ]
+    },
+    "explanation": {
+     "surface": "A house shared fifty-fifty, all ready to go.",
+     "definitionFit": "An asset is something owned that has value, a piece of property in the financial sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "equally"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +957,42 @@
     "text": "Cart full of insects?",
     "enumeration": "5"
    },
-   "solution": "BUGGY"
+   "solution": "BUGGY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BUGGY",
+    "definitions": [
+     {
+      "text": "Cart",
+      "at": 0
+     },
+     {
+      "text": "full of insects?",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cart",
+      "note": "first meaning: a light vehicle or pushchair"
+     },
+     {
+      "clueFragment": "full of insects?",
+      "note": "second meaning, a playful one: infested with bugs"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the jokey second sense: the adjective formed from bug.",
+     "definitionFit": "A buggy is a small cart or carriage, and anything crawling with bugs could be called buggy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1006,80 @@
     "text": "Bond: he is back, a gentleman outwardly?",
     "enumeration": "8"
    },
-   "solution": "ADHESION"
+   "solution": "ADHESION",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "container"
+    ],
+    "answer": "ADHESION",
+    "definitions": [
+     {
+      "text": "Bond",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means turned round, so the little word goes the other way"
+     },
+     {
+      "text": "outwardly",
+      "for": "container",
+      "note": "outwardly says the next words sit on the outside, surrounding the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gentleman",
+      "gives": "DON",
+      "note": "a Spanish gentleman, as in Don Quixote"
+     },
+     {
+      "clueFragment": "he",
+      "gives": "HE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "SI",
+      "note": "is, turned round"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "D",
+      "HE",
+      "SI",
+      "ON"
+     ],
+     "reversals": [
+      {
+       "from": "IS",
+       "to": "SI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "James Bond is back, a gentleman spy, at least on the outside.",
+     "walkthrough": "'Bond' suggests 007, but it is the plain word for sticking together. Only 'is' turns round; 'he' stays as it is.",
+     "definitionFit": "Adhesion is the sticking together of surfaces, a bond between them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Bond"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1093,46 @@
     "text": "Groove – or tap?",
     "enumeration": "6"
    },
-   "solution": "RUNNER"
+   "solution": "RUNNER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RUNNER",
+    "definitions": [
+     {
+      "text": "Groove",
+      "at": 0
+     },
+     {
+      "text": "tap?",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Groove",
+      "note": "first meaning: a groove or rail along which something slides"
+     },
+     {
+      "clueFragment": "tap?",
+      "note": "second meaning, a whimsical one: a tap is something that runs"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark covers the jokey sense: water runs from a tap, so a tap is a thing that runs.",
+     "definitionFit": "A slide or track a drawer moves along is called a runner, and anything that runs, like a tap, can whimsically be one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tap"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1146,59 @@
     "text": "Game tied, foul in baseball area",
     "enumeration": "8"
    },
-   "solution": "OUTFIELD"
+   "solution": "OUTFIELD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OUTFIELD",
+    "definitions": [
+     {
+      "text": "baseball area",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Game",
+      "for": "anagram",
+      "note": "game here means up for anything, willing to be rearranged into another order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tied",
+      "gives": "TIED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "foul",
+      "gives": "FOUL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TIEDFOUL",
+       "gives": "OUTFIELD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tied game is decided by a foul during a baseball match.",
+     "walkthrough": "'Game' reads as the match; it is the adjective meaning willing, the anagram signal.",
+     "definitionFit": "The outfield is the grassy part of a baseball diamond beyond the infield where outfielders stand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Game"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1212,55 @@
     "text": "Joint finally loosened up worked",
     "enumeration": "6"
    },
-   "solution": "TOILED"
+   "solution": "TOILED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TOILED",
+    "definitions": [
+     {
+      "text": "worked",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end of the word, its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Joint",
+      "gives": "T",
+      "select": "last",
+      "note": "last letter of joint"
+     },
+     {
+      "clueFragment": "loosened up",
+      "gives": "OILED",
+      "note": "oiled to free it up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OILED"
+     ]
+    },
+    "explanation": {
+     "surface": "A stiff joint was at last eased with oil, and the machine worked.",
+     "definitionFit": "To toil is to work hard; the past tense matches 'worked'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Joint"
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +1274,65 @@
     "text": "Sense of cake's lightness, might one say, around a home?",
     "enumeration": "8"
    },
-   "solution": "BUNGALOW"
+   "solution": "BUNGALOW",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BUNGALOW",
+    "definitions": [
+     {
+      "text": "home",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around says the preceding letters wrap about the single letter that follows"
+     }
+    ],
+    "linkWords": [
+     "Sense of",
+     "might one say,"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cake's",
+      "gives": "BUN",
+      "note": "a bun is a small cake"
+     },
+     {
+      "clueFragment": "lightness",
+      "gives": "GLOW",
+      "note": "a glow is a gentle light"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUNG",
+      "A",
+      "LOW"
+     ]
+    },
+    "explanation": {
+     "surface": "A baker muses on how light a sponge is, around the house.",
+     "walkthrough": "The 'might one say' admits the whimsy: a cake's light would be its 'bun glow', which then wraps round A.",
+     "definitionFit": "A bungalow is a single-storey house, a type of home."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lightness"
+    }
+   }
   },
   {
    "number": 21,
@@ -349,7 +1346,43 @@
     "text": "Treble, say – scorcher?",
     "enumeration": "6"
    },
-   "solution": "SINGER"
+   "solution": "SINGER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SINGER",
+    "definitions": [
+     {
+      "text": "Treble, say",
+      "at": 0
+     },
+     {
+      "text": "scorcher?",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Treble, say",
+      "note": "first meaning: a treble is an example of a vocalist, the boy soprano"
+     },
+     {
+      "clueFragment": "scorcher?",
+      "note": "second meaning, a whimsical one: something that singes"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'say' marks the treble as one example of the class; the question mark flags the jokey second reading built from singe.",
+     "definitionFit": "A treble is a type of vocalist, and a thing that scorches or singes could fancifully be called this."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Treble"
+    }
+   }
   },
   {
    "number": 22,
@@ -363,7 +1396,56 @@
     "text": "Stuff body of sea bird",
     "enumeration": "4"
    },
-   "solution": "KITE"
+   "solution": "KITE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "KITE",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "body of",
+      "for": "letter_selection",
+      "note": "the body of a word is its middle, between head and tail, so only the central letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stuff",
+      "gives": "KIT",
+      "note": "kit is gear, stuff"
+     },
+     {
+      "clueFragment": "sea",
+      "gives": "E",
+      "select": "middle",
+      "note": "middle letter of sea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KIT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Stuff the carcass of a seabird, like a taxidermist.",
+     "walkthrough": "'body of sea' looks like an expanse of ocean; it means the middle letter.",
+     "definitionFit": "The kite is a bird of prey of the hawk family, such as the red kite."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "body"
+    }
+   }
   },
   {
    "number": 23,
@@ -377,7 +1459,46 @@
     "text": "Second jack questionable",
     "enumeration": "5"
    },
-   "solution": "JIFFY"
+   "solution": "JIFFY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JIFFY",
+    "definitions": [
+     {
+      "text": "Second",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jack",
+      "gives": "J",
+      "note": "J is the abbreviation for jack in cards"
+     },
+     {
+      "clueFragment": "questionable",
+      "gives": "IFFY",
+      "note": "iffy means doubtful, questionable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "IFFY"
+     ]
+    },
+    "explanation": {
+     "surface": "A second jack in the pack looks suspicious.",
+     "definitionFit": "A jiffy is an informal term for a very short moment, just like 'a second'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Second"
+    }
+   }
   },
   {
    "number": 24,
@@ -391,7 +1512,55 @@
     "text": "Fleece wrapped around right ear",
     "enumeration": "4"
    },
-   "solution": "CORN"
+   "solution": "CORN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CORN",
+    "definitions": [
+     {
+      "text": "ear",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrapped around",
+      "for": "container",
+      "note": "one word is wrapped about the other, so it surrounds it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fleece",
+      "gives": "CON",
+      "note": "to fleece someone is to con them"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "R",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A woolly fleece is wrapped round someone's right ear to keep it warm.",
+     "walkthrough": "'ear' is not the organ but the seed head of a cereal plant.",
+     "definitionFit": "An ear is the grain-bearing head of a cereal, which is corn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "ear"
+    }
+   }
   },
   {
    "number": 25,
@@ -405,7 +1574,42 @@
     "text": "Scrap material covering shoe, once",
     "enumeration": "4"
    },
-   "solution": "SPAT"
+   "solution": "SPAT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPAT",
+    "definitions": [
+     {
+      "text": "Scrap",
+      "at": 0
+     },
+     {
+      "text": "material covering shoe, once",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scrap",
+      "note": "first meaning: a petty quarrel"
+     },
+     {
+      "clueFragment": "material covering shoe, once",
+      "note": "second meaning: a short cloth gaiter worn over the shoe and ankle, now old-fashioned"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Scrap' looks like a bit of material; it is a squabble.",
+     "definitionFit": "A spat is a minor row, and spats were old cloth coverings buttoned over the upper of a shoe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Scrap"
+    }
+   }
   },
   {
    "number": 26,
@@ -419,7 +1623,69 @@
     "text": "Coalition basically liberal or conservative, first of all",
     "enumeration": "4"
    },
-   "solution": "BLOC"
+   "solution": "BLOC",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "BLOC",
+    "definitions": [
+     {
+      "text": "Coalition",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of all",
+      "for": "letter_selection",
+      "note": "the first of all the words means taking the opening letter of each one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "basically",
+      "gives": "B",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "liberal",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "O",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "conservative",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "L",
+      "O",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A political alliance that is at heart either liberal or conservative.",
+     "definitionFit": "A bloc is a group of parties or nations allied for a common purpose, a coalition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "basically"
+    }
+   }
   },
   {
    "number": 27,
@@ -439,7 +1705,66 @@
      }
     ]
    },
-   "solution": "CHAMPAGNEGLASS"
+   "solution": "CHAMPAGNEGLASS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CHAMPAGNE GLASS",
+    "definitions": [
+     {
+      "text": "flute",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "played",
+      "for": "anagram",
+      "note": "the words are played around with, rearranged like notes in a tune"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Victor",
+      "gives": "CHAMP",
+      "note": "the victor is the champ"
+     },
+     {
+      "clueFragment": "sang",
+      "gives": "SANG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Gaels",
+      "gives": "GAELS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAMP",
+      "AGNEGLASS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SANGGAELS",
+       "gives": "AGNEGLASS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Victor sang while some Scots and Irish played the flute.",
+     "walkthrough": "'flute' sounds musical alongside 'sang' and 'played', but it is the tall narrow glass.",
+     "definitionFit": "A flute is a tall, narrow stemmed glass used for sparkling wine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "flute"
+    }
+   }
   },
   {
    "number": 28,
@@ -453,7 +1778,74 @@
     "text": "Experimenting with a cold pet, try old reptile",
     "enumeration": "11"
    },
-   "solution": "PTERODACTYL"
+   "solution": "PTERODACTYL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PTERODACTYL",
+    "definitions": [
+     {
+      "text": "reptile",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Experimenting",
+      "for": "anagram",
+      "note": "experimenting means trying things out in different ways, so the letters are tried in a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on a tap"
+     },
+     {
+      "clueFragment": "pet",
+      "gives": "PET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "try",
+      "gives": "TRY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "OLD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACPETTRYOLD",
+       "gives": "PTERODACTYL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scientist experimenting with a cold-blooded pet tries out an old reptile.",
+     "walkthrough": "'old reptile' reads as the definition, but 'old' belongs to the mix; the definition is just 'reptile'.",
+     "definitionFit": "The pterodactyl was a prehistoric flying reptile of the dinosaur age."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Experimenting"
+    }
+   }
   }
  ]
 }
