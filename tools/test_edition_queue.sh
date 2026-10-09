@@ -376,9 +376,11 @@ check("room: units begun this pass count against it", (True, True, False),
 check("room: an unreadable figure gates nothing", True, mg.room(0, lambda: None))
 check("available() reads this host", True, (mg.available() or 1) > 0)
 check("cpu_room: under the load ceiling starts", True, mg.cpu_room(0, lambda: 3.0, cores=4))
-check("cpu_room: at the ceiling does not", False, mg.cpu_room(0, lambda: 6.0 * 4, cores=4))
+check("cpu_room: at the ceiling does not", False, mg.cpu_room(0, lambda: mg.LOAD_PER_CORE * 4, cores=4))
 check("cpu_room: units begun this pass count against it", (True, False),
-      tuple(mg.cpu_room(n, lambda: 6.0 * 4 - 0.5, cores=4) for n in (0, 1)))
+      tuple(mg.cpu_room(n, lambda: mg.LOAD_PER_CORE * 4 - 0.5, cores=4) for n in (0, 1)))
+check("cpu_room: the default ceiling leaves the host usable (at most 2 per core)", True,
+      os.environ.get("CT_LOAD_PER_CORE") is not None or mg.LOAD_PER_CORE <= 2)
 check("cpu_room: an unreadable load gates nothing", True, mg.cpu_room(0, lambda: None, cores=4))
 eq.cpu_gate_reader = lambda: 1e6
 log.unlink(missing_ok=True)

@@ -1063,7 +1063,8 @@ import subprocess, sys
 index_lock, generated_lock, stamp = sys.argv[1:]
 # One rebuild at a time for the tick (index_lock, which index_ready also
 # tests), and one generated rebuild at a time across every tree.
-script = ('flock -n "$1" flock "$2" python3 tools/fetch_puzzle.py --reindex >/dev/null 2>&1 '
+# Detached, so no queue gates it: nice 19 on half the cores, beside the units.
+script = ('flock -n "$1" flock "$2" env CT_JOBS=2 nice -n 19 python3 tools/fetch_puzzle.py --reindex >/dev/null 2>&1 '
           '&& git rev-parse HEAD >"$3.tmp" && mv "$3.tmp" "$3"')
 subprocess.Popen(["bash", "-c", script, "rebuild", index_lock, generated_lock, stamp], stdin=subprocess.DEVNULL,
                  stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True, close_fds=True)
