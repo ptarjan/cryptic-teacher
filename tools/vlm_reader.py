@@ -82,9 +82,59 @@ def png(img):
     return buf.getvalue()
 
 
+def encoder():
+    """What png()'s bytes depend on here: Pillow's version (its row filters)
+    and the zlib it deflates with."""
+    import PIL
+    from PIL import features
+    return f"{PIL.__version__}/{features.version('zlib')}"
+
+
+#: The modes Pillow writes as filtered rows deflated with Z_FILTERED, as
+#: png_as() remakes them (a palette image's rows are deflated otherwise).
+FILTERED_MODES = ("1", "L", "RGB", "RGBA")
+
+
+def png_as(img, theirs):
+    """png(img) as a host whose encoder() is `theirs` makes it, or None when
+    this one cannot: Pillow's filtered rows (the same at any level),
+    deflated by Python's zlib as Pillow's encoder deflates them, cut into
+    IDAT chunks as ImageFile._save cuts them. A host whose Pillow deflates
+    with another zlib (zlib-ng) makes other bytes for the same pixels, and
+    the cache is keyed by those bytes."""
+    import struct
+    import zlib
+
+    import PIL
+    from PIL import ImageFile
+    if theirs != f"{PIL.__version__}/{zlib.ZLIB_RUNTIME_VERSION}" or img.mode not in FILTERED_MODES:
+        return None
+    buf = io.BytesIO()
+    img.save(buf, format="PNG", compress_level=0)
+    data = buf.getvalue()
+    before, idat, after, pos = [data[:8]], [], [], 8
+    while pos < len(data):
+        n, kind = struct.unpack(">I4s", data[pos:pos + 8])
+        if kind == b"IDAT":
+            idat.append(data[pos + 8:pos + 8 + n])
+        else:
+            (after if idat else before).append(data[pos:pos + 12 + n])
+        pos += 12 + n
+    z = zlib.compressobj(6, zlib.DEFLATED, 15, 9, zlib.Z_FILTERED)
+    stream = z.compress(zlib.decompress(b"".join(idat))) + z.flush()
+    size = max(ImageFile.MAXBLOCK, img.size[0] * 4)
+    chunks = [stream[i:i + size] for i in range(0, len(stream), size)]
+    return b"".join(before + [struct.pack(">I4s", len(c), b"IDAT") + c + struct.pack(">I", zlib.crc32(b"IDAT" + c))
+                              for c in chunks] + after)
+
+
 def ask(img, prompt, max_tokens=1500):
     """The model's reply to `prompt` about a PIL image, cached."""
-    data = png(img)
+    return ask_png(png(img), prompt, max_tokens)
+
+
+def ask_png(data, prompt, max_tokens=1500):
+    """ask() of the image whose png() is `data`."""
     key = hashlib.sha1(MODEL.encode() + b"\0" + prompt.encode() + b"\0" + data).hexdigest()
     path = CACHE / f"{key}.txt"
     if path.exists():

@@ -284,7 +284,9 @@ def read_edition_here(req, blob, ask_mac):
     ({"error"}, b"") when the read opened a file it was not sent or a title
     crashed, so the Mac reads it itself. The VLM is the Mac's, asked through
     `ask_mac(head, png)`: its answers are cached there, keyed by the PNG
-    that host's zlib makes."""
+    that host makes (vlm_reader.png), so this one sends those bytes when it
+    can make them (vlm_reader.png_as, "png" in the ask) and the Mac does no
+    image work, else a PNG the Mac re-encodes."""
     import datetime
     import gc
     import io
@@ -295,9 +297,13 @@ def read_edition_here(req, blob, ask_mac):
     up = [req["vlm"]]
 
     def ask(img, prompt, max_tokens=1500):
-        buf = io.BytesIO()
-        img.save(buf, format="PNG", compress_level=1)  # lossless: the Mac decodes these pixels
-        got = ask_mac({"ask": prompt, "max_tokens": max_tokens}, buf.getvalue())
+        data = vlm_reader.png_as(img, req.get("png"))
+        theirs = data is not None
+        if not theirs:
+            buf = io.BytesIO()
+            img.save(buf, format="PNG", compress_level=1)  # lossless: the Mac decodes these pixels
+            data = buf.getvalue()
+        got = ask_mac({"ask": prompt, "max_tokens": max_tokens, "png": theirs}, data)
         if "error" in got:
             up[0] = False
             raise RuntimeError(got["error"])
@@ -594,7 +600,10 @@ class Session:
             if "ask" not in got:
                 return got, data
             try:
-                reply = {"text": vlm_reader.ask(Image.open(io.BytesIO(data)), got["ask"], got["max_tokens"])}
+                if got.get("png"):  # this host's png() bytes: no image work here
+                    reply = {"text": vlm_reader.ask_png(data, got["ask"], got["max_tokens"])}
+                else:
+                    reply = {"text": vlm_reader.ask(Image.open(io.BytesIO(data)), got["ask"], got["max_tokens"])}
             except RuntimeError as e:
                 reply = {"error": str(e)}
             try:
@@ -798,7 +807,7 @@ def edition_request(d, found, solutions):
               "held": sorted(fa.held_numbers(series)),
               "scans": [[url, day, ns] for (url, day), ns in fa.held_scans(series).items() if url in urls]}
     return ({"edition": rel, "found": found, "solutions": sols, "held": {series: held}, "reprints": reprints,
-             "vlm": vlm_reader.reachable(), "filing": filing},
+             "vlm": vlm_reader.reachable(), "png": vlm_reader.encoder(), "filing": filing},
             buf.getvalue())
 
 
