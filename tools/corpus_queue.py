@@ -291,7 +291,10 @@ def reap(state, dry):
     left = end_session(r["pid"])
     if left:
         print(f"{r['name']}: killed {len(left)} leftover processes of its session ({left})")
-    RUNNING.unlink(missing_ok=True)
+    try:
+        RUNNING.unlink()
+    except FileNotFoundError:
+        return  # a tick beside this one (the pass's chained tick) reaped it and accounts for it
     if "ledgers" in r:
         account(r, state, dry)
 
