@@ -493,6 +493,18 @@ print(F.due_reason(row, 'x', True), F.due_reason({**row, 'readAt': '2099-01-01T0
 check "counts the scan refuses dropped; a cured cause makes its rows due" "['1-across'] set() []
 no-grid cured since None" "$got"
 
+# A verdict reached before the VLM was asked is not due for lacking its
+# stamp; one reached after (a vote that left a clue blank, a filed puzzle,
+# an already-held skip) is.
+got=$(cd "$REPO/tools" && python3 -c "
+import file_trove_puzzles as F
+base = {'inputs': 'x', 'readAt': '2099-01-01T00:00:00+00:00'}
+before = [{'skip': k} for k in F.KIND_SKIPS] + [{'cause': c} for c in F.PRE_VLM_CAUSES]
+after = [{'cause': 'clues-unread'}, {'cause': 'suspect-words'}, {'skip': 'already held as x'}, {'id': 'p', 'wrote': 1}]
+due = lambda rows, up: [F.due_reason({**base, **r}, 'x', up) for r in rows]
+print(set(due(before, True)), set(due(after, True)), set(due(after, False)))")
+check "rows decided before the VLM are not due for lacking it" "{None} {'read without the VLM'} {None}" "$got"
+
 # A re-read asked for (--article) beside cached articles never read (a fetch
 # landed them mid-pass): those are counted, not a crash, and stay unread.
 got=$(cd "$REPO/tools" && python3 -c "

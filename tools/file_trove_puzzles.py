@@ -222,8 +222,23 @@ def header(ocr):
     return day, " ".join(head)
 
 
+#: What kind() skips an article as: decided from ocr.txt alone.
+KIND_SKIPS = ("a solution grid", "not a crossword", "not a cryptic", "an Australian cryptic")
+
+#: Causes reached before the VLM is asked (consider() up to vote()'s votes):
+#: the VLM's stamp changes none of them, so an article stopped for one is not
+#: due for lacking it (due_reason).
+PRE_VLM_CAUSES = ("zones-not-fetched", "no-grid", "rebuilt-grid-disagrees", "lights-without-clue",
+                  "no-print-date", "no-clue-lists", "clues-dont-parse")
+
+
+def decided_before_vlm(row):
+    """Whether ledger `row`'s verdict came before the VLM was asked."""
+    return row.get("skip") in KIND_SKIPS or row.get("cause") in PRE_VLM_CAUSES
+
+
 def kind(ocr, title):
-    """What the article is: "cryptic", or why it is skipped."""
+    """What the article is: "cryptic", or why it is skipped (KIND_SKIPS)."""
     _, head = header(ocr)
     low = (title + " " + head).lower()
     has_lists = re.search(r"^\s*(clues\s+)?across\b", ocr, re.IGNORECASE | re.MULTILINE) and \
@@ -1085,14 +1100,14 @@ REREAD_CAUSES = {cause: "2026-10-06T13:33:44+00:00"
 
 def due_reason(row, inputs, vlm_up, reread=None):
     """Why an article's ledger `row` is read again, or None: never read, its
-    `inputs` (input_hash) moved, read without the VLM that now answers, its
+    `inputs` (input_hash) moved, read without the VLM that now answers (unless its verdict came before the VLM, decided_before_vlm), its
     cause cured since it was read (REREAD_CAUSES), or last read before
     `reread` (a datetime: the explicit --reread)."""
     if not row or "inputs" not in row:
         return "never read"
     if row["inputs"] != inputs:
         return "inputs changed"
-    if vlm_up and not row.get("vlm"):
+    if vlm_up and not row.get("vlm") and not decided_before_vlm(row):
         return "read without the VLM"
     if row.get("cause") in REREAD_CAUSES and scan_queue.read_before(
             row, scan_queue.when(REREAD_CAUSES[row["cause"]])):
