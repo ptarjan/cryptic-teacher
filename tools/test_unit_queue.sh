@@ -44,7 +44,7 @@ def plan(ledger, now):
     ]
 PY
 # This host's own load must not gate the ticks under test.
-export CT_LOAD_PER_CORE=1e9
+export CT_LOAD_PER_CORE=1e9 CT_MEM_FLOOR=1
 q() { python3 tools/unit_queue.py "$@"; }
 UNIT_MORE="$tmp/more" python3 -c 'import sys; sys.path.insert(0, "tools"); import unit_queue; unit_queue.backlog_left()'
 [ -e "$tmp/more" ] || { echo "FAIL: backlog_left() did not mark \$UNIT_MORE"; exit 1; }
@@ -106,7 +106,7 @@ git config --global init.defaultBranch master
 git init -q --bare "$tmp/origin.git"
 git clone -q "$tmp/origin.git" "$tmp/repo" 2>/dev/null
 mkdir -p "$tmp/repo/tools"
-cp tools/nightly_worktree.sh tools/unstage_unparsable.sh tools/unit_queue.py "$tmp/repo/tools/"
+cp tools/nightly_worktree.sh tools/unstage_unparsable.sh tools/unit_queue.py tools/mem_gate.py "$tmp/repo/tools/"
 echo 'alert() { echo "$*" >>"$HOME/alerts"; }' >"$tmp/repo/tools/alert.sh"
 cat >"$tmp/repo/tools/slotjob.sh" <<'SH'
 #!/bin/bash
