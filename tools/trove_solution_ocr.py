@@ -325,6 +325,24 @@ def middle(g):
     return g[GLYPH_SHIFT:GLYPH_SHIFT + GLYPH, GLYPH_SHIFT:GLYPH_SHIFT + GLYPH].ravel()
 
 
+#: How much more of a numbered cell's corner (NUMBER_HIGH by one digit's
+#: NUMBER_WIDE) must be ink than a plain light cell's, on average, for the
+#: grid to print its clue numbers. Times solutions from the mid-1980s print
+#: none: there the two match within 0.03; with numbers the gap is 0.2-0.6.
+NUMBER_INK = 0.1
+
+
+def numbers_printed(gray, ys, xs, numbers, cells):
+    """Whether the grid prints the clue `numbers` ({cell: number}): their
+    corners hold more ink than those of the other light `cells`."""
+    def ink(rc):
+        a = between(gray, ys, xs, *rc)
+        h, w = a.shape
+        return (a[:round(NUMBER_HIGH * h), :round(NUMBER_WIDE[1] * w)] < 128).mean() if a.size else 0.0
+    plain = [ink(rc) for rc in cells if rc not in numbers]
+    return not plain or np.mean([ink(rc) for rc in numbers]) - np.mean(plain) > NUMBER_INK
+
+
 def unnumbered(number):
     """The glyph pixels clear of a printed clue `number` (all for None)."""
     keep = np.ones((GLYPH, GLYPH), bool)
@@ -607,6 +625,7 @@ def read_framed(image, grid):
     gray, ys, xs = framed_rules(np.asarray(Image.open(image).convert("L")), grid)
     lts = lights(grid)
     numbers = {cells[0]: n for (n, _), cells in lts.items()}
+    marked = numbers_printed(gray, ys, xs, numbers, {rc for c in lts.values() for rc in c})
 
     def unmarked(r, c):
         a = between(gray, ys, xs, r, c).copy()
@@ -619,7 +638,9 @@ def read_framed(image, grid):
     # A cell's letter must be one some full-length read gave it, plain or
     # with its number's corner blanked, and no letter read surely there may
     # be another: either way in a plain cell, blanked in a numbered one
-    # (with its number a T reads as a sure Y, a D as a sure B).
+    # (with its number a T reads as a sure Y, a D as a sure B). Where the
+    # grid prints no numbers (numbers_printed) the blanked read only adds
+    # letters: blanking a bare corner makes a D a sure J, an A a sure K.
     blanked, blanked_full = read_lights(lts, unmarked)
     allowed = {}
     for words in (full, blanked_full):
@@ -627,7 +648,7 @@ def read_framed(image, grid):
             for w in ws:
                 for rc, ch in zip(lts[key], w):
                     allowed.setdefault(rc, set()).add(ch)
-    for reads in (read, sure_letters(blanked)):
+    for reads in (read, sure_letters(blanked) if marked else {}):
         for rc, ch in reads.items():
             allowed[rc] = allowed.get(rc, set()) & {ch}
     glyphs = {rc: glyph(gray, ys, xs, *rc) for cells in lts.values() for rc in cells}
