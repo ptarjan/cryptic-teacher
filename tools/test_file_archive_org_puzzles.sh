@@ -141,6 +141,31 @@ check("the cryptic's solution heading read", [18179],
       [n for n, _ in f.headings([line("Solution to Puzzle No 18,179"), line("SOLUTION TO NO 2064")], f.SOLUTION)])
 check("1970s solution heading read", [13676],
       [n for n, _ in f.headings([line("Solution of Puzzle No 13,676 B.A. &so.")], f.SOLUTION)])
+# A misread solution heading is found by the number one before (or, a
+# Saturday's prize, six before) the page's title, its digits read loosely.
+_, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 15,646"), line("Solution of Push No. 15,645")])
+check("a misread 'Puzzle' heading anchored on the title", [15645], [n for n, _ in sols])
+_, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 15,428"),
+                            line("25 »2?E? one 01 Pan s Solution of Puzzle No 15,427")])
+check("a heading run on from the clue column", [15427], [n for n, _ in sols])
+_, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 15,139"), line("Solution to Tuzzle No I5.13S")])
+check("a garbled number repaired to the one before the title", [15138], [n for n, _ in sols])
+_, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 13,989"), line("Solution of Puzzle No 33,988")])
+check("a misread digit repaired", [13988], [n for n, _ in sols])
+_, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 15,688"), line("Solution of Puzzle No 15,682"),
+                            line("Solution of Puzzle No 15,687")])
+check("a Saturday's two headings, each its own", [15682, 15687], sorted(n for n, _ in sols))
+# 15,682's solution printed under 15,683 and read "15,683": neither its own
+# title's number nor one confusable with the day before's is guessed at.
+_, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 15,683"), line("Solution of Puzzle No 15,683")])
+check("a heading read as its own title's number is dropped", [], sols)
+_, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 15,684"), line("Solution of Puzzle No 15,682")])
+check("a clean heading near the title but not before it is dropped", [], sols)
+_, sols = f.TIMES.headings([line("The Times Crossword Puzzle No 15,646"), line("Solution of Push No. 12,345"),
+                            line("Paste on a card 4 No 15,645")])
+check("a heading whose number is not the one expected, or whose words are not one, is no heading", [], sols)
+check("with no title on the leaf, only an exact heading", [[18179], []],
+      [[n for n, _ in f.TIMES.headings([line(t)])[1]] for t in ("Solution to Puzzle No 18,179", "Solution of Push No 18,179")])
 
 # The columns: left then right, a number read apart joined to its row, a
 # second copy of words dropped, cut at the solution heading.
@@ -1735,6 +1760,12 @@ f.ocr_headings = lambda img, paper, key: ([(17398, (0, 0, 1, 1), None, ["ch", "e
 asked.clear()
 check("(mirror) one whose whole-page read has its title is not read again", ([17398], []),
       ([p["number"] for p in f._scan(gd)["puzzles"]], asked))
+# A solution heading read as its own edition's title (15,682's grid under
+# 15,683, read "15,683") is dropped from the scan: 15,683 never takes it.
+f.ocr_headings = lambda img, paper, key: ([(15683, (0, 0, 1, 1), None, ["ch", "en5"])],
+                                          [(15683, (0, 2, 1, 3)), (15682, (0, 4, 1, 5))])
+check("a scan drops a solution numbered like its own edition's title", [15682],
+      [s["number"] for s in f._scan(gd)["solutions"]])
 f.ocr_headings, f.ocr_titles = saved_h, saved_t
 # A reader timing out on a whole Gale page (tesseract, 300s, Gale
 # 1987-08-06) reads nothing; the others' title still stands.
