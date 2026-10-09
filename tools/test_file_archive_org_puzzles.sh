@@ -107,6 +107,13 @@ check("the old whole-name key is the one the ledger rows carry, re-keyed not res
 check("a title no verdict covers makes the edition due", "titles changed",
       f.due_reason({"inputs": "h", "solutionsSeen": [], "verdicts": [], "vlm": "v",
                     "scan": {"puzzles": [{"number": 18862}]}}, "h", [], "v"))
+refused = lambda cause, at: {"inputs": "h", "solutionsSeen": [], "vlm": "v", "readAt": at,
+                             "scan": {"puzzles": [{"number": 1}]}, "verdicts": [{"number": 1, "cause": cause}]}
+check("a refusal read before its cause's fix is due; after it, or another cause, is not",
+      ["refused not-a-grid before its fix", None, None],
+      [f.due_reason(refused("not-a-grid", "2026-10-01T00:00:00+00:00"), "h", [], "v"),
+       f.due_reason(refused("not-a-grid", "2099-01-01T00:00:00+00:00"), "h", [], "v"),
+       f.due_reason(refused("crashed", "2026-10-01T00:00:00+00:00"), "h", [], "v")])
 # Real titles the pass found no title on (no-crossword-found):
 # "Times" garbled past one word, a mark after Crossword, "No" run on or
 # dropped, a space in the number, its 1 read as i.
@@ -1540,6 +1547,12 @@ def located(name):
 side, shaped, box = located("times-20117-below-far")
 check("a grid further under its title than the first crop reaches is read whole (Times 20,117)",
       ("below", True, True), (side, shaped, abs((box[3] - box[1]) - (box[2] - box[0])) < 30))
+side, shaped, box = located("times-16977-clues-joined")
+check("a grid whose ink joins the clue column under it is found under its title (Times 16,977)",
+      ("below", True, True), (side, shaped, box[3] - box[1] < 700))
+side, shaped, box = located("times-14132-flush-title")
+check("a grid flush under its title, which the under-crop cuts, is found whole (Times 14,132)",
+      ("below", True), (side, shaped))
 side, shaped, box = located("times-17001-above")
 check("a grid printed over its title is found (Times 17,001)", ("above", True), (side, shaped))
 side, shaped, gbox = located("ftcryptic-8649-left")
@@ -1593,8 +1606,8 @@ side, shaped, box = located("gale-times-17247-tight-title")
 check("a grid whose top frame lies 2px under its title's foot, a descender over it, is the title's (Gale 1987-01-07)",
       ("below", True), (side, shaped))
 f.TITLE_OVERLAP, saved_overlap = 0, f.TITLE_OVERLAP
-check("(mirror) looking for the clear row over the title's foot only, it is refused", None,
-      located("gale-times-17247-tight-title")[0])
+check("looking for the clear row over the title's foot only, a crop beside the title finds it whole under it",
+      "below", located("gale-times-17247-tight-title")[0])
 f.TITLE_OVERLAP = saved_overlap
 
 side, shaped, box = located("times-16960-foot")
@@ -1945,6 +1958,13 @@ t30, s30 = f.times1930_headings([line("LT THE TIMES CROSSWORD PUZZLE No. 129"), 
 check("1930 title and solution heading read", ([129], [126]), ([n for n, _, _ in t30], [n for n, _ in s30]))
 t30, _ = f.times1930_headings([line("THE TIMES CROSSWORD PUZZLE No."), line("SOLUTION OF PUZZLE No. 53", y=900)])
 check("a 1930 title whose number was not read is the one after the page's solution", [54], [n for n, _, _ in t30])
+t30 = [f.times1930_headings([line(t)])[0] for t in (
+    "eat htheketesigant Sacx| THE TIMES CROSSWORD PUZZLE No. 40", "THE TIMES CROSS WORD PUZZLE No. 71",
+    "THE TIMES CROSSWORD PUZ ZLE No. 12", "THE TIMES CROSSWORD PUBZLE NO. 4")]
+check("1930 titles behind the next column's words, split or misread (1930-03-19, 04-25, 02-14, 02-05)",
+      [40, 71, 12, 4], [h[0][0] for h in t30])
+check("a 1930 title behind the next column's words is boxed from TIMES on", 100 + 10 * 25 + 8 * 4,
+      t30[0][0][1][0])
 check("the note under the clues is no title", ([], []),
       f.times1930_headings([line("The fifty-fifth crossword puzzle in this series, together with the solution of puzzle No. 54,")]))
 found30 = {"date": "1930-10-03", "puzzles": [{"number": 200, "leaf": 4}], "solutions": [{"number": 208, "leaf": 4}]}
