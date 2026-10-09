@@ -38,6 +38,9 @@
   "date": "2023-03-07",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,59 @@
     "text": "Money going into drink, leading to depression",
     "enumeration": "4"
    },
-   "solution": "SUMP"
+   "solution": "SUMP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SUMP",
+    "definitions": [
+     {
+      "text": "depression",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going into",
+      "for": "container",
+      "note": "one thing going into another ends up inside it, so the money sits within the drink"
+     }
+    ],
+    "linkWords": [
+     "leading to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "SUP",
+      "note": "to sup is to drink, and a sup is a mouthful"
+     },
+     {
+      "clueFragment": "Money",
+      "gives": "M",
+      "note": "M is a standard abbreviation for money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "M",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "Spending all your cash on alcohol ends in gloom.",
+     "walkthrough": "'Depression' sounds like low spirits, but here it is a physical hollow.",
+     "definitionFit": "A sump is a pit or hollow where liquid collects, a literal low point in the ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "depression"
+    }
+   }
   },
   {
    "number": 1,
@@ -65,7 +120,81 @@
     "text": "Stupid one left with bungled prep right away after school",
     "enumeration": "7"
    },
-   "solution": "SCHLEPP"
+   "solution": "SCHLEPP",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SCHLEPP",
+    "definitions": [
+     {
+      "text": "Stupid one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "right away",
+      "for": "deletion",
+      "note": "the right-hand abbreviation is sent away, so that letter is removed from the word"
+     },
+     {
+      "text": "bungled",
+      "for": "anagram",
+      "note": "something bungled is botched and jumbled, so the remaining letters are put in a new order"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "the remaining pieces come after the opening piece in the answer"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "SCH",
+      "note": "SCH is the abbreviation for school"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "prep",
+      "gives": "PREP",
+      "note": "taken as written; R for right then leaves it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCH",
+      "L",
+      "EPP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PEP",
+       "gives": "EPP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dim pupil is left alone with homework they have messed up after school.",
+     "walkthrough": "PREP loses its R, and the PEP left over is jumbled to EPP; R for right and L for left are standard abbreviations.",
+     "definitionFit": "Schlep(p), from Yiddish, is slang for a clumsy, foolish or ineffectual person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prep"
+    }
+   }
   },
   {
    "number": 2,
@@ -79,7 +208,79 @@
     "text": "Palm I prune rising round centre of topiary",
     "enumeration": "6"
    },
-   "solution": "MIRITI"
+   "solution": "MIRITI",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "MIRITI",
+    "definitions": [
+     {
+      "text": "Palm",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down clue something rising is read from the bottom up, so the letters run backwards"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "the reversed letters go round, enclosing the next piece"
+     },
+     {
+      "text": "centre of",
+      "for": "letter_selection",
+      "note": "'centre of' keeps only the middle letter of 'topiary'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "prune",
+      "gives": "TRIM",
+      "note": "to prune a hedge is to trim it"
+     },
+     {
+      "clueFragment": "topiary",
+      "gives": "I",
+      "select": "middle",
+      "note": "the middle letter of the seven-letter topiary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIR",
+      "I",
+      "TI"
+     ],
+     "reversals": [
+      {
+       "from": "ITRIM",
+       "to": "MIRTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener trims a palm while shaping a piece of topiary.",
+     "walkthrough": "I and TRIM read upwards give MIRTI, which then takes in the middle I of topiary.",
+     "definitionFit": "The miriti is a South American fan palm, also called the moriche or buriti palm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prune"
+    }
+   }
   },
   {
    "number": 3,
@@ -93,7 +294,56 @@
     "text": "Murphy that is discounted for seat",
     "enumeration": "4"
    },
-   "solution": "PRAT"
+   "solution": "PRAT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PRAT",
+    "definitions": [
+     {
+      "text": "seat",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discounted",
+      "for": "deletion",
+      "note": "something discounted is left out of the reckoning, so these letters are removed"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Murphy",
+      "gives": "PRATIE",
+      "note": "a murphy is an Irish slang potato, and pratie is the Irish word for one"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRAT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Murphy has been marked down for a chair.",
+     "walkthrough": "Murphy looks like a surname; it is slang for a potato. PRATIE loses IE.",
+     "definitionFit": "Prat is an old slang word for the buttocks, the part of the body one sits on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Murphy"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +357,55 @@
     "text": "Negotiate screed, penning answer",
     "enumeration": "8"
    },
-   "solution": "TRANSACT"
+   "solution": "TRANSACT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRANSACT",
+    "definitions": [
+     {
+      "text": "Negotiate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "penning",
+      "for": "container",
+      "note": "to pen something is to shut it in, as in a sheep pen, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "screed",
+      "gives": "TRACT",
+      "note": "a tract is a lengthy written treatise, like a screed"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "ANS",
+      "note": "ANS is the abbreviation for answer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "ANS",
+      "ACT"
+     ]
+    },
+    "explanation": {
+     "surface": "A diplomat negotiates by writing a long document that includes a reply.",
+     "definitionFit": "To transact business is to carry it through or negotiate it to completion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "penning"
+    }
+   }
   },
   {
    "number": 4,
@@ -121,7 +419,65 @@
     "text": "Floor covering I'm lifting after so long",
     "enumeration": "6"
    },
-   "solution": "TATAMI"
+   "solution": "TATAMI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TATAMI",
+    "definitions": [
+     {
+      "text": "Floor covering",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lifting",
+      "for": "reversal",
+      "note": "in a down clue lifting moves letters upward, so they are read in reverse"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "the reversed piece is placed after the farewell in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "so long",
+      "gives": "TATA",
+      "note": "ta-ta is a casual goodbye, like so long"
+     },
+     {
+      "clueFragment": "I'm",
+      "gives": "MI",
+      "note": "I'm without the apostrophe, read upwards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TATA",
+      "MI"
+     ],
+     "reversals": [
+      {
+       "from": "IM",
+       "to": "MI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone picks up the floor mat as they say goodbye.",
+     "definitionFit": "A tatami is a Japanese straw mat used as a floor covering, also a unit of room size."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lifting"
+    }
+   }
   },
   {
    "number": 5,
@@ -135,7 +491,57 @@
     "text": "Gunner not so well with virtuoso around",
     "enumeration": "11"
    },
-   "solution": "ARTILLERIST"
+   "solution": "ARTILLERIST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ARTILLERIST",
+    "definitions": [
+     {
+      "text": "Gunner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the skilled performer stands around the comparative, holding it inside"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "virtuoso",
+      "gives": "ARTIST",
+      "note": "a virtuoso is a supremely skilled artist"
+     },
+     {
+      "clueFragment": "not so well",
+      "gives": "ILLER",
+      "note": "more ill, so less well"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ART",
+      "ILLER",
+      "IST"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier is feeling poorly with a brilliant performer nearby.",
+     "definitionFit": "An artillerist is a soldier who handles big guns, an artilleryman or gunner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gunner"
+    }
+   }
   },
   {
    "number": 6,
@@ -149,7 +555,56 @@
     "text": "Drink, what teetotaller takes, giving up half? It may be painful for jogger",
     "enumeration": "6"
    },
-   "solution": "NIPPLE"
+   "solution": "NIPPLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "NIPPLE",
+    "definitions": [
+     {
+      "text": "It may be painful for jogger",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "giving up half",
+      "for": "deletion",
+      "note": "giving up half of a word means dropping half of its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drink",
+      "gives": "NIP",
+      "note": "a nip is a small measure of spirits"
+     },
+     {
+      "clueFragment": "what teetotaller takes",
+      "gives": "PLEDGE",
+      "note": "a teetotaller takes the pledge, a vow to abstain from alcohol"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIP",
+      "PLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A reformed drinker gives up half their intake, while a runner suffers chafing.",
+     "walkthrough": "PLEDGE loses its second half. Jogger's nipple is the painful chafing long-distance runners suffer.",
+     "definitionFit": "A nipple rubbed raw by a shirt is a familiar injury for runners, hence painful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "half"
+    }
+   }
   },
   {
    "number": 7,
@@ -163,7 +618,60 @@
     "text": "Charm e'er denied a driver of pack animals",
     "enumeration": "6"
    },
-   "solution": "AMULET"
+   "solution": "AMULET",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "AMULET",
+    "definitions": [
+     {
+      "text": "Charm",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "denied",
+      "for": "deletion",
+      "note": "to be denied something is to go without it, so these letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "e'er",
+      "gives": "EER",
+      "note": "e'er, poetic for ever, is the part removed"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "driver of pack animals",
+      "gives": "MULETEER",
+      "note": "a muleteer drives mules"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MULET"
+     ]
+    },
+    "explanation": {
+     "surface": "A mule driver has always lacked any lucky talisman.",
+     "walkthrough": "MULETEER loses the EER of e'er at its end.",
+     "definitionFit": "An amulet is a charm worn to ward off evil or bring luck, a talisman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Charm"
+    }
+   }
   },
   {
    "number": 8,
@@ -177,7 +685,70 @@
     "text": "Artist captivated by a Pacific climbing plant with bright blooms",
     "enumeration": "9"
    },
-   "solution": "CINERARIA"
+   "solution": "CINERARIA",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "CINERARIA",
+    "definitions": [
+     {
+      "text": "plant with bright blooms",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "captivated by",
+      "for": "container",
+      "note": "something captivated is held captive inside what captivates it"
+     },
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "in a down clue climbing goes upward, so the letters are read bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Pacific",
+      "gives": "IRENIC",
+      "note": "irenic means peaceful, pacific"
+     },
+     {
+      "clueFragment": "Artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician, an artist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CINERARIA"
+     ],
+     "reversals": [
+      {
+       "from": "AIRARENIC",
+       "to": "CINERARIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter is entranced by a Pacific climbing plant in bloom.",
+     "walkthrough": "'Pacific' looks like the ocean but means peaceful. RA goes into A IRENIC, and the whole is read upwards.",
+     "definitionFit": "Cineraria is a daisy-like garden and pot plant noted for its vivid flower heads."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pacific"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +762,43 @@
     "text": "Sexy youth, under the influence",
     "enumeration": "5"
    },
-   "solution": "TOTTY"
+   "solution": "TOTTY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TOTTY",
+    "definitions": [
+     {
+      "text": "Sexy youth",
+      "at": 0
+     },
+     {
+      "text": "under the influence",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sexy youth",
+      "note": "first meaning: British slang for attractive young people, collectively"
+     },
+     {
+      "clueFragment": "under the influence",
+      "note": "second meaning: an old Scots adjective for dizzy or tipsy"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as one tipsy young person; it is two meanings of one word.",
+     "definitionFit": "Totty is British slang for sexually attractive people, and in Scots also means unsteady or drunk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "influence"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +812,60 @@
     "text": "Gouty old French leader admits grip failing finally",
     "enumeration": "9"
    },
-   "solution": "CHIRAGRIC"
+   "solution": "CHIRAGRIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "CHIRAGRIC",
+    "definitions": [
+     {
+      "text": "Gouty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admits",
+      "for": "container",
+      "note": "to admit is to let in, so the leader's name holds the other piece"
+     },
+     {
+      "text": "failing finally",
+      "for": "deletion",
+      "note": "the word fails at its end, so its last letter is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old French leader",
+      "gives": "CHIRAC",
+      "note": "Jacques Chirac, former French president"
+     },
+     {
+      "clueFragment": "grip",
+      "gives": "GRIP",
+      "note": "taken as written, before losing its end"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHIRA",
+      "GRI",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A former French president, his grip weakening at last, has gout.",
+     "definitionFit": "Chiragric describes chiragra, gout affecting the hand, so it is a gouty condition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grip"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +879,69 @@
     "text": "He empties US bins, clothing togs spoilt with oil",
     "enumeration": "11"
    },
-   "solution": "GARBOLOGIST"
+   "solution": "GARBOLOGIST",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "GARBOLOGIST",
+    "definitions": [
+     {
+      "text": "He empties US bins",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spoilt",
+      "for": "anagram",
+      "note": "something spoilt is damaged and disordered, so its letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clothing",
+      "gives": "GARB",
+      "note": "garb is clothing"
+     },
+     {
+      "clueFragment": "togs",
+      "gives": "TOGS",
+      "note": "taken as written, as anagram fodder"
+     },
+     {
+      "clueFragment": "oil",
+      "gives": "OIL",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GARB",
+      "OLOGIST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOGSOIL",
+       "gives": "OLOGIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bin man's clothes are ruined by oil.",
+     "walkthrough": "'Clothing' looks like a container signal, but it is GARB, placed first.",
+     "definitionFit": "Garbologist is a jokey American term for a garbage collector, someone who empties trash cans."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "clothing"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +955,51 @@
     "text": "Afghan city centre, centre moving eastwards",
     "enumeration": "5"
    },
-   "solution": "HERAT"
+   "solution": "HERAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HERAT",
+    "definitions": [
+     {
+      "text": "Afghan city",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre moving eastwards",
+      "for": "anagram",
+      "note": "in an across entry east is rightwards, so the middle letter shifts one place right"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "centre",
+      "gives": "HEART",
+      "note": "the heart is the centre of something"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HEART",
+       "gives": "HERAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The centre of an Afghan city is relocating towards the east.",
+     "walkthrough": "The middle A of HEART moves one step right.",
+     "definitionFit": "Herat is a major city in western Afghanistan, near the Iranian border."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "centre"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +1013,60 @@
     "text": "Glass ornament, uncommonly small one on back of cup",
     "enumeration": "5"
    },
-   "solution": "PRUNT"
+   "solution": "PRUNT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PRUNT",
+    "definitions": [
+     {
+      "text": "Glass ornament",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back of",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across entry one piece placed on another comes after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cup",
+      "gives": "P",
+      "select": "last",
+      "note": "last letter of cup"
+     },
+     {
+      "clueFragment": "uncommonly small one",
+      "gives": "RUNT",
+      "note": "a runt is an unusually small animal, especially the smallest of a litter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RUNT"
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny glass decoration sits on the back of a cup.",
+     "definitionFit": "A prunt is a blob of glass fused onto a glass vessel as decoration."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cup"
+    }
+   }
   },
   {
    "number": 14,
@@ -260,7 +1079,70 @@
    "clue": {
     "text": "In the saddle, having a dance, once capering around (9, two words)"
    },
-   "solution": "ENCABALLO"
+   "solution": "ENCABALLO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EN CABALLO",
+    "definitions": [
+     {
+      "text": "In the saddle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capering",
+      "for": "anagram",
+      "note": "capering is skipping about playfully, so these letters jump into a new order"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the jumbled letters sit around the dance, enclosing it"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "once",
+      "gives": "ONCE",
+      "note": "taken as written, as anagram fodder"
+     },
+     {
+      "clueFragment": "a dance",
+      "gives": "ABALL",
+      "note": "a ball is a formal dance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENC",
+      "ABALL",
+      "O"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONCE",
+       "gives": "ENCO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rider in the saddle once pranced about at a dance.",
+     "walkthrough": "ONCE is shuffled to ENCO and wrapped around A BALL.",
+     "definitionFit": "En caballo is Spanish for on horseback, a phrase used in English too."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "once"
+    }
+   }
   },
   {
    "number": 15,
@@ -274,7 +1156,51 @@
     "text": "Boozer switching ends? one barely disturbs the surface",
     "enumeration": "7"
    },
-   "solution": "RIPPLET"
+   "solution": "RIPPLET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RIPPLET",
+    "definitions": [
+     {
+      "text": "one barely disturbs the surface",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "switching ends",
+      "for": "anagram",
+      "note": "switching ends swaps the first and last letters of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boozer",
+      "gives": "TIPPLER",
+      "note": "a tippler is a habitual drinker"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TIPPLER",
+       "gives": "RIPPLET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker changing sides in a pub game; a light touch on the water's surface.",
+     "walkthrough": "TIPPLER's first and last letters change places.",
+     "definitionFit": "A ripplet is a small ripple, which only slightly ruffles the surface of water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Boozer"
+    }
+   }
   },
   {
    "number": 16,
@@ -288,7 +1214,63 @@
     "text": "Note scrawled by doctor: 'proceed with burying'",
     "enumeration": "6"
    },
-   "solution": "ENTOMB"
+   "solution": "ENTOMB",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ENTOMB",
+    "definitions": [
+     {
+      "text": "proceed with burying",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scrawled",
+      "for": "anagram",
+      "note": "a scrawl is messy handwriting, so the letters come out in a jumbled order"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "NOTE",
+      "note": "taken as written, as anagram fodder"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MB",
+      "note": "MB is a Bachelor of Medicine, a doctor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENTO",
+      "MB"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOTE",
+       "gives": "ENTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor's illegible note instructs the undertaker to go ahead with the burial.",
+     "definitionFit": "To entomb is to lay in a tomb, so as an instruction it means carry out the interment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 17,
@@ -302,7 +1284,56 @@
     "text": "Truly it requires courage going without bra",
     "enumeration": "4"
    },
-   "solution": "VERY"
+   "solution": "VERY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "VERY",
+    "definitions": [
+     {
+      "text": "Truly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going without",
+      "for": "deletion",
+      "note": "going without something means doing without it, so those letters are removed"
+     }
+    ],
+    "linkWords": [
+     "it requires"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "courage",
+      "gives": "BRAVERY",
+      "note": "bravery is courage"
+     },
+     {
+      "clueFragment": "bra",
+      "gives": "BRA",
+      "note": "taken as written, the part removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VERY"
+     ]
+    },
+    "explanation": {
+     "surface": "It truly takes nerve to go out braless.",
+     "definitionFit": "Very is an old adjective and adverb sense meaning true, real or truly, as in the very truth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bra"
+    }
+   }
   },
   {
    "number": 18,
@@ -316,7 +1347,52 @@
     "text": "Unusually coiled tail denoting particular articulation?",
     "enumeration": "10"
    },
-   "solution": "IDIOLECTAL"
+   "solution": "IDIOLECTAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IDIOLECTAL",
+    "definitions": [
+     {
+      "text": "denoting particular articulation?",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unusually",
+      "for": "anagram",
+      "note": "unusually means in an irregular way, so the letters appear in an irregular order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coiled tail",
+      "gives": "COILEDTAIL",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COILEDTAIL",
+       "gives": "IDIOLECTAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strangely curled tail suggests some special joint.",
+     "walkthrough": "'Articulation' suggests a jointed tail, but it means speech.",
+     "definitionFit": "An idiolect is one person's own way of speaking, so idiolectal describes an individual's particular speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "articulation"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1405,65 @@
    "clue": {
     "text": "Trump (crucial) showing desire to catch up (7, two words)"
    },
-   "solution": "LONGTEN"
+   "solution": "LONGTEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LONG TEN",
+    "definitions": [
+     {
+      "text": "Trump (crucial)",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue up means the letters are read from the bottom upwards"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "desire",
+      "gives": "LONG",
+      "note": "to long is to desire"
+     },
+     {
+      "clueFragment": "to catch",
+      "gives": "NET",
+      "note": "to net a fish is to catch it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LONG",
+      "TEN"
+     ],
+     "reversals": [
+      {
+       "from": "NET",
+       "to": "TEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A president's vital card play reveals a wish to catch up.",
+     "walkthrough": "'Trump' suggests the politician but is a card term.",
+     "definitionFit": "In some card games the long ten is the ten of trumps, often the card that decides a hand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Trump"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1477,67 @@
     "text": "A blow on limb seen in photo showing one severely handicapped",
     "enumeration": "10"
    },
-   "solution": "PARAPLEGIC"
+   "solution": "PARAPLEGIC",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PARAPLEGIC",
+    "definitions": [
+     {
+      "text": "one severely handicapped",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen in",
+      "for": "container",
+      "note": "what is seen in a picture lies inside its frame"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "photo",
+      "gives": "PIC",
+      "note": "pic is short for picture"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "blow",
+      "gives": "RAP",
+      "note": "a rap is a sharp knock"
+     },
+     {
+      "clueFragment": "limb",
+      "gives": "LEG",
+      "note": "a leg is a limb"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ARAPLEG",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A photo of a leg injury showing a disabled person.",
+     "definitionFit": "A paraplegic is a person paralysed in the lower body and legs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "blow"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1551,55 @@
     "text": "Went back over dosage unit before swallowed",
     "enumeration": "6"
    },
-   "solution": "REREAD"
+   "solution": "REREAD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REREAD",
+    "definitions": [
+     {
+      "text": "Went back over",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallowed",
+      "for": "container",
+      "note": "something swallowed ends up inside whatever took it in"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dosage unit",
+      "gives": "RAD",
+      "note": "the rad is a unit of absorbed radiation dose"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "ERE",
+      "note": "ere is a poetic word for before"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ERE",
+      "AD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone checked the label again: one measure of medicine before taking it.",
+     "walkthrough": "'Before' looks like a joining word, but it is ERE.",
+     "definitionFit": "Reread, past tense, means read again, that is, went back over a text."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "before"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1613,46 @@
     "text": "State founder adorning flag",
     "enumeration": "6"
    },
-   "solution": "PENNON"
+   "solution": "PENNON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PENNON",
+    "definitions": [
+     {
+      "text": "flag",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "State founder",
+      "gives": "PENN",
+      "note": "William Penn founded Pennsylvania"
+     },
+     {
+      "clueFragment": "adorning",
+      "gives": "ON",
+      "note": "a decoration adorning something is on it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PENN",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A statue of a state's founder is decorated with a flag.",
+     "definitionFit": "A pennon is a long narrow pointed flag, as carried on a lance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "adorning"
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1666,43 @@
     "text": "Good-time girl in midst of binge is happy",
     "enumeration": "6"
    },
-   "solution": "GEISHA"
+   "solution": "GEISHA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GEISHA",
+    "definitions": [
+     {
+      "text": "Good-time girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in midst of",
+      "for": "hidden_word",
+      "note": "the answer lies in the midst of the following words, spanning their letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "binge is happy",
+      "gives": "GEISHA",
+      "note": "found inside the run of letters across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A party girl is happy in the middle of a drinking spree.",
+     "walkthrough": "'Good-time girl' is a loose, slightly tongue-in-cheek gloss: a geisha is a hostess trained to entertain.",
+     "definitionFit": "A geisha is a Japanese woman trained to entertain men with conversation, music and dance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "binge"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1716,71 @@
     "text": "We offered protection for sailors? I bone up on cases",
     "enumeration": "6"
    },
-   "solution": "CABIRI"
+   "solution": "CABIRI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CABIRI",
+    "definitions": [
+     {
+      "text": "We offered protection for sailors?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue up means the letters climb, so they read backwards"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down entry one piece placed on another sits above it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cases",
+      "gives": "CA",
+      "note": "CA is an abbreviation for cases"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bone",
+      "gives": "RIB",
+      "note": "a rib is a bone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "BIRI"
+     ],
+     "reversals": [
+      {
+       "from": "IRIB",
+       "to": "BIRI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student cramming legal cases.",
+     "walkthrough": "CA is a standard abbreviation for cases. The question mark flags that the gods are speaking as 'we' and are defined by what they did.",
+     "definitionFit": "The Cabiri were ancient Greek mystery deities of Samothrace, invoked as protectors of seafarers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bone"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1794,62 @@
     "text": "An old-fashioned carriage, line scrapped for bishop?",
     "enumeration": "4"
    },
-   "solution": "ABER"
+   "solution": "ABER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ABER",
+    "definitions": [
+     {
+      "text": "bishop?",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scrapped",
+      "for": "deletion",
+      "note": "what is scrapped is thrown away, so those letters are removed"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "An",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "old-fashioned carriage",
+      "gives": "BERLINE",
+      "note": "a berline or berlin is an old four-wheeled covered carriage"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "LINE",
+      "note": "taken as written, the part removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BER"
+     ]
+    },
+    "explanation": {
+     "surface": "An antique coach has had its route cancelled and is now used for a churchman.",
+     "walkthrough": "A bishop signs with an abbreviated see name, and Aber is short for Aberdeen, hence the question mark.",
+     "definitionFit": "Aber, short for Aberdeen, can stand for that see's bishop in his signature, so it is defined by example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1863,57 @@
     "text": "Fag, not good? Gives you rough breathing",
     "enumeration": "5"
    },
-   "solution": "ASPER"
+   "solution": "ASPER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ASPER",
+    "definitions": [
+     {
+      "text": "rough breathing",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not good",
+      "for": "deletion",
+      "note": "not good means the letter standing for good is dropped"
+     }
+    ],
+    "linkWords": [
+     "Gives you"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fag",
+      "gives": "GASPER",
+      "note": "gasper is old British slang for a cheap cigarette, a fag"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASPER"
+     ]
+    },
+    "explanation": {
+     "surface": "Smoking is bad for you and leaves you wheezing.",
+     "walkthrough": "'Rough breathing' sounds medical but is a Greek accent mark; fag is British slang for a cigarette.",
+     "definitionFit": "Asper is the Greek rough breathing mark, showing an initial h sound over a vowel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "breathing"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1927,54 @@
     "text": "Employ volunteers kept within control",
     "enumeration": "6"
    },
-   "solution": "RETAIN"
+   "solution": "RETAIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RETAIN",
+    "definitions": [
+     {
+      "text": "Employ",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kept within",
+      "for": "container",
+      "note": "what is kept within something is held inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "control",
+      "gives": "REIN",
+      "note": "to rein in is to control"
+     },
+     {
+      "clueFragment": "volunteers",
+      "gives": "TA",
+      "note": "the TA, Territorial Army, was Britain's volunteer reserve force"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "TA",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Hire volunteers, and keep them under control.",
+     "definitionFit": "To retain a lawyer is to engage or employ them by paying a fee in advance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "volunteers"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1988,68 @@
     "text": "I'm bowed, in rags, hobbling round Australia",
     "enumeration": "7"
    },
-   "solution": "SARANGI"
+   "solution": "SARANGI",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SARANGI",
+    "definitions": [
+     {
+      "text": "I'm bowed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hobbling",
+      "for": "anagram",
+      "note": "hobbling is walking lamely and unevenly, so the letters are thrown out of order"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "the jumbled letters go round the abbreviation, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in rags",
+      "gives": "INRAGS",
+      "note": "taken as written, as anagram fodder"
+     },
+     {
+      "clueFragment": "Australia",
+      "gives": "A",
+      "note": "A is the abbreviation for Australia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAR",
+      "A",
+      "NGI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INRAGS",
+       "gives": "SARNGI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bent-over tramp in tatters limps around Australia.",
+     "walkthrough": "'Bowed' suggests stooping, but means played with a bow.",
+     "definitionFit": "The sarangi is a north Indian stringed instrument played with a bow, so it speaks as one bowed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bowed"
+    }
+   }
   },
   {
    "number": 28,
@@ -469,7 +2063,53 @@
     "text": "Wipe foredeck up",
     "enumeration": "4"
    },
-   "solution": "SWOB"
+   "solution": "SWOB",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SWOB",
+    "definitions": [
+     {
+      "text": "Wipe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue up means reading the letters from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "foredeck",
+      "gives": "BOWS",
+      "note": "the bows are the front part of a ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWOB"
+     ],
+     "reversals": [
+      {
+       "from": "BOWS",
+       "to": "SWOB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor is told to mop the front deck.",
+     "definitionFit": "Swob is a variant spelling of swab, to mop or wipe a ship's deck clean."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 29,
@@ -483,7 +2123,77 @@
     "text": "Part of Crab or Lion between head of Pisces and tail of Capricorn",
     "enumeration": "5"
    },
-   "solution": "PLEON"
+   "solution": "PLEON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PLEON",
+    "definitions": [
+     {
+      "text": "Part of Crab",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     },
+     {
+      "text": "tail of",
+      "for": "letter_selection",
+      "note": "the tail of a word is its last letter"
+     },
+     {
+      "text": "between",
+      "for": "container",
+      "note": "a piece placed between two others is enclosed by them"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pisces",
+      "gives": "P",
+      "select": "first",
+      "note": "first letter of Pisces"
+     },
+     {
+      "clueFragment": "Lion",
+      "gives": "LEO",
+      "note": "Leo is the Lion of the zodiac"
+     },
+     {
+      "clueFragment": "Capricorn",
+      "gives": "N",
+      "select": "last",
+      "note": "last letter of Capricorn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LEO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A zodiac puzzle: Cancer or Leo set between Pisces and Capricorn.",
+     "walkthrough": "Crab looks like Cancer among the star signs, but here it is the crustacean.",
+     "definitionFit": "The pleon is the abdomen of a crustacean such as a crab or lobster."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Crab"
+    }
+   }
   },
   {
    "number": 30,
@@ -497,7 +2207,42 @@
     "text": "Reel sailor's to tighten with rope",
     "enumeration": "5"
    },
-   "solution": "SWIFT"
+   "solution": "SWIFT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SWIFT",
+    "definitions": [
+     {
+      "text": "Reel",
+      "at": 0
+     },
+     {
+      "text": "sailor's to tighten with rope",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reel",
+      "note": "first meaning: a revolving reel for winding yarn or silk"
+     },
+     {
+      "clueFragment": "sailor's to tighten with rope",
+      "note": "second meaning: a nautical verb, to make tight by binding with ropes"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Reel' suggests a sailor staggering, but it is a winding device.",
+     "definitionFit": "A swift is a light adjustable frame for winding yarn, and to swift a vessel's capstan bars is to lash them taut."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Reel"
+    }
+   }
   },
   {
    "number": 31,
@@ -511,7 +2256,58 @@
     "text": "Fresh mount? he's supplied with troops on the move",
     "enumeration": "9"
    },
-   "solution": "POSTHORSE"
+   "solution": "POSTHORSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "POSTHORSE",
+    "definitions": [
+     {
+      "text": "Fresh mount?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the move",
+      "for": "anagram",
+      "note": "things on the move change position, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "supplied with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "he's",
+      "gives": "HES",
+      "note": "taken as written, as anagram fodder"
+     },
+     {
+      "clueFragment": "troops",
+      "gives": "TROOPS",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HESTROOPS",
+       "gives": "POSTHORSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cavalryman with marching soldiers needs a new horse.",
+     "definitionFit": "A posthorse was kept at a staging post so riders could swap a tired horse for a rested one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Fresh"
+    }
+   }
   },
   {
    "number": 32,
@@ -525,7 +2321,81 @@
     "text": "Rats etc? See one of them I dealt with round old lair",
     "enumeration": "8"
    },
-   "solution": "RODENTIA"
+   "solution": "RODENTIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "RODENTIA",
+    "definitions": [
+     {
+      "text": "Rats etc?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dealt with",
+      "for": "anagram",
+      "note": "cards dealt are shuffled first, so these letters are mixed up"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "the mixed letters go round the old lair, enclosing it"
+     }
+    ],
+    "linkWords": [
+     "See"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one of them",
+      "gives": "RAT",
+      "note": "one of the rats in the definition"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "lair",
+      "gives": "DEN",
+      "note": "a den is an animal's lair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ODEN",
+      "TIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RATI",
+       "gives": "RTIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rats and their kin, one of which an old lag has handled near its burrow.",
+     "walkthrough": "'One of them' points back to the rats in the definition, so the clue reuses its own definition for a piece of wordplay.",
+     "definitionFit": "Rodentia is the zoological order of gnawing mammals that includes rats, mice and squirrels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dealt"
+    }
+   }
   },
   {
    "number": 33,
@@ -539,7 +2409,51 @@
     "text": "Joe maybe disheartened as Mac's well off",
     "enumeration": "4"
    },
-   "solution": "BIEN"
+   "solution": "BIEN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BIEN",
+    "definitions": [
+     {
+      "text": "Mac's well off",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disheartened",
+      "for": "deletion",
+      "note": "losing its heart means the middle letter of the name is taken out"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Joe maybe",
+      "gives": "BIDEN",
+      "note": "Joe Biden, US president, is one Joe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Joe, downhearted, sees that a Scotsman is prosperous.",
+     "walkthrough": "Mac's marks the definition as Scots; Mac stands for any Scot.",
+     "definitionFit": "Bien (also bein) is a Scots word for comfortable or prosperous, well provided for."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Joe"
+    }
+   }
   }
  ]
 }
