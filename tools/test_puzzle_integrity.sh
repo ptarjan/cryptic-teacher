@@ -510,6 +510,9 @@ for e in other["entries"]:
     e["solution"] = "Q" * e["length"]
 fixed = copy.deepcopy(held)
 fixed["entries"][0]["solution"] = "Q" * fixed["entries"][0]["length"]
+withdrawn = copy.deepcopy(held)
+for e in withdrawn["entries"][4:]:
+    e.pop("solution", None)
 
 
 def filed(new):
@@ -520,10 +523,12 @@ def filed(new):
 
 print("ANOTHER", filed(other))
 print("ONE_FIXED", filed(fixed))
+print("WITHDRAWN", filed(withdrawn))
 PY
 )
 same "another puzzle's answers over a held file are refused" "$(field ANOTHER "$out8")" "1"
 same "one corrected answer is not another puzzle" "$(field ONE_FIXED "$out8")" "0"
+same "most answers withdrawn to blank is not another puzzle" "$(field WITHDRAWN "$out8")" "0"
 
 echo "an OCR reading may not file one clue on two lights"
 out9=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'

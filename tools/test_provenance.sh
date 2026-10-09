@@ -223,6 +223,22 @@ print("BOOK_LIE", len(p.check(lied)) > 0)
 lied = copy.deepcopy(book)
 lied["source"]["gridOrigin"] = "published"
 print("BOOK_GRID_LIE", len(p.check(lied)) > 0)
+
+# A model fill over a blog's write-up: the blog is the answer key, so a light
+# its parser missed is mended or left blank, never solved over. Refused by the
+# validator and so by every write, whichever tool makes it.
+import puzzle_integrity
+blogged = fetch_puzzle.read_puzzle_file(fetch_puzzle.resolve_puzzle("timesquick-2471"))
+print("BLOG_PRISTINE", len(p.check(blogged)), blogged["source"]["retrievedFrom"])
+solved = p.with_solution_detail(copy.deepcopy(blogged), {
+    "model": "opus", "date": "2026-10-09", "check": "24 entries, 0 conflicts"})
+solved["solutions"]["origin"] = "model"
+print("BLOG_MODEL", says(p.check(solved), "retrieved from a blog"))
+try:
+    puzzle_integrity.refuse_bad_write(solved, blogged)
+    print("BLOG_MODEL_WRITE", "written")
+except puzzle_integrity.RefusedWrite as e:
+    print("BLOG_MODEL_WRITE", "refused" if "retrieved from a blog" in str(e) else "other")
 PY
 )
 same "the real cyclops passes" "$(field PRISTINE "$out4")" "0"
@@ -243,6 +259,9 @@ same "and it names the channel that tool really uses" \
 same "a publisher contradicting the id's series is refused" \
   "$(field WRONG_PUBLISHER "$out4")" "True"
 same "a puzzle with no series is one finding" "$(field NO_SERIES "$out4")" "1"
+same "a blog-retrieved write-up passes" "$(field BLOG_PRISTINE "$out4")" "0"
+same "a model fill over a blog's write-up is refused" "$(field BLOG_MODEL "$out4")" "True"
+same "and no write can put it on disk" "$(field BLOG_MODEL_WRITE "$out4")" "refused"
 same "and it says the series is missing" "$(awk '$1=="NO_SERIES" {print $3}' <<<"$out4")" "True"
 same "a series contradicting the id is one finding" "$(field WRONG_SERIES "$out4")" "1"
 same "the real book puzzle passes" "$(field BOOK_PRISTINE "$out4")" "0"
