@@ -24,6 +24,9 @@
   "date": "2019-01-27",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -43,7 +46,74 @@
      }
     ]
    },
-   "solution": "ETONMESS"
+   "solution": "ETONMESS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ETON MESS",
+    "definitions": [
+     {
+      "text": "Sweet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned around, so the word for a letter is read from its end"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the final letter of each of the two words before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "missive",
+      "gives": "NOTE",
+      "note": "a missive is a letter or note"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "is dross",
+      "gives": "SS",
+      "select": "last",
+      "note": "the last letter of each word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETON",
+      "ME",
+      "SS"
+     ],
+     "reversals": [
+      {
+       "from": "NOTE",
+       "to": "ETON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A letter about me is described as rubbish, at least in the end.",
+     "walkthrough": "ETON MESS is a British pudding of strawberries, cream and broken meringue.",
+     "definitionFit": "Eton mess is a classic English dessert, and a sweet is the British word for a pudding course."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sweet"
+    }
+   }
   },
   {
    "number": 1,
@@ -57,7 +127,50 @@
     "text": "Freedom fighter maniacs petition to change",
     "enumeration": "15"
    },
-   "solution": "EMANCIPATIONIST"
+   "solution": "EMANCIPATIONIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EMANCIPATIONIST",
+    "definitions": [
+     {
+      "text": "Freedom fighter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to change",
+      "for": "anagram",
+      "note": "to change tells us the letters of the preceding words must be altered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "maniacs petition",
+      "gives": "MANIACSPETITION",
+      "note": "fodder, all fifteen letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MANIACSPETITION",
+       "gives": "EMANCIPATIONIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A liberation campaigner urges crazed people to sign a petition for reform.",
+     "definitionFit": "An emancipationist campaigns for the liberation of slaves or the oppressed, a fighter for their freedom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "maniacs"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +184,47 @@
     "text": "Music producer of Heart?",
     "enumeration": "5"
    },
-   "solution": "ORGAN"
+   "solution": "ORGAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ORGAN",
+    "definitions": [
+     {
+      "text": "Music producer",
+      "at": 0
+     },
+     {
+      "text": "Heart",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Music producer",
+      "note": "first meaning: a keyboard instrument with pipes"
+     },
+     {
+      "clueFragment": "Heart",
+      "note": "second meaning: the heart is a body part of this kind"
+     }
+    ],
+    "explanation": {
+     "surface": "Who produces the records of the band Heart?",
+     "walkthrough": "Heart is a rock band, which makes 'music producer' look like a record producer; the question mark flags that the heart is only one example of the second meaning.",
+     "definitionFit": "An organ is a pipe instrument making music, and the heart is an internal body part, i.e. an organ."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Heart"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +238,68 @@
     "text": "One provides reception food to follow minute iced starter",
     "enumeration": "8"
    },
-   "solution": "MINIDISH"
+   "solution": "MINIDISH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MINIDISH",
+    "definitions": [
+     {
+      "text": "One provides reception",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starter",
+      "for": "letter_selection",
+      "note": "a starter is the opening course, so only the first letter of the word before is used"
+     },
+     {
+      "text": "to follow",
+      "for": "charade",
+      "note": "to follow places the food word after the other pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "minute",
+      "gives": "MIN",
+      "note": "MIN is the abbreviation for minute"
+     },
+     {
+      "clueFragment": "iced",
+      "gives": "I",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "food",
+      "gives": "DISH",
+      "note": "a dish is a prepared item of food"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIN",
+      "I",
+      "DISH"
+     ]
+    },
+    "explanation": {
+     "surface": "A caterer at a wedding reception sends out tiny iced appetisers.",
+     "walkthrough": "The surface suggests a reception party with food; the reception is TV signal, and a minidish is a small satellite dish.",
+     "definitionFit": "A minidish is a small satellite antenna that picks up broadcast signals, so it provides television reception."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "reception"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +319,59 @@
      }
     ]
    },
-   "solution": "SCIFI"
+   "solution": "SCIFI",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "SCI-FI",
+    "definitions": [
+     {
+      "text": "Sort of book",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with some",
+      "for": "hidden_word",
+      "note": "some means only part of the following words is used, a run of consecutive letters"
+     },
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the letters are read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horrific scenes",
+      "gives": "IFICS",
+      "note": "the run of letters spanning the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCIFI"
+     ],
+     "reversals": [
+      {
+       "from": "IFICS",
+       "to": "SCIFI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kind of novel full of gory scenes gets turned down by a publisher.",
+     "definitionFit": "Sci-fi, short for science fiction, is a genre, and a genre is a category or sort of book."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rejected"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +385,58 @@
     "text": "Silver Lining band's having a boozy musical party",
     "enumeration": "6"
    },
-   "solution": "RAGING"
+   "solution": "RAGING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RAGING",
+    "definitions": [
+     {
+      "text": "having a boozy musical party",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Lining",
+      "for": "container",
+      "note": "a lining sits on the inside, so the metal symbol goes within the word after it"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "band",
+      "gives": "RING",
+      "note": "a ring is a circular band"
+     },
+     {
+      "clueFragment": "Silver",
+      "gives": "AG",
+      "note": "Ag is the chemical symbol for silver"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "AG",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A band called Silver Lining is throwing a drunken gig.",
+     "walkthrough": "'Silver Lining' reads as a band's name; split it, silver lines the band. The 's stands for 'is'.",
+     "definitionFit": "Raging is slang for partying wildly, as a 'rager' is a loud, drunken party with music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lining"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +450,60 @@
     "text": "Military volunteers sent north nail assault",
     "enumeration": "6"
    },
-   "solution": "ATTACK"
+   "solution": "ATTACK",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ATTACK",
+    "definitions": [
+     {
+      "text": "assault",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sent north",
+      "for": "reversal",
+      "note": "in a down entry, heading north means reading upwards, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Military volunteers",
+      "gives": "TA",
+      "note": "the Territorial Army, Britain's volunteer reserve force"
+     },
+     {
+      "clueFragment": "nail",
+      "gives": "TACK",
+      "note": "a tack is a small nail"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "TACK"
+     ],
+     "reversals": [
+      {
+       "from": "TA",
+       "to": "AT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Reservist soldiers are dispatched northwards to nail an attack.",
+     "definitionFit": "Attack and assault are synonyms, both meaning a violent onslaught on an enemy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nail"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +527,57 @@
      }
     ]
    },
-   "solution": "ILLATEASE"
+   "solution": "ILLATEASE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ILL AT EASE",
+    "definitions": [
+     {
+      "text": "fidgety, perhaps",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "with",
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sick",
+      "gives": "ILL",
+      "note": "ill means sick"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "kid",
+      "gives": "TEASE",
+      "note": "to kid someone is to tease them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILL",
+      "A",
+      "TEASE"
+     ]
+    },
+    "explanation": {
+     "surface": "An unwell parent with a restless child on their hands.",
+     "walkthrough": "'Kid' reads as a child, but it is the verb for joking with someone.",
+     "definitionFit": "Someone who is ill at ease is uncomfortable, and fidgeting is one sign of that discomfort, hence 'perhaps'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "kid"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +591,52 @@
     "text": "Corporation complaint: register it as not incorrect",
     "enumeration": "15"
    },
-   "solution": "GASTROENTERITIS"
+   "solution": "GASTROENTERITIS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GASTROENTERITIS",
+    "definitions": [
+     {
+      "text": "Corporation complaint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "incorrect",
+      "for": "anagram",
+      "note": "incorrect means wrongly arranged, so the letters before it are put in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "register it as not",
+      "gives": "REGISTERITASNOT",
+      "note": "fodder, all fifteen letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REGISTERITASNOT",
+       "gives": "GASTROENTERITIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A company's grievance: file it officially, as it is not wrong.",
+     "walkthrough": "'Corporation' looks like a business, but it is an old humorous word for a large belly; 'not' belongs to the fodder.",
+     "definitionFit": "Gastroenteritis is inflammation of the stomach and intestines, an ailment of the paunch that 'corporation' jokingly names."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Corporation"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +650,49 @@
     "text": "Support worker seen on public transport",
     "enumeration": "8"
    },
-   "solution": "HANDRAIL"
+   "solution": "HANDRAIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HANDRAIL",
+    "definitions": [
+     {
+      "text": "Support",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "seen on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "worker",
+      "gives": "HAND",
+      "note": "a hand is a manual worker, as in farmhand"
+     },
+     {
+      "clueFragment": "public transport",
+      "gives": "RAIL",
+      "note": "rail travel is a form of public transport"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAND",
+      "RAIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A support staff member spotted riding the bus or train.",
+     "definitionFit": "A handrail is a bar to grip on stairs or in a bus, giving the user physical support."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Support"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +706,51 @@
     "text": "Country inn — a great building",
     "enumeration": "9"
    },
-   "solution": "ARGENTINA"
+   "solution": "ARGENTINA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ARGENTINA",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "building",
+      "for": "anagram",
+      "note": "building means constructing, so the letters before it are put together in a fresh form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inn — a great",
+      "gives": "INNAGREAT",
+      "note": "fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INNAGREAT",
+       "gives": "ARGENTINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rural pub described as a fine structure.",
+     "walkthrough": "'Country inn' reads as one phrase; the definition is just 'Country'.",
+     "definitionFit": "Argentina is a nation in South America, an example of a country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "building"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +764,55 @@
     "text": "They might be tall drinks served after Tango",
     "enumeration": "5"
    },
-   "solution": "TALES"
+   "solution": "TALES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TALES",
+    "definitions": [
+     {
+      "text": "They might be tall",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "served after",
+      "for": "charade",
+      "note": "served after puts the drinks behind the letter that follows in the clue"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tango",
+      "gives": "T",
+      "note": "T is Tango in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "drinks",
+      "gives": "ALES",
+      "note": "ales are beers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ALES"
+     ]
+    },
+    "explanation": {
+     "surface": "Long drinks ordered after an evening of dancing the tango.",
+     "walkthrough": "'Tall drinks' suggests long glasses; the definition stops at 'tall', recalling the idiom 'tall tales'.",
+     "definitionFit": "A tall tale is an exaggerated, unlikely story, so stories are things that might be called tall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tall"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +826,57 @@
     "text": "Conservative article by editor given some stick?",
     "enumeration": "5"
    },
-   "solution": "CANED"
+   "solution": "CANED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CANED",
+    "definitions": [
+     {
+      "text": "given some stick?",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "an is the indefinite article"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ED is the abbreviation for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "AN",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory newspaper piece written by the editor attracts criticism.",
+     "walkthrough": "'Given some stick' is British for criticised; the question mark marks the literal reading, beaten with a cane.",
+     "definitionFit": "Caned means punished by beating with a cane, which is literally a stick."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stick"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +890,73 @@
     "text": "Flasher in coat I'd sadly seen by river",
     "enumeration": "9"
    },
-   "solution": "INDICATOR"
+   "solution": "INDICATOR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "INDICATOR",
+    "definitions": [
+     {
+      "text": "Flasher",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sadly",
+      "for": "anagram",
+      "note": "sadly suggests things have gone wrong, so the letters before it are jumbled"
+     },
+     {
+      "text": "seen by",
+      "for": "charade",
+      "note": "seen by places the next piece beside the jumble"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "coat I'd",
+      "gives": "COATID",
+      "note": "fodder"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "DICATO",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COATID",
+       "gives": "DICATO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man in a raincoat exposes himself by the riverbank.",
+     "walkthrough": "The flasher in a coat is a famous stock figure; here a flasher is a car's blinking light.",
+     "definitionFit": "A car's indicator is a light that flashes on and off to show which way it will turn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Flasher"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +970,62 @@
     "text": "Run-of-the mill president Angolan leader upset",
     "enumeration": "10"
    },
-   "solution": "PEDESTRIAN"
+   "solution": "PEDESTRIAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "PEDESTRIAN",
+    "definitions": [
+     {
+      "text": "Run-of-the mill",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader of a word is its opening letter"
+     },
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "upset means knocked over and disordered, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "president",
+      "gives": "PRESIDENT",
+      "note": "fodder, taken as written"
+     },
+     {
+      "clueFragment": "Angolan",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PRESIDENTA",
+       "gives": "PEDESTRIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ordinary president deposes Angola's leader.",
+     "definitionFit": "Pedestrian as an adjective means dull and uninspired, just like ordinary or run-of-the-mill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1045,51 @@
      }
     ]
    },
-   "solution": "DRUGTAKER"
+   "solution": "DRUGTAKER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRUG-TAKER",
+    "definitions": [
+     {
+      "text": "One on horse",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is possibly"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Democratic",
+      "gives": "D",
+      "note": "D is the abbreviation for Democratic"
+     },
+     {
+      "clueFragment": "carpetbagger",
+      "gives": "RUGTAKER",
+      "note": "read literally: one who bags (takes) a carpet (rug)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RUGTAKER"
+     ]
+    },
+    "explanation": {
+     "surface": "A jockey might be a scheming Democrat from out of state.",
+     "walkthrough": "A carpetbagger is an opportunist outsider; split it into carpet and bagger. 'Horse' is slang for heroin.",
+     "definitionFit": "Horse is slang for heroin, so someone on horse is an addict using that drug."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "horse"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1109,67 @@
      }
     ]
    },
-   "solution": "REDLIGHT"
+   "solution": "REDLIGHT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RED LIGHT",
+    "definitions": [
+     {
+      "text": "Sign of danger",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "embracing means holding within, so the word for a Tory wraps around the rest"
+     },
+     {
+      "text": "leader",
+      "for": "charade",
+      "note": "the leader of the party name is its first letter, joined on after the politician"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tory",
+      "gives": "RIGHT",
+      "note": "Tories are on the political right"
+     },
+     {
+      "clueFragment": "Balls",
+      "gives": "ED",
+      "note": "Ed Balls, a former Labour shadow chancellor"
+     },
+     {
+      "clueFragment": "Labour",
+      "gives": "L",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ED",
+      "L",
+      "IGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A warning sign: a Conservative cosying up to Labour's Ed Balls and the party chief.",
+     "walkthrough": "Ed Balls was a senior British Labour politician, so 'Balls' gives his first name.",
+     "definitionFit": "A red light at a crossing or on a dashboard signals danger or warns you to stop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Balls"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1183,45 @@
     "text": "Partner declared winning position on board",
     "enumeration": "4"
    },
-   "solution": "MATE"
+   "solution": "MATE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MATE",
+    "definitions": [
+     {
+      "text": "Partner",
+      "at": 0
+     },
+     {
+      "text": "winning position on board",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "declared"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Partner",
+      "note": "first meaning: a companion or spouse"
+     },
+     {
+      "clueFragment": "winning position on board",
+      "note": "second meaning: checkmate in chess"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Declared' suggests a spoken clue, but it simply links the two meanings; in chess a player announces the win.",
+     "definitionFit": "A mate is a friend or spouse, and in chess mate is the position where the king cannot escape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "declared"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1235,51 @@
     "text": "One making hits popular by the Blockheads",
     "enumeration": "8"
    },
-   "solution": "ASSASSIN"
+   "solution": "ASSASSIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASSASSIN",
+    "definitions": [
+     {
+      "text": "One making hits",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Blockheads",
+      "gives": "ASSASS",
+      "note": "two blockheads are two asses, the word written twice"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASSASS",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Ian Dury and the Blockheads were a band making popular hit records.",
+     "walkthrough": "The surface evokes the British band Ian Dury and the Blockheads; a 'hit' is also slang for a contract killing.",
+     "definitionFit": "Hit is slang for a contract killing, so an assassin is someone who carries out such murders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hits"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1293,62 @@
     "text": "Heavy Yank scoffing the last of goulash",
     "enumeration": "4"
    },
-   "solution": "THUG"
+   "solution": "THUG",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "THUG",
+    "definitions": [
+     {
+      "text": "Heavy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the last of",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter"
+     },
+     {
+      "text": "scoffing",
+      "for": "container",
+      "note": "scoffing means gobbling up, so one word swallows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yank",
+      "gives": "TUG",
+      "note": "to yank is to tug"
+     },
+     {
+      "clueFragment": "goulash",
+      "gives": "H",
+      "select": "last",
+      "note": "last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "H",
+      "UG"
+     ]
+    },
+    "explanation": {
+     "surface": "An overweight American wolfing down the end of a stew.",
+     "walkthrough": "'Heavy' and 'Yank' suggest a fat American; Yank is the verb, and a heavy is a hired tough.",
+     "definitionFit": "A heavy is slang for a violent henchman or bodyguard, the same as a thug."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Yank"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1362,60 @@
     "text": "A smell hanging around: perhaps, credit youth?",
     "enumeration": "10"
    },
-   "solution": "ADOLESCENT"
+   "solution": "ADOLESCENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ADOLESCENT",
+    "definitions": [
+     {
+      "text": "youth",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hanging around",
+      "for": "container",
+      "note": "hanging around something means surrounding it, so the first pieces enclose the later word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "perhaps, credit",
+      "gives": "DOLE",
+      "note": "unemployment benefit, of which a credit payment is one form"
+     },
+     {
+      "clueFragment": "smell",
+      "gives": "SCENT",
+      "note": "a scent is a smell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DOLE",
+      "SCENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A lingering smell suggests the young person's spending is on credit.",
+     "walkthrough": "Universal Credit is a British welfare benefit, so 'perhaps, credit' is an example of the dole.",
+     "definitionFit": "An adolescent is a teenager, i.e. a youth growing from child into adult."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "credit"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1429,58 @@
     "text": "Ramshackle town best-loved by half-cut lags",
     "enumeration": "6"
    },
-   "solution": "FAVELA"
+   "solution": "FAVELA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "FAVELA",
+    "definitions": [
+     {
+      "text": "Ramshackle town",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half-cut",
+      "for": "deletion",
+      "note": "half-cut, usually meaning tipsy, here says half of the word is chopped off"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "best-loved",
+      "gives": "FAVE",
+      "note": "fave is informal for favourite"
+     },
+     {
+      "clueFragment": "lags",
+      "gives": "LAGS",
+      "note": "lags are convicts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAVE",
+      "LA"
+     ]
+    },
+    "explanation": {
+     "surface": "A shanty town loved most by tipsy old convicts.",
+     "walkthrough": "'Half-cut' is British slang for drunk, a natural fit for lags, which is slang for prisoners.",
+     "definitionFit": "A favela is a Brazilian shanty town or slum of makeshift, ramshackle housing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "half-cut"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1494,65 @@
     "text": "One's in competition with East German exile",
     "enumeration": "9"
    },
-   "solution": "OSTRACISE"
+   "solution": "OSTRACISE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OSTRACISE",
+    "definitions": [
+     {
+      "text": "exile",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first piece inside the word for a contest"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "East German",
+      "gives": "OST",
+      "note": "Ost is German for east"
+     },
+     {
+      "clueFragment": "competition",
+      "gives": "RACE",
+      "note": "a race is a competition"
+     },
+     {
+      "clueFragment": "One's",
+      "gives": "IS",
+      "note": "one is I, and 's is is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OST",
+      "RAC",
+      "IS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A competitor from East Germany is banished.",
+     "walkthrough": "'East German' reads as a person from the old GDR, but it is the German word for east.",
+     "definitionFit": "To ostracise is to shut someone out of society, a synonym of exile as a verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "German"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1566,57 @@
     "text": "English singer associated with Love andMuse",
     "enumeration": "5"
    },
-   "solution": "ERATO"
+   "solution": "ERATO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ERATO",
+    "definitions": [
+     {
+      "text": "andMuse",
+      "at": 36,
+      "note": "the source runs 'and' into 'Muse'; 'and' is a link word and Muse is the definition"
+     }
+    ],
+    "linkWords": [
+     "associated with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "singer",
+      "gives": "RAT",
+      "note": "a singer is an informer who sings to the police, as is a rat"
+     },
+     {
+      "clueFragment": "Love",
+      "gives": "O",
+      "note": "love is zero in tennis, which looks like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "RAT",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An English vocalist connected with love and a source of inspiration.",
+     "walkthrough": "'Singer' looks musical; it is slang for an informer.",
+     "definitionFit": "Erato is one of the nine Muses of Greek myth, presiding over lyric and love poetry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "singer"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1630,53 @@
     "text": "Old car bishop must get out of to wind up?",
     "enumeration": "5"
    },
-   "solution": "ANGER"
+   "solution": "ANGER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ANGER",
+    "definitions": [
+     {
+      "text": "wind up?",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must get out of",
+      "for": "deletion",
+      "note": "getting out of something means leaving it, so that letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old car",
+      "gives": "BANGER",
+      "note": "a banger is a battered old car"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A bishop has to climb out of his old car to crank its engine.",
+     "walkthrough": "Banger is British slang for a decrepit car. 'Wind up' is a verb meaning to annoy, not to crank.",
+     "definitionFit": "To wind someone up is British slang for annoying or provoking them, the verb sense of anger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "wind"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1690,42 @@
     "text": "Hazardous place one might take their rest",
     "enumeration": "5"
    },
-   "solution": "GRAVE"
+   "solution": "GRAVE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GRAVE",
+    "definitions": [
+     {
+      "text": "Hazardous",
+      "at": 0
+     },
+     {
+      "text": "place one might take their rest",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hazardous",
+      "note": "first meaning: seriously dangerous"
+     },
+     {
+      "clueFragment": "place one might take their rest",
+      "note": "second meaning: a burial plot"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second part sounds like a bed or a bench; it is the last resting place.",
+     "definitionFit": "Grave means serious and threatening, as in grave danger; a grave is also a tomb where the dead rest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "rest"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1739,53 @@
     "text": "Infant's small problem Penny's ignored",
     "enumeration": "5"
    },
-   "solution": "ICKLE"
+   "solution": "ICKLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ICKLE",
+    "definitions": [
+     {
+      "text": "Infant's small",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignored",
+      "for": "deletion",
+      "note": "something ignored is left out, so that letter is dropped from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "problem",
+      "gives": "PICKLE",
+      "note": "a pickle is a difficult situation"
+     },
+     {
+      "clueFragment": "Penny",
+      "gives": "P",
+      "note": "P is the abbreviation for penny"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICKLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A baby's little difficulty: Penny is being neglected.",
+     "walkthrough": "'Infant's small' is the definition: a word for little as a small child would say it.",
+     "definitionFit": "Ickle is a babyish, twee British form of little, the way a toddler might say tiny."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Penny"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1805,64 @@
      }
     ]
    },
-   "solution": "HEADSTART"
+   "solution": "HEADSTART",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HEAD START",
+    "definitions": [
+     {
+      "text": "Boost?",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tucking into",
+      "for": "container",
+      "note": "tucking into means getting inside, so one letter slips between the other parts"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nut",
+      "gives": "HEAD",
+      "note": "nut is slang for head"
+     },
+     {
+      "clueFragment": "pastry",
+      "gives": "TART",
+      "note": "a tart is a pastry"
+     },
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEAD",
+      "S",
+      "TART"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy eating a nutty pastry for an energy kick.",
+     "walkthrough": "'Tucking into' suggests eating; it means going inside. 'Nut pastry' looks like one food item but splits into two.",
+     "definitionFit": "A head start is an initial advantage, a boost given at the beginning of a race or contest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tucking"
+    }
+   }
   },
   {
    "number": 28,
@@ -469,7 +1876,54 @@
     "text": "Unpleasant sort of sailor snatching paintings",
     "enumeration": "6"
    },
-   "solution": "TARTAR"
+   "solution": "TARTAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TARTAR",
+    "definitions": [
+     {
+      "text": "Unpleasant sort",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "snatching",
+      "for": "container",
+      "note": "snatching means grabbing hold, so the seaman word clutches the other inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sailor",
+      "gives": "TAR",
+      "note": "a tar is a sailor"
+     },
+     {
+      "clueFragment": "paintings",
+      "gives": "ART",
+      "note": "paintings are art"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ART",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "A nasty seaman steals pictures from a gallery.",
+     "definitionFit": "A tartar is a fierce, bad-tempered person who is hard to deal with."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "paintings"
+    }
+   }
   },
   {
    "number": 29,
@@ -483,7 +1937,60 @@
     "text": "Noble legion in want of bit of leadership",
     "enumeration": "8"
    },
-   "solution": "COUNTESS"
+   "solution": "COUNTESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "COUNTESS",
+    "definitions": [
+     {
+      "text": "Noble",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bit of",
+      "for": "letter_selection",
+      "note": "a bit of a word is a single letter of it, here the opening one"
+     },
+     {
+      "text": "in want of",
+      "for": "deletion",
+      "note": "in want of means lacking, so that letter is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "legion",
+      "gives": "COUNTLESS",
+      "note": "legion as an adjective means very numerous"
+     },
+     {
+      "clueFragment": "leadership",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COUNTESS"
+     ]
+    },
+    "explanation": {
+     "surface": "An aristocratic army unit lacks some guidance.",
+     "walkthrough": "'Legion' reads as a body of soldiers, but it is the adjective, as in 'their number is legion'.",
+     "definitionFit": "A countess is a titled female aristocrat, the wife of a count or earl, so a noble."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "legion"
+    }
+   }
   }
  ]
 }
