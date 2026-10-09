@@ -1967,5 +1967,8 @@ tools/deleted_paths.py                        the commit that last deleted a pat
 tools/test_deleted_paths.sh                   does deleted_paths.last_deletion() give what `git
                                               log -1 --diff-filter=D -- <path>` gives, as HEAD
                                               moves forward, back, sideways and is rewritten?
+tools/test_clue_index.sh                      does StoredClueIndex answer exactly what
+                                              ClueIndex.build() answers, as files are added,
+                                              edited and deleted, and when its store is corrupt?
 ```
 <!-- LAYOUT-END -->

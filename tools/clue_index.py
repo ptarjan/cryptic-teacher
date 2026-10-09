@@ -6,10 +6,19 @@ different puzzle's clues) is caught by looking its clues up here, whatever the
 other puzzle's series or number. Used by puzzle_integrity.py (whole corpus) and
 fetch_puzzle.py (before filing). No pairwise comparison: each clue is looked up
 once and the hits are counted per puzzle.
+
+StoredClueIndex answers the same questions off a sqlite store of every file
+content's clue keys, keyed by git blob sha, so a write looks up its own clues
+instead of parsing the whole corpus first.
 """
+import fcntl
+import hashlib
+import inspect
 import json
 import re
+import sqlite3
 import sys
+import time
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -156,6 +165,212 @@ class ClueIndex:
                     and not known_copy(a, b)):
                 out.append((a, b, shared, self.size[a], self.size[b]))
         return out
+
+
+class StoredClueIndex:
+    """ClueIndex.build() of the real corpus, read off STORE_DIR instead of
+    parsing every file: one row per distinct file content (git blob sha ->
+    id, number of clue keys) and one (clue key, row) pair per key, indexed by
+    key. A content is parsed once, by whichever process first meets it, under
+    a lock so that units starting together do not all parse the same files.
+    The store's file name carries a hash of norm() and clue_keys(), so code
+    that keys clues differently never reads keys made by other code.
+
+    The corpus is listed once, at open(), as ClueIndex.build() reads it once;
+    add() and discard() change this process's view only, as on a ClueIndex.
+    Any sqlite failure falls back to ClueIndex.build(): a store that cannot be
+    read answers nothing, it never answers "no copy"."""
+
+    def __init__(self, conn, by_pid):
+        self.conn = conn
+        self.by_pid = by_pid              # id -> (row, number of clue keys)
+        self.of_row = defaultdict(list)   # row -> the ids it is the file of
+        for pid, (row, _) in by_pid.items():
+            self.of_row[row].append(pid)
+        self.mine = {}                    # id -> keys added here, None: discarded
+        self.fallback = None
+
+    @classmethod
+    def open(cls, store_dir=None):
+        store_dir = STORE_DIR if store_dir is None else store_dir
+        for attempt in (1, 2):
+            try:
+                return cls._open(store_dir)
+            except sqlite3.Error as err:
+                print(f"clue index store {_store_path(store_dir)}: {err!r}; "
+                      + ("rebuilding it" if attempt == 1 else "building in memory"),
+                      file=sys.stderr)
+                for f in store_dir.glob(_store_path(store_dir).name + "*"):
+                    f.unlink(missing_ok=True)
+        return _Memory(ClueIndex.build())
+
+    @classmethod
+    def _open(cls, store_dir):
+        import puzzle_integrity  # noqa: PLC0415 — it imports this module
+        files = puzzle_integrity.listing()
+        names = puzzle_integrity.published(files)
+        store_dir.mkdir(parents=True, exist_ok=True)
+        path = _store_path(store_dir)
+        for old in store_dir.glob("clue-keys-*.sqlite*"):
+            if not old.name.startswith(path.name) and _days_old(old) > 2:
+                old.unlink(missing_ok=True)
+        conn = sqlite3.connect(path, timeout=600)
+        conn.execute("PRAGMA journal_mode=WAL")
+        conn.executescript(
+            "CREATE TABLE IF NOT EXISTS rows(id INTEGER PRIMARY KEY, blob TEXT UNIQUE,"
+            " pid TEXT, nkeys INTEGER);"
+            "CREATE TABLE IF NOT EXISTS clues(key TEXT, id INTEGER, PRIMARY KEY(key, id)) WITHOUT ROWID;"
+            "CREATE INDEX IF NOT EXISTS clues_id ON clues(id);")
+        rows = {blob: (rid, pid, n) for rid, blob, pid, n in
+                conn.execute("SELECT id, blob, pid, nkeys FROM rows")}
+        if any(files[n] not in rows for n in names):
+            with open(path.with_name(path.name + ".lock"), "a") as lock:
+                fcntl.flock(lock, fcntl.LOCK_EX)
+                rows = {blob: (rid, pid, n) for rid, blob, pid, n in
+                        conn.execute("SELECT id, blob, pid, nkeys FROM rows")}
+                root = puzzle_paths.PUZZLE_DIR.parent
+                with conn:
+                    for name in names:
+                        if files[name] in rows:
+                            continue
+                        try:
+                            data = (root / name).read_bytes()
+                        except OSError:
+                            continue
+                        # A file rewritten since the listing is stored as what was read.
+                        blob = files[name] = hashlib.sha1(b"blob %d\0" % len(data) + data).hexdigest()
+                        if blob in rows:
+                            continue
+                        pid, keys = _parse(data)
+                        cur = conn.execute("INSERT INTO rows(blob, pid, nkeys) VALUES(?,?,?)",
+                                           (blob, pid, -1 if keys is None else len(keys)))
+                        conn.executemany("INSERT INTO clues VALUES(?,?)",
+                                         ((k, cur.lastrowid) for k in keys or ()))
+                        rows[blob] = (cur.lastrowid, pid, -1 if keys is None else len(keys))
+                    live = {files[n] for n in names}
+                    if len(rows) > 1.5 * len(live) + 1000:
+                        dead = [rows.pop(b)[0] for b in list(rows) if b not in live]
+                        conn.executemany("DELETE FROM clues WHERE id=?", ((r,) for r in dead))
+                        conn.executemany("DELETE FROM rows WHERE id=?", ((r,) for r in dead))
+        by_pid = {}
+        for name in names:                # the last file of an id wins, as in build()
+            if files[name] not in rows:   # gone since the listing
+                continue
+            rid, pid, n = rows[files[name]]
+            if n >= 0:
+                by_pid[pid or Path(name).stem] = (rid, n)
+        return cls(conn, by_pid)
+
+    def add(self, pid, puzzle):
+        self.add_keys(pid, clue_keys(puzzle))
+
+    def add_keys(self, pid, keys):
+        self.mine[pid] = set(keys)
+        if self.fallback:
+            self.fallback.add_keys(pid, keys)
+
+    def discard(self, pid):
+        self.mine[pid] = None
+        if self.fallback:
+            self.fallback.discard(pid)
+
+    def _size(self, pid):
+        return len(self.mine[pid]) if pid in self.mine else self.by_pid[pid][1]
+
+    def matches(self, pid, keys):
+        """ClueIndex.matches, from the store."""
+        if self.fallback:
+            return self.fallback.matches(pid, keys)
+        keys = list(keys)
+        try:
+            per_row = Counter()
+            for i in range(0, len(keys), 500):
+                part = keys[i:i + 500]
+                per_row.update(dict(self.conn.execute(
+                    f"SELECT id, count(*) FROM clues WHERE key IN ({','.join('?' * len(part))})"
+                    " GROUP BY id", part)))
+        except sqlite3.Error as err:
+            print(f"clue index store: {err!r}; building in memory", file=sys.stderr)
+            return self._memory().matches(pid, keys)
+        hits = Counter()
+        for row, shared in per_row.items():
+            for other in self.of_row.get(row, ()):
+                if other not in self.mine:
+                    hits[other] = shared
+        for other, theirs in self.mine.items():
+            if theirs:
+                hits[other] = sum(k in theirs for k in keys)
+        out = []
+        for other, shared in hits.items():
+            if other == pid or not shared:
+                continue
+            small = min(len(keys), self._size(other))
+            if (small >= MIN_CLUES and shared >= THRESHOLD * small
+                    and not known_copy(pid, other)):
+                out.append((other, shared, len(keys), self._size(other)))
+        return sorted(out, key=lambda m: (-m[1], m[0]))
+
+    def pairs(self):
+        """ClueIndex.pairs, over every key in the store."""
+        if self.fallback:
+            return self.fallback.pairs()
+        try:
+            keys = defaultdict(set)
+            for k, row in self.conn.execute("SELECT key, id FROM clues"):
+                if row in self.of_row:
+                    keys[row].add(k)
+        except sqlite3.Error as err:
+            print(f"clue index store: {err!r}; building in memory", file=sys.stderr)
+            return self._memory().pairs()
+        idx = ClueIndex()
+        for pid, (row, _) in self.by_pid.items():
+            idx.add_keys(pid, keys[row])
+        self._apply(idx)
+        return idx.pairs()
+
+    def _memory(self):
+        self.fallback = ClueIndex.build()
+        self._apply(self.fallback)
+        return self.fallback
+
+    def _apply(self, idx):
+        for pid, keys in self.mine.items():
+            if keys is None:
+                idx.discard(pid)
+            else:
+                idx.add_keys(pid, keys)
+
+
+class _Memory(StoredClueIndex):
+    """A StoredClueIndex that could not open its store: ClueIndex.build()."""
+
+    def __init__(self, idx):  # no store, so no super().__init__
+        self.mine, self.fallback = {}, idx
+
+
+STORE_DIR = Path.home() / ".cache" / "cryptic-teacher"
+
+
+def _store_path(store_dir):
+    code = (inspect.getsource(norm) + inspect.getsource(clue_keys)).encode()
+    return store_dir / f"clue-keys-{hashlib.sha1(code).hexdigest()[:12]}.sqlite"
+
+
+def _days_old(path):
+    try:
+        return (time.time() - path.stat().st_mtime) / 86400
+    except OSError:
+        return 0
+
+
+def _parse(data):
+    """(id in the file or None, its clue keys) from a file's bytes — keys None
+    when the file is no puzzle ClueIndex.build() would read."""
+    try:
+        puzzle = json.loads(data.decode("utf-8"))
+        return puzzle.get("id") or None, clue_keys(puzzle)
+    except (ValueError, AttributeError):
+        return None, None
 
 
 def _need(size):

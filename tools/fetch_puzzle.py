@@ -62,7 +62,7 @@ import clue_types  # the closed list of clue types; see tools/clue_types.py
 import puzzle_schema  # noqa: E402 — the file's shape and presence rule; see tools/puzzle_schema.py
 import puzzle_paths  # noqa: E402 — where each file lives; see tools/puzzle_paths.py
 import deleted_paths  # noqa: E402 — the commit that last deleted a path; see tools/deleted_paths.py
-from clue_index import ClueIndex, clue_keys  # noqa: E402 — which puzzles share clues
+from clue_index import ClueIndex, StoredClueIndex, clue_keys  # noqa: E402 — which puzzles share clues
 import groups  # noqa: E402 — linked answers; see tools/groups.py
 from groups import entry_id  # noqa: E402
 import definitions  # where each definition sits in its clue; see tools/definitions.py
@@ -2922,12 +2922,16 @@ _CLUE_INDEX_DIR = None
 
 
 def clue_index():
-    """The clue index of puzzle_paths.PUZZLE_DIR, built once per process (a
-    few seconds) and again whenever PUZZLE_DIR names another tree, so a test
-    that points it at a scratch corpus is checked against that corpus alone."""
+    """The clue index of puzzle_paths.PUZZLE_DIR, made once per process and
+    again whenever PUZZLE_DIR names another tree. The checkout's own corpus is
+    read off the shared store (StoredClueIndex: a lookup per write, no parse
+    of the corpus); a scratch corpus a test points it at is built in memory,
+    so the test is checked against that corpus alone."""
     global _CLUE_INDEX, _CLUE_INDEX_DIR
     if _CLUE_INDEX is None or _CLUE_INDEX_DIR != puzzle_paths.PUZZLE_DIR:
-        _CLUE_INDEX, _CLUE_INDEX_DIR = ClueIndex.build(), puzzle_paths.PUZZLE_DIR
+        stored = puzzle_paths.PUZZLE_DIR == puzzle_paths.ROOT / "puzzles"
+        _CLUE_INDEX = StoredClueIndex.open() if stored else ClueIndex.build()
+        _CLUE_INDEX_DIR = puzzle_paths.PUZZLE_DIR
     return _CLUE_INDEX
 
 
