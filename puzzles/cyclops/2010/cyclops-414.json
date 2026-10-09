@@ -24,6 +24,9 @@
   "date": "2010-04-12",
   "check": "30 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,56 @@
     "text": "He's often mounted that awful woman on the drink, Brenda",
     "enumeration": "10"
    },
-   "solution": "COWPUNCHER"
+   "solution": "COWPUNCHER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COWPUNCHER",
+    "definitions": [
+     {
+      "text": "He's often mounted",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that awful woman",
+      "gives": "COW",
+      "note": "cow is slang for an unpleasant woman"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "PUNCH",
+      "note": "punch is a mixed drink served from a bowl"
+     },
+     {
+      "clueFragment": "Brenda",
+      "gives": "ER",
+      "note": "Brenda is Private Eye's nickname for the Queen, whose royal cipher is ER"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COW",
+      "PUNCH",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A rant about a dreadful woman drinking with the Queen, beneath a rider's description.",
+     "walkthrough": "Private Eye always calls the Queen 'Brenda', so she stands for ER, Elizabeth Regina.",
+     "definitionFit": "A cowpuncher is an American cowboy, a herdsman who spends much of his working day on horseback."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +103,73 @@
     "text": "Stunt: one getting head of dick caught in fly",
     "enumeration": "8"
    },
-   "solution": "ESCAPADE"
+   "solution": "ESCAPADE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ESCAPADE",
+    "definitions": [
+     {
+      "text": "Stunt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its opening letter, so only that is kept"
+     },
+     {
+      "text": "caught in",
+      "for": "container",
+      "note": "something caught in something else sits inside it, so this pair goes within the outer word"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fly",
+      "gives": "ESCAPE",
+      "note": "to fly is to flee or escape"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "one as the article a"
+     },
+     {
+      "clueFragment": "dick",
+      "gives": "D",
+      "select": "first",
+      "note": "first letter of dick"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESCAP",
+      "A",
+      "D",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky stunt in which something gets caught in a trouser fly.",
+     "walkthrough": "The fly is not trousers but the verb to flee; ESCAPE takes A and D inside to make ESCAPADE.",
+     "definitionFit": "An escapade is a daring or mischievous adventure, which is what a stunt amounts to."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fly"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +183,74 @@
     "text": "Iron 'universal' Lady almost does U-turn, describing outmoded social system",
     "enumeration": "6"
    },
-   "solution": "FEUDAL"
+   "solution": "FEUDAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "FEUDAL",
+    "definitions": [
+     {
+      "text": "describing outmoded social system",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is dropped"
+     },
+     {
+      "text": "does U-turn",
+      "for": "reversal",
+      "note": "turning right round sends a driver back the way they came, so the trimmed word reads backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Iron",
+      "gives": "FE",
+      "note": "Fe is the chemical symbol for iron"
+     },
+     {
+      "clueFragment": "'universal'",
+      "gives": "U",
+      "note": "U is the film-certificate abbreviation for universal"
+     },
+     {
+      "clueFragment": "Lady",
+      "gives": "LADY",
+      "note": "taken as written before trimming"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FE",
+      "U",
+      "DAL"
+     ],
+     "reversals": [
+      {
+       "from": "LAD",
+       "to": "DAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Iron Lady, Thatcher, who famously was 'not for turning', almost does a U-turn.",
+     "walkthrough": "The Iron Lady is Margaret Thatcher, whose 'The lady's not for turning' speech gives the surface its joke; here iron is just FE.",
+     "definitionFit": "Feudal is the adjective for the medieval system of lords, vassals and land held in return for service."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Iron"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +270,51 @@
      }
     ]
    },
-   "solution": "STAGPARTY"
+   "solution": "STAGPARTY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STAG PARTY",
+    "definitions": [
+     {
+      "text": "Last fling before union",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "leads"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "get-rich-quick type",
+      "gives": "STAG",
+      "note": "on the stock market a stag buys new shares hoping to sell them quickly at a profit"
+     },
+     {
+      "clueFragment": "Labour, say",
+      "gives": "PARTY",
+      "note": "Labour is an example of a political party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAG",
+      "PARTY"
+     ]
+    },
+    "explanation": {
+     "surface": "A City speculator heading the Labour Party, with a nod to trade-union links.",
+     "walkthrough": "The 'union' is marriage, not a trade union; a stag party is the groom's night out before the wedding.",
+     "definitionFit": "A stag party is the groom's celebration with male friends just before his wedding, a final night of freedom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "union"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +328,50 @@
     "text": "Mimic City address before House",
     "enumeration": "4"
    },
-   "solution": "ECHO"
+   "solution": "ECHO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ECHO",
+    "definitions": [
+     {
+      "text": "Mimic",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "City address",
+      "gives": "EC",
+      "note": "EC is the postcode area for the City of London"
+     },
+     {
+      "clueFragment": "House",
+      "gives": "HO",
+      "note": "HO is the standard abbreviation for house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EC",
+      "HO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at a City address imitating somebody in the House of Commons.",
+     "walkthrough": "The City is London's financial district, whose postcodes begin EC.",
+     "definitionFit": "To echo is to repeat or imitate what another says or does, the verb sense of mimic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "address"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +385,68 @@
     "text": "Possible period of government that is gripping Tory leader – insect!",
     "enumeration": "7"
    },
-   "solution": "TERMITE"
+   "solution": "TERMITE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TERMITE",
+    "definitions": [
+     {
+      "text": "insect",
+      "at": 61
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader comes at the front, so the first letter of the party name is kept"
+     },
+     {
+      "text": "gripping",
+      "for": "container",
+      "note": "something gripping another holds it inside, so the short phrase wraps round the kept letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Possible period of government",
+      "gives": "TERM",
+      "note": "a term of office"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, that is"
+     },
+     {
+      "clueFragment": "Tory",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of Tory"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TERM",
+      "I",
+      "T",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A spell of Tory government is likened to a pest eating away at the house.",
+     "definitionFit": "A termite is a wood-eating social insect, sometimes called a white ant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "government"
+    }
+   }
   },
   {
    "number": 7,
@@ -127,7 +460,50 @@
     "text": "Tabloid, second to cosy up to Left",
     "enumeration": "5"
    },
-   "solution": "SPORT"
+   "solution": "SPORT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPORT",
+    "definitions": [
+     {
+      "text": "Tabloid",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to cosy up to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "s is the abbreviation for second"
+     },
+     {
+      "clueFragment": "Left",
+      "gives": "PORT",
+      "note": "port is the left side of a ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PORT"
+     ]
+    },
+    "explanation": {
+     "surface": "A tabloid paper playing second fiddle by cosying up to the political Left.",
+     "walkthrough": "The Sport (Daily or Sunday Sport) was a lurid British tabloid newspaper.",
+     "definitionFit": "The Sport was the name of a British tabloid newspaper known for outlandish stories, so the title is an example of a tabloid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Left"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +517,39 @@
     "text": "Less cloying than \"Squidgy\", but not as pure as the driven snow?",
     "enumeration": "6"
    },
-   "solution": "SLUSHY"
+   "solution": "SLUSHY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SLUSHY",
+    "definitions": [
+     {
+      "text": "Less cloying than \"Squidgy\", but not as pure as the driven snow?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Less cloying than \"Squidgy\"",
+      "note": "surface reading: the famous Squidgy tapes of Princess Diana's phone calls, gushing romance"
+     },
+     {
+      "clueFragment": "not as pure as the driven snow",
+      "note": "setter's reading: half-melted dirty snow, and also something mawkishly sentimental"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Squidgy' was the pet name heard on taped calls involving Princess Diana; the answer means both sentimental and like half-melted snow.",
+     "definitionFit": "Slushy means sloppily sentimental and also describes snow turned to dirty, watery slush, so it is neither pure nor quite as soppy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Squidgy"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +567,51 @@
    "group": [
     "8-down",
     "23-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TURNCOAT",
+    "definitions": [
+     {
+      "text": "Party defector",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stage act",
+      "gives": "TURN",
+      "note": "a turn is a performer's act in a variety show"
+     },
+     {
+      "clueFragment": "put on film",
+      "gives": "COAT",
+      "note": "to coat is to cover with a thin film or layer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TURN",
+      "COAT"
+     ]
+    },
+    "explanation": {
+     "surface": "A political defector's switch is just a piece of theatre made for the cameras.",
+     "walkthrough": "'Film' suggests cinema but means a thin layer of something.",
+     "definitionFit": "A turncoat is someone who deserts one side or party for the opposing one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "film"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +625,75 @@
     "text": "Two thirds of Boris's former title, \"Conservative Live Wire\", finally a laughing-stock",
     "enumeration": "9"
    },
-   "solution": "SPECTACLE"
+   "solution": "SPECTACLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SPECTACLE",
+    "definitions": [
+     {
+      "text": "a laughing-stock",
+      "at": 70
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Two thirds of",
+      "for": "deletion",
+      "note": "taking two thirds of a word means the last third of its letters is thrown away"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points at the last letter of the word just before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boris's former title",
+      "gives": "SPECTATOR",
+      "note": "Boris Johnson once edited The Spectator magazine"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "Live",
+      "gives": "L",
+      "note": "L marks the live wire in electrical wiring"
+     },
+     {
+      "clueFragment": "Wire",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of wire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPECTA",
+      "C",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Boris Johnson, once a Conservative live wire, finally becomes a laughing-stock.",
+     "walkthrough": "'Title' means a publication: Johnson edited The Spectator before becoming an MP.",
+     "definitionFit": "To make a spectacle of yourself is to become an object of ridicule, so a spectacle can be a figure of fun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "title"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +713,62 @@
      }
     ]
    },
-   "solution": "UPPERHAND"
+   "solution": "UPPERHAND",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "UPPER HAND",
+    "definitions": [
+     {
+      "text": "advantage",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacks finish",
+      "for": "deletion",
+      "note": "lacking a finish means the name loses its closing letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "\"Superior\"",
+      "gives": "UPPER",
+      "note": "upper as in higher in rank"
+     },
+     {
+      "clueFragment": "\"hard\"",
+      "gives": "H",
+      "note": "H is the pencil-grading abbreviation for hard"
+     },
+     {
+      "clueFragment": "Murray",
+      "gives": "ANDY",
+      "note": "Andy Murray, the Scottish tennis player"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UPPER",
+      "H",
+      "AND"
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis commentary: a superior, hard-hitting Murray who fails to finish, then 'Advantage!'",
+     "walkthrough": "'Advantage' is called in tennis scoring, which fits the Andy Murray surface.",
+     "definitionFit": "The upper hand is a position of control or superiority over a rival, an idiom for advantage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Murray"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +782,57 @@
     "text": "Gordon's chief spin machine alternative? Despondency",
     "enumeration": "5"
    },
-   "solution": "GLOOM"
+   "solution": "GLOOM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GLOOM",
+    "definitions": [
+     {
+      "text": "Despondency",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chief",
+      "for": "letter_selection",
+      "note": "the chief letter is the one at the head of the name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gordon's",
+      "gives": "G",
+      "select": "first",
+      "note": "first letter of Gordon"
+     },
+     {
+      "clueFragment": "spin machine alternative",
+      "gives": "LOOM",
+      "note": "a loom weaves yarn rather than spinning it, a different textile machine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "LOOM"
+     ]
+    },
+    "explanation": {
+     "surface": "Gordon Brown's chief spin doctor's machine replaced by something else, amid despondency.",
+     "walkthrough": "'Spin machine' suggests political spin under Gordon Brown; here it is a textile machine.",
+     "definitionFit": "Gloom is a state of low spirits and hopelessness, a synonym for despondency."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spin"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +850,49 @@
    "group": [
     "12-across",
     "13-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HUNG PARLIAMENT",
+    "definitions": [
+     {
+      "text": "Electorate could make it happen!",
+      "at": 38,
+      "note": "a whole-sentence definition describing the outcome rather than a noun phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suspended",
+      "gives": "HUNG",
+      "note": "hung means hanging, suspended"
+     },
+     {
+      "clueFragment": "MPs collectively",
+      "gives": "PARLIAMENT",
+      "note": "the body of all MPs together is Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HUNG",
+      "PARLIAMENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A fantasy of every MP being suspended at once, which voters might bring about.",
+     "walkthrough": "The wordplay reads suspended MPs literally; the definition is the election result in which voters give no party an overall majority.",
+     "definitionFit": "A hung parliament results when voters return no single party with an overall majority of seats."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "suspended"
+    }
+   }
   },
   {
    "number": 13,
@@ -253,7 +920,60 @@
     "text": "Poser Dave, rubbished by Sun, is a bugger?",
     "enumeration": "10"
    },
-   "solution": "EAVESDROPS"
+   "solution": "EAVESDROPS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EAVESDROPS",
+    "definitions": [
+     {
+      "text": "is a bugger",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rubbished",
+      "for": "anagram",
+      "note": "something rubbished is trashed and knocked about, so the letters are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poser Dave",
+      "gives": "POSERDAVE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Sun",
+      "gives": "S",
+      "note": "S is the abbreviation for sun (and Sunday)"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "POSERDAVES",
+       "gives": "EAVESDROPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "David Cameron, a poser, is trashed by The Sun newspaper, then called a bugger.",
+     "walkthrough": "'Bugger' looks like an insult but means one who plants listening devices; the Sun is just S.",
+     "definitionFit": "To bug is to listen in secretly, so someone who is a bugger is a person who eavesdrops on others' conversations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bugger"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +993,71 @@
      }
     ]
    },
-   "solution": "TORYPRESS"
+   "solution": "TORYPRESS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TORY PRESS",
+    "definitions": [
+     {
+      "text": "Daily Mail, etc.",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means the word is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "takes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "balls",
+      "gives": "ROT",
+      "note": "balls is slang for nonsense, as is rot"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "y is the abbreviation for year"
+     },
+     {
+      "clueFragment": "to smooth out",
+      "gives": "PRESS",
+      "note": "to press clothes is to iron out creases"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOR",
+      "Y",
+      "PRESS"
+     ],
+     "reversals": [
+      {
+       "from": "ROT",
+       "to": "TOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Daily Mail makes a mess of things and takes a year to tidy it up.",
+     "walkthrough": "'Balls up' looks like a single phrase meaning blunder, but balls means nonsense and up flips it.",
+     "definitionFit": "The Tory press means the Conservative-supporting newspapers, of which the Daily Mail is a prime example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "balls"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1071,64 @@
     "text": "\"North's awful\", Newcastle ultimately beneath Brenda?",
     "enumeration": "6"
    },
-   "solution": "THRONE"
+   "solution": "THRONE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "THRONE",
+    "definitions": [
+     {
+      "text": "beneath Brenda?",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awful",
+      "for": "anagram",
+      "note": "something awful is in a dreadful state, so the letters are messed up"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points at the final letter of the place name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "\"North's",
+      "gives": "NORTH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Newcastle",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of Newcastle"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NORTHE",
+       "gives": "THRONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A northerner's grumble that Newcastle ranks beneath the Queen in importance.",
+     "walkthrough": "Brenda is Private Eye's name for the Queen; the definition is what she sits on.",
+     "definitionFit": "A throne is the ceremonial seat of a monarch, so it is literally underneath the Queen when she is enthroned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "beneath"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1142,61 @@
     "text": "Cyclops has almost entered election as a sacred offering",
     "enumeration": "6"
    },
-   "solution": "VOTIVE"
+   "solution": "VOTIVE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "VOTIVE",
+    "definitions": [
+     {
+      "text": "as a sacred offering",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite complete, so the final letter goes"
+     },
+     {
+      "text": "entered",
+      "for": "container",
+      "note": "to have entered something is to be inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "election",
+      "gives": "VOTE",
+      "note": "a vote is an election or ballot"
+     },
+     {
+      "clueFragment": "Cyclops has",
+      "gives": "IVE",
+      "note": "the setter Cyclops speaking of himself: I have, shortened to I've"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VOT",
+      "IV",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter boasts of standing in an election as though it were a holy offering.",
+     "walkthrough": "A setter's own name stands for I or ME, so 'Cyclops has' is I'VE, cut to IV.",
+     "definitionFit": "Votive describes something offered in fulfilment of a vow, such as a candle or gift at a shrine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cyclops"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1210,65 @@
     "text": "\"If I die\" broadcast with 5 Live slated",
     "enumeration": "8"
    },
-   "solution": "VILIFIED"
+   "solution": "VILIFIED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "VILIFIED",
+    "definitions": [
+     {
+      "text": "slated",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast also means scattered widely, as seed is, so the letters are spread into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "\"If I die\"",
+      "gives": "IFIDIE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "5",
+      "gives": "V",
+      "note": "V is the Roman numeral for five"
+     },
+     {
+      "clueFragment": "Live",
+      "gives": "L",
+      "note": "L is the electrical abbreviation for live"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IFIDIEVL",
+       "gives": "VILIFIED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A programme called 'If I Die' broadcast on BBC Radio 5 Live gets panned.",
+     "walkthrough": "Radio 5 Live is a BBC news and sport station; here it is split into V and L.",
+     "definitionFit": "To be vilified is to be spoken of with abuse and contempt, much as a show that is slated is harshly criticised."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1282,56 @@
     "text": "Penny might come first while being penetrated by good bloke",
     "enumeration": "7"
    },
-   "solution": "WHISTLE"
+   "solution": "WHISTLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WHISTLE",
+    "definitions": [
+     {
+      "text": "Penny might come first",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being penetrated by",
+      "for": "container",
+      "note": "a thing penetrated has something pushed inside it, so the second piece goes within the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "while",
+      "gives": "WHILE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "good bloke",
+      "gives": "ST",
+      "note": "a saint is a good person, abbreviated St"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHI",
+      "ST",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A saucy line about a woman named Penny and a decent chap, with a double meaning.",
+     "walkthrough": "Penny is not a woman's name: a penny whistle is a cheap tin flute.",
+     "definitionFit": "A penny whistle is a simple six-holed flute, so penny is a word that can precede this answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Penny"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1345,78 @@
     "text": "Bust, arse wobbles about right with time",
     "enumeration": "6"
    },
-   "solution": "ARREST"
+   "solution": "ARREST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "ARREST",
+    "definitions": [
+     {
+      "text": "Bust",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wobbles",
+      "for": "anagram",
+      "note": "something that wobbles is unsteady and out of shape, so its letters are rearranged"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the rearranged word wraps the following letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arse",
+      "gives": "ARSE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "RES",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARSE",
+       "gives": "ARES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A comic picture of bust and backside wobbling about together.",
+     "walkthrough": "'Bust' looks like the chest beside 'arse', but it is police slang for an arrest.",
+     "definitionFit": "To bust someone is slang for arresting them, as in a drugs bust."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bust"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1436,58 @@
      }
     ]
    },
-   "solution": "HURLYBURLY"
+   "solution": "HURLYBURLY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "HURLY-BURLY",
+    "definitions": [
+     {
+      "text": "bustle",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropping an 'e'",
+      "for": "deletion",
+      "note": "dropping a letter means the named letter is removed from the surname"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Liz",
+      "gives": "HURLEY",
+      "note": "Elizabeth Hurley, the model and actress"
+     },
+     {
+      "clueFragment": "on the large side",
+      "gives": "BURLY",
+      "note": "burly means big and heavily built"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HURLY",
+      "BURLY"
+     ]
+    },
+    "explanation": {
+     "surface": "Liz Hurley, looking rather large, caught in a bustle of activity.",
+     "walkthrough": "Liz here is Elizabeth Hurley rather than the Queen, who is Brenda elsewhere in this puzzle.",
+     "definitionFit": "Hurly-burly is noisy commotion and busy activity, a synonym for bustle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Liz"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1501,61 @@
     "text": "\"More work\" I pout, when screwed by one",
     "enumeration": "6"
    },
-   "solution": "UTOPIA"
+   "solution": "UTOPIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UTOPIA",
+    "definitions": [
+     {
+      "text": "\"More work\"",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "screwed",
+      "for": "anagram",
+      "note": "something screwed is twisted, so the letters are twisted into a new order"
+     }
+    ],
+    "linkWords": [
+     "when",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I pout",
+      "gives": "IPOUT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "one as the article a"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IPOUTA",
+       "gives": "UTOPIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An overworked employee sulks at being asked for more work, with a ruder undertone.",
+     "walkthrough": "'More work' is not extra labour: it means a book by Sir Thomas More.",
+     "definitionFit": "Utopia is the 1516 book by Sir Thomas More describing an ideal island society, so it is a More work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "More"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1569,54 @@
     "text": "Sailor gobbles second powerful person",
     "enumeration": "4"
    },
-   "solution": "TSAR"
+   "solution": "TSAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TSAR",
+    "definitions": [
+     {
+      "text": "powerful person",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gobbles",
+      "for": "container",
+      "note": "something gobbled ends up inside the eater, so the second piece goes within the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailor",
+      "gives": "TAR",
+      "note": "tar is an old word for a sailor"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "s is the abbreviation for second"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "S",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "A greedy sailor wolfs down the second helping, like a powerful figure.",
+     "definitionFit": "A tsar was the Russian emperor, and the word now means any figure with great authority over an area."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 23,
@@ -419,7 +1644,43 @@
     "text": "He'd not be slow to fire Darling!",
     "enumeration": "5"
    },
-   "solution": "SUGAR"
+   "solution": "SUGAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SUGAR",
+    "definitions": [
+     {
+      "text": "He'd not be slow to fire",
+      "at": 0
+     },
+     {
+      "text": "Darling",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He'd not be slow to fire",
+      "note": "first meaning: Alan ..., the businessman famous for 'You're fired!' on The Apprentice"
+     },
+     {
+      "clueFragment": "Darling",
+      "note": "second meaning: a term of endearment"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Darling suggests Alistair Darling, then Chancellor, fitting the political surface; it is really the pet name. Lord Sugar hosted the British version of The Apprentice.",
+     "definitionFit": "Alan Sugar dismissed contestants with 'You're fired!', and sugar is an affectionate term like honey or sweetheart."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Darling"
+    }
+   }
   },
   {
    "number": 25,
@@ -437,7 +1698,75 @@
    "group": [
     "25-down",
     "28-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "GONE TO POT",
+    "definitions": [
+     {
+      "text": "a shadow of its former self",
+      "at": 61
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half of",
+      "for": "deletion",
+      "note": "half of a word keeps only its first two of four letters"
+     },
+     {
+      "text": "overturned",
+      "for": "reversal",
+      "note": "overturned means flipped over, so the word reads backwards"
+     }
+    ],
+    "linkWords": [
+     "–"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Over the hill",
+      "gives": "GONE",
+      "note": "past one's best, finished"
+     },
+     {
+      "clueFragment": "Tory",
+      "gives": "TORY",
+      "note": "taken as written before halving"
+     },
+     {
+      "clueFragment": "leadership",
+      "gives": "TOP",
+      "note": "the top is the leading position"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GONE",
+      "TO",
+      "POT"
+     ],
+     "reversals": [
+      {
+       "from": "TOP",
+       "to": "POT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory party past its best, its leadership in turmoil, a shadow of itself.",
+     "definitionFit": "Something gone to pot has deteriorated badly through neglect, an idiom for being much worse than it was."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leadership"
+    }
+   }
   },
   {
    "number": 26,
@@ -457,7 +1786,83 @@
      }
     ]
    },
-   "solution": "OFFCOURSE"
+   "solution": "OFFCOURSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "OFF COURSE",
+    "definitions": [
+     {
+      "text": "not going to plan",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned",
+      "for": "anagram",
+      "note": "something turned has gone off and changed, so its letters are rearranged"
+     },
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter, which alone is kept"
+     }
+    ],
+    "linkWords": [
+     ":"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dicky",
+      "gives": "OFF",
+      "note": "dicky is British slang for unwell or unreliable, as is off"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "sour",
+      "gives": "SOUR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "election",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter of election"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFF",
+      "C",
+      "OURS",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOUR",
+       "gives": "OURS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Conservative called Dicky goes sour as the election campaign goes wrong.",
+     "walkthrough": "Dicky looks like a name but is British slang for shaky or unwell.",
+     "definitionFit": "Off course means having strayed from the intended route, so things are not going to plan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dicky"
+    }
+   }
   },
   {
    "number": 27,
@@ -471,7 +1876,43 @@
     "text": "A slimy descent not in the offing for Labour this time?",
     "enumeration": "9"
    },
-   "solution": "LANDSLIDE"
+   "solution": "LANDSLIDE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LANDSLIDE",
+    "definitions": [
+     {
+      "text": "A slimy descent",
+      "at": 0
+     },
+     {
+      "text": "not in the offing for Labour this time?",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A slimy descent",
+      "note": "first meaning: a mass of earth and mud sliding down a slope"
+     },
+     {
+      "clueFragment": "not in the offing for Labour this time?",
+      "note": "second meaning: an overwhelming election victory, unlikely for Labour this time"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Labour won landslide victories in 1997 and 2001; by 2010 such a win looked out of reach.",
+     "definitionFit": "A landslide is both a fall of earth and rock down a hillside and a crushing majority in an election."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "slimy"
+    }
+   }
   },
   {
    "number": 28,
