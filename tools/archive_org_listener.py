@@ -359,7 +359,8 @@ def pick(lays, texts=(), guessed=()):
     line of their own, unless a reading numbers those words in order as a
     light outside the clue's group: the number is the one reader's, the
     words every reader's ("40. Often forbidden" read "4", "10." and with no
-    number)."""
+    number). A light one reading alone lays on no evidence is dropped
+    (unlaid)."""
     guessed = list(guessed) or [set() for _ in lays]
     lines = [[LINE_CLUE.sub(r"\2", ln).strip().lower() for ln in t.splitlines() if ln.strip()] for t in texts]
     out = {}
@@ -375,7 +376,28 @@ def pick(lays, texts=(), guessed=()):
             good = [v for k, laid in enumerate(lays) if lid in laid and lid not in guessed[k]
                     and (v := laid[lid]) and sound(v[0]) and printed_elsewhere(v, lid, k, lays, lines, guessed)]
         out[lid] = good[0] if good else ("", enum, None)
-    return by_lost_figure(out, lays, guessed)
+    return unlaid(by_lost_figure(out, lays, guessed), lays, guessed)
+
+
+def unlaid(out, lays, guessed):
+    """`out` without the blank lights one reading alone lays on no evidence
+    of a light: its number out of order (guessed), its words no clue
+    (sound), or its words another light's agreed clue (No 3's Tesseract,
+    its lists crossed, laying 16 down's "Termination meaning meadow." as
+    16 across). A light two readings lay, or one reading's sound clue
+    nothing else holds, stays blank: a clue to read."""
+    filled = [t.lower() for t, _, _ in out.values() if t]
+    keep = {}
+    for lid, v in out.items():
+        mine = [k for k, laid in enumerate(lays) if lid in laid]
+        if not v[0] and len(mine) == 1:
+            k = mine[0]
+            text = lays[k][lid][0]
+            if lid in guessed[k] or not sound(text) or any(
+                    ocr_clues.similar(text.lower(), t) >= CORROBORATE for t in filled):
+                continue
+        keep[lid] = v
+    return keep
 
 
 def by_lost_figure(out, lays, guessed):

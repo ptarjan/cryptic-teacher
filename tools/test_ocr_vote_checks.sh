@@ -46,6 +46,16 @@ check("a word takes the case most readings print it in, a capital at the clue's 
 check("mirror: no reading's capital, none put in",
       "involve in charge", oc.agree("involve in charge", [["#", "involve", "in", "charge", "#"]] * 2)[0])
 
+# No 3's 52D "A Frontier cantonment.": a reading that lost the clue votes
+# on none of its words, so the letter the one printing reading shares stands;
+# a letter most printing readings lack is a misread number (mirror).
+ch = ["#", "A", "Frontier", "cantonment.", "#", "The", "King", "Emperor.", "#"]
+lost = ["#", "A", "large", "number.", "#"]
+check("an opening letter a printing reading shares stands", "A. Frontier cantonment.",
+      oc.agree("A. Frontier cantonment.", [ch, lost, lost])[0])
+check("an opening letter most printing readings lack goes (mirror)", "Frontier cantonment.",
+      oc.agree("A. Frontier cantonment.", [ch] + [["#", "Frontier", "cantonment.", "#"]] * 2 + [lost])[0])
+
 # The count: the shape most readings print that fills the light.
 check("a count lost to the light's length takes the readings' (5-4)",
       ("5-4", None), oc.printed_count("9", [{"5-4"}, set(), {"5-4"}], 9))
