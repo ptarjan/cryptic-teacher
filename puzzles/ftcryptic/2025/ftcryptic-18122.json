@@ -24,6 +24,9 @@
   "date": "2025-08-01",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,68 @@
     "text": "Sailor ditching a map that's back-to- front",
     "enumeration": "4"
    },
-   "solution": "SALT"
+   "solution": "SALT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "SALT",
+    "definitions": [
+     {
+      "text": "Sailor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ditching",
+      "for": "deletion",
+      "note": "to ditch something is to throw it away, so the named letter is dropped from the word"
+     },
+     {
+      "text": "back-to- front",
+      "for": "reversal",
+      "note": "back-to-front describes something facing the wrong way, so the remaining letters are read in the opposite order"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written; this is the letter to be dropped"
+     },
+     {
+      "clueFragment": "map",
+      "gives": "ATLAS",
+      "note": "an atlas is a book of maps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SALT"
+     ],
+     "reversals": [
+      {
+       "from": "TLAS",
+       "to": "SALT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor throws away a chart that was the wrong way round.",
+     "walkthrough": "ATLAS loses its first A to leave TLAS, which turned round gives SALT.",
+     "definitionFit": "An old salt is a seasoned seaman, so salt alone serves as a slang synonym for a sailor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "map"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +115,58 @@
     "text": "Commanding officer charging forward and back",
     "enumeration": "6"
    },
-   "solution": "SECOND"
+   "solution": "SECOND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SECOND",
+    "definitions": [
+     {
+      "text": "back",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "charging",
+      "for": "container",
+      "note": "charging means loading, as a gun is charged, so one piece is loaded into the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "forward",
+      "gives": "SEND",
+      "note": "to forward a letter is to send it on"
+     },
+     {
+      "clueFragment": "Commanding officer",
+      "gives": "CO",
+      "note": "CO is the standard abbreviation for commanding officer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "CO",
+      "ND"
+     ]
+    },
+    "explanation": {
+     "surface": "An officer leads a charge forward, then retreats.",
+     "walkthrough": "'Charging forward and back' reads as a battlefield advance and retreat; 'charging' is the insertion signal and 'back' is a verb meaning support.",
+     "definitionFit": "To second a motion is to support it formally, which is what backing a proposal means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "charging"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +180,62 @@
     "text": "Unloading, remove the last of the bolts",
     "enumeration": "9"
    },
-   "solution": "LIGHTNING"
+   "solution": "LIGHTNING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "LIGHTNING",
+    "definitions": [
+     {
+      "text": "bolts",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "remove",
+      "for": "deletion",
+      "note": "to remove is to take away, so a letter comes out of the word"
+     },
+     {
+      "text": "the last of",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter, which picks out one letter only"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unloading",
+      "gives": "LIGHTENING",
+      "note": "unloading a cargo makes it lighter, so it is lightening"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the word the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIGHT",
+      "NING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone unloading a crate is told to take out the last of the bolts.",
+     "walkthrough": "'Bolts' looks like hardware being unloaded, but it is the definition: lightning bolts.",
+     "definitionFit": "Lightning comes in bolts, the flashes of electrical discharge from a storm cloud."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bolts"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +255,44 @@
      }
     ]
    },
-   "solution": "ABOVEBOARD"
+   "solution": "ABOVEBOARD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ABOVE BOARD",
+    "definitions": [
+     {
+      "text": "Where chess is played",
+      "at": 0
+     },
+     {
+      "text": "fairly",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where chess is played",
+      "note": "first meaning: literally above the board, where the pieces and players' hands are"
+     },
+     {
+      "clueFragment": "fairly",
+      "note": "second meaning: honestly and openly, without trickery"
+     }
+    ],
+    "explanation": {
+     "surface": "A description of a chess game conducted honestly.",
+     "walkthrough": "The surface reads as one phrase about fair play at chess; split it after 'played' and each half defines the answer.",
+     "definitionFit": "Above board is an idiom for honest and open, from card players keeping hands visible above the table."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fairly"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +306,73 @@
     "text": "Protected animal attempts to eat environmentalist's face and attacks",
     "enumeration": "9"
    },
-   "solution": "BATTERIES"
+   "solution": "BATTERIES",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BATTERIES",
+    "definitions": [
+     {
+      "text": "attacks",
+      "at": 61
+     }
+    ],
+    "indicators": [
+     {
+      "text": "face",
+      "for": "letter_selection",
+      "note": "the face is the front of something, so only the first letter is kept"
+     },
+     {
+      "text": "to eat",
+      "for": "container",
+      "note": "eating takes something inside, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Protected animal",
+      "gives": "BAT",
+      "note": "bats are a legally protected species in the UK"
+     },
+     {
+      "clueFragment": "attempts",
+      "gives": "TRIES",
+      "note": "attempts are tries"
+     },
+     {
+      "clueFragment": "environmentalist's",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of environmentalist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAT",
+      "T",
+      "E",
+      "RIES"
+     ]
+    },
+    "explanation": {
+     "surface": "A protected creature tries to bite a conservationist's face and attacks.",
+     "walkthrough": "In British law bats are protected, which makes them a natural 'protected animal'. Batteries are a series of blows, as in assault and battery.",
+     "definitionFit": "A battery is a sustained bombardment or assault, so batteries means attacks as a plural noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "face"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +386,53 @@
     "text": "Judgments reached by ill-treated wives",
     "enumeration": "5"
    },
-   "solution": "VIEWS"
+   "solution": "VIEWS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "VIEWS",
+    "definitions": [
+     {
+      "text": "Judgments",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ill-treated",
+      "for": "anagram",
+      "note": "something ill-treated is knocked about, so these letters are knocked into a new order"
+     }
+    ],
+    "linkWords": [
+     "reached by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wives",
+      "gives": "WIVES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WIVES",
+       "gives": "VIEWS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mistreated wives come to their own conclusions about their husbands.",
+     "definitionFit": "Views are opinions, the considered judgments someone holds on a matter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ill-treated"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +446,76 @@
     "text": "Empty bureau, under which King Charles' housemaid's left Champagne?",
     "enumeration": "7"
    },
-   "solution": "BUBBLES"
+   "solution": "BUBBLES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "deletion"
+    ],
+    "answer": "BUBBLES",
+    "definitions": [
+     {
+      "text": "Champagne?",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Empty",
+      "for": "letter_selection",
+      "note": "emptying a word removes its insides, so only the outer letters remain"
+     },
+     {
+      "text": "left",
+      "for": "deletion",
+      "note": "'housemaid's left' means the servant has departed, so her name leaves the word"
+     }
+    ],
+    "linkWords": [
+     "under which"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bureau",
+      "gives": "BU",
+      "select": "outer",
+      "note": "the first and last letters of bureau"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "BB",
+      "note": "BB King was the American blues guitarist"
+     },
+     {
+      "clueFragment": "Charles'",
+      "gives": "CHARLES",
+      "note": "the name taken as written"
+     },
+     {
+      "clueFragment": "housemaid's",
+      "gives": "CHAR",
+      "note": "a char, or charwoman, is a cleaning lady"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BU",
+      "BB",
+      "LES"
+     ]
+    },
+    "explanation": {
+     "surface": "A cleared-out bureau beneath which a royal servant has left a bottle of fizz.",
+     "walkthrough": "'King Charles' looks like one royal, but King is the American blues guitarist BB King, and the housemaid is a char, British slang for a cleaning lady. In a down clue 'under which' places what follows lower in the grid.",
+     "definitionFit": "Bubbles is informal slang for champagne or any sparkling wine; the question mark flags the casual name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "King"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +529,64 @@
     "text": "I spent a morning in bed, which is unusual",
     "enumeration": "5"
    },
-   "solution": "ALIEN"
+   "solution": "ALIEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ALIEN",
+    "definitions": [
+     {
+      "text": "unusual",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spent",
+      "for": "deletion",
+      "note": "something spent is used up and gone, so that letter disappears from the word"
+     }
+    ],
+    "linkWords": [
+     "which is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the letter to be removed, taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "morning in bed",
+      "gives": "LIEIN",
+      "note": "a lie-in is a morning spent lying in bed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LIE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone confesses to a lazy morning in bed, out of character for them.",
+     "walkthrough": "A LIE-IN loses its second I to leave ALIEN.",
+     "definitionFit": "Alien means foreign or strange, so something alien to a person is unusual for them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spent"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +600,61 @@
     "text": "Ugly lines made by car lover with Tesla regularly driven out",
     "enumeration": "8"
    },
-   "solution": "DOGGEREL"
+   "solution": "DOGGEREL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DOGGEREL",
+    "definitions": [
+     {
+      "text": "Ugly lines",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly driven out",
+      "for": "letter_selection",
+      "note": "driving out every other letter at regular intervals keeps the alternate ones left behind"
+     }
+    ],
+    "linkWords": [
+     "made by",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "car lover",
+      "gives": "DOGGER",
+      "note": "British slang for someone who has sex in parked cars, known as dogging"
+     },
+     {
+      "clueFragment": "Tesla",
+      "gives": "EL",
+      "select": "alternate",
+      "note": "the second and fourth letters of Tesla"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOGGER",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "Bad verse written by a motoring enthusiast after his Tesla was driven away.",
+     "walkthrough": "'Car lover' suggests a motoring fan, but it is cheeky British slang for someone who goes dogging in car parks.",
+     "definitionFit": "Doggerel is crude, badly made verse, so its poor lines are ugly ones."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lover"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +668,76 @@
     "text": "Dirty and slippery rugby ball initially held",
     "enumeration": "6"
    },
-   "solution": "GRUBBY"
+   "solution": "GRUBBY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GRUBBY",
+    "definitions": [
+     {
+      "text": "Dirty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "slippery",
+      "for": "anagram",
+      "note": "something slippery slides about, so these letters slide into a new arrangement"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the first letter of the word next to it"
+     },
+     {
+      "text": "held",
+      "for": "container",
+      "note": "something held is clasped inside, so that letter goes within the others"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rugby",
+      "gives": "RUGBY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ball",
+      "gives": "B",
+      "select": "first",
+      "note": "the first letter of ball"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRUB",
+      "B",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RUGBY",
+       "gives": "GRUBY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A muddy, slippery rugby ball is held by a player.",
+     "definitionFit": "Grubby is an everyday synonym for dirty, covered in grime."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "slippery"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +751,57 @@
     "text": "Rolled paper letter a GI carefully carries west",
     "enumeration": "9"
    },
-   "solution": "CIGARETTE"
+   "solution": "CIGARETTE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "CIGARETTE",
+    "definitions": [
+     {
+      "text": "Rolled paper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carries",
+      "for": "hidden_word",
+      "note": "carries means holds inside, so the answer is held within the run of words"
+     },
+     {
+      "text": "west",
+      "for": "reversal",
+      "note": "in an across clue going west means reading from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "letter a GI carefully",
+      "gives": "ETTERAGIC",
+      "note": "the letters spanning the end of letter, a, GI and the start of carefully"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ETTERAGIC",
+       "to": "CIGARETTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier carefully carries a rolled-up letter westward.",
+     "walkthrough": "'Rolled paper letter' reads as one item; the definition stops at 'paper'.",
+     "definitionFit": "A cigarette is tobacco wrapped in a rolled tube of thin paper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "letter"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +815,57 @@
     "text": "Get jewels by singing, not fighting",
     "enumeration": "5"
    },
-   "solution": "BLING"
+   "solution": "BLING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BLING",
+    "definitions": [
+     {
+      "text": "jewels",
+      "at": 4
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means without, so the fighting word is taken out of the singing word"
+     }
+    ],
+    "linkWords": [
+     "Get",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "singing",
+      "gives": "WARBLING",
+      "note": "warbling is singing with trills"
+     },
+     {
+      "clueFragment": "fighting",
+      "gives": "WAR",
+      "note": "war is fighting between nations"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLING"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to win gems through song rather than combat.",
+     "walkthrough": "WARBLING without WAR leaves BLING.",
+     "definitionFit": "Bling is slang for flashy jewellery, ostentatious gems and gold worn for show."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "singing"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +879,47 @@
     "text": "That which distinguishes tennis from Ping-Pong is striking",
     "enumeration": "7"
    },
-   "solution": "NOTABLE"
+   "solution": "NOTABLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NOTABLE",
+    "definitions": [
+     {
+      "text": "That which distinguishes tennis from Ping-Pong",
+      "at": 0
+     },
+     {
+      "text": "striking",
+      "at": 50
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "That which distinguishes tennis from Ping-Pong",
+      "note": "first meaning, read as two words: Ping-Pong is table tennis, and ordinary tennis has none"
+     },
+     {
+      "clueFragment": "striking",
+      "note": "second meaning: remarkable, worthy of attention"
+     }
+    ],
+    "explanation": {
+     "surface": "A remark about what sets lawn tennis apart from its indoor cousin.",
+     "walkthrough": "Split the answer as NO TABLE: that is the difference between tennis and table tennis. 'Striking' sounds like hitting a ball but means remarkable.",
+     "definitionFit": "Notable means worth noticing, which is what a striking thing is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "striking"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +933,71 @@
     "text": "Mum's spoiled nieces left bored",
     "enumeration": "7"
    },
-   "solution": "SILENCE"
+   "solution": "SILENCE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SILENCE",
+    "definitions": [
+     {
+      "text": "Mum",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spoiled",
+      "for": "anagram",
+      "note": "something spoiled is ruined, so these letters are wrecked into a new order"
+     },
+     {
+      "text": "bored",
+      "for": "container",
+      "note": "to bore is to drill into, so that letter is drilled inside the rest"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nieces",
+      "gives": "NIECES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "L",
+      "ENCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NIECES",
+       "gives": "SIENCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mother has indulged her nieces, who have now been left bored.",
+     "walkthrough": "'Mum' looks like a mother; it is the noun from 'mum's the word', meaning saying nothing.",
+     "definitionFit": "Mum as a noun or adjective means saying nothing, from the idiom keeping mum, so it equals quiet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mum"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +1011,66 @@
     "text": "Intercourse probing 'the limits of cinematography in Casablanca'?",
     "enumeration": "4"
    },
-   "solution": "CITY"
+   "solution": "CITY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CITY",
+    "definitions": [
+     {
+      "text": "Casablanca",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the limits of",
+      "for": "letter_selection",
+      "note": "limits are boundaries, so only the first and last letters are kept"
+     },
+     {
+      "text": "probing",
+      "for": "container",
+      "note": "a probe pushes inside something, so that piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cinematography",
+      "gives": "CY",
+      "select": "outer",
+      "note": "the first and last letters of cinematography"
+     },
+     {
+      "clueFragment": "Intercourse",
+      "gives": "IT",
+      "note": "it is a coy slang word for sex"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "IT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A film critic's question about how far the love scenes in the classic film Casablanca push the camera.",
+     "walkthrough": "Casablanca looks like the film; the definition is the Moroccan city of that name, given as an example.",
+     "definitionFit": "Casablanca is the largest city in Morocco, so it is an example of the answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Casablanca"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +1084,54 @@
     "text": "Prime policeman to escape unseen",
     "enumeration": "9"
    },
-   "solution": "INVISIBLE"
+   "solution": "INVISIBLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "INVISIBLE",
+    "definitions": [
+     {
+      "text": "unseen",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to escape",
+      "for": "deletion",
+      "note": "the escapee gets out, so those letters leave the larger word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prime",
+      "gives": "INDIVISIBLE",
+      "note": "a prime number cannot be divided by any number except itself and one"
+     },
+     {
+      "clueFragment": "policeman",
+      "gives": "DI",
+      "note": "DI is a Detective Inspector"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "VISIBLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A leading police officer gets away without being seen.",
+     "walkthrough": "'Prime' looks like an adjective for the policeman; it is a number that is indivisible, and DI walks out of it.",
+     "definitionFit": "Invisible means unable to be seen, the same sense as unseen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Prime"
+    }
+   }
   },
   {
    "number": 16,
@@ -273,7 +1151,86 @@
      }
     ]
    },
-   "solution": "VIDEOGAME"
+   "solution": "VIDEOGAME",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "deletion",
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "VIDEO GAME",
+    "definitions": [
+     {
+      "text": "Disc inserted in new Megadrive after wrapper finally removed?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removed",
+      "for": "deletion",
+      "note": "removed means taken out, so that letter leaves the word"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of the word before it"
+     },
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "new suggests a fresh version, so the letters are remade into a different order"
+     },
+     {
+      "text": "inserted in",
+      "for": "container",
+      "note": "inserted in means placed inside, so that letter goes into the middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Megadrive",
+      "gives": "MEGADRIVE",
+      "note": "taken as written; the Mega Drive was a Sega games console"
+     },
+     {
+      "clueFragment": "wrapper",
+      "gives": "R",
+      "select": "last",
+      "note": "the last letter of wrapper"
+     },
+     {
+      "clueFragment": "Disc",
+      "gives": "O",
+      "note": "a disc is round like the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIDE",
+      "O",
+      "GAME"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MEGADIVE",
+       "gives": "VIDEGAME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Unwrapping a new Sega console and putting a disc in it.",
+     "walkthrough": "The Mega Drive was Sega's 1990s games console. Read whole, the clue also describes what you do to start a computer game, so it doubles as the definition.",
+     "definitionFit": "Putting a disc into a freshly unwrapped games console is how you start playing a computer game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "wrapper"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +1244,39 @@
     "text": "The end of Star Trek?",
     "enumeration": "9"
    },
-   "solution": "BETHLEHEM"
+   "solution": "BETHLEHEM",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BETHLEHEM",
+    "definitions": [
+     {
+      "text": "The end of Star Trek?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The end of Star Trek?",
+      "note": "surface reading: the final episode of the science-fiction television series"
+     },
+     {
+      "clueFragment": "Star Trek",
+      "note": "setter's reading: the wise men's journey following the Nativity star, which ended at the town of Jesus's birth"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The capitals suggest the TV franchise; read lower-case, it is the journey of the Magi following the star in the Gospel of Matthew.",
+     "definitionFit": "The Magi followed the star until it stopped over the town of Jesus's birth, the end of their trek."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Trek"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1290,67 @@
     "text": "Really loud soldiers shoot indiscriminately",
     "enumeration": "8"
    },
-   "solution": "FORSOOTH"
+   "solution": "FORSOOTH",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "FORSOOTH",
+    "definitions": [
+     {
+      "text": "Really",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "indiscriminately",
+      "for": "anagram",
+      "note": "firing indiscriminately is firing at random, so these letters land in random order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loud",
+      "gives": "F",
+      "note": "f, forte, is the musical marking for loud"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "OR",
+      "note": "OR stands for other ranks, soldiers who are not officers"
+     },
+     {
+      "clueFragment": "shoot",
+      "gives": "SOOTH",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "OR",
+      "SOOTH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SHOOT",
+       "gives": "SOOTH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Noisy troops fire wildly in all directions.",
+     "walkthrough": "'Really loud' looks like one phrase; 'Really' is the definition and 'loud' starts the wordplay.",
+     "definitionFit": "Forsooth is an archaic exclamation meaning in truth, used like indeed or truly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Really"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1364,68 @@
     "text": "Tight orange Sainsbury's top I'd put on",
     "enumeration": "9"
    },
-   "solution": "ORGANISED"
+   "solution": "ORGANISED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ORGANISED",
+    "definitions": [
+     {
+      "text": "put on",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top",
+      "for": "letter_selection",
+      "note": "the top of a word is its first letter"
+     },
+     {
+      "text": "Tight",
+      "for": "anagram",
+      "note": "tight means drunk, and drunken letters stagger into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "orange",
+      "gives": "ORANGE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Sainsbury's",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of Sainsbury's"
+     },
+     {
+      "clueFragment": "I'd",
+      "gives": "ID",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ORANGESID",
+       "gives": "ORGANISED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper says they would wear a snug orange top from Sainsbury's, a British supermarket chain.",
+     "walkthrough": "'Tight orange top' looks like clothing; 'Tight' means drunk and the definition is 'put on', as an event is put on.",
+     "definitionFit": "To put on an event is to stage or arrange it, so a staged event has been organised."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Tight"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1439,41 @@
     "text": "Book groups",
     "enumeration": "7"
    },
-   "solution": "NUMBERS"
+   "solution": "NUMBERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NUMBERS",
+    "definitions": [
+     {
+      "text": "Book",
+      "at": 0
+     },
+     {
+      "text": "groups",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Book",
+      "note": "first meaning: the fourth book of the Old Testament"
+     },
+     {
+      "clueFragment": "groups",
+      "note": "second meaning: bodies of people"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Numbers is the Bible book recording the census of Israel, and numbers also means groups or quantities of people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Book"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1487,51 @@
     "text": "Musical groups moving around",
     "enumeration": "4"
    },
-   "solution": "CATS"
+   "solution": "CATS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CATS",
+    "definitions": [
+     {
+      "text": "Musical",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving around",
+      "for": "anagram",
+      "note": "moving around shifts things into new positions, so the letters change order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "groups",
+      "gives": "CAST",
+      "note": "to cast is to group or arrange things, as type is cast"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CAST",
+       "gives": "CATS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bands touring the country.",
+     "walkthrough": "'Musical groups' reads as bands; 'Musical' alone is the definition.",
+     "definitionFit": "Cats is Andrew Lloyd Webber's long-running stage show based on T. S. Eliot's poems."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Musical"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1545,56 @@
     "text": "Bright front of cabaret bar",
     "enumeration": "6"
    },
-   "solution": "CLEVER"
+   "solution": "CLEVER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CLEVER",
+    "definitions": [
+     {
+      "text": "Bright",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front of",
+      "for": "letter_selection",
+      "note": "the front of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cabaret",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of cabaret"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "LEVER",
+      "note": "a lever is a bar used to prise or lift"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LEVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A well-lit area at the front of a nightclub's bar.",
+     "walkthrough": "'Bar' looks like the drinks counter; it is a metal bar.",
+     "definitionFit": "Bright describes a quick, intelligent person, a common synonym for clever."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1608,55 @@
     "text": "Piece of fruit aristocrat very gently inserted",
     "enumeration": "6"
    },
-   "solution": "PEPPER"
+   "solution": "PEPPER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PEPPER",
+    "definitions": [
+     {
+      "text": "Piece of fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inserted",
+      "for": "container",
+      "note": "inserted means put inside, so one piece goes into the middle of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aristocrat",
+      "gives": "PEER",
+      "note": "a peer is a member of the nobility"
+     },
+     {
+      "clueFragment": "very gently",
+      "gives": "PP",
+      "note": "pp, pianissimo, is the musical marking for very soft"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "PP",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A noble very delicately places a slice of fruit somewhere.",
+     "walkthrough": "A pepper is botanically a fruit, holding the plant's seeds, so the definition is fair.",
+     "definitionFit": "Botanically a pepper is the seed-bearing fruit of the capsicum plant, though cooks treat it as a vegetable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "gently"
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1670,65 @@
     "text": "Different ways ladies promote love for flaky white guys",
     "enumeration": "7"
    },
-   "solution": "SNOWMEN"
+   "solution": "SNOWMEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "SNOWMEN",
+    "definitions": [
+     {
+      "text": "flaky white guys",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "promote love",
+      "for": "anagram",
+      "note": "promoting the zero-shaped love moves that letter up to the front, rearranging the word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Different ways",
+      "gives": "SN",
+      "note": "south and north, two different compass directions"
+     },
+     {
+      "clueFragment": "ladies",
+      "gives": "WOMEN",
+      "note": "ladies are women"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SN",
+      "OWMEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WOMEN",
+       "gives": "OWMEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Women in different ways stand up for love, on behalf of unreliable white men.",
+     "walkthrough": "Love is O in crosswords, from zero in tennis; it moves to the front of WOMEN. 'Flaky white guys' reads as an insult but means men made of snowflakes.",
+     "definitionFit": "Snowmen are figures built from snow, which falls in white flakes, so they are flaky white guys."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flaky"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1742,42 @@
     "text": "Some strobe-lit signs",
     "enumeration": "5"
    },
-   "solution": "OBELI"
+   "solution": "OBELI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OBELI",
+    "definitions": [
+     {
+      "text": "signs",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means part of, so the answer is a part of the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strobe-lit",
+      "gives": "OBELI",
+      "note": "the letters across the hyphen, inside strobe and lit"
+     }
+    ],
+    "explanation": {
+     "surface": "Illuminated notices flashing under strobe lights.",
+     "definitionFit": "Obeli are marks such as the dagger or division sign, used in texts and printing as symbols."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "strobe-lit"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1791,55 @@
     "text": "Name a place that's filthy and unpleasant",
     "enumeration": "5"
    },
-   "solution": "NASTY"
+   "solution": "NASTY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NASTY",
+    "definitions": [
+     {
+      "text": "unpleasant",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Name",
+      "gives": "N",
+      "note": "N is the standard abbreviation for name"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "place that's filthy",
+      "gives": "STY",
+      "note": "a pigsty is a byword for a filthy place"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "A",
+      "STY"
+     ]
+    },
+    "explanation": {
+     "surface": "Identify somewhere dirty and disagreeable.",
+     "definitionFit": "Nasty and unpleasant are near synonyms for something disagreeable or offensive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Name"
+    }
+   }
   },
   {
    "number": 26,
@@ -427,7 +1853,63 @@
     "text": "Go on to animate Oliver Postgate's final feature",
     "enumeration": "7"
    },
-   "solution": "OVERLIE"
+   "solution": "OVERLIE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "OVERLIE",
+    "definitions": [
+     {
+      "text": "Go on",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "final feature",
+      "for": "letter_selection",
+      "note": "the final feature of a word is its closing letter"
+     },
+     {
+      "text": "to animate",
+      "for": "anagram",
+      "note": "animating something sets it moving, so the letters move into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oliver",
+      "gives": "OLIVER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Postgate's",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of Postgate"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OLIVERE",
+       "gives": "OVERLIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Urging someone to animate the last feature by Oliver Postgate, maker of British children's cartoons such as Bagpuss and The Clangers.",
+     "walkthrough": "'Go on' reads as encouragement; it means to lie on top of, and 'to animate' is the rearranging signal.",
+     "definitionFit": "To overlie is to lie upon or cover something, that is to go on top of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "animate"
+    }
+   }
   },
   {
    "number": 27,
@@ -441,7 +1923,50 @@
     "text": "Abnormally large gongs put on base",
     "enumeration": "5"
    },
-   "solution": "OBESE"
+   "solution": "OBESE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OBESE",
+    "definitions": [
+     {
+      "text": "Abnormally large",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "put on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gongs",
+      "gives": "OBES",
+      "note": "an OBE, Officer of the Order of the British Empire, is an honour, informally a gong"
+     },
+     {
+      "clueFragment": "base",
+      "gives": "E",
+      "note": "e is the base of natural logarithms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OBES",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Oversized metal gongs are set on a stand.",
+     "walkthrough": "'Gongs' is British slang for medals or honours, not percussion.",
+     "definitionFit": "Obese describes a body weight far beyond the healthy range, so it means very fat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gongs"
+    }
+   }
   },
   {
    "number": 28,
@@ -455,7 +1980,62 @@
     "text": "Bar beginning to shake in long-distance vessel",
     "enumeration": "9"
    },
-   "solution": "SPACESHIP"
+   "solution": "SPACESHIP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SPACESHIP",
+    "definitions": [
+     {
+      "text": "long-distance vessel",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bar",
+      "gives": "SPACE",
+      "note": "the space bar is the long key on a keyboard"
+     },
+     {
+      "clueFragment": "shake",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of shake"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "HIP",
+      "note": "both mean fashionable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPACE",
+      "S",
+      "HIP"
+     ]
+    },
+    "explanation": {
+     "surface": "A cocktail bar beginning to shake drinks on a ship far out at sea.",
+     "walkthrough": "'In' looks like a link word but means fashionable, which hip also does.",
+     "definitionFit": "A spaceship travels vast distances beyond Earth, so it is a vessel for the longest journeys."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 29,
@@ -469,7 +2049,70 @@
     "text": "Rampant hysteria's overcoming learner driver, generating looks",
     "enumeration": "10"
    },
-   "solution": "HAIRSTYLES"
+   "solution": "HAIRSTYLES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "HAIRSTYLES",
+    "definitions": [
+     {
+      "text": "looks",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rampant",
+      "for": "anagram",
+      "note": "rampant means running wild, so these letters run into a new order"
+     },
+     {
+      "text": "overcoming",
+      "for": "container",
+      "note": "overcoming here means coming over and around, so one piece is enclosed by the other"
+     }
+    ],
+    "linkWords": [
+     "generating"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hysteria's",
+      "gives": "HYSTERIAS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "learner driver",
+      "gives": "L",
+      "note": "L for learner, from the L-plates on a British learner's car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAIRSTY",
+      "L",
+      "ES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HYSTERIAS",
+       "gives": "HAIRSTYES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wild panic overwhelms a learner driver and draws stares.",
+     "walkthrough": "'Looks' seems to mean glances; it is the definition, meaning appearances.",
+     "definitionFit": "A hairstyle is a way of wearing your hair, a key part of someone's look or appearance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "looks"
+    }
+   }
   },
   {
    "number": 30,
@@ -483,7 +2126,53 @@
     "text": "Old poem about Islamic ruler",
     "enumeration": "4"
    },
-   "solution": "EMIR"
+   "solution": "EMIR",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "EMIR",
+    "definitions": [
+     {
+      "text": "Islamic ruler",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned around, so the word is read the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old poem",
+      "gives": "RIME",
+      "note": "rime is an archaic spelling of rhyme, as in Coleridge's The Rime of the Ancient Mariner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMIR"
+     ],
+     "reversals": [
+      {
+       "from": "RIME",
+       "to": "EMIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient verse about a Muslim leader.",
+     "definitionFit": "An emir is a Muslim prince, commander or governor in Arab countries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   }
  ]
 }
