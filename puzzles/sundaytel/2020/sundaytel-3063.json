@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,48 @@
     "text": "Gather rice, eggs and peas, primarily",
     "enumeration": "4"
    },
-   "solution": "REAP"
+   "solution": "REAP",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "REAP",
+    "definitions": [
+     {
+      "text": "Gather",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter of each word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rice, eggs and peas",
+      "gives": "REAP",
+      "select": "first",
+      "note": "the initial letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REAP"
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer or cook is told to collect rice, eggs and peas, above all.",
+     "definitionFit": "To reap is to harvest a crop, which is to gather it in from the field."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "primarily"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +90,44 @@
     "text": "Brothers cooks, by the sound of it?",
     "enumeration": "6"
    },
-   "solution": "FRIARS"
+   "solution": "FRIARS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FRIARS",
+    "definitions": [
+     {
+      "text": "Brothers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it",
+      "for": "homophone",
+      "note": "the phrase asks us to judge by how a word is pronounced rather than spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cooks",
+      "gives": "FRIARS",
+      "soundsLike": "FRYERS",
+      "note": "people who fry food are fryers, which is pronounced the same as the answer"
+     }
+    ],
+    "explanation": {
+     "surface": "A wry question whether monks are the kitchen staff, judging by their name.",
+     "definitionFit": "Friars are members of religious orders who address each other as Brother."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cooks"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +141,44 @@
     "text": "Staunch supporter of plants",
     "enumeration": "4"
    },
-   "solution": "STEM"
+   "solution": "STEM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STEM",
+    "definitions": [
+     {
+      "text": "Staunch",
+      "at": 0
+     },
+     {
+      "text": "supporter of plants",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Staunch",
+      "note": "first meaning: a verb, to stop a flow such as bleeding"
+     },
+     {
+      "clueFragment": "supporter of plants",
+      "note": "second meaning: the main stalk that holds up a plant"
+     }
+    ],
+    "explanation": {
+     "surface": "It reads as praise for a loyal friend of greenery.",
+     "walkthrough": "'Staunch' looks like an adjective meaning loyal, describing the supporter, but it is the verb meaning to check a flow.",
+     "definitionFit": "To stem a tide is to halt it, and a plant's stalk is its stem, the upright structural part."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Staunch"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +192,59 @@
     "text": "Agreement in relationship where Greek character bedded by groom",
     "enumeration": "6"
    },
-   "solution": "PRENUP"
+   "solution": "PRENUP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PRENUP",
+    "definitions": [
+     {
+      "text": "Agreement in relationship",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bedded by",
+      "for": "container",
+      "note": "something bedded by another is lying inside it, tucked in"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "groom",
+      "gives": "PREP",
+      "note": "to prep is to make ready, as one grooms a candidate"
+     },
+     {
+      "clueFragment": "Greek character",
+      "gives": "NU",
+      "note": "nu is a letter of the Greek alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRE",
+      "NU",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A marriage arrangement in which a Greek man ends up in bed with the bridegroom.",
+     "walkthrough": "'Groom' suggests the bridegroom, which suits the surface, but here it is the verb meaning to prepare.",
+     "definitionFit": "A prenuptial contract is a formal deal struck between partners before they marry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "groom"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +258,54 @@
     "text": "Plans catching on in French cathedral town",
     "enumeration": "8"
    },
-   "solution": "CHARTRES"
+   "solution": "CHARTRES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHARTRES",
+    "definitions": [
+     {
+      "text": "French cathedral town",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "catching",
+      "for": "container",
+      "note": "to catch something is to take it in and hold it, so one piece is enclosed by another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plans",
+      "gives": "CHARTS",
+      "note": "charts are maps or plans"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or concerning, as in a letter heading"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHART",
+      "RE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's itinerary includes a stop at a French town famous for its cathedral.",
+     "definitionFit": "Chartres, south-west of Paris, is famed for its Gothic cathedral and stained glass."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 6,
@@ -102,7 +319,64 @@
     "text": "Shop butter is seen on TV programme, briefly",
     "enumeration": "10"
    },
-   "solution": "PATISSERIE"
+   "solution": "PATISSERIE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PATISSERIE",
+    "definitions": [
+     {
+      "text": "Shop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the final letter of the programme word is dropped"
+     }
+    ],
+    "linkWords": [
+     "seen on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "butter",
+      "gives": "PAT",
+      "note": "a pat of butter is a small slab of it"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "TV programme",
+      "gives": "SERIES",
+      "note": "a TV series is a run of episodes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAT",
+      "IS",
+      "SERIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cookery programme on television features butter in a bakery.",
+     "walkthrough": "In a down clue the first parts sit on top of the later ones, hence 'seen on'.",
+     "definitionFit": "A pâtisserie is a French-style bakery selling pastries and cakes, a kind of retail outlet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "butter"
+    }
+   }
   },
   {
    "number": 7,
@@ -116,7 +390,52 @@
     "text": "Feeble month in regard to colliery",
     "enumeration": "8"
    },
-   "solution": "DECREPIT"
+   "solution": "DECREPIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DECREPIT",
+    "definitions": [
+     {
+      "text": "Feeble",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "month",
+      "gives": "DEC",
+      "note": "Dec is the abbreviation for December"
+     },
+     {
+      "clueFragment": "in regard to",
+      "gives": "RE",
+      "note": "re means concerning or in regard to"
+     },
+     {
+      "clueFragment": "colliery",
+      "gives": "PIT",
+      "note": "a pit is a coal mine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEC",
+      "RE",
+      "PIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A dismal month of news about a weak coal mine.",
+     "definitionFit": "Decrepit describes something worn out and frail with age, so weak and feeble."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "month"
+    }
+   }
   },
   {
    "number": 8,
@@ -130,7 +449,46 @@
     "text": "Sharp joke, man!",
     "enumeration": "7"
    },
-   "solution": "PUNGENT"
+   "solution": "PUNGENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PUNGENT",
+    "definitions": [
+     {
+      "text": "Sharp",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "joke",
+      "gives": "PUN",
+      "note": "a pun is a joke on words"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "GENT",
+      "note": "gent is short for gentleman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUN",
+      "GENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone praises a witty quip, addressing a friend as 'man'.",
+     "definitionFit": "A pungent smell or remark is keen and biting, which is sharp in its figurative sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sharp"
+    }
+   }
   },
   {
    "number": 9,
@@ -144,7 +502,67 @@
     "text": "Three crackers inspiring a cook again",
     "enumeration": "6"
    },
-   "solution": "REHEAT"
+   "solution": "REHEAT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "REHEAT",
+    "definitions": [
+     {
+      "text": "cook again",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crackers",
+      "for": "anagram",
+      "note": "crackers means crazy, so these letters go wild into a new arrangement"
+     },
+     {
+      "text": "inspiring",
+      "for": "container",
+      "note": "to inspire is literally to breathe in, so one piece is taken inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Three",
+      "gives": "THREE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REHE",
+      "A",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THREE",
+       "gives": "REHET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Three madcaps encourage a chef to cook once more.",
+     "walkthrough": "'Crackers' looks like biscuits, but it is the adjective meaning mad.",
+     "definitionFit": "To reheat leftovers is to warm or cook them a second time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crackers"
+    }
+   }
   },
   {
    "number": 10,
@@ -158,7 +576,55 @@
     "text": "Turn river into land",
     "enumeration": "6"
    },
-   "solution": "SPRAIN"
+   "solution": "SPRAIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPRAIN",
+    "definitions": [
+     {
+      "text": "Turn",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "going into something means ending up inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "land",
+      "gives": "SPAIN",
+      "note": "Spain is a country, a land"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the map abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "R",
+      "AIN"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to divert a river so it flows into dry land.",
+     "walkthrough": "'Turn' looks like an instruction to divert, but it is the definition: to twist an ankle.",
+     "definitionFit": "To sprain a joint is to twist or wrench it, which is to turn it badly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Turn"
+    }
+   }
   },
   {
    "number": 11,
@@ -172,7 +638,38 @@
     "text": "Traveller's one-liner?",
     "enumeration": "8"
    },
-   "solution": "MONORAIL"
+   "solution": "MONORAIL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "MONORAIL",
+    "definitions": [
+     {
+      "text": "Traveller's one-liner?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Traveller's one-liner?",
+      "note": "surface reading: a quick joke told by someone on a journey"
+     },
+     {
+      "clueFragment": "one-liner",
+      "note": "setter's reading: a transport system that runs on just a single line of track"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Such a railway carries passengers along a single beam or track instead of a pair of parallel rails."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "one-liner"
+    }
+   }
   },
   {
    "number": 12,
@@ -196,7 +693,71 @@
      }
     ]
    },
-   "solution": "PLASTEROFPARIS"
+   "solution": "PLASTEROFPARIS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PLASTER OF PARIS",
+    "definitions": [
+     {
+      "text": "Setter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suspect",
+      "for": "anagram",
+      "note": "suspect means dubious or not to be trusted, so these letters are not in their genuine order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the rearranged letters wrap round another piece"
+     }
+    ],
+    "linkWords": [
+     ":"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artless fop, I",
+      "gives": "ARTLESSFOPI",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "average",
+      "gives": "PAR",
+      "note": "par is the normal or average level"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLASTEROF",
+      "PAR",
+      "IS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARTLESSFOPI",
+       "gives": "PLASTEROFIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The crossword compiler is accused of being an unsophisticated dandy of no more than middling ability.",
+     "walkthrough": "'Setter' seems to mean the compiler of the puzzle; here it is something that sets hard.",
+     "definitionFit": "This gypsum powder, mixed with water, hardens quickly, so it is a substance that sets, used for casts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Setter"
+    }
+   }
   },
   {
    "number": 13,
@@ -216,7 +777,48 @@
      }
     ]
    },
-   "solution": "LEADSINGER"
+   "solution": "LEADSINGER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEAD SINGER",
+    "definitions": [
+     {
+      "text": "Mercury, say",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "metal",
+      "gives": "LEAD",
+      "note": "lead is a heavy metal"
+     },
+     {
+      "clueFragment": "something slightly burning",
+      "gives": "SINGER",
+      "note": "a thing that singes, burning lightly, could be called a singer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEAD",
+      "SINGER"
+     ]
+    },
+    "explanation": {
+     "surface": "Mercury is offered as an example of a metal that scorches a little.",
+     "walkthrough": "Mercury suggests the liquid metal, matching 'metal' in the clue, but it is Freddie Mercury of Queen. Wordplay reads in reverse clue order.",
+     "definitionFit": "Freddie Mercury fronted the rock band Queen, an example of the principal vocalist in a group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mercury"
+    }
+   }
   },
   {
    "number": 14,
@@ -236,7 +838,53 @@
      }
     ]
    },
-   "solution": "OPART"
+   "solution": "OPART",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OP ART",
+    "definitions": [
+     {
+      "text": "Modern pieces",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after tells us which piece follows the other in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is a standard abbreviation for old"
+     },
+     {
+      "clueFragment": "go",
+      "gives": "PART",
+      "note": "to part is to leave or go away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PART"
+     ]
+    },
+    "explanation": {
+     "surface": "Contemporary works of art take over from the old masters.",
+     "definitionFit": "Op art is a twentieth-century style of abstract painting using optical illusion, so its works are recent artworks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "go"
+    }
+   }
   },
   {
    "number": 15,
@@ -250,7 +898,42 @@
     "text": "Do go",
     "enumeration": "4"
    },
-   "solution": "BASH"
+   "solution": "BASH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BASH",
+    "definitions": [
+     {
+      "text": "Do",
+      "at": 0
+     },
+     {
+      "text": "go",
+      "at": 3
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Do",
+      "note": "first meaning: a party or celebration"
+     },
+     {
+      "clueFragment": "go",
+      "note": "second meaning: an attempt, as in have a go"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Both words look like verbs, but both are nouns here, a party and a try.",
+     "definitionFit": "A bash is informal for a lively party, and having a bash at something means making an attempt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Do"
+    }
+   }
   },
   {
    "number": 16,
@@ -264,7 +947,62 @@
     "text": "Awful trampoline finally put in without springs?",
     "enumeration": "8"
    },
-   "solution": "HOPELESS"
+   "solution": "HOPELESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "HOPELESS",
+    "definitions": [
+     {
+      "text": "Awful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points at the very end, so only the closing letter is kept"
+     },
+     {
+      "text": "put in",
+      "for": "container",
+      "note": "something put in another is placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "without springs",
+      "gives": "HOPLESS",
+      "note": "a spring is a hop, so lacking springs is hop-less"
+     },
+     {
+      "clueFragment": "trampoline",
+      "gives": "E",
+      "select": "last",
+      "note": "the closing letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOP",
+      "E",
+      "LESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A trampoline without its springs is a dreadful piece of equipment.",
+     "definitionFit": "Hopeless can mean dismally bad or incompetent, which is a sense of awful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "springs"
+    }
+   }
   },
   {
    "number": 17,
@@ -278,7 +1016,44 @@
     "text": "Plot followed on the radio?",
     "enumeration": "5"
    },
-   "solution": "TRACT"
+   "solution": "TRACT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TRACT",
+    "definitions": [
+     {
+      "text": "Plot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the radio",
+      "for": "homophone",
+      "note": "radio is heard, not seen, so the word is judged by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "followed",
+      "gives": "TRACT",
+      "soundsLike": "TRACKED",
+      "note": "tracked means followed, and it is pronounced like the answer"
+     }
+    ],
+    "explanation": {
+     "surface": "A storyline that was broadcast and listened to on air.",
+     "walkthrough": "'Plot' tempts as a story; it is a plot of land.",
+     "definitionFit": "A tract is an area of land, as is a plot, though a plot is usually smaller."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Plot"
+    }
+   }
   },
   {
    "number": 18,
@@ -292,7 +1067,47 @@
     "text": "Quite small kid, friend",
     "enumeration": "7"
    },
-   "solution": "TOTALLY"
+   "solution": "TOTALLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOTALLY",
+    "definitions": [
+     {
+      "text": "Quite",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small kid",
+      "gives": "TOT",
+      "note": "a tot is a small child"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "ALLY",
+      "note": "an ally is a friend or supporter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOT",
+      "ALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes a little child as rather a pal.",
+     "walkthrough": "'Quite' looks like a softener of 'small', but it is the definition in its sense of completely.",
+     "definitionFit": "Quite can mean entirely, as in quite right, which is a synonym of the answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Quite"
+    }
+   }
   },
   {
    "number": 19,
@@ -306,7 +1121,45 @@
     "text": "Something with teeth going through the ear? Painful!",
     "enumeration": "4"
    },
-   "solution": "SORE"
+   "solution": "SORE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SORE",
+    "definitions": [
+     {
+      "text": "Painful",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going through the ear",
+      "for": "homophone",
+      "note": "something that passes through the ear is heard, so we go by pronunciation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Something with teeth",
+      "gives": "SORE",
+      "soundsLike": "SAW",
+      "note": "a saw is a toothed cutting tool, and in British speech it is pronounced like the answer"
+     }
+    ],
+    "explanation": {
+     "surface": "Something toothed piercing someone's ear would certainly hurt.",
+     "walkthrough": "In non-rhotic British accents the two words sound alike.",
+     "definitionFit": "A sore part of the body hurts, so it is tender and painful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "teeth"
+    }
+   }
   },
   {
    "number": 20,
@@ -326,7 +1179,67 @@
      }
     ]
    },
-   "solution": "SEPARATETABLES"
+   "solution": "SEPARATETABLES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SEPARATE TABLES",
+    "definitions": [
+     {
+      "text": "Dramatic work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "newly presented",
+      "for": "anagram",
+      "note": "presenting something anew means putting it in a fresh form, so the letters are rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside another piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mews",
+      "gives": "STABLES",
+      "note": "a mews was a row of stables, later converted to homes"
+     },
+     {
+      "clueFragment": "a repeat",
+      "gives": "AREPEAT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EPARATE",
+      "TABLES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AREPEAT",
+       "gives": "EPARATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A theatre piece being restaged in a converted courtyard of stables.",
+     "walkthrough": "Separate Tables is a 1954 play by Terence Rattigan, set in a seaside hotel.",
+     "definitionFit": "Rattigan's piece is a stage play, so it is a dramatic work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mews"
+    }
+   }
   },
   {
    "number": 21,
@@ -340,7 +1253,57 @@
     "text": "Podgy about right, ultimately?",
     "enumeration": "6"
    },
-   "solution": "ROTUND"
+   "solution": "ROTUND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ROTUND",
+    "definitions": [
+     {
+      "text": "Podgy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so just the last letter of the word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "ROUND",
+      "note": "round means about, as in round the corner"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "T",
+      "select": "last",
+      "note": "the closing letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "T",
+      "UND"
+     ]
+    },
+    "explanation": {
+     "surface": "A question whether calling someone plump is correct, in the end.",
+     "walkthrough": "The word for about simply goes around the single letter, with no separate enclosing signal.",
+     "definitionFit": "Rotund describes a plump, round body, so it means chubby or podgy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 22,
@@ -354,7 +1317,43 @@
     "text": "Office furniture",
     "enumeration": "6"
    },
-   "solution": "BUREAU"
+   "solution": "BUREAU",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BUREAU",
+    "definitions": [
+     {
+      "text": "Office",
+      "at": 0
+     },
+     {
+      "text": "furniture",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Office",
+      "note": "first meaning: a government department or agency"
+     },
+     {
+      "clueFragment": "furniture",
+      "note": "second meaning: a writing desk with drawers"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two words read as one phrase, office furniture, but they are separate meanings.",
+     "definitionFit": "A bureau is an administrative department, and also a desk with a sloping lid for writing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Office"
+    }
+   }
   },
   {
    "number": 23,
@@ -368,7 +1367,54 @@
     "text": "Pumped up, and I felt excited!",
     "enumeration": "8"
    },
-   "solution": "INFLATED"
+   "solution": "INFLATED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INFLATED",
+    "definitions": [
+     {
+      "text": "Pumped up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excited",
+      "for": "anagram",
+      "note": "excited means stirred up, so these letters are agitated into a new order"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "and I felt",
+      "gives": "ANDIFELT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANDIFELT",
+       "gives": "INFLATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reports being hyped up and thrilled.",
+     "walkthrough": "'Pumped up' sounds like the excitement of the surface, but it is the literal sense, as a tyre is.",
+     "definitionFit": "Something inflated has been filled with air, as a balloon is when pumped."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "excited"
+    }
+   }
   },
   {
    "number": 24,
@@ -382,7 +1428,42 @@
     "text": "Woeful pudding",
     "enumeration": "4"
    },
-   "solution": "DUFF"
+   "solution": "DUFF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DUFF",
+    "definitions": [
+     {
+      "text": "Woeful",
+      "at": 0
+     },
+     {
+      "text": "pudding",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Woeful",
+      "note": "first meaning: British slang for useless or of poor quality"
+     },
+     {
+      "clueFragment": "pudding",
+      "note": "second meaning: a boiled suet pudding"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Duff is British slang for bad or broken, and plum duff is a traditional British steamed suet pudding with dried fruit.",
+     "definitionFit": "Woeful here means very poor in quality, which is the slang sense, while the dessert is a stodgy boiled pudding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Woeful"
+    }
+   }
   },
   {
    "number": 25,
@@ -396,7 +1477,50 @@
     "text": "Bit of fun with popular poet",
     "enumeration": "6"
    },
-   "solution": "LARKIN"
+   "solution": "LARKIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LARKIN",
+    "definitions": [
+     {
+      "text": "poet",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bit of fun",
+      "gives": "LARK",
+      "note": "a lark is a prank or bit of fun"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LARK",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A well-liked poet who enjoys a little amusement.",
+     "walkthrough": "Philip Larkin was a twentieth-century English poet, famed for 'This Be The Verse'.",
+     "definitionFit": "Larkin is the surname of the English poet Philip Larkin, so he is an example of a poet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "popular"
+    }
+   }
   },
   {
    "number": 26,
@@ -410,7 +1534,42 @@
     "text": "Couple a little bit emotional",
     "enumeration": "4"
    },
-   "solution": "ITEM"
+   "solution": "ITEM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ITEM",
+    "definitions": [
+     {
+      "text": "Couple",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a little",
+      "for": "hidden_word",
+      "note": "a little means only a small part, so the answer is a portion of the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bit emotional",
+      "gives": "ITEM",
+      "note": "the letters run across the join between the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A pair of people are feeling somewhat sentimental.",
+     "definitionFit": "Two people who are an item are romantically involved, a couple."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bit"
+    }
+   }
   },
   {
    "number": 27,
@@ -424,7 +1583,50 @@
     "text": "An emptier diary for instruction",
     "enumeration": "6"
    },
-   "solution": "LESSON"
+   "solution": "LESSON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LESSON",
+    "definitions": [
+     {
+      "text": "instruction",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "An emptier",
+      "gives": "LESS",
+      "note": "emptier means having less in it"
+     },
+     {
+      "clueFragment": "diary",
+      "gives": "ON",
+      "note": "engagements in a diary are said to be on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LESS",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A schedule with fewer engagements leaves time for teaching.",
+     "walkthrough": "The whole phrase works together: an emptier diary is one with less on.",
+     "definitionFit": "A lesson is a period of teaching, a piece of instruction given to a pupil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "diary"
+    }
+   }
   },
   {
    "number": 28,
@@ -438,7 +1640,57 @@
     "text": "Something sticky: soft food eaten by bird?",
     "enumeration": "8"
    },
-   "solution": "FLYPAPER"
+   "solution": "FLYPAPER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FLYPAPER",
+    "definitions": [
+     {
+      "text": "Something sticky",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eaten by",
+      "for": "container",
+      "note": "food eaten by a creature goes inside it"
+     }
+    ],
+    "linkWords": [
+     ":"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bird",
+      "gives": "FLYER",
+      "note": "a bird is a flyer, something that flies"
+     },
+     {
+      "clueFragment": "soft food",
+      "gives": "PAP",
+      "note": "pap is soft mushy food for babies"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLY",
+      "PAP",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird eats mush and gets its beak sticky.",
+     "definitionFit": "Flypaper is a strip coated with a gluey substance to trap insects."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bird"
+    }
+   }
   }
  ]
 }
