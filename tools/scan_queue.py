@@ -231,6 +231,11 @@ def parallel(items, fn, workers=1, deadline=None, init=None, initargs=(), failed
     raises is logged and yields (item, failed(item, "Type: message")), or
     nothing without `failed`. A dead pool (a worker killed) still raises:
     that is the host, not the item."""
+    # One snapshot of the code for the whole run: the write path loads
+    # puzzle_integrity lazily, and a checkout that moved since this process
+    # started would pair its new file with the older modules already loaded.
+    import ocr_clues  # noqa: F401
+    import puzzle_integrity  # noqa: F401
     def due():
         return deadline is not None and time.monotonic() >= deadline
     items = iter(items)
