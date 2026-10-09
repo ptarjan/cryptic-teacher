@@ -55,7 +55,10 @@
 # before exiting; what a SIGKILL or reboot leaves in the tree the next start
 # salvages (CT_SALVAGE_PATHS). The queue runs in OCR_FULL_PASS_CHUNK-second
 # slices, each under a hard `timeout`, the tree moved to origin/master
-# between them while the units a slice handed over still run (no pause).
+# between them while the units a slice handed over still run (no pause),
+# and within them after each checkpoint (DURABLE_RESYNC): every unit starts
+# as a fresh process off the tree, and the queue re-execs itself when its own
+# code moves, so a fix pushed to master reaches the next unit started.
 #
 # Runs in a worktree of its own (tools/nightly_worktree.sh), at origin/master.
 # All of puzzles/, not the series it files: filing a newspaper puzzle deletes
@@ -67,6 +70,7 @@ CT_SALVAGE_PATHS="puzzles"
 cd "$(dirname "$0")/.." || exit 1
 # shellcheck disable=SC2034  # read by the sourced durable.sh
 DURABLE_PATHS=(puzzles)
+DURABLE_RESYNC=1
 . tools/durable.sh
 
 # Every line reaches the log as it is printed, never at a slice's end.
