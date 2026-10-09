@@ -24,6 +24,9 @@
   "date": "2025-08-18",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,63 @@
     "text": "Cattle farm is charging fee for someone using their brand",
     "enumeration": "10"
    },
-   "solution": "FRANCHISEE"
+   "solution": "FRANCHISEE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "FRANCHISEE",
+    "definitions": [
+     {
+      "text": "someone using their brand",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "charging",
+      "for": "container",
+      "note": "to charge something is to load or fill it, so the fee is filled with the other words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fee",
+      "gives": "FEE",
+      "note": "taken as written; it is the outer piece"
+     },
+     {
+      "clueFragment": "Cattle farm",
+      "gives": "RANCH",
+      "note": "a ranch is a farm for raising cattle"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RANCH",
+      "IS",
+      "EE"
+     ]
+    },
+    "explanation": {
+     "surface": "A ranch is charging a fee to someone who wants to use its cattle brand.",
+     "walkthrough": "The 'brand' sounds like the hot iron used on cattle; in the definition it is a trading name.",
+     "definitionFit": "A franchisee pays a company for the right to trade under its brand name and system."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "brand"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +110,41 @@
     "text": "Unable to move? Stop eating",
     "enumeration": "4"
    },
-   "solution": "FAST"
+   "solution": "FAST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FAST",
+    "definitions": [
+     {
+      "text": "Unable to move",
+      "at": 0
+     },
+     {
+      "text": "Stop eating",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unable to move",
+      "note": "first meaning: firmly fixed"
+     },
+     {
+      "clueFragment": "Stop eating",
+      "note": "second meaning: to go without food deliberately"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark makes the two parts look like cause and remedy; they are separate meanings of one word.",
+     "definitionFit": "The adjective means firmly fixed in place, and the verb means abstaining from food for a period."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +158,66 @@
     "text": "Hard translating Urdu so beginning with shortest word?",
     "enumeration": "7"
    },
-   "solution": "ARDUOUS"
+   "solution": "ARDUOUS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ARDUOUS",
+    "definitions": [
+     {
+      "text": "Hard",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "translating",
+      "for": "anagram",
+      "note": "translating turns words into a different form, so these letters are rendered in a new order"
+     },
+     {
+      "text": "beginning with",
+      "for": "charade",
+      "note": "tells us one piece is placed at the very start of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shortest word",
+      "gives": "A",
+      "note": "the indefinite article is the shortest word in English, a single letter"
+     },
+     {
+      "clueFragment": "Urdu so",
+      "gives": "RDUOUS",
+      "note": "these six letters are rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "RDUOUS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "URDUSO",
+       "gives": "RDUOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Translating Urdu is hard, so should one start with the shortest word?",
+     "walkthrough": "The shortest word in English is the one-letter article, placed in front of the rearranged URDU SO.",
+     "definitionFit": "Arduous means demanding great effort, a straightforward synonym for hard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "translating"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +237,79 @@
      }
     ]
    },
-   "solution": "CLAUDEDEBUSSY"
+   "solution": "CLAUDEDEBUSSY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CLAUDE DEBUSSY",
+    "definitions": [
+     {
+      "text": "Composer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the very end, so only the final letter of the word is kept"
+     },
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down entry, being under something means coming after it, so the rest follows the number"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "100",
+      "gives": "C",
+      "note": "C is the Roman numeral for 100"
+     },
+     {
+      "clueFragment": "praised",
+      "gives": "LAUDED",
+      "note": "to laud is to praise"
+     },
+     {
+      "clueFragment": "battery- powered PSV",
+      "gives": "EBUS",
+      "note": "a PSV, public service vehicle, is a bus; a battery-powered one is an e-bus"
+     },
+     {
+      "clueFragment": "'s",
+      "gives": "S",
+      "note": "the possessive ending taken as written"
+     },
+     {
+      "clueFragment": "capacity",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of capacity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LAUDED",
+      "EBUS",
+      "S",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A transport review praises an electric bus for its carrying capacity.",
+     "walkthrough": "PSV stands for public service vehicle, a British licensing term covering buses. The number 100 sits on top in this down entry.",
+     "definitionFit": "Claude Debussy was a French composer known for impressionist works such as Clair de lune."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capacity"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +323,68 @@
     "text": "'Shut up,' mum snarled in fury",
     "enumeration": "6"
    },
-   "solution": "IMMURE"
+   "solution": "IMMURE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "IMMURE",
+    "definitions": [
+     {
+      "text": "Shut up",
+      "at": 1
+     }
+    ],
+    "indicators": [
+     {
+      "text": "snarled",
+      "for": "anagram",
+      "note": "something snarled is tangled up, so these letters are knotted into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "signals that the tangled word is placed inside the word for anger"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fury",
+      "gives": "IRE",
+      "note": "ire is anger, the outer piece"
+     },
+     {
+      "clueFragment": "mum",
+      "gives": "MMU",
+      "note": "the three letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MMU",
+      "RE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MUM",
+       "gives": "MMU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mother, in a fury, snarls at someone to shut up.",
+     "walkthrough": "'Shut up' looks like the words mum is snarling, but it is the definition, meaning to confine.",
+     "definitionFit": "To immure someone is to enclose or imprison them within walls, which is shutting them up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mum"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +398,68 @@
     "text": "Really boring celebrity turned up — Joe Bloggs?",
     "enumeration": "8"
    },
-   "solution": "EVERYMAN"
+   "solution": "EVERYMAN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "EVERYMAN",
+    "definitions": [
+     {
+      "text": "Joe Bloggs",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down entry, turning a word up reads it from bottom to top"
+     },
+     {
+      "text": "boring",
+      "for": "container",
+      "note": "boring means drilling into, so one word drills into the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "celebrity",
+      "gives": "NAME",
+      "note": "a big name is a famous person"
+     },
+     {
+      "clueFragment": "Really",
+      "gives": "VERY",
+      "note": "really and very are both intensifiers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "VERY",
+      "MAN"
+     ],
+     "reversals": [
+      {
+       "from": "NAME",
+       "to": "EMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dull celebrity shows up, an utterly ordinary person.",
+     "walkthrough": "'Boring' reads as dull but means drilling into. Joe Bloggs is the British name for a hypothetical ordinary person.",
+     "definitionFit": "Everyman is the typical ordinary person, just as Joe Bloggs is the British stand-in name for an average man."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "boring"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +473,56 @@
     "text": "Abandon surgical procedure that doctor has started",
     "enumeration": "4"
    },
-   "solution": "DROP"
+   "solution": "DROP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DROP",
+    "definitions": [
+     {
+      "text": "Abandon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has started",
+      "for": "charade",
+      "note": "the doctor's abbreviation is what the word starts with, placed first"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doctor",
+      "gives": "DR",
+      "note": "standard abbreviation for doctor"
+     },
+     {
+      "clueFragment": "surgical procedure",
+      "gives": "OP",
+      "note": "short for operation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "OP"
+     ]
+    },
+    "explanation": {
+     "surface": "A patient abandons an operation that the surgeon has already begun.",
+     "definitionFit": "To drop a plan or project is to give it up, the same as abandoning it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "started"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +536,62 @@
     "text": "Safety barrier coming down with something underneath end of bar",
     "enumeration": "7"
    },
-   "solution": "RAILING"
+   "solution": "RAILING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RAILING",
+    "definitions": [
+     {
+      "text": "Safety barrier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "only the final letter of the following word is wanted"
+     },
+     {
+      "text": "underneath",
+      "for": "charade",
+      "note": "in a down entry, underneath means placed below, so this piece comes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bar",
+      "gives": "R",
+      "select": "last",
+      "note": "the last letter of bar"
+     },
+     {
+      "clueFragment": "coming down with something",
+      "gives": "AILING",
+      "note": "falling ill, as when coming down with a bug"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "AILING"
+     ]
+    },
+    "explanation": {
+     "surface": "A safety rail, coming down, has something underneath the end of a bar.",
+     "walkthrough": "'Coming down' looks like a physical fall, but 'coming down with something' means catching an illness.",
+     "definitionFit": "A railing is a fence of rails, used as a barrier to stop people falling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "coming"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +605,72 @@
     "text": "Seal tampered with in larder? That's funny",
     "enumeration": "10"
    },
-   "solution": "PLEASANTRY"
+   "solution": "PLEASANTRY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PLEASANTRY",
+    "definitions": [
+     {
+      "text": "funny",
+      "at": 37,
+      "note": "a noun here: a funny is a joke"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tampered with",
+      "for": "anagram",
+      "note": "something tampered with has been interfered with, so its letters are disturbed"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the disturbed letters go inside the word for a storeroom"
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "larder",
+      "gives": "PANTRY",
+      "note": "a pantry is a food store, a larder; it is the outer piece"
+     },
+     {
+      "clueFragment": "Seal",
+      "gives": "LEAS",
+      "note": "the four letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LEAS",
+      "ANTRY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEAL",
+       "gives": "LEAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone finds the seal on a food jar in the larder broken and thinks it odd.",
+     "walkthrough": "'Funny' reads as the adjective 'strange', but here it is a noun, a joke.",
+     "definitionFit": "A pleasantry is a light joking remark, which is what a funny is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "funny"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +684,60 @@
     "text": "Colt perhaps mixture of dam and sire",
     "enumeration": "7"
    },
-   "solution": "SIDEARM"
+   "solution": "SIDEARM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SIDEARM",
+    "definitions": [
+     {
+      "text": "Colt perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixture of",
+      "for": "anagram",
+      "note": "a mixture blends things together, so these letters are stirred into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dam",
+      "gives": "DAM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sire",
+      "gives": "SIRE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DAMSIRE",
+       "gives": "SIDEARM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young male horse is, naturally, the product of its mother and father.",
+     "walkthrough": "Dam and sire are a horse's mother and father, and a colt is a young horse, but here Colt is the gun maker.",
+     "definitionFit": "A Colt revolver is an example of a sidearm, a pistol worn at the side."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Colt"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +757,51 @@
      }
     ]
    },
-   "solution": "ENSUITE"
+   "solution": "ENSUITE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EN SUITE",
+    "definitions": [
+     {
+      "text": "through door from the bedroom",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heard",
+      "for": "homophone",
+      "note": "heard means the words are taken by their sound rather than their spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Later",
+      "gives": "EN",
+      "soundsLike": "ON",
+      "note": "later on: the French word sounds like this"
+     },
+     {
+      "clueFragment": "darling",
+      "gives": "SUITE",
+      "soundsLike": "SWEET",
+      "note": "sweet is a term of endearment"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone calls 'later, darling' as their partner disappears through the bedroom door.",
+     "walkthrough": "The English pronunciation of the French phrase is roughly 'on sweet'.",
+     "definitionFit": "An en suite bathroom is attached to a bedroom and reached directly through its own door."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Later"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +825,67 @@
      }
     ]
    },
-   "solution": "SOUTHDOWNSWAY"
+   "solution": "SOUTHDOWNSWAY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SOUTH DOWNS WAY",
+    "definitions": [
+     {
+      "text": "a long walk from Winchester",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ramshackle",
+      "for": "anagram",
+      "note": "ramshackle means tumbledown and disordered, so these letters fall into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "huts do",
+      "gives": "SOUTHD",
+      "note": "these six letters rearranged"
+     },
+     {
+      "clueFragment": "have",
+      "gives": "OWN",
+      "note": "to own is to have"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "SWAY",
+      "note": "sway is power or influence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOUTHD",
+      "OWN",
+      "SWAY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HUTSDO",
+       "gives": "SOUTHD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tumbledown huts have power, a long hike out of Winchester.",
+     "walkthrough": "The South Downs are chalk hills in southern England.",
+     "definitionFit": "The South Downs Way is a national trail of about 100 miles running from Winchester to Eastbourne."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "power"
+    }
+   }
   },
   {
    "number": 12,
@@ -237,7 +909,54 @@
      }
     ]
    },
-   "solution": "HOWDAREYOU"
+   "solution": "HOWDAREYOU",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HOW DARE YOU",
+    "definitions": [
+     {
+      "text": "that's cheeky",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupts",
+      "for": "container",
+      "note": "to interrupt is to break into the middle, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "enquiry about health",
+      "gives": "HOWAREYOU",
+      "note": "the standard greeting asking after someone's wellbeing"
+     },
+     {
+      "clueFragment": "Duke",
+      "gives": "D",
+      "note": "D is the abbreviation for duke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOW",
+      "D",
+      "AREYOU"
+     ]
+    },
+    "explanation": {
+     "surface": "A duke breaks in while someone asks after his health, which is rather impudent.",
+     "definitionFit": "The exclamation is an indignant response to impertinence, just as 'that's cheeky' is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Duke"
+    }
+   }
   },
   {
    "number": 13,
@@ -251,7 +970,42 @@
     "text": "That thing's a little kitschy",
     "enumeration": "3"
    },
-   "solution": "ITS"
+   "solution": "ITS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ITS",
+    "definitions": [
+     {
+      "text": "That thing's",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a little",
+      "for": "hidden_word",
+      "note": "a little of the next word means only a small piece of it is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kitschy",
+      "gives": "ITS",
+      "note": "letters two to four"
+     }
+    ],
+    "explanation": {
+     "surface": "Something is described as being a bit tasteless.",
+     "definitionFit": "The possessive pronoun means belonging to that thing, matching 'that thing's'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "little"
+    }
+   }
   },
   {
    "number": 14,
@@ -265,7 +1019,52 @@
     "text": "For second dissertation substitute part",
     "enumeration": "10"
    },
-   "solution": "PROSTHESIS"
+   "solution": "PROSTHESIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROSTHESIS",
+    "definitions": [
+     {
+      "text": "substitute part",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "For",
+      "gives": "PRO",
+      "note": "pro means in favour of"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "dissertation",
+      "gives": "THESIS",
+      "note": "a thesis is a long academic dissertation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "S",
+      "THESIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A student submits a second dissertation as a stand-in for part of the course.",
+     "definitionFit": "A prosthesis is an artificial body part, such as a limb, that replaces a missing one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "substitute"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +1078,46 @@
     "text": "Stay permanently on edge",
     "enumeration": "6"
    },
-   "solution": "RESIDE"
+   "solution": "RESIDE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RESIDE",
+    "definitions": [
+     {
+      "text": "Stay permanently",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or concerning"
+     },
+     {
+      "clueFragment": "edge",
+      "gives": "SIDE",
+      "note": "a side is an edge or border"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "SIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told they will be living permanently on a knife edge.",
+     "definitionFit": "To reside somewhere is to live there as a settled home."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "edge"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1131,67 @@
     "text": "Bug perhaps gone wandering on 11D?",
     "enumeration": "8"
    },
-   "solution": "PATHOGEN"
+   "solution": "PATHOGEN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "PATHOGEN",
+    "definitions": [
+     {
+      "text": "Bug perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wandering",
+      "for": "anagram",
+      "note": "wandering means straying from a set course, so these letters stray into a new order"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across entry, one piece being on another means it follows it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "11D",
+      "gives": "PATH",
+      "note": "the answer at 11 down is a long-distance footpath"
+     },
+     {
+      "clueFragment": "gone",
+      "gives": "OGEN",
+      "note": "the four letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PATH",
+      "OGEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GONE",
+       "gives": "OGEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An insect has wandered off along a hiking trail.",
+     "walkthrough": "'Bug' reads as an insect on the trail, but here it means a germ.",
+     "definitionFit": "A pathogen is an organism that causes disease, and a bug is the informal word for such a germ."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bug"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1205,67 @@
     "text": "Shelter outside golf club hotel after venue's evacuated",
     "enumeration": "8"
    },
-   "solution": "VERANDAH"
+   "solution": "VERANDAH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "VERANDAH",
+    "definitions": [
+     {
+      "text": "Shelter outside",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "evacuated",
+      "for": "letter_selection",
+      "note": "an evacuated place is emptied of contents, so only its outer letters remain"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "signals the order of the pieces, the club and hotel following on"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "venue's",
+      "gives": "VE",
+      "select": "outer",
+      "note": "the first and last letters of venue"
+     },
+     {
+      "clueFragment": "golf club",
+      "gives": "RANDA",
+      "note": "the R and A, the Royal and Ancient Golf Club of St Andrews"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "H is hotel in the phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VE",
+      "RANDA",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Golfers take shelter outside the clubhouse hotel once the venue has been cleared.",
+     "walkthrough": "The R and A is the Scottish golf club at St Andrews that governs the game's rules.",
+     "definitionFit": "A verandah is a roofed platform along the outside of a house, giving shelter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "evacuated"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1279,50 @@
     "text": "I wouldn't say anything walks in slaughterhouse",
     "enumeration": "8"
    },
-   "solution": "SHAMBLES"
+   "solution": "SHAMBLES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHAMBLES",
+    "definitions": [
+     {
+      "text": "slaughterhouse",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I wouldn't say anything",
+      "gives": "SH",
+      "note": "the hush sound of someone keeping quiet"
+     },
+     {
+      "clueFragment": "walks",
+      "gives": "AMBLES",
+      "note": "to amble is to walk slowly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "AMBLES"
+     ]
+    },
+    "explanation": {
+     "surface": "A witness won't talk about what goes on in an abattoir.",
+     "walkthrough": "The first phrase sounds like a reticent witness, but it stands for the call for silence.",
+     "definitionFit": "A shambles was originally a meat market or butcher's slaughterhouse; the modern sense of a mess comes from it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1336,61 @@
     "text": "Topless baby and bottomless baby no good at all",
     "enumeration": "7"
    },
-   "solution": "ABYSMAL"
+   "solution": "ABYSMAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ABYSMAL",
+    "definitions": [
+     {
+      "text": "no good at all",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Topless",
+      "for": "deletion",
+      "note": "without its top, which in a word is its first letter"
+     },
+     {
+      "text": "bottomless",
+      "for": "deletion",
+      "note": "without its bottom, so the last letter of the word goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "baby",
+      "gives": "BABY",
+      "note": "taken as written, before losing its first letter"
+     },
+     {
+      "clueFragment": "baby",
+      "gives": "SMALL",
+      "note": "as an adjective, baby means small, before losing its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABY",
+      "SMAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A baby without a top and a baby without a bottom is a terrible state of dress.",
+     "walkthrough": "The second 'baby' is an adjective, as in baby carrots, meaning small.",
+     "definitionFit": "Abysmal means extremely bad, so very poor that it is no good at all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bottomless"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1404,43 @@
     "text": "Old cast",
     "enumeration": "6"
    },
-   "solution": "FORMER"
+   "solution": "FORMER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FORMER",
+    "definitions": [
+     {
+      "text": "Old",
+      "at": 0
+     },
+     {
+      "text": "cast",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "note": "first meaning: previous, as in a one-time holder of a post"
+     },
+     {
+      "clueFragment": "cast",
+      "note": "second meaning: a mould or frame used to shape something"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Old cast' suggests a previous set of actors; the two words are separate meanings.",
+     "definitionFit": "The adjective means earlier or previous; the noun is a shaping tool or mould, like a cast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1454,69 @@
     "text": "Flipping popular vermouth, something to get hammered with?",
     "enumeration": "7"
    },
-   "solution": "MARTINI"
+   "solution": "MARTINI",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "charade",
+     "reversal"
+    ],
+    "answer": "MARTINI",
+    "definitions": [
+     {
+      "text": "Flipping popular vermouth, something to get hammered with",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Flipping",
+      "for": "reversal",
+      "note": "flipping something over turns it the other way, so the letters read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     },
+     {
+      "clueFragment": "vermouth",
+      "gives": "IT",
+      "note": "it is short for Italian vermouth, as in gin and it"
+     },
+     {
+      "clueFragment": "something to get hammered with",
+      "gives": "RAM",
+      "note": "a ram is a device for battering or hammering"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAR",
+      "TI",
+      "NI"
+     ],
+     "reversals": [
+      {
+       "from": "INITRAM",
+       "to": "MARTINI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A well-known vermouth brand is offered as a way to get drunk.",
+     "walkthrough": "The whole clue defines the cocktail as well as building it: a Martini is popular, contains vermouth, and gets you hammered, meaning drunk.",
+     "definitionFit": "A martini is a cocktail of gin and vermouth, and Martini is also a famous brand of the fortified wine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hammered"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1530,61 @@
     "text": "Member that grabs leg right outside church",
     "enumeration": "6"
    },
-   "solution": "PINCER"
+   "solution": "PINCER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PINCER",
+    "definitions": [
+     {
+      "text": "Member that grabs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "charade",
+      "note": "in a down entry, the right is placed beyond the church, following it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leg",
+      "gives": "PIN",
+      "note": "pins is slang for legs"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIN",
+      "CE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A member of the congregation grabs someone's leg just outside the church.",
+     "walkthrough": "'Member' reads as a person, but here it is a limb.",
+     "definitionFit": "A pincer is the claw of a crab or lobster, a limb that grips things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Member"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1598,43 @@
     "text": "Barge Olympian on track",
     "enumeration": "3"
    },
-   "solution": "HOY"
+   "solution": "HOY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HOY",
+    "definitions": [
+     {
+      "text": "Barge",
+      "at": 0
+     },
+     {
+      "text": "Olympian on track",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Barge",
+      "note": "first meaning: a small coastal sailing vessel or barge"
+     },
+     {
+      "clueFragment": "Olympian on track",
+      "note": "second meaning: Sir Chris ..., British track cycling champion"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Barge' looks like a verb, an athlete shoving on the track; it is a boat.",
+     "definitionFit": "A hoy is an old type of heavy barge, and Chris Hoy won six Olympic golds in track cycling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Barge"
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1648,45 @@
     "text": "Still pen and paper for the auditor",
     "enumeration": "10"
    },
-   "solution": "STATIONARY"
+   "solution": "STATIONARY",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "STATIONARY",
+    "definitions": [
+     {
+      "text": "Still",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for the auditor",
+      "for": "homophone",
+      "note": "an auditor is a listener, so the word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pen and paper",
+      "gives": "STATIONARY",
+      "soundsLike": "STATIONERY",
+      "note": "writing materials, spelt with an E"
+     }
+    ],
+    "explanation": {
+     "surface": "An accountant still asks for pen and paper.",
+     "walkthrough": "'Auditor' looks like an accountant; it means a hearer. The two spellings, with E and with A, sound alike.",
+     "definitionFit": "Stationary means not moving, which is what still means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "auditor"
+    }
+   }
   },
   {
    "number": 25,
@@ -419,7 +1700,58 @@
     "text": "Children realise what starts dad off",
     "enumeration": "4"
    },
-   "solution": "SEED"
+   "solution": "SEED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SEED",
+    "definitions": [
+     {
+      "text": "Children",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "what starts",
+      "for": "letter_selection",
+      "note": "what a word starts with is its first letter alone"
+     }
+    ],
+    "linkWords": [
+     "off"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "realise",
+      "gives": "SEE",
+      "note": "to see is to understand or realise"
+     },
+     {
+      "clueFragment": "dad",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of dad"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Children work out what sets their father off.",
+     "definitionFit": "Seed is a biblical and literary word for offspring or descendants."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Children"
+    }
+   }
   },
   {
    "number": 26,
@@ -433,7 +1765,64 @@
     "text": "Dog does my head in always barking",
     "enumeration": "7"
    },
-   "solution": "SAMOYED"
+   "solution": "SAMOYED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SAMOYED",
+    "definitions": [
+     {
+      "text": "Dog",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head in",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     },
+     {
+      "text": "barking",
+      "for": "anagram",
+      "note": "barking means mad, so the letters go wildly out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "does my",
+      "gives": "DOESMY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of always"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DOESMYA",
+       "gives": "SAMOYED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A constantly barking dog drives its owner mad.",
+     "walkthrough": "'Does my head in' is British slang for annoys me; here it is split into fodder and a first-letter selector. 'Barking' also means mad.",
+     "definitionFit": "The Samoyed is a fluffy white Siberian breed of dog."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "barking"
+    }
+   }
   },
   {
    "number": 27,
@@ -453,7 +1842,61 @@
      }
     ]
    },
-   "solution": "COWRITE"
+   "solution": "COWRITE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CO-WRITE",
+    "definitions": [
+     {
+      "text": "Author with another",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the end of",
+      "for": "letter_selection",
+      "note": "only the final letter of the next word is wanted"
+     },
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "to hold something is to keep it inside, so the shell goes around the letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sea snail",
+      "gives": "COWRIE",
+      "note": "a cowrie is a sea snail with a glossy shell"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COWRI",
+      "T",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer works with another author on a book about sea snails.",
+     "definitionFit": "To co-write is to write something jointly, being its author together with another person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Author"
+    }
+   }
   },
   {
    "number": 28,
@@ -467,7 +1910,66 @@
     "text": "Highly paid lawyer likes dancing after taking Ecstasy",
     "enumeration": "4"
    },
-   "solution": "SILK"
+   "solution": "SILK",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SILK",
+    "definitions": [
+     {
+      "text": "Highly paid lawyer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after taking",
+      "for": "deletion",
+      "note": "taking something away removes it, so the drug's letter is subtracted"
+     },
+     {
+      "text": "dancing",
+      "for": "anagram",
+      "note": "dancing letters move about and settle in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "likes",
+      "gives": "LIKES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Ecstasy",
+      "gives": "E",
+      "note": "E is the street name for the drug ecstasy; it is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SILK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LIKS",
+       "gives": "SILK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy lawyer enjoys dancing after taking ecstasy.",
+     "walkthrough": "'After taking Ecstasy' suggests a drug-fuelled night; here 'taking' means taking away.",
+     "definitionFit": "A silk is a King's Counsel, a senior barrister who wears a silk gown and commands high fees."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "taking"
+    }
+   }
   },
   {
    "number": 29,
@@ -481,7 +1983,60 @@
     "text": "Helicopter's well built, guarantee given by Spooner",
     "enumeration": "10"
    },
-   "solution": "WHIRLYBIRD"
+   "solution": "WHIRLYBIRD",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "WHIRLYBIRD",
+    "definitions": [
+     {
+      "text": "Helicopter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by Spooner",
+      "for": "spoonerism",
+      "note": "Reverend Spooner swapped the opening sounds of words, so the starts are exchanged"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "well built",
+      "gives": "WHIRLY",
+      "soundsLike": "BURLY",
+      "note": "burly means strong and heavily built"
+     },
+     {
+      "clueFragment": "guarantee given",
+      "gives": "BIRD",
+      "soundsLike": "WORD",
+      "note": "giving your word is a guarantee or promise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHIRLY",
+      "BIRD"
+     ]
+    },
+    "explanation": {
+     "surface": "A sturdy helicopter is promised by a man named Spooner.",
+     "walkthrough": "Swapping the opening sounds of 'burly word' gives 'whirly bird'.",
+     "definitionFit": "Whirlybird is informal slang for a helicopter, from its spinning rotor blades."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "built"
+    }
+   }
   }
  ]
 }
