@@ -33,9 +33,9 @@ alert() { echo "ALERT: $*"; }
 # says BROKEN.
 main="$t/main"
 mkdir -p "$main/tools/data" "$main/puzzles/s/2026" "$main/clues_only/s"
+printf 'SOURCE_LIGHT_WRONG = {\n}\n' >"$main/tools/fetch_puzzle.py"
 cp "$REPO/tools/own_rows.py" "$REPO/tools/json_merge.py" "$REPO/tools/puzzle_schema.py" "$main/tools/"
 cp "$REPO/tools/data/puzzle.schema.json" "$main/tools/data/"
-printf 'SOURCE_LIGHT_WRONG = {\n}\n' >"$main/tools/fetch_puzzle.py"
 for f in setter_error source_answer_wrong source_clue_wrong; do
   printf '{\n "z-1/1-across": ["x", "Y", "a sibling\x27s row"]\n}\n' >"$main/tools/data/$f.json"
 done
