@@ -1553,6 +1553,13 @@ check("a grid whose ink joins the clue column under it is found under its title 
 side, shaped, box = located("times-14132-flush-title")
 check("a grid flush under its title, which the under-crop cuts, is found whole (Times 14,132)",
       ("below", True), (side, shaped))
+side, shaped, box = located("times-16988-prize-solutions")
+check("a Saturday prize grid under the last puzzles' two solution grids is found under them (Times 16,988)",
+      ("below", True, True), (side, shaped, box[1] > 700))
+saved_shaped, f.solution_shaped = f.solution_shaped, lambda img: lambda box: False
+check("(mirror) taking the solution grid for any other ink under the title, it is refused", None,
+      located("times-16988-prize-solutions")[0])
+f.solution_shaped = saved_shaped
 side, shaped, box = located("times-17001-above")
 check("a grid printed over its title is found (Times 17,001)", ("above", True), (side, shaped))
 side, shaped, gbox = located("ftcryptic-8649-left")
@@ -1731,6 +1738,17 @@ check("a line across the gutter at two rows' heights is cut so the line under it
       (["Charles on the river (6).", "24 Jobs for the boys, such as", "Horner ? (5)."], True),
       (c13696[1][c13696[1].index("24 Jobs for the boys, such as") - 1:][:3],
        "20 Shnor the works-ike Isa-" in c13696[0]))
+c = clue_cases["times-17382"]
+gbox, djvu = tuple(c["gbox"]), [[tuple(w) for w in ws] for ws in c["djvuLines"]]
+column = f.left_column(djvu, gbox)
+texts = [f.column_text(f.columns(ws, gbox, left=column)) for ws in (djvu, [[tuple(w)] for w in c["chWords"]])]
+check("the one clue column left of a Saturday prize grid is read, ACROSS to the last DOWN clue under the grid's"
+      " foot (Times 17,382)",
+      [(True, True, True)] * 2,
+      [(t.startswith("ACROSS\n"), "\n4 Spectacle for a grea" in t, t.rstrip().endswith("bill (4).")) for t in texts])
+c = clue_cases["times-16136"]
+check("(mirror) a grid whose clues are under it has no column left of it (Times 16,136)", None,
+      f.left_column([[tuple(w)] for w in c["chWords"]], tuple(c["gbox"])))
 check("a centred notice with no clue number near the gutter still spans it",
       [(100, 0, 700, 20, "Prize Crossword in The Times tomorrow")],
       f.split_across([(100, 0, 700, 20, "Prize Crossword in The Times tomorrow")], [400]))
