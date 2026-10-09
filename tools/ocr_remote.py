@@ -240,9 +240,16 @@ def read_edition_here(req, blob, ask_mac):
         reprints = req.get("reprints") or {}
         fa.reprint_readings = lambda number, series=None: reprints.get(str(number), {})
         fa.set_solutions({int(n): {**sol, "dir": root / "ed" / sol["dir"]} for n, sol in req["solutions"].items()})
+        filing = req.get("filing")
+        if filing:
+            scans = {}
+            for url, day, numbers in filing["scans"]:
+                scans[(url, day)] = numbers
+            fa.held_scans = lambda series: scans
         _WATCH[:] = [(str(root), str(TOOLS.parent)), []]
         try:
             results, vlm_ok = fa.read_edition(root / "ed" / req["edition"], req["found"])
+            decided = decide_here(results, filing, root / "filing") if filing else None
         finally:
             missing, _WATCH[:] = _WATCH[1], [None, []]
         gc.collect()  # closes the leaves' files, which Windows will not delete open
@@ -256,7 +263,42 @@ def read_edition_here(req, blob, ask_mac):
             for p in sorted(crops.rglob("*")):
                 if p.is_file() and sent.get(p) != p.read_bytes():
                     tar.add(p, arcname=p.relative_to(crops).as_posix())
-        return {"results": results, "vlm": vlm_ok}, buf.getvalue()
+        return {"results": results, "vlm": vlm_ok, "decided": decided}, buf.getvalue()
+
+
+def decide_here(results, filing, root):
+    """[(verdict, writes [(where, puzzle)])] of each title decided
+    (file_archive_org_puzzles.decide) against the Mac's files `filing` sent
+    under `root`, each write assumed to land; or None when a title looked up
+    a file the Mac did not say it has or lacks, so the Mac decides itself.
+    Decided on copies: `results` stays the readings."""
+    import copy
+
+    import file_archive_org_puzzles as fa
+    # The files are read with the host's default encoding (cp1252 on
+    # Windows): as \u escapes they read the same as the Mac's UTF-8.
+    for f in root.rglob("*.json"):
+        f.write_text(json.dumps(json.loads(f.read_bytes().decode("utf-8")), indent=1))
+    asked = {tuple(w) for w in filing["asked"]}
+    looked = set()
+
+    def path(where, series, puzzles):
+        looked.add(tuple(where))
+        return fa.filer_path(where, series, puzzles, root)
+    out = []
+    for verdict, puzzle in copy.deepcopy(results):
+        writes = []
+
+        def record(where, puzzle, verdict, writes=writes):
+            writes.append((where, json.loads(json.dumps(puzzle))))
+            if where is not None:
+                target = path(where, None, None)
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_text(json.dumps(puzzle))
+            return True
+        fa.decide(verdict, puzzle, filing["series"], filing["puzzles"], set(filing["held"]), record, path)
+        out.append((verdict, writes))
+    return out if looked <= asked else None
 
 
 def _reconstruct_there(data, spec, **kw):
@@ -642,16 +684,22 @@ def edition_request(d, found, solutions):
     import tarfile
 
     import file_archive_org_puzzles as fa
+    import series as series_meta
     import vlm_reader
     rel = f"{d.parent.name}/{d.name}"
     files = {f"ed/{rel}/{name}": d / name for name in ("pages.json", "djvu.xml.gz") if (d / name).exists()}
-    sols, reprints = {}, {}
+    sols, reprints, asked = {}, {}, set()
     series = fa.paper_of(d).series
     for hit in found["puzzles"]:
         files[f"ed/{rel}/leaf_{hit['leaf']:04d}.jpg"] = d / f"leaf_{hit['leaf']:04d}.jpg"
         n, _, why = fa.filed_number(d, found, hit)
         if why is None:
             reprints[str(n)] = fa.reprint_readings(n, series)
+            # What decide() opens to file it: the held file, and --out's copy.
+            for where in [("held", n)] + [("out", series_meta.puzzle_id(series, n))] * bool(fa._FILING["puzzles"]):
+                asked.add(where)
+                path = fa.filer_path(where, series, fa._FILING["puzzles"])
+                files[f"filing/{where[0]}/{where[1]}.json"] = path
         sol = solutions.get(n) if why is None else None
         if sol:
             sd = sol["dir"]
@@ -668,8 +716,12 @@ def edition_request(d, found, solutions):
             if path.exists():
                 tar.add(path, arcname=arc)
     held = {str(n): day.isoformat() for n, day in fa.held_dates(series).items()}
+    urls = {fa.page_url(d, found, hit["leaf"]) for hit in found["puzzles"]}
+    filing = {"series": series, "puzzles": fa._FILING["puzzles"], "asked": sorted(asked),
+              "held": sorted(fa.held_numbers(series)),
+              "scans": [[url, day, ns] for (url, day), ns in fa.held_scans(series).items() if url in urls]}
     return ({"edition": rel, "found": found, "solutions": sols, "held": {series: held}, "reprints": reprints,
-             "vlm": vlm_reader.reachable()},
+             "vlm": vlm_reader.reachable(), "filing": filing},
             buf.getvalue())
 
 
@@ -696,7 +748,9 @@ def edition(d, found, solutions):
         return None
     with tarfile.open(fileobj=io.BytesIO(back)) as t:
         t.extractall(fa.CROPS, filter="data")
-    return [tuple(r) for r in got["results"]], got["vlm"]
+    if got.get("decided") is None:
+        log(f"{head['edition']}: a title there looked up a file it was not sent, so its filing is decided here")
+    return [tuple(r) for r in got["results"]], got["vlm"], got.get("decided")
 
 
 def words(crop, which):

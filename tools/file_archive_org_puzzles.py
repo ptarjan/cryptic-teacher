@@ -3396,7 +3396,7 @@ def read_unit(paper, rel, cache=CACHE, ledger=None, puzzles=None, source=SOURCE,
 
 def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, workers, reread, editions=None,
          scan_new=True, newer=None, unit=None):
-    from fetch_puzzle import puzzle_path, write_puzzle_file
+    from fetch_puzzle import write_puzzle_file
     known = load_known(ledger)
     # A unit (read_unit) adds the rows it changed to the ledger; a run
     # holding the ledger's lock throughout rewrites it whole.
@@ -3489,57 +3489,34 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
     if limit is not None:
         queue = queue[:limit]
     fresh = 0
-    for (d, found), (results, vlm_ok) in scan_queue.parallel(
+    for (d, found), (results, vlm_ok, *decided) in scan_queue.parallel(
             [(d, scans[rels[d]]) for d in queue], read_edition, workers, deadline,
-            init=set_solutions, initargs=(solutions,), failed=edition_failed):
+            init=set_solutions, initargs=(solutions, puzzles), failed=edition_failed):
         rel = rels[d]
         h, sol_seen, fh = due[d]
         fresh += 1
+
+        def commit(where, puzzle, verdict):
+            """Write `puzzle` where `where` names (filer_path): True when
+            written; a source copy (where None) as the raw reading."""
+            if where is None:
+                source.mkdir(parents=True, exist_ok=True)
+                (source / f"{puzzle['id']}.json").write_text(json.dumps(puzzle, indent=1))
+                return True
+            return scan_queue.file_puzzle(write_puzzle_file, TOOL, filer_path(where, paper.series, puzzles),
+                                          puzzle, verdict)
         verdicts = []
-        for verdict, puzzle in results:
-            hit_number = verdict["number"]
-            if puzzle is not None:
-                verdict["id"] = puzzle["id"]
-                if write:
-                    source.mkdir(parents=True, exist_ok=True)
-                    (source / f"{puzzle['id']}.json").write_text(json.dumps(puzzle, indent=1))
-                held_path = puzzle_path(paper.series, puzzle["number"])
-                mended = mend_held(puzzle, held_path) if held_path.exists() else None
-                if mended is not None:
-                    verdict["mended"] = mended[1]
-                    answered = merge_answers(mended[0], puzzle, reread=solution_read(verdict))
-                    if answered:
-                        verdict["answered"] = answered
+        if decided and decided[0] is not None:
+            # Decided on the desktop: only its writes are made here.
+            for verdict, writes in decided[0]:
+                for where, puzzle in writes:
                     if write:
-                        scan_queue.file_puzzle(write_puzzle_file, TOOL, held_path, mended[0], verdict)
-                    verdicts.append(verdict)
-                    continue
-                dest = destination(puzzles, complete(puzzle))
-                if dest is False:
-                    verdict["skip"] = "a clue is blank: only a puzzle with every clue goes to the corpus"
-                    old = json.loads(held_path.read_text()) if held_path.exists() else None
-                    answered = old is not None and merge_answers(old, puzzle, reread=solution_read(verdict))
-                    if answered:
-                        verdict["answered"] = answered
-                        if write:
-                            scan_queue.file_puzzle(write_puzzle_file, TOOL, held_path, old, verdict)
-                    verdicts.append(verdict)
-                    continue
-                path = (Path(dest) / f"{puzzle['id']}.json" if dest
-                        else puzzle_path(paper.series, puzzle["number"]))
-                better = path.exists() and improves(puzzle, path)
-                old = json.loads(path.read_text()) if path.exists() and not better else None
-                answered = old is not None and merge_answers(old, puzzle, reread=solution_read(verdict))
-                if answered:
-                    verdict["answered"] = answered
-                    if write:
-                        scan_queue.file_puzzle(write_puzzle_file, TOOL, path, old, verdict)
-                elif hit_number in held and not dest and not better:
-                    verdict["skip"] = "already held: the reading votes in cross_validate.py"
-                elif write and (better or not path.exists()) and scan_queue.file_puzzle(
-                        write_puzzle_file, TOOL, path, puzzle, verdict):
-                    held.add(hit_number)
-            verdicts.append(verdict)
+                        commit(where and tuple(where), puzzle, verdict)
+                verdicts.append(verdict)
+        else:
+            for verdict, puzzle in results:
+                decide(verdict, puzzle, paper.series, puzzles, held, commit if write else None)
+                verdicts.append(verdict)
         # Keyed by the inputs after this read's writes: a stray clue it
         # mended no longer makes the edition due.
         h = inputs_of(fh, found, paper.series)
@@ -3566,19 +3543,85 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
     return list(known.values())
 
 
+def filer_path(where, series, puzzles, root=None):
+    """The file a decide() write names: ("held", number), the corpus file of
+    `series`-`number` (puzzle_path), or ("out", id), `puzzles`' copy of it
+    (destination). `root` (the desktop's copy of those files) puts both
+    under it."""
+    from fetch_puzzle import puzzle_path
+    kind, key = where
+    if root is not None:
+        return Path(root) / kind / f"{key}.json"
+    return puzzle_path(series, key) if kind == "held" else Path(puzzles) / f"{key}.json"
+
+
+def decide(verdict, puzzle, series, puzzles, held, commit, path=filer_path):
+    """Decide what one title's reading files, noting it on `verdict`, and
+    make each write through `commit(where, puzzle, verdict)` (True when
+    written; where None is the raw reading's source copy, else what
+    `path(where, series, puzzles)` names): the held file mended, its answers
+    merged, a better reading over it, or a new file. `held` is the series'
+    filed numbers, a new file's added. `commit` None writes nothing."""
+    hit_number = verdict["number"]
+    if puzzle is None:
+        return
+    verdict["id"] = puzzle["id"]
+    if commit is None:
+        def commit(where, puzzle, verdict):
+            return False
+    commit(None, puzzle, verdict)
+    held_at = ("held", puzzle["number"])
+    held_path = path(held_at, series, puzzles)
+    mended = mend_held(puzzle, held_path) if held_path.exists() else None
+    if mended is not None:
+        verdict["mended"] = mended[1]
+        answered = merge_answers(mended[0], puzzle, reread=solution_read(verdict))
+        if answered:
+            verdict["answered"] = answered
+        commit(held_at, mended[0], verdict)
+        return
+    dest = destination(puzzles, complete(puzzle))
+    if dest is False:
+        verdict["skip"] = "a clue is blank: only a puzzle with every clue goes to the corpus"
+        old = json.loads(held_path.read_text()) if held_path.exists() else None
+        answered = old is not None and merge_answers(old, puzzle, reread=solution_read(verdict))
+        if answered:
+            verdict["answered"] = answered
+            commit(held_at, old, verdict)
+        return
+    where = ("out", puzzle["id"]) if dest else held_at
+    target = path(where, series, puzzles)
+    better = target.exists() and improves(puzzle, target)
+    old = json.loads(target.read_text()) if target.exists() and not better else None
+    answered = old is not None and merge_answers(old, puzzle, reread=solution_read(verdict))
+    if answered:
+        verdict["answered"] = answered
+        commit(where, old, verdict)
+    elif hit_number in held and not dest and not better:
+        verdict["skip"] = "already held: the reading votes in cross_validate.py"
+    elif (better or not target.exists()) and commit(where, puzzle, verdict):
+        held.add(hit_number)
+
+
 _SOLUTIONS = {}
+#: Each process's {"puzzles": the run's --out}: where decide() files a
+#: puzzle with a blank clue, which a desktop read decides there too.
+_FILING = {"puzzles": None}
 
 
-def set_solutions(solutions):
-    """Each process's {number: solution heading} (read_edition's)."""
+def set_solutions(solutions, puzzles=None):
+    """Each process's {number: solution heading} (read_edition's) and the
+    run's --out (_FILING)."""
     _SOLUTIONS.clear()
     _SOLUTIONS.update(solutions)
+    _FILING["puzzles"] = puzzles and str(puzzles)
 
 
 def read_edition(d, found):
     """([(verdict, puzzle or None)] for each title in an edition, whether the
     VLM still answers after it): read on the desktop when tools/ocr_remote.py
-    can, the same reading as here."""
+    can, the same reading as here. Read there, a third item is each title's
+    decide() writes, decided there too (None: decide here)."""
     import ocr_remote
     got = ocr_remote.edition(d, found, _SOLUTIONS)
     if got is not None:
