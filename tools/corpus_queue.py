@@ -291,7 +291,7 @@ def reap(state, dry):
     left = end_session(r["pid"])
     if left:
         print(f"{r['name']}: killed {len(left)} leftover processes of its session ({left})")
-    RUNNING.unlink()
+    RUNNING.unlink(missing_ok=True)
     if "ledgers" in r:
         account(r, state, dry)
 
@@ -406,7 +406,7 @@ def main(argv=None):
         print(f"held; stopping session {r['pid']} (up to {STOP_GRACE}s for it to commit what it filed)", flush=True)
         left = end_session(r["pid"], leader_grace=STOP_GRACE)
         print("stopped" + (f"; killed what its leader left running: {left}" if left else ""))
-        RUNNING.unlink()
+        RUNNING.unlink(missing_ok=True)
 
 
 if __name__ == "__main__":
