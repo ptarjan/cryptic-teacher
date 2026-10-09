@@ -59,6 +59,39 @@ ocr_remote.call = over_json
 check("a search run there gives the grids a search here does",
       reconstruct_grid.reconstruct(spec, **kw), ocr_remote.reconstruct(spec, **kw))
 
+# A desktop read decides what files there (decide_here, the filer's decide()
+# against copies of the Mac's files): a reading of a held number files
+# nothing over it, a new number's is written, and a title that looks up a
+# file the Mac did not say it has or lacks leaves the decision to the Mac.
+import copy, tempfile
+import file_archive_org_puzzles as fa
+held = json.loads((Path("..") / "puzzles/times/1990/times-18184.json").read_text())
+new = {**copy.deepcopy(held), "id": "times-99999", "number": 99999}
+def there(results, asked, files):
+    root = Path(tempfile.mkdtemp(dir=tmp))
+    for (kind, key), puzzle in files.items():
+        (root / kind).mkdir(exist_ok=True)
+        (root / kind / f"{key}.json").write_text(json.dumps(puzzle))
+    filing = {"series": "times", "puzzles": None, "asked": asked, "held": [18184], "scans": []}
+    return ocr_remote.decide_here(json.loads(json.dumps(results)), filing, root)
+got = there([({"number": 18184}, held), ({"number": 99999}, new)], [["held", 18184], ["held", 99999]],
+            {("held", 18184): held})
+check("a held number's reading files nothing over it there",
+      ({"number": 18184, "id": "times-18184", "skip": "already held: the reading votes in cross_validate.py"},
+       [None]), (got[0][0], [w for w, _ in got[0][1]]))
+check("a new number's reading is written there as the Mac writes it",
+      ({"number": 99999, "id": "times-99999"}, [None, ["held", 99999]], new),
+      (got[1][0], [w and list(w) for w, _ in got[1][1]], got[1][1][1][1]))
+root = Path(tempfile.mkdtemp(dir=tmp))
+(root / "held").mkdir()
+(root / "held" / "18184.json").write_bytes(json.dumps({**held, "title": "a \u2014 b"}, ensure_ascii=False).encode())
+ocr_remote.decide_here([({"number": 18184}, None)], {"series": "times", "puzzles": None, "asked": [], "held": [],
+                                                    "scans": []}, root)
+check("the Mac's files are read there as ASCII, whatever the desktop's default encoding (cp1252)",
+      True, (root / "held" / "18184.json").read_bytes().isascii())
+check("a title that opens a file the Mac was not asked about is decided on the Mac",
+      None, there([({"number": 99999}, new)], [], {}))
+
 # A search on a busy desktop outlives any fixed answer time while working:
 # the wait is on silence, not on a total. serve() runs here with the search
 # stubbed slow and the heartbeat quick, and a Session reads it over a pipe.
