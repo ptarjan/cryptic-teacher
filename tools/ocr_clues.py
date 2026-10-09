@@ -1362,6 +1362,17 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=()):
                 at = i + 1
                 if j is not None:
                     seen[i][k] = theirs[j]
+    if mine and mine[-1] == "?":
+        # A reading that splits the clue's last word ("Tap : ture ?" for
+        # "rapture?") leaves the rest of it and the "?" past the clue's
+        # end: that "?" is the clue's own. Past other words, it is not.
+        last = next((w for w in reversed(low) if w not in MARKS and w != BREAK), "")
+        for k, trail in enumerate(trails):
+            rest = "".join(t for t in trail or () if t not in MARKS).lower()
+            if (trail and trail[-1] == "?" and k not in seen[-1]
+                    and (not rest or len(rest) < len(last)
+                         and similar(last[-len(rest):], rest) >= PRINTS_SIMILAR)):
+                seen[-1][k] = "?"
     # A word or mark that two other readings have where this one has nothing
     # (a word lost, two run together, a comma missed) is put in; a word they
     # share that is no word goes in as the known word a letter from it
@@ -1638,6 +1649,9 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=()):
         if spelt[pick] != w:
             fixes[i] = spelt[pick]
     adds = {g: ws for g, ws in adds.items() if len(ws) == 1}
+    if mine and mine[-1] == "?" and adds.get(len(mine), [""])[0].endswith("?"):
+        # Words lost from the clue's end are put in with its "?" after them.
+        drop.add(len(mine) - 1)
     if not fixes and not drop and not adds and not (others and JUNK_MARK.search(clue)):
         return clue, how
     # Specks between the words go: the other readings saw nothing there.
