@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,61 @@
     "text": "Site of many casinos: card cut in one",
     "enumeration": "6"
    },
-   "solution": "MONACO"
+   "solution": "MONACO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "MONACO",
+    "definitions": [
+     {
+      "text": "Site of many casinos",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "something cut has lost a piece, here its final letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the shortened card inside the word for one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "MONO",
+      "note": "mono- is the prefix meaning one, used as a word for single"
+     },
+     {
+      "clueFragment": "card",
+      "gives": "AC",
+      "note": "the card is an ACE, with its last letter cut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MON",
+      "AC",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A gambler in a casino town has a card game interrupted by a cut of the deck.",
+     "walkthrough": "'cut' looks like cutting the deck before a deal, but it trims a letter from the card.",
+     "definitionFit": "The Mediterranean principality is famous for Monte Carlo and its gambling houses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +103,43 @@
     "text": "Obvious industrial action?",
     "enumeration": "8"
    },
-   "solution": "STRIKING"
+   "solution": "STRIKING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRIKING",
+    "definitions": [
+     {
+      "text": "Obvious",
+      "at": 0
+     },
+     {
+      "text": "industrial action",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Obvious",
+      "note": "first meaning: conspicuous, catching the eye"
+     },
+     {
+      "clueFragment": "industrial action",
+      "note": "second meaning: walking out of work in protest"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read as one phrase it suggests a blatant strike; the question mark flags that the word for a walkout also means noticeable.",
+     "definitionFit": "The adjective means conspicuous or remarkable, and the participle names workers downing tools in a dispute."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Obvious"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +153,56 @@
     "text": "A piece of cake in hand to be given to dependant",
     "enumeration": "15"
    },
-   "solution": "STRAIGHTFORWARD"
+   "solution": "STRAIGHTFORWARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRAIGHTFORWARD",
+    "definitions": [
+     {
+      "text": "A piece of cake",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in hand",
+      "gives": "STRAIGHT",
+      "note": "a straight is a poker hand of five consecutive cards"
+     },
+     {
+      "clueFragment": "given to",
+      "gives": "FOR",
+      "note": "a present given to someone is for them"
+     },
+     {
+      "clueFragment": "dependant",
+      "gives": "WARD",
+      "note": "a ward is a child dependent on a guardian"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRAIGHT",
+      "FOR",
+      "WARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A slice of cake handed over to someone who relies on you.",
+     "walkthrough": "'A piece of cake' looks like food, but it is the idiom for something easy.",
+     "definitionFit": "Something that is a piece of cake is simple and uncomplicated to do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "hand"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +216,65 @@
     "text": "Groovy touring America, very close to city in Texas",
     "enumeration": "7"
    },
-   "solution": "HOUSTON"
+   "solution": "HOUSTON",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HOUSTON",
+    "definitions": [
+     {
+      "text": "city in Texas",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "something touring goes round, so these letters wrap around the country"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Groovy",
+      "gives": "HOT",
+      "note": "hot can mean fashionable, much like groovy"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "the usual abbreviation for the United States"
+     },
+     {
+      "clueFragment": "very close",
+      "gives": "ON",
+      "note": "on can mean right beside, as in a house on the river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "US",
+      "T",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A hip band touring the States plays a city in Texas.",
+     "walkthrough": "'Groovy' and 'very close' both lean on informal senses: hot as fashionable, on as right beside.",
+     "definitionFit": "Houston is the largest city in the American state of Texas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "touring"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +302,51 @@
      }
     ]
    },
-   "solution": "INTHEFIRSTPLACE"
+   "solution": "INTHEFIRSTPLACE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IN THE FIRST PLACE",
+    "definitions": [
+     {
+      "text": "initially",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to repair",
+      "for": "anagram",
+      "note": "repairing something means taking it apart and putting it together differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lift isn't cheaper",
+      "gives": "LIFTISNTCHEAPER",
+      "note": "the fodder, every letter used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LIFTISNTCHEAPER",
+       "gives": "INTHEFIRSTPLACE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fixing a broken elevator at the start would not save any money.",
+     "walkthrough": "'initially' looks like a first-letters signal, but here it is the definition.",
+     "definitionFit": "Initially and in the first place are both phrases meaning at the start or originally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "initially"
+    }
+   }
   },
   {
    "number": 6,
@@ -116,7 +360,57 @@
     "text": "Constitutional crisis's ultimate troublemaker online",
     "enumeration": "6"
    },
-   "solution": "STROLL"
+   "solution": "STROLL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STROLL",
+    "definitions": [
+     {
+      "text": "Constitutional",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimate",
+      "for": "letter_selection",
+      "note": "ultimate means last, so only the final letter of the word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crisis's",
+      "gives": "S",
+      "select": "last",
+      "note": "the last letter of crisis"
+     },
+     {
+      "clueFragment": "troublemaker online",
+      "gives": "TROLL",
+      "note": "a troll posts provocative messages on the internet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TROLL"
+     ]
+    },
+    "explanation": {
+     "surface": "A constitutional crisis is stirred up by an internet agitator.",
+     "walkthrough": "'Constitutional' reads as political, but a constitutional is also an old-fashioned word for a health-giving walk.",
+     "definitionFit": "A constitutional is a leisurely walk taken for health, the same as a gentle amble."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Constitutional"
+    }
+   }
   },
   {
    "number": 7,
@@ -130,7 +424,54 @@
     "text": "Hurt, a cook cut",
     "enumeration": "4"
    },
-   "solution": "ACHE"
+   "solution": "ACHE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ACHE",
+    "definitions": [
+     {
+      "text": "Hurt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "cut means the word loses its end, here the final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cook",
+      "gives": "CHE",
+      "note": "a cook is a CHEF, with its last letter cut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CHE"
+     ]
+    },
+    "explanation": {
+     "surface": "A chef in the kitchen nicks a finger and is hurt.",
+     "definitionFit": "To hurt as a verb can mean to be sore or painful, the same sense as the word for a dull pain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 8,
@@ -144,7 +485,43 @@
     "text": "Left Felixstowe, for example?",
     "enumeration": "4"
    },
-   "solution": "PORT"
+   "solution": "PORT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PORT",
+    "definitions": [
+     {
+      "text": "Left",
+      "at": 0
+     },
+     {
+      "text": "Felixstowe, for example",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Left",
+      "note": "first meaning: the left-hand side of a ship"
+     },
+     {
+      "clueFragment": "Felixstowe, for example",
+      "note": "second meaning: a harbour town"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as someone departing Felixstowe; Felixstowe is a major container port in Suffolk, England.",
+     "definitionFit": "Sailors call the left side of a vessel by this name, and it also means a harbour town."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Left"
+    }
+   }
   },
   {
    "number": 9,
@@ -158,7 +535,50 @@
     "text": "Initially teeth wonky: order a brace",
     "enumeration": "3"
    },
-   "solution": "TWO"
+   "solution": "TWO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TWO",
+    "definitions": [
+     {
+      "text": "a brace",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of each of the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teeth wonky: order",
+      "gives": "TWO",
+      "select": "first",
+      "note": "the first letters of three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TWO"
+     ]
+    },
+    "explanation": {
+     "surface": "A dentist decides crooked teeth call for fitting a brace.",
+     "walkthrough": "'brace' suggests orthodontics, but a brace is also a pair, as in a brace of pheasants.",
+     "definitionFit": "A brace is a pair, the number of things in a couple."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "brace"
+    }
+   }
   },
   {
    "number": 10,
@@ -172,7 +592,55 @@
     "text": "Testament embraced by particular see",
     "enumeration": "6"
    },
-   "solution": "NOTICE"
+   "solution": "NOTICE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NOTICE",
+    "definitions": [
+     {
+      "text": "see",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embraced by",
+      "for": "container",
+      "note": "something embraced is held inside, so one word sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "particular",
+      "gives": "NICE",
+      "note": "nice can mean fussy or exacting, as in a nice distinction"
+     },
+     {
+      "clueFragment": "Testament",
+      "gives": "OT",
+      "note": "OT is the Old Testament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "OT",
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "Scripture is cherished by a particular bishop's diocese.",
+     "walkthrough": "'see' looks like a bishop's diocese in this surface but is the verb to spot.",
+     "definitionFit": "To notice something is to observe or spot it, just as to see it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "see"
+    }
+   }
   },
   {
    "number": 11,
@@ -186,7 +654,52 @@
     "text": "Wreck occupying a harbour",
     "enumeration": "6"
    },
-   "solution": "MARINA"
+   "solution": "MARINA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MARINA",
+    "definitions": [
+     {
+      "text": "harbour",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wreck",
+      "gives": "MAR",
+      "note": "to mar is to spoil or wreck"
+     },
+     {
+      "clueFragment": "occupying",
+      "gives": "IN",
+      "note": "occupying a place means being in it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAR",
+      "IN",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A shipwreck sits in the middle of a harbour.",
+     "definitionFit": "A marina is a small harbour for yachts and pleasure boats."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Wreck"
+    }
+   }
   },
   {
    "number": 12,
@@ -200,7 +713,39 @@
     "text": "A shipping vessel?",
     "enumeration": "8"
    },
-   "solution": "SCHOONER"
+   "solution": "SCHOONER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SCHOONER",
+    "definitions": [
+     {
+      "text": "A shipping vessel?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A shipping vessel?",
+      "note": "surface reading: a boat used to carry cargo"
+     },
+     {
+      "clueFragment": "shipping vessel",
+      "note": "setter's reading: a container for drink that is both a sailing ship and a tall glass"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The answer is both a two-masted sailing ship and a large glass for sherry or beer, so it is literally a vessel twice over.",
+     "definitionFit": "The word names a fore-and-aft rigged sailing ship and also a tall drinking glass."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 13,
@@ -220,7 +765,53 @@
      }
     ]
    },
-   "solution": "ROBINGOODFELLOW"
+   "solution": "ROBINGOODFELLOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROBIN GOODFELLOW",
+    "definitions": [
+     {
+      "text": "mischievous character",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Take",
+      "gives": "ROB",
+      "note": "to rob is to take unlawfully"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lovely chap",
+      "gives": "GOODFELLOW",
+      "note": "a good fellow is a fine, likeable man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROB",
+      "IN",
+      "GOODFELLOW"
+     ]
+    },
+    "explanation": {
+     "surface": "A charming man is swindled by a prankster.",
+     "walkthrough": "'Take in' looks like a phrasal verb for deceive, but it splits into two pieces.",
+     "definitionFit": "Robin Goodfellow is the English folklore sprite also known as Puck, famous for pranks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Take"
+    }
+   }
   },
   {
    "number": 14,
@@ -234,7 +825,44 @@
     "text": "Recite outstanding poem",
     "enumeration": "3"
    },
-   "solution": "ODE"
+   "solution": "ODE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ODE",
+    "definitions": [
+     {
+      "text": "poem",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Recite",
+      "for": "homophone",
+      "note": "reciting is saying out loud, so the word is judged by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outstanding",
+      "gives": "ODE",
+      "soundsLike": "OWED",
+      "note": "a debt outstanding is still owed"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is asked to perform an excellent poem from memory.",
+     "walkthrough": "'outstanding' wants to mean excellent; here it means unpaid.",
+     "definitionFit": "An ode is a lyric poem addressed to a subject, often in praise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "outstanding"
+    }
+   }
   },
   {
    "number": 15,
@@ -248,7 +876,55 @@
     "text": "Easy raids by Britain during the war",
     "enumeration": "7"
    },
-   "solution": "BLIGHTY"
+   "solution": "BLIGHTY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BLIGHTY",
+    "definitions": [
+     {
+      "text": "Britain during the war",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raids",
+      "for": "container",
+      "note": "raiders break into a place, so one word enters the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "by",
+      "gives": "BY",
+      "note": "taken as written, split to hold the other piece"
+     },
+     {
+      "clueFragment": "Easy",
+      "gives": "LIGHT",
+      "note": "light work is easy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LIGHT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Wartime Britain suffered only easy air raids.",
+     "walkthrough": "'raids' reads as bombing, but here it means breaks into. Blighty was soldiers' slang for Britain or home in the World Wars.",
+     "definitionFit": "Blighty is the affectionate slang name British troops abroad used for home, especially in the First World War."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raids"
+    }
+   }
   },
   {
    "number": 16,
@@ -262,7 +938,56 @@
     "text": "Sign put up in Tokyo, electrified",
     "enumeration": "3"
    },
-   "solution": "LEO"
+   "solution": "LEO",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "LEO",
+    "definitions": [
+     {
+      "text": "Sign",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the run of words that follows"
+     },
+     {
+      "text": "put up",
+      "for": "reversal",
+      "note": "in a down entry, put up means read from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tokyo, electrified",
+      "gives": "OEL",
+      "note": "the letters straddle the two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "OEL",
+       "to": "LEO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A neon sign is hung high in Tokyo with the power switched on.",
+     "definitionFit": "Leo, the lion, is one of the twelve signs of the zodiac."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sign"
+    }
+   }
   },
   {
    "number": 17,
@@ -276,7 +1001,55 @@
     "text": "Haggard novel in classic, ruined",
     "enumeration": "7"
    },
-   "solution": "TRASHED"
+   "solution": "TRASHED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRASHED",
+    "definitions": [
+     {
+      "text": "ruined",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one word inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "classic",
+      "gives": "TRAD",
+      "note": "trad, short for traditional, means classic"
+     },
+     {
+      "clueFragment": "Haggard novel",
+      "gives": "SHE",
+      "note": "She is a novel by H. Rider Haggard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRA",
+      "SHE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A Victorian adventure story in a classic edition has been damaged.",
+     "walkthrough": "'Haggard' looks like the adjective for gaunt, but it is the novelist Rider Haggard.",
+     "definitionFit": "Trashed is informal for wrecked or destroyed, the same as ruined."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Haggard"
+    }
+   }
   },
   {
    "number": 18,
@@ -290,7 +1063,60 @@
     "text": "Scary criminal practice somewhere in Sicily",
     "enumeration": "8"
    },
-   "solution": "SYRACUSE"
+   "solution": "SYRACUSE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SYRACUSE",
+    "definitions": [
+     {
+      "text": "somewhere in Sicily",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "criminal suggests something bent or crooked, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scary",
+      "gives": "SCARY",
+      "note": "the fodder"
+     },
+     {
+      "clueFragment": "practice",
+      "gives": "USE",
+      "note": "use is custom or practice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SYRAC",
+      "USE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SCARY",
+       "gives": "SYRAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Frightening Mafia activity goes on in a part of Sicily.",
+     "definitionFit": "Syracuse is an ancient port city on the east coast of Sicily."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 19,
@@ -304,7 +1130,55 @@
     "text": "Decent angle capturing mood",
     "enumeration": "7"
    },
-   "solution": "FAIRISH"
+   "solution": "FAIRISH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FAIRISH",
+    "definitions": [
+     {
+      "text": "Decent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capturing",
+      "for": "container",
+      "note": "capturing means holding something inside, so one word goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "angle",
+      "gives": "FISH",
+      "note": "to angle is to fish with a rod and line"
+     },
+     {
+      "clueFragment": "mood",
+      "gives": "AIR",
+      "note": "an air is an atmosphere or mood"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "AIR",
+      "ISH"
+     ]
+    },
+    "explanation": {
+     "surface": "A fair-minded fisherman catches the mood of the day.",
+     "walkthrough": "'angle' suggests geometry or a viewpoint; here it is the verb to fish.",
+     "definitionFit": "Fairish means reasonably good, much like decent in the sense of adequate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "angle"
+    }
+   }
   },
   {
    "number": 20,
@@ -328,7 +1202,50 @@
      }
     ]
    },
-   "solution": "POWEROFATTORNEY"
+   "solution": "POWEROFATTORNEY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "POWER OF ATTORNEY",
+    "definitions": [
+     {
+      "text": "right legally",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Wrong",
+      "for": "anagram",
+      "note": "something wrong is out of order, so the letters are set in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "waterproof on, yet",
+      "gives": "WATERPROOFONYET",
+      "note": "the fodder, every letter used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WATERPROOFONYET",
+       "gives": "POWEROFATTORNEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wearing a mac in the wrong conditions is still technically correct.",
+     "definitionFit": "A power of attorney is a legal authority granted to act for someone else, a right conferred by law."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 21,
@@ -342,7 +1259,68 @@
     "text": "Join up squiggly lines on bottom of portrait",
     "enumeration": "6"
    },
-   "solution": "ENLIST"
+   "solution": "ENLIST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ENLIST",
+    "definitions": [
+     {
+      "text": "Join up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "squiggly",
+      "for": "anagram",
+      "note": "squiggly lines are wavy and twisted, so the letters are jumbled"
+     },
+     {
+      "text": "bottom of",
+      "for": "letter_selection",
+      "note": "the bottom of a down word is its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lines",
+      "gives": "LINES",
+      "note": "the fodder"
+     },
+     {
+      "clueFragment": "portrait",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of portrait"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENLIS",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LINES",
+       "gives": "ENLIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An artist joins up wavy lines at the base of a portrait.",
+     "walkthrough": "'Join up' looks like the artist's action; it is the definition, meaning sign up for service.",
+     "definitionFit": "To enlist is to sign up for military service, which is to join up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Join"
+    }
+   }
   },
   {
    "number": 22,
@@ -356,7 +1334,59 @@
     "text": "Contents of vent and exhaust complete",
     "enumeration": "6"
    },
-   "solution": "ENTIRE"
+   "solution": "ENTIRE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ENTIRE",
+    "definitions": [
+     {
+      "text": "complete",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Contents of",
+      "for": "letter_selection",
+      "note": "the contents of a word are its inner letters, without the outer ones"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vent",
+      "gives": "EN",
+      "select": "middle",
+      "note": "the inner letters of vent"
+     },
+     {
+      "clueFragment": "exhaust",
+      "gives": "TIRE",
+      "note": "to tire is to exhaust"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "TIRE"
+     ]
+    },
+    "explanation": {
+     "surface": "Air from the vent and the exhaust pipe has been fully expelled.",
+     "walkthrough": "'exhaust' looks like the car part, but here it is the verb to wear out.",
+     "definitionFit": "Entire means whole or complete, with nothing missing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exhaust"
+    }
+   }
   },
   {
    "number": 23,
@@ -370,7 +1400,62 @@
     "text": "Found in river, cold shorn sheep",
     "enumeration": "8"
    },
-   "solution": "FOLLOWER"
+   "solution": "FOLLOWER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "FOLLOWER",
+    "definitions": [
+     {
+      "text": "sheep",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shorn",
+      "for": "letter_selection",
+      "note": "shorn means clipped all round, so the outside letters are lost"
+     },
+     {
+      "text": "Found in",
+      "for": "container",
+      "note": "found in says one piece is located inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "FLOWER",
+      "note": "a flower is crossword shorthand for a river, something that flows"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "OL",
+      "select": "middle",
+      "note": "the word cold without its outer letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "OL",
+      "LOWER"
+     ]
+    },
+    "explanation": {
+     "surface": "A sheep with a fresh fleece clipping is discovered in a chilly river.",
+     "walkthrough": "'sheep' looks like an animal, but it is the definition in its figurative sense: someone who goes along with the crowd. A flower is crossword shorthand for a river.",
+     "definitionFit": "A sheep, figuratively, is a person who meekly follows others, just as a follower does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sheep"
+    }
+   }
   },
   {
    "number": 24,
@@ -384,7 +1469,42 @@
     "text": "Some buffalo, great big beast",
     "enumeration": "4"
    },
-   "solution": "OGRE"
+   "solution": "OGRE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OGRE",
+    "definitions": [
+     {
+      "text": "big beast",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some says only part of the following words is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "buffalo, great",
+      "gives": "OGRE",
+      "note": "the letters straddle the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Part of a buffalo herd is a great hulking animal.",
+     "definitionFit": "An ogre is a huge, brutish monster of folklore."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "buffalo"
+    }
+   }
   },
   {
    "number": 25,
@@ -398,7 +1518,50 @@
     "text": "Embroidered lace to pin down",
     "enumeration": "6"
    },
-   "solution": "LOCATE"
+   "solution": "LOCATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LOCATE",
+    "definitions": [
+     {
+      "text": "pin down",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Embroidered",
+      "for": "anagram",
+      "note": "embroidered means worked into a new pattern, or embellished, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lace to",
+      "gives": "LACETO",
+      "note": "the fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LACETO",
+       "gives": "LOCATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seamstress pins decorated lace in place.",
+     "definitionFit": "To locate something is to find its exact position, to pin it down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pin"
+    }
+   }
   },
   {
    "number": 26,
@@ -412,7 +1575,62 @@
     "text": "Rare set, almost misplaced, in schoolboy's possession?",
     "enumeration": "6"
    },
-   "solution": "ERASER"
+   "solution": "ERASER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ERASER",
+    "definitions": [
+     {
+      "text": "in schoolboy's possession?",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the last letter is dropped"
+     },
+     {
+      "text": "misplaced",
+      "for": "anagram",
+      "note": "misplaced letters are put in the wrong positions, so they are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rare",
+      "gives": "RARE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "set",
+      "gives": "SE",
+      "note": "set with its last letter dropped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RARESE",
+       "gives": "ERASER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A collector's rare set has been lost, though a schoolboy may have it.",
+     "walkthrough": "The definition is an example: a rubber is a typical thing in a pupil's pencil case, hence the question mark.",
+     "definitionFit": "An eraser, or rubber, is a standard item of school stationery that a pupil would carry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Rare"
+    }
+   }
   },
   {
    "number": 27,
@@ -426,7 +1644,47 @@
     "text": "Endless suffering: that's right, though appears wrong",
     "enumeration": "3"
    },
-   "solution": "SIC"
+   "solution": "SIC",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SIC",
+    "definitions": [
+     {
+      "text": "that's right, though appears wrong",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endless",
+      "for": "deletion",
+      "note": "endless means the final letter is cut off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suffering",
+      "gives": "SIC",
+      "note": "suffering is SICK, minus its end"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in pain insists they're correct even though it looks otherwise.",
+     "definitionFit": "Editors insert the Latin 'sic' to show a quoted error is reproduced exactly as in the original."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "suffering"
+    }
+   }
   },
   {
    "number": 28,
@@ -440,7 +1698,42 @@
     "text": "Organise type",
     "enumeration": "4"
    },
-   "solution": "SORT"
+   "solution": "SORT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SORT",
+    "definitions": [
+     {
+      "text": "Organise",
+      "at": 0
+     },
+     {
+      "text": "type",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Organise",
+      "note": "first meaning: to arrange in order"
+     },
+     {
+      "clueFragment": "type",
+      "note": "second meaning: a kind or category"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as an instruction to arrange print; the two words are separate meanings.",
+     "definitionFit": "The word is a verb for arranging things and a noun for a kind or variety."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "type"
+    }
+   }
   }
  ]
 }
