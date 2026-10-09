@@ -14,7 +14,6 @@ replace the file atomically, so concurrent callers never see half a map.
 Only paths under `prefix` are mapped; a path outside it is answered by git.
 Renames count as a deletion of the old path, as the per-path log reports them.
 """
-import fcntl
 import json
 import os
 import subprocess
@@ -88,6 +87,7 @@ def _fresh(root, prefix, head):
     data = _load(store, prefix)
     if data and data["tip"] == head:
         return data
+    import fcntl  # here, not at the top: the desktop (Windows) imports this module via fetch_puzzle, never locks
     store.parent.mkdir(parents=True, exist_ok=True)
     with open(store.with_suffix(".lock"), "w") as lock:
         fcntl.flock(lock, fcntl.LOCK_EX)

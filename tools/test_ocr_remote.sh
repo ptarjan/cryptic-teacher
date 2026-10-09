@@ -3,7 +3,8 @@
 # back an edition whose read on the desktop opened a file it was not sent,
 # give the same grids from a search run there (its answer through JSON) as
 # here, wait on a search for as long as the desktop says it is still
-# searching, and let no more than LOCAL_SLOTS reads run here at once?
+# searching, let no more than LOCAL_SLOTS reads run here at once, and does
+# every module the desktop imports import without fcntl (Windows)?
 #
 #     bash tools/test_ocr_remote.sh
 #
@@ -142,4 +143,47 @@ PY
 )
 rc=$?
 echo "$out"
-exit $rc
+
+# The desktop is Windows: every module its serve path can import (each
+# import statement, in a function or not, followed from ocr_remote) must
+# import without the POSIX-only modules, or each read there fails and runs
+# here instead.
+out=$(cd "$REPO/tools" && python3 - <<'PY'
+import ast, importlib.abc, sys
+from pathlib import Path
+POSIX_ONLY = {"fcntl", "termios", "pwd", "grp", "resource"}
+reach, todo = set(), ["ocr_remote"]
+while todo:
+    m = todo.pop()
+    if m in reach or not Path(f"{m}.py").exists():
+        continue
+    reach.add(m)
+    for node in ast.walk(ast.parse(Path(f"{m}.py").read_text())):
+        if isinstance(node, ast.Import):
+            todo += [a.name.split(".")[0] for a in node.names]
+        elif isinstance(node, ast.ImportFrom) and node.module and not node.level:
+            todo.append(node.module.split(".")[0])
+class NoPosix(importlib.abc.MetaPathFinder):
+    def find_spec(self, name, path, target=None):
+        if name in POSIX_ONLY:
+            raise ModuleNotFoundError(f"No module named {name!r}", name=name)
+for m in POSIX_ONLY:
+    sys.modules.pop(m, None)
+sys.meta_path.insert(0, NoPosix())
+bad = []
+for mod in sorted(reach):
+    try:
+        __import__(mod)
+    except ModuleNotFoundError as e:
+        if e.name in POSIX_ONLY:
+            bad.append(f"{mod} ({e.name})")
+if bad:
+    print(f"FAIL these desktop modules import a POSIX-only module at the top (import it where it is used): {bad}")
+else:
+    print(f"ok   the {len(reach)} modules the desktop can import need none of {sorted(POSIX_ONLY)}")
+sys.exit(1 if bad else 0)
+PY
+)
+rc2=$?
+echo "$out"
+exit $(( rc || rc2 ))
