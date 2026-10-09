@@ -814,6 +814,11 @@ def check(puzzle):
                         f"model solve")
     if "blog" in detail and "model" in detail:
         findings.append("solutions names both a blog and a model")
+    if source.get("retrievedFrom") == "blog" and origin == "model":
+        findings.append(
+            "solutions.origin is 'model' on a puzzle retrieved from a blog, whose "
+            "write-up is the answer key: a light it left blank is a parser miss to "
+            "mend, or stays blank; a model fill would badge every answer unverified")
     findings += check_answer_detail(puzzle)
 
     credits = puzzle.get("annotatedBy")

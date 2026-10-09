@@ -1255,7 +1255,11 @@ def check_rewrite(old, new, flags):
             flags.append(("SHAPE", new["id"], f"{entry_id(e)}: would replace the clue "
                           f"{was[entry_id(e)]!r} with a blank one; carry it across "
                           f"(fetch_puzzle.merge_annotations)"))
-    held = [e.get("solution") for e in old.get("entries") or [] if e.get("solution")]
+    # A light the new file still has but leaves blank is an answer withdrawn
+    # (a model's fill over a blog write-up taken back), not another puzzle's.
+    blank = {entry_id(e) for e in new.get("entries") or [] if not e.get("solution")}
+    held = [e.get("solution") for e in old.get("entries") or []
+            if e.get("solution") and entry_id(e) not in blank]
     now = {e.get("solution") for e in new.get("entries") or [] if e.get("solution")}
     kept = sum(a in now for a in held)
     if len(held) >= 4 and len(now) >= 4 and kept * 2 < len(held):
