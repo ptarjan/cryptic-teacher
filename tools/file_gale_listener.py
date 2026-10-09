@@ -54,7 +54,9 @@ validators (puzzle_integrity.refuse_bad_write) decide it as for every other
 scan filer; only a puzzle whose every clue reads true
 (file_archive_org_puzzles.complete) goes to the corpus, and a held file is
 replaced only when this reading improves() it (a file another tool wrote,
-such as the Listener Team's PDF of No 1, is never replaced).
+such as the Listener Team's PDF of No 1, is never replaced); else each held
+clue this reading corrects (file_archive_org_puzzles.corrected_clues: a
+reader's fix to its words) takes the new words.
 
 Each page's grids are read once per version of listener_grid.py (~35 s a
 page: find_grids, then the printed numbers of each unfilled grid), each
@@ -686,15 +688,28 @@ def run(store=gl.STORE, inbox=gl.MIRROR, puzzles=None, write=True, out=sys.stdou
             # --out takes every puzzle, one short of that too.
             if puzzles or whole:
                 path = Path(puzzles) / f"{puzzle['id']}.json" if puzzles else puzzle_path(SERIES, n)
-                if path.exists() and not fa.improves(puzzle, path, tool=TOOL):
-                    verdict["skip"] = "already held"
+                held = path.exists() and not fa.improves(puzzle, path, tool=TOOL)
+                if held:
+                    # A held file this reading does not replace takes its
+                    # corrected clue words (fa.corrected_clues).
+                    old = json.loads(path.read_text())
+                    same = ((old.get("source") or {}).get("acquiredBy") == TOOL
+                            and fa.trove_solution_ocr.puzzle_grid(old) == fa.trove_solution_ocr.puzzle_grid(puzzle))
+                    fixed = same and fa.corrected_clues(puzzle, old)
+                    if not fixed:
+                        verdict["skip"] = "already held"
+                    else:
+                        verdict["corrected"] = fixed
+                        if write:
+                            scan_queue.file_puzzle(write_puzzle_file, TOOL, path, old, verdict)
                 elif write:
                     path.parent.mkdir(parents=True, exist_ok=True)
                     scan_queue.file_puzzle(write_puzzle_file, TOOL, path, puzzle, verdict)
         verdicts[n] = verdict
         print(f"No {n}: " + "; ".join(v for v in (
             verdict.get("lacks"), verdict.get("skip"), verdict.get("refusedWrite"), verdict.get("writeFailed"),
-            "written" if verdict.get("wrote") else None,
+            "written" + (f" (corrected {', '.join(sorted(verdict['corrected'], key=order))})"
+                         if verdict.get("corrected") else "") if verdict.get("wrote") else None,
             f"report: {verdict['noReport']}" if "noReport" in verdict else None) if v)
               + (f", {verdict['reportAnswers']}/{len(puzzle['entries'])} answers read off the report"
                  if "reportAnswers" in verdict else ""), file=out)

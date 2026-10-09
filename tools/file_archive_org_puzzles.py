@@ -3399,6 +3399,9 @@ def mend_held(puzzle, path, tool=TOOL):
     whose clue changes loses its annotation, written against the old words.
     A clue with a doubled word or a stray letter (strayed) is never kept:
     it takes this reading's clue, or goes blank.
+    Any other held clue this reading corrects() takes its words
+    (corrected_clues), unless the reading improves() the file and so
+    replaces it whole.
     None when no clue changes, the file is not `tool`'s, or it lies on
     another grid than this reading. With no reading (`puzzle` None: its
     scan now reads as another number), only the shared clues go."""
@@ -3411,8 +3414,10 @@ def mend_held(puzzle, path, tool=TOOL):
     shared = {i for ids in duplicated_clues(old["entries"]) for i in ids}
     stray = strayed(old)
     lost = shared | stray | set(faults(old))
+    # A reading that improves() the file replaces it, its words and all.
+    fixed = {} if not puzzle["entries"] or improves(puzzle, path, tool) else corrected_clues(puzzle, old, skip=lost)
     if not lost:
-        return None
+        return (old, fixed) if fixed else None
     now = {entry_id(e): e["clue"] for e in puzzle["entries"] if (e["clue"] or {}).get("text")}
     was = {entry_id(e): e.get("clue") for e in old["entries"]}
     blank = enumeration.clue("", missing=True)
@@ -3432,11 +3437,60 @@ def mend_held(puzzle, path, tool=TOOL):
     changed = {entry_id(e) for e in old["entries"]
                if entry_id(e) in lost and text(e["clue"]) != text(was[entry_id(e)])}
     if not changed:
-        return None
+        return (old, fixed) if fixed else None
     for e in old["entries"]:
         if entry_id(e) in changed:
             e.pop("annotation", None)
-    return old, {entry_id(e): text(e["clue"]) for e in old["entries"] if entry_id(e) in lost}
+    return old, {**fixed, **{entry_id(e): text(e["clue"]) for e in old["entries"] if entry_id(e) in lost}}
+
+
+def corrects(was, now, printed=()):
+    """Whether the clue text `now` may replace the held `was` as a better
+    reading of the same print: `now` has words, none OCR made up
+    (ocr_clues.suspect; a token `printed`, its asPrinted, keeps is the
+    print's), bled or strayed, and every word of `was` it lacks
+    is no word (ocr_clues.known) that `now` reads one letter away (a misread
+    mended). "Frontier cantonment." to "A Frontier cantonment." does; a
+    reading that loses a real word, or swaps one, does not."""
+    if not (was or "").strip() or not ocr_clues.tokens(now or "") or now == was:
+        return False
+    if ocr_clues.suspect(now, printed=printed) or ocr_clues.bled(now, printed) or ocr_clues.stray(now):
+        return False
+    old, new = ([w.lower() for w in ocr_clues.tokens(t)] for t in (was, now))
+    gone, added = list(old), list(new)
+    for w in old:
+        if w in added:
+            gone.remove(w)
+            added.remove(w)
+    return all(not ocr_clues.known(w) and any(ocr_clues.within_one(w, v) for v in added) for w in gone)
+
+
+def corrected_clues(puzzle, old, skip=()):
+    """{light: its clue now} after taking `puzzle`'s reading of each held
+    clue of `old` (in place) that corrects() it: a reader's fix to a clue's
+    words reaching a file already held. A light in `skip`, one annotated
+    (the annotation was written against the held words), one a
+    source_clue_wrong or setter_error row names (keyed to the held words),
+    and one whose new words another light of its list holds are left as
+    they are. The caller has checked the two lie on one grid."""
+    from fetch_puzzle import SOURCE_CLUE_WRONG, duplicated_clues, load_source_table
+    rows = set(SOURCE_CLUE_WRONG) | set(load_source_table("setter_error"))
+    now = {entry_id(e): e["clue"] for e in puzzle["entries"] if (e.get("clue") or {}).get("text")}
+    fixed = {}
+    for e in old["entries"]:
+        lid, was = entry_id(e), e.get("clue") or {}
+        if lid in skip or lid not in now or e.get("annotation") or (old.get("id"), lid) in rows \
+                or not corrects(was.get("text"), now[lid]["text"], now[lid].get("asPrinted") or ()):
+            continue
+        clue = {**now[lid]}
+        if "enumeration" in was and "enumeration" not in clue:
+            clue["enumeration"] = was["enumeration"]
+        e["clue"] = clue
+        if any(lid in ids for ids in duplicated_clues(old["entries"], one_list=True)):
+            e["clue"] = was
+            continue
+        fixed[lid] = clue["text"]
+    return fixed
 
 
 def merge_answers(old, puzzle, tool=TOOL, reread=False):
