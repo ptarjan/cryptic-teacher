@@ -2691,15 +2691,20 @@ def read_puzzle(d, found, hit, solutions):
     lengths = {f"{n_}-{d_}": len(cells) for (n_, d_), cells in rg.light_cells(grid).items()}
     fits = {lid for lid, (_, enum, group) in laid.items()
             if enum and not group and ftp.count(enum) == lengths.get(lid)}
+    bare = {lid for lid in lengths if not (laid.get(lid) or ("",))[0].strip()}
     laid, blank = unfit_blanked(*reconcile(laid, stream, lengths), lengths)
     # A clue the vote left blank, laid again from each reading that printed
     # it whole (the reprint's among them) and put to the rest.
-    laid, blank = ocr_clues.relaid({k: t for k, t in texts.items() if t.strip()}, laid, blank, parse, lengths)
+    read = {k: t for k, t in texts.items() if t.strip()}
+    laid, blank = ocr_clues.relaid(read, laid, blank, parse, lengths)
     if blank and "vlm" in texts and vlm.reachable():
         try:
             laid, blank = vlm_pick(img, wins, list(cols.values()), texts, laid, blank)
         except RuntimeError:
             pass
+    # A light no reading laid and the VLM's pick left blank, laid from the
+    # readers that agree on its clue.
+    laid, blank = ocr_clues.relaid(read, laid, blank, parse, lengths, bare=bare)
     # Each filed clue as the readings print it: its count's shape, each word's
     # capital, hyphen and spelling.
     laid, blank = ocr_clues.as_printed(texts, laid, blank, parse, lengths)

@@ -204,6 +204,43 @@ check("one copy's readings alone lay nothing again (mirror)", ["1-across"], sort
 alone = {**texts, "ch": lists("Pigs might fly (5)."), "en5": lists("Cows can jump (5)."), "canberra:7:ocr": lists("Nothing here (5).")}
 got, blank = oc.relaid(alone, laid, {"1-across": "starts mid-clue"}, fa.parse, lengths)
 check("a reading the rest do not bear out lays nothing (mirror)", ["1-across"], sorted(blank))
+# A light no reading laid (times-15213 17D, the scan's own readings, no
+# reprint): the scan's readers agreeing on its number, words and a count
+# that fills it lay it; readings that do not agree still lay nothing.
+downs = lambda one: f"ACROSS\n1 Hill (4).\nDOWN\n{one}\n19 European language could be French (6).\n"
+own = {"djvu": downs("17 ( ran hard all over the place\nto get the old vixen IS)."),
+       "ch": downs("17 ! ran hard all orer thc place\nto gct thc old vixen (8)."),
+       "en5": downs("17 I ran hard all over the place\nto gct the old vixen (8)."),
+       "times": downs("17 I ran hard all over the place\nto get the old vixen 8)"),
+       "vlm": downs("17 I ran hard all over the place to get the old vixen (8).")}
+lengths = {"1-across": 4, "17-down": 8, "19-down": 6}
+laid = {"1-across": ("Hill", "4", None), "17-down": ("", None, None), "19-down": ("European language could be French", "6", None)}
+why = {"17-down": "no reading laid a clue on it"}
+got, blank = oc.relaid(own, laid, why, fa.parse, lengths, bare={"17-down"})
+check("a light no reading laid takes the clue the scan's readers agree on",
+      ("I ran hard all over the place to get the old vixen", "8", {}), (got["17-down"][0], got["17-down"][1], blank))
+got, blank = oc.relaid(own, laid, why, fa.parse, lengths)
+check("a light some reading laid still needs another copy (mirror)", ["17-down"], sorted(blank))
+apart = {**own, "en5": downs("17 Pigs might fly (8)."), "times": downs("17 Cows can jump (8)."),
+         "vlm": downs("17 Nothing here at all (8).")}
+got, blank = oc.relaid(apart, laid, why, fa.parse, lengths, bare={"17-down"})
+check("a light no reading laid takes nothing the readers do not agree on (mirror)", ["17-down"], sorted(blank))
+# times-13821 2D: only the VLM and the Canberra reprint read it; two copies
+# agreeing bear out a light no reading laid, two readings of one copy do not.
+pair = {"vlm": downs("17 Appportion a good deal, we hear (8)."),
+        "canberra:9:ocr": downs("17 Apportion a good deal, we hear (8)")}
+got, blank = oc.relaid(pair, laid, why, fa.parse, lengths, bare={"17-down"})
+check("the reprint alone bears out a light no reading laid", ("Apportion a good deal, we hear", {}),
+      (got["17-down"][0], blank))
+got, blank = oc.relaid({"vlm": pair["vlm"], "times": pair["canberra:9:ocr"]}, laid, why, fa.parse, lengths,
+                       bare={"17-down"})
+check("one other reading of the same copy does not (mirror)", ["17-down"], sorted(blank))
+# 13821 24A: "singer." against the reprint's "singers" is a tie two
+# readings cannot break, so the light stays blank.
+tie = {"vlm": downs("17 It was about expectant singer. (8)."),
+       "canberra:9:ocr": downs("17 It was about expectant singers (8)")}
+got, blank = oc.relaid(tie, laid, why, fa.parse, lengths, bare={"17-down"})
+check("two copies differing by a known word lay nothing (mirror)", ["17-down"], sorted(blank))
 
 # A word half the vote put in beside the whole word is a line-end split one
 # copy made and another did not; a pair the clue itself prints stands.

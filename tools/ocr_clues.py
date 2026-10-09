@@ -27,6 +27,7 @@ tools/file_trove_puzzles.py for the Canberra Times) reads them the same way:
     corpus's clues know, a name one OCR slip from a dictionary word). A
     puzzle with a suspect clue is not filed.
 """
+import collections
 import functools
 import gzip
 import itertools
@@ -2346,7 +2347,16 @@ def copy_of(name):
     return name.rsplit(":", 1)[0] if ":" in name else ""
 
 
-def relaid(texts, laid, blank, parse, lengths, keep_known=False):
+def outvotes(clue, other):
+    """Whether `clue` stands against the one `other` reading of it, with no
+    third to break a tie: each word only `other` has is no known word
+    ("Appportion" against "Apportion"); a known word ("singer." against
+    "singers") is a tie, so neither."""
+    mine, theirs = (collections.Counter(re.findall(r"[a-z']+", t.lower())) for t in (clue, other))
+    return bool(theirs) and all(not known(w) for w in theirs - mine)
+
+
+def relaid(texts, laid, blank, parse, lengths, keep_known=False, bare=None):
     """(laid, blank) with each clue the vote filed blank laid again from
     each reading in `texts` ({name: text}) in turn: that reading's own clue
     for the light, when its printed count fills the light and
@@ -2355,30 +2365,44 @@ def relaid(texts, laid, blank, parse, lengths, keep_known=False):
     (reconcile, which alone proves nothing: it judges only the words it can
     align). The first that wins the vote, and that fault() and suspect()
     pass, is filed. A light laid from a reading that lost the clue's start
-    or end, or none, is filled by a reading that printed it whole. Linked
-    lights are left as they are."""
+    or end, or none, is filled by a reading that printed it whole. Given
+    `bare` (lights no reading laid a clue on, so no reading's lost start or
+    end is in the vote), only those are laid, each borne out by
+    RELAID_READINGS readings of the one scan printing a like clue under its
+    number, or by one reading of another copy. Linked lights are left as
+    they are."""
     laid, blank = dict(laid), dict(blank)
     parsed = {k: (parse(t)[0] if t.strip() else None) for k, t in texts.items()}
     for lid in sorted(blank):
         group = (laid.get(lid) or ("", None, None))[2]
-        if group or not lengths.get(lid):
+        if group or not lengths.get(lid) or (bare is not None and lid not in bare):
             continue
         n, direction = lid.split("-")
         cells = lengths[lid]
-        for k, p in parsed.items():
-            clue = next((c for c in (p or {}).get(direction, ()) if c["tokens"] and int(n) in c["tokens"][0]
-                         and len(c["tokens"]) == 1 and c["see"] is None), None)
-            if clue is None or not tokens(clue["text"]):
-                continue
+        own = {k: next((c for c in (p or {}).get(direction, ()) if c["tokens"] and int(n) in c["tokens"][0]
+                        and len(c["tokens"]) == 1 and c["see"] is None), None) for k, p in parsed.items()}
+        own = {k: c for k, c in own.items() if c is not None and tokens(c["text"])}
+        # The reading most others print word for word goes first: one that
+        # lost a short first word ("( ran hard" for "I ran hard") is put to
+        # the vote last, which cannot always vote the word back.
+        words = {k: clean(c["text"]).lower() for k, c in own.items()}
+        same = {k: sum(w == o for o in words.values()) for k, w in words.items()}
+        for k, clue in sorted(own.items(), key=lambda kc: -same[kc[0]]):
             fill = sorted(shape(e) for e in clue.get("enums") or () if sum(map(int, re.findall(r"\d+", e))) == cells)
             if not fill:
                 continue
             # Borne out: other readings print a like clue for the light, one
-            # of them a reading of another copy of the print.
+            # of them a reading of another copy of the print; for a bare
+            # light, the scan's own readers, or the other copy alone.
             alike = {j for j, q in parsed.items() if j != k and any(
                 c["tokens"] and int(n) in c["tokens"][0] and similar(c["text"].lower(), clue["text"].lower())
                 >= RELAID_SIMILAR for c in (q or {}).get(direction, ()))}
-            if len(alike) < RELAID_READINGS or all(copy_of(j) == copy_of(k) for j in alike):
+            reprint = any(copy_of(j) != copy_of(k) for j in alike)
+            if bare is not None:
+                if len(alike) < RELAID_READINGS and not (reprint and len(alike) == 1 and outvotes(
+                        clue["text"], (own.get(min(alike)) or {}).get("text", ""))):
+                    continue
+            elif len(alike) < RELAID_READINGS or not reprint:
                 continue
             others = [t for j, t in texts.items() if j != k and t.strip()]
             got, why = reconcile({lid: (clean(clue["text"]), fill[0], None)}, others, lengths, keep_known)

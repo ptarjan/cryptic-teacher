@@ -364,27 +364,34 @@ def flagged_requests():
             for i, (f, key, row) in sorted(known.items()) if i in ids and read_before(row, t)]
 
 
-#: The last clue-vote change that mends blanks a held scan read left: each
-#: archive.org edition read before it with a clue held blank for one of
-#: VOTE_MENDS (ocr_clues: a speck between two words, a clue cut at a line
-#: wrap) is read again.
-VOTE_MENDED_AT = "2026-10-09T07:56:00+00:00"
-VOTE_MENDS = ("a stray mark inside a word", "end is lost: other readings have",
-              "start is lost: other readings have")
+#: Each clue-vote change that mends blanks a held scan read left, as (when
+#: it landed, the blank reasons it mends): each archive.org edition read
+#: before it with a clue held blank for one of its reasons is read again.
+#: The first is ocr_clues' speck between two words and clue cut at a line
+#: wrap; the second relaid()'s light no reading laid, which the scan's own
+#: readers now lay when they agree on its clue.
+VOTE_MENDED = (
+    ("2026-10-09T07:56:00+00:00", ("a stray mark inside a word", "end is lost: other readings have",
+                                   "start is lost: other readings have")),
+    ("2026-10-09T09:00:00+00:00", ("no reading laid a clue on it",)),
+)
 
 
 def vote_mended_requests():
-    """A request per held archive.org puzzle VOTE_MENDED_AT may now file: a
-    verdict with no file written, a clue blank for one of VOTE_MENDS, read
-    before VOTE_MENDED_AT. Derived from the ledger, so the re-read closes it."""
-    t = when(VOTE_MENDED_AT)
+    """A request per held archive.org puzzle the VOTE_MENDED changes may now
+    file: a verdict with no file written whose every blank clue is one a
+    change made since its read mends (another blank would hold it again).
+    Derived from the ledger, so the re-read closes it."""
     out = []
     for i, (f, key, row) in sorted(sources().items()):
-        if f != "archive" or not read_before(row, t):
+        if f != "archive":
             continue
         v = next((v for v in row.get("verdicts") or () if v.get("id") == i), {})
-        if not v.get("wrote") and any(m in why for why in (v.get("blank") or {}).values() for m in VOTE_MENDS):
-            out.append({"id": i, "filer": f, "source": key, "why": ["voteMended"], "requestedAt": VOTE_MENDED_AT})
+        whys = list((v.get("blank") or {}).values())
+        since = [(at, mends) for at, mends in VOTE_MENDED if read_before(row, when(at))]
+        due = [max((at for at, mends in since if any(m in why for m in mends)), default=None) for why in whys]
+        if whys and all(due) and not v.get("wrote"):
+            out.append({"id": i, "filer": f, "source": key, "why": ["voteMended"], "requestedAt": max(due)})
     return out
 
 

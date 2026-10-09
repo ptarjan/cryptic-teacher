@@ -29,8 +29,8 @@ def check(what, want, got):
         print(f"FAIL {what}: expected {want!r}, got {got!r}")
 
 rows = {"a": {"readAt": "2026-10-02"}, "c": {"readAt": "2026-09-01"}, "d": {}}
-# A held clue the vote now mends (VOTE_MENDS) asks its edition read again,
-# once: a read after VOTE_MENDED_AT closes it; other blanks ask nothing.
+# A held clue the vote now mends (VOTE_MENDED) asks its edition read again,
+# once: a read after the change closes it; other blanks ask nothing.
 _sources = q.sources
 row = lambda at, why: {"readAt": at, "verdicts": [{"id": "times-1", "blank": {"2-down": why}}]}
 q.sources = lambda: {"times-1": ("archive", "ed/1", row("2026-10-01T00:00:00+00:00", "'wear.for': a stray mark inside a word"))}
@@ -39,6 +39,25 @@ q.sources = lambda: {"times-1": ("archive", "ed/1", row("2099-01-01T00:00:00+00:
 check("read since, it asks nothing (mirror)", [], q.vote_mended_requests())
 q.sources = lambda: {"times-1": ("archive", "ed/1", row("2026-10-01T00:00:00+00:00", "readings differ: jo / lo"))}
 check("another blank asks nothing (mirror)", [], q.vote_mended_requests())
+# Each VOTE_MENDED change dates its own reasons: a light no reading laid,
+# read after the speck mend but before relaid() took one copy's readers,
+# is due; a speck-joined clue read then is not (mirror).
+between = "2026-10-09T08:00:00+00:00"
+q.sources = lambda: {"times-1": ("archive", "ed/1", row(between, "no reading laid a clue on it"))}
+check("a light no reading laid, read before relaid's change, asks again", ["ed/1"],
+      [r["source"] for r in q.vote_mended_requests()])
+q.sources = lambda: {"times-1": ("archive", "ed/1", row(between, "'wear.for': a stray mark inside a word"))}
+check("a speck-joined clue read after its own change asks nothing (mirror)", [], q.vote_mended_requests())
+# Every blank must be one a change mends: a re-read leaves any other blank,
+# so the puzzle would be held again.
+two = lambda at, a, b: {"readAt": at, "verdicts": [{"id": "times-1", "blank": {"2-down": a, "3-down": b}}]}
+old = "2026-10-01T00:00:00+00:00"
+q.sources = lambda: {"times-1": ("archive", "ed/1", two(old, "no reading laid a clue on it",
+                                                        "'wear.for': a stray mark inside a word"))}
+check("blanks each some change mends ask again, at the later change", [q.VOTE_MENDED[1][0]],
+      [r["requestedAt"] for r in q.vote_mended_requests()])
+q.sources = lambda: {"times-1": ("archive", "ed/1", two(old, "no reading laid a clue on it", "readings differ: jo / lo"))}
+check("a blank no change mends beside them asks nothing (mirror)", [], q.vote_mended_requests())
 q.sources = _sources
 check("never read first in the caller's order, then the stale oldest-read first (none: first)",
       ["b", "e", "d", "c", "a"],
