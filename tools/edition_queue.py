@@ -99,8 +99,16 @@ import scan_queue  # noqa: E402
 
 if _snapshot is not None:
     import importlib
-    for _name in sorted(code_reach.modules("edition_queue") - {"edition_queue"}):
-        importlib.import_module(_name)
+    _reach = code_reach.modules("edition_queue")
+    for _name in sorted(_reach - {"edition_queue"}):
+        # A tree module whose third-party package is not installed here
+        # (fetch_ia_book's requests) is skipped: the path that needs it
+        # fails when taken, not every start. A missing tree module raises.
+        try:
+            importlib.import_module(_name)
+        except ModuleNotFoundError as err:
+            if (err.name or "").partition(".")[0] in _reach:
+                raise
     os.close(_snapshot)
 
 #: The papers in the order a rank's units are taken; "trove" is the
