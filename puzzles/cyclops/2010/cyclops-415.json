@@ -24,6 +24,9 @@
   "date": "2010-04-26",
   "check": "29 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,49 @@
     "text": "Publicity associated with US Secretary of State's loan",
     "enumeration": "7"
    },
-   "solution": "ADVANCE"
+   "solution": "ADVANCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADVANCE",
+    "definitions": [
+     {
+      "text": "loan",
+      "at": 50
+     }
+    ],
+    "linkWords": [
+     "associated with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Publicity",
+      "gives": "AD",
+      "note": "an ad is a piece of publicity"
+     },
+     {
+      "clueFragment": "US Secretary of State's",
+      "gives": "VANCE",
+      "note": "Cyrus Vance was US Secretary of State under President Carter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "VANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A news story about money lent amid a burst of publicity around an American diplomat.",
+     "definitionFit": "An advance is money paid or lent ahead of time, so it is a kind of loan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Publicity"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +96,54 @@
     "text": "Comparatively alcohol-free club? Not very",
     "enumeration": "5"
    },
-   "solution": "DRIER"
+   "solution": "DRIER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DRIER",
+    "definitions": [
+     {
+      "text": "Comparatively alcohol-free",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not",
+      "for": "deletion",
+      "note": "not here means without, so the abbreviation that follows is dropped from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "club",
+      "gives": "DRIVER",
+      "note": "a driver is a golf club"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the abbreviation for very; it is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRI",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a club is more sober than most, and answering that it is not very.",
+     "walkthrough": "'Club' looks like a nightclub, but it is the golf club used for long tee shots.",
+     "definitionFit": "Dry in the drinking sense means without alcohol, so the comparative form describes something with less of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +157,86 @@
     "text": "Tax-free amount? Short answer: Cowell arranged about a million finally",
     "enumeration": "9"
    },
-   "solution": "ALLOWANCE"
+   "solution": "ALLOWANCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "ALLOWANCE",
+    "definitions": [
+     {
+      "text": "Tax-free amount",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "things arranged are put into a new order, so the name's letters are reordered"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round, so the reordered name encloses what follows"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end of the word it follows, keeping only that letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Short answer",
+      "gives": "A",
+      "note": "A is the standard abbreviation for answer"
+     },
+     {
+      "clueFragment": "Cowell",
+      "gives": "COWELL",
+      "note": "Simon Cowell's surname, taken as written for rearranging"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "million",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LLOW",
+      "AN",
+      "CE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COWELL",
+       "gives": "LLOWCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A talent-show mogul fixing his finances to claim a tax-free sum on a million.",
+     "walkthrough": "The scrambled letters of Cowell wrap round A and N, all after the abbreviation A. A personal allowance is the amount you may earn before UK income tax applies.",
+     "definitionFit": "A tax allowance is the portion of income on which no tax is charged."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cowell"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +250,70 @@
     "text": "Not much of a political party to stand in front of fancy lace screen",
     "enumeration": "7"
    },
-   "solution": "CONCEAL"
+   "solution": "CONCEAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "CONCEAL",
+    "definitions": [
+     {
+      "text": "screen",
+      "at": 62
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not much of",
+      "for": "deletion",
+      "note": "not much of a word means only a small front part of it survives"
+     },
+     {
+      "text": "fancy",
+      "for": "anagram",
+      "note": "fancy as an adjective means elaborate or ornamental, so the letters are dressed up in a new order"
+     }
+    ],
+    "linkWords": [
+     "to stand in front of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "political party",
+      "gives": "CONSERVATIVE",
+      "note": "the UK Conservative Party, cut down to its familiar short form Con"
+     },
+     {
+      "clueFragment": "lace",
+      "gives": "LACE",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "CEAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LACE",
+       "gives": "CEAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny party standing behind an ornate lace screen at some event.",
+     "walkthrough": "Con is the usual abbreviation for Conservative, Britain's main right-wing party; the scrambled lace follows it.",
+     "definitionFit": "To screen something is to hide it from view, which is the verb's meaning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "screen"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +327,74 @@
     "text": "City's flush, hoarding a subprime, initially large amount of money",
     "enumeration": "7"
    },
-   "solution": "GLASGOW"
+   "solution": "GLASGOW",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GLASGOW",
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hoarding",
+      "for": "container",
+      "note": "something hoarding goods holds them inside, so the first word wraps around the rest"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word it qualifies"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flush",
+      "gives": "GLOW",
+      "note": "a flush of the cheeks is a glow"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "subprime",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "large amount of money",
+      "gives": "G",
+      "note": "G stands for grand, a thousand pounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GL",
+      "ASG",
+      "OW"
+     ]
+    },
+    "explanation": {
+     "surface": "A city flush with cash after stockpiling dodgy subprime loans.",
+     "definitionFit": "Glasgow is Scotland's largest city, on the River Clyde."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flush"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +408,65 @@
     "text": "Nuts one lost from nautical accident",
     "enumeration": "7"
    },
-   "solution": "LUNATIC"
+   "solution": "LUNATIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "LUNATIC",
+    "definitions": [
+     {
+      "text": "Nuts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost from",
+      "for": "deletion",
+      "note": "something lost from a word is taken away from its letters"
+     },
+     {
+      "text": "accident",
+      "for": "anagram",
+      "note": "an accident wrecks things, leaving the letters in disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "one can be the indefinite article a; this letter is removed"
+     },
+     {
+      "clueFragment": "nautical",
+      "gives": "NAUTICAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LUNATIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NUTICAL",
+       "gives": "LUNATIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boating mishap in which somebody goes overboard, which sounds nuts.",
+     "walkthrough": "One of the two As in nautical goes, and the remaining seven letters are mixed.",
+     "definitionFit": "Nuts is slang for crazy, and a lunatic is a crazy person; the noun stands in loosely for the adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nuts"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +504,61 @@
      }
     ]
    },
-   "solution": "ONTHELINE"
+   "solution": "ONTHELINE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ON THE LINE",
+    "definitions": [
+     {
+      "text": "at serious risk",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last pair",
+      "for": "letter_selection",
+      "note": "the last pair means only the final two letters of the name are kept"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the washing spot behind the name's letters, so it is read second despite coming first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cameron's",
+      "gives": "ON",
+      "select": "last",
+      "note": "the final two letters of the name"
+     },
+     {
+      "clueFragment": "A place for washing",
+      "gives": "THELINE",
+      "note": "where laundry is pegged out to dry in the garden"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "THELINE"
+     ]
+    },
+    "explanation": {
+     "surface": "Laundry hung out behind David Cameron, hinting his position is in jeopardy.",
+     "walkthrough": "ON from Cameron comes first, then THE LINE, the washing line.",
+     "definitionFit": "To have something on the line is an idiom for having it at stake or in danger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "washing"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +582,54 @@
      }
     ]
    },
-   "solution": "BILLANDBEN"
+   "solution": "BILLANDBEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BILL AND BEN",
+    "definitions": [
+     {
+      "text": "They talk gibberish",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clinton",
+      "gives": "BILL",
+      "note": "Bill Clinton, the former US president"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "with means together with, and"
+     },
+     {
+      "clueFragment": "Elton",
+      "gives": "BEN",
+      "note": "Ben Elton, the British comedian and writer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BILL",
+      "AND",
+      "BEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Pairing Bill Clinton with a comedian and dismissing them both as talking rubbish.",
+     "walkthrough": "Elton is not Elton John but the surname of Ben Elton.",
+     "definitionFit": "Bill and Ben, the Flowerpot Men of a 1950s British children's show, spoke in a nonsense language ('flobbadob')."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Elton"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +643,65 @@
     "text": "No minister, speedy Johnson, wearing bra – check out",
     "enumeration": "11"
    },
-   "solution": "BACKBENCHER"
+   "solution": "BACKBENCHER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BACKBENCHER",
+    "definitions": [
+     {
+      "text": "No minister",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out here means out of order, so the combined letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "wearing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "speedy Johnson",
+      "gives": "BEN",
+      "note": "Ben Johnson, the Canadian sprinter"
+     },
+     {
+      "clueFragment": "bra",
+      "gives": "BRA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "check",
+      "gives": "CHECK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BENBRACHECK",
+       "gives": "BACKBENCHER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tabloid image of a non-minister Johnson in a bra, inviting readers to look.",
+     "walkthrough": "'Speedy Johnson' steers to Boris, but it is Ben Johnson the sprinter. A backbencher is an MP without government office, sitting behind the front bench.",
+     "definitionFit": "Backbenchers are MPs who hold no ministerial post, so the term means someone who is not a minister."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Johnson"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +715,50 @@
     "text": "Creative gets Labour, say, to ditch its leader",
     "enumeration": "4"
    },
-   "solution": "ARTY"
+   "solution": "ARTY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ARTY",
+    "definitions": [
+     {
+      "text": "Creative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to ditch its leader",
+      "for": "deletion",
+      "note": "ditching the leader means dropping the first letter of the word"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Labour, say",
+      "gives": "PARTY",
+      "note": "Labour is an example of a political party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARTY"
+     ]
+    },
+    "explanation": {
+     "surface": "A creative type joins Labour, which promptly ousts its leader.",
+     "definitionFit": "Arty describes someone with artistic or creative leanings, a looser synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +772,57 @@
     "text": "Look around, PM's almost taking two different directions",
     "enumeration": "6"
    },
-   "solution": "BROWSE"
+   "solution": "BROWSE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BROWSE",
+    "definitions": [
+     {
+      "text": "Look around",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the name loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "PM's",
+      "gives": "BROWN",
+      "note": "Gordon Brown, UK Prime Minister 2007-10"
+     },
+     {
+      "clueFragment": "two different directions",
+      "gives": "SE",
+      "note": "S and E, south and east"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BROW",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dithering Prime Minister glancing about, unable to settle on one way forward.",
+     "definitionFit": "To browse is to look around casually, as in a shop, without a fixed aim."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "directions"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +842,47 @@
      }
     ]
    },
-   "solution": "CATSEYE"
+   "solution": "CATSEYE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CATS-EYE",
+    "definitions": [
+     {
+      "text": "lit up by headlights?",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Show",
+      "gives": "CATS",
+      "note": "Cats is the Andrew Lloyd Webber musical"
+     },
+     {
+      "clueFragment": "organ",
+      "gives": "EYE",
+      "note": "the eye is an organ of sight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CATS",
+      "EYE"
+     ]
+    },
+    "explanation": {
+     "surface": "A theatre pipe organ glowing under a set of lamps.",
+     "walkthrough": "A cat's-eye is a reflective stud set in British roads that shines when car headlights hit it.",
+     "definitionFit": "The question mark marks a description by example: these road reflectors are exactly what glints in headlights."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "organ"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +902,53 @@
      }
     ]
    },
-   "solution": "FANCLUB"
+   "solution": "FANCLUB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FAN CLUB",
+    "definitions": [
+     {
+      "text": "Joined by devotees",
+      "at": 0,
+      "note": "a descriptive phrase for the noun, not a noun itself"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blow job equipment",
+      "gives": "FAN",
+      "note": "a fan is equipment whose job is to blow air"
+     },
+     {
+      "clueFragment": "clobber",
+      "gives": "CLUB",
+      "note": "to club someone is to clobber them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAN",
+      "CLUB"
+     ]
+    },
+    "explanation": {
+     "surface": "A smutty description of a society for enthusiasts of sex toys and clothing.",
+     "walkthrough": "The innuendo of 'blow job' splits as blow + job: the device whose task is blowing.",
+     "definitionFit": "A fan club is an organisation whose members are devoted admirers of someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "blow"
+    }
+   }
   },
   {
    "number": 14,
@@ -271,7 +968,64 @@
      }
     ]
    },
-   "solution": "FULLBLOWN"
+   "solution": "FULLBLOWN",
+   "annotation": {
+    "type": [
+     "charade",
+     "substitution"
+    ],
+    "answer": "FULL-BLOWN",
+    "definitions": [
+     {
+      "text": "Out-and-out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having become",
+      "for": "substitution",
+      "note": "having become means one letter turns into another in the surname"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "satisfied",
+      "gives": "FULL",
+      "note": "full after a meal means satisfied"
+     },
+     {
+      "clueFragment": "Gordon",
+      "gives": "BROWN",
+      "note": "Gordon Brown, the former Prime Minister"
+     },
+     {
+      "clueFragment": "Right",
+      "gives": "R",
+      "note": "R is the abbreviation for right; it is swapped out"
+     },
+     {
+      "clueFragment": "Left",
+      "gives": "L",
+      "note": "L is the abbreviation for left; it goes in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FULL",
+      "BLOWN"
+     ]
+    },
+    "explanation": {
+     "surface": "A satisfied Gordon Brown drifting from right to left politically.",
+     "definitionFit": "Full-blown means complete or fully developed, the same as out-and-out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Right"
+    }
+   }
   },
   {
    "number": 15,
@@ -285,7 +1039,50 @@
     "text": "Starts to censor young Conservatives lamming into Cameron, repeatedly",
     "enumeration": "6"
    },
-   "solution": "CYCLIC"
+   "solution": "CYCLIC",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "CYCLIC",
+    "definitions": [
+     {
+      "text": "repeatedly",
+      "at": 59,
+      "note": "an adverb defining an adjective"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Starts to",
+      "for": "letter_selection",
+      "note": "starts are the opening letters, one from each following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "censor young Conservatives lamming into Cameron",
+      "gives": "CYCLIC",
+      "select": "first",
+      "note": "the first letter of each of the six words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CYCLIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Censorship of young Tory activists who keep laying into David Cameron.",
+     "walkthrough": "To lam into someone is to attack them. The definition is loose: something cyclic happens repeatedly.",
+     "definitionFit": "Cyclic events recur in a cycle, happening again and again."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "repeatedly"
+    }
+   }
   },
   {
    "number": 16,
@@ -299,7 +1096,63 @@
     "text": "Conservative ballsed up EU's cause according to ex-President",
     "enumeration": "9"
    },
-   "solution": "CEAUSESCU"
+   "solution": "CEAUSESCU",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CEAUSESCU",
+    "definitions": [
+     {
+      "text": "ex-President",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ballsed up",
+      "for": "anagram",
+      "note": "something ballsed up is botched and messed up, so the letters end in a muddle"
+     }
+    ],
+    "linkWords": [
+     "according to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "EU's cause",
+      "gives": "EUSCAUSE",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "EAUSESCU"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EUSCAUSE",
+       "gives": "EAUSESCU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Eurosceptic Tory has wrecked the European cause, says a former president.",
+     "definitionFit": "Nicolae Ceausescu was President of communist Romania until his execution in 1989."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Conservative"
+    }
+   }
   },
   {
    "number": 17,
@@ -313,7 +1166,74 @@
     "text": "Clegg's just started breaking rules, possibly symptom of stress?",
     "enumeration": "6"
    },
-   "solution": "ULCERS"
+   "solution": "ULCERS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "ULCERS",
+    "definitions": [
+     {
+      "text": "symptom of stress?",
+      "at": 46,
+      "note": "singular in the clue, plural answer"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "just started",
+      "for": "letter_selection",
+      "note": "just started means only the first letter of the name has appeared"
+     },
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly signals one of several possible orderings of the letters"
+     },
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "breaking into something means getting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rules",
+      "gives": "RULES",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "Clegg's",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UL",
+      "C",
+      "ERS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RULES",
+       "gives": "ULERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nick Clegg barely starts bending the rules before the stress shows.",
+     "definitionFit": "Stomach ulcers are popularly associated with stress, which makes them a typical symptom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "breaking"
+    }
+   }
   },
   {
    "number": 18,
@@ -327,7 +1247,59 @@
     "text": "Economics, say, since getting wrecked with EC involvement",
     "enumeration": "7"
    },
-   "solution": "SCIENCE"
+   "solution": "SCIENCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCIENCE",
+    "definitions": [
+     {
+      "text": "Economics, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting wrecked",
+      "for": "anagram",
+      "note": "a wrecked word is smashed up, so its letters come out in a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "since",
+      "gives": "SINCE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "EC involvement",
+      "gives": "EC",
+      "note": "EC, the European Community, is involved in the mix"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SINCEEC",
+       "gives": "SCIENCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The economy has been wrecked ever since Brussels got involved.",
+     "walkthrough": "Economics is often called the dismal science, hence 'say'.",
+     "definitionFit": "Economics is an example of a science, a social science, which the 'say' flags."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Economics"
+    }
+   }
   },
   {
    "number": 19,
@@ -341,7 +1313,43 @@
     "text": "Scrotum clot?",
     "enumeration": "7"
    },
-   "solution": "NUTCASE"
+   "solution": "NUTCASE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NUTCASE",
+    "definitions": [
+     {
+      "text": "Scrotum",
+      "at": 0
+     },
+     {
+      "text": "clot",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scrotum",
+      "note": "first meaning, read as two words: the case holding the nuts"
+     },
+     {
+      "clueFragment": "clot",
+      "note": "second meaning: a crazy or foolish person"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first meaning only works split in two, nuts being slang for testicles; a clot is British slang for a fool.",
+     "definitionFit": "Nutcase is slang for a crazy person, close to the idiot sense of clot; the split reading is a joking anatomical description."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Scrotum"
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1363,58 @@
     "text": "Eager type from bank grabbing boob",
     "enumeration": "7"
    },
-   "solution": "TERRIER"
+   "solution": "TERRIER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TERRIER",
+    "definitions": [
+     {
+      "text": "Eager type",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grabbing",
+      "for": "container",
+      "note": "grabbing something means holding it, so the first word clasps the second"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bank",
+      "gives": "TIER",
+      "note": "a bank of seats is a tier"
+     },
+     {
+      "clueFragment": "boob",
+      "gives": "ERR",
+      "note": "to boob is to make a mistake, err"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ERR",
+      "IER"
+     ]
+    },
+    "explanation": {
+     "surface": "A keen employee at a bank who makes a blunder.",
+     "definitionFit": "A terrier is a tenacious dog, and by extension a persistent, eager person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "boob"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1428,62 @@
     "text": "Self-assertive Archer's goal his undoing",
     "enumeration": "7"
    },
-   "solution": "BULLISH"
+   "solution": "BULLISH",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "BULLISH",
+    "definitions": [
+     {
+      "text": "Self-assertive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "undoing",
+      "for": "anagram",
+      "note": "undoing a word unpicks it, so its letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Archer's goal",
+      "gives": "BULL",
+      "note": "the bull, or bullseye, is the centre of an archery target"
+     },
+     {
+      "clueFragment": "his",
+      "gives": "HIS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BULL",
+      "ISH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HIS",
+       "gives": "ISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Jeffrey Archer's pushy ambition proves to be his downfall.",
+     "walkthrough": "Archer suggests the novelist and disgraced politician, but it is just someone shooting arrows.",
+     "definitionFit": "Bullish means aggressively confident and assertive, like a bull."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Archer's"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1497,45 @@
     "text": "An auditor's genital areas oversight?",
     "enumeration": "5"
    },
-   "solution": "LAPSE"
+   "solution": "LAPSE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LAPSE",
+    "definitions": [
+     {
+      "text": "oversight",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "An auditor's",
+      "for": "homophone",
+      "note": "an auditor is a listener, so what follows is judged by ear"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "genital areas",
+      "gives": "LAPSE",
+      "soundsLike": "LAPS",
+      "note": "laps, where the genitals sit when one is seated"
+     }
+    ],
+    "explanation": {
+     "surface": "An accountant's audit finds a lapse involving private parts.",
+     "walkthrough": "Auditor tempts you towards accounts, but here it means a hearer.",
+     "definitionFit": "A lapse is a slip or failure of attention, which is what an oversight is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "auditor's"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1549,59 @@
     "text": "Move to resume parliamentary place before start of election",
     "enumeration": "6"
    },
-   "solution": "RESITE"
+   "solution": "RESITE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "RESITE",
+    "definitions": [
+     {
+      "text": "Move",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter alone"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "resume parliamentary place",
+      "gives": "RESIT",
+      "note": "to sit again, as an MP does on taking back a seat"
+     },
+     {
+      "clueFragment": "election",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RESIT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An MP shifting to reclaim a Commons seat ahead of an election.",
+     "definitionFit": "To resite something is to move it to a different location."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Move"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1615,61 @@
     "text": "Crap about second drug sample",
     "enumeration": "5"
    },
-   "solution": "TASTE"
+   "solution": "TASTE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TASTE",
+    "definitions": [
+     {
+      "text": "sample",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the first word goes round the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crap",
+      "gives": "TAT",
+      "note": "tat is cheap rubbish"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "S",
+      "T",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Somebody dismissing a drug sample as rubbish.",
+     "definitionFit": "To taste food is to sample it, a verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sample"
+    }
+   }
   },
   {
    "number": 25,
@@ -425,7 +1683,58 @@
     "text": "Shit! Bang requires \"love\" input!",
     "enumeration": "4"
    },
-   "solution": "POOP"
+   "solution": "POOP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "POOP",
+    "definitions": [
+     {
+      "text": "Shit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "input",
+      "for": "container",
+      "note": "an input is something put in, so the zero sits inside the noise"
+     }
+    ],
+    "linkWords": [
+     "requires"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bang",
+      "gives": "POP",
+      "note": "a pop is a bang"
+     },
+     {
+      "clueFragment": "\"love\"",
+      "gives": "O",
+      "note": "love is zero in tennis, the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "O",
+      "OP"
+     ]
+    },
+    "explanation": {
+     "surface": "A crude exclamation about sex needing some affection added.",
+     "definitionFit": "Poop is a childish word for excrement, which is what shit means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bang"
+    }
+   }
   },
   {
    "number": 26,
@@ -439,7 +1748,39 @@
     "text": "Mirror will reveal whom you most fancy suffering from this",
     "enumeration": "10"
    },
-   "solution": "NARCISSISM"
+   "solution": "NARCISSISM",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NARCISSISM",
+    "definitions": [
+     {
+      "text": "Mirror will reveal whom you most fancy suffering from this",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mirror will reveal whom you most fancy",
+      "note": "surface reading: a looking glass will show your secret crush, as if magic"
+     },
+     {
+      "clueFragment": "suffering from this",
+      "note": "setter's reading: if the person you fancy most is the one in the mirror, you are in love with yourself"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Mirror suggests the tabloid newspaper or a magic mirror; the joke is that the face you see is your own.",
+     "definitionFit": "The condition is excessive self-love, named after Narcissus, who fell for his own reflection."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mirror"
+    }
+   }
   },
   {
    "number": 27,
@@ -464,7 +1805,77 @@
     "27-across",
     "28-across",
     "7-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ONE-EYED TROUSER SNAKE",
+    "definitions": [
+     {
+      "text": "member",
+      "at": 65
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embroiled",
+      "for": "anagram",
+      "note": "embroiled means tangled up, so these letters are mixed together"
+     }
+    ],
+    "linkWords": [
+     "on getting",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "As Cyclops",
+      "gives": "ONEEYED",
+      "note": "the Cyclops of myth had a single eye"
+     },
+     {
+      "clueFragment": "pants",
+      "gives": "TROUSERS",
+      "note": "pants is the American word for trousers"
+     },
+     {
+      "clueFragment": "Ken",
+      "gives": "KEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONEEYED",
+      "TROUSERS",
+      "NAKE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "KENA",
+       "gives": "NAKE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cyclops, the setter, pulling on trousers while hobnobbing with a politician named Ken.",
+     "walkthrough": "The S that ends trousers becomes the first letter of the last word, so the letter breaks fall in different places from the pieces.",
+     "definitionFit": "Member is a euphemism for the penis, and this phrase is crude Australian-origin slang for it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "member"
+    }
+   }
   },
   {
    "number": 28,
