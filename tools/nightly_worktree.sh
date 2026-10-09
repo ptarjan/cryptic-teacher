@@ -176,6 +176,13 @@ _ct_salvage() {
       failed=1
     fi
   done
+  # Nothing is lost when origin/master already holds every file those commits
+  # touched as HEAD has it (pushed by another path as different commits).
+  if [ "$failed" = 1 ] && git -C "$tree" diff --quiet origin/master HEAD -- \
+      $(git -C "$tree" log --format= --name-only origin/master..HEAD | sort -u); then
+    echo "WORKTREE: a dropped run's commits are already on origin/master" >&2
+    failed=0
+  fi
   if [ "$failed" = 1 ]; then
     c="salvage/$job-$(date +%Y%m%d-%H%M%S)"
     git -C "$tree" branch -q "$c" HEAD || return 1
