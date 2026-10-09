@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "Daily, for example, reversal of cost",
     "enumeration": "6"
    },
-   "solution": "CHARGE"
+   "solution": "CHARGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CHARGE",
+    "definitions": [
+     {
+      "text": "cost",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversal of",
+      "for": "reversal",
+      "note": "a reversal turns the preceding abbreviation round so it is read from its end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Daily",
+      "gives": "CHAR",
+      "note": "a daily is a cleaning woman, a char"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "the usual abbreviation for 'for example'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAR",
+      "GE"
+     ],
+     "reversals": [
+      {
+       "from": "EG",
+       "to": "GE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper such as the Daily something has reversed its cover price.",
+     "walkthrough": "'Daily, for example' reads as one idea, a newspaper, but a daily is also a British term for a cleaner who comes in each day.",
+     "definitionFit": "To charge is to ask a price, so as a noun a charge is the price or fee asked."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Daily"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +104,48 @@
     "text": "Caught dealer, one who trades in wicked goods",
     "enumeration": "8"
    },
-   "solution": "CHANDLER"
+   "solution": "CHANDLER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHANDLER",
+    "definitions": [
+     {
+      "text": "one who trades in wicked goods",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Caught",
+      "gives": "C",
+      "note": "c is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "dealer",
+      "gives": "HANDLER",
+      "note": "a handler deals in stolen goods"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HANDLER"
+     ]
+    },
+    "explanation": {
+     "surface": "A dealer in criminal merchandise has been arrested.",
+     "walkthrough": "'Wicked goods' sounds villainous but means goods with wicks: candles, which a chandler sells.",
+     "definitionFit": "A chandler originally made and sold candles, which have wicks, hence the playful phrase for his merchandise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wicked"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +159,55 @@
     "text": "A school lecturer brewed strong drinks",
     "enumeration": "8"
    },
-   "solution": "ALCOHOLS"
+   "solution": "ALCOHOLS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALCOHOLS",
+    "definitions": [
+     {
+      "text": "strong drinks",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brewed",
+      "for": "anagram",
+      "note": "brewing mixes and transforms ingredients, so these letters are stirred into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A school",
+      "gives": "ASCHOOL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lecturer",
+      "gives": "L",
+      "note": "L is the standard abbreviation for lecturer"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASCHOOLL",
+       "gives": "ALCOHOLS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A teacher at a school has been making potent home brew.",
+     "definitionFit": "Alcohols, in the sense of spirits and other intoxicating beverages, are strong drinks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brewed"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +221,44 @@
     "text": "Dull elegist by the sounds of it",
     "enumeration": "4"
    },
-   "solution": "GREY"
+   "solution": "GREY",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GREY",
+    "definitions": [
+     {
+      "text": "Dull",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sounds of it",
+      "for": "homophone",
+      "note": "the phrase says we are going on what is heard, not how the word is spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "elegist",
+      "gives": "GREY",
+      "soundsLike": "GRAY",
+      "note": "Thomas Gray wrote the Elegy Written in a Country Churchyard"
+     }
+    ],
+    "explanation": {
+     "surface": "A writer of elegies seems rather dreary from what people say.",
+     "walkthrough": "The elegist is Thomas Gray, whose surname is said exactly like the colour.",
+     "definitionFit": "Grey describes something dull and cheerless, lacking colour or interest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "elegist"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +272,72 @@
     "text": "Hot air from gentleman accepting compliance with companies going back and forth",
     "enumeration": "8"
    },
-   "solution": "SCIROCCO"
+   "solution": "SCIROCCO",
+   "annotation": {
+    "type": [
+     "container",
+     "palindrome",
+     "charade"
+    ],
+    "answer": "SCIROCCO",
+    "definitions": [
+     {
+      "text": "Hot air",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "to accept is to take in, so the title word holds the next letter inside it"
+     },
+     {
+      "text": "going back and forth",
+      "for": "palindrome",
+      "note": "moving in both directions means the abbreviation is written backwards then forwards"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gentleman",
+      "gives": "SIR",
+      "note": "the title for a gentleman"
+     },
+     {
+      "clueFragment": "compliance",
+      "gives": "C",
+      "note": "C stands in loosely for compliance, as in the C of a compliance mark"
+     },
+     {
+      "clueFragment": "companies",
+      "gives": "OCCO",
+      "note": "CO for company, written once reversed and once forwards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "IR",
+      "OCCO"
+     ]
+    },
+    "explanation": {
+     "surface": "Pompous talk from a businessman over firms dithering about following the rules.",
+     "walkthrough": "C slips into SIR after its first letter, then CO for company appears reversed and forwards. 'Hot air' looks like windbag talk but is literal: the hot desert wind.",
+     "definitionFit": "The scirocco is a hot, dusty Mediterranean wind blowing from North Africa, quite literally hot moving air."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "air"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +351,59 @@
     "text": "Small boy in audition goes over lines randomly",
     "enumeration": "12"
    },
-   "solution": "CRISSCROSSES"
+   "solution": "CRISSCROSSES",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "CRISSCROSSES",
+    "definitions": [
+     {
+      "text": "lines randomly",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in audition",
+      "for": "homophone",
+      "note": "an audition is a hearing, so the name is taken by its sound only"
+     }
+    ],
+    "linkWords": [
+     "goes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small boy",
+      "gives": "CRISS",
+      "soundsLike": "CHRIS",
+      "note": "Chris, a boy's name and a shortened Christopher"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "CROSSES",
+      "note": "to go over a road is to cross it, the verb here in its third person form"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRISS",
+      "CROSSES"
+     ]
+    },
+    "explanation": {
+     "surface": "A little lad trying out for a part skims the script haphazardly.",
+     "walkthrough": "Strictly 'goes over' together gives the crossing; the sound of the boy's name supplies the first half.",
+     "definitionFit": "A crisscross is a pattern of lines crossing one another in many directions, so plural crisscrosses are lines laid haphazardly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "audition"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +417,50 @@
     "text": "Shops aired dismally romantic pieces of music",
     "enumeration": "10"
    },
-   "solution": "RHAPSODIES"
+   "solution": "RHAPSODIES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RHAPSODIES",
+    "definitions": [
+     {
+      "text": "romantic pieces of music",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dismally",
+      "for": "anagram",
+      "note": "done dismally means done badly, so the letters come out in a muddled order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shops aired",
+      "gives": "SHOPSAIRED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SHOPSAIRED",
+       "gives": "RHAPSODIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stores played sentimental tunes over their speakers to poor effect.",
+     "definitionFit": "A rhapsody is a free, emotional single-movement composition, typical of the Romantic era."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "aired"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +474,58 @@
     "text": "Old boxer's manager gained zero",
     "enumeration": "6"
    },
-   "solution": "COOPER"
+   "solution": "COOPER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COOPER",
+    "definitions": [
+     {
+      "text": "Old boxer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gained",
+      "for": "container",
+      "note": "gaining something here means taking it inside, so the round figure is put within the other word"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "manager",
+      "gives": "COPER",
+      "note": "a coper is one who copes, someone who manages"
+     },
+     {
+      "clueFragment": "zero",
+      "gives": "O",
+      "note": "the round shape of zero"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "O",
+      "OPER"
+     ]
+    },
+    "explanation": {
+     "surface": "A retired fighter's agent ended up with nothing.",
+     "walkthrough": "Henry Cooper was a much-loved British heavyweight of the 1960s; the 's stands for 'is'.",
+     "definitionFit": "Sir Henry Cooper, British heavyweight champion who famously floored Cassius Clay, is the boxer meant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "manager"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +539,39 @@
     "text": "Should a vegetable grower know his well?",
     "enumeration": "6"
    },
-   "solution": "ONIONS"
+   "solution": "ONIONS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ONIONS",
+    "definitions": [
+     {
+      "text": "Should a vegetable grower know his well?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Should a vegetable grower know his well?",
+      "note": "surface reading: a question about whether a gardener ought to understand his crops"
+     },
+     {
+      "clueFragment": "know his",
+      "note": "setter's reading: the idiom 'know one's ...' for being expert, completed by a bulb vegetable"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "To know your onions is British idiom for knowing your subject thoroughly; a vegetable grower might be expected to know them literally.",
+     "definitionFit": "The idiom for expertise names this pungent bulb, which a grower would literally need to understand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "well"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +585,51 @@
     "text": "Tell, say, when demonstrator loses his head",
     "enumeration": "6"
    },
-   "solution": "ARCHER"
+   "solution": "ARCHER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ARCHER",
+    "definitions": [
+     {
+      "text": "Tell, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loses his head",
+      "for": "deletion",
+      "note": "losing the head means the first letter is cut off"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "demonstrator",
+      "gives": "MARCHER",
+      "note": "a demonstrator on a protest march"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARCHER"
+     ]
+    },
+    "explanation": {
+     "surface": "A protester is beheaded, and we are told to report it.",
+     "walkthrough": "'Tell' is not a verb here but William Tell, the Swiss marksman who shot an apple off his son's head.",
+     "definitionFit": "William Tell is the legendary Swiss bowman, an example of a skilled shooter with bow or crossbow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Tell"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +643,61 @@
     "text": "Baltic city into cooking pasta",
     "enumeration": "8"
    },
-   "solution": "RIGATONI"
+   "solution": "RIGATONI",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "RIGATONI",
+    "definitions": [
+     {
+      "text": "pasta",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooking",
+      "for": "anagram",
+      "note": "cooking transforms ingredients, so the small word beside it is rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Baltic city",
+      "gives": "RIGA",
+      "note": "the capital of Latvia"
+     },
+     {
+      "clueFragment": "into",
+      "gives": "TONI",
+      "note": "these four letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIGA",
+      "TONI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INTO",
+       "gives": "TONI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone from Latvia's capital has taken up making pasta.",
+     "walkthrough": "'into' looks like a connecting preposition but is the material to be cooked.",
+     "definitionFit": "Rigatoni are ridged tubes, one of the standard Italian pasta shapes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "into"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +711,65 @@
     "text": "Pro establishment bringing jam round at 4",
     "enumeration": "12"
    },
-   "solution": "CONSERVATIVE"
+   "solution": "CONSERVATIVE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CONSERVATIVE",
+    "definitions": [
+     {
+      "text": "Pro establishment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "going round something means surrounding it, so the jam word wraps the rest"
+     }
+    ],
+    "linkWords": [
+     "bringing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jam",
+      "gives": "CONSERVE",
+      "note": "a conserve is a fruit jam"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "4",
+      "gives": "IV",
+      "note": "four in Roman numerals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONSERV",
+      "AT",
+      "IV",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone backing the system brings preserves round at four for tea.",
+     "walkthrough": "The jam surrounds the pair AT plus Roman four, sitting before its final E.",
+     "definitionFit": "A conservative favours existing institutions and traditional order, i.e. supports the status quo."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "jam"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +783,66 @@
     "text": "Boy reflected about hot Indian food",
     "enumeration": "4"
    },
-   "solution": "DAHL"
+   "solution": "DAHL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DAHL",
+    "definitions": [
+     {
+      "text": "Indian food",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reflected",
+      "for": "reversal",
+      "note": "a reflection shows things back to front, so the boy word reads the other way"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the reversed word goes round the abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boy",
+      "gives": "LAD",
+      "note": "a lad is a boy"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the abbreviation for hot, as on taps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DA",
+      "H",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "LHAD",
+       "to": "DAHL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young man thinks about spicy Indian cooking.",
+     "definitionFit": "Dahl, or dal, is a South Asian dish of stewed lentils or split pulses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reflected"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +856,49 @@
     "text": "Gents maybe endlessly promiscuous",
     "enumeration": "4"
    },
-   "solution": "LOOS"
+   "solution": "LOOS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LOOS",
+    "definitions": [
+     {
+      "text": "Gents maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without its end, the word loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "promiscuous",
+      "gives": "LOOSE",
+      "note": "loose in its old sense of sexually unrestrained"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOOS"
+     ]
+    },
+    "explanation": {
+     "surface": "Men, perhaps, who sleep around without limit.",
+     "walkthrough": "'Gents' reads as men, but it is the British name for a men's public toilet.",
+     "definitionFit": "The Gents is British slang for a men's lavatory, an example of a loo."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Gents"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +912,53 @@
     "text": "Prominent scientist, not a German mug",
     "enumeration": "5"
    },
-   "solution": "STEIN"
+   "solution": "STEIN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STEIN",
+    "definitions": [
+     {
+      "text": "mug",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means without, so the following German word is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prominent scientist",
+      "gives": "EINSTEIN",
+      "note": "Albert Einstein, the physicist"
+     },
+     {
+      "clueFragment": "a German",
+      "gives": "EIN",
+      "note": "ein is German for a"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A famous scientist, who was not a German fool.",
+     "walkthrough": "'mug' suggests a dupe, but it is the drinking vessel.",
+     "definitionFit": "A stein is a large earthenware beer mug, often lidded, of German origin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mug"
+    }
+   }
   },
   {
    "number": 15,
@@ -243,7 +972,68 @@
     "text": "Insisted Democrat worked on Southern rebels",
     "enumeration": "10"
    },
-   "solution": "DISSIDENTS"
+   "solution": "DISSIDENTS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DISSIDENTS",
+    "definitions": [
+     {
+      "text": "rebels",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worked",
+      "for": "anagram",
+      "note": "something worked has been shaped and reshaped, so the letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Insisted",
+      "gives": "INSISTED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Democrat",
+      "gives": "D",
+      "note": "D is the abbreviation for Democrat"
+     },
+     {
+      "clueFragment": "Southern",
+      "gives": "S",
+      "note": "S for southern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISSIDENT",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INSISTEDD",
+       "gives": "DISSIDENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Democrat insisted on lobbying Southern rebels.",
+     "definitionFit": "Dissidents oppose official policy or the ruling regime, so they are rebels against authority."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worked"
+    }
+   }
   },
   {
    "number": 16,
@@ -257,7 +1047,50 @@
     "text": "Sweet treats served by London hide-outs",
     "enumeration": "7"
    },
-   "solution": "ECLAIRS"
+   "solution": "ECLAIRS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ECLAIRS",
+    "definitions": [
+     {
+      "text": "Sweet treats",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "served by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "London",
+      "gives": "EC",
+      "note": "EC, the postcode of the City of London"
+     },
+     {
+      "clueFragment": "hide-outs",
+      "gives": "LAIRS",
+      "note": "a lair is a hiding place"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EC",
+      "LAIRS"
+     ]
+    },
+    "explanation": {
+     "surface": "Cakes are on offer at secret London dens.",
+     "walkthrough": "EC is the postcode for the City of London district.",
+     "definitionFit": "Eclairs are cream-filled choux pastries topped with chocolate, a classic sweet treat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "served"
+    }
+   }
   },
   {
    "number": 17,
@@ -271,7 +1104,46 @@
     "text": "Actor Paul, who played a little role, getting the red-eye",
     "enumeration": "4"
    },
-   "solution": "RUDD"
+   "solution": "RUDD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RUDD",
+    "definitions": [
+     {
+      "text": "Actor Paul, who played a little role",
+      "at": 0
+     },
+     {
+      "text": "the red-eye",
+      "at": 46
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Actor Paul, who played a little role",
+      "note": "first meaning: the American actor who played Ant-Man, a tiny hero"
+     },
+     {
+      "clueFragment": "the red-eye",
+      "note": "second meaning: a freshwater fish also called the red-eye"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'A little role' sounds like a bit part but is a tiny superhero; 'red-eye' suggests a night flight but is the fish's other name.",
+     "definitionFit": "Paul Rudd is the Ant-Man star, and the rudd is a European freshwater fish known for its red eyes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "little"
+    }
+   }
   },
   {
    "number": 18,
@@ -285,7 +1157,48 @@
     "text": "Grocers intrinsically backing sustainability label",
     "enumeration": "3"
    },
-   "solution": "ECO"
+   "solution": "ECO",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ECO",
+    "definitions": [
+     {
+      "text": "sustainability label",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "intrinsically",
+      "for": "hidden_word",
+      "note": "intrinsically means within, so the letters are found inside the word"
+     },
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "going backwards means the hidden letters are read right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grocers",
+      "gives": "OCE",
+      "note": "the middle three letters of the shop word"
+     }
+    ],
+    "explanation": {
+     "surface": "Shopkeepers at heart support green labelling.",
+     "definitionFit": "Eco is a prefix and label marking products as environmentally friendly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 19,
@@ -299,7 +1212,50 @@
     "text": "Troubled attendee unable to take a bite",
     "enumeration": "8"
    },
-   "solution": "EDENTATE"
+   "solution": "EDENTATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EDENTATE",
+    "definitions": [
+     {
+      "text": "unable to take a bite",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Troubled",
+      "for": "anagram",
+      "note": "something troubled is disturbed, so the letters are thrown out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attendee",
+      "gives": "ATTENDEE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATTENDEE",
+       "gives": "EDENTATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An anxious guest at the dinner cannot eat anything.",
+     "definitionFit": "Edentate means toothless, and with no teeth one cannot bite."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Troubled"
+    }
+   }
   },
   {
    "number": 20,
@@ -313,7 +1269,52 @@
     "text": "Tanning ex-PM in government",
     "enumeration": "8"
    },
-   "solution": "BROWNING"
+   "solution": "BROWNING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BROWNING",
+    "definitions": [
+     {
+      "text": "Tanning",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ex-PM",
+      "gives": "BROWN",
+      "note": "Gordon Brown, UK Prime Minister 2007-10"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "government",
+      "gives": "G",
+      "note": "G is the abbreviation for government"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BROWN",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A former premier is getting a suntan while in office.",
+     "definitionFit": "Browning the skin in the sun is the same as tanning it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 21,
@@ -327,7 +1328,42 @@
     "text": "Emperor overwhelmed by part of Soviets' army",
     "enumeration": "4"
    },
-   "solution": "TSAR"
+   "solution": "TSAR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TSAR",
+    "definitions": [
+     {
+      "text": "Emperor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overwhelmed by part of",
+      "for": "hidden_word",
+      "note": "the answer is swallowed up inside a portion of the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soviets' army",
+      "gives": "TSAR",
+      "note": "spans the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A Russian ruler is overthrown by a Red Army unit.",
+     "definitionFit": "The tsar was the emperor of Russia before the 1917 revolution."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "overwhelmed"
+    }
+   }
   },
   {
    "number": 22,
@@ -341,7 +1377,56 @@
     "text": "Prodigal son to hang former head of state",
     "enumeration": "7"
    },
-   "solution": "SPENDER"
+   "solution": "SPENDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPENDER",
+    "definitions": [
+     {
+      "text": "Prodigal",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S for son, as in genealogies"
+     },
+     {
+      "clueFragment": "hang",
+      "gives": "PEND",
+      "note": "to pend is to hang, as in pendulum"
+     },
+     {
+      "clueFragment": "former head of state",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, the late Queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PEND",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "The prodigal son's story ends with a call to execute a deposed ruler.",
+     "walkthrough": "'Prodigal son' looks like one phrase from the parable; only the first word is the definition.",
+     "definitionFit": "A prodigal is a wastrel who spends money recklessly, so a heavy spender; the adjective also works as noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "son"
+    }
+   }
   },
   {
    "number": 23,
@@ -355,7 +1440,55 @@
     "text": "Dandy left inside joint",
     "enumeration": "6"
    },
-   "solution": "SPLIFF"
+   "solution": "SPLIFF",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPLIFF",
+    "definitions": [
+     {
+      "text": "joint",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside places the abbreviation within the dandy word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dandy",
+      "gives": "SPIFF",
+      "note": "a spiff is a smartly dressed man"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "L",
+      "IFF"
+     ]
+    },
+    "explanation": {
+     "surface": "A fop has gone off into a nightclub.",
+     "walkthrough": "'joint' reads as a venue, but it is a cannabis cigarette.",
+     "definitionFit": "A spliff is slang for a hand-rolled cannabis cigarette, also called a joint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "joint"
+    }
+   }
   },
   {
    "number": 24,
@@ -369,7 +1502,55 @@
     "text": "Senior servant still essentially alert",
     "enumeration": "6"
    },
-   "solution": "BUTLER"
+   "solution": "BUTLER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BUTLER",
+    "definitions": [
+     {
+      "text": "Senior servant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is its core, so only its central letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "still",
+      "gives": "BUT",
+      "note": "still in the sense of nevertheless"
+     },
+     {
+      "clueFragment": "alert",
+      "gives": "LER",
+      "select": "middle",
+      "note": "the three letters at the heart of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUT",
+      "LER"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly retainer remains watchful at heart.",
+     "definitionFit": "The butler is the chief manservant of a household, in charge of the others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "still"
+    }
+   }
   },
   {
    "number": 25,
@@ -383,7 +1564,54 @@
     "text": "Small lake surrounds university enclosure",
     "enumeration": "5"
    },
-   "solution": "POUND"
+   "solution": "POUND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "POUND",
+    "definitions": [
+     {
+      "text": "enclosure",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounds",
+      "for": "container",
+      "note": "surrounding means going all round, so the water word holds the letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small lake",
+      "gives": "POND",
+      "note": "a pond is a small body of still water"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U for university"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "U",
+      "ND"
+     ]
+    },
+    "explanation": {
+     "surface": "A little lake rings a campus enclosure.",
+     "definitionFit": "A pound is a pen or enclosure for stray animals or impounded vehicles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Small"
+    }
+   }
   },
   {
    "number": 26,
@@ -397,7 +1625,60 @@
     "text": "Summit of Twitter these days following Apple regularly",
     "enumeration": "4"
    },
-   "solution": "APEX"
+   "solution": "APEX",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "APEX",
+    "definitions": [
+     {
+      "text": "Summit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "the social media letter is placed after the fruit letters, which it follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Apple",
+      "gives": "APE",
+      "select": "alternate",
+      "note": "first, third and fifth letters"
+     },
+     {
+      "clueFragment": "Twitter these days",
+      "gives": "X",
+      "note": "Twitter was renamed X in 2023"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APE",
+      "X"
+     ]
+    },
+    "explanation": {
+     "surface": "The top people at Twitter now trail behind Apple.",
+     "definitionFit": "The apex is the highest point, the peak of a mountain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Summit"
+    }
+   }
   },
   {
    "number": 27,
@@ -411,7 +1692,53 @@
     "text": "Downfall of some nepotistic old world leaders",
     "enumeration": "4"
    },
-   "solution": "SNOW"
+   "solution": "SNOW",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SNOW",
+    "definitions": [
+     {
+      "text": "Downfall",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders",
+      "for": "letter_selection",
+      "note": "the leaders of words are their opening letters"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some nepotistic old world",
+      "gives": "SNOW",
+      "select": "first",
+      "note": "initial letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNOW"
+     ]
+    },
+    "explanation": {
+     "surface": "Some favouritism-ridden old leaders around the world were toppled.",
+     "walkthrough": "'Downfall' seems to mean ruin, but read literally it is something that falls down from the sky.",
+     "definitionFit": "Snow is a fall of precipitation, so a snowfall is literally a downfall from the clouds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Downfall"
+    }
+   }
   },
   {
    "number": 28,
@@ -425,7 +1752,43 @@
     "text": "Lady singer out to lunch",
     "enumeration": "4"
    },
-   "solution": "GAGA"
+   "solution": "GAGA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GAGA",
+    "definitions": [
+     {
+      "text": "Lady singer",
+      "at": 0
+     },
+     {
+      "text": "out to lunch",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lady singer",
+      "note": "first meaning: the American pop star known as Lady ..."
+     },
+     {
+      "clueFragment": "out to lunch",
+      "note": "second meaning: slang for crazy or not with it"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Lady singer' looks like a female vocalist but is the stage name Lady Gaga.",
+     "definitionFit": "Gaga is both the second part of the pop star's name and slang for being senile or dotty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lady"
+    }
+   }
   },
   {
    "number": 29,
@@ -439,7 +1802,58 @@
     "text": "Unwell in old island state",
     "enumeration": "8"
    },
-   "solution": "ILLINOIS"
+   "solution": "ILLINOIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ILLINOIS",
+    "definitions": [
+     {
+      "text": "state",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unwell",
+      "gives": "ILL",
+      "note": "ill means unwell"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O for old"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "IS",
+      "note": "IS for island, as on maps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILL",
+      "IN",
+      "O",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone falls sick on an ancient island.",
+     "definitionFit": "Illinois is a Midwestern US state whose largest city is Chicago."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "island"
+    }
+   }
   },
   {
    "number": 30,
@@ -453,7 +1867,56 @@
     "text": "Expedition from South Africa to remote India",
     "enumeration": "6"
    },
-   "solution": "SAFARI"
+   "solution": "SAFARI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SAFARI",
+    "definitions": [
+     {
+      "text": "Expedition",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South Africa",
+      "gives": "SA",
+      "note": "the country's abbreviation"
+     },
+     {
+      "clueFragment": "remote",
+      "gives": "FAR",
+      "note": "far means distant"
+     },
+     {
+      "clueFragment": "India",
+      "gives": "I",
+      "note": "I is India in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "FAR",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A trip goes from South Africa to far-off India.",
+     "definitionFit": "A safari is an overland expedition, especially to observe or hunt wild animals in Africa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "remote"
+    }
+   }
   },
   {
    "number": 31,
@@ -467,7 +1930,59 @@
     "text": "Woodman in favour of new trees",
     "enumeration": "8"
    },
-   "solution": "FORESTER"
+   "solution": "FORESTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "FORESTER",
+    "definitions": [
+     {
+      "text": "Woodman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "making something new means remaking it, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in favour of",
+      "gives": "FOR",
+      "note": "for means in support of"
+     },
+     {
+      "clueFragment": "trees",
+      "gives": "ESTER",
+      "note": "the five letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "ESTER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TREES",
+       "gives": "ESTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lumberjack argues for planting fresh trees.",
+     "definitionFit": "A forester manages and works in woodland, as a woodman does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 32,
@@ -487,7 +2002,53 @@
      }
     ]
    },
-   "solution": "BADEGG"
+   "solution": "BADEGG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BAD EGG",
+    "definitions": [
+     {
+      "text": "Scoundrel",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ordered",
+      "gives": "BADE",
+      "note": "bade is the past tense of bid, to order"
+     },
+     {
+      "clueFragment": "gallon",
+      "gives": "G",
+      "note": "G for gallon"
+     },
+     {
+      "clueFragment": "after gallon",
+      "gives": "G",
+      "note": "a second gallon, placed after the first"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BADE",
+      "G",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A rogue asks for one gallon after another at the bar.",
+     "walkthrough": "'ordered' looks like an anagram signal but is simply the past tense bade.",
+     "definitionFit": "A bad egg is an idiom for a dishonest or untrustworthy person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ordered"
+    }
+   }
   }
  ]
 }
