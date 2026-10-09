@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Wave of anger very softly breaks",
     "enumeration": "6"
    },
-   "solution": "RIPPLE"
+   "solution": "RIPPLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RIPPLE",
+    "definitions": [
+     {
+      "text": "Wave",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaks",
+      "for": "container",
+      "note": "one thing breaking into another splits it open and sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "anger",
+      "gives": "RILE",
+      "note": "to rile is to anger"
+     },
+     {
+      "clueFragment": "very softly",
+      "gives": "PP",
+      "note": "pianissimo, the musical marking for very soft"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RI",
+      "PP",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A surge of fury quietly bursting out of someone.",
+     "walkthrough": "Read 'anger' as a verb, not a noun: the very-soft marking splits it in two.",
+     "definitionFit": "A ripple is a small wave on the surface of water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "anger"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,51 @@
     "text": "Goody-goody with top off becomes bawdy!",
     "enumeration": "4"
    },
-   "solution": "RUDE"
+   "solution": "RUDE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RUDE",
+    "definitions": [
+     {
+      "text": "bawdy",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with top off",
+      "for": "deletion",
+      "note": "in a down answer the top is the first letter, and taking it off removes that letter"
+     }
+    ],
+    "linkWords": [
+     "becomes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Goody-goody",
+      "gives": "PRUDE",
+      "note": "a prude is a priggish goody-goody"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A prim person who strips off turns into a vulgar one.",
+     "definitionFit": "Rude jokes are coarse and vulgar, a synonym for bawdy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +156,52 @@
     "text": "Dash to toilet with chronic pain",
     "enumeration": "7"
    },
-   "solution": "PANACHE"
+   "solution": "PANACHE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PANACHE",
+    "definitions": [
+     {
+      "text": "Dash",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "toilet",
+      "gives": "PAN",
+      "note": "the pan is the toilet bowl"
+     },
+     {
+      "clueFragment": "chronic pain",
+      "gives": "ACHE",
+      "note": "an ache is a lasting dull pain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAN",
+      "ACHE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone with a bad stomach rushing to the loo.",
+     "walkthrough": "'Dash' looks like a verb of running; it is the noun meaning stylish verve.",
+     "definitionFit": "Dash in the sense of flamboyant style and confidence is a synonym for panache."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dash"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +215,45 @@
     "text": "Drink's a bit of a problem on a demo",
     "enumeration": "8"
    },
-   "solution": "LEMONADE"
+   "solution": "LEMONADE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LEMONADE",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a bit of",
+      "for": "hidden_word",
+      "note": "only a bit of the following words is wanted, a run of letters lying inside them"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "problem on a demo",
+      "gives": "LEMONADE",
+      "note": "the letters run across the end of problem, all of on a, and the start of demo"
+     }
+    ],
+    "explanation": {
+     "surface": "A drink spilled at a protest march causes some trouble.",
+     "definitionFit": "Lemonade is a soft drink flavoured with lemons."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bit"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +267,67 @@
     "text": "Cleverly holds back room for military meeting",
     "enumeration": "8"
    },
-   "solution": "ASSEMBLY"
+   "solution": "ASSEMBLY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ASSEMBLY",
+    "definitions": [
+     {
+      "text": "meeting",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the word is read from its end to its start"
+     },
+     {
+      "text": "holds",
+      "for": "container",
+      "note": "something that holds another has it inside, so one word wraps round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cleverly",
+      "gives": "ABLY",
+      "note": "doing something ably is doing it cleverly"
+     },
+     {
+      "clueFragment": "room for military",
+      "gives": "MESS",
+      "note": "the mess is where service personnel eat and relax"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SSEM",
+      "BLY"
+     ],
+     "reversals": [
+      {
+       "from": "MESS",
+       "to": "SSEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clever plan keeping a room in reserve for an army gathering.",
+     "walkthrough": "'military meeting' looks like the definition, but 'military' belongs with 'room' to give the mess; the definition is just 'meeting'.",
+     "definitionFit": "An assembly is a gathering of people, a synonym for meeting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "military"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +341,56 @@
     "text": "Usher chap on to vessel with dramatic flair",
     "enumeration": "11"
    },
-   "solution": "SHOWMANSHIP"
+   "solution": "SHOWMANSHIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHOWMANSHIP",
+    "definitions": [
+     {
+      "text": "dramatic flair",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Usher",
+      "gives": "SHOW",
+      "note": "to show someone in is to usher them"
+     },
+     {
+      "clueFragment": "chap",
+      "gives": "MAN",
+      "note": "a chap is a man"
+     },
+     {
+      "clueFragment": "on to vessel",
+      "gives": "SHIP",
+      "note": "a ship is a vessel, placed after the previous pieces"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHOW",
+      "MAN",
+      "SHIP"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to escort a fellow aboard a ship in a theatrical way.",
+     "walkthrough": "'Usher' reads as a noun, a person at a theatre, but here it is the verb.",
+     "definitionFit": "Showmanship is the skill of performing with theatrical flourish, which is dramatic flair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Usher"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +404,64 @@
     "text": "Contemplating, for example, holding on to the old home",
     "enumeration": "6"
    },
-   "solution": "EYEING"
+   "solution": "EYEING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EYEING",
+    "definitions": [
+     {
+      "text": "Contemplating",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "one thing holding others keeps them inside it, so they go in the middle"
+     }
+    ],
+    "linkWords": [
+     "on to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "the usual abbreviation, from Latin exempli gratia"
+     },
+     {
+      "clueFragment": "the old",
+      "gives": "YE",
+      "note": "ye is an old spelling of the"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "at home means in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "YE",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone thinking fondly about holding on to their old house.",
+     "definitionFit": "Eyeing something is looking at it closely, which is contemplating it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +475,55 @@
     "text": "Have faith in bishop and priest the day before",
     "enumeration": "7"
    },
-   "solution": "BELIEVE"
+   "solution": "BELIEVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BELIEVE",
+    "definitions": [
+     {
+      "text": "Have faith in",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     },
+     {
+      "clueFragment": "priest",
+      "gives": "ELI",
+      "note": "Eli is the priest in the Book of Samuel, a crossword regular"
+     },
+     {
+      "clueFragment": "the day before",
+      "gives": "EVE",
+      "note": "the eve is the day before a festival"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ELI",
+      "EVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Trusting in churchmen the day before a feast.",
+     "definitionFit": "To believe in something is to trust it, which is having faith in it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bishop"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +537,50 @@
     "text": "American gardens get check for standard",
     "enumeration": "9"
    },
-   "solution": "YARDSTICK"
+   "solution": "YARDSTICK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "YARDSTICK",
+    "definitions": [
+     {
+      "text": "standard",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "get",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American gardens",
+      "gives": "YARDS",
+      "note": "in American English a yard is a garden"
+     },
+     {
+      "clueFragment": "check",
+      "gives": "TICK",
+      "note": "a tick is a check mark"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YARDS",
+      "TICK"
+     ]
+    },
+    "explanation": {
+     "surface": "US gardens being inspected against a benchmark.",
+     "definitionFit": "A yardstick is a measure for judging things, a synonym for standard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "check"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +594,63 @@
     "text": "Son dug around in work trousers",
     "enumeration": "6"
    },
-   "solution": "DENIMS"
+   "solution": "DENIMS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DENIMS",
+    "definitions": [
+     {
+      "text": "work trousers",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "turning around makes the letters face the other way, read from the end"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "dug",
+      "gives": "MINED",
+      "note": "mined means dug out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DENIM",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SMINED",
+       "to": "DENIMS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boy digging in the garden wearing his work clothes.",
+     "definitionFit": "Denims are jeans made of tough cotton, traditionally worn as working trousers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +664,72 @@
     "text": "Singer of \"Old Yeller\" medley cut tearful ending",
     "enumeration": "8"
    },
-   "solution": "YODELLER"
+   "solution": "YODELLER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "YODELLER",
+    "definitions": [
+     {
+      "text": "Singer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending",
+      "for": "letter_selection",
+      "note": "the ending of a word is only its final letter"
+     },
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "what is cut is taken out of the rest"
+     },
+     {
+      "text": "medley",
+      "for": "anagram",
+      "note": "a medley mixes things together, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "\"Old Yeller\"",
+      "gives": "OLDYELLER",
+      "note": "the film title taken letter for letter"
+     },
+     {
+      "clueFragment": "tearful",
+      "gives": "L",
+      "select": "last",
+      "note": "the final letter of tearful"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OLDYELER",
+       "gives": "YODELLER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sad tribute song about the Disney dog film, with its weepy finale trimmed.",
+     "walkthrough": "Old Yeller is a 1957 Disney film about a dog, famous for its tearful ending; one L goes before the shuffle.",
+     "definitionFit": "A yodeller is someone who sings in rapidly alternating registers, so a kind of singer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "medley"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +743,53 @@
     "text": "Gossips with lad congressman abandoned",
     "enumeration": "14"
    },
-   "solution": "SCANDALMONGERS"
+   "solution": "SCANDALMONGERS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCANDALMONGERS",
+    "definitions": [
+     {
+      "text": "Gossips",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandoned",
+      "for": "anagram",
+      "note": "abandoned can mean wild and unrestrained, so the letters run riot"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lad congressman",
+      "gives": "LADCONGRESSMAN",
+      "note": "the fodder taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LADCONGRESSMAN",
+       "gives": "SCANDALMONGERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tattlers whisper about a young man left behind by a US politician.",
+     "definitionFit": "Scandalmongers spread malicious rumours, which makes them gossips."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "abandoned"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +803,79 @@
     "text": "Foreign tour in rickety used van is reckless",
     "enumeration": "11"
    },
-   "solution": "ADVENTUROUS"
+   "solution": "ADVENTUROUS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ADVENTUROUS",
+    "definitions": [
+     {
+      "text": "reckless",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Foreign",
+      "for": "anagram",
+      "note": "foreign means strange and altered, so these letters are put into an unfamiliar order"
+     },
+     {
+      "text": "rickety",
+      "for": "anagram",
+      "note": "something rickety is falling apart, so the letters are rebuilt in another order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "used van",
+      "gives": "USEDVAN",
+      "note": "the fodder taken letter for letter"
+     },
+     {
+      "clueFragment": "tour",
+      "gives": "TOUR",
+      "note": "the fodder taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADVEN",
+      "TURO",
+      "US"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOUR",
+       "gives": "TURO"
+      },
+      {
+       "fodder": "USEDVAN",
+       "gives": "ADVENUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Touring abroad in a battered second-hand van is foolhardy.",
+     "walkthrough": "Both word groups are jumbled: one set of mixed letters goes inside the other.",
+     "definitionFit": "Adventurous can mean daring to the point of rashness, close to reckless."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rickety"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +895,57 @@
      }
     ]
    },
-   "solution": "FIELDEVENT"
+   "solution": "FIELDEVENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FIELD EVENT",
+    "definitions": [
+     {
+      "text": "Perhaps hammer",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "other competitors",
+      "gives": "FIELD",
+      "note": "the field is everyone else in a race"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     },
+     {
+      "clueFragment": "to let off steam",
+      "gives": "VENT",
+      "note": "to vent is to let off steam"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIELD",
+      "E",
+      "VENT"
+     ]
+    },
+    "explanation": {
+     "surface": "An athlete wants to hammer their rivals as a way of releasing frustration.",
+     "walkthrough": "'hammer' reads as the verb to thrash; with 'Perhaps' it is the hammer throw, an example.",
+     "definitionFit": "The hammer throw is an athletics contest held on the field, an example of a field event."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hammer"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +959,77 @@
     "text": "If raised caught on Scottish island, long for make-believe!",
     "enumeration": "9"
    },
-   "solution": "FICTIONAL"
+   "solution": "FICTIONAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "FICTIONAL",
+    "definitions": [
+     {
+      "text": "make-believe",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down answer, raising a word turns it upwards, so it reads from the bottom"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "If",
+      "gives": "IF",
+      "note": "the word as written"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "CT",
+      "note": "ct is an abbreviation for caught, seen on some cricket scorecards"
+     },
+     {
+      "clueFragment": "Scottish island",
+      "gives": "IONA",
+      "note": "Iona is an island in the Inner Hebrides"
+     },
+     {
+      "clueFragment": "long",
+      "gives": "L",
+      "note": "L is the abbreviation for long"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FI",
+      "CT",
+      "IONA",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "IF",
+       "to": "FI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone longs to be hoisted up to a Hebridean isle, a fantasy.",
+     "walkthrough": "Caught here is CT rather than the usual single C; 'on' just places the island after it.",
+     "definitionFit": "Fictional things are invented and unreal, so make-believe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +1043,46 @@
     "text": "Fairy can be seen in superimposed photo",
     "enumeration": "4"
    },
-   "solution": "PERI"
+   "solution": "PERI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PERI",
+    "definitions": [
+     {
+      "text": "Fairy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "can be seen in",
+      "for": "hidden_word",
+      "note": "the letters are visible inside the next word itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "superimposed",
+      "gives": "PERI",
+      "note": "found in the middle of superimposed"
+     },
+     {
+      "clueFragment": "photo",
+      "note": "surface padding: it only sets the scene"
+     }
+    ],
+    "explanation": {
+     "surface": "A fairy appears in a doctored double-exposure photo, like the Cottingley hoax.",
+     "definitionFit": "A peri is a fairy or sprite in Persian mythology, a crossword favourite."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "photo"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1096,70 @@
     "text": "Want soldiers to get degree up in Scottish university",
     "enumeration": "8"
    },
-   "solution": "ABERDEEN"
+   "solution": "ABERDEEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ABERDEEN",
+    "definitions": [
+     {
+      "text": "Scottish university",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down answer, going up means the whole string reads from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "to get",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Want",
+      "gives": "NEED",
+      "note": "to want is to need"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers, the army regiment"
+     },
+     {
+      "clueFragment": "degree",
+      "gives": "BA",
+      "note": "BA is a Bachelor of Arts degree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "ER",
+      "DEEN"
+     ],
+     "reversals": [
+      {
+       "from": "NEEDREBA",
+       "to": "ABERDEEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wanting troops to earn degrees at a university in Scotland.",
+     "definitionFit": "Aberdeen is a city in north-east Scotland with an ancient university bearing its name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1173,49 @@
     "text": "Note request for drink container",
     "enumeration": "4"
    },
-   "solution": "CASK"
+   "solution": "CASK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CASK",
+    "definitions": [
+     {
+      "text": "drink container",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "C",
+      "note": "C is a musical note"
+     },
+     {
+      "clueFragment": "request",
+      "gives": "ASK",
+      "note": "to ask is to request"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ASK"
+     ]
+    },
+    "explanation": {
+     "surface": "A written note asking for a barrel of beer.",
+     "definitionFit": "A cask is a wooden barrel for storing wine or beer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Note"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1229,47 @@
     "text": "One's hot in a thick jumper",
     "enumeration": "7"
    },
-   "solution": "SWEATER"
+   "solution": "SWEATER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SWEATER",
+    "definitions": [
+     {
+      "text": "One's hot",
+      "at": 0
+     },
+     {
+      "text": "thick jumper",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "in a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One's hot",
+      "note": "first meaning: someone who perspires"
+     },
+     {
+      "clueFragment": "thick jumper",
+      "note": "second meaning: a heavy knitted pullover"
+     }
+    ],
+    "explanation": {
+     "surface": "Anyone wearing a chunky woolly overheats.",
+     "walkthrough": "A jumper is the British word for a knitted pullover.",
+     "definitionFit": "A sweater is literally one who sweats, and also the usual US name for a knitted pullover."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hot"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1293,46 @@
      }
     ]
    },
-   "solution": "ONTHEBLINK"
+   "solution": "ONTHEBLINK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ON THE BLINK",
+    "definitions": [
+     {
+      "text": "Fluttering the eyelashes",
+      "at": 0
+     },
+     {
+      "text": "not working",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fluttering the eyelashes",
+      "note": "first meaning, taken literally: in the middle of a wink of the eye"
+     },
+     {
+      "clueFragment": "not working",
+      "note": "second meaning: an idiom for a broken machine"
+     }
+    ],
+    "explanation": {
+     "surface": "Batting your eyes means you're idling.",
+     "definitionFit": "The idiom describes a faulty device that keeps cutting out, while the literal reading describes eyes mid-wink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fluttering"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1346,66 @@
     "text": "First person to call about working is pressing",
     "enumeration": "7"
    },
-   "solution": "IRONING"
+   "solution": "IRONING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "IRONING",
+    "definitions": [
+     {
+      "text": "pressing",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one word going about another encircles it"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "First person",
+      "gives": "I",
+      "note": "I is the first person pronoun"
+     },
+     {
+      "clueFragment": "to call",
+      "gives": "RING",
+      "note": "to ring is to call on the phone"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "R",
+      "ON",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "Being the first to phone about a job is urgent.",
+     "walkthrough": "'pressing' looks like urgent; it is the act of smoothing clothes with an iron.",
+     "definitionFit": "Ironing clothes means pressing them flat with a hot iron."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pressing"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1425,54 @@
      }
     ]
    },
-   "solution": "BYEBYE"
+   "solution": "BYEBYE",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "BYE-BYE",
+    "definitions": [
+     {
+      "text": "so long",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "call",
+      "for": "homophone",
+      "note": "a call is something shouted out, so it is judged by its sound"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trader's",
+      "gives": "BYE",
+      "soundsLike": "BUY",
+      "note": "a dealer's shout to purchase"
+     },
+     {
+      "clueFragment": "echoes",
+      "gives": "BYE",
+      "soundsLike": "BUY",
+      "note": "an echo repeats the same shout once more"
+     }
+    ],
+    "explanation": {
+     "surface": "A stockbroker's shouts ring around the trading floor for ages.",
+     "definitionFit": "So long and the answer are both casual ways of saying farewell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "long"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1500,60 @@
      }
     ]
    },
-   "solution": "IBEGYOURPARDON"
+   "solution": "IBEGYOURPARDON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "I BEG YOUR PARDON",
+    "definitions": [
+     {
+      "text": "What?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Setter's",
+      "gives": "I",
+      "note": "the setter refers to themselves as I"
+     },
+     {
+      "clueFragment": "to ask",
+      "gives": "BEG",
+      "note": "to beg is to ask earnestly"
+     },
+     {
+      "clueFragment": "solver's",
+      "gives": "YOUR",
+      "note": "the solver is you, so the solver's is your"
+     },
+     {
+      "clueFragment": "forgiveness",
+      "gives": "PARDON",
+      "note": "a pardon is forgiveness"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "BEG",
+      "YOUR",
+      "PARDON"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter apologises to the puzzled solver.",
+     "walkthrough": "The setter is I and the solver is you, a standard crossword convention.",
+     "definitionFit": "The phrase is a polite way of asking someone to repeat what they said, just like a startled 'What?'"
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "What"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1567,63 @@
     "text": "Cared for king's naughty pet",
     "enumeration": "4"
    },
-   "solution": "KEPT"
+   "solution": "KEPT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "KEPT",
+    "definitions": [
+     {
+      "text": "Cared for",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "naughty",
+      "for": "anagram",
+      "note": "a naughty thing misbehaves and won't stay in order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     },
+     {
+      "clueFragment": "pet",
+      "gives": "EPT",
+      "note": "the word pet with its letters jumbled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "EPT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PET",
+       "gives": "EPT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch's misbehaving animal was looked after.",
+     "definitionFit": "Kept, as in kept an animal, means looked after or cared for."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "naughty"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1637,39 @@
     "text": "Pad for jotting down the score?",
     "enumeration": "8"
    },
-   "solution": "NOTEBOOK"
+   "solution": "NOTEBOOK",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NOTEBOOK",
+    "definitions": [
+     {
+      "text": "Pad for jotting down the score?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pad for jotting down the score?",
+      "note": "surface reading: a scorer's pad for recording points in a match"
+     },
+     {
+      "clueFragment": "the score",
+      "note": "setter's reading: a musical score is a book full of notes, so a book of notes"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'score' suggests a scorecard at a game, but a musical score is written in notes.",
+     "definitionFit": "A pad of paper for writing jottings on is the ordinary sense; the musical pun is the twist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "score"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1683,47 @@
     "text": "Strain regarding charge for misdemeanour",
     "enumeration": "6"
    },
-   "solution": "REFINE"
+   "solution": "REFINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REFINE",
+    "definitions": [
+     {
+      "text": "Strain",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "regarding",
+      "gives": "RE",
+      "note": "re means regarding, as in a letter heading"
+     },
+     {
+      "clueFragment": "charge for misdemeanour",
+      "gives": "FINE",
+      "note": "a fine is a penalty charged for a minor offence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "FINE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tense dispute about a penalty for a petty crime.",
+     "walkthrough": "'Strain' reads as stress; here it is the verb meaning to filter.",
+     "definitionFit": "To strain a liquid purifies it, which is to refine it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Strain"
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1737,48 @@
     "text": "Great character reportedly gives generous donation",
     "enumeration": "8"
    },
-   "solution": "LARGESSE"
+   "solution": "LARGESSE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LARGESSE",
+    "definitions": [
+     {
+      "text": "generous donation",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "what is reported is heard spoken, so the sound is what counts"
+     }
+    ],
+    "linkWords": [
+     "gives"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Great character",
+      "gives": "LARGESSE",
+      "soundsLike": "LARGE ESS",
+      "note": "a big letter S, said out loud"
+     }
+    ],
+    "explanation": {
+     "surface": "A notable personality is said to give a big gift.",
+     "walkthrough": "'Great character' suggests a colourful person; character is a letter of the alphabet.",
+     "definitionFit": "Largesse is generosity in giving, or the gifts bestowed, so a generous donation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 26,
@@ -447,7 +1792,67 @@
     "text": "Think about welcoming good man",
     "enumeration": "6"
    },
-   "solution": "KNIGHT"
+   "solution": "KNIGHT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "KNIGHT",
+    "definitions": [
+     {
+      "text": "man",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "turned about means moved around, so the letters are put in a new order"
+     },
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "welcoming someone takes them inside, so one piece goes into the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Think",
+      "gives": "THINK",
+      "note": "the word taken letter for letter"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KNI",
+      "G",
+      "HT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THINK",
+       "gives": "KNIHT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Consider being hospitable to a virtuous fellow.",
+     "walkthrough": "'good man' looks like the definition, but 'good' supplies a letter; 'man' is a chess piece.",
+     "definitionFit": "A knight is one of the pieces, or men, on a chessboard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "man"
+    }
+   }
   }
  ]
 }
