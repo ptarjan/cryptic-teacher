@@ -1639,6 +1639,10 @@ def clean(text):
     # there is a comma the print's low ink lost the tail of.
     # An abbreviation's stop stands: "Anag. of", "rev. and".
     text = re.sub(r"(?<=[a-z]{2})" + "".join(rf"(?<!\b{a})" for a in ABBREVIATED) + r"\.(?=\s+[a-z])", ",", text)
+    # A lone "A" is no abbreviation before a lower-case word: its stop is a
+    # speck ("A. junction", No 3's 28D). The vote never sees a full stop
+    # (marked), so a stop one reading alone has would stand.
+    text = re.sub(r"(?<![A-Za-z.'])A\.(?=\s+[a-z])", "A", text)
     # A stop read twice after a word ends no clue: "1857..", not an ellipsis.
     text = re.sub(r"(?<=\w)\.\.(?!\.)", ".", text)
     # A speck read as a hyphen after a lone "A" or "to" ("A-town", "to-part");
