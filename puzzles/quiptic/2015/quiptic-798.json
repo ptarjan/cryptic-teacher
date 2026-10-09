@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,53 @@
     "text": "A group on leave",
     "enumeration": "7"
    },
-   "solution": "ABANDON"
+   "solution": "ABANDON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABANDON",
+    "definitions": [
+     {
+      "text": "leave",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "BAND",
+      "note": "a band is a group, of musicians for instance"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BAND",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A whole team or band is away on holiday at the same time.",
+     "walkthrough": "'Leave' reads as a noun (time off work) in the surface, but it is the verb.",
+     "definitionFit": "To abandon a place or person is to desert it, a stronger synonym for the verb leave."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leave"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +96,70 @@
     "text": "A child that is initially very eager to win",
     "enumeration": "7"
    },
-   "solution": "ACHIEVE"
+   "solution": "ACHIEVE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ACHIEVE",
+    "definitions": [
+     {
+      "text": "win",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the first letter of each of the words that follow"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "child",
+      "gives": "CH",
+      "note": "CH is the abbreviation for child"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation for id est, that is"
+     },
+     {
+      "clueFragment": "very eager",
+      "gives": "VE",
+      "select": "first",
+      "note": "the first letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CH",
+      "IE",
+      "VE"
+     ]
+    },
+    "explanation": {
+     "surface": "A child who is very keen to win at first.",
+     "definitionFit": "To achieve something is to attain or gain it, a synonym of the verb win as in win a prize."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "initially"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +173,43 @@
     "text": "Idiot in charge of the RAF?",
     "enumeration": "7"
    },
-   "solution": "AIRHEAD"
+   "solution": "AIRHEAD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AIRHEAD",
+    "definitions": [
+     {
+      "text": "Idiot",
+      "at": 0
+     },
+     {
+      "text": "in charge of the RAF?",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Idiot",
+      "note": "first meaning: a silly, empty-headed person"
+     },
+     {
+      "clueFragment": "in charge of the RAF?",
+      "note": "second meaning, read as two words: the head of the air force"
+     }
+    ],
+    "explanation": {
+     "surface": "A jibe that a fool is running Britain's Royal Air Force.",
+     "walkthrough": "The question mark flags that the second meaning is a playful split into AIR plus HEAD; the RAF is Britain's Royal Air Force.",
+     "definitionFit": "An airhead is informal for a stupid person, as if their head held only air."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +223,68 @@
     "text": "Remained blue over ending of employment",
     "enumeration": "5"
    },
-   "solution": "DWELT"
+   "solution": "DWELT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DWELT",
+    "definitions": [
+     {
+      "text": "Remained",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "in a down clue over means turned over, so the word is read upwards"
+     },
+     {
+      "text": "ending of",
+      "for": "letter_selection",
+      "note": "the ending of a word is its final letter, which alone is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blue",
+      "gives": "LEWD",
+      "note": "blue can mean smutty or indecent, as in blue jokes"
+     },
+     {
+      "clueFragment": "employment",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DWEL",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "LEWD",
+       "to": "DWEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stayed on feeling sad after their job came to an end.",
+     "walkthrough": "'Blue' looks like sad, but here it means risqué.",
+     "definitionFit": "Dwelt is the past tense of dwell, to live or stay in a place, so it means remained."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blue"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +298,59 @@
     "text": "Bad reputation for opposition to disturbance announced by Yemeni leader",
     "enumeration": "9"
    },
-   "solution": "NOTORIETY"
+   "solution": "NOTORIETY",
+   "annotation": {
+    "type": [
+     "homophone",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NOTORIETY",
+    "definitions": [
+     {
+      "text": "Bad reputation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "announced",
+      "for": "homophone",
+      "note": "something announced is spoken out, so the phrase is taken by its sound"
+     },
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader of a word is its first letter, which alone is kept"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "opposition to disturbance",
+      "gives": "NOTORIET",
+      "soundsLike": "NO TO RIOT",
+      "note": "saying no to a riot, said quickly"
+     },
+     {
+      "clueFragment": "Yemeni",
+      "gives": "Y",
+      "select": "first",
+      "note": "the first letter of this word"
+     }
+    ],
+    "explanation": {
+     "surface": "A Yemeni leader announces opposition to unrest and gains a bad name for it.",
+     "definitionFit": "Notoriety is fame for something bad, so it is an ill reputation or infamy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "announced"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +370,70 @@
      }
     ]
    },
-   "solution": "SWEPTUP"
+   "solution": "SWEPTUP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SWEPT UP",
+    "definitions": [
+     {
+      "text": "cleaned",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "infected",
+      "for": "anagram",
+      "note": "something infected has been corrupted, so the letters are spoilt into a new order"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "one thing happening during another sits inside it, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cried",
+      "gives": "WEPT",
+      "note": "to cry is to weep; the past tense"
+     },
+     {
+      "clueFragment": "pus",
+      "gives": "PUS",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WEPT",
+      "UP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PUS",
+       "gives": "SUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sobbed while a wound full of infected pus was being cleaned out.",
+     "walkthrough": "The rearranged letters are split around the crying word: S before it, UP after it.",
+     "definitionFit": "Swept up is a phrasal verb for tidied away with a brush, so a floor swept up has been cleaned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "infected"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +447,42 @@
     "text": "Cut out delay",
     "enumeration": "5"
    },
-   "solution": "STALL"
+   "solution": "STALL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STALL",
+    "definitions": [
+     {
+      "text": "Cut out",
+      "at": 0
+     },
+     {
+      "text": "delay",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cut out",
+      "note": "first meaning: of an engine, to stop running"
+     },
+     {
+      "clueFragment": "delay",
+      "note": "second meaning: to play for time"
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to remove a hold-up from a schedule.",
+     "definitionFit": "An engine that stalls stops abruptly, and to stall for time is to use delaying tactics."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cut"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +496,62 @@
     "text": "Urge limits to exaggeration about how old we are",
     "enumeration": "9"
    },
-   "solution": "ENCOURAGE"
+   "solution": "ENCOURAGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ENCOURAGE",
+    "definitions": [
+     {
+      "text": "Urge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "limits to",
+      "for": "letter_selection",
+      "note": "the limits of a word are its two ends, so the first and last letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exaggeration",
+      "gives": "EN",
+      "select": "outer",
+      "note": "the first and last letters of this word"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "C is short for circa, about"
+     },
+     {
+      "clueFragment": "how old we are",
+      "gives": "OURAGE",
+      "note": "our age states how old we are"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "C",
+      "OURAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A warning against exaggerating our ages.",
+     "walkthrough": "'About' looks like a container instruction, but it is C for circa.",
+     "definitionFit": "To encourage someone is to urge them on, so the two verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +565,74 @@
     "text": "Wave in Thailand capsized one man beside you and me",
     "enumeration": "7"
    },
-   "solution": "TSUNAMI"
+   "solution": "TSUNAMI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TSUNAMI",
+    "definitions": [
+     {
+      "text": "Wave",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capsized",
+      "for": "reversal",
+      "note": "a capsized boat is upside down, so in a down clue the words are read upwards"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "beside"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thailand",
+      "gives": "T",
+      "note": "T is the international vehicle code for Thailand"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "MAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "you and me",
+      "gives": "US",
+      "note": "you and I together are us"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "SUNAMI"
+     ],
+     "reversals": [
+      {
+       "from": "IMANUS",
+       "to": "SUNAMI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man capsized by a giant wave off Thailand, recalling the 2004 disaster.",
+     "definitionFit": "A tsunami is a huge sea wave caused by an earthquake, so it is a kind of wave."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Thailand"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +646,54 @@
     "text": "Order to touch bird gently",
     "enumeration": "7"
    },
-   "solution": "PATTERN"
+   "solution": "PATTERN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PATTERN",
+    "definitions": [
+     {
+      "text": "Order",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "touch",
+      "gives": "PAT",
+      "note": "to pat is to touch lightly, the sense the clue's last word adds"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "TERN",
+      "note": "a tern is a seabird"
+     },
+     {
+      "clueFragment": "gently",
+      "note": "gives no letters: it qualifies the touch, making it a light tap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAT",
+      "TERN"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to stroke a bird softly.",
+     "walkthrough": "'Gently' sits at the end but qualifies 'touch': to touch gently is to pat.",
+     "definitionFit": "A pattern is an orderly arrangement or regular design, so it means order in that sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Order"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +707,55 @@
     "text": "Gather in front section of harlequin garment",
     "enumeration": "7"
    },
-   "solution": "HARVEST"
+   "solution": "HARVEST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HARVEST",
+    "definitions": [
+     {
+      "text": "Gather in",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front section of",
+      "for": "letter_selection",
+      "note": "the front section of a word is its opening few letters, so only the start is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "harlequin",
+      "gives": "HAR",
+      "select": "first",
+      "note": "the first three letters of the clown's name"
+     },
+     {
+      "clueFragment": "garment",
+      "gives": "VEST",
+      "note": "a vest is an item of clothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAR",
+      "VEST"
+     ]
+    },
+    "explanation": {
+     "surface": "Collect up the front part of a harlequin's colourful costume.",
+     "definitionFit": "To harvest crops is to gather them in from the fields, so the phrasal verb is a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gather"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +769,56 @@
     "text": "Report of a hundred in number",
     "enumeration": "7"
    },
-   "solution": "ACCOUNT"
+   "solution": "ACCOUNT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACCOUNT",
+    "definitions": [
+     {
+      "text": "Report",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hundred",
+      "gives": "C",
+      "note": "C is the Roman numeral for a hundred"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "COUNT",
+      "note": "a count is a number, as in the total of a tally"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "C",
+      "COUNT"
+     ]
+    },
+    "explanation": {
+     "surface": "A news report of about a hundred people being involved.",
+     "definitionFit": "An account is a narrative report or description of events, so the nouns are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hundred"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +832,47 @@
     "text": "Opt for spoken language test for those entitled to vote",
     "enumeration": "9"
    },
-   "solution": "ELECTORAL"
+   "solution": "ELECTORAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELECTORAL",
+    "definitions": [
+     {
+      "text": "for those entitled to vote",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Opt for",
+      "gives": "ELECT",
+      "note": "to elect is to choose or opt for"
+     },
+     {
+      "clueFragment": "spoken language test",
+      "gives": "ORAL",
+      "note": "an oral is a spoken examination, often in a foreign language"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELECT",
+      "ORAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Choosing a spoken language exam as a qualification for voters.",
+     "walkthrough": "The first 'for' belongs to the wordplay phrase, the second starts the definition.",
+     "definitionFit": "Electoral describes things belonging to electors, the citizens who have the right to vote, such as the electoral roll."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "test"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +886,52 @@
     "text": "Employment in America takes a long time",
     "enumeration": "5"
    },
-   "solution": "USAGE"
+   "solution": "USAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "USAGE",
+    "definitions": [
+     {
+      "text": "Employment",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in",
+     "takes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "US is the abbreviation for the United States of America"
+     },
+     {
+      "clueFragment": "a long time",
+      "gives": "AGE",
+      "note": "an age is a very long period, as in 'it took an age'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "US",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Getting a job in America is a slow process.",
+     "walkthrough": "'Employment' looks like a job, but it is in the sense of putting something to use.",
+     "definitionFit": "Usage is the way something is used, and employment of a tool or word means its use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Employment"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +945,45 @@
     "text": "Some men do well to provide financial support",
     "enumeration": "5"
    },
-   "solution": "ENDOW"
+   "solution": "ENDOW",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ENDOW",
+    "definitions": [
+     {
+      "text": "provide financial support",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "only some of the letters of the following words are wanted, a run lying across them"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "men do well",
+      "gives": "ENDOW",
+      "note": "the run of letters spanning these words"
+     }
+    ],
+    "explanation": {
+     "surface": "Certain men are successful enough to be able to back things with money.",
+     "definitionFit": "To endow a college or prize is to give it a permanent income, a form of funding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +997,65 @@
     "text": "It's of no use to throw out a smaller quantity",
     "enumeration": "9"
    },
-   "solution": "WORTHLESS"
+   "solution": "WORTHLESS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "WORTHLESS",
+    "definitions": [
+     {
+      "text": "of no use",
+      "at": 5
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out can mean out of order or wrong, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "It's",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "throw",
+      "gives": "THROW",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "a smaller quantity",
+      "gives": "LESS",
+      "note": "less means a smaller amount"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WORTH",
+      "LESS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THROW",
+       "gives": "WORTH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "There's no point discarding a smaller amount.",
+     "walkthrough": "'Throw out' reads as one phrasal verb, discard, but the second word only signals the rearrangement.",
+     "definitionFit": "Something worthless has no value or utility, so it is useless."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1069,50 @@
     "text": "Due to ANC, I abandoned schooling",
     "enumeration": "9"
    },
-   "solution": "EDUCATION"
+   "solution": "EDUCATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EDUCATION",
+    "definitions": [
+     {
+      "text": "schooling",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandoned",
+      "for": "anagram",
+      "note": "abandoned can mean wild and unrestrained, so the letters are let loose into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Due to ANC, I",
+      "gives": "DUETOANCI",
+      "note": "every letter of these words is used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DUETOANCI",
+       "gives": "EDUCATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A South African speaking of leaving school because of the African National Congress, the ANC.",
+     "definitionFit": "Schooling and education both mean the instruction given to children in school."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "abandoned"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1126,50 @@
     "text": "Dundee CID could be in two minds",
     "enumeration": "9"
    },
-   "solution": "UNDECIDED"
+   "solution": "UNDECIDED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNDECIDED",
+    "definitions": [
+     {
+      "text": "in two minds",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "could be",
+      "for": "anagram",
+      "note": "could be suggests the letters might be rearranged into something else"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dundee CID",
+      "gives": "DUNDEECID",
+      "note": "every letter of these words is used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DUNDEECID",
+       "gives": "UNDECIDED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Detectives in Dundee, a Scottish city, can't make up their minds; CID is the police Criminal Investigation Department.",
+     "definitionFit": "To be in two minds is an idiom for being unsure which way to choose, the state of being irresolute."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dundee"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1183,62 @@
     "text": "Sacked second ancient city captured in heroic exploit",
     "enumeration": "9"
    },
-   "solution": "DESTROYED"
+   "solution": "DESTROYED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DESTROYED",
+    "definitions": [
+     {
+      "text": "Sacked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "captured in",
+      "for": "container",
+      "note": "something captured is held inside its captor, so these pieces go within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "ancient city",
+      "gives": "TROY",
+      "note": "Troy is the ancient city of Homer's Iliad"
+     },
+     {
+      "clueFragment": "heroic exploit",
+      "gives": "DEED",
+      "note": "a deed is a feat or exploit, as in deeds of valour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "S",
+      "TROY",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Troy was sacked, a heroic feat recounted in legend.",
+     "walkthrough": "'Sacked' looks like dismissed from a job, but here it means plundered, fitting the Trojan surface.",
+     "definitionFit": "A sacked city has been plundered and laid waste, that is, ruined or wrecked."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sacked"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1252,46 @@
     "text": "Downgraded duke let his feelings show",
     "enumeration": "7"
    },
-   "solution": "DEMOTED"
+   "solution": "DEMOTED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DEMOTED",
+    "definitions": [
+     {
+      "text": "Downgraded",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "duke",
+      "gives": "D",
+      "note": "D is the abbreviation for duke"
+     },
+     {
+      "clueFragment": "let his feelings show",
+      "gives": "EMOTED",
+      "note": "to emote is to display emotion openly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "EMOTED"
+     ]
+    },
+    "explanation": {
+     "surface": "A nobleman broke down in emotion after losing rank.",
+     "definitionFit": "To be demoted is to be reduced to a lower rank or position."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "duke"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1305,59 @@
     "text": "Surfboarder's opening advantage is more than needed",
     "enumeration": "7"
    },
-   "solution": "SURPLUS"
+   "solution": "SURPLUS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SURPLUS",
+    "definitions": [
+     {
+      "text": "more than needed",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "the opening of a word is its start, so only its first letters are kept"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Surfboarder's",
+      "gives": "SUR",
+      "select": "first",
+      "note": "the first three letters of this word"
+     },
+     {
+      "clueFragment": "advantage",
+      "gives": "PLUS",
+      "note": "a plus is an advantage or benefit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUR",
+      "PLUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A surfer's head start gives an edge beyond what is required.",
+     "walkthrough": "Opening here takes three letters, not the usual one.",
+     "definitionFit": "A surplus is an excess, an amount left over beyond what is required."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1371,64 @@
     "text": "Die in agony by court order",
     "enumeration": "5"
    },
-   "solution": "EDICT"
+   "solution": "EDICT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "EDICT",
+    "definitions": [
+     {
+      "text": "order",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in agony",
+      "for": "anagram",
+      "note": "someone in agony writhes and twists, so the letters are contorted into a new order"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Die",
+      "gives": "DIE",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDI",
+      "CT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DIE",
+       "gives": "EDI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sentenced to a painful death by order of the court.",
+     "walkthrough": "'Court order' reads as a single legal phrase, but 'court' belongs to the wordplay and 'order' alone is the definition.",
+     "definitionFit": "An edict is an official decree or command issued by authority, so a synonym of the noun order."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1442,61 @@
     "text": "I will say nearly everything wrong",
     "enumeration": "7"
    },
-   "solution": "ILLEGAL"
+   "solution": "ILLEGAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ILLEGAL",
+    "definitions": [
+     {
+      "text": "wrong",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nearly",
+      "for": "deletion",
+      "note": "nearly means not quite all of the word, so its final letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I will",
+      "gives": "ILL",
+      "note": "I'll is the contraction of I will"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "e.g. means for example, that is, say"
+     },
+     {
+      "clueFragment": "everything",
+      "gives": "ALL",
+      "note": "all is everything"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILL",
+      "EG",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone admitting that nearly everything they say will be mistaken.",
+     "walkthrough": "'Say' looks like the verb of speaking, but it stands for 'for example'.",
+     "definitionFit": "Illegal means against the law, so it is wrong in the sense of unlawful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1510,62 @@
     "text": "Old soldiers voluntarily left in the centre of London without specific agreement",
     "enumeration": "7"
    },
-   "solution": "TACITLY"
+   "solution": "TACITLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TACITLY",
+    "definitions": [
+     {
+      "text": "without specific agreement",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing left in another sits within it, so this piece goes inside the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old soldiers voluntarily",
+      "gives": "TA",
+      "note": "the TA, Territorial Army, was Britain's volunteer reserve force, since renamed"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "the centre of London",
+      "gives": "CITY",
+      "note": "the City is London's historic centre and financial district"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "CIT",
+      "L",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Veterans who volunteered stayed on in central London without any formal agreement.",
+     "walkthrough": "'The centre of London' looks like a letter-selection instruction for its middle letter, but it is the City itself.",
+     "definitionFit": "Tacitly means in an implied or unspoken way, so something agreed tacitly has no explicit agreement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "centre"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1579,56 @@
     "text": "Demonstration starting from Marble Arch",
     "enumeration": "5"
    },
-   "solution": "MARCH"
+   "solution": "MARCH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MARCH",
+    "definitions": [
+     {
+      "text": "Demonstration",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starting from",
+      "for": "letter_selection",
+      "note": "the start of the next word is its first letter, which alone is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Marble",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of this word"
+     },
+     {
+      "clueFragment": "Arch",
+      "gives": "ARCH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ARCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A protest begins at Marble Arch, a London landmark where marches often start.",
+     "walkthrough": "The landmark's name nearly hides the answer, but its letters run M-A-R-B, so the first word gives only its initial.",
+     "definitionFit": "A march is a protest walk by demonstrators, so it is one kind of demonstration."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "starting"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1642,58 @@
     "text": "Ice mostly goes with drink containing gin, say",
     "enumeration": "9"
    },
-   "solution": "ALCOHOLIC"
+   "solution": "ALCOHOLIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ALCOHOLIC",
+    "definitions": [
+     {
+      "text": "containing gin, say",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means most but not all of the word, so its final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "goes with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "ALCOHOL",
+      "note": "alcohol is strong drink"
+     },
+     {
+      "clueFragment": "Ice",
+      "gives": "ICE",
+      "note": "taken as written, before shortening"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALCOHOL",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A cocktail where most of the ice is served alongside a gin.",
+     "walkthrough": "The definition is adjectival: gin is given as an example of an alcoholic spirit.",
+     "definitionFit": "A drink with spirits such as gin in it contains alcohol, which is what alcoholic describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "containing"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1707,50 @@
     "text": "Bill and Edward played their part",
     "enumeration": "5"
    },
-   "solution": "ACTED"
+   "solution": "ACTED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACTED",
+    "definitions": [
+     {
+      "text": "played their part",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bill",
+      "gives": "AC",
+      "note": "AC is short for account, which is a bill"
+     },
+     {
+      "clueFragment": "Edward",
+      "gives": "TED",
+      "note": "Ted is a pet form of Edward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "TED"
+     ]
+    },
+    "explanation": {
+     "surface": "Two men named Bill and Edward each did their share.",
+     "walkthrough": "'Bill' looks like a man's name to pair with Edward, but it is an invoice.",
+     "definitionFit": "To act is to perform a role on stage, so acted means played a part."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bill"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1764,58 @@
     "text": "That man's holding a record for domestics",
     "enumeration": "5"
    },
-   "solution": "HELPS"
+   "solution": "HELPS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HELPS",
+    "definitions": [
+     {
+      "text": "domestics",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "something holding another has it within, so the second piece goes inside the first"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "That man's",
+      "gives": "HES",
+      "note": "he's is the contraction of he is"
+     },
+     {
+      "clueFragment": "a record",
+      "gives": "LP",
+      "note": "an LP is a long-playing record"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "LP",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A man clutching a vinyl album for the household staff.",
+     "walkthrough": "Helps, as a plural noun, is an old word for domestic servants.",
+     "definitionFit": "A help is a domestic servant or cleaner, so helps are domestics, the household employees."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "domestics"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1829,58 @@
     "text": "Most difficult of everything in the exam",
     "enumeration": "7"
    },
-   "solution": "TALLEST"
+   "solution": "TALLEST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TALLEST",
+    "definitions": [
+     {
+      "text": "Most difficult",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one word placed in another sits within it, so the first piece is set inside the second"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "everything",
+      "gives": "ALL",
+      "note": "all means everything"
+     },
+     {
+      "clueFragment": "the exam",
+      "gives": "TEST",
+      "note": "a test is an exam"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ALL",
+      "EST"
+     ]
+    },
+    "explanation": {
+     "surface": "Picking out the hardest question of all on the exam paper.",
+     "walkthrough": "A 'tall order' is a hard task, so tall can mean difficult and the superlative means most difficult.",
+     "definitionFit": "Tall in the idiom a tall order means demanding, so the superlative is the most demanding or hardest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "everything"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1894,44 @@
     "text": "Please remove the illuminations!",
     "enumeration": "7"
    },
-   "solution": "DELIGHT"
+   "solution": "DELIGHT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DELIGHT",
+    "definitions": [
+     {
+      "text": "Please",
+      "at": 0
+     },
+     {
+      "text": "remove the illuminations!",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Please",
+      "note": "first meaning: to give great pleasure to"
+     },
+     {
+      "clueFragment": "remove the illuminations!",
+      "note": "second meaning, read as DE- plus LIGHT: to take the lights away"
+     }
+    ],
+    "explanation": {
+     "surface": "A polite request to turn off the lights.",
+     "walkthrough": "'Please' looks like a polite word attached to the order, but it is a verb in its own right.",
+     "definitionFit": "To delight someone is to charm or please them greatly; split as de-light it humorously means to strip of lights."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Please"
+    }
+   }
   },
   {
    "number": 27,
@@ -459,7 +1945,64 @@
     "text": "Detective almost half suspects journalist is no longer working",
     "enumeration": "7"
    },
-   "solution": "DISUSED"
+   "solution": "DISUSED",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "DISUSED",
+    "definitions": [
+     {
+      "text": "no longer working",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost half",
+      "for": "deletion",
+      "note": "almost half is a little under half the word, so only its first three letters are kept"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Detective",
+      "gives": "DI",
+      "note": "DI is a Detective Inspector"
+     },
+     {
+      "clueFragment": "suspects",
+      "gives": "SUSPECTS",
+      "note": "taken as written, before shortening"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED is short for editor, a journalist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "SUS",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A detective with half his suspects in hand and a reporter who has retired.",
+     "walkthrough": "Half of the eight-letter word would be four letters; almost half is three.",
+     "definitionFit": "Something disused has gone out of use, so it is idle and no longer operating."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "suspects"
+    }
+   }
   },
   {
    "number": 28,
@@ -473,7 +2016,46 @@
     "text": "Exhibition to show contempt for freedom of movement",
     "enumeration": "7"
    },
-   "solution": "DISPLAY"
+   "solution": "DISPLAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISPLAY",
+    "definitions": [
+     {
+      "text": "Exhibition",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to show contempt for",
+      "gives": "DIS",
+      "note": "to dis someone is slang for showing them disrespect"
+     },
+     {
+      "clueFragment": "freedom of movement",
+      "gives": "PLAY",
+      "note": "play is slack or room to move, as in play in a rope"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "PLAY"
+     ]
+    },
+    "explanation": {
+     "surface": "An exhibition intended to sneer at freedom of movement, the EU right to travel and work.",
+     "definitionFit": "A display is a public show or exhibition of goods or art, so the nouns are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "freedom"
+    }
+   }
   }
  ]
 }
