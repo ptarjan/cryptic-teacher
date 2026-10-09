@@ -252,6 +252,10 @@ check("a held one is a stray, and unstrayed takes the mark out, not the word",
 check("(mirror) a printed blank stands: a run, or one between spaces, at the clue's end too", [[], [], []],
       [kinds(t) for t in ("Freedom and _____ gang thegither", "And with no _ but a cry", "The cock's shrill _")])
 check("and clean() keeps them", "And with no _ but a cry", oc.clean("And with no _ but a cry"))
+check("a stop after a lone A before a lower-case word is a speck (No 3's 28D)",
+      "A junction on the East Indian Railway.", oc.clean("A. junction on the East Indian Railway."))
+check("an initial's stop, or one ending U.S.A., stands (mirror)",
+      ["A. Conan Doyle", "the U.S.A. and"], [oc.clean("A. Conan Doyle"), oc.clean("the U.S.A. and")])
 two = lambda one: f"ACROSS\n1 {one} (5).\nDOWN\n2 Ore (3).\n"
 lens = {"1-across": 5, "2-down": 3}
 got, blank = fa.unfit_blanked(*oc.as_printed({"a": two("Turned up as new t"), "b": two("Turned up as new")},
