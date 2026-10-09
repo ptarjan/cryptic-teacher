@@ -24,6 +24,9 @@
   "date": "2026-07-23",
   "check": "grid rebuilt from the blog's light list (unique, linked answer split by the grid); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,60 @@
     "text": "Fruit consignment one copper leaves for actor",
     "enumeration": "11"
    },
-   "solution": "CUMBERBATCH"
+   "solution": "CUMBERBATCH",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CUMBERBATCH",
+    "definitions": [
+     {
+      "text": "actor",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "what leaves departs, so that element is dropped from the front of the build"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fruit",
+      "gives": "CUCUMBER",
+      "note": "botanically a cucumber is a fruit"
+     },
+     {
+      "clueFragment": "consignment",
+      "gives": "BATCH",
+      "note": "a batch is a lot sent or made together"
+     },
+     {
+      "clueFragment": "one copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUMBER",
+      "BATCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A shipment of fruit arrives and a policeman walks off in favour of an actor.",
+     "walkthrough": "CUCUMBER BATCH loses its opening CU to leave CUMBERBATCH; 'copper' looks like a policeman but is the metal.",
+     "definitionFit": "Benedict Cumberbatch is a famous English stage and screen performer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 1,
@@ -57,7 +113,50 @@
      }
     ]
    },
-   "solution": "CLEAROFF"
+   "solution": "CLEAROFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLEAR OFF",
+    "definitions": [
+     {
+      "text": "Leave",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fair",
+      "gives": "CLEAR",
+      "note": "fair weather is clear weather"
+     },
+     {
+      "clueFragment": "Dicky",
+      "gives": "OFF",
+      "note": "dicky is British slang for unwell or faulty, as is off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLEAR",
+      "OFF"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone told to depart a funfair along with a friend called Dicky.",
+     "walkthrough": "Dicky looks like a name; in British slang it means poorly or unsound.",
+     "definitionFit": "To clear off is an informal imperative or verb for going away, departing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dicky"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +170,61 @@
     "text": "Activist set on fire by American in plant",
     "enumeration": "8"
    },
-   "solution": "MILITANT"
+   "solution": "MILITANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MILITANT",
+    "definitions": [
+     {
+      "text": "Activist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "these pieces are placed inside the plant, so the plant word wraps around them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plant",
+      "gives": "MINT",
+      "note": "mint is a herb"
+     },
+     {
+      "clueFragment": "set on fire",
+      "gives": "LIT",
+      "note": "lit means ignited"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is a standard abbreviation for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "LIT",
+      "A",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A protester torches an American factory, or so the story goes.",
+     "definitionFit": "A militant is a combative campaigner, a synonym for an aggressive activist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +238,49 @@
     "text": "Mentioned college as courses enjoyed?",
     "enumeration": "5"
    },
-   "solution": "EATEN"
+   "solution": "EATEN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EATEN",
+    "definitions": [
+     {
+      "text": "courses enjoyed",
+      "at": 21,
+      "note": "read as 'courses (that have been) enjoyed', a past participle"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mentioned",
+      "for": "homophone",
+      "note": "something mentioned is spoken, so the college name counts by its sound"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "college",
+      "gives": "EATEN",
+      "soundsLike": "EETN",
+      "note": "Eton is the famous English public school, pronounced the same"
+     }
+    ],
+    "explanation": {
+     "surface": "A remark about a school's dinners, wondering whether the meals went down well.",
+     "walkthrough": "Eton College is an elite English boarding school; said aloud it matches the answer.",
+     "definitionFit": "Courses of a meal that have been consumed with pleasure are ones that were swallowed, past participle of eat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "courses"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +294,54 @@
     "text": "Suet bit suspect in sandwiches",
     "enumeration": "7"
    },
-   "solution": "BUTTIES"
+   "solution": "BUTTIES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BUTTIES",
+    "definitions": [
+     {
+      "text": "sandwiches",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suspect",
+      "for": "anagram",
+      "note": "a suspect thing is not to be trusted as given, so the letters get rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Suet bit",
+      "gives": "SUETBIT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SUETBIT",
+       "gives": "BUTTIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is wary of a lump of suet found in their lunch.",
+     "walkthrough": "A butty is a northern English word for a sandwich, as in chip butty.",
+     "definitionFit": "Butties is informal British slang for filled bread rolls or slices: plural sandwiches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suspect"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +355,47 @@
     "text": "Paddy ace in painting technique",
     "enumeration": "7"
    },
-   "solution": "TEMPERA"
+   "solution": "TEMPERA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEMPERA",
+    "definitions": [
+     {
+      "text": "painting technique",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paddy",
+      "gives": "TEMPER",
+      "note": "in British slang a paddy is a fit of temper"
+     },
+     {
+      "clueFragment": "ace",
+      "gives": "A",
+      "note": "A stands for ace on playing cards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEMPER",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "An Irishman named Paddy is brilliant at a particular style of painting.",
+     "walkthrough": "Paddy looks like an Irish name; in British usage it is a tantrum.",
+     "definitionFit": "Tempera is a method of painting with pigment bound in egg yolk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Paddy"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +409,52 @@
     "text": "Past master broadcast this on air",
     "enumeration": "9"
    },
-   "solution": "HISTORIAN"
+   "solution": "HISTORIAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HISTORIAN",
+    "definitions": [
+     {
+      "text": "Past master",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast seed is scattered about, so the letters are scattered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "this on air",
+      "gives": "THISONAIR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THISONAIR",
+       "gives": "HISTORIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An expert tells a presenter to put something on the radio.",
+     "walkthrough": "'Past master' normally means an expert; here it is read literally as a master of the past.",
+     "definitionFit": "A scholar who studies earlier times is, read literally, an authority on bygone events."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Past"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +468,56 @@
     "text": "Glaswegian perhaps lacking Charlie in boozer",
     "enumeration": "3"
    },
-   "solution": "SOT"
+   "solution": "SOT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SOT",
+    "definitions": [
+     {
+      "text": "boozer",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking means going without, so one letter is taken out"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Glaswegian perhaps",
+      "gives": "SCOT",
+      "note": "someone from Glasgow is an example of a Scot"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A Glasgow drinker in the pub, missing his pal Charlie.",
+     "walkthrough": "SCOT without its C leaves the answer; 'boozer' is also British slang for a pub, but here it is the drinker.",
+     "definitionFit": "A sot is a habitual drunkard, a synonym for a heavy drinker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "boozer"
+    }
+   }
   },
   {
    "number": 7,
@@ -155,7 +531,54 @@
     "text": "Man on a 13 18 location",
     "enumeration": "6"
    },
-   "solution": "STAFFA"
+   "solution": "STAFFA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STAFFA",
+    "definitions": [
+     {
+      "text": "13 18 location",
+      "at": 9
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down entry one thing on another sits above it, so the first piece comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man",
+      "gives": "STAFF",
+      "note": "to man a post is to staff it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAFF",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to crew a site in the Hebrides, referring to another answer.",
+     "walkthrough": "13 18 is FINGAL'S CAVE, the sea cave on the Hebridean island of Staffa off Scotland's west coast.",
+     "definitionFit": "Staffa is the uninhabited Scottish island where Fingal's Cave is found."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Man"
+    }
+   }
   },
   {
    "number": 8,
@@ -182,7 +605,66 @@
     "text": "Chapter in story reversed brilliant success",
     "enumeration": "5"
    },
-   "solution": "ECLAT"
+   "solution": "ECLAT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ECLAT",
+    "definitions": [
+     {
+      "text": "brilliant success",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversed",
+      "for": "reversal",
+      "note": "reversed tells us to read the story word from back to front"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the chapter abbreviation is placed within the story word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "story",
+      "gives": "TALE",
+      "note": "a tale is a story"
+     },
+     {
+      "clueFragment": "Chapter",
+      "gives": "C",
+      "note": "C is the usual abbreviation for chapter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "C",
+      "LAT"
+     ],
+     "reversals": [
+      {
+       "from": "TALE",
+       "to": "ELAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A novel in which one chapter turned events round, making it a triumph.",
+     "definitionFit": "Eclat, borrowed from French, means a dazzling display of achievement or acclaim."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Chapter"
+    }
+   }
   },
   {
    "number": 10,
@@ -196,7 +678,57 @@
     "text": "Intoxicant consumed in restraint for duration",
     "enumeration": "9"
    },
-   "solution": "TIMESCALE"
+   "solution": "TIMESCALE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TIMESCALE",
+    "definitions": [
+     {
+      "text": "duration",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "consumed in",
+      "for": "container",
+      "note": "something consumed in another is swallowed inside it, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "restraint",
+      "gives": "TIE",
+      "note": "a tie is a binding or restriction"
+     },
+     {
+      "clueFragment": "Intoxicant",
+      "gives": "MESCAL",
+      "note": "mescal is a hallucinogen from cactus, also a spirit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "MESCAL",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A drug taken under restraint over a period of time.",
+     "definitionFit": "A timescale is the length of time over which something happens, its span."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "restraint"
+    }
+   }
   },
   {
    "number": 11,
@@ -210,7 +742,54 @@
     "text": "Such memories good about wine Neo has",
     "enumeration": "9"
    },
-   "solution": "RETENTIVE"
+   "solution": "RETENTIVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RETENTIVE",
+    "definitions": [
+     {
+      "text": "Such memories good",
+      "at": 0,
+      "note": "a phrase read as 'what memories that are good are'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means concerning"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "TENT",
+      "note": "tent is a deep-red Spanish wine, a crossword favourite"
+     },
+     {
+      "clueFragment": "Neo has",
+      "gives": "IVE",
+      "note": "Neo is the setter, so 'Neo has' is I've"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "TENT",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter reminisces about wine he has enjoyed, with fond memories.",
+     "walkthrough": "Setters often refer to themselves by pseudonym; Neo has becomes I've.",
+     "definitionFit": "A retentive memory is one that holds on to information well, i.e. a good one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Neo"
+    }
+   }
   },
   {
    "number": 12,
@@ -224,7 +803,43 @@
     "text": "Tender assassin?",
     "enumeration": "5"
    },
-   "solution": "OFFER"
+   "solution": "OFFER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OFFER",
+    "definitions": [
+     {
+      "text": "Tender",
+      "at": 0
+     },
+     {
+      "text": "assassin",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tender",
+      "note": "first meaning: to put forward a proposal or bid"
+     },
+     {
+      "clueFragment": "assassin",
+      "note": "second meaning, whimsical: one who 'offs' someone, slang for kills"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Tender assassin' reads as a gentle killer; the question mark flags the invented second sense.",
+     "definitionFit": "To offer is to tender a bid; and someone who offs people, slang for killing, is jokingly an offer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tender"
+    }
+   }
   },
   {
    "number": 13,
@@ -248,7 +863,62 @@
    "group": [
     "13-across",
     "18-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "FINGAL'S CAVE",
+    "definitions": [
+     {
+      "text": "overture",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into means going inside, so the student's letter joins the other letters"
+     },
+     {
+      "text": "mismanaged",
+      "for": "anagram",
+      "note": "something mismanaged is badly organised, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Student",
+      "gives": "L",
+      "note": "L is a learner driver's plate, crossword shorthand for student"
+     },
+     {
+      "clueFragment": "saving face",
+      "gives": "SAVINGFACE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LSAVINGFACE",
+       "gives": "FINGALSCAVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student's attempt to avoid embarrassment over a botched advance goes wrong.",
+     "walkthrough": "'Overture' looks like a peace approach; it is a piece of music.",
+     "definitionFit": "Mendelssohn's Hebrides Overture is also known by the name of the Scottish sea cave that inspired it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "overture"
+    }
+   }
   },
   {
    "number": 14,
@@ -268,7 +938,67 @@
      }
     ]
    },
-   "solution": "ACAPPELLA"
+   "solution": "ACAPPELLA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "A CAPPELLA",
+    "definitions": [
+     {
+      "text": "unaccompanied",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense of outside, so the piano letter is surrounded"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "better",
+      "gives": "CAP",
+      "note": "to cap is to outdo"
+     },
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "p is the musical abbreviation for piano, softly"
+     },
+     {
+      "clueFragment": "jazz singer",
+      "gives": "ELLA",
+      "note": "Ella Fitzgerald, the great jazz vocalist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CAP",
+      "P",
+      "ELLA"
+     ]
+    },
+    "explanation": {
+     "surface": "A superior jazz vocalist performing with no pianist, singing alone.",
+     "walkthrough": "'Without' looks like 'lacking', but here it is the old sense 'on the outside of', so the piano is surrounded.",
+     "definitionFit": "A cappella singing is performed with voices alone, without instrumental backing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 15,
@@ -282,7 +1012,52 @@
     "text": "Greedy old king sacrificing first daughter",
     "enumeration": "4"
    },
-   "solution": "AVID"
+   "solution": "AVID",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AVID",
+    "definitions": [
+     {
+      "text": "Greedy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sacrificing first",
+      "for": "deletion",
+      "note": "giving up the opening letter, so the front of the name is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old king",
+      "gives": "DAVID",
+      "note": "David, the Biblical king of Israel"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVID"
+     ]
+    },
+    "explanation": {
+     "surface": "A grasping ancient monarch gives up his eldest daughter.",
+     "definitionFit": "Avid means eager or keen, sometimes to the point of being grasping."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 16,
@@ -296,7 +1071,51 @@
     "text": "What might get me in post corruptly?",
     "enumeration": "8"
    },
-   "solution": "NEPOTISM"
+   "solution": "NEPOTISM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "NEPOTISM",
+    "definitions": [
+     {
+      "text": "What might get me in post corruptly?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "corruptly",
+      "for": "anagram",
+      "note": "corruptly suggests something twisted out of true, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "me in post",
+      "gives": "MEINPOST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MEINPOST",
+       "gives": "NEPOTISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders how they might wangle a job through dishonest means.",
+     "walkthrough": "The whole clue defines the answer while the letters of 'me in post' are rearranged.",
+     "definitionFit": "Nepotism is favouritism to relatives in appointments, a way to land a job unfairly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 17,
@@ -316,7 +1135,67 @@
      }
     ]
    },
-   "solution": "ESSEXMAN"
+   "solution": "ESSEXMAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ESSEX MAN",
+    "definitions": [
+     {
+      "text": "Lowbrow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loony",
+      "for": "anagram",
+      "note": "loony means crazy, so the following letters go haywire"
+     },
+     {
+      "text": "to pen",
+      "for": "container",
+      "note": "to pen is to enclose, so one piece is shut inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "means",
+      "gives": "MEANS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "classical number",
+      "gives": "SEX",
+      "note": "sex is Latin for six"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ES",
+      "SEX",
+      "MAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MEANS",
+       "gives": "ESMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crude madman uses some device to write classical music.",
+     "walkthrough": "Essex Man is a British stereotype of a brash, materialistic voter from the county east of London.",
+     "definitionFit": "Essex Man is a derogatory caricature of an uncultured, vulgar working-class figure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 18,
@@ -343,7 +1222,53 @@
     "text": "Discomfort each Biblical wife reduced",
     "enumeration": "7"
    },
-   "solution": "EARACHE"
+   "solution": "EARACHE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "EARACHE",
+    "definitions": [
+     {
+      "text": "Discomfort",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reduced",
+      "for": "deletion",
+      "note": "reduced means cut short, so the name loses its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "each",
+      "gives": "EA",
+      "note": "ea is the abbreviation for each"
+     },
+     {
+      "clueFragment": "Biblical wife",
+      "gives": "RACHEL",
+      "note": "Rachel was Jacob's wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EA",
+      "RACHE"
+     ]
+    },
+    "explanation": {
+     "surface": "Each of the Bible's wives suffers a lessening of pain.",
+     "definitionFit": "An earache is a pain in the ear, a specific kind of bodily discomfort."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1282,46 @@
     "text": "Certain things from Thames & Hudson perhaps",
     "enumeration": "7"
    },
-   "solution": "BANKERS"
+   "solution": "BANKERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BANKERS",
+    "definitions": [
+     {
+      "text": "Certain things",
+      "at": 0
+     },
+     {
+      "text": "Thames & Hudson perhaps",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Certain things",
+      "note": "first meaning: in betting, sure-fire selections"
+     },
+     {
+      "clueFragment": "Thames & Hudson perhaps",
+      "note": "second meaning: crossword whimsy for rivers, things that have banks"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Thames & Hudson is a real publishing house, which misleads; here the Thames and the Hudson are rivers.",
+     "definitionFit": "Bankers are sure bets in pools or racing; rivers, which have banks, are punningly called bankers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hudson"
+    }
+   }
   },
   {
    "number": 20,
@@ -394,7 +1358,58 @@
     "text": "Fish tails in sausage meat for hound",
     "enumeration": "6"
    },
-   "solution": "BASSET"
+   "solution": "BASSET",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BASSET",
+    "definitions": [
+     {
+      "text": "hound",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tails",
+      "for": "letter_selection",
+      "note": "tails are the end parts, so only the final letters are kept"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fish",
+      "gives": "BASS",
+      "note": "a bass is a fish"
+     },
+     {
+      "clueFragment": "sausage meat",
+      "gives": "ET",
+      "select": "last",
+      "note": "the final letters of the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BASS",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "Fish ends up in sausage meat fed to a dog.",
+     "definitionFit": "A basset is a short-legged breed of hunting dog."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tails"
+    }
+   }
   },
   {
    "number": 22,
@@ -408,7 +1423,62 @@
     "text": "Pen one used during this writer's block",
     "enumeration": "6"
    },
-   "solution": "STYMIE"
+   "solution": "STYMIE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "STYMIE",
+    "definitions": [
+     {
+      "text": "block",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "used during",
+      "for": "container",
+      "note": "something used during another sits in the middle of it, so it goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pen",
+      "gives": "STY",
+      "note": "a sty is a pig pen"
+     },
+     {
+      "clueFragment": "this writer",
+      "gives": "ME",
+      "note": "the setter referring to himself"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STY",
+      "M",
+      "I",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer's block, with one pen in use the whole time.",
+     "walkthrough": "'Writer's block' looks like a phrase; the definition is just 'block'.",
+     "definitionFit": "To stymie is to obstruct or thwart someone's plans."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pen"
+    }
+   }
   },
   {
    "number": 23,
@@ -428,7 +1498,54 @@
      }
     ]
    },
-   "solution": "ACTUP"
+   "solution": "ACTUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACT UP",
+    "definitions": [
+     {
+      "text": "Behave badly",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "ct is an abbreviation for court"
+     },
+     {
+      "clueFragment": "before a judge",
+      "gives": "UP",
+      "note": "to be up before the magistrate is to appear in the dock"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CT",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone misbehaves in a courtroom while facing the judge.",
+     "definitionFit": "To act up is to misbehave, especially to play up like a naughty child."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -442,7 +1559,64 @@
     "text": "Palaver bringing motorway through capital part",
     "enumeration": "9"
    },
-   "solution": "RIGMAROLE"
+   "solution": "RIGMAROLE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "RIGMAROLE",
+    "definitions": [
+     {
+      "text": "Palaver",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "through",
+      "for": "container",
+      "note": "something going through another runs inside it"
+     }
+    ],
+    "linkWords": [
+     "bringing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "capital",
+      "gives": "RIGA",
+      "note": "Riga is the capital of Latvia"
+     },
+     {
+      "clueFragment": "motorway",
+      "gives": "M",
+      "note": "M denotes a British motorway, as in M1"
+     },
+     {
+      "clueFragment": "part",
+      "gives": "ROLE",
+      "note": "a part in a play is a role"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIG",
+      "M",
+      "A",
+      "ROLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A fuss about building a major road through part of a city.",
+     "definitionFit": "A rigmarole is a long, tedious procedure, the same as a palaver or fuss."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 25,
@@ -456,7 +1630,53 @@
     "text": "Medical Officer succeeding after mission",
     "enumeration": "5"
    },
-   "solution": "ALAMO"
+   "solution": "ALAMO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALAMO",
+    "definitions": [
+     {
+      "text": "mission",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "succeeding",
+      "for": "charade",
+      "note": "succeeding means following on, so the officer comes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "after",
+      "gives": "ALA",
+      "note": "à la means in the manner of, after"
+     },
+     {
+      "clueFragment": "Medical Officer",
+      "gives": "MO",
+      "note": "MO is the abbreviation for Medical Officer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALA",
+      "MO"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor takes over after a mission abroad.",
+     "definitionFit": "The Alamo in Texas was a Spanish mission, famous for the 1836 siege."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "mission"
+    }
+   }
   },
   {
    "number": 26,
@@ -470,7 +1690,63 @@
     "text": "Images from eccentric musical artist",
     "enumeration": "9"
    },
-   "solution": "SIMULACRA"
+   "solution": "SIMULACRA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SIMULACRA",
+    "definitions": [
+     {
+      "text": "Images",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eccentric",
+      "for": "anagram",
+      "note": "eccentric means off-centre or odd, so the letters are shifted about"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "musical",
+      "gives": "MUSICAL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIMULAC",
+      "RA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MUSICAL",
+       "gives": "SIMULAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pictures produced by an oddball musician.",
+     "definitionFit": "Simulacra are likenesses or representations, plural of simulacrum."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "musical"
+    }
+   }
   },
   {
    "number": 27,
@@ -484,7 +1760,47 @@
     "text": "Saw US chopper land in Irish Sea",
     "enumeration": "5"
    },
-   "solution": "AXIOM"
+   "solution": "AXIOM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AXIOM",
+    "definitions": [
+     {
+      "text": "Saw",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US chopper",
+      "gives": "AX",
+      "note": "ax is the American spelling of axe"
+     },
+     {
+      "clueFragment": "land in Irish Sea",
+      "gives": "IOM",
+      "note": "IOM is the Isle of Man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AX",
+      "IOM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spotted an American helicopter landing in the Irish Sea.",
+     "walkthrough": "'Saw' looks like the past of see, and 'chopper' like a helicopter.",
+     "definitionFit": "A saw is an old saying, and an axiom is an accepted principle or maxim."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Saw"
+    }
+   }
   },
   {
    "number": 28,
@@ -509,7 +1825,71 @@
     "28-across",
     "20-down",
     "8-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "THE BIG BANG THEORY",
+    "definitions": [
+     {
+      "text": "series",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece between the two articles"
+     }
+    ],
+    "linkWords": [
+     "appearing with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "articles",
+      "gives": "THETHE",
+      "note": "two instances of the definite article"
+     },
+     {
+      "clueFragment": "Critical report",
+      "gives": "BIGBANG",
+      "note": "critical as in big, important; a report is a bang"
+     },
+     {
+      "clueFragment": "Circle",
+      "gives": "O",
+      "note": "a circle is O-shaped"
+     },
+     {
+      "clueFragment": "Line",
+      "gives": "RY",
+      "note": "RY is short for railway, a line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "BIGBANG",
+      "THE",
+      "O",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper review of a London Underground route sounds like a negative report.",
+     "walkthrough": "Circle Line looks like the London Underground line, but splits into two pieces.",
+     "definitionFit": "The Big Bang Theory is the long-running American TV sitcom, a television series."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Circle"
+    }
+   }
   },
   {
    "number": 29,
@@ -537,7 +1917,69 @@
      }
     ]
    },
-   "solution": "AFEWGOODMEN"
+   "solution": "AFEWGOODMEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "A FEW GOOD MEN",
+    "definitions": [
+     {
+      "text": "film",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grotesque",
+      "for": "anagram",
+      "note": "grotesque means distorted, so the letters are twisted into a new shape"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Some",
+      "gives": "AFEW",
+      "note": "a few means some"
+     },
+     {
+      "clueFragment": "spirit",
+      "gives": "GO",
+      "note": "go is energy or verve"
+     },
+     {
+      "clueFragment": "demon",
+      "gives": "DEMON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AFEW",
+      "GO",
+      "ODMEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DEMON",
+       "gives": "ODMEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A movie featuring some sort of ghastly demonic spirit.",
+     "definitionFit": "A Few Good Men is a 1992 courtroom drama movie starring Tom Cruise and Jack Nicholson."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spirit"
+    }
+   }
   }
  ]
 }
