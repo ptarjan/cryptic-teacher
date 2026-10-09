@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "One bites firm end of fig",
     "enumeration": "3"
    },
-   "solution": "COG"
+   "solution": "COG",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "COG",
+    "definitions": [
+     {
+      "text": "One bites",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only the last one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "firm",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company, a firm"
+     },
+     {
+      "clueFragment": "fig",
+      "gives": "G",
+      "select": "last",
+      "note": "the final letter of fig"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes a bite from the hard tip of a fig.",
+     "walkthrough": "'One bites' looks like a person eating; it is the definition, since a gear tooth bites into the next wheel.",
+     "definitionFit": "A cog is a tooth on a gear wheel, and its teeth are said to bite or engage with another wheel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bites"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +99,93 @@
     "text": "Heating stoked coal on one fire almost turning cold",
     "enumeration": "9"
    },
-   "solution": "CALORIFIC"
+   "solution": "CALORIFIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "CALORIFIC",
+    "definitions": [
+     {
+      "text": "Heating",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stoked",
+      "for": "anagram",
+      "note": "stoking a fire stirs it up, so the letters are stirred into a new order"
+     },
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the word loses its final letter"
+     },
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning round sends the letters back the other way"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coal",
+      "gives": "COAL",
+      "note": "taken as written, ready to be stirred"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "fire",
+      "gives": "FIRE",
+      "note": "taken as written, then cut short"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on a tap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CALO",
+      "RIFI",
+      "C"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COAL",
+       "gives": "CALO"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "IFIR",
+       "to": "RIFI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stokes a coal fire that is almost dying as the weather turns cold.",
+     "walkthrough": "In a down clue 'on' puts the stirred coal above the rest. One plus FIR (fire without its last letter) is turned round to give RIFI, and C ends it: CALORIFIC.",
+     "definitionFit": "Calorific means producing heat, so as an adjective it can stand for heating, as in heating power."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +199,49 @@
     "text": "Sauce made from fish and ... um ... that's it",
     "enumeration": "5"
    },
-   "solution": "GARUM"
+   "solution": "GARUM",
+   "annotation": {
+    "type": [
+     "charade",
+     "and_lit"
+    ],
+    "answer": "GARUM",
+    "definitions": [
+     {
+      "text": "Sauce made from fish and ... um ... that's it",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "GAR",
+      "note": "a gar is a long-snouted fish"
+     },
+     {
+      "clueFragment": "um",
+      "gives": "UM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAR",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook stumbles over the recipe for a sauce: fish and, um, nothing else.",
+     "walkthrough": "The whole clue defines the answer and also builds it: a fish followed by the hesitation. Garum was the fermented fish sauce of ancient Rome.",
+     "definitionFit": "Garum was a Roman condiment made by fermenting fish in salt, so a sauce with fish as its main ingredient."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "um"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +255,86 @@
     "text": "Old ripe bananas with decent chopped nuts getting tasted",
     "enumeration": "11"
    },
-   "solution": "EXPERIENCED"
+   "solution": "EXPERIENCED",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "deletion"
+    ],
+    "answer": "EXPERIENCED",
+    "definitions": [
+     {
+      "text": "tasted",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bananas",
+      "for": "anagram",
+      "note": "going bananas means going crazy, so the letters are thrown into disorder"
+     },
+     {
+      "text": "chopped",
+      "for": "deletion",
+      "note": "something chopped has had a piece cut off its end"
+     },
+     {
+      "text": "nuts",
+      "for": "anagram",
+      "note": "nuts means mad, so these letters are scrambled too"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "EX",
+      "note": "ex means former or old, as in ex-wife"
+     },
+     {
+      "clueFragment": "ripe",
+      "gives": "RIPE",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "decent",
+      "gives": "DECENT",
+      "note": "taken as written, then cut and rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "PERI",
+      "ENCED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RIPE",
+       "gives": "PERI"
+      },
+      {
+       "fodder": "DECEN",
+       "gives": "ENCED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Old ripe bananas and some good chopped nuts are being sampled.",
+     "walkthrough": "The food words are all instructions: 'bananas' and 'nuts' both mean crazy, and 'chopped' removes the final T of decent.",
+     "definitionFit": "To have tasted something is to have experienced it, as in 'tasted defeat'; both are past participles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bananas"
+    }
+   }
   },
   {
    "number": 3,
@@ -89,7 +348,86 @@
     "text": "Endless roulade, initially eaten in a frenzy, then left",
     "enumeration": "7"
    },
-   "solution": "ETERNAL"
+   "solution": "ETERNAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "ETERNAL",
+    "definitions": [
+     {
+      "text": "Endless",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the first letter of the word it follows"
+     },
+     {
+      "text": "in a frenzy",
+      "for": "anagram",
+      "note": "a frenzy is wild disorder, so the letters are jumbled"
+     },
+     {
+      "text": "eaten",
+      "for": "container",
+      "note": "something eaten goes inside, so the first letter sits within the jumble"
+     },
+     {
+      "text": "then",
+      "for": "charade",
+      "note": "then signals the next piece is added at the end of what came before"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "roulade",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of roulade"
+     },
+     {
+      "clueFragment": "eaten",
+      "gives": "EATEN",
+      "note": "taken as written, then jumbled"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETE",
+      "R",
+      "NA",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EATEN",
+       "gives": "ETENA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A roulade was wolfed down in a frenzy and nothing was left.",
+     "walkthrough": "'eaten' does double duty: its letters are the jumbled fodder, and being eaten means the R goes inside them.",
+     "definitionFit": "Eternal describes something without end, a direct synonym of endless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "eaten"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +441,64 @@
     "text": "Show-off that's more 'sophisticated' rejecting last bit of sandwich",
     "enumeration": "5"
    },
-   "solution": "POSER"
+   "solution": "POSER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "POSER",
+    "definitions": [
+     {
+      "text": "Show-off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejecting",
+      "for": "deletion",
+      "note": "rejecting something means throwing it out, so a letter is removed"
+     },
+     {
+      "text": "last bit of",
+      "for": "letter_selection",
+      "note": "the last bit of a word is its final letter"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more 'sophisticated'",
+      "gives": "POSHER",
+      "note": "posh means sophisticated, so more of it is the comparative; the answer also runs backwards across these words, a coincidence the setter did not intend"
+     },
+     {
+      "clueFragment": "sandwich",
+      "gives": "H",
+      "select": "last",
+      "note": "the final letter of sandwich"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POS",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A show-off turns down the dregs of a sandwich because it is beneath them.",
+     "walkthrough": "The H from the end of sandwich is removed from POSHER.",
+     "definitionFit": "A poser is a person who strikes attitudes to impress others, the same as a show-off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sandwich"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +512,70 @@
     "text": "Judges drunk by about 1:50 in Reading",
     "enumeration": "9"
    },
-   "solution": "REHEARSAL"
+   "solution": "REHEARSAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REHEARSAL",
+    "definitions": [
+     {
+      "text": "Reading",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk by",
+      "for": "charade",
+      "note": "taken in alongside, so the following piece is placed next to what comes before it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "Judges",
+      "gives": "HEARS",
+      "note": "a judge hears a case in court"
+     },
+     {
+      "clueFragment": "1",
+      "gives": "A",
+      "note": "one is a, as in a single thing"
+     },
+     {
+      "clueFragment": "50",
+      "gives": "L",
+      "note": "L is the Roman numeral for fifty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "HEARS",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Judges are drunk by ten to two in the Berkshire town of Reading.",
+     "walkthrough": "'1:50' looks like a time but splits into two numbers. Reading here is a run-through of a play, not the town west of London.",
+     "definitionFit": "A rehearsal is a practice performance, and a read-through of a script is called a reading."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Reading"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +589,43 @@
     "text": "The last ice-cream portion is bigger, potentially",
     "enumeration": "7"
    },
-   "solution": "ELASTIC"
+   "solution": "ELASTIC",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ELASTIC",
+    "definitions": [
+     {
+      "text": "is bigger, potentially",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "portion",
+      "for": "hidden_word",
+      "note": "a portion is a piece of something, so the answer is a part of the run of words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The last ice-cream",
+      "gives": "ELASTIC",
+      "note": "found across the end of the first word and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "The final helping of ice cream looks like it might be the largest.",
+     "walkthrough": "The definition is a playful description of something that can be stretched.",
+     "definitionFit": "An elastic thing can stretch, so it can potentially become bigger than it is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "portion"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +639,48 @@
     "text": "Is it used to eat Chinese pork? Yes",
     "enumeration": "9"
    },
-   "solution": "CHOPSTICK"
+   "solution": "CHOPSTICK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHOPSTICK",
+    "definitions": [
+     {
+      "text": "Is it used to eat Chinese",
+      "at": 0,
+      "note": "phrased as a question; the answer is the thing used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pork",
+      "gives": "CHOPS",
+      "note": "pork chops are cuts of pork"
+     },
+     {
+      "clueFragment": "Yes",
+      "gives": "TICK",
+      "note": "a tick is the mark that says yes on a form"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHOPS",
+      "TICK"
+     ]
+    },
+    "explanation": {
+     "surface": "A diner asks whether pork is eaten with a Chinese utensil and is told yes.",
+     "walkthrough": "The question reads as one sentence, but its first half is the definition and the reply gives the wordplay.",
+     "definitionFit": "A chopstick is one of a pair of slender sticks used for eating East Asian food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Yes"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +694,56 @@
     "text": "Mess up the topping for summer puddings",
     "enumeration": "5"
    },
-   "solution": "DUFFS"
+   "solution": "DUFFS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DUFFS",
+    "definitions": [
+     {
+      "text": "puddings",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the topping for",
+      "for": "letter_selection",
+      "note": "the topping of a word in a down clue is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mess up",
+      "gives": "DUFF",
+      "note": "to duff something is to bungle it"
+     },
+     {
+      "clueFragment": "summer",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of summer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUFF",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone ruins the cream topping on a batch of summer puddings.",
+     "walkthrough": "'summer puddings' reads as a dessert name, but the definition is just puddings. A duff is a boiled suet pudding, as in plum duff.",
+     "definitionFit": "Duff is a traditional British boiled or steamed suet pudding, so duffs are puddings of that kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "topping"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +757,44 @@
     "text": "Stores delivering Russian cars",
     "enumeration": "7"
    },
-   "solution": "LARDERS"
+   "solution": "LARDERS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LARDERS",
+    "definitions": [
+     {
+      "text": "Stores",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "delivering",
+      "for": "homophone",
+      "note": "delivering a speech means saying it out loud, so the word is judged by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Russian cars",
+      "gives": "LARDERS",
+      "soundsLike": "LADAS",
+      "note": "Ladas are cars made in Russia"
+     }
+    ],
+    "explanation": {
+     "surface": "Shops are taking delivery of cars from Russia.",
+     "walkthrough": "The sound match relies on a British accent, where the R in the middle is silent.",
+     "definitionFit": "A larder is a cool room or cupboard where food is kept, so larders are food stores."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "delivering"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +814,47 @@
      }
     ]
    },
-   "solution": "HEADOFF"
+   "solution": "HEADOFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEAD OFF",
+    "definitions": [
+     {
+      "text": "Leave",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some lettuce",
+      "gives": "HEAD",
+      "note": "a head of lettuce is a single whole one"
+     },
+     {
+      "clueFragment": "on? No",
+      "gives": "OFF",
+      "note": "the opposite of on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEAD",
+      "OFF"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether to put lettuce in a sandwich and is told no.",
+     "walkthrough": "'Leave' looks like 'leave it on', but it is a verb meaning depart.",
+     "definitionFit": "To head off is a phrasal verb for setting out or departing, which is to leave."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Leave"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +868,50 @@
     "text": "Dish made by male artists?",
     "enumeration": "5"
    },
-   "solution": "RAMEN"
+   "solution": "RAMEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAMEN",
+    "definitions": [
+     {
+      "text": "Dish",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "made by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artists",
+      "gives": "RA",
+      "note": "RA is a Royal Academician, a member of the Royal Academy of Arts"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "MEN",
+      "note": "men are males"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "MEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A meal is cooked by a group of male painters.",
+     "walkthrough": "The question mark flags that 'male artists' is to be read as RA men, Academicians who are men.",
+     "definitionFit": "Ramen is a Japanese noodle soup served in a bowl, so it is a dish in the culinary sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "artists"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +931,81 @@
      }
     ]
    },
-   "solution": "ROADTESTS"
+   "solution": "ROADTESTS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "ROAD TESTS",
+    "definitions": [
+     {
+      "text": "checks",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the very end of the word, its final letter"
+     },
+     {
+      "text": "Broken by",
+      "for": "container",
+      "note": "a thing broken by another has that other pushed into its middle"
+     },
+     {
+      "text": "fails",
+      "for": "anagram",
+      "note": "a machine that fails has gone wrong, so its letters fall out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "toaster",
+      "gives": "TOASTER",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "bread",
+      "gives": "D",
+      "select": "last",
+      "note": "the closing letter of bread"
+     },
+     {
+      "clueFragment": "special",
+      "gives": "S",
+      "note": "S is an abbreviation for special"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROA",
+      "D",
+      "TEST",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOASTER",
+       "gives": "ROATEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A toaster wrecked by a jammed slice of bread fails its safety inspections.",
+     "walkthrough": "'special checks' looks like one phrase, but S for special is wordplay and the definition is just checks.",
+     "definitionFit": "Road tests are trials of a vehicle or product under real conditions, a kind of check on performance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fails"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +1025,39 @@
      }
     ]
    },
-   "solution": "FORKLIFTS"
+   "solution": "FORKLIFTS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FORK-LIFTS",
+    "definitions": [
+     {
+      "text": "Trucks by which spaghetti's eaten?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trucks",
+      "note": "surface reading: lorries, with the odd suggestion of eating pasta with a vehicle"
+     },
+     {
+      "clueFragment": "by which spaghetti's eaten?",
+      "note": "setter's reading: the action of raising pasta on a fork, split into two words"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split the answer into fork and lifts: what you do to spaghetti. As one word it names warehouse vehicles with prongs.",
+     "definitionFit": "Forklifts are small industrial trucks with prongs at the front for raising pallets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spaghetti's"
+    }
+   }
   },
   {
    "number": 14,
@@ -267,7 +1077,51 @@
      }
     ]
    },
-   "solution": "ROASTBEEF"
+   "solution": "ROASTBEEF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROAST BEEF",
+    "definitions": [
+     {
+      "text": "a British tradition",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Have a go at",
+      "gives": "ROAST",
+      "note": "to roast someone is to criticise them harshly"
+     },
+     {
+      "clueFragment": "complain",
+      "gives": "BEEF",
+      "note": "to beef is slang for to grumble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROAST",
+      "BEEF"
+     ]
+    },
+    "explanation": {
+     "surface": "Grumbling and griping at others is presented as a national custom.",
+     "walkthrough": "The Sunday roast of beef is so associated with England that the French nickname the English les rosbifs.",
+     "definitionFit": "Roast beef with Yorkshire pudding is the classic English Sunday lunch, a long-standing national custom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "complain"
+    }
+   }
   },
   {
    "number": 15,
@@ -287,7 +1141,39 @@
      }
     ]
    },
-   "solution": "FOODCHAIN"
+   "solution": "FOODCHAIN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FOOD CHAIN",
+    "definitions": [
+     {
+      "text": "The natural order of things in Iceland?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The natural order of things",
+      "note": "surface reading: the ecological ranking of who eats whom, set in the Nordic country"
+     },
+     {
+      "clueFragment": "in Iceland?",
+      "note": "setter's reading: Iceland is a British supermarket business with many branches selling frozen groceries"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Iceland is a UK retailer specialising in frozen groceries, so it is a chain that sells things to eat; the ecological sense supplies 'natural order'.",
+     "definitionFit": "In ecology the phrase names the sequence of organisms each feeding on the next, a natural hierarchy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Iceland"
+    }
+   }
   },
   {
    "number": 16,
@@ -301,7 +1187,47 @@
     "text": "Side of letter I forgot to write",
     "enumeration": "5"
    },
-   "solution": "CHIPS"
+   "solution": "CHIPS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHIPS",
+    "definitions": [
+     {
+      "text": "Side",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "letter",
+      "gives": "CHI",
+      "note": "chi is a letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "I forgot to write",
+      "gives": "PS",
+      "note": "a postscript adds what the writer forgot to put in the letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHI",
+      "PS"
+     ]
+    },
+    "explanation": {
+     "surface": "A letter writer adds a note on the side about something they forgot.",
+     "walkthrough": "'letter' and 'Side' both suggest correspondence, but side is a side order at a meal; chips are fries.",
+     "definitionFit": "Chips (fries) are a typical side dish ordered alongside a main course."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Side"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1241,77 @@
     "text": "Given too much seafood? Finally, the diet is abandoned!",
     "enumeration": "9"
    },
-   "solution": "SURFEITED"
+   "solution": "SURFEITED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SURFEITED",
+    "definitions": [
+     {
+      "text": "Given too much",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the next word"
+     },
+     {
+      "text": "abandoned",
+      "for": "anagram",
+      "note": "abandoned means wild and unrestrained, so the letters run loose"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seafood?",
+      "gives": "SURF",
+      "note": "surf is the sea half of surf and turf, a seafood and steak dish"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "E",
+      "select": "last",
+      "note": "the closing letter of the"
+     },
+     {
+      "clueFragment": "diet",
+      "gives": "DIET",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SURF",
+      "E",
+      "ITED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DIET",
+       "gives": "ITED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stuffed with seafood announces that the diet is over.",
+     "walkthrough": "The question mark admits that surf is only food by way of the dish surf and turf.",
+     "definitionFit": "To be surfeited is to have been fed or supplied to excess, so given too much."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "abandoned"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1325,58 @@
     "text": "American guy crosses river and leaves",
     "enumeration": "5"
    },
-   "solution": "CHARD"
+   "solution": "CHARD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHARD",
+    "definitions": [
+     {
+      "text": "leaves",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crosses",
+      "for": "container",
+      "note": "to cross something here is to straddle it, so one piece goes around the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American guy",
+      "gives": "CHAD",
+      "note": "Chad is a common American man's name"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "R",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "An American man crosses a river and then goes away.",
+     "walkthrough": "'leaves' reads as a verb after 'and', but it is the noun: chard is grown for its leaves.",
+     "definitionFit": "Chard is a leafy vegetable whose large green leaves are eaten, so it is leaves in the greengrocer's sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1390,67 @@
     "text": "Where one might eat catch taken in by high tide",
     "enumeration": "7"
    },
-   "solution": "DINETTE"
+   "solution": "DINETTE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DINETTE",
+    "definitions": [
+     {
+      "text": "Where one might eat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken in by",
+      "for": "container",
+      "note": "something taken in is held inside, so one piece goes within the other"
+     },
+     {
+      "text": "high",
+      "for": "anagram",
+      "note": "high can mean intoxicated, so the letters are muddled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "catch",
+      "gives": "NET",
+      "note": "to net is to catch"
+     },
+     {
+      "clueFragment": "tide",
+      "gives": "TIDE",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "NET",
+      "TE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TIDE",
+       "gives": "DITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fisherman's catch is swept up by a high tide.",
+     "walkthrough": "'high tide' looks like a fixed phrase, but 'high' is the signal to rearrange tide.",
+     "definitionFit": "A dinette is a small dining area or alcove off a kitchen, a place for meals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "high"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1470,60 @@
      }
     ]
    },
-   "solution": "OILTANKER"
+   "solution": "OILTANKER",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "OIL TANKER",
+    "definitions": [
+     {
+      "text": "a craft of sorts",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner's",
+      "for": "spoonerism",
+      "note": "Reverend Spooner famously swapped the opening sounds of words"
+     }
+    ],
+    "linkWords": [
+     "reveals"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "work",
+      "gives": "OIL",
+      "soundsLike": "TOIL",
+      "note": "work is toil; it loses its opening sound to the second word"
+     },
+     {
+      "clueFragment": "butter brand",
+      "gives": "TANKER",
+      "soundsLike": "ANCHOR",
+      "note": "Anchor is a butter brand sold in Britain; it takes the opening sound of the first word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OIL",
+      "TANKER"
+     ]
+    },
+    "explanation": {
+     "surface": "Spooner's piece about a butter label turns out to show a sort of handicraft.",
+     "walkthrough": "Anchor is a New Zealand butter brand familiar in Britain. 'craft' is not handiwork but a vessel.",
+     "definitionFit": "An oil tanker is a ship built to carry crude oil, and craft is a general word for a vessel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "craft"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1537,51 @@
     "text": "Soldier on LSD that works to achieve neutrality",
     "enumeration": "7"
    },
-   "solution": "ANTACID"
+   "solution": "ANTACID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANTACID",
+    "definitions": [
+     {
+      "text": "that works to achieve neutrality",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldier",
+      "gives": "ANT",
+      "note": "a soldier is a kind of ant"
+     },
+     {
+      "clueFragment": "LSD",
+      "gives": "ACID",
+      "note": "acid is slang for the drug LSD"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANT",
+      "ACID"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier high on drugs tries to keep the peace between sides.",
+     "walkthrough": "Neutrality sounds political, but it is the chemical sense of neither acid nor alkaline.",
+     "definitionFit": "An antacid neutralises stomach acid, bringing the pH towards neutral."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "neutrality"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1595,78 @@
     "text": "Former volunteers retired in California, chasing a whiff of flowers?",
     "enumeration": "9"
    },
-   "solution": "BOTANICAL"
+   "solution": "BOTANICAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "BOTANICAL",
+    "definitions": [
+     {
+      "text": "of flowers?",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retired",
+      "for": "reversal",
+      "note": "retired means withdrawn or gone back, so the short word reads backwards"
+     },
+     {
+      "text": "chasing",
+      "for": "charade",
+      "note": "chasing means following behind, so these pieces come after the opening one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a whiff",
+      "gives": "BO",
+      "note": "BO is body odour, an unpleasant whiff"
+     },
+     {
+      "clueFragment": "Former volunteers",
+      "gives": "TA",
+      "note": "the TA was the Territorial Army, Britain's former volunteer reserve"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written, then turned back"
+     },
+     {
+      "clueFragment": "California",
+      "gives": "CAL",
+      "note": "Cal is an abbreviation for California"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "TA",
+      "NI",
+      "CAL"
+     ],
+     "reversals": [
+      {
+       "from": "IN",
+       "to": "NI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ex-soldiers retired to California, following the scent of blossoms.",
+     "walkthrough": "The question mark admits that botanical covers all plants, not just flowers.",
+     "definitionFit": "Botanical means relating to plants, and flowers are the showiest plants, so the definition works by example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "whiff"
+    }
+   }
   },
   {
    "number": 22,
@@ -405,7 +1680,60 @@
     "text": "One-litre bar bottles produced",
     "enumeration": "5"
    },
-   "solution": "BUILT"
+   "solution": "BUILT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BUILT",
+    "definitions": [
+     {
+      "text": "produced",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottles",
+      "for": "container",
+      "note": "to bottle something is to shut it inside, so the others go within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bar",
+      "gives": "BUT",
+      "note": "bar means except, as does but"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "litre",
+      "gives": "L",
+      "note": "L is the abbreviation for litre"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BU",
+      "IL",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A pub bottles up a single litre of drink it has made.",
+     "walkthrough": "'bar' and 'bottles' make a pub scene, but bar is the preposition meaning except.",
+     "definitionFit": "Built means constructed or made, so it can stand for produced."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 23,
@@ -419,7 +1747,43 @@
     "text": "Vanilla Ice samples guitar parts",
     "enumeration": "5"
    },
-   "solution": "LICKS"
+   "solution": "LICKS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LICKS",
+    "definitions": [
+     {
+      "text": "Vanilla Ice samples",
+      "at": 0
+     },
+     {
+      "text": "guitar parts",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vanilla Ice samples",
+      "note": "first meaning: tastes of vanilla ice cream taken with the tongue"
+     },
+     {
+      "clueFragment": "guitar parts",
+      "note": "second meaning: short musical phrases played by a guitarist"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Vanilla Ice is a rapper famous for sampling another song, so the clue reads as music throughout; the first half is really ice cream.",
+     "definitionFit": "The word means both tongue-tastes of something and short riffs a guitarist plays."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ice"
+    }
+   }
   },
   {
    "number": 24,
@@ -433,7 +1797,50 @@
     "text": "Junk that is put on potato in Scotland",
     "enumeration": "5"
    },
-   "solution": "TATIE"
+   "solution": "TATIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TATIE",
+    "definitions": [
+     {
+      "text": "potato in Scotland",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "put on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Junk",
+      "gives": "TAT",
+      "note": "tat is cheap rubbish"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the Latin abbreviation for that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAT",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "Rubbish is piled onto a potato somewhere in Scotland.",
+     "walkthrough": "'in Scotland' marks the definition as a Scots dialect word.",
+     "definitionFit": "Tattie or tatie is the Scottish colloquial word for a potato."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Junk"
+    }
+   }
   },
   {
    "number": 25,
@@ -447,7 +1854,65 @@
     "text": "Weight I put on top of cement mixer",
     "enumeration": "5"
    },
-   "solution": "TONIC"
+   "solution": "TONIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TONIC",
+    "definitions": [
+     {
+      "text": "mixer",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a word in a down clue is its first letter"
+     }
+    ],
+    "linkWords": [
+     "put on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Weight",
+      "gives": "TON",
+      "note": "a ton is a unit of weight"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cement",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter of cement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TON",
+      "I",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A builder loads a heavy weight on top of a cement mixer.",
+     "walkthrough": "'cement mixer' looks like a machine, but mixer stands alone as the definition.",
+     "definitionFit": "Tonic water is a drink commonly added to spirits such as gin, which makes it a mixer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "mixer"
+    }
+   }
   },
   {
    "number": 26,
@@ -467,7 +1932,66 @@
      }
     ]
    },
-   "solution": "ICEDTEA"
+   "solution": "ICEDTEA",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ICED TEA",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "before means coming first, so the opening piece leads the rest"
+     },
+     {
+      "text": "excitedly",
+      "for": "anagram",
+      "note": "doing something excitedly is agitated, so the letters are stirred up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold water",
+      "gives": "ICE",
+      "note": "ice is frozen water"
+     },
+     {
+      "clueFragment": "date",
+      "gives": "DATE",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICE",
+      "DTEA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DATE",
+       "gives": "DTEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone nervously drinks cold water before going on a date.",
+     "walkthrough": "'Drink' looks like a verb, but it is the noun definition.",
+     "definitionFit": "Iced tea is chilled tea served as a refreshing cold beverage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Drink"
+    }
+   }
   },
   {
    "number": 27,
@@ -481,7 +2005,48 @@
     "text": "Clown enthusiast that mimics a horse",
     "enumeration": "7"
    },
-   "solution": "COCONUT"
+   "solution": "COCONUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COCONUT",
+    "definitions": [
+     {
+      "text": "that mimics a horse",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clown",
+      "gives": "COCO",
+      "note": "Coco was a famous circus clown"
+     },
+     {
+      "clueFragment": "enthusiast",
+      "gives": "NUT",
+      "note": "a nut is a fan, as in a fitness nut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COCO",
+      "NUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A clown who loves horses does impressions of one.",
+     "walkthrough": "Half coconut shells clapped together make the sound of hooves, a classic radio and theatre effect.",
+     "definitionFit": "Coconut shell halves knocked together imitate hoofbeats, so the coconut is the thing that mimics a horse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mimics"
+    }
+   }
   },
   {
    "number": 28,
@@ -501,7 +2066,71 @@
      }
     ]
    },
-   "solution": "TOFFEENOSED"
+   "solution": "TOFFEENOSED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TOFFEE-NOSED",
+    "definitions": [
+     {
+      "text": "stuck-up",
+      "at": 68
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coated with",
+      "for": "charade",
+      "note": "coated with means covered by, so the covering piece goes on the front"
+     },
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "becoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brown, sticky stuff",
+      "gives": "TOFFEE",
+      "note": "toffee is a brown, chewy sweet"
+     },
+     {
+      "clueFragment": "Passages",
+      "gives": "NOSE",
+      "note": "the nose holds the nasal passages"
+     },
+     {
+      "clueFragment": "dry",
+      "gives": "D",
+      "select": "first",
+      "note": "the opening letter of dry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOFFEE",
+      "NOSE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Pipes coated in a brown, sticky residue start to dry out and get blocked.",
+     "walkthrough": "Toffee-nosed is British slang for snobbish. 'stuck-up' looks like it continues the sticky picture but is the definition.",
+     "definitionFit": "Toffee-nosed is a British colloquialism for snobbish or haughty, the same as stuck-up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Passages"
+    }
+   }
   },
   {
    "number": 29,
@@ -515,7 +2144,65 @@
     "text": "Fish from Marillion's penultimate album's out",
     "enumeration": "3"
    },
-   "solution": "COD"
+   "solution": "COD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "COD",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "penultimate",
+      "for": "letter_selection",
+      "note": "penultimate means next to last, so the second-to-last letter is kept"
+     },
+     {
+      "text": "out",
+      "for": "container",
+      "note": "the album being out means it sits on the outside, around the other piece"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Marillion's",
+      "gives": "O",
+      "select": 8,
+      "note": "the next-to-last letter of the band's name"
+     },
+     {
+      "clueFragment": "album's",
+      "gives": "CD",
+      "note": "a CD is an album on disc"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "O",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A fish is drawn from Marillion's second-to-last record, which has just been released.",
+     "walkthrough": "'album's out' sounds like a release date; it puts CD around the letter.",
+     "definitionFit": "Cod is a common white sea fish, eaten widely in fish and chips."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   }
  ]
 }
