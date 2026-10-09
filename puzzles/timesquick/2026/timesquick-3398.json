@@ -24,6 +24,9 @@
   "date": "2026-09-04",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,42 @@
     "text": "Stuff of great importance",
     "enumeration": "8"
    },
-   "solution": "MATERIAL"
+   "solution": "MATERIAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MATERIAL",
+    "definitions": [
+     {
+      "text": "Stuff",
+      "at": 0
+     },
+     {
+      "text": "of great importance",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stuff",
+      "note": "first meaning: substance or fabric, as a noun"
+     },
+     {
+      "clueFragment": "of great importance",
+      "note": "second meaning: significant or relevant, as an adjective"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue reads as a phrase about weighty matters, but it splits into a noun meaning and an adjective meaning of one word.",
+     "definitionFit": "The word names cloth or substance, and as an adjective describes evidence or facts that are relevant and significant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stuff"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +89,48 @@
     "text": "Millions question cover of The Face",
     "enumeration": "4"
    },
-   "solution": "MASK"
+   "solution": "MASK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MASK",
+    "definitions": [
+     {
+      "text": "cover of The Face",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Millions",
+      "gives": "M",
+      "note": "M is the standard abbreviation for million"
+     },
+     {
+      "clueFragment": "question",
+      "gives": "ASK",
+      "note": "to question someone is to ask them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ASK"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders whether a magazine cover cost millions, The Face being a style magazine.",
+     "walkthrough": "The capitalised The Face suggests the old style magazine, but the definition just means something worn over a face.",
+     "definitionFit": "A disguise or protective covering worn over the face is exactly what this item is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Face"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +144,55 @@
     "text": "Cut surface of top lip",
     "enumeration": "4"
    },
-   "solution": "TRIM"
+   "solution": "TRIM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TRIM",
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surface of",
+      "for": "letter_selection",
+      "note": "the surface of something is its uppermost layer, so only the top letter of the next word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "top",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of top"
+     },
+     {
+      "clueFragment": "lip",
+      "gives": "RIM",
+      "note": "the lip of a cup or bowl is its rim"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RIM"
+     ]
+    },
+    "explanation": {
+     "surface": "A barber shaves or trims the hair on someone's upper lip.",
+     "definitionFit": "To trim is to cut back slightly, as with hair or a hedge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "surface"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +206,81 @@
     "text": "Sailor in New Orleans beginning to enjoy fair",
     "enumeration": "10"
    },
-   "solution": "REASONABLE"
+   "solution": "REASONABLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "REASONABLE",
+    "definitions": [
+     {
+      "text": "fair",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "something made new is remade, so the place name's letters are rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the seaman is placed within the rearranged city letters"
+     },
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, so only that one is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Orleans",
+      "gives": "ORLEANS",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "Sailor",
+      "gives": "AB",
+      "note": "AB, able seaman, is the usual crossword sailor"
+     },
+     {
+      "clueFragment": "enjoy",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of enjoy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REASON",
+      "AB",
+      "L",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ORLEANS",
+       "gives": "REASONL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor on shore leave in New Orleans is starting to enjoy the city's fair.",
+     "walkthrough": "New Orleans reads as one place, but New is the signal to rearrange Orleans; the sailor goes inside before the final L.",
+     "definitionFit": "Reasonable and fair are synonyms, both describing something just, moderate and sensible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "New"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +294,48 @@
     "text": "Troubling flaw initially ignored",
     "enumeration": "6"
    },
-   "solution": "AILING"
+   "solution": "AILING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AILING",
+    "definitions": [
+     {
+      "text": "Troubling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially ignored",
+      "for": "deletion",
+      "note": "the opening letter of the word is to be left out, as if passed over"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flaw",
+      "gives": "FAILING",
+      "note": "a failing is a weakness or flaw"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AILING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone finds a defect worrying because it was overlooked at first.",
+     "walkthrough": "To ail someone is to trouble them, as in 'what's ailing you?', so the participle matches 'Troubling'.",
+     "definitionFit": "The verb ail means to trouble or afflict, so its present participle carries the sense of troubling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Troubling"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +349,43 @@
     "text": "Member of Muslim Brotherhood",
     "enumeration": "4"
    },
-   "solution": "LIMB"
+   "solution": "LIMB",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LIMB",
+    "definitions": [
+     {
+      "text": "Member",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of",
+      "for": "hidden_word",
+      "note": "the letters are part of the following words, sitting inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Muslim Brotherhood",
+      "gives": "LIMB",
+      "note": "found across the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Describes someone who belongs to the Muslim Brotherhood organisation.",
+     "definitionFit": "An arm or leg is a member of the body, an old anatomical sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Member"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +399,53 @@
     "text": "Position supporting popular case",
     "enumeration": "8"
    },
-   "solution": "INSTANCE"
+   "solution": "INSTANCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INSTANCE",
+    "definitions": [
+     {
+      "text": "case",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down entry, a piece supporting another sits beneath it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "something in is fashionable or popular"
+     },
+     {
+      "clueFragment": "Position",
+      "gives": "STANCE",
+      "note": "a stance is a position or attitude"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "STANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes a stance in favour of a popular legal case.",
+     "definitionFit": "An instance is an example or case, as in 'in this case' or 'for instance'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supporting"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +459,59 @@
     "text": "Save one high note for male singer",
     "enumeration": "8"
    },
-   "solution": "BARITONE"
+   "solution": "BARITONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BARITONE",
+    "definitions": [
+     {
+      "text": "male singer",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Save",
+      "gives": "BAR",
+      "note": "save and bar both mean except"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "high",
+      "gives": "TON",
+      "note": "the ton is high society or high fashion"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "E",
+      "note": "E is a musical note"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "I",
+      "TON",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A choir master asks to keep one high note for the male voice.",
+     "walkthrough": "'High note' looks like a single musical idea, but high and note are separate pieces; the ton is an old word for fashionable society.",
+     "definitionFit": "A baritone is a man whose voice lies between tenor and bass, so he is a male singer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "high"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +525,46 @@
     "text": "Appropriate executive having the necessary power?",
     "enumeration": "8"
    },
-   "solution": "SUITABLE"
+   "solution": "SUITABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUITABLE",
+    "definitions": [
+     {
+      "text": "Appropriate",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "executive",
+      "gives": "SUIT",
+      "note": "a suit is slang for a business executive"
+     },
+     {
+      "clueFragment": "having the necessary power",
+      "gives": "ABLE",
+      "note": "being able means having the power to do something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUIT",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether a business executive has the authority a role needs.",
+     "definitionFit": "Suitable and appropriate are synonyms, both meaning right or fitting for a purpose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "executive"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +578,52 @@
     "text": "Attendant giving away heroin for addict",
     "enumeration": "4"
    },
-   "solution": "USER"
+   "solution": "USER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "USER",
+    "definitions": [
+     {
+      "text": "addict",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "giving away",
+      "for": "deletion",
+      "note": "giving something away means losing it, so that letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attendant",
+      "gives": "USHER",
+      "note": "an usher is an attendant who shows people to seats"
+     },
+     {
+      "clueFragment": "heroin",
+      "gives": "H",
+      "note": "H is slang for heroin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "USER"
+     ]
+    },
+    "explanation": {
+     "surface": "A worker is caught passing drugs to an addict.",
+     "definitionFit": "A user is everyday slang for a drug taker, someone who uses narcotics habitually."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "giving"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +637,67 @@
     "text": "Corrupt, heartless duke upset teenager",
     "enumeration": "10"
    },
-   "solution": "DEGENERATE"
+   "solution": "DEGENERATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "DEGENERATE",
+    "definitions": [
+     {
+      "text": "Corrupt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartless",
+      "for": "letter_selection",
+      "note": "without its heart a word loses its middle and keeps only its two ends"
+     },
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "something upset is knocked into disorder, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "duke",
+      "gives": "DE",
+      "select": "outer",
+      "note": "the outside letters of duke"
+     },
+     {
+      "clueFragment": "teenager",
+      "gives": "TEENAGER",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "GENERATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEENAGER",
+       "gives": "GENERATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cruel aristocrat has upset a young person, a picture of decadent nobility.",
+     "definitionFit": "Degenerate means morally debased, which is what corrupt describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heartless"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +711,53 @@
     "text": "Moderate effects of law on sales position",
     "enumeration": "10"
    },
-   "solution": "COUNTERACT"
+   "solution": "COUNTERACT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COUNTERACT",
+    "definitions": [
+     {
+      "text": "Moderate effects of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across entry, one piece on another follows straight after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sales position",
+      "gives": "COUNTER",
+      "note": "a shop counter is where sales are made"
+     },
+     {
+      "clueFragment": "law",
+      "gives": "ACT",
+      "note": "an act of parliament is a law"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COUNTER",
+      "ACT"
+     ]
+    },
+    "explanation": {
+     "surface": "Considers how legislation moderates the effects of a firm's sales strategy.",
+     "definitionFit": "To counteract something is to act against it and so lessen or neutralise its effects."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "position"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +771,49 @@
     "text": "Tough ocean-going vessel in distress",
     "enumeration": "8"
    },
-   "solution": "HARDSHIP"
+   "solution": "HARDSHIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HARDSHIP",
+    "definitions": [
+     {
+      "text": "distress",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tough",
+      "gives": "HARD",
+      "note": "tough and hard are synonyms"
+     },
+     {
+      "clueFragment": "ocean-going vessel",
+      "gives": "SHIP",
+      "note": "a ship is a vessel that sails the sea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HARD",
+      "SHIP"
+     ]
+    },
+    "explanation": {
+     "surface": "A sturdy seagoing boat is in difficulty and signalling for help.",
+     "definitionFit": "Hardship is suffering or privation, the same as distress in its sense of trouble."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "distress"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +827,54 @@
     "text": "Protect company name and start to rally",
     "enumeration": "8"
    },
-   "solution": "CONSERVE"
+   "solution": "CONSERVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONSERVE",
+    "definitions": [
+     {
+      "text": "Protect",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     },
+     {
+      "clueFragment": "start to rally",
+      "gives": "SERVE",
+      "note": "in tennis a serve starts each rally"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "N",
+      "SERVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A firm guards its brand name and begins to recover.",
+     "walkthrough": "'Start to rally' looks like it wants a first letter, but it is a tennis rally, which begins with a serve.",
+     "definitionFit": "To conserve is to keep something safe from harm or waste, which is to protect it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rally"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +888,45 @@
     "text": "A & E possibly read out formal statement",
     "enumeration": "6"
    },
-   "solution": "AVOWAL"
+   "solution": "AVOWAL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "AVOWAL",
+    "definitions": [
+     {
+      "text": "formal statement",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "read out",
+      "for": "homophone",
+      "note": "reading something out means saying it, so the answer is a word that matches how the phrase is pronounced"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A & E possibly",
+      "gives": "AVOWAL",
+      "soundsLike": "A VOWEL",
+      "note": "A and E are both examples of a vowel"
+     }
+    ],
+    "explanation": {
+     "surface": "A hospital's accident and emergency department issues an official statement.",
+     "walkthrough": "A & E is the British term for a hospital emergency department, but here it is just two letters, each an example of a vowel.",
+     "definitionFit": "An avowal is an open declaration or affirmation, a formal statement of belief."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "A"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +940,53 @@
     "text": "Drug Enforcement Administration meeting Conservative minister",
     "enumeration": "6"
    },
-   "solution": "DEACON"
+   "solution": "DEACON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DEACON",
+    "definitions": [
+     {
+      "text": "minister",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "meeting",
+      "for": "charade",
+      "note": "two pieces meeting are placed side by side, joined end to end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drug Enforcement Administration",
+      "gives": "DEA",
+      "note": "the initials of the US drugs agency"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "CON",
+      "note": "CON is the abbreviation for Conservative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEA",
+      "CON"
+     ]
+    },
+    "explanation": {
+     "surface": "American drug agents hold talks with a Tory government minister.",
+     "definitionFit": "A deacon is an ordained church minister ranking below a priest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "minister"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +1000,54 @@
     "text": "Refuse to acknowledge drink controls lives",
     "enumeration": "6"
    },
-   "solution": "DISOWN"
+   "solution": "DISOWN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DISOWN",
+    "definitions": [
+     {
+      "text": "Refuse to acknowledge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "controls",
+      "for": "container",
+      "note": "something that controls another holds it in its grip, so it wraps around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "DOWN",
+      "note": "to down a drink is to swallow it"
+     },
+     {
+      "clueFragment": "lives",
+      "gives": "IS",
+      "note": "to live is to be, so lives gives the verb is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IS",
+      "OWN"
+     ]
+    },
+    "explanation": {
+     "surface": "A warning that alcohol takes over people's lives, so someone denies their habit.",
+     "definitionFit": "To disown someone or something is to deny any connection with them, refusing to acknowledge them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lives"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1061,69 @@
     "text": "Record wrong email and right denial",
     "enumeration": "10"
    },
-   "solution": "DISCLAIMER"
+   "solution": "DISCLAIMER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "DISCLAIMER",
+    "definitions": [
+     {
+      "text": "denial",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrong",
+      "for": "anagram",
+      "note": "something wrong is out of order, so these letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Record",
+      "gives": "DISC",
+      "note": "a disc is a gramophone record"
+     },
+     {
+      "clueFragment": "email",
+      "gives": "EMAIL",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISC",
+      "LAIME",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EMAIL",
+       "gives": "LAIME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone keeps a record of a mistaken message and a proper denial.",
+     "definitionFit": "A disclaimer is a statement disavowing responsibility, which is a denial of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wrong"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1137,43 @@
     "text": "Mention something worth seeing to audience",
     "enumeration": "4"
    },
-   "solution": "CITE"
+   "solution": "CITE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CITE",
+    "definitions": [
+     {
+      "text": "Mention",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to audience",
+      "for": "homophone",
+      "note": "what an audience gets is what it hears, so the word is chosen for its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "something worth seeing",
+      "gives": "CITE",
+      "soundsLike": "SIGHT",
+      "note": "a sight is something worth seeing, as in tourist sights"
+     }
+    ],
+    "explanation": {
+     "surface": "A presenter tells listeners about an attraction worth a visit.",
+     "definitionFit": "To cite something is to quote or refer to it, which is to mention it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "audience"
+    }
+   }
   },
   {
    "number": 19,
@@ -303,7 +1187,46 @@
     "text": "Aquatic bird's speed over water",
     "enumeration": "4"
    },
-   "solution": "KNOT"
+   "solution": "KNOT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KNOT",
+    "definitions": [
+     {
+      "text": "Aquatic bird",
+      "at": 0
+     },
+     {
+      "text": "speed over water",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aquatic bird",
+      "note": "first meaning: a wading shorebird of the sandpiper family"
+     },
+     {
+      "clueFragment": "speed over water",
+      "note": "second meaning: a nautical mile per hour, a unit for ships"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The possessive makes it a bird's swimming speed, but 's is just 'is' joining two separate meanings.",
+     "definitionFit": "The knot is a sandpiper-like wading bird, and a knot is also the unit measuring a vessel's speed at sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bird's"
+    }
+   }
   },
   {
    "number": 20,
@@ -317,7 +1240,43 @@
     "text": "Crowd received news on the radio",
     "enumeration": "4"
    },
-   "solution": "HERD"
+   "solution": "HERD",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HERD",
+    "definitions": [
+     {
+      "text": "Crowd",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the radio",
+      "for": "homophone",
+      "note": "radio is heard rather than seen, so the word is chosen by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "received news",
+      "gives": "HERD",
+      "soundsLike": "HEARD",
+      "note": "someone who has received news has heard it"
+     }
+    ],
+    "explanation": {
+     "surface": "A crowd of people hear news through a radio broadcast.",
+     "definitionFit": "A herd is a large group of animals, and by extension a mass of people moving together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "received"
+    }
+   }
   },
   {
    "number": 21,
@@ -331,7 +1290,57 @@
     "text": "People keeping books as system for recording information",
     "enumeration": "8"
    },
-   "solution": "NOTATION"
+   "solution": "NOTATION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NOTATION",
+    "definitions": [
+     {
+      "text": "system for recording information",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "to keep something is to hold on to it, so one piece holds the other"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "People",
+      "gives": "NATION",
+      "note": "a nation is a people"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "OT",
+      "note": "OT, the Old Testament, is a set of books of the Bible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "OT",
+      "ATION"
+     ]
+    },
+    "explanation": {
+     "surface": "People retain ledgers as their method of recording data.",
+     "definitionFit": "A notation is a set of symbols for writing down information, such as musical or mathematical notation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "books"
+    }
+   }
   },
   {
    "number": 22,
@@ -345,7 +1354,56 @@
     "text": "US writer last to perform his work",
     "enumeration": "4"
    },
-   "solution": "POEM"
+   "solution": "POEM",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "POEM",
+    "definitions": [
+     {
+      "text": "his work",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last to",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter, so only that one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US writer",
+      "gives": "POE",
+      "note": "Edgar Allan Poe, the American writer"
+     },
+     {
+      "clueFragment": "perform",
+      "gives": "M",
+      "select": "last",
+      "note": "the final letter of perform"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POE",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "An American author is the final one to recite his writing.",
+     "walkthrough": "'His' points back to Poe, so the definition is a piece of Poe's own writing.",
+     "definitionFit": "Poe wrote many verse works such as The Raven, so a poem is an example of his work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "perform"
+    }
+   }
   },
   {
    "number": 23,
@@ -359,7 +1417,64 @@
     "text": "Obscene broadcast enticed men, but not me",
     "enumeration": "8"
    },
-   "solution": "INDECENT"
+   "solution": "INDECENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "INDECENT",
+    "definitions": [
+     {
+      "text": "Obscene",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but not me",
+      "for": "deletion",
+      "note": "excluding me means those two letters are removed from the word before it"
+     },
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast suggests scattered widely, so the letters are strewn into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "enticed",
+      "gives": "ENTICED",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "MEN",
+      "note": "taken as written, before two letters are removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INDECENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ENTICEDN",
+       "gives": "INDECENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lewd programme lured male viewers, the speaker insisting they were not among them.",
+     "definitionFit": "Indecent and obscene both describe something offending against standards of sexual propriety."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   }
  ]
 }
