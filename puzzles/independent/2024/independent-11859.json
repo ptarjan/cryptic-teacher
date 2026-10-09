@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,48 @@
     "text": "Port wine from Spain, 60% of it",
     "enumeration": "3"
    },
-   "solution": "RIO"
+   "solution": "RIO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RIO",
+    "definitions": [
+     {
+      "text": "Port",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "60% of it",
+      "for": "deletion",
+      "note": "sixty per cent of a five-letter word is three letters, so only the front portion is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wine from Spain",
+      "gives": "RIOJA",
+      "note": "Rioja is the famous red wine region of northern Spain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIO"
+     ]
+    },
+    "explanation": {
+     "surface": "A port wine said to be partly Spanish in origin.",
+     "walkthrough": "'Port wine' reads as one drink, but 'Port' alone is the definition and 'wine from Spain' is the wordplay.",
+     "definitionFit": "Rio de Janeiro is a major Brazilian harbour city, commonly shortened to Rio."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Port"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +91,48 @@
     "text": "Initially reels out old scores to settle",
     "enumeration": "5"
    },
-   "solution": "ROOST"
+   "solution": "ROOST",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ROOST",
+    "definitions": [
+     {
+      "text": "settle",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of each of the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reels out old scores to",
+      "gives": "ROOST",
+      "select": "first",
+      "note": "the leading letters of these five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROOST"
+     ]
+    },
+    "explanation": {
+     "surface": "An angler or musician reels off old scores before settling down.",
+     "definitionFit": "Birds roost when they settle for the night on a perch, so the verb means to settle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scores"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +146,58 @@
     "text": "Pacific battle's fine, mostly from one point of view",
     "enumeration": "7"
    },
-   "solution": "OKINAWA"
+   "solution": "OKINAWA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "OKINAWA",
+    "definitions": [
+     {
+      "text": "Pacific battle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means nearly all of the phrase, so its final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fine",
+      "gives": "OK",
+      "note": "fine as in all right, OK"
+     },
+     {
+      "clueFragment": "from one point of view",
+      "gives": "INAWAY",
+      "note": "in a way means from one perspective"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OK",
+      "INAWA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone judges that a famous WWII Pacific battle went fine, depending on your viewpoint.",
+     "walkthrough": "The 's after battle stands for 'is', linking definition and wordplay.",
+     "definitionFit": "Okinawa was the site of a major 1945 battle between US and Japanese forces in the Pacific War."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fine"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +211,78 @@
     "text": "Crusts, extremely hard, start to soften with olive oil spread",
     "enumeration": "11"
    },
-   "solution": "LIVELIHOODS"
+   "solution": "LIVELIHOODS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "LIVELIHOODS",
+    "definitions": [
+     {
+      "text": "Crusts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the two outermost letters of the word it governs"
+     },
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter"
+     },
+     {
+      "text": "spread",
+      "for": "anagram",
+      "note": "things spread about are scattered out of their original arrangement"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hard",
+      "gives": "HD",
+      "select": "outer",
+      "note": "the two ends of hard"
+     },
+     {
+      "clueFragment": "soften",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of soften"
+     },
+     {
+      "clueFragment": "olive oil",
+      "gives": "OLIVEOIL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HDSOLIVEOIL",
+       "gives": "LIVELIHOODS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cooking tip: brush hard crusts with olive oil to soften them.",
+     "walkthrough": "To 'earn a crust' is British slang for making a living, so crusts are livelihoods.",
+     "definitionFit": "A crust is informal for a living or income, as in the phrase earn a crust, so crusts are means of support."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Crusts"
+    }
+   }
   },
   {
    "number": 3,
@@ -89,7 +296,55 @@
     "text": "Drunk crosses motorway verge",
     "enumeration": "5"
    },
-   "solution": "LIMIT"
+   "solution": "LIMIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LIMIT",
+    "definitions": [
+     {
+      "text": "verge",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crosses",
+      "for": "container",
+      "note": "to cross something here is to go around it, so one word straddles the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drunk",
+      "gives": "LIT",
+      "note": "lit is slang for intoxicated"
+     },
+     {
+      "clueFragment": "motorway",
+      "gives": "MI",
+      "note": "the M1, written MI, is Britain's main north-south motorway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "MI",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk driver veers across the motorway onto its grass verge.",
+     "walkthrough": "The M1 is London to Leeds; setters write its digit 1 as the letter I.",
+     "definitionFit": "A verge is an edge or boundary, and a limit is likewise the outer boundary of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "verge"
+    }
+   }
   },
   {
    "number": 4,
@@ -109,7 +364,54 @@
      }
     ]
    },
-   "solution": "VETERANSDAY"
+   "solution": "VETERANSDAY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "VETERANS DAY",
+    "definitions": [
+     {
+      "text": "11th of November in the US",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Amend",
+      "for": "anagram",
+      "note": "amending something alters it, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "year's-end VAT",
+      "gives": "YEARSENDVAT",
+      "note": "taken as written, ignoring the apostrophe"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "YEARSENDVAT",
+       "gives": "VETERANSDAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An accountant's instruction to correct the year-end VAT return for a November date.",
+     "walkthrough": "VAT is Britain's value added tax, a sales tax.",
+     "definitionFit": "The US honours military veterans with a federal holiday on 11 November, the anniversary of the WWI armistice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Amend"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +425,52 @@
     "text": "Starts to lose one's rag -- blimey",
     "enumeration": "3"
    },
-   "solution": "LOR"
+   "solution": "LOR",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "LOR",
+    "definitions": [
+     {
+      "text": "blimey",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Starts to",
+      "for": "letter_selection",
+      "note": "the starts of words are their opening letters"
+     }
+    ],
+    "linkWords": [
+     "--"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lose one's rag",
+      "gives": "LOR",
+      "select": "first",
+      "note": "first letters of lose, one's and rag"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone starts to lose their temper and exclaims in surprise.",
+     "walkthrough": "To lose one's rag is British for losing one's temper.",
+     "definitionFit": "Lor is a dated British exclamation of surprise, a clipped form of Lord, just as blimey is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rag"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +490,65 @@
      }
     ]
    },
-   "solution": "HOIPOLLOI"
+   "solution": "HOIPOLLOI",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "HOI POLLOI",
+    "definitions": [
+     {
+      "text": "Ordinary people",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "resolved",
+      "for": "anagram",
+      "note": "something resolved has been broken down and reworked into a new form"
+     }
+    ],
+    "linkWords": [
+     "wanting",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the physics symbol for electric current"
+     },
+     {
+      "clueFragment": "vote",
+      "gives": "POLL",
+      "note": "a poll is a vote"
+     },
+     {
+      "clueFragment": "Ohio",
+      "gives": "OHIO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IPOLLOHIO",
+       "gives": "HOIPOLLOI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ordinary voters in Ohio want the current ballot settled.",
+     "definitionFit": "Hoi polloi is a Greek phrase used in English for the masses or common people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 7,
@@ -163,7 +568,56 @@
      }
     ]
    },
-   "solution": "OPUSDEI"
+   "solution": "OPUSDEI",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "OPUS DEI",
+    "definitions": [
+     {
+      "text": "Catholic organisation",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "anagram",
+      "note": "souped up suggests modifying an engine, so the word is reworked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Souped",
+      "gives": "SOUPED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "international",
+      "gives": "I",
+      "note": "I is the standard abbreviation for international"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SOUPEDI",
+       "gives": "OPUSDEI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A souped-up international religious organisation, as if given extra power.",
+     "definitionFit": "Opus Dei is a worldwide Roman Catholic institution founded in Spain in 1928."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Souped"
+    }
+   }
   },
   {
    "number": 8,
@@ -177,7 +631,51 @@
     "text": "Career fortunate for Veronica",
     "enumeration": "9"
    },
-   "solution": "SPEEDWELL"
+   "solution": "SPEEDWELL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPEEDWELL",
+    "definitions": [
+     {
+      "text": "Veronica",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Career",
+      "gives": "SPEED",
+      "note": "to career is to rush along, so speed"
+     },
+     {
+      "clueFragment": "fortunate",
+      "gives": "WELL",
+      "note": "well as in well off or in good luck"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPEED",
+      "WELL"
+     ]
+    },
+    "explanation": {
+     "surface": "A lucky career path for someone called Veronica.",
+     "walkthrough": "Veronica looks like a woman's name; it is the botanical genus of the plant.",
+     "definitionFit": "Speedwell is the common name for plants of the genus Veronica, small blue-flowered herbs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Veronica"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +689,62 @@
     "text": "Disgust when daughter yields to soft drug",
     "enumeration": "5"
    },
-   "solution": "OPIUM"
+   "solution": "OPIUM",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "OPIUM",
+    "definitions": [
+     {
+      "text": "drug",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "yields to",
+      "for": "substitution",
+      "note": "yielding to something means giving way so that it takes the place"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Disgust",
+      "gives": "ODIUM",
+      "note": "odium is hatred or disgust"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     },
+     {
+      "clueFragment": "soft",
+      "gives": "P",
+      "note": "p, piano, is the musical marking for soft"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "P",
+      "IUM"
+     ]
+    },
+    "explanation": {
+     "surface": "Revulsion at a daughter giving in to soft drugs.",
+     "definitionFit": "Opium is a narcotic drug obtained from the poppy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "soft"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +758,64 @@
     "text": "Depravity of curt highwayman given semi-freedom",
     "enumeration": "9"
    },
-   "solution": "TURPITUDE"
+   "solution": "TURPITUDE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TURPITUDE",
+    "definitions": [
+     {
+      "text": "Depravity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "curt",
+      "for": "deletion",
+      "note": "curt means cut short, so the last letter of the following word is dropped"
+     },
+     {
+      "text": "semi-",
+      "for": "deletion",
+      "note": "semi means half, so only half of the next word survives"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "highwayman",
+      "gives": "TURPIN",
+      "note": "Dick Turpin was a notorious 18th-century English highwayman"
+     },
+     {
+      "clueFragment": "freedom",
+      "gives": "LATITUDE",
+      "note": "latitude is freedom of action"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TURPI",
+      "TUDE"
+     ]
+    },
+    "explanation": {
+     "surface": "The wickedness of a brusque highwayman who has been granted partial liberty.",
+     "walkthrough": "The second half of the eight-letter word for freedom is kept.",
+     "definitionFit": "Turpitude is wickedness or vileness, as in the phrase moral turpitude, which matches depravity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "curt"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +829,80 @@
     "text": "Judas Priest's last run -- top-notch nonsense, on reflection",
     "enumeration": "7"
    },
-   "solution": "TRAITOR"
+   "solution": "TRAITOR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "TRAITOR",
+    "definitions": [
+     {
+      "text": "Judas",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter"
+     },
+     {
+      "text": "on reflection",
+      "for": "reversal",
+      "note": "a reflection shows a mirror image, so the word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Priest's",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of priest"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     },
+     {
+      "clueFragment": "top-notch",
+      "gives": "AI",
+      "note": "A1 means first-rate, with the 1 written as I"
+     },
+     {
+      "clueFragment": "nonsense",
+      "gives": "ROT",
+      "note": "rot is rubbish or nonsense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "AI",
+      "TOR"
+     ],
+     "reversals": [
+      {
+       "from": "ROT",
+       "to": "TOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A review of a Judas Priest heavy-metal tour: the last run was top-notch, though on reflection nonsense.",
+     "walkthrough": "Judas Priest is a heavy-metal band, which hides that Judas alone is the definition.",
+     "definitionFit": "Judas Iscariot betrayed Jesus, so his name is a byword for a betrayer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Priest's"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +916,67 @@
     "text": "Shunned promo surrounding video nasty",
     "enumeration": "7"
    },
-   "solution": "AVOIDED"
+   "solution": "AVOIDED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "AVOIDED",
+    "definitions": [
+     {
+      "text": "Shunned",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounding",
+      "for": "container",
+      "note": "surrounding means placed all around, so one piece encloses the other"
+     },
+     {
+      "text": "nasty",
+      "for": "anagram",
+      "note": "nasty suggests something mangled or twisted out of shape"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "promo",
+      "gives": "AD",
+      "note": "an ad is a promotion"
+     },
+     {
+      "clueFragment": "video",
+      "gives": "VOIDE",
+      "note": "the letters of video rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "VOIDE",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "VIDEO",
+       "gives": "VOIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trailer for a video nasty was shunned by broadcasters.",
+     "walkthrough": "A video nasty was a 1980s British term for a banned violent horror film.",
+     "definitionFit": "To avoid something is to keep away from it, so avoided means kept away from or shunned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nasty"
+    }
+   }
   },
   {
    "number": 12,
@@ -247,7 +990,59 @@
     "text": "Intermediate-level cover at last sent out with tours",
     "enumeration": "11"
    },
-   "solution": "ALTOSTRATUS"
+   "solution": "ALTOSTRATUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALTOSTRATUS",
+    "definitions": [
+     {
+      "text": "Intermediate-level cover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sent out",
+      "for": "anagram",
+      "note": "things sent out are dispersed and no longer in their original arrangement"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at last",
+      "gives": "ATLAST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tours",
+      "gives": "TOURS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATLASTTOURS",
+       "gives": "ALTOSTRATUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mid-level insurance cover finally issued alongside holiday tours.",
+     "definitionFit": "Altostratus is a grey sheet of cloud at middle altitude that blankets the sky, hence an intermediate-level cover."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cover"
+    }
+   }
   },
   {
    "number": 13,
@@ -267,7 +1062,66 @@
      }
     ]
    },
-   "solution": "BRAZILNUT"
+   "solution": "BRAZILNUT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BRAZIL NUT",
+    "definitions": [
+     {
+      "text": "tree",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "newly formed",
+      "for": "anagram",
+      "note": "something newly formed has been made over in a fresh arrangement"
+     },
+     {
+      "text": "protects",
+      "for": "container",
+      "note": "protecting means enclosing and shielding, so one piece goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tribunal",
+      "gives": "BRAILNUT",
+      "note": "the letters of tribunal rearranged"
+     },
+     {
+      "clueFragment": "Unknown",
+      "gives": "Z",
+      "note": "z is a mathematical unknown"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRA",
+      "Z",
+      "ILNUT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRIBUNAL",
+       "gives": "BRAILNUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new tribunal shields an unknown tree from felling.",
+     "definitionFit": "The Brazil nut is a tall South American rainforest tree, named for the seeds it bears."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Unknown"
+    }
+   }
   },
   {
    "number": 13,
@@ -281,7 +1135,58 @@
     "text": "Squander brief daytime kip, getting maximally flushed?",
     "enumeration": "9"
    },
-   "solution": "BLOWSIEST"
+   "solution": "BLOWSIEST",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "BLOWSIEST",
+    "definitions": [
+     {
+      "text": "maximally flushed?",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brief",
+      "for": "deletion",
+      "note": "brief means cut short, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Squander",
+      "gives": "BLOW",
+      "note": "to blow money is to squander it"
+     },
+     {
+      "clueFragment": "daytime kip",
+      "gives": "SIESTA",
+      "note": "a siesta is an afternoon nap; kip is British slang for sleep"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLOW",
+      "SIEST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wastes a short afternoon nap and wakes up red-faced.",
+     "walkthrough": "The question mark flags that flushed is a loose sense: blowsy means red-faced and coarse.",
+     "definitionFit": "Blowsy describes a ruddy, coarse complexion, so the superlative is most red-faced."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Squander"
+    }
+   }
   },
   {
    "number": 14,
@@ -305,7 +1210,43 @@
      }
     ]
    },
-   "solution": "INTHEPINK"
+   "solution": "INTHEPINK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IN THE PINK",
+    "definitions": [
+     {
+      "text": "Where stamen of dianthus is",
+      "at": 0
+     },
+     {
+      "text": "enjoying good health",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where stamen of dianthus is",
+      "note": "first meaning: a dianthus is a pink, so its stamen sits inside the flower"
+     },
+     {
+      "clueFragment": "enjoying good health",
+      "note": "second meaning: the idiom for being very well"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Pinks are garden flowers of the genus Dianthus, which makes the literal reading work.",
+     "definitionFit": "The idiom for flourishing health puts someone inside a pink, and a pink flower's stamen is literally located within one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dianthus"
+    }
+   }
   },
   {
    "number": 15,
@@ -319,7 +1260,56 @@
     "text": "European capital once outside old part of France",
     "enumeration": "5"
    },
-   "solution": "LOIRE"
+   "solution": "LOIRE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LOIRE",
+    "definitions": [
+     {
+      "text": "part of France",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside means placed around, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European capital once",
+      "gives": "LIRE",
+      "note": "lire were Italy's currency before the euro; capital means money here"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "O",
+      "IRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A former European capital city lies beyond an ancient region of France.",
+     "walkthrough": "'European capital' suggests a city, but capital is money: Italian lire.",
+     "definitionFit": "The Loire is a region and department of France named after its longest river."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 16,
@@ -339,7 +1329,43 @@
      }
     ]
    },
-   "solution": "ODIST"
+   "solution": "ODIST",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ODIST",
+    "definitions": [
+     {
+      "text": "poet",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pens",
+      "for": "hidden_word",
+      "note": "pens means encloses, so the letters sit inside the phrase before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "God Is\" -- thus",
+      "gives": "ODIST",
+      "note": "spans god, is and thus"
+     }
+    ],
+    "explanation": {
+     "surface": "A poet writes a verse proclaiming that God exists.",
+     "walkthrough": "The quoted title looks like a poem; its letters run across the word break.",
+     "definitionFit": "An odist is a writer of odes, a kind of lyric poem, so a poet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pens"
+    }
+   }
   },
   {
    "number": 17,
@@ -353,7 +1379,81 @@
     "text": "Foreign character, American in Illinois, checks onset of shooting from the hip?",
     "enumeration": "7"
    },
-   "solution": "ISCHIAL"
+   "solution": "ISCHIAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ISCHIAL",
+    "definitions": [
+     {
+      "text": "from the hip?",
+      "at": 66
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed within, so the pieces go inside the state abbreviation"
+     },
+     {
+      "text": "onset of",
+      "for": "letter_selection",
+      "note": "the onset of a word is its opening letter"
+     },
+     {
+      "text": "checks",
+      "for": "container",
+      "note": "to check is to hold in, so the preceding pieces enclose the letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Illinois",
+      "gives": "IL",
+      "note": "IL is the postal abbreviation for Illinois"
+     },
+     {
+      "clueFragment": "shooting",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of shooting"
+     },
+     {
+      "clueFragment": "Foreign character",
+      "gives": "CHI",
+      "note": "chi is a Greek letter"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "S",
+      "CHI",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A gunslinger in Illinois shooting from the hip.",
+     "walkthrough": "Shooting from the hip suggests firing a gun; the question mark warns it is a literal anatomical sense.",
+     "definitionFit": "Ischial relates to the ischium, the lower rear bone of the hip, so it means pertaining to the hip."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shooting"
+    }
+   }
   },
   {
    "number": 18,
@@ -367,7 +1467,62 @@
     "text": "Notice small girl face crowds",
     "enumeration": "9"
    },
-   "solution": "DISMISSAL"
+   "solution": "DISMISSAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DISMISSAL",
+    "definitions": [
+     {
+      "text": "Notice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crowds",
+      "for": "container",
+      "note": "crowding something means pressing all around it, so one piece encloses the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "face",
+      "gives": "DIAL",
+      "note": "a dial is a clock face, also slang for a person's face"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "MISS",
+      "note": "a miss is a girl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "S",
+      "MISS",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notices a small girl's face in the crowd.",
+     "walkthrough": "'Notice' reads as a verb, but it is the noun meaning notice to quit a job.",
+     "definitionFit": "Being given notice means being told your employment is ending, which is dismissal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Notice"
+    }
+   }
   },
   {
    "number": 19,
@@ -381,7 +1536,67 @@
     "text": "Nauseous, as we say, intermittently, so back to work",
     "enumeration": "7"
    },
-   "solution": "SEASICK"
+   "solution": "SEASICK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SEASICK",
+    "definitions": [
+     {
+      "text": "Nauseous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "intermittently",
+      "for": "letter_selection",
+      "note": "intermittently means every other one, so alternate letters are taken"
+     },
+     {
+      "text": "back to",
+      "for": "letter_selection",
+      "note": "the back of a word is its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as we say",
+      "gives": "SEA",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters"
+     },
+     {
+      "clueFragment": "so",
+      "gives": "SIC",
+      "note": "sic is Latin for thus or so"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "K",
+      "select": "last",
+      "note": "final letter of work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEA",
+      "SIC",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "Feeling queasy, so heading back to the office, as people say.",
+     "definitionFit": "Seasick describes the nausea caused by a ship's motion, so it is a specific kind of feeling nauseous."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 20,
@@ -395,7 +1610,40 @@
     "text": "Association that may pursue Internet café building?",
     "enumeration": "7"
    },
-   "solution": "SOCIETY"
+   "solution": "SOCIETY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SOCIETY",
+    "definitions": [
+     {
+      "text": "Association that may pursue Internet café building?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Association that may pursue Internet café building?",
+      "note": "surface reading: a group campaigning for a new cybercafé"
+     },
+     {
+      "clueFragment": "pursue Internet café building",
+      "note": "setter's reading: the word can follow each of Internet, café and building to make a familiar phrase"
+     }
+    ],
+    "explanation": {
+     "surface": "A community group lobbying for an Internet café to be built.",
+     "walkthrough": "Pursue means come after in a phrase. A building society is a British mutual savings and mortgage lender; café society is the fashionable set.",
+     "definitionFit": "A society is an organised association of members, and it completes three established compound names."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pursue"
+    }
+   }
   },
   {
    "number": 21,
@@ -409,7 +1657,54 @@
     "text": "Having trust, priest interrupts tirade ...",
     "enumeration": "7"
    },
-   "solution": "RELIANT"
+   "solution": "RELIANT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RELIANT",
+    "definitions": [
+     {
+      "text": "Having trust",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupts",
+      "for": "container",
+      "note": "interrupting means breaking into the middle, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tirade",
+      "gives": "RANT",
+      "note": "a rant is a tirade"
+     },
+     {
+      "clueFragment": "priest",
+      "gives": "ELI",
+      "note": "Eli is the priest in the Book of Samuel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ELI",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A trusting priest breaks into someone's angry outburst.",
+     "definitionFit": "Reliant means dependent on someone, so it describes a person placing trust in another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "priest"
+    }
+   }
   },
   {
    "number": 22,
@@ -423,7 +1718,60 @@
     "text": "HE authority supports termination of educational director",
     "enumeration": "5"
    },
-   "solution": "LUCAS"
+   "solution": "LUCAS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LUCAS",
+    "definitions": [
+     {
+      "text": "director",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "termination of",
+      "for": "letter_selection",
+      "note": "the termination of a word is its final letter"
+     },
+     {
+      "text": "supports",
+      "for": "charade",
+      "note": "in a down answer, a piece that supports another sits beneath it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "educational",
+      "gives": "L",
+      "select": "last",
+      "note": "final letter of educational"
+     },
+     {
+      "clueFragment": "HE authority",
+      "gives": "UCAS",
+      "note": "UCAS is the UK body handling university admissions; HE is higher education"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "UCAS"
+     ]
+    },
+    "explanation": {
+     "surface": "A higher-education body backs the dismissal of a school director.",
+     "definitionFit": "George Lucas is the American film director who created Star Wars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "termination"
+    }
+   }
   },
   {
    "number": 23,
@@ -437,7 +1785,50 @@
     "text": "With time, maybe dock material",
     "enumeration": "5"
    },
-   "solution": "TWEED"
+   "solution": "TWEED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TWEED",
+    "definitions": [
+     {
+      "text": "material",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "With"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "maybe dock",
+      "gives": "WEED",
+      "note": "dock is a common broad-leaved weed; maybe marks it as an example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "WEED"
+     ]
+    },
+    "explanation": {
+     "surface": "With time, a ship might be brought into dock.",
+     "walkthrough": "'Dock' suggests a harbour; it is the plant.",
+     "definitionFit": "Tweed is a rough woollen cloth, so it is a material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dock"
+    }
+   }
   },
   {
    "number": 24,
@@ -451,7 +1842,64 @@
     "text": "... when tipped about minister promoting riddance of toxic waste",
     "enumeration": "9"
    },
-   "solution": "ELIMINANT"
+   "solution": "ELIMINANT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ELIMINANT",
+    "definitions": [
+     {
+      "text": "promoting riddance of toxic waste",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tipped",
+      "for": "deletion",
+      "note": "tipped here means having its tip removed, so the first letter goes"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the trimmed word encloses the next piece"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "...",
+      "gives": "RELIANT",
+      "note": "the ellipsis carries on from the previous clue's answer"
+     },
+     {
+      "clueFragment": "minister",
+      "gives": "MIN",
+      "note": "Min is the abbreviation for minister"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELI",
+      "MIN",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing the story: a priest tipped off about a minister campaigning against toxic waste.",
+     "walkthrough": "The ellipsis links back to 21 across, whose answer is the starting word here.",
+     "definitionFit": "In medicine an eliminant is an agent that promotes the expulsion of waste or poisons from the body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tipped"
+    }
+   }
   },
   {
    "number": 25,
@@ -465,7 +1913,48 @@
     "text": "Lapwing regularly dropped bristly growth on grass",
     "enumeration": "3"
    },
-   "solution": "AWN"
+   "solution": "AWN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "AWN",
+    "definitions": [
+     {
+      "text": "bristly growth on grass",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly dropped",
+      "for": "letter_selection",
+      "note": "dropping at regular intervals means every other letter is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lapwing",
+      "gives": "AWN",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AWN"
+     ]
+    },
+    "explanation": {
+     "surface": "A lapwing kept dropping onto the grass.",
+     "definitionFit": "An awn is the stiff bristle projecting from the seed head of grasses such as barley."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dropped"
+    }
+   }
   },
   {
    "number": 26,
@@ -479,7 +1968,46 @@
     "text": "Historic general caught on air?",
     "enumeration": "5"
    },
-   "solution": "CLIVE"
+   "solution": "CLIVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLIVE",
+    "definitions": [
+     {
+      "text": "Historic general",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c is the cricket scoring abbreviation for caught"
+     },
+     {
+      "clueFragment": "on air",
+      "gives": "LIVE",
+      "note": "a broadcast on air is live"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LIVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A famous general from history overheard on a radio broadcast.",
+     "definitionFit": "Robert Clive was the 18th-century British general who secured India for the East India Company."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 27,
@@ -493,7 +2021,63 @@
     "text": "Will causing stir in TV family with sibling on Ecstasy",
     "enumeration": "11"
    },
-   "solution": "TELEKINESIS"
+   "solution": "TELEKINESIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TELEKINESIS",
+    "definitions": [
+     {
+      "text": "Will causing stir",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "TV",
+      "gives": "TELE",
+      "note": "tele is short for television"
+     },
+     {
+      "clueFragment": "family",
+      "gives": "KIN",
+      "note": "kin are relatives"
+     },
+     {
+      "clueFragment": "Ecstasy",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     },
+     {
+      "clueFragment": "sibling",
+      "gives": "SIS",
+      "note": "sis is short for sister"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TELE",
+      "KIN",
+      "E",
+      "SIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A family on television causes a stir when a sibling takes ecstasy.",
+     "walkthrough": "Will is the noun, mental power, not a legal document.",
+     "definitionFit": "Telekinesis is the supposed power to move objects by mind alone, so it is willpower that makes things stir."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Will"
+    }
+   }
   },
   {
    "number": 28,
@@ -507,7 +2091,40 @@
     "text": "Tease youngster",
     "enumeration": "3"
    },
-   "solution": "KID"
+   "solution": "KID",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KID",
+    "definitions": [
+     {
+      "text": "Tease",
+      "at": 0
+     },
+     {
+      "text": "youngster",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tease",
+      "note": "first meaning: to joke with someone"
+     },
+     {
+      "clueFragment": "youngster",
+      "note": "second meaning: a child"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word is a verb meaning to rib or joke with someone and an informal noun for a child."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
