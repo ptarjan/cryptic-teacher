@@ -542,10 +542,15 @@ unit_miss() {  # pid eid
   fi
 
   echo "diagnosing the graded miss $miss_pid $miss_eid with Claude Code... (session ${session:-unknown}%)"
-  # shellcheck disable=SC2086 # $miss_cap is a command and its argument, or nothing
-  $miss_cap claude -p "Follow tools/solve_miss_prompt.md exactly (it is your system prompt's appendix; do not open the file). This is the miss it is about:
+  local miss_task miss_sid sess=()
+  miss_task="Follow tools/solve_miss_prompt.md exactly (it is your system prompt's appendix; do not open the file). This is the miss it is about:
 
-$(python3 tools/solve_misses.py packet "$miss_pid" "$miss_eid" 2>&1)" "${CLAUDE_HEADLESS[@]}" \
+$(python3 tools/solve_misses.py packet "$miss_pid" "$miss_eid" 2>&1)"
+  # A unit stopped mid-run leaves this, and the next attempt at the miss resumes it.
+  miss_sid="$(worker_runs daily_update)/miss-$miss_pid-$miss_eid.sid"
+  session_args "$miss_sid" sess miss_task
+  # shellcheck disable=SC2086 # $miss_cap is a command and its argument, or nothing
+  $miss_cap claude -p "$miss_task" "${sess[@]}" "${CLAUDE_HEADLESS[@]}" \
     --append-system-prompt-file tools/solve_miss_prompt.md \
     --exclude-dynamic-system-prompt-sections \
     --model "$ANNOTATE_MODEL" \
@@ -553,6 +558,7 @@ $(python3 tools/solve_misses.py packet "$miss_pid" "$miss_eid" 2>&1)" "${CLAUDE_
     --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(bash tools/test_*),Bash(grep *)" \
     </dev/null >"$misslog" 2>&1
   miss_rc=$?
+  rm -f "$miss_sid"
   tail -20 "$misslog"
   miss_verdict=$(python3 tools/solve_misses.py verdict "$miss_pid" "$miss_eid")
   if [ -n "$miss_verdict" ]; then
@@ -784,7 +790,7 @@ unit_annotate() {  # id [solve]
 # saying "solvers reported bad hints" over a wrangler stack trace sends whoever
 # answers it hunting for a clue to fix that nobody reported.
 unit_reports() {
-  local bad_hints attempted session fixlog
+  local bad_hints attempted session fixlog fix_task fix_sid sess=()
   if bad_hints=$(python3 tools/reports.py --since 14 2>&1); then
     case "$bad_hints" in
       "no bad-hint reports"*|"") ;;
@@ -798,15 +804,20 @@ unit_reports() {
         else
           fixlog="${TMPDIR:-/tmp}/cryptic-reports.log"
           echo "fixing $(printf '%s' "$bad_hints" | grep -c '^  r:') reported hint(s) with Claude Code... (session ${session:-unknown}%)"
-          claude -p "Follow tools/report_fix_prompt.md exactly (it is your system prompt's appendix; do not open the file). These are the reports it is about:
+          fix_task="Follow tools/report_fix_prompt.md exactly (it is your system prompt's appendix; do not open the file). These are the reports it is about:
 
-$bad_hints" "${CLAUDE_HEADLESS[@]}" \
+$bad_hints"
+          # A unit stopped mid-run leaves this, and the next pass resumes it.
+          fix_sid="$(worker_runs daily_update)/reports.sid"
+          session_args "$fix_sid" sess fix_task
+          claude -p "$fix_task" "${sess[@]}" "${CLAUDE_HEADLESS[@]}" \
             --append-system-prompt-file tools/report_fix_prompt.md \
             --exclude-dynamic-system-prompt-sections \
             --model "$ANNOTATE_MODEL" \
             --effort "$ANNOTATE_EFFORT" \
             --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
             --max-turns 120 >"$fixlog" 2>&1
+          rm -f "$fix_sid"
           tail -40 "$fixlog"
           attempted=1
         fi

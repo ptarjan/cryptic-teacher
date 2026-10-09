@@ -1973,5 +1973,8 @@ tools/test_clue_index.sh                      does StoredClueIndex answer exactl
 tools/test_worker_resume.sh                   does a run stopped from outside resume its own
                                               conversation, with its edits back when that is
                                               honest and a note saying so when not?
+tools/test_session_ids.sh                     does every `claude -p` in tools/ name its
+                                              conversation, so a run stopped from outside is
+                                              resumed rather than bought again?
 ```
 <!-- LAYOUT-END -->

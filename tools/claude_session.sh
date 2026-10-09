@@ -46,6 +46,31 @@ session_here() {
   [ -n "$src" ] && mkdir -p "$here" && cp "$src" "$here/"
 }
 
+# A one-shot run's conversation, named in sid file $1 so that a run stopped from
+# outside (a restart, its unit's time limit) is resumed by the next attempt at
+# the same task rather than bought again. Fills the array named $2 with the
+# flags for it; when it resumes, the variable named $3 (the task) becomes the
+# note saying it was stopped and what that may have cost, with the task after it.
+# The caller removes $1 when the run ends: one still there was stopped. A day
+# old, or with no transcript, it is not resumed.
+session_args() {   # sidfile array-name task-var
+  local -n _args="$2" _task="$3"
+  local sid=""
+  _args=()
+  [ -s "$1" ] && read -r sid _ <"$1"
+  if [ -n "$sid" ] && [ -z "$(find "$1" -mmin +1440 2>/dev/null)" ] && session_here "$sid"; then
+    _args=(--resume "$sid")
+    _task="You were stopped from outside (the job restarted or hit its time limit) and are now resumed. Edits you made to files may have been reset since: check them, redo from your reasoning above whatever is missing, and finish the task. As it stands now:
+
+$_task"
+    touch "$1"
+    return 0
+  fi
+  sid=$(session_id) || { rm -f "$1"; return 0; }
+  echo "$sid" >"$1"
+  _args=(--session-id "$sid")
+}
+
 # Headless runs read the repo's settings alone: no user plugins, MCP servers or
 # auto-memory, which put ~8k tokens in every turn and drew a third of sessions
 # into the memory directory. The 5-minute cache, because nine turn gaps in ten
