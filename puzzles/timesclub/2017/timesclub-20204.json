@@ -17,12 +17,43 @@
   "gridOrigin": "reconstructed"
  },
  "solutions": {
-  "origin": "writeup",
-  "blog": "timesforthetimes",
-  "url": "https://timesforthetimes.co.uk/times-monthly-club-special-20204-september-2017",
-  "date": "2017-10-01",
-  "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-09",
+  "check": "28 entries, 58 crossings, 0 conflicts, agrees with the 27 answers the paper printed",
+  "printed": {
+   "1-across": "BOBAC",
+   "1-down": "BARRANQUILLA",
+   "2-down": "BOMBE",
+   "3-down": "CALFBOUND",
+   "4-across": "JUGULATE",
+   "5-down": "GEMSHORN",
+   "6-down": "LOTIC",
+   "7-down": "TWOLIPPED",
+   "8-across": "RUMBLEGUMPTION",
+   "9-down": "QUOTAQUICKIE",
+   "10-across": "ALEMBROTH",
+   "11-across": "CHIRU",
+   "12-across": "QUIPUS",
+   "13-down": "INFATUATE",
+   "14-across": "CRACKPOT",
+   "15-down": "CHALUTZIM",
+   "16-down": "PLUVIOUS",
+   "17-across": "INFIDELS",
+   "18-across": "NASDAQ",
+   "19-down": "STOEPS",
+   "20-across": "LYTTA",
+   "21-down": "AKITA",
+   "22-across": "VETTURINI",
+   "23-down": "ISIAC",
+   "24-across": "DAVIDOSELZNICK",
+   "25-across": "XERANSIS",
+   "26-across": "MACLE"
+  }
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +67,67 @@
     "text": "Rodent died after turning tail, last to go",
     "enumeration": "5"
    },
-   "solution": "BOBAC"
+   "solution": "BOBAC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "BOBAC",
+    "definitions": [
+     {
+      "text": "Rodent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after turning",
+      "for": "reversal",
+      "note": "having turned round, the abbreviation is read from the end"
+     },
+     {
+      "text": "last to go",
+      "for": "deletion",
+      "note": "the last going away means the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "died",
+      "gives": "OB",
+      "note": "ob., short for Latin obiit, means died, as on gravestones"
+     },
+     {
+      "clueFragment": "tail",
+      "gives": "BACK",
+      "note": "the tail of something is its back or rear end"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "BAC"
+     ],
+     "reversals": [
+      {
+       "from": "OB",
+       "to": "BO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rodent died after turning tail and fleeing, the last of its kind to go.",
+     "walkthrough": "OB reversed + BAC(K). 'Turning tail' reads as running away, but 'turning' goes with 'died' and 'tail' stands alone.",
+     "definitionFit": "The bobac is the steppe marmot of eastern Europe and Asia, a burrowing rodent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +141,60 @@
     "text": "Pub poured writer a port",
     "enumeration": "12"
    },
-   "solution": "BARRANQUILLA"
+   "solution": "BARRANQUILLA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BARRANQUILLA",
+    "definitions": [
+     {
+      "text": "port",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pub",
+      "gives": "BAR",
+      "note": "a bar is a pub"
+     },
+     {
+      "clueFragment": "poured",
+      "gives": "RAN",
+      "note": "a liquid that poured ran"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "QUILL",
+      "note": "a quill pen is a writer"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "RAN",
+      "QUILL",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "At the pub, a writer had a glass of port poured for him.",
+     "walkthrough": "BAR + RAN + QUILL + A. 'Port' looks like the fortified wine that goes with the pub, but it is a harbour town.",
+     "definitionFit": "Barranquilla is Colombia's chief Caribbean seaport, at the mouth of the Magdalena River."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +208,59 @@
     "text": "Pack up — and take part of the dessert",
     "enumeration": "5"
    },
-   "solution": "BOMBE"
+   "solution": "BOMBE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BOMBE",
+    "definitions": [
+     {
+      "text": "dessert",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "take part of",
+      "for": "letter_selection",
+      "note": "taking a part of a word means using only a piece of it, here its final letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pack up",
+      "gives": "BOMB",
+      "note": "to pack up and to bomb both mean to fail or break down"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the word the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOMB",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A diner is told to pack up and take some of the pudding home.",
+     "walkthrough": "BOMB + E. The E is just a fragment of 'the', which reads as part of the surface.",
+     "definitionFit": "A bombe is a frozen dessert moulded into a dome, often ice cream in layers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pack"
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +280,49 @@
      }
     ]
    },
-   "solution": "CALFBOUND"
+   "solution": "CALFBOUND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CALF-BOUND",
+    "definitions": [
+     {
+      "text": "Like some finely made books",
+      "at": 0
+     },
+     {
+      "text": "that would get a younger one over the moon?",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like some finely made books",
+      "note": "first meaning: having covers of calfskin leather"
+     },
+     {
+      "clueFragment": "that would get a younger one over the moon?",
+      "note": "second, cryptic meaning: in the nursery rhyme the cow jumped over the moon, so her calf would need to be bound for it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CALF",
+      "BOUND"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The nursery rhyme Hey Diddle Diddle has the cow jump over the moon; her calf, the younger one, would leap or bound there too.",
+     "definitionFit": "A calf-bound book has covers of calfskin leather, a mark of fine bookbinding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "moon"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +336,60 @@
     "text": "Arrest drastically delayed: after prison uniform",
     "enumeration": "8"
    },
-   "solution": "JUGULATE"
+   "solution": "JUGULATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JUGULATE",
+    "definitions": [
+     {
+      "text": "Arrest drastically",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "'after' puts the words before it behind the words that follow it, so the prison and uniform come first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prison",
+      "gives": "JUG",
+      "note": "jug is slang for jail"
+     },
+     {
+      "clueFragment": "uniform",
+      "gives": "U",
+      "note": "U is Uniform in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "delayed",
+      "gives": "LATE",
+      "note": "a delayed train is late"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JUG",
+      "U",
+      "LATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A police arrest held up badly because someone had to change into prison uniform first.",
+     "walkthrough": "JUG + U + LATE. Jugulate literally means to cut the throat, and figuratively to stop something by violent measures.",
+     "definitionFit": "Chambers glosses jugulate as checking or suppressing something by drastic means, which is stopping it violently."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uniform"
+    }
+   }
   },
   {
    "number": 4,
@@ -117,6 +408,80 @@
       "mark": "-"
      }
     ]
+   },
+   "solution": "JIGJOG",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal",
+     "charade"
+    ],
+    "answer": "JIG-JOG",
+    "definitions": [
+     {
+      "text": "With jars",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "something holding another item has it inside, so one piece sits within the pair"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means the letters are read from the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "judges",
+      "gives": "JJ",
+      "note": "J is the abbreviation for judge, doubled for the plural"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "gallon",
+      "gives": "G",
+      "note": "G is the abbreviation for gallon"
+     },
+     {
+      "clueFragment": "turn",
+      "gives": "GO",
+      "note": "your turn in a game is your go"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "IG",
+      "J",
+      "OG"
+     ],
+     "reversals": [
+      {
+       "from": "GO",
+       "to": "OG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Jars holding a gallon arrive for the judges to taste.",
+     "walkthrough": "'Jars' looks like a noun for containers, but the definition is an adverb phrase meaning with jolts. 'Turn up' splits: turn is the go, and up reverses it.",
+     "definitionFit": "Jig-jog describes a jolting, jogging motion, so it means with jars and bumps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "jars"
+    }
    }
   },
   {
@@ -131,7 +496,72 @@
     "text": "March girl up with woolly coat off and stop",
     "enumeration": "8"
    },
-   "solution": "GEMSHORN"
+   "solution": "GEMSHORN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "GEMSHORN",
+    "definitions": [
+     {
+      "text": "stop",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means the name is read from the bottom"
+     },
+     {
+      "text": "coat off",
+      "for": "deletion",
+      "note": "having the coat off means the fleece is removed, a sheep stripped"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "March girl",
+      "gives": "MEG",
+      "note": "Meg is one of the March sisters in Little Women"
+     },
+     {
+      "clueFragment": "woolly",
+      "gives": "SHORN",
+      "note": "a woolly animal with its coat off has been shorn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEM",
+      "SHORN"
+     ],
+     "reversals": [
+      {
+       "from": "MEG",
+       "to": "GEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl on a march with her woolly coat off has to stop.",
+     "walkthrough": "MEG reversed + SHORN. 'March' looks like walking, but it is the family surname in Little Women.",
+     "definitionFit": "A gemshorn is an organ stop with a tone like the old horn-shaped flute of the same name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "March"
+    }
+   }
   },
   {
    "number": 6,
@@ -145,7 +575,55 @@
     "text": "See tailless parasite in running water",
     "enumeration": "5"
    },
-   "solution": "LOTIC"
+   "solution": "LOTIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "LOTIC",
+    "definitions": [
+     {
+      "text": "in running water",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tailless",
+      "for": "deletion",
+      "note": "without a tail means the last letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See",
+      "gives": "LO",
+      "note": "lo is an old word meaning look or see"
+     },
+     {
+      "clueFragment": "parasite",
+      "gives": "TICK",
+      "note": "a tick is a blood-sucking parasite"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "TIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A tailless parasite is spotted swimming in a stream.",
+     "walkthrough": "LO + TIC(K). The definition takes in 'in', describing what lives in a stream.",
+     "definitionFit": "Lotic is the ecological term for things living in or relating to flowing water such as rivers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "See"
+    }
+   }
   },
   {
    "number": 7,
@@ -165,7 +643,67 @@
      }
     ]
    },
-   "solution": "TWOLIPPED"
+   "solution": "TWOLIPPED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TWO-LIPPED",
+    "definitions": [
+     {
+      "text": "like some corollas",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inverted",
+      "for": "reversal",
+      "note": "turned upside down in a down clue, so the letters run the other way"
+     },
+     {
+      "text": "at the edges",
+      "for": "container",
+      "note": "sitting at the edges means wrapping round, so one word encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blue",
+      "gives": "LOW",
+      "note": "feeling blue is feeling low"
+     },
+     {
+      "clueFragment": "crowned",
+      "gives": "TIPPED",
+      "note": "crowned in the sense of having its top covered"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "WOL",
+      "IPPED"
+     ],
+     "reversals": [
+      {
+       "from": "LOW",
+       "to": "WOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A botanist describes flowers that are blue, upside down and tipped with colour at their edges.",
+     "walkthrough": "T(WOL)IPPED. 'Crowned' and 'blue' sound like botanical description, which suits the flower definition.",
+     "definitionFit": "A two-lipped corolla, as in snapdragons and sage, has its petals fused into upper and lower lips."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Blue"
+    }
+   }
   },
   {
    "number": 8,
@@ -179,7 +717,71 @@
     "text": "Twig — stick with fancy point — makes sense in Highlands",
     "enumeration": "14"
    },
-   "solution": "RUMBLEGUMPTION"
+   "solution": "RUMBLEGUMPTION",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "RUMBLEGUMPTION",
+    "definitions": [
+     {
+      "text": "sense in Highlands",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fancy",
+      "for": "anagram",
+      "note": "'fancy' as an adjective means elaborate or made-up, so the following word is rearranged"
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Twig",
+      "gives": "RUMBLE",
+      "note": "to twig and to rumble both mean to see through or understand"
+     },
+     {
+      "clueFragment": "stick",
+      "gives": "GUM",
+      "note": "gum is something that sticks"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "PTION",
+      "note": "the five letters of point, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUMBLE",
+      "GUM",
+      "PTION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "POINT",
+       "gives": "PTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A walking-stick with a decorative point is an oddly sensible thing to have in the Scottish Highlands.",
+     "walkthrough": "'Twig' and 'stick' read as bits of wood, but both are verbs here. Rumblegumption is a Scots form of rumgumption, common sense.",
+     "definitionFit": "Rumblegumption is a Scottish word for shrewdness or common sense, hence sense as spoken in the Highlands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Twig"
+    }
+   }
   },
   {
    "number": 9,
@@ -199,7 +801,71 @@
      }
     ]
    },
-   "solution": "QUOTAQUICKIE"
+   "solution": "QUOTAQUICKIE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "QUOTA QUICKIE",
+    "definitions": [
+     {
+      "text": "cheap film",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to grasp",
+      "for": "container",
+      "note": "grasping something means holding it inside, so one word wraps another"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places that combined piece inside the extract"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extract from book",
+      "gives": "QUOTE",
+      "note": "a quote is a passage taken from a book"
+     },
+     {
+      "clueFragment": "Fine",
+      "gives": "AI",
+      "note": "A1 means first-rate or fine, written here as AI"
+     },
+     {
+      "clueFragment": "sensitive part",
+      "gives": "QUICK",
+      "note": "the quick is the tender flesh under a fingernail"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUOT",
+      "A",
+      "QUICK",
+      "I",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A fine reader grasps the sensitive part of a passage from a book, or from a cheap film.",
+     "walkthrough": "QUOT(A(QUICK)I)E. A1, taken as AI, is the old shipping-register mark for top quality.",
+     "definitionFit": "Quota quickies were cheap, rapidly made British films produced to meet a 1927 law on home-made screen quotas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fine"
+    }
+   }
   },
   {
    "number": 10,
@@ -213,7 +879,67 @@
     "text": "Double salt initially mixed into bitter soup",
     "enumeration": "9"
    },
-   "solution": "ALEMBROTH"
+   "solution": "ALEMBROTH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ALEMBROTH",
+    "definitions": [
+     {
+      "text": "Double salt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "'initially' asks for only the opening letter of the word it follows"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "'into' says one piece goes inside the others, here between the beer and the soup"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bitter",
+      "gives": "ALE",
+      "note": "bitter is a kind of British beer, an ale"
+     },
+     {
+      "clueFragment": "mixed",
+      "gives": "M",
+      "select": "first",
+      "note": "first letter of mixed"
+     },
+     {
+      "clueFragment": "soup",
+      "gives": "BROTH",
+      "note": "broth is a thin soup"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALE",
+      "M",
+      "BROTH"
+     ]
+    },
+    "explanation": {
+     "surface": "Salt has been stirred twice into a bitter soup by a heavy-handed cook.",
+     "walkthrough": "'Double' sounds like an instruction to use the salt twice, but it belongs to the definition. Bitter is a British pale ale.",
+     "definitionFit": "Alembroth, the alchemists' 'salt of wisdom', is a double chloride of mercury and ammonium, a compound of two salts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Double"
+    }
+   }
   },
   {
    "number": 11,
@@ -227,7 +953,67 @@
     "text": "In pursuit of tips on cloth, one tries game wool supplier",
     "enumeration": "5"
    },
-   "solution": "CHIRU"
+   "solution": "CHIRU",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHIRU",
+    "definitions": [
+     {
+      "text": "wool supplier",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tips on",
+      "for": "letter_selection",
+      "note": "the tips of a word are its two ends, its first and last letters"
+     },
+     {
+      "text": "In pursuit of",
+      "for": "charade",
+      "note": "a pursuer comes behind, so the following pieces are placed after the cloth's ends"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cloth",
+      "gives": "CH",
+      "select": "outer",
+      "note": "first and last letters of cloth"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "tries game",
+      "gives": "RU",
+      "note": "Rugby Union, the game in which tries are scored"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "I",
+      "RU"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone after a supply of good fabric tries a game of seeking out a wool merchant.",
+     "walkthrough": "CH + I + RU. 'Tries game' is a cryptic description of rugby, where a try is the main way of scoring.",
+     "definitionFit": "The chiru is the Tibetan antelope, whose fine underfur is the source of shahtoosh, a prized wool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "tries"
+    }
+   }
   },
   {
    "number": 12,
@@ -241,7 +1027,47 @@
     "text": "Old mnemonic devices in Latin which matter",
     "enumeration": "6"
    },
-   "solution": "QUIPUS"
+   "solution": "QUIPUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "QUIPUS",
+    "definitions": [
+     {
+      "text": "Old mnemonic devices",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in Latin which",
+      "gives": "QUI",
+      "note": "qui is the Latin for which or who"
+     },
+     {
+      "clueFragment": "matter",
+      "gives": "PUS",
+      "note": "matter in the medical sense: pus from a wound"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUI",
+      "PUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A scholarly note on old memory aids explaining which matter they recorded, phrased in Latin.",
+     "walkthrough": "QUI + PUS. 'Matter' looks abstract but here means the discharge from an infected wound.",
+     "definitionFit": "Quipus were Inca records of knotted cords, used to keep accounts and as memory aids for recording information."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "matter"
+    }
+   }
   },
   {
    "number": 13,
@@ -255,7 +1081,51 @@
     "text": "Seduce with hot text to Mrs Sprat?",
     "enumeration": "9"
    },
-   "solution": "INFATUATE"
+   "solution": "INFATUATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INFATUATE",
+    "definitions": [
+     {
+      "text": "Seduce",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hot",
+      "gives": "IN",
+      "note": "in means fashionable, the hot thing"
+     },
+     {
+      "clueFragment": "text to Mrs Sprat?",
+      "gives": "FATUATE",
+      "note": "a phone message to Mrs Sprat: 'fat u ate', since she could eat no lean"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "FATUATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cad tries to seduce Jack Sprat's wife by sending her a steamy text.",
+     "walkthrough": "IN + FAT U ATE. In the nursery rhyme Jack Sprat could eat no fat and his wife could eat no lean; text-speak writes 'you' as U.",
+     "definitionFit": "To infatuate is to inspire someone with a foolish passion, close to winning them over by seduction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "text"
+    }
+   }
   },
   {
    "number": 14,
@@ -269,7 +1139,51 @@
     "text": "Try and shoot bats",
     "enumeration": "8"
    },
-   "solution": "CRACKPOT"
+   "solution": "CRACKPOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRACKPOT",
+    "definitions": [
+     {
+      "text": "bats",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Try",
+      "gives": "CRACK",
+      "note": "to have a crack at something is to try it"
+     },
+     {
+      "clueFragment": "shoot",
+      "gives": "POT",
+      "note": "to pot is to shoot, as at game birds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRACK",
+      "POT"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to try to shoot at some bats flying around at dusk.",
+     "walkthrough": "CRACK + POT. 'Bats' looks like a plural noun for the animals, but it is the informal adjective meaning mad.",
+     "definitionFit": "Bats is slang for crazy, and crackpot as an adjective means eccentric or mad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bats"
+    }
+   }
   },
   {
    "number": 15,
@@ -283,7 +1197,65 @@
     "text": "Immigrant settlers in church plan to keep move on ice",
     "enumeration": "9"
    },
-   "solution": "CHALUTZIM"
+   "solution": "CHALUTZIM",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CHALUTZIM",
+    "definitions": [
+     {
+      "text": "Immigrant settlers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to keep",
+      "for": "container",
+      "note": "keeping something means holding it inside, so one word sits within the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the abbreviation for church"
+     },
+     {
+      "clueFragment": "plan",
+      "gives": "AIM",
+      "note": "an aim is a plan or intention"
+     },
+     {
+      "clueFragment": "move on ice",
+      "gives": "LUTZ",
+      "note": "a lutz is a jump in figure skating"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "A",
+      "LUTZ",
+      "IM"
+     ]
+    },
+    "explanation": {
+     "surface": "Newcomers to a parish meet in church to plan a skating outing.",
+     "walkthrough": "CH + A(LUTZ)IM. The answer is a Hebrew plural, which is why it ends -IM.",
+     "definitionFit": "Chalutzim were Jewish pioneers who emigrated to Palestine to work the land in agricultural settlements."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "move"
+    }
+   }
   },
   {
    "number": 16,
@@ -297,7 +1269,57 @@
     "text": "Very good for ducks to be in?",
     "enumeration": "8"
    },
-   "solution": "PLUVIOUS"
+   "solution": "PLUVIOUS",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "container"
+    ],
+    "answer": "PLUVIOUS",
+    "definitions": [
+     {
+      "text": "Very good for ducks to be in?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be in",
+      "for": "container",
+      "note": "something that is in another word sits inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very good",
+      "gives": "PIOUS",
+      "note": "pious means very good in the religious sense"
+     },
+     {
+      "clueFragment": "ducks",
+      "gives": "LUV",
+      "note": "duck and luv are both northern English terms of endearment, like dear"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LUV",
+      "IOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks what kind of weather would suit ducks perfectly.",
+     "walkthrough": "The whole clue defines the answer, recalling the British saying 'lovely weather for ducks' on a rainy day. Ducks and luv are both affectionate forms of address in parts of Britain.",
+     "definitionFit": "Pluvious is an old adjective meaning rainy, and wet weather is the kind ducks are said to enjoy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ducks"
+    }
+   }
   },
   {
    "number": 17,
@@ -311,7 +1333,60 @@
     "text": "Sceptics misled — if nicely — about stocks",
     "enumeration": "8"
    },
-   "solution": "INFIDELS"
+   "solution": "INFIDELS",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "INFIDELS",
+    "definitions": [
+     {
+      "text": "Sceptics",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stocks",
+      "for": "hidden_word",
+      "note": "something that stocks goods keeps them inside, so the answer sits within the run of words"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "'about' as in turned about, so the run of letters is read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "misled — if nicely",
+      "gives": "SLEDIFNI",
+      "note": "a run of consecutive letters across these words, spanning the end of misled, all of if and the start of nicely"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INFIDELS"
+     ],
+     "reversals": [
+      {
+       "from": "SLEDIFNI",
+       "to": "INFIDELS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "People who doubt were led astray, however politely, about the stock market.",
+     "walkthrough": "'Stocks' looks like shares, tying to 'misled', but it is a verb meaning holds; read 'misled if nicely' backwards to see the answer.",
+     "definitionFit": "Infidels are unbelievers, people who reject a religious faith, so sceptics in the religious sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stocks"
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1400,61 @@
     "text": "Squaddy's haunt, regularly visited, recalled trading facility",
     "enumeration": "6"
    },
-   "solution": "NASDAQ"
+   "solution": "NASDAQ",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "NASDAQ",
+    "definitions": [
+     {
+      "text": "trading facility",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly visited",
+      "for": "letter_selection",
+      "note": "calling at a place regularly means stopping at every other spot, so alternate letters are taken"
+     },
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "something recalled is called back, so the kept letters run from the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Squaddy's haunt",
+      "gives": "QADSAN",
+      "select": "alternate",
+      "note": "second, fourth, sixth letters and so on of squaddys haunt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NASDAQ"
+     ],
+     "reversals": [
+      {
+       "from": "QADSAN",
+       "to": "NASDAQ"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldiers' old pub, regularly visited, has been remembered fondly.",
+     "walkthrough": "A squaddy is a British private soldier. The even letters QADSAN, read backwards, give NASDAQ.",
+     "definitionFit": "NASDAQ is the American electronic stock exchange, a facility for trading shares."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "haunt"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1468,57 @@
     "text": "Birth control pioneer promoting pill in East London terraces?",
     "enumeration": "6"
    },
-   "solution": "STOEPS"
+   "solution": "STOEPS",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "STOEPS",
+    "definitions": [
+     {
+      "text": "East London terraces?",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "promoting",
+      "for": "substitution",
+      "note": "a promotion moves something up a rank, so one letter is shifted to an earlier place"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Birth control pioneer",
+      "gives": "STOPES",
+      "note": "Marie Stopes, who opened Britain's first birth-control clinic"
+     },
+     {
+      "clueFragment": "pill",
+      "gives": "E",
+      "note": "E is slang for an ecstasy pill"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOEPS"
+     ]
+    },
+    "explanation": {
+     "surface": "Marie Stopes campaigns for the contraceptive pill among the terraced streets of London's East End.",
+     "walkthrough": "In STOPES the E moves up one place before the P. East London here is the South African port city, not the East End.",
+     "definitionFit": "A stoep is the South African word for a raised veranda or terrace in front of a house."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "London"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1532,65 @@
     "text": "What's central to bellyache is keeping dry part of tongue",
     "enumeration": "5"
    },
-   "solution": "LYTTA"
+   "solution": "LYTTA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LYTTA",
+    "definitions": [
+     {
+      "text": "part of tongue",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "What's central to",
+      "for": "letter_selection",
+      "note": "the central part of a word is its middle, here the middle three letters"
+     },
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping something is holding it inside, so one piece wraps the other"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bellyache",
+      "gives": "LYA",
+      "select": "middle",
+      "note": "the middle three of the nine letters of bellyache"
+     },
+     {
+      "clueFragment": "dry",
+      "gives": "TT",
+      "note": "TT, teetotal, is a dry drinker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LY",
+      "TT",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notes that a dry tongue is at the heart of their tummy trouble.",
+     "walkthrough": "LY(TT)A. 'Dry' means abstaining from alcohol, and TT (teetotal) is the crossword abbreviation for it.",
+     "definitionFit": "A lytta is the worm-shaped strip of cartilage in the underside of the tongue of dogs and other carnivores."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dry"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1604,55 @@
     "text": "Motorists coming across tackle powerful dog",
     "enumeration": "5"
    },
-   "solution": "AKITA"
+   "solution": "AKITA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AKITA",
+    "definitions": [
+     {
+      "text": "powerful dog",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming across",
+      "for": "container",
+      "note": "coming across something means spanning it from side to side, so one word wraps round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Motorists",
+      "gives": "AA",
+      "note": "the Automobile Association, Britain's motoring organisation"
+     },
+     {
+      "clueFragment": "tackle",
+      "gives": "KIT",
+      "note": "tackle as in gear or equipment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "KIT",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Drivers come across a powerful dog trying to tackle them.",
+     "walkthrough": "A(KIT)A. 'Tackle' looks like a verb from football but is a noun meaning equipment.",
+     "definitionFit": "The Akita is a large, strong Japanese breed of spitz-type dog."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tackle"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1666,53 @@
     "text": "Check out European city with one's cab drivers there?",
     "enumeration": "9"
    },
-   "solution": "VETTURINI"
+   "solution": "VETTURINI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VETTURINI",
+    "definitions": [
+     {
+      "text": "cab drivers there?",
+      "at": 35
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Check out",
+      "gives": "VET",
+      "note": "to vet is to check"
+     },
+     {
+      "clueFragment": "European city",
+      "gives": "TURIN",
+      "note": "the Italian city"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "I",
+      "note": "I for one; the 's is read as 'has' and joins the pieces"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VET",
+      "TURIN",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A tip to look over an unfamiliar city and the taxi drivers who work there.",
+     "walkthrough": "VET + TURIN + I. 'There' points back to the Italian city, so the drivers are Italian, and the answer is an Italian plural.",
+     "definitionFit": "Vetturini are Italian drivers of hired carriages, the old-fashioned cabmen of Italy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Check"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1726,68 @@
     "text": "Goddess's answer is one in patriarch's heart",
     "enumeration": "5"
    },
-   "solution": "ISIAC"
+   "solution": "ISIAC",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "ISIAC",
+    "definitions": [
+     {
+      "text": "Goddess's",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is",
+      "for": "substitution",
+      "note": "'is' here means becomes, so one letter stands in for another"
+     },
+     {
+      "text": "heart",
+      "for": "substitution",
+      "note": "the heart is the middle, so the swap happens among the central letters of the name"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A is the abbreviation for answer"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "patriarch's",
+      "gives": "ISAAC",
+      "note": "Isaac, the Old Testament patriarch, son of Abraham"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "I",
+      "AC"
+     ]
+    },
+    "explanation": {
+     "surface": "A goddess's answer is the key thing in a patriarch's heart.",
+     "walkthrough": "One of the two As in the middle of ISAAC becomes I.",
+     "definitionFit": "Isiac is the adjective for Isis, the Egyptian goddess, so it means belonging to her."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "answer"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1811,74 @@
      }
     ]
    },
-   "solution": "DAVIDOSELZNICK"
+   "solution": "DAVIDOSELZNICK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "DAVID O SELZNICK",
+    "definitions": [
+     {
+      "text": "Producer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strangely",
+      "for": "anagram",
+      "note": "doing something strangely means doing it oddly, so the long word is rearranged"
+     },
+     {
+      "text": "within",
+      "for": "container",
+      "note": "'within' puts the rearranged letters inside the two edges of the country"
+     },
+     {
+      "text": "borders",
+      "for": "letter_selection",
+      "note": "a country's borders are its outer edges, so only its first and last letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Denmark's",
+      "gives": "DK",
+      "select": "outer",
+      "note": "first and last letters of Denmark"
+     },
+     {
+      "clueFragment": "Slavonicized",
+      "gives": "AVIDOSELZNIC",
+      "note": "the twelve letters of slavonicized, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "AVIDOSELZNIC",
+      "K"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SLAVONICIZED",
+       "gives": "AVIDOSELZNIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A film producer's work has been oddly made Slavonic inside Denmark's frontiers.",
+     "walkthrough": "D(AVID O SELZNIC)K. The anagram is the producer's name minus its first and last letters.",
+     "definitionFit": "David O Selznick was the Hollywood film producer behind Gone with the Wind and Rebecca."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Slavonicized"
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1892,66 @@
     "text": "Vi, after drinking gin, back drying out",
     "enumeration": "8"
    },
-   "solution": "XERANSIS"
+   "solution": "XERANSIS",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "XERANSIS",
+    "definitions": [
+     {
+      "text": "drying out",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after drinking",
+      "for": "container",
+      "note": "something that has been drinking has taken a liquid in, so one piece goes inside the other"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "'back' means going in the opposite direction, so the result is read from the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vi",
+      "gives": "SIX",
+      "note": "VI is the Roman numeral six"
+     },
+     {
+      "clueFragment": "gin",
+      "gives": "SNARE",
+      "note": "a gin is a trap, a snare"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "XERANSIS"
+     ],
+     "reversals": [
+      {
+       "from": "SISNAREX",
+       "to": "XERANSIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Vi, a woman back after a gin-drinking session, is drying out.",
+     "walkthrough": "Vi reads as a woman's name but is a Roman numeral, and 'gin' is not the spirit but a trap for game.",
+     "definitionFit": "Xeransis is a technical word for the process of drying up or becoming dry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "gin"
+    }
+   }
   },
   {
    "number": 26,
@@ -447,7 +1965,53 @@
     "text": "Spot Russian spy dropping off article",
     "enumeration": "5"
    },
-   "solution": "MACLE"
+   "solution": "MACLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MACLE",
+    "definitions": [
+     {
+      "text": "Spot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropping off",
+      "for": "deletion",
+      "note": "to drop something off is to leave it behind, so letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Russian spy",
+      "gives": "MACLEAN",
+      "note": "Donald Maclean, the Cambridge spy who passed secrets to the Soviet Union"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MACLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Agents spot a Russian spy dropping off a piece of writing at a dead drop.",
+     "walkthrough": "MACLEAN loses AN. Maclean was a British diplomat who spied for Moscow and defected in 1951.",
+     "definitionFit": "A macle is a dark spot in a mineral such as chiastolite, so it serves for a spot or flaw."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   }
  ]
 }
