@@ -114,6 +114,45 @@ check("lone edition whose text shows a crossword on a common leaf: not due", not
 whole = edition("per_times_the-times_1930-02-21_45442", 26, [{"leaf": n, "prior": True} for n in prior])
 check("lone edition holding every prior leaf: not due", not fa.prior_unfetched(whole))
 
+# An item mixing edition sizes: the leaf its same-sized siblings print the
+# crossword on is prior and makes a done edition lacking it due (1998-11-26,
+# 56 leaves: leaf 27; the 52-leaf majority print it on leaf 25). The Times
+# Two title is no daily one: it neither stops the search nor votes.
+mixed = tempfile.mkdtemp()
+def sized(name, leaves, hits):
+    os.makedirs(f"{mixed}/{name}")
+    with open(f"{mixed}/{name}/pages.json", "w") as f:
+        json.dump({"leaves": leaves, "crossword_pages": hits}, f)
+    return f"{mixed}/{name}"
+daily = ["TIMES CROSSWORD NO 20,956"]
+two = ["CROSSWORD 747 In association with BRITI"]
+for i in range(5):
+    sized(f"1998-11-{10 + i}_{i}", 52, [{"leaf": 25, "headings": daily}, {"leaf": 51, "headings": two}])
+for i in range(4):
+    sized(f"1998-10-{10 + i}_{i}", 52, [{"leaf": 23, "headings": daily}])
+for i in range(fa.SIZED_AGREE):
+    sized(f"1998-11-{20 + i}_{i}", 56, [{"leaf": 27, "headings": daily}])
+sized("1998-11-01_0", 56, [{"leaf": 31, "headings": daily}])
+big = sized("1998-11-26_9", 56, [{"leaf": n, "prior": True} for n in (23, 25, 29, 31, 55)])
+check("a sibling of its own size votes its leaf prior", 27 in fa.prior_leaves(big, 56))
+check("the majority size's leaf stays prior", 25 in fa.prior_leaves(big, 56))
+check("mirror: one same-sized sibling is no vote", 31 not in fa.prior_leaves(big, 56))
+check("an edition lacking its same-sized siblings' leaf: due again", fa.prior_unfetched(big))
+small = sized("1998-11-25_9", 52, [{"leaf": n, "prior": True} for n in fa.prior_leaves(f"{mixed}/x", 52)])
+check("mirror: an edition holding its own size's leaves: not due", not fa.prior_unfetched(small))
+check("a Times Two title is no daily title", not fa.titled({"headings": two}))
+check("mirror: the daily title still is", fa.titled({"headings": daily}))
+check("Times Two pages cast no vote", 51 not in fa.crossword_leaves(big)[0])
+check("a Times Two page on a common leaf is no shown crossword: due again",
+      fa.prior_unfetched(sized("1996-04-10_9", 52, [{"leaf": 25, "enums": 21, "headings": two}])))
+check("mirror: a page showing an untitled crossword there is: not due",
+      not fa.prior_unfetched(sized("1996-04-11_9", 52, [{"leaf": 25, "enums": 21, "headings": []}])))
+t2 = [page("news " * 60)] * 48
+t2[47] = page("SOLUTION TO TIMES TWO CROSSWORD 747 In association with BRITISH MIDLAND ACROSS 1 Bath (4) 2 Cat (3) 3 Dog (3) 4 Ant (3) 5 Bee (3) 6 Cow (3)")
+hits = fa.crossword_hits(t2, [23, 47])
+check("only a Times Two title on the pages: the prior leaves are fetched too",
+      [h["leaf"] for h in hits] == [23, 47] and hits[0].get("prior") and not hits[1].get("prior"))
+
 # Listings: a PDF archive.org never OCR'd is an edition, read by image;
 # a run caches every yearly item's listing before it fetches any edition.
 scan = "Image Container PDF"

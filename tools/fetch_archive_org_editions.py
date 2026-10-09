@@ -97,10 +97,11 @@ A rerun skips every edition in done.tsv at the current DETECTOR_VERSION,
 except one whose per-page words (pagetext.json.gz beside a djvu.xml.gz) hold
 an OBJECT on a leaf other than the one its PAGE names (misplaced): that
 edition is fetched again by the whole-djvu.xml path, and its changed files
-make the filer read it again. So is one of an item named with its date, no
-daily title on its fetched pages and no text-shown crossword page among the
-leaves its neighbours print it on most (prior_unfetched): only the
-prior_leaves it lacks are fetched.
+make the filer read it again. So is one with no daily title on its fetched
+pages and no text-shown crossword page among the leaves its siblings print
+it on most (prior_unfetched): only the prior_leaves it lacks are fetched.
+Siblings of the edition's own leaf count vote apart too (common_leaves): an
+item mixing 52- and 56-leaf issues splits the count.
 Bumping DETECTOR_VERSION re-runs detection from the cached djvu.xml and
 fetches only the page images it newly finds; no text is downloaded again.
 
@@ -151,6 +152,9 @@ PRIOR_LEAVES = 2
 #: other editions to count: prior_leaves counts the editions of this many
 #: items nearest it by date whose names match its own up to the date.
 NEIGHBOURS = 30
+#: The fewest siblings of an edition's own leaf count printing a titled
+#: crossword on one leaf that make it prior (common_leaves): fewer is noise.
+SIZED_AGREE = 3
 EMPTY_OCR_CHARS = 200
 #: The fewest clue enumerations ("(5)", "(3,4)") on the page an edition
 #: with no crossword title in its text fetches as its densest (crossword_hits).
@@ -187,12 +191,13 @@ YEARLY_GROUPS = {g[0] for g in GROUPS if g[1].startswith(SAMAAN)}
 #: "CROSSWORD No. 8,650", "Crossword Puzzle No"). A front-page index line
 #: ("CROSSWORD - 28") has a two-digit page number, so a title needs three.
 NUMBERED = re.compile(r"(?i)cross\s?word\W{0,3}(?:puzzle\W{0,3})?(?:no\.?\s*)?\d[\d,.]{2,}|cross\s?word\s+puzzle\s+no")
-#: Numbered headings that are not the daily cryptic: its sister puzzles and
-#: the book adverts ("CROSSWORD ENTHUSIASTS").
-NOT_DAILY = re.compile(r"(?i)concise|jumbo|listener|quick|enthusiast|title|book")
+#: Numbered headings that are not the daily cryptic: its sister puzzles, the
+#: book adverts ("CROSSWORD ENTHUSIASTS") and the 1993-98 Times Two
+#: ("TIMES TWO CROSSWORD 747 In association with BRITISH MIDLAND").
+NOT_DAILY = re.compile(r"(?i)concise|jumbo|listener|quick|enthusiast|title|book|\btwo\b|asso[cd]|\bbrit")
 ENUM = re.compile(r"\(\s*\d{1,2}(?:\s*[,\-.]\s*\d{1,2}){0,4}\s*\)")
 HEADING = re.compile(
-    r"(?i)(?:listener|jumbo|times|cryptic|prize|quick|concise|polymath|mephisto|"
+    r"(?i)(?:listener|jumbo|times|two|cryptic|prize|quick|concise|polymath|mephisto|"
     r"inquisitor|azed|everyman|enigmatic|genius)?\W{0,3}cross\s?word[^\n]{0,30}"
     r"|puzzle\s+no\.?\s*\d[\d,.]*")
 
@@ -296,15 +301,14 @@ def stale(d):
 
 
 def prior_unfetched(d):
-    """Whether an edition of an item named with its date (an item an issue:
-    the 1930 Times), with no daily crossword title on the pages it fetched,
-    has no page its text shows a crossword on
-    (detect) among the leaves its neighbours (sibling_pages) print it on most
-    often: it is fetched again, for the prior_leaves it lacks. A page fetched
-    only as dense, blank or prior is no such page (1930-03-24's leaf 6 is
-    sport results; its crossword is on leaf 4)."""
+    """Whether an edition with no daily crossword title on the pages it
+    fetched has no page its text shows a crossword on (detect) among the
+    leaves its siblings print it on most often (common_leaves): it is fetched
+    again, for the prior_leaves it lacks. A page fetched only as dense, blank
+    or prior is no such page (1930-03-24's leaf 6 is sport results; its
+    crossword is on leaf 4)."""
     path = os.path.join(d, "pages.json")
-    if not ITEM_DATED.fullmatch(Path(d).parent.name) or not os.path.exists(path):
+    if not os.path.exists(path):
         return False
     try:
         pages = memo(path, read_pages)
@@ -313,9 +317,8 @@ def prior_unfetched(d):
     hits = pages.get("crossword_pages") or ()
     if any(titled(h) or h.get("pdf") for h in hits):
         return False
-    shown = {h["leaf"] for h in hits if not any(h.get(k) for k in GUESSED)}
-    fronts, _ = crossword_leaves(d)
-    common = {n for n, _ in fronts.most_common(PRIOR_LEAVES)}
+    shown = {h["leaf"] for h in hits if not any(h.get(k) for k in GUESSED) and not sister(h)}
+    common = common_leaves(d, pages["leaves"])
     return bool(common) and not common & shown \
         and bool(set(prior_leaves(d, pages["leaves"])) - {h["leaf"] for h in hits})
 
@@ -587,6 +590,13 @@ def titled(hit):
     return any(NUMBERED.search(h) and not NOT_DAILY.search(h) for h in hit.get("headings") or ())
 
 
+def sister(hit):
+    """Whether a crossword_pages hit's text names only a puzzle other than the
+    daily (NOT_DAILY): a Times Two page shows no daily crossword."""
+    numbered = [h for h in hit.get("headings") or () if NUMBERED.search(h)]
+    return bool(numbered) and all(NOT_DAILY.search(h) for h in numbered)
+
+
 #: The marks of a crossword_hits page fetched with no crossword in its text.
 GUESSED = ("prior", "dense", "ocr_empty", "unit_trust")
 ITEM_DATED = re.compile(r"(.+?)_(\d{4}-\d{2}-\d{2})_[^/]*")
@@ -640,9 +650,10 @@ def read_pages(path):
 
 
 def crossword_leaves(edition_dir):
-    """(fronts, backs): Counters of the leaves its siblings (sibling_pages)
-    print a titled crossword on, by leaf number and by distance from the back."""
-    fronts, backs = collections.Counter(), collections.Counter()
+    """(fronts, backs, sized): Counters of the leaves its siblings
+    (sibling_pages) print a titled crossword on, by leaf number, by distance
+    from the back, and by (sibling's leaf count, leaf number)."""
+    fronts, backs, sized = collections.Counter(), collections.Counter(), collections.Counter()
     for pj in sibling_pages(edition_dir):
         try:
             pages = memo(pj, read_pages)
@@ -652,16 +663,27 @@ def crossword_leaves(edition_dir):
             if titled(hit):
                 fronts[hit["leaf"]] += 1
                 backs[pages["leaves"] - 1 - hit["leaf"]] += 1
-    return fronts, backs
+                sized[pages["leaves"], hit["leaf"]] += 1
+    return fronts, backs, sized
+
+
+def common_leaves(edition_dir, count):
+    """The PRIOR_LEAVES leaves its siblings print a titled crossword on most
+    often (crossword_leaves), and those of its siblings of `count` leaves: an
+    item mixing sizes splits the count (1998-11-26, 56 leaves: 52-leaf
+    siblings print it on leaf 25, 56-leaf ones on leaf 27)."""
+    fronts, _, sized = crossword_leaves(edition_dir)
+    same = collections.Counter({leaf: k for (n, leaf), k in sized.items() if n == count and k >= SIZED_AGREE})
+    return {n for n, _ in fronts.most_common(PRIOR_LEAVES)} | {n for n, _ in same.most_common(PRIOR_LEAVES)}
 
 
 def prior_leaves(edition_dir, count):
     """The leaves of an edition of `count` leaves its crossword most likely
-    lies on: its last, and the PRIOR_LEAVES commonest leaves holding a titled
-    crossword in its siblings (crossword_leaves), by leaf number and by
-    distance from the back."""
-    fronts, backs = crossword_leaves(edition_dir)
-    leaves = {count - 1} | {n for n, _ in fronts.most_common(PRIOR_LEAVES)} \
+    lies on: its last, the common_leaves, and the PRIOR_LEAVES commonest
+    leaves holding a titled crossword in its siblings by distance from the
+    back (crossword_leaves)."""
+    _, backs, _ = crossword_leaves(edition_dir)
+    leaves = {count - 1} | common_leaves(edition_dir, count) \
         | {count - 1 - n for n, _ in backs.most_common(PRIOR_LEAVES)}
     return sorted(n for n in leaves if 0 <= n < count)
 
