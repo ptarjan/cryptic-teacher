@@ -38,6 +38,9 @@
   "date": "2022-05-03",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -50,7 +53,60 @@
    "clue": {
     "text": "Not in haste? Wrong, and (in short) on time (12, three words)"
    },
-   "solution": "ONTHEINSTANT"
+   "solution": "ONTHEINSTANT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "ONTHEINSTANT",
+    "definitions": [
+     {
+      "text": "Not in haste? Wrong, and (in short) on time",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Wrong",
+      "for": "anagram",
+      "note": "something wrong is out of order, so the preceding phrase must be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not in haste",
+      "gives": "NOTINHASTE",
+      "note": "the phrase taken letter by letter"
+     },
+     {
+      "clueFragment": "and (in short) on time",
+      "gives": "NT",
+      "note": "'n' is the short form of and, T the short form of time, and 'on' sets one beside the other"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONTHEINSTANT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOTINHASTENT",
+       "gives": "ONTHEINSTANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone protests that being punctual does not mean being leisurely.",
+     "walkthrough": "The whole clue is the definition: ON THE INSTANT means immediately, so calling it 'not in haste' is wrong, and it is certainly on time. The added 'N and T join the anagram fodder.",
+     "definitionFit": "On the instant means at once, without delay, which is the opposite of leisurely and squarely punctual."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Wrong"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +120,73 @@
     "text": "Native American house with a windmill sail inverted on top",
     "enumeration": "6"
    },
-   "solution": "NAVAHO"
+   "solution": "NAVAHO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NAVAHO",
+    "definitions": [
+     {
+      "text": "Native American",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inverted",
+      "for": "reversal",
+      "note": "in a down entry, inverted turns the letters upside down, so they read from bottom to top"
+     },
+     {
+      "text": "on top",
+      "for": "charade",
+      "note": "in a down entry, on top puts the first piece above the house, so it comes first"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "windmill sail",
+      "gives": "VAN",
+      "note": "Chambers gives van as a windmill sail"
+     },
+     {
+      "clueFragment": "house",
+      "gives": "HO",
+      "note": "HO is the abbreviation for house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAVA",
+      "HO"
+     ],
+     "reversals": [
+      {
+       "from": "AVAN",
+       "to": "NAVA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Native American home topped by an upturned windmill sail.",
+     "definitionFit": "The Navaho (also Navajo) are a Native American people of the south-western United States."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "house"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +200,61 @@
     "text": "Start of conflict interrupts actual respite",
     "enumeration": "5"
    },
-   "solution": "TRUCE"
+   "solution": "TRUCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TRUCE",
+    "definitions": [
+     {
+      "text": "respite",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only that one is kept"
+     },
+     {
+      "text": "interrupts",
+      "for": "container",
+      "note": "to interrupt is to break into the middle of something, so one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "actual",
+      "gives": "TRUE",
+      "note": "actual and true both mean real"
+     },
+     {
+      "clueFragment": "conflict",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of conflict"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRU",
+      "C",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A real lull is broken by the first shots of a fight.",
+     "definitionFit": "A truce is a pause in fighting, a temporary relief or respite from hostilities."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "conflict"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +268,48 @@
     "text": "Greeting hairy man with regular cuts",
     "enumeration": "4"
    },
-   "solution": "HIYA"
+   "solution": "HIYA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "HIYA",
+    "definitions": [
+     {
+      "text": "Greeting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with regular cuts",
+      "for": "letter_selection",
+      "note": "cutting at regular intervals removes every other letter, leaving the alternate ones"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hairy man",
+      "gives": "HIYA",
+      "select": "alternate",
+      "note": "first, third, fifth and seventh letters of the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIYA"
+     ]
+    },
+    "explanation": {
+     "surface": "A hairy man getting a regular trim is greeted.",
+     "definitionFit": "Hiya is an informal salutation, a contraction of 'how are you' used as hello."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cuts"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +323,64 @@
     "text": "Sick with centre of meal trapped in part of intestine?",
     "enumeration": "5"
    },
-   "solution": "ILEAL"
+   "solution": "ILEAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ILEAL",
+    "definitions": [
+     {
+      "text": "in part of intestine?",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre of",
+      "for": "letter_selection",
+      "note": "the centre of a word is its middle letters, so only those are kept"
+     },
+     {
+      "text": "trapped",
+      "for": "container",
+      "note": "something trapped is held inside, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sick",
+      "gives": "ILL",
+      "note": "sick and ill are synonyms"
+     },
+     {
+      "clueFragment": "meal",
+      "gives": "EA",
+      "select": "middle",
+      "note": "the two middle letters of meal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IL",
+      "EA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is sick with half-digested food stuck in the gut.",
+     "definitionFit": "Ileal means relating to the ileum, the final section of the small intestine, so it describes what is found there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "meal"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +394,47 @@
     "text": "The latest fashion unit representing some force",
     "enumeration": "6"
    },
-   "solution": "NEWTON"
+   "solution": "NEWTON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NEWTON",
+    "definitions": [
+     {
+      "text": "unit representing some force",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The latest",
+      "gives": "NEW",
+      "note": "the latest thing is the new one"
+     },
+     {
+      "clueFragment": "fashion",
+      "gives": "TON",
+      "note": "ton is an old word for the prevailing fashion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEW",
+      "TON"
+     ]
+    },
+    "explanation": {
+     "surface": "The newest trend becomes a powerful force.",
+     "walkthrough": "'Ton' as fashion is from the French bon ton, high style.",
+     "definitionFit": "The newton is the SI unit of force, enough to accelerate one kilogram by one metre per second squared."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fashion"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +448,79 @@
     "text": "Water rising in gushing upset, precipitous as before",
     "enumeration": "8"
    },
-   "solution": "STEEPEUP"
+   "solution": "STEEPEUP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "container"
+    ],
+    "answer": "STEEPEUP",
+    "definitions": [
+     {
+      "text": "precipitous as before",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down entry, rising means the word is read from the bottom upwards"
+     },
+     {
+      "text": "gushing",
+      "for": "anagram",
+      "note": "gushing water is turbulent, so the word next to it is thrown into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Water",
+      "gives": "PEE",
+      "note": "pee is slang for urine, a sort of water"
+     },
+     {
+      "clueFragment": "upset",
+      "gives": "UPSET",
+      "note": "the word itself, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "EEP",
+      "EUP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UPSET",
+       "gives": "STEUP"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "PEE",
+       "to": "EEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Water rising in a gushing torrent makes a steep slope.",
+     "walkthrough": "'As before' marks an archaic word: steepe-up is Spenser's spelling for precipitous.",
+     "definitionFit": "Steepe-up is an old compound meaning sheer or very steep, exactly what precipitous means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Water"
+    }
+   }
   },
   {
    "number": 8,
@@ -147,7 +533,62 @@
    "clue": {
     "text": "Finally fed with bit of entremets, possibly more (7, two words)"
    },
-   "solution": "ATLEAST"
+   "solution": "ATLEAST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ATLEAST",
+    "definitions": [
+     {
+      "text": "possibly more",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fed with",
+      "for": "container",
+      "note": "being fed with something means taking it inside, so one piece goes in the other"
+     },
+     {
+      "text": "bit of",
+      "for": "letter_selection",
+      "note": "a bit of a word here is just its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finally",
+      "gives": "ATLAST",
+      "note": "at last means finally"
+     },
+     {
+      "clueFragment": "entremets",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of entremets"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATL",
+      "E",
+      "AST"
+     ]
+    },
+    "explanation": {
+     "surface": "At the end of a meal someone finally gets a morsel of dessert, and perhaps more.",
+     "walkthrough": "Entremets is a French sweet course.",
+     "definitionFit": "At least means no fewer than stated and possibly more, a minimum that could be exceeded."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fed"
+    }
+   }
   },
   {
    "number": 9,
@@ -160,7 +601,65 @@
    "clue": {
     "text": "Education in Eton undergoing change must (6, two words)"
    },
-   "solution": "NEEDTO"
+   "solution": "NEEDTO",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "NEEDTO",
+    "definitions": [
+     {
+      "text": "must",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     },
+     {
+      "text": "undergoing change",
+      "for": "anagram",
+      "note": "something undergoing change is being altered, so the combined letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Education",
+      "gives": "ED",
+      "note": "ED is the abbreviation for education"
+     },
+     {
+      "clueFragment": "Eton",
+      "gives": "ETON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEEDTO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EEDTON",
+       "gives": "NEEDTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Schooling at Eton must move with the times.",
+     "walkthrough": "Eton is the famous English public (fee-paying) school.",
+     "definitionFit": "Need to and must both express obligation, used before a verb in the same way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 10,
@@ -174,7 +673,64 @@
     "text": "Like a snort? It's found in den on once retiring",
     "enumeration": "6"
    },
-   "solution": "NARIAL"
+   "solution": "NARIAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "NARIAL",
+    "definitions": [
+     {
+      "text": "Like a snort?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retiring",
+      "for": "reversal",
+      "note": "retiring means going back, so the letters are read in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "It's found in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "den",
+      "gives": "LAIR",
+      "note": "a den and a lair are both animal homes"
+     },
+     {
+      "clueFragment": "on once",
+      "gives": "AN",
+      "note": "an is an obsolete form of on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NA",
+      "RIAL"
+     ],
+     "reversals": [
+      {
+       "from": "LAIRAN",
+       "to": "NARIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An animal snorts as it retreats into its den.",
+     "walkthrough": "'Once' marks an archaic word.",
+     "definitionFit": "Narial means relating to the nostrils, and a snort is a noise made through the nose, so a snort is narial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "retiring"
+    }
+   }
   },
   {
    "number": 10,
@@ -188,7 +744,46 @@
     "text": "Old music maker creating minor misdeed in convent?",
     "enumeration": "10"
    },
-   "solution": "NUNSFIDDLE"
+   "solution": "NUNSFIDDLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NUNSFIDDLE",
+    "definitions": [
+     {
+      "text": "Old music maker",
+      "at": 0
+     },
+     {
+      "text": "minor misdeed in convent?",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "creating"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old music maker",
+      "note": "first meaning: a historical single-stringed bowed instrument"
+     },
+     {
+      "clueFragment": "minor misdeed in convent?",
+      "note": "second meaning, whimsical: a small swindle perpetrated by the sisters"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Fiddle is both a stringed instrument and a petty fraud, so the name of the old instrument also reads as a fraud by convent sisters.",
+     "definitionFit": "A nun's fiddle (tromba marina) is a medieval one-stringed bowed instrument, reputedly played in convents."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "maker"
+    }
+   }
   },
   {
    "number": 11,
@@ -202,7 +797,62 @@
     "text": "Packs minimum of equipment in shorts",
     "enumeration": "5"
    },
-   "solution": "TOTES"
+   "solution": "TOTES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TOTES",
+    "definitions": [
+     {
+      "text": "Packs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "minimum of",
+      "for": "letter_selection",
+      "note": "the minimum one can take of a word is its single opening letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shorts",
+      "gives": "TOTS",
+      "note": "shorts are small measures of spirits, or tots"
+     },
+     {
+      "clueFragment": "equipment",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of equipment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOT",
+      "E",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone travelling light packs almost nothing besides shorts.",
+     "walkthrough": "'Shorts' looks like clothing; here they are drinks of spirits.",
+     "definitionFit": "To tote is to carry or lug, so totes means packs in the sense of carries along."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shorts"
+    }
+   }
   },
   {
    "number": 12,
@@ -216,7 +866,73 @@
     "text": "Played, see, furiously? about end of match one's ready for bed",
     "enumeration": "10"
    },
-   "solution": "SLEEPYHEAD"
+   "solution": "SLEEPYHEAD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "SLEEPYHEAD",
+    "definitions": [
+     {
+      "text": "one's ready for bed",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "furiously",
+      "for": "anagram",
+      "note": "doing something furiously makes a wild mess, so the words before are jumbled"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round, so the jumble surrounds the other piece"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its last letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Played, see",
+      "gives": "PLAYEDSEE",
+      "note": "the two words, to be rearranged"
+     },
+     {
+      "clueFragment": "match",
+      "gives": "H",
+      "select": "last",
+      "note": "the last letter of match"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLEEPY",
+      "H",
+      "EAD"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PLAYEDSEE",
+       "gives": "SLEEPYEAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After a furious game, a player is worn out and ready for bed.",
+     "definitionFit": "A sleepyhead is a drowsy person, someone ready to go to sleep."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "match"
+    }
+   }
   },
   {
    "number": 13,
@@ -230,7 +946,55 @@
     "text": "Burrower clearly inside blind",
     "enumeration": "8"
    },
-   "solution": "SEWELLEL"
+   "solution": "SEWELLEL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEWELLEL",
+    "definitions": [
+     {
+      "text": "Burrower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside places one piece within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blind",
+      "gives": "SEEL",
+      "note": "to seel is to stitch shut a hawk's eyelids, blinding it"
+     },
+     {
+      "clueFragment": "clearly",
+      "gives": "WELL",
+      "note": "clearly and well both mean distinctly, as in seeing well"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "WELL",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "A burrowing creature is evidently blind underground.",
+     "walkthrough": "Seel is a falconry term, sewing up a young hawk's eyelids.",
+     "definitionFit": "The sewellel, or mountain beaver, is a North American rodent that lives in underground tunnels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clearly"
+    }
+   }
   },
   {
    "number": 14,
@@ -244,7 +1008,64 @@
     "text": "Brightly coloured fabric, reverse of worthless in brown",
     "enumeration": "7"
    },
-   "solution": "NACARAT"
+   "solution": "NACARAT",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "NACARAT",
+    "definitions": [
+     {
+      "text": "Brightly coloured fabric",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reverse of",
+      "for": "reversal",
+      "note": "reverse of means everything that follows is read backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brown",
+      "gives": "TAN",
+      "note": "tan is a light brown"
+     },
+     {
+      "clueFragment": "worthless",
+      "gives": "RACA",
+      "note": "raca is a biblical term of contempt meaning worthless (Matthew 5:22)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NACARAT"
+     ],
+     "reversals": [
+      {
+       "from": "TARACAN",
+       "to": "NACARAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gaudy fabric turns out cheap beneath its brown.",
+     "definitionFit": "Nacarat is a bright orange-red colour, and also a fine linen or crape dyed that shade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worthless"
+    }
+   }
   },
   {
    "number": 15,
@@ -258,7 +1079,57 @@
     "text": "God embraced by group coming together in prayer",
     "enumeration": "4"
    },
-   "solution": "BEDE"
+   "solution": "BEDE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BEDE",
+    "definitions": [
+     {
+      "text": "prayer",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embraced by",
+      "for": "container",
+      "note": "being embraced means being held within, so one piece sits inside the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "group coming together",
+      "gives": "BEE",
+      "note": "a bee is a gathering of people, as in a sewing bee"
+     },
+     {
+      "clueFragment": "God",
+      "gives": "D",
+      "note": "D is an abbreviation for God (Latin Deus)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "D",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A congregation gathers in prayer, wrapped in the presence of God.",
+     "definitionFit": "Bede is an archaic word for a prayer, the root of bead, as in telling one's beads."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "group"
+    }
+   }
   },
   {
    "number": 16,
@@ -272,7 +1143,44 @@
     "text": "Cast from Ibsen's Hedda",
     "enumeration": "4"
    },
-   "solution": "SHED"
+   "solution": "SHED",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SHED",
+    "definitions": [
+     {
+      "text": "Cast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "from says the letters are taken out of the words that follow, running across them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ibsen's Hedda",
+      "gives": "SHED",
+      "note": "the letters run across the end of the first word into the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A reference to the cast of Ibsen's play Hedda Gabler.",
+     "walkthrough": "'Cast' suggests actors in a play; it is the verb, as a snake casts its skin.",
+     "definitionFit": "To shed is to cast off or let fall, as a tree sheds leaves or an animal casts its coat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cast"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1193,91 @@
    "clue": {
     "text": "One bit of plush held by hatter I'm turned off, cosmetic (8, two words)"
    },
-   "solution": "LIPLINER"
+   "solution": "LIPLINER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LIPLINER",
+    "definitions": [
+     {
+      "text": "cosmetic",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned",
+      "for": "reversal",
+      "note": "turned means flipped round, so the short word before it is read backwards"
+     },
+     {
+      "text": "off",
+      "for": "deletion",
+      "note": "off means removed, so those letters are taken away"
+     },
+     {
+      "text": "bit of",
+      "for": "letter_selection",
+      "note": "a bit of a word here is just its opening letter"
+     },
+     {
+      "text": "held by",
+      "for": "container",
+      "note": "held by means sitting inside, so these letters go within the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hatter",
+      "gives": "MILLINER",
+      "note": "a milliner makes and sells hats"
+     },
+     {
+      "clueFragment": "I'm",
+      "gives": "IM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "plush",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of plush"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "I",
+      "P",
+      "LINER"
+     ],
+     "reversals": [
+      {
+       "from": "IM",
+       "to": "MI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A milliner abandons plush trimmings for make-up.",
+     "walkthrough": "Removing MI from the start of MILLINER leaves LLINER, which takes I and P after its first L.",
+     "definitionFit": "Lip liner is a cosmetic pencil used to outline the lips before applying lipstick."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hatter"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1291,69 @@
     "text": "Duck pastry containing only half meat, dull",
     "enumeration": "6"
    },
-   "solution": "OPIATE"
+   "solution": "OPIATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "OPIATE",
+    "definitions": [
+     {
+      "text": "dull",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding something within, so one piece goes inside the pastry"
+     },
+     {
+      "text": "only half",
+      "for": "letter_selection",
+      "note": "only half keeps one half of the word, here its second two letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Duck",
+      "gives": "O",
+      "note": "a duck in cricket is a score of nought, O"
+     },
+     {
+      "clueFragment": "pastry",
+      "gives": "PIE",
+      "note": "a pie is a pastry dish"
+     },
+     {
+      "clueFragment": "meat",
+      "gives": "AT",
+      "select": "last",
+      "note": "the last half of meat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PI",
+      "AT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A disappointing duck pie with barely any meat in it, and dull besides.",
+     "walkthrough": "Duck in cricket means a batsman's score of zero.",
+     "definitionFit": "To opiate is to dull or deaden, as an opium-based drug numbs pain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Duck"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1367,55 @@
     "text": "Before being taken in by dissembler, boss had no knowledge of this",
     "enumeration": "9"
    },
-   "solution": "FOREIGNER"
+   "solution": "FOREIGNER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FOREIGNER",
+    "definitions": [
+     {
+      "text": "boss had no knowledge of this",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being taken in by",
+      "for": "container",
+      "note": "something taken in is absorbed within, so this piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dissembler",
+      "gives": "FEIGNER",
+      "note": "one who dissembles feigns, so is a feigner"
+     },
+     {
+      "clueFragment": "Before",
+      "gives": "OR",
+      "note": "or is an archaic word for before, as in 'or ever'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "OR",
+      "EIGNER"
+     ]
+    },
+    "explanation": {
+     "surface": "A two-faced employee conceals a side job from the boss.",
+     "walkthrough": "'Before' as OR is archaic, as in 'or ever'. The definition is a slang sense, not an outsider at all.",
+     "definitionFit": "In British slang a foreigner is a private job done on the side, often with an employer's tools, without the boss knowing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "boss"
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1429,66 @@
     "text": "Keep on about upcoming award in sonorous tones",
     "enumeration": "7"
    },
-   "solution": "REBOANT"
+   "solution": "REBOANT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "REBOANT",
+    "definitions": [
+     {
+      "text": "in sonorous tones",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upcoming",
+      "for": "reversal",
+      "note": "in a down entry, upcoming means rising, so the letters read from the bottom upwards"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round, so the first piece surrounds the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Keep on",
+      "gives": "RANT",
+      "note": "to rant is to keep on noisily"
+     },
+     {
+      "clueFragment": "award",
+      "gives": "OBE",
+      "note": "the OBE is a British honour, Officer of the Order of the British Empire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EBO",
+      "ANT"
+     ],
+     "reversals": [
+      {
+       "from": "OBE",
+       "to": "EBO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A speaker drones on about an honour in a booming voice.",
+     "definitionFit": "Reboant means resounding or loudly echoing, describing booming, sonorous sound."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "award"
+    }
+   }
   },
   {
    "number": 21,
@@ -341,7 +1502,59 @@
     "text": "Sticker, ad scratched over in Bantu language",
     "enumeration": "6"
    },
-   "solution": "HERERO"
+   "solution": "HERERO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "HERERO",
+    "definitions": [
+     {
+      "text": "Bantu language",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scratched",
+      "for": "deletion",
+      "note": "scratched means struck out, so those letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sticker",
+      "gives": "ADHERER",
+      "note": "something that sticks is an adherer"
+     },
+     {
+      "clueFragment": "ad",
+      "gives": "AD",
+      "note": "taken as written, to be removed"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scorecard abbreviation for over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HERER",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An advertising sticker has been scratched off.",
+     "definitionFit": "Herero is a Bantu language spoken in Namibia and Botswana by the Herero people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sticker"
+    }
+   }
   },
   {
    "number": 22,
@@ -355,7 +1568,53 @@
     "text": "Copy U-turn travelling away from coastal region?",
     "enumeration": "9"
    },
-   "solution": "UPCOUNTRY"
+   "solution": "UPCOUNTRY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UPCOUNTRY",
+    "definitions": [
+     {
+      "text": "away from coastal region?",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "travelling",
+      "for": "anagram",
+      "note": "travelling letters move about, so the preceding words are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Copy U-turn",
+      "gives": "COPYUTURN",
+      "note": "the two words, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UPCOUNTRY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COPYUTURN",
+       "gives": "UPCOUNTRY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A driver copies a U-turn while travelling inland.",
+     "definitionFit": "Upcountry means in or towards the interior of a country, away from the coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Copy"
+    }
+   }
   },
   {
    "number": 23,
@@ -369,7 +1628,68 @@
     "text": "Cut bit of charcuterie up for burgers of a sort",
     "enumeration": "6"
    },
-   "solution": "CECILS"
+   "solution": "CECILS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "CECILS",
+    "definitions": [
+     {
+      "text": "burgers of a sort",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bit of",
+      "for": "letter_selection",
+      "note": "a bit of a word here is just its opening letter"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means the letters read from the bottom upwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cut",
+      "gives": "SLICE",
+      "note": "a cut of meat is a slice"
+     },
+     {
+      "clueFragment": "charcuterie",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of charcuterie"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CECILS"
+     ],
+     "reversals": [
+      {
+       "from": "SLICEC",
+       "to": "CECILS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Slicing cold cuts to make burgers.",
+     "definitionFit": "Cecils are fried balls of minced meat and breadcrumbs, a kind of rissole or burger."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cut"
+    }
+   }
   },
   {
    "number": 24,
@@ -383,7 +1703,57 @@
     "text": "Poet penning number that's lingual in part",
     "enumeration": "6"
    },
-   "solution": "RANINE"
+   "solution": "RANINE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RANINE",
+    "definitions": [
+     {
+      "text": "lingual in part",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "penning",
+      "for": "container",
+      "note": "penning means shutting in, as in a pen, so one piece is enclosed by the other"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poet",
+      "gives": "RAINE",
+      "note": "Kathleen Raine and Craig Raine are English poets"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "N",
+      "note": "N is the abbreviation for number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "N",
+      "INE"
+     ]
+    },
+    "explanation": {
+     "surface": "A poet writing a number, a song with something lingual about it.",
+     "definitionFit": "Ranine relates to the underside of the tongue, so it is lingual in one particular part."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 25,
@@ -397,7 +1767,59 @@
     "text": "Feeble, old, and half dead with melancholy?",
     "enumeration": "6"
    },
-   "solution": "DEBILE"
+   "solution": "DEBILE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DEBILE",
+    "definitions": [
+     {
+      "text": "Feeble, old",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half",
+      "for": "letter_selection",
+      "note": "half keeps only one half of the word, here its opening two letters"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dead",
+      "gives": "DE",
+      "select": "first",
+      "note": "the first half of dead"
+     },
+     {
+      "clueFragment": "melancholy",
+      "gives": "BILE",
+      "note": "black bile was the humour thought to cause melancholy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "BILE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone old and frail is half dead with gloom.",
+     "walkthrough": "'Old' tells you the definition is an archaic word; the question mark flags melancholy for bile, after the old theory of humours.",
+     "definitionFit": "Debile is an obsolete word for weak or feeble, related to debility."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "melancholy"
+    }
+   }
   },
   {
    "number": 26,
@@ -411,7 +1833,60 @@
     "text": "Good film turned up relating to DNA?",
     "enumeration": "5"
    },
-   "solution": "GENIC"
+   "solution": "GENIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "GENIC",
+    "definitions": [
+     {
+      "text": "relating to DNA?",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down entry, turned up means the letters read from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "film",
+      "gives": "CINE",
+      "note": "cine is short for cinematographic film"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ENIC"
+     ],
+     "reversals": [
+      {
+       "from": "CINE",
+       "to": "ENIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A good film about genetics comes to light.",
+     "definitionFit": "Genic means relating to genes, which are made of DNA; the question mark admits the slight looseness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "film"
+    }
+   }
   },
   {
    "number": 27,
@@ -425,7 +1900,66 @@
     "text": "Foreign ruler experiences going round, capturing hearts",
     "enumeration": "4"
    },
-   "solution": "SHAH"
+   "solution": "SHAH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SHAH",
+    "definitions": [
+     {
+      "text": "Foreign ruler",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going round",
+      "for": "reversal",
+      "note": "going round means turning back, so the word is read backwards"
+     },
+     {
+      "text": "capturing",
+      "for": "container",
+      "note": "capturing means holding inside, so one piece is enclosed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "experiences",
+      "gives": "HAS",
+      "note": "to have is to experience"
+     },
+     {
+      "clueFragment": "hearts",
+      "gives": "H",
+      "note": "H is the card-game abbreviation for hearts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "H",
+      "AH"
+     ],
+     "reversals": [
+      {
+       "from": "HAS",
+       "to": "SAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A foreign potentate tours his realm, winning hearts.",
+     "definitionFit": "Shah was the title of the monarch of Iran, a ruler from abroad from a British viewpoint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hearts"
+    }
+   }
   },
   {
    "number": 28,
@@ -439,7 +1973,64 @@
     "text": "Part of kit that's beaten, hand held (not half)",
     "enumeration": "5"
    },
-   "solution": "HIHAT"
+   "solution": "HIHAT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "HIHAT",
+    "definitions": [
+     {
+      "text": "Part of kit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not half",
+      "for": "deletion",
+      "note": "not half means losing half, so the second half of the word goes"
+     },
+     {
+      "text": "held",
+      "for": "container",
+      "note": "held means kept inside, so the shortened word sits within the other"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beaten",
+      "gives": "HIT",
+      "note": "hit is a past participle meaning struck or beaten"
+     },
+     {
+      "clueFragment": "hand",
+      "gives": "HAND",
+      "note": "taken as written, to be halved"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HI",
+      "HA",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A drum held in the hand gets a beating.",
+     "walkthrough": "'Kit' here is a drum kit. 'That's beaten' looks like part of the definition, but beaten supplies the outer letters.",
+     "definitionFit": "A hi-hat is the pair of pedal-operated cymbals that forms part of a drum kit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beaten"
+    }
+   }
   },
   {
    "number": 29,
@@ -453,7 +2044,51 @@
     "text": "Half getting submerged in Scotch mist",
     "enumeration": "4"
    },
-   "solution": "DROW"
+   "solution": "DROW",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DROW",
+    "definitions": [
+     {
+      "text": "Scotch mist",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Half",
+      "for": "deletion",
+      "note": "half means only one half survives, so the back part is dropped"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "getting submerged",
+      "gives": "DROWNING",
+      "note": "someone drowning is getting submerged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DROW"
+     ]
+    },
+    "explanation": {
+     "surface": "Half sunk in a damp Scottish drizzle.",
+     "walkthrough": "Scotch mist is the definition: drow is Scots for a drizzling mist or a cold squall.",
+     "definitionFit": "Drow is a Scottish dialect word for a thick wet mist, the weather known as Scotch mist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "submerged"
+    }
+   }
   },
   {
    "number": 30,
@@ -467,7 +2102,56 @@
     "text": "Fawn-coloured wine sealed in wax",
     "enumeration": "7"
    },
-   "solution": "CERVINE"
+   "solution": "CERVINE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CERVINE",
+    "definitions": [
+     {
+      "text": "Fawn-coloured",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sealed in",
+      "for": "container",
+      "note": "sealed in means shut inside, so one piece is enclosed by the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wax",
+      "gives": "CERE",
+      "note": "cere is an old word for wax, as in cerecloth"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "VIN",
+      "note": "vin is French for wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CER",
+      "VIN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A tawny wine in a bottle sealed with wax.",
+     "walkthrough": "'Fawn' suggests a colour; the definition plays on fawn as a young deer.",
+     "definitionFit": "Cervine means deer-like and also describes a tawny deer colour, the shade of a fawn."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fawn-coloured"
+    }
+   }
   },
   {
    "number": 31,
@@ -481,7 +2165,42 @@
     "text": "Extract from travelogue, requirement for cyclist abroad",
     "enumeration": "4"
    },
-   "solution": "VELO"
+   "solution": "VELO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "VELO",
+    "definitions": [
+     {
+      "text": "requirement for cyclist abroad",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extract from",
+      "for": "hidden_word",
+      "note": "an extract is a passage lifted out, so the letters are found within the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "travelogue",
+      "gives": "VELO",
+      "note": "the letters sit in the middle of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "A travel writer notes what a cyclist needs on a foreign trip.",
+     "definitionFit": "Vélo is the French word for a bicycle, the one thing a cyclist abroad needs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "travelogue"
+    }
+   }
   },
   {
    "number": 32,
@@ -495,7 +2214,65 @@
     "text": "Scholarship giving one inclination to accept entry to Repton",
     "enumeration": "8"
    },
-   "solution": "LEARNING"
+   "solution": "LEARNING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LEARNING",
+    "definitions": [
+     {
+      "text": "Scholarship",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entry to",
+      "for": "letter_selection",
+      "note": "the entry to a word is its first letter, so only that is taken"
+     },
+     {
+      "text": "to accept",
+      "for": "container",
+      "note": "accepting means letting in, so one piece takes the other inside"
+     }
+    ],
+    "linkWords": [
+     "giving one"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inclination",
+      "gives": "LEANING",
+      "note": "a leaning is a tendency or inclination"
+     },
+     {
+      "clueFragment": "Repton",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of Repton"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEA",
+      "R",
+      "NING"
+     ]
+    },
+    "explanation": {
+     "surface": "A scholarship gives a pupil a taste for attending Repton.",
+     "walkthrough": "Repton is an English public (fee-paying) school in Derbyshire.",
+     "definitionFit": "Learning means erudition or acquired knowledge, which is what scholarship denotes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inclination"
+    }
+   }
   },
   {
    "number": 33,
@@ -509,7 +2286,43 @@
     "text": "Wise, maybe? I can certainly pick winners",
     "enumeration": "5"
    },
-   "solution": "ERNIE"
+   "solution": "ERNIE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ERNIE",
+    "definitions": [
+     {
+      "text": "Wise, maybe?",
+      "at": 0
+     },
+     {
+      "text": "I can certainly pick winners",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wise, maybe?",
+      "note": "first meaning: comedian ... Wise, of Morecambe and Wise"
+     },
+     {
+      "clueFragment": "I can certainly pick winners",
+      "note": "second meaning: the machine that draws Premium Bond prizes"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Wise looks like an adjective; it is a surname. Premium Bonds are a UK government savings scheme with a monthly prize draw.",
+     "definitionFit": "Ernie Wise was a famous British comic, and ERNIE is the random number generator that selects Premium Bond winners."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Wise"
+    }
+   }
   },
   {
    "number": 34,
@@ -523,7 +2336,65 @@
     "text": "E.g. Clare lives with boy, name concealed",
     "enumeration": "6"
    },
-   "solution": "ISLAND"
+   "solution": "ISLAND",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ISLAND",
+    "definitions": [
+     {
+      "text": "E.g. Clare",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "concealed",
+      "for": "container",
+      "note": "something concealed is hidden inside, so this letter goes within the boy"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lives",
+      "gives": "IS",
+      "note": "is means exists or lives"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "LAD",
+      "note": "a lad is a boy"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "LA",
+      "N",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman called Clare lives with a boy whose name is kept secret.",
+     "walkthrough": "Clare looks like a woman's name; it is Clare Island off County Mayo, Ireland.",
+     "definitionFit": "Clare Island is an island in Clew Bay, so it is an example of an island."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Clare"
+    }
+   }
   },
   {
    "number": 35,
@@ -536,7 +2407,79 @@
    "clue": {
     "text": "Moped rotor comes loose, before being put back inside (12, two words)"
    },
-   "solution": "MOTORSCOOTER"
+   "solution": "MOTORSCOOTER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "container"
+    ],
+    "answer": "MOTORSCOOTER",
+    "definitions": [
+     {
+      "text": "Moped",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loose",
+      "for": "anagram",
+      "note": "parts coming loose fall out of place, so the preceding words are rearranged"
+     },
+     {
+      "text": "put back",
+      "for": "reversal",
+      "note": "put back means turned round, so the word is read backwards"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside places this piece within the jumbled letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rotor comes",
+      "gives": "ROTORCOMES",
+      "note": "the two words, to be rearranged"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "TO",
+      "note": "to means before, as in ten to six"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOTORSCO",
+      "OT",
+      "ER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROTORCOMES",
+       "gives": "MOTORSCOER"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "TO",
+       "to": "OT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rotor works loose and has to be refitted on a moped.",
+     "walkthrough": "'Moped' looks like the past tense of mope; it is the small motorbike.",
+     "definitionFit": "A moped is a light motorised two-wheeler, close kin to a motor scooter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Moped"
+    }
+   }
   }
  ]
 }
