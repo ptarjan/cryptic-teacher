@@ -109,6 +109,22 @@ check("a title no verdict covers makes the edition due", "titles changed",
                     "scan": {"puzzles": [{"number": 18862}]}}, "h", [], "v"))
 refused = lambda cause, at: {"inputs": "h", "solutionsSeen": [], "vlm": "v", "readAt": at,
                              "scan": {"puzzles": [{"number": 1}]}, "verdicts": [{"number": 1, "cause": cause}]}
+check("a title filed as another number than it read is not due again", None,
+      f.due_reason({"inputs": "h", "solutionsSeen": [], "vlm": "v", "scan": {"puzzles": [{"number": 19453}]},
+                    "verdicts": [{"number": 19458, "read_as": 19453}]}, "h", [], "v"))
+# solution_title(): real headings on title-lost pages (1980-06-30 one-sided,
+# 1994-02-05 Saturday prize +6, 1977-05-02 "14,539" for 14,589), and the
+# mirror: a heading the neighbours' count does not fit is refused.
+D = lambda s: __import__("datetime").date.fromisoformat(s)
+check("solution headings take the number the filed neighbours give",
+      [15262, 19458, 14590, None, None],
+      [f.solution_title(D("1980-06-30"), [15261], {15259: D("1980-06-26"), 15310: D("1980-09-01")})[0],
+       f.solution_title(D("1994-02-05"), [19452], {19456: D("1994-02-03"), 19459: D("1994-02-07")})[0],
+       f.solution_title(D("1977-05-02"), [14539], {14587: D("1977-04-28"), 14591: D("1977-05-03")})[0],
+       f.solution_title(D("1994-02-05"), [19440], {19456: D("1994-02-03"), 19459: D("1994-02-07")})[0],
+       f.solution_title(D("1994-02-05"), [19452], {})[0]])
+check("Crossword split by the OCR reads", 15795, f.TITLE.search("The Times Or ossword Puzzle No 15,795") and
+      int(f.TITLE.search("The Times Or ossword Puzzle No 15,795")[1].replace(",", "")))
 check("a refusal read before its cause's fix is due; after it, or another cause, is not",
       ["refused not-a-grid before its fix", None, None],
       [f.due_reason(refused("not-a-grid", "2026-10-01T00:00:00+00:00"), "h", [], "v"),

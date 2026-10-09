@@ -222,11 +222,12 @@ NUMBER = r"(\d{2}[,.\s]?\d{3})"
 #: The OCR garbles the words before "Crossword" ("Tfee Th:es", "THETIMES",
 #: "I he l imes"), puts a mark before or after it ("Crossword . No."), runs
 #: "No" on ("PuzzleNo") and "Times" into it ("TimesCrossword"), garbles
-#: "Puzzle" before a "No" ("Pnzzle No", "Pu/zle No"), drops "No", splits the number ("1 8,862", "17,1 11"),
+#: "Puzzle" before a "No" ("Pnzzle No", "Pu/zle No"), splits "Crossword" ("Or ossword"), drops "No",
+#: splits the number ("1 8,862", "17,1 11"),
 #: reads its comma as any mark ("21*065") and its 1 as i ("i.5,543");
 #: read_puzzle checks the number against the date.
 TITLE = re.compile(r"^\W*(?:(?!(?:sunday|conc\w*|jumbo|two|quick|\w*stener|solutions?|to|of)\b)\S{1,8}\s+){0,4}?"
-                   r"(?:(?:the)?\s?t[il1]mes)?\W{0,3}crossword\W{0,3}"
+                   r"(?:(?:the)?\s?t[il1]mes)?\W{0,3}[co0]r\s?ossword\W{0,3}"
                    r"(?:puzzle\W{0,3}|[^\s\d]{4,7}?\s*(?=n[o0]\b))?(?:n[o0]\W{0,3})?\s*"
                    r"([\dTIil][.,]?\s?\d[^\w\s]{0,2}\s?\d\s?\d\s?\d)(?!\d)", re.IGNORECASE)
 #: The previous puzzle's solution, printed under the clues ("to" read "tn").
@@ -1640,12 +1641,41 @@ def _scan(d):
                                      **({"titleReadBy": readers} if readers else {})})
         for n, box in sols:
             found["solutions"].append({"number": n, "leaf": leaf, "box": box})
+    if paper is TIMES and not found["puzzles"]:
+        found["puzzles"] = solution_titled(d, found["solutions"])
     # A puzzle's solution prints in a later edition, never its own: one
     # numbered like a title here is a misread heading (15,682's grid read as
     # 15,683's under 15,683).
     titled = {p["number"] for p in found["puzzles"]}
     found["solutions"] = [s for s in found["solutions"] if s["number"] not in titled]
     return found
+
+
+#: How far over a solution heading the grid of the puzzle it is printed
+#: under ends, in that grid's heights (the 1977-97 Times: 0.6 to 0.95).
+SOLUTION_REACH = 1.5
+
+
+def solution_titled(d, sols):
+    """[{"number", "leaf", "box", "fromSolutions"}] of the puzzle on an
+    edition no title was read in (its title line lost: Times 14,590's page
+    shows only "Solution of Puzzle No 14,539" under the clues): on the first
+    leaf with solution headings `sols` and a grid that ends over one of them,
+    across it, within SOLUTION_REACH of its height, the number after its
+    highest heading, the box a line over that grid. filed_number() files it
+    only as the number its filed neighbours give (solution_title)."""
+    for leaf in sorted({s["leaf"] for s in sols}):
+        heads = [s for s in sols if s["leaf"] == leaf]
+        img = page(d, leaf)
+        grids = [g for g in grids_on(img, shaped=lambda b: shaped_on(img, b)) if not solution_shaped(img)(g)]
+        near = [(h["box"][1] - g[3], g) for h in heads for g in grids
+                if 0 <= h["box"][1] - g[3] <= SOLUTION_REACH * (g[3] - g[1]) and g[0] < h["box"][2] and g[2] > h["box"][0]]
+        if near:
+            g = min(near)[1]
+            gap = 10 * img.width // SCAN_WIDTH
+            return [{"number": max(h["number"] for h in heads) + 1, "leaf": leaf,
+                     "box": (g[0], g[1] - 4 * gap, g[2], g[1] - gap), "fromSolutions": sorted(h["number"] for h in heads)}]
+    return []
 
 
 #: The least share of its box a grid's ink fills: a frame round a panel
@@ -2434,6 +2464,27 @@ def mended_digit(n, day, expected, held):
     return None
 
 
+def solution_title(day, sols, held):
+    """(number, None) of `day`'s puzzle known only by the solution headings
+    `sols` its page prints, or (None, why): the number a count of issues
+    from a filed neighbour gives (from both, when they run unbroken:
+    implied) of which each heading reads (solution_number) as one
+    SOLUTION_LAGS before, when exactly one does. A number no neighbour
+    counts to is never filed."""
+    fixed = implied(day, held)
+    before, after = neighbours(day, held)
+    counts = {fixed} if fixed is not None else \
+        {m + issues_between(b, day) for b, m in [before] * bool(before)} | \
+        {m - issues_between(day, a) for a, m in [after] * bool(after)}
+    fits = sorted(n for n in counts
+                  if all(solution_number(str(s), {n - lag for lag in SOLUTION_LAGS}) is not None for s in sols))
+    if len(fits) == 1:
+        return fits[0], None
+    return None, (f"no title read; the solution headings No {', '.join(map(str, sols))} fit "
+                  f"{'none' if not fits else 'more than one'} of the numbers the filed neighbours give {day}: "
+                  f"{sorted(counts) or 'none filed'}")
+
+
 def placed(n, day, held):
     """(number, None) that an edition of `day` read as No `n` files as, or
     (None, why) it cannot file. The edition's date is trusted over a number
@@ -2475,12 +2526,16 @@ def filed_number(d, found, hit):
     day = issue_day(datetime.date.fromisoformat(found["date"]), n, [h["number"] for h in found["puzzles"]])
     if paper in (TIMES, GALE) and day.weekday() == 6:
         return None, day, f"{day} is a Sunday and the Times prints no daily cryptic on it: a Sunday paper's puzzle"
+    held = held_dates(paper.series)
+    if "fromSolutions" in hit:
+        n, why = solution_title(day, hit["fromSolutions"], held)
+        if why:
+            return None, day, why
     if abs(n - paper.expected(day)) > paper.slack:
         # A short number misread ("200" for 209): the page's solution
         # heading names the day before's.
         sols = [s["number"] + 1 for s in found["solutions"] if s["leaf"] == hit["leaf"]]
         n = next((m for m in sols if abs(m - paper.expected(day)) <= paper.slack), n)
-    held = held_dates(paper.series)
     if abs(n - paper.expected(day)) > paper.slack:
         n = mended_digit(n, day, paper.expected(day), held) or n
     if abs(n - paper.expected(day)) > paper.slack:
@@ -3149,7 +3204,8 @@ def due_reason(row, inputs, sol_seen, vlm_up, reread=None):
         return "never read"
     if row["inputs"] != inputs or row.get("solutionsSeen") != sol_seen:
         return "inputs changed"
-    if sorted(p["number"] for p in row["scan"]["puzzles"]) != sorted(v["number"] for v in row.get("verdicts", ())):
+    if sorted(p["number"] for p in row["scan"]["puzzles"]) != sorted(v.get("read_as", v["number"])
+                                                                     for v in row.get("verdicts", ())):
         return "titles changed"
     if vlm_up and not row.get("vlm"):
         return "read without the VLM"
