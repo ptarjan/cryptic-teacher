@@ -825,6 +825,22 @@ check("pieces another reading has apart stay apart (mirror)", "a bow- Ier",
 check("pieces two lexicon words could spell stay apart (mirror)", "a bow- Ier",
       oc.join_split("a bow- Ier", [["a", "bowler"], ["a", "bower"]]))
 
+# Times 1976-03-25 "Put extinguisher on rapture?": the one printing reading
+# splits the last word ("Tap : ture ?"), leaving its "?" past the clue's end.
+lost = ["#", "Sign", "of", "a", "pastor", "turned", "innkeeper", "#"]
+check("a clue-final ? past the rest of a split last word stands", "Put extinguisher on rapture?",
+      oc.agree("I'ut extinguisher on rapture?", [lost, ["#", "Put", "extinguisber", "on", "Tap", ":", "ture", "?", "#"]])[0])
+check("a clue-final ? past other words, or none, goes as a speck (mirror)",
+      ["Put extinguisher on rapture"] * 2,
+      [oc.agree("I'ut extinguisher on rapture?", [lost, ["#", "Put", "extinguisber", "on", "Tap", "Back", "portion", "?", "#"]])[0],
+       oc.agree("I'ut extinguisher on rapture?", [lost, ["#", "Put", "extinguisber", "on", "Tap", "#"]])[0]])
+# Times 1980-05-12: words lost from the clue's end come back with its "?"
+# after them, printed once.
+giant = ["#", "International", "Agreement", ",", "from", "retreat", "of", "the", "giant", "killer", "?", "#"]
+check("a clue-final ? goes after the end words put in, once (mirror)",
+      "International Agreement, from retreat of the giant killer?",
+      oc.agree("Lnternational Agrecment, from retreat of the ganrkiller ?", [giant, giant])[0])
+
 print(f"FAILS {fails}")
 EOF
 )
