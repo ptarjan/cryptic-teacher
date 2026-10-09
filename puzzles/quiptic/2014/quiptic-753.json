@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "Relax before wet weather's in control",
     "enumeration": "8"
    },
-   "solution": "RESTRAIN"
+   "solution": "RESTRAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RESTRAIN",
+    "definitions": [
+     {
+      "text": "control",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "'s in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Relax",
+      "gives": "REST",
+      "note": "to relax is to rest"
+     },
+     {
+      "clueFragment": "wet weather",
+      "gives": "RAIN",
+      "note": "rain is wet weather"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REST",
+      "RAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone relaxes before the rain, and the wet weather is said to be in charge.",
+     "walkthrough": "'before' puts the first piece ahead of the second.",
+     "definitionFit": "To restrain someone is to hold them in check, a direct synonym of the verb control."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Relax"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +93,50 @@
     "text": "Band initially recorded in neighbour's garage",
     "enumeration": "4"
    },
-   "solution": "RING"
+   "solution": "RING",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "RING",
+    "definitions": [
+     {
+      "text": "Band",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points at the opening letter of each of the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "recorded in neighbour's garage",
+      "gives": "RING",
+      "select": "first",
+      "note": "the opening letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RING"
+     ]
+    },
+    "explanation": {
+     "surface": "A band first made its recordings in the garage next door.",
+     "walkthrough": "'Band' reads as a group of musicians, fitting the garage scene, but it is a circular strip.",
+     "definitionFit": "A ring is a circular band, as worn on a finger or round a bird's leg."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Band"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +150,59 @@
     "text": "Sharpness of mind shown by copper getting in the last word",
     "enumeration": "6"
    },
-   "solution": "ACUMEN"
+   "solution": "ACUMEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ACUMEN",
+    "definitions": [
+     {
+      "text": "Sharpness of mind",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting in",
+      "for": "container",
+      "note": "getting in means one thing goes inside another"
+     }
+    ],
+    "linkWords": [
+     "shown by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     },
+     {
+      "clueFragment": "the last word",
+      "gives": "AMEN",
+      "note": "amen is the word that ends a prayer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CU",
+      "MEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A sharp-minded police officer insists on having the final say.",
+     "walkthrough": "'Copper' looks like a policeman, but it is the metal.",
+     "definitionFit": "Acumen is keen insight or shrewdness, the quality of a quick, sharp mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +216,65 @@
     "text": "Drive suspect to court for jury's decision",
     "enumeration": "7"
    },
-   "solution": "VERDICT"
+   "solution": "VERDICT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "VERDICT",
+    "definitions": [
+     {
+      "text": "jury's decision",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suspect",
+      "for": "anagram",
+      "note": "suspect letters are dubious and not to be trusted in their present order"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drive",
+      "gives": "DRIVE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VERDI",
+      "CT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DRIVE",
+       "gives": "VERDI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Police take a suspect to court so a jury can decide.",
+     "walkthrough": "'Drive suspect to court' reads as transporting a suspect, but 'suspect' is the anagram signal.",
+     "definitionFit": "A verdict is the finding a jury reaches at the end of a trial."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suspect"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +288,53 @@
     "text": "Outrageous tirade following drop in performance",
     "enumeration": "8"
    },
-   "solution": "FLAGRANT"
+   "solution": "FLAGRANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLAGRANT",
+    "definitions": [
+     {
+      "text": "Outrageous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means the first-named piece comes after the next one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drop in performance",
+      "gives": "FLAG",
+      "note": "to flag is to tire and perform less well"
+     },
+     {
+      "clueFragment": "tirade",
+      "gives": "RANT",
+      "note": "a rant is an angry tirade"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLAG",
+      "RANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A manager launches into an outrageous tirade after a team's form dips.",
+     "definitionFit": "Flagrant means shockingly obvious and shameless, as in an outrageous breach of rules."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drop"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +354,55 @@
      }
     ]
    },
-   "solution": "HOUSETRAIN"
+   "solution": "HOUSETRAIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HOUSE-TRAIN",
+    "definitions": [
+     {
+      "text": "Take steps to promote domestic order",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken down",
+      "for": "anagram",
+      "note": "something broken down has fallen apart, so its letters can be rebuilt differently"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "routine has",
+      "gives": "ROUTINEHAS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROUTINEHAS",
+       "gives": "HOUSETRAIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "When the household routine collapses, someone acts to restore order at home.",
+     "walkthrough": "The long definition is a playful description: teaching a pet not to soil the house brings order to the home.",
+     "definitionFit": "To house-train a pet is to teach it clean habits indoors, a step towards an orderly home."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "domestic"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +416,53 @@
     "text": "Let sap develop in parts of plant",
     "enumeration": "6"
    },
-   "solution": "PETALS"
+   "solution": "PETALS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PETALS",
+    "definitions": [
+     {
+      "text": "parts of plant",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "develop",
+      "for": "anagram",
+      "note": "to develop is to change form, so the letters grow into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Let sap",
+      "gives": "LETSAP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LETSAP",
+       "gives": "PETALS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Allow the sap to grow through a plant's parts.",
+     "definitionFit": "Petals are the coloured leaf-like segments of a flower, which is part of a plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "develop"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +476,65 @@
     "text": "Doctor carrying oxygen about is rather inferior",
     "enumeration": "8"
    },
-   "solution": "MEDIOCRE"
+   "solution": "MEDIOCRE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MEDIOCRE",
+    "definitions": [
+     {
+      "text": "rather inferior",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "carrying means holding something within"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor",
+      "gives": "MEDIC",
+      "note": "a medic is a doctor"
+     },
+     {
+      "clueFragment": "oxygen",
+      "gives": "O",
+      "note": "O is the chemical symbol for oxygen"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEDI",
+      "O",
+      "C",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor carrying an oxygen supply around is not up to much.",
+     "walkthrough": "'About' looks like part of carrying something around, but it supplies its own short piece at the end.",
+     "definitionFit": "Mediocre means only middling in quality, a little below standard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +548,48 @@
     "text": "Game fellow took part in criminal activity",
     "enumeration": "6"
    },
-   "solution": "LOOTED"
+   "solution": "LOOTED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOOTED",
+    "definitions": [
+     {
+      "text": "took part in criminal activity",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Game",
+      "gives": "LOO",
+      "note": "loo is an old card game"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "TED",
+      "note": "Ted is a man's name, so any fellow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOO",
+      "TED"
+     ]
+    },
+    "explanation": {
+     "surface": "A willing chap joined in a crime.",
+     "walkthrough": "'Game' reads as willing, but it is a noun: loo is a card game. 'Fellow' standing for a man's name is a crossword convention.",
+     "definitionFit": "Looted means plundered or stole goods, which is one form of criminal activity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Game"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +603,42 @@
     "text": "Zoologist agrees to provide home for animal",
     "enumeration": "4"
    },
-   "solution": "STAG"
+   "solution": "STAG",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "STAG",
+    "definitions": [
+     {
+      "text": "animal",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to provide home for",
+      "for": "hidden_word",
+      "note": "the words provide a home for the answer, which lives inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Zoologist agrees",
+      "gives": "STAG",
+      "note": "inside zoologiST AGrees"
+     }
+    ],
+    "explanation": {
+     "surface": "A zoologist consents to give an animal shelter.",
+     "definitionFit": "A stag is a male deer, an example of an animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +652,71 @@
     "text": "State in which first man rejected fossil fuel used by vehicle",
     "enumeration": "10"
    },
-   "solution": "MADAGASCAR"
+   "solution": "MADAGASCAR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "MADAGASCAR",
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "rejected means sent back, so the name runs the other way"
+     }
+    ],
+    "linkWords": [
+     "in which",
+     "used by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "first man",
+      "gives": "ADAM",
+      "note": "Adam was the first man in Genesis"
+     },
+     {
+      "clueFragment": "fossil fuel",
+      "gives": "GAS",
+      "note": "natural gas is a fossil fuel"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "CAR",
+      "note": "a car is a vehicle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MADA",
+      "GAS",
+      "CAR"
+     ],
+     "reversals": [
+      {
+       "from": "ADAM",
+       "to": "MADA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A country where people turned against cars burning fossil fuel.",
+     "walkthrough": "'State' suggests a US state, but here it is a sovereign country; 'used by' just places the fuel beside the vehicle that burns it.",
+     "definitionFit": "Madagascar is an island nation off Africa, and a state in the sense of a sovereign country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rejected"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +730,58 @@
     "text": "Language understood by those in the know has primarily Japanese element",
     "enumeration": "6"
    },
-   "solution": "JARGON"
+   "solution": "JARGON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "JARGON",
+    "definitions": [
+     {
+      "text": "Language understood by those in the know",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the leading letter of the word is taken"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Japanese",
+      "gives": "J",
+      "select": "first",
+      "note": "the opening letter"
+     },
+     {
+      "clueFragment": "element",
+      "gives": "ARGON",
+      "note": "argon is a chemical element"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "ARGON"
+     ]
+    },
+    "explanation": {
+     "surface": "Insider language is said to be chiefly Japanese in content.",
+     "definitionFit": "Jargon is the specialist vocabulary of a trade or group, opaque to outsiders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "element"
+    }
+   }
   },
   {
    "number": 13,
@@ -207,7 +795,62 @@
     "text": "Crazy dog kills old Charlie character in nursery story",
     "enumeration": "10"
    },
-   "solution": "GOLDILOCKS"
+   "solution": "GOLDILOCKS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GOLDILOCKS",
+    "definitions": [
+     {
+      "text": "character in nursery story",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Crazy",
+      "for": "anagram",
+      "note": "crazy means wild and disordered, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog kills",
+      "gives": "DOGKILLS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the radio alphabet"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DOGKILLSOC",
+       "gives": "GOLDILOCKS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mad dog kills an old Charlie in a children's tale.",
+     "walkthrough": "The anagram takes every letter of the first two words plus the two single letters.",
+     "definitionFit": "Goldilocks is the girl who visits the three bears' house in the children's tale."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Charlie"
+    }
+   }
   },
   {
    "number": 14,
@@ -221,7 +864,70 @@
     "text": "It's correct to sit back in pursuit",
     "enumeration": "8"
    },
-   "solution": "CHASTISE"
+   "solution": "CHASTISE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "CHASTISE",
+    "definitions": [
+     {
+      "text": "correct",
+      "at": 5
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means read in the opposite direction"
+     },
+     {
+      "text": "sit",
+      "for": "container",
+      "note": "to sit in something is to be placed inside it"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It's",
+      "gives": "ITS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pursuit",
+      "gives": "CHASE",
+      "note": "a chase is a pursuit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "STI",
+      "SE"
+     ],
+     "reversals": [
+      {
+       "from": "ITS",
+       "to": "STI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone claims it is right to lie back while being chased.",
+     "walkthrough": "'correct' is the verb, to punish, not the adjective; 'It's' is the opening fodder, not a pronoun.",
+     "definitionFit": "To chastise is to rebuke or punish someone, the disciplinary sense of correct as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "correct"
+    }
+   }
   },
   {
    "number": 15,
@@ -235,7 +941,71 @@
     "text": "Popular female abridged translation for Kindle",
     "enumeration": "7"
    },
-   "solution": "INFLAME"
+   "solution": "INFLAME",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "INFLAME",
+    "definitions": [
+     {
+      "text": "Kindle",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abridged",
+      "for": "deletion",
+      "note": "abridged means cut short, so the word loses its final letter"
+     },
+     {
+      "text": "translation",
+      "for": "anagram",
+      "note": "a translation renders something in a new form, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "FEMALE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "FLAME"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FEMAL",
+       "gives": "FLAME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A popular woman's shortened translation is offered on the e-reader.",
+     "walkthrough": "'Kindle' looks like Amazon's e-reader, matching the translation theme, but it is the verb to set alight.",
+     "definitionFit": "To inflame is to set on fire or stir up, as kindle means to ignite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Kindle"
+    }
+   }
   },
   {
    "number": 16,
@@ -249,7 +1019,64 @@
     "text": "Setter taking one small measure from apothecary for nasty headache",
     "enumeration": "8"
    },
-   "solution": "MIGRAINE"
+   "solution": "MIGRAINE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MIGRAINE",
+    "definitions": [
+     {
+      "text": "nasty headache",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking means holding other material inside"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Setter",
+      "gives": "ME",
+      "note": "the setter refers to themself as me"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "small measure from apothecary",
+      "gives": "GRAIN",
+      "note": "the grain is the smallest unit of apothecaries' weight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "I",
+      "GRAIN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A crossword setter takes a small dose from the chemist for a bad headache.",
+     "walkthrough": "'Setter' meaning the puzzle's author, hence ME, is a crossword convention.",
+     "definitionFit": "A migraine is a severe, recurring headache, often with nausea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Setter"
+    }
+   }
   },
   {
    "number": 17,
@@ -263,7 +1090,47 @@
     "text": "Injures muscles in races",
     "enumeration": "7"
    },
-   "solution": "STRAINS"
+   "solution": "STRAINS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRAINS",
+    "definitions": [
+     {
+      "text": "Injures muscles",
+      "at": 0
+     },
+     {
+      "text": "races",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Injures muscles",
+      "note": "first meaning: pulls or overstretches muscles"
+     },
+     {
+      "clueFragment": "races",
+      "note": "second meaning: breeds or lineages"
+     }
+    ],
+    "explanation": {
+     "surface": "An athlete pulls muscles while running in races.",
+     "walkthrough": "'races' reads as sprints, but it means breeds or varieties.",
+     "definitionFit": "Strains are both muscle injuries from overstretching and distinct varieties or breeds of animals or plants."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "races"
+    }
+   }
   },
   {
    "number": 18,
@@ -277,7 +1144,58 @@
     "text": "Lust and pain marred wedding ceremony",
     "enumeration": "8"
    },
-   "solution": "NUPTIALS"
+   "solution": "NUPTIALS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NUPTIALS",
+    "definitions": [
+     {
+      "text": "wedding ceremony",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "marred",
+      "for": "anagram",
+      "note": "marred means spoilt or damaged, so the letters are knocked out of order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lust",
+      "gives": "LUST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pain",
+      "gives": "PAIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LUSTPAIN",
+       "gives": "NUPTIALS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Desire and suffering spoiled a marriage service.",
+     "definitionFit": "Nuptials is a formal word for a wedding and its ceremony."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "marred"
+    }
+   }
   },
   {
    "number": 19,
@@ -291,7 +1209,80 @@
     "text": "Neptune's spear found in decomposed net after turning up soil",
     "enumeration": "7"
    },
-   "solution": "TRIDENT"
+   "solution": "TRIDENT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "TRIDENT",
+    "definitions": [
+     {
+      "text": "Neptune's spear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down entry, turning up means read from bottom to top"
+     },
+     {
+      "text": "decomposed",
+      "for": "anagram",
+      "note": "decomposed means broken into its parts, so they can be reassembled"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the piece it names behind the other one"
+     }
+    ],
+    "linkWords": [
+     "found in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soil",
+      "gives": "DIRT",
+      "note": "dirt is soil"
+     },
+     {
+      "clueFragment": "net",
+      "gives": "NET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRID",
+      "ENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NET",
+       "gives": "ENT"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "DIRT",
+       "to": "TRID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The sea god's spear is found in a rotting net dredged from the soil.",
+     "definitionFit": "A trident is the three-pronged spear carried by Neptune, Roman god of the sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "decomposed"
+    }
+   }
   },
   {
    "number": 20,
@@ -305,7 +1296,53 @@
     "text": "Pretend to be ill to avoid working with horribly mean girl",
     "enumeration": "8"
    },
-   "solution": "MALINGER"
+   "solution": "MALINGER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MALINGER",
+    "definitions": [
+     {
+      "text": "Pretend to be ill to avoid working",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "horribly",
+      "for": "anagram",
+      "note": "horribly suggests something badly mangled, so the letters are disordered"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mean girl",
+      "gives": "MEANGIRL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MEANGIRL",
+       "gives": "MALINGER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spiteful girl fakes sickness to skip work.",
+     "definitionFit": "To malinger is to feign illness to escape duty, exactly as the definition spells out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "horribly"
+    }
+   }
   },
   {
    "number": 21,
@@ -319,7 +1356,58 @@
     "text": "Recopied email to a girl",
     "enumeration": "6"
    },
-   "solution": "AMELIA"
+   "solution": "AMELIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AMELIA",
+    "definitions": [
+     {
+      "text": "girl",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Recopied",
+      "for": "anagram",
+      "note": "something recopied is written out again, here in a new order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "email",
+      "gives": "EMAIL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EMAILA",
+       "gives": "AMELIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An email is copied out again and sent to a girl.",
+     "definitionFit": "Amelia is a girl's first name, so it stands for a girl."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Recopied"
+    }
+   }
   },
   {
    "number": 22,
@@ -333,7 +1421,51 @@
     "text": "Might primate get something to eat with a drink before dinner?",
     "enumeration": "6"
    },
-   "solution": "CANAPE"
+   "solution": "CANAPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CANAPE",
+    "definitions": [
+     {
+      "text": "something to eat with a drink before dinner",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Might",
+      "gives": "CAN",
+      "note": "can, like might, expresses possibility"
+     },
+     {
+      "clueFragment": "primate",
+      "gives": "APE",
+      "note": "an ape is a primate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAN",
+      "APE"
+     ]
+    },
+    "explanation": {
+     "surface": "Could a monkey be given a snack with its pre-dinner drink?",
+     "walkthrough": "'Might' reads as the opening of a question, but it supplies the first piece.",
+     "definitionFit": "A canapé is a small savoury bite served with drinks before a meal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Might"
+    }
+   }
   },
   {
    "number": 22,
@@ -347,7 +1479,50 @@
     "text": "Arrived with artist's photographic equipment",
     "enumeration": "6"
    },
-   "solution": "CAMERA"
+   "solution": "CAMERA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAMERA",
+    "definitions": [
+     {
+      "text": "photographic equipment",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "with",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arrived",
+      "gives": "CAME",
+      "note": "came means arrived"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician, a recognised artist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAME",
+      "RA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone turned up carrying a painter's photographic kit.",
+     "walkthrough": "RA, for a member of the Royal Academy, is a standard crossword abbreviation for an artist.",
+     "definitionFit": "A camera is the device used to take photographs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -361,7 +1536,66 @@
     "text": "Unconventional mum moaned dreadfully about teacher's last written reminder",
     "enumeration": "10"
    },
-   "solution": "MEMORANDUM"
+   "solution": "MEMORANDUM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "MEMORANDUM",
+    "definitions": [
+     {
+      "text": "written reminder",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "last points at the closing letter of the word before it"
+     },
+     {
+      "text": "dreadfully about",
+      "for": "anagram",
+      "note": "dreadfully signals disorder, and about says the jumbled letters go round the single extra one"
+     }
+    ],
+    "linkWords": [
+     "Unconventional"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mum moaned",
+      "gives": "MUMMOANED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "teacher's",
+      "gives": "R",
+      "select": "last",
+      "note": "the closing letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MUMMOANEDR",
+       "gives": "MEMORANDUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unusual mother complains bitterly about the note the teacher sent home.",
+     "walkthrough": "All the letters are mixed together, the extra one included.",
+     "definitionFit": "A memorandum is a written note serving as a reminder or record."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 24,
@@ -375,7 +1609,46 @@
     "text": "Miss second sleep",
     "enumeration": "4"
    },
-   "solution": "SKIP"
+   "solution": "SKIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SKIP",
+    "definitions": [
+     {
+      "text": "Miss",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "sleep",
+      "gives": "KIP",
+      "note": "kip is British slang for sleep"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "KIP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone misses a second chance to nap.",
+     "definitionFit": "To skip something is to miss it out or not attend."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Miss"
+    }
+   }
   },
   {
    "number": 24,
@@ -389,7 +1662,65 @@
     "text": "Squatters heading for old house in part of central London",
     "enumeration": "4"
    },
-   "solution": "SOHO"
+   "solution": "SOHO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SOHO",
+    "definitions": [
+     {
+      "text": "part of central London",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading",
+      "for": "letter_selection",
+      "note": "heading means the front, so only the first letter of the word is kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Squatters",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "house",
+      "gives": "HO",
+      "note": "HO is the abbreviation for house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "O",
+      "HO"
+     ]
+    },
+    "explanation": {
+     "surface": "Squatters make for an old house in central London.",
+     "walkthrough": "'for' is part of the surface reading of heading somewhere, not a separate link.",
+     "definitionFit": "Soho is a district of London's West End, known for nightlife and theatres."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 25,
@@ -403,7 +1734,56 @@
     "text": "Family's after wood to make barrel",
     "enumeration": "6"
    },
-   "solution": "FIRKIN"
+   "solution": "FIRKIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FIRKIN",
+    "definitions": [
+     {
+      "text": "barrel",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the piece it names behind the other one"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wood",
+      "gives": "FIR",
+      "note": "fir is a kind of wood"
+     },
+     {
+      "clueFragment": "Family",
+      "gives": "KIN",
+      "note": "kin are family"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIR",
+      "KIN"
+     ]
+    },
+    "explanation": {
+     "surface": "The family is after timber to build a cask.",
+     "definitionFit": "A firkin is a small cask, traditionally a quarter of a barrel, used for beer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -417,7 +1797,72 @@
     "text": "Norway at war, unfortunately, against thriving sea creature",
     "enumeration": "8"
    },
-   "solution": "NARWHALE"
+   "solution": "NARWHALE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "NARWHALE",
+    "definitions": [
+     {
+      "text": "sea creature",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "unfortunately suggests things have gone wrong, so the letters are out of order"
+     }
+    ],
+    "linkWords": [
+     "at",
+     "against"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Norway",
+      "gives": "N",
+      "note": "N is the international vehicle code for Norway"
+     },
+     {
+      "clueFragment": "war",
+      "gives": "WAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "thriving",
+      "gives": "HALE",
+      "note": "hale means healthy and thriving"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ARW",
+      "HALE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WAR",
+       "gives": "ARW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Norway, regrettably at war, fights a flourishing marine animal.",
+     "walkthrough": "NARWHALE is a less common spelling of narwhal, the Arctic whale with a long tusk.",
+     "definitionFit": "The narwhale is an Arctic whale whose male has a single long spiral tusk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "thriving"
+    }
+   }
   }
  ]
 }
