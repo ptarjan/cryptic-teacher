@@ -88,6 +88,10 @@ tools = Path(".").resolve()
 late = sorted(m for m in set(sys.modules) - loaded
               if Path(getattr(sys.modules[m], "__file__", None) or "/").resolve().parent == tools)
 check("a commit loads no tree module past MODULES (they load under the code lock)", [], late)
+import ocr_clues
+check("nor the clue LM, for clues with no word printed twice (~3s a unit)", None, ocr_clues._LM)
+check("a doubled word still asks it", ([("composer", "a word doubled")], True),
+      (ocr_clues.stray("Plan composer composer here (5)"), ocr_clues._LM is not None))
 
 rc, _, _ = run({"results": [[{"number": 18184}, held]], "vlm": False, "decided": None})
 check("a title the desktop could not decide goes to the whole unit, the answer passed",
