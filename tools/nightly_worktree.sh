@@ -114,8 +114,13 @@ sys.stdout.buffer.write(s.unstamp(s.INDEX_HTML.read_text(encoding="utf-8")).enco
           echo "WORKTREE: put back $path in $home — its edit was already on origin/master or only asset stamps" >&2
       fi
     done < <(git -C "$home" diff --name-only HEAD --)
-    git -C "$home" merge-base --is-ancestor origin/master HEAD ||
-      git -C "$home" merge -q --ff-only origin/master 2>/dev/null
+    # A commit in the checkout holds index.lock for a moment; wait it out.
+    for _ in 1 2 3 4 5 6; do
+      git -C "$home" merge-base --is-ancestor origin/master HEAD ||
+        git -C "$home" merge -q --ff-only origin/master 2>/dev/null && break
+      [ -e "$common/index.lock" ] || break
+      sleep 5
+    done
   fi
   if ! git -C "$home" merge-base --is-ancestor origin/master HEAD; then
     edits="$(git -C "$home" diff --name-only HEAD -- | head -8 | tr '\n' ' ')"
