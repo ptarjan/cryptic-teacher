@@ -203,5 +203,20 @@ check "a keyed run and a cold solve of another puzzle send identical prompt flag
   "$([ -n "$keyed" ] && [ "$keyed" = "$solve" ] && echo same || diff <(echo "$keyed") <(echo "$solve"))" "same"
 check "the tool list is fixed by --tools" "$(grep -c -- '^--tools$' <<<"$keyed")" "1"
 
+echo "a git add refused by another command's index.lock is tried again"
+# shellcheck disable=SC2329  # its stubs are called by the sourced worker
+stage_with() (   # how many adds are refused before one goes through
+  CLAUDE_HEADLESS=() WORKER_MODEL=opus WORKER_EFFORT=medium WORKER_WRAP="" WORKER_JOB=test
+  . tools/puzzle_worker.sh
+  n=0
+  git() { case "$1" in add) n=$((n + 1)); [ "$n" -gt "$REFUSE" ];; *) return 0;; esac; }
+  python3() { return 0; }
+  sleep() { :; }
+  REFUSE="$1"
+  stage_puzzle pw-test-$$ && echo "staged after $n" || echo "refused after $n"
+)
+check "two refusals, then staged" "$(stage_with 2)" "staged after 3"
+check "a lock that never clears still fails, after five tries" "$(stage_with 99)" "refused after 5"
+
 [ "$fails" = 0 ] && echo "puzzle worker: all checks passed" || echo "puzzle worker: $fails FAILED"
 exit $((fails > 0))
