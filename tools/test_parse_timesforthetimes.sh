@@ -586,6 +586,21 @@ check "an answer with no dash is read off its enumeration, and only then" \
   "8:AGENCIES 9:BOND 10:CHOPCHOP 11:TIS 12:CHAMPION 13: 14:" \
   "$(run "$nodash" | cut -d'|' -f1,3 | tr '|\n' ': ' | sed 's/ $//')"
 
+# Pieces each followed by the clue words they stand for, in quotes, are a
+# charade spelled out in order: their letters are the answer, broken where the
+# enumeration breaks it (timesquick-2471's MARYLAND was left blank, and a
+# model's fill there badged the whole blog-sourced puzzle unverified).
+quoted='<table><tr><td><strong>Across</strong></td></tr>
+<tr><td>12</td><td>Contrary gardener to come down in a state (8)</td></tr>
+<tr><td></td><td><strong>MARY</strong> (&#8216;Contrary gardener&#8217;) <strong>LAND</strong> (&#8216;to come down&#8217;)</td></tr>
+<tr><td>13</td><td>Gardener and drop (4,4)</td></tr>
+<tr><td></td><td>MARY (&#8216;gardener&#8217;) LAND (&#8216;drop&#8217;)</td></tr>
+<tr><td>14</td><td>Rodent with son (4)</td></tr>
+<tr><td></td><td>RAT (&#8216;rodent&#8217;) + S (&#8216;son&#8217;)</td></tr></table>'
+check "quoted-gloss charade pieces spell the answer, and only at its length" \
+  "12:MARYLAND 13:MARYLAND 14:" \
+  "$(run "$quoted" | cut -d'|' -f1,3 | tr '|\n' ': ' | sed 's/ $//')"
+
 # The enumeration also cuts wordplay run on with no dash off an answer -- but
 # an answer the blogger ended with a dash is theirs, and an enumeration
 # disagreeing with it is the typo.

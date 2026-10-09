@@ -17,6 +17,7 @@ Reads the cache `tools/fetch_wp_blog.py timesforthetimes` writes; never the netw
 """
 import argparse
 import html
+import itertools
 import json
 import re
 import sys
@@ -525,6 +526,9 @@ def printed_answer(rest):
 CAPS_WORD = re.compile(r"[\s,\-\u2013\u2014]*([A-Z][A-Z'\u2019]*)(?![a-z])")
 #: One word of answer_by_enum's fallback: capitals, not glossed by a bracket.
 GLOSSLESS_WORD = re.compile(r"[ \-]*([A-Z][A-Z'\u2019]+)(?![a-z(\[])")
+#: The clue words a piece of a charade stands for, quoted in brackets after it:
+#: "MARY ('Contrary gardener') LAND ('to come down')" spells MARYLAND.
+QUOTED_GLOSS = re.compile(r"\s*\(\s*[\u2018\u201c'\"][^()]*[\u2019\u201d'\"]\s*\)")
 #: An answer typed in ordinary case -- "Champion - double definition",
 #: "Estonia - E and STONIA" -- counts only with the dash after it, because a
 #: line of wordplay opens with an ordinary word too: "Anagram of..." is (7).
@@ -579,14 +583,27 @@ def answer_by_enum(line, enum):
     # enumeration's total are the answer too. A word the blogger glosses,
     # "U(niversity)", is wordplay, and ends the search; so does a dash or a
     # one-letter word, which is where the prose starts: "TEA ROSE A neat...".
-    total, got, pos = sum(counts), [], 0
+    # A piece followed by the clue words it stands for in quotes, "MARY
+    # ('Contrary gardener') LAND ('to come down')", is a charade spelled out
+    # in order, and reading carries on past the quote.
+    total, got, pos, glossed = sum(counts), [], 0, False
     while sum(map(len, got)) < total:
         m = GLOSSLESS_WORD.match(line, pos)
         if not m:
             return None
         got.append(re.sub(r"[^A-Z]", "", m.group(1)))
         pos = m.end()
-    return " ".join(got) if sum(map(len, got)) == total else None
+        gloss = QUOTED_GLOSS.match(line, pos)
+        if gloss:
+            glossed, pos = True, gloss.end()
+    if sum(map(len, got)) != total:
+        return None
+    if glossed:
+        # Glossed pieces break where the wordplay does, not the answer: the
+        # enumeration says where its words end.
+        letters, ends = "".join(got), list(itertools.accumulate(counts))
+        return " ".join(letters[a:b] for a, b in zip([0] + ends, ends))
+    return " ".join(got)
 
 
 #: A printed answer the blogger ended with a dash: "PINCH POINT - PINCH...".

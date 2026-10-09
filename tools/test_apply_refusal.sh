@@ -64,6 +64,14 @@ check("a missing answer to a printed entry is refused",
       len(apply_solution.check_printed(part, {})) == 1)
 model = {**part, "solutions": {"origin": "model", "model": "opus", "date": "2026-10-01", "check": "x"}}
 check("a model fill may be replaced", not apply_solution.check_printed(model, {"15-across": "GALLWAY"}))
+# A blog write-up is the answer key: a light its parser left blank is never
+# solved over, or the model's fill badges every blog answer "unverified".
+blog = {**hw, "solutions": {"origin": "writeup", "blog": "timesforthetimes", "url": "u",
+                            "date": "2023-08-29", "check": "x"},
+        "entries": [{**hw["entries"][0], "solution": ""}]}
+check("a blog write-up's blank is refused, named",
+      "15-across" in "".join(apply_solution.check_writeup(blog)))
+check("a model fill may still be solved over", not apply_solution.check_writeup(model))
 # A clue printed with no words (genius-190's unclued 12-across) takes null:
 # it is not owed an annotation, and an explanation for it is refused.
 g190 = fetch_puzzle.resolve_puzzle("genius-190")
