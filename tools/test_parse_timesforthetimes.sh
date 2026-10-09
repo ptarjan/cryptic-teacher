@@ -865,5 +865,46 @@ check "an ellipsis keeps the space the paper prints before its mark" \
 import parse_timesforthetimes as t
 print(t.tidy("Stopped on the way to . . . ?") + "|" + t.tidy("Starters for the Oaks ?"))')"
 
+# Answers the blog prints in a shape the plain reader stops short of, each
+# read only when its letters are the count the clue gives: marks ahead of the
+# answer (TLS 1153's ".LEADERSHIP.", a themed "*NOEL"), struck or bracketed
+# working inside it (Jumbo 839's "[-f]ELL", ST 5053's "I[’]LL SAY"), the
+# Club Monthly's answers in ordinary case (20200's "gallycrow"), and prose
+# ahead of an answer in capitals (TLS 1162's "The very beautiful NEFERTITI").
+# Prose that only looks like that -- "Two definitions –", "An anagram of
+# TOAST" -- leaves the light blank for the grid to fill.
+harder() {  # harder <clue|answer line>... -> "number:answer:spaced" per light
+  PYTHONPATH="$REPO/tools" python3 - "$@" <<'PY'
+import sys, parse_timesforthetimes as t
+lines = ["Across"]
+for i, pair in enumerate(sys.argv[1:], 1):
+    clue, answer = pair.split("|")
+    lines += [f"{i} {clue}", answer]
+for e in t.read_entries(lines)[0]:
+    print(f"{e['number']}:{e['answer']}:{e.get('answer_spaced', '')}")
+PY
+}
+check "marks ahead of the answer are not the answer" \
+  "1:LEADERSHIP: 2:NOEL:" \
+  "$(harder "Editorial contribution's popular (10)|.LEADERSHIP. LEADER’S=editorial’s. HIP=popular." \
+            "Verse taken from novel (4)|*NOEL – I’ll give you the hint" | paste -sd' ')"
+check "struck letters and a bracketed apostrophe are the blogger's working" \
+  "1:ELL: 2:ILLSAY:ILL SAY 3:SOHELPMEGOD:SO HELP ME GOD" \
+  "$(harder "Measure dropped, following cut (3)|[-f]ELL – where would we be" \
+            "Quite bad as an illustration (3,3)|I[’]LL SAY ILL, “bad” + SAY" \
+            "SOS is incomplete (2,4,2,3)|SO[-s], HELP ME GOD" | paste -sd' ')"
+check "an answer in ordinary case before its dash, broken as the count breaks it" \
+  "1:GALLYCROW:GALLY-CROW 2:SKOSH: 3:ADRIANNE: 4:: 5::" \
+  "$(harder "Associate Charlie with swell clothing (5-4)|gallycrow – ALLY + C() in GROW (swell)" \
+            "Decisive punches in quiet American scrap (5)|s kosh – KOS (decisive punches) in SH" \
+            "Girl made trip (8)|Adrianne = the inner letters of: m AD e t RI p" \
+            "Plant and paper light (14)|Two definitions – a plant with cherry-like fruit" \
+            "Building blocks (8)|Lego time – the single letter that can represent" | paste -sd' ')"
+check "prose ahead of an answer in capitals, but not wordplay ahead of its fodder" \
+  "1:NEFERTITI: 2:YELLOWBOOK:YELLOW BOOK 3::" \
+  "$(harder "A queen uses it on marshland (9)|The very beautiful NEFERTITI Constructed thus. IT RE" \
+            "The colourful work (6,4)|The YELLOW BOOK was a periodical running from 1894-7" \
+            "Toast spoilt (5)|An anagram of TOAST" | paste -sd' ')"
+
 if [ "$fails" -gt 0 ]; then echo "$fails FAILURE(S)"; exit 1; fi
 echo "all checks passed"

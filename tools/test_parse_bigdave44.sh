@@ -222,4 +222,14 @@ L = ["Across", "23a Convert got holy urge (8)", "THEOLOGY – anagram",
 e, _ = tftt.read_entries(pb.headed(L))
 print(" ".join("%d%s:%s" % (x["number"], x["direction"][0], x.get("heading")) for x in e))' 2>&1 | tail -1)"
 
+check "a charade printed as glossed pieces is the whole answer, not its first piece" \
+  "1a:SUBJECTMATTER 3a:PETUNIA 5a:KEYPAD 7a:SUBJECT" "$(PYTHONPATH="$REPO/tools" python3 -c '
+import parse_bigdave44 as pb, parse_timesforthetimes as tftt
+L = ["Across", "1a Topic of discussion (7,6)", "SUBJECT = one that’s ruled, MATTER = to be important",
+     "3a Favourite flower (7)", "PET=favourite,UN,I,A – OK, though",
+     "5a Means of operating remote (6)", "KEY=Caribbean island,PAD=home – and remote",
+     "7a Citizen (7)", "SUBJECT = one that’s ruled"]
+e, _ = tftt.read_entries(pb.headed(L))
+print(" ".join("%d%s:%s" % (x["number"], x["direction"][0], x["answer"]) for x in e))' 2>&1 | tail -1)"
+
 [ $fails -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }
