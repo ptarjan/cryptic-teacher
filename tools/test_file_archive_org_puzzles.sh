@@ -125,6 +125,14 @@ check("garbled titles read",
                    "The Times Crossword Puzzle No 17,1 11", "The Times Crossword Puzzle No i.5,543",
                    "THE TIMES CROSSWORDNO 19,102", "THE TI MES CROSSWORD NO 19,350")
        for n, _ in f.headings([line(t)], f.TITLE)])
+check("a garbled \"Puzzle\" before \"No\" is read (1986-05-10, 1984-04-14, 1978-10-03, 1977-06-24)",
+      [17042, 16405, 15020, 14636],
+      [n for t in ("Times Crossword Pnzzle No 17,042", "Times Crossword Pu/zle No 16,405",
+                   "Times Crossword PozzleNo 15,020", "Times Crossword Ficzzle No 14,636")
+       for n, _ in f.headings([line(t)], f.TITLE)])
+check("(mirror) a word after Crossword with no \"No\" before the number is no title", [],
+      [n for t in ("Concise Crossword page 12,345", "Times Crossword Competition 12,345")
+       for n, _ in f.headings([line(t)], f.TITLE)])
 check("a garbled Concise, solution, Listener or index line is no title", [],
       [n for t in ("CONCfSE CROSSWORD NO 20,991", "SOLUTION TO CROSSWORD NO 19,055", "USTENER CROSSWORD No 13,430",
                    "Crossword 32.", "Times Two Crossword No 10,747")
@@ -557,6 +565,10 @@ check("a number filed for another day is refused",
 # date's number. Anything else stays refused.
 check("a number one digit off what its unbroken neighbours imply is theirs",
       5101, f.mended_digit(5401, D("1983-02-18"), 5099, {5100: D("1983-02-17"), 5102: D("1983-02-19")}))
+check("a number one digit short of what its unbroken neighbours imply is theirs (1930's 8 for 88)",
+      88, f.mended_digit(8, D("1930-05-15"), 88, {87: D("1930-05-14"), 89: D("1930-05-16")}))
+check("(mirror) a number one digit short of nothing its neighbours imply mends nothing",
+      None, f.mended_digit(9, D("1930-05-15"), 88, {87: D("1930-05-14"), 89: D("1930-05-16")}))
 check("(mirror) neighbours implying a number two digits off mend nothing",
       None, f.mended_digit(5421, D("1983-02-18"), 5099, {5100: D("1983-02-17"), 5102: D("1983-02-19")}))
 check("with no neighbours, the hundreds digit that brings it near the date's number is mended",
@@ -1983,6 +1995,14 @@ check("1930 titles behind the next column's words, split or misread (1930-03-19,
       [40, 71, 12, 4], [h[0][0] for h in t30])
 check("a 1930 title behind the next column's words is boxed from TIMES on", 100 + 10 * 25 + 8 * 4,
       t30[0][0][1][0])
+t30 = f.times1930_headings([line("a THE TIMES ROBSWORD PUZZLE No. 55")])[0]
+check("after TIMES a misread CROSSWORD is still the title (1930-04-05)", [55], [n for n, _, _ in t30])
+t30, _ = f.times1930_headings([line("SIDCUP events' four, 7 a THE TIM ES CROSS WORD PUZZLE No."),
+                                line("SOLUTION OF PUZZLE No. 51", y=900)])
+check("a numberless title behind run-on words and a split TIMES takes the solution's next (1930-04-02)",
+      [52], [n for n, _, _ in t30])
+check("(mirror) TIMES and PUZZLE with words between them are no title", ([], []),
+      f.times1930_headings([line("THE TIMES of the many puzzle solvers No. 12")]))
 check("the note under the clues is no title", ([], []),
       f.times1930_headings([line("The fifty-fifth crossword puzzle in this series, together with the solution of puzzle No. 54,")]))
 found30 = {"date": "1930-10-03", "puzzles": [{"number": 200, "leaf": 4}], "solutions": [{"number": 208, "leaf": 4}]}

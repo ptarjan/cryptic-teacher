@@ -221,11 +221,13 @@ NUMBER = r"(\d{2}[,.\s]?\d{3})"
 #: Listener or a solution heading (none of those words before "Crossword").
 #: The OCR garbles the words before "Crossword" ("Tfee Th:es", "THETIMES",
 #: "I he l imes"), puts a mark before or after it ("Crossword . No."), runs
-#: "No" on ("PuzzleNo") and "Times" into it ("TimesCrossword"), drops "No", splits the number ("1 8,862", "17,1 11"),
+#: "No" on ("PuzzleNo") and "Times" into it ("TimesCrossword"), garbles
+#: "Puzzle" before a "No" ("Pnzzle No", "Pu/zle No"), drops "No", splits the number ("1 8,862", "17,1 11"),
 #: reads its comma as any mark ("21*065") and its 1 as i ("i.5,543");
 #: read_puzzle checks the number against the date.
 TITLE = re.compile(r"^\W*(?:(?!(?:sunday|conc\w*|jumbo|two|quick|\w*stener|solutions?|to|of)\b)\S{1,8}\s+){0,4}?"
-                   r"(?:(?:the)?\s?t[il1]mes)?\W{0,3}crossword\W{0,3}(?:puzzle\W{0,3})?(?:n[o0]\W{0,3})?\s*"
+                   r"(?:(?:the)?\s?t[il1]mes)?\W{0,3}crossword\W{0,3}"
+                   r"(?:puzzle\W{0,3}|[^\s\d]{4,7}?\s*(?=n[o0]\b))?(?:n[o0]\W{0,3})?\s*"
                    r"([\dTIil][.,]?\s?\d[^\w\s]{0,2}\s?\d\s?\d\s?\d)(?!\d)", re.IGNORECASE)
 #: The previous puzzle's solution, printed under the clues ("to" read "tn").
 SOLUTION = re.compile(r"^\W*solution\s+(?:t[o0n]|o[fl])\s+puzzle\s+n[o0]\.?\s*" + NUMBER, re.I)
@@ -2124,11 +2126,12 @@ def times1930_expected_number(day):
 
 #: "THE TIMES CROSSWORD PUZZLE No. 27"; the OCR often reads the number apart
 #: from the words, or not at all, splits "CROSS WORD" or "PUZ ZLE", reads
-#: "PUBZLE", or runs the next column's words on ahead of "TIMES".
-TITLE_1930 = re.compile(r"(?:^\W*(?:\S{1,8}\s+){0,3}?|\btimes\W{0,3}\s*)cross\s?word\W{0,3}\s*pu[zb]\s?[zb]le\W{0,3}"
-                        r"\s*n[o0]\W{0,3}\s*(\d{1,3})(?!\d)", re.IGNORECASE)
-TITLE_1930_BARE = re.compile(r"^\W*(?:\S{1,8}\s+){0,3}?cross\s?word\W{0,3}\s*pu[zb]\s?[zb]le\W{0,3}\s*(?:n[o0]\W{0,3})?\s*\S{0,4}$",
-                             re.IGNORECASE)
+#: "PUBZLE", or runs the next column's words on ahead of "TIMES" (split
+#: "TIM ES"); after TIMES any one word stands for CROSSWORD ("ROBSWORD").
+_HEAD_1930 = (r"(?:^\W*(?:\S{1,8}\s+){0,3}?cross\s?word|\btim\s?es\W{0,3}\s*(?:cross\s?word|\S{6,10}))"
+              r"\W{0,3}\s*pu[zb]\s?[zb]le\W{0,3}")
+TITLE_1930 = re.compile(_HEAD_1930 + r"\s*n[o0]\W{0,3}\s*(\d{1,3})(?!\d)", re.IGNORECASE)
+TITLE_1930_BARE = re.compile(_HEAD_1930 + r"\s*(?:n[o0]\W{0,3})?\s*\S{0,4}$", re.IGNORECASE)
 #: "SOLUTION OF PUZZLE No. 26", under the clues.
 SOLUTION_1930 = re.compile(r"^\W*(?:\S{1,2}\s+)?solution\s+(?:of|to)\s+puzzle\s+n[o0]\W{0,3}\s*(\d{1,3})(?!\d)", re.IGNORECASE)
 
@@ -2149,7 +2152,7 @@ def times1930_headings(lines):
         if m:
             at = [len(" ".join(w[4] for w in ws[:k])) + (k > 0) for k in range(len(ws))]
             titles.append((int(m[1]), box_of([w for w, a in zip(ws, at) if a >= m.start()]), None))
-        elif TITLE_1930_BARE.match(text):
+        elif TITLE_1930_BARE.search(text):
             bare.append(box_of(ws))
     if not titles and bare and len(sols) == 1:
         titles = [(sols[0][0] + 1, bare[0], None)]
@@ -2412,15 +2415,17 @@ DIGIT_SLACK = 10
 
 def mended_digit(n, day, expected, held):
     """The number a title read as `n`, far from the `expected` its date
-    implies, names with one digit misread (the 1983 FT's "5,401" for 5,101):
-    the one its filed neighbours imply (implied) when that differs from `n`
-    in one digit, else, with no such neighbours, the one a digit worth 100
+    implies, names with one digit misread (the 1983 FT's "5,401" for 5,101)
+    or lost (the 1930 Times' "8" for 88): the one its filed neighbours imply
+    (implied) when that differs from `n` in one digit or by one digit more,
+    else, with no such neighbours, the one a digit worth 100
     or more mended puts within DIGIT_SLACK of `expected`; None when neither."""
     text = str(n)
     fixed = implied(day, held)
     if fixed is not None:
         other = str(fixed)
-        return fixed if len(other) == len(text) and sum(a != b for a, b in zip(text, other)) == 1 else None
+        lost = any(other[:k] + other[k + 1:] == text for k in range(len(other)))
+        return fixed if lost or len(other) == len(text) and sum(a != b for a, b in zip(text, other)) == 1 else None
     for k in range(len(text) - 2):
         for digit in "0123456789":
             m = int(text[:k] + digit + text[k + 1:])
@@ -2493,7 +2498,8 @@ REFUSALS = ("number-date-mismatch", "not-a-grid", "no-reading-parses", "crashed"
 #: {cause: ISO time}: an edition a title of which was refused for `cause`
 #: and read before that time is read again (due_reason), when the code
 #: behind that refusal changes; the rest of the corpus is not.
-REREAD_REFUSED = {"not-a-grid": "2026-10-09T10:00:00+00:00", "no-reading-parses": "2026-10-09T10:00:00+00:00"}
+REREAD_REFUSED = {"not-a-grid": "2026-10-09T10:00:00+00:00", "no-reading-parses": "2026-10-09T10:00:00+00:00",
+                  "number-date-mismatch": "2026-10-09T10:00:00+00:00"}
 
 
 def refuse(verdict, cause, why):
