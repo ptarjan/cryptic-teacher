@@ -3,10 +3,12 @@
 
     python3 tools/edition_queue.py run [--paper P ...] [--reread BEFORE] [--seconds N] [--workers N] [--fetch SRC]
     python3 tools/edition_queue.py plan [--paper P ...] [--reread BEFORE] [--fetch SRC]  # what is due; reads nothing
+    python3 tools/edition_queue.py unit KIND PAPER REL  # one unit; the queue starts these (CT_EDITION_UNIT)
 
 Each unit is one edition's scan (file_archive_org_puzzles.scan_unit) or one
-edition's read and filing (read_unit), run in a process of its own, forked
-from this one, with its own time limit (SCAN_SECONDS, READ_SECONDS) and its
+edition's read and filing (read_unit), run in a process of its own, started
+as `python3 tools/edition_queue.py unit ...` (never forked from this one), so
+it runs the code its tree holds when it starts, with its own time limit (SCAN_SECONDS, READ_SECONDS) and its
 own lock on the edition (scan_queue.source_lock), adding its own ledger row
 (scan_queue.append). So one slow edition holds up only its own slot, and two
 queues (tools/ocr_full_pass.sh's and tools/gale_read.sh's) never read one
@@ -39,8 +41,19 @@ batch filer (the Trove filer) beside the units, again while it says "left
 for the next run", each run under its own time limit, so it never waits on
 the editions nor they on it. SIGTERM stops starting units, passes the
 TERM to each one running and waits up to STOP_GRACE seconds for them.
+
+The queue follows its tree too: when a tools/ module it loaded changes on
+disk (tools/durable.sh's DURABLE_RESYNC moves the tree to origin/master while
+it runs), it hands its running units to its own new image (--resume, or
+--handoff when it has one) and re-execs itself, same pid, same --seconds
+end, so no run outlives the code it started on by more than a REPLAN.
+Each process loads all its code as it starts (code_reach.modules: lazy
+imports too), under a shared lock on the tree's code (snapshot) that
+tools/durable.sh's tree move takes whole, so none pairs modules of two
+versions of the tree.
 """
 import argparse
+import hashlib
 import json
 import os
 import shlex
@@ -52,6 +65,30 @@ from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
+
+
+def snapshot():
+    """Hold the tree's code still (a shared flock on <git dir>/code.lock,
+    which durable_resync takes alone to move the tree) and return the lock's
+    fd, or None outside a git tree. Found held, the tree is moving: wait it
+    out and re-exec, since what this process read already may be the old."""
+    import fcntl
+    try:
+        path = subprocess.run(["git", "-C", str(TOOLS), "rev-parse", "--path-format=absolute", "--git-path",
+                               "code.lock"], capture_output=True, text=True, check=True).stdout.strip()
+    except (OSError, subprocess.CalledProcessError):
+        return None
+    fd = os.open(path, os.O_RDWR | os.O_CREAT, 0o644)
+    try:
+        fcntl.flock(fd, fcntl.LOCK_SH | fcntl.LOCK_NB)
+    except BlockingIOError:
+        fcntl.flock(fd, fcntl.LOCK_SH)
+        os.execv(sys.executable, [sys.executable, *sys.argv])
+    return fd
+
+
+_snapshot = snapshot() if __name__ == "__main__" else None
+import code_reach  # noqa: E402
 import fetch_archive_org_editions as fetch_ao  # noqa: E402
 import fetch_trove  # noqa: E402
 import file_archive_org_puzzles as fa  # noqa: E402
@@ -59,6 +96,12 @@ import file_trove_puzzles as ftp  # noqa: E402
 import gale_listener  # noqa: E402
 import mem_gate  # noqa: E402
 import scan_queue  # noqa: E402
+
+if _snapshot is not None:
+    import importlib
+    for _name in sorted(code_reach.modules("edition_queue") - {"edition_queue"}):
+        importlib.import_module(_name)
+    os.close(_snapshot)
 
 #: The papers in the order a rank's units are taken; "trove" is the
 #: Canberra Times articles (tools/file_trove_puzzles.py), read in a pool of
@@ -204,8 +247,52 @@ def titled():
     return True
 
 
+#: The script a unit is started as (tests swap it).
+UNIT_SCRIPT = Path(__file__).resolve()
+
+
+def unit_argv(unit):
+    """A unit's command line: its kind, paper (or fetch source) and edition,
+    article or file, also its name in ps."""
+    return [sys.executable, str(UNIT_SCRIPT), "unit", unit["kind"], unit["paper"], unit["rel"]]
+
+
+def unit_main(spec):
+    """In the unit's own process: run `spec` (CT_EDITION_UNIT: the unit and
+    the queue's cache, puzzles and reread) and return its exit status
+    (EXITS; 1 for an error, logged)."""
+    unit = spec["unit"]
+    if titled():
+        import setproctitle
+        setproctitle.setproctitle(unit_title(unit))
+    try:
+        return EXITS.get(run_unit(unit, Path(spec["cache"]), spec["puzzles"] and Path(spec["puzzles"]),
+                                  scan_queue.when(spec["reread"])), 1)
+    except Exception as e:  # noqa: BLE001 -- the unit's end is its exit status, logged
+        scan_queue.failure((unit["rel"],), e)
+        return 1
+
+
+def code_files():
+    """{path: sha1} of this run's own code: every loaded module under tools/
+    and the script it was started as."""
+    paths = {Path(m.__file__).resolve() for m in list(sys.modules.values()) if getattr(m, "__file__", None)}
+    paths = {f for f in paths if f.parent == TOOLS}
+    main_file = getattr(sys.modules.get("__main__"), "__file__", None)
+    if main_file:
+        paths.add(Path(main_file).resolve())
+    return {f: digest(f) for f in paths}
+
+
+def digest(path):
+    try:
+        return hashlib.sha1(path.read_bytes()).hexdigest()
+    except OSError:
+        return None
+
+
 def run_unit(unit, cache, puzzles, reread):
-    """In the forked child: the unit's outcome (EXITS). A scan's desktop
+    """In the unit's process: its outcome (EXITS). A scan's desktop
     sessions run above the reads' (ocr_remote.PRIORITIES): a read waits on
     the scans its solution needs, so a starved scan holds up reads too."""
     if unit["kind"] == "scan":
@@ -233,8 +320,8 @@ class Beside:
     while its output says "left for the next run" and starting is allowed,
     each run given the queue's time left (or BESIDE_SECONDS) as its
     --seconds and killed BESIDE_GRACE after it. Its output goes to a file
-    this loop copies to the log as it grows: no thread, since the units are
-    forked from this process."""
+    this loop copies to the log as it grows: no thread, so the queue's
+    re-exec (code_files) leaves nothing half done."""
 
     def __init__(self, argv):
         self.argv, self.seconds = argv, 0
@@ -293,18 +380,23 @@ cpu_gate_reader = None
 
 def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=None, workers=WORKERS,
              scan_workers=SCAN_WORKERS, newer=None, beside=None, read_seconds=READ_SECONDS,
-             scan_seconds=SCAN_SECONDS, replan=REPLAN, fetch=(), trove_workers=TROVE_WORKERS, handoff=None):
+             scan_seconds=SCAN_SECONDS, replan=REPLAN, fetch=(), trove_workers=TROVE_WORKERS, handoff=None,
+             resume=None):
     """Run the queue until nothing due is left to start (or `seconds` have
     passed, or a TERM), then wait for the units running. `fetch` names the
     FETCHERS whose units run too, in pools of their own. With `handoff` (a
     path), the units another run handed over there are taken on (counted in
     their pools, killed at their limits, TERMed on a stop), and when
     `seconds` pass the units still running are handed over there in turn and
-    this run ends at once, not waiting for them. Returns the exit status: 0,
-    or 143 after a TERM."""
+    this run ends at once, not waiting for them. `resume` (a path) is the
+    hand-over of this run's own image before a re-exec (code_files changed),
+    taken on the same way. Returns the exit status: 0, or 143 after a TERM."""
     stop = []
     signal.signal(signal.SIGTERM, lambda *_: stop.append(signal.SIGTERM))
     signal.signal(signal.SIGINT, lambda *_: stop.append(signal.SIGINT))
+    # A re-exec blocks these across it (reexec); the handlers are in place now.
+    signal.pthread_sigmask(signal.SIG_UNBLOCK, {signal.SIGTERM, signal.SIGINT})
+    code = code_files()
     begun = time.monotonic()
     running = {}  # pid: (unit, started)
     tried = set()
@@ -319,7 +411,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     outages = dict.fromkeys(fetch, 0)
     memory_bound = cpu_bound = False  # logged once per slice
     stopped = set()  # fetch sources started no more this run
-    adopted = take_over(handoff) if handoff else {}  # pid: (unit, started), another run's
+    adopted = {**(take_over(handoff) if handoff else {}), **(take_over(resume) if resume else {})}  # pid: (unit, started)
     if not titled():
         log("setproctitle is not installed: every unit's command line shows the queue's (pip install setproctitle)")
     for unit, _ in adopted.values():
@@ -337,41 +429,30 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     def may_start():
         return not stop and (seconds is None or time.monotonic() - begun < seconds)
 
+    spec = {"cache": str(cache), "puzzles": puzzles and str(puzzles), "reread": reread and reread.isoformat()}
+
     def start(unit):
         sys.stdout.flush()
         sys.stderr.flush()
-        pid = os.fork()
-        if pid == 0:
-            code = 1
-            try:
-                os.setpgid(0, 0)
-                if titled():
-                    import setproctitle
-                    setproctitle.setproctitle(unit_title(unit))
-                signal.signal(signal.SIGTERM, signal.SIG_DFL)
-                signal.signal(signal.SIGINT, signal.SIG_DFL)
-                code = EXITS.get(run_unit(unit, cache, puzzles, reread), 1)
-            except BaseException as e:  # noqa: BLE001 -- the child's end is its exit status, logged
-                scan_queue.failure((unit["rel"],), e)
-            finally:
-                sys.stdout.flush()
-                sys.stderr.flush()
-                os._exit(code)
+        argv = unit_argv(unit)
+        env = {**os.environ, "CT_EDITION_UNIT": json.dumps({**spec, "unit": unit})}
+        pid = os.posix_spawn(argv[0], argv, env, setpgroup=0, setsigmask=())
         running[pid] = (unit, time.monotonic())
         tried.add(key_of(unit))
         log(f"start {unit['kind']} {unit['rel']} ({unit['reason']})")
 
     def reap():
-        while running:
+        # A unit this process started before a re-exec is adopted and still its child.
+        while running or adopted:
             try:
                 pid, status = os.waitpid(-1, os.WNOHANG)
             except ChildProcessError:
                 return
             if pid == 0:
                 return
-            if pid not in running:
+            if pid not in running and pid not in adopted:
                 continue
-            unit, t0 = running.pop(pid)
+            unit, t0 = running.pop(pid) if pid in running else adopted.pop(pid)
             finished[key_of(unit)] = time.monotonic()
             rc = os.waitstatus_to_exitcode(status)
             what = {0: "done", 3: "busy (another unit has it)", 4: "held (a run holds the ledger)",
@@ -408,6 +489,22 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 except ProcessLookupError:
                     pass
 
+    def reexec():
+        """Hand the running units to this run's new image and become it."""
+        path = handoff or resume or Path(f"/tmp/edition-queue-{os.getpid()}.json")
+        hand_over(path, units_running())
+        argv = [sys.executable, *sys.argv]
+        if seconds is not None:
+            argv += ["--seconds", str(max(0.0, seconds - (time.monotonic() - begun)))]
+        if not handoff:
+            argv += ["--resume", str(path)]
+        log(f"code changed ({', '.join(sorted(f.name for f, h in code.items() if digest(f) != h))}); "
+            f"re-exec, {len(running) + len(adopted)} running unit(s) kept")
+        sys.stdout.flush()
+        sys.stderr.flush()
+        signal.pthread_sigmask(signal.SIG_BLOCK, {signal.SIGTERM, signal.SIGINT})
+        os.execv(argv[0], argv)
+
     while True:
         reap()
         reap_adopted()
@@ -415,6 +512,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         for b in beside:
             b.poll(may_start(), None if seconds is None else seconds - (time.monotonic() - begun))
         if may_start() and (planned is None or time.monotonic() - planned >= replan):
+            if not any(b.busy() for b in beside) and any(digest(f) != h for f, h in code.items()):
+                reexec()
             notes = []
             scans, reads, fetches = replan_all(notes)
             planned = time.monotonic()
@@ -524,6 +623,15 @@ def alive(pid):
         return True
 
 
+def child(pid):
+    """Whether `pid` is this process's child (one it started before a
+    re-exec): ended or not, reap() collects its status."""
+    try:
+        return int(Path(f"/proc/{pid}/stat").read_text().rsplit(")", 1)[1].split()[1]) == os.getpid()
+    except (OSError, IndexError, ValueError):
+        return False
+
+
 def hand_over(path, units):
     """Write the units still running for the next run to take on."""
     now_wall, now = time.time(), time.monotonic()
@@ -535,19 +643,23 @@ def hand_over(path, units):
 
 def take_over(path):
     """{pid: (unit, started)} of the units a run handed over at `path` that
-    still run; the file is removed."""
+    still run or are this process's children; the file is removed."""
     try:
         rows = json.loads(Path(path).read_text())
     except FileNotFoundError:
         return {}
     Path(path).unlink()
     now_wall, now = time.time(), time.monotonic()
-    return {r["pid"]: (r["unit"], now - (now_wall - r["startedAt"])) for r in rows if alive(r["pid"])}
+    return {r["pid"]: (r["unit"], now - (now_wall - r["startedAt"])) for r in rows if alive(r["pid"]) or child(r["pid"])}
 
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
+    u = sub.add_parser("unit", help="run one unit (the queue starts these; CT_EDITION_UNIT holds it)")
+    u.add_argument("kind")
+    u.add_argument("paper")
+    u.add_argument("rel")
     for name in ("run", "plan"):
         p = sub.add_parser(name)
         p.add_argument("--paper", action="append", choices=PAPERS, help="default: every paper, in PAPERS order")
@@ -565,12 +677,16 @@ def main(argv=None):
     r.add_argument("--handoff", type=Path, metavar="FILE",
                    help="take on the units a run handed over in FILE; after --seconds, hand those still "
                         "running over there and end at once")
+    r.add_argument("--resume", type=Path, metavar="FILE", help="take on the units this run's own image handed "
+                   "over in FILE before re-exec'ing on a code change")
     r.add_argument("--trove-workers", type=int, default=TROVE_WORKERS, help="Trove article reads at once")
     r.add_argument("--wait", action="store_true", help="accepted for tools/ocr_full_pass.sh's slices; units never wait")
     r.add_argument("--beside", action="append", default=[], metavar="COMMAND",
                    help="a batch filer taking --seconds to run beside the units (shell words), again while it "
                         "leaves work")
     args = ap.parse_args(argv)
+    if args.cmd == "unit":
+        return unit_main(json.loads(os.environ["CT_EDITION_UNIT"]))
     papers = args.paper or PAPERS
     reread = scan_queue.when(args.reread)
     newer = None if args.newer_than is None else time.time() - args.newer_than
@@ -604,7 +720,7 @@ def main(argv=None):
             log(f"{ledger.name}: {folded[0]} rows folded to {folded[1]}")
     return dispatch(papers, args.cache, args.out, reread, args.seconds, args.workers, args.scan_workers, newer,
                     [shlex.split(b) for b in args.beside], fetch=args.fetch, trove_workers=args.trove_workers,
-                    handoff=args.handoff)
+                    handoff=args.handoff, resume=args.resume)
 
 
 if __name__ == "__main__":

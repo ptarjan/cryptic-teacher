@@ -68,6 +68,24 @@ class _Module:
                     self.imports[a.asname or a.name] = (node.module, a.name)
 
 
+def modules(name):
+    """Every tools/ module `name` may load: those it imports anywhere in its
+    code (a function's lazy import too), and theirs, `name` among them."""
+    seen, todo = set(), [name]
+    while todo:
+        m = todo.pop()
+        path = _source(m)
+        if m in seen or path is None:
+            continue
+        seen.add(m)
+        for node in ast.walk(ast.parse(path.read_text(encoding="utf-8"))):
+            if isinstance(node, ast.Import):
+                todo += [a.name.split(".")[0] for a in node.names]
+            elif isinstance(node, ast.ImportFrom) and node.module and not node.level:
+                todo.append(node.module.split(".")[0])
+    return seen
+
+
 def _stripped(node):
     """`node` as ast.dump, every docstring dropped."""
     node = ast.parse(ast.unparse(node)).body[0]

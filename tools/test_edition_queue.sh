@@ -171,16 +171,64 @@ q.append(rk, [{"edition": "a", "scanKey": f.whole_name_scan_key()}, {"edition": 
 check("rows under the old key take the narrowed one; others stay stale; once", (1, [f.scan_key(), "older"], 0),
       (f.rekey_scans(rk), [r["scanKey"] for r in q.jsonl_rows(rk)], f.rekey_scans(rk)))
 
+# ---- a unit's own process: its outcome is its exit status, an error logged
+for outcome, want in (("busy", 3), ("read", 0)):
+    eq.run_unit = lambda unit, cache, puzzles, reread, o=outcome: o
+    pid = os.fork()
+    if pid == 0:
+        os._exit(eq.unit_main({"unit": {"kind": "read", "paper": "times", "rel": "x"}, "cache": str(T),
+                               "puzzles": None, "reread": "2026-01-01T00:00:00+00:00"}))
+    check(f"unit_main: {outcome} exits {want}", want, os.waitstatus_to_exitcode(os.waitpid(pid, 0)[1]))
+def boom(unit, cache, puzzles, reread):
+    raise ValueError("bad page")
+eq.run_unit = boom
+r, w = os.pipe()
+pid = os.fork()
+if pid == 0:
+    os.dup2(w, 2)
+    sys.stderr = os.fdopen(2, "w")
+    os._exit(eq.unit_main({"unit": {"kind": "read", "paper": "times", "rel": "x"}, "cache": str(T),
+                           "puzzles": None, "reread": None}))
+os.close(w)
+said = os.fdopen(r).read()
+check("unit_main: an error exits 1, the traceback logged", (1, True),
+      (os.waitstatus_to_exitcode(os.waitpid(pid, 0)[1]), "failed x: ValueError: bad page" in said))
+
 # ---- the dispatcher: order, gating, limits, --seconds, TERM
+# Each unit is started as a fresh process of eq.UNIT_SCRIPT, here a fake
+# (named as the real one, for ps) whose behaviour each case writes.
 log = T / "units.log"
-def fake_unit(unit, cache, puzzles, reread):
-    with open(log, "a") as fh:
-        fh.write(f"{time.monotonic():.3f} start {unit['kind']} {unit['rel']}\n")
-    time.sleep({"slow": 30}.get(unit["rel"], 0.2))
-    with open(log, "a") as fh:
-        fh.write(f"{time.monotonic():.3f} end {unit['kind']} {unit['rel']}\n")
-    return "read"
-eq.run_unit = fake_unit
+fake_dir = T / "fake"
+fake_dir.mkdir()
+eq.UNIT_SCRIPT = fake_dir / "edition_queue.py"
+behaviour = T / "behaviour.json"
+eq.UNIT_SCRIPT.write_text(f"""import json, os, subprocess, sys, time
+VERSION = "v1"
+unit = json.loads(os.environ["CT_EDITION_UNIT"])["unit"]
+b = json.loads(open({str(behaviour)!r}).read())
+def say(line):
+    with open({str(log)!r}, "a") as fh:
+        fh.write(line + "\\n")
+if b.get("ps"):
+    say(unit["rel"] + "\\t" + subprocess.run(["ps", "-o", "args=", "-p", str(os.getpid())],
+                                            capture_output=True, text=True).stdout.strip())
+else:
+    say(f"{{time.monotonic():.3f}} start {{unit['kind']}} {{unit['rel']}} {{VERSION}}")
+if unit["rel"] == b.get("rewrite_on"):
+    path = b.get("rewrite", __file__)
+    with open(path) as fh:
+        text = fh.read()
+    with open(path, "w") as fh:
+        fh.write(text.replace(*b["change"]))
+time.sleep(b.get("sleep", {{}}).get(unit["rel"], b.get("default", 0.2)))
+if b.get("ends", True) and not b.get("ps"):
+    say(f"{{time.monotonic():.3f}} end {{unit['kind']}} {{unit['rel']}}")
+outcome = b.get("outcome", {{}}).get(unit["rel"], "read" if unit["kind"] == "read" else "fetched")
+sys.exit({eq.EXITS!r}.get(outcome, 1))
+""")
+def fake(**kw):
+    behaviour.write_text(json.dumps(kw))
+fake(sleep={"slow": 30})
 def units(scans, reads):
     return lambda papers, cache=None, reread=None, newer=None, out=None: (
         [{"kind": "scan", "paper": "times", "rel": r, "rank": 1, "reason": "scan stale"} for r in scans],
@@ -192,7 +240,7 @@ with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.St
 ev = [line.split()[1:] for line in log.read_text().splitlines()]
 starts = [e[2] for e in ev if e[0] == "start"]
 check("the dispatcher ends 0, every unit started once", (0, ["r1", "r2", "s1", "slow"]), (rc, sorted(starts)))
-check("a read starts only after the scan it needs ends", True, ev.index(["end", "scan", "s1"]) < ev.index(["start", "read", "r1"]))
+check("a read starts only after the scan it needs ends", True, ev.index(["end", "scan", "s1"]) < ev.index(["start", "read", "r1", "v1"]))
 check("a unit past its limit is killed, the others not held up", (False, True, True),
       (["end", "read", "slow"] in ev, ["end", "read", "r2"] in ev, time.monotonic() - t0 < 15))
 log.unlink()
@@ -230,12 +278,7 @@ check("--beside runs beside the units until it leaves nothing", (0, "3", True),
 # reads; a 429 lowers the pool, FETCH_OUTAGES in a row stop the source.
 log.unlink()
 outcome = {}
-def fake_any(unit, cache, puzzles, reread):
-    with open(log, "a") as fh:
-        fh.write(f"{time.monotonic():.3f} start {unit['kind']} {unit['rel']}\n")
-    time.sleep(0.3)
-    return outcome.get(unit["rel"], "read" if unit["kind"] == "read" else "fetched")
-eq.run_unit = fake_any
+fake(default=0.3, ends=False)
 eq.plan = units([], [("r1", [])])
 eq.FETCHERS = {"src": {"plan": lambda: [{"rel": f"e{k}", "reason": "not fetched"} for k in range(6)],
                        "run": None, "workers": 3, "seconds": 5}}
@@ -246,7 +289,7 @@ ev = [line.split()[1:] for line in log.read_text().splitlines()]
 check("fetch units run beside the reads, each once, in their own pool", (0, ["r1"], [f"e{k}" for k in range(6)]),
       (rc, [e[2] for e in ev if e[1] == "read"], sorted(e[2] for e in ev if e[1] == "fetch")))
 log.unlink()
-outcome = {"e0": "throttled", **{f"e{k}": "outage" for k in range(1, 4)}}
+fake(default=0.3, ends=False, sleep={"e0": 0.1}, outcome={"e0": "throttled", **{f"e{k}": "outage" for k in range(1, 4)}})
 eq.FETCH_OUTAGES = 3
 eq.FETCHERS["src"]["workers"] = 2
 err = io.StringIO()
@@ -258,34 +301,65 @@ check("a 429 lowers the pool; FETCH_OUTAGES down in a row stop the source for th
 
 # Each unit's command line names its kind, paper and edition, not the queue's.
 log.unlink()
-def own_args(unit, cache, puzzles, reread):
-    import subprocess
-    args = subprocess.run(["ps", "-o", "args=", "-p", str(os.getpid())], capture_output=True, text=True).stdout.strip()
-    with open(log, "a") as fh:
-        fh.write(f"{unit['rel']}\t{args}\n")
-    return "read" if unit["kind"] == "read" else "fetched"
-eq.run_unit = own_args
+fake(ps=True)
 eq.plan = units([], [("GaleTimes1988UKEnglish/1988-08-30", [])])
 eq.FETCHERS = {"src": {"plan": lambda: [{"rel": "article/120905968", "reason": "not fetched"}],
                        "run": None, "workers": 1, "seconds": 5}}
 with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
     eq.dispatch(["times"], cache, workers=1, fetch=["src"], replan=0.2)
-seen = dict(line.split("\t", 1) for line in log.read_text().splitlines())
+seen = {k: v[v.index("edition_queue.py unit"):] for k, v in (line.split("\t", 1) for line in log.read_text().splitlines())}
 check("a unit's ps command line is its kind, paper and edition",
       {"GaleTimes1988UKEnglish/1988-08-30": "edition_queue.py unit read times GaleTimes1988UKEnglish/1988-08-30",
        "article/120905968": "edition_queue.py unit fetch src article/120905968"}, seen)
 
+# ---- fresh code: a unit started after a code change runs the new code.
+# The first unit changes the unit script as it runs (master moved under
+# the tree); every unit started after it runs the changed script.
+log.unlink()
+fake(rewrite_on="c0", change=['VERSION = "v1"', 'VERSION = "v2"'], sleep={"c0": 0.5})
+eq.plan = units([], [(f"c{k}", []) for k in range(4)])
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=1, replan=0.2)
+ran = [e.split()[3:] for e in log.read_text().splitlines() if " start " in e]
+check("a unit started after a code change runs the new code, none the old",
+      [["c0", "v1"], ["c1", "v2"], ["c2", "v2"], ["c3", "v2"]], ran)
+
+# ---- the queue itself follows its code: a change to it hands its running
+# units to its new image (same pid, a child still) and re-execs.
+log.unlink()
+driver = T / "driver.py"
+driver.write_text(f"""import os, sys
+sys.path.insert(0, {str(Path.cwd())!r})
+import edition_queue as eq
+VERSION = "p1"
+print(f"parent {{VERSION}} {{os.getpid()}}", file=sys.stderr, flush=True)
+eq.cpu_gate_reader = lambda: 0.0
+eq.mem_gate_reader = lambda: 1 << 40
+eq.UNIT_SCRIPT = {str(eq.UNIT_SCRIPT)!r}
+eq.plan = lambda papers, cache=None, reread=None, newer=None, out=None: (
+    [], [{{"kind": "read", "paper": "times", "rel": r, "rank": 1, "reason": "never read", "needs": []}}
+         for r in ("long", "r1", "r2")])
+resume = sys.argv[sys.argv.index("--resume") + 1] if "--resume" in sys.argv else None
+sys.exit(eq.dispatch(["times"], {str(cache)!r}, workers=1, replan=0.3, resume=resume))
+""")
+eq.UNIT_SCRIPT.write_text(eq.UNIT_SCRIPT.read_text().replace('VERSION = "v2"', 'VERSION = "v1"'))
+fake(rewrite_on="long", rewrite=str(driver), change=['VERSION = "p1"', 'VERSION = "p2"'], sleep={"long": 3})
+import subprocess
+p = subprocess.run([sys.executable, str(driver)], capture_output=True, text=True, timeout=60)
+parents = [l.split()[1:] for l in p.stderr.splitlines() if l.startswith("parent ")]
+ev = [line.split()[1:] for line in log.read_text().splitlines()]
+check("a code change re-execs the queue once, same pid, new code", (0, ["p1", "p2"], True, True),
+      (p.returncode, [v for v, _ in parents], len({pid for _, pid in parents}) == 1, "re-exec" in p.stderr))
+check("its running unit is kept, not started again, reaped by the new image, then the rest start",
+      (1, True, True, ["long", "r1", "r2"]),
+      (sum(e[:3] == ["start", "read", "long"] for e in ev), "end read long: done" in p.stderr,
+       ev.index(["end", "read", "long"]) < ev.index(["start", "read", "r1", "v1"]),
+       [e[2] for e in ev if e[0] == "start"]))
+
 # ---- --handoff: a slice's end hands its running units to the next run,
 # which counts them in its pools and does not start them again.
 log.unlink()
-def timed_unit(unit, cache, puzzles, reread):
-    with open(log, "a") as fh:
-        fh.write(f"{time.monotonic():.3f} start {unit['kind']} {unit['rel']}\n")
-    time.sleep({"long": 4}.get(unit["rel"], 0.2))
-    with open(log, "a") as fh:
-        fh.write(f"{time.monotonic():.3f} end {unit['kind']} {unit['rel']}\n")
-    return "read"
-eq.run_unit = timed_unit
+fake(sleep={"long": 4})
 eq.plan = units([], [("long", []), ("r1", [])])
 ho = T / "handoff.json"
 out = io.StringIO()
@@ -301,9 +375,9 @@ with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
 ev = [line.split()[1:] for line in log.read_text().splitlines()]
 check("the next run takes it over: not started twice, its slot held until it ends, then r1",
       (0, 1, True, True, False),
-      (rc, sum(e == ["start", "read", "long"] for e in ev),
-       ev.index(["end", "read", "long"]) < ev.index(["start", "read", "r1"]),
-       "ended (taken over)" in err.getvalue(), ho.exists()))
+      (rc, sum(e[:3] == ["start", "read", "long"] for e in ev),
+       ev.index(["end", "read", "long"]) < ev.index(["start", "read", "r1", "v1"]),
+       "end read long" in err.getvalue(), ho.exists()))
 
 # ---- Trove articles: one read unit each, appended rows, its own lock
 import file_trove_puzzles as ftp
@@ -453,6 +527,26 @@ for reader, want in ((lambda: 1 * G, (0, 1)), (lambda: 16 * G, (3, 0))):
         uq.tick("fake")
     check("tick: units started / memory-bound lines", want, (len(spawned), out.getvalue().count("memory-bound")))
 uq.MEM_READER = None
+
+# ---- one version of the code a process: a start loads its lazy imports
+# too (the write path's puzzle_integrity), under code.lock; a tree move
+# holding code.lock alone makes a start wait it out.
+import subprocess, fcntl
+probe = ("import runpy, sys; sys.argv = ['edition_queue.py', '-h']\n"
+         "try:\n    runpy.run_path('edition_queue.py', run_name=RUN)\nexcept SystemExit:\n    pass\n"
+         "print('puzzle_integrity' in sys.modules, file=sys.stderr)")
+loaded = [subprocess.run([sys.executable, "-c", probe.replace("RUN", repr(run))], capture_output=True, text=True,
+                         timeout=120).stderr.strip().splitlines()[-1] for run in ("__main__", "edition_queue")]
+check("a run's start loads the modules it imports lazily; a plain import does not", ["True", "False"], loaded)
+lock_path = subprocess.run(["git", "rev-parse", "--path-format=absolute", "--git-path", "code.lock"],
+                           capture_output=True, text=True, check=True).stdout.strip()
+with open(lock_path, "a") as lk:
+    fcntl.flock(lk, fcntl.LOCK_EX)
+    waiting = subprocess.Popen([sys.executable, "edition_queue.py", "-h"], stdout=subprocess.DEVNULL)
+    time.sleep(3)
+    blocked = waiting.poll() is None
+    fcntl.flock(lk, fcntl.LOCK_UN)
+check("a start waits while the tree moves, then runs", (True, 0), (blocked, waiting.wait(timeout=120)))
 
 print("FAILS", fails)
 sys.exit(1 if fails else 0)

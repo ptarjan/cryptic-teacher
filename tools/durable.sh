@@ -7,6 +7,7 @@
 #     . tools/durable.sh
 #     durable_run "<what>" <command...>    # run it; commit every DURABLE_EVERY s
 #     durable_checkpoint "<what>"          # commit and push what is filed now
+#     DURABLE_RESYNC=1                     # and move the tree to origin/master after each
 #
 # Three mechanisms, one per way a job ends early:
 #
@@ -98,7 +99,13 @@ durable_run() {  # durable_run <what> <command...>: its exit status; DURABLE_TEE
     sleep 2 &
     wait $!
     if [ $((SECONDS - last)) -ge "$DURABLE_EVERY" ]; then
-      durable_checkpoint "$what" || echo "durable: checkpoint failed for $what"
+      if durable_checkpoint "$what"; then
+        # A job that starts its work as fresh processes (tools/edition_queue.py)
+        # runs master's code from the next one on, without a restart.
+        [ -n "${DURABLE_RESYNC:-}" ] && durable_resync
+      else
+        echo "durable: checkpoint failed for $what"
+      fi
       last=$SECONDS
     fi
   done
@@ -111,10 +118,14 @@ durable_run() {  # durable_run <what> <command...>: its exit status; DURABLE_TEE
 }
 
 durable_resync() {  # move the tree to origin/master; nothing is lost if it cannot (status 1)
+  local lock
   git fetch -q origin master 2>/dev/null
-  if ! git rebase -q origin/master 2>/dev/null; then
-    git rebase --abort 2>/dev/null
-    echo "durable: tree left where it is (rebase failed); its commits are pushed"
+  # A process starting off this tree (tools/edition_queue.py) loads its code
+  # under a shared lock on code.lock; the move takes it alone, so none loads
+  # half of each version.
+  lock="$(git rev-parse --path-format=absolute --git-path code.lock)"
+  if ! flock -w 60 "$lock" sh -c 'git rebase -q origin/master 2>/dev/null || { git rebase --abort 2>/dev/null; exit 1; }'; then
+    echo "durable: tree left where it is (rebase failed, or code.lock busy 60s); its commits are pushed"
     return 1
   fi
   _durable_pushed=""
