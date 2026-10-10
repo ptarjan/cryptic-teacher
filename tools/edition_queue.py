@@ -58,6 +58,8 @@ this process's ledger, scans and corpus already loaded), and its unit is
 tools/edition_commit.py's: it loads only its MODULES (under the same lock),
 sends the request, waits and commits what the desktop decided; any other
 outcome runs the whole unit in its place.
+A fetch unit loads only its source's module and that module's MODULES
+(FETCH_UNITS; under the same lock), what its fetch_unit reaches.
 """
 import argparse
 import hashlib
@@ -94,8 +96,60 @@ def snapshot():
     return fd
 
 
+def unit_title(unit):
+    """A unit's command line in ps: its kind, paper (or fetch source) and
+    edition, article or file, not the queue's."""
+    return f"edition_queue.py unit {unit['kind']} {unit['paper']} {unit['rel']}"
+
+
+def titled():
+    """Whether units can name themselves (setproctitle is installed)."""
+    try:
+        import setproctitle  # noqa: F401
+    except ImportError:
+        return False
+    return True
+
+
+def unit_status(unit, run):
+    """In the unit's own process: name it after `unit`, run() it and return
+    its exit status (EXITS; 1 for an error, logged)."""
+    import edition_commit
+    import scan_queue
+    if titled():
+        import setproctitle
+        setproctitle.setproctitle(unit_title(unit))
+    try:
+        return edition_commit.EXITS.get(run(), 1)
+    except Exception as e:  # noqa: BLE001 -- the unit's end is its exit status, logged
+        scan_queue.failure((unit["rel"],), e)
+        return 1
+
+
+#: Each fetch source's module and how its unit runs there. A fetch unit
+#: loads only that module and its MODULES (what its fetch_unit reaches), not
+#: the queue's filers: it is network work, started 30-70 times a minute.
+FETCH_UNITS = {"archive.org": ("fetch_archive_org_editions", lambda m, u: m.fetch_unit(m.downloads.ARCHIVE_ORG, u)),
+               "trove": ("fetch_trove", lambda m, u: m.fetch_unit(u))}
+
+
+def load_fetcher(source):
+    """Import fetch `source`'s module, its MODULES and what unit_status
+    uses (a fetch unit's start, under the code lock); return the module."""
+    import importlib
+    module = importlib.import_module(FETCH_UNITS[source][0])
+    for name in (*module.MODULES, "edition_commit", "scan_queue"):
+        importlib.import_module(name)
+    return module
+
+
 _snapshot = snapshot() if __name__ == "__main__" else None
 _spec = json.loads(os.environ.get("CT_EDITION_UNIT") or "{}") if sys.argv[1:2] == ["unit"] else {}
+if _spec.get("unit", {}).get("kind") == "fetch":
+    _fetcher = load_fetcher(_spec["unit"]["paper"])
+    if _snapshot is not None:
+        os.close(_snapshot)
+    sys.exit(unit_status(_spec["unit"], lambda: FETCH_UNITS[_spec["unit"]["paper"]][1](_fetcher, _spec["unit"])))
 if _snapshot is not None and _spec.get("brief"):
     # A read the queue prepared: its unit loads only what it commits with.
     import edition_commit
@@ -157,21 +211,17 @@ STOP_GRACE = 30
 #: A unit's exit status: what read_unit/scan_unit/a fetcher's unit returned.
 EXITS = edition_commit.EXITS
 
-#: The fetch units (--fetch SOURCE): each source's plan() of units, its unit
-#: runner, how many run at once and each one's time limit. archive.org
+#: The fetch units (--fetch SOURCE): each source's plan() of units (its unit
+#: runs FETCH_UNITS), how many run at once and each one's time limit. archive.org
 #: throttles each connection (~100 KB/s), not the client, so its units run
 #: in parallel, one connection each; an answer 429 lowers its slots by one,
 #: and FETCH_OUTAGES units in a row finding it down stop its fetches for
 #: the run (fetch_archive_org_editions.outage).
 FETCHERS = {
-    "archive.org": {"plan": lambda: fetch_ao.plan(fetch_ao.downloads.ARCHIVE_ORG),
-                    "run": lambda u: fetch_ao.fetch_unit(fetch_ao.downloads.ARCHIVE_ORG, u),
-                    "workers": 12, "seconds": 1200},
+    "archive.org": {"plan": lambda: fetch_ao.plan(fetch_ao.downloads.ARCHIVE_ORG), "workers": 12, "seconds": 1200},
     # Trove is asked at most once a second across every unit (fetch_trove
     # pace()); three at once overlap one's request with the others' waits.
-    "trove": {"plan": lambda: fetch_trove.plan(),
-              "run": lambda u: fetch_trove.fetch_unit(u),
-              "workers": 3, "seconds": 900},
+    "trove": {"plan": lambda: fetch_trove.plan(), "workers": 3, "seconds": 900},
 }
 FETCH_OUTAGES = fetch_ao.FAILURES_IN_A_ROW
 
@@ -264,21 +314,6 @@ def plan_fetches(sources):
     return out
 
 
-def unit_title(unit):
-    """A unit's command line in ps: its kind, paper (or fetch source) and
-    edition, article or file, not the queue's."""
-    return f"edition_queue.py unit {unit['kind']} {unit['paper']} {unit['rel']}"
-
-
-def titled():
-    """Whether units can name themselves (setproctitle is installed)."""
-    try:
-        import setproctitle  # noqa: F401
-    except ImportError:
-        return False
-    return True
-
-
 #: The script a unit is started as (tests swap it).
 UNIT_SCRIPT = Path(__file__).resolve()
 
@@ -294,15 +329,8 @@ def unit_main(spec):
     the queue's cache, puzzles and reread) and return its exit status
     (EXITS; 1 for an error, logged)."""
     unit = spec["unit"]
-    if titled():
-        import setproctitle
-        setproctitle.setproctitle(unit_title(unit))
-    try:
-        return EXITS.get(run_unit(unit, Path(spec["cache"]), spec["puzzles"] and Path(spec["puzzles"]),
-                                  scan_queue.when(spec["reread"])), 1)
-    except Exception as e:  # noqa: BLE001 -- the unit's end is its exit status, logged
-        scan_queue.failure((unit["rel"],), e)
-        return 1
+    return unit_status(unit, lambda: run_unit(unit, Path(spec["cache"]), spec["puzzles"] and Path(spec["puzzles"]),
+                                              scan_queue.when(spec["reread"])))
 
 
 def code_files():
@@ -329,8 +357,6 @@ def run_unit(unit, cache, puzzles, reread):
     the scans its solution needs, so a starved scan holds up reads too."""
     if unit["kind"] == "scan":
         os.environ["OCR_REMOTE_PRIORITY"] = "scan"
-    if unit["kind"] == "fetch":
-        return FETCHERS[unit["paper"]]["run"](unit)
     if unit["paper"] == "trove":
         return ftp.read_unit(unit["rel"], puzzles=None, reread=reread, force=unit.get("force"))
     if unit["paper"] == "listener":
