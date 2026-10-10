@@ -238,14 +238,22 @@ SOLUTION = re.compile(r"^\W*solution\s+(?:t[o0n]|o[fl])\s+puzzle\s+n[o0]\.?\s*" 
 #: How many puzzles before a page's title the solutions under it are: the day
 #: before's, and on a Saturday also the prize from the Saturday before.
 SOLUTION_LAGS = (1, 6)
+#: How many puzzles before a Saturday's title the Saturday before's prize is
+#: in a week a holiday took one or two issues from (Christmas: 16,618 under
+#: 16,622).
+HOLIDAY_LAGS = (4, 5)
 #: A solution heading as the OCR garbles it ("Solution of Push No. 15,645",
 #: "Solution to Tuzzle No I5.13S", 1986's "Solution to No 16,983"): a word, a
 #: connective, a word ("Puzzle"; none when the first is "Solution"), maybe "No",
+#: the connective run into the word where the OCR lost the space between
+#: ("Solution ofPtazfe No 15,761", "Solution oTPnzzle No 16.147": a lowercase
+#: letter, then a capital),
 #: then the number, maybe read in pieces ("15 ,751", "19,7 1 1", "1 9.037",
 #: ". 15, 244");
 #: solution_number() decides.
 LOOSE_NUMBER = r"(?:[nm][^\s\d]{0,2}\s*)?(\S{1,7}(?:\s\S{1,5}){0,2})$"
-LOOSE_SOLUTION = re.compile(r"^\W*(\S{4,11})\s+(\S{1,3})\s+(?:(\S{3,8})\s+)?" + LOOSE_NUMBER, re.IGNORECASE)
+LOOSE_SOLUTION = re.compile(r"^\W*(\S{4,11})\s+(\S{1,3})(?:\s+|(?-i:(?<=[a-z])(?=[A-Z])))(?:(\S{3,8})\s+)?" + LOOSE_NUMBER,
+                            re.IGNORECASE)
 #: The 1980s-90s heading: "The Solution" over "No 16,219".
 SOLUTION_OVER = re.compile(r"^\W*(?:the\s+)?(\S{6,10})\W*$", re.IGNORECASE)
 NUMBER_UNDER = re.compile(r"^\W*" + LOOSE_NUMBER, re.IGNORECASE)
@@ -304,15 +312,18 @@ def solution_headings(lines, titles):
     `titles`: each line, or its tail past a clue column the OCR ran it on
     from, reading as LOOSE_SOLUTION with "solution" or "puzzle" like
     itself, whose number is one SOLUTION_LAGS before a title
-    (solution_number). With no title read, SOLUTION's exact headings."""
+    (solution_number), or read clean as one HOLIDAY_LAGS before (a week
+    short of an issue: linked_solutions keeps it only where the filed
+    dates say a prize was). With no title read, SOLUTION's exact headings."""
     if not titles:
         return headings(lines, SOLUTION)
     expected = {t - lag for t in titles for lag in SOLUTION_LAGS}
+    clean = {t - lag for t in titles for lag in HOLIDAY_LAGS} - expected
     found = []
     for ws in lines:
         k = 0
         while k < len(ws):
-            end = solution_at(ws, k, expected)
+            end = solution_at(ws, k, expected, clean)
             if end is None:
                 k += 1
                 continue
@@ -324,10 +335,10 @@ def solution_headings(lines, titles):
     return found + solutions_over(lines, expected)
 
 
-def solution_at(ws, k, expected):
+def solution_at(ws, k, expected, clean=()):
     """(number, last word's index) of the shortest LOOSE_SOLUTION heading
     opening at word `k` of a line whose number is one of `expected`
-    (solution_number), or None. A line may hold two ("Solution to Puzzle
+    (solution_number), or read digit for digit as one of `clean`, or None. A line may hold two ("Solution to Puzzle
     No 19,243 Solution to Punk No 19.248"): solution_headings reads on past
     the first."""
     text = ""
@@ -338,6 +349,9 @@ def solution_at(ws, k, expected):
                 or re.search(r"\d", m[1] + (m[3] or "")):
             continue
         n = solution_number(m[4], expected)
+        read = re.sub(r"[\s,.]", "", m[4])
+        if n is None and read.isdigit() and int(read) in clean:
+            n = int(read)
         if n is not None:
             return n, j
     return None
@@ -1670,8 +1684,9 @@ def _scan(d):
             titles, sols = paper.headings(text[leaf])
             titles = [(n, box, setter, None) for n, box, setter in titles] or \
                 ocr_titles(page(d, leaf), paper, datetime.date.fromisoformat(pages["date"]), f"{d.name}_{leaf}")
-            if paper is TIMES and titles and not sols:
-                sols = band_solutions(page(d, leaf), [t[0] for t in titles], text[leaf],
+            if paper is TIMES and titles and not {n for n, _ in sols} & \
+                    {t[0] - lag for t in titles for lag in SOLUTION_LAGS}:
+                sols = sols + band_solutions(page(d, leaf), [t[0] for t in titles], text[leaf],
                                       f"{d.parent.name}_{d.name}_{leaf}", [t[1] for t in titles])
         for n, box, setter, readers in titles:
             found["puzzles"].append({"number": n, "leaf": leaf, "box": box,
