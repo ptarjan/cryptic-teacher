@@ -189,19 +189,25 @@ check("a refusal read before its cause's fix is due; after it, or another cause,
       [f.due_reason(refused("not-a-grid", "2026-10-01T00:00:00+00:00"), "h", [], "v"),
        f.due_reason(refused("not-a-grid", "2099-01-01T00:00:00+00:00"), "h", [], "v"),
        f.due_reason(refused("crashed", "2026-10-01T00:00:00+00:00"), "h", [], "v")])
-part = lambda acc, refusal, at: {**refused(None, at), "verdicts": [
-    {"number": 1, "solution": {"accepted": acc, "lights": 30, **({"refused": refusal} if refusal else {})}}]}
-check("a solution grid read in part before the partial fix is due; read whole, refused, or after it is not",
-      ["solution read in part before its fix", None, None, None],
-      [f.due_reason(part(20, None, "2026-10-01T00:00:00+00:00"), "h", [], "v"),
-       f.due_reason(part(30, None, "2026-10-01T00:00:00+00:00"), "h", [], "v"),
-       f.due_reason(part(0, "its blocks are not the puzzle's", "2026-10-01T00:00:00+00:00"), "h", [], "v"),
-       f.due_reason(part(20, None, "2099-01-01T00:00:00+00:00"), "h", [], "v")])
+part = lambda acc, refusal, key: {**refused(None, "2099-01-01T00:00:00+00:00"), "verdicts": [
+    {"number": 1, "solution": {"accepted": acc, "lights": 30, **({"refused": refusal} if refusal else {})}}],
+    **({"solutionKey": key} if key else {})}
+short = "solution short, read by other code"
+check("a solution read in part or refused by other solution code, or no key, is due; whole, or this code's, is not",
+      [short, short, short, None, None, None],
+      [f.due_reason(part(20, None, "other"), "h", [], "v"),
+       f.due_reason(part(0, "its blocks are not the puzzle's", "other"), "h", [], "v"),
+       f.due_reason(part(20, None, None), "h", [], "v"),
+       f.due_reason(part(30, None, "other"), "h", [], "v"),
+       f.due_reason(part(30, None, None), "h", [], "v"),
+       f.due_reason(part(20, None, f.solution_key()), "h", [], "v")])
+check("the solution key is the solution reader's code, not the scan's", True,
+      len(f.solution_key()) == 16 and f.solution_key() != f.scan_key())
 import scan_queue
 # A reread time is when its fix landed: one still ahead re-reads every row
 # the pass reads until then, over and over.
 check("no reread time is in the future", [],
-      [t for t in (f.REREAD_PARTIAL, *f.REREAD_REFUSED.values())
+      [t for t in f.REREAD_REFUSED.values()
        if scan_queue.when(t) > scan_queue.when("now")])
 # Real titles the pass found no title on (no-crossword-found):
 # "Times" garbled past one word, a mark after Crossword, "No" run on or
@@ -1157,7 +1163,7 @@ def stale_fixed(verdict):
     scan_queue.append(pl, [{**stale, "verdicts": [verdict]}, settled_row(e2)])
     return [(u["rank"], u["reason"]) for u in f.plan(f.TIMES, pc)[1] if u["rel"].endswith("_1")]
 check("a stale scan's read a reader fix can change ranks with the fixes, not the whole corpus",
-      [[(2, "solution read in part before its fix")], [(2, "refused not-a-grid before its fix")],
+      [[(2, "solution short, read by other code")], [(2, "refused not-a-grid before its fix")],
        [(3, "scan stale")]],
       [stale_fixed({"number": 15436, "solutionFrom": "x", "solution": {"accepted": 20, "lights": 30}}),
        stale_fixed({"number": 15436, "refused": True, "cause": "not-a-grid"}),
@@ -1544,11 +1550,11 @@ def fake(path, grid, tight=False):
 trove_solution_ocr.read_answers = fake
 sol = {"dir": ed, "leaf": 3, "number": 7, "box": (100, 100, 400, 140)}
 stats_blocks = 1.0
-got, _ = f.read_solution(sol, ["..."])
+got, _ = f.read_solution(f.page(ed, 3), sol, ["..."])
 check("solution answers keyed as fill() reads them, the grid cropped tight at 3x and read on its own rules",
       ({"1-across": "ABC"}, ((352 * 3, 352 * 3), True)), (got, seen[0]))
 stats_blocks = 0.9
-got, info = f.read_solution(sol, ["..."])
+got, info = f.read_solution(f.page(ed, 3), sol, ["..."])
 check("a solution grid whose blocks are not the puzzle's gives no answers", ({}, True), (got, "refused" in info))
 
 check("a complete puzzle goes to the corpus, with or without --out",

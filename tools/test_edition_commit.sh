@@ -41,7 +41,7 @@ ledger.write_text(json.dumps({"edition": "other/1"}) + "\n")
 found = {"puzzles": [{"number": 18184, "leaf": 3}], "solutions": []}
 ctx = {"rel": "Item/1990-01-06", "ledger": str(ledger), "ledgerSize": ledger.stat().st_size, "series": "times",
        "puzzles": None, "source": str(tmp / "src"), "crops": str(tmp / "crops"), "found": found,
-       "filesHash": "fh", "solutionsSeen": [], "scanKey": "sk", "vlmVersion": "v1", "reprints": ""}
+       "filesHash": "fh", "solutionsSeen": [], "scanKey": "sk", "solutionKey": "solk", "vlmVersion": "v1", "reprints": ""}
 
 class Desktop:
     def __init__(self, answer):
@@ -81,7 +81,7 @@ row = json.loads(ledger.read_text().splitlines()[-1])
 check("the desktop's writes are made and the brief removed", (0, True, True, False),
       (rc, (corpus / "times-18184.json").exists(), (tmp / "src" / "times-18184.json").exists(), left))
 check("the row is the read's, with the VLM it was read with",
-      {"edition": ctx["rel"], "inputs": "fh", "scan": found, "filesHash": "fh", "scanKey": "sk",
+      {"edition": ctx["rel"], "inputs": "fh", "scan": found, "filesHash": "fh", "scanKey": "sk", "solutionKey": "solk",
        "solutionsSeen": [], "verdicts": [{"number": 18184, "id": "times-18184", "wrote": True}], "vlm": "v1"},
       {k: v for k, v in row.items() if k != "readAt"})
 check("this process's VLM answer goes in the request", True, desk.sent["vlm"])

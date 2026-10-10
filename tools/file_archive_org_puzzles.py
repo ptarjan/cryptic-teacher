@@ -2844,11 +2844,6 @@ REFUSALS = ("number-date-mismatch", "not-a-grid", "no-reading-parses", "crashed"
 #: behind that refusal changes; the rest of the corpus is not.
 REREAD_REFUSED = {"not-a-grid": "2026-10-09T10:00:00+00:00", "no-reading-parses": "2026-10-09T10:00:00+00:00",
                   "number-date-mismatch": "2026-10-09T10:00:00+00:00"}
-#: A read whose solution grid filed only some of its lights is read again
-#: once after this time: bump it with a solution reader fix that reads more,
-#: to a time no earlier than the fix's push (a row read before it was read
-#: by the old reader).
-REREAD_PARTIAL = "2026-10-10T19:22:56+00:00"
 
 
 def refuse(verdict, cause, why):
@@ -3073,7 +3068,8 @@ def read_puzzle(d, found, hit, solutions):
         puzzle["setter"] = setter
     sol = solutions.get(n)
     if sol:
-        answers, info = read_solution(sol, grid, above=paper_of(sol["dir"]).solution_above)
+        answers, info = read_solution(page(sol["dir"], sol["leaf"]), sol, grid,
+                                      above=paper_of(sol["dir"]).solution_above)
         verdict["solutionFrom"] = solution_source(sol)
         verdict["solution"] = info
         verdict["answers"] = trove_solution_ocr.fill(puzzle, answers)
@@ -3197,13 +3193,13 @@ SOLUTION_BLOCKS = 0.97
 SOLUTION_CLOSE = 3
 
 
-def read_solution(sol, grid, above=False):
+def read_solution(img, sol, grid, above=False):
     """({light: answer}, stats) read off the solution grid under a "Solution
-    to Puzzle No N" heading, or with `above`, over it (the Guardian's)."""
-    d, leaf = sol["dir"], sol["leaf"]
+    to Puzzle No N" heading on page `img`, or with `above`, over it (the
+    Guardian's). Its code is solution_key()'s."""
+    d = sol["dir"]
     x0, y0, x1, y1 = sol["box"]
     from PIL import Image
-    img = page(d, leaf)
     w = x1 - x0
     crop = (max(0, x0 - 80), y1, min(img.width, x1 + 140), min(img.height, y1 + int(1.4 * w) + 60))
     if above:
@@ -3286,6 +3282,21 @@ def rekey_scans(ledger):
 SCAN_ROOTS = {"scan"}
 _SCAN_KEY = []
 _SIZED_KEY = []
+
+
+def solution_key():
+    """A hash of the code that reads a solution grid off its page
+    (read_solution and what it reaches), past the transport and thread-pool
+    sizing: a row whose solution was read in part or refused by other code
+    is read again (fix_reason)."""
+    if not _SOLUTION_KEY:
+        import code_reach
+        _SOLUTION_KEY.append(code_reach.key("file_archive_org_puzzles", {"read_solution"},
+                                            opaque=code_reach.TRANSPORT + code_reach.SIZING))
+    return _SOLUTION_KEY[0]
+
+
+_SOLUTION_KEY = []
 
 
 def input_hash(d):
@@ -3540,17 +3551,18 @@ def solution_sources(dirs, scans, rels, held, sister):
 def fix_reason(row):
     """Why a read `row` is read again for a reader fix landed since, or None:
     a refusal read before its cause's fix (REREAD_REFUSED), or a solution
-    grid read in part before REREAD_PARTIAL. Due whether its scan stands or
-    not, so a stale scan never sinks it to the whole-corpus rank."""
+    grid read in part or refused by other solution code (solution_key). Due
+    whether its scan stands or not, so a stale scan never sinks it to the
+    whole-corpus rank."""
     for v in row.get("verdicts", ()):
         t = REREAD_REFUSED.get(v.get("cause"))
         if t and scan_queue.read_before(row, scan_queue.when(t)):
             return f"refused {v['cause']} before its fix"
-    for v in row.get("verdicts", ()):
-        s = v.get("solution")
-        if (isinstance(s, dict) and not s.get("refused") and s.get("accepted", 0) < s.get("lights", 0)
-                and scan_queue.read_before(row, scan_queue.when(REREAD_PARTIAL))):
-            return "solution read in part before its fix"
+    if row.get("solutionKey") != solution_key():
+        for v in row.get("verdicts", ()):
+            s = v.get("solution")
+            if isinstance(s, dict) and (s.get("refused") or s.get("accepted", 0) < s.get("lights", 0)):
+                return "solution short, read by other code"
     return None
 
 
@@ -3832,13 +3844,14 @@ def staged_at(d):
 #: takes the lowest first): 0 pages Paul saved by hand; 1 any other
 #: never-read edition and annotation's asks; 2 a re-read that can change
 #: what it filed: its inputs or titles moved, it was read without the VLM,
-#: or a fix landed for what it refused or read in part; 3 the whole-corpus
+#: a fix landed for what it refused, or its solution read short by other
+#: solution code (solution_key); 3 the whole-corpus
 #: re-reads: a scan by older scan code (scan_key) and --reread BEFORE, which
 #: edition_queue.dispatch starts only once nothing ranked below 3 waits.
 #: Within a rank, the reads likely() predicts to file the most puzzles
 #: whole go first. Every reason due_reason or plan gives is named here.
 RANKS = {"saved by hand": 0, "never read": 1, "annotation asked": 1, "inputs changed": 2, "titles changed": 2,
-         "solution moved": 2, "read without the VLM": 2, "solution read in part before its fix": 2,
+         "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          **{f"refused {c} before its fix": 2 for c in REFUSALS}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "scan stale": 3, "--reread": 3}
 #: The reasons of a read whose scan is by older scan code: "answers missing"
@@ -4133,7 +4146,8 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
         return head, tar, {
             "rel": rels[d], "ledger": str(ledger), "ledgerSize": ledger_size, "series": paper.series,
             "puzzles": puzzles and str(puzzles), "source": str(source), "crops": str(CROPS), "found": found,
-            "filesHash": fh, "solutionsSeen": sol_seen, "scanKey": scan_key(), "vlmVersion": vlm.version(),
+            "filesHash": fh, "solutionsSeen": sol_seen, "scanKey": scan_key(), "solutionKey": solution_key(),
+            "vlmVersion": vlm.version(),
             "reprints": reprint_key([p["number"] for p in found["puzzles"]], paper.series)}
     fresh = 0
     for (d, found), (results, vlm_ok, *decided) in scan_queue.parallel(
@@ -4155,7 +4169,8 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
         # Keyed by the inputs after this read's writes: a stray clue it
         # mended no longer makes the edition due.
         h = inputs_of(fh, found, paper.series)
-        known[rel] = edition_commit.row(rel, h, found, fh, scan_key(), sol_seen, verdicts, vlm_ok and seen_by)
+        known[rel] = edition_commit.row(rel, h, found, fh, scan_key(), sol_seen, verdicts, vlm_ok and seen_by,
+                                        solution_key())
         changed.add(rel)
         flush()
         progress(edition_commit.read_line(rel, verdicts))
