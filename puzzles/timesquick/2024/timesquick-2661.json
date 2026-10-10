@@ -24,6 +24,9 @@
   "date": "2024-04-27",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,55 @@
     "text": "Famous actor, perhaps, one disembarking from flight",
     "enumeration": "4"
    },
-   "solution": "STAR"
+   "solution": "STAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STAR",
+    "definitions": [
+     {
+      "text": "Famous actor, perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disembarking from",
+      "for": "deletion",
+      "note": "someone disembarking gets off, so that item leaves the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "flight",
+      "gives": "STAIR",
+      "note": "a flight of steps is a stair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity is spotted stepping off an aeroplane.",
+     "walkthrough": "'Flight' suggests an aeroplane, but it is a flight of stairs; take the I out of STAIR to leave STAR.",
+     "definitionFit": "A star is a celebrated performer, and a famous actor is one example, hence 'perhaps'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flight"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +102,67 @@
     "text": "Bowled over a scoundrel snatching one item of jewellery",
     "enumeration": "5"
    },
-   "solution": "TIARA"
+   "solution": "TIARA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TIARA",
+    "definitions": [
+     {
+      "text": "item of jewellery",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bowled over",
+      "for": "reversal",
+      "note": "something bowled over is knocked onto its back, so the following words are turned round"
+     },
+     {
+      "text": "snatching",
+      "for": "container",
+      "note": "to snatch something is to grab and hold it, so one piece is clutched inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a scoundrel",
+      "gives": "ARAT",
+      "note": "a rat is a scoundrel"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "I",
+      "ARA"
+     ],
+     "reversals": [
+      {
+       "from": "ARAT",
+       "to": "TARA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is amazed by a villain who steals a piece of jewellery.",
+     "walkthrough": "'Bowled over' reads as amazed, but it turns A RAT round to TARA, which then takes in I after its T.",
+     "definitionFit": "A tiara is a jewelled headband or small crown, a piece of ornamental jewellery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bowled"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +176,54 @@
     "text": "A story he made up for Scottish island town",
     "enumeration": "8"
    },
-   "solution": "ROTHESAY"
+   "solution": "ROTHESAY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROTHESAY",
+    "definitions": [
+     {
+      "text": "Scottish island town",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "made up",
+      "for": "anagram",
+      "note": "a made-up story is invented, so these letters are worked into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A story he",
+      "gives": "ASTORYHE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASTORYHE",
+       "gives": "ROTHESAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone invents a tale about a little Scottish town on an island.",
+     "walkthrough": "Rothesay is the main town on the Isle of Bute in the Firth of Clyde.",
+     "definitionFit": "Rothesay is the chief town of Bute, an island off the west coast of Scotland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "made"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +243,51 @@
      }
     ]
    },
-   "solution": "STPAUL"
+   "solution": "STPAUL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ST PAUL",
+    "definitions": [
+     {
+      "text": "US city",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for rebuilding",
+      "for": "anagram",
+      "note": "something up for rebuilding will be taken apart and put together differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "last up",
+      "gives": "LASTUP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LASTUP",
+       "gives": "STPAUL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American city is the most recent one due for redevelopment.",
+     "walkthrough": "'Up' sits inside the surface phrase 'up for rebuilding' but belongs to the letters being shuffled.",
+     "definitionFit": "St Paul is the state capital of Minnesota, a city in the United States."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +301,58 @@
     "text": "Writer going round street to find restaurant",
     "enumeration": "6"
    },
-   "solution": "BISTRO"
+   "solution": "BISTRO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BISTRO",
+    "definitions": [
+     {
+      "text": "restaurant",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going round",
+      "for": "container",
+      "note": "going round something means surrounding it, so one piece wraps the other"
+     }
+    ],
+    "linkWords": [
+     "to find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writer",
+      "gives": "BIRO",
+      "note": "a Biro is a ballpoint pen, a writer"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BI",
+      "ST",
+      "RO"
+     ]
+    },
+    "explanation": {
+     "surface": "An author strolls about the streets looking for somewhere to eat.",
+     "walkthrough": "'Writer' suggests an author, but it is a pen: BIRO is the British brand name for a ballpoint.",
+     "definitionFit": "A bistro is a small, informal restaurant, originally French."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Writer"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +366,76 @@
     "text": "Excited, I start to gambol between rugby posts",
     "enumeration": "4"
    },
-   "solution": "HIGH"
+   "solution": "HIGH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "HIGH",
+    "definitions": [
+     {
+      "text": "Excited",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, which alone is kept"
+     },
+     {
+      "text": "between",
+      "for": "container",
+      "note": "something placed between two things is enclosed by them on either side"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rugby posts",
+      "gives": "H",
+      "note": "rugby goalposts are shaped like the letter H; the first of the pair"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gambol",
+      "gives": "G",
+      "select": "first",
+      "note": "the opening letter of gambol"
+     },
+     {
+      "clueFragment": "rugby posts",
+      "gives": "H",
+      "note": "the second H-shaped post"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "I",
+      "G",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A rugby fan, thrilled, starts skipping about between the goalposts.",
+     "walkthrough": "Rugby posts form an H, and two of them, one each side, enclose I and G.",
+     "definitionFit": "High can mean elated or excitable, in a state of heightened excitement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "posts"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +459,50 @@
      }
     ]
    },
-   "solution": "ONTHINICE"
+   "solution": "ONTHINICE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ON THIN ICE",
+    "definitions": [
+     {
+      "text": "in delicate situation",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "twitching",
+      "for": "anagram",
+      "note": "twitching is jerky, restless movement, so these letters jump into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I note chin",
+      "gives": "INOTECHIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INOTECHIN",
+       "gives": "ONTHINICE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone observes a nervous twitch in their chin during an awkward moment.",
+     "definitionFit": "To be on thin ice is an idiom for being in a risky or precarious position."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +516,74 @@
     "text": "Beethoven symphony lifted heart around island area",
     "enumeration": "6"
    },
-   "solution": "EROICA"
+   "solution": "EROICA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "EROICA",
+    "definitions": [
+     {
+      "text": "Beethoven symphony",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lifted",
+      "for": "reversal",
+      "note": "in a down entry, a word lifted is read from bottom to top, so it runs backwards"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "one piece placed around another encloses it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heart",
+      "gives": "CORE",
+      "note": "the heart of something is its core"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERO",
+      "I",
+      "C",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "CORE",
+       "to": "EROC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Beethoven symphony raised the spirits of everyone on an island.",
+     "walkthrough": "CORE turned upward gives EROC, which wraps round I; A follows.",
+     "definitionFit": "The Eroica is Beethoven's Third Symphony, named for its heroic character."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lifted"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +597,57 @@
     "text": "Part of ship's company avoiding lucky charm",
     "enumeration": "4"
    },
-   "solution": "MAST"
+   "solution": "MAST",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MAST",
+    "definitions": [
+     {
+      "text": "Part of ship",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "avoiding",
+      "for": "deletion",
+      "note": "something avoiding a thing keeps clear of it, so that piece is left out"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company"
+     },
+     {
+      "clueFragment": "lucky charm",
+      "gives": "MASCOT",
+      "note": "a mascot is a lucky charm"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Some of a ship's crew steer clear of a superstitious token.",
+     "walkthrough": "'Ship's company' reads as the crew, but the definition stops at 'ship' and the 's means 'is'.",
+     "definitionFit": "A mast is the tall upright pole on a ship that carries the sails or rigging."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "company"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +667,53 @@
      }
     ]
    },
-   "solution": "HEARTTHROB"
+   "solution": "HEARTTHROB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEART-THROB",
+    "definitions": [
+     {
+      "text": "object of infatuation",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man",
+      "gives": "HE",
+      "note": "a man is a he"
+     },
+     {
+      "clueFragment": "with skill",
+      "gives": "ART",
+      "note": "art is skill, as in the art of persuasion"
+     },
+     {
+      "clueFragment": "beat",
+      "gives": "THROB",
+      "note": "a throb is a beat, as of the heart"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "ART",
+      "THROB"
+     ]
+    },
+    "explanation": {
+     "surface": "A skilful man defeats someone he is besotted with.",
+     "walkthrough": "'With' joins HE to ART; 'beat' looks like a verb meaning defeat but is the noun THROB.",
+     "definitionFit": "A heart-throb is someone, usually a celebrity, whom people find intensely attractive and fall for."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beat"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +727,44 @@
     "text": "Unexciting, but not entirely blameable",
     "enumeration": "4"
    },
-   "solution": "LAME"
+   "solution": "LAME",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LAME",
+    "definitions": [
+     {
+      "text": "Unexciting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not entirely",
+      "for": "hidden_word",
+      "note": "not entirely means only part of the next word is used, a run of its letters"
+     }
+    ],
+    "linkWords": [
+     ", but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blameable",
+      "gives": "LAME",
+      "note": "letters two to five of this word"
+     }
+    ],
+    "explanation": {
+     "surface": "Something dull, though not wholly someone's fault.",
+     "definitionFit": "A lame excuse or joke is weak and uninspiring, so lame means feeble or unexciting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +784,53 @@
      }
     ]
    },
-   "solution": "SALOONDECK"
+   "solution": "SALOONDECK",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SALOON DECK",
+    "definitions": [
+     {
+      "text": "First-class area on ship",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all over the place",
+      "for": "anagram",
+      "note": "things all over the place are scattered in disorder, so these letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     ":"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ascend, look",
+      "gives": "ASCENDLOOK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASCENDLOOK",
+       "gives": "SALOONDECK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A passenger is told to go up to the posh part of the liner and look around everywhere.",
+     "definitionFit": "The saloon deck on a passenger ship is the one reserved for first-class (saloon) passengers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ascend"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +844,48 @@
     "text": "Former award for winning? Not the first",
     "enumeration": "3"
    },
-   "solution": "OLD"
+   "solution": "OLD",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OLD",
+    "definitions": [
+     {
+      "text": "Former",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not the first",
+      "for": "deletion",
+      "note": "not the first means the opening letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "award for winning",
+      "gives": "GOLD",
+      "note": "a gold medal is the award for winning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OLD"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about a past prize for a victory, which was not first place.",
+     "walkthrough": "Drop the G from GOLD.",
+     "definitionFit": "Old can mean former or previous, as in 'my old school'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Former"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +905,46 @@
      }
     ]
    },
-   "solution": "DEADHEAT"
+   "solution": "DEADHEAT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DEAD HEAT",
+    "definitions": [
+     {
+      "text": "Very still warm weather?",
+      "at": 0
+     },
+     {
+      "text": "not a clear outcome",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very still warm weather?",
+      "note": "first meaning, whimsical: heat with no movement in the air at all"
+     },
+     {
+      "clueFragment": "not a clear outcome",
+      "note": "second meaning: a race finish with no single winner"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags that the first meaning is a playful reading of the words rather than a real term.",
+     "definitionFit": "A dead heat is a race in which two or more competitors finish level, so there is no outright winner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "still"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +958,45 @@
     "text": "Nothing in this to assist in cleaner operation",
     "enumeration": "6"
    },
-   "solution": "VACUUM"
+   "solution": "VACUUM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "VACUUM",
+    "definitions": [
+     {
+      "text": "Nothing in this",
+      "at": 0,
+      "note": "a descriptive phrase: the thing with nothing in it"
+     },
+     {
+      "text": "to assist in cleaner operation",
+      "at": 16,
+      "note": "a descriptive phrase: the thing that helps a cleaner work"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nothing in this",
+      "note": "first meaning: a space entirely empty of matter"
+     },
+     {
+      "clueFragment": "to assist in cleaner operation",
+      "note": "second meaning: the suction that drives a household cleaning machine"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Both halves are descriptions rather than synonyms: a space with nothing in it, and what makes a household cleaner suck up dirt.",
+     "definitionFit": "A vacuum is a space devoid of matter, and the low pressure it creates powers a vacuum cleaner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nothing"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1016,40 @@
      }
     ]
    },
-   "solution": "LADYGODIVA"
+   "solution": "LADYGODIVA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LADY GODIVA",
+    "definitions": [
+     {
+      "text": "Some say she barely managed to change her husband's mind",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Some say she barely managed to change her husband's mind",
+      "note": "surface reading: a wife who only just succeeded in persuading her husband"
+     },
+     {
+      "clueFragment": "barely",
+      "note": "setter's reading: barely means naked, the legendary woman who rode unclothed through Coventry to make her husband cut taxes"
+     }
+    ],
+    "explanation": {
+     "surface": "A wife who, according to legend, only just won an argument with her husband.",
+     "walkthrough": "Legend says an 11th-century noblewoman rode naked through Coventry so her husband, Leofric, would lift a harsh tax; 'some say' nods to the story being legend.",
+     "definitionFit": "The legendary Coventry noblewoman famously rode unclothed to persuade her husband to ease taxes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "barely"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1063,64 @@
     "text": "Unexpected error over variable astronomical model",
     "enumeration": "6"
    },
-   "solution": "ORRERY"
+   "solution": "ORRERY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ORRERY",
+    "definitions": [
+     {
+      "text": "astronomical model",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unexpected",
+      "for": "anagram",
+      "note": "something unexpected turns out differently, so these letters come out in another order"
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "error",
+      "gives": "ERROR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "variable",
+      "gives": "Y",
+      "note": "in algebra, x, y and z stand for variables"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORRER",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ERROR",
+       "gives": "ORRER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A surprise mistake affects a changeable model of the heavens.",
+     "walkthrough": "In a down entry 'over' places the shuffled letters above Y.",
+     "definitionFit": "An orrery is a clockwork model of the solar system showing the planets' movements."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "variable"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1134,70 @@
     "text": "Start of month: turned up North American lizard",
     "enumeration": "6"
    },
-   "solution": "IGUANA"
+   "solution": "IGUANA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "IGUANA",
+    "definitions": [
+     {
+      "text": "lizard",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down entry, something turned up is flipped to read from the bottom, so backwards"
+     }
+    ],
+    "linkWords": [
+     ":"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Start of month",
+      "gives": "AUGI",
+      "note": "the first of August, written Aug 1 with a Roman numeral"
+     },
+     {
+      "clueFragment": "North",
+      "gives": "N",
+      "note": "N is the abbreviation for North"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IGUA",
+      "N",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "AUGI",
+       "to": "IGUA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "At the beginning of the month a North American lizard emerged.",
+     "walkthrough": "'Start of month' is not a first letter: it is a date, 1 August, written AUG I.",
+     "definitionFit": "The iguana is a large tropical American lizard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Start"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1211,46 @@
     "text": "Love: a term of endearment",
     "enumeration": "4"
    },
-   "solution": "DUCK"
+   "solution": "DUCK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DUCK",
+    "definitions": [
+     {
+      "text": "Love",
+      "at": 0
+     },
+     {
+      "text": "a term of endearment",
+      "at": 6
+     }
+    ],
+    "linkWords": [
+     ":"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love",
+      "note": "first meaning: nil, as a score; in cricket a batter out for nought makes a ..."
+     },
+     {
+      "clueFragment": "a term of endearment",
+      "note": "second meaning: a friendly address, as in 'all right"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Love' looks like the endearment, but it is the zero score; 'duck' is a regional British way of addressing someone fondly.",
+     "definitionFit": "Both love and duck mean zero in sport, and duck is also an affectionate form of address in parts of England."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Love"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1264,54 @@
     "text": "What doctor seeks, buttonholing one famous scientist",
     "enumeration": "5"
    },
-   "solution": "CURIE"
+   "solution": "CURIE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CURIE",
+    "definitions": [
+     {
+      "text": "famous scientist",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "buttonholing",
+      "for": "container",
+      "note": "to buttonhole someone is to grab and detain them, so one piece is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What doctor seeks",
+      "gives": "CURE",
+      "note": "a doctor aims for a cure"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUR",
+      "I",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor in pursuit of answers corners an eminent scientist.",
+     "definitionFit": "Marie Curie, pioneer of radioactivity research, won Nobel Prizes in both physics and chemistry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "buttonholing"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1331,43 @@
      }
     ]
    },
-   "solution": "RUNTHROUGH"
+   "solution": "RUNTHROUGH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RUN-THROUGH",
+    "definitions": [
+     {
+      "text": "Rehearse",
+      "at": 0
+     },
+     {
+      "text": "attack with sword",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rehearse",
+      "note": "first meaning: practise a performance from start to finish"
+     },
+     {
+      "clueFragment": "attack with sword",
+      "note": "second meaning: pierce someone with a blade"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark suggests an actor rehearsing a sword fight, but the two halves are separate meanings.",
+     "definitionFit": "To run through a play is to rehearse it, and to run someone through is to stab them with a sword."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Rehearse"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1381,46 @@
     "text": "What's signified by tense in sentence?",
     "enumeration": "4"
    },
-   "solution": "TIME"
+   "solution": "TIME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TIME",
+    "definitions": [
+     {
+      "text": "What's signified by tense",
+      "at": 0
+     },
+     {
+      "text": "sentence",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What's signified by tense",
+      "note": "first meaning: grammatical tense marks when an action happens"
+     },
+     {
+      "clueFragment": "sentence",
+      "note": "second meaning: a prison term"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface is about grammar, tense inside a sentence; but 'sentence' is a separate meaning, a spell in prison.",
+     "definitionFit": "Verb tense indicates time, and a prisoner serving a sentence is said to be doing time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sentence"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1434,42 @@
     "text": "Merit retained by nuclear nations",
     "enumeration": "4"
    },
-   "solution": "EARN"
+   "solution": "EARN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EARN",
+    "definitions": [
+     {
+      "text": "Merit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retained by",
+      "for": "hidden_word",
+      "note": "something retained by other words is kept inside them, held within their letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nuclear nations",
+      "gives": "EARN",
+      "note": "the letters spanning the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Some value is kept by countries with nuclear weapons.",
+     "definitionFit": "To merit something is to deserve it, as you earn praise by your actions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Merit"
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1483,77 @@
     "text": "Bloke going round city returned with US lawyer to make notes",
     "enumeration": "9"
    },
-   "solution": "MEMORANDA"
+   "solution": "MEMORANDA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "MEMORANDA",
+    "definitions": [
+     {
+      "text": "notes",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so the word is read backwards"
+     },
+     {
+      "text": "going round",
+      "for": "container",
+      "note": "going round something encircles it, so one piece wraps another"
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bloke",
+      "gives": "MAN",
+      "note": "a bloke is a man"
+     },
+     {
+      "clueFragment": "city",
+      "gives": "ROME",
+      "note": "the Italian capital city"
+     },
+     {
+      "clueFragment": "with US lawyer",
+      "gives": "DA",
+      "note": "a DA is a District Attorney, a US public prosecutor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "EMOR",
+      "AN",
+      "DA"
+     ],
+     "reversals": [
+      {
+       "from": "ROME",
+       "to": "EMOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man tours a city and comes back with an American lawyer to jot things down.",
+     "walkthrough": "The city is the one read backwards, and 'going round' makes the bloke enclose it; DA is the standard abbreviation for a US prosecutor.",
+     "definitionFit": "Memoranda, plural of memorandum, are written notes or reminders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "returned"
+    }
+   }
   },
   {
    "number": 25,
@@ -419,7 +1567,49 @@
     "text": "Long journey ends in disappointment for the monk",
     "enumeration": "4"
    },
-   "solution": "TREK"
+   "solution": "TREK",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TREK",
+    "definitions": [
+     {
+      "text": "Long journey",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ends in",
+      "for": "letter_selection",
+      "note": "ends in the following words means only the closing letter of each is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "disappointment for the monk",
+      "gives": "TREK",
+      "select": "last",
+      "note": "the final letter of each of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TREK"
+     ]
+    },
+    "explanation": {
+     "surface": "A long walk finishes with disappointment for a monk.",
+     "walkthrough": "'Ends in disappointment' reads as a result, but 'ends' picks the last letter of each word that follows.",
+     "definitionFit": "A trek is a long, arduous journey, usually on foot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ends"
+    }
+   }
   }
  ]
 }
