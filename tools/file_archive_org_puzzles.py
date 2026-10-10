@@ -2583,6 +2583,9 @@ REFUSALS = ("number-date-mismatch", "not-a-grid", "no-reading-parses", "crashed"
 #: behind that refusal changes; the rest of the corpus is not.
 REREAD_REFUSED = {"not-a-grid": "2026-10-09T10:00:00+00:00", "no-reading-parses": "2026-10-09T10:00:00+00:00",
                   "number-date-mismatch": "2026-10-09T10:00:00+00:00"}
+#: A read whose solution grid filed only some of its lights is read again
+#: once after this time: bump it with a solution reader fix that reads more.
+REREAD_PARTIAL = "2026-10-10T02:13:09+00:00"
 
 
 def refuse(verdict, cause, why):
@@ -3295,6 +3298,11 @@ def due_reason(row, inputs, sol_seen, vlm_up, reread=None):
         t = REREAD_REFUSED.get(v.get("cause"))
         if t and scan_queue.read_before(row, scan_queue.when(t)):
             return f"refused {v['cause']} before its fix"
+    for v in row.get("verdicts", ()):
+        s = v.get("solution")
+        if (isinstance(s, dict) and not s.get("refused") and s.get("accepted", 0) < s.get("lights", 0)
+                and scan_queue.read_before(row, scan_queue.when(REREAD_PARTIAL))):
+            return "solution read in part before its fix"
     return None
 
 
