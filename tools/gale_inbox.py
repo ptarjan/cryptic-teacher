@@ -123,6 +123,8 @@ READ_JOB = TOOLS / "gale_read.sh"
 READ_LOG = Path(os.path.expanduser("~/.cache/gale_read.log"))
 CACHE = fa.CACHE
 ITEM = "GaleTimes{}UKEnglish"
+#: An edition dir's name under ITEM.
+ISO_DAY = re.compile(r"\d{4}-\d\d-\d\d")
 PAGES = gale_arrived.PAGES
 YEARS = range(1974, 2000)
 #: The classes of an edition the checklist asks for: no archive.org scan.
@@ -566,7 +568,7 @@ def stage(inbox=MIRROR, cache=CACHE, out=sys.stdout, unmatched=UNMATCHED, matche
         d = cache / ITEM.format(day.year) / day.isoformat()
         staged.add(d)
         key = source_key([m["path"] for m in ms])
-        if (d / f"sources-{key}.json").exists():
+        if has_sources(d, f"sources-{key}.json"):
             relink(d / "pages.json", edition_url(ms))
             continue
         # Laid out beside it and swapped in, so a reader of the edition sees
@@ -925,7 +927,7 @@ def wanted(today=None):
     """[(date, class)] of every 1974-99 Times edition archive.org holds no
     scan of and no puzzle file holds."""
     today = today or datetime.datetime.now().astimezone().date()
-    return [(datetime.date.fromisoformat(d), cls) for d, cls, _ in archive_coverage.unfiled(fa.TIMES, today)
+    return [(datetime.date.fromisoformat(d), cls) for d, cls, _ in archive_coverage.unfiled(fa.TIMES, today, scanned=False)
             if cls in WANTED and int(d[:4]) in YEARS]
 
 
@@ -935,7 +937,10 @@ def fresh_unread(cache=CACHE, rows=None, now=None):
     rows = archive_coverage.ledger() if rows is None else rows
     now = time.time() if now is None else now
     out = []
-    for pages in cache.glob(ITEM.format("*") + "/*/pages.json"):
+    # An edition's pages.json is written before the rename that lays it out
+    # moves its year dir: a year dir unmoved for FRESH holds no fresh one.
+    years = [cache / y for y in dir_cache.listed(cache) if re.fullmatch(ITEM.format(r"\d+"), y)]
+    for pages in (p for y in years if now - y.stat().st_mtime <= FRESH for p in y.glob("*/pages.json")):
         d = pages.parent
         if now - pages.stat().st_mtime > FRESH:
             continue
@@ -964,32 +969,56 @@ def start_reads(out=sys.stdout, job=READ_JOB, log=READ_LOG):
 
 
 def _staged_in(d):
-    """The parsed sources-*.json of edition dir `d`: kept in dir_cache's memo
-    (and so between ticks, dir_cache.save) until the dir moves, not read off
-    the media mount again."""
+    """(the sources-*.json names, the last one parsed or None) of edition
+    dir `d`: kept in dir_cache's memo (and so between ticks, dir_cache.save)
+    until the dir moves, not read off the media mount again."""
     _, names, memo = dir_cache.seen(d)
+    srcs = tuple(n for n in names if n.startswith("sources-") and n.endswith(".json"))
     if "sources" not in memo:
-        found = [json.loads((d / n).read_text()) for n in names if n.startswith("sources-") and n.endswith(".json")]
-        memo["sources"] = found[-1] if found else None
-    return copy.deepcopy(memo["sources"])
+        memo["sources"] = json.loads((d / srcs[-1]).read_text()) if srcs else None
+    return srcs, memo["sources"]
+
+
+def staged_year(year_dir):
+    """{day: (its sources-*.json names, the last one parsed or None)} of
+    each edition dir in `year_dir` ({} when it is no dir). A day dir's
+    sources-*.json change only as stage renames a whole dir in or removes
+    one, each of which moves the year dir (relink rewrites pages.json alone),
+    so the answer is kept in the year dir's memo while the year dir is
+    unmoved: one stat, not one a day."""
+    try:
+        _, names, memo = dir_cache.seen(year_dir)
+    except (FileNotFoundError, NotADirectoryError):
+        return {}
+    if "staged" not in memo:
+        found = {}
+        for day in names:
+            try:
+                found[day] = _staged_in(year_dir / day)
+            except (FileNotFoundError, NotADirectoryError):
+                continue
+        memo["staged"] = found
+    return memo["staged"]
+
+
+def has_sources(d, name):
+    """Whether edition dir `d` holds sources file `name` (staged_year)."""
+    return name in staged_year(d.parent).get(d.name, ((), None))[0]
 
 
 def staged_matches(cache=CACHE):
     """{date: [match]} of the inbox pages staged as editions (stage's
-    sources-*.json). Each edition dir is stat-ed, not listed and read, while
-    it is unmoved (dir_cache)."""
+    sources-*.json). Each year dir is stat-ed, not its editions, while it
+    is unmoved (staged_year); a dir not named for a date (a .new one a
+    killed stage left) is no edition."""
     out = {}
     years = re.compile(ITEM.format(r"\d+"))
     for item in dir_cache.listed(cache):
         if not years.fullmatch(item):
             continue
-        for day in dir_cache.listed(cache / item):
-            try:
-                found = _staged_in(cache / item / day)
-            except (FileNotFoundError, NotADirectoryError):
-                continue
-            if found is not None:
-                out[datetime.date.fromisoformat(day)] = found
+        for day, (_, found) in staged_year(cache / item).items():
+            if found is not None and ISO_DAY.fullmatch(day):
+                out[datetime.date.fromisoformat(day)] = copy.deepcopy(found)
     return out
 
 
@@ -1286,7 +1315,9 @@ def titleless(staged, ledger, cache=CACHE):
         d = cache / ITEM.format(day.year) / day.isoformat()
         row = ledger.get(f"{d.parent.name}/{d.name}") or {}
         scan = row.get("scan") or {}
-        if d.exists() and fa.scan_current(row, fa.input_hash(d)) and "failed" not in scan and not scan.get("puzzles"):
+        # The ledger's fields first: each answers without a stat.
+        if ("scan" in row and "failed" not in scan and not scan.get("puzzles")
+                and d.name in staged_year(d.parent) and fa.scan_current(row, fa.input_hash(d))):
             out[day] = ms
     return out
 
