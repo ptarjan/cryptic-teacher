@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,52 @@
     "text": "Very popular old wine",
     "enumeration": "4"
    },
-   "solution": "VINO"
+   "solution": "VINO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VINO",
+    "definitions": [
+     {
+      "text": "wine",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very",
+      "gives": "V",
+      "note": "V is the standard abbreviation for very"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "what is in is fashionable or popular"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "IN",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A wine that was once a big seller and is now past its best.",
+     "definitionFit": "Vino is the informal Italian-derived word for wine, especially cheap wine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "popular"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +94,47 @@
     "text": "Doctor was lifted down",
     "enumeration": "6"
    },
-   "solution": "MOROSE"
+   "solution": "MOROSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOROSE",
+    "definitions": [
+     {
+      "text": "down",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor",
+      "gives": "MO",
+      "note": "an MO is a medical officer, an army doctor"
+     },
+     {
+      "clueFragment": "was lifted",
+      "gives": "ROSE",
+      "note": "something lifted rose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "ROSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A medic was hoisted downward, a contradiction that sounds like a lift going wrong.",
+     "walkthrough": "'Down' looks like a direction contradicting 'lifted', but it is the definition: down in the sense of low-spirited.",
+     "definitionFit": "Feeling down means gloomy and sullen, which is what morose describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "down"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +148,44 @@
     "text": "Bit of a looker, flower girl?",
     "enumeration": "4"
    },
-   "solution": "IRIS"
+   "solution": "IRIS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IRIS",
+    "definitions": [
+     {
+      "text": "Bit of a looker",
+      "at": 0
+     },
+     {
+      "text": "flower girl",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bit of a looker",
+      "note": "first meaning: the coloured part of the eye, part of what one looks with"
+     },
+     {
+      "clueFragment": "flower girl",
+      "note": "second meaning: a flower that is also a girl's name"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone describes a rather pretty girl who sells flowers.",
+     "walkthrough": "'Looker' suggests an attractive person, but here it is literally an eye. 'Flower girl' combines two senses of one word: a plant and a female name.",
+     "definitionFit": "The iris is the pigmented ring of the eye, and also a garden plant whose name is given to girls."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "looker"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +199,64 @@
     "text": "After fun spoiled, mood wrong",
     "enumeration": "6"
    },
-   "solution": "UNFAIR"
+   "solution": "UNFAIR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "UNFAIR",
+    "definitions": [
+     {
+      "text": "wrong",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spoiled",
+      "for": "anagram",
+      "note": "something spoiled is damaged out of its proper form, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "After"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fun",
+      "gives": "FUN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mood",
+      "gives": "AIR",
+      "note": "an air is a mood or atmosphere, as in an air of gloom"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNF",
+      "AIR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FUN",
+       "gives": "UNF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Once the party was ruined, the atmosphere turned sour.",
+     "walkthrough": "'After' places the jumbled word in front of the mood word.",
+     "definitionFit": "Something unfair is unjust, which is one sense of wrong as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mood"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +270,75 @@
     "text": "Car's left in road, see, abandoned, nothing having been stolen",
     "enumeration": "8"
    },
-   "solution": "NEARSIDE"
+   "solution": "NEARSIDE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "NEARSIDE",
+    "definitions": [
+     {
+      "text": "Car's left",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having been stolen",
+      "for": "deletion",
+      "note": "what has been stolen is taken away, so a letter is removed from the mix"
+     },
+     {
+      "text": "abandoned",
+      "for": "anagram",
+      "note": "abandoned suggests wild and unrestrained, so the letters run loose into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "ROAD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "see",
+      "gives": "SEE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing; this letter is the one removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEARSIDE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INRADSEE",
+       "gives": "NEARSIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A car left by the roadside is found abandoned, with nothing taken from it.",
+     "walkthrough": "Take the O out of IN ROAD SEE, then rearrange the rest. In Britain cars drive on the left, so the nearside is the left side.",
+     "definitionFit": "In British usage the nearside of a vehicle is the side nearer the kerb, which is the left."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "abandoned"
+    }
+   }
   },
   {
    "number": 6,
@@ -102,7 +352,59 @@
     "text": "Winger tucking contract inside leaflet",
     "enumeration": "10"
    },
-   "solution": "FLYCATCHER"
+   "solution": "FLYCATCHER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FLYCATCHER",
+    "definitions": [
+     {
+      "text": "Winger",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tucking",
+      "for": "container",
+      "note": "tucking one thing into another puts it inside, so one word sits within the other"
+     }
+    ],
+    "linkWords": [
+     "inside"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leaflet",
+      "gives": "FLYER",
+      "note": "a flyer is a printed handbill or leaflet"
+     },
+     {
+      "clueFragment": "contract",
+      "gives": "CATCH",
+      "note": "to contract an illness is to catch it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLY",
+      "CATCH",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A football winger has a contract slipped into a promotional leaflet.",
+     "walkthrough": "'Winger' suggests a footballer playing out wide; here it is anything with wings, a bird.",
+     "definitionFit": "A flycatcher is a small songbird, and any bird is a creature with wings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Winger"
+    }
+   }
   },
   {
    "number": 7,
@@ -116,7 +418,58 @@
     "text": "Old relic is around fragments",
     "enumeration": "8"
    },
-   "solution": "DINOSAUR"
+   "solution": "DINOSAUR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DINOSAUR",
+    "definitions": [
+     {
+      "text": "Old relic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fragments",
+      "for": "anagram",
+      "note": "fragments are broken pieces, so the words are smashed and the bits reassembled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "around",
+      "gives": "AROUND",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DINOSAUR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISAROUND",
+       "gives": "DINOSAUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient artefact lies about in broken pieces.",
+     "definitionFit": "A dinosaur is figuratively a person or thing hopelessly out of date, a relic of the past."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "fragments"
+    }
+   }
   },
   {
    "number": 8,
@@ -130,7 +483,65 @@
     "text": "Raise staff get, finally, after month",
     "enumeration": "7"
    },
-   "solution": "AUGMENT"
+   "solution": "AUGMENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AUGMENT",
+    "definitions": [
+     {
+      "text": "Raise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word just before it"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "month",
+      "gives": "AUG",
+      "note": "Aug is the abbreviation for August"
+     },
+     {
+      "clueFragment": "staff",
+      "gives": "MEN",
+      "note": "staff are the workers, the men"
+     },
+     {
+      "clueFragment": "get",
+      "gives": "T",
+      "select": "last",
+      "note": "the closing letter of get"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUG",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A pay rise for the staff arrives at last, a month late.",
+     "walkthrough": "'After month' puts the abbreviated month first, ahead of the other two pieces.",
+     "definitionFit": "To augment something is to increase or enlarge it, a synonym of raise as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "staff"
+    }
+   }
   },
   {
    "number": 9,
@@ -144,7 +555,44 @@
     "text": "Aggravate player of forty-five, perhaps?",
     "enumeration": "6"
    },
-   "solution": "NEEDLE"
+   "solution": "NEEDLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NEEDLE",
+    "definitions": [
+     {
+      "text": "Aggravate",
+      "at": 0
+     },
+     {
+      "text": "player of forty-five, perhaps",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aggravate",
+      "note": "first meaning: to annoy or provoke someone"
+     },
+     {
+      "clueFragment": "player of forty-five, perhaps",
+      "note": "second meaning: the stylus that plays a vinyl record such as a single"
+     }
+    ],
+    "explanation": {
+     "surface": "Is someone on forty-five, perhaps a darts or cards player, getting under an opponent's skin?",
+     "walkthrough": "A forty-five is a 7-inch vinyl single spinning at 45 rpm; its player is the stylus on the record deck.",
+     "definitionFit": "To needle someone is to irritate them, and a gramophone stylus is called a needle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "player"
+    }
+   }
   },
   {
    "number": 10,
@@ -164,7 +612,48 @@
      }
     ]
    },
-   "solution": "SOLONG"
+   "solution": "SOLONG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SO LONG",
+    "definitions": [
+     {
+      "text": "Words on parting",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very",
+      "gives": "SO",
+      "note": "so means very, as in so tired"
+     },
+     {
+      "clueFragment": "much in need of a trim",
+      "gives": "LONG",
+      "note": "hair that needs cutting is long"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "LONG"
+     ]
+    },
+    "explanation": {
+     "surface": "A barber's quip about someone's parting and their badly overgrown hair.",
+     "walkthrough": "'Parting' tempts as the line in combed hair, matching the trim; it actually means saying goodbye.",
+     "definitionFit": "So long is an informal farewell, a phrase said when leaving someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "parting"
+    }
+   }
   },
   {
    "number": 11,
@@ -178,7 +667,51 @@
     "text": "Plant fake diamond, possibly?",
     "enumeration": "8"
    },
-   "solution": "SHAMROCK"
+   "solution": "SHAMROCK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHAMROCK",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "possibly"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fake",
+      "gives": "SHAM",
+      "note": "a sham is a fake"
+     },
+     {
+      "clueFragment": "diamond",
+      "gives": "ROCK",
+      "note": "rock is slang for a diamond"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHAM",
+      "ROCK"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone plants a counterfeit diamond, as in framing a suspect.",
+     "walkthrough": "'Plant' reads as a verb, planting evidence; it is the noun, a clover.",
+     "definitionFit": "The shamrock is a three-leaved clover, the green plant that is Ireland's emblem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Plant"
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +731,39 @@
      }
     ]
    },
-   "solution": "PAVEMENTARTIST"
+   "solution": "PAVEMENTARTIST",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PAVEMENT ARTIST",
+    "definitions": [
+     {
+      "text": "Might one paint colours on flag?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Might one paint colours on flag?",
+      "note": "surface reading: someone painting the colours of a national banner"
+     },
+     {
+      "clueFragment": "flag",
+      "note": "setter's reading: a flag is a flagstone, so the painter works on the street"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Colours on flag' summons a national banner; a flag is also a paving stone, and street painters chalk pictures on them.",
+     "definitionFit": "Such people draw coloured chalk pictures on paving stones to earn coins from passers-by."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flag"
+    }
+   }
   },
   {
    "number": 13,
@@ -212,7 +777,39 @@
     "text": "It's marked up in butcher's or baker's, for example",
     "enumeration": "10"
    },
-   "solution": "APOSTROPHE"
+   "solution": "APOSTROPHE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "APOSTROPHE",
+    "definitions": [
+     {
+      "text": "It's marked up in butcher's or baker's, for example",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "marked up in butcher's or baker's",
+      "note": "surface reading: prices marked up in the shops"
+     },
+     {
+      "clueFragment": "It's marked up",
+      "note": "setter's reading: a punctuation mark written raised, as in the words butcher's and baker's themselves"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Marked up' suggests a price increase at shops; it means a mark set high on the line, which the clue itself shows in butcher's and baker's.",
+     "definitionFit": "This is the raised comma-shaped punctuation used for possessives, appearing in the clue's own shop names."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "marked"
+    }
+   }
   },
   {
    "number": 14,
@@ -226,7 +823,63 @@
     "text": "Trunk also packed with last pieces of our belongings",
     "enumeration": "5"
    },
-   "solution": "TORSO"
+   "solution": "TORSO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TORSO",
+    "definitions": [
+     {
+      "text": "Trunk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last pieces of",
+      "for": "letter_selection",
+      "note": "last pieces means the closing letter of each of the following words"
+     },
+     {
+      "text": "packed with",
+      "for": "container",
+      "note": "something packed with items has them stuffed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "also",
+      "gives": "TOO",
+      "note": "too means also"
+     },
+     {
+      "clueFragment": "our belongings",
+      "gives": "RS",
+      "select": "last",
+      "note": "the closing letters of our and belongings"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "RS",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A travel trunk is crammed with the last of the family's possessions.",
+     "walkthrough": "'Trunk' suggests luggage, matching packing and belongings; it is the human body without limbs.",
+     "definitionFit": "The torso is the body's trunk, the main part apart from head and limbs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Trunk"
+    }
+   }
   },
   {
    "number": 15,
@@ -240,7 +893,43 @@
     "text": "Investment in torpedo, shocking money",
     "enumeration": "4"
    },
-   "solution": "DOSH"
+   "solution": "DOSH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DOSH",
+    "definitions": [
+     {
+      "text": "money",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Investment in",
+      "for": "hidden_word",
+      "note": "an investment is something put into another thing, so the letters lie inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "torpedo, shocking",
+      "gives": "DOSH",
+      "note": "spans the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Pouring funds into torpedo manufacture is a scandalous use of public money.",
+     "walkthrough": "Dosh is British slang for cash.",
+     "definitionFit": "Dosh is informal British slang meaning cash or money in general."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Investment"
+    }
+   }
   },
   {
    "number": 16,
@@ -254,7 +943,43 @@
     "text": "Two instruments for dance on deck?",
     "enumeration": "8"
    },
-   "solution": "HORNPIPE"
+   "solution": "HORNPIPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HORNPIPE",
+    "definitions": [
+     {
+      "text": "dance on deck?",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two instruments",
+      "gives": "HORNPIPE",
+      "note": "a horn and a pipe, two wind instruments placed side by side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HORNPIPE"
+     ]
+    },
+    "explanation": {
+     "surface": "Two musical instruments provide the music for dancing on a ship.",
+     "walkthrough": "The question mark flags that 'on deck' points to sailors rather than a literal floor.",
+     "definitionFit": "The hornpipe is a lively solo dance traditionally performed by sailors aboard ship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 17,
@@ -268,7 +993,56 @@
     "text": "Beat time having raised orchestral baton, first of all",
     "enumeration": "5"
    },
-   "solution": "THROB"
+   "solution": "THROB",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "THROB",
+    "definitions": [
+     {
+      "text": "Beat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of all",
+      "for": "letter_selection",
+      "note": "first of all takes the opening letter of every one of the preceding words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "having raised orchestral baton",
+      "gives": "HROB",
+      "select": "first",
+      "note": "the opening letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HROB"
+     ]
+    },
+    "explanation": {
+     "surface": "A conductor lifts the baton and counts in the orchestra's tempo.",
+     "walkthrough": "'Beat' and 'time' sound like musical instructions, but the first is the definition and the second just a letter.",
+     "definitionFit": "A throb is a pulse or rhythmic beat, as of the heart."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Beat"
+    }
+   }
   },
   {
    "number": 18,
@@ -282,7 +1056,55 @@
     "text": "Irish spirit has been ordered",
     "enumeration": "7"
    },
-   "solution": "BANSHEE"
+   "solution": "BANSHEE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BANSHEE",
+    "definitions": [
+     {
+      "text": "Irish spirit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "ordered means arranged, so the letters are put into a fresh sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "has been",
+      "gives": "HASBEEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BANSHEE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HASBEEN",
+       "gives": "BANSHEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shot of Irish whiskey has been ordered at the bar.",
+     "walkthrough": "'Spirit' tempts towards whiskey; it is a ghost.",
+     "definitionFit": "In Irish folklore the banshee is a female ghost whose wail foretells a death."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 19,
@@ -296,7 +1118,54 @@
     "text": "Energy cut briefly, bounce back",
     "enumeration": "4"
    },
-   "solution": "ECHO"
+   "solution": "ECHO",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ECHO",
+    "definitions": [
+     {
+      "text": "bounce back",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means made short, so the word loses its closing letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     },
+     {
+      "clueFragment": "cut",
+      "gives": "CHOP",
+      "note": "to chop is to cut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "CHO"
+     ]
+    },
+    "explanation": {
+     "surface": "After a brief power cut, the supply comes back.",
+     "definitionFit": "An echo is sound that rebounds off a surface, and as a verb it means to reverberate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 20,
@@ -320,7 +1189,69 @@
      }
     ]
    },
-   "solution": "THREEPOINTTURN"
+   "solution": "THREEPOINTTURN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THREE-POINT TURN",
+    "definitions": [
+     {
+      "text": "driving skill",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "developing",
+      "for": "anagram",
+      "note": "developing means evolving into a new form, so the letters take a new shape"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Utter",
+      "gives": "UTTER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pro",
+      "gives": "PRO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "then",
+      "gives": "THEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THREEPOINTTURN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UTTERPROTHENIN",
+       "gives": "THREEPOINTTURN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complete professional, then, at honing their driving ability.",
+     "walkthrough": "'In' looks like a link word but its letters are part of the anagram.",
+     "definitionFit": "This manoeuvre, turning a car round in a narrow road in three movements, is tested in the British driving exam."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 21,
@@ -334,7 +1265,50 @@
     "text": "Sovereign, foreign currency for job",
     "enumeration": "6"
    },
-   "solution": "ERRAND"
+   "solution": "ERRAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ERRAND",
+    "definitions": [
+     {
+      "text": "job",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sovereign",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, stands for the Queen"
+     },
+     {
+      "clueFragment": "foreign currency",
+      "gives": "RAND",
+      "note": "the rand is South Africa's currency"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "RAND"
+     ]
+    },
+    "explanation": {
+     "surface": "A gold sovereign exchanged for foreign money as payment for work.",
+     "walkthrough": "'Sovereign' suggests the gold coin, which fits the currency surface; here it is the monarch.",
+     "definitionFit": "An errand is a short task or trip carried out for someone, a small job."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sovereign"
+    }
+   }
   },
   {
    "number": 22,
@@ -348,7 +1322,55 @@
     "text": "Knot tied at the top corner",
     "enumeration": "6"
    },
-   "solution": "TANGLE"
+   "solution": "TANGLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TANGLE",
+    "definitions": [
+     {
+      "text": "Knot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the top",
+      "for": "letter_selection",
+      "note": "in a down clue the top of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tied",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of tied"
+     },
+     {
+      "clueFragment": "corner",
+      "gives": "ANGLE",
+      "note": "a corner forms an angle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ANGLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A knot fastened at the upper corner of something.",
+     "definitionFit": "A tangle is a twisted, knotted mass, as of hair or string."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tied"
+    }
+   }
   },
   {
    "number": 23,
@@ -362,7 +1384,42 @@
     "text": "NCO regarding body",
     "enumeration": "8"
    },
-   "solution": "CORPORAL"
+   "solution": "CORPORAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CORPORAL",
+    "definitions": [
+     {
+      "text": "NCO",
+      "at": 0
+     },
+     {
+      "text": "regarding body",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "NCO",
+      "note": "first meaning: a non-commissioned officer rank"
+     },
+     {
+      "clueFragment": "regarding body",
+      "note": "second meaning: an adjective for things relating to the body"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The noun is an army rank; the adjective means bodily, as in corporal punishment.",
+     "definitionFit": "A corporal is a junior army rank above lance corporal; corporal also means physical, of the flesh."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "body"
+    }
+   }
   },
   {
    "number": 24,
@@ -376,7 +1433,45 @@
     "text": "Record composer listened to",
     "enumeration": "4"
    },
-   "solution": "LIST"
+   "solution": "LIST",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LIST",
+    "definitions": [
+     {
+      "text": "Record",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "listened to",
+      "for": "homophone",
+      "note": "what is listened to is heard rather than read, so the word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "composer",
+      "gives": "LIST",
+      "soundsLike": "LISZT",
+      "note": "Franz Liszt, the Hungarian pianist-composer; the same letters opening 'listened' are a coincidence, not a hidden word"
+     }
+    ],
+    "explanation": {
+     "surface": "A recording of a composer's work that someone played.",
+     "walkthrough": "'Record' suggests a disc to play, fitting the music; here it means to write down in a list.",
+     "definitionFit": "To list items is to record them in a written series, a synonym for the verb record."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Record"
+    }
+   }
   },
   {
    "number": 25,
@@ -390,7 +1485,43 @@
     "text": "Straight into touch one steps",
     "enumeration": "6"
    },
-   "solution": "HONEST"
+   "solution": "HONEST",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HONEST",
+    "definitions": [
+     {
+      "text": "Straight",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "hidden_word",
+      "note": "into says the letters are found tucked inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "touch one steps",
+      "gives": "HONEST",
+      "note": "runs from the end of the first word through the second into the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A rugby ball goes straight out into touch as someone steps over the line.",
+     "walkthrough": "In rugby, touch is the area beyond the side lines.",
+     "definitionFit": "Someone straight is truthful and upright, the same as honest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Straight"
+    }
+   }
   },
   {
    "number": 26,
@@ -404,7 +1535,61 @@
     "text": "Number involved in agnosticism on the rise",
     "enumeration": "4"
    },
-   "solution": "SONG"
+   "solution": "SONG",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "SONG",
+    "definitions": [
+     {
+      "text": "Number",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved in",
+      "for": "hidden_word",
+      "note": "involved in means wrapped within the long word that follows"
+     },
+     {
+      "text": "on the rise",
+      "for": "reversal",
+      "note": "in a down clue rising means reading from bottom to top, backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agnosticism",
+      "gives": "GNOS",
+      "note": "letters sitting inside the long word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SONG"
+     ],
+     "reversals": [
+      {
+       "from": "GNOS",
+       "to": "SONG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The number of agnostics is increasing.",
+     "walkthrough": "'Number' suggests a count, matching the rise; here it is a piece of music.",
+     "definitionFit": "A number is a piece in a show or set list, a song."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Number"
+    }
+   }
   },
   {
    "number": 27,
@@ -418,7 +1603,58 @@
     "text": "Composer bringing cheer initially: fancy a lift?",
     "enumeration": "6"
    },
-   "solution": "CHOPIN"
+   "solution": "CHOPIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHOPIN",
+    "definitions": [
+     {
+      "text": "Composer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "bringing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheer",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter of cheer"
+     },
+     {
+      "clueFragment": "fancy a lift",
+      "gives": "HOPIN",
+      "note": "what a driver says when offering someone a ride"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HOPIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A composer spreads good cheer by offering someone a ride.",
+     "definitionFit": "Frédéric Chopin was the Polish Romantic composer famous for piano works."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lift"
+    }
+   }
   },
   {
    "number": 28,
@@ -432,7 +1668,43 @@
     "text": "Magic writing skill",
     "enumeration": "8"
    },
-   "solution": "SPELLING"
+   "solution": "SPELLING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPELLING",
+    "definitions": [
+     {
+      "text": "Magic",
+      "at": 0
+     },
+     {
+      "text": "writing skill",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Magic",
+      "note": "first meaning: casting spells, the work of a sorcerer"
+     },
+     {
+      "clueFragment": "writing skill",
+      "note": "second meaning: the ability to form words with correct letters"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first sense is the act of casting spells, rarely used but fair.",
+     "definitionFit": "Spelling means putting letters in correct order, and also the work of bewitching with spells."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Magic"
+    }
+   }
   }
  ]
 }
