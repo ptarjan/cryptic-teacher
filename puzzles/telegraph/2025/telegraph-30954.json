@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,58 @@
     "text": "Woman is head of company across lake",
     "enumeration": "4"
    },
-   "solution": "CLEO"
+   "solution": "CLEO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLEO",
+    "definitions": [
+     {
+      "text": "Woman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "across",
+      "for": "container",
+      "note": "one thing set across another straddles it, so the head of company is spread around the lake"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "head of company",
+      "gives": "CEO",
+      "note": "chief executive officer, the person at the top of a firm"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the map abbreviation for lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "L",
+      "EO"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman runs a company with operations spanning a lake.",
+     "walkthrough": "'Head of company' tempts you to take just C; it is the whole title CEO, which wraps round L.",
+     "definitionFit": "Cleo is a female first name, short for Cleopatra, so it can stand for a woman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +100,60 @@
     "text": "Earlier than second month, returned mineral",
     "enumeration": "6"
    },
-   "solution": "BEFORE"
+   "solution": "BEFORE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "BEFORE",
+    "definitions": [
+     {
+      "text": "Earlier than",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "something returned comes back the way it went, so the month's short form is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second month",
+      "gives": "FEB",
+      "note": "February is the second month of the year"
+     },
+     {
+      "clueFragment": "mineral",
+      "gives": "ORE",
+      "note": "ore is a mineral mined for its metal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEF",
+      "ORE"
+     ],
+     "reversals": [
+      {
+       "from": "FEB",
+       "to": "BEF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something happened earlier than February, when some mineral was sent back.",
+     "definitionFit": "The preposition 'before' means prior to, earlier in time than something else."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "returned"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +167,40 @@
     "text": "Piece of wood on which men carry out checks?",
     "enumeration": "10"
    },
-   "solution": "CHESSBOARD"
+   "solution": "CHESSBOARD",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CHESSBOARD",
+    "definitions": [
+     {
+      "text": "Piece of wood on which men carry out checks?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Piece of wood on which men carry out checks?",
+      "note": "surface reading: a plank on which workers perform inspections"
+     },
+     {
+      "clueFragment": "men carry out checks",
+      "note": "setter's reading: the men are game pieces, and checks are threats to a king, played out on a chequered board"
+     }
+    ],
+    "explanation": {
+     "surface": "A wooden plank where workmen carry out inspections.",
+     "walkthrough": "Men here are chessmen and a check threatens the king; the board is the piece of wood.",
+     "definitionFit": "A chessboard is the chequered wooden board on which chess pieces are moved and kings are put in check."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "checks"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +214,42 @@
     "text": "Went by in a former time, reportedly",
     "enumeration": "6"
    },
-   "solution": "PASSED"
+   "solution": "PASSED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PASSED",
+    "definitions": [
+     {
+      "text": "Went by",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "something reported is spread by word of mouth, so we want a word that sounds like the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in a former time",
+      "gives": "PASSED",
+      "soundsLike": "PAST",
+      "note": "the past is a former time; the answer is pronounced the same"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone went by long ago, or so people say.",
+     "definitionFit": "Passed is the past tense of pass, meaning moved by or went beyond something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +263,57 @@
     "text": "Lou has nap cut short – it's most awful!",
     "enumeration": "8"
    },
-   "solution": "LOUSIEST"
+   "solution": "LOUSIEST",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "LOUSIEST",
+    "definitions": [
+     {
+      "text": "most awful",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut short",
+      "for": "deletion",
+      "note": "cutting something short trims its end, so the nap word loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lou",
+      "gives": "LOU",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nap",
+      "gives": "SIESTA",
+      "note": "a siesta is an afternoon nap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOU",
+      "SIEST"
+     ]
+    },
+    "explanation": {
+     "surface": "Lou's afternoon sleep is interrupted, which is the worst thing ever.",
+     "definitionFit": "Lousy is informal for very bad, so the superlative means worst or most awful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lou"
+    }
+   }
   },
   {
    "number": 6,
@@ -102,7 +327,49 @@
     "text": "A fish in jelly",
     "enumeration": "4"
    },
-   "solution": "AGAR"
+   "solution": "AGAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AGAR",
+    "definitions": [
+     {
+      "text": "jelly",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "GAR",
+      "note": "the gar is a long-snouted fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A fish set in aspic, like jellied eel.",
+     "definitionFit": "Agar is a gelatinous substance from seaweed, used as a jelly in cooking and laboratories."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "jelly"
+    }
+   }
   },
   {
    "number": 7,
@@ -116,7 +383,49 @@
     "text": "Social etiquette requiring smart neckwear?",
     "enumeration": "8"
    },
-   "solution": "NICETIES"
+   "solution": "NICETIES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NICETIES",
+    "definitions": [
+     {
+      "text": "Social etiquette",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "requiring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smart",
+      "gives": "NICE",
+      "note": "nice can mean fine or smart"
+     },
+     {
+      "clueFragment": "neckwear",
+      "gives": "TIES",
+      "note": "ties are worn round the neck"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NICE",
+      "TIES"
+     ]
+    },
+    "explanation": {
+     "surface": "Polite society demands a smart necktie.",
+     "definitionFit": "Niceties are the fine points of polite behaviour, the details of social etiquette."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 8,
@@ -130,7 +439,82 @@
     "text": "Think about keeping chains moving? It's automated",
     "enumeration": "10"
    },
-   "solution": "MECHANISED"
+   "solution": "MECHANISED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "container"
+    ],
+    "answer": "MECHANISED",
+    "definitions": [
+     {
+      "text": "automated",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turned about means facing the other way, so the word for think is read backwards"
+     },
+     {
+      "text": "moving",
+      "for": "anagram",
+      "note": "things moving shift position, so these letters change their order"
+     },
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "to keep something is to hold it inside, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Think",
+      "gives": "DEEM",
+      "note": "to deem is to think or judge"
+     },
+     {
+      "clueFragment": "chains",
+      "gives": "CHAINS",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "CHANIS",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHAINS",
+       "gives": "CHANIS"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "DEEM",
+       "to": "MEED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Consider whether a chain-driven conveyor makes the process automatic.",
+     "walkthrough": "'Think about' reads as consider, but 'about' is the turnaround signal; meed (a reward) is not the meaning here, only the letters.",
+     "definitionFit": "Mechanised means done by machines rather than by hand, which is to say automated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chains"
+    }
+   }
   },
   {
    "number": 9,
@@ -144,7 +528,49 @@
     "text": "Scrounger in shelter by church",
     "enumeration": "5"
    },
-   "solution": "LEECH"
+   "solution": "LEECH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEECH",
+    "definitions": [
+     {
+      "text": "Scrounger",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shelter",
+      "gives": "LEE",
+      "note": "the lee is the sheltered side, away from the wind"
+     },
+     {
+      "clueFragment": "by church",
+      "gives": "CH",
+      "note": "CH is the abbreviation for church; 'by' places it next to the shelter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEE",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A sponger sleeping rough in a shelter beside a church.",
+     "definitionFit": "A leech is a parasite, so figuratively a person who lives off others: a scrounger."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shelter"
+    }
+   }
   },
   {
    "number": 10,
@@ -158,7 +584,53 @@
     "text": "Adjacent to a pine border",
     "enumeration": "9"
    },
-   "solution": "ALONGSIDE"
+   "solution": "ALONGSIDE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALONGSIDE",
+    "definitions": [
+     {
+      "text": "Adjacent to",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pine",
+      "gives": "LONG",
+      "note": "to pine is to long for something"
+     },
+     {
+      "clueFragment": "border",
+      "gives": "SIDE",
+      "note": "a side is an edge or border"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LONG",
+      "SIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Next to a border lined with pine trees.",
+     "walkthrough": "Pine reads as the tree, but it is the verb meaning yearn.",
+     "definitionFit": "Alongside means beside or next to, exactly what adjacent to says."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pine"
+    }
+   }
   },
   {
    "number": 11,
@@ -172,7 +644,65 @@
     "text": "After arranging, I boost strings initially for these players",
     "enumeration": "7"
    },
-   "solution": "OBOISTS"
+   "solution": "OBOISTS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "OBOISTS",
+    "definitions": [
+     {
+      "text": "these players",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After arranging",
+      "for": "anagram",
+      "note": "arranging puts things into a new order, so the following letters are reordered"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I boost",
+      "gives": "IBOOST",
+      "note": "letters to be rearranged"
+     },
+     {
+      "clueFragment": "strings",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of strings"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IBOOSTS",
+       "gives": "OBOISTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An arranger beefs up the string section to suit certain musicians.",
+     "definitionFit": "Oboists play the oboe, so they are the players the clue refers to."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "strings"
+    }
+   }
   },
   {
    "number": 12,
@@ -186,7 +716,66 @@
     "text": "Rocks on slope caught by start of hurricane, making skidding sound?",
     "enumeration": "7"
    },
-   "solution": "SCREECH"
+   "solution": "SCREECH",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SCREECH",
+    "definitions": [
+     {
+      "text": "skidding sound?",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "start of points to the opening letter of the word that follows"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rocks on slope",
+      "gives": "SCREE",
+      "note": "scree is loose broken rock covering a slope"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "hurricane",
+      "gives": "H",
+      "select": "first",
+      "note": "the opening letter of hurricane"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCREE",
+      "C",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Rockfall on a hillside, hit by a storm, sends a car skidding.",
+     "walkthrough": "The question mark flags that a screech is only one kind of skidding noise.",
+     "definitionFit": "A screech is a harsh high-pitched noise, the kind tyres make when a car skids."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 13,
@@ -200,7 +789,65 @@
     "text": "American nerd's wife in river? Bravo!",
     "enumeration": "5"
    },
-   "solution": "DWEEB"
+   "solution": "DWEEB",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "DWEEB",
+    "definitions": [
+     {
+      "text": "American nerd",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one item inside another, so the wife's letter goes within the river"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "DEE",
+      "note": "the Dee is a river in Britain"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the standard abbreviation for wife"
+     },
+     {
+      "clueFragment": "Bravo",
+      "gives": "B",
+      "note": "Bravo is B in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "W",
+      "EE",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "An American geek cheers his wife on as she swims in the river.",
+     "walkthrough": "The wife's W goes inside DEE, then B is added.",
+     "definitionFit": "Dweeb is American slang for a boring, socially awkward person, a nerd."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bravo"
+    }
+   }
   },
   {
    "number": 13,
@@ -214,7 +861,46 @@
     "text": "Some seen in court protect workers",
     "enumeration": "10"
    },
-   "solution": "DEFENDANTS"
+   "solution": "DEFENDANTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DEFENDANTS",
+    "definitions": [
+     {
+      "text": "Some seen in court",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "protect",
+      "gives": "DEFEND",
+      "note": "to defend is to protect"
+     },
+     {
+      "clueFragment": "workers",
+      "gives": "ANTS",
+      "note": "worker ants are the classic crossword workers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEFEND",
+      "ANTS"
+     ]
+    },
+    "explanation": {
+     "surface": "People in court are there to protect workers' rights.",
+     "definitionFit": "Defendants are the accused parties in a trial, so they are among those present in court."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "workers"
+    }
+   }
   },
   {
    "number": 14,
@@ -228,7 +914,50 @@
     "text": "Stop working with old Venetian painter's medical advisor",
     "enumeration": "9"
    },
-   "solution": "DIETITIAN"
+   "solution": "DIETITIAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIETITIAN",
+    "definitions": [
+     {
+      "text": "medical advisor",
+      "at": 41
+     }
+    ],
+    "linkWords": [
+     "with",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stop working",
+      "gives": "DIE",
+      "note": "a machine that dies stops working"
+     },
+     {
+      "clueFragment": "old Venetian painter",
+      "gives": "TITIAN",
+      "note": "Titian was the sixteenth-century Venetian master"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIE",
+      "TITIAN"
+     ]
+    },
+    "explanation": {
+     "surface": "An Old Master's doctor tells him to stop working.",
+     "definitionFit": "A dietitian is a health professional who gives expert advice on diet and nutrition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Stop"
+    }
+   }
   },
   {
    "number": 15,
@@ -242,7 +971,45 @@
     "text": "Not well, say again: poorly educated",
     "enumeration": "10"
    },
-   "solution": "ILLITERATE"
+   "solution": "ILLITERATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ILLITERATE",
+    "definitions": [
+     {
+      "text": "poorly educated",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not well",
+      "gives": "ILL",
+      "note": "ill means unwell"
+     },
+     {
+      "clueFragment": "say again",
+      "gives": "ITERATE",
+      "note": "to iterate is to repeat or say again"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILL",
+      "ITERATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor's note about an unwell patient who has had little schooling.",
+     "definitionFit": "Illiterate means unable to read and write, so lacking education."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -256,7 +1023,59 @@
     "text": "Students with final MA turning into extremists",
     "enumeration": "15"
    },
-   "solution": "FUNDAMENTALISTS"
+   "solution": "FUNDAMENTALISTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FUNDAMENTALISTS",
+    "definitions": [
+     {
+      "text": "extremists",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning",
+      "for": "anagram",
+      "note": "turning means changing round, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Students",
+      "gives": "STUDENTS",
+      "note": "letters to be rearranged"
+     },
+     {
+      "clueFragment": "final MA",
+      "gives": "FINALMA",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STUDENTSFINALMA",
+       "gives": "FUNDAMENTALISTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Graduates taking their last master's exam become radicalised.",
+     "definitionFit": "Fundamentalists hold strict literal beliefs and are often extreme in their views."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 17,
@@ -270,7 +1089,45 @@
     "text": "Snuggling up with young flier",
     "enumeration": "8"
    },
-   "solution": "NESTLING"
+   "solution": "NESTLING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NESTLING",
+    "definitions": [
+     {
+      "text": "Snuggling up",
+      "at": 0
+     },
+     {
+      "text": "young flier",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Snuggling up",
+      "note": "first meaning: settling cosily against something"
+     },
+     {
+      "clueFragment": "young flier",
+      "note": "second meaning: a baby bird still in its nest"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The verb sense and the noun sense are spelt the same.",
+     "definitionFit": "To nestle is to snuggle, and a nestling is a chick too young to leave the nest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flier"
+    }
+   }
   },
   {
    "number": 18,
@@ -284,7 +1141,56 @@
     "text": "Almost begrudge actor Jeremy's surroundings",
     "enumeration": "8"
    },
-   "solution": "ENVIRONS"
+   "solution": "ENVIRONS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ENVIRONS",
+    "definitions": [
+     {
+      "text": "surroundings",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the last letter of the begrudge word is dropped"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "begrudge",
+      "gives": "ENVY",
+      "note": "to envy is to begrudge"
+     },
+     {
+      "clueFragment": "actor Jeremy",
+      "gives": "IRONS",
+      "note": "Jeremy Irons is an English actor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENV",
+      "IRONS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone nearly resents where the actor Jeremy Irons lives.",
+     "definitionFit": "Environs are the surrounding area of a place, its neighbourhood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -298,7 +1204,50 @@
     "text": "Struggling Devon side declined rapidly",
     "enumeration": "9"
    },
-   "solution": "NOSEDIVED"
+   "solution": "NOSEDIVED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NOSEDIVED",
+    "definitions": [
+     {
+      "text": "declined rapidly",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Struggling",
+      "for": "anagram",
+      "note": "a struggling team is in disarray, so these letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Devon side",
+      "gives": "DEVONSIDE",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DEVONSIDE",
+       "gives": "NOSEDIVED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A struggling team from Devon, the English county, slid down the table.",
+     "definitionFit": "To nosedive is to plunge steeply, as a plane does, hence to fall or decline sharply."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "side"
+    }
+   }
   },
   {
    "number": 20,
@@ -312,7 +1261,45 @@
     "text": "Really like established periodical",
     "enumeration": "6"
    },
-   "solution": "DIGEST"
+   "solution": "DIGEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIGEST",
+    "definitions": [
+     {
+      "text": "periodical",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Really like",
+      "gives": "DIG",
+      "note": "to dig something is slang for liking it"
+     },
+     {
+      "clueFragment": "established",
+      "gives": "EST",
+      "note": "EST is the abbreviation for established, as on shop signs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIG",
+      "EST"
+     ]
+    },
+    "explanation": {
+     "surface": "A fan really enjoys a long-running magazine.",
+     "definitionFit": "A digest is a magazine summarising articles, such as Reader's Digest, so a periodical."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -326,7 +1313,45 @@
     "text": "Carried as far as Edward",
     "enumeration": "5"
    },
-   "solution": "TOTED"
+   "solution": "TOTED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOTED",
+    "definitions": [
+     {
+      "text": "Carried",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as far as",
+      "gives": "TO",
+      "note": "to can mean up to or as far as"
+     },
+     {
+      "clueFragment": "Edward",
+      "gives": "TED",
+      "note": "Ted is a short form of Edward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "TED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone carried a load all the way to Edward.",
+     "definitionFit": "To tote is to carry, so toted means carried."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -340,7 +1365,70 @@
     "text": "Hurried through ground etc in dream-like state",
     "enumeration": "6"
    },
-   "solution": "TRANCE"
+   "solution": "TRANCE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TRANCE",
+    "definitions": [
+     {
+      "text": "dream-like state",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ground",
+      "for": "anagram",
+      "note": "ground means crushed and broken up, so the following letters are rearranged"
+     },
+     {
+      "text": "through",
+      "for": "container",
+      "note": "passing through something means being inside it, so the hurried word sits within the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hurried",
+      "gives": "RAN",
+      "note": "to hurry is to run, so hurried is ran"
+     },
+     {
+      "clueFragment": "etc",
+      "gives": "TCE",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RAN",
+      "CE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ETC",
+       "gives": "TCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rushed across the field and so on, as if half asleep.",
+     "walkthrough": "'Ground' looks like a noun for land; here it is the past of grind.",
+     "definitionFit": "A trance is a half-conscious state like sleepwalking or dreaming."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 23,
@@ -360,7 +1448,48 @@
      }
     ]
    },
-   "solution": "ALLSTAR"
+   "solution": "ALLSTAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALL-STAR",
+    "definitions": [
+     {
+      "text": "involving the best players?",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everything's",
+      "gives": "ALLS",
+      "note": "everything is all, with the 's kept"
+     },
+     {
+      "clueFragment": "by pitch, perhaps",
+      "gives": "TAR",
+      "note": "pitch is one kind of tar, hence 'perhaps'; 'by' places it next"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALLS",
+      "TAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Everything happens beside the playing field when the top players appear.",
+     "walkthrough": "Pitch looks like a sports field, fitting the surface, but it is the black sticky substance.",
+     "definitionFit": "An all-star team or cast is made up entirely of the top performers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pitch"
+    }
+   }
   },
   {
    "number": 24,
@@ -374,7 +1503,41 @@
     "text": "Tito memoir includes this volume",
     "enumeration": "4"
    },
-   "solution": "TOME"
+   "solution": "TOME",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TOME",
+    "definitions": [
+     {
+      "text": "this volume",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "includes",
+      "for": "hidden_word",
+      "note": "includes says the phrase holds the answer within its run of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tito memoir",
+      "gives": "TOME",
+      "note": "found across the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "The Yugoslav leader's autobiography contains this book.",
+     "definitionFit": "A tome is a book, especially a large heavy one, so a volume."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -388,7 +1551,45 @@
     "text": "Clothes grow old? Rubbish!",
     "enumeration": "7"
    },
-   "solution": "GARBAGE"
+   "solution": "GARBAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GARBAGE",
+    "definitions": [
+     {
+      "text": "Rubbish!",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clothes",
+      "gives": "GARB",
+      "note": "garb is clothing"
+     },
+     {
+      "clueFragment": "grow old",
+      "gives": "AGE",
+      "note": "to age is to grow old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GARB",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone scoffs at the idea that clothes wear out with time.",
+     "definitionFit": "Garbage means refuse, and as an exclamation it means nonsense, like 'Rubbish!'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -402,7 +1603,56 @@
     "text": "Otherwise included in rising prices ledger",
     "enumeration": "4"
    },
-   "solution": "ELSE"
+   "solution": "ELSE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ELSE",
+    "definitions": [
+     {
+      "text": "Otherwise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "included in",
+      "for": "hidden_word",
+      "note": "included in says the letters sit inside the following phrase"
+     },
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down entry, rising means reading upwards, so the run of letters goes backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prices ledger",
+      "gives": "ESLE",
+      "note": "found spanning the end of the first word and the start of the second"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ESLE",
+       "to": "ELSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An accounts book records that prices are going up, or not.",
+     "definitionFit": "Else means otherwise, as in 'hurry, or else you'll miss it'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rising"
+    }
+   }
   },
   {
    "number": 27,
@@ -416,7 +1666,62 @@
     "text": "European chaps in temporary accommodation – some flats?",
     "enumeration": "9"
    },
-   "solution": "TENEMENTS"
+   "solution": "TENEMENTS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TENEMENTS",
+    "definitions": [
+     {
+      "text": "some flats?",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first pieces inside the temporary accommodation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "temporary accommodation",
+      "gives": "TENTS",
+      "note": "tents are shelters put up for a short stay"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "chaps",
+      "gives": "MEN",
+      "note": "chaps are men"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEN",
+      "E",
+      "MEN",
+      "TS"
+     ]
+    },
+    "explanation": {
+     "surface": "Visiting European men camp out in what might be called apartments.",
+     "walkthrough": "The question mark marks the answer as an example: tenement blocks are divided into flats.",
+     "definitionFit": "Tenements are large buildings split into rented flats, so they are examples of flats."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "temporary"
+    }
+   }
   },
   {
    "number": 28,
@@ -430,7 +1735,43 @@
     "text": "Fixes duty, we hear",
     "enumeration": "5"
    },
-   "solution": "TACKS"
+   "solution": "TACKS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TACKS",
+    "definitions": [
+     {
+      "text": "Fixes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is the spoken form, so a word with the same sound is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "duty",
+      "gives": "TACKS",
+      "soundsLike": "TAX",
+      "note": "a duty is a tax levied on goods; the answer sounds the same"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone sets the import duty, by the sound of it.",
+     "definitionFit": "To tack is to fasten with small nails or stitches, so tacks means fixes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "duty"
+    }
+   }
   }
  ]
 }
