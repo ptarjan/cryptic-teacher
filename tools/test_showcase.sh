@@ -45,9 +45,11 @@ check("a count that disagrees with its squares sets no record",
       sc.longest_answer(slip)[0] < 65, sc.longest_answer(slip))
 check("the 90-clue Jumbo counts 90 clues", facts("timesjumbo-1423")["answers"] == 90,
       facts("timesjumbo-1423")["answers"])
-check("a book's year is not a print date", not facts("book-1052")["dated"])
+# Any book puzzle: one is dropped when its newspaper original is filed.
+book = min(fp.ROOT.glob("puzzles/book/*/book-*.json")).stem
+check("a book's year is not a print date", not facts(book)["dated"])
 check("a book's number is volume and position, not an issue",
-      not facts("book-1052")["counted"])
+      not facts(book)["counted"])
 check("a date-keyed number is not an issue", not facts("metro-20260902")["counted"])
 
 # --- selection ---
