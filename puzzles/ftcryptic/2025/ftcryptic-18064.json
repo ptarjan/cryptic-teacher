@@ -24,6 +24,9 @@
   "date": "2025-05-26",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,69 @@
     "text": "Musician playing in recital's exhausted tonight",
     "enumeration": "12"
    },
-   "solution": "CLARINETTIST"
+   "solution": "CLARINETTIST",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "CLARINETTIST",
+    "definitions": [
+     {
+      "text": "Musician",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "a piece being played is performed afresh, so the letters are rearranged into a new order"
+     },
+     {
+      "text": "exhausted",
+      "for": "deletion",
+      "note": "something exhausted has been emptied out, so only the outside of the word survives"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "recital's",
+      "gives": "RECITALS",
+      "note": "taken as written, the apostrophe ignored"
+     },
+     {
+      "clueFragment": "tonight",
+      "gives": "TT",
+      "select": "outer",
+      "note": "emptied of its middle, only the first and last letters stay"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INRECITALSTT",
+       "gives": "CLARINETTIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worn-out instrumentalist is giving a recital this evening.",
+     "walkthrough": "'Exhausted' looks like a description of the tired performer, but it hollows out the word after it.",
+     "definitionFit": "A clarinettist is one kind of musician, an example of the broader category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exhausted"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +116,65 @@
     "text": "Soup Dragon's beginning to support Chinese food? I'm not sure",
     "enumeration": "7"
    },
-   "solution": "CHOWDER"
+   "solution": "CHOWDER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHOWDER",
+    "definitions": [
+     {
+      "text": "Soup",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "to support"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chinese food",
+      "gives": "CHOW",
+      "note": "chow is a slang word for food, from Chinese pidgin"
+     },
+     {
+      "clueFragment": "Dragon's",
+      "gives": "D",
+      "select": "first",
+      "note": "the opening letter"
+     },
+     {
+      "clueFragment": "I'm not sure",
+      "gives": "ER",
+      "note": "the hesitant sound of someone unsure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHOW",
+      "D",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hesitantly wonders whether the Soup Dragon from The Clangers would eat Chinese food.",
+     "walkthrough": "In a down answer the D supports CHOW by sitting beneath it. The Soup Dragon is a character in the British children's TV show The Clangers.",
+     "definitionFit": "Chowder is a thick soup, typically of fish or clams."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dragon's"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +188,65 @@
     "text": "Cash and carry, having banned plastic cards, collapses — chaos!",
     "enumeration": "7"
    },
-   "solution": "ANARCHY"
+   "solution": "ANARCHY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ANARCHY",
+    "definitions": [
+     {
+      "text": "chaos",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having banned plastic",
+      "for": "deletion",
+      "note": "banning removes something, and plastic means malleable, so the letters taken out can come from anywhere in any order"
+     },
+     {
+      "text": "collapses",
+      "for": "anagram",
+      "note": "a collapsing structure falls into a jumble, so the remaining letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cash and carry",
+      "gives": "CASHANDCARRY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cards",
+      "gives": "CARDS",
+      "note": "taken as written, the letters to remove"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANARCHY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HANCARY",
+       "gives": "ANARCHY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wholesale warehouse refuses credit cards, and the result is pandemonium.",
+     "walkthrough": "'Plastic cards' reads as credit cards, but plastic tells you the letters of the second word are scattered through the first.",
+     "definitionFit": "Anarchy is lawless disorder, a synonym for chaos."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plastic"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +260,62 @@
     "text": "Come between painters mostly touching Venetian frames",
     "enumeration": "9"
    },
-   "solution": "INTERVENE"
+   "solution": "INTERVENE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "INTERVENE",
+    "definitions": [
+     {
+      "text": "Come between",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not all of it, so the final letter of the first word is dropped"
+     },
+     {
+      "text": "frames",
+      "for": "deletion",
+      "note": "a frame is the outer border, so the surrounding letters are discarded and the middle stretch kept"
+     }
+    ],
+    "linkWords": [
+     "touching"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "painters",
+      "gives": "PAINTER",
+      "note": "the word minus its last letter"
+     },
+     {
+      "clueFragment": "Venetian",
+      "gives": "VENETIAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTER",
+      "VENE"
+     ]
+    },
+    "explanation": {
+     "surface": "Painters work against the backdrop of Venetian picture frames.",
+     "walkthrough": "With its final S gone, the first word touches 'Venetian', and the answer is the stretch those two words frame: drop PA from the front and TIAN from the end.",
+     "definitionFit": "To intervene is to step in between parties, so the verb means come between."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "frames"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +329,62 @@
     "text": "Do very well by cutting starters for every customer eating lunch",
     "enumeration": "5"
    },
-   "solution": "EXCEL"
+   "solution": "EXCEL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "EXCEL",
+    "definitions": [
+     {
+      "text": "Do very well",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starters",
+      "for": "letter_selection",
+      "note": "starters are what come first, so only each word's opening letter is taken"
+     },
+     {
+      "text": "cutting",
+      "for": "container",
+      "note": "cutting into something means going inside it, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "every customer eating lunch",
+      "gives": "ECEL",
+      "select": "first",
+      "note": "the first letter of each word"
+     },
+     {
+      "clueFragment": "by",
+      "gives": "X",
+      "note": "x as in 3 x 4, said as three by four"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "X",
+      "CEL"
+     ]
+    },
+    "explanation": {
+     "surface": "A restaurant thrives by serving starters to every lunchtime diner.",
+     "walkthrough": "'For' sits inside the first-letter run as a link; the times sign is read as 'by', as in room dimensions.",
+     "definitionFit": "To excel is to perform outstandingly, the verb for doing very well."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "starters"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +398,61 @@
     "text": "Ground to soak up water",
     "enumeration": "7"
    },
-   "solution": "TERRAIN"
+   "solution": "TERRAIN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TERRAIN",
+    "definitions": [
+     {
+      "text": "Ground",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down answer, going up means reading from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to soak",
+      "gives": "RET",
+      "note": "to ret flax is to soak it to soften the fibres"
+     },
+     {
+      "clueFragment": "water",
+      "gives": "RAIN",
+      "note": "rain is water falling from the sky"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TER",
+      "RAIN"
+     ],
+     "reversals": [
+      {
+       "from": "RET",
+       "to": "TER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Soil absorbs the rainfall.",
+     "walkthrough": "'Soak up' looks like one phrasal verb, but 'up' is a separate signal. Ret is a dictionary verb for soaking flax or hemp.",
+     "definitionFit": "Terrain is land considered by its physical features, so it is ground."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +466,72 @@
     "text": "Henry holds up bag containing lots of pink leaves",
     "enumeration": "7"
    },
-   "solution": "SPINACH"
+   "solution": "SPINACH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "SPINACH",
+    "definitions": [
+     {
+      "text": "leaves",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holds up",
+      "for": "charade",
+      "note": "in a down answer, holding something up means sitting beneath it as support"
+     },
+     {
+      "text": "lots of",
+      "for": "deletion",
+      "note": "lots of means much but not all, so a letter is dropped"
+     },
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bag",
+      "gives": "SAC",
+      "note": "a sac is a pouch or bag"
+     },
+     {
+      "clueFragment": "pink",
+      "gives": "PIN",
+      "note": "the colour word without its final letter"
+     },
+     {
+      "clueFragment": "Henry",
+      "gives": "H",
+      "note": "the henry is the unit of inductance, symbol H"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PIN",
+      "AC",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Henry raises a carrier bag stuffed with pink foliage.",
+     "definitionFit": "Spinach is a vegetable eaten for its green leaves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Henry"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +545,55 @@
     "text": "Tense race, leader denied award",
     "enumeration": "12"
    },
-   "solution": "PRESENTATION"
+   "solution": "PRESENTATION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "PRESENTATION",
+    "definitions": [
+     {
+      "text": "award",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader denied",
+      "for": "deletion",
+      "note": "with the leader refused entry, the word loses its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tense",
+      "gives": "PRESENT",
+      "note": "the present is a grammatical tense"
+     },
+     {
+      "clueFragment": "race",
+      "gives": "NATION",
+      "note": "a race or people; the word minus its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRESENT",
+      "ATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A close-fought contest ends with the front-runner refused a trophy.",
+     "walkthrough": "'Tense' looks like an adjective for the race, but it is the grammar noun.",
+     "definitionFit": "A presentation is the ceremonial giving of a prize, so it can mean an award."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tense"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +613,52 @@
      }
     ]
    },
-   "solution": "RIOTACT"
+   "solution": "RIOTACT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RIOT ACT",
+    "definitions": [
+     {
+      "text": "revoked law",
+      "at": 36
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "standard abbreviation for Republican"
+     },
+     {
+      "clueFragment": "character in Greek",
+      "gives": "IOTA",
+      "note": "a letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "IOTA",
+      "CT"
+     ]
+    },
+    "explanation": {
+     "surface": "A Republican figure in a Greek courtroom saw a law repealed.",
+     "definitionFit": "The Riot Act of 1714 let authorities disperse crowds and was repealed in Britain in 1973, so it is a law that has been revoked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +672,47 @@
     "text": "Sentimental stuff, a bit like The Pirates of Penzance?",
     "enumeration": "7"
    },
-   "solution": "CORNISH"
+   "solution": "CORNISH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CORNISH",
+    "definitions": [
+     {
+      "text": "like The Pirates of Penzance",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sentimental stuff",
+      "gives": "CORN",
+      "note": "corn is mawkish, sentimental material"
+     },
+     {
+      "clueFragment": "a bit",
+      "gives": "ISH",
+      "note": "the suffix meaning somewhat, to a degree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CORN",
+      "ISH"
+     ]
+    },
+    "explanation": {
+     "surface": "Gilbert and Sullivan's operetta is dismissed as rather schmaltzy.",
+     "walkthrough": "Penzance is a town in Cornwall, the county at England's south-west tip, so its pirates would be Cornish.",
+     "definitionFit": "Anything belonging to Penzance comes from Cornwall, and the adjective for that county describes its residents, pirates included."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Pirates"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +726,68 @@
     "text": "Disregard limits of home education lacking cardinal points",
     "enumeration": "12"
    },
-   "solution": "HEEDLESSNESS"
+   "solution": "HEEDLESSNESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HEEDLESSNESS",
+    "definitions": [
+     {
+      "text": "Disregard",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "limits of",
+      "for": "letter_selection",
+      "note": "the limits are the boundaries, so the first and last letters are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "home",
+      "gives": "HE",
+      "select": "outer",
+      "note": "the first and last letters"
+     },
+     {
+      "clueFragment": "education",
+      "gives": "ED",
+      "note": "standard abbreviation, as in further ed"
+     },
+     {
+      "clueFragment": "lacking",
+      "gives": "LESS",
+      "note": "the suffix meaning without"
+     },
+     {
+      "clueFragment": "cardinal points",
+      "gives": "NESS",
+      "note": "north, east, south and south: four compass point letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "ED",
+      "LESS",
+      "NESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Homeschooling with no sense of direction ignores the basics.",
+     "walkthrough": "The four compass letters are not all different: two souths are used.",
+     "definitionFit": "Heedlessness is a lack of attention or care, the noun meaning disregard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cardinal"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +801,50 @@
     "text": "Corrupting influence weakens when its extremes are commuted",
     "enumeration": "7"
    },
-   "solution": "SEDUCER"
+   "solution": "SEDUCER",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "SEDUCER",
+    "definitions": [
+     {
+      "text": "Corrupting influence",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when its extremes are commuted",
+      "for": "substitution",
+      "note": "commuting means exchanging one thing for another, so the first and last letters trade places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weakens",
+      "gives": "REDUCES",
+      "note": "to reduce something is to lessen or weaken it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EDUCE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A bad influence's power fades as its outlying parts are reduced in a legal sense.",
+     "walkthrough": "Swap the opening R and closing S of the verb and the middle stays put.",
+     "definitionFit": "A seducer leads others astray, a person who exerts a corrupting influence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "commuted"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +858,57 @@
     "text": "Escape from dismal prison, covering heads",
     "enumeration": "7"
    },
-   "solution": "LEAKAGE"
+   "solution": "LEAKAGE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "LEAKAGE",
+    "definitions": [
+     {
+      "text": "Escape",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering heads",
+      "for": "deletion",
+      "note": "with their heads covered up, the opening letters of the words are hidden from view"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dismal",
+      "gives": "BLEAK",
+      "note": "dismal and bleak are synonyms"
+     },
+     {
+      "clueFragment": "prison",
+      "gives": "CAGE",
+      "note": "a cage is a place of confinement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEAK",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A breakout from a grim jail, with the escapees covering their heads.",
+     "definitionFit": "Leakage is the escape of a fluid or gas through a hole, a noun meaning the same as escape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "covering"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +922,64 @@
     "text": "On edge of city, conserving unopened diesel fuel",
     "enumeration": "5"
    },
-   "solution": "NERVY"
+   "solution": "NERVY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "NERVY",
+    "definitions": [
+     {
+      "text": "On edge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "conserving",
+      "for": "container",
+      "note": "to conserve is to keep safe inside, so one piece is held within another"
+     },
+     {
+      "text": "unopened",
+      "for": "deletion",
+      "note": "not opened means the first letter has not been revealed, so it is dropped"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "city",
+      "gives": "NY",
+      "note": "New York, abbreviated"
+     },
+     {
+      "clueFragment": "diesel fuel",
+      "gives": "DERV",
+      "note": "derv is British slang for diesel fuel for road vehicles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ERV",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A city on the brink, hoarding its unused diesel.",
+     "walkthrough": "'Of' links the definition to the wordplay; 'On edge' is the definition. DERV is the British name for diesel fuel.",
+     "definitionFit": "Nervy, in British usage, means anxious and jumpy, which is the state of someone on edge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "edge"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +993,68 @@
     "text": "Hands developing Hamlet captures the allure of The Mousetrap?",
     "enumeration": "9"
    },
-   "solution": "EMMENTHAL"
+   "solution": "EMMENTHAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EMMENTHAL",
+    "definitions": [
+     {
+      "text": "the allure of The Mousetrap?",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "developing",
+      "for": "anagram",
+      "note": "something developing changes form, so the letters of the play's name are re-formed"
+     },
+     {
+      "text": "captures",
+      "for": "container",
+      "note": "to capture is to take inside, so one piece is held within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hamlet",
+      "gives": "HAMLET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Hands",
+      "gives": "MEN",
+      "note": "hands are workers, men"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "MEN",
+      "THAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HAMLET",
+       "gives": "EMTHAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stagehands putting on Hamlet are drawn to Agatha Christie's long-running play.",
+     "walkthrough": "The surface is all theatre: The Mousetrap is the Agatha Christie play running in London's West End since 1952. Read literally, a mousetrap is baited with cheese.",
+     "definitionFit": "Cheese is the traditional bait in a mousetrap, so a holey Swiss cheese is the lure that draws the mouse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mousetrap"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +1068,65 @@
     "text": "Sensational stuff from LAMDA — Romeo snubbed in performance",
     "enumeration": "9"
    },
-   "solution": "MELODRAMA"
+   "solution": "MELODRAMA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "MELODRAMA",
+    "definitions": [
+     {
+      "text": "Sensational stuff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "snubbed",
+      "for": "deletion",
+      "note": "snubbed suggests cut short, so the word loses its last letter"
+     },
+     {
+      "text": "in performance",
+      "for": "anagram",
+      "note": "a performance puts things on in a new shape, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "LAMDA",
+      "gives": "LAMDA",
+      "note": "taken as written: the London Academy of Music and Dramatic Art"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "ROME",
+      "note": "the name cut short by one letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LAMDAROME",
+       "gives": "MELODRAMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drama-school production in which Romeo is pointedly ignored.",
+     "walkthrough": "LAMDA is a London drama school. 'Romeo' looks like the NATO code for R, but here the whole name is cut short.",
+     "definitionFit": "Melodrama is exaggerated, sensational drama, so it is sensational stuff."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "snubbed"
+    }
+   }
   },
   {
    "number": 16,
@@ -273,7 +1146,68 @@
      }
     ]
    },
-   "solution": "ALARMBELL"
+   "solution": "ALARMBELL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ALARM BELL",
+    "definitions": [
+     {
+      "text": "One of the Warners",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new, so the author's name is made new by rearranging its letters"
+     },
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "to embrace is to hug, holding one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "completely",
+      "gives": "ALL",
+      "note": "all means wholly, completely"
+     },
+     {
+      "clueFragment": "Ambler",
+      "gives": "AMBLER",
+      "note": "Eric Ambler, the thriller writer, taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LARMBE",
+      "LL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AMBLER",
+       "gives": "LARMBE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A member of the Warner family is wholly absorbed in an Eric Ambler thriller.",
+     "walkthrough": "'The Warners' reads as a family or the film studio, but here it means things that warn.",
+     "definitionFit": "An alarm bell rings to alert people to danger, so it is one of many devices that give warning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Warners"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +1221,39 @@
     "text": "Lots of deals to be hammered out here",
     "enumeration": "7"
    },
-   "solution": "AUCTION"
+   "solution": "AUCTION",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "AUCTION",
+    "definitions": [
+     {
+      "text": "Lots of deals to be hammered out here",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lots of deals to be hammered out here",
+      "note": "surface reading: a busy venue where many agreements are negotiated"
+     },
+     {
+      "clueFragment": "Lots of deals to be hammered out here",
+      "note": "setter's reading: lots are items for sale, each sold when the gavel falls"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Lots' looks like 'many', and 'hammered out' like hard bargaining; both are saleroom terms.",
+     "definitionFit": "At an auction each lot is sold with a blow of the auctioneer's hammer, so the place where lots are hammered is this sale."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lots"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1267,56 @@
     "text": "To some extent, revolutionary thrives on N. American sugar",
     "enumeration": "7"
    },
-   "solution": "MANNOSE"
+   "solution": "MANNOSE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "MANNOSE",
+    "definitions": [
+     {
+      "text": "sugar",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "To some extent",
+      "for": "hidden_word",
+      "note": "only partly, so the letters are a piece of the words that follow"
+     },
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "a revolution turns things round, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thrives on N. American",
+      "gives": "ESONNAM",
+      "note": "a run of letters across the words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ESONNAM",
+       "to": "MANNOSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A radical seems to thrive on North American sugar.",
+     "definitionFit": "Mannose is a simple sugar, a hexose found in some plants."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1330,79 @@
     "text": "Fairies casting essential part of spell must surround Iolanthe's premier singer",
     "enumeration": "5"
    },
-   "solution": "ELVIS"
+   "solution": "ELVIS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "container"
+    ],
+    "answer": "ELVIS",
+    "definitions": [
+     {
+      "text": "singer",
+      "at": 73
+     }
+    ],
+    "indicators": [
+     {
+      "text": "casting",
+      "for": "deletion",
+      "note": "to cast off is to throw away, so a letter is thrown out of the word"
+     },
+     {
+      "text": "essential part of",
+      "for": "letter_selection",
+      "note": "the essential or central part of a word is its middle letter"
+     },
+     {
+      "text": "premier",
+      "for": "letter_selection",
+      "note": "premier means first, so only the opening letter of the name is used"
+     },
+     {
+      "text": "must surround",
+      "for": "container",
+      "note": "surrounding something places it inside the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fairies",
+      "gives": "ELVES",
+      "note": "elves are fairy folk"
+     },
+     {
+      "clueFragment": "spell",
+      "gives": "E",
+      "select": "middle",
+      "note": "the central letter of this five-letter word"
+     },
+     {
+      "clueFragment": "Iolanthe's",
+      "gives": "I",
+      "select": "first",
+      "note": "the first letter of the opera's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELV",
+      "I",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Fairies casting a spell around the lead soprano of Iolanthe, Gilbert and Sullivan's fairy opera.",
+     "walkthrough": "The fairies' word throws out the E at the heart of 'spell', then wraps round the opera's initial letter.",
+     "definitionFit": "Elvis Presley is the most famous singer known by first name alone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "premier"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1416,67 @@
     "text": "Perhaps Joy rebuffed No.1 book?",
     "enumeration": "7"
    },
-   "solution": "EMOTION"
+   "solution": "EMOTION",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EMOTION",
+    "definitions": [
+     {
+      "text": "Perhaps Joy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rebuffed",
+      "for": "reversal",
+      "note": "a rebuff pushes something back, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No.",
+      "gives": "NO",
+      "note": "the abbreviation for number"
+     },
+     {
+      "clueFragment": "1",
+      "gives": "I",
+      "note": "the Roman numeral one"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "TOME",
+      "note": "a tome is a large book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMOT",
+      "I",
+      "ON"
+     ],
+     "reversals": [
+      {
+       "from": "NOITOME",
+       "to": "EMOTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Joy turns down the bestseller at number one.",
+     "walkthrough": "'Joy' reads as a woman's name, but it is just one example of a feeling.",
+     "definitionFit": "Joy is an example of an emotion, a feeling such as happiness or anger; the 'perhaps' marks it as an instance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Joy"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1490,70 @@
     "text": "Stopped by. Mavis and I mated, in mother's absence… twice",
     "enumeration": "7"
    },
-   "solution": "VISITED"
+   "solution": "VISITED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "VISITED",
+    "definitions": [
+     {
+      "text": "Stopped by",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absence… twice",
+      "for": "deletion",
+      "note": "being absent twice over means the same short piece is removed from both words"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mavis",
+      "gives": "MAVIS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mated",
+      "gives": "MATED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mother's",
+      "gives": "MA",
+      "note": "ma is a familiar word for mother"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIS",
+      "I",
+      "TED"
+     ]
+    },
+    "explanation": {
+     "surface": "Mavis and I got together while Mum was out — on two occasions.",
+     "walkthrough": "MA is the short word for mother; it comes out of each of the two words that start with it.",
+     "definitionFit": "To have stopped by somewhere is to have visited it briefly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "mated"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1567,63 @@
     "text": "Fumes concentrated with temperature becoming cold",
     "enumeration": "7"
    },
-   "solution": "INCENSE"
+   "solution": "INCENSE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "INCENSE",
+    "definitions": [
+     {
+      "text": "Fumes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "becoming",
+      "for": "substitution",
+      "note": "becoming means turning into, so one letter changes into another"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concentrated",
+      "gives": "INTENSE",
+      "note": "intense means concentrated, focused"
+     },
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C for cold, as on a tap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "C",
+      "ENSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Thick fumes grow chilly as the temperature drops.",
+     "walkthrough": "'Fumes' looks like a noun but is the verb: to incense someone makes them fume.",
+     "definitionFit": "To incense is to make angry, and someone who fumes is seething with anger; both verbs describe rage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Fumes"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1637,65 @@
     "text": "Bail out of European aircraft going around maximum speed",
     "enumeration": "5"
    },
-   "solution": "EJECT"
+   "solution": "EJECT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EJECT",
+    "definitions": [
+     {
+      "text": "Bail out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going around",
+      "for": "container",
+      "note": "going around something means enclosing it, so one piece sits inside"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "aircraft",
+      "gives": "JET",
+      "note": "a jet is an aircraft"
+     },
+     {
+      "clueFragment": "maximum speed",
+      "gives": "C",
+      "note": "c is the speed of light, the fastest possible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "JE",
+      "C",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A pilot bails out of a European plane flying at top speed.",
+     "walkthrough": "In physics c is the speed of light, the universe's speed limit.",
+     "definitionFit": "Ejecting from an aircraft is how a pilot bails out, using an ejector seat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "maximum"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1715,43 @@
      }
     ]
    },
-   "solution": "DROPSIN"
+   "solution": "DROPSIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DROPS IN",
+    "definitions": [
+     {
+      "text": "Makes informal call",
+      "at": 0
+     },
+     {
+      "text": "demand for moral improvement?",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Makes informal call",
+      "note": "first meaning: visits casually without arranging it"
+     },
+     {
+      "clueFragment": "demand for moral improvement?",
+      "note": "second meaning, read as two words: an order to abandon wrongdoing"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half is whimsical: split as DROP SIN, the phrase is an instruction to give up vice; the question mark flags the pun.",
+     "definitionFit": "To drop in on someone is to pay them an unplanned, casual visit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "call"
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1765,79 @@
     "text": "Disgusting headless devil from the East besieges mission every now and then",
     "enumeration": "7"
    },
-   "solution": "NOISOME"
+   "solution": "NOISOME",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "NOISOME",
+    "definitions": [
+     {
+      "text": "Disgusting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "headless",
+      "for": "deletion",
+      "note": "without a head means the first letter is cut off"
+     },
+     {
+      "text": "from the East",
+      "for": "reversal",
+      "note": "in an across answer, coming from the east means reading right to left"
+     },
+     {
+      "text": "every now and then",
+      "for": "letter_selection",
+      "note": "only occasionally, so just every other letter is taken"
+     },
+     {
+      "text": "besieges",
+      "for": "container",
+      "note": "a besieging army surrounds its target, so one piece goes round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "devil",
+      "gives": "DEMON",
+      "note": "a demon is a devil"
+     },
+     {
+      "clueFragment": "mission",
+      "gives": "ISO",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "ISO",
+      "ME"
+     ],
+     "reversals": [
+      {
+       "from": "EMON",
+       "to": "NOME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A loathsome eastern devil, decapitated, lays siege to a mission now and again.",
+     "definitionFit": "Noisome means offensive or foul-smelling, so it describes something disgusting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "headless"
+    }
+   }
   },
   {
    "number": 25,
@@ -419,7 +1851,74 @@
     "text": "Flies Virginia back, returning direct first class",
     "enumeration": "7"
    },
-   "solution": "AVIATES"
+   "solution": "AVIATES",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "AVIATES",
+    "definitions": [
+     {
+      "text": "Flies",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the abbreviation is read from right to left"
+     },
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so these pieces run backwards too"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Virginia",
+      "gives": "VA",
+      "note": "the US state abbreviation"
+     },
+     {
+      "clueFragment": "direct",
+      "gives": "SET",
+      "note": "to set a course is to direct it"
+     },
+     {
+      "clueFragment": "first class",
+      "gives": "AI",
+      "note": "A1 means first-rate, the digit read as the letter I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AV",
+      "IATES"
+     ],
+     "reversals": [
+      {
+       "from": "VA",
+       "to": "AV"
+      },
+      {
+       "from": "SETAI",
+       "to": "IATES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone flies Virginia home, then on the way back flies first class.",
+     "definitionFit": "To aviate is to pilot an aircraft, so a person who aviates flies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Virginia"
+    }
+   }
   },
   {
    "number": 26,
@@ -433,7 +1932,68 @@
     "text": "Discovered dune grass variety is breaking out of control",
     "enumeration": "12"
    },
-   "solution": "UNRESTRAINED"
+   "solution": "UNRESTRAINED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "UNRESTRAINED",
+    "definitions": [
+     {
+      "text": "out of control",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Discovered",
+      "for": "letter_selection",
+      "note": "uncovered, so the outer layer is stripped away and only the inside letters remain"
+     },
+     {
+      "text": "is breaking",
+      "for": "container",
+      "note": "breaking into something means getting inside it, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dune",
+      "gives": "UN",
+      "select": "middle",
+      "note": "the word with its first and last letters taken off"
+     },
+     {
+      "clueFragment": "grass",
+      "gives": "REED",
+      "note": "a reed is a tall grass"
+     },
+     {
+      "clueFragment": "variety",
+      "gives": "STRAIN",
+      "note": "a strain is a variety of plant or animal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "RE",
+      "STRAIN",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A new type of marram grass, found on the sand dunes, is spreading unchecked.",
+     "definitionFit": "Unrestrained means free of any restraint, which is the same as out of control."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Discovered"
+    }
+   }
   }
  ]
 }
