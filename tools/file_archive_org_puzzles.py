@@ -2469,6 +2469,10 @@ def load_held(path):
         _HELD.setdefault(k, v)
 
 
+#: {(series, number): its file} as held_files last listed them.
+_HELD_PATH = {}
+
+
 def held_files(series):
     """[(number, (date or None, source url, date text))] of every puzzle
     filed in a series, each file parsed once a process and again only when
@@ -2488,6 +2492,7 @@ def held_files(series):
                                        (d.get("source") or {}).get("url"), (date or "")[:10]))
             _HELD_MOVED.append(p)
         out.append((int(p.stem.split("-")[1]), seen[1]))
+        _HELD_PATH[series, out[-1][0]] = p
     if now is not None:
         now[series] = list(out)
     return out
@@ -3515,6 +3520,195 @@ def fix_reason(row):
     return None
 
 
+#: The fixes a re-read is predicted to file a puzzle whole by (every clue
+#: and every answer) that its last read left short (likely()): its answers'
+#: solution heading links now in a stored scan; the next issue's heading,
+#: which that issue's re-read rescans, links now in its archive.org text
+#: (text_headings); its solution grid, read before read_framed (no
+#: "lattices" in its stats), lacks at most PARTIAL_GAP lights; every clue
+#: it held blank is one a VOTE_MENDED change since its read mends.
+LIKELY = ("answers linked", "answers in the next issue's text", "solution grid read before read_framed",
+          "blanks a vote fix mends")
+#: The lights a solution grid read before read_framed may lack and still be
+#: predicted whole: read_framed read about two more a grid (84 Times crops,
+#: 1,443 lights accepted to 1,617).
+PARTIAL_GAP = 2
+
+
+def filed_state(series, number):
+    """(every answer, every clue) filed, of `series`' puzzle `number` as
+    its file holds it, or None when none is filed; parsed again only when
+    the file's stat moves (_WHOLE)."""
+    p = _HELD_PATH.get((series, number))
+    if p is None:
+        return None
+    try:
+        st = p.stat()
+    except OSError:
+        return None
+    stamp = (st.st_mtime_ns, st.st_size)
+    hit = _WHOLE.get(p)
+    if hit is None or hit[0] != stamp:
+        es = json.loads(p.read_text()).get("entries") or ()
+        hit = _WHOLE[p] = (stamp, (all(e.get("solution") for e in es), all(e.get("clue") for e in es)))
+        _LIKELY_MOVED.append(True)
+    return hit[1]
+
+
+def answers_whole(v):
+    """Whether verdict `v` read every answer: a solution grid read whole."""
+    s = v.get("solution")
+    return (bool(v.get("solutionFrom")) and isinstance(s, dict) and not s.get("refused")
+            and s.get("accepted", 0) >= s.get("lights", 0))
+
+
+def held_short(series, row, v):
+    """(answers short, blanks mended) of verdict `v` of ledger `row` whose
+    re-read could file it whole: its answers not filed whole yet, and
+    whether its clues stand only by a VOTE_MENDED change; None when it is
+    whole already or held by what no fix since mends (a refusal, a pending
+    grid, a blank clue no change mends)."""
+    if not v.get("id") or v.get("refused") or v.get("pending"):
+        return None
+    filed = filed_state(series, v["number"])
+    clues = bool(filed and filed[1]) or not v.get("blank")
+    mended = not clues and scan_queue.mended_at(row, v) is not None
+    answers = not (filed and filed[0]) and not answers_whole(v)
+    if not (clues or mended) or not (answers or mended):
+        return None
+    return answers, mended
+
+
+def short_cause(series, row, v, solutions):
+    """The fix (LIKELY) a re-read is predicted to file verdict `v` of
+    ledger `row` whole by, `solutions` the headings linked now ({number:
+    heading}); None when it is whole already or no fix since mends what
+    holds it (held_short; no heading linked; a solution grid read_framed
+    read, or more than PARTIAL_GAP lights short, or refused)."""
+    held = held_short(series, row, v)
+    if held is None:
+        return None
+    answers, mended = held
+    if not answers:
+        return LIKELY[3]
+    if not v.get("solutionFrom"):
+        return LIKELY[0] if v["number"] in solutions else None
+    s = v.get("solution")
+    return (LIKELY[2] if isinstance(s, dict) and not s.get("refused") and "lattices" not in s
+            and s.get("lights", 0) - s.get("accepted", 0) <= PARTIAL_GAP else None)
+
+
+#: {edition dir: (djvu.xml.gz's stat, [(number, leaf)])}: the solution
+#: headings in each edition's archive.org text as paper.headings reads them
+#: (text_headings), under _HEADINGS_KEY's scan code; {puzzle file: (its
+#: stat, filed_state)}. save_likely and load_likely keep both between
+#: processes.
+_HEADINGS = {}
+_HEADINGS_KEY = []
+_WHOLE = {}
+_LIKELY_MOVED = []
+#: How long (seconds) one plan spends reading headings out of archive.org
+#: text not yet in _HEADINGS (~0.5s CPU, ~1s an edition on the media
+#: mount); the rest wait for the next plan, their reads ranked as if none links.
+HEADING_SECONDS = 3.0
+
+
+def text_headings(d, deadline=None):
+    """[(number, leaf)] of the solution headings edition dir `d`'s
+    archive.org text prints on its crossword leaves, as its rescan reads
+    them (_scan, a leaf with text); [] with no text. None when not read yet
+    and time.monotonic() is past `deadline`."""
+    key = scan_key()
+    if _HEADINGS_KEY != [key]:
+        _HEADINGS.clear()
+        _HEADINGS_KEY[:] = [key]
+    xml = d / "djvu.xml.gz"
+    try:
+        st = xml.stat()
+    except OSError:
+        return []
+    stamp = (st.st_mtime_ns, st.st_size)
+    hit = _HEADINGS.get(str(d))
+    if hit is not None and hit[0] == stamp:
+        return hit[1]
+    if deadline is not None and time.monotonic() > deadline:
+        return None
+    try:
+        leaves = {p["leaf"] for p in json.loads((d / "pages.json").read_text()).get("crossword_pages", ())}
+    except (OSError, ValueError):
+        return []
+    text = leaf_lines(xml, leaves)
+    paper = paper_of(d)
+    out = [(n, leaf) for leaf in sorted(text) for n, _ in paper.headings(text[leaf])[1]]
+    _HEADINGS[str(d)] = (stamp, out)
+    _LIKELY_MOVED.append(True)
+    return out
+
+
+def save_likely(path):
+    """Write _HEADINGS and _WHOLE to `path` when either moved since the last save."""
+    if not _LIKELY_MOVED:
+        return
+    _LIKELY_MOVED.clear()
+    tmp = f"{os.fspath(path)}.{os.getpid()}.tmp"
+    os.makedirs(os.path.dirname(os.fspath(path)) or ".", exist_ok=True)
+    with open(tmp, "wb") as f:
+        pickle.dump({"key": _HEADINGS_KEY[:1], "headings": dict(_HEADINGS), "whole": dict(_WHOLE)}, f,
+                    protocol=pickle.HIGHEST_PROTOCOL)
+    os.replace(tmp, path)
+
+
+def load_likely(path):
+    """Take what save_likely wrote to `path`: the headings when read by this scan code."""
+    try:
+        with open(path, "rb") as f:
+            snap = pickle.load(f)
+        key, heads, whole = snap["key"], snap["headings"], snap["whole"]
+    except (OSError, EOFError, pickle.UnpicklingError, AttributeError, ValueError, TypeError, KeyError):
+        return
+    for k, v in whole.items():
+        _WHOLE.setdefault(k, v)
+    if key == [scan_key()]:
+        _HEADINGS_KEY[:] = key
+        for k, v in heads.items():
+            _HEADINGS.setdefault(k, v)
+
+
+def likely(paper, known, reads, rels, scans, solutions, held, order):
+    """{edition dir: {fix: puzzles}} of the `reads` (dir: reason) whose
+    re-read is predicted to file puzzles whole that their last read left
+    short, by each fix (LIKELY, short_cause). An edition due as the issue
+    printing an answerless puzzle's solution (STALE_SCAN[0]) counts each
+    such puzzle whose heading its archive.org text links now (text_headings:
+    HEADING_SECONDS a plan, the dirs in `order` first) and whose clues
+    would stand."""
+    out = {}
+    for d in reads:
+        row = known.get(rels[d]) or {}
+        for v in row.get("verdicts", ()):
+            cause = short_cause(paper.series, row, v, solutions)
+            if cause:
+                out.setdefault(d, {}).setdefault(cause, 0)
+                out[d][cause] += 1
+    wanting = {v["number"] for row in known.values() for v in row.get("verdicts", ())
+               if not v.get("solutionFrom") and v.get("number") not in solutions
+               and (held_short(paper.series, row, v) or (False,))[0]}
+    deadline = time.monotonic() + HEADING_SECONDS
+    for d in [d for d in order if reads[d] == STALE_SCAN[0]] if wanting else ():
+        scan = scans[rels[d]]
+        day = scan.get("date") or day_of(d)
+        heads = text_headings(d, deadline) if day else None
+        if not heads:
+            continue
+        titled = {p["number"] for p in scan["puzzles"]}
+        found = {"date": day, "puzzles": scan["puzzles"],
+                 "solutions": [{"number": n, "leaf": leaf} for n, leaf in heads if n not in titled]}
+        n = len({s["number"] for s in linked_solutions(paper, found, held)} & wanting)
+        if n:
+            out.setdefault(d, {})[LIKELY[1]] = n
+    return out
+
+
 def due_reason(row, inputs, sol_seen, vlm_up, reread=None, sol_from=None):
     """Why an edition's ledger `row` is read again, or None: never read, its
     files (input_hash) or the solutions it can see moved, a solution it read
@@ -3607,16 +3801,19 @@ def staged_at(d):
 #: or a fix landed for what it refused or read in part; 3 the whole-corpus
 #: re-reads: a scan by older scan code (scan_key) and --reread BEFORE, which
 #: edition_queue.dispatch starts only once nothing ranked below 3 waits.
-#: Every reason due_reason or plan gives is named here.
+#: Within a rank, the reads likely() predicts to file the most puzzles
+#: whole go first. Every reason due_reason or plan gives is named here.
 RANKS = {"saved by hand": 0, "never read": 1, "annotation asked": 1, "inputs changed": 2, "titles changed": 2,
          "solution moved": 2, "read without the VLM": 2, "solution read in part before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in REFUSALS}, "scan stale, answers missing": 2,
-         "scan stale": 3, "--reread": 3}
+         "scan stale, answers linked": 2, "scan stale": 3, "--reread": 3}
 #: The reasons of a read whose scan is by older scan code: "answers missing"
 #: when a stored title is the one after a puzzle read without answers that no
 #: page links a solution heading to (six after a Saturday's prize), the issue
-#: printing that solution (the scan code that moved may now read its heading).
-STALE_SCAN = ("scan stale, answers missing", "scan stale")
+#: printing that solution (the scan code that moved may now read its heading);
+#: "answers linked" when a puzzle it read without answers would now file
+#: whole (likely(): a stored scan links its solution heading now).
+STALE_SCAN = ("scan stale, answers missing", "scan stale", "scan stale, answers linked")
 #: The rank of the re-reads that sweep the whole corpus.
 BLANKET = 3
 
@@ -3697,18 +3894,34 @@ def _plan_paper(paper, cache, ledger, reread, asked, dirs):
         hi = bisect.bisect_right(days, day + datetime.timedelta(days=SOLUTION_DAYS))
         return [rel for _, rel in dated[lo:hi]] + undated
     newest = staged_at if paper.key in NEWEST_FIRST else (lambda d: edition_date(d) or datetime.date.min)
-    queue = sorted(sorted(reads, key=newest, reverse=True), key=lambda d: rank_of_reason(reads[d]))
+    fixes = likely(paper, known, reads, rels, scans, solutions, held, sorted(reads, key=newest, reverse=True))
+    for d, by in fixes.items():
+        # A whole-corpus re-read a fix now completes a puzzle of is one that can change what was filed.
+        if reads[d] == STALE_SCAN[1] and LIKELY[0] in by:
+            reads[d] = STALE_SCAN[2]
+    # Each rank's reads predicted to file the most puzzles whole first, then newest first.
+    gain = {d: sum(fixes.get(d, {}).values()) for d in reads}
+    queue = sorted(sorted(reads, key=newest, reverse=True), key=lambda d: (rank_of_reason(reads[d]), -gain[d]))
     read_units = [{"kind": "read", "paper": paper.key, "rel": rels[d], "reason": reads[d], "rank": rank_of_reason(reads[d]),
-                   "date": day_of(d), "needs": needs(d), "force": reads[d] == "annotation asked"} for d in queue]
-    rank_of = {}
+                   "date": day_of(d), "needs": needs(d), "force": reads[d] == "annotation asked",
+                   **({"likely": fixes[d]} if d in fixes else {})} for d in queue]
+    rank_of, gain_of = {}, {}
     for u in read_units:
         for rel in u["needs"]:
             rank_of[rel] = min(rank_of.get(rel, 9), u["rank"])
+            gain_of[rel] = max(gain_of.get(rel, 0), likely_gain(u))
     scan_units = [{"kind": "scan", "paper": paper.key, "rel": rels[d], "rank": rank_of.get(rels[d], RANKS["scan stale"]),
-                   "date": day_of(d), "reason": "scan stale" if "scan" in (known.get(rels[d]) or {}) else "never scanned"}
+                   "date": day_of(d), "reason": "scan stale" if "scan" in (known.get(rels[d]) or {}) else "never scanned",
+                   **({"gain": gain_of[rels[d]]} if gain_of.get(rels[d]) else {})}
                   for d in sorted(sorted(stale, key=newest, reverse=True),
-                                  key=lambda d: rank_of.get(rels[d], RANKS["scan stale"]))]
+                                  key=lambda d: (rank_of.get(rels[d], RANKS["scan stale"]), -gain_of.get(rels[d], 0)))]
     return scan_units, read_units
+
+
+def likely_gain(unit):
+    """How many puzzles a read unit is predicted to file whole (its
+    "likely" fixes, plan), or a scan unit's reads at most ("gain")."""
+    return unit.get("gain", 0) + sum((unit.get("likely") or {}).values())
 
 
 #: {(cache, paper key): edition dirs} as the last plan() listed them: a unit

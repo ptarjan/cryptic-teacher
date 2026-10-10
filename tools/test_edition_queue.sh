@@ -38,7 +38,7 @@ def check(what, want, got):
         print(f"FAIL {what}: expected {want!r}, got {got!r}")
 
 T = Path(os.environ["TMP"])
-eq.DIR_CACHE, eq.HELD_CACHE = T / "dir_cache.pickle", T / "held_files.pickle"  # never this host's caches
+eq.DIR_CACHE, eq.HELD_CACHE, eq.LIKELY_CACHE = T / "dir_cache.pickle", T / "held_files.pickle", T / "likely.pickle"  # never this host's caches
 q.LEDGERS = {k: T / f"none-{k}.jsonl" for k in ("archive", "gale", "trove")}
 q.REQUESTS = T / "requests.jsonl"
 
@@ -138,6 +138,80 @@ check("a fix's re-read ranks 2 even under --reread; moved files are inputs chang
       {"1970-01-01_1": "refused not-a-grid before its fix", "1985-01-01_1": "inputs changed"},
       {u["rel"].split("/")[1]: u["reason"] for u in reads if u["rank"] == 2})
 f.edition_dirs, f.input_hash = listing, hashes
+
+# ---- likely(): within a rank, the re-reads predicted to file a puzzle whole go first
+lc = T / "likely"
+def led_ed(name):
+    d = lc / "NewsUK1980UKEnglish" / name
+    d.mkdir(parents=True)
+    (d / "pages.json").write_text("{}")
+    return d
+L = {n: led_ed(n) for n in ("1980-01-21_0", "1980-01-22_0", "1980-02-04_1", "1980-02-05_2", "1980-02-06_3",
+                            "1980-02-12_9", "1980-02-13_10")}
+def lrow(name, titles, verdicts, sols=(), **kw):
+    sc = {"date": name[:10], "puzzles": [{"number": n, "leaf": 1, "box": None} for n in titles],
+          "solutions": [{"number": n, "leaf": 1, "box": None} for n in sols]}
+    return {"edition": f"NewsUK1980UKEnglish/{name}", "filesHash": "h", "scanKey": "old", "scan": sc, "inputs": "h",
+            "solutionsSeen": [], "verdicts": verdicts, "readAt": "2026-10-01T00:00:00+00:00", **kw}
+def v(n, **kw):
+    return {"number": n, "id": f"times-{n}", **kw}
+part = lambda gap: {"solutionFrom": "x", "solution": {"lights": 30, "accepted": 30 - gap}}
+q.append(lc / "filed.jsonl", [
+    lrow("1980-02-04_1", [90100], [v(90100)]),  # answerless; 02-05's stored heading links it now
+    lrow("1980-02-05_2", [90101], [v(90101)], sols=[90100]),  # answerless; 02-06's text prints its heading
+    lrow("1980-02-06_3", [90102], [v(90102, **part(5))]),  # the next issue of 90101: its text links it
+    lrow("1980-02-12_9", [90104], [v(90104)]),  # answerless, its next issue's text links nothing
+    lrow("1980-02-13_10", [90105], [v(90105)]),  # the next issue of 90104, newer than 02-06
+    lrow("1980-01-21_0", [90090], [v(90090, **part(1))], scanKey=f.scan_key()),  # a grid two lights short
+    lrow("1980-01-22_0", [90091], [v(90091, **part(5))], scanKey=f.scan_key())])  # mirror: five short, newer
+real = (f.edition_dirs, f.input_hash, f.linked_solutions, f.text_headings, dict(f._HELD_PATH))
+f.edition_dirs = lambda cache=None, paper=None: list(L.values()) if (paper or f.TIMES).key == "times" else []
+f.input_hash = lambda d: "h"
+f.linked_solutions = lambda paper, found, held: found["solutions"]
+text_read = []
+f.text_headings = lambda d, deadline=None: text_read.append(d.name) or (
+    [(90101, 1)] if d.name == "1980-02-06_3" else [])
+f._HELD_PATH.clear()
+_, reads = f.plan(f.TIMES, lc)
+got = [(u["rel"].split("/")[1], u["reason"], u["rank"], u.get("likely")) for u in reads]
+check("a stale scan whose puzzle a stored heading now answers ranks 2, not with the whole corpus",
+      ("1980-02-04_1", "scan stale, answers linked", 2, {"answers linked": 1}),
+      next(g for g in got if g[0] == "1980-02-04_1"))
+check("within rank 2 the predicted re-reads go first, newest first among equals; then the rest newest first",
+      ["1980-02-06_3", "1980-02-04_1", "1980-01-21_0", "1980-02-13_10", "1980-01-22_0"],
+      [g[0] for g in got if g[2] == 2])
+check("the next issue of an answerless puzzle its text links is predicted; one its text does not link is not",
+      ({"answers in the next issue's text": 1}, None),
+      tuple(next(g[3] for g in got if g[0] == n) for n in ("1980-02-06_3", "1980-02-13_10")))
+check("a grid read before read_framed two lights short is predicted, five short not",
+      ({"solution grid read before read_framed": 1}, None),
+      tuple(next(g[3] for g in got if g[0] == n) for n in ("1980-01-21_0", "1980-01-22_0")))
+check("only the editions due as an answerless puzzle's next issue have their text read",
+      ["1980-02-06_3", "1980-02-13_10"], sorted(text_read))
+whole = T / "times-90100.json"
+whole.write_text(json.dumps({"entries": [{"clue": "c", "solution": "S"}]}))
+f._HELD_PATH[("times", 90100)] = whole
+_, reads = f.plan(f.TIMES, lc)
+check("mirror: a puzzle filed whole already (its answers from elsewhere) is not predicted, nor promoted",
+      ("scan stale", 3, None), next((u["reason"], u["rank"], u.get("likely")) for u in reads
+                                    if u["rel"].endswith("02-04_1")))
+check("eq.by_urgency: rank first, then predicted puzzles, then newest",
+      ["new", "likely", "newer", "old"],
+      [u["rel"] for u in eq.by_urgency([(2, 0, 0, {"rel": "newer", "date": "1999"}),
+                                        (2, 1, 0, {"rel": "likely", "date": "1980", "likely": {"x": 1}}),
+                                        (2, 0, 1, {"rel": "old", "date": "1970"}),
+                                        (1, 0, 2, {"rel": "new", "date": "1960"})])])
+mend = {"readAt": "2026-10-09T00:00:00+00:00"}
+check("blanks a vote fix landed for since the read, answers whole: predicted",
+      "blanks a vote fix mends", f.short_cause("times", mend, v(90200, blank={"1-a": "'qx': not a word"}, **part(0)), {}))
+check("mirror: a blank no vote fix mends holds it", None,
+      f.short_cause("times", mend, v(90200, blank={"1-a": "junk"}, **part(0)), {}))
+check("mirror: read after the fix, the same blank holds it", None,
+      f.short_cause("times", {"readAt": "2026-10-11T00:00:00+00:00"}, v(90200, blank={"1-a": "'qx': not a word"},
+                                                                        **part(0)), {}))
+f.edition_dirs, f.input_hash, f.linked_solutions, f.text_headings = real[:4]
+f._HELD_PATH.clear()
+f._HELD_PATH.update(real[4])
 
 # ---- the queue's order across papers, and --newer-than
 os.utime(g2 / "pages.json", (time.time(), time.time()))
