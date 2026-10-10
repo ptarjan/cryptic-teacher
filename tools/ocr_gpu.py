@@ -57,7 +57,7 @@ START_EVERY = 60
 LOG = HOME / "gpu.log"
 #: Each session's engine calls ({"gpu", "cpu", "busy", "absent", "gpu_cpu_s", "cpu_cpu_s"}), by pid.
 STATS = HOME / "gpu-stats"
-STATS_EVERY = 30
+STATS_EVERY = 5
 PORT = 47311
 #: VRAM kept free for the VLM and the desktop, and what the server's engines take.
 HEADROOM_MB = 4096
@@ -163,12 +163,18 @@ def count(**kw):
     for k, v in kw.items():
         _STATS[k] += v
     if time.monotonic() - _STATS_AT[0] > STATS_EVERY:
-        _STATS_AT[0] = time.monotonic()
-        try:
-            STATS.mkdir(exist_ok=True)
-            (STATS / f"{os.getpid()}.json").write_text(json.dumps({**_STATS, "t": time.time()}))
-        except OSError:
-            pass
+        save_stats()
+
+
+def save_stats():
+    if not any(_STATS.values()):
+        return
+    _STATS_AT[0] = time.monotonic()
+    try:
+        STATS.mkdir(exist_ok=True)
+        (STATS / f"{os.getpid()}.json").write_text(json.dumps({**_STATS, "t": time.time()}))
+    except OSError:
+        pass
 
 
 class GpuFirst:
@@ -191,16 +197,17 @@ class GpuFirst:
         import numpy as np
         plain = (use_det is None and use_rec is None and use_cls is False and not kw
                  and isinstance(img, np.ndarray) and img.dtype == np.uint8 and img.ndim == 3)
+        why = {}
         if plain:
             t = time.process_time()
-            got, why = _CLIENT.ask(np.ascontiguousarray(img), self.model)
+            got, no = _CLIENT.ask(np.ascontiguousarray(img), self.model)
             if got is not None:
                 count(gpu=1, gpu_cpu_s=time.process_time() - t)
                 return got
-            count(**{why: 1})
+            why[no] = 1
         t = time.process_time()
         got = self.cpu()(img, use_det=use_det, use_cls=use_cls, use_rec=use_rec, **kw)
-        count(cpu=1, cpu_cpu_s=time.process_time() - t)
+        count(cpu=1, cpu_cpu_s=time.process_time() - t, **why)
         return got
 
 
@@ -221,6 +228,8 @@ def install():
         return GpuFirst(lambda: real(**kw), None if model is None else str(model))
     make.gpu_first = True
     rapidocr_onnxruntime.RapidOCR = make
+    import atexit
+    atexit.register(save_stats)
 
 
 def ensure():
