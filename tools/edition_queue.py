@@ -27,7 +27,7 @@ Scans run in SCAN_WORKERS slots (this host's CPU), reads in --workers slots
 
 --fetch SOURCE adds a fetcher's units (FETCHERS: archive.org, one edition
 each, fetch_archive_org_editions.fetch_unit) in a pool of their own, its
-plan() made with the rest; what a fetch lands is scanned and read from the
+plan() made with the rest every FETCH_REPLAN seconds; what a fetch lands is scanned and read from the
 next plan on. A unit is tried once a run: one that runs out of time or fails is left for
 the next run. --seconds stops starting units after N seconds and lets those
 running finish, then prints "left for the next run" when anything due was
@@ -234,6 +234,10 @@ FETCHERS = {
     "trove": {"plan": lambda: fetch_trove.plan(), "workers": 3, "seconds": 900},
 }
 FETCH_OUTAGES = fetch_ao.FAILURES_IN_A_ROW
+#: How often (seconds) a run makes each fetch source's plan again, from when
+#: the last was made: archive.org's stats every done edition's dirs (minutes
+#: on the media mount) and a fetch due a few minutes late costs nothing.
+FETCH_REPLAN = 600
 
 
 def log(line):
@@ -496,7 +500,7 @@ def desktop_yielding():
 def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=None, workers=WORKERS,
              scan_workers=SCAN_WORKERS, newer=None, beside=None, read_seconds=READ_SECONDS,
              scan_seconds=SCAN_SECONDS, replan=REPLAN, fetch=(), trove_workers=TROVE_WORKERS, handoff=None,
-             resume=None):
+             resume=None, fetch_replan=None):
     """Run the queue until nothing due is left to start (or `seconds` have
     passed, or a TERM), then wait for the units running. `fetch` names the
     FETCHERS whose units run too, in pools of their own. With `handoff` (a
@@ -505,7 +509,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     `seconds` pass the units still running are handed over there in turn and
     this run ends at once, not waiting for them. `resume` (a path) is the
     hand-over of this run's own image before a re-exec (code_files changed),
-    taken on the same way. Returns the exit status: 0, or 143 after a TERM."""
+    taken on the same way. Each fetch source's plan is made again
+    `fetch_replan` (FETCH_REPLAN when None) seconds after the last.
+    Returns the exit status: 0, or 143 after a TERM."""
     stop = []
     signal.signal(signal.SIGTERM, lambda *_: stop.append(signal.SIGTERM))
     signal.signal(signal.SIGINT, lambda *_: stop.append(signal.SIGINT))
@@ -549,10 +555,17 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     def units_running():
         return list(running.items()) + list(adopted.items())
 
+    fetch_made = {}  # source: (when its plan was made, its units)
+
     def replan_all(notes=None):
         sc, rd = plan(papers, cache, reread, newer, notes)
         live = [s for s in fetch if s not in stopped]
-        return sc, rd, plan_fetches(live) if live else []
+        for src in live:
+            if src not in fetch_made or time.monotonic() - fetch_made[src][0] >= (
+                    FETCH_REPLAN if fetch_replan is None else fetch_replan):
+                units = plan_fetches([src])
+                fetch_made[src] = (time.monotonic(), units)
+        return sc, rd, [u for src in live for u in fetch_made[src][1]]
 
     def may_start():
         return not stop and (seconds is None or time.monotonic() - begun < seconds)
