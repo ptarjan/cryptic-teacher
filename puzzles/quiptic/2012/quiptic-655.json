@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,51 @@
     "text": "One's disparaged for going to work in small taxi",
     "enumeration": "4"
    },
-   "solution": "SCAB"
+   "solution": "SCAB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCAB",
+    "definitions": [
+     {
+      "text": "One's disparaged for going to work",
+      "at": 0,
+      "note": "read as 'one who is disparaged for working during a strike'"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the standard abbreviation for small"
+     },
+     {
+      "clueFragment": "taxi",
+      "gives": "CAB",
+      "note": "a cab is a taxi"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CAB"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is sneered at for commuting to their job in a tiny taxi.",
+     "walkthrough": "'Going to work' hides the real sense: crossing a picket line while colleagues are on strike.",
+     "definitionFit": "A scab is the insulting term for a worker who breaks a strike, so such a person is scorned by fellow workers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +94,57 @@
     "text": "Source of minerals almost absent in this state",
     "enumeration": "6"
    },
-   "solution": "OREGON"
+   "solution": "OREGON",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "OREGON",
+    "definitions": [
+     {
+      "text": "this state",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter of the word is left off"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Source of minerals",
+      "gives": "ORE",
+      "note": "ore is rock from which minerals are extracted"
+     },
+     {
+      "clueFragment": "absent",
+      "gives": "GONE",
+      "note": "someone absent has gone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORE",
+      "GON"
+     ]
+    },
+    "explanation": {
+     "surface": "A US state is said to lack the rocks that yield minerals.",
+     "definitionFit": "Oregon is one of the fifty states of the USA, on the Pacific coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "absent"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +158,64 @@
     "text": "Doctor finding new ruler in bed",
     "enumeration": "10"
    },
-   "solution": "CONSULTANT"
+   "solution": "CONSULTANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CONSULTANT",
+    "definitions": [
+     {
+      "text": "Doctor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing lying in another sits inside it, so the first pieces go inside the last"
+     }
+    ],
+    "linkWords": [
+     "finding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "ruler",
+      "gives": "SULTAN",
+      "note": "a sultan rules a Muslim state"
+     },
+     {
+      "clueFragment": "bed",
+      "gives": "COT",
+      "note": "a cot is a small bed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "NSULTAN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor discovers an unfamiliar monarch lying in a bed.",
+     "walkthrough": "In Britain a consultant is a senior hospital doctor.",
+     "definitionFit": "A consultant is a senior hospital specialist, which makes the role a kind of doctor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ruler"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +229,45 @@
     "text": "Going on horseback in part of Yorkshire",
     "enumeration": "6"
    },
-   "solution": "RIDING"
+   "solution": "RIDING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RIDING",
+    "definitions": [
+     {
+      "text": "Going on horseback",
+      "at": 0
+     },
+     {
+      "text": "part of Yorkshire",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Going on horseback",
+      "note": "first meaning: travelling mounted on a horse"
+     },
+     {
+      "clueFragment": "part of Yorkshire",
+      "note": "second meaning: one of the historic divisions of a northern English county"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone travels by horse through a region of Yorkshire.",
+     "walkthrough": "Yorkshire, a large English county, was historically split into three Ridings: North, East and West.",
+     "definitionFit": "The word is both the act of travelling mounted and the name of each old administrative division of Yorkshire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +281,50 @@
     "text": "Austrian dressed ornately",
     "enumeration": "8"
    },
-   "solution": "TYROLEAN"
+   "solution": "TYROLEAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TYROLEAN",
+    "definitions": [
+     {
+      "text": "Austrian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dressed",
+      "for": "anagram",
+      "note": "dressing something up arranges it differently, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ornately",
+      "gives": "ORNATELY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ORNATELY",
+       "gives": "TYROLEAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Austrian wears elaborate, showy clothes.",
+     "definitionFit": "The Tyrol is a region of western Austria, so its people and things are Austrian."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dressed"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +338,63 @@
     "text": "Duke is heading for criminal record",
     "enumeration": "4"
    },
-   "solution": "DISC"
+   "solution": "DISC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DISC",
+    "definitions": [
+     {
+      "text": "record",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading for",
+      "for": "letter_selection",
+      "note": "the heading of a word is its start, so only its opening letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Duke",
+      "gives": "D",
+      "note": "D is the abbreviation for duke"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "criminal",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of criminal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IS",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "An aristocrat seems bound to acquire a criminal record.",
+     "walkthrough": "'Criminal record' reads as one phrase, but the clue splits there: criminal supplies one letter and record is the definition.",
+     "definitionFit": "A disc is a gramophone record, the flat vinyl kind played on a turntable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +408,69 @@
     "text": "Awful grime around WC getting darker",
     "enumeration": "8"
    },
-   "solution": "GLOOMIER"
+   "solution": "GLOOMIER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GLOOMIER",
+    "definitions": [
+     {
+      "text": "darker",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Awful",
+      "for": "anagram",
+      "note": "something awful is in a bad state, so these letters are jumbled"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so the jumbled letters enclose the next piece"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grime",
+      "gives": "GRIME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "WC",
+      "gives": "LOO",
+      "note": "a loo is a WC, a lavatory"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "LOO",
+      "MIER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GRIME",
+       "gives": "GMIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Filthy dirt spreading round a toilet makes it look ever dingier.",
+     "definitionFit": "Gloomier describes a place with less light, so it is a comparative synonym of darker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Awful"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +484,53 @@
     "text": "Has Jesse lost energy?",
     "enumeration": "4"
    },
-   "solution": "OWNS"
+   "solution": "OWNS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OWNS",
+    "definitions": [
+     {
+      "text": "Has",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost",
+      "for": "deletion",
+      "note": "something lost is gone, so that letter is taken out of the name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jesse",
+      "gives": "OWENS",
+      "note": "Jesse Owens was the American sprinter who won four golds at the 1936 Olympics"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OWNS"
+     ]
+    },
+    "explanation": {
+     "surface": "A question asks whether someone called Jesse has run out of steam.",
+     "walkthrough": "Only the first name appears; the solver must supply the athlete's surname.",
+     "definitionFit": "To own something is to have it as a possession, so owns matches has."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Has"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +544,46 @@
     "text": "Feline killer is something unusual",
     "enumeration": "9"
    },
-   "solution": "CURIOSITY"
+   "solution": "CURIOSITY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CURIOSITY",
+    "definitions": [
+     {
+      "text": "Feline killer",
+      "at": 0
+     },
+     {
+      "text": "something unusual",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Feline killer",
+      "note": "first meaning: from the proverb that says it killed the cat"
+     },
+     {
+      "clueFragment": "something unusual",
+      "note": "second meaning: an odd or rare object"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first half relies on the proverb about what killed the cat.",
+     "definitionFit": "The word is the inquisitiveness that the saying blames for a cat's death, and also a rare or strange object."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "killer"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +603,50 @@
      }
     ]
    },
-   "solution": "INLAW"
+   "solution": "INLAW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IN-LAW",
+    "definitions": [
+     {
+      "text": "a sort of relation",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     },
+     {
+      "clueFragment": "rule",
+      "gives": "LAW",
+      "note": "a law is a rule"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "LAW"
+     ]
+    },
+    "explanation": {
+     "surface": "Self-government is proposed for some kind of relationship.",
+     "walkthrough": "'Home rule' looks like a single political term, but it splits into two pieces.",
+     "definitionFit": "An in-law is a relative by marriage, such as a spouse's parent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Home"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +660,66 @@
     "text": "Turn back in vehicle that's not what it seems",
     "enumeration": "5"
    },
-   "solution": "BOGUS"
+   "solution": "BOGUS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "BOGUS",
+    "definitions": [
+     {
+      "text": "that's not what it seems",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling the other way, so the word is read from its end"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turn",
+      "gives": "GO",
+      "note": "a go is a turn in a game"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "BUS",
+      "note": "a bus is a vehicle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "OG",
+      "US"
+     ],
+     "reversals": [
+      {
+       "from": "GO",
+       "to": "OG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone turns round inside a vehicle that is a fake.",
+     "definitionFit": "Bogus means sham or counterfeit, describing something that is not genuine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Turn"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +739,56 @@
      }
     ]
    },
-   "solution": "IRONCROSS"
+   "solution": "IRONCROSS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IRON CROSS",
+    "definitions": [
+     {
+      "text": "German award",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says which part comes second, so the word for annoyed follows the club"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "golf club",
+      "gives": "IRON",
+      "note": "an iron is a kind of golf club"
+     },
+     {
+      "clueFragment": "Annoyed",
+      "gives": "CROSS",
+      "note": "cross means annoyed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRON",
+      "CROSS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone angry at a golf club is given a German decoration.",
+     "definitionFit": "The Iron Cross is a Prussian and German military decoration for bravery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +808,46 @@
      }
     ]
    },
-   "solution": "LONGLEG"
+   "solution": "LONGLEG",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LONG LEG",
+    "definitions": [
+     {
+      "text": "Fielder",
+      "at": 0
+     },
+     {
+      "text": "one of daddy's six",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "—"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fielder",
+      "note": "first meaning: a cricket fielding position deep on the leg side behind the batsman"
+     },
+     {
+      "clueFragment": "one of daddy's six",
+      "note": "second meaning: a limb of the daddy-..., the crane fly, which has six"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In cricket, long leg is a fielding position near the boundary. A daddy-long-legs is a crane fly, an insect with six spindly legs.",
+     "definitionFit": "The phrase names both a cricketer's fielding station and a single limb of the six-legged crane fly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "daddy's"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +861,56 @@
     "text": "Popular as door opener",
     "enumeration": "5"
    },
-   "solution": "LIKED"
+   "solution": "LIKED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LIKED",
+    "definitions": [
+     {
+      "text": "Popular",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opener",
+      "for": "letter_selection",
+      "note": "an opener comes first, so only the start of the word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as",
+      "gives": "LIKE",
+      "note": "as and like both mean in the manner of"
+     },
+     {
+      "clueFragment": "door",
+      "gives": "D",
+      "select": "first",
+      "note": "first letter of door"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIKE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Something well liked is treated as the thing that opens a door.",
+     "walkthrough": "'Door opener' looks like a key or handle; it is just the first letter of door.",
+     "definitionFit": "Something popular is widely liked, so the past participle stands for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "opener"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +924,54 @@
     "text": "Joy has broken toenail",
     "enumeration": "7"
    },
-   "solution": "ELATION"
+   "solution": "ELATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ELATION",
+    "definitions": [
+     {
+      "text": "Joy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken falls into pieces, so these letters are reassembled differently"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "toenail",
+      "gives": "TOENAIL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOENAIL",
+       "gives": "ELATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Joy has damaged a toenail.",
+     "walkthrough": "Joy reads as a woman's name at the start of the sentence, but it is the plain noun.",
+     "definitionFit": "Elation is great happiness, a close synonym of joy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Joy"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +985,54 @@
     "text": "Loyalty, for example, in union",
     "enumeration": "10"
    },
-   "solution": "ALLEGIANCE"
+   "solution": "ALLEGIANCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ALLEGIANCE",
+    "definitions": [
+     {
+      "text": "Loyalty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first piece inside the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. is the abbreviation for 'for example'"
+     },
+     {
+      "clueFragment": "union",
+      "gives": "ALLIANCE",
+      "note": "an alliance is a union"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "EG",
+      "IANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Loyalty is cited as one example of what keeps a union together.",
+     "definitionFit": "Allegiance is faithful loyalty owed to a ruler, country or cause."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "union"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1046,57 @@
     "text": "Negative remark about saint is offensive",
     "enumeration": "5"
    },
-   "solution": "NASTY"
+   "solution": "NASTY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NASTY",
+    "definitions": [
+     {
+      "text": "offensive",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the remark goes round the next piece"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Negative remark",
+      "gives": "NAY",
+      "note": "nay is an old word for no"
+     },
+     {
+      "clueFragment": "saint",
+      "gives": "ST",
+      "note": "St is the abbreviation for saint"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NA",
+      "ST",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A critical comment about a saint causes offence.",
+     "definitionFit": "Nasty means unpleasant or hurtful, which is what offensive describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1110,54 @@
     "text": "Country singer (Irish) seen by king",
     "enumeration": "5"
    },
-   "solution": "KENYA"
+   "solution": "KENYA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KENYA",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen by",
+      "for": "charade",
+      "note": "seen by means placed beside, so the two pieces sit next to each other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     },
+     {
+      "clueFragment": "singer (Irish)",
+      "gives": "ENYA",
+      "note": "Enya is the Irish singer known for 'Orinoco Flow'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "ENYA"
+     ]
+    },
+    "explanation": {
+     "surface": "An Irish country music singer is spotted near a king.",
+     "walkthrough": "'Country singer' reads as a music genre, but Country stands alone as the definition.",
+     "definitionFit": "Kenya is a nation in East Africa, so it is a country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Country"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1177,52 @@
      }
     ]
    },
-   "solution": "NIGHTOWL"
+   "solution": "NIGHTOWL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NIGHT OWL",
+    "definitions": [
+     {
+      "text": "one's late to bed",
+      "at": 16,
+      "note": "read as 'one who goes late to bed'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new and different, so these letters take a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "With long",
+      "gives": "WITHLONG",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WITHLONG",
+       "gives": "NIGHTOWL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone up reading a long book goes to bed late.",
+     "walkthrough": "'Novel' looks like the book being read, but it is the anagram signal.",
+     "definitionFit": "A night owl is a person who habitually stays up until late at night."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1236,45 @@
     "text": "One imprisoned for fraud",
     "enumeration": "3"
    },
-   "solution": "CON"
+   "solution": "CON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CON",
+    "definitions": [
+     {
+      "text": "One imprisoned",
+      "at": 0
+     },
+     {
+      "text": "fraud",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One imprisoned",
+      "note": "first meaning: a convict, in short"
+     },
+     {
+      "clueFragment": "fraud",
+      "note": "second meaning: a swindle or trick"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as someone jailed for fraud; the two parts are separate meanings.",
+     "definitionFit": "The short word is slang for a convict and also means a confidence trick or swindle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1288,61 @@
     "text": "Crikey!  Is lad mixing drinks?",
     "enumeration": "8"
    },
-   "solution": "CORDIALS"
+   "solution": "CORDIALS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "CORDIALS",
+    "definitions": [
+     {
+      "text": "drinks",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixing",
+      "for": "anagram",
+      "note": "mixing stirs things together, so these letters come out in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crikey",
+      "gives": "COR",
+      "note": "cor is a British exclamation of surprise, like crikey"
+     },
+     {
+      "clueFragment": "Is lad",
+      "gives": "ISLAD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COR",
+      "DIALS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISLAD",
+       "gives": "DIALS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is surprised to find a boy making cocktails.",
+     "walkthrough": "'Mixing drinks' reads as bartending, but mixing acts on the two words before it.",
+     "definitionFit": "Cordials are sweet fruit drinks, or liqueurs, so they are drinks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mixing"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1356,44 @@
     "text": "Fun with birds",
     "enumeration": "5"
    },
-   "solution": "LARKS"
+   "solution": "LARKS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LARKS",
+    "definitions": [
+     {
+      "text": "Fun",
+      "at": 0
+     },
+     {
+      "text": "birds",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fun",
+      "note": "first meaning: pranks or bits of mischief"
+     },
+     {
+      "clueFragment": "birds",
+      "note": "second meaning: small songbirds"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a jolly day out birdwatching; the two words are separate meanings.",
+     "definitionFit": "Larks are both lighthearted escapades and a family of songbirds such as the skylark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1413,46 @@
      }
     ]
    },
-   "solution": "DOGSTAR"
+   "solution": "DOGSTAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DOG STAR",
+    "definitions": [
+     {
+      "text": "Lassie",
+      "at": 0
+     },
+     {
+      "text": "Sirius",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lassie",
+      "note": "first meaning: a canine film and TV celebrity, the collie of the Lassie films"
+     },
+     {
+      "clueFragment": "Sirius",
+      "note": "second meaning: the brightest star in the night sky, in the constellation Canis Major"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Lassie also means a girl, which makes the clue look like a girl from outer space.",
+     "definitionFit": "A famous screen dog is literally a dog star, while Sirius has long been called the Dog Star."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lassie"
+    }
+   }
   },
   {
    "number": 22,
@@ -385,7 +1466,53 @@
     "text": "Tidying mess, showing self-respect",
     "enumeration": "7"
    },
-   "solution": "DIGNITY"
+   "solution": "DIGNITY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DIGNITY",
+    "definitions": [
+     {
+      "text": "self-respect",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mess",
+      "for": "anagram",
+      "note": "a mess is disorder, so these letters are thrown out of their arrangement"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tidying",
+      "gives": "TIDYING",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TIDYING",
+       "gives": "DIGNITY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Clearing up clutter shows that someone has pride in themselves.",
+     "definitionFit": "Dignity is a sense of pride and self-worth, which is what self-respect means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mess"
+    }
+   }
   },
   {
    "number": 22,
@@ -399,7 +1526,56 @@
     "text": "Desperate character is seen with hot pastry",
     "enumeration": "6"
    },
-   "solution": "DANISH"
+   "solution": "DANISH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DANISH",
+    "definitions": [
+     {
+      "text": "pastry",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "seen with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Desperate character",
+      "gives": "DAN",
+      "note": "Desperate Dan is the cow-pie-eating strongman of the British comic The Dandy"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the abbreviation for hot, as on taps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAN",
+      "IS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A frantic person is spotted holding a warm pastry.",
+     "walkthrough": "Desperate Dan is a long-running British comic-strip character, so 'Desperate character' names him rather than describing anyone.",
+     "definitionFit": "A Danish is a sweet yeast pastry, short for Danish pastry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Desperate"
+    }
+   }
   },
   {
    "number": 23,
@@ -413,7 +1589,56 @@
     "text": "One with wheels — American or Greek high flyer",
     "enumeration": "6"
    },
-   "solution": "ICARUS"
+   "solution": "ICARUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ICARUS",
+    "definitions": [
+     {
+      "text": "Greek high flyer",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "with",
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "wheels",
+      "gives": "CAR",
+      "note": "wheels is slang for a car"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is short for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "CAR",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A driver is either a US national or a Greek who flies high.",
+     "definitionFit": "In Greek myth Icarus flew on wax wings too close to the sun, so he was a literal high flyer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "wheels"
+    }
+   }
   },
   {
    "number": 24,
@@ -427,7 +1652,66 @@
     "text": "Object no one brought back after camping?",
     "enumeration": "9"
    },
-   "solution": "INTENTION"
+   "solution": "INTENTION",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "INTENTION",
+    "definitions": [
+     {
+      "text": "Object",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought back",
+      "for": "reversal",
+      "note": "bringing something back returns it the way it came, so these words are read from the end"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the reversed piece behind the camping piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "camping",
+      "gives": "INTENT",
+      "note": "someone camping is in a tent"
+     },
+     {
+      "clueFragment": "no one",
+      "gives": "NOI",
+      "note": "no plus I, the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTENT",
+      "ION"
+     ],
+     "reversals": [
+      {
+       "from": "NOI",
+       "to": "ION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks what nobody returned after a camping trip.",
+     "walkthrough": "'Object' looks like a verb meaning to protest; it is the noun meaning aim.",
+     "definitionFit": "An object is an aim or purpose, the sense in which intention is a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Object"
+    }
+   }
   },
   {
    "number": 24,
@@ -441,7 +1725,43 @@
     "text": "An old Peruvian of a certain caste",
     "enumeration": "4"
    },
-   "solution": "INCA"
+   "solution": "INCA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "INCA",
+    "definitions": [
+     {
+      "text": "An old Peruvian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of",
+      "for": "hidden_word",
+      "note": "of here means made out of, so the letters come from inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "certain caste",
+      "gives": "INCA",
+      "note": "the letters span the join of the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "An ancient Peruvian belonged to a particular social class.",
+     "walkthrough": "The surface fits nicely, since the Inca ruling class was itself a privileged caste.",
+     "definitionFit": "The Inca were the people whose empire ruled Peru before the Spanish conquest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caste"
+    }
+   }
   },
   {
    "number": 25,
@@ -455,7 +1775,49 @@
     "text": "Numbers provided with hospital food",
     "enumeration": "4"
    },
-   "solution": "NOSH"
+   "solution": "NOSH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOSH",
+    "definitions": [
+     {
+      "text": "food",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "provided with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Numbers",
+      "gives": "NOS",
+      "note": "nos is the abbreviation for numbers"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the abbreviation for hospital, as on road signs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Patients are given numbered portions of hospital meals.",
+     "definitionFit": "Nosh is informal British slang for food or a meal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Numbers"
+    }
+   }
   },
   {
    "number": 26,
@@ -469,7 +1831,50 @@
     "text": "Gather for a service",
     "enumeration": "5"
    },
-   "solution": "AMASS"
+   "solution": "AMASS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMASS",
+    "definitions": [
+     {
+      "text": "Gather",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "service",
+      "gives": "MASS",
+      "note": "Mass is a church service"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MASS"
+     ]
+    },
+    "explanation": {
+     "surface": "A call for people to assemble for worship.",
+     "walkthrough": "Gather sounds like a congregation assembling; it is the verb meaning to collect.",
+     "definitionFit": "To amass is to accumulate or collect things together, the sense of gather."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Gather"
+    }
+   }
   },
   {
    "number": 27,
@@ -483,7 +1888,45 @@
     "text": "Where tools may be kept or discarded",
     "enumeration": "4"
    },
-   "solution": "SHED"
+   "solution": "SHED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SHED",
+    "definitions": [
+     {
+      "text": "Where tools may be kept",
+      "at": 0
+     },
+     {
+      "text": "discarded",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where tools may be kept",
+      "note": "first meaning: a garden hut for storage"
+     },
+     {
+      "clueFragment": "discarded",
+      "note": "second meaning: cast off, as a snake does its skin"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface asks whether tools are stored or thrown away; the two halves are separate meanings.",
+     "definitionFit": "The word names a small storage hut and is also the past tense of the verb meaning to cast off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "discarded"
+    }
+   }
   },
   {
    "number": 28,
@@ -497,7 +1940,48 @@
     "text": "Herd heard in port",
     "enumeration": "5"
    },
-   "solution": "COWES"
+   "solution": "COWES",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "COWES",
+    "definitions": [
+     {
+      "text": "port",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heard",
+      "for": "homophone",
+      "note": "heard means listened to, so the word is taken by its sound rather than spelling"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Herd",
+      "gives": "COWES",
+      "soundsLike": "COWS",
+      "note": "a herd is a group of cows"
+     }
+    ],
+    "explanation": {
+     "surface": "A herd of cattle can be heard in a harbour town.",
+     "walkthrough": "Cowes is a sailing port on the Isle of Wight, off England's south coast; Herd and heard play on sound too.",
+     "definitionFit": "Cowes is a harbour town famous for its yachting regatta, so it is a port."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Herd"
+    }
+   }
   },
   {
    "number": 29,
@@ -517,7 +2001,54 @@
      }
     ]
    },
-   "solution": "LOSTCAUSE"
+   "solution": "LOSTCAUSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LOST CAUSE",
+    "definitions": [
+     {
+      "text": "a hopeless endeavour",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being cracked",
+      "for": "anagram",
+      "note": "something cracked is broken apart, so these letters are put back together differently"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "As to clues",
+      "gives": "ASTOCLUES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASTOCLUES",
+       "gives": "LOSTCAUSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A solver complains that trying to crack these clues is futile.",
+     "walkthrough": "'Cracked' sounds like solving clues, but here it means broken up.",
+     "definitionFit": "A lost cause is an effort or aim that cannot possibly succeed, so it is hopeless."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cracked"
+    }
+   }
   }
  ]
 }
