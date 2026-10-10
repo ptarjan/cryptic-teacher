@@ -828,6 +828,19 @@ check("pieces another reading has apart stay apart (mirror)", "a bow- Ier",
       oc.join_split("a bow- Ier", [["a", "bowler"], ["a", "bow", "ier"]]))
 check("pieces two lexicon words could spell stay apart (mirror)", "a bow- Ier",
       oc.join_split("a bow- Ier", [["a", "bowler"], ["a", "bower"]]))
+# times-14441 16D, 1976-08-04: a split one other reading shares, or two
+# words, joins when most readings print the one word.
+split = [["#", "as", "a", "post", "war", "Edwardian", "#"], ["#", "as", "a", "post", "war", "Edward", "ian", "#"],
+         ["#", "as", "a", "post", "war", "Edwardian", "#"]]
+check("a split another reading shares joins when more print the word whole", "as a post-war Edwardian",
+      oc.agree(oc.join_split("as a post-war Edward, ian", split), split)[0])
+split = [["Flight", "in", "disorderly", "speed"], ["Flight", "in", "dis", ",", "orderly", "speed"], ["Flight", "in", "disorderly", "speed"]]
+check("two words a comma splits join when most readings print one", "Flight in disorderly speed",
+      oc.agree(oc.join_split("Flight in dis, orderly speed", split), split)[0])
+check("pieces as many readings have apart as whole stay apart (mirror)", "in dis, orderly",
+      oc.join_split("in dis, orderly", [["in", "disorderly"], ["in", "dis", "orderly"]]))
+check("two words one of three readings prints as one stay apart (mirror)", "in dis, orderly",
+      oc.join_split("in dis, orderly", [["in", "disorderly"], ["in", "x"], ["in", "y"]]))
 
 # Times 1976-03-25 "Put extinguisher on rapture?": the one printing reading
 # splits the last word ("Tap : ture ?"), leaving its "?" past the clue's end.

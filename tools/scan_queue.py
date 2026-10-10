@@ -372,8 +372,10 @@ def flagged_requests():
 #: readers now lay when they agree on its clue; the third join_split()'s
 #: word a reading broke at a kept hyphen or a speck read as a comma; the
 #: fifth ocr_clues' clue number or count read as letters (number_read),
-#: taken for a start or end the clue lost; the last suspect()'s word that
-#: drops its aitch after an apostrophe ("'igher"), refused as no word.
+#: taken for a start or end the clue lost; the sixth suspect()'s word that
+#: drops its aitch after an apostrophe ("'igher"), refused as no word; the
+#: last join_split()'s word broken at a comma that one other reading also
+#: broke, or into two words, which most readings print whole.
 VOTE_MENDED = (
     ("2026-10-09T07:56:00+00:00", ("a stray mark inside a word", "end is lost: other readings have",
                                    "start is lost: other readings have")),
@@ -382,6 +384,7 @@ VOTE_MENDED = (
     ("2026-10-10T01:00:00+00:00", ("no other reading has",)),
     ("2026-10-10T01:35:00+00:00", ("end is lost: other readings have", "start is lost: other readings have")),
     ("2026-10-10T14:30:00+00:00", ("not a word",)),
+    ("2026-10-10T20:00:00+00:00", ("readings differ", "not a word")),
 )
 
 
