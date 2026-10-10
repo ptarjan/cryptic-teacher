@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,56 @@
     "text": "Prayer leader: you can call me a leader of Muslims",
     "enumeration": "4"
    },
-   "solution": "IMAM"
+   "solution": "IMAM",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "IMAM",
+    "definitions": [
+     {
+      "text": "Prayer leader",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "the leader of a word is its opening letter, so only the start of the following word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "you can call me a",
+      "gives": "IMA",
+      "note": "someone you can call 'a ...' would say \"I'm a ...\""
+     },
+     {
+      "clueFragment": "Muslims",
+      "gives": "M",
+      "select": "first",
+      "note": "first letter of Muslims"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMA",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A cleric introduces himself as the man who leads Muslim prayers.",
+     "walkthrough": "The surface is a self-introduction; read literally, 'you can call me a' is I'M A, and the leader of Muslims tops it off to give IMAM.",
+     "definitionFit": "An imam is the person who leads the congregation in prayer at a mosque."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "call"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +98,47 @@
     "text": "Beer or punch?",
     "enumeration": "6"
    },
-   "solution": "WALLOP"
+   "solution": "WALLOP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WALLOP",
+    "definitions": [
+     {
+      "text": "Beer",
+      "at": 0
+     },
+     {
+      "text": "punch",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beer",
+      "note": "first meaning: British slang for beer or other alcoholic drink"
+     },
+     {
+      "clueFragment": "punch",
+      "note": "second meaning: a heavy blow"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone at a party asks which drink to serve, ale or a fruit bowl.",
+     "walkthrough": "Punch looks like the drink, matching beer, but here it is the blow; wallop is old British slang for beer.",
+     "definitionFit": "Wallop is both a slang noun for mild ale and an ordinary word for a hard hit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "punch"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +152,55 @@
     "text": "Rank individual numbers in pieces of music",
     "enumeration": "8"
    },
-   "solution": "BARONESS"
+   "solution": "BARONESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BARONESS",
+    "definitions": [
+     {
+      "text": "Rank",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing set in another sits within it, so the first item goes inside the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "individual numbers",
+      "gives": "ONES",
+      "note": "single units are ones"
+     },
+     {
+      "clueFragment": "pieces of music",
+      "gives": "BARS",
+      "note": "bars are short measured sections of a score"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "ONES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone ranks particular tracks or movements on a playlist.",
+     "walkthrough": "'Rank' reads as a verb telling you to order the music, but it is the noun: a title in the peerage.",
+     "definitionFit": "A baroness holds a title in the peerage, so the word names a rank of nobility."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rank"
+    }
+   }
   },
   {
    "number": 4,
@@ -80,7 +220,46 @@
      }
     ]
    },
-   "solution": "BELTUP"
+   "solution": "BELTUP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BELT UP",
+    "definitions": [
+     {
+      "text": "Strap yourself in",
+      "at": 0
+     },
+     {
+      "text": "shut it!",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Strap yourself in",
+      "note": "first meaning: fasten your seat belt"
+     },
+     {
+      "clueFragment": "shut it!",
+      "note": "second meaning: a rude British way of saying be quiet"
+     }
+    ],
+    "explanation": {
+     "surface": "A grumpy driver tells a passenger to put on the seat belt and stop talking.",
+     "walkthrough": "Both halves are commands; the second sense is informal British for 'stop talking'.",
+     "definitionFit": "The phrasal verb literally means fasten a safety belt and colloquially means be quiet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +279,72 @@
      }
     ]
    },
-   "solution": "SIDEDOOR"
+   "solution": "SIDEDOOR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "SIDE DOOR",
+    "definitions": [
+     {
+      "text": "opener",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the very end, so only the final letter of the next word is kept"
+     },
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "something gone unfortunately has gone wrong, so the letters fall out of their order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "innings",
+      "gives": "S",
+      "select": "last",
+      "note": "last letter of innings"
+     },
+     {
+      "clueFragment": "do-or-die",
+      "gives": "DOORDIE",
+      "note": "the letters of the hyphenated phrase"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IDEDOOR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DOORDIE",
+       "gives": "IDEDOOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket report: in a desperate final innings things went badly for the opening batsman.",
+     "walkthrough": "'Opener' and 'innings' paint cricket, where an opener is a batsman; here it is something that opens, a door.",
+     "definitionFit": "A side door is a way into a building, so it can be called an opener in the cryptic sense of a thing that opens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "opener"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +358,47 @@
     "text": "Second wine down",
     "enumeration": "6"
    },
-   "solution": "MOROSE"
+   "solution": "MOROSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOROSE",
+    "definitions": [
+     {
+      "text": "down",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "MO",
+      "note": "a mo is a moment, a second"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "ROSE",
+      "note": "rosé is a pink wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "ROSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A second glass of wine is being knocked back.",
+     "walkthrough": "'Down' looks like the verb for drinking; it is the adjective meaning low in spirits.",
+     "definitionFit": "Feeling down and being morose both describe a gloomy, sullen mood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "down"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +412,61 @@
     "text": "Length of blade yet to turn up for saw",
     "enumeration": "4"
    },
-   "solution": "EYED"
+   "solution": "EYED",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "EYED",
+    "definitions": [
+     {
+      "text": "saw",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Length of",
+      "for": "hidden_word",
+      "note": "a length of something is a stretch cut from it, so the letters come from a run of the words that follow"
+     },
+     {
+      "text": "to turn up",
+      "for": "reversal",
+      "note": "in a down clue turning up makes the letters climb, so they are read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blade yet",
+      "gives": "DEYE",
+      "note": "the run of letters spanning the two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "DEYE",
+       "to": "EYED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A carpenter waits for a piece of blade to appear in a saw.",
+     "walkthrough": "'Saw' wants to be the cutting tool next to 'blade'; it is the past tense of see.",
+     "definitionFit": "To eye something is to look at it, so eyed is a past-tense synonym for saw."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "saw"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +480,68 @@
     "text": "Limb almost entirely covered in cooked food served at breakfast",
     "enumeration": "9"
    },
-   "solution": "MARMALADE"
+   "solution": "MARMALADE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "container"
+    ],
+    "answer": "MARMALADE",
+    "definitions": [
+     {
+      "text": "food served at breakfast",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter of the word is dropped"
+     },
+     {
+      "text": "covered in",
+      "for": "container",
+      "note": "something covered in another thing is wrapped by it, so the first group goes inside the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Limb",
+      "gives": "ARM",
+      "note": "an arm is a limb"
+     },
+     {
+      "clueFragment": "entirely",
+      "gives": "AL",
+      "note": "entirely means all; almost all loses its last letter"
+     },
+     {
+      "clueFragment": "cooked",
+      "gives": "MADE",
+      "note": "a meal that is made has been cooked"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ARM",
+      "AL",
+      "ADE"
+     ]
+    },
+    "explanation": {
+     "surface": "A leg of meat is almost entirely smothered in a cooked breakfast.",
+     "walkthrough": "'Cooked food' looks like one phrase, but 'cooked' belongs to the wordplay and the definition starts at 'food'.",
+     "definitionFit": "Marmalade is the citrus preserve spread on toast, a staple of the British breakfast table."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "entirely"
+    }
+   }
   },
   {
    "number": 9,
@@ -162,7 +561,50 @@
      }
     ]
    },
-   "solution": "REDTAPE"
+   "solution": "REDTAPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RED TAPE",
+    "definitions": [
+     {
+      "text": "bureaucracy",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "communist",
+      "gives": "RED",
+      "note": "red is the traditional label for a communist"
+     },
+     {
+      "clueFragment": "Recording",
+      "gives": "TAPE",
+      "note": "a tape is a recording"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RED",
+      "TAPE"
+     ]
+    },
+    "explanation": {
+     "surface": "A recording made of a communist official's dealings with the state machine.",
+     "walkthrough": "'Recording of communist' means the communist's recording, so the pieces go communist first.",
+     "definitionFit": "Red tape is the idiom for excessive official rules and paperwork, which is bureaucracy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Recording"
+    }
+   }
   },
   {
    "number": 10,
@@ -176,7 +618,55 @@
     "text": "Climber pocketing gold key",
     "enumeration": "5"
    },
-   "solution": "IVORY"
+   "solution": "IVORY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IVORY",
+    "definitions": [
+     {
+      "text": "key",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pocketing",
+      "for": "container",
+      "note": "pocketing something means putting it away inside, so one piece goes into the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Climber",
+      "gives": "IVY",
+      "note": "ivy is a climbing plant"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is the heraldic word for gold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "VOR",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A mountaineer slips a golden key into a pocket.",
+     "walkthrough": "The climber is a plant, not a mountaineer. OR in IVY.",
+     "definitionFit": "Piano keys were traditionally made of ivory, so an ivory is informal for a key on a keyboard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Climber"
+    }
+   }
   },
   {
    "number": 11,
@@ -204,7 +694,47 @@
      }
     ]
    },
-   "solution": "MIDDLEOFTHEROAD"
+   "solution": "MIDDLEOFTHEROAD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MIDDLE-OF-THE-ROAD",
+    "definitions": [
+     {
+      "text": "Site of traffic island",
+      "at": 0
+     },
+     {
+      "text": "pedestrian",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Site of traffic island",
+      "note": "first meaning: literally the centre of the carriageway, where a traffic island stands"
+     },
+     {
+      "clueFragment": "pedestrian",
+      "note": "second meaning: dull, moderate, unadventurous"
+     }
+    ],
+    "explanation": {
+     "surface": "A traffic island is placed in the road to give walkers a refuge.",
+     "walkthrough": "'Pedestrian' reads as a person on foot, fitting the traffic island; here it is the adjective meaning dull.",
+     "definitionFit": "Middle-of-the-road describes moderate, unexciting views or tastes, which is pedestrian in its sense of ordinary."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pedestrian"
+    }
+   }
   },
   {
    "number": 12,
@@ -224,7 +754,61 @@
      }
     ]
    },
-   "solution": "MEATPIE"
+   "solution": "MEATPIE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MEAT PIE",
+    "definitions": [
+     {
+      "text": "pastry dish",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "feeding",
+      "for": "container",
+      "note": "feeding something means going into it as food goes into a mouth, so the first pieces sit inside the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nosh",
+      "gives": "EAT",
+      "note": "to nosh is to eat"
+     },
+     {
+      "clueFragment": "very good",
+      "gives": "PI",
+      "note": "pi is short for pious, very good"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "EATPI",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Good food is being served to the speaker, a hearty pastry dish.",
+     "walkthrough": "'Nosh' looks like a noun meaning food; it is the verb. PI for pious is a crossword standard.",
+     "definitionFit": "A meat pie is a baked pastry case filled with meat, a classic savoury pastry dish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Nosh"
+    }
+   }
   },
   {
    "number": 12,
@@ -238,7 +822,46 @@
     "text": "Suit and tie",
     "enumeration": "5"
    },
-   "solution": "MATCH"
+   "solution": "MATCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MATCH",
+    "definitions": [
+     {
+      "text": "Suit",
+      "at": 0
+     },
+     {
+      "text": "tie",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Suit",
+      "note": "first meaning: to go well with, as colours do"
+     },
+     {
+      "clueFragment": "tie",
+      "note": "second meaning: a sporting fixture, as in a cup tie"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Suit and tie paint an outfit; in fact suit is a verb and a tie is a game, as in a football cup tie.",
+     "definitionFit": "Match is both a verb meaning to go together well and a noun meaning a contest between teams."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tie"
+    }
+   }
   },
   {
    "number": 13,
@@ -252,7 +875,68 @@
     "text": "Saying prayers initially, wanderer heading for basilica",
     "enumeration": "7"
    },
-   "solution": "PROVERB"
+   "solution": "PROVERB",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PROVERB",
+    "definitions": [
+     {
+      "text": "Saying",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter of the word before is kept"
+     },
+     {
+      "text": "heading for",
+      "for": "letter_selection",
+      "note": "a heading is what sits on top, so the first letter of the next word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prayers",
+      "gives": "P",
+      "select": "first",
+      "note": "first letter of prayers"
+     },
+     {
+      "clueFragment": "wanderer",
+      "gives": "ROVER",
+      "note": "a rover is someone who wanders"
+     },
+     {
+      "clueFragment": "basilica",
+      "gives": "B",
+      "select": "first",
+      "note": "first letter of basilica"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ROVER",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "A pilgrim says prayers on the way into a great church.",
+     "walkthrough": "'Saying' reads as a verb about praying; it is the noun.",
+     "definitionFit": "A proverb is a short traditional saying expressing a general truth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Saying"
+    }
+   }
   },
   {
    "number": 14,
@@ -266,7 +950,44 @@
     "text": "By the sound of it, committee nodding off?",
     "enumeration": "5"
    },
-   "solution": "BORED"
+   "solution": "BORED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BORED",
+    "definitions": [
+     {
+      "text": "nodding off?",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "By the sound of it",
+      "for": "homophone",
+      "note": "this phrase asks us to judge by what we hear, not how a word is written"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "committee",
+      "gives": "BORED",
+      "soundsLike": "BOARD",
+      "note": "a board is a governing committee"
+     }
+    ],
+    "explanation": {
+     "surface": "A dull committee meeting where members are falling asleep.",
+     "walkthrough": "The question mark flags the definition as a loose example: being bored can make you nod off.",
+     "definitionFit": "Someone nodding off is likely weary from tedium, so bored stands for that state by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 15,
@@ -294,7 +1015,50 @@
      }
     ]
    },
-   "solution": "THEWORSEFORWEAR"
+   "solution": "THEWORSEFORWEAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THE WORSE FOR WEAR",
+    "definitions": [
+     {
+      "text": "Falling apart",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "compounded",
+      "for": "anagram",
+      "note": "compounded means mixed together, so the letters are combined in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "after row, her woes",
+      "gives": "AFTERROWHERWOES",
+      "note": "all fifteen letters of these words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AFTERROWHERWOES",
+       "gives": "THEWORSEFORWEAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After an argument, a woman's troubles pile up and she goes to pieces.",
+     "definitionFit": "The worse for wear is an idiom for being damaged, worn out or in poor condition, so falling apart."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 16,
@@ -308,7 +1072,47 @@
     "text": "Clear away one side",
     "enumeration": "8"
    },
-   "solution": "OUTRIGHT"
+   "solution": "OUTRIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTRIGHT",
+    "definitions": [
+     {
+      "text": "Clear",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "away",
+      "gives": "OUT",
+      "note": "someone away from home is out"
+     },
+     {
+      "clueFragment": "one side",
+      "gives": "RIGHT",
+      "note": "right is one of the two sides"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "RIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to push one side of something away.",
+     "walkthrough": "'Clear' looks like a verb of tidying; it is the adjective meaning unambiguous.",
+     "definitionFit": "An outright winner is a clear one, with no doubt about the result."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Clear"
+    }
+   }
   },
   {
    "number": 17,
@@ -322,7 +1126,55 @@
     "text": "Safer net designed for catch, say?",
     "enumeration": "8"
    },
-   "solution": "FASTENER"
+   "solution": "FASTENER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FASTENER",
+    "definitions": [
+     {
+      "text": "catch, say?",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "designed",
+      "for": "anagram",
+      "note": "something designed is newly arranged, so these letters are laid out differently"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Safer net",
+      "gives": "SAFERNET",
+      "note": "the letters of these two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SAFERNET",
+       "gives": "FASTENER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A better safety net has been built for catching falling acrobats.",
+     "walkthrough": "'Catch' suggests catching someone in a net; it is the noun for a clasp, given as an example.",
+     "definitionFit": "A catch on a door or bag is one example of a fastener, a device that holds things shut."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "catch"
+    }
+   }
   },
   {
    "number": 18,
@@ -336,7 +1188,47 @@
     "text": "Old money? Discuss at length",
     "enumeration": "7"
    },
-   "solution": "EXPOUND"
+   "solution": "EXPOUND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXPOUND",
+    "definitions": [
+     {
+      "text": "Discuss at length",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "EX",
+      "note": "ex means former, old"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "POUND",
+      "note": "the pound is British money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "POUND"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether to talk at length about old currency.",
+     "walkthrough": "'Old money' looks like one phrase for pre-decimal coins; the two words act separately.",
+     "definitionFit": "To expound is to set out and explain a subject in detail, which means discussing it at length."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Old"
+    }
+   }
   },
   {
    "number": 19,
@@ -350,7 +1242,50 @@
     "text": "Label dish with game",
     "enumeration": "7"
    },
-   "solution": "HASHTAG"
+   "solution": "HASHTAG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HASHTAG",
+    "definitions": [
+     {
+      "text": "Label",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dish",
+      "gives": "HASH",
+      "note": "hash is a dish of chopped meat and potato"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "TAG",
+      "note": "tag is a children's chasing game"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HASH",
+      "TAG"
+     ]
+    },
+    "explanation": {
+     "surface": "A menu labels a dish as containing game meat.",
+     "walkthrough": "'Game' looks like the meat; it is the playground game.",
+     "definitionFit": "A hashtag is a word prefixed with # used to label social media posts by topic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 20,
@@ -364,7 +1299,55 @@
     "text": "Flighty animal in house of swine",
     "enumeration": "6"
    },
-   "solution": "SCATTY"
+   "solution": "SCATTY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCATTY",
+    "definitions": [
+     {
+      "text": "Flighty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in house of",
+      "for": "container",
+      "note": "something in a house is inside it, so the first item goes within the dwelling named"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "animal",
+      "gives": "CAT",
+      "note": "a cat is an animal"
+     },
+     {
+      "clueFragment": "swine",
+      "gives": "STY",
+      "note": "a sty is where pigs live"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CAT",
+      "TY"
+     ]
+    },
+    "explanation": {
+     "surface": "A skittish creature has got into the pigs' home.",
+     "walkthrough": "The house of swine is a sty.",
+     "definitionFit": "Scatty is British informal for scatterbrained and disorganised, the same as flighty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flighty"
+    }
+   }
   },
   {
    "number": 21,
@@ -384,7 +1367,62 @@
      }
     ]
    },
-   "solution": "GUNDOG"
+   "solution": "GUNDOG",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GUN DOG",
+    "definitions": [
+     {
+      "text": "Retriever, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outskirts of",
+      "for": "letter_selection",
+      "note": "the outskirts are the edges of a place, so only the first and last letters are used"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing set in another is placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Godalming",
+      "gives": "GG",
+      "select": "outer",
+      "note": "first and last letters of Godalming, a town in Surrey"
+     },
+     {
+      "clueFragment": "set free",
+      "gives": "UNDO",
+      "note": "to undo a knot or tether sets something free"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "UNDO",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog is let off its lead on the edge of a Surrey town.",
+     "walkthrough": "The definition is an example, flagged by 'say'; Godalming is a market town in Surrey, England.",
+     "definitionFit": "Retrievers are bred to fetch shot game, so a retriever is one kind of gun dog."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 22,
@@ -398,7 +1436,64 @@
     "text": "Pride scattering by the way — as tiger appears",
     "enumeration": "7"
    },
-   "solution": "STRIPED"
+   "solution": "STRIPED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "STRIPED",
+    "definitions": [
+     {
+      "text": "as tiger appears",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scattering",
+      "for": "anagram",
+      "note": "scattering throws things about, so the letters are spread into a new order"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the way",
+      "gives": "ST",
+      "note": "St is short for street, a way"
+     },
+     {
+      "clueFragment": "Pride",
+      "gives": "PRIDE",
+      "note": "the letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "RIPED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PRIDE",
+       "gives": "RIPED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pride of lions flees at the roadside when a tiger shows up.",
+     "walkthrough": "A pride is a group of lions, which helps the big-cat picture; 'by' places ST beside the shuffled word.",
+     "definitionFit": "A tiger's coat is marked with dark stripes, so striped describes how it looks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Pride"
+    }
+   }
   },
   {
    "number": 23,
@@ -412,7 +1507,54 @@
     "text": "Stuffed sheep taken over sea",
     "enumeration": "6"
    },
-   "solution": "RAMMED"
+   "solution": "RAMMED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAMMED",
+    "definitions": [
+     {
+      "text": "Stuffed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken over",
+      "for": "charade",
+      "note": "in a down clue, one thing taken over another sits above it, so it comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sheep",
+      "gives": "RAM",
+      "note": "a ram is a male sheep"
+     },
+     {
+      "clueFragment": "sea",
+      "gives": "MED",
+      "note": "the Med is the Mediterranean Sea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAM",
+      "MED"
+     ]
+    },
+    "explanation": {
+     "surface": "A stuffed sheep is shipped across the sea.",
+     "walkthrough": "'Stuffed' reads as taxidermy; it is the verb for packing tightly.",
+     "definitionFit": "To ram something in is to force or cram it in, so rammed means stuffed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stuffed"
+    }
+   }
   },
   {
    "number": 24,
@@ -432,7 +1574,56 @@
      }
     ]
    },
-   "solution": "ITALIANVERMOUTH"
+   "solution": "ITALIANVERMOUTH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ITALIAN VERMOUTH",
+    "definitions": [
+     {
+      "text": "a drink",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Tragically",
+      "for": "anagram",
+      "note": "things that go tragically have gone badly wrong, so these letters are disordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ma, in truth, I love",
+      "gives": "MAINTRUTHILOVE",
+      "note": "the letters of these words"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written, before it doubles as the start of the definition"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MAINTRUTHILOVEA",
+       "gives": "ITALIANVERMOUTH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sad confession: Mother really does love a drink.",
+     "walkthrough": "The 'a' does double duty, finishing the fodder and opening the definition.",
+     "definitionFit": "Italian vermouth is sweet red vermouth, a fortified wine drunk as an aperitif or in cocktails."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tragically"
+    }
+   }
   },
   {
    "number": 24,
@@ -446,7 +1637,53 @@
     "text": "English isle over a US state",
     "enumeration": "4"
    },
-   "solution": "IOWA"
+   "solution": "IOWA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IOWA",
+    "definitions": [
+     {
+      "text": "US state",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down clue the item over another is written above it, so it comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English isle",
+      "gives": "IOW",
+      "note": "IOW is short for the Isle of Wight, an island off southern England"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IOW",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "An English island set against an American state.",
+     "walkthrough": "The Isle of Wight lies off the south coast of England and is often abbreviated IOW.",
+     "definitionFit": "Iowa is a Midwestern state of the USA."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -460,7 +1697,46 @@
     "text": "Some patch I described for mask",
     "enumeration": "4"
    },
-   "solution": "HIDE"
+   "solution": "HIDE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HIDE",
+    "definitions": [
+     {
+      "text": "mask",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means only part, so the letters lie within the words that follow"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "patch I described",
+      "gives": "HIDE",
+      "note": "letters running across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A writer describes a patch worn as a mask.",
+     "walkthrough": "The answer runs from the end of patch through I into the start of described.",
+     "definitionFit": "To mask something is to conceal it, so hide is a verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "patch"
+    }
+   }
   },
   {
    "number": 26,
@@ -474,7 +1750,42 @@
     "text": "Stand guard over timer",
     "enumeration": "5"
    },
-   "solution": "WATCH"
+   "solution": "WATCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WATCH",
+    "definitions": [
+     {
+      "text": "Stand guard over",
+      "at": 0
+     },
+     {
+      "text": "timer",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stand guard over",
+      "note": "first meaning"
+     },
+     {
+      "clueFragment": "timer",
+      "note": "second meaning: a timepiece worn on the wrist"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is told to guard a clock or stopwatch.",
+     "definitionFit": "Watch is a verb for keeping vigil and a noun for a small portable timepiece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "timer"
+    }
+   }
   },
   {
    "number": 27,
@@ -494,7 +1805,47 @@
      }
     ]
    },
-   "solution": "OPENENDED"
+   "solution": "OPENENDED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPEN-ENDED",
+    "definitions": [
+     {
+      "text": "fluid",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "With lid removed",
+      "gives": "OPEN",
+      "note": "a container with its lid off is open"
+     },
+     {
+      "clueFragment": "finished",
+      "gives": "ENDED",
+      "note": "something finished has ended"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OPEN",
+      "ENDED"
+     ]
+    },
+    "explanation": {
+     "surface": "A jar with its lid off has spilled its liquid.",
+     "walkthrough": "'Fluid' looks like a liquid noun; it is the adjective meaning flexible.",
+     "definitionFit": "An open-ended arrangement is flexible with no fixed limit, which is fluid in the sense of changeable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fluid"
+    }
+   }
   }
  ]
 }
