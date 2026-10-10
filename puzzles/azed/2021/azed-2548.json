@@ -37,6 +37,9 @@
   "date": "2021-04-18",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -50,7 +53,50 @@
     "text": "Snappy dresser, outstanding one in petroleum processing plant",
     "enumeration": "10"
    },
-   "solution": "CATCRACKER"
+   "solution": "CATCRACKER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CATCRACKER",
+    "definitions": [
+     {
+      "text": "petroleum processing plant",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Snappy dresser",
+      "gives": "CAT",
+      "note": "in slang a cat is a man, especially a stylish or fashionable one"
+     },
+     {
+      "clueFragment": "outstanding one",
+      "gives": "CRACKER",
+      "note": "a cracker is an excellent or outstanding person or thing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAT",
+      "CRACKER"
+     ]
+    },
+    "explanation": {
+     "surface": "A smartly turned-out worker stands out among the staff at an oil refinery.",
+     "walkthrough": "A cat cracker (short for catalytic cracker) is the unit in a refinery that breaks heavy oil into lighter fuels.",
+     "definitionFit": "A cat cracker is a refinery installation that splits heavy hydrocarbons using a catalyst, so it is a processing plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Snappy"
+    }
+   }
   },
   {
    "number": 1,
@@ -63,7 +109,87 @@
    "clue": {
     "text": "Friend, muddled chap no good with tip in cafe, producing unacceptable one? (11, two words)"
    },
-   "solution": "CHUMPCHANGE"
+   "solution": "CHUMPCHANGE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHUMPCHANGE",
+    "definitions": [
+     {
+      "text": "unacceptable one?",
+      "at": 57,
+      "note": "the 'one' is a tip, so the phrase describes a measly sum"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "muddled",
+      "for": "anagram",
+      "note": "something muddled is jumbled up, so the word it describes has its letters rearranged"
+     },
+     {
+      "text": "tip",
+      "for": "letter_selection",
+      "note": "a tip is an end point, here the final letter of the word that follows it"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "in",
+     "producing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Friend",
+      "gives": "CHUM",
+      "note": "a chum is a friend"
+     },
+     {
+      "clueFragment": "chap",
+      "gives": "CHAP",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "no good",
+      "gives": "NG",
+      "note": "NG is the standard abbreviation for no good"
+     },
+     {
+      "clueFragment": "cafe",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHUM",
+      "PCHA",
+      "NG",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHAP",
+       "gives": "PCHA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A confused friend leaves a pitiful tip at a cafe, which the waiter finds insulting.",
+     "walkthrough": "'Tip' looks like money left in the cafe, and that is in fact what the whole answer describes: a tip so small it is an insult.",
+     "definitionFit": "Chump change is a trivial, contemptible sum of money, so a tip of that size would be unacceptable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tip"
+    }
+   }
   },
   {
    "number": 2,
@@ -77,7 +203,53 @@
     "text": "Backs possibly injured dropped from later game?",
     "enumeration": "5"
    },
-   "solution": "TERGA"
+   "solution": "TERGA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TERGA",
+    "definitions": [
+     {
+      "text": "Backs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropped from",
+      "for": "deletion",
+      "note": "letters dropped from a phrase are taken out of it, leaving the rest in place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "possibly injured",
+      "gives": "LAME",
+      "note": "someone lame has an injured leg, one possible kind of injury"
+     },
+     {
+      "clueFragment": "later game",
+      "gives": "LATERGAME",
+      "note": "taken as written; the answer is not simply hidden here, since letters of the injured word must first be dropped from around it, which is a coincidence of the deletion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TERGA"
+     ]
+    },
+    "explanation": {
+     "surface": "Damaged backs keep a player out of a game later in the season.",
+     "walkthrough": "Removing L, A, M and E from LATER GAME leaves TERGA; the four letters are scattered through the phrase but in order.",
+     "definitionFit": "Terga is the plural of tergum, the plate covering the back of an insect or other arthropod segment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "injured"
+    }
+   }
   },
   {
    "number": 3,
@@ -91,7 +263,50 @@
     "text": "Crop that's cold, damp and chilly",
     "enumeration": "4"
    },
-   "solution": "CRAW"
+   "solution": "CRAW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRAW",
+    "definitions": [
+     {
+      "text": "Crop",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on a tap"
+     },
+     {
+      "clueFragment": "damp and chilly",
+      "gives": "RAW",
+      "note": "raw weather is damp and cold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RAW"
+     ]
+    },
+    "explanation": {
+     "surface": "A harvest is spoilt by cold, wet, chilly weather.",
+     "walkthrough": "'Crop' reads as a farmer's harvest, but it is the pouch in a bird's gullet.",
+     "definitionFit": "A craw is the crop of a bird or insect, the pouch where food is stored before digestion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Crop"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +320,58 @@
     "text": "Indication of hesitancy with vermin around? We'll supply estimates",
     "enumeration": "6"
    },
-   "solution": "RATERS"
+   "solution": "RATERS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RATERS",
+    "definitions": [
+     {
+      "text": "We'll supply estimates",
+      "at": 44,
+      "note": "a phrase standing for people who estimate"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the vermin are placed around the sound of hesitancy, enclosing it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vermin",
+      "gives": "RATS",
+      "note": "rats are classic vermin"
+     },
+     {
+      "clueFragment": "Indication of hesitancy",
+      "gives": "ER",
+      "note": "er is the sound a hesitant speaker makes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAT",
+      "ER",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Pest controllers hesitate to price the job when rats are everywhere.",
+     "definitionFit": "Raters are people who assess value or rate things, so they are the ones who supply estimates."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "estimates"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +385,62 @@
     "text": "Duenna's responsibility, having tea with person approaching maturity",
     "enumeration": "11"
    },
-   "solution": "CHAPERONAGE"
+   "solution": "CHAPERONAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHAPERONAGE",
+    "definitions": [
+     {
+      "text": "Duenna's responsibility",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "having",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea",
+      "gives": "CHA",
+      "note": "cha is a slang word for tea"
+     },
+     {
+      "clueFragment": "person",
+      "gives": "PER",
+      "note": "per. is the dictionary abbreviation for person"
+     },
+     {
+      "clueFragment": "approaching",
+      "gives": "ON",
+      "note": "on can mean approaching, as in 'getting on for'"
+     },
+     {
+      "clueFragment": "maturity",
+      "gives": "AGE",
+      "note": "to come of age is to reach maturity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "PER",
+      "ON",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A duenna takes tea with her young charge who is nearly grown up.",
+     "definitionFit": "A duenna is a chaperone to a young woman, so her duty is chaperonage, the act of escorting and supervising."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "person"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +454,71 @@
     "text": "Wellington's address offering telling punch – error mostly corrected",
     "enumeration": "6"
    },
-   "solution": "KORERO"
+   "solution": "KORERO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "KORERO",
+    "definitions": [
+     {
+      "text": "Wellington's address",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the last letter of the word is cut"
+     },
+     {
+      "text": "corrected",
+      "for": "anagram",
+      "note": "a mistake that is corrected gets put into a different, proper order"
+     }
+    ],
+    "linkWords": [
+     "offering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "telling punch",
+      "gives": "KO",
+      "note": "KO, a knockout, is the most telling punch of all"
+     },
+     {
+      "clueFragment": "error",
+      "gives": "ERROR",
+      "note": "taken as written, then shortened"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KO",
+      "RERO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ERRO",
+       "gives": "RERO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Duke of Wellington makes a speech that lands a punch once its mistake is fixed.",
+     "walkthrough": "Wellington is not the duke but the capital of New Zealand, signalling a New Zealand word.",
+     "definitionFit": "Korero is a New Zealand word, from Maori, for a talk, speech or discussion, so it is a form of address."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Wellington's"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +532,54 @@
     "text": "Once prodigious energy, above standard",
     "enumeration": "5"
    },
-   "solution": "ENORM"
+   "solution": "ENORM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENORM",
+    "definitions": [
+     {
+      "text": "Once prodigious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "above",
+      "for": "charade",
+      "note": "in a down entry, what comes above sits first, before the following piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     },
+     {
+      "clueFragment": "standard",
+      "gives": "NORM",
+      "note": "a norm is a standard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "NORM"
+     ]
+    },
+    "explanation": {
+     "surface": "Remarkable energy, once above the usual level.",
+     "walkthrough": "'Once' marks the definition as an obsolete word.",
+     "definitionFit": "Enorm is an archaic adjective meaning huge or enormous, which is what prodigious meant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Once"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +593,65 @@
     "text": "Antiseptic compound? Unsuccessful one's given up, cocaine preferred",
     "enumeration": "6"
    },
-   "solution": "CRESOL"
+   "solution": "CRESOL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "CRESOL",
+    "definitions": [
+     {
+      "text": "Antiseptic compound?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "given up",
+      "for": "reversal",
+      "note": "in a down entry, something given up is sent upwards, so it reads from bottom to top"
+     },
+     {
+      "text": "preferred",
+      "for": "charade",
+      "note": "preferred is read as placed in front, so the drug comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cocaine",
+      "gives": "C",
+      "note": "C is slang for cocaine"
+     },
+     {
+      "clueFragment": "Unsuccessful one",
+      "gives": "LOSER",
+      "note": "a loser is an unsuccessful person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RESOL"
+     ],
+     "reversals": [
+      {
+       "from": "LOSER",
+       "to": "RESOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A failure gives up and turns to cocaine instead of an antiseptic.",
+     "definitionFit": "Cresol is a coal-tar phenol compound used as a disinfectant and antiseptic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "preferred"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +665,74 @@
     "text": "In Paris he boards Metro with me, switching device to record journey",
     "enumeration": "9"
    },
-   "solution": "MILOMETER"
+   "solution": "MILOMETER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MILOMETER",
+    "definitions": [
+     {
+      "text": "device to record journey",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "switching",
+      "for": "anagram",
+      "note": "switching things around changes their order, so these letters are rearranged"
+     },
+     {
+      "text": "boards",
+      "for": "container",
+      "note": "to board a train is to get inside it, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Metro",
+      "gives": "METRO",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "In Paris he",
+      "gives": "IL",
+      "note": "il is French for he"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "IL",
+      "OMETER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "METROME",
+       "gives": "MOMETER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Frenchman boards the Paris Metro with the narrator and switches on a gadget to log the trip.",
+     "definitionFit": "A milometer is the instrument in a vehicle that records the number of miles travelled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Metro"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +746,46 @@
     "text": "Election as part of formal account?",
     "enumeration": "11"
    },
-   "solution": "INSTATEMENT"
+   "solution": "INSTATEMENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INSTATEMENT",
+    "definitions": [
+     {
+      "text": "Election",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as part of",
+      "gives": "IN",
+      "note": "in means included as part of something"
+     },
+     {
+      "clueFragment": "formal account",
+      "gives": "STATEMENT",
+      "note": "a statement is a formal account, as given to police"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "STATEMENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Is an election just one item in some official report?",
+     "definitionFit": "Instatement is installing someone in office, which is what an election achieves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "account"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +799,43 @@
     "text": "One in wellies quite likely kept in shoe rack",
     "enumeration": "4"
    },
-   "solution": "HOER"
+   "solution": "HOER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HOER",
+    "definitions": [
+     {
+      "text": "One in wellies quite likely",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kept in",
+      "for": "hidden_word",
+      "note": "what is kept in something is stored within it, so the letters lie inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shoe rack",
+      "gives": "HOER",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A gardener's wellington boots are stored on the shoe rack.",
+     "walkthrough": "Wellies are wellington boots, the rubber boots worn for muddy outdoor work.",
+     "definitionFit": "A hoer is someone working a garden with a hoe, a job usually done wearing rubber boots."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "kept"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +849,64 @@
     "text": "Cartilaginous stuff in horn – CD's manufactured with it",
     "enumeration": "8"
    },
-   "solution": "CHONDRIN"
+   "solution": "CHONDRIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHONDRIN",
+    "definitions": [
+     {
+      "text": "Cartilaginous stuff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "manufactured",
+      "for": "anagram",
+      "note": "something manufactured is made up from raw materials, so these letters are reassembled"
+     }
+    ],
+    "linkWords": [
+     "with it"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "horn",
+      "gives": "HORN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "CD",
+      "gives": "CD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INHORNCD",
+       "gives": "CHONDRIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A material found in horn is used in making compact discs.",
+     "walkthrough": "'In horn' looks like a description of where the stuff is found, but the 'in' joins the letters to be rearranged.",
+     "definitionFit": "Chondrin is the gelatinous protein substance extracted from cartilage, so it is cartilaginous matter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +920,47 @@
     "text": "Increase county gossip?",
     "enumeration": "6"
    },
-   "solution": "UPRATE"
+   "solution": "UPRATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPRATE",
+    "definitions": [
+     {
+      "text": "Increase",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "county",
+      "gives": "U",
+      "note": "county can mean upper-class, and U stands for upper-class"
+     },
+     {
+      "clueFragment": "gossip",
+      "gives": "PRATE",
+      "note": "to prate is to chatter idly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "PRATE"
+     ]
+    },
+    "explanation": {
+     "surface": "The talk of the shires keeps getting louder.",
+     "walkthrough": "In British usage 'county' describes the landed gentry, so it means upper-class; U is the label for upper-class usage.",
+     "definitionFit": "To uprate is to raise a rate or value, so it is a verb meaning increase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "county"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +974,69 @@
     "text": "Bird that's not OK in theater stalls?",
     "enumeration": "9"
    },
-   "solution": "PARROQUET"
+   "solution": "PARROQUET",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "PARROQUET",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not here means without, so two letters are taken away from the bird"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other, as seated inside the stalls"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bird",
+      "gives": "ROOK",
+      "note": "a rook is a black crow-like bird"
+     },
+     {
+      "clueFragment": "OK",
+      "gives": "OK",
+      "note": "taken as written, to be removed"
+     },
+     {
+      "clueFragment": "theater stalls",
+      "gives": "PARQUET",
+      "note": "in American theatres the parquet is the stalls"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "RO",
+      "QUET"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird has got loose in the theatre seats, which is not acceptable.",
+     "walkthrough": "The American spelling 'theater' hints at the American term for the stalls. 'Bird' does double duty as definition and source of letters.",
+     "definitionFit": "A parroquet is a variant spelling of parakeet, a small long-tailed parrot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stalls"
+    }
+   }
   },
   {
    "number": 15,
@@ -259,7 +1050,44 @@
     "text": "Sets required in staging Elsinore",
     "enumeration": "4"
    },
-   "solution": "GELS"
+   "solution": "GELS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GELS",
+    "definitions": [
+     {
+      "text": "Sets",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "required in",
+      "for": "hidden_word",
+      "note": "what is required in something is contained within it, so the letters sit inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "staging Elsinore",
+      "gives": "GELS",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Sets are needed when putting on a play set at Elsinore, Hamlet's castle.",
+     "walkthrough": "'Sets' looks like stage scenery, but it is a verb meaning to become firm.",
+     "definitionFit": "A jelly gels when it sets, firming from liquid to solid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sets"
+    }
+   }
   },
   {
    "number": 16,
@@ -273,7 +1101,64 @@
     "text": "Ships containing European in place of ordinary dabs",
     "enumeration": "7"
    },
-   "solution": "EXPERTS"
+   "solution": "EXPERTS",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "EXPERTS",
+    "definitions": [
+     {
+      "text": "dabs",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in place of",
+      "for": "substitution",
+      "note": "one thing in place of another replaces it, swapping one letter for another"
+     }
+    ],
+    "linkWords": [
+     "containing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ships",
+      "gives": "EXPORTS",
+      "note": "to ship goods abroad is to export them"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "ordinary",
+      "gives": "O",
+      "note": "O is the abbreviation for ordinary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXP",
+      "E",
+      "RTS"
+     ]
+    },
+    "explanation": {
+     "surface": "A cargo of ordinary flatfish is sent out with a European aboard.",
+     "walkthrough": "'Dabs' looks like the flatfish, but it is the plural of dab, as in 'dab hand'.",
+     "definitionFit": "A dab, or dab hand, is a skilled person, so dabs are experts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dabs"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +1172,65 @@
     "text": "Plain song? Probed endlessly about that",
     "enumeration": "7"
    },
-   "solution": "PRAIRIE"
+   "solution": "PRAIRIE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "PRAIRIE",
+    "definitions": [
+     {
+      "text": "Plain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without its end, the word loses its final letter"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece wraps around the other"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Probed",
+      "gives": "PRIED",
+      "note": "to pry is to probe, and pried is its past tense"
+     },
+     {
+      "clueFragment": "song",
+      "gives": "AIR",
+      "note": "an air is a tune or song"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "AIR",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "Was it a plainsong that someone kept investigating?",
+     "walkthrough": "'Plain song' suggests plainsong chant; split apart, 'Plain' is the definition and 'song' supplies letters, with 'that' pointing back at it.",
+     "definitionFit": "A prairie is a wide, flat, treeless grassland, which is a plain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Plain"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1244,54 @@
     "text": "Muscly lump where contemporary art is shown round yard",
     "enumeration": "5"
    },
-   "solution": "MYOMA"
+   "solution": "MYOMA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MYOMA",
+    "definitions": [
+     {
+      "text": "Muscly lump",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means surrounding, so the museum is placed around the other letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "where contemporary art is shown",
+      "gives": "MOMA",
+      "note": "MoMA is New York's Museum of Modern Art"
+     },
+     {
+      "clueFragment": "yard",
+      "gives": "Y",
+      "note": "Y is the abbreviation for yard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "Y",
+      "OMA"
+     ]
+    },
+    "explanation": {
+     "surface": "A muscular sculpture stands in a gallery courtyard.",
+     "definitionFit": "A myoma is a benign tumour made of muscle tissue, so it is a lump of muscle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "yard"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1305,52 @@
     "text": "Doubly annoyed with service taken again for elaborate church symbol",
     "enumeration": "13"
    },
-   "solution": "CROSSCROSSLET"
+   "solution": "CROSSCROSSLET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CROSSCROSSLET",
+    "definitions": [
+     {
+      "text": "elaborate church symbol",
+      "at": 44
+     }
+    ],
+    "linkWords": [
+     "with",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doubly annoyed",
+      "gives": "CROSSCROSS",
+      "note": "cross means annoyed, and doubly says to have it twice"
+     },
+     {
+      "clueFragment": "service taken again",
+      "gives": "LET",
+      "note": "in tennis a let is a serve that must be played again"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CROSSCROSS",
+      "LET"
+     ]
+    },
+    "explanation": {
+     "surface": "A churchgoer is twice as cross when the church service has to be repeated.",
+     "walkthrough": "'Service' suggests a church service; it is a tennis serve. A let is called when a serve clips the net.",
+     "definitionFit": "A cross-crosslet is a heraldic cross whose four arms each end in a small cross, a fancy Christian emblem."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1364,59 @@
     "text": "Best tux restyled with oof",
     "enumeration": "6"
    },
-   "solution": "OUTFOX"
+   "solution": "OUTFOX",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OUTFOX",
+    "definitions": [
+     {
+      "text": "Best",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restyled",
+      "for": "anagram",
+      "note": "restyling something gives it a new arrangement, so these letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tux",
+      "gives": "TUX",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "oof",
+      "gives": "OOF",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TUXOOF",
+       "gives": "OUTFOX"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dinner jacket is given a new look with cash to spare.",
+     "walkthrough": "Oof is old slang for money, and a tux is a tuxedo.",
+     "definitionFit": "To best someone is to beat or outwit them, which is what outfox means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Best"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1430,59 @@
     "text": "Biddy entering coach for plane",
     "enumeration": "6"
    },
-   "solution": "CHENAR"
+   "solution": "CHENAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHENAR",
+    "definitions": [
+     {
+      "text": "plane",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "what enters something goes inside it, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coach",
+      "gives": "CAR",
+      "note": "a car is a railway carriage, or coach"
+     },
+     {
+      "clueFragment": "Biddy",
+      "gives": "HEN",
+      "note": "biddy is a dialect word for a hen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HEN",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "An old woman boards a coach to catch her flight.",
+     "walkthrough": "'Plane' looks like an aircraft; it is the tree. Biddy suggests an old woman but means a chicken.",
+     "definitionFit": "A chenar is the oriental plane tree of India and the Middle East."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plane"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1496,41 @@
     "text": "Sacred text, extract from scriptures as translated",
     "enumeration": "6"
    },
-   "solution": "SASTRA"
+   "solution": "SASTRA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SASTRA",
+    "definitions": [
+     {
+      "text": "Sacred text",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extract from",
+      "for": "hidden_word",
+      "note": "an extract is a passage lifted out of a longer text, so the letters lie within the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scriptures as translated",
+      "gives": "SASTRA",
+      "note": "the letters run across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A holy book is quoted from scriptures in translation.",
+     "definitionFit": "A sastra, or shastra, is a Hindu scripture or treatise of sacred law."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -371,7 +1544,65 @@
     "text": "Domestic having to spray round centre of study",
     "enumeration": "5"
    },
-   "solution": "HOUSE"
+   "solution": "HOUSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "HOUSE",
+    "definitions": [
+     {
+      "text": "Domestic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre of",
+      "for": "letter_selection",
+      "note": "the centre of a word is its middle letter"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means surrounding, so the spray goes around the other letter"
+     }
+    ],
+    "linkWords": [
+     "having to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spray",
+      "gives": "HOSE",
+      "note": "to hose is to spray with water"
+     },
+     {
+      "clueFragment": "study",
+      "gives": "U",
+      "select": "middle",
+      "note": "the middle letter of this five-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "U",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A servant has to spray water around a study when cleaning.",
+     "walkthrough": "'Domestic' looks like a household servant, but it is an adjective, as in house wine or house plant.",
+     "definitionFit": "As a modifier, house means belonging to the home or the establishment itself, which is the sense of domestic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Domestic"
+    }
+   }
   },
   {
    "number": 24,
@@ -385,7 +1616,54 @@
     "text": "Priest welcoming church legate from overseas",
     "enumeration": "5"
    },
-   "solution": "ELCHI"
+   "solution": "ELCHI",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ELCHI",
+    "definitions": [
+     {
+      "text": "legate from overseas",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "to welcome someone is to take them in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Priest",
+      "gives": "ELI",
+      "note": "Eli is the priest who raised Samuel in the Bible"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the abbreviation for church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EL",
+      "CH",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A priest receives a papal envoy visiting from abroad.",
+     "definitionFit": "An elchi is a Turkish or Persian word for an ambassador or envoy, a foreign legate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "legate"
+    }
+   }
   },
   {
    "number": 25,
@@ -399,7 +1677,70 @@
     "text": "Salt in love turned loose, worried",
     "enumeration": "7"
    },
-   "solution": "OXALATE"
+   "solution": "OXALATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "OXALATE",
+    "definitions": [
+     {
+      "text": "Salt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned",
+      "for": "reversal",
+      "note": "something turned is facing the other way, so the word reads backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, which looks like O"
+     },
+     {
+      "clueFragment": "loose",
+      "gives": "LAX",
+      "note": "lax means loose or slack"
+     },
+     {
+      "clueFragment": "worried",
+      "gives": "ATE",
+      "note": "ate, as in 'what's eating you', means worried"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "XAL",
+      "ATE"
+     ],
+     "reversals": [
+      {
+       "from": "LAX",
+       "to": "XAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lover set loose is fretting over a little salt.",
+     "walkthrough": "'Salt' could be a sailor, but here it is a chemical salt.",
+     "definitionFit": "An oxalate is a salt or ester of oxalic acid, so it is a salt in the chemical sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Salt"
+    }
+   }
   },
   {
    "number": 26,
@@ -413,7 +1754,50 @@
     "text": "Pressed to the mast, sailor's to work 'ard as drudge",
     "enumeration": "5"
    },
-   "solution": "ABACK"
+   "solution": "ABACK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABACK",
+    "definitions": [
+     {
+      "text": "Pressed to the mast",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sailor",
+      "gives": "AB",
+      "note": "AB, able-bodied seaman, is the usual abbreviation for a sailor"
+     },
+     {
+      "clueFragment": "work 'ard as drudge",
+      "gives": "ACK",
+      "note": "to hack is to work as a drudge; 'ard signals the dropped H"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "ACK"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor has to toil away like a drudge, dropping his aitches.",
+     "walkthrough": "The apostrophe in 'ard shows a Cockney dropped H, so the drudge's word loses its H too.",
+     "definitionFit": "Sails are aback when the wind presses them back against the mast, from the front."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Pressed"
+    }
+   }
   },
   {
    "number": 27,
@@ -427,7 +1811,72 @@
     "text": "Gifts, on being removed from stock, sent off",
     "enumeration": "7"
    },
-   "solution": "TALENTS"
+   "solution": "TALENTS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "TALENTS",
+    "definitions": [
+     {
+      "text": "Gifts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being removed from",
+      "for": "deletion",
+      "note": "what is removed from a word is taken out of it, leaving the rest"
+     },
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone bad or not right, so these letters are put in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stock",
+      "gives": "TALON",
+      "note": "in card games the talon is the stock, the undealt pile"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written, to be removed"
+     },
+     {
+      "clueFragment": "sent",
+      "gives": "SENT",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAL",
+      "ENTS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SENT",
+       "gives": "ENTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Presents taken out of the shop's stock are sent off by post.",
+     "walkthrough": "'Stock' looks like goods in a shop, but it is the card-game term for the undealt pack.",
+     "definitionFit": "Talents are natural aptitudes, which are thought of as gifts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stock"
+    }
+   }
   },
   {
    "number": 28,
@@ -441,7 +1890,53 @@
     "text": "Strap cracks – time to leave",
     "enumeration": "4"
    },
-   "solution": "JESS"
+   "solution": "JESS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "JESS",
+    "definitions": [
+     {
+      "text": "Strap",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to leave",
+      "for": "deletion",
+      "note": "something told to leave goes away, so that letter is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cracks",
+      "gives": "JESTS",
+      "note": "cracks are wisecracks, or jests"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A strap has cracked, so it's time to go.",
+     "definitionFit": "A jess is a short strap fastened round a hawk's leg in falconry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cracks"
+    }
+   }
   },
   {
    "number": 29,
@@ -455,7 +1950,63 @@
     "text": "What gets said after it, often recalling fine sport?",
     "enumeration": "4"
    },
-   "solution": "NUFF"
+   "solution": "NUFF",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NUFF",
+    "definitions": [
+     {
+      "text": "What gets said after it, often",
+      "at": 0,
+      "note": "a description of the word, which typically precedes 'said'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recalling",
+      "for": "reversal",
+      "note": "recalling is read as calling back, so the word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sport",
+      "gives": "FUN",
+      "note": "sport can mean fun or amusement"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the abbreviation for fine, as on pencils"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUF",
+      "F"
+     ],
+     "reversals": [
+      {
+       "from": "FUN",
+       "to": "NUF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something people often remark afterwards when reminiscing about a good game.",
+     "walkthrough": "'Nuff said' is slang for 'enough said'; the definition describes the word as the one often followed by 'said'.",
+     "definitionFit": "Nuff is a slang spelling of enough, heard chiefly in the catchphrase nuff said."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sport"
+    }
+   }
   },
   {
    "number": 30,
@@ -469,7 +2020,54 @@
     "text": "Calf that was butchered for Easter",
     "enumeration": "6"
    },
-   "solution": "STEARE"
+   "solution": "STEARE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STEARE",
+    "definitions": [
+     {
+      "text": "Calf that was",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "butchered",
+      "for": "anagram",
+      "note": "butchered means cut up and mangled, so the word's letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Easter",
+      "gives": "EASTER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EASTER",
+       "gives": "STEARE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A calf was slaughtered for the Easter feast.",
+     "walkthrough": "'That was' marks an obsolete word.",
+     "definitionFit": "Steare is an old spelling of steer, a young bullock, so it once meant a young calf."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "butchered"
+    }
+   }
   },
   {
    "number": 31,
@@ -483,7 +2081,75 @@
     "text": "Hay cooked with duck egg, soft inside – a morbid diet",
     "enumeration": "8"
    },
-   "solution": "GEOPHAGY"
+   "solution": "GEOPHAGY",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "GEOPHAGY",
+    "definitions": [
+     {
+      "text": "a morbid diet",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside places one letter within the others before they are mixed"
+     },
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooking mixes ingredients up, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hay",
+      "gives": "HAY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "duck",
+      "gives": "O",
+      "note": "a duck is a score of nought in cricket, which looks like O"
+     },
+     {
+      "clueFragment": "egg",
+      "gives": "EGG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "soft",
+      "gives": "P",
+      "note": "P, for piano, means soft in music"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HAYOEGGP",
+       "gives": "GEOPHAGY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A meal of hay cooked with a soft-boiled duck egg sounds like an unhealthy diet.",
+     "definitionFit": "Geophagy is the practice of eating earth or clay, often linked to a disorder, so it is an unhealthy diet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 32,
@@ -497,7 +2163,49 @@
     "text": "Survey serious corrosion affecting newbuild (beginnings of)",
     "enumeration": "4"
    },
-   "solution": "SCAN"
+   "solution": "SCAN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SCAN",
+    "definitions": [
+     {
+      "text": "Survey",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginnings of",
+      "for": "letter_selection",
+      "note": "the beginnings of words are their opening letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Survey serious corrosion affecting newbuild",
+      "gives": "SCAN",
+      "select": "first",
+      "note": "the first letter of each of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCAN"
+     ]
+    },
+    "explanation": {
+     "surface": "An inspector surveys a new building for bad corrosion at its foundations.",
+     "walkthrough": "'Survey' is both the definition and the first of the four words whose initials are taken.",
+     "definitionFit": "To scan is to look over or examine something carefully, which is to survey it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beginnings"
+    }
+   }
   },
   {
    "number": 33,
@@ -511,7 +2219,68 @@
     "text": "Source of timber set, bake furiously in brazier",
     "enumeration": "10"
    },
-   "solution": "FIREBASKET"
+   "solution": "FIREBASKET",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "FIREBASKET",
+    "definitions": [
+     {
+      "text": "brazier",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "furiously",
+      "for": "anagram",
+      "note": "doing something furiously means doing it wildly, so these letters are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Source of timber",
+      "gives": "FIR",
+      "note": "the fir is a tree grown for timber"
+     },
+     {
+      "clueFragment": "set",
+      "gives": "SET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bake",
+      "gives": "BAKE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIR",
+      "EBASKET"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SETBAKE",
+       "gives": "EBASKET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Firewood is lit and burns fiercely in an outdoor heater.",
+     "definitionFit": "A firebasket is an iron grate or cage for holding a fire, which is what a brazier is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   }
  ]
 }
