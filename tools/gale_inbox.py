@@ -97,9 +97,10 @@ MATCHES = MIRROR.parent / "matches.json"
 MATCHER = code_reach.key("gale_inbox", {"match"})[:12]
 #: The most seconds a stage spends matching files afresh: a code change
 #: re-reads every file (minutes each batch), and the minute tick must stay
-#: short. Files never matched go first, so a fresh download is never queued
-#: behind re-reads; a file not re-read yet keeps its last match (same name,
-#: size and mtime, under the code before).
+#: short. Files never matched go first, the oldest download first, so a
+#: fresh download is never queued behind re-reads; a file not re-read yet
+#: keeps its last match (same name, size and mtime, under the code before).
+#: A tick stages while the inbox holds a file never matched (unread).
 MATCH_SECONDS = 60
 #: The Downloads files already looked at and found not to be Gale's.
 SEEN = MIRROR.parent / "seen.json"
@@ -479,6 +480,26 @@ def relink(pages, url):
     tmp.replace(pages)
 
 
+def file_ident(p):
+    """A file's key in MATCHES (after the code's): name, size and mtime."""
+    st = p.stat()
+    return f"{p.name}\t{st.st_size}\t{int(st.st_mtime)}"
+
+
+def inbox_files(inbox=None):
+    """The page files in `inbox` (MIRROR), by name."""
+    inbox = MIRROR if inbox is None else inbox
+    return sorted(p for p in Path(inbox).iterdir() if p.is_file() and p.suffix.lower() in PAGES) \
+        if Path(inbox).exists() else []
+
+
+def unread(inbox=None, matches=None):
+    """The files in `inbox` (MIRROR) no match under any code (`matches`,
+    MATCHES) has read yet, the oldest download first."""
+    seen = {k.split("\t", 1)[1] for k in load(MATCHES if matches is None else matches, {})}
+    return sorted((p for p in inbox_files(inbox) if file_ident(p) not in seen), key=lambda p: p.stat().st_mtime)
+
+
 def stage(inbox=MIRROR, cache=CACHE, out=sys.stdout, unmatched=UNMATCHED, matches=MATCHES,
           seconds=MATCH_SECONDS):
     """Lay each date's pages in `inbox` out as one edition directory under
@@ -487,16 +508,15 @@ def stage(inbox=MIRROR, cache=CACHE, out=sys.stdout, unmatched=UNMATCHED, matche
     edition are listed in `unmatched`. {date: [match]}; the unmatched
     under None."""
     by_number = held()
-    files = sorted(p for p in Path(inbox).iterdir() if p.is_file() and p.suffix.lower() in PAGES) \
-        if Path(inbox).exists() else []
+    files = inbox_files(inbox)
     known, kept = load(matches, {}), {}
     #: Each file's match under any code, by name, size and mtime.
     stale = {k.split("\t", 1)[1]: v for k, v in known.items()}
     by_date = collections.defaultdict(list)
     deadline = time.monotonic() + seconds
     deferred = 0
-    idents = {p: f"{p.name}\t{p.stat().st_size}\t{int(p.stat().st_mtime)}" for p in files}
-    for p in sorted(files, key=lambda p: idents[p] in stale):
+    idents = {p: file_ident(p) for p in files}
+    for p in sorted(files, key=lambda p: (idents[p] in stale, int(idents[p].rsplit("\t", 1)[1]))):
         ident = idents[p]
         k = f"{MATCHER}\t{ident}"
         m = known.get(k)
@@ -1350,13 +1370,25 @@ def next_up(rows, staged, n=POOL):
     return [(d, c) for d, c in order if d not in staged][:n]
 
 
-def checklist(rows=None, cache=CACHE, unmatched=UNMATCHED, docs=None, status=None, ledger=None, log=SET_ASIDE):
+def arrived_days(rows, staged, waiting, docs):
+    """The dates of `rows` whose file is in the inbox: staged (`staged`,
+    {date: files}), or a file not matched yet (`waiting`, the inbox's
+    unplaced file names) named for a document the row's links name
+    (row_docs). A download stays arrived however long matching takes."""
+    named = {d for f in waiting if (d := doc_id(f))}
+    return {day for day, _ in rows if day in staged or named & set(
+        row_docs({"dl": gale_docs.link("TTDA", day, docs), "search": gale_docs.permalink("TTDA", day, docs)}))}
+
+
+def checklist(rows=None, cache=CACHE, unmatched=UNMATCHED, docs=None, status=None, ledger=None, log=SET_ASIDE,
+              inbox=None):
     """The Times checklist (page): progress, what was sorted automatically
     (notes), the next editions to fetch with what to search for, then every
     wanted edition by year, the worst year first. An edition whose saved
     page holds no cryptic's title (titleless) is still to fetch, unless
     Gale's citation names it the cryptic; one Gale has no cryptic for
-    (not_on_gale) leaves next up, its row saying why."""
+    (not_on_gale) leaves next up, its row saying why. A row is arrived
+    (arrived_days) once its file is in `inbox` (MIRROR), matched or not."""
     rows = wanted() if rows is None else rows
     by_number = held()
     pages = usual_pages()
@@ -1372,11 +1404,15 @@ def checklist(rows=None, cache=CACHE, unmatched=UNMATCHED, docs=None, status=Non
     for day, cls in rows:
         years[day.year].append((day, cls))
     filed = set(by_number.values())
+    placed = {m["file"] for ms in matches.values() for m in ms} | {
+        m["file"] for m in (json.loads(unmatched.read_text()) if unmatched.exists() else []) if not m.get("date")}
+    files = [p.name for p in inbox_files(inbox)]
+    waiting = [f for f in files if f not in placed]
+    arrived = arrived_days(rows, staged, waiting, docs)
     # Counted by the files downloaded: each page file in the inbox (one set
     # aside is not), and each wanted edition none has come for yet.
-    done = sum(len(ms) for ms in matches.values()) + sum(
-        1 for m in (json.loads(unmatched.read_text()) if unmatched.exists() else []) if not m.get("date"))
-    total = done + sum(day not in staged and day not in gone for day, _ in rows)
+    done = len(files)
+    total = done + sum(day not in arrived and day not in gone for day, _ in rows)
 
     def page_of(y):
         lo, hi, most = nearest(pages, y) or (None, None, None)
@@ -1391,11 +1427,13 @@ def checklist(rows=None, cache=CACHE, unmatched=UNMATCHED, docs=None, status=Non
             status = [(f"arrived, read: {archive_coverage.verdict_class(st, {})}", "got")]
         elif day in staged:
             status = [(f"arrived ({', '.join(staged[day])})", "got")]
+        elif day in arrived:
+            status = [("arrived, being matched", "got")]
         elif day in gone:
             status = [(gone[day], "bad")]
         else:
             status = "Canberra reprint only" if cls == "canberra-reprint" else ""
-        return {"key": day.isoformat(), "date": day, "arrived": day in staged, "dl": gale_docs.link("TTDA", day, docs),
+        return {"key": day.isoformat(), "date": day, "arrived": day in arrived, "dl": gale_docs.link("TTDA", day, docs),
                 "search": gale_docs.permalink("TTDA", day, docs) or search_url(day), "copy": search_for(n),
                 "status": status,
                 "cells": [[(f"{n:,}", "")] + ([] if sure else [("number estimated: check the date", "est")]),
@@ -1405,9 +1443,9 @@ def checklist(rows=None, cache=CACHE, unmatched=UNMATCHED, docs=None, status=Non
         paper="Times", prod="TTDA", name=CHECKLIST_NAME, store="galeCopied", done=done, total=total,
         done_word="files downloaded", folder=SHARE + "\\Times", notes=notes(matches, untitled, unmatched, log),
         steps=STEPS,
-        order=ORDER, what="editions", next_rows=[row(d, c) for d, c in next_up(rows, {**staged, **gone}, None)],
+        order=ORDER, what="editions", next_rows=[row(d, c) for d, c in next_up(rows, arrived | set(gone), None)],
         years_note="The worst year first. An edition leaves this list once its puzzle is filed.",
-        years=[(y, f"{len(ds)} missing, {sum(d in staged for d, _ in ds)} arrived", [row(d, c) for d, c in sorted(ds)])
+        years=[(y, f"{len(ds)} missing, {sum(d in arrived for d, _ in ds)} arrived", [row(d, c) for d, c in sorted(ds)])
                for y, ds in sorted(years.items(), key=lambda kv: (-len(kv[1]), kv[0]))],
         columns=["No", "Page"], status=status)
 
@@ -1463,7 +1501,8 @@ def locked(wait=True):
 
 def sync(out=sys.stdout, force=False):
     """One tick: sweep Gale files into their inboxes; mirror the Times inbox
-    and, when it moved (or RENDER_EVERY passed), stage it and publish the
+    and, when it moved, holds a file not matched yet (unread) or
+    RENDER_EVERY passed, stage it and publish the
     checklist; publish its status file before the Gale lookups and again
     after, so an open page knows when the inbox was last looked at; then the Listener's
     (gale_listener.tick); then start the reads of the editions just laid
@@ -1499,7 +1538,7 @@ def _sync_locked(out, force, gale_listener):
         "TTDA", [(d, number_on(d, by_number)[0]) for d, _ in next_up(wanted(), staged_files(), LOOKAHEAD)], out,
         until=time.monotonic() + GALE_SECONDS)
     status = None
-    if force or moved or changed or linked or time.time() - last_render() > RENDER_EVERY:
+    if force or moved or changed or linked or unread() or time.time() - last_render() > RENDER_EVERY:
         stage(MIRROR, out=out)
         if tidy(out):
             mirror(out)
