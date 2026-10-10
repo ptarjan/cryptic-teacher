@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,48 @@
     "text": "Slight sucking noise curtailed",
     "enumeration": "4"
    },
-   "solution": "SLUR"
+   "solution": "SLUR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SLUR",
+    "definitions": [
+     {
+      "text": "Slight",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "curtailed",
+      "for": "deletion",
+      "note": "to curtail is to cut short, so the tail end of the word is lopped off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sucking noise",
+      "gives": "SLURP",
+      "note": "the noise of drinking noisily"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A faint slurping sound is cut off mid-sip.",
+     "walkthrough": "SLURP loses its last letter to give SLUR.",
+     "definitionFit": "A slur is an insult, the same as a slight given to someone's reputation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Slight"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +91,79 @@
     "text": "Honoured king broken, he had to admit defeat finally",
     "enumeration": "8"
    },
-   "solution": "KNIGHTED"
+   "solution": "KNIGHTED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "KNIGHTED",
+    "definitions": [
+     {
+      "text": "Honoured",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken is knocked out of shape, so the letters of king are rearranged"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of the word it follows"
+     },
+     {
+      "text": "to admit",
+      "for": "container",
+      "note": "to admit is to let in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "king",
+      "gives": "KNIG",
+      "note": "the letters of king rearranged"
+     },
+     {
+      "clueFragment": "he had",
+      "gives": "HED",
+      "note": "he had is contracted to he'd"
+     },
+     {
+      "clueFragment": "defeat",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of defeat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KNIG",
+      "HTED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "KING",
+       "gives": "KNIG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A king was honoured even though he finally conceded defeat in a broken state.",
+     "walkthrough": "'to admit' means the HE'D piece takes in the final letter, while the rearranged king stays in front.",
+     "definitionFit": "Being knighted is a royal honour, so someone knighted has been honoured with a title."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broken"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +177,42 @@
     "text": "Some athlete, a seriously tough one",
     "enumeration": "6"
    },
-   "solution": "TEASER"
+   "solution": "TEASER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TEASER",
+    "definitions": [
+     {
+      "text": "tough one",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some of the following words means only part of their run of letters is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "athlete, a seriously",
+      "gives": "TEASER",
+      "note": "the letters run across the end of athlete, the word a and the start of seriously"
+     }
+    ],
+    "explanation": {
+     "surface": "An athlete describes one gruelling event as seriously tough.",
+     "definitionFit": "A teaser is a puzzling problem, a tough one to work out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "athlete"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +232,43 @@
      }
     ]
    },
-   "solution": "PONDLIFE"
+   "solution": "PONDLIFE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POND LIFE",
+    "definitions": [
+     {
+      "text": "7 15 for example",
+      "at": 0
+     },
+     {
+      "text": "scum",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "7 15 for example",
+      "note": "first meaning: blanket weed is one example of the plants and creatures living in a pond"
+     },
+     {
+      "clueFragment": "scum",
+      "note": "second meaning: contemptible people, the lowest of the low"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Scum also floats on ponds, which ties the two halves together; the second sense is the slang insult for worthless people.",
+     "definitionFit": "Pond life covers all organisms in a pond, and as slang it describes people regarded as vile and worthless."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "scum"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +282,59 @@
     "text": "Puss I caught after a minute",
     "enumeration": "6"
    },
-   "solution": "ATOMIC"
+   "solution": "ATOMIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ATOMIC",
+    "definitions": [
+     {
+      "text": "minute",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written; the clue says the rest comes after it"
+     },
+     {
+      "clueFragment": "Puss",
+      "gives": "TOM",
+      "note": "a tom is a male cat"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TOM",
+      "I",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A cat is caught after only a minute.",
+     "walkthrough": "'after a' places the other pieces behind A. C for caught comes from cricket scoring.",
+     "definitionFit": "Atomic means on the scale of atoms, so extremely small, which is what minute means as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "minute"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +348,54 @@
     "text": "Make between 17 and 23 for main commander, reportedly?",
     "enumeration": "4"
    },
-   "solution": "EARN"
+   "solution": "EARN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EARN",
+    "definitions": [
+     {
+      "text": "Make",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as it is said out loud, so the spoken sound matters, not the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "between 17 and 23",
+      "note": "placement, not letters: this answer sits between the answers to 17 across and 23 down, forming a three-word phrase"
+     },
+     {
+      "clueFragment": "main commander",
+      "gives": "KINK EARN NEWT",
+      "soundsLike": "KING CANUTE",
+      "note": "Canute, the king said to have commanded the sea (the main) to retreat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EARN"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about how much a naval commander makes.",
+     "walkthrough": "The answers to 17 across and 23, KINK and NEWT, put this one between them to sound like King Canute, who supposedly ordered the tide back.",
+     "definitionFit": "To earn is to make money through work, as in what you make a year."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Make"
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +419,54 @@
    "group": [
     "7-across",
     "15-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLANKET WEED",
+    "definitions": [
+     {
+      "text": "Floater",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "__",
+      "gives": "BLANK",
+      "note": "the underscores are literally a blank"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation for English"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "TWEED",
+      "note": "the Tweed is a river on the English-Scottish border"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLANK",
+      "E",
+      "TWEED"
+     ]
+    },
+    "explanation": {
+     "surface": "Something drifts along an English river, its name left out.",
+     "walkthrough": "The gap in the clue is not missing text: the underscores themselves stand for a word meaning empty space. The Tweed runs along the English-Scottish border.",
+     "definitionFit": "Blanket weed is a filamentous alga that forms floating mats on ponds, so it is a floater."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "__"
+    }
+   }
   },
   {
    "number": 8,
@@ -160,7 +493,41 @@
     "text": "4 fastening loop",
     "enumeration": "4"
    },
-   "solution": "FROG"
+   "solution": "FROG",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FROG",
+    "definitions": [
+     {
+      "text": "4",
+      "at": 0
+     },
+     {
+      "text": "fastening loop",
+      "at": 2
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "4",
+      "note": "first meaning: an amphibian, one example of pond life"
+     },
+     {
+      "clueFragment": "fastening loop",
+      "note": "second meaning: an ornamental braid loop and button fastening on a coat"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The number refers to the answer at 4, POND LIFE, which this answer exemplifies.",
+     "definitionFit": "A frog lives in ponds, and in tailoring a frog is a decorative looped fastening on military or Chinese-style coats."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -174,7 +541,72 @@
     "text": "Combatants in dialogue with setter inspired by extreme characters in sermon",
     "enumeration": "9"
    },
-   "solution": "SWORDSMEN"
+   "solution": "SWORDSMEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SWORDSMEN",
+    "definitions": [
+     {
+      "text": "Combatants",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extreme characters",
+      "for": "letter_selection",
+      "note": "the extreme characters of a word are its first and last letters"
+     },
+     {
+      "text": "inspired by",
+      "for": "container",
+      "note": "something inspired is breathed in, so these pieces are taken inside the outer letters"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sermon",
+      "gives": "SN",
+      "select": "outer",
+      "note": "the first and last letters of sermon"
+     },
+     {
+      "clueFragment": "dialogue",
+      "gives": "WORDS",
+      "note": "dialogue is spoken words"
+     },
+     {
+      "clueFragment": "setter",
+      "gives": "ME",
+      "note": "the setter refers to themself as me"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WORDS",
+      "ME",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A sermon full of dialogue that the writer was inspired by, fittingly about fighters.",
+     "walkthrough": "'with' joins the two inner pieces; 'in' links definition to wordplay. Setters often refer to themselves as me.",
+     "definitionFit": "Swordsmen are fighters with blades, combatants in a duel or battle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "inspired"
+    }
+   }
   },
   {
    "number": 11,
@@ -188,7 +620,70 @@
     "text": "Lights initially extinguished, music perhaps turned up for its performers?",
     "enumeration": "9"
    },
-   "solution": "ORCHESTRA"
+   "solution": "ORCHESTRA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "ORCHESTRA",
+    "definitions": [
+     {
+      "text": "its performers",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially extinguished",
+      "for": "deletion",
+      "note": "the first letter is put out, so the opening letter of the word is removed"
+     },
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turned up means read from bottom to top, so backwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lights",
+      "gives": "TORCHES",
+      "note": "torches are lights"
+     },
+     {
+      "clueFragment": "music perhaps",
+      "gives": "ART",
+      "note": "music is one of the arts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORCHES",
+      "TRA"
+     ],
+     "reversals": [
+      {
+       "from": "ART",
+       "to": "TRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The house lights go down and music strikes up for the performers.",
+     "walkthrough": "TORCHES drops its T, and ART is turned up: ORCHES + TRA. 'its' refers back to the music.",
+     "definitionFit": "An orchestra is the body of instrumental musicians that performs music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Lights"
+    }
+   }
   },
   {
    "number": 12,
@@ -212,7 +707,79 @@
    "group": [
     "12-across",
     "8-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "WATER BOATMAN",
+    "definitions": [
+     {
+      "text": "4",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Organic",
+      "for": "anagram",
+      "note": "organic suggests something growing and changing form, so the next word is rearranged"
+     },
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "to cover is to wrap around, so one piece goes outside the other"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places all of this inside the word for pale"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pale",
+      "gives": "WAN",
+      "note": "wan means pale"
+     },
+     {
+      "clueFragment": "matter",
+      "gives": "ATERTM",
+      "note": "the letters of matter rearranged"
+     },
+     {
+      "clueFragment": "reptile",
+      "gives": "BOA",
+      "note": "a boa is a snake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ATER",
+      "BOA",
+      "TM",
+      "AN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MATTER",
+       "gives": "ATERTM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rotting organic matter covers a reptile in a pale pond creature.",
+     "walkthrough": "'Organic matter' reads as one phrase but splits into indicator and fodder; the rearranged letters wrap around the snake before the whole goes inside the word for pale.",
+     "definitionFit": "The water boatman is an aquatic bug that rows across ponds, an example of the pond life at 4."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Organic"
+    }
+   }
   },
   {
    "number": 12,
@@ -226,7 +793,69 @@
     "text": "Turner Prize ultimately buried in endless seafood",
     "enumeration": "5"
    },
-   "solution": "WHEEL"
+   "solution": "WHEEL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "container"
+    ],
+    "answer": "WHEEL",
+    "definitions": [
+     {
+      "text": "Turner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the last letter of the preceding word"
+     },
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "without an end, so the final letter of the next word is dropped"
+     },
+     {
+      "text": "buried in",
+      "for": "container",
+      "note": "something buried in something else sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seafood",
+      "gives": "WHELK",
+      "note": "a whelk is an edible sea snail"
+     },
+     {
+      "clueFragment": "Prize",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of prize"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHE",
+      "E",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "The Turner Prize winner turns out to be buried in seafood, an art-world joke.",
+     "walkthrough": "The Turner Prize is a British contemporary art award, but here Turner just means something that turns.",
+     "definitionFit": "A wheel turns, so it is a turner in the literal sense of a thing that rotates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Turner"
+    }
+   }
   },
   {
    "number": 13,
@@ -240,7 +869,49 @@
     "text": "Agree with token killing?",
     "enumeration": "8"
    },
-   "solution": "COINCIDE"
+   "solution": "COINCIDE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COINCIDE",
+    "definitions": [
+     {
+      "text": "Agree",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "token",
+      "gives": "COIN",
+      "note": "a coin is a token of value"
+     },
+     {
+      "clueFragment": "killing",
+      "gives": "CIDE",
+      "note": "-cide is the suffix meaning killing, as in homicide"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COIN",
+      "CIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A question of whether someone consents to a killing for a token payment.",
+     "definitionFit": "When two accounts coincide they correspond, meaning they agree with each other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "killing"
+    }
+   }
   },
   {
    "number": 14,
@@ -254,7 +925,67 @@
     "text": "Pass on painting that's cut up",
     "enumeration": "5"
    },
-   "solution": "DUNNO"
+   "solution": "DUNNO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "reversal"
+    ],
+    "answer": "DUNNO",
+    "definitions": [
+     {
+      "text": "Pass",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that's cut",
+      "for": "deletion",
+      "note": "something cut is shortened, so the painting word loses its last letter"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means read from the bottom, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "painting",
+      "gives": "NUDE",
+      "note": "a nude is a painting of an unclothed figure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUN",
+      "NO"
+     ],
+     "reversals": [
+      {
+       "from": "ONNUD",
+       "to": "DUNNO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone declines to bid on a painting that has been damaged.",
+     "walkthrough": "ON + NUD(E), the whole lot reversed. In a quiz, saying pass is admitting you don't know.",
+     "definitionFit": "Dunno is a casual way of saying I don't know, which is what a quiz contestant means by pass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Pass"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +1012,61 @@
     "text": "Daughter prods not entirely fragrant plant",
     "enumeration": "5"
    },
-   "solution": "SWEDE"
+   "solution": "SWEDE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SWEDE",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not entirely",
+      "for": "deletion",
+      "note": "not the whole thing, so the final letter is left off"
+     },
+     {
+      "text": "prods",
+      "for": "container",
+      "note": "something that prods pokes into something, so one piece is pushed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fragrant",
+      "gives": "SWEET",
+      "note": "sweet-smelling means fragrant"
+     },
+     {
+      "clueFragment": "Daughter",
+      "gives": "D",
+      "note": "standard abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWE",
+      "D",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A daughter pokes at a plant that doesn't smell quite right.",
+     "walkthrough": "SWEET loses its T and D pokes into it: SWE(D)E.",
+     "definitionFit": "The swede is a root vegetable, a plant of the cabbage family grown for its edible root."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "prods"
+    }
+   }
   },
   {
    "number": 16,
@@ -301,7 +1086,67 @@
      }
     ]
    },
-   "solution": "SEATBELT"
+   "solution": "SEATBELT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SEAT BELT",
+    "definitions": [
+     {
+      "text": "Strap",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wonky",
+      "for": "anagram",
+      "note": "wonky means crooked or askew, so these letters are knocked out of order"
+     },
+     {
+      "text": "held",
+      "for": "container",
+      "note": "something held is gripped inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "adjusted",
+      "gives": "SET",
+      "note": "to set something is to adjust it"
+     },
+     {
+      "clueFragment": "table",
+      "gives": "EATBL",
+      "note": "the letters of table rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "ATBEL",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TABLE",
+       "gives": "EATBL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strap is adjusted so a wobbly table is held steady.",
+     "walkthrough": "'adjusted' looks like the anagram signal but is the synonym; 'wonky' does the rearranging.",
+     "definitionFit": "A seat belt is a safety strap fastened across a passenger in a vehicle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "adjusted"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1160,50 @@
     "text": "Imperfection in headless lizard",
     "enumeration": "4"
    },
-   "solution": "KINK"
+   "solution": "KINK",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "KINK",
+    "definitions": [
+     {
+      "text": "Imperfection",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "headless",
+      "for": "deletion",
+      "note": "without a head, so the first letter of the creature is removed"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lizard",
+      "gives": "SKINK",
+      "note": "a skink is a smooth-scaled lizard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KINK"
+     ]
+    },
+    "explanation": {
+     "surface": "A flaw shows up in a lizard with no head.",
+     "definitionFit": "A kink is a flaw or quirk, a small defect that spoils something otherwise smooth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "headless"
+    }
+   }
   },
   {
    "number": 17,
@@ -329,7 +1217,55 @@
     "text": "Out of its tree, seek bird that's observed by the road",
     "enumeration": "8"
    },
-   "solution": "KERBSIDE"
+   "solution": "KERBSIDE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "KERBSIDE",
+    "definitions": [
+     {
+      "text": "by the road",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Out of its tree",
+      "for": "anagram",
+      "note": "out of one's tree means crazy, so the letters go wild and rearrange"
+     }
+    ],
+    "linkWords": [
+     "that's observed"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seek bird",
+      "gives": "SEEKBIRD",
+      "note": "taken as written, the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEEKBIRD",
+       "gives": "KERBSIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Birdwatchers look for a bird that has left its tree and is now seen beside the road.",
+     "walkthrough": "'Out of its tree' looks like the bird literally leaving a branch; it is slang for crazy. A kerb is the British spelling of a curb, the edge of the pavement.",
+     "definitionFit": "Kerbside describes the edge of the pavement next to the road, so something kerbside is by the road."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tree"
+    }
+   }
   },
   {
    "number": 18,
@@ -343,7 +1279,55 @@
     "text": "Glaring relative in residence",
     "enumeration": "8"
    },
-   "solution": "FLAGRANT"
+   "solution": "FLAGRANT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FLAGRANT",
+    "definitions": [
+     {
+      "text": "Glaring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the family member inside the home word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "residence",
+      "gives": "FLAT",
+      "note": "a flat is a home"
+     },
+     {
+      "clueFragment": "relative",
+      "gives": "GRAN",
+      "note": "a gran is a grandmother"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLA",
+      "GRAN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A disapproving relative glares from inside the house.",
+     "walkthrough": "In British English a flat is an apartment.",
+     "definitionFit": "A flagrant offence is glaring, conspicuously and shamelessly obvious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Glaring"
+    }
+   }
   },
   {
    "number": 19,
@@ -357,7 +1341,56 @@
     "text": "Diminutive character good, the other half the size?",
     "enumeration": "6"
    },
-   "solution": "GRUMPY"
+   "solution": "GRUMPY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "GRUMPY",
+    "definitions": [
+     {
+      "text": "Diminutive character",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half the size",
+      "for": "deletion",
+      "note": "reduced to half its length, so only one half of the phrase is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "standard abbreviation for good"
+     },
+     {
+      "clueFragment": "the other",
+      "gives": "RUMPYPUMPY",
+      "note": "the other is British slang for sex, as is rumpy-pumpy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RUMPY"
+     ]
+    },
+    "explanation": {
+     "surface": "A small character asks whether a good companion is half their size.",
+     "walkthrough": "'The other' is coy British slang for sex, and so is rumpy-pumpy; keep its first half.",
+     "definitionFit": "Grumpy is one of the seven dwarfs in Snow White, a diminutive character in the story."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "other"
+    }
+   }
   },
   {
    "number": 20,
@@ -371,7 +1404,60 @@
     "text": "School truant in Everton, thus left side",
     "enumeration": "5"
    },
-   "solution": "VERSO"
+   "solution": "VERSO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "VERSO",
+    "definitions": [
+     {
+      "text": "left side",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "truant in",
+      "for": "deletion",
+      "note": "a truant is absent, so that word goes missing from inside the longer one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everton",
+      "gives": "EVERTON",
+      "note": "the Liverpool football club"
+     },
+     {
+      "clueFragment": "School",
+      "gives": "ETON",
+      "note": "Eton is a famous English public school"
+     },
+     {
+      "clueFragment": "thus",
+      "gives": "SO",
+      "note": "so means thus"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VER",
+      "SO"
+     ]
+    },
+    "explanation": {
+     "surface": "A schoolboy skives off to watch Everton, so he's left behind.",
+     "walkthrough": "Take ETON out of EVERTON to leave VER, then add SO.",
+     "definitionFit": "The verso is the left-hand page of an open book, the side on the left."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Everton"
+    }
+   }
   },
   {
    "number": 20,
@@ -385,7 +1471,58 @@
     "text": "Car tax mostly unnecessary for 4",
     "enumeration": "6"
    },
-   "solution": "VOLVOX"
+   "solution": "VOLVOX",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "VOLVOX",
+    "definitions": [
+     {
+      "text": "4",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly unnecessary",
+      "for": "deletion",
+      "note": "most of the word is not needed, so all but its last letter goes"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Car",
+      "gives": "VOLVO",
+      "note": "a Swedish make of car"
+     },
+     {
+      "clueFragment": "tax",
+      "gives": "TAX",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VOLVO",
+      "X"
+     ]
+    },
+    "explanation": {
+     "surface": "A grumble that road tax on one make of car is largely pointless.",
+     "walkthrough": "Only the last letter of the tax word survives.",
+     "definitionFit": "Volvox is a green alga forming spherical colonies in freshwater ponds, an example of the pond life at 4."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Car"
+    }
+   }
   },
   {
    "number": 21,
@@ -399,7 +1536,47 @@
     "text": "Concise digit, secure",
     "enumeration": "9"
    },
-   "solution": "THUMBNAIL"
+   "solution": "THUMBNAIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THUMBNAIL",
+    "definitions": [
+     {
+      "text": "Concise",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "digit",
+      "gives": "THUMB",
+      "note": "the thumb is a digit of the hand"
+     },
+     {
+      "clueFragment": "secure",
+      "gives": "NAIL",
+      "note": "to nail something is to fasten it securely"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THUMB",
+      "NAIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A short instruction to fix a finger in place.",
+     "walkthrough": "As an adjective, thumbnail describes a brief sketch, as in a thumbnail biography.",
+     "definitionFit": "A thumbnail sketch or description is brief and compact, hence concise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "digit"
+    }
+   }
   },
   {
    "number": 21,
@@ -413,7 +1590,45 @@
     "text": "4 lugged through one's lugholes?",
     "enumeration": "4"
    },
-   "solution": "TOAD"
+   "solution": "TOAD",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TOAD",
+    "definitions": [
+     {
+      "text": "4",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "through one's lugholes",
+      "for": "homophone",
+      "note": "lugholes is slang for ears, so this is something as heard rather than spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lugged",
+      "gives": "TOAD",
+      "soundsLike": "TOWED",
+      "note": "lugged means hauled or towed"
+     }
+    ],
+    "explanation": {
+     "surface": "Something dragged along is heard through the ears.",
+     "walkthrough": "Lugholes is British slang for ears.",
+     "definitionFit": "A toad is an amphibian that breeds in ponds, an example of the pond life at 4."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lugged"
+    }
+   }
   },
   {
    "number": 22,
@@ -427,7 +1642,42 @@
     "text": "Napoleon's vital fluid piped",
     "enumeration": "4"
    },
-   "solution": "SANG"
+   "solution": "SANG",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SANG",
+    "definitions": [
+     {
+      "text": "Napoleon's vital fluid",
+      "at": 0
+     },
+     {
+      "text": "piped",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Napoleon's vital fluid",
+      "note": "first meaning: the French word for blood"
+     },
+     {
+      "clueFragment": "piped",
+      "note": "second meaning: ..., as a bird pipes a tune"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Napoleon signals French: sang is French for blood.",
+     "definitionFit": "Sang is French for blood, the vital fluid, and as English past tense it means piped a tune in song."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "piped"
+    }
+   }
   },
   {
    "number": 23,
@@ -441,7 +1691,55 @@
     "text": "4 wife evidently caught?",
     "enumeration": "4"
    },
-   "solution": "NEWT"
+   "solution": "NEWT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NEWT",
+    "definitions": [
+     {
+      "text": "4",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "evidently caught",
+      "for": "container",
+      "note": "something plainly caught is inside a trap, so one piece is enclosed by the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "evidently caught",
+      "gives": "NET",
+      "note": "anything evidently caught is in the net"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "standard abbreviation for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "W",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A wife has plainly been caught out.",
+     "walkthrough": "NET holds W: NE(W)T. The idea is that the wife is evidently caught because she is in a net.",
+     "definitionFit": "A newt is a small amphibian found in ponds, an example of the pond life at 4."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "evidently"
+    }
+   }
   },
   {
    "number": 24,
@@ -455,7 +1753,47 @@
     "text": "4 bit staff",
     "enumeration": "7"
    },
-   "solution": "TADPOLE"
+   "solution": "TADPOLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TADPOLE",
+    "definitions": [
+     {
+      "text": "4",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bit",
+      "gives": "TAD",
+      "note": "a tad is a little bit"
+     },
+     {
+      "clueFragment": "staff",
+      "gives": "POLE",
+      "note": "a staff is a pole"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAD",
+      "POLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A small part of the workforce.",
+     "walkthrough": "'bit staff' reads like part-time workers; it is two separate synonyms.",
+     "definitionFit": "A tadpole is a frog or toad larva living in ponds, an example of the pond life at 4."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "staff"
+    }
+   }
   },
   {
    "number": 25,
@@ -469,7 +1807,43 @@
     "text": "The dope under ground?",
     "enumeration": "7"
    },
-   "solution": "LOWDOWN"
+   "solution": "LOWDOWN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LOWDOWN",
+    "definitions": [
+     {
+      "text": "The dope",
+      "at": 0
+     },
+     {
+      "text": "under ground?",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The dope",
+      "note": "first meaning: inside information"
+     },
+     {
+      "clueFragment": "under ground?",
+      "note": "second meaning, read as two words"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Dope is slang for information here, not drugs, though 'under ground' plays on underground dealing.",
+     "definitionFit": "The lowdown is the inside information on something, and low down literally describes being beneath the earth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dope"
+    }
+   }
   }
  ]
 }
