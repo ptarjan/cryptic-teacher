@@ -2815,7 +2815,7 @@ REREAD_REFUSED = {"not-a-grid": "2026-10-09T10:00:00+00:00", "no-reading-parses"
                   "number-date-mismatch": "2026-10-09T10:00:00+00:00"}
 #: A read whose solution grid filed only some of its lights is read again
 #: once after this time: bump it with a solution reader fix that reads more.
-REREAD_PARTIAL = "2026-10-10T11:37:55+00:00"
+REREAD_PARTIAL = "2026-10-10T19:00:00+00:00"
 
 
 def refuse(verdict, cause, why):
