@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,47 @@
     "text": "Item of jewellery that's sound as a bell",
     "enumeration": "4"
    },
-   "solution": "RING"
+   "solution": "RING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RING",
+    "definitions": [
+     {
+      "text": "Item of jewellery",
+      "at": 0
+     },
+     {
+      "text": "sound as a bell",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Item of jewellery",
+      "note": "first meaning: a band worn on a finger"
+     },
+     {
+      "clueFragment": "sound as a bell",
+      "note": "second meaning: to make the resonant noise a struck bell makes"
+     }
+    ],
+    "explanation": {
+     "surface": "A piece of jewellery praised as being in perfect condition, sound as a bell.",
+     "walkthrough": "'Sound as a bell' is an idiom for being in perfect health, but here 'sound' is a verb: to chime the way a bell does.",
+     "definitionFit": "The word names both a finger band and the chiming noise a bell gives out, so it fits both halves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +90,67 @@
     "text": "Journalist took transport northward, carrying it",
     "enumeration": "6"
    },
-   "solution": "EDITOR"
+   "solution": "EDITOR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "EDITOR",
+    "definitions": [
+     {
+      "text": "Journalist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "northward",
+      "for": "reversal",
+      "note": "in a down answer going northward means writing from the bottom up, backwards"
+     },
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "a thing carrying something holds it within, so one piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "took transport",
+      "gives": "RODE",
+      "note": "rode, as on a horse or bus"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ED",
+      "IT",
+      "OR"
+     ],
+     "reversals": [
+      {
+       "from": "RODE",
+       "to": "EDOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reporter rode a vehicle north, taking something along.",
+     "walkthrough": "'Journalist' is the definition; an editor counts as one because editors work on newspapers.",
+     "definitionFit": "An editor is a senior journalist who prepares and oversees what gets printed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "transport"
+    }
+   }
   },
   {
    "number": 3,
@@ -71,7 +174,44 @@
      }
     ]
    },
-   "solution": "INANYEVENT"
+   "solution": "INANYEVENT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IN ANY EVENT",
+    "definitions": [
+     {
+      "text": "Thus all-rounders may compete",
+      "at": 0
+     },
+     {
+      "text": "whatever happens",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thus all-rounders may compete",
+      "note": "first meaning, read literally: versatile athletes can take part in every discipline"
+     },
+     {
+      "clueFragment": "whatever happens",
+      "note": "second meaning: the everyday phrase for regardless"
+     }
+    ],
+    "explanation": {
+     "surface": "Versatile athletes will take part come what may.",
+     "walkthrough": "The first half reads the phrase literally: an all-rounder can enter any athletic contest at all.",
+     "definitionFit": "The phrase is an idiom meaning regardless of circumstances, the same as whatever happens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Thus"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +225,64 @@
     "text": "Raising arm to find small lump",
     "enumeration": "6"
    },
-   "solution": "NUGGET"
+   "solution": "NUGGET",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NUGGET",
+    "definitions": [
+     {
+      "text": "small lump",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Raising",
+      "for": "reversal",
+      "note": "raising lifts a word upward, which in a down answer means writing it bottom to top"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arm",
+      "gives": "GUN",
+      "note": "a gun is a firearm, an arm"
+     },
+     {
+      "clueFragment": "find",
+      "gives": "GET",
+      "note": "to get is to obtain or find"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUG",
+      "GET"
+     ],
+     "reversals": [
+      {
+       "from": "GUN",
+       "to": "NUG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lifting an arm to discover a little lump, as at a medical check.",
+     "walkthrough": "'Raising' applies only to 'arm'; 'to find' reads as purpose but 'find' supplies the second piece.",
+     "definitionFit": "A nugget is a small rough lump, especially of gold."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arm"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +296,60 @@
     "text": "Dainty present devotedly left for daughter",
     "enumeration": "8"
    },
-   "solution": "DELICATE"
+   "solution": "DELICATE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "DELICATE",
+    "definitions": [
+     {
+      "text": "Dainty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left for daughter",
+      "for": "substitution",
+      "note": "X for Y means X takes the place of Y, so one letter is swapped for another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "present devotedly",
+      "gives": "DEDICATE",
+      "note": "to dedicate a book is to present it with devotion"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "L",
+      "ICATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dainty gift lovingly given, with the daughter left out.",
+     "walkthrough": "The D in the middle of DEDICATE is swapped for an L, giving DELICATE.",
+     "definitionFit": "Something delicate is fine and fragile, a synonym of dainty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "present"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +363,55 @@
     "text": "Let out, sentence being up",
     "enumeration": "4"
    },
-   "solution": "EMIT"
+   "solution": "EMIT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "EMIT",
+    "definitions": [
+     {
+      "text": "Let out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being up",
+      "for": "reversal",
+      "note": "being up in a down answer means written from the bottom upward, backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sentence",
+      "gives": "TIME",
+      "note": "a prison sentence is time served"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMIT"
+     ],
+     "reversals": [
+      {
+       "from": "TIME",
+       "to": "EMIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prisoner released because the sentence has ended.",
+     "walkthrough": "'Up' looks like the sentence finishing, but in a down clue it means the word is written bottom to top.",
+     "definitionFit": "To emit is to give out or discharge, like letting out a sound or gas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 7,
@@ -127,7 +425,60 @@
     "text": "Oddly unable to support tournament final",
     "enumeration": "8"
    },
-   "solution": "EVENTUAL"
+   "solution": "EVENTUAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EVENTUAL",
+    "definitions": [
+     {
+      "text": "final",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Oddly",
+      "for": "letter_selection",
+      "note": "oddly keeps the letters in the odd-numbered positions, the first, third and fifth"
+     },
+     {
+      "text": "to support",
+      "for": "charade",
+      "note": "in a down clue the supporting piece sits beneath, so it is written after"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tournament",
+      "gives": "EVENT",
+      "note": "an event is a sporting competition"
+     },
+     {
+      "clueFragment": "unable",
+      "gives": "UAL",
+      "select": "alternate",
+      "note": "the odd letters of unable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVENT",
+      "UAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone oddly unable to back their team in a tournament final.",
+     "definitionFit": "Eventual means coming at last, ultimate, the same as final."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "final"
+    }
+   }
   },
   {
    "number": 8,
@@ -141,7 +492,49 @@
     "text": "Fashion leader shed tear",
     "enumeration": "4"
    },
-   "solution": "REND"
+   "solution": "REND",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "REND",
+    "definitions": [
+     {
+      "text": "tear",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader shed",
+      "for": "deletion",
+      "note": "shedding the leader means the first letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fashion",
+      "gives": "TREND",
+      "note": "a trend is a fashion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REND"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion leader cried a tear.",
+     "walkthrough": "'Tear' reads as a teardrop, but it is the verb meaning to rip.",
+     "definitionFit": "To rend is to tear apart, a literary synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tear"
+    }
+   }
   },
   {
    "number": 9,
@@ -155,7 +548,51 @@
     "text": "Bond's modish teeth?",
     "enumeration": "9"
    },
-   "solution": "INDENTURE"
+   "solution": "INDENTURE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INDENTURE",
+    "definitions": [
+     {
+      "text": "Bond",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "modish",
+      "gives": "IN",
+      "note": "in means fashionable"
+     },
+     {
+      "clueFragment": "teeth",
+      "gives": "DENTURE",
+      "note": "a denture is a set of false teeth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "DENTURE"
+     ]
+    },
+    "explanation": {
+     "surface": "James Bond's trendy false teeth.",
+     "walkthrough": "'Bond' is not 007 but a binding contract; the question mark flags the comic picture.",
+     "definitionFit": "An indenture is a legal contract binding an apprentice, so it is a bond."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Bond"
+    }
+   }
   },
   {
    "number": 10,
@@ -169,7 +606,54 @@
     "text": "Second opinion cut short film",
     "enumeration": "5"
    },
-   "solution": "MOVIE"
+   "solution": "MOVIE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "MOVIE",
+    "definitions": [
+     {
+      "text": "film",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut short",
+      "for": "deletion",
+      "note": "cut short means the last letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "MO",
+      "note": "a mo is a moment, a second"
+     },
+     {
+      "clueFragment": "opinion",
+      "gives": "VIEW",
+      "note": "a view is an opinion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "VIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A short film reviewed by a second critic.",
+     "definitionFit": "A movie is a film, the American word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Second"
+    }
+   }
   },
   {
    "number": 11,
@@ -189,7 +673,45 @@
      }
     ]
    },
-   "solution": "GETON"
+   "solution": "GETON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GET ON",
+    "definitions": [
+     {
+      "text": "Agree",
+      "at": 0
+     },
+     {
+      "text": "proceed",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agree",
+      "note": "first meaning: to be friendly with someone"
+     },
+     {
+      "clueFragment": "proceed",
+      "note": "second meaning: to carry on with a task"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as consent to go ahead, but the two words are separate meanings joined by 'to'.",
+     "definitionFit": "The phrasal verb means both to be on good terms and to make progress or continue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Agree"
+    }
+   }
   },
   {
    "number": 12,
@@ -203,7 +725,49 @@
     "text": "Government followed advice and shone",
     "enumeration": "9"
    },
-   "solution": "GLISTENED"
+   "solution": "GLISTENED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GLISTENED",
+    "definitions": [
+     {
+      "text": "shone",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Government",
+      "gives": "G",
+      "note": "G is the abbreviation for government"
+     },
+     {
+      "clueFragment": "followed advice",
+      "gives": "LISTENED",
+      "note": "to listen is to heed advice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "LISTENED"
+     ]
+    },
+    "explanation": {
+     "surface": "A government that took advice and did brilliantly.",
+     "definitionFit": "Glistened means sparkled or gleamed, so shone in the light."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Government"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +791,47 @@
    "group": [
     "13-across",
     "14-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CURRENT ACCOUNT",
+    "definitions": [
+     {
+      "text": "money in bank?",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Latest",
+      "gives": "CURRENT",
+      "note": "current means up to date, latest"
+     },
+     {
+      "clueFragment": "statement",
+      "gives": "ACCOUNT",
+      "note": "an account is a statement or report"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CURRENT",
+      "ACCOUNT"
+     ]
+    },
+    "explanation": {
+     "surface": "Looking at the most recent bank statement.",
+     "walkthrough": "The question mark marks the definition as loose: it is the everyday bank account that holds the money.",
+     "definitionFit": "A current account is the ordinary bank account where everyday cash is held, called a checking account in the US."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "statement"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +845,50 @@
     "text": "Club's sudden demand for fruit juice",
     "enumeration": "5"
    },
-   "solution": "CRUSH"
+   "solution": "CRUSH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRUSH",
+    "definitions": [
+     {
+      "text": "fruit juice",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Club",
+      "gives": "C",
+      "note": "C is the card abbreviation for clubs"
+     },
+     {
+      "clueFragment": "sudden demand",
+      "gives": "RUSH",
+      "note": "a rush is a sudden surge of demand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RUSH"
+     ]
+    },
+    "explanation": {
+     "surface": "A nightclub sees a sudden run on fruit juice.",
+     "definitionFit": "A crush is a drink of squeezed fruit juice, as in an orange crush."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Club"
+    }
+   }
   },
   {
    "number": 14,
@@ -268,7 +915,43 @@
     "text": "Ohio's city C-in-C in National Guards",
     "enumeration": "10"
    },
-   "solution": "CINCINNATI"
+   "solution": "CINCINNATI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CINCINNATI",
+    "definitions": [
+     {
+      "text": "Ohio's city",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Guards",
+      "for": "hidden_word",
+      "note": "the phrase that guards something holds it within, so the answer is held inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "C-in-C in National",
+      "gives": "CINCINNATI",
+      "note": "the letters run through the words, ignoring hyphens and spaces"
+     }
+    ],
+    "explanation": {
+     "surface": "The commander-in-chief of the US National Guard in Ohio.",
+     "walkthrough": "C-in-C is commander-in-chief; ignore the hyphens and read the letters straight through.",
+     "definitionFit": "Cincinnati is a major city in the US state of Ohio."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Guards"
+    }
+   }
   },
   {
    "number": 16,
@@ -282,7 +965,64 @@
     "text": "Unknown fly's back with a bite",
     "enumeration": "5"
    },
-   "solution": "TANGY"
+   "solution": "TANGY",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TANGY",
+    "definitions": [
+     {
+      "text": "with a bite",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means the combined letters are read from end to start"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unknown",
+      "gives": "Y",
+      "note": "in algebra an unknown is x, y or z"
+     },
+     {
+      "clueFragment": "fly",
+      "gives": "GNAT",
+      "note": "a gnat is a small fly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TANG",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "YGNAT",
+       "to": "TANGY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unidentified fly comes back and bites.",
+     "walkthrough": "Y and GNAT together are turned round: TANG-Y.",
+     "definitionFit": "Tangy food has a sharp, biting taste."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "bite"
+    }
+   }
   },
   {
    "number": 17,
@@ -296,7 +1036,50 @@
     "text": "Loose but formal neckwear for peacekeepers",
     "enumeration": "5"
    },
-   "solution": "UNTIE"
+   "solution": "UNTIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNTIE",
+    "definitions": [
+     {
+      "text": "Loose",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peacekeepers",
+      "gives": "UN",
+      "note": "UN peacekeepers, from the United Nations"
+     },
+     {
+      "clueFragment": "formal neckwear",
+      "gives": "TIE",
+      "note": "a tie is worn on formal occasions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "TIE"
+     ]
+    },
+    "explanation": {
+     "surface": "Peacekeepers wearing slack yet formal ties.",
+     "walkthrough": "'Loose' looks like an adjective for the tie, but it is the verb meaning to unfasten.",
+     "definitionFit": "To loose is to release or unfasten something, which is what untie means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Loose"
+    }
+   }
   },
   {
    "number": 18,
@@ -310,7 +1093,57 @@
     "text": "List that's forbidden after hours",
     "enumeration": "8"
    },
-   "solution": "TABULATE"
+   "solution": "TABULATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TABULATE",
+    "definitions": [
+     {
+      "text": "List",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places one piece behind the other, so the first piece leads"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "forbidden",
+      "gives": "TABU",
+      "note": "tabu is a spelling of taboo, forbidden"
+     },
+     {
+      "clueFragment": "hours",
+      "gives": "LATE",
+      "note": "'after hours' is late, past normal hours"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TABU",
+      "LATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of things banned after closing time.",
+     "walkthrough": "'After hours' reads as one phrase, but 'after' places TABU first and 'hours' stands for the lateness of after hours.",
+     "definitionFit": "To tabulate is to arrange data in a table, so to list it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hours"
+    }
+   }
   },
   {
    "number": 19,
@@ -324,7 +1157,55 @@
     "text": "Hostility that's round about",
     "enumeration": "3"
    },
-   "solution": "ICE"
+   "solution": "ICE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ICE",
+    "definitions": [
+     {
+      "text": "Hostility",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "going round something encloses it, so one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that's",
+      "gives": "IE",
+      "note": "i.e. stands for id est, that is"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c is short for circa, about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "C",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Hostility that keeps coming back around.",
+     "walkthrough": "'Round about' looks like one phrase, but 'round' is the instruction and 'about' the piece: I(C)E.",
+     "definitionFit": "Ice is coldness of manner, a chilly hostility."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 19,
@@ -348,7 +1229,50 @@
      }
     ]
    },
-   "solution": "INTHEBAG"
+   "solution": "INTHEBAG",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IN THE BAG",
+    "definitions": [
+     {
+      "text": "pretty well secured",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Floppy",
+      "for": "anagram",
+      "note": "something floppy loses its shape, so the letters lose their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hat being",
+      "gives": "HATBEING",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HATBEING",
+       "gives": "INTHEBAG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A floppy hat being worn tightly fastened.",
+     "definitionFit": "In the bag is an idiom for a result that is as good as certain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Floppy"
+    }
+   }
   },
   {
    "number": 20,
@@ -362,7 +1286,42 @@
     "text": "Canny London houses stocking material",
     "enumeration": "5"
    },
-   "solution": "NYLON"
+   "solution": "NYLON",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NYLON",
+    "definitions": [
+     {
+      "text": "stocking material",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "houses",
+      "for": "hidden_word",
+      "note": "a thing that houses something has it inside, so the answer sits within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Canny London",
+      "gives": "NYLON",
+      "note": "found across the end of one word and start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "A shrewd London shop stocking fabric.",
+     "definitionFit": "Nylon is the synthetic fibre stockings are made from, so nylons are stockings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "houses"
+    }
+   }
   },
   {
    "number": 21,
@@ -376,7 +1335,55 @@
     "text": "Home ground partly in Derby, perhaps",
     "enumeration": "7"
    },
-   "solution": "HABITAT"
+   "solution": "HABITAT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HABITAT",
+    "definitions": [
+     {
+      "text": "Home ground",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means the first piece is placed inside the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "partly",
+      "gives": "ABIT",
+      "note": "a bit means partly"
+     },
+     {
+      "clueFragment": "Derby, perhaps",
+      "gives": "HAT",
+      "note": "a derby is a bowler hat; perhaps marks an example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ABIT",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "A home ground partly located in the city of Derby.",
+     "walkthrough": "Derby is an English city with football grounds, but here it is the hard felt bowler hat: H(A BIT)AT.",
+     "definitionFit": "A habitat is the natural home territory of an animal or plant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Derby"
+    }
+   }
   },
   {
    "number": 22,
@@ -396,7 +1403,49 @@
      }
     ]
    },
-   "solution": "STIRFRY"
+   "solution": "STIRFRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STIR-FRY",
+    "definitions": [
+     {
+      "text": "Quick meal",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "excite",
+      "gives": "STIR",
+      "note": "to stir is to rouse or excite"
+     },
+     {
+      "clueFragment": "youngsters",
+      "gives": "FRY",
+      "note": "fry are young fish, and so small children"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STIR",
+      "FRY"
+     ]
+    },
+    "explanation": {
+     "surface": "A fast dinner to get the children excited.",
+     "definitionFit": "A stir-fry is a dish cooked rapidly in a wok, a fast supper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "youngsters"
+    }
+   }
   },
   {
    "number": 22,
@@ -424,7 +1473,50 @@
    "group": [
     "22-down",
     "28-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEE YOU LATER",
+    "definitions": [
+     {
+      "text": "No final farewell?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for settlement",
+      "for": "anagram",
+      "note": "the words are to be settled into a new order, a rearrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aye, resolute",
+      "gives": "AYERESOLUTE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AYERESOLUTE",
+       "gives": "SEEYOULATER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Agreeing firmly to a settlement, with no last goodbye.",
+     "definitionFit": "The phrase is a casual parting that implies another meeting, so it is not a last goodbye."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "settlement"
+    }
+   }
   },
   {
    "number": 23,
@@ -444,7 +1536,57 @@
      }
     ]
    },
-   "solution": "FUNRUN"
+   "solution": "FUNRUN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "FUN RUN",
+    "definitions": [
+     {
+      "text": "charity race",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Limited",
+      "for": "deletion",
+      "note": "limited means cut back, so the last letter is lost"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "capital",
+      "gives": "FUND",
+      "note": "a fund is a stock of capital"
+     },
+     {
+      "clueFragment": "administer",
+      "gives": "RUN",
+      "note": "to run is to manage or administer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FUN",
+      "RUN"
+     ]
+    },
+    "explanation": {
+     "surface": "Organising a charity race on a small budget.",
+     "definitionFit": "A fun run is a non-competitive mass race, often held to raise money for good causes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 24,
@@ -458,7 +1600,52 @@
     "text": "No help yet decomposing bag material",
     "enumeration": "9"
    },
-   "solution": "POLYTHENE"
+   "solution": "POLYTHENE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "POLYTHENE",
+    "definitions": [
+     {
+      "text": "bag material",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "decomposing",
+      "for": "anagram",
+      "note": "something decomposing breaks down, so the letters fall apart and re-form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No help yet",
+      "gives": "NOHELPYET",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOHELPYET",
+       "gives": "POLYTHENE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Plastic bags are no help yet, since they do not rot away.",
+     "walkthrough": "The surface is a neat joke: plastic is notorious for not decomposing.",
+     "definitionFit": "Polythene, or polyethylene, is the plastic most carrier bags are made from."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "decomposing"
+    }
+   }
   },
   {
    "number": 24,
@@ -472,7 +1659,51 @@
     "text": "Cheap fiction — it's removed from speaker's platform",
     "enumeration": "4"
    },
-   "solution": "PULP"
+   "solution": "PULP",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PULP",
+    "definitions": [
+     {
+      "text": "Cheap fiction",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removed from",
+      "for": "deletion",
+      "note": "removed from means the named letters are taken out of the longer word"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "speaker's platform",
+      "gives": "PULPIT",
+      "note": "a pulpit is where a preacher speaks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PULP"
+     ]
+    },
+    "explanation": {
+     "surface": "Trashy novels banned from the preacher's stand.",
+     "walkthrough": "'It's' reads as a link but supplies the letters IT, which come off the end of PULPIT.",
+     "definitionFit": "Pulp fiction is lurid, cheaply printed stories, named for the coarse paper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "it's"
+    }
+   }
   },
   {
    "number": 25,
@@ -486,7 +1717,46 @@
     "text": "In two minds towards the navy",
     "enumeration": "4"
    },
-   "solution": "TORN"
+   "solution": "TORN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TORN",
+    "definitions": [
+     {
+      "text": "In two minds",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "towards",
+      "gives": "TO",
+      "note": "to means towards"
+     },
+     {
+      "clueFragment": "the navy",
+      "gives": "RN",
+      "note": "RN is the Royal Navy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "RN"
+     ]
+    },
+    "explanation": {
+     "surface": "Undecided about joining the navy.",
+     "definitionFit": "Torn means pulled both ways, unable to decide between options."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "towards"
+    }
+   }
   },
   {
    "number": 26,
@@ -500,7 +1770,70 @@
     "text": "Group work for 10, one shortly going west",
     "enumeration": "5"
    },
-   "solution": "NONET"
+   "solution": "NONET",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "reversal"
+    ],
+    "answer": "NONET",
+    "definitions": [
+     {
+      "text": "Group work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortly",
+      "for": "deletion",
+      "note": "shortly means the word is cut, losing its final letter"
+     },
+     {
+      "text": "going west",
+      "for": "reversal",
+      "note": "in an across answer going west is going right to left, backwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "10",
+      "gives": "TEN",
+      "note": "the number written as a word"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "NET"
+     ],
+     "reversals": [
+      {
+       "from": "TENON",
+       "to": "NONET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A piece written for a ten-strong band, with one player soon leaving.",
+     "walkthrough": "'10' looks like a cross-reference to 10 across, but it is just the number: TEN plus ON, read backwards.",
+     "definitionFit": "A nonet is a musical composition for nine performers, so a group work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "10"
+    }
+   }
   },
   {
    "number": 27,
@@ -514,7 +1847,50 @@
     "text": "Yellow flower when cut turns brown",
     "enumeration": "4"
    },
-   "solution": "TANS"
+   "solution": "TANS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TANS",
+    "definitions": [
+     {
+      "text": "turns brown",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "a cut word loses its last letter"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yellow flower",
+      "gives": "TANSY",
+      "note": "tansy is a plant with yellow button flowers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TANS"
+     ]
+    },
+    "explanation": {
+     "surface": "A cut yellow flower wilting brown.",
+     "definitionFit": "Someone who tans goes brown in the sun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turns"
+    }
+   }
   },
   {
    "number": 28,
@@ -547,7 +1923,46 @@
      }
     ]
    },
-   "solution": "ABOUTTURN"
+   "solution": "ABOUTTURN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABOUT TURN",
+    "definitions": [
+     {
+      "text": "Drill sergeant's command",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "regarding",
+      "gives": "ABOUT",
+      "note": "about means concerning, regarding"
+     },
+     {
+      "clueFragment": "performance",
+      "gives": "TURN",
+      "note": "a turn is a stage act or performance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABOUT",
+      "TURN"
+     ]
+    },
+    "explanation": {
+     "surface": "A drill sergeant barking orders about a parade-ground display.",
+     "definitionFit": "About turn is the military order to face the opposite way, given on the parade ground."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "performance"
+    }
+   }
   }
  ]
 }
