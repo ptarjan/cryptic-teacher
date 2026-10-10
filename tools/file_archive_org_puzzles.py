@@ -3129,51 +3129,30 @@ def scan_key():
     """A hash of the code that finds an edition's titles and solution
     headings: what scan() reaches, here and in this repo's other modules
     (tools/code_reach.py: a method only when called, comments and
-    docstrings left out), past the desktop transport. A scan made by other code is
+    docstrings left out), past the desktop transport and the thread-pool
+    sizing (code_reach.SIZING). A scan made by other code is
     made again; an edit to code scan() never runs changes nothing."""
     if not _SCAN_KEY:
         import code_reach
-        _SCAN_KEY.append(code_reach.key("file_archive_org_puzzles", SCAN_ROOTS))
+        _SCAN_KEY.append(code_reach.key("file_archive_org_puzzles", SCAN_ROOTS,
+                                        opaque=code_reach.TRANSPORT + code_reach.SIZING))
     return _SCAN_KEY[0]
 
 
-def whole_name_scan_key(text=None):
-    """The scan key ledger rows were written under before scan_key(): every
-    whole definition of this file scan()'s names reach. A row under the
-    one this file gives now is re-keyed to scan_key() (rekey_scans), not
-    scanned again."""
-    import ast
-    text = text if text is not None else Path(__file__).read_text()
-    tree = ast.parse(text)
-    defs = {}
-    for node in tree.body:
-        if isinstance(node, (ast.FunctionDef, ast.ClassDef)):
-            defs.setdefault(node.name, []).append(node)
-        elif isinstance(node, ast.Assign):
-            for t in node.targets:
-                if isinstance(t, ast.Name):
-                    defs.setdefault(t.id, []).append(node)
-    seen, todo = set(), list(SCAN_ROOTS)
-    while todo:
-        name = todo.pop()
-        if name in seen or name not in defs:
-            continue
-        seen.add(name)
-        todo += [n.id for node in defs[name] for n in ast.walk(node) if isinstance(n, ast.Name)]
-    h = hashlib.sha256()
-    for node in tree.body:
-        names = ([node.name] if isinstance(node, (ast.FunctionDef, ast.ClassDef)) else
-                 [t.id for t in node.targets if isinstance(t, ast.Name)] if isinstance(node, ast.Assign) else [])
-        if set(names) & seen:
-            h.update(ast.get_source_segment(text, node).encode())
-    return h.hexdigest()[:16]
+def sized_scan_key():
+    """scan_key() with the thread-pool sizing in: the same scan, re-keyed
+    to scan_key() (rekey_scans), never scanned again."""
+    if not _SIZED_KEY:
+        import code_reach
+        _SIZED_KEY.append(code_reach.key("file_archive_org_puzzles", SCAN_ROOTS))
+    return _SIZED_KEY[0]
 
 
 def rekey_scans(ledger):
-    """Re-key the rows of `ledger` scanned under whole_name_scan_key() to
+    """Re-key the rows of `ledger` scanned under sized_scan_key() to
     scan_key(), unless a run holds it; how many."""
     import fcntl
-    old, new = whole_name_scan_key(), scan_key()
+    old, new = sized_scan_key(), scan_key()
     if old == new or not ledger.exists():
         return 0
     with open(ledger.with_suffix(".lock"), "w") as f:
@@ -3194,6 +3173,7 @@ def rekey_scans(ledger):
 #: Where scan_key() starts.
 SCAN_ROOTS = {"scan"}
 _SCAN_KEY = []
+_SIZED_KEY = []
 
 
 def input_hash(d):
@@ -3334,6 +3314,19 @@ def _planned_known(ledger):
     """load_known(ledger) for plan(), which reads its rows and changes none:
     only the lines appended since the last call are parsed (dir_cache.appended)."""
     return dir_cache.appended(ledger, dict, _fold_known)
+
+
+def _fold_standing(known, line):
+    _fold_known(known, line)
+
+
+def scan_stands(paper, rel, cache=CACHE):
+    """Whether edition `rel`'s ledger row holds a current scan (scan_current)
+    now: the queue asks before it starts a scan unit from a plan made
+    earlier. Its own fold of the ledger (dir_cache.appended, only lines
+    appended since parsed), apart from plan()'s on the planner thread."""
+    row = dir_cache.appended(ledger_of(cache, paper), dict, _fold_standing).get(rel)
+    return bool(row) and scan_current(row, input_hash(Path(cache) / rel))
 
 
 def sister_solutions(cache, paper):
@@ -3538,7 +3531,8 @@ def rank_of_reason(reason):
 
 def scan_current(row, fh):
     """Whether ledger `row` holds a scan of files `fh` by this scan code."""
-    return bool(row) and row.get("filesHash") == fh and row.get("scanKey") == scan_key() and "scan" in row
+    return (bool(row) and row.get("filesHash") == fh and row.get("scanKey") in (scan_key(), sized_scan_key())
+            and "scan" in row)
 
 
 def plan(paper, cache=CACHE, ledger=None, reread=None, asked=(), dirs=None):
@@ -3719,7 +3713,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
             scans[rels[d]] = (row or {}).get("scan") or {"puzzles": [], "solutions": []}
             continue
         fh = input_hash(d)
-        if row and row.get("filesHash") == fh and row.get("scanKey") == scan_key() and "scan" in row:
+        if scan_current(row, fh):
             scans[rels[d]] = row["scan"]
         else:
             unscanned[d] = fh

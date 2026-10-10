@@ -47,6 +47,10 @@ PRUNE_DAYS = 7
 #: the same code there) and its busy probe change how a result travels,
 #: never what it is.
 TRANSPORT = ("ocr_remote", "desktop_busy")
+#: Definitions (module.name) that size a computation's thread pools, never
+#: what it computes: a key over OCR results may leave them out (an `opaque`
+#: entry naming one definition, not a module).
+SIZING = ("ocr_clues.engine_threads", "ocr_clues.capped_cv2")
 
 
 def _source(name):
@@ -167,7 +171,8 @@ def _class_shell(node):
 def reach(module_name, roots, texts=None, why=None, opaque=TRANSPORT):
     """{(module, definition): its hashed form} of everything `roots` (names
     in tools/<module_name>.py) reach, the `opaque` modules' code left out
-    (a transport that does not change what is computed). `texts` ({module:
+    (a transport that does not change what is computed), and each `opaque`
+    "module.name" definition's. `texts` ({module:
     source}) stands in for files (tests); `why` ({}) gets each
     definition's first user."""
     texts = texts or {}
@@ -187,7 +192,7 @@ def reach(module_name, roots, texts=None, why=None, opaque=TRANSPORT):
     while todo:
         name, what, by = todo.pop()
         m = mod(name)
-        if m is None:
+        if m is None or f"{name}.{what}" in opaque:
             continue
         if what in m.imports and what not in m.defs:
             other, attr = m.imports[what]

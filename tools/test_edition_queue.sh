@@ -221,10 +221,12 @@ with q.lock(tl):
         os._exit(0 if f.scan_unit(f.TIMES, "NewsUK1980UKEnglish/1980-01-02_2", cache) == "held" else 1)
     check("a ledger a batch run holds is held: the unit adds nothing", 0, os.waitstatus_to_exitcode(os.waitpid(pid, 0)[1]))
 
-# ---- a scan made under the old whole-name key is re-keyed, not rescanned
+# ---- a scan keyed with the thread-pool sizing in is current, and re-keyed, not rescanned
 rk = T / "rekey.jsonl"
-q.append(rk, [{"edition": "a", "scanKey": f.whole_name_scan_key()}, {"edition": "b", "scanKey": "older"}])
-check("rows under the old key take the narrowed one; others stay stale; once", (1, [f.scan_key(), "older"], 0),
+q.append(rk, [{"edition": "a", "scanKey": f.sized_scan_key()}, {"edition": "b", "scanKey": "older"}])
+check("a row under the sized key is current until re-keyed; one under older code is not",
+      (True, False), tuple(f.scan_current({"filesHash": "h", "scanKey": k, "scan": {}}, "h") for k in (f.sized_scan_key(), "older")))
+check("rows under the sized key take the narrowed one; others stay stale; once", (1, [f.scan_key(), "older"], 0),
       (f.rekey_scans(rk), [r["scanKey"] for r in q.jsonl_rows(rk)], f.rekey_scans(rk)))
 
 # ---- a unit's own process: its outcome is its exit status, an error logged
@@ -329,6 +331,18 @@ check("a read whose own scan waits behind a full scan pool starts only after tha
       ev.index(["end", "scan", "r1"]) < ev.index(["start", "read", "r1", "v1"]))
 check("a read whose own scan failed is left for the next run, not read unscanned", False,
       ["start", "read", "bad", "v1"] in ev)
+log.unlink()
+fake()
+hashes, f.input_hash = f.input_hash, lambda d: "h"
+q.append(cache / "filed.jsonl", [{"edition": "done", "filesHash": "h", "scanKey": f.scan_key(), "scan": scan}])
+eq.plan = units(["done", "s1"], [("done", ["done"])])
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=1, scan_workers=1, replan=0.2)
+ev = [line.split()[1:] for line in log.read_text().splitlines()]
+check("a planned scan whose edition was scanned since (a kept plan) is not started; its read goes on, the others' scans run",
+      (False, True, True), (["start", "scan", "done", "v1"] in ev, ["start", "read", "done", "v1"] in ev,
+                            ["start", "scan", "s1", "v1"] in ev))
+f.input_hash = hashes
 log.unlink()
 fake()
 calls = []

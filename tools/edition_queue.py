@@ -857,6 +857,11 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 continue
             if urgent and u["kind"] != "fetch" and u["rank"] >= fa.BLANKET:
                 continue
+            if u["kind"] == "scan" and u["paper"] in fa.FILERS and fa.scan_stands(fa.FILERS[u["paper"]], u["rel"], cache):
+                # Scanned since the plan was made (a kept plan, a read, another queue): its reads may go on.
+                tried.add(key_of(u))
+                scanned.add((u["paper"], u["rel"]))
+                continue
             if u["kind"] == "read" and any((u["paper"], r) in scanning for r in u["needs"]):
                 continue
             if u["kind"] == "read" and (u["paper"], u["rel"]) in unscanned:
