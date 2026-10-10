@@ -576,6 +576,8 @@ LAYOUT = [
     ("fetching", "tools/test_clue_index.sh", "does StoredClueIndex answer exactly what ClueIndex.build() answers, as files are added, edited and deleted, and when its store is corrupt?"),
     ("fetching", "tools/test_worker_resume.sh", "does a run stopped from outside resume its own conversation, with its edits back when that is honest and a note saying so when not?"),
     ("fetching", "tools/test_session_ids.sh", "does every `claude -p` in tools/ name its conversation, so a run stopped from outside is resumed rather than bought again?"),
+    ("fetching", "tools/load_watch.py", "wake the room when the machine is overloaded, with who is using the CPU"),
+    ("fetching", "tools/test_load_watch.sh", "does load_watch.py rank CPU by job, charge exited children to their parent, and wake only on two high runs in a row, once an hour unless the top consumer changes?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
