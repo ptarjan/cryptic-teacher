@@ -1053,19 +1053,57 @@ def zones_of(cache):
 
 
 def input_hash(d):
-    """The article's files by size and modification time and its clue zone
-    images by name: a rerun stats every article but reads only those whose
-    hash moved. Inputs only: our own readings cached beside the zones are
-    the read's output."""
+    """The article's files by size and modification time in whole seconds
+    (a copy to another disk keeps those, not the nanoseconds) and its clue
+    zone images by name: a rerun stats every article but reads only those
+    whose hash moved. Inputs only: our own readings cached beside the zones
+    are the read's output."""
     h = hashlib.sha256()
     for name in ("meta.json", "ocr.txt", "grid.jpg"):
         try:
             st = os.stat(d / name)
         except (FileNotFoundError, NotADirectoryError):
             st = None
-        h.update((f"{name}:{st.st_size}:{st.st_mtime_ns}" if st else f"{name}:-").encode())
+        h.update((f"{name}:{st.st_size}:{int(st.st_mtime)}" if st else f"{name}:-").encode())
     h.update(" ".join(p.name for p in trove_clue_ocr.zone_images(d.name, clue_zones(d))).encode())
     return h.hexdigest()[:16]
+
+
+def rekey_unchanged(ledger, cache=CACHE, puzzles=None):
+    """Re-key to inputs_of() the rows of `ledger` whose article's files (and
+    clue zone images) are all older than its read, so are what it read: a
+    copy that dropped their mtimes' nanoseconds, or a change of
+    input_hash's form, is no reason to read it again. Unless a run holds
+    the ledger; how many."""
+    import fcntl
+    if not ledger.exists():
+        return 0
+    known = scan_queue.ledger_rows(ledger, "article")
+    files = held_files(puzzles)
+    new = {}
+    for a, row in known.items():
+        d = cache / a
+        if "inputs" not in row or not row.get("readAt") or not (d / "meta.json").exists():
+            continue
+        h = inputs_of(d, files.get(a))
+        if h == row["inputs"] or h.endswith("+strayed") != row["inputs"].endswith("+strayed"):
+            continue
+        read = scan_queue.when(row["readAt"]).timestamp()
+        paths = [d / n for n in ("meta.json", "ocr.txt", "grid.jpg")] + trove_clue_ocr.zone_images(a, clue_zones(d))
+        if all(int(p.stat().st_mtime) <= read for p in paths if p.exists()):
+            new[a] = h
+    if not new:
+        return 0
+    with open(ledger.with_suffix(".lock"), "w") as f:
+        try:
+            fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            return 0
+        now = scan_queue.ledger_rows(ledger, "article")
+        rows = [{**now[a], "inputs": h} for a, h in sorted(new.items()) if now.get(a) == known[a]]
+        with open(ledger, "a", encoding="utf-8") as out:
+            out.write("".join(json.dumps(r) + "\n" for r in rows))
+        return len(rows)
 
 
 def held_files(puzzles=None):

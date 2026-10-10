@@ -964,6 +964,8 @@ def main(argv=None):
         ledger, by = (ftp.CACHE / "filed.jsonl", "article") if key == "trove" else (fa.ledger_of(args.cache, fa.FILERS[key]), "edition")
         if key != "trove" and (n := fa.rekey_scans(ledger)):
             log(f"{ledger.name}: {n} scans re-keyed to the narrowed scan key")
+        if key == "trove" and (n := ftp.rekey_unchanged(ledger)):
+            log(f"{ledger.name}: {n} articles re-keyed: their files are as they were read")
         folded = scan_queue.compact(ledger, by)
         if folded and folded[0] != folded[1]:
             log(f"{ledger.name}: {folded[0]} rows folded to {folded[1]}")
