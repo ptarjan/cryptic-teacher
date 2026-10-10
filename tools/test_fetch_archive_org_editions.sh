@@ -271,49 +271,12 @@ for reply, what in ((b"", "an empty words reply"), (obj(2, "two").encode(), "a w
 script(obj(1, "one").encode())
 check("a words reply for its own leaf is kept",
       fa.sparse_djvu_xml(fx, meta, "ed", "ed", {1}, 3)[1] == {1: (10, 20)})
-# An edition whose cached djvu.xml.gz has an OBJECT whose PAGE names a later
-# leaf holds another leaf's words. It is due again at the same DETECTOR_VERSION, and its
-# re-fetch takes the whole djvu.xml, stored so the n-th OBJECT is leaf n.
+# A whole djvu.xml is stored so the n-th OBJECT is leaf n.
 import gzip
 check("scan_aligned pads the skipped colour card",
-      fa.misplaced(xml) and not fa.misplaced(fa.scan_aligned(xml))
-      and fa.scan_aligned(xml).count(b"<OBJECT") == 3 and fa.page_texts(fa.scan_aligned(xml)) == fa.page_texts(xml))
+      [leaf for _, leaf in fa.object_leaves(fa.scan_aligned(xml))] == [None, 1, 2]
+      and fa.page_texts(fa.scan_aligned(xml)) == fa.page_texts(xml))
 check("an aligned djvu.xml is left as it is", fa.scan_aligned(fa.scan_aligned(xml)) == fa.scan_aligned(xml))
-out = tempfile.mkdtemp()
-os.makedirs(os.path.join(out, "items"))
-eds = ["listener_1932-10-05_8_195", "listener_1932-10-12_8_196"]
-with open(os.path.join(out, "items", "_group_listener.json"), "w") as f:
-    json.dump([{"identifier": e, "title": "Listener 1932"} for e in eds], f)
-for e in eds:
-    with open(os.path.join(out, "items", e + ".json"), "w") as f:
-        json.dump({"server": "s", "dir": "/d", "files": [{"name": e + x} for x in ("_djvu.txt", "_jp2.zip")]}, f)
-    with open(os.path.join(out, "done.tsv"), "a") as f:
-        f.write(f"{e}\t{e}\t{fa.DETECTOR_VERSION}\n")
-    d = os.path.join(out, e, e)
-    os.makedirs(d)
-    words = (b"<DjVuXML><BODY><OBJECT width=\"0\" height=\"0\"></OBJECT>"
-             + obj(2 if e == eds[0] else 1, "w").encode() + b"</BODY></DjVuXML>")
-    with open(os.path.join(d, "djvu.xml.gz"), "wb") as f:
-        f.write(gzip.compress(words))
-    with open(os.path.join(d, "pagetext.json.gz"), "wb") as f:
-        f.write(gzip.compress(json.dumps({"texts": ["", "x"], "words": {"1": [10, 20]}}).encode()))
-log = subprocess.run([sys.executable, fa.__file__, "--out", out, "--group", "listener", "--list"],
-                     capture_output=True, text=True, timeout=60).stdout
-check("done before the leaf check, words on another leaf: due again",
-      f"{eds[0]}\t1 editions\t1 to do" in log and f"{eds[1]}\t1 editions\t0 to do" in log)
-whole = ("<DjVuXML><BODY>" + obj(1, "news") + obj(2, "Crossword No. 132 ACROSS") + "</BODY></DjVuXML>").encode()
-script(b"text", whole)
-d = os.path.join(out, eds[0], eds[0])
-open(os.path.join(d, "leaf_0002.jpg"), "wb").close()
-fx.out = out
-with contextlib.redirect_stdout(io.StringIO()):
-    hits = fa.fetch_edition(fx, eds[0], json.load(open(os.path.join(out, "items", eds[0] + ".json"))), eds[0])
-with gzip.open(os.path.join(d, "djvu.xml.gz")) as f:
-    stored = f.read()
-check("its re-fetch takes the whole djvu.xml and places the crossword on its scan leaf",
-      [h["leaf"] for h in hits] == [2] and calls[-1].endswith("_djvu.xml")
-      and not os.path.exists(os.path.join(d, "pagetext.json.gz"))
-      and not fa.misplaced(stored) and not fa.words_misplaced(d))
 
 # An edition held only as an image PDF of 1-bit page scans (FT 1981): the
 # page with a grid on it is its crossword page, saved grey at SCAN_WIDTH,
@@ -458,6 +421,18 @@ check("a dir changed within SETTLED keeps no verdict", fresh not in fa._STALE)
 settle(fresh, os.path.join(lr, IT))
 fa.load_done(lr)
 check("mirror: once settled it is kept", fresh in fa._STALE and lack in fa._STALE)
+# A plan in a fresh process (a re-exec'd dispatcher, empty _MEMO and _STALE)
+# opens no edition's gzip: they sit on a slow disk, one per done edition.
+for x in ("djvu.xml.gz", "pagetext.json.gz"):
+    fa.write_atomic(os.path.join(have, x), gzip.compress(b"<OBJECT"))
+fa._MEMO.clear(); fa._STALE.clear()
+opened, real_gzip_open = [], gzip.open
+gzip.open = lambda p, *a, **k: (opened.append(p), real_gzip_open(p, *a, **k))[1]
+try:
+    fa.load_done(lr)
+finally:
+    gzip.open = real_gzip_open
+check("load_done in a fresh process opens no gzip", not opened)
 with open(os.path.join(lr, "done.tsv.tmp"), "w") as f:
     f.write(f"{IT}\t{sibs[0]}\t{fa.DETECTOR_VERSION}\n")
 os.replace(os.path.join(lr, "done.tsv.tmp"), os.path.join(lr, "done.tsv"))
