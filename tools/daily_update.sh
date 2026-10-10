@@ -373,7 +373,8 @@ unit_azed() {
 # definition check read. A full parse is ~5 minutes, so --if-changed skips it
 # when no cached post, clue or the parser itself has moved since the files were
 # written. Its letter_facts pass builds the corpus-wide lexicons and reads the
-# clues on the desktop (here, in local pools, when it is busy or off).
+# clues on the desktop (here, in at most letter_facts.FALLBACK_JOBS processes,
+# when it is busy or unreachable).
 # Due after any blog unit ended well (tools/daily_units.py), so a new puzzle
 # is validated against its blog. unit_commit's `git add -A` picks the files up.
 unit_blog_facts() {
