@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "A shot decapitated bird of prey, raising a lot of insects",
     "enumeration": "10"
    },
-   "solution": "APICULTURE"
+   "solution": "APICULTURE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "APICULTURE",
+    "definitions": [
+     {
+      "text": "raising a lot of insects",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "decapitated",
+      "for": "deletion",
+      "note": "something decapitated has lost its head, so the first letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "shot",
+      "gives": "PIC",
+      "note": "a shot is a photograph, a pic"
+     },
+     {
+      "clueFragment": "bird of prey",
+      "gives": "VULTURE",
+      "note": "a vulture is a scavenging bird of prey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PIC",
+      "ULTURE"
+     ]
+    },
+    "explanation": {
+     "surface": "A huntsman fires at a bird of prey, knocking its head off and stirring up a swarm of insects.",
+     "walkthrough": "APICULTURE: A + PIC + (V)ULTURE with its head removed.",
+     "definitionFit": "Apiculture is beekeeping, the rearing of bees, which come in vast numbers per hive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "raising"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +104,46 @@
     "text": "Cut narrow passage for Arctic transport",
     "enumeration": "8"
    },
-   "solution": "SKIPLANE"
+   "solution": "SKIPLANE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SKIPLANE",
+    "definitions": [
+     {
+      "text": "Arctic transport",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cut",
+      "gives": "SKIP",
+      "note": "to cut a class or meeting is to skip it"
+     },
+     {
+      "clueFragment": "narrow passage",
+      "gives": "LANE",
+      "note": "a lane is a narrow road or passage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKIP",
+      "LANE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes a short cut through a narrow passage on an Arctic journey.",
+     "definitionFit": "A skiplane is an aircraft fitted with skis for landing on snow, used in polar regions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cut"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +157,67 @@
     "text": "Comforter brought over to settle a heated quarrel",
     "enumeration": "6"
    },
-   "solution": "FRACAS"
+   "solution": "FRACAS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "FRACAS",
+    "definitions": [
+     {
+      "text": "heated quarrel",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought over",
+      "for": "reversal",
+      "note": "brought over suggests flipping something end to end, so the word runs backwards"
+     },
+     {
+      "text": "to settle",
+      "for": "container",
+      "note": "the reversed word lets a letter settle inside it, so it goes in the middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Comforter",
+      "gives": "SCARF",
+      "note": "a comforter is a woollen scarf"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRAC",
+      "A",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SCARF",
+       "to": "FRACS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone brings a comforting blanket to calm down a fierce argument.",
+     "walkthrough": "A comforter in British usage is a long woollen scarf, not a quilt; the A is settled inside the reversed word rather than tacked on.",
+     "definitionFit": "A fracas is a noisy disturbance or brawl, close to a heated row."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Comforter"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +231,57 @@
     "text": "Spinach with a little anchovy? It's legendary",
     "enumeration": "4"
    },
-   "solution": "SAGA"
+   "solution": "SAGA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SAGA",
+    "definitions": [
+     {
+      "text": "It's legendary",
+      "at": 31,
+      "note": "a whole phrase defining a noun: a saga is something legendary"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a little",
+      "for": "letter_selection",
+      "note": "just a little of the fish is used, namely its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spinach",
+      "gives": "SAG",
+      "note": "sag (saag) is spinach in Indian cooking"
+     },
+     {
+      "clueFragment": "anchovy",
+      "gives": "A",
+      "select": "first",
+      "note": "the opening letter of the fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAG",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe of spinach with a touch of anchovy is praised as a legendary dish.",
+     "walkthrough": "SAG, as in sag aloo, is the Indian word for spinach.",
+     "definitionFit": "A saga is a long legend or heroic tale, so it is a thing of legend."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Spinach"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +295,64 @@
     "text": "Lacking some energy, regret entering capital river and lake",
     "enumeration": "10"
    },
-   "solution": "SERPENTINE"
+   "solution": "SERPENTINE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SERPENTINE",
+    "definitions": [
+     {
+      "text": "lake",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Lacking some energy",
+      "for": "deletion",
+      "note": "lacking some energy means one of the E letters for energy goes missing"
+     },
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "entering means going inside another word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "regret",
+      "gives": "REPENT",
+      "note": "to repent is to regret"
+     },
+     {
+      "clueFragment": "capital river",
+      "gives": "SEINE",
+      "note": "the Seine is the river of the capital, Paris"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "RPENT",
+      "INE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tired traveller regrets plunging into a river and lake in a capital city.",
+     "walkthrough": "Only one of the two Es is lost. The Serpentine is the lake in London's Hyde Park, and the capital river is the one through Paris.",
+     "definitionFit": "The Serpentine is a well-known recreational lake in Hyde Park, London."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +372,50 @@
      }
     ]
    },
-   "solution": "CAPETOWN"
+   "solution": "CAPETOWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAPE TOWN",
+    "definitions": [
+     {
+      "text": "city",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French house",
+      "gives": "CAPET",
+      "note": "the House of Capet was a French royal dynasty"
+     },
+     {
+      "clueFragment": "private",
+      "gives": "OWN",
+      "note": "one's own is private to oneself"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAPET",
+      "OWN"
+     ]
+    },
+    "explanation": {
+     "surface": "A French house belongs to a private soldier living in the city.",
+     "walkthrough": "'Private' wants to be a soldier (PTE), but here it means OWN. The Capetians ruled France from 987.",
+     "definitionFit": "Cape Town is a major South African port and legislative capital."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "house"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +429,48 @@
     "text": "'Broadband in Devon': two articles",
     "enumeration": "6"
    },
-   "solution": "SWATHE"
+   "solution": "SWATHE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SWATHE",
+    "definitions": [
+     {
+      "text": "Broadband",
+      "at": 1
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in Devon",
+      "gives": "SW",
+      "note": "Devon is a county in the South West of England"
+     },
+     {
+      "clueFragment": "two articles",
+      "gives": "ATHE",
+      "note": "the articles a and the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SW",
+      "ATHE"
+     ]
+    },
+    "explanation": {
+     "surface": "A headline about internet broadband provision in Devon, with two newspaper articles.",
+     "walkthrough": "Read 'Broadband' as broad band: a swathe is a wide strip.",
+     "definitionFit": "A swathe is a broad strip or band, e.g. of land or cut grass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Broadband"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +484,55 @@
     "text": "He built right through congested city",
     "enumeration": "4"
    },
-   "solution": "WREN"
+   "solution": "WREN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WREN",
+    "definitions": [
+     {
+      "text": "He built",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "through",
+      "for": "container",
+      "note": "running through something places it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is short for right"
+     },
+     {
+      "clueFragment": "congested city",
+      "gives": "WEN",
+      "note": "London was called the Great Wen, a wen being a swelling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "R",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A developer pushed a building project straight through a crowded city.",
+     "walkthrough": "William Cobbett called overcrowded London 'the Great Wen'.",
+     "definitionFit": "Sir Christopher Wren was the architect who built St Paul's Cathedral and many London churches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "congested"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +552,49 @@
      }
     ]
    },
-   "solution": "POKERFACE"
+   "solution": "POKERFACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POKER FACE",
+    "definitions": [
+     {
+      "text": "blank look",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One making a stir",
+      "gives": "POKER",
+      "note": "a poker stirs up a fire"
+     },
+     {
+      "clueFragment": "to deal with",
+      "gives": "FACE",
+      "note": "to face a problem is to deal with it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POKER",
+      "FACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A troublemaker must cope with someone's expressionless stare.",
+     "definitionFit": "A poker face is an expressionless look that hides one's thoughts, as at the card table."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stir"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +614,70 @@
      }
     ]
    },
-   "solution": "ATWAR"
+   "solution": "ATWAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "AT WAR",
+    "definitions": [
+     {
+      "text": "State after declaration",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the middle",
+      "for": "letter_selection",
+      "note": "only the central part of the word is kept, its ends dropped"
+     },
+     {
+      "text": "grabbing",
+      "for": "container",
+      "note": "grabbing means holding something inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "start",
+      "gives": "TAR",
+      "select": "middle",
+      "note": "the middle three letters of the word"
+     },
+     {
+      "clueFragment": "wicket",
+      "gives": "W",
+      "note": "W is the cricket scoring abbreviation for wicket"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "T",
+      "W",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "A sports report: after a declaration, a fresh innings starts and a wicket falls midway.",
+     "walkthrough": "'Declaration' suggests a cricket declaration, but it is a declaration of war.",
+     "definitionFit": "Once war has been declared, the nations are in a state of hostilities."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "declaration"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +691,57 @@
     "text": "Improve on tea, say, with more of it: that's a test for humanity",
     "enumeration": "7"
    },
-   "solution": "CAPTCHA"
+   "solution": "CAPTCHA",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "CAPTCHA",
+    "definitions": [
+     {
+      "text": "a test for humanity",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say means the word is spoken and only its sound counts"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Improve on",
+      "gives": "CAP",
+      "note": "to cap something is to outdo it"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "T",
+      "soundsLike": "TEE",
+      "note": "the letter name sounds like the drink"
+     },
+     {
+      "clueFragment": "with more of it",
+      "gives": "CHA",
+      "note": "cha is another word for tea"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone tries to better a cup of tea by adding more, as if testing human taste.",
+     "definitionFit": "A CAPTCHA is an online challenge used to tell human users from bots."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "humanity"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +755,64 @@
     "text": "Not turning back after getting close to the French city",
     "enumeration": "7"
    },
-   "solution": "PRESTON"
+   "solution": "PRESTON",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PRESTON",
+    "definitions": [
+     {
+      "text": "city",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning back",
+      "for": "reversal",
+      "note": "turning back means the word is read from its end"
+     }
+    ],
+    "linkWords": [
+     "after getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "close to the French",
+      "gives": "PRES",
+      "note": "près is French for near or close"
+     },
+     {
+      "clueFragment": "Not",
+      "gives": "NOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRES",
+      "TON"
+     ],
+     "reversals": [
+      {
+       "from": "NOT",
+       "to": "TON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller who has nearly reached a French city refuses to turn back.",
+     "walkthrough": "'Close to the French' looks like a position in the grid, but it is French près, near.",
+     "definitionFit": "Preston in Lancashire was granted city status in 2002."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +826,45 @@
     "text": "Plummets from roof",
     "enumeration": "5"
    },
-   "solution": "LEADS"
+   "solution": "LEADS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEADS",
+    "definitions": [
+     {
+      "text": "Plummets",
+      "at": 0
+     },
+     {
+      "text": "from roof",
+      "at": 9,
+      "note": "a phrase describing a noun: leads are the lead sheets taken from a roof"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plummets",
+      "note": "first meaning: plummets are lead weights, as on a plumb line"
+     },
+     {
+      "clueFragment": "from roof",
+      "note": "second meaning: lead sheets covering a roof"
+     }
+    ],
+    "explanation": {
+     "surface": "Something falls sharply off a rooftop.",
+     "walkthrough": "'Plummets' reads as a verb, falls, but it is the plural noun for plumb weights.",
+     "definitionFit": "Lead is the metal used for sinkers and plumb bobs, and roofing sheets of it are called leads."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Plummets"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +878,59 @@
     "text": "Capitalists are not gang members, gangster admitted",
     "enumeration": "9"
    },
-   "solution": "LONDONERS"
+   "solution": "LONDONERS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LONDONERS",
+    "definitions": [
+     {
+      "text": "Capitalists",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitted",
+      "for": "container",
+      "note": "admitted means let in, so one word goes inside another"
+     }
+    ],
+    "linkWords": [
+     "are"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not gang members",
+      "gives": "LONERS",
+      "note": "loners keep away from groups"
+     },
+     {
+      "clueFragment": "gangster",
+      "gives": "DON",
+      "note": "a Mafia boss is a don"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LON",
+      "DON",
+      "ERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Financiers claim they are not in a gang, though a mobster has been let in.",
+     "walkthrough": "'Capitalists' looks like investors; it means people of the capital.",
+     "definitionFit": "Londoners are inhabitants of London, the UK capital, so they are capital-dwellers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Capitalists"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +944,78 @@
     "text": "Edge closer up near wild horse",
     "enumeration": "10"
    },
-   "solution": "LIPPIZANER"
+   "solution": "LIPPIZANER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "LIPPIZANER",
+    "definitions": [
+     {
+      "text": "horse",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means the word reads upwards, backwards"
+     },
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "wild letters are out of control and can be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Edge",
+      "gives": "LIP",
+      "note": "a lip is an edge or rim"
+     },
+     {
+      "clueFragment": "closer",
+      "gives": "ZIP",
+      "note": "a zip closes a garment"
+     },
+     {
+      "clueFragment": "near",
+      "gives": "NEAR",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIP",
+      "PIZ",
+      "ANER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEAR",
+       "gives": "ANER"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "ZIP",
+       "to": "PIZ"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sidles up to the edge near a wild horse.",
+     "definitionFit": "The Lipizzaner is a breed of white horse associated with the Spanish Riding School in Vienna."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "closer"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1035,53 @@
      }
     ]
    },
-   "solution": "STEADYHAND"
+   "solution": "STEADYHAND",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STEADY HAND",
+    "definitions": [
+     {
+      "text": "One keeps close control",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off suggests going wrong or bad, so the letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "had ten days",
+      "gives": "HADTENDAYS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HADTENDAYS",
+       "gives": "STEADYHAND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A firm manager who has had a ten-day holiday.",
+     "definitionFit": "A steady hand is a firm, calm controller, idiomatically someone who keeps things in check."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1095,70 @@
     "text": "Unusual event in diffuse nebula is not so exciting",
     "enumeration": "15"
    },
-   "solution": "UNEXCEPTIONABLE"
+   "solution": "UNEXCEPTIONABLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "UNEXCEPTIONABLE",
+    "definitions": [
+     {
+      "text": "not so exciting",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "diffuse",
+      "for": "anagram",
+      "note": "something diffuse is spread out and scattered, so its letters are rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one word inside another"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unusual event",
+      "gives": "EXCEPTION",
+      "note": "an exception is an unusual case"
+     },
+     {
+      "clueFragment": "nebula",
+      "gives": "UNABLE",
+      "note": "the letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "EXCEPTION",
+      "ABLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEBULA",
+       "gives": "UNABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An astronomer reports that an odd event inside a hazy nebula is rather dull.",
+     "walkthrough": "Some solvers feel 'unexceptionable' (beyond objection) is a loose fit for 'not so exciting', which is closer to unexceptional.",
+     "definitionFit": "Something unexceptionable gives no cause for complaint and so is ordinary, hardly thrilling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "event"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1172,43 @@
     "text": "A place in Paris for rapid transport once",
     "enumeration": "8"
    },
-   "solution": "CONCORDE"
+   "solution": "CONCORDE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CONCORDE",
+    "definitions": [
+     {
+      "text": "A place in Paris",
+      "at": 0
+     },
+     {
+      "text": "rapid transport once",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A place in Paris",
+      "note": "first meaning: the Place de la ..., a Paris square"
+     },
+     {
+      "clueFragment": "rapid transport once",
+      "note": "second meaning: the retired supersonic airliner"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Place' is literal: in French a square is a place.",
+     "definitionFit": "The name belongs both to a famous square in Paris and to the Anglo-French supersonic jet retired in 2003."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "place"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1222,51 @@
     "text": "So happy to have pulse, at two low temperatures",
     "enumeration": "8"
    },
-   "solution": "BEATIFIC"
+   "solution": "BEATIFIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEATIFIC",
+    "definitions": [
+     {
+      "text": "So happy",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to have",
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pulse",
+      "gives": "BEAT",
+      "note": "a pulse is a beat"
+     },
+     {
+      "clueFragment": "two low temperatures",
+      "gives": "IFIC",
+      "note": "one degree Fahrenheit and one degree Celsius, with I as the Roman one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEAT",
+      "IFIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is delighted just to have a pulse in freezing conditions.",
+     "walkthrough": "F and C are the Fahrenheit and Celsius scales; 1F and 1C are both very low.",
+     "definitionFit": "Beatific means blissfully happy, as in a beatific smile."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "low"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1280,64 @@
     "text": "Plant's spike at unusual angle",
     "enumeration": "9"
    },
-   "solution": "EGLANTINE"
+   "solution": "EGLANTINE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "EGLANTINE",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusual",
+      "for": "anagram",
+      "note": "unusual means not in the normal form, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "angle",
+      "gives": "EGLAN",
+      "note": "the letters rearranged"
+     },
+     {
+      "clueFragment": "spike",
+      "gives": "TINE",
+      "note": "a tine is a prong or spike"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EGLAN",
+      "TINE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANGLE",
+       "gives": "EGLAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plant has a thorn sticking out at an odd angle.",
+     "walkthrough": "The spike is written at, that is after, the rearranged letters.",
+     "definitionFit": "Eglantine is sweetbriar, a wild rose with prickly stems."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1357,50 @@
      }
     ]
    },
-   "solution": "LETOFF"
+   "solution": "LETOFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LET OFF",
+    "definitions": [
+     {
+      "text": "Discharged",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unsatisfactory service",
+      "gives": "LET",
+      "note": "in tennis a let is a serve that must be replayed"
+     },
+     {
+      "clueFragment": "going away",
+      "gives": "OFF",
+      "note": "to be off is to leave"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LET",
+      "OFF"
+     ]
+    },
+    "explanation": {
+     "surface": "An employee is dismissed after poor service and leaves.",
+     "walkthrough": "'Discharged' suggests being fired, but it means set off, like a firework.",
+     "definitionFit": "To let off a gun or firework is to discharge it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1414,49 @@
     "text": "Vegetable is cold and undercooked",
     "enumeration": "5"
    },
-   "solution": "CHARD"
+   "solution": "CHARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHARD",
+    "definitions": [
+     {
+      "text": "Vegetable",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the tap abbreviation for cold"
+     },
+     {
+      "clueFragment": "undercooked",
+      "gives": "HARD",
+      "note": "undercooked vegetables stay hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that the vegetable served is cold and not cooked enough.",
+     "definitionFit": "Chard is a leafy green vegetable related to beet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1470,55 @@
     "text": "Part of army besieging University College",
     "enumeration": "6"
    },
-   "solution": "CORPUS"
+   "solution": "CORPUS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CORPUS",
+    "definitions": [
+     {
+      "text": "College",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "besieging",
+      "for": "container",
+      "note": "an army besieging a place surrounds it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part of army",
+      "gives": "CORPS",
+      "note": "a corps is a military unit"
+     },
+     {
+      "clueFragment": "University",
+      "gives": "U",
+      "note": "U is short for university"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CORP",
+      "U",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Troops lay siege to a university college.",
+     "walkthrough": "'University College' looks like one institution, but they split.",
+     "definitionFit": "Corpus is the short name of Corpus Christi College, at both Oxford and Cambridge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "University"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1538,66 @@
      }
     ]
    },
-   "solution": "HOTYOGA"
+   "solution": "HOTYOGA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "HOT YOGA",
+    "definitions": [
+     {
+      "text": "Sweaty exercise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "making a comeback",
+      "for": "reversal",
+      "note": "coming back means travelling in the opposite direction, so the word reads backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very popular",
+      "gives": "HOT",
+      "note": "something hot is in great demand"
+     },
+     {
+      "clueFragment": "years",
+      "gives": "Y",
+      "note": "Y is short for years"
+     },
+     {
+      "clueFragment": "past",
+      "gives": "AGO",
+      "note": "ago means in the past"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOT",
+      "Y",
+      "OGA"
+     ],
+     "reversals": [
+      {
+       "from": "AGO",
+       "to": "OGA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fitness craze popular years ago is returning.",
+     "definitionFit": "Hot yoga is yoga done in a heated room, so participants sweat heavily."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "comeback"
+    }
+   }
   },
   {
    "number": 22,
@@ -405,7 +1611,57 @@
     "text": "Desired to be relieved of pressure, so turned over in bed",
     "enumeration": "4"
    },
-   "solution": "HOED"
+   "solution": "HOED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HOED",
+    "definitions": [
+     {
+      "text": "turned over in bed",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be relieved of",
+      "for": "deletion",
+      "note": "being relieved of something means losing it"
+     }
+    ],
+    "linkWords": [
+     "so"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Desired",
+      "gives": "HOPED",
+      "note": "to hope for something is to desire it"
+     },
+     {
+      "clueFragment": "pressure",
+      "gives": "P",
+      "note": "P is short for pressure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wanted relief from stress, so they tossed and turned in bed.",
+     "walkthrough": "The bed is a flower bed, not one to sleep in.",
+     "definitionFit": "To hoe is to break up and turn soil, here in a garden bed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 23,
@@ -419,7 +1675,56 @@
     "text": "Poet, endlessly quiet and mischievous",
     "enumeration": "7"
    },
-   "solution": "LARKISH"
+   "solution": "LARKISH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "LARKISH",
+    "definitions": [
+     {
+      "text": "mischievous",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "endlessly means without an end, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poet",
+      "gives": "LARKIN",
+      "note": "Philip Larkin, the English poet"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "SH",
+      "note": "sh is a call for quiet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LARKI",
+      "SH"
+     ]
+    },
+    "explanation": {
+     "surface": "A poet described as forever quiet yet playful.",
+     "definitionFit": "Larkish means playful or full of fun, from a lark meaning a prank."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -433,7 +1738,57 @@
     "text": "In toilet, finally unwrap contraceptive",
     "enumeration": "4"
    },
-   "solution": "LOOP"
+   "solution": "LOOP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LOOP",
+    "definitions": [
+     {
+      "text": "contraceptive",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of the next word"
+     }
+    ],
+    "linkWords": [
+     "In"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "toilet",
+      "gives": "LOO",
+      "note": "loo is British slang for toilet"
+     },
+     {
+      "clueFragment": "unwrap",
+      "gives": "P",
+      "select": "last",
+      "note": "its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOO",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone opens a packet of contraceptives in the lavatory.",
+     "definitionFit": "A loop is an intrauterine contraceptive device, formerly shaped like a coil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -447,7 +1802,45 @@
     "text": "Blinded maybe follows this sound made by newt",
     "enumeration": "5"
    },
-   "solution": "EFFED"
+   "solution": "EFFED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EFFED",
+    "definitions": [
+     {
+      "text": "Blinded maybe follows this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sound made by",
+      "for": "homophone",
+      "note": "sound made by means we want what the word sounds like when spoken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "newt",
+      "gives": "EFFED",
+      "soundsLike": "EFT",
+      "note": "an eft is an old word for a newt"
+     }
+    ],
+    "explanation": {
+     "surface": "A puzzling remark about a newt's noise preceding a word for blinded.",
+     "walkthrough": "The phrase is 'effed and blinded', i.e. swore. Newt itself comes from 'an ewt', the old eft.",
+     "definitionFit": "In the idiom 'effing and blinding', meaning swearing, the effing comes before the blinding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Blinded"
+    }
+   }
   },
   {
    "number": 25,
@@ -461,7 +1854,56 @@
     "text": "Change of government has to depose king, in theory",
     "enumeration": "9"
    },
-   "solution": "EVOLUTION"
+   "solution": "EVOLUTION",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EVOLUTION",
+    "definitions": [
+     {
+      "text": "theory",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to depose",
+      "for": "deletion",
+      "note": "deposing a monarch removes him, so his letter is taken out"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Change of government",
+      "gives": "REVOLUTION",
+      "note": "a revolution overthrows a government"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R for rex, king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVOLUTION"
+     ]
+    },
+    "explanation": {
+     "surface": "A revolution to remove the king, at least in principle.",
+     "definitionFit": "Darwin's account of how species change over time is the theory of evolution."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "theory"
+    }
+   }
   }
  ]
 }
