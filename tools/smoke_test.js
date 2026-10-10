@@ -1220,10 +1220,14 @@ assert(storage["ct:nux"] === "2",
 // Each rung reports itself by name. beacon() drops anything not on the shared
 // list, so this is where a rung whose key never reaches the beacon shows up:
 // "hint-undefined" is silently discarded and nothing is counted at all.
+// beacon() reports a name once per session, and the out-of-order pick above
+// already spent one of this clue's rungs, so the count is over the whole
+// session: on a three-rung ladder the walk itself only has two names left.
 {
   const climbed = reported(hintMark).filter((n) => /^hint/.test(n));
-  assert(climbed.length >= 3,
-    `climbing ${rungs} rungs reports which ones were revealed, got: ` + climbed.join(","));
+  const everyRung = new Set(reported(0).filter((n) => /^hint/.test(n)));
+  assert(climbed.length >= 1 && everyRung.size >= rungs,
+    `climbing ${rungs} rungs reports which ones were revealed, got: ` + [...everyRung].join(","));
   assert(climbed.every((n) => /^hint-[a-z]+$/.test(n) && EVENTS.indexOf(n) >= 0),
     "every rung reports its own name off the shared list: " + climbed.join(","));
 }
