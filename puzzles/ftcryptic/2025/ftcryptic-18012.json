@@ -24,6 +24,9 @@
   "date": "2025-03-31",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,59 @@
     "text": "Tiny cylinder of butane? No, silly!",
     "enumeration": "8"
    },
-   "solution": "NANOTUBE"
+   "solution": "NANOTUBE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NANOTUBE",
+    "definitions": [
+     {
+      "text": "Tiny cylinder",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "silly",
+      "for": "anagram",
+      "note": "something silly is muddled and senseless, so the letters before it are jumbled"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "butane",
+      "gives": "BUTANE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "No",
+      "gives": "NO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BUTANENO",
+       "gives": "NANOTUBE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a tiny cylinder holds butane, then dismisses the idea as daft.",
+     "walkthrough": "The question mark and 'No, silly!' read as a scolding reply; 'butane' and 'No' are the letters to rearrange into NANOTUBE.",
+     "definitionFit": "A nanotube is a microscopic tube of carbon atoms, a cylinder measured in billionths of a metre."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "silly"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +106,56 @@
     "text": "Delicious drop served up in bar at centre",
     "enumeration": "6"
    },
-   "solution": "NECTAR"
+   "solution": "NECTAR",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "NECTAR",
+    "definitions": [
+     {
+      "text": "Delicious drop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the words that follow"
+     },
+     {
+      "text": "served up",
+      "for": "reversal",
+      "note": "in a down entry, up means read from bottom to top, the reverse of the clue's order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bar at centre",
+      "gives": "RATCEN",
+      "note": "the letters running across the end of bar, all of at, and the start of centre"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "RATCEN",
+       "to": "NECTAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tasty drink is served at a bar in the town centre.",
+     "definitionFit": "Nectar, the drink of the gods, is any delicious beverage, so a drop of it is a delicious drop."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +169,50 @@
     "text": "Unlimited amorous activity for Head",
     "enumeration": "6"
    },
-   "solution": "NOGGIN"
+   "solution": "NOGGIN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "NOGGIN",
+    "definitions": [
+     {
+      "text": "Head",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unlimited",
+      "for": "deletion",
+      "note": "without limits means losing both boundary letters, front and back"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "amorous activity",
+      "gives": "SNOGGING",
+      "note": "snogging is British slang for kissing and cuddling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOGGIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Endless canoodling is offered in exchange for a head, perhaps a head teacher.",
+     "definitionFit": "Noggin is informal slang for the head, as in 'use your noggin'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Head"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +226,60 @@
     "text": "Aggressive culture destroyed books",
     "enumeration": "9"
    },
-   "solution": "TRUCULENT"
+   "solution": "TRUCULENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TRUCULENT",
+    "definitions": [
+     {
+      "text": "Aggressive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "destroyed",
+      "for": "anagram",
+      "note": "something destroyed is broken apart, so its letters are rebuilt in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "culture",
+      "gives": "TRUCULE",
+      "note": "the word rearranged"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "NT, the New Testament, is a set of books of the Bible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRUCULE",
+      "NT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CULTURE",
+       "gives": "TRUCULE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An aggressive culture of censorship destroyed books.",
+     "definitionFit": "Truculent means eager to argue or fight, which is aggressive behaviour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "books"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +303,62 @@
      }
     ]
    },
-   "solution": "BREADANDBUTTER"
+   "solution": "BREADANDBUTTER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BREAD-AND-BUTTER",
+    "definitions": [
+     {
+      "text": "Routine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the study word inside the accommodation, here after its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "accommodation",
+      "gives": "BANDB",
+      "note": "B and B, bed and breakfast, a British guesthouse stay"
+     },
+     {
+      "clueFragment": "study",
+      "gives": "READ",
+      "note": "to read a subject at university is to study it"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "UTTER",
+      "note": "to utter is to say"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "READ",
+      "ANDB",
+      "UTTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A guest's usual routine at a guesthouse includes some study.",
+     "walkthrough": "'Accommodation, say' looks like an example marker, but say is a verb supplying the last part. B and B is bed and breakfast, written as B&B.",
+     "definitionFit": "Bread-and-butter work is the ordinary, routine business that provides a steady living."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +372,56 @@
     "text": "Cut power after relative makes digital image",
     "enumeration": "6"
    },
-   "solution": "BITMAP"
+   "solution": "BITMAP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BITMAP",
+    "definitions": [
+     {
+      "text": "digital image",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cut",
+      "gives": "BIT",
+      "note": "bit is the past tense of bite, to cut with the teeth"
+     },
+     {
+      "clueFragment": "relative",
+      "gives": "MA",
+      "note": "a mother, an informal word for a close relative"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the standard abbreviation for power"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIT",
+      "MA",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A power cut caused by a family member somehow produces a digital picture.",
+     "walkthrough": "'Cut' looks like the power cut, but it stands alone: bit is the past tense of bite, cutting with the teeth.",
+     "definitionFit": "A bitmap is a computer graphic stored as a grid of pixels, each recorded as bits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cut"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +435,70 @@
     "text": "One child Abraham and Sarah primarily raised",
     "enumeration": "5"
    },
-   "solution": "ISAAC"
+   "solution": "ISAAC",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "ISAAC",
+    "definitions": [
+     {
+      "text": "One child Abraham and Sarah primarily raised",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first, so each of those words contributes only its opening letter"
+     },
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down entry, raised means lifted to read upwards, reversing the order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "child Abraham and Sarah",
+      "gives": "CAAS",
+      "select": "first",
+      "note": "initial letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "SAAC"
+     ],
+     "reversals": [
+      {
+       "from": "CAAS",
+       "to": "SAAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Bible tells of the one child Abraham and Sarah brought up.",
+     "walkthrough": "The whole clue both builds the name and describes him: in Genesis, the only son of Abraham and Sarah, born in their old age.",
+     "definitionFit": "Isaac was the son born to Abraham and Sarah, the one child they raised together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +512,55 @@
     "text": "Mark is into spirits I reckon",
     "enumeration": "8"
    },
-   "solution": "METHINKS"
+   "solution": "METHINKS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "METHINKS",
+    "definitions": [
+     {
+      "text": "I reckon",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is into",
+      "for": "container",
+      "note": "is into means goes inside, so the mark sits within the spirits"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spirits",
+      "gives": "METHS",
+      "note": "meths is methylated spirits"
+     },
+     {
+      "clueFragment": "Mark",
+      "gives": "INK",
+      "note": "to ink is to mark with ink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "METH",
+      "INK",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone guesses that Mark has taken to drinking spirits.",
+     "walkthrough": "Mark looks like a man's name; it is a verb for staining with ink.",
+     "definitionFit": "Methinks is an archaic expression meaning it seems to me, an equivalent of I reckon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mark"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +574,52 @@
     "text": "Diffuse hair style European had",
     "enumeration": "8"
    },
-   "solution": "PERMEATE"
+   "solution": "PERMEATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PERMEATE",
+    "definitions": [
+     {
+      "text": "Diffuse",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hair style",
+      "gives": "PERM",
+      "note": "a perm is a curled hairstyle"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "had",
+      "gives": "ATE",
+      "note": "to have a meal is to eat it, so had can mean ate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PERM",
+      "E",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A European once had a hairstyle that spread everywhere.",
+     "definitionFit": "To permeate is to spread through something, to diffuse throughout it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "had"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +633,66 @@
     "text": "Blank Biden maybe missing issue involving island",
     "enumeration": "14"
    },
-   "solution": "EXPRESSIONLESS"
+   "solution": "EXPRESSIONLESS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "EXPRESSIONLESS",
+    "definitions": [
+     {
+      "text": "Blank",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "involving means wrapping in, so the issue word goes around the island letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Biden maybe",
+      "gives": "EXPRES",
+      "note": "Joe Biden is a former US president, ex-pres for short"
+     },
+     {
+      "clueFragment": "issue",
+      "gives": "SON",
+      "note": "issue means offspring, such as a son"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     },
+     {
+      "clueFragment": "missing",
+      "gives": "LESS",
+      "note": "less means without, as in a suffix such as hopeless"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXPRES",
+      "SION",
+      "LESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Biden looks blank, perhaps having missed some issue concerning an island.",
+     "walkthrough": "'Missing issue' reads like an overlooked topic, but it works as issue-less, with the island inside the son.",
+     "definitionFit": "A blank face is expressionless, showing no emotion at all."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "issue"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +706,64 @@
     "text": "Shut up about Lou cycling in coat",
     "enumeration": "7"
    },
-   "solution": "CAGOULE"
+   "solution": "CAGOULE",
+   "annotation": {
+    "type": [
+     "cycling",
+     "container"
+    ],
+    "answer": "CAGOULE",
+    "definitions": [
+     {
+      "text": "coat",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cycling",
+      "for": "cycling",
+      "note": "cycling moves the first letter of the name round to the back, as a wheel turns"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the word for shut up goes around the other piece"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shut up",
+      "gives": "CAGE",
+      "note": "to cage something is to shut it up"
+     },
+     {
+      "clueFragment": "Lou",
+      "gives": "OUL",
+      "note": "the name with its first letter moved to the end"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAG",
+      "OUL",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shuts Lou in while he goes off cycling wearing a coat.",
+     "walkthrough": "'Cycling' looks like Lou's pastime on a bike, but it tells you to rotate the name's letters.",
+     "definitionFit": "A cagoule is a lightweight hooded waterproof jacket, a kind of coat worn for walking or cycling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cycling"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +783,56 @@
      }
     ]
    },
-   "solution": "XFACTOR"
+   "solution": "XFACTOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "X-FACTOR",
+    "definitions": [
+     {
+      "text": "Special quality",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cross",
+      "gives": "X",
+      "note": "a cross is drawn as the letter X"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the pencil-grade abbreviation for fine"
+     },
+     {
+      "clueFragment": "player",
+      "gives": "ACTOR",
+      "note": "a player on stage is an actor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "X",
+      "F",
+      "ACTOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A fine actor shows a special quality even when cross.",
+     "definitionFit": "The X factor is an indefinable star quality that makes someone stand out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +846,56 @@
     "text": "Gold-plated cast object I'm splitting",
     "enumeration": "5"
    },
-   "solution": "ADIEU"
+   "solution": "ADIEU",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ADIEU",
+    "definitions": [
+     {
+      "text": "I'm splitting",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "plated",
+      "for": "container",
+      "note": "plating covers an object on the outside, so the metal goes around the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "cast object",
+      "gives": "DIE",
+      "note": "a die is a cube that is cast in games; 'the die is cast'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DIE",
+      "U"
+     ]
+    },
+    "explanation": {
+     "surface": "A gold-plated object, cast in a mould, is splitting apart.",
+     "walkthrough": "'I'm splitting' looks like a description of the cast object cracking, but it is the definition: slang for 'I'm leaving'.",
+     "definitionFit": "Adieu is a farewell said on departure, and 'splitting' is slang for leaving, so saying it means you are off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "splitting"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +909,60 @@
     "text": "The setter's following urgent court order",
     "enumeration": "9"
    },
-   "solution": "DIRECTIVE"
+   "solution": "DIRECTIVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIRECTIVE",
+    "definitions": [
+     {
+      "text": "order",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so the setter's piece is placed behind the rest of the wordplay"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "urgent",
+      "gives": "DIRE",
+      "note": "a dire need is an urgent one"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     },
+     {
+      "clueFragment": "The setter's",
+      "gives": "IVE",
+      "note": "the setter has, as I've"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIRE",
+      "CT",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "The crossword compiler announces receipt of an urgent order from a court.",
+     "walkthrough": "'Court order' looks like one phrase but splits: court is CT and order alone is the definition. 'Following' puts the setter's piece after the others.",
+     "definitionFit": "A directive is an official instruction, an order to be carried out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +982,61 @@
      }
     ]
    },
-   "solution": "TENNISRACKET"
+   "solution": "TENNISRACKET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TENNIS RACKET",
+    "definitions": [
+     {
+      "text": "strung item",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "anagram",
+      "note": "taking something up can mean turning it upside down and disordering it, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Northern",
+      "gives": "N",
+      "note": "N is the abbreviation for northern"
+     },
+     {
+      "clueFragment": "cretin",
+      "gives": "CRETIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "takes",
+      "gives": "TAKES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NCRETINTAKES",
+       "gives": "TENNISRACKET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A northern idiot takes up something strung, such as a guitar or a racket.",
+     "walkthrough": "'Takes up' reads as one phrasal verb, but takes belongs to the letters and up alone signals the rearrangement.",
+     "definitionFit": "A tennis racket's head is strung with taut strings, so it is a strung item."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1050,60 @@
     "text": "Olympian right to stop the podia moving",
     "enumeration": "9"
    },
-   "solution": "APHRODITE"
+   "solution": "APHRODITE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "APHRODITE",
+    "definitions": [
+     {
+      "text": "Olympian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving",
+      "for": "anagram",
+      "note": "moving means shifting around, so the combined letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "to stop"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "the podia",
+      "gives": "THEPODIA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RTHEPODIA",
+       "gives": "APHRODITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Olympic athlete is told to stop the medal podiums from being moved.",
+     "walkthrough": "Olympian suggests a Games competitor, but it means one of the gods of Mount Olympus; the right letter joins the fodder before the shuffle.",
+     "definitionFit": "Aphrodite, goddess of love, was one of the twelve gods who lived on Mount Olympus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Olympian"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1117,61 @@
     "text": "Record essentially prissy poetry events",
     "enumeration": "8"
    },
-   "solution": "EPISODES"
+   "solution": "EPISODES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EPISODES",
+    "definitions": [
+     {
+      "text": "events",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "essentially points to the essence or core, so only the central letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Record",
+      "gives": "EP",
+      "note": "an EP is an extended-play record"
+     },
+     {
+      "clueFragment": "prissy",
+      "gives": "IS",
+      "select": "middle",
+      "note": "the two middle letters"
+     },
+     {
+      "clueFragment": "poetry",
+      "gives": "ODES",
+      "note": "odes are poems"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EP",
+      "IS",
+      "ODES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone keeps a record of fussy poetry readings.",
+     "definitionFit": "Episodes are incidents or happenings, separate events in a longer sequence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Record"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1185,52 @@
     "text": "Tie rings possibly tighter",
     "enumeration": "8"
    },
-   "solution": "STINGIER"
+   "solution": "STINGIER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STINGIER",
+    "definitions": [
+     {
+      "text": "tighter",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly suggests one arrangement among many, so the letters may be reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tie rings",
+      "gives": "TIERINGS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TIERINGS",
+       "gives": "STINGIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fastening rings could make something tighter.",
+     "walkthrough": "Tighter looks physical, as of a knot, but here it means more mean with money.",
+     "definitionFit": "Tight is slang for miserly, so tighter means more stingy with money."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tighter"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1250,69 @@
      }
     ]
    },
-   "solution": "POTATOBLIGHT"
+   "solution": "POTATOBLIGHT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "POTATO BLIGHT",
+    "definitions": [
+     {
+      "text": "Disease",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carries",
+      "for": "container",
+      "note": "something that carries another holds it inside, so the sailor goes around the next word"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vessel",
+      "gives": "POT",
+      "note": "a pot is a vessel"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "AB",
+      "note": "AB, able seaman, is a sailor"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fair",
+      "gives": "LIGHT",
+      "note": "fair hair or skin is light in colour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POT",
+      "ATOB",
+      "LIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor falls ill while carrying goods to a fair aboard a ship.",
+     "walkthrough": "'On vessel' puts the fair piece after the vessel piece, with the sailor wrapping TO in between.",
+     "definitionFit": "Potato blight is a fungal disease of potato plants, the cause of the Irish famine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fair"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1326,64 @@
     "text": "Cushion sibling rolled beneath six-pack?",
     "enumeration": "6"
    },
-   "solution": "ABSORB"
+   "solution": "ABSORB",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ABSORB",
+    "definitions": [
+     {
+      "text": "Cushion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rolled",
+      "for": "reversal",
+      "note": "rolled over means turned round, so the sibling word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "beneath"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "six-pack",
+      "gives": "ABS",
+      "note": "abs, abdominal muscles, form a six-pack"
+     },
+     {
+      "clueFragment": "sibling",
+      "gives": "BRO",
+      "note": "bro is short for brother"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABS",
+      "ORB"
+     ],
+     "reversals": [
+      {
+       "from": "BRO",
+       "to": "ORB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cushion for a sibling rolled under someone with sculpted abdominal muscles.",
+     "walkthrough": "In a down entry, beneath puts the reversed sibling below the six-pack piece.",
+     "definitionFit": "To absorb a blow is to cushion it, soaking up its force."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cushion"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1397,58 @@
     "text": "Fly killer on edges of huge drape",
     "enumeration": "6"
    },
-   "solution": "SWATHE"
+   "solution": "SWATHE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SWATHE",
+    "definitions": [
+     {
+      "text": "drape",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "edges of",
+      "for": "letter_selection",
+      "note": "the edges of a word are its first and last letters"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fly killer",
+      "gives": "SWAT",
+      "note": "a swat is a blow to kill a fly"
+     },
+     {
+      "clueFragment": "huge",
+      "gives": "HE",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWAT",
+      "HE"
+     ]
+    },
+    "explanation": {
+     "surface": "A fly is swatted against a huge curtain.",
+     "definitionFit": "To swathe is to wrap or cover in cloth, as you drape fabric over something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drape"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1462,53 @@
     "text": "Sole person Carol permitted to board",
     "enumeration": "9"
    },
-   "solution": "SINGLETON"
+   "solution": "SINGLETON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SINGLETON",
+    "definitions": [
+     {
+      "text": "Sole person",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Carol",
+      "gives": "SING",
+      "note": "to carol is to sing"
+     },
+     {
+      "clueFragment": "permitted",
+      "gives": "LET",
+      "note": "let means allowed"
+     },
+     {
+      "clueFragment": "to board",
+      "gives": "ON",
+      "note": "to board a vehicle is to get on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SING",
+      "LET",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A lone woman named Carol is allowed to board.",
+     "walkthrough": "Carol looks like a woman's name but is the verb for singing.",
+     "definitionFit": "A singleton is an individual on their own, especially someone unattached."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Carol"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1522,59 @@
     "text": "Decode scrawl finally on underside of dog tag",
     "enumeration": "5"
    },
-   "solution": "LABEL"
+   "solution": "LABEL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LABEL",
+    "definitions": [
+     {
+      "text": "tag",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end, so only the final letter of each word counts"
+     }
+    ],
+    "linkWords": [
+     "on underside of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog",
+      "gives": "LAB",
+      "note": "a Lab, Labrador, is a breed of dog"
+     },
+     {
+      "clueFragment": "Decode scrawl",
+      "gives": "EL",
+      "select": "last",
+      "note": "last letters of the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAB",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries to read the scribbled writing on the back of a dog tag.",
+     "walkthrough": "'Dog tag' looks like one phrase, but dog supplies a breed and tag alone is the definition. In a down entry, on the underside places the kept letters below.",
+     "definitionFit": "A label is a tag attached to something to identify it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dog"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1588,63 @@
     "text": "Ten occupying old part of ship in river bend",
     "enumeration": "5"
    },
-   "solution": "OXBOW"
+   "solution": "OXBOW",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "OXBOW",
+    "definitions": [
+     {
+      "text": "river bend",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occupying",
+      "for": "container",
+      "note": "to occupy is to sit within, so ten goes inside the word for old"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "Ten",
+      "gives": "X",
+      "note": "X is the Roman numeral for ten"
+     },
+     {
+      "clueFragment": "part of ship",
+      "gives": "BOW",
+      "note": "the bow is the front part of a ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "X",
+      "BOW"
+     ]
+    },
+    "explanation": {
+     "surface": "Ten crew occupy the old front of a ship as it rounds a bend in the river.",
+     "definitionFit": "An oxbow is a horseshoe-shaped loop in a meandering river."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ten"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1658,73 @@
     "text": "Black hen perhaps back outside of large run",
     "enumeration": "7"
    },
-   "solution": "DRIBBLE"
+   "solution": "DRIBBLE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DRIBBLE",
+    "definitions": [
+     {
+      "text": "run",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means reading the preceding words from right to left"
+     },
+     {
+      "text": "outside of",
+      "for": "letter_selection",
+      "note": "the outside of a word is its first and last letter only"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Black",
+      "gives": "B",
+      "note": "B is the abbreviation for black"
+     },
+     {
+      "clueFragment": "hen perhaps",
+      "gives": "BIRD",
+      "note": "a hen is an example of a bird"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "LE",
+      "select": "outer",
+      "note": "first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRIBB",
+      "LE"
+     ],
+     "reversals": [
+      {
+       "from": "BBIRD",
+       "to": "DRIBB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A black hen runs back around a large run on a farm.",
+     "walkthrough": "'Run' looks like part of the chicken run, but it is the definition.",
+     "definitionFit": "To dribble is to trickle or run in drops, as liquid does down a chin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1744,65 @@
      }
     ]
    },
-   "solution": "EDITOUT"
+   "solution": "EDITOUT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "EDIT OUT",
+    "definitions": [
+     {
+      "text": "Cut unwanted bits",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "returned means sent back, so the fish's name is read from right to left"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "IDE",
+      "note": "the ide is a freshwater fish, a crossword regular"
+     },
+     {
+      "clueFragment": "seller",
+      "gives": "TOUT",
+      "note": "a tout sells tickets or goods aggressively"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDI",
+      "TOUT"
+     ],
+     "reversals": [
+      {
+       "from": "IDE",
+       "to": "EDI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fishmonger cuts unwanted bits off a fish that a customer brought back.",
+     "walkthrough": "'Cut unwanted bits of fish' reads as filleting; the definition stops at 'bits'.",
+     "definitionFit": "To edit out is to remove unwanted material from a text or recording."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fish"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1816,58 @@
     "text": "Cart left by last couple on South Promenade",
     "enumeration": "6"
    },
-   "solution": "STROLL"
+   "solution": "STROLL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "STROLL",
+    "definitions": [
+     {
+      "text": "Promenade",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left by last couple",
+      "for": "deletion",
+      "note": "being left by its last couple means losing the final two letters"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South",
+      "gives": "S",
+      "note": "S is the abbreviation for south"
+     },
+     {
+      "clueFragment": "Cart",
+      "gives": "TROLLEY",
+      "note": "a trolley is a small cart"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TROLL"
+     ]
+    },
+    "explanation": {
+     "surface": "A cart has been abandoned by the last pair of strollers on the South Promenade.",
+     "walkthrough": "In a down-style reading 'on' would mean below, but here it simply places the short piece first. Promenade looks like a seafront name; it is the definition.",
+     "definitionFit": "To promenade is to walk at leisure, the same as taking a gentle stroll."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Promenade"
+    }
+   }
   },
   {
    "number": 27,
@@ -449,7 +1881,65 @@
     "text": "26 collecting sister periodically for rally",
     "enumeration": "8"
    },
-   "solution": "ASSEMBLE"
+   "solution": "ASSEMBLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ASSEMBLE",
+    "definitions": [
+     {
+      "text": "rally",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "periodically",
+      "for": "letter_selection",
+      "note": "periodically means at regular intervals, so only every other letter is kept"
+     },
+     {
+      "text": "collecting",
+      "for": "container",
+      "note": "collecting means gathering in, so the first piece holds the second inside it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "26",
+      "gives": "AMBLE",
+      "note": "26 across is STROLL, and a synonym for that is amble"
+     },
+     {
+      "clueFragment": "sister",
+      "gives": "SSE",
+      "select": "alternate",
+      "note": "first, third and fifth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SSE",
+      "MBLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A walker picks up a sister now and then on the way to a rally.",
+     "walkthrough": "The cross-reference does not take 26's answer directly but a synonym of it, AMBLE, which wraps the kept letters after its A.",
+     "definitionFit": "To assemble is to gather together, as people do when they rally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "periodically"
+    }
+   }
   }
  ]
 }
