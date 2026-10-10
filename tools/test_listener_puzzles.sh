@@ -128,6 +128,16 @@ notes = ("<tr><td class='cluegrouphead'>Across</td></tr>"
          "<tr><td class='cluegrouphead'>Down</td></tr>"
          "<tr><td> 2 </td><td> T </td><td> BOS&rsquo;NS </td><td> BOSS about N </td></tr>")
 print("NOTES", L.notes_answers(notes))
+# An archive PDF is dated by the year index's row for its number, never by a
+# day typed beside it (No 93 was typed two weeks late, 1932-01-06).
+import datetime, sys, types
+sys.modules["gale_listener"] = types.SimpleNamespace(index=lambda: [
+    {"number": n, "date": datetime.date(1931, 12, 23) + datetime.timedelta(n)} for n in L.PDFS])
+got = {}
+L.pdf_bytes = lambda name: b""
+L.assemble = lambda number, a, b, date: (got.__setitem__(number, date), (None, "stub"))[1]
+L.file_pdfs(write=False, log=lambda *_: None)
+print("PDFDATES", got[93], got[1])
 PY
 )
 
@@ -157,5 +167,7 @@ check "No 3999's change: S and N out, T in anywhere" "SNT True []" "$(grep '^SNT
 check "bars symmetric turned half round, not when one is missing" "SYM True False" "$(grep '^SYM' <<<"$out")"
 check "notes: the answer is the capitalised cell after the number" \
   "NOTES {(1, 'across'): 'CANOPY', (2, 'down'): 'BOS’NS'}" "$(grep '^NOTES' <<<"$out")"
+
+check "an archive PDF's date is the year index's" "PDFDATES 1932-03-25 1931-12-24" "$(grep '^PDFDATES' <<<"$out")"
 
 [ "$fails" -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }
