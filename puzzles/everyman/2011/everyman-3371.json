@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,47 @@
     "text": "Dominate on show",
     "enumeration": "8"
    },
-   "solution": "OVERBEAR"
+   "solution": "OVERBEAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERBEAR",
+    "definitions": [
+     {
+      "text": "Dominate",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "OVER",
+      "note": "over in the sense of on top of"
+     },
+     {
+      "clueFragment": "show",
+      "gives": "BEAR",
+      "note": "to bear is to show or display, as a sign bears a name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "BEAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes charge of an exhibition or performance.",
+     "walkthrough": "'On show' reads as one phrase but splits into two short synonyms placed side by side.",
+     "definitionFit": "To overbear is to overwhelm or domineer, pressing down on others by force or authority."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "show"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +90,42 @@
     "text": "An examination in morality",
     "enumeration": "4"
    },
-   "solution": "ORAL"
+   "solution": "ORAL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ORAL",
+    "definitions": [
+     {
+      "text": "An examination",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the wanted letters sit inside the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "morality",
+      "gives": "ORAL",
+      "note": "the run of letters after the first M"
+     }
+    ],
+    "explanation": {
+     "surface": "A test of someone's ethics.",
+     "definitionFit": "An oral is a spoken exam, as in a viva or language test."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +139,62 @@
     "text": "Formerly caught basking in shade, like the dodo?",
     "enumeration": "7"
    },
-   "solution": "EXTINCT"
+   "solution": "EXTINCT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EXTINCT",
+    "definitions": [
+     {
+      "text": "like the dodo",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "basking in",
+      "for": "container",
+      "note": "something basking lies inside the warmth around it, so one piece sits within the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Formerly",
+      "gives": "EX",
+      "note": "ex- means former"
+     },
+     {
+      "clueFragment": "shade",
+      "gives": "TINT",
+      "note": "a tint is a shade of colour"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "TIN",
+      "C",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A sunbathing animal was once captured, perhaps like a famously lost bird.",
+     "walkthrough": "'Basking in shade' reads as lounging in the cool; it means the catch letter sits inside the colour word. The question mark flags the dodo as an example.",
+     "definitionFit": "The dodo is the classic example of a species that died out, so extinct describes it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "basking"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +208,67 @@
     "text": "Hood in Virginia following a cab, all agitated",
     "enumeration": "9"
    },
-   "solution": "BALACLAVA"
+   "solution": "BALACLAVA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "BALACLAVA",
+    "definitions": [
+     {
+      "text": "Hood",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "agitated",
+      "for": "anagram",
+      "note": "agitated letters are shaken up and land in a new order"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following puts the state abbreviation after the other part"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a cab, all",
+      "gives": "ACABALL",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "Virginia",
+      "gives": "VA",
+      "note": "VA is the postal abbreviation for the US state of Virginia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BALACLA",
+      "VA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ACABALL",
+       "gives": "BALACLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hoodlum in Virginia chases a taxi in a state of agitation.",
+     "walkthrough": "'Hood' suggests a gangster in the surface, but here it is a garment.",
+     "definitionFit": "A balaclava is a close-fitting woollen hood covering head and neck, leaving the face partly open."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hood"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +282,42 @@
     "text": "Suitable nick",
     "enumeration": "11"
    },
-   "solution": "APPROPRIATE"
+   "solution": "APPROPRIATE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "APPROPRIATE",
+    "definitions": [
+     {
+      "text": "Suitable",
+      "at": 0
+     },
+     {
+      "text": "nick",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Suitable",
+      "note": "first meaning: fitting, proper"
+     },
+     {
+      "clueFragment": "nick",
+      "note": "second meaning: to steal, take for oneself"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Nick is British slang for steal; the adjective and the verb are spelt alike but said differently.",
+     "definitionFit": "The word is an adjective for fitting and a verb for taking something without permission."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nick"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +331,65 @@
     "text": "Pen note about one in block",
     "enumeration": "6"
    },
-   "solution": "STYMIE"
+   "solution": "STYMIE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "STYMIE",
+    "definitions": [
+     {
+      "text": "block",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around, so the note surrounds the number"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pen",
+      "gives": "STY",
+      "note": "a pig's pen is a sty"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "ME",
+      "note": "me is a variant spelling of mi, the third note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STY",
+      "M",
+      "I",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Writing a short message about someone in an apartment building.",
+     "walkthrough": "'Pen' and 'note' look like writing; one is a pig enclosure, the other a musical note.",
+     "definitionFit": "To stymie someone is to obstruct or thwart them, a sense from a golf ball blocking the hole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pen"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +403,49 @@
     "text": "Fish off Turkey, seawards",
     "enumeration": "5"
    },
-   "solution": "TROUT"
+   "solution": "TROUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TROUT",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "off"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turkey",
+      "gives": "TR",
+      "note": "TR is the international vehicle code for Turkey"
+     },
+     {
+      "clueFragment": "seawards",
+      "gives": "OUT",
+      "note": "out to sea, away from shore"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Fishing in the waters off the Turkish coast, heading out to sea.",
+     "definitionFit": "A trout is a freshwater game fish of the salmon family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Turkey"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +459,48 @@
     "text": "Swallow one gin and vermouth",
     "enumeration": "7"
    },
-   "solution": "MARTINI"
+   "solution": "MARTINI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MARTINI",
+    "definitions": [
+     {
+      "text": "gin and vermouth",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swallow",
+      "gives": "MARTIN",
+      "note": "the martin is a bird of the swallow family"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MARTIN",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to down a single cocktail.",
+     "walkthrough": "'Swallow' looks like a verb about drinking; it is the bird.",
+     "definitionFit": "A martini is a cocktail mixed from gin and dry vermouth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Swallow"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +514,53 @@
     "text": "In Greece, men's deceptive appearances",
     "enumeration": "10"
    },
-   "solution": "EMERGENCES"
+   "solution": "EMERGENCES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EMERGENCES",
+    "definitions": [
+     {
+      "text": "appearances",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "deceptive",
+      "for": "anagram",
+      "note": "something deceptive is not what it seems, so these letters hide another word"
+     }
+    ],
+    "linkWords": [
+     "In"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greece, men's",
+      "gives": "GREECEMENS",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GREECEMENS",
+       "gives": "EMERGENCES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Greek men are said to look different from how they really are.",
+     "definitionFit": "An emergence is a coming into view, so emergences are appearances or arrivals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "deceptive"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +574,49 @@
     "text": "This animal could make worker run away",
     "enumeration": "8"
    },
-   "solution": "ANTELOPE"
+   "solution": "ANTELOPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANTELOPE",
+    "definitions": [
+     {
+      "text": "This animal",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "could make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "worker",
+      "gives": "ANT",
+      "note": "the worker ant is the crossword's usual worker"
+     },
+     {
+      "clueFragment": "run away",
+      "gives": "ELOPE",
+      "note": "to elope is to run away to marry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANT",
+      "ELOPE"
+     ]
+    },
+    "explanation": {
+     "surface": "Some creature is frightening enough to send a labourer fleeing.",
+     "definitionFit": "The antelope is a swift, horned grazing mammal of Africa and Asia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worker"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +630,43 @@
     "text": "Reportedly vulgar passage",
     "enumeration": "6"
    },
-   "solution": "COURSE"
+   "solution": "COURSE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "COURSE",
+    "definitions": [
+     {
+      "text": "passage",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "reportedly means as said, so the spoken form of a word counts here"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vulgar",
+      "gives": "COURSE",
+      "soundsLike": "COARSE",
+      "note": "coarse means vulgar, and is said the same as its partner"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is said to be crude in the way they pass by.",
+     "definitionFit": "A course is a passage or route, as of a river or of time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "passage"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +690,43 @@
      }
     ]
    },
-   "solution": "NECKORNOTHING"
+   "solution": "NECKORNOTHING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NECK OR NOTHING",
+    "definitions": [
+     {
+      "text": "Prepared to risk everything",
+      "at": 0
+     },
+     {
+      "text": "so no other joint will do",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prepared to risk everything",
+      "note": "first meaning: staking all on one attempt"
+     },
+     {
+      "clueFragment": "so no other joint will do",
+      "note": "second meaning, read cryptically: a diner who will take the neck cut of meat or go without"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half takes the phrase literally: a joint is a cut of meat, and the customer accepts only one cut or none.",
+     "definitionFit": "The idiom describes going all out, accepting total success or total failure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "joint"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +750,53 @@
      }
     ]
    },
-   "solution": "NOMDEGUERRE"
+   "solution": "NOMDEGUERRE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NOM DE GUERRE",
+    "definitions": [
+     {
+      "text": "Assumed name",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "criminal suggests something crooked or bent out of its proper shape"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rogue mender",
+      "gives": "ROGUEMENDER",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROGUEMENDER",
+       "gives": "NOMDEGUERRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dodgy repairman operates under an alias.",
+     "definitionFit": "A nom de guerre, French for war name, is a pseudonym adopted for a cause or campaign."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +810,64 @@
     "text": "Evil crime involved importing Latin pasta",
     "enumeration": "10"
    },
-   "solution": "VERMICELLI"
+   "solution": "VERMICELLI",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "VERMICELLI",
+    "definitions": [
+     {
+      "text": "pasta",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "importing",
+      "for": "container",
+      "note": "importing means bringing something in, so a letter is added inside"
+     },
+     {
+      "text": "involved",
+      "for": "anagram",
+      "note": "involved means tangled or intricate, so the letters are twisted together"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Evil crime",
+      "gives": "EVILCRIME",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "Latin",
+      "gives": "L",
+      "note": "L is the standard abbreviation for Latin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VERMICELLI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EVILCRIMEL",
+       "gives": "VERMICELLI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wicked offence involved smuggling Italian food.",
+     "definitionFit": "Vermicelli is a very thin variety of pasta, its name meaning little worms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Latin"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +881,45 @@
     "text": "Not included in special edition",
     "enumeration": "5"
    },
-   "solution": "EXTRA"
+   "solution": "EXTRA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EXTRA",
+    "definitions": [
+     {
+      "text": "Not included",
+      "at": 0
+     },
+     {
+      "text": "special edition",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not included",
+      "note": "first meaning: charged on top"
+     },
+     {
+      "clueFragment": "special edition",
+      "note": "second meaning: a special issue of a newspaper"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as one phrase about a limited release; 'in' just joins two separate senses.",
+     "definitionFit": "An extra is an additional charge left out of the basic price, and also a newspaper's special issue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "included"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +933,50 @@
     "text": "Touching, calling for forgiveness",
     "enumeration": "9"
    },
-   "solution": "REMISSION"
+   "solution": "REMISSION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REMISSION",
+    "definitions": [
+     {
+      "text": "forgiveness",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Touching",
+      "gives": "RE",
+      "note": "re means concerning or touching on"
+     },
+     {
+      "clueFragment": "calling",
+      "gives": "MISSION",
+      "note": "a calling or vocation is one's mission"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "MISSION"
+     ]
+    },
+    "explanation": {
+     "surface": "A moving plea asking to be pardoned.",
+     "walkthrough": "'Touching' and 'calling' look like emotion and shouting; they mean about and vocation.",
+     "definitionFit": "Remission of sins is their pardon, so remission can mean forgiveness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Touching"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +996,68 @@
      }
     ]
    },
-   "solution": "SALADDAYS"
+   "solution": "SALADDAYS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SALAD DAYS",
+    "definitions": [
+     {
+      "text": "a musical",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the outer word wraps the family members"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Speaks",
+      "gives": "SAYS",
+      "note": "says is a synonym of speaks"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "LAD",
+      "note": "a son is a lad"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the genealogical abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ALADD",
+      "AYS"
+     ]
+    },
+    "explanation": {
+     "surface": "A parent talks about their children putting on a stage show.",
+     "walkthrough": "The family members go inside the speaking word, just after its first letter. Calling a son a lad is loose but common in crosswords.",
+     "definitionFit": "Salad Days is a 1954 British stage musical by Julian Slade, one of the longest-running of its era."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Speaks"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1071,62 @@
     "text": "Spoil old lady and boy with English jam",
     "enumeration": "9"
    },
-   "solution": "MARMALADE"
+   "solution": "MARMALADE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MARMALADE",
+    "definitions": [
+     {
+      "text": "jam",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spoil",
+      "gives": "MAR",
+      "note": "to mar is to spoil"
+     },
+     {
+      "clueFragment": "old lady",
+      "gives": "MA",
+      "note": "one's old lady is mother, ma"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "LAD",
+      "note": "a lad is a boy"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAR",
+      "MA",
+      "LAD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Indulging an elderly woman and a child with a sweet English preserve.",
+     "walkthrough": "'Spoil' suggests pampering in the surface; it means damage.",
+     "definitionFit": "Marmalade is a preserve made from citrus fruit, a kind of jam."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Spoil"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1140,59 @@
     "text": "Fox pelt said to be on a road?",
     "enumeration": "7"
    },
-   "solution": "REYNARD"
+   "solution": "REYNARD",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "REYNARD",
+    "definitions": [
+     {
+      "text": "Fox",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said",
+      "for": "homophone",
+      "note": "said means spoken, so the word for the weather counts by its sound"
+     }
+    ],
+    "linkWords": [
+     "to be on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pelt",
+      "gives": "REYN",
+      "soundsLike": "RAIN",
+      "note": "to pelt is to rain hard; the spoken word supplies the opening sound"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "RD",
+      "note": "Rd is the abbreviation for road"
+     }
+    ],
+    "explanation": {
+     "surface": "A fox's skin is apparently lying on a road, roadkill perhaps.",
+     "walkthrough": "'Pelt' looks like the fox's fur; it is the verb for heavy rain. 'To be on' puts the sound before A RD.",
+     "definitionFit": "Reynard is the traditional name for the fox in medieval fable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pelt"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1206,49 @@
     "text": "Slip in left part of church",
     "enumeration": "5"
    },
-   "solution": "LAPSE"
+   "solution": "LAPSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAPSE",
+    "definitions": [
+     {
+      "text": "Slip",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "part of church",
+      "gives": "APSE",
+      "note": "the apse is the rounded end of a church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "APSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone trips in the left-hand section of a church.",
+     "definitionFit": "A lapse is a slip or small error, as in a lapse of memory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Slip"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1262,69 @@
     "text": "Trellis made from a bulky piece of wood agent erected",
     "enumeration": "7"
    },
-   "solution": "PERGOLA"
+   "solution": "PERGOLA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PERGOLA",
+    "definitions": [
+     {
+      "text": "Trellis",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "erected",
+      "for": "reversal",
+      "note": "in a down clue, erected means set upright, so the letters read bottom to top"
+     }
+    ],
+    "linkWords": [
+     "made from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bulky piece of wood",
+      "gives": "LOG",
+      "note": "a log is a thick piece of wood"
+     },
+     {
+      "clueFragment": "agent",
+      "gives": "REP",
+      "note": "rep, short for representative, is an agent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PER",
+      "GOL",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "ALOGREP",
+       "to": "PERGOLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A garden frame built from a heavy timber that someone put up.",
+     "definitionFit": "A pergola is an arbour or trellis framework over a walk, for climbing plants."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "erected"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1348,54 @@
      }
     ]
    },
-   "solution": "CRYBLUEMURDER"
+   "solution": "CRYBLUEMURDER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CRY BLUE MURDER",
+    "definitions": [
+     {
+      "text": "Make an unwarranted fuss",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the wrong way",
+      "for": "anagram",
+      "note": "rubbing the wrong way disturbs the natural order, so letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "duly rub mercer",
+      "gives": "DULYRUBMERCER",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DULYRUBMERCER",
+       "gives": "CRYBLUEMURDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Complaining loudly about irritating a cloth merchant.",
+     "walkthrough": "A mercer is a dealer in fine fabrics; 'rub the wrong way' is an idiom for annoy.",
+     "definitionFit": "To cry blue murder is to protest loudly and excessively, an idiom for overreacting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rub"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1415,58 @@
      }
     ]
    },
-   "solution": "LETON"
+   "solution": "LETON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LET ON",
+    "definitions": [
+     {
+      "text": "Divulge information",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "head of a word means its opening letter only"
+     }
+    ],
+    "linkWords": [
+     "got from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "language",
+      "gives": "L",
+      "select": "first",
+      "note": "the opening letter of language"
+     },
+     {
+      "clueFragment": "college",
+      "gives": "ETON",
+      "note": "Eton is the famous English public school, Eton College"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ETON"
+     ]
+    },
+    "explanation": {
+     "surface": "A source within a language school leaked details.",
+     "definitionFit": "To let on is the idiom for revealing a secret or telling what one knows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "college"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1486,48 @@
      }
     ]
    },
-   "solution": "ATIT"
+   "solution": "ATIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AT IT",
+    "definitions": [
+     {
+      "text": "up to some criminal activity",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "flighty creature",
+      "gives": "TIT",
+      "note": "a tit is a small bird, a creature of flight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A fickle person is engaged in wrongdoing.",
+     "walkthrough": "'Flighty' suggests capricious in the surface; here it means able to fly.",
+     "definitionFit": "Someone at it again is up to their usual tricks or mischief, an idiom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flighty"
+    }
+   }
   },
   {
    "number": 24,
@@ -423,7 +1547,54 @@
      }
     ]
    },
-   "solution": "LEANTO"
+   "solution": "LEANTO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LEAN-TO",
+    "definitions": [
+     {
+      "text": "shed",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "locking",
+      "for": "container",
+      "note": "locking means shutting something in, so one part holds the other inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slowly",
+      "gives": "LENTO",
+      "note": "lento is the musical direction for slowly"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "A",
+      "NTO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes their time securing an outbuilding.",
+     "definitionFit": "A lean-to is a simple shed built against a wall, its roof leaning on it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Slowly"
+    }
+   }
   },
   {
    "number": 25,
@@ -443,7 +1614,53 @@
      }
     ]
    },
-   "solution": "BREAKOUT"
+   "solution": "BREAKOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BREAK OUT",
+    "definitions": [
+     {
+      "text": "Appear suddenly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the flowering word behind the other one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "holiday",
+      "gives": "BREAK",
+      "note": "a break is a short holiday"
+     },
+     {
+      "clueFragment": "blooming",
+      "gives": "OUT",
+      "note": "flowers that are out are in bloom"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BREAK",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Flowers spring up after a vacation away.",
+     "definitionFit": "A rash or fighting can break out, arising suddenly and spreading."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blooming"
+    }
+   }
   },
   {
    "number": 26,
@@ -457,7 +1674,61 @@
     "text": "I eat after one - duck?",
     "enumeration": "6"
    },
-   "solution": "IODINE"
+   "solution": "IODINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IODINE",
+    "definitions": [
+     {
+      "text": "I",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after puts the verb behind the two single letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "duck",
+      "gives": "O",
+      "note": "a duck is a score of nought in cricket, shaped like O"
+     },
+     {
+      "clueFragment": "eat",
+      "gives": "DINE",
+      "note": "to dine is to eat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "O",
+      "DINE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether they get to eat after a bird has gone first.",
+     "walkthrough": "The opening 'I' looks like the speaker but is the definition: I is iodine's chemical symbol.",
+     "definitionFit": "I is the chemical symbol of iodine, a halogen element."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "I"
+    }
+   }
   },
   {
    "number": 27,
@@ -471,7 +1742,52 @@
     "text": "Bird studied, we hear, at dawn",
     "enumeration": "8"
    },
-   "solution": "REDSTART"
+   "solution": "REDSTART",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "REDSTART",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "we hear means heard rather than seen, so the sound of the past tense counts"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "studied",
+      "gives": "RED",
+      "soundsLike": "READ",
+      "note": "read, past tense, means studied and sounds like the colour"
+     },
+     {
+      "clueFragment": "dawn",
+      "gives": "START",
+      "note": "the dawn of something is its start"
+     }
+    ],
+    "explanation": {
+     "surface": "A bird observed at first light, by sound.",
+     "definitionFit": "The redstart is a small songbird with a reddish tail, 'start' being an old word for tail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "studied"
+    }
+   }
   }
  ]
 }
