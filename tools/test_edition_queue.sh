@@ -366,6 +366,20 @@ check("a 429 lowers the pool; FETCH_OUTAGES down in a row stop the source for th
       ("at most 1 fetches at once" in err.getvalue(), "no more fetches this run" in err.getvalue(),
        "start fetch e5" in log.read_text()))
 
+# A slow fetch plan holds no read back: the first plan's reads start before it is made.
+log.unlink()
+fake(default=0.3, ends=False)
+err = io.StringIO()
+plan_saw = []
+def slow_fetch_plan():
+    plan_saw.append("start read r1" in err.getvalue())
+    return [{"rel": "e0", "reason": "not fetched"}]
+eq.FETCHERS = {"src": {"plan": slow_fetch_plan, "workers": 1, "seconds": 5}}
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=1, fetch=["src"], replan=0.2)
+check("the first plan starts its reads before the fetch plan is made, and the fetches after", (True, True),
+      (plan_saw[:1] == [True], "start fetch e0" in log.read_text()))
+
 # Each unit's command line names its kind, paper and edition, not the queue's.
 log.unlink()
 fake(ps=True)

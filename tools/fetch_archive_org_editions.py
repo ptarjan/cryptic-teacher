@@ -122,10 +122,12 @@ import concurrent.futures
 import contextlib
 import datetime
 import gzip
+import hashlib
 import io
 import itertools
 import json
 import os
+import pickle
 import re
 import shutil
 import sys
@@ -547,15 +549,78 @@ def _fold_done(done, line):
 #: {edition dir: (dirs read, their dir_cache.dir_key, stale(edition dir))}
 #: of each verdict whose dirs had all settled (load_done).
 _STALE = {}
+#: Where load_done keeps _STALE between processes, on local disk: a plan in
+#: a fresh process (each slice of the full pass, each re-exec) stats the
+#: dirs a verdict read, not their pages.json (thousands of reads off the
+#: media mount, minutes).
+STALE_CACHE = Path(os.environ.get("XDG_CACHE_HOME") or Path.home() / ".cache") / "cryptic-teacher"
+#: Seconds between saves of _STALE within one plan, so a plan cut short
+#: (its slice ends first) leaves what it worked out to the next.
+STALE_SAVE_SECONDS = 300
+#: The out roots whose saved verdicts this process has loaded.
+_STALE_LOADED = set()
+#: This module's source as imported: the verdicts' code key is of the code
+#: running, not of a file edited since.
+_SOURCE = Path(__file__).read_text(encoding="utf-8")
+_STALE_VERSION = []
+
+
+def stale_version():
+    """The code key the saved verdicts are kept under: what stale and
+    stale_dirs reach (tools/code_reach.py)."""
+    if not _STALE_VERSION:
+        import code_reach  # here: a fetch unit loads only its MODULES
+        _STALE_VERSION.append(code_reach.key("fetch_archive_org_editions", {"stale", "stale_dirs"},
+                                             {"fetch_archive_org_editions": _SOURCE}))
+    return _STALE_VERSION[0]
+
+
+def stale_cache_path(out):
+    return STALE_CACHE / f"archive_org_stale-{hashlib.sha256(os.fspath(out).encode()).hexdigest()[:12]}.pickle"
+
+
+def load_stale(out):
+    """Fill _STALE with the verdicts saved for `out` under this code, once a process."""
+    out = os.fspath(out)
+    if out in _STALE_LOADED:
+        return
+    _STALE_LOADED.add(out)
+    try:
+        with open(stale_cache_path(out), "rb") as f:
+            saved = pickle.load(f)
+    except (OSError, ValueError, EOFError, pickle.UnpicklingError):
+        return
+    if saved.get("out") == out and saved.get("version") == stale_version():
+        for d, hit in saved["stale"].items():
+            _STALE.setdefault(d, hit)
+
+
+def save_stale(out, dirs):
+    """Write _STALE's verdicts of the edition `dirs` for the next process,
+    atomically; each dir and key once in the file, however many share it."""
+    same = {}
+    one = lambda x: same.setdefault(x, x)
+    keep = {d: ([one(x) for x in hit[0]], [one(k) for k in hit[1]], hit[2])
+            for d in dirs if (hit := _STALE.get(d))}
+    path = stale_cache_path(out)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_name(f"{path.name}.{os.getpid()}.part")
+    with open(tmp, "wb") as f:
+        pickle.dump({"out": os.fspath(out), "version": stale_version(), "stale": keep}, f, pickle.HIGHEST_PROTOCOL)
+    os.replace(tmp, path)
 
 
 def load_done(out):
     """{(item, edition)} of done.tsv's rows at DETECTOR_VERSION that are not
     stale. done.tsv is parsed only as far as it grew (dir_cache.appended);
     an edition's stale verdict is kept until a dir it read (stale_dirs)
-    moves its dir_cache.dir_key."""
+    moves its dir_cache.dir_key, across processes (load_stale, save_stale)."""
     rows = dir_cache.appended(os.path.join(out, "done.tsv"), set, _fold_done)
+    load_stale(out)
+    rows = list(rows)
+    dirs = [os.path.join(out, item, slug_of(item, name)) for item, name in rows]
     done, keys = set(), {}
+    changed, saved = False, time.monotonic()
 
     def key(d):
         if d not in keys:
@@ -567,19 +632,24 @@ def load_done(out):
         return keys[d]
 
     with one_pass():
-        for item, name in rows:
-            d = os.path.join(out, item, slug_of(item, name))
+        for (item, name), d in zip(rows, dirs):
             hit = _STALE.get(d)
             if hit is None or [key(x) for x in hit[0]] != hit[1]:
-                dirs = stale_dirs(d)
-                ks = [key(x) for x in dirs]
-                hit = (dirs, ks, stale(d))
+                dirs_read = stale_dirs(d)
+                ks = [key(x) for x in dirs_read]
+                hit = (dirs_read, ks, stale(d))
+                changed = True
                 if None in ks:
                     _STALE.pop(d, None)
                 else:
                     _STALE[d] = hit
+                if time.monotonic() - saved > STALE_SAVE_SECONDS:
+                    save_stale(out, dirs)
+                    saved = time.monotonic()
             if not hit[2]:
                 done.add((item, name))
+    if changed or not stale_cache_path(out).exists():
+        save_stale(out, dirs)
     return done
 
 
