@@ -37,6 +37,9 @@
   "date": "2021-04-25",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing; clues and answers read from cryptics.georgeho.org (ODbL)'s copy of the post, which drops the counts, so each count is read off the blogger's answer"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -50,7 +53,60 @@
     "text": "Insect with wings clipped crawled around",
     "enumeration": "5"
    },
-   "solution": "EGGAR"
+   "solution": "EGGAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "EGGAR",
+    "definitions": [
+     {
+      "text": "Insect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with wings clipped",
+      "for": "deletion",
+      "note": "a bird with clipped wings has lost its extremities, so the word loses its outer letters"
+     },
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "turned around, the trimmed word is read from its far end back"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crawled",
+      "gives": "DRAGGED",
+      "note": "to drag oneself along is to crawl slowly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EGGAR"
+     ],
+     "reversals": [
+      {
+       "from": "RAGGE",
+       "to": "EGGAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bug with damaged wings could only creep about.",
+     "walkthrough": "DRAGGED loses both D's to leave RAGGE, which turned round gives EGGAR.",
+     "definitionFit": "The eggar is a large moth, so an insect; the name comes from its egg-shaped cocoon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wings"
+    }
+   }
   },
   {
    "number": 1,
@@ -64,7 +120,45 @@
     "text": "Leaks what Cockney 'umorist does in audition",
     "enumeration": "6"
    },
-   "solution": "EGESTS"
+   "solution": "EGESTS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EGESTS",
+    "definitions": [
+     {
+      "text": "Leaks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in audition",
+      "for": "homophone",
+      "note": "an audition is a hearing, so the phrase is to be judged by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what Cockney 'umorist does",
+      "gives": "EGESTS",
+      "soundsLike": "'E JESTS",
+      "note": "a Cockney drops the H, so a humorist who jests becomes 'e jests"
+     }
+    ],
+    "explanation": {
+     "surface": "A Cockney comic lets slip secrets while trying out for a part.",
+     "walkthrough": "The apostrophe in 'umorist is the hint that the H is dropped throughout, as in Cockney speech.",
+     "definitionFit": "To egest is to discharge or excrete from the body, so it fits leaks as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "audition"
+    }
+   }
   },
   {
    "number": 2,
@@ -78,7 +172,58 @@
     "text": "Fish from historic Scottish bar close to Dundee",
     "enumeration": "4"
    },
-   "solution": "GADE"
+   "solution": "GADE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "GADE",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "what is closest to the end of a word is its final letter"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "historic Scottish bar",
+      "gives": "GAD",
+      "note": "an old Scots word for a bar or rod of metal"
+     },
+     {
+      "clueFragment": "Dundee",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of Dundee"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Fish served in an old Scottish pub near Dundee.",
+     "definitionFit": "A gade is a fish of the cod family, a name found in older dictionaries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 3,
@@ -92,7 +237,56 @@
     "text": "Stone taken off instead of getting over",
     "enumeration": "5"
    },
-   "solution": "AGAIN"
+   "solution": "AGAIN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AGAIN",
+    "definitions": [
+     {
+      "text": "over",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken off",
+      "for": "deletion",
+      "note": "something taken off is removed, so those letters come out of the longer word"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stone",
+      "gives": "ST",
+      "note": "ST is the abbreviation for the stone, a British weight of 14 pounds"
+     },
+     {
+      "clueFragment": "instead of",
+      "gives": "AGAINST",
+      "note": "as in a deposit set against a loan, in exchange for"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Losing weight in place of getting over something.",
+     "walkthrough": "Remove ST from AGAINST. A stone is a British unit of body weight, 14 pounds.",
+     "definitionFit": "Over, as in 'do it over', means once more, the same as again."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stone"
+    }
+   }
   },
   {
    "number": 4,
@@ -106,7 +300,66 @@
     "text": "Boisterous locally, two score runs for side in Fremantle",
     "enumeration": "5"
    },
-   "solution": "RORTY"
+   "solution": "RORTY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "RORTY",
+    "definitions": [
+     {
+      "text": "Boisterous locally",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "one thing standing for another means it takes the other's place in the word"
+     },
+     {
+      "text": "side",
+      "for": "letter_selection",
+      "note": "the side of a word is its edge, here the opening letter of the place named"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two score",
+      "gives": "FORTY",
+      "note": "a score is twenty, so two of them make forty"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     },
+     {
+      "clueFragment": "Fremantle",
+      "gives": "F",
+      "select": "first",
+      "note": "the first letter of Fremantle, the letter swapped out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ORTY"
+     ]
+    },
+    "explanation": {
+     "surface": "A rowdy Australian cricket side piles up forty runs in Fremantle.",
+     "walkthrough": "In FORTY, R takes the place of F, the side letter of Fremantle. Fremantle is the port city of Perth, so 'locally' and the setting point to Australian slang.",
+     "definitionFit": "Rorty is Australian and British slang for rowdy, lively or boisterous."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "side"
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +373,49 @@
     "text": "Chinese copier used in Chancery department once",
     "enumeration": "7"
    },
-   "solution": "HANAPER"
+   "solution": "HANAPER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HANAPER",
+    "definitions": [
+     {
+      "text": "Chancery department once",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "used in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chinese",
+      "gives": "HAN",
+      "note": "the Han are the majority Chinese people"
+     },
+     {
+      "clueFragment": "copier",
+      "gives": "APER",
+      "note": "one who apes, an imitator"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAN",
+      "APER"
+     ]
+    },
+    "explanation": {
+     "surface": "A Chinese photocopier installed in a legal office.",
+     "definitionFit": "The Hanaper was an old office of the English Court of Chancery that collected fees, named from the hamper holding the writs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "copier"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +429,64 @@
     "text": "Brazilian book out trashes dyeing matter",
     "enumeration": "8"
    },
-   "solution": "ALIZARIN"
+   "solution": "ALIZARIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ALIZARIN",
+    "definitions": [
+     {
+      "text": "dyeing matter",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "deletion",
+      "note": "out means removed, so that letter is dropped from the word beside it"
+     },
+     {
+      "text": "trashes",
+      "for": "anagram",
+      "note": "to trash something is to wreck it, leaving the letters in disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brazilian",
+      "gives": "BRAZILIAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALIZARIN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAZILIAN",
+       "gives": "ALIZARIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Brazilian reader, finding the book gone, wrecks the dyeing equipment.",
+     "definitionFit": "Alizarin is the red colouring substance from madder root, used in dyeing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trashes"
+    }
+   }
   },
   {
    "number": 7,
@@ -148,7 +500,64 @@
     "text": "Chief officer overseeing police station not available for releasing lady",
     "enumeration": "6"
    },
-   "solution": "AGATHA"
+   "solution": "AGATHA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "AGATHA",
+    "definitions": [
+     {
+      "text": "lady",
+      "at": 68
+     }
+    ],
+    "indicators": [
+     {
+      "text": "releasing",
+      "for": "deletion",
+      "note": "a station releasing someone lets them go, so those letters leave the word"
+     }
+    ],
+    "linkWords": [
+     "overseeing",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chief officer",
+      "gives": "AGA",
+      "note": "an aga is a Turkish commander or chief officer"
+     },
+     {
+      "clueFragment": "police station",
+      "gives": "THANA",
+      "note": "a thana is a police station in India"
+     },
+     {
+      "clueFragment": "not available",
+      "gives": "NA",
+      "note": "N/A, the abbreviation for not available"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGA",
+      "THA"
+     ]
+    },
+    "explanation": {
+     "surface": "The chief officer at the station is unavailable to let a woman out of custody.",
+     "walkthrough": "In a down clue 'overseeing' means sitting above, so the chief officer comes first. N/A is the usual shorthand for not available; a thana is an Indian police station.",
+     "definitionFit": "Agatha is a woman's name, and Mephisto conventionally lets a lady clue a female forename."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "releasing"
+    }
+   }
   },
   {
    "number": 8,
@@ -168,7 +577,70 @@
      }
     ]
    },
-   "solution": "PANTARHEI"
+   "solution": "PANTARHEI",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PANTA RHEI",
+    "definitions": [
+     {
+      "text": "all is in flux",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "right away",
+      "for": "deletion",
+      "note": "with the right gone away, the abbreviation for right drops out of the word"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Criticise",
+      "gives": "PAN",
+      "note": "to pan a show is to criticise it"
+     },
+     {
+      "clueFragment": "rating",
+      "gives": "TAR",
+      "note": "a rating is an ordinary sailor, as is a tar"
+     },
+     {
+      "clueFragment": "child",
+      "gives": "HEIR",
+      "note": "a child is an heir to its parents"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAN",
+      "TAR",
+      "HEI"
+     ]
+    },
+    "explanation": {
+     "surface": "A critic slates a child's score at once, proving everything keeps changing.",
+     "walkthrough": "HEIR loses R to give HEI.",
+     "definitionFit": "Panta rhei, Greek for 'everything flows', is the saying attributed to Heraclitus that all is in constant change."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rating"
+    }
+   }
   },
   {
    "number": 9,
@@ -182,7 +654,60 @@
     "text": "Smart youths take lingerie leaving note",
     "enumeration": "6"
    },
-   "solution": "RUDIES"
+   "solution": "RUDIES",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "RUDIES",
+    "definitions": [
+     {
+      "text": "Smart youths",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "the letter leaving the word departs from it, so it is cut out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "take",
+      "gives": "R",
+      "note": "R, from Latin recipe, is the abbreviation for take on prescriptions"
+     },
+     {
+      "clueFragment": "lingerie",
+      "gives": "UNDIES",
+      "note": "undies is a casual word for underwear"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "N",
+      "note": "N is the abbreviation for note"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "UDIES"
+     ]
+    },
+    "explanation": {
+     "surface": "Sharp young men help themselves to underwear and leave a note.",
+     "walkthrough": "UNDIES without N leaves UDIES.",
+     "definitionFit": "Rudies, short for rude boys, were sharply dressed Jamaican youths of the 1960s ska scene."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Smart"
+    }
+   }
   },
   {
    "number": 10,
@@ -196,7 +721,69 @@
     "text": "Outburst about awfully gory and bizarre ornament",
     "enumeration": "8"
    },
-   "solution": "GARGOYLE"
+   "solution": "GARGOYLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GARGOYLE",
+    "definitions": [
+     {
+      "text": "bizarre ornament",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awfully",
+      "for": "anagram",
+      "note": "something done awfully is done badly, leaving those letters in disorder"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the outer word wraps around the rest"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Outburst",
+      "gives": "GALE",
+      "note": "a gale of laughter is an outburst"
+     },
+     {
+      "clueFragment": "gory",
+      "gives": "GORY",
+      "note": "taken as written before rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GA",
+      "RGOY",
+      "LE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GORY",
+       "gives": "RGOY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An outburst over a horribly bloody and weird decoration.",
+     "definitionFit": "A gargoyle is a grotesque carved figure on a building, often a waterspout, hence a bizarre ornament."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Outburst"
+    }
+   }
   },
   {
    "number": 11,
@@ -210,7 +797,60 @@
     "text": "Madrigal composer number one approves current cast",
     "enumeration": "7"
    },
-   "solution": "WEELKES"
+   "solution": "WEELKES",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "WEELKES",
+    "definitions": [
+     {
+      "text": "Madrigal composer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cast",
+      "for": "deletion",
+      "note": "cast in the sense of cast off or thrown away, so that letter is discarded"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "number one",
+      "gives": "WEE",
+      "note": "number one is a childish euphemism for a wee"
+     },
+     {
+      "clueFragment": "approves",
+      "gives": "LIKES",
+      "note": "to like something is to approve of it"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WEE",
+      "LKES"
+     ]
+    },
+    "explanation": {
+     "surface": "The top composer of madrigals endorses the present performers.",
+     "walkthrough": "LIKES loses I to give LKES.",
+     "definitionFit": "Thomas Weelkes was an English composer of madrigals around 1600."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 12,
@@ -224,7 +864,75 @@
     "text": "Study a spot in retreat behind pub with projecting gallery",
     "enumeration": "10"
    },
-   "solution": "BARTIZANED"
+   "solution": "BARTIZANED",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "BARTIZANED",
+    "definitions": [
+     {
+      "text": "with projecting gallery",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in retreat",
+      "for": "reversal",
+      "note": "retreating means going backwards, so the words are read from end to start"
+     },
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind places the first part after the other, so the order is fixed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "BAR",
+      "note": "a bar is a pub"
+     },
+     {
+      "clueFragment": "Study",
+      "gives": "DEN",
+      "note": "a den is a private study"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "spot",
+      "gives": "ZIT",
+      "note": "a zit is a pimple"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "TIZANED"
+     ],
+     "reversals": [
+      {
+       "from": "DENAZIT",
+       "to": "TIZANED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A study with a stain withdrawn behind a pub that has a balcony.",
+     "definitionFit": "A bartizan is an overhanging turret or gallery on a castle wall, so bartizaned means fitted with one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spot"
+    }
+   }
   },
   {
    "number": 13,
@@ -238,7 +946,54 @@
     "text": "Issue in volume put into eastern language",
     "enumeration": "8"
    },
-   "solution": "SEMITIZE"
+   "solution": "SEMITIZE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEMITIZE",
+    "definitions": [
+     {
+      "text": "put into eastern language",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one word inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "volume",
+      "gives": "SIZE",
+      "note": "volume is size or bulk"
+     },
+     {
+      "clueFragment": "Issue",
+      "gives": "EMIT",
+      "note": "to issue is to emit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EMIT",
+      "IZE"
+     ]
+    },
+    "explanation": {
+     "surface": "A book's printing is translated into an oriental tongue.",
+     "definitionFit": "To semitize is to make Semitic, for instance rendering into Hebrew or Arabic, languages of the Near East."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "volume"
+    }
+   }
   },
   {
    "number": 14,
@@ -252,7 +1007,55 @@
     "text": "Dull area rather for underground store",
     "enumeration": "9"
    },
-   "solution": "MATTAMORE"
+   "solution": "MATTAMORE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MATTAMORE",
+    "definitions": [
+     {
+      "text": "underground store",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dull",
+      "gives": "MATT",
+      "note": "a matt finish is dull, not glossy"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     },
+     {
+      "clueFragment": "rather",
+      "gives": "MORE",
+      "note": "as in more or rather, sooner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MATT",
+      "A",
+      "MORE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dull region would be better as an underground storeroom.",
+     "definitionFit": "A mattamore is a subterranean chamber or granary, from the Arabic for a storage pit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rather"
+    }
+   }
   },
   {
    "number": 15,
@@ -266,7 +1069,52 @@
     "text": "Lady's loose gown unsettling to boyfriend",
     "enumeration": "3"
    },
-   "solution": "MAN"
+   "solution": "MAN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MAN",
+    "definitions": [
+     {
+      "text": "boyfriend",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unsettling",
+      "for": "deletion",
+      "note": "read as un-settling: something unseated is removed from its place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lady's loose gown",
+      "gives": "MANTO",
+      "note": "a manto is a woman's loose robe, a variant of manteau"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman's flowing dress proves disturbing to her boyfriend.",
+     "definitionFit": "Man is an informal word for a husband or lover, as in 'her man'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unsettling"
+    }
+   }
   },
   {
    "number": 15,
@@ -280,7 +1128,85 @@
     "text": "No end of worship in excited press after Captain raised lots of money",
     "enumeration": "7"
    },
-   "solution": "MOTSERS"
+   "solution": "MOTSERS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "MOTSERS",
+    "definitions": [
+     {
+      "text": "lots of money",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "raised in a down clue means lifted up, so the word reads from bottom to top"
+     },
+     {
+      "text": "No end of worship in",
+      "for": "deletion",
+      "note": "the closing letter of worship is to be taken out of the word that follows"
+     },
+     {
+      "text": "excited",
+      "for": "anagram",
+      "note": "excited means agitated, so the letters are stirred up"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the rearranged press second, behind the captain's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Captain",
+      "gives": "TOM",
+      "note": "Captain Tom Moore, who raised millions for charity walking laps of his garden"
+     },
+     {
+      "clueFragment": "press",
+      "gives": "PRESS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOT",
+      "SERS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RESS",
+       "gives": "SERS"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "TOM",
+       "to": "MOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The excited press reports how Captain Tom raised a fortune with a wholly secular act of worship.",
+     "walkthrough": "PRESS loses P, the end of worship, and the rest is rearranged; MOT comes first. Captain Tom was the British veteran whose 2020 fundraising walk raised over £30 million.",
+     "definitionFit": "Motser is Australian slang for a large sum of money, especially a gambling win."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 16,
@@ -294,7 +1220,66 @@
     "text": "Region consumes one timeless refreshment, a frothy dessert",
     "enumeration": "8"
    },
-   "solution": "ZABAIONE"
+   "solution": "ZABAIONE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ZABAIONE",
+    "definitions": [
+     {
+      "text": "a frothy dessert",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "timeless",
+      "for": "deletion",
+      "note": "without time means the abbreviation for time is dropped from the next word"
+     },
+     {
+      "text": "consumes",
+      "for": "container",
+      "note": "consuming something takes it inside, so the outer word swallows the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Region",
+      "gives": "ZONE",
+      "note": "a zone is a region"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "refreshment",
+      "gives": "BAIT",
+      "note": "bait is an old word for a refreshment or snack on a journey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Z",
+      "ABAI",
+      "ONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A district eats up a single refreshment that never ends: a fluffy pudding.",
+     "walkthrough": "Bait as a snack is old or dialect usage, from the meal given to travellers and their horses at an inn.",
+     "definitionFit": "Zabaione is the Italian dessert of egg yolks, sugar and Marsala whisked until frothy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Region"
+    }
+   }
   },
   {
    "number": 17,
@@ -308,7 +1293,45 @@
     "text": "Thrash for one with large appetite",
     "enumeration": "5"
    },
-   "solution": "WHALE"
+   "solution": "WHALE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WHALE",
+    "definitions": [
+     {
+      "text": "Thrash",
+      "at": 0
+     },
+     {
+      "text": "one with large appetite",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thrash",
+      "note": "first meaning: a dialect verb, to beat or flog"
+     },
+     {
+      "clueFragment": "one with large appetite",
+      "note": "second meaning: the huge sea mammal, as in eating like one"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue looks like a punishment for a glutton; the two halves are separate senses of one five-letter word.",
+     "definitionFit": "The verb meaning to lash or beat shares its spelling with the sea giant proverbially associated with enormous eating."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Thrash"
+    }
+   }
   },
   {
    "number": 18,
@@ -322,7 +1345,50 @@
     "text": "Footless fools seen in boozers",
     "enumeration": "4"
    },
-   "solution": "SOTS"
+   "solution": "SOTS",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "deletion"
+    ],
+    "answer": "SOTS",
+    "definitions": [
+     {
+      "text": "Footless fools seen in boozers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Footless",
+      "for": "deletion",
+      "note": "without a foot means the abbreviation for foot is removed from the word for fools"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fools",
+      "gives": "SOFTS",
+      "note": "a soft is a simpleton or fool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Legless idiots are a common sight in pubs.",
+     "walkthrough": "SOFTS loses F for foot. Footless is also slang for very drunk, so the whole clue describes the answer too.",
+     "definitionFit": "Sots are habitual drunkards, the sort found in pubs; sot once also meant fool."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Footless"
+    }
+   }
   },
   {
    "number": 19,
@@ -336,7 +1402,75 @@
     "text": "Room on boat in choppy sea for reserves",
     "enumeration": "8"
    },
-   "solution": "EARMARKS"
+   "solution": "EARMARKS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "EARMARKS",
+    "definitions": [
+     {
+      "text": "reserves",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "choppy",
+      "for": "anagram",
+      "note": "choppy water is rough and broken up, so these letters are tossed about"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first group inside the second"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sea",
+      "gives": "SEA",
+      "note": "taken as written before rearranging"
+     },
+     {
+      "clueFragment": "Room",
+      "gives": "RM",
+      "note": "RM is the abbreviation for room"
+     },
+     {
+      "clueFragment": "boat",
+      "gives": "ARK",
+      "note": "Noah's ark was a boat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EA",
+      "RMARK",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEA",
+       "gives": "EAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Space aboard a vessel on rough water is kept back for those held in reserve.",
+     "definitionFit": "To earmark is to set aside for a purpose, the same as to reserve; both are verbs here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reserves"
+    }
+   }
   },
   {
    "number": 20,
@@ -350,7 +1484,58 @@
     "text": "Oxidised element in battery one changed",
     "enumeration": "8"
    },
-   "solution": "YTTERBIA"
+   "solution": "YTTERBIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "YTTERBIA",
+    "definitions": [
+     {
+      "text": "Oxidised element",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changed",
+      "for": "anagram",
+      "note": "changed means altered, so the letters are put into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "battery",
+      "gives": "BATTERY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BATTERYI",
+       "gives": "YTTERBIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A battery with one rusted part inside it has been replaced.",
+     "definitionFit": "Ytterbia is ytterbium oxide, so it is an element in oxidised form."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "battery"
+    }
+   }
   },
   {
    "number": 20,
@@ -364,7 +1549,69 @@
     "text": "Reversing forgotten award and benefit heads off clash",
     "enumeration": "6"
    },
-   "solution": "YATTER"
+   "solution": "YATTER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "reversal"
+    ],
+    "answer": "YATTER",
+    "definitions": [
+     {
+      "text": "clash",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heads off",
+      "for": "deletion",
+      "note": "with their heads off, both words lose their opening letters"
+     },
+     {
+      "text": "Reversing",
+      "for": "reversal",
+      "note": "reversing means going backwards, so the combined letters read from the end"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "forgotten award",
+      "gives": "ARETT",
+      "note": "arett is an obsolete Spenserian verb meaning to award or allot"
+     },
+     {
+      "clueFragment": "benefit",
+      "gives": "PAY",
+      "note": "pay is a benefit received for work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YATTER"
+     ],
+     "reversals": [
+      {
+       "from": "RETTAY",
+       "to": "YATTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Backing a lost prize and its benefits, leaders head off a conflict.",
+     "walkthrough": "ARETT and PAY lose their first letters to give RETT and AY, and the whole is then read backwards. 'Forgotten' warns that the award word is long obsolete.",
+     "definitionFit": "Clash is a Scots word for gossip or idle talk, and yatter is Scots for incessant chatter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clash"
+    }
+   }
   },
   {
    "number": 21,
@@ -378,7 +1625,67 @@
     "text": "No date in family upset the last in line (6, two words)",
     "enumeration": "6"
    },
-   "solution": "ENDMAN"
+   "solution": "ENDMAN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "END MAN",
+    "definitions": [
+     {
+      "text": "the last in line",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset in a down clue means turned upside down, so the word reads from bottom to top"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one item inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "family",
+      "gives": "NAME",
+      "note": "a family name, as in the honour of the name"
+     },
+     {
+      "clueFragment": "No date",
+      "gives": "ND",
+      "note": "n.d. is the bibliographic abbreviation for no date"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "ND",
+      "MAN"
+     ],
+     "reversals": [
+      {
+       "from": "NAME",
+       "to": "EMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A family is upset over an undated item.",
+     "walkthrough": "In a down clue 'upset' turns the word upside down, which reads it backwards; n.d. is the standard bibliographic note for an undated work.",
+     "definitionFit": "An end man is the person at the end of a row, originally of a minstrel-show line."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "family"
+    }
+   }
   },
   {
    "number": 22,
@@ -392,7 +1699,51 @@
     "text": "Lacking focus, newspaper closed years ago",
     "enumeration": "4"
    },
-   "solution": "SHET"
+   "solution": "SHET",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SHET",
+    "definitions": [
+     {
+      "text": "closed years ago",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Lacking focus",
+      "for": "deletion",
+      "note": "the focus of a word is its centre, so the middle letter goes"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "newspaper",
+      "gives": "SHEET",
+      "note": "a sheet is slang for a newspaper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHET"
+     ]
+    },
+    "explanation": {
+     "surface": "A paper with no clear direction folded long ago.",
+     "walkthrough": "SHEET loses its central E.",
+     "definitionFit": "Shet is an obsolete form of shut, so means closed in old usage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "focus"
+    }
+   }
   },
   {
    "number": 23,
@@ -406,7 +1757,59 @@
     "text": "Stimulant from introduction of tonic put before German poet",
     "enumeration": "6"
    },
-   "solution": "THEINE"
+   "solution": "THEINE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "THEINE",
+    "definitions": [
+     {
+      "text": "Stimulant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduction of",
+      "for": "letter_selection",
+      "note": "the introduction of a word is its opening letter"
+     }
+    ],
+    "linkWords": [
+     "from",
+     "put before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tonic",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of tonic"
+     },
+     {
+      "clueFragment": "German poet",
+      "gives": "HEINE",
+      "note": "Heinrich Heine, nineteenth-century German poet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HEINE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pick-me-up drink is offered to a German poet.",
+     "definitionFit": "Theine is caffeine as found in tea, a stimulant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tonic"
+    }
+   }
   },
   {
    "number": 24,
@@ -420,7 +1823,50 @@
     "text": "Could be represented as one term in yoga",
     "enumeration": "5"
    },
-   "solution": "ASANA"
+   "solution": "ASANA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASANA",
+    "definitions": [
+     {
+      "text": "term in yoga",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "Could be represented"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ANA",
+      "note": "one rendered as the indefinite article followed by the letter that stands for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "ANA"
+     ]
+    },
+    "explanation": {
+     "surface": "Something that might be shown as a single word in yoga.",
+     "walkthrough": "As one becomes 'as an A', the letter A being the usual stand-in for one.",
+     "definitionFit": "An asana is any posture in yoga, the Sanskrit word for a seated pose."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "term"
+    }
+   }
   },
   {
    "number": 25,
@@ -434,7 +1880,78 @@
     "text": "Old-fashioned manner, Tom's foremost indeed in celebrity book put out",
     "enumeration": "5"
    },
-   "solution": "STILE"
+   "solution": "STILE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "container"
+    ],
+    "answer": "STILE",
+    "definitions": [
+     {
+      "text": "Old-fashioned manner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "foremost",
+      "for": "letter_selection",
+      "note": "foremost means at the front, so only the leading letter is kept"
+     },
+     {
+      "text": "put out",
+      "for": "deletion",
+      "note": "put out means ejected, so that letter is expelled from the word"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the pair inside the shortened word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "celebrity",
+      "gives": "SLEB",
+      "note": "sleb is slang for a celebrity"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     },
+     {
+      "clueFragment": "Tom's",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of Tom"
+     },
+     {
+      "clueFragment": "indeed",
+      "gives": "I",
+      "note": "I is an old spelling of ay or aye, meaning yes indeed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TI",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "An old-world manner, chiefly Tom's, really shows in a celebrity book being published.",
+     "walkthrough": "SLEB without B leaves SLE, and T plus I go inside it.",
+     "definitionFit": "Stile is an archaic spelling of style, meaning a manner of doing things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "put"
+    }
+   }
   },
   {
    "number": 26,
@@ -448,7 +1965,52 @@
     "text": "Men in board game out of bounds",
     "enumeration": "3"
    },
-   "solution": "HES"
+   "solution": "HES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HES",
+    "definitions": [
+     {
+      "text": "Men",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of bounds",
+      "for": "deletion",
+      "note": "the bounds of a word are its edges, and these are put out of it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "board game",
+      "gives": "CHESS",
+      "note": "chess is played on a board"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HES"
+     ]
+    },
+    "explanation": {
+     "surface": "Pieces in a board game have strayed off the board.",
+     "walkthrough": "CHESS loses its first and last letters.",
+     "definitionFit": "A he is a male, so hes are men or males, the plural of the pronoun used as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Men"
+    }
+   }
   },
   {
    "number": 26,
@@ -462,7 +2024,46 @@
     "text": "Strict Jew carries a passport, for instance",
     "enumeration": "5"
    },
-   "solution": "HASID"
+   "solution": "HASID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HASID",
+    "definitions": [
+     {
+      "text": "Strict Jew",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "carries",
+      "gives": "HAS",
+      "note": "to carry something is to have it"
+     },
+     {
+      "clueFragment": "a passport, for instance",
+      "gives": "ID",
+      "note": "a passport is an example of identification, ID"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAS",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "An orthodox Jew carries his travel documents.",
+     "definitionFit": "A Hasid is a member of a strictly orthodox Jewish sect founded in eighteenth-century Poland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "carries"
+    }
+   }
   },
   {
    "number": 27,
@@ -476,7 +2077,62 @@
     "text": "Asphalt processed in quantities without cover",
     "enumeration": "8"
    },
-   "solution": "UINTAITE"
+   "solution": "UINTAITE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "UINTAITE",
+    "definitions": [
+     {
+      "text": "Asphalt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without cover",
+      "for": "deletion",
+      "note": "with its covers off, a word loses its outermost letters at each end"
+     },
+     {
+      "text": "processed",
+      "for": "anagram",
+      "note": "processed means worked over, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quantities",
+      "gives": "QUANTITIES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UINTAITE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UANTITIE",
+       "gives": "UINTAITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tarmac is treated in bulk loads without a top layer.",
+     "definitionFit": "Uintaite, or gilsonite, is a natural black asphalt found in Utah's Uinta basin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cover"
+    }
+   }
   },
   {
    "number": 28,
@@ -490,7 +2146,43 @@
     "text": "Time in Scotland of last waltz?",
     "enumeration": "4"
    },
-   "solution": "TWAL"
+   "solution": "TWAL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TWAL",
+    "definitions": [
+     {
+      "text": "Time in Scotland",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of",
+      "for": "hidden_word",
+      "note": "of means taken from, so the letters are drawn out of the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "last waltz",
+      "gives": "TWAL",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "When the final dance happens north of the border.",
+     "walkthrough": "Twal is Scots for twelve, so an hour, a time; the question mark admits the cheeky definition.",
+     "definitionFit": "Twal is the Scots form of twelve, as in twal o'clock, so a time of day there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Time"
+    }
+   }
   },
   {
    "number": 29,
@@ -504,7 +2196,85 @@
     "text": "One of the military brass, amazing Sir Tom enthrals Britain on reaching a ton",
     "enumeration": "10"
    },
-   "solution": "TROMBONIST"
+   "solution": "TROMBONIST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "TROMBONIST",
+    "definitions": [
+     {
+      "text": "One of the military brass",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "amazing",
+      "for": "anagram",
+      "note": "amazing is read as astonishing or confusing, so the letters are thrown into a new order"
+     },
+     {
+      "text": "enthrals",
+      "for": "container",
+      "note": "to enthral is to hold captive, so the jumble keeps the next letters inside"
+     },
+     {
+      "text": "reaching",
+      "for": "charade",
+      "note": "reaching means arriving at, so the last piece is added on the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sir Tom",
+      "gives": "SIRTOM",
+      "note": "taken as written before rearranging"
+     },
+     {
+      "clueFragment": "Britain",
+      "gives": "B",
+      "note": "B is the abbreviation for Britain"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a ton",
+      "gives": "T",
+      "note": "T is the abbreviation for ton"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TROM",
+      "BON",
+      "IS",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SIRTOM",
+       "gives": "TROMIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A knighted Tom thrills the nation by scoring a century.",
+     "walkthrough": "Military brass suggests top officers; it means a brass player in a military band.",
+     "definitionFit": "A trombonist plays the trombone, a brass instrument, as found in military bands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "brass"
+    }
+   }
   },
   {
    "number": 30,
@@ -518,7 +2288,69 @@
     "text": "John Laing surprisingly coming first to supply a church member",
     "enumeration": "8"
    },
-   "solution": "ANGLICAN"
+   "solution": "ANGLICAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ANGLICAN",
+    "definitions": [
+     {
+      "text": "a church member",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surprisingly",
+      "for": "anagram",
+      "note": "surprisingly hints at an unexpected arrangement of these letters"
+     },
+     {
+      "text": "coming first",
+      "for": "charade",
+      "note": "coming first fixes the order: the rearranged name goes in front"
+     }
+    ],
+    "linkWords": [
+     "to supply"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Laing",
+      "gives": "LAING",
+      "note": "taken as written before rearranging"
+     },
+     {
+      "clueFragment": "John",
+      "gives": "CAN",
+      "note": "john and can are both American slang for a toilet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANGLI",
+      "CAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LAING",
+       "gives": "ANGLI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The John Laing building firm surprisingly provides for a churchgoer.",
+     "walkthrough": "'John Laing' reads as a single name; John is separate and means the lavatory.",
+     "definitionFit": "An Anglican belongs to the Church of England or a church in communion with it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "John"
+    }
+   }
   },
   {
    "number": 31,
@@ -532,7 +2364,55 @@
     "text": "Record again with one feeling regret piano's missing",
     "enumeration": "7"
    },
-   "solution": "REENTER"
+   "solution": "REENTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "REENTER",
+    "definitions": [
+     {
+      "text": "Record again",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "missing means absent, so that letter is left out of the word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one feeling regret",
+      "gives": "REPENTER",
+      "note": "someone who repents feels regret"
+     },
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "P is the musical abbreviation for piano, softly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REENTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Recording a second take, the remorseful player finds the piano gone.",
+     "definitionFit": "To re-enter data is to record it a second time in a ledger or system."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "piano"
+    }
+   }
   },
   {
    "number": 32,
@@ -546,7 +2426,55 @@
     "text": "No small seat for Roman magistrate",
     "enumeration": "5"
    },
-   "solution": "EDILE"
+   "solution": "EDILE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EDILE",
+    "definitions": [
+     {
+      "text": "Roman magistrate",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "No",
+      "for": "deletion",
+      "note": "no means without, so the next letter is left off"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "seat",
+      "gives": "SEDILE",
+      "note": "a sedile is a stone seat for clergy beside a church altar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDILE"
+     ]
+    },
+    "explanation": {
+     "surface": "No little chair was provided for the Roman official.",
+     "definitionFit": "An edile, or aedile, was a Roman official responsible for public buildings, games and markets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seat"
+    }
+   }
   }
  ]
 }
