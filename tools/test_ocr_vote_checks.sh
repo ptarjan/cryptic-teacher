@@ -868,6 +868,30 @@ check("a bracketed count no reading prints the clue around stays held (mirror)",
 check("one reading ending the clue there is no majority (mirror)", None,
       oc.agree("Army leader, madly ranng to charge IT", [army, lost, lost])[0])
 
+# Times 1996-06-24 (20202) 11A and 1980-09-10 (15318): the other readings
+# read the clue's number or count as letters ("I I" for 11, "ig" for (4)),
+# which the vote took for words the clue lost at a line wrap.
+lucy = ["#", "I", "I", "Lucy", "Ashton", ",", "say", ",", "taking", "in", "key", "to", "be", "cut", "#"]
+check("the clue's number read as letters before it is no start lost (times-20202 11A)",
+      "Lucy Ashton, say, taking in key to be cut",
+      oc.agree("Lucy Ashton, say, taking in key tobe cut", [lucy, lucy], number="11", count="6")[0])
+check("mirror: letters that are not the clue's number are no number", False,
+      oc.number_read(("i", "i"), "12", "start"))
+gaunt = ["#", "De", "virtue", "like", "it", ",", "reasoned", "John", "of", "Gaunt", "ig", "#"]
+check("the count read as letters after it is no end lost (times-15318)",
+      "De virtue like it, reasoned John of Gaunt",
+      oc.agree("De virtue like it, reasoned John of Gaunt", [gaunt, gaunt], number="9", count="4")[0])
+check("mirror: with no count known, the letters are an end lost", None,
+      oc.agree("De virtue like it, reasoned John of Gaunt", [gaunt, gaunt], number="9")[0])
+alter = [["#", "It", "can", "alter", "number", "in", "line", "with", "charge", "#"]] * 2
+check("mirror: before a clue opening small, 'It' is its lost first word (times 1984-01-23)",
+      "It can alter number in line with charge",
+      oc.agree("can alter number in line with charge", alter, number="11", count="6")[0])
+check("a heading and the number ('DOWN 1') read as letters", True, oc.number_read(("down", "i"), "1", "start"))
+check("a count read with its brackets ('isi' for (5))", True, oc.number_read(("isi",), "5", "end"))
+check("mirror: a word is no count", False, oc.number_read(("silly",), "5", "end"))
+check("mirror: a short word is no count ('money in it', not '(7)')", False, oc.number_read(("it",), "7", "end"))
+
 print(f"FAILS {fails}")
 EOF
 )

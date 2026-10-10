@@ -1287,7 +1287,7 @@ def elsewhere_run(end, side, clues):
     return False
 
 
-def agree(clue, others, keep_known=False, families=None, rates=None, clues=()):
+def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), number=None, count=None):
     """(text or None, how) for one clue against the other readings' words
     and marks (`others`: one list per reading, or one list alone). Each word
     stands when another reading has it too; else it takes the spelling the
@@ -1303,7 +1303,10 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=()):
     in turn, and `rates` each engine's slips on the page (family_rates): a
     tie the readings split by engine goes to the far better one (by_family).
     `clues` holds the other laid clues' lower-case words: a reading's end
-    that runs on into one of them is no end lost (elsewhere_run)."""
+    that runs on into one of them is no end lost (elsewhere_run). `number`
+    (the clue's own number) and `count` (its count, digits) are what a
+    reading's words before or after the clue may be misread from
+    (number_read): no end lost."""
     if others and isinstance(others[0], str):
         others = [others]
     if not tokens(clue):
@@ -1389,6 +1392,7 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=()):
     # Words other readings have between the clue's number and its first word,
     # or between its last word and its count, were lost from this reading:
     # put in when most readings have the same ones, else no reading wins.
+    first = next((t for t in mine if t not in MARKS and t != BREAK), "")
     for side, got_ends in (("start", leads), ("end", trails)):
         got_ends = [None if e and elsewhere_run(e, side, clues) else e for e in got_ends]
         # A lone letter after the clue's last word is its count misread ("(s)").
@@ -1408,6 +1412,16 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=()):
         words_at = [t for t in top if t not in MARKS]
         if side == "start" and len(words_at) == 1 and len(words_at[0]) == 1:
             # One letter before the clue is a misread clue number ("2I").
+            continue
+        # The clue's number or count read as letters ("I I Lucy Ashton" for
+        # "11 Lucy Ashton", "of Gaunt ig" for "(4)"), by as many readings as
+        # see any one thing else there, is nothing lost. Before a clue
+        # opening small ("can alter") or on a lone capital ("K can alter"),
+        # "It" is its lost or misread first word.
+        as_number = [e for e in seen_ends if number_read(e, number if side == "start" else count, side)]
+        opens = first[:1].isupper() and (len(first) > 1 or first in "AI")
+        if as_number and (side == "end" or opens) and len(as_number) >= max(
+                (seen_ends.count(e) for e in seen_ends if e not in as_number), default=0):
             continue
         if (seen_ends.count(top) * 2 > len(others) and all(is_word(t) for t in words_at)):
             g = 0 if side == "start" else len(mine)
@@ -1735,6 +1749,37 @@ def count_misread(i, w, low, seen, leads, trails, printing, second, bracketed):
     if len(closed) >= (1 if bracketed else 2) and len(closed) * 2 > printing:
         return "end" if last else "start"
     return None
+
+
+#: The letters a printed digit is misread as in a clue's number or count
+#: ("I I" for 11, "is" for 18, "ig" for 4), and the brackets about a count.
+NUMBER_LETTERS = {"0": "oqd", "1": "ilj", "2": "z", "3": "a", "4": "ag", "5": "s", "6": "bh",
+                  "7": "t", "8": "sb", "9": "gq"}
+COUNT_OPENS, COUNT_CLOSES = "ijlft", "ijl"
+
+
+def number_read(end, digits, side):
+    """Whether `end` (a reading's words and marks before a clue, `side`
+    "start", or after it, "end") is the clue's number, or its count,
+    `digits`, misread as letters: each letter one NUMBER_LETTERS has for its
+    digit in turn. Before the clue a heading ("down i") or one speck letter
+    may come first; after it the count's brackets may be read too ("isi"
+    for "(5)"), but a word is a word."""
+    if not digits or not digits.isdigit():
+        return False
+    words = [t for t in end if t not in MARKS]
+    if side == "start":
+        if words and words[0] in ("down", "across"):
+            words = words[1:]
+        if len(words) > 1 and len(words[0]) == 1 and len("".join(words)) > len(digits):
+            words = words[1:]
+    read = "".join(words)
+    if side == "end" and len(words) == 1 and is_word(read):
+        return False  # a word the clue lost: "money in it" is no "(7)"
+    if side == "end" and len(read) > len(digits):
+        read = read[1:] if read[0] in COUNT_OPENS else read
+        read = read[:-1] if len(read) > len(digits) and read[-1] in COUNT_CLOSES else read
+    return len(read) == len(digits) and all(c in NUMBER_LETTERS[d] for d, c in zip(digits, read))
 
 
 def is_word_only_capital(word, seen):
@@ -2380,7 +2425,8 @@ def reconcile(laid, streams, lengths=None, keep_known=False, uncounted=False, na
         if lead and lead.group(1) in lid.split("-")[0]:
             text = text[lead.end():]
         text = join_split(numbers_joined(text, streams), other)
-        got, how = agree(text, other, keep_known, engines, rates, [w for k, w in words_of.items() if k != lid])
+        got, how = agree(text, other, keep_known, engines, rates, [w for k, w in words_of.items() if k != lid],
+                         str(own), enum)
         got = trimmed(cut_at_count(got, enum), lid)
         if got is not None and merged(got):
             got, how = None, merged(got)
