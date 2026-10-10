@@ -38,6 +38,9 @@
   "date": "2020-11-29",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,61 @@
     "text": "Onset of obesity on monkeys leads to complaint in pavilion",
     "enumeration": "6"
    },
-   "solution": "OTITIS"
+   "solution": "OTITIS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OTITIS",
+    "definitions": [
+     {
+      "text": "complaint in pavilion",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Onset of",
+      "for": "letter_selection",
+      "note": "the onset of a word is its beginning, so only its opening letter is kept"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "leads to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "obesity",
+      "gives": "O",
+      "select": "first",
+      "note": "the first letter of obesity"
+     },
+     {
+      "clueFragment": "monkeys",
+      "gives": "TITIS",
+      "note": "titis are small South American monkeys"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "TITIS"
+     ]
+    },
+    "explanation": {
+     "surface": "An overweight cricketer's monkey business ends with someone feeling ill in the pavilion.",
+     "walkthrough": "The pavilion here is not a cricket clubhouse but the pinna, the outer flap of the ear, a dictionary sense the surface hides.",
+     "definitionFit": "Otitis is inflammation of the ear, and the pavilion is an old anatomical name for the outer ear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pavilion"
+    }
+   }
   },
   {
    "number": 1,
@@ -65,7 +122,52 @@
     "text": "Head off from one Siberian city for another",
     "enumeration": "4"
    },
-   "solution": "OMSK"
+   "solution": "OMSK",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OMSK",
+    "definitions": [
+     {
+      "text": "another",
+      "at": 36,
+      "note": "stands for another Siberian city"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Head off",
+      "for": "deletion",
+      "note": "taking the head off removes the first letter"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "from one Siberian city",
+      "gives": "TOMSK",
+      "note": "Tomsk is a city in western Siberia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OMSK"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller sets off from one Siberian city to another.",
+     "walkthrough": "Both Tomsk and the answer are cities in Siberia, so 'another' carries the definition.",
+     "definitionFit": "Omsk is a large city in south-west Siberia, a second Siberian city beside Tomsk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Head"
+    }
+   }
   },
   {
    "number": 2,
@@ -79,7 +181,64 @@
     "text": "Take up drink after getting ragged in violent storms",
     "enumeration": "8"
    },
-   "solution": "TORNADOS"
+   "solution": "TORNADOS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TORNADOS",
+    "definitions": [
+     {
+      "text": "violent storms",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Take up",
+      "for": "reversal",
+      "note": "in a down clue, taking something up reads it from the bottom upward"
+     }
+    ],
+    "linkWords": [
+     "after getting",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ragged",
+      "gives": "TORN",
+      "note": "ragged clothes are torn"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "SODA",
+      "note": "soda is a drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TORN",
+      "ADOS"
+     ],
+     "reversals": [
+      {
+       "from": "SODA",
+       "to": "ADOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor drinks to recover after being battered by a gale.",
+     "definitionFit": "Tornados are violent whirling windstorms, a variant plural spelling of tornadoes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ragged"
+    }
+   }
   },
   {
    "number": 3,
@@ -93,7 +252,58 @@
     "text": "Leaves writer inside to get liquor",
     "enumeration": "8"
    },
-   "solution": "TEQUILLA"
+   "solution": "TEQUILLA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TEQUILLA",
+    "definitions": [
+     {
+      "text": "liquor",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "something inside another thing is enclosed by it"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leaves",
+      "gives": "TEA",
+      "note": "tea is made from leaves"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "QUILL",
+      "note": "a quill is a pen, something that writes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "QUILL",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "An author goes inside to fetch a drink.",
+     "walkthrough": "'Leaves' looks like a verb, someone departing, but means tea leaves; 'writer' is the pen, not the author.",
+     "definitionFit": "Tequilla is a variant spelling of tequila, the Mexican spirit distilled from agave."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Leaves"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +317,55 @@
     "text": "Royal house for all to see in shoot",
     "enumeration": "6"
    },
-   "solution": "STUART"
+   "solution": "STUART",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STUART",
+    "definitions": [
+     {
+      "text": "Royal house",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for all to see",
+      "gives": "U",
+      "note": "U is the film certificate for a universal audience"
+     },
+     {
+      "clueFragment": "shoot",
+      "gives": "START",
+      "note": "to shoot or start is to move suddenly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "U",
+      "ART"
+     ]
+    },
+    "explanation": {
+     "surface": "A royal family's shooting party is open to the public.",
+     "walkthrough": "U is the British film rating meaning suitable for everyone.",
+     "definitionFit": "The Stuarts were the dynasty that ruled Scotland and later England, a royal house."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shoot"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +379,60 @@
     "text": "Neat enclosure good for Charlie, more than a handful for Angus",
     "enumeration": "6"
    },
-   "solution": "GOWPEN"
+   "solution": "GOWPEN",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "GOWPEN",
+    "definitions": [
+     {
+      "text": "more than a handful for Angus",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "one letter standing for another means the second is swapped out and the first put in its place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Neat enclosure",
+      "gives": "COWPEN",
+      "note": "neat is an old word for cattle, so a neat enclosure is a pen for cows"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the usual abbreviation for good"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the radio alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "OWPEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A tidy cattle pen is praised, while a Scotsman finds something too much to hold.",
+     "walkthrough": "'Neat' looks like 'tidy' but is the old word for cattle. Angus stands for any Scot: gowpen is a Scots word.",
+     "definitionFit": "A gowpen is the Scots measure of two hands cupped together, a double handful, so more than one handful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Neat"
+    }
+   }
   },
   {
    "number": 5,
@@ -135,7 +446,59 @@
     "text": "Rattle's double bass interrupting wind",
     "enumeration": "6"
    },
-   "solution": "GABBLE"
+   "solution": "GABBLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GABBLE",
+    "definitions": [
+     {
+      "text": "Rattle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupting",
+      "for": "container",
+      "note": "something interrupting another breaks into the middle of it"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "double bass",
+      "gives": "BB",
+      "note": "B for bass, doubled"
+     },
+     {
+      "clueFragment": "wind",
+      "gives": "GALE",
+      "note": "a gale is a strong wind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GA",
+      "BB",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Conductor Simon Rattle's double bass section breaks into the wind players.",
+     "walkthrough": "Rattle looks like the conductor Sir Simon Rattle, but it is the verb meaning to chatter.",
+     "definitionFit": "To rattle on is to chatter quickly and thoughtlessly, which is what gabbling means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Rattle"
+    }
+   }
   },
   {
    "number": 6,
@@ -149,7 +512,52 @@
     "text": "Nameless public official brings seal",
     "enumeration": "5"
    },
-   "solution": "OTARY"
+   "solution": "OTARY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OTARY",
+    "definitions": [
+     {
+      "text": "seal",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Nameless",
+      "for": "deletion",
+      "note": "without a name means the abbreviation for name is taken away"
+     }
+    ],
+    "linkWords": [
+     "brings"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "public official",
+      "gives": "NOTARY",
+      "note": "a notary public is an official who certifies documents"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OTARY"
+     ]
+    },
+    "explanation": {
+     "surface": "An anonymous official applies a seal to a document.",
+     "walkthrough": "'Seal' suggests a notary's stamp but is the animal.",
+     "definitionFit": "An otary is an eared seal, such as a sea lion or fur seal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "seal"
+    }
+   }
   },
   {
    "number": 7,
@@ -163,7 +571,52 @@
     "text": "Adroit tips rubbished, one does feel a heel",
     "enumeration": "10"
    },
-   "solution": "PODIATRIST"
+   "solution": "PODIATRIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PODIATRIST",
+    "definitions": [
+     {
+      "text": "one does feel a heel",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rubbished",
+      "for": "anagram",
+      "note": "something rubbished is torn apart, so the letters are scattered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Adroit tips",
+      "gives": "ADROITTIPS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ADROITTIPS",
+       "gives": "PODIATRIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's clever advice is dismissed, and they feel like a cad.",
+     "walkthrough": "'Feel a heel' sounds like feeling ashamed, but a foot doctor literally handles heels.",
+     "definitionFit": "A podiatrist treats feet, so examining a patient's heel by touch is routine work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "heel"
+    }
+   }
   },
   {
    "number": 8,
@@ -177,7 +630,69 @@
     "text": "Vikings seem excited with goddess coming round",
     "enumeration": "8"
    },
-   "solution": "NORSEMEN"
+   "solution": "NORSEMEN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NORSEMEN",
+    "definitions": [
+     {
+      "text": "Vikings",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excited",
+      "for": "anagram",
+      "note": "excited letters are stirred up out of order"
+     },
+     {
+      "text": "coming round",
+      "for": "container",
+      "note": "something coming round another wraps around it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seem",
+      "gives": "SEME",
+      "note": "the letters of seem, rearranged"
+     },
+     {
+      "clueFragment": "goddess",
+      "gives": "NORN",
+      "note": "a Norn is one of the three Norse goddesses of fate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOR",
+      "SEME",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEEM",
+       "gives": "SEME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Viking raiders look thrilled as a goddess appears among them.",
+     "definitionFit": "Norsemen are the medieval Scandinavians whose seafaring raiders are known as Vikings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seem"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +706,70 @@
     "text": "Spy HQ, one's almost distraught with it being attacked",
     "enumeration": "11"
    },
-   "solution": "MOLESTATION"
+   "solution": "MOLESTATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MOLESTATION",
+    "definitions": [
+     {
+      "text": "Spy HQ",
+      "at": 0,
+      "note": "a cryptic second definition: a mole's station"
+     },
+     {
+      "text": "being attacked",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "distraught",
+      "for": "anagram",
+      "note": "a distraught person is in turmoil, so these words are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "almost",
+      "gives": "ALMOST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONEALMOSTIT",
+       "gives": "MOLESTATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at the spies' headquarters is nearly frantic about an assault.",
+     "walkthrough": "The clue has two routes: 'Spy HQ' builds MOLE (spy) plus STATION (HQ), and ONE ALMOST IT rearranges into the same letters; 'being attacked' defines it.",
+     "definitionFit": "Molestation is the act of harassing or assaulting someone, the state of being attacked."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "almost"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +783,69 @@
     "text": "Forget about colonialist waffling — it's balls!",
     "enumeration": "10"
    },
-   "solution": "COTILLIONS"
+   "solution": "COTILLIONS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "COTILLIONS",
+    "definitions": [
+     {
+      "text": "balls",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Forget",
+      "for": "deletion",
+      "note": "to forget something is to leave it out"
+     },
+     {
+      "text": "waffling",
+      "for": "anagram",
+      "note": "waffling talk is muddled, so the letters come out jumbled"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "A",
+      "note": "a is a dictionary abbreviation for about"
+     },
+     {
+      "clueFragment": "colonialist",
+      "gives": "COLONIALIST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COTILLIONS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COLONILIST",
+       "gives": "COTILLIONS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dismisses a colonialist's rambling talk as nonsense.",
+     "walkthrough": "'It's balls!' reads as British slang for nonsense; here balls are formal dances.",
+     "definitionFit": "A cotillion is a formal ball or the elaborate dance performed at one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "balls"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +859,69 @@
     "text": "Indian officer's subordinate had abused army regulation",
     "enumeration": "8"
    },
-   "solution": "SUBAHDAR"
+   "solution": "SUBAHDAR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SUBAHDAR",
+    "definitions": [
+     {
+      "text": "Indian officer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abused",
+      "for": "anagram",
+      "note": "abused letters are mistreated and knocked out of their order"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "subordinate",
+      "gives": "SUB",
+      "note": "a sub is a subordinate"
+     },
+     {
+      "clueFragment": "had",
+      "gives": "AHD",
+      "note": "the letters of had, rearranged"
+     },
+     {
+      "clueFragment": "army regulation",
+      "gives": "AR",
+      "note": "AR is the abbreviation for army regulation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUB",
+      "AHD",
+      "AR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HAD",
+       "gives": "AHD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An officer's junior has mistreated soldiers against the rules.",
+     "definitionFit": "A subahdar was the chief Indian officer of a company of sepoys in British India."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "abused"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +935,45 @@
     "text": "Flog duck by the sound of it in Barnsley",
     "enumeration": "5"
    },
-   "solution": "KNOUT"
+   "solution": "KNOUT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "KNOUT",
+    "definitions": [
+     {
+      "text": "Flog",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it in Barnsley",
+      "for": "homophone",
+      "note": "we are told to listen to the word as a Yorkshire speaker would say it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "duck",
+      "gives": "KNOUT",
+      "soundsLike": "NOWT",
+      "note": "a duck is a score of nothing in cricket, and nothing in Yorkshire dialect is nowt"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone whips a duck that has a Yorkshire accent.",
+     "walkthrough": "Barnsley is a town in Yorkshire, where 'nowt' means nothing; in cricket a duck is a score of nothing.",
+     "definitionFit": "A knout is a Russian leather whip, and as a verb it means to whip someone with one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +987,57 @@
     "text": "Feathers of hawk and wading bird found in rubbish",
     "enumeration": "6"
    },
-   "solution": "BRAILS"
+   "solution": "BRAILS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BRAILS",
+    "definitions": [
+     {
+      "text": "Feathers of hawk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in another thing sits inside it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wading bird",
+      "gives": "RAIL",
+      "note": "a rail is a marsh bird of the crake family"
+     },
+     {
+      "clueFragment": "rubbish",
+      "gives": "BS",
+      "note": "BS, short for bullshit, means rubbish or nonsense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RAIL",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A birdwatcher finds plumage from a hawk and a wader dumped in the trash.",
+     "definitionFit": "Brails are the thigh feathers of a hawk, in the language of falconry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "found"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +1051,61 @@
     "text": "More affable Master of the Rolls receives a bow",
     "enumeration": "6"
    },
-   "solution": "MATIER"
+   "solution": "MATIER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MATIER",
+    "definitions": [
+     {
+      "text": "More affable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receives",
+      "for": "container",
+      "note": "one who receives something takes it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Master of the Rolls",
+      "gives": "MR",
+      "note": "MR is the abbreviation for the judge called Master of the Rolls"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bow",
+      "gives": "TIE",
+      "note": "a bow is a knotted tie"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "A",
+      "TIE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A senior judge becomes friendlier after someone bows to him.",
+     "walkthrough": "'Bow' looks like a gesture of respect but is a bow tie.",
+     "definitionFit": "Matey means friendly and sociable, so its comparative is a synonym for more affable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bow"
+    }
+   }
   },
   {
    "number": 14,
@@ -275,7 +1119,46 @@
     "text": "Ridicule a lapse in conversation — one puts one's foot in it",
     "enumeration": "8"
    },
-   "solution": "MOCASSIN"
+   "solution": "MOCASSIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "MOCASSIN",
+    "definitions": [
+     {
+      "text": "one puts one's foot in it",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in conversation",
+      "for": "homophone",
+      "note": "in conversation means spoken, so the result is heard rather than read"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ridicule a lapse",
+      "gives": "MOCASSIN",
+      "soundsLike": "MOCK A SIN",
+      "note": "ridicule is mock, a stays as written, and a lapse is a sin"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone mocks a slip of the tongue, the classic case of putting your foot in it.",
+     "walkthrough": "'Puts one's foot in it' is the idiom for a gaffe, which matches the surface; literally, a shoe has a foot put in it.",
+     "definitionFit": "A moccasin is a soft leather shoe, something a wearer literally slides a foot into."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "foot"
+    }
+   }
   },
   {
    "number": 15,
@@ -289,7 +1172,58 @@
     "text": "Book on reporter not the first one to cause litigation",
     "enumeration": "8"
    },
-   "solution": "BARRATOR"
+   "solution": "BARRATOR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BARRATOR",
+    "definitions": [
+     {
+      "text": "one to cause litigation",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not the first",
+      "for": "deletion",
+      "note": "not the first means the opening letter is left off"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     },
+     {
+      "clueFragment": "reporter",
+      "gives": "NARRATOR",
+      "note": "a narrator reports events"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ARRATOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A book about a journalist who is not top of the field leads to a lawsuit.",
+     "walkthrough": "In a down clue, 'on' puts the first piece above the second.",
+     "definitionFit": "A barrator is someone who habitually stirs up lawsuits and quarrels, a vexatious litigant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Book"
+    }
+   }
   },
   {
    "number": 16,
@@ -303,7 +1237,54 @@
     "text": "Case laid out for plant",
     "enumeration": "8"
    },
-   "solution": "SIDALCEA"
+   "solution": "SIDALCEA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SIDALCEA",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "laid out means spread out in a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Case laid",
+      "gives": "CASELAID",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CASELAID",
+       "gives": "SIDALCEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A legal case is set out for someone placed as a spy.",
+     "walkthrough": "'Plant' could be an informant in a legal case, but it is the garden kind.",
+     "definitionFit": "Sidalcea is a genus of flowering plants of the mallow family, known as prairie mallow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 17,
@@ -317,7 +1298,78 @@
     "text": "Latin term, one for the ultimate of precision in reproduction",
     "enumeration": "9"
    },
-   "solution": "LITERATIM"
+   "solution": "LITERATIM",
+   "annotation": {
+    "type": [
+     "substitution",
+     "anagram",
+     "and_lit",
+     "letter_selection"
+    ],
+    "answer": "LITERATIM",
+    "definitions": [
+     {
+      "text": "Latin term, one for the ultimate of precision in reproduction",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "one thing standing for another takes its place in the word"
+     },
+     {
+      "text": "in reproduction",
+      "for": "anagram",
+      "note": "a reproduction remakes something, so these letters are rebuilt in a new order"
+     },
+     {
+      "text": "the ultimate of",
+      "for": "letter_selection",
+      "note": "'the ultimate of' keeps only the last letter of 'precision'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Latin term",
+      "gives": "LATINTERM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "precision",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter of precision, the one to be replaced"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LITERATIM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LATITERMI",
+       "gives": "LITERATIM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Latin phrase describing exact copying, letter by letter.",
+     "walkthrough": "Swap the N of LATIN TERM for I, then rearrange. The whole clue also defines the answer: it is a Latin term meaning reproduced with full precision.",
+     "definitionFit": "Literatim is Latin for letter for letter, describing a copy made with total precision."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "reproduction"
+    }
+   }
   },
   {
    "number": 18,
@@ -331,7 +1383,62 @@
     "text": "Black hole, apparently small in surrounding band",
     "enumeration": "9"
    },
-   "solution": "COLLAPSAR"
+   "solution": "COLLAPSAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "COLLAPSAR",
+    "definitions": [
+     {
+      "text": "Black hole",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in surrounding",
+      "for": "container",
+      "note": "the band is said to surround the other pieces, so they go inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "apparently",
+      "gives": "AP",
+      "note": "AP is a dictionary abbreviation for apparently"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the usual abbreviation for small"
+     },
+     {
+      "clueFragment": "band",
+      "gives": "COLLAR",
+      "note": "a collar is a band round the neck"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COLL",
+      "AP",
+      "S",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "A black hole looks tiny inside a ring of light around it.",
+     "walkthrough": "'Apparently small' reads as a description of the hole, but the two words are separate abbreviations.",
+     "definitionFit": "A collapsar is a star that has collapsed under its own gravity, an older name for a black hole."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "apparently"
+    }
+   }
   },
   {
    "number": 19,
@@ -345,7 +1452,47 @@
     "text": "Sound of alarms for old spouses",
     "enumeration": "6"
    },
-   "solution": "PHEERS"
+   "solution": "PHEERS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PHEERS",
+    "definitions": [
+     {
+      "text": "old spouses",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sound of",
+      "for": "homophone",
+      "note": "the sound of a word is how it is heard, not spelt"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alarms",
+      "gives": "PHEERS",
+      "soundsLike": "FEARS",
+      "note": "alarms are frights or fears"
+     }
+    ],
+    "explanation": {
+     "surface": "Wedded couples of old are startled by the noise of alarm bells.",
+     "walkthrough": "Pheere is a Spenserian word, so the definition carries 'old'.",
+     "definitionFit": "Pheere is an archaic word for a companion or mate, including a husband or wife."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "alarms"
+    }
+   }
   },
   {
    "number": 20,
@@ -359,7 +1506,55 @@
     "text": "Go to crack school parole as before",
     "enumeration": "6"
    },
-   "solution": "SPEECH"
+   "solution": "SPEECH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPEECH",
+    "definitions": [
+     {
+      "text": "parole as before",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to crack",
+      "for": "container",
+      "note": "cracking something opens it so another thing can be put inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go",
+      "gives": "PEE",
+      "note": "go and pee are both informal words for urinating"
+     },
+     {
+      "clueFragment": "school",
+      "gives": "SCH",
+      "note": "SCH is an abbreviation for school"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PEE",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A prisoner sets out to break into a school while released on parole.",
+     "walkthrough": "Parole looks like early release from prison, but its older sense is word of mouth or speech.",
+     "definitionFit": "In its obsolete sense parole meant spoken words or talk, so it is a former synonym of speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "parole"
+    }
+   }
   },
   {
    "number": 21,
@@ -373,7 +1568,69 @@
     "text": "Iced tea on the rocks? Reject it and porter",
     "enumeration": "5"
    },
-   "solution": "CADEE"
+   "solution": "CADEE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion"
+    ],
+    "answer": "CADEE",
+    "definitions": [
+     {
+      "text": "porter",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the rocks",
+      "for": "anagram",
+      "note": "something on the rocks is wrecked, so the letters are broken up"
+     },
+     {
+      "text": "Reject",
+      "for": "deletion",
+      "note": "to reject something is to throw it out of the group"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Iced tea",
+      "gives": "ICEDTEA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written, the letters to be thrown out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CADEE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CEDEA",
+       "gives": "CADEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hotel porter turns down an iced tea served over ice.",
+     "walkthrough": "'On the rocks' means served with ice, but signals a rearrangement.",
+     "definitionFit": "Cadee is an old variant of caddie, an errand boy or porter who carries things."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rocks"
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1644,64 @@
     "text": "Pressure on Nigerian ready to return fine marble",
     "enumeration": "6"
    },
-   "solution": "PARIAN"
+   "solution": "PARIAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PARIAN",
+    "definitions": [
+     {
+      "text": "fine marble",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to return",
+      "for": "reversal",
+      "note": "returning means going back, so the word is read in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pressure",
+      "gives": "P",
+      "note": "P is the symbol for pressure"
+     },
+     {
+      "clueFragment": "Nigerian ready",
+      "gives": "NAIRA",
+      "note": "the naira is Nigeria's currency, and ready is slang for cash"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ARIAN"
+     ],
+     "reversals": [
+      {
+       "from": "NAIRA",
+       "to": "ARIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pressure is put on a Nigerian who is prepared to come back.",
+     "walkthrough": "'Ready' is not prepared but ready money, cash.",
+     "definitionFit": "Parian is a fine white marble quarried on the Greek island of Paros, prized by sculptors."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ready"
+    }
+   }
   },
   {
    "number": 23,
@@ -401,7 +1715,64 @@
     "text": "Saudi term of abuse could be \"swine\"",
     "enumeration": "6"
    },
-   "solution": "SUIDAE"
+   "solution": "SUIDAE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SUIDAE",
+    "definitions": [
+     {
+      "text": "swine",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "term of",
+      "for": "letter_selection",
+      "note": "a term is an end, so only the closing letter of the next word is used"
+     },
+     {
+      "text": "could be",
+      "for": "anagram",
+      "note": "the letters could be other words if put in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saudi",
+      "gives": "SAUDI",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "abuse",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of abuse"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SAUDIE",
+       "gives": "SUIDAE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An insult in Saudi Arabia might be calling someone a pig.",
+     "walkthrough": "'Term of abuse' reads as an insult, but a term is an end, giving one letter.",
+     "definitionFit": "Suidae is the zoological family name of pigs, hogs and boars."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "term"
+    }
+   }
   },
   {
    "number": 24,
@@ -415,7 +1786,47 @@
     "text": "Some overseas left-handers for the Ashes",
     "enumeration": "5"
    },
-   "solution": "EASLE"
+   "solution": "EASLE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EASLE",
+    "definitions": [
+     {
+      "text": "the Ashes",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "only some of the following words is wanted, a run of letters inside them"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "overseas left-handers",
+      "gives": "EASLE",
+      "note": "the letters run across the end of one word and the start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "Some left-handed batsmen from abroad are picked for the Ashes cricket series.",
+     "walkthrough": "The Ashes is the cricket series between England and Australia, but here the words just mean ashes from a fire.",
+     "definitionFit": "Easle is a Scots word, used by Burns, for hot cinders or embers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ashes"
+    }
+   }
   },
   {
    "number": 25,
@@ -429,7 +1840,64 @@
     "text": "Old nobleman rising needs both hands with grandchild",
     "enumeration": "4"
    },
-   "solution": "EORL"
+   "solution": "EORL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EORL",
+    "definitions": [
+     {
+      "text": "Old nobleman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down clue, rising means read from the bottom upward"
+     }
+    ],
+    "linkWords": [
+     "needs",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "both hands",
+      "gives": "LR",
+      "note": "L and R stand for left and right hands"
+     },
+     {
+      "clueFragment": "grandchild",
+      "gives": "OE",
+      "note": "oe is a Scots word for grandchild"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EO",
+      "RL"
+     ],
+     "reversals": [
+      {
+       "from": "LROE",
+       "to": "EORL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An aged aristocrat getting up needs two hands and a grandchild's help.",
+     "definitionFit": "Eorl is the Old English word for a nobleman, the ancestor of earl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rising"
+    }
+   }
   },
   {
    "number": 26,
@@ -443,7 +1911,68 @@
     "text": "Feet opened somehow in two seconds",
     "enumeration": "8"
    },
-   "solution": "SPONDEES"
+   "solution": "SPONDEES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SPONDEES",
+    "definitions": [
+     {
+      "text": "Feet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "done somehow means done in some unspecified way, so the letters are rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the rearranged word sits in between the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "opened",
+      "gives": "PONDEE",
+      "note": "the letters of opened, rearranged"
+     },
+     {
+      "clueFragment": "two seconds",
+      "gives": "SS",
+      "note": "S is the abbreviation for second, twice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PONDEE",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OPENED",
+       "gives": "PONDEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's feet were opened up in a flash.",
+     "walkthrough": "'Feet' here means metrical feet in verse, not body parts.",
+     "definitionFit": "A spondee is a metrical foot of two long syllables, so spondees are poetic feet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Feet"
+    }
+   }
   },
   {
    "number": 27,
@@ -457,7 +1986,61 @@
     "text": "What can keep engine from overheating? Nitre possibly, can",
     "enumeration": "11"
    },
-   "solution": "INTERCOOLER"
+   "solution": "INTERCOOLER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "INTERCOOLER",
+    "definitions": [
+     {
+      "text": "What can keep engine from overheating?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly suggests one of several arrangements of the letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nitre",
+      "gives": "INTER",
+      "note": "the letters of nitre, rearranged"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "COOLER",
+      "note": "can and cooler are both slang for prison"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTER",
+      "COOLER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NITRE",
+       "gives": "INTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled motorist wonders whether saltpetre in a can might stop an engine overheating.",
+     "walkthrough": "'Can' sits as a verb in the question, but at the end it is the noun for jail.",
+     "definitionFit": "An intercooler is a heat exchanger that cools air between compression stages in a turbocharged engine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 28,
@@ -471,7 +2054,63 @@
     "text": "Name for maiden schoolgirls in Brownies",
     "enumeration": "6"
    },
-   "solution": "NISSES"
+   "solution": "NISSES",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "NISSES",
+    "definitions": [
+     {
+      "text": "Brownies",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "one letter standing for another is swapped in to replace it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     },
+     {
+      "clueFragment": "maiden",
+      "gives": "M",
+      "note": "M is the cricket abbreviation for a maiden over"
+     },
+     {
+      "clueFragment": "schoolgirls",
+      "gives": "MISSES",
+      "note": "misses are girls, especially schoolgirls"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ISSES"
+     ]
+    },
+    "explanation": {
+     "surface": "Schoolgirls in the Brownies swap names when their leader marries.",
+     "walkthrough": "Brownies looks like the junior Girl Guides, matching the schoolgirls, but means household goblins.",
+     "definitionFit": "A nis is a friendly household goblin of Scandinavian folklore, much like a Scottish brownie."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Brownies"
+    }
+   }
   },
   {
    "number": 29,
@@ -485,7 +2124,63 @@
     "text": "Pictures in lobby mostly showing industrial action",
     "enumeration": "6"
    },
-   "solution": "HARTAL"
+   "solution": "HARTAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "HARTAL",
+    "definitions": [
+     {
+      "text": "industrial action",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the last letter is dropped"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something in another thing sits inside it"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pictures",
+      "gives": "ART",
+      "note": "pictures collectively are art"
+     },
+     {
+      "clueFragment": "lobby",
+      "gives": "HALL",
+      "note": "a lobby is an entrance hall"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ART",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "Paintings hung in a foyer depict a strike.",
+     "definitionFit": "A hartal is a stoppage of work and business in India, used as a political protest, a kind of strike."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pictures"
+    }
+   }
   }
  ]
 }
