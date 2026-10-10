@@ -23,6 +23,9 @@
   "date": "2023-08-12",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,55 @@
     "text": "Spectral cat behind ventilator, by the sound of it",
     "enumeration": "7"
    },
-   "solution": "PHANTOM"
+   "solution": "PHANTOM",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "PHANTOM",
+    "definitions": [
+     {
+      "text": "Spectral",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it",
+      "for": "homophone",
+      "note": "says the word we build is only heard, so its spelling can differ from what we say"
+     },
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "the cat sits behind the ventilator, so its word follows the other in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ventilator",
+      "gives": "PHAN",
+      "soundsLike": "FAN",
+      "note": "a fan is a ventilator; spelt here to match the sound"
+     },
+     {
+      "clueFragment": "cat",
+      "gives": "TOM",
+      "note": "a tom is a male cat"
+     }
+    ],
+    "explanation": {
+     "surface": "A ghostly cat lurking behind a ventilator, heard rather than seen.",
+     "walkthrough": "FAN TOM said aloud is PHANTOM.",
+     "definitionFit": "A phantom is a ghost, and 'spectral' is used as an adjective of a ghostly thing, as in 'phantom limb' — attributive noun use."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cat"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +101,46 @@
     "text": "Paper strip for nutritious snack",
     "enumeration": "7"
    },
-   "solution": "PEANUTS"
+   "solution": "PEANUTS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PEANUTS",
+    "definitions": [
+     {
+      "text": "Paper strip",
+      "at": 0
+     },
+     {
+      "text": "nutritious snack",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paper strip",
+      "note": "first meaning: the comic strip by Charles Schulz printed in newspapers"
+     },
+     {
+      "clueFragment": "nutritious snack",
+      "note": "second meaning: groundnuts eaten as a snack"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Paper strip' suggests a sliver of paper; it is a newspaper comic strip.",
+     "definitionFit": "The name is both Schulz's long-running newspaper cartoon and the protein-rich legume people nibble."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "strip"
+    }
+   }
   },
   {
    "number": 2,
@@ -74,7 +164,51 @@
      }
     ]
    },
-   "solution": "ALLMANNEROF"
+   "solution": "ALLMANNEROF",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALL MANNER OF",
+    "definitions": [
+     {
+      "text": "Various",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ruins",
+      "for": "anagram",
+      "note": "to ruin is to wreck, so the letters are broken up and rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fallen Roman",
+      "gives": "FALLENROMAN",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FALLENROMAN",
+       "gives": "ALLMANNEROF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Assorted broken-down remains of the Roman world.",
+     "walkthrough": "'Ruins' reads as a noun, but it is the verb that tells you to rearrange.",
+     "definitionFit": "'All manner of' is an idiom meaning many different kinds, a close match for various."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ruins"
+    }
+   }
   },
   {
    "number": 3,
@@ -88,7 +222,70 @@
     "text": "Extremely tricky ruse to secure Oscar for Citizen Kane?",
     "enumeration": "6"
    },
-   "solution": "TYCOON"
+   "solution": "TYCOON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "TYCOON",
+    "definitions": [
+     {
+      "text": "Citizen Kane?",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremes of the word, its outermost letters"
+     },
+     {
+      "text": "to secure",
+      "for": "container",
+      "note": "to secure something is to hold it fast, so one word goes round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tricky",
+      "gives": "TY",
+      "select": "outer",
+      "note": "first and last letters of tricky"
+     },
+     {
+      "clueFragment": "ruse",
+      "gives": "CON",
+      "note": "a con is a trick or ruse"
+     },
+     {
+      "clueFragment": "Oscar",
+      "gives": "O",
+      "note": "Oscar is O in the NATO alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TY",
+      "C",
+      "O",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A cunning plan to win the Academy Award for Orson Welles's film.",
+     "walkthrough": "The surface is about the film winning an Oscar; but Charles Foster Kane, the character, is the definition, hence the question mark.",
+     "definitionFit": "Kane, the hero of Citizen Kane, is a newspaper magnate, an example of a business mogul."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Oscar"
+    }
+   }
   },
   {
    "number": 4,
@@ -108,7 +305,58 @@
      }
     ]
    },
-   "solution": "MAIDENNAME"
+   "solution": "MAIDENNAME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAIDEN NAME",
+    "definitions": [
+     {
+      "text": "Woman's first entitlement",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "before places one word in front of the other"
+     }
+    ],
+    "linkWords": [
+     "could be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "over",
+      "gives": "MAIDEN",
+      "note": "a maiden is a cricket over with no runs scored"
+     },
+     {
+      "clueFragment": "term",
+      "gives": "NAME",
+      "note": "a term is a name for something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAIDEN",
+      "NAME"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman's earliest right may have lapsed before the school term began.",
+     "walkthrough": "In cricket an over is six balls; a maiden over is one from which no runs are scored.",
+     "definitionFit": "A woman's surname before marriage is her original one, the first she was entitled to."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 5,
@@ -122,7 +370,56 @@
     "text": "Stout pin in the form of catch on the hotplate",
     "enumeration": "7"
    },
-   "solution": "HOBNAIL"
+   "solution": "HOBNAIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOBNAIL",
+    "definitions": [
+     {
+      "text": "Stout pin",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue, one thing placed on another comes after it in the reading order"
+     }
+    ],
+    "linkWords": [
+     "in the form of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the hotplate",
+      "gives": "HOB",
+      "note": "a hob is the hotplate on top of a cooker"
+     },
+     {
+      "clueFragment": "catch",
+      "gives": "NAIL",
+      "note": "to nail someone is to catch them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOB",
+      "NAIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A kitchen scene: a thick pin used as a catch on the cooker's hotplate.",
+     "definitionFit": "A hobnail is a short nail with a large head, a sturdy pin hammered into boot soles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "catch"
+    }
+   }
   },
   {
    "number": 5,
@@ -136,7 +433,59 @@
     "text": "Native dance from Haiti originally, with alias",
     "enumeration": "4"
    },
-   "solution": "HAKA"
+   "solution": "HAKA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HAKA",
+    "definitions": [
+     {
+      "text": "Native dance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to the origin, the start of the word"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Haiti",
+      "gives": "H",
+      "select": "first",
+      "note": "first letter of Haiti"
+     },
+     {
+      "clueFragment": "alias",
+      "gives": "AKA",
+      "note": "AKA, also known as, introduces an alias"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "AKA"
+     ]
+    },
+    "explanation": {
+     "surface": "An indigenous dance that originated in Haiti, going under another name.",
+     "walkthrough": "'Haiti' points to the Caribbean, but the dance is Maori from New Zealand.",
+     "definitionFit": "The haka is the ceremonial war dance of the Maori people of New Zealand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Haiti"
+    }
+   }
   },
   {
    "number": 6,
@@ -150,7 +499,78 @@
     "text": "Aristo's taken up residence across island for warmth",
     "enumeration": "8"
    },
-   "solution": "BONHOMIE"
+   "solution": "BONHOMIE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "container"
+    ],
+    "answer": "BONHOMIE",
+    "definitions": [
+     {
+      "text": "warmth",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken up",
+      "for": "reversal",
+      "note": "in a down clue, taken up means read from the bottom upwards"
+     },
+     {
+      "text": "across",
+      "for": "container",
+      "note": "lying across something means stretching over it on both sides"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aristo",
+      "gives": "NOB",
+      "note": "a nob is an upper-class person"
+     },
+     {
+      "clueFragment": "residence",
+      "gives": "HOME",
+      "note": "a home is a residence"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is an abbreviation for island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BON",
+      "HOM",
+      "I",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "NOB",
+       "to": "BON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A posh person moves into a home on an island to enjoy its warm climate.",
+     "walkthrough": "The 's is 'has', a joining word. 'Warmth' hints at climate; it is warmth of manner.",
+     "definitionFit": "Bonhomie is cheerful friendliness, the warmth of a good-natured person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "warmth"
+    }
+   }
   },
   {
    "number": 7,
@@ -164,7 +584,47 @@
     "text": "Not quite top primate",
     "enumeration": "3"
    },
-   "solution": "APE"
+   "solution": "APE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "APE",
+    "definitions": [
+     {
+      "text": "primate",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not quite",
+      "for": "deletion",
+      "note": "not quite means falling a little short, so the last letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "top",
+      "gives": "APEX",
+      "note": "the apex is the top"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APE"
+     ]
+    },
+    "explanation": {
+     "surface": "A primate that falls just short of the top of the hierarchy.",
+     "definitionFit": "Apes such as gorillas and chimpanzees belong to the order of primates."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 8,
@@ -184,7 +644,61 @@
      }
     ]
    },
-   "solution": "LADYDAY"
+   "solution": "LADYDAY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LADY DAY",
+    "definitions": [
+     {
+      "text": "when rent's traditionally due",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepts",
+      "for": "container",
+      "note": "to accept is to take in, so one word goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Noblewoman",
+      "gives": "LADY",
+      "note": "a lady is a noblewoman"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "AY",
+      "note": "ay (aye) is an old word for always, as in 'for ay'"
+     },
+     {
+      "clueFragment": "old penny",
+      "gives": "D",
+      "note": "d was the symbol for a pre-decimal British penny"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LADY",
+      "D",
+      "AY"
+     ]
+    },
+    "explanation": {
+     "surface": "An aristocrat always takes a penny on rent day.",
+     "walkthrough": "Lady Day, 25 March, is the Feast of the Annunciation and an English quarter day, when rents fell due.",
+     "definitionFit": "As one of the quarter days of the English calendar, it was the traditional date for paying rent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "accepts"
+    }
+   }
   },
   {
    "number": 9,
@@ -198,7 +712,48 @@
     "text": "Tool's completely articulated",
     "enumeration": "3"
    },
-   "solution": "AWL"
+   "solution": "AWL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "AWL",
+    "definitions": [
+     {
+      "text": "Tool",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "articulated",
+      "for": "homophone",
+      "note": "articulated means spoken out, so the word is taken by how it is said"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "completely",
+      "gives": "AWL",
+      "soundsLike": "ALL",
+      "note": "all means completely, as in 'all wrong'"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone remarks that a tool has been fully jointed.",
+     "walkthrough": "'Articulated' looks like it means jointed, as in an articulated lorry; here it means pronounced.",
+     "definitionFit": "An awl is a pointed tool used for piercing holes in leather or wood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "articulated"
+    }
+   }
   },
   {
    "number": 10,
@@ -218,7 +773,64 @@
      }
     ]
    },
-   "solution": "CHICKENFEED"
+   "solution": "CHICKENFEED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CHICKEN FEED",
+    "definitions": [
+     {
+      "text": "Small contribution",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pocketing",
+      "for": "container",
+      "note": "to pocket something is to put it inside, so one word holds the other"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cowardly",
+      "gives": "CHICKEN",
+      "note": "chicken means cowardly"
+     },
+     {
+      "clueFragment": "US agent",
+      "gives": "FED",
+      "note": "a Fed is an FBI agent in US slang"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "E",
+      "note": "E is a musical key"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHICKEN",
+      "F",
+      "E",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A timid American agent offers a paltry sum, hiding a key in his pocket.",
+     "definitionFit": "Chicken feed is an idiom for a trivially small amount of money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 11,
@@ -232,7 +844,56 @@
     "text": "A French bible translation outstanding? That's not acknowledged",
     "enumeration": "8"
    },
-   "solution": "UNAVOWED"
+   "solution": "UNAVOWED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNAVOWED",
+    "definitions": [
+     {
+      "text": "not acknowledged",
+      "at": 47
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A French",
+      "gives": "UN",
+      "note": "un is French for a"
+     },
+     {
+      "clueFragment": "bible translation",
+      "gives": "AV",
+      "note": "AV is the Authorized Version of the Bible"
+     },
+     {
+      "clueFragment": "outstanding",
+      "gives": "OWED",
+      "note": "an outstanding debt is one still owed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "AV",
+      "OWED"
+     ]
+    },
+    "explanation": {
+     "surface": "An excellent French Bible translation goes uncredited.",
+     "walkthrough": "'Outstanding' suggests excellence; it means unpaid. The Authorized Version is the King James Bible.",
+     "definitionFit": "To avow is to admit openly, so something unavowed has never been admitted or owned up to."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outstanding"
+    }
+   }
   },
   {
    "number": 12,
@@ -246,7 +907,54 @@
     "text": "Benefit received by industrial carrier put up",
     "enumeration": "6"
    },
-   "solution": "HOUSED"
+   "solution": "HOUSED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HOUSED",
+    "definitions": [
+     {
+      "text": "put up",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "received by",
+      "for": "container",
+      "note": "what is received is taken in, so it goes inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "industrial carrier",
+      "gives": "HOD",
+      "note": "a hod is a builder's trough for carrying bricks"
+     },
+     {
+      "clueFragment": "Benefit",
+      "gives": "USE",
+      "note": "use, as in 'of some use', is benefit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "USE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A payment from a freight company gets put up for others to see.",
+     "definitionFit": "To put someone up is to give them lodging, which is to house them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "carrier"
+    }
+   }
   },
   {
    "number": 13,
@@ -266,7 +974,63 @@
      }
     ]
    },
-   "solution": "STABATMATER"
+   "solution": "STABATMATER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "STABAT MATER",
+    "definitions": [
+     {
+      "text": "Religious work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "marshals",
+      "for": "anagram",
+      "note": "to marshal is to arrange in order, so the letters are reorganised"
+     },
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "an opening is the start, so only the first letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bars at Tate",
+      "gives": "BARSATTATE",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "Modern's",
+      "gives": "M",
+      "select": "first",
+      "note": "first letter of modern"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BARSATTATEM",
+       "gives": "STABATMATER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sacred work bans people from the bars at the Tate Modern gallery's launch.",
+     "walkthrough": "Tate Modern is London's modern art gallery.",
+     "definitionFit": "The Stabat Mater is a medieval Latin hymn set to music by many composers, a piece of sacred music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "marshals"
+    }
+   }
   },
   {
    "number": 14,
@@ -280,7 +1044,50 @@
     "text": "Military leader coming forth with great weight",
     "enumeration": "10"
    },
-   "solution": "WELLINGTON"
+   "solution": "WELLINGTON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WELLINGTON",
+    "definitions": [
+     {
+      "text": "Military leader",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coming forth",
+      "gives": "WELLING",
+      "note": "welling is flowing out or coming forth"
+     },
+     {
+      "clueFragment": "great weight",
+      "gives": "TON",
+      "note": "a ton is a great weight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WELLING",
+      "TON"
+     ]
+    },
+    "explanation": {
+     "surface": "A general stepping forward to speak with great authority.",
+     "walkthrough": "'Weight' suggests influence; it is a literal heavy weight.",
+     "definitionFit": "The Duke of Wellington was the British general who beat Napoleon at Waterloo."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "weight"
+    }
+   }
   },
   {
    "number": 15,
@@ -294,7 +1101,42 @@
     "text": "Decline suitable place for washing",
     "enumeration": "4"
    },
-   "solution": "SINK"
+   "solution": "SINK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SINK",
+    "definitions": [
+     {
+      "text": "Decline",
+      "at": 0
+     },
+     {
+      "text": "suitable place for washing",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Decline",
+      "note": "first meaning: to go down or deteriorate"
+     },
+     {
+      "clueFragment": "suitable place for washing",
+      "note": "second meaning: a basin with taps in a kitchen"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone refuses an appropriate spot to do the laundry.",
+     "definitionFit": "As a verb the word means to fall or drop; as a noun it is the basin used for washing up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Decline"
+    }
+   }
   },
   {
    "number": 16,
@@ -308,7 +1150,50 @@
     "text": "Popular titbit's bad taste",
     "enumeration": "10"
    },
-   "solution": "INDELICACY"
+   "solution": "INDELICACY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INDELICACY",
+    "definitions": [
+     {
+      "text": "bad taste",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     },
+     {
+      "clueFragment": "titbit",
+      "gives": "DELICACY",
+      "note": "a delicacy is a choice morsel of food"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "DELICACY"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashionable snack turns out to have a nasty flavour.",
+     "walkthrough": "'Taste' invites a food reading; it is taste as in manners.",
+     "definitionFit": "An indelicacy is a coarse or tactless remark or act, a lapse in refinement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "taste"
+    }
+   }
   },
   {
    "number": 17,
@@ -322,7 +1207,42 @@
     "text": "Bargained for stock",
     "enumeration": "8"
    },
-   "solution": "EXPECTED"
+   "solution": "EXPECTED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EXPECTED",
+    "definitions": [
+     {
+      "text": "Bargained for",
+      "at": 0
+     },
+     {
+      "text": "stock",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bargained for",
+      "note": "first meaning: anticipated, as in 'more than I bargained for'"
+     },
+     {
+      "clueFragment": "stock",
+      "note": "second meaning: standard or predictable, as in a stock reply"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Stock' suggests goods or shares to bargain over; it is the adjective meaning usual.",
+     "definitionFit": "Something anticipated has been bargained for, and a stock answer is the predictable, foreseen one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stock"
+    }
+   }
   },
   {
    "number": 18,
@@ -342,7 +1262,53 @@
      }
     ]
    },
-   "solution": "FOREXAMPLE"
+   "solution": "FOREXAMPLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FOR EXAMPLE",
+    "definitions": [
+     {
+      "text": "say",
+      "at": 32
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pro",
+      "gives": "FOR",
+      "note": "pro means in favour of"
+     },
+     {
+      "clueFragment": "formerly",
+      "gives": "EX",
+      "note": "ex means former, as in ex-wife"
+     },
+     {
+      "clueFragment": "on the plump side",
+      "gives": "AMPLE",
+      "note": "ample describes a generously rounded figure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "EX",
+      "AMPLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A former professional who has put on a little weight, someone might say.",
+     "walkthrough": "'Say' at the end looks like a soundalike signal or a mere example marker, but it is the whole definition.",
+     "definitionFit": "Say is used to introduce an instance, exactly as the phrase 'for instance' does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 18,
@@ -356,7 +1322,62 @@
     "text": "Empty fruitful land Open University's invested in",
     "enumeration": "7"
    },
-   "solution": "FATUOUS"
+   "solution": "FATUOUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "FATUOUS",
+    "definitions": [
+     {
+      "text": "Empty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "invested in",
+      "for": "container",
+      "note": "something invested in is placed inside, so one word goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fruitful",
+      "gives": "FAT",
+      "note": "fat land is fertile, fruitful land"
+     },
+     {
+      "clueFragment": "land",
+      "gives": "US",
+      "note": "the US is a land, a country"
+     },
+     {
+      "clueFragment": "Open University",
+      "gives": "OU",
+      "note": "OU is the Open University, Britain's distance-learning university"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAT",
+      "U",
+      "OU",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Productive farmland has been bought by a distance-learning university, pointlessly.",
+     "walkthrough": "'Invested' suggests money; here it simply means placed inside.",
+     "definitionFit": "Fatuous means silly and pointless, as in an empty or vacuous remark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "invested"
+    }
+   }
   },
   {
    "number": 19,
@@ -370,7 +1391,41 @@
     "text": "Shakes containers",
     "enumeration": "4"
    },
-   "solution": "JARS"
+   "solution": "JARS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "JARS",
+    "definitions": [
+     {
+      "text": "Shakes",
+      "at": 0
+     },
+     {
+      "text": "containers",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shakes",
+      "note": "first meaning: jolts or jangles"
+     },
+     {
+      "clueFragment": "containers",
+      "note": "second meaning: glass pots with lids"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "As a verb it means to jolt unpleasantly; as a plural noun it means glass storage vessels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shakes"
+    }
+   }
   },
   {
    "number": 20,
@@ -384,7 +1439,61 @@
     "text": "Pastry daughter in Ulster cooked?",
     "enumeration": "7"
    },
-   "solution": "STRUDEL"
+   "solution": "STRUDEL",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "STRUDEL",
+    "definitions": [
+     {
+      "text": "Pastry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one thing inside another"
+     },
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooked means altered by preparation, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is an abbreviation for daughter"
+     },
+     {
+      "clueFragment": "Ulster",
+      "gives": "ULSTER",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UDLSTER",
+       "gives": "STRUDEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl in Northern Ireland baked some pastry, perhaps.",
+     "definitionFit": "Strudel is a layered pastry, usually filled with apple, from Austria."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ulster"
+    }
+   }
   },
   {
    "number": 21,
@@ -398,7 +1507,63 @@
     "text": "Damp food raised problem for marsupial",
     "enumeration": "6"
    },
-   "solution": "POSSUM"
+   "solution": "POSSUM",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "POSSUM",
+    "definitions": [
+     {
+      "text": "marsupial",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue, raised means read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Damp food",
+      "gives": "SOP",
+      "note": "a sop is a piece of bread soaked in liquid"
+     },
+     {
+      "clueFragment": "problem",
+      "gives": "SUM",
+      "note": "a sum is an arithmetic problem"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POS",
+      "SUM"
+     ],
+     "reversals": [
+      {
+       "from": "SOP",
+       "to": "POS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Soggy food has become an issue for a pouched animal.",
+     "definitionFit": "The possum is a tree-dwelling marsupial of Australia and New Guinea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 22,
@@ -412,7 +1577,65 @@
     "text": "Mother's third of payment for sweet",
     "enumeration": "6"
    },
-   "solution": "TOFFEE"
+   "solution": "TOFFEE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TOFFEE",
+    "definitions": [
+     {
+      "text": "sweet",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "third",
+      "for": "letter_selection",
+      "note": "the third means we keep just the letter in third place of that word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mother's",
+      "gives": "T",
+      "select": 3,
+      "note": "third letter of mother"
+     },
+     {
+      "clueFragment": "of",
+      "gives": "OF",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "payment",
+      "gives": "FEE",
+      "note": "a fee is a payment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OF",
+      "FEE"
+     ]
+    },
+    "explanation": {
+     "surface": "A third of mum's payment goes on confectionery.",
+     "walkthrough": "The surface asks for a third of a payment; in fact only the third letter of mother is taken.",
+     "definitionFit": "Toffee is a chewy confection of boiled sugar and butter, a classic British sweet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "third"
+    }
+   }
   },
   {
    "number": 23,
@@ -426,7 +1649,54 @@
     "text": "Nark monarch after playing well",
     "enumeration": "8"
    },
-   "solution": "INFORMER"
+   "solution": "INFORMER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INFORMER",
+    "definitions": [
+     {
+      "text": "Nark",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "the monarch's word comes after the other in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "playing well",
+      "gives": "INFORM",
+      "note": "a player in form is playing well"
+     },
+     {
+      "clueFragment": "monarch",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, stands for the monarch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INFORM",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A police spy keeps watch on a sovereign who has been performing well.",
+     "walkthrough": "A nark is British slang for a police informer.",
+     "definitionFit": "A nark passes information to the police, which is what an informer does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 24,
@@ -440,7 +1710,48 @@
     "text": "Constant torture ruled out on a regular basis",
     "enumeration": "4"
    },
-   "solution": "TRUE"
+   "solution": "TRUE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TRUE",
+    "definitions": [
+     {
+      "text": "Constant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ruled out on a regular basis",
+      "for": "letter_selection",
+      "note": "letters struck out at regular intervals leave every other one standing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "torture",
+      "gives": "TRUE",
+      "select": "alternate",
+      "note": "first, third, fifth and seventh letters of torture"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRUE"
+     ]
+    },
+    "explanation": {
+     "surface": "Persistent torture is being banned at regular intervals.",
+     "definitionFit": "True can mean loyal and steadfast, as in a constant friend."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Constant"
+    }
+   }
   },
   {
    "number": 25,
@@ -454,7 +1765,53 @@
     "text": "Takes out alumnus and scholarly son",
     "enumeration": "11"
    },
-   "solution": "OBLITERATES"
+   "solution": "OBLITERATES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OBLITERATES",
+    "definitions": [
+     {
+      "text": "Takes out",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alumnus",
+      "gives": "OB",
+      "note": "OB is an old boy, a former pupil"
+     },
+     {
+      "clueFragment": "scholarly",
+      "gives": "LITERATE",
+      "note": "literate means well read"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the genealogical abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "LITERATE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A former student and his bookish son go out on a date.",
+     "walkthrough": "'Takes out' suggests escorting someone; it means destroys.",
+     "definitionFit": "To take out a target is to wipe it out completely, which is to obliterate it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Takes"
+    }
+   }
   },
   {
    "number": 26,
@@ -468,7 +1825,66 @@
     "text": "National leaders from Levant and Orient",
     "enumeration": "3"
    },
-   "solution": "LAO"
+   "solution": "LAO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "LAO",
+    "definitions": [
+     {
+      "text": "National",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders",
+      "for": "letter_selection",
+      "note": "leaders are those at the front, so we take the first letter of each word"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Levant",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter of Levant"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter of and"
+     },
+     {
+      "clueFragment": "Orient",
+      "gives": "O",
+      "select": "first",
+      "note": "first letter of Orient"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "A",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Heads of state from the Middle and Far East.",
+     "walkthrough": "'National' looks like an adjective; it is the noun for a citizen.",
+     "definitionFit": "A Lao is a native or citizen of Laos, in South-East Asia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "National"
+    }
+   }
   },
   {
    "number": 27,
@@ -482,7 +1898,68 @@
     "text": "Delinquent's obligation to return missing book",
     "enumeration": "3"
    },
-   "solution": "TED"
+   "solution": "TED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "TED",
+    "definitions": [
+     {
+      "text": "Delinquent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "missing means something is absent, so those letters are dropped"
+     },
+     {
+      "text": "to return",
+      "for": "reversal",
+      "note": "to return is to go back, so the letters are read right to left"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "obligation",
+      "gives": "DEBT",
+      "note": "a debt is an obligation"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is an abbreviation for book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TED"
+     ],
+     "reversals": [
+      {
+       "from": "DET",
+       "to": "TED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young offender has to give back an overdue library book.",
+     "walkthrough": "A Ted, or Teddy boy, was a 1950s British youth in Edwardian-style clothes, seen as a hooligan.",
+     "definitionFit": "Teds were the original British youth tearaways, so the word serves for a juvenile delinquent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "missing"
+    }
+   }
   },
   {
    "number": 28,
@@ -496,7 +1973,64 @@
     "text": "Foot is special on tailless ungulates",
     "enumeration": "7"
    },
-   "solution": "SPONDEE"
+   "solution": "SPONDEE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SPONDEE",
+    "definitions": [
+     {
+      "text": "Foot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tailless",
+      "for": "deletion",
+      "note": "without a tail means the final letter is cut off"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "special",
+      "gives": "SP",
+      "note": "SP is an abbreviation for special"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ungulates",
+      "gives": "DEER",
+      "note": "deer are hoofed mammals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "ON",
+      "DEE"
+     ]
+    },
+    "explanation": {
+     "surface": "A hoof is something special on animals that have lost their tails.",
+     "walkthrough": "'Foot' looks like part of the animal picture, but here it is a unit of verse.",
+     "definitionFit": "In prosody a foot is a metrical unit, and a spondee is one made of two stressed syllables."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Foot"
+    }
+   }
   },
   {
    "number": 29,
@@ -510,7 +2044,71 @@
     "text": "Learn unexpectedly about doubtful expression for DCI perhaps",
     "enumeration": "7"
    },
-   "solution": "NUMERAL"
+   "solution": "NUMERAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NUMERAL",
+    "definitions": [
+     {
+      "text": "DCI perhaps",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unexpectedly",
+      "for": "anagram",
+      "note": "something unexpected comes out differently, so the letters are rearranged"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one set of letters surrounds the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Learn",
+      "gives": "LEARN",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "doubtful expression",
+      "gives": "UM",
+      "note": "um is a hesitant sound of doubt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "UM",
+      "ERAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEARN",
+       "gives": "NERAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Being told unexpectedly about a vague remark concerning a detective chief inspector.",
+     "walkthrough": "DCI reads as a Detective Chief Inspector, but here it is Roman 601.",
+     "definitionFit": "DCI in Roman figures stands for 601, so it is one example of a number symbol."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "DCI"
+    }
+   }
   }
  ]
 }
