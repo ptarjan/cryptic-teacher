@@ -24,6 +24,9 @@
   "date": "2024-05-20",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,53 @@
     "text": "Shadowy figure in dodgy hotel suite",
     "enumeration": "10"
    },
-   "solution": "SILHOUETTE"
+   "solution": "SILHOUETTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SILHOUETTE",
+    "definitions": [
+     {
+      "text": "Shadowy figure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dodgy",
+      "for": "anagram",
+      "note": "something dodgy is unreliable or crooked, so the letters beside it are not to be trusted in their given order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hotel suite",
+      "gives": "HOTELSUITE",
+      "note": "the ten letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HOTELSUITE",
+       "gives": "SILHOUETTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shady figure lurks in a disreputable hotel room, like a scene from a noir film.",
+     "definitionFit": "A silhouette is the dark outline of a shape seen against light, a figure made only of shadow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dodgy"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +100,67 @@
     "text": "Exercise in reordering of trousers in large shop",
     "enumeration": "10"
    },
-   "solution": "SUPERSTORE"
+   "solution": "SUPERSTORE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SUPERSTORE",
+    "definitions": [
+     {
+      "text": "large shop",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reordering of",
+      "for": "anagram",
+      "note": "reordering means the following word's letters are put in a new sequence"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first item inside the jumbled letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trousers",
+      "gives": "TROUSERS",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "Exercise",
+      "gives": "PE",
+      "note": "PE is physical education, school exercise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "PE",
+      "RSTORE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TROUSERS",
+       "gives": "SURSTORE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A workout involves rearranging the trousers on display in a big store.",
+     "walkthrough": "The trousers are shuffled to SURSTORE and PE goes in after the first two letters.",
+     "definitionFit": "A superstore is a very big retail outlet, often out of town, selling a wide range of goods."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Exercise"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +174,51 @@
     "text": "Large number missing introduction in storyline",
     "enumeration": "3"
    },
-   "solution": "LOT"
+   "solution": "LOT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LOT",
+    "definitions": [
+     {
+      "text": "Large number",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing introduction",
+      "for": "deletion",
+      "note": "without its introduction, a word loses its opening letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "storyline",
+      "gives": "PLOT",
+      "note": "the plot of a book or film is its storyline"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A storyline full of characters but lacking a proper opening.",
+     "walkthrough": "PLOT drops its first letter, P.",
+     "definitionFit": "A lot, as in 'a lot of people', is an informal way of saying a great many."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "introduction"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +232,49 @@
     "text": "Play, religious books and magazine",
     "enumeration": "7"
    },
-   "solution": "OTHELLO"
+   "solution": "OTHELLO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OTHELLO",
+    "definitions": [
+     {
+      "text": "Play",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "religious books",
+      "gives": "OT",
+      "note": "OT is the Old Testament, a set of religious books"
+     },
+     {
+      "clueFragment": "magazine",
+      "gives": "HELLO",
+      "note": "Hello! is a British celebrity gossip magazine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OT",
+      "HELLO"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of reading matter: a script, some scripture and a periodical.",
+     "definitionFit": "Othello is Shakespeare's tragedy of the Moor of Venice, so it is an example of a stage drama."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "magazine"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +288,51 @@
     "text": "Make like tip on corn",
     "enumeration": "6"
    },
-   "solution": "ENDEAR"
+   "solution": "ENDEAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENDEAR",
+    "definitions": [
+     {
+      "text": "Make like",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tip",
+      "gives": "END",
+      "note": "the tip of something is its end"
+     },
+     {
+      "clueFragment": "corn",
+      "gives": "EAR",
+      "note": "an ear is the seed-bearing head of a cereal plant like corn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "END",
+      "EAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for making something resemble the tip of a corn cob.",
+     "walkthrough": "'Make like' reads as 'imitate', but it means 'cause to be liked'.",
+     "definitionFit": "To endear someone to others is to cause them to be fond of that person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "like"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +346,43 @@
     "text": "Breakfast item completely finished!",
     "enumeration": "5"
    },
-   "solution": "TOAST"
+   "solution": "TOAST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TOAST",
+    "definitions": [
+     {
+      "text": "Breakfast item",
+      "at": 0
+     },
+     {
+      "text": "completely finished",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Breakfast item",
+      "note": "first meaning: grilled bread eaten in the morning"
+     },
+     {
+      "clueFragment": "completely finished",
+      "note": "second meaning: slang for done for"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The exclamation suggests a breakfast eaten up; really the slang 'you're toast' means you are doomed.",
+     "definitionFit": "Toast is browned bread served at breakfast, and in informal speech someone who is toast is ruined or doomed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "finished"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +396,58 @@
     "text": "Wicked plate with wicked contents!",
     "enumeration": "8"
    },
-   "solution": "DEVILISH"
+   "solution": "DEVILISH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEVILISH",
+    "definitions": [
+     {
+      "text": "Wicked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contents",
+      "for": "container",
+      "note": "having something as its contents means the plate holds the second item inside it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plate",
+      "gives": "DISH",
+      "note": "a dish is a plate"
+     },
+     {
+      "clueFragment": "wicked",
+      "gives": "EVIL",
+      "note": "evil means wicked"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "EVIL",
+      "ISH"
+     ]
+    },
+    "explanation": {
+     "surface": "A plate filled with sinful food, a wickedly indulgent dessert.",
+     "walkthrough": "The word wicked appears twice on purpose: once as the definition, once as the filling for the plate.",
+     "definitionFit": "Devilish means fiendish or evil, like the devil, so it is a synonym of wicked."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plate"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +461,42 @@
     "text": "Shy sales patter",
     "enumeration": "5"
    },
-   "solution": "PITCH"
+   "solution": "PITCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PITCH",
+    "definitions": [
+     {
+      "text": "Shy",
+      "at": 0
+     },
+     {
+      "text": "sales patter",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shy",
+      "note": "first meaning: as a verb, to throw, as at a coconut shy"
+     },
+     {
+      "clueFragment": "sales patter",
+      "note": "second meaning: a salesperson's spiel"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Shy' reads as timid, which a salesperson is not; it is the verb meaning throw.",
+     "definitionFit": "To pitch a ball is to throw it, and a sales pitch is the persuasive talk used to sell something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shy"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +510,43 @@
     "text": "Artist, one with pull?",
     "enumeration": "6"
    },
-   "solution": "DRAWER"
+   "solution": "DRAWER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRAWER",
+    "definitions": [
+     {
+      "text": "Artist",
+      "at": 0
+     },
+     {
+      "text": "one with pull",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Artist",
+      "note": "first meaning: someone who draws pictures"
+     },
+     {
+      "clueFragment": "one with pull",
+      "note": "second meaning: a sliding box in furniture, opened by its handle"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'One with pull' suggests an influential person; it is a piece of furniture with a handle.",
+     "definitionFit": "A person who sketches is one who draws, and a chest's sliding compartment is opened by a pull, or handle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pull"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +560,41 @@
     "text": "Uninspired walker",
     "enumeration": "10"
    },
-   "solution": "PEDESTRIAN"
+   "solution": "PEDESTRIAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PEDESTRIAN",
+    "definitions": [
+     {
+      "text": "Uninspired",
+      "at": 0
+     },
+     {
+      "text": "walker",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Uninspired",
+      "note": "first meaning: dull and ordinary"
+     },
+     {
+      "clueFragment": "walker",
+      "note": "second meaning: a person going on foot"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a dull hiker, but the two words are separate meanings.",
+     "definitionFit": "As an adjective it means plodding and dull, and as a noun it is a person travelling on foot rather than by vehicle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +608,42 @@
     "text": "Go off in brotherhood",
     "enumeration": "3"
    },
-   "solution": "ROT"
+   "solution": "ROT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ROT",
+    "definitions": [
+     {
+      "text": "Go off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the answer sits inside the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brotherhood",
+      "gives": "ROT",
+      "note": "found in the second, third and fourth letters"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone leaves, or turns bad, within a fraternity.",
+     "definitionFit": "Food that goes off spoils or decays, which is what rotting means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "brotherhood"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +657,55 @@
     "text": "One inspired by the actual crime",
     "enumeration": "8"
    },
-   "solution": "THIEVERY"
+   "solution": "THIEVERY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THIEVERY",
+    "definitions": [
+     {
+      "text": "crime",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inspired by",
+      "for": "container",
+      "note": "inspired means breathed in, so the first item is drawn inside the phrase that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the actual",
+      "gives": "THEVERY",
+      "note": "as in 'the very man' meaning the actual man"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "I",
+      "EVERY"
+     ]
+    },
+    "explanation": {
+     "surface": "A criminal copies a real-life crime, true crime inspiring a copycat.",
+     "walkthrough": "'Inspired by' sounds like a source of ideas; here it means breathed in, putting I inside THE VERY.",
+     "definitionFit": "Thievery is the act of stealing, a kind of offence against the law."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inspired"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +719,50 @@
     "text": "Wales site rebuilt anyway",
     "enumeration": "9"
    },
-   "solution": "LEASTWISE"
+   "solution": "LEASTWISE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LEASTWISE",
+    "definitions": [
+     {
+      "text": "anyway",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rebuilt",
+      "for": "anagram",
+      "note": "something rebuilt is put together again in a different form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wales site",
+      "gives": "WALESSITE",
+      "note": "the nine letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WALESSITE",
+       "gives": "LEASTWISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Welsh building site got reconstructed regardless.",
+     "definitionFit": "Leastwise is a dialect or informal adverb meaning at least, or in any case, much as anyway is used."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "site"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +776,46 @@
     "text": "Follow, otherwise adapt",
     "enumeration": "6"
    },
-   "solution": "TAILOR"
+   "solution": "TAILOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAILOR",
+    "definitions": [
+     {
+      "text": "adapt",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Follow",
+      "gives": "TAIL",
+      "note": "to tail someone is to follow them"
+     },
+     {
+      "clueFragment": "otherwise",
+      "gives": "OR",
+      "note": "or means otherwise, as in 'hurry or you'll miss it'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAIL",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A choice between two courses: keep following, or else change.",
+     "definitionFit": "To tailor something is to fit it to a particular purpose, which is what adapting it does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Follow"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +829,62 @@
     "text": "Sea water finally entering US state",
     "enumeration": "6"
    },
-   "solution": "MARINE"
+   "solution": "MARINE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MARINE",
+    "definitions": [
+     {
+      "text": "Sea",
+      "at": 0,
+      "note": "used as a modifier, as in sea life, matching the adjective"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word before it"
+     },
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "entering means going inside the next item"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US state",
+      "gives": "MAINE",
+      "note": "Maine is a north-eastern American state"
+     },
+     {
+      "clueFragment": "water",
+      "gives": "R",
+      "select": "last",
+      "note": "the last letter of water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "R",
+      "INE"
+     ]
+    },
+    "explanation": {
+     "surface": "Seawater seeps into an American state at last, a flood report.",
+     "definitionFit": "Marine means relating to the ocean, as in marine biology, the same sense as sea used before a noun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "water"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +898,50 @@
     "text": "Garble a complicated mathematical subject",
     "enumeration": "7"
    },
-   "solution": "ALGEBRA"
+   "solution": "ALGEBRA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALGEBRA",
+    "definitions": [
+     {
+      "text": "mathematical subject",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "complicated",
+      "for": "anagram",
+      "note": "something complicated is tangled, so the letters are mixed up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Garble a",
+      "gives": "GARBLEA",
+      "note": "the seven letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GARBLEA",
+       "gives": "ALGEBRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student muddles a hard maths topic.",
+     "definitionFit": "Algebra is the branch of mathematics that uses letters and symbols for quantities."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Garble"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +955,66 @@
     "text": "Naive drunk touring northern capital",
     "enumeration": "6"
    },
-   "solution": "VIENNA"
+   "solution": "VIENNA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "VIENNA",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "a drunk staggers about, so the letters are thrown out of order"
+     },
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "touring means going round, so the jumbled letters surround the next item"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Naive",
+      "gives": "NAIVE",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "northern",
+      "gives": "N",
+      "note": "N is the abbreviation for northern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIE",
+      "N",
+      "NA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NAIVE",
+       "gives": "VIENA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An innocent tourist gets tipsy while sightseeing in a city in the north.",
+     "definitionFit": "Vienna is the capital city of Austria."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "touring"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1028,41 @@
     "text": "Horrible disobeying authority",
     "enumeration": "9"
    },
-   "solution": "REVOLTING"
+   "solution": "REVOLTING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REVOLTING",
+    "definitions": [
+     {
+      "text": "Horrible",
+      "at": 0
+     },
+     {
+      "text": "disobeying authority",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Horrible",
+      "note": "first meaning: disgusting"
+     },
+     {
+      "clueFragment": "disobeying authority",
+      "note": "second meaning: rising in rebellion"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as one judgement on a rebel, but the two halves are separate senses.",
+     "definitionFit": "Revolting means repulsive as an adjective, and as a verb form it means rebelling against rulers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1076,63 @@
     "text": "Animal in a shopping centre served up",
     "enumeration": "5"
    },
-   "solution": "LLAMA"
+   "solution": "LLAMA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LLAMA",
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "served up",
+      "for": "reversal",
+      "note": "in a down clue, served up means the letters are read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "shopping centre",
+      "gives": "MALL",
+      "note": "a mall is a shopping centre"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LLAM",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "AMALL",
+       "to": "LLAMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An animal is on the menu at a food court in a mall.",
+     "definitionFit": "A llama is a South American camelid kept for wool and as a pack beast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "served"
+    }
+   }
   },
   {
    "number": 19,
@@ -303,7 +1146,50 @@
     "text": "Heated, or trendy, primarily?",
     "enumeration": "3"
    },
-   "solution": "HOT"
+   "solution": "HOT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "HOT",
+    "definitions": [
+     {
+      "text": "Heated, or trendy, primarily?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so the opening letter of each word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Heated, or trendy",
+      "gives": "HOT",
+      "select": "first",
+      "note": "the opening letters of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A question asking whether something is warm or simply fashionable.",
+     "walkthrough": "The whole clue is both wordplay and definition: the word meaning heated or trendy is spelt by their initials.",
+     "definitionFit": "Hot means warm to the touch, and in slang it also means fashionable or in demand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "primarily"
+    }
+   }
   },
   {
    "number": 20,
@@ -317,7 +1203,60 @@
     "text": "A rod for whipping, in command",
     "enumeration": "6"
    },
-   "solution": "ORDAIN"
+   "solution": "ORDAIN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ORDAIN",
+    "definitions": [
+     {
+      "text": "command",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for whipping",
+      "for": "anagram",
+      "note": "whipping stirs things up vigorously, as with cream, mixing the letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A rod",
+      "gives": "AROD",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORDA",
+      "IN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AROD",
+       "gives": "ORDA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cane is kept at hand for punishment by the one in charge.",
+     "definitionFit": "To ordain is to decree or order officially, so it is a synonym of the verb command."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "whipping"
+    }
+   }
   },
   {
    "number": 21,
@@ -331,7 +1270,50 @@
     "text": "Indian dish, boiled haddock and jalapenos is for starters",
     "enumeration": "5"
    },
-   "solution": "BHAJI"
+   "solution": "BHAJI",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "BHAJI",
+    "definitions": [
+     {
+      "text": "Indian dish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for starters",
+      "for": "letter_selection",
+      "note": "starters are the beginnings, so the opening letter of each word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boiled haddock and jalapenos is",
+      "gives": "BHAJI",
+      "select": "first",
+      "note": "the opening letters of these five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BHAJI"
+     ]
+    },
+    "explanation": {
+     "surface": "A curry-house order: fish with chillies served as the appetiser.",
+     "walkthrough": "'Starters' sounds like a menu course, matching the restaurant scene, but it signals initial letters.",
+     "definitionFit": "A bhaji is a fried vegetable fritter, often onion, served in South Asian cooking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "starters"
+    }
+   }
   },
   {
    "number": 22,
@@ -345,7 +1327,46 @@
     "text": "Make an inquiry while king",
     "enumeration": "3"
    },
-   "solution": "ASK"
+   "solution": "ASK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASK",
+    "definitions": [
+     {
+      "text": "Make an inquiry",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "while",
+      "gives": "AS",
+      "note": "as can mean while, as in 'as I was leaving'"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess notation for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone poses a question during a monarch's reign.",
+     "definitionFit": "To ask is to put a question to someone, the same as making an inquiry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "while"
+    }
+   }
   },
   {
    "number": 23,
@@ -365,7 +1386,46 @@
      }
     ]
    },
-   "solution": "BANANASKIN"
+   "solution": "BANANASKIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BANANA SKIN",
+    "definitions": [
+     {
+      "text": "Cause of embarrassment",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crazy",
+      "gives": "BANANAS",
+      "note": "bananas is slang for mad"
+     },
+     {
+      "clueFragment": "family",
+      "gives": "KIN",
+      "note": "kin are relatives"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BANANAS",
+      "KIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Mad relatives who make you cringe.",
+     "definitionFit": "A banana skin is a figurative pitfall, something that trips up a politician and causes humiliation, like slipping on the peel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crazy"
+    }
+   }
   }
  ]
 }
