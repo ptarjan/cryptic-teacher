@@ -38,6 +38,9 @@
   "date": "2020-05-24",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,65 @@
     "text": "Shallow watercourse, very warm in continent's extremes",
     "enumeration": "5"
    },
-   "solution": "CHOTT"
+   "solution": "CHOTT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CHOTT",
+    "definitions": [
+     {
+      "text": "Shallow watercourse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremes",
+      "for": "letter_selection",
+      "note": "extremes are the two ends of a word, so only its outermost letters are kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece sits in another, enclosed between its letters"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very warm",
+      "gives": "HOT",
+      "note": "very warm is hot"
+     },
+     {
+      "clueFragment": "continent's",
+      "gives": "CT",
+      "select": "outer",
+      "note": "first and last letters of continent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HOT",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A geography note about a shallow stream that runs hot at both ends of a continent.",
+     "walkthrough": "A chott is a shallow salt lake or marsh of North Africa, dry in summer.",
+     "definitionFit": "A chott is a seasonal salt lake in the Sahara region, fed by shallow water that comes and goes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremes"
+    }
+   }
   },
   {
    "number": 1,
@@ -65,7 +126,65 @@
     "text": "Sacred charm crafted from a rich nugget, half lost",
     "enumeration": "8"
    },
-   "solution": "CHURINGA"
+   "solution": "CHURINGA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "CHURINGA",
+    "definitions": [
+     {
+      "text": "Sacred charm",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half lost",
+      "for": "deletion",
+      "note": "losing half of a word means cutting it down to only its first half"
+     },
+     {
+      "text": "crafted",
+      "for": "anagram",
+      "note": "something crafted is made up afresh, so the letters are worked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a rich",
+      "gives": "ARICH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nugget",
+      "gives": "NUGGET",
+      "note": "taken as written, before the cut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHURINGA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARICHNUG",
+       "gives": "CHURINGA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holy amulet fashioned out of a gold nugget, with half the nugget gone.",
+     "walkthrough": "Halving NUGGET leaves NUG, which joins A RICH as the anagram fodder.",
+     "definitionFit": "A churinga is an Aboriginal Australian sacred object, a carved stone or wooden talisman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crafted"
+    }
+   }
   },
   {
    "number": 2,
@@ -79,7 +198,55 @@
     "text": "Maize porridge, plain, for consuming at home",
     "enumeration": "6"
    },
-   "solution": "HOMINY"
+   "solution": "HOMINY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HOMINY",
+    "definitions": [
+     {
+      "text": "Maize porridge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for consuming",
+      "for": "container",
+      "note": "a word that consumes another swallows it whole, holding it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plain",
+      "gives": "HOMY",
+      "note": "homy (homey) means homely, plain"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOM",
+      "IN",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Simple maize porridge is the sort of plain food one eats at home.",
+     "walkthrough": "Homy, a variant of homey, means homely; in American usage homely means plain.",
+     "definitionFit": "Hominy is hulled maize, boiled as a porridge or grits in the American South."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plain"
+    }
+   }
   },
   {
    "number": 3,
@@ -93,7 +260,46 @@
     "text": "Content of storeroom for performer in ring",
     "enumeration": "6"
    },
-   "solution": "TORERO"
+   "solution": "TORERO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TORERO",
+    "definitions": [
+     {
+      "text": "performer in ring",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Content of",
+      "for": "hidden_word",
+      "note": "the content of a word is what lies inside it, so the letters are found within"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "storeroom",
+      "gives": "TORERO",
+      "note": "letters two to seven"
+     }
+    ],
+    "explanation": {
+     "surface": "The contents of a storeroom kept for a circus performer.",
+     "walkthrough": "The ring is a bullring, not a circus ring.",
+     "definitionFit": "A torero is a bullfighter on foot, who performs in the bullring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +313,69 @@
     "text": "Opening in a college (Oxford) coming up? Not on",
     "enumeration": "5"
    },
-   "solution": "TREMA"
+   "solution": "TREMA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "TREMA",
+    "definitions": [
+     {
+      "text": "Opening",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not on",
+      "for": "deletion",
+      "note": "not on tells the solver to strip the letters o and n from the word"
+     },
+     {
+      "text": "coming up",
+      "for": "reversal",
+      "note": "in a down clue, coming up means reading from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "college (Oxford)",
+      "gives": "MERTON",
+      "note": "Merton is a college of Oxford University"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TREMA"
+     ],
+     "reversals": [
+      {
+       "from": "AMERT",
+       "to": "TREMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking about a vacancy at an Oxford college that may be coming up.",
+     "walkthrough": "MERTON loses its ON, A goes in front, and the whole is read upwards.",
+     "definitionFit": "A trema is a small orifice or perforation in anatomy and botany, a technical term for an opening."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Opening"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +389,75 @@
     "text": "Essential part of Trinity, one routine seen amid shimmering spires",
     "enumeration": "12"
    },
-   "solution": "PERICHORESIS"
+   "solution": "PERICHORESIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "PERICHORESIS",
+    "definitions": [
+     {
+      "text": "Essential part of Trinity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shimmering",
+      "for": "anagram",
+      "note": "something shimmering wavers and shifts, so these letters are rearranged"
+     },
+     {
+      "text": "seen amid",
+      "for": "container",
+      "note": "one piece seen amid another lies in its middle"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "routine",
+      "gives": "CHORE",
+      "note": "a chore is a routine task"
+     },
+     {
+      "clueFragment": "spires",
+      "gives": "PERSIS",
+      "note": "these letters reshuffled, split around the middle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PER",
+      "ICHORE",
+      "SIS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SPIRES",
+       "gives": "PERSIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A church scene: shimmering spires and routine worship at the heart of Trinity.",
+     "definitionFit": "Perichoresis is the theological doctrine of the mutual indwelling of the three persons of the Trinity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "routine"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +471,64 @@
     "text": "I've affinity for negative charges and rile the police awfully? Not I",
     "enumeration": "12"
    },
-   "solution": "ELECTROPHILE"
+   "solution": "ELECTROPHILE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ELECTROPHILE",
+    "definitions": [
+     {
+      "text": "I've affinity for negative charges",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not I",
+      "for": "deletion",
+      "note": "not I tells the solver to drop one letter i from the fodder"
+     },
+     {
+      "text": "awfully",
+      "for": "anagram",
+      "note": "done awfully means done badly and in a jumble, so the letters are disordered"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rile the police",
+      "gives": "RILETHEPOLICE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELECTROPHILE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RLETHEPOLICE",
+       "gives": "ELECTROPHILE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone drawn to negative charges who riles the police, perhaps a habitual offender.",
+     "walkthrough": "Charges here are electrical, not criminal; one I is removed before the letters are rearranged.",
+     "definitionFit": "An electrophile is a chemical species that seeks electrons, attracted to negatively charged sites."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "charges"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +542,57 @@
     "text": "Lives with little to go round, requiring support",
     "enumeration": "5"
    },
-   "solution": "JOIST"
+   "solution": "JOIST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "JOIST",
+    "definitions": [
+     {
+      "text": "support",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go round",
+      "for": "container",
+      "note": "one piece going round another wraps it, enclosing it inside"
+     }
+    ],
+    "linkWords": [
+     "requiring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "little",
+      "gives": "JOT",
+      "note": "a jot is a very little amount"
+     },
+     {
+      "clueFragment": "Lives",
+      "gives": "IS",
+      "note": "is means lives, exists"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JO",
+      "IS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone living on very little who needs support from others.",
+     "definitionFit": "A joist is a horizontal beam that supports a floor or ceiling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lives"
+    }
+   }
   },
   {
    "number": 7,
@@ -163,7 +606,49 @@
     "text": "Cane yielding alternative to honey and source thereof",
     "enumeration": "6"
    },
-   "solution": "JAMBEE"
+   "solution": "JAMBEE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JAMBEE",
+    "definitions": [
+     {
+      "text": "Cane",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "yielding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alternative to honey",
+      "gives": "JAM",
+      "note": "jam is the other spread for bread"
+     },
+     {
+      "clueFragment": "source thereof",
+      "gives": "BEE",
+      "note": "the bee is the source of honey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JAM",
+      "BEE"
+     ]
+    },
+    "explanation": {
+     "surface": "A breakfast picture: something that yields a substitute for honey and the creature that makes honey.",
+     "definitionFit": "A jambee is a light cane or walking stick, an old term from the East Indies trade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cane"
+    }
+   }
   },
   {
    "number": 8,
@@ -177,7 +662,83 @@
     "text": "Given to faddish theory, I mostly relish accepting upsurge of it",
     "enumeration": "7"
    },
-   "solution": "ISMATIC"
+   "solution": "ISMATIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "reversal",
+     "container"
+    ],
+    "answer": "ISMATIC",
+    "definitions": [
+     {
+      "text": "Given to faddish theory",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the last letter is dropped"
+     },
+     {
+      "text": "upsurge",
+      "for": "reversal",
+      "note": "an upsurge rises, and in a down clue that reads the word from bottom to top"
+     },
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "a word accepting another takes it in, holding it between its letters"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "relish",
+      "gives": "SMACK",
+      "note": "a smack is a taste or relish"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "SMA",
+      "TI",
+      "C"
+     ],
+     "reversals": [
+      {
+       "from": "IT",
+       "to": "TI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trend-chaser admits relishing every surge of the latest craze.",
+     "walkthrough": "SMACK loses its last letter to SMAC, which holds IT reversed.",
+     "definitionFit": "Ismatic describes someone given to isms, following one fashionable doctrine after another."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "relish"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +752,50 @@
     "text": "Rotting snake found on island",
     "enumeration": "6"
    },
-   "solution": "SEPSIS"
+   "solution": "SEPSIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEPSIS",
+    "definitions": [
+     {
+      "text": "Rotting",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "found on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "snake",
+      "gives": "SEPS",
+      "note": "a seps is a serpent of legend, also a skink"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "IS",
+      "note": "the usual abbreviation for island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEPS",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "A decaying snake turns up on an island.",
+     "walkthrough": "SEPS is a Chambers word for a venomous snake of classical legend.",
+     "definitionFit": "Sepsis is putrefaction, the condition of decay caused by bacteria; the noun stands for rotting as a process."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "snake"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +809,52 @@
     "text": "Two pairs from Towcester's line-up rarely thrown",
     "enumeration": "4"
    },
-   "solution": "TOST"
+   "solution": "TOST",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TOST",
+    "definitions": [
+     {
+      "text": "rarely thrown",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Two pairs from",
+      "for": "letter_selection",
+      "note": "two pairs are four letters in total, taken in twos from the word"
+     }
+    ],
+    "linkWords": [
+     "line-up"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Towcester's",
+      "gives": "TOST",
+      "select": "regular",
+      "note": "the first two letters and the two after the c, e"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOST"
+     ]
+    },
+    "explanation": {
+     "surface": "Pairs of jockeys from Towcester racecourse's line-up are rarely thrown.",
+     "walkthrough": "Towcester is a Northamptonshire market town with a racecourse; TO and ST are two pairs of letters from its name.",
+     "definitionFit": "Tost is an archaic past participle of toss, and something tossed has been thrown; rarely flags the old form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "line-up"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +868,56 @@
     "text": "Reptilian creature offering extra drinks after moderation",
     "enumeration": "10"
    },
-   "solution": "HOMORELAPS"
+   "solution": "HOMORELAPS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOMORELAPS",
+    "definitions": [
+     {
+      "text": "Reptilian creature",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "offering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "moderation",
+      "gives": "HO",
+      "note": "ho is an old word for a halt or limit, moderation"
+     },
+     {
+      "clueFragment": "extra",
+      "gives": "MORE",
+      "note": "more means extra"
+     },
+     {
+      "clueFragment": "drinks",
+      "gives": "LAPS",
+      "note": "an animal drinks by lapping"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "MORE",
+      "LAPS"
+     ]
+    },
+    "explanation": {
+     "surface": "A creature offering extra drinks after a period of restraint.",
+     "walkthrough": "Ho (also spelt whoa) is an old Chambers word for a stop or limit, hence moderation.",
+     "definitionFit": "Homorelaps is a genus of small venomous snakes of southern Africa, the harlequin snakes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drinks"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +931,59 @@
     "text": "Beer mixed with rum in part of old helmet",
     "enumeration": "7"
    },
-   "solution": "UMBRERE"
+   "solution": "UMBRERE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UMBRERE",
+    "definitions": [
+     {
+      "text": "part of old helmet",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixed",
+      "for": "anagram",
+      "note": "drinks mixed together are blended up, so these letters are combined in a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beer",
+      "gives": "BEER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rum",
+      "gives": "RUM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BEERRUM",
+       "gives": "UMBRERE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A beer and rum cocktail served in an old helmet.",
+     "definitionFit": "Umbrere is an old Spenserian term for the visor of a helmet, the part shading the face."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "mixed"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +997,65 @@
     "text": "Swellings, start of plague? What often precedes the word going round",
     "enumeration": "5"
    },
-   "solution": "MUMPS"
+   "solution": "MUMPS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MUMPS",
+    "definitions": [
+     {
+      "text": "Swellings",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, which is all that is kept"
+     },
+     {
+      "text": "going round",
+      "for": "container",
+      "note": "one piece going round another wraps around it, enclosing it"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What often precedes the word",
+      "gives": "MUMS",
+      "note": "from the saying mum's the word"
+     },
+     {
+      "clueFragment": "plague",
+      "gives": "P",
+      "select": "first",
+      "note": "first letter of plague"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MUM",
+      "P",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone noticing swellings and fearing the onset of plague, with gossip going round.",
+     "walkthrough": "Mum's the word is an idiom meaning keep quiet; MUM'S wraps the P.",
+     "definitionFit": "Mumps is a viral disease named for the swellings of the salivary glands it causes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "word"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +1069,63 @@
     "text": "River that is containing strong current",
     "enumeration": "4"
    },
-   "solution": "RIFE"
+   "solution": "RIFE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RIFE",
+    "definitions": [
+     {
+      "text": "current",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "one piece containing another holds it inside its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "River",
+      "gives": "R",
+      "note": "the usual abbreviation for river"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. stands for id est, that is"
+     },
+     {
+      "clueFragment": "strong",
+      "gives": "F",
+      "note": "f is forte, the musical direction for loud and strong"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "I",
+      "F",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A river described as having a strong current.",
+     "walkthrough": "'Current' looks like part of the river picture, but it is the definition, in its sense of prevalent.",
+     "definitionFit": "Something rife is widespread and prevalent, as a current rumour is going round now."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1139,56 @@
     "text": "Midriff showing loss but no sign of age",
     "enumeration": "4"
    },
-   "solution": "WAST"
+   "solution": "WAST",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "WAST",
+    "definitions": [
+     {
+      "text": "Midriff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but no sign of",
+      "for": "deletion",
+      "note": "no sign of something means it has gone, so those letters are removed"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loss",
+      "gives": "WASTAGE",
+      "note": "wastage is loss through waste"
+     },
+     {
+      "clueFragment": "age",
+      "gives": "AGE",
+      "note": "taken as written, and removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAST"
+     ]
+    },
+    "explanation": {
+     "surface": "A trim midriff with no sign of age showing.",
+     "walkthrough": "WAST is an obsolete spelling of waist.",
+     "definitionFit": "The waist, spelt wast in older texts, is the narrow middle of the body around the midriff."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "loss"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1202,53 @@
     "text": "Direct fan for repair – it's broken",
     "enumeration": "9"
    },
-   "solution": "INFRACTED"
+   "solution": "INFRACTED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INFRACTED",
+    "definitions": [
+     {
+      "text": "broken",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for repair",
+      "for": "anagram",
+      "note": "something sent for repair is taken apart and put together again, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Direct fan",
+      "gives": "DIRECTFAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DIRECTFAN",
+       "gives": "INFRACTED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to send a fan for repair because it's broken.",
+     "definitionFit": "Infracted is an old word for broken or fractured, from Latin infringere."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Direct"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1262,50 @@
     "text": "Being so gauche shuns set",
     "enumeration": "8"
    },
-   "solution": "THUSNESS"
+   "solution": "THUSNESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THUSNESS",
+    "definitions": [
+     {
+      "text": "Being so",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gauche",
+      "for": "anagram",
+      "note": "gauche means clumsy and awkward, so the letters are handled clumsily and jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shuns set",
+      "gives": "SHUNSSET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SHUNSSET",
+       "gives": "THUSNESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Being so socially awkward means one shuns the fashionable set.",
+     "definitionFit": "Thusness is the state of being thus, the quality of being so; a jocular noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "gauche"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1319,68 @@
     "text": "Plays subtly dividing feet – near-miss space-wise?",
     "enumeration": "7"
    },
-   "solution": "FLYPAST"
+   "solution": "FLYPAST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "FLYPAST",
+    "definitions": [
+     {
+      "text": "near-miss space-wise?",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "subtly",
+      "for": "anagram",
+      "note": "done subtly means done with cunning twists, so the letters are reordered"
+     },
+     {
+      "text": "dividing",
+      "for": "container",
+      "note": "a piece dividing another goes inside it, splitting it in two"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "feet",
+      "gives": "FT",
+      "note": "the abbreviation for feet"
+     },
+     {
+      "clueFragment": "Plays",
+      "gives": "LYPAS",
+      "note": "these letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LYPAS",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PLAYS",
+       "gives": "LYPAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dancer subtly plays between feet, a near-miss in spatial terms.",
+     "walkthrough": "The definition is cryptic: aircraft in a flypast pass close by overhead, nearly but not quite hitting the viewer.",
+     "definitionFit": "A flypast is a ceremonial flight of aircraft over a place, passing near in the sky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "feet"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1394,65 @@
     "text": "Ill-natured female retaining right to desire",
     "enumeration": "8"
    },
-   "solution": "SHREWISH"
+   "solution": "SHREWISH",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SHREWISH",
+    "definitions": [
+     {
+      "text": "Ill-natured",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retaining",
+      "for": "container",
+      "note": "a word retaining another keeps it held inside"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female",
+      "gives": "SHE",
+      "note": "she is the female pronoun"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "the usual abbreviation for right"
+     },
+     {
+      "clueFragment": "desire",
+      "gives": "WISH",
+      "note": "a wish is a desire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "R",
+      "E",
+      "WISH"
+     ]
+    },
+    "explanation": {
+     "surface": "A bad-tempered woman holding on to her right to want things.",
+     "walkthrough": "'Ill-natured female' suggests a shrew, which is a trap: the definition is only 'Ill-natured'.",
+     "definitionFit": "Shrewish means bad-tempered and nagging, like a shrew."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "female"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1466,65 @@
     "text": "Like richly decorated chairs? I left pair in keep of one much admired",
     "enumeration": "8"
    },
-   "solution": "GILTWOOD"
+   "solution": "GILTWOOD",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "GILTWOOD",
+    "definitions": [
+     {
+      "text": "Like richly decorated chairs?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in keep of",
+      "for": "container",
+      "note": "something in the keep of another is held in its custody, so it goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one much admired",
+      "gives": "GOD",
+      "note": "an idol, a god"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "the abbreviation for left"
+     },
+     {
+      "clueFragment": "pair",
+      "gives": "TWO",
+      "note": "a pair is two"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ILTWO",
+      "OD"
+     ]
+    },
+    "explanation": {
+     "surface": "An heirloom chair-owner left a pair of chairs in the care of an admirer.",
+     "definitionFit": "Giltwood is carved wood covered with gilding, used in ornate furniture such as chairs; the question mark marks the example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "keep"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1538,54 @@
     "text": "Whitebait substitute causing bad angina",
     "enumeration": "6"
    },
-   "solution": "INANGA"
+   "solution": "INANGA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INANGA",
+    "definitions": [
+     {
+      "text": "Whitebait substitute",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bad",
+      "for": "anagram",
+      "note": "bad here means faulty and disordered, so the word is rearranged"
+     }
+    ],
+    "linkWords": [
+     "causing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "angina",
+      "gives": "ANGINA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANGINA",
+       "gives": "INANGA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dietary warning: switching to whitebait gives someone bad angina.",
+     "definitionFit": "Inanga is a small New Zealand fish whose young are eaten as whitebait in place of the European kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "substitute"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1599,50 @@
     "text": "Shot after victory? That's bleak",
     "enumeration": "6"
    },
-   "solution": "WINTRY"
+   "solution": "WINTRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WINTRY",
+    "definitions": [
+     {
+      "text": "bleak",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "victory",
+      "gives": "WIN",
+      "note": "a win is a victory"
+     },
+     {
+      "clueFragment": "Shot",
+      "gives": "TRY",
+      "note": "a try is an attempt, a shot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIN",
+      "TRY"
+     ]
+    },
+    "explanation": {
+     "surface": "A sports fan sighs at a shot after a victory: things look bleak.",
+     "walkthrough": "'after' puts the shot behind the victory.",
+     "definitionFit": "Wintry weather or prospects are cold and cheerless, so bleak."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shot"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1656,61 @@
     "text": "Company circulates just like at home in old dance hall",
     "enumeration": "6"
    },
-   "solution": "CASINO"
+   "solution": "CASINO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CASINO",
+    "definitions": [
+     {
+      "text": "old dance hall",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circulates",
+      "for": "container",
+      "note": "to circulate is to go around, so this piece surrounds the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Company",
+      "gives": "CO",
+      "note": "the abbreviation for company"
+     },
+     {
+      "clueFragment": "just like",
+      "gives": "AS",
+      "note": "as means just like"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "AS",
+      "IN",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Guests mingle just as if at home in an old dance hall.",
+     "walkthrough": "Casino once meant a public room for dancing and music, before it meant gambling house.",
+     "definitionFit": "A casino was originally a public building for social gatherings, music and dancing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "circulates"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1724,55 @@
     "text": "What examiners do in university encapsulated by 'dark blue'",
     "enumeration": "6"
    },
-   "solution": "PERUSE"
+   "solution": "PERUSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PERUSE",
+    "definitions": [
+     {
+      "text": "What examiners do",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "encapsulated by",
+      "for": "container",
+      "note": "something encapsulated by another is enclosed within it like a capsule"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "'dark blue'",
+      "gives": "PERSE",
+      "note": "perse is a dark greyish-blue colour"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "the abbreviation for university"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PER",
+      "U",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "Exam markers at a university wrapped in Oxford's dark blue colours.",
+     "walkthrough": "Dark Blue suggests Oxford University, but here it is the colour perse.",
+     "definitionFit": "Examiners read through papers carefully, which is what peruse means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "blue"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1786,52 @@
     "text": "Hurricanes? Real pains when flying about",
     "enumeration": "9"
    },
-   "solution": "AIRPLANES"
+   "solution": "AIRPLANES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AIRPLANES",
+    "definitions": [
+     {
+      "text": "Hurricanes?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when flying about",
+      "for": "anagram",
+      "note": "letters flying about scatter in all directions, so they land in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Real pains",
+      "gives": "REALPAINS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REALPAINS",
+       "gives": "AIRPLANES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Storms causing real pain to people travelling.",
+     "walkthrough": "Hurricanes look like storms, but the Hawker Hurricane was a Second World War fighter plane.",
+     "definitionFit": "Hurricanes were British fighter aircraft, examples of airplanes, hence the question mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hurricanes"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1845,50 @@
     "text": "Idle year requiring cash, commonly",
     "enumeration": "5"
    },
-   "solution": "LOLLY"
+   "solution": "LOLLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOLLY",
+    "definitions": [
+     {
+      "text": "cash, commonly",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "requiring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Idle",
+      "gives": "LOLL",
+      "note": "to loll is to idle about"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "the abbreviation for year"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOLL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A year off doing nothing still needs money.",
+     "walkthrough": "Lolly is British slang for money.",
+     "definitionFit": "Lolly is an informal British word for money, which the clue's commonly signals as slang."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Idle"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1902,61 @@
     "text": "Type of binding always backing pages",
     "enumeration": "4"
    },
-   "solution": "YAPP"
+   "solution": "YAPP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "YAPP",
+    "definitions": [
+     {
+      "text": "Type of binding",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means moving backwards, so the word reads from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "always",
+      "gives": "AY",
+      "note": "ay (aye) is an old word for always"
+     },
+     {
+      "clueFragment": "pages",
+      "gives": "PP",
+      "note": "the abbreviation for pages"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YA",
+      "PP"
+     ],
+     "reversals": [
+      {
+       "from": "AY",
+       "to": "YA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bookbinder's style that always has pages at the back.",
+     "definitionFit": "Yapp is a style of limp leather bookbinding with overlapping edges, named after a London bookseller."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 27,
@@ -457,7 +1970,59 @@
     "text": "E.g. McEwan's best, badly needed after end of austerity",
     "enumeration": "4"
    },
-   "solution": "YILL"
+   "solution": "YILL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "YILL",
+    "definitions": [
+     {
+      "text": "E.g. McEwan's best",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its last letter, which alone is kept"
+     }
+    ],
+    "linkWords": [
+     "needed after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "austerity",
+      "gives": "Y",
+      "select": "last",
+      "note": "last letter of austerity"
+     },
+     {
+      "clueFragment": "badly",
+      "gives": "ILL",
+      "note": "ill means badly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "ILL"
+     ]
+    },
+    "explanation": {
+     "surface": "A pint of good Scottish beer is badly needed after a spell of austerity.",
+     "walkthrough": "McEwan's is an Edinburgh brewery; yill is the Scots word for ale.",
+     "definitionFit": "Yill is Scots for ale, and McEwan's best is a Scottish ale, an example of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "best"
+    }
+   }
   },
   {
    "number": 28,
@@ -471,7 +2036,56 @@
     "text": "What Troon gatecrashers do, showing contempt when shunned by clubs",
     "enumeration": "4"
    },
-   "solution": "SORN"
+   "solution": "SORN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SORN",
+    "definitions": [
+     {
+      "text": "What Troon gatecrashers do",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when shunned by",
+      "for": "deletion",
+      "note": "something shunned is kept out, so that letter is removed from the word"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "showing contempt",
+      "gives": "SCORN",
+      "note": "to scorn is to show contempt"
+     },
+     {
+      "clueFragment": "clubs",
+      "gives": "C",
+      "note": "the card-suit abbreviation, removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SORN"
+     ]
+    },
+    "explanation": {
+     "surface": "Gatecrashers at the Troon golf club scorned by the members.",
+     "walkthrough": "Troon is a Scottish golf town, pointing to a Scots word; to sorn is to sponge on others' hospitality.",
+     "definitionFit": "Sorn is Scots for imposing oneself on others for food and lodging, as uninvited guests do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "clubs"
+    }
+   }
   },
   {
    "number": 29,
@@ -485,7 +2099,63 @@
     "text": "Trendy gym accepting one that's unfit",
     "enumeration": "5"
    },
-   "solution": "INAPT"
+   "solution": "INAPT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "INAPT",
+    "definitions": [
+     {
+      "text": "unfit",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "a word accepting another takes it in, between its letters"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trendy",
+      "gives": "IN",
+      "note": "in means fashionable"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "gym",
+      "gives": "PT",
+      "note": "PT, physical training, is gym"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "A",
+      "PT"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashionable gym that lets in a member who is out of shape.",
+     "definitionFit": "Inapt means unsuitable or not fitting the purpose, so unfit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "unfit"
+    }
+   }
   },
   {
    "number": 30,
@@ -499,7 +2169,60 @@
     "text": "Liquidised? Such dry fruit did when pounded",
     "enumeration": "7"
    },
-   "solution": "SILIQUE"
+   "solution": "SILIQUE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion"
+    ],
+    "answer": "SILIQUE",
+    "definitions": [
+     {
+      "text": "Such dry fruit",
+      "at": 12
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when pounded",
+      "for": "anagram",
+      "note": "something pounded is crushed and mixed, so the letters are reshuffled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Liquidised",
+      "gives": "LIQUIDISED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "did",
+      "gives": "DID",
+      "note": "taken as written; these letters come out of the mix"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SILIQUE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LIQUISE",
+       "gives": "SILIQUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking if a dry fruit was liquidised when it was pounded.",
+     "walkthrough": "A composite anagram: the answer plus DID, pounded together, make LIQUIDISED.",
+     "definitionFit": "A silique is the long dry seed pod of plants in the cabbage family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Liquidised"
+    }
+   }
   },
   {
    "number": 31,
@@ -513,7 +2236,56 @@
     "text": "After silence, brook head causing the opposite thereof?",
     "enumeration": "10"
    },
-   "solution": "SHRILLNESS"
+   "solution": "SHRILLNESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHRILLNESS",
+    "definitions": [
+     {
+      "text": "causing the opposite thereof?",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "After"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "silence",
+      "gives": "SH",
+      "note": "sh is a call for silence"
+     },
+     {
+      "clueFragment": "brook",
+      "gives": "RILL",
+      "note": "a rill is a small brook"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "NESS",
+      "note": "a ness is a headland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "RILL",
+      "NESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A babbling stream breaks the silence.",
+     "walkthrough": "'After silence' puts SH first; the definition points back to silence, whose opposite is a loud piercing quality.",
+     "definitionFit": "Shrillness is high-pitched piercing noise, the reverse of quiet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 32,
@@ -527,7 +2299,56 @@
     "text": "Turner cut short yard of wood strip",
     "enumeration": "5"
    },
-   "solution": "LATHY"
+   "solution": "LATHY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "LATHY",
+    "definitions": [
+     {
+      "text": "of wood strip",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut short",
+      "for": "deletion",
+      "note": "a word cut short loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turner",
+      "gives": "LATHE",
+      "note": "a lathe turns wood"
+     },
+     {
+      "clueFragment": "yard",
+      "gives": "Y",
+      "note": "the abbreviation for yard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LATH",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A painter like Turner trimming a yard of wooden strip.",
+     "walkthrough": "Turner suggests the painter, but it is a lathe, which turns wood.",
+     "definitionFit": "Lathy means like a lath, thin as a narrow strip of wood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Turner"
+    }
+   }
   },
   {
    "number": 33,
@@ -541,7 +2362,54 @@
     "text": "Combines one agreement incorporating another",
     "enumeration": "5"
    },
-   "solution": "YOKES"
+   "solution": "YOKES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "YOKES",
+    "definitions": [
+     {
+      "text": "Combines",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "incorporating",
+      "for": "container",
+      "note": "a word incorporating another takes it into its body"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one agreement",
+      "gives": "YES",
+      "note": "yes is a word of agreement"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "OK",
+      "note": "OK is another word of agreement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "OK",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Merging two agreements, one folded into the other, like corporate deals.",
+     "definitionFit": "To yoke is to join together, as oxen are coupled under one yoke, so it means combines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "agreement"
+    }
+   }
   }
  ]
 }
