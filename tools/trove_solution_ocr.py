@@ -29,7 +29,7 @@ of a page) is read by read_framed instead:
 
   1. The grid is straightened() (a scan's rows shear against its columns)
      and each rule found where it lies (rules(): a printed pitch is uneven);
-     an even lattice() stands in when it reads the blocks better.
+     even lattice()s are read too, the one reading most cells surely first.
   2. The recogniser reads each light as above; a cell's sure letter counts
      unless the cell holds a clue number (run into a D or an O it reads B).
   3. Every other cell is matched to the mean glyph of each letter read
@@ -637,20 +637,11 @@ def numbered_letters(lts, letters, numbers, allowed, printed):
     return out
 
 
-#: How many cells' blocks an even lattice must read better than rules() does
-#: to be taken over it.
-RULES_SLACK = 2
-
-
-def framed_rules(gray, grid):
-    """(gray, ys, xs): the grid image and its rules that read its blocks
-    as the grid's best, of: its largest patch of ink straightened() and
-    ruled by rules(), else (a crop that is no clean frame: a column cut
-    off, a caption touching) that patch's lattice() between its outer
-    rules or fitted in it, evenly apart. rules() wins unless another reads
-    more than RULES_SLACK cells' blocks better: blocks read alike on a
-    lattice half a cell off, so a lead of a cell or two says nothing of
-    the fit."""
+def framings(gray, grid):
+    """[(gray, ys, xs)]: the lattices a grid image may lie on: its largest
+    patch of ink straightened() and ruled by rules(), and (a crop that is no
+    clean frame: a column cut off, a caption touching) that patch's
+    lattice() between its outer rules or fitted in it, evenly apart."""
     n = len(grid)
     box = trove_grid.largest_component(gray < trove_grid.otsu(gray))
     if box is None:
@@ -671,20 +662,38 @@ def framed_rules(gray, grid):
             pass
     if not tried:
         raise ValueError("no lattice in the image")
-    scores = [block_agreement(g[0], grid, (g[1], g[2])) for g in tried]
-    best = max(scores)
-    if tried[0][0] is patch and scores[0] >= best - RULES_SLACK / (n * len(grid[0])):
-        return tried[0]
-    return tried[scores.index(best)]
+    return tried
 
 
 def read_framed(image, grid):
-    """read_answers for an image that is the grid: read on its own rules
-    (framed_rules), each light accepted when every cell is read (the
+    """read_answers for an image that is the grid, read on each of its
+    framings(). The lattice reading the most cells surely fits best (blocks
+    read alike on a lattice half a cell off; letters do not): its accepted
+    lights stand, and another lattice's stand too where every cell agrees
+    with the letters read so far, its sure letters first (a few pixels
+    apart, two lattices cut a heavy print's letters differently, and each
+    reads lights the other misses)."""
+    gray = np.asarray(Image.open(image).convert("L"))
+    reads = sorted((read_lattice(g, ys, xs, grid) for g, ys, xs in framings(gray, grid)),
+                   key=lambda r: -r[1]["cellsSure"])
+    lts = lights(grid)
+    accepted, stats, every = reads[0]
+    accepted = dict(accepted)
+    letters = {**every, **{rc: ch for key, w in accepted.items() for rc, ch in zip(lts[key], w)}}
+    for more, _, _ in reads[1:]:
+        for key, word in more.items():
+            if key not in accepted and all(letters.get(rc, ch) == ch for rc, ch in zip(lts[key], word)):
+                accepted[key] = word
+                letters.update(zip(lts[key], word))
+    return accepted, {**stats, "accepted": len(accepted), "lattices": len(reads)}
+
+
+def read_lattice(gray, ys, xs, grid):
+    """(accepted, stats, sure letters) for a grid image whose rules lie at
+    ys and xs: each light accepted when every cell is read (the
     recogniser's sure letter, or for a cell with a clue number or no sure
     read, matched_letters, then in a grid printing its numbers
     numbered_letters) and the word is known()."""
-    gray, ys, xs = framed_rules(np.asarray(Image.open(image).convert("L")), grid)
     lts = lights(grid)
     numbers = {cells[0]: n for (n, _), cells in lts.items()}
     marked = numbers_printed(gray, ys, xs, numbers, {rc for c in lts.values() for rc in c})
@@ -743,8 +752,8 @@ def read_framed(image, grid):
                 accepted[key] = word
     stats = {"lights": len(lts), "fullReads": len(full), "accepted": len(accepted),
              "cellsRead": len(read), "cellsMatched": len(matched), "cells": len(glyphs),
-             "blocks": round(block_agreement(gray, grid, (ys, xs)), 3)}
-    return accepted, stats
+             "cellsSure": len(every), "blocks": round(block_agreement(gray, grid, (ys, xs)), 3)}
+    return accepted, stats, every
 
 
 def read_answers(image, grid, tight=False):
