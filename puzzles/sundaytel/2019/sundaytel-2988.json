@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,62 @@
     "text": "Whitewash edges of door, lid off container",
     "enumeration": "4"
    },
-   "solution": "DRUB"
+   "solution": "DRUB",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "DRUB",
+    "definitions": [
+     {
+      "text": "Whitewash",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "edges of",
+      "for": "letter_selection",
+      "note": "the edges of a word are its two outermost letters, so only the first and last are kept"
+     },
+     {
+      "text": "lid off",
+      "for": "deletion",
+      "note": "taking the lid off something removes its top, which in a word is the opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "door",
+      "gives": "DR",
+      "select": "outer",
+      "note": "the first and last letters of door"
+     },
+     {
+      "clueFragment": "container",
+      "gives": "TUB",
+      "note": "a tub is a container"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "UB"
+     ]
+    },
+    "explanation": {
+     "surface": "A decorator paints round a door, having levered the lid off a paint tin.",
+     "walkthrough": "Whitewash is a decorating word here, but the definition is its sporting sense; TUB loses its T to leave UB.",
+     "definitionFit": "In sport a whitewash is a crushing defeat with no reply, and to drub is to beat an opponent thoroughly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Whitewash"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +104,57 @@
     "text": "Finally, convict put out in cell block?",
     "enumeration": "6"
    },
-   "solution": "TISSUE"
+   "solution": "TISSUE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TISSUE",
+    "definitions": [
+     {
+      "text": "cell block?",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word that follows it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "convict",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of convict"
+     },
+     {
+      "clueFragment": "put out",
+      "gives": "ISSUE",
+      "note": "to put out a statement or publication is to issue it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ISSUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A prisoner is finally ejected into the cell block of a jail.",
+     "walkthrough": "The prison picture makes 'cell block' sound like a wing of a jail; the question mark flags that the cells are biological.",
+     "definitionFit": "Biological tissue is a mass of similar cells grouped together, so a block of cells, playfully."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cell"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +168,48 @@
     "text": "Still without a proposal?",
     "enumeration": "10"
    },
-   "solution": "MOTIONLESS"
+   "solution": "MOTIONLESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOTIONLESS",
+    "definitions": [
+     {
+      "text": "Still",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a proposal",
+      "gives": "MOTION",
+      "note": "a motion is a formal proposal put to a meeting"
+     },
+     {
+      "clueFragment": "without",
+      "gives": "LESS",
+      "note": "less can mean without, as in 'a year less a day'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOTION",
+      "LESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Is a meeting still stuck with nothing put forward for debate?",
+     "walkthrough": "The wordplay reads in reverse order: the proposal comes first in the answer, followed by the word for without.",
+     "definitionFit": "Something still is not moving at all, which is exactly what being without movement means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Still"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +223,53 @@
     "text": "Rival of Athens, region in South Africa",
     "enumeration": "6"
    },
-   "solution": "SPARTA"
+   "solution": "SPARTA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPARTA",
+    "definitions": [
+     {
+      "text": "Rival of Athens",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in tells us one piece sits inside the abbreviation that follows it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South Africa",
+      "gives": "SA",
+      "note": "SA is the standard abbreviation for South Africa"
+     },
+     {
+      "clueFragment": "region",
+      "gives": "PART",
+      "note": "a part of a country is a region of it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PART",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Some ancient Greek city appears to have a counterpart region in modern South Africa.",
+     "definitionFit": "The Greek city-state that fought Athens in the Peloponnesian War was its great military rival."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +283,56 @@
     "text": "South opposed to past capital",
     "enumeration": "8"
    },
-   "solution": "SANTIAGO"
+   "solution": "SANTIAGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SANTIAGO",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South",
+      "gives": "S",
+      "note": "S is the abbreviation for south"
+     },
+     {
+      "clueFragment": "opposed",
+      "gives": "ANTI",
+      "note": "anti means against or opposed"
+     },
+     {
+      "clueFragment": "past",
+      "gives": "AGO",
+      "note": "ago means in the past, as in 'long ago'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ANTI",
+      "AGO"
+     ]
+    },
+    "explanation": {
+     "surface": "The South was opposed to the old capital, as in some historic regional quarrel.",
+     "walkthrough": "'Past capital' sounds like a former capital, but the definition is just the final word.",
+     "definitionFit": "Santiago is the capital city of Chile, so it is a capital in the sense of seat of government."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "past"
+    }
+   }
   },
   {
    "number": 6,
@@ -102,7 +346,44 @@
     "text": "Light entertainment provided here",
     "enumeration": "4"
    },
-   "solution": "FAIR"
+   "solution": "FAIR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FAIR",
+    "definitions": [
+     {
+      "text": "Light",
+      "at": 0
+     },
+     {
+      "text": "entertainment provided here",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Light",
+      "note": "first meaning: pale in colour, as of hair or skin"
+     },
+     {
+      "clueFragment": "entertainment provided here",
+      "note": "second meaning: a funfair, a place of rides and amusements"
+     }
+    ],
+    "explanation": {
+     "surface": "Light entertainment, the comedy and variety kind on television, is on offer at this venue.",
+     "walkthrough": "'Light entertainment' reads as one TV genre; the split falls after the first word.",
+     "definitionFit": "Fair hair is pale-coloured, and a fair is a travelling show of rides, stalls and amusements."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "entertainment"
+    }
+   }
   },
   {
    "number": 7,
@@ -116,7 +397,46 @@
     "text": "Awkward son taught",
     "enumeration": "8"
    },
-   "solution": "STRAINED"
+   "solution": "STRAINED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRAINED",
+    "definitions": [
+     {
+      "text": "Awkward",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son, as in family trees"
+     },
+     {
+      "clueFragment": "taught",
+      "gives": "TRAINED",
+      "note": "to be trained is to have been taught"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRAINED"
+     ]
+    },
+    "explanation": {
+     "surface": "A gawky boy is being given lessons.",
+     "definitionFit": "A strained conversation or atmosphere is forced and uncomfortable, which is what awkward means here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Awkward"
+    }
+   }
   },
   {
    "number": 8,
@@ -136,7 +456,44 @@
      }
     ]
    },
-   "solution": "MYGOODNESS"
+   "solution": "MYGOODNESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MY GOODNESS",
+    "definitions": [
+     {
+      "text": "Gracious",
+      "at": 0
+     },
+     {
+      "text": "angelic quality of yours truly?",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gracious",
+      "note": "first meaning: an exclamation of surprise, as in 'Good gracious!'"
+     },
+     {
+      "clueFragment": "angelic quality of yours truly?",
+      "note": "second meaning, read literally: the virtue belonging to me, since yours truly is the speaker"
+     }
+    ],
+    "explanation": {
+     "surface": "A boastful speaker praises their own kindly, saintly nature.",
+     "walkthrough": "'Gracious' looks like an adjective for the angelic speaker, but it is the exclamation; yours truly is a jokey way of saying I or me.",
+     "definitionFit": "The phrase is a mild oath of surprise like 'gracious me', and literally names the virtue that belongs to me."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Gracious"
+    }
+   }
   },
   {
    "number": 9,
@@ -150,7 +507,52 @@
     "text": "Horn, I gathered – on this animal?",
     "enumeration": "5"
    },
-   "solution": "RHINO"
+   "solution": "RHINO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "RHINO",
+    "definitions": [
+     {
+      "text": "Horn, I gathered – on this animal?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gathered",
+      "for": "anagram",
+      "note": "things gathered together are bunched up anyhow, so the letters come out jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Horn, I",
+      "gives": "HORNI",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HORNI",
+       "gives": "RHINO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone surmises that a horn grows on a particular beast.",
+     "walkthrough": "'I gathered' reads as 'I understood'; the whole clue is both wordplay and definition.",
+     "definitionFit": "The rhinoceros is the animal famous for the horn on its nose, so the whole clue describes it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "gathered"
+    }
+   }
   },
   {
    "number": 10,
@@ -164,7 +566,60 @@
     "text": "Uncivilised lot, parents, a strangely unknown quantity",
     "enumeration": "9"
    },
-   "solution": "PEASANTRY"
+   "solution": "PEASANTRY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "PEASANTRY",
+    "definitions": [
+     {
+      "text": "Uncivilised lot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strangely",
+      "for": "anagram",
+      "note": "something arranged strangely is out of its normal order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parents, a",
+      "gives": "PARENTSA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "unknown quantity",
+      "gives": "Y",
+      "note": "y is a standard algebraic unknown"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEASANTR",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PARENTSA",
+       "gives": "PEASANTR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Parents complain that their unruly children are a strangely unknown quantity.",
+     "definitionFit": "The peasantry, as a social class, was traditionally sneered at by snobs as rough and unrefined."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "parents"
+    }
+   }
   },
   {
    "number": 11,
@@ -178,7 +633,55 @@
     "text": "Top deck on public transport?",
     "enumeration": "7"
    },
-   "solution": "BUSTIER"
+   "solution": "BUSTIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUSTIER",
+    "definitions": [
+     {
+      "text": "Top",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across answer, one thing on another is placed after it, so the deck comes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "public transport",
+      "gives": "BUS",
+      "note": "a bus is a form of public transport"
+     },
+     {
+      "clueFragment": "deck",
+      "gives": "TIER",
+      "note": "a deck is a level or tier, as on a double-decker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUS",
+      "TIER"
+     ]
+    },
+    "explanation": {
+     "surface": "It sounds like the upper deck of a double-decker bus.",
+     "walkthrough": "'Top deck' reads as one phrase, but Top is the definition: a garment, not the upstairs of the bus.",
+     "definitionFit": "A bustier is a close-fitting strapless garment worn on the upper body, so a kind of top."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Top"
+    }
+   }
   },
   {
    "number": 12,
@@ -192,7 +695,59 @@
     "text": "Terrible current cost to bear when China defeated and fiasco ends",
     "enumeration": "7"
    },
-   "solution": "TORNADO"
+   "solution": "TORNADO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TORNADO",
+    "definitions": [
+     {
+      "text": "Terrible current",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ends",
+      "for": "letter_selection",
+      "note": "ends asks for the final letter of each of the words before it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cost to bear when China defeated",
+      "gives": "TORNAD",
+      "select": "last",
+      "note": "the last letter of each of these six words"
+     },
+     {
+      "clueFragment": "fiasco",
+      "gives": "O",
+      "select": "last",
+      "note": "the last letter of fiasco"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TORNAD",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A long-winded report on the price paid after a Chinese defeat and a final disaster.",
+     "walkthrough": "The surface is deliberately rambling; 'and' only joins, and is not one of the words whose final letter is taken.",
+     "definitionFit": "A tornado is a violent whirling column of air, a destructive current of wind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "ends"
+    }
+   }
   },
   {
    "number": 13,
@@ -206,7 +761,43 @@
     "text": "Common political activist",
     "enumeration": "5"
    },
-   "solution": "GREEN"
+   "solution": "GREEN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GREEN",
+    "definitions": [
+     {
+      "text": "Common",
+      "at": 0
+     },
+     {
+      "text": "political activist",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Common",
+      "note": "first meaning: a village ..., an area of common land"
+     },
+     {
+      "clueFragment": "political activist",
+      "note": "second meaning: a member or campaigner of an environmentalist party"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Common' looks like an adjective describing the activist, but it is the noun for shared village land.",
+     "definitionFit": "Common land in a village is a grassy open space, and an environmental campaigner belongs to the Green movement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Common"
+    }
+   }
   },
   {
    "number": 13,
@@ -220,7 +811,44 @@
     "text": "Amazed lip bleeding after this, perhaps?",
     "enumeration": "10"
    },
-   "solution": "GOBSMACKED"
+   "solution": "GOBSMACKED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GOBSMACKED",
+    "definitions": [
+     {
+      "text": "Amazed",
+      "at": 0
+     },
+     {
+      "text": "lip bleeding after this, perhaps?",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Amazed",
+      "note": "first meaning: utterly astonished, a British slang word"
+     },
+     {
+      "clueFragment": "lip bleeding after this, perhaps?",
+      "note": "second meaning, read literally: having been punched in the mouth, gob being slang for mouth"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is stunned to find their lip bleeding after an incident.",
+     "walkthrough": "Gob is British slang for mouth, so the slang word for astonished also describes a mouth that has been hit.",
+     "definitionFit": "The slang term means flabbergasted, as if struck in the face; taken literally it is a punch in the mouth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lip"
+    }
+   }
   },
   {
    "number": 14,
@@ -234,7 +862,59 @@
     "text": "Sailor with one day left",
     "enumeration": "9"
    },
-   "solution": "ABANDONED"
+   "solution": "ABANDONED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABANDONED",
+    "definitions": [
+     {
+      "text": "left",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailor",
+      "gives": "AB",
+      "note": "AB, able seaman, is a common crossword sailor"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "and means together with"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D is the abbreviation for day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "AND",
+      "ONE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A seaman is given a single day remaining of shore leave.",
+     "walkthrough": "'Left' looks like 'remaining', but the definition is its other sense: deserted.",
+     "definitionFit": "Something left behind and deserted has been abandoned by its owner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 15,
@@ -248,7 +928,50 @@
     "text": "Up-and-down opener in no-win situation, some fiddle",
     "enumeration": "10"
    },
-   "solution": "DRAWBRIDGE"
+   "solution": "DRAWBRIDGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRAWBRIDGE",
+    "definitions": [
+     {
+      "text": "Up-and-down opener",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no-win situation",
+      "gives": "DRAW",
+      "note": "a draw is a result where nobody wins"
+     },
+     {
+      "clueFragment": "some fiddle",
+      "gives": "BRIDGE",
+      "note": "the bridge is part of a fiddle, holding the strings up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRAW",
+      "BRIDGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A musician caught in a stalemate fiddles with a lid that goes up and down.",
+     "walkthrough": "'Some fiddle' suggests a cheat or a hidden word, but it means a part of the violin.",
+     "definitionFit": "A castle drawbridge is raised and lowered to open or close the entrance, so it opens by going up and down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "fiddle"
+    }
+   }
   },
   {
    "number": 16,
@@ -276,7 +999,44 @@
      }
     ]
    },
-   "solution": "BETWEENYOUANDME"
+   "solution": "BETWEENYOUANDME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BETWEEN YOU AND ME",
+    "definitions": [
+     {
+      "text": "Location of what divides us",
+      "at": 0
+     },
+     {
+      "text": "not going any further",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Location of what divides us",
+      "note": "first meaning, read literally: whatever separates two people sits in the gap linking the pair"
+     },
+     {
+      "clueFragment": "not going any further",
+      "note": "second meaning: the phrase said to mark a confidence that must stay secret"
+     }
+    ],
+    "explanation": {
+     "surface": "Two people discuss the gulf separating them and agree it will stop there.",
+     "walkthrough": "'Not going any further' sounds like the end of a journey; it is the promise that a secret stays private.",
+     "definitionFit": "The phrase prefaces a confidential remark, and literally names the space separating two people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "further"
+    }
+   }
   },
   {
    "number": 17,
@@ -290,7 +1050,70 @@
     "text": "Element in cask gets mixed with nitrogen",
     "enumeration": "8"
    },
-   "solution": "TUNGSTEN"
+   "solution": "TUNGSTEN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TUNGSTEN",
+    "definitions": [
+     {
+      "text": "Element",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixed",
+      "for": "anagram",
+      "note": "mixed up means stirred together, so the letters come out in a new order"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cask",
+      "gives": "TUN",
+      "note": "a tun is a large cask for beer or wine"
+     },
+     {
+      "clueFragment": "gets",
+      "gives": "GETS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nitrogen",
+      "gives": "N",
+      "note": "N is the chemical symbol for nitrogen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUN",
+      "GSTE",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GETS",
+       "gives": "GSTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chemical element inside a barrel is blended with nitrogen gas.",
+     "definitionFit": "Tungsten is a metallic chemical element, symbol W, used in light bulb filaments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 18,
@@ -310,7 +1133,42 @@
      }
     ]
    },
-   "solution": "NEAREAST"
+   "solution": "NEAREAST",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NEAR EAST",
+    "definitions": [
+     {
+      "text": "Western Asian states formerly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the answer sits inside the run of words that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "decline are as tempting",
+      "gives": "NEAREAST",
+      "note": "the run of letters straddling these four words"
+     }
+    ],
+    "explanation": {
+     "surface": "A report on Asian countries whose past downturns now make them attractive investments.",
+     "definitionFit": "Near East is the older name for the countries of south-west Asia, now usually called the Middle East."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "decline"
+    }
+   }
   },
   {
    "number": 19,
@@ -324,7 +1182,59 @@
     "text": "Vertical hole he-man ruptured with fist",
     "enumeration": "9"
    },
-   "solution": "MINESHAFT"
+   "solution": "MINESHAFT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MINESHAFT",
+    "definitions": [
+     {
+      "text": "Vertical hole",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ruptured",
+      "for": "anagram",
+      "note": "something ruptured is burst apart, so the letters are broken and reassembled"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "he-man",
+      "gives": "HEMAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fist",
+      "gives": "FIST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HEMANFIST",
+       "gives": "MINESHAFT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A muscleman punches straight through a wall, leaving a hole.",
+     "definitionFit": "A mineshaft is a deep, upright passage sunk into the ground to reach a mine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "ruptured"
+    }
+   }
   },
   {
    "number": 20,
@@ -338,7 +1248,50 @@
     "text": "Chinese thinking Maoist converted",
     "enumeration": "6"
    },
-   "solution": "TAOISM"
+   "solution": "TAOISM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TAOISM",
+    "definitions": [
+     {
+      "text": "Chinese thinking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "converted",
+      "for": "anagram",
+      "note": "something converted has been changed into a new form, so the letters take a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maoist",
+      "gives": "MAOIST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MAOIST",
+       "gives": "TAOISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A follower of Mao has been won over to traditional Chinese philosophy.",
+     "definitionFit": "Taoism is the ancient Chinese philosophy and religion founded on the teachings of Laozi."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "converted"
+    }
+   }
   },
   {
    "number": 21,
@@ -352,7 +1305,58 @@
     "text": "Head of bank with responsibility for extra money",
     "enumeration": "5"
    },
-   "solution": "BONUS"
+   "solution": "BONUS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BONUS",
+    "definitions": [
+     {
+      "text": "extra money",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its opening letter"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bank",
+      "gives": "B",
+      "select": "first",
+      "note": "the first letter of bank"
+     },
+     {
+      "clueFragment": "with responsibility",
+      "gives": "ONUS",
+      "note": "an onus is a responsibility or duty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ONUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A bank's boss, accountable for the business, collects an extra payout.",
+     "walkthrough": "The bank chief's payout is in the picture, which makes the definition easy to overlook.",
+     "definitionFit": "A bonus is an additional payment on top of normal wages, such as a banker's annual reward."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -366,7 +1370,51 @@
     "text": "One idiot or another from Belfast?",
     "enumeration": "6"
    },
-   "solution": "NITWIT"
+   "solution": "NITWIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NITWIT",
+    "definitions": [
+     {
+      "text": "One idiot",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "from Belfast",
+      "gives": "NI",
+      "note": "Belfast is the capital of Northern Ireland, abbreviated NI"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "TWIT",
+      "note": "a twit is another word for an idiot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NI",
+      "TWIT"
+     ]
+    },
+    "explanation": {
+     "surface": "Calling someone a fool, or perhaps a different fool from Northern Ireland.",
+     "walkthrough": "The other idiot comes from Belfast, so the Northern Ireland abbreviation goes in front of it.",
+     "definitionFit": "A nitwit is a foolish, silly person, a synonym for an idiot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Belfast"
+    }
+   }
   },
   {
    "number": 23,
@@ -380,7 +1428,58 @@
     "text": "Rush to trap rat in container",
     "enumeration": "7"
    },
-   "solution": "CASCADE"
+   "solution": "CASCADE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CASCADE",
+    "definitions": [
+     {
+      "text": "Rush",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to trap",
+      "for": "container",
+      "note": "to trap something is to hold it inside, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "container",
+      "gives": "CASE",
+      "note": "a case is a container"
+     },
+     {
+      "clueFragment": "rat",
+      "gives": "CAD",
+      "note": "a rat and a cad are both treacherous, dishonourable men"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAS",
+      "CAD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hurries to catch a rodent in a box.",
+     "walkthrough": "The rat is a scoundrel, not a rodent.",
+     "definitionFit": "A cascade is a rushing fall of water, and to cascade is to pour down rapidly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rat"
+    }
+   }
   },
   {
    "number": 24,
@@ -394,7 +1493,50 @@
     "text": "Top copy that's wrong",
     "enumeration": "4"
    },
-   "solution": "APEX"
+   "solution": "APEX",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APEX",
+    "definitions": [
+     {
+      "text": "Top",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "copy",
+      "gives": "APE",
+      "note": "to ape is to copy or imitate"
+     },
+     {
+      "clueFragment": "wrong",
+      "gives": "X",
+      "note": "a cross marks an answer wrong"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APE",
+      "X"
+     ]
+    },
+    "explanation": {
+     "surface": "The top copy of a document turns out to be incorrect.",
+     "walkthrough": "'Top copy' reads as one phrase, an office term for an original document; Top is the definition.",
+     "definitionFit": "The apex is the highest point or summit of something, such as a triangle or a mountain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Top"
+    }
+   }
   },
   {
    "number": 25,
@@ -408,7 +1550,54 @@
     "text": "In lexicographical reference, 'hand' forgotten",
     "enumeration": "7"
    },
-   "solution": "OMITTED"
+   "solution": "OMITTED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OMITTED",
+    "definitions": [
+     {
+      "text": "forgotten",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "In says one piece is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lexicographical reference",
+      "gives": "OED",
+      "note": "the OED is the Oxford English Dictionary"
+     },
+     {
+      "clueFragment": "'hand'",
+      "gives": "MITT",
+      "note": "mitt is slang for a hand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "MITT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "The word hand has been left out of a dictionary.",
+     "definitionFit": "Something omitted has been left out or overlooked, much as something forgotten has been."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hand"
+    }
+   }
   },
   {
    "number": 26,
@@ -422,7 +1611,43 @@
     "text": "A bit lower",
     "enumeration": "4"
    },
-   "solution": "DROP"
+   "solution": "DROP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DROP",
+    "definitions": [
+     {
+      "text": "A bit",
+      "at": 0
+     },
+     {
+      "text": "lower",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A bit",
+      "note": "first meaning: a small amount of liquid"
+     },
+     {
+      "clueFragment": "lower",
+      "note": "second meaning: to let something down or reduce it"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as 'slightly lower'; the split falls between 'A bit' and 'lower'.",
+     "definitionFit": "A drop is a tiny quantity, and to drop something is to let it fall or bring it down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lower"
+    }
+   }
   },
   {
    "number": 27,
@@ -436,7 +1661,74 @@
     "text": "Break last of massive optical devices covering half of vent",
     "enumeration": "9"
    },
-   "solution": "ELEVENSES"
+   "solution": "ELEVENSES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "ELEVENSES",
+    "definitions": [
+     {
+      "text": "Break",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "last of points to the final letter of the following word"
+     },
+     {
+      "text": "half of",
+      "for": "letter_selection",
+      "note": "half of keeps only the front half of the word that follows"
+     },
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "covering means wrapping around, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "massive",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of massive"
+     },
+     {
+      "clueFragment": "optical devices",
+      "gives": "LENSES",
+      "note": "lenses are optical devices"
+     },
+     {
+      "clueFragment": "vent",
+      "gives": "VE",
+      "note": "the first half of vent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LE",
+      "VE",
+      "NSES"
+     ]
+    },
+    "explanation": {
+     "surface": "Enormous telescopes partly block an air vent.",
+     "walkthrough": "Elevenses is a British mid-morning break for tea or coffee and a snack, taken around eleven o'clock.",
+     "definitionFit": "A short pause from work in the late morning is a break, the snack time known by this name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Break"
+    }
+   }
   },
   {
    "number": 28,
@@ -450,7 +1742,60 @@
     "text": "Stringed instrument? No thanks: old Latin American instrument",
     "enumeration": "5"
    },
-   "solution": "GUIRO"
+   "solution": "GUIRO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "GUIRO",
+    "definitions": [
+     {
+      "text": "Latin American instrument",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "No",
+      "for": "deletion",
+      "note": "No here means without, so the word after it is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stringed instrument?",
+      "gives": "GUITAR",
+      "note": "a guitar is a stringed instrument"
+     },
+     {
+      "clueFragment": "thanks",
+      "gives": "TA",
+      "note": "ta is British slang for thanks"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUIR",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone declines the offer of a guitar in favour of a vintage Latin American instrument.",
+     "walkthrough": "'No thanks' reads as a polite refusal; it means remove the word for thanks from the guitar.",
+     "definitionFit": "The guiro is a notched gourd scraped with a stick, a percussion instrument from Latin America."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thanks"
+    }
+   }
   }
  ]
 }
