@@ -24,6 +24,9 @@
   "date": "2017-12-03",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,47 @@
     "text": "Story detective wants putting on radio",
     "enumeration": "4"
    },
-   "solution": "TALE"
+   "solution": "TALE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TALE",
+    "definitions": [
+     {
+      "text": "Story",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "putting on radio",
+      "for": "homophone",
+      "note": "something put on the radio is heard rather than seen, so we want the sound of the word"
+     }
+    ],
+    "linkWords": [
+     "wants"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "detective",
+      "gives": "TALE",
+      "soundsLike": "TAIL",
+      "note": "a tail is a detective who follows a suspect"
+     }
+    ],
+    "explanation": {
+     "surface": "A detective's story is wanted for a radio broadcast.",
+     "walkthrough": "To tail someone is to shadow them, so a shadowing detective is a tail.",
+     "definitionFit": "A tale is a narrative account, a plain synonym for story."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "detective"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +94,46 @@
     "text": "Drink and feel unwell, so they say",
     "enumeration": "3"
    },
-   "solution": "ALE"
+   "solution": "ALE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ALE",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "so they say",
+      "for": "homophone",
+      "note": "what people say is spoken, so the word wanted only sounds like the one clued"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "feel unwell",
+      "gives": "ALE",
+      "soundsLike": "AIL",
+      "note": "to ail is to feel unwell"
+     }
+    ],
+    "explanation": {
+     "surface": "Drinking leaves you feeling unwell, or so people claim.",
+     "definitionFit": "Ale is a kind of beer, so an example of a drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Drink"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +147,67 @@
     "text": "Chuck out half-cut clergymen in the middle of film",
     "enumeration": "5"
    },
-   "solution": "EVICT"
+   "solution": "EVICT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "EVICT",
+    "definitions": [
+     {
+      "text": "Chuck out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half-cut",
+      "for": "deletion",
+      "note": "cut by half means only the front half of the word survives"
+     },
+     {
+      "text": "in the middle of",
+      "for": "container",
+      "note": "one thing sitting in the middle of another is enclosed by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "film",
+      "gives": "E",
+      "note": "first part of ET, Spielberg's film about the alien"
+     },
+     {
+      "clueFragment": "clergymen",
+      "gives": "VIC",
+      "note": "the first half of VICARS"
+     },
+     {
+      "clueFragment": "film",
+      "gives": "T",
+      "note": "last part of ET"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "VIC",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Drunk clergymen are thrown out halfway through a film screening.",
+     "walkthrough": "'Half-cut' looks like British slang for tipsy, but it trims VICARS to its front half, which then sits inside ET.",
+     "definitionFit": "To evict is to expel someone from a property, which is informally to chuck them out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "half-cut"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +227,52 @@
      }
     ]
    },
-   "solution": "HEADBANGER"
+   "solution": "HEADBANGER",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "HEAD-BANGER",
+    "definitions": [
+     {
+      "text": "metal fan",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "For Spooner",
+      "for": "spoonerism",
+      "note": "Spooner famously swapped the opening sounds of words, so we exchange the starts here"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one might put up a hammock",
+      "gives": "HEADBANGER",
+      "soundsLike": "BED HANGER",
+      "note": "someone who hangs a hammock is a bed hanger; swap the initial B and H sounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEADBANGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A man hangs a hammock and is also a heavy-metal enthusiast.",
+     "definitionFit": "A headbanger is a heavy-metal devotee who shakes their head violently to the music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "hammock"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +286,64 @@
     "text": "Bag short student digs has grey lining",
     "enumeration": "7"
    },
-   "solution": "HOLDALL"
+   "solution": "HOLDALL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "HOLDALL",
+    "definitions": [
+     {
+      "text": "Bag",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means cut off at the end, so the last letter goes"
+     },
+     {
+      "text": "has",
+      "for": "container",
+      "note": "to have something lining it is to hold it inside"
+     }
+    ],
+    "linkWords": [
+     "lining"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "student digs",
+      "gives": "HALL",
+      "note": "halls of residence, with the final S dropped"
+     },
+     {
+      "clueFragment": "grey",
+      "gives": "OLD",
+      "note": "grey as in grey-haired, aged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "OLD",
+      "ALL"
+     ]
+    },
+    "explanation": {
+     "surface": "A student's bag, kept in their lodgings, has a grey lining.",
+     "walkthrough": "Halls (of residence) is British for university housing; trimmed, it is lined with OLD after its first letter.",
+     "definitionFit": "A holdall is a large soft travel bag, so a type of bag."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 5,
@@ -131,7 +375,40 @@
      }
     ]
    },
-   "solution": "AFISHOUTOFWATER"
+   "solution": "AFISHOUTOFWATER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "A FISH OUT OF WATER",
+    "definitions": [
+     {
+      "text": "Skate on ice? One wouldn't be suited to that!",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Skate on ice?",
+      "note": "surface reading: someone gliding on a frozen rink in skates"
+     },
+     {
+      "clueFragment": "One wouldn't be suited to that!",
+      "note": "setter's reading: a skate is a flat fish, and one lying on ice at the fishmonger's is out of its element"
+     }
+    ],
+    "explanation": {
+     "surface": "Ice skating is something one person is plainly not cut out for.",
+     "walkthrough": "Skate is the flatfish, displayed on ice at the fishmonger's; the idiom for someone uncomfortable in their setting fits it literally.",
+     "definitionFit": "The idiom describes a person ill at ease in unfamiliar surroundings, here applied literally to a dead fish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Skate"
+    }
+   }
   },
   {
    "number": 6,
@@ -145,7 +422,58 @@
     "text": "Mark's black and from Flanders (not the top part)",
     "enumeration": "7"
    },
-   "solution": "BLEMISH"
+   "solution": "BLEMISH",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "BLEMISH",
+    "definitions": [
+     {
+      "text": "Mark",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not the top part",
+      "for": "deletion",
+      "note": "in a down entry the top is the start, so the first letter is removed"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "B is the pencil abbreviation for black"
+     },
+     {
+      "clueFragment": "from Flanders",
+      "gives": "LEMISH",
+      "note": "FLEMISH without its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LEMISH"
+     ]
+    },
+    "explanation": {
+     "surface": "A mark is black and comes from Flanders, minus its upper section.",
+     "definitionFit": "A blemish is a small flaw or spot on a surface, so a mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mark"
+    }
+   }
   },
   {
    "number": 7,
@@ -159,7 +487,67 @@
     "text": "Longs to have drinks outside with alacrity",
     "enumeration": "9"
    },
-   "solution": "NIPPINESS"
+   "solution": "NIPPINESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NIPPINESS",
+    "definitions": [
+     {
+      "text": "alacrity",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to have",
+      "for": "container",
+      "note": "having something outside means being enclosed by it"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "the second item wraps round the first"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drinks",
+      "gives": "NIP",
+      "note": "nips are small shots of spirits; first part"
+     },
+     {
+      "clueFragment": "Longs",
+      "gives": "PINES",
+      "note": "to pine is to long for"
+     },
+     {
+      "clueFragment": "drinks",
+      "gives": "S",
+      "note": "end of NIPS"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIP",
+      "PINES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone yearns to have drinks outdoors, and eagerly.",
+     "definitionFit": "Nippiness is quickness or briskness of movement, close in sense to alacrity's speedy readiness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Longs"
+    }
+   }
   },
   {
    "number": 8,
@@ -179,7 +567,77 @@
      }
     ]
    },
-   "solution": "EARPIERCING"
+   "solution": "EARPIERCING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EAR-PIERCING",
+    "definitions": [
+     {
+      "text": "Shrill",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     },
+     {
+      "text": "rounding",
+      "for": "container",
+      "note": "going round something encloses it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sleeper, perhaps",
+      "gives": "EAR",
+      "note": "a sleeper is a plain ring worn to keep a piercing open, an example of an EARRING; front part"
+     },
+     {
+      "clueFragment": "tart",
+      "gives": "PIE",
+      "note": "a tart is a pastry pie"
+     },
+     {
+      "clueFragment": "sleeper, perhaps",
+      "gives": "R",
+      "note": "next letter of EARRING"
+     },
+     {
+      "clueFragment": "cape",
+      "gives": "C",
+      "note": "C is the map abbreviation for cape"
+     },
+     {
+      "clueFragment": "sleeper, perhaps",
+      "gives": "ING",
+      "note": "end of EARRING"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAR",
+      "PIE",
+      "R",
+      "C",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A shrill tart dozes in a sleeper train as it rounds a headland.",
+     "walkthrough": "Sleeper suggests a train or a slumberer, but here it is a small plain ring worn to keep a newly pierced lobe from closing.",
+     "definitionFit": "An ear-piercing sound is so loud and high it seems to pierce the ear, so shrill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sleeper"
+    }
+   }
   },
   {
    "number": 9,
@@ -193,7 +651,63 @@
     "text": "Refusal of choppers to waste time over India",
     "enumeration": "6"
    },
-   "solution": "DENIAL"
+   "solution": "DENIAL",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "DENIAL",
+    "definitions": [
+     {
+      "text": "Refusal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to waste time over India",
+      "for": "substitution",
+      "note": "throwing away one letter and having another come in its place swaps them"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "choppers",
+      "gives": "DENTAL",
+      "note": "choppers are teeth, hence the adjective for teeth"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "India",
+      "gives": "I",
+      "note": "India is I in the NATO alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEN",
+      "I",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A dentist refuses to waste time on a trip to India.",
+     "walkthrough": "Choppers is slang for teeth, giving DENTAL; its T is thrown out and I takes its place.",
+     "definitionFit": "A denial is a statement refusing or rejecting something, so a refusal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "choppers"
+    }
+   }
   },
   {
    "number": 10,
@@ -207,7 +721,57 @@
     "text": "Popular, and formerly saucy, ham",
     "enumeration": "8"
    },
-   "solution": "INEXPERT"
+   "solution": "INEXPERT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INEXPERT",
+    "definitions": [
+     {
+      "text": "ham",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "in fashion, popular"
+     },
+     {
+      "clueFragment": "formerly",
+      "gives": "EX",
+      "note": "ex- means former"
+     },
+     {
+      "clueFragment": "saucy",
+      "gives": "PERT",
+      "note": "pert means cheeky"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "EX",
+      "PERT"
+     ]
+    },
+    "explanation": {
+     "surface": "Describes a ham as a well-liked joint that once had sauce on it.",
+     "walkthrough": "'Ham' looks like the meat, but is the adjective meaning clumsy, as in ham-fisted or a ham actor.",
+     "definitionFit": "Ham as an adjective means amateurish or clumsy, so it matches inexpert, lacking skill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ham"
+    }
+   }
   },
   {
    "number": 11,
@@ -221,7 +785,60 @@
     "text": "Fop that dances with Oscar in a pedestrian way",
     "enumeration": "8"
    },
-   "solution": "FOOTPATH"
+   "solution": "FOOTPATH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FOOTPATH",
+    "definitions": [
+     {
+      "text": "a pedestrian way",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dances",
+      "for": "anagram",
+      "note": "dancing moves around, so the letters get jumbled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fop that",
+      "gives": "FOPTHAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Oscar",
+      "gives": "O",
+      "note": "Oscar is O in the NATO alphabet"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FOPTHATO",
+       "gives": "FOOTPATH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dandy dances dully with a man named Oscar.",
+     "walkthrough": "'Pedestrian' looks like it means dull, describing the dancing, but it means on foot.",
+     "definitionFit": "A footpath is a path for people walking, literally a way for pedestrians."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pedestrian"
+    }
+   }
   },
   {
    "number": 12,
@@ -245,7 +862,47 @@
      }
     ]
    },
-   "solution": "OVERABARREL"
+   "solution": "OVERABARREL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVER A BARREL",
+    "definitions": [
+     {
+      "text": "in a pickle",
+      "at": 37
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "More than",
+      "gives": "OVER",
+      "note": "over means more than"
+     },
+     {
+      "clueFragment": "the standard amount of oil",
+      "gives": "ABARREL",
+      "note": "oil is measured by the barrel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "ABARREL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone holds too much oil and is in trouble.",
+     "walkthrough": "The barrel is the standard unit for crude oil.",
+     "definitionFit": "Over a barrel is an idiom for being helpless or in difficulty, as is in a pickle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pickle"
+    }
+   }
   },
   {
    "number": 13,
@@ -259,7 +916,44 @@
     "text": "Viewer's complaint: Sir, it isn't entertaining",
     "enumeration": "6"
    },
-   "solution": "IRITIS"
+   "solution": "IRITIS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "IRITIS",
+    "definitions": [
+     {
+      "text": "Viewer's complaint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertaining",
+      "for": "hidden_word",
+      "note": "to entertain is also to hold within, so the phrase contains the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sir, it isn't",
+      "gives": "IRITIS",
+      "note": "spans the end of Sir, all of it, and the start of isn't"
+     }
+    ],
+    "explanation": {
+     "surface": "A TV viewer complains to a knight that something is dull.",
+     "walkthrough": "'Viewer' suggests a TV watcher, but is the eye, and complaint is an ailment.",
+     "definitionFit": "Iritis is inflammation of the iris, an eye disorder, and the eye is what does the viewing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Viewer's"
+    }
+   }
   },
   {
    "number": 14,
@@ -279,7 +973,40 @@
      }
     ]
    },
-   "solution": "BELLYLAUGH"
+   "solution": "BELLYLAUGH",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BELLY LAUGH",
+    "definitions": [
+     {
+      "text": "Humorous release that'll shake a corporation?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Humorous release that'll shake a corporation?",
+      "note": "surface reading: a funny press release that rocks a big company"
+     },
+     {
+      "clueFragment": "corporation",
+      "note": "setter's reading: corporation is old slang for a paunch, and a hearty laugh makes it wobble"
+     }
+    ],
+    "explanation": {
+     "surface": "A comic press statement will shake up a big company.",
+     "walkthrough": "Corporation is jocular British slang for a large stomach.",
+     "definitionFit": "A deep hearty laugh from the gut, the kind that shakes a fat stomach."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "corporation"
+    }
+   }
   },
   {
    "number": 15,
@@ -299,7 +1026,66 @@
      }
     ]
    },
-   "solution": "LOOKSHARP"
+   "solution": "LOOKSHARP",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LOOK SHARP",
+    "definitions": [
+     {
+      "text": "Get cracking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Head",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gents",
+      "gives": "LOO",
+      "note": "a loo is a toilet, and the gents is the men's toilet"
+     },
+     {
+      "clueFragment": "the King's",
+      "gives": "K",
+      "select": "first",
+      "note": "first letter of King"
+     },
+     {
+      "clueFragment": "bitter",
+      "gives": "SHARP",
+      "note": "sharp means acidic, bitter in taste"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOO",
+      "K",
+      "SHARP"
+     ]
+    },
+    "explanation": {
+     "surface": "A pub-goer gets going on bitter in the gents at the King's Head pub.",
+     "walkthrough": "Bitter is a British beer and the King's Head a typical pub name, but bitter is just sharp-tasting.",
+     "definitionFit": "Look sharp is an idiom urging someone to hurry, as is get cracking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bitter"
+    }
+   }
   },
   {
    "number": 16,
@@ -313,7 +1099,56 @@
     "text": "Win point with a service",
     "enumeration": "4"
    },
-   "solution": "EARN"
+   "solution": "EARN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EARN",
+    "definitions": [
+     {
+      "text": "Win",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "point",
+      "gives": "E",
+      "note": "E is East, a compass point"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "service",
+      "gives": "RN",
+      "note": "the Royal Navy, one of the armed services"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "A",
+      "RN"
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis player wins a point on serve.",
+     "walkthrough": "The tennis picture of point and service hides a compass point and the Royal Navy.",
+     "definitionFit": "To earn is to gain or obtain by effort, so to win."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 17,
@@ -327,7 +1162,56 @@
     "text": "Old man heading for overgrown border of wood",
     "enumeration": "4"
    },
-   "solution": "DADO"
+   "solution": "DADO",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DADO",
+    "definitions": [
+     {
+      "text": "border of wood",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading for",
+      "for": "letter_selection",
+      "note": "the heading of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old man",
+      "gives": "DAD",
+      "note": "one's old man is one's father"
+     },
+     {
+      "clueFragment": "overgrown",
+      "gives": "O",
+      "select": "first",
+      "note": "first letter of overgrown"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAD",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Father makes for the overgrown edge of a forest.",
+     "walkthrough": "'Wood' suggests a forest, but a dado is the wooden lower band of a wall.",
+     "definitionFit": "A dado is a decorative panelled or railed strip along the lower part of a wall, often of timber."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "wood"
+    }
+   }
   },
   {
    "number": 18,
@@ -341,7 +1225,50 @@
     "text": "Coin scales fashioned in a revivalist style",
     "enumeration": "10"
    },
-   "solution": "NEOCLASSIC"
+   "solution": "NEOCLASSIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEOCLASSIC",
+    "definitions": [
+     {
+      "text": "in a revivalist style",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fashioned",
+      "for": "anagram",
+      "note": "fashioning something shapes it anew, so the letters are remade"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Coin scales",
+      "gives": "COINSCALES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COINSCALES",
+       "gives": "NEOCLASSIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Coins and scales are made in an old-fashioned style.",
+     "definitionFit": "Neoclassic art and architecture revives the forms of ancient Greece and Rome."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "scales"
+    }
+   }
   },
   {
    "number": 18,
@@ -361,7 +1288,59 @@
      }
     ]
    },
-   "solution": "NONETOO"
+   "solution": "NONETOO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NONE TOO",
+    "definitions": [
+     {
+      "text": "Not very",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "piercing",
+      "for": "container",
+      "note": "something piercing another goes into its middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scream of disbelief",
+      "gives": "NO",
+      "note": "start of NOOO, a drawn-out cry of disbelief"
+     },
+     {
+      "clueFragment": "clear",
+      "gives": "NET",
+      "note": "net is clear, as in net profit after deductions"
+     },
+     {
+      "clueFragment": "scream of disbelief",
+      "gives": "OO",
+      "note": "end of NOOO"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "NET",
+      "OO"
+     ]
+    },
+    "explanation": {
+     "surface": "A not-very-clear piercing scream of disbelief rings out.",
+     "definitionFit": "None too is an idiom meaning not at all or not particularly, so not very."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clear"
+    }
+   }
   },
   {
    "number": 19,
@@ -375,7 +1354,63 @@
     "text": "Learner with problems missing wide vehicles",
     "enumeration": "7"
    },
-   "solution": "LORRIES"
+   "solution": "LORRIES",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "LORRIES",
+    "definitions": [
+     {
+      "text": "vehicles",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "missing something means doing without it, so it is dropped"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Learner",
+      "gives": "L",
+      "note": "L is the learner-driver plate"
+     },
+     {
+      "clueFragment": "problems",
+      "gives": "WORRIES",
+      "note": "worries are problems"
+     },
+     {
+      "clueFragment": "wide",
+      "gives": "W",
+      "note": "W for wide, the cricket scoring abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ORRIES"
+     ]
+    },
+    "explanation": {
+     "surface": "A learner driver has trouble with wide vehicles.",
+     "walkthrough": "'Wide vehicles' reads as one phrase but wide is the letter dropped; in cricket a wide is a ball out of the batter's reach.",
+     "definitionFit": "Lorries are large goods trucks, so a type of vehicle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wide"
+    }
+   }
   },
   {
    "number": 20,
@@ -389,7 +1424,71 @@
     "text": "Wild about numbers written about Deep Purple?",
     "enumeration": "6"
    },
-   "solution": "DAMSON"
+   "solution": "DAMSON",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DAMSON",
+    "definitions": [
+     {
+      "text": "Deep Purple",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turning about means facing the other way, so the word is read backwards"
+     },
+     {
+      "text": "written about",
+      "for": "reversal",
+      "note": "written the other way about, so it runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wild",
+      "gives": "MAD",
+      "note": "mad means wild"
+     },
+     {
+      "clueFragment": "numbers",
+      "gives": "NOS",
+      "note": "NOS is the abbreviation for numbers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAM",
+      "SON"
+     ],
+     "reversals": [
+      {
+       "from": "MAD",
+       "to": "DAM"
+      },
+      {
+       "from": "NOS",
+       "to": "SON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fan goes wild over songs penned about the rock band Deep Purple.",
+     "walkthrough": "Deep Purple looks like the British rock band; it is the dark purple colour.",
+     "definitionFit": "Damson is a dark plum, and its name is used for the deep purplish colour of the fruit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Purple"
+    }
+   }
   },
   {
    "number": 21,
@@ -403,7 +1502,63 @@
     "text": "Machinery dispute that's backed up big cheeses",
     "enumeration": "8"
    },
-   "solution": "WORKINGS"
+   "solution": "WORKINGS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "WORKINGS",
+    "definitions": [
+     {
+      "text": "Machinery",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backed up",
+      "for": "reversal",
+      "note": "something backed up has been driven in reverse, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dispute",
+      "gives": "ROW",
+      "note": "a row is a quarrel"
+     },
+     {
+      "clueFragment": "big cheeses",
+      "gives": "KINGS",
+      "note": "kings are the most important people, big cheeses"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WOR",
+      "KINGS"
+     ],
+     "reversals": [
+      {
+       "from": "ROW",
+       "to": "WOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dispute over machinery has the bosses backing it.",
+     "definitionFit": "The workings of something are its internal mechanism or moving parts, its machinery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backed"
+    }
+   }
   },
   {
    "number": 22,
@@ -417,7 +1572,49 @@
     "text": "Russian leader sending up current data, perhaps",
     "enumeration": "5"
    },
-   "solution": "INPUT"
+   "solution": "INPUT",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "INPUT",
+    "definitions": [
+     {
+      "text": "data, perhaps",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sending up current",
+      "for": "cycling",
+      "note": "current means in fashion, and in a down entry sending it up moves it to the top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Russian leader",
+      "gives": "PUTIN",
+      "note": "Vladimir Putin, the Russian president"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "PUT"
+     ]
+    },
+    "explanation": {
+     "surface": "The Russian president mocks current data.",
+     "walkthrough": "'Current' is IN, the last two letters of PUTIN, which move to the top of this down entry.",
+     "definitionFit": "Input is information fed into a computer, and data is one example of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 23,
@@ -437,7 +1634,68 @@
      }
     ]
    },
-   "solution": "GREATTIT"
+   "solution": "GREATTIT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "GREAT TIT",
+    "definitions": [
+     {
+      "text": "Winger",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hit",
+      "for": "anagram",
+      "note": "something hit is knocked about, so the letters end up scattered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "target",
+      "gives": "TARGET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREATT",
+      "I",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TARGET",
+       "gives": "GREATT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football winger hits the target once.",
+     "walkthrough": "'Winger' looks like a footballer on the flank; here it is anything with wings, a bird.",
+     "definitionFit": "The great tit is a common garden bird, so a creature with wings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Winger"
+    }
+   }
   },
   {
    "number": 24,
@@ -451,7 +1709,43 @@
     "text": "Run through confession of one who won't take The Sun?",
     "enumeration": "6"
    },
-   "solution": "IMPALE"
+   "solution": "IMPALE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IMPALE",
+    "definitions": [
+     {
+      "text": "Run through",
+      "at": 0
+     },
+     {
+      "text": "confession of one who won't take The Sun?",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Run through",
+      "note": "first meaning: pierce with a sharp point"
+     },
+     {
+      "clueFragment": "confession of one who won't take The Sun?",
+      "note": "second meaning: what a person who avoids sunbathing might admit"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'The Sun' looks like the British tabloid newspaper, but it is sunshine; the answer splits as I'M PALE.",
+     "definitionFit": "To impale is to pierce through with a spike or blade, to run through."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sun"
+    }
+   }
   },
   {
    "number": 25,
@@ -465,7 +1759,48 @@
     "text": "Story contrary detective ill-advisedly screens",
     "enumeration": "3"
    },
-   "solution": "LIE"
+   "solution": "LIE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "LIE",
+    "definitions": [
+     {
+      "text": "Story",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "screens",
+      "for": "hidden_word",
+      "note": "to screen is to shield and hold behind, so the phrase conceals the word"
+     },
+     {
+      "text": "contrary",
+      "for": "reversal",
+      "note": "contrary means going the opposite way, so the letters read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "detective ill-advisedly",
+      "gives": "EIL",
+      "note": "the last letter of detective and start of ill"
+     }
+    ],
+    "explanation": {
+     "surface": "A contrary detective unwisely shows a story on screen.",
+     "definitionFit": "A lie is an untrue story, as when a child is said to tell stories."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "screens"
+    }
+   }
   },
   {
    "number": 26,
@@ -479,7 +1814,50 @@
     "text": "Writing supports ribald cops after sacking",
     "enumeration": "10"
    },
-   "solution": "CLIPBOARDS"
+   "solution": "CLIPBOARDS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CLIPBOARDS",
+    "definitions": [
+     {
+      "text": "Writing supports",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after sacking",
+      "for": "anagram",
+      "note": "a sacking causes upheaval, leaving things thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ribald cops",
+      "gives": "RIBALDCOPS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RIBALDCOPS",
+       "gives": "CLIPBOARDS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Written statements back up crude police officers after they are fired.",
+     "definitionFit": "Clipboards are boards with a clip holding paper, giving a firm backing to write on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "supports"
+    }
+   }
   },
   {
    "number": 27,
@@ -493,7 +1871,65 @@
     "text": "Row about the X-Factor with regressive view",
     "enumeration": "4"
    },
-   "solution": "TIER"
+   "solution": "TIER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TIER",
+    "definitions": [
+     {
+      "text": "Row",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regressive view",
+      "for": "reversal",
+      "note": "a regressive view looks backwards, so the letters are read in reverse"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about, concerning"
+     },
+     {
+      "clueFragment": "the X-Factor",
+      "gives": "IT",
+      "note": "it is that indefinable special quality, the X factor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "REIT",
+       "to": "TIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A row breaks out over the TV talent show The X Factor and its backward outlook.",
+     "walkthrough": "The X Factor is a British TV talent show, but here the phrase means star quality, also called it.",
+     "definitionFit": "A tier is a row or level, as in tiers of seats in a stadium."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "X-Factor"
+    }
+   }
   }
  ]
 }
