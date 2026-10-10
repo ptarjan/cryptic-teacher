@@ -376,6 +376,69 @@ def match(path, by_number):
     return out
 
 
+def match_anywhere(path, by_number):
+    """match(path, by_number) run on the desktop when tools/ocr_remote.py
+    can (the file's bytes sent; the same match and the same pages back, the
+    title readings it cached written under CROPS), else here in
+    local_slot()."""
+    import ocr_remote
+    from PIL import Image
+    got = ocr_remote.call("gale_match", path.name, {n: d.isoformat() for n, d in by_number.items()},
+                          data=path.read_bytes())
+    if got is None:
+        with ocr_remote.local_slot():
+            return match(path, by_number)
+    (got, back), at, pages = got, 0, []
+    for n in got["pages"]:
+        page = Image.open(io.BytesIO(back[at:at + n]))
+        page.load()
+        pages.append(page)
+        at += n
+    with tarfile.open(fileobj=io.BytesIO(back[at:])) as t:
+        t.extractall(fa.CROPS, filter="data")
+    m = got["match"]
+    return {**m, "date": m["date"] and datetime.date.fromisoformat(m["date"]), "pages": pages}
+
+
+#: What a Windows file name cannot hold.
+NOT_IN_NAMES = set('<>:"/\\|?*')
+
+
+def match_there(data, name, held):
+    """tools/ocr_remote.py's "gale_match", run on the desktop: ({"match":
+    match() of the saved file `data` named `name`, its date ISO, "pages":
+    [PNG length]}, the pages' PNGs then a tar of the title readings it
+    cached), `held` its {number: ISO date}; raises when it opened a file it
+    was not sent."""
+    import gc
+    import tempfile
+
+    import ocr_remote
+    if NOT_IN_NAMES & set(name):
+        raise ValueError(f"{name!r} cannot be a file name there")
+    with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmp:
+        root = Path(tmp)
+        path = root / name
+        path.write_bytes(data)
+        crops, sent = ocr_remote.sent_crops(root)
+        fa.CROPS = crops
+        ocr_remote._WATCH[:] = [(str(root), str(TOOLS.parent)), []]
+        try:
+            m = match(path, {int(n): datetime.date.fromisoformat(d) for n, d in held.items()})
+        finally:
+            missing, ocr_remote._WATCH[:] = ocr_remote._WATCH[1], [None, []]
+        if missing:
+            raise FileNotFoundError("opened files it was not sent: " + ", ".join(sorted(set(missing))[:5]))
+        pngs = []
+        for page in m.pop("pages"):
+            buf = io.BytesIO()
+            page.save(buf, format="PNG", compress_level=1)  # lossless: the Mac lays out these pixels
+            pngs.append(buf.getvalue())
+        m["date"] = m["date"] and m["date"].isoformat()
+        gc.collect()  # closes the file, which Windows will not delete open
+        return {"match": m, "pages": [len(p) for p in pngs]}, b"".join(pngs) + ocr_remote.changed(crops, sent)
+
+
 # ------------------------------------------------------------ staging
 
 def source_key(files):
@@ -438,7 +501,7 @@ def stage(inbox=MIRROR, cache=CACHE, out=sys.stdout, unmatched=UNMATCHED, matche
             k = next(key for key in known if key.endswith("\t" + ident))
         elif m is None:
             try:
-                m = match(p, by_number)
+                m = match_anywhere(p, by_number)
             except (OSError, ValueError, pypdf.errors.PyPdfError) as e:  # reported, not fatal
                 m = {"file": p.name, "date": None, "why": f"unreadable: {type(e).__name__}: {e}", "pages": []}
             m["date"] = m["date"] and m["date"].isoformat()
@@ -471,7 +534,7 @@ def stage(inbox=MIRROR, cache=CACHE, out=sys.stdout, unmatched=UNMATCHED, matche
         for m in ms:
             pages = m.get("pages")
             if pages is None:
-                pages = [page for img, _ in images(m["path"]) for page, _ in [scaled(img)]]
+                pages = match_anywhere(m["path"], by_number)["pages"]
             for img in pages:
                 leaf = len(leaves)
                 img.save(tmp / f"leaf_{leaf:04d}.jpg", quality=92)
@@ -1449,7 +1512,7 @@ def main(argv=None):
     if a.cmd == "match":
         by_number = held()
         for f in a.files:
-            m = match(f, by_number)
+            m = match_anywhere(f, by_number)
             print(f"{f.name}: {m['date'] or 'unmatched'} ({m.get('how') or m.get('why')})"
                   + (f", No {m['number']}" if m.get("number") else "")
                   + (f", page {m['page']}" if m.get("page") else "")

@@ -14,8 +14,9 @@ already-upscaled crop as PNG and gets the words back as JSON. call() runs
 one of CALLS there: an image PDF's pages searched for grids
 (fetch_archive_org_editions.pdf_pages), a grid search from a clue list
 (reconstruct(), the Trove filer's rebuild), an edition's scan for its
-headings (scan(), the edition queue's scan units) and RapidOCR's text of a
-Trove article's clue zones (tools/trove_clue_ocr.py's read_text). The desktop
+headings (scan(), the edition queue's scan units), RapidOCR's text of a
+Trove article's clue zones (tools/trove_clue_ocr.py's read_text) and a
+saved Gale page's match (tools/gale_inbox.py's match_anywhere). The desktop
 runs the same code (every tracked file under tools/ but UNSHIPPED, shipped
 once into a directory named by their hash, so a running session's files are
 never overwritten), the same reader models and the same Python, Pillow,
@@ -450,9 +451,20 @@ def _trove_text_there(data, sizes):
 
 
 #: What call() may run there: name -> f(payload bytes, *args, **kwargs)
-#: giving (a JSON-able result, bytes sent back after it).
+#: giving (a JSON-able result, bytes sent back after it), or "module.f",
+#: imported there when it runs: a module the page build need not import.
 CALLS = {"reconstruct": _reconstruct_there, "pdf_pages": _pdf_pages_there, "scan": _scan_there,
-         "trove_text": _trove_text_there}
+         "trove_text": _trove_text_there, "gale_match": "gale_inbox.match_there"}
+
+
+def run_call(name, data, args, kwargs):
+    """CALLS[name](data, *args, **kwargs)."""
+    f = CALLS[name]
+    if isinstance(f, str):
+        import importlib
+        module, attr = f.rsplit(".", 1)
+        f = getattr(importlib.import_module(module), attr)
+    return f(data, *args, **kwargs)
 
 
 def serve(priority="idle"):
@@ -513,7 +525,7 @@ def serve(priority="idle"):
             continue
         if "call" in req:
             try:
-                result, back = CALLS[req["call"]](data, *req["args"], **req["kwargs"])
+                result, back = run_call(req["call"], data, req["args"], req["kwargs"])
                 head = {"result": result}
             except Exception as e:  # noqa: BLE001 -- the Mac runs this one itself and says why
                 head, back = {"error": f"{type(e).__name__}: {e}"}, b""
