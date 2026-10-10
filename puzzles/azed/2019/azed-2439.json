@@ -38,6 +38,9 @@
   "date": "2019-03-17",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,53 @@
     "text": "State conference pal's left",
     "enumeration": "4"
    },
-   "solution": "AVER"
+   "solution": "AVER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AVER",
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'s left",
+      "for": "deletion",
+      "note": "read as 'has left', meaning one word has departed from the longer one and what remains is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conference",
+      "gives": "PALAVER",
+      "note": "a palaver is a long conference or parley"
+     },
+     {
+      "clueFragment": "pal",
+      "gives": "PAL",
+      "note": "taken as written, the letters to be removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVER"
+     ]
+    },
+    "explanation": {
+     "surface": "An announcement that a delegate's friend has walked out of a state conference.",
+     "walkthrough": "Take PAL from the front of PALAVER and AVER is left; the possessive 's stands for 'has'.",
+     "definitionFit": "To aver is to declare or assert firmly, so it is a verb synonym of state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "State"
+    }
+   }
   },
   {
    "number": 1,
@@ -65,7 +114,69 @@
     "text": "Beauty of orchards casting endless spell with bosom pal",
     "enumeration": "12"
    },
-   "solution": "APPLEBLOSSOM"
+   "solution": "APPLEBLOSSOM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "APPLEBLOSSOM",
+    "definitions": [
+     {
+      "text": "Beauty of orchards",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "without an end, so the word loses its final letter"
+     },
+     {
+      "text": "casting",
+      "for": "anagram",
+      "note": "casting is moulding or throwing into a new shape, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spell",
+      "gives": "SPEL",
+      "note": "spell without its last letter"
+     },
+     {
+      "clueFragment": "bosom",
+      "gives": "BOSOM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pal",
+      "gives": "PAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SPELBOSOMPAL",
+       "gives": "APPLEBLOSSOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rustic beauty casts a spell over a close friend in an orchard.",
+     "definitionFit": "The pink and white flowers of apple trees are the chief spring display of an orchard, a fanciful description."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "casting"
+    }
+   }
   },
   {
    "number": 2,
@@ -79,7 +190,76 @@
     "text": "Lilting air: this in verse 10 shows vessel in a bad way",
     "enumeration": "5"
    },
-   "solution": "VARIX"
+   "solution": "VARIX",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "VARIX",
+    "definitions": [
+     {
+      "text": "vessel in a bad way",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Lilting",
+      "for": "anagram",
+      "note": "a lilting tune sways and swings, so the letters move about"
+     },
+     {
+      "text": "this in",
+      "for": "container",
+      "note": "this, the reworked tune, is placed in the letters that follow"
+     }
+    ],
+    "linkWords": [
+     "shows"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "verse",
+      "gives": "V",
+      "note": "V is the abbreviation for verse"
+     },
+     {
+      "clueFragment": "air",
+      "gives": "ARI",
+      "note": "the word air rearranged"
+     },
+     {
+      "clueFragment": "10",
+      "gives": "X",
+      "note": "X is the Roman numeral for ten"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "ARI",
+      "X"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AIR",
+       "gives": "ARI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A singer's lilting air in the tenth verse shows a vessel tossed in a storm.",
+     "walkthrough": "The 10 is not a cross-reference to 10-down but a plain Roman numeral; the vessel is a blood vessel, not a ship.",
+     "definitionFit": "A varix is a dilated, tortuous vein, a blood vessel that has become abnormally swollen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 3,
@@ -93,7 +273,74 @@
     "text": "Show gratitude for old-style frangipane (say) served up in pastrycook's centrepiece",
     "enumeration": "7"
    },
-   "solution": "REMERCY"
+   "solution": "REMERCY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "container"
+    ],
+    "answer": "REMERCY",
+    "definitions": [
+     {
+      "text": "Show gratitude for old-style",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centrepiece",
+      "for": "letter_selection",
+      "note": "the centrepiece of a word is its middle, so only the central pair of letters is kept"
+     },
+     {
+      "text": "served up",
+      "for": "reversal",
+      "note": "in a down entry, serving something up turns it to read from the bottom upwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the turned word sits inside the selected middle letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "frangipane (say)",
+      "gives": "CREME",
+      "note": "frangipane is a crème, an almond-flavoured pastry cream; 'say' marks it as an example"
+     },
+     {
+      "clueFragment": "pastrycook's",
+      "gives": "RY",
+      "select": "middle",
+      "note": "the two central letters of a ten-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EMERC",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "CREME",
+       "to": "EMERC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A baker's showpiece of frangipane, served up to thank someone.",
+     "walkthrough": "REMERCY is an obsolete verb, which is why the definition carries 'old-style'. The crème goes in upside down between R and Y.",
+     "definitionFit": "Remercy is an archaic word for thanking, borrowed from French remercier, so showing gratitude for something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "served"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +354,82 @@
     "text": "Special: pig's tail in boiled mushy pulse",
     "enumeration": "8"
    },
-   "solution": "SPHYGMUS"
+   "solution": "SPHYGMUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "SPHYGMUS",
+    "definitions": [
+     {
+      "text": "pulse",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tail",
+      "for": "letter_selection",
+      "note": "the tail of a word is its last letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the single letter is placed inside the reworked word"
+     },
+     {
+      "text": "boiled",
+      "for": "anagram",
+      "note": "boiling churns things up, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Special",
+      "gives": "SP",
+      "note": "SP is an abbreviation for special"
+     },
+     {
+      "clueFragment": "mushy",
+      "gives": "HYMUS",
+      "note": "the word mushy rearranged"
+     },
+     {
+      "clueFragment": "pig's",
+      "gives": "G",
+      "select": "last",
+      "note": "the final letter of pig"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "HY",
+      "G",
+      "MUS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MUSHY",
+       "gives": "HYMUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe for a special dish: a pig's tail cooked in boiled mushy peas.",
+     "walkthrough": "'Pulse' looks like the peas of the kitchen scene, but it is the heartbeat.",
+     "definitionFit": "Sphygmus is a medical term for the pulse, the rhythmic beat of the arteries."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pulse"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +443,64 @@
     "text": "Training frame, and therefore left in care of personal assistant",
     "enumeration": "7"
    },
-   "solution": "PERGOLA"
+   "solution": "PERGOLA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PERGOLA",
+    "definitions": [
+     {
+      "text": "Training frame",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in care of",
+      "for": "container",
+      "note": "something in the care of someone is held within their keeping, so these letters go inside"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "therefore",
+      "gives": "ERGO",
+      "note": "ergo is Latin for therefore"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "personal assistant",
+      "gives": "PA",
+      "note": "PA is the abbreviation for a personal assistant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ERGO",
+      "L",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A trainee left in the care of a personal assistant, framed as a business arrangement.",
+     "definitionFit": "A pergola is a garden framework over which climbing plants are trained."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Training"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +514,51 @@
     "text": "Husband with alias in pre-engagement dance",
     "enumeration": "4"
    },
-   "solution": "HAKA"
+   "solution": "HAKA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HAKA",
+    "definitions": [
+     {
+      "text": "pre-engagement dance",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     },
+     {
+      "clueFragment": "alias",
+      "gives": "AKA",
+      "note": "AKA, 'also known as', introduces an alias"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "AKA"
+     ]
+    },
+    "explanation": {
+     "surface": "A husband using a false name at a dance before his engagement party.",
+     "walkthrough": "The engagement is a contest, not a betrothal.",
+     "definitionFit": "The haka is the Maori war dance performed before battle, now famously before New Zealand rugby matches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "engagement"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +572,42 @@
     "text": "Desert brassica",
     "enumeration": "4"
    },
-   "solution": "GOBI"
+   "solution": "GOBI",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GOBI",
+    "definitions": [
+     {
+      "text": "Desert",
+      "at": 0
+     },
+     {
+      "text": "brassica",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Desert",
+      "note": "first meaning: the great desert of Mongolia and northern China"
+     },
+     {
+      "clueFragment": "brassica",
+      "note": "second meaning: the Hindi word for cabbage or cauliflower"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Desert' could be a verb, but it is the place.",
+     "definitionFit": "The same word names a vast Asian desert and, in Indian cookery, a cauliflower, which is a brassica."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Desert"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +621,70 @@
     "text": "Like e.g. Charlie and Malachi shivering round fire?",
     "enumeration": "11"
    },
-   "solution": "MOUSTACHIAL"
+   "solution": "MOUSTACHIAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MOUSTACHIAL",
+    "definitions": [
+     {
+      "text": "Like e.g. Charlie",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shivering",
+      "for": "anagram",
+      "note": "a shivering body trembles and shakes, so the letters are jumbled"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "the reworked name goes around another word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Malachi",
+      "gives": "MACHIAL",
+      "note": "the name Malachi rearranged"
+     },
+     {
+      "clueFragment": "fire",
+      "gives": "OUST",
+      "note": "to fire someone is to oust them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "OUST",
+      "ACHIAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MALACHI",
+       "gives": "MACHIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two men, Charlie and Malachi, shivering together round a fire.",
+     "walkthrough": "Charlie is Charlie Chaplin, whose toothbrush moustache was his trademark.",
+     "definitionFit": "Moustachial means having or relating to a moustache, and Chaplin's Charlie is the classic moustached figure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "fire"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +698,70 @@
     "text": "Land language teacher with no money initially, needing pence?",
     "enumeration": "6"
    },
-   "solution": "UNSHIP"
+   "solution": "UNSHIP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "UNSHIP",
+    "definitions": [
+     {
+      "text": "Land",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the first letter of the word it follows"
+     },
+     {
+      "text": "with no",
+      "for": "deletion",
+      "note": "being without something means that letter is removed"
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "language teacher",
+      "gives": "MUNSHI",
+      "note": "a munshi is a teacher of languages, especially in India"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of money, which is dropped"
+     },
+     {
+      "clueFragment": "pence",
+      "gives": "P",
+      "note": "P is the abbreviation for pence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNSHI",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A broke language teacher landing somewhere and needing a few pence.",
+     "walkthrough": "A munshi is an Indian secretary or teacher of languages; remove its M and add P.",
+     "definitionFit": "To unship is to unload cargo or passengers from a ship, putting them on land."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Land"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +775,65 @@
     "text": "Devout believer in evacuation succeeded in converting contrariest",
     "enumeration": "12"
    },
-   "solution": "STERCORANIST"
+   "solution": "STERCORANIST",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "STERCORANIST",
+    "definitions": [
+     {
+      "text": "Devout believer in evacuation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "converting",
+      "for": "anagram",
+      "note": "converting changes the form of something, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "succeeded",
+      "gives": "S",
+      "note": "S is the abbreviation for succeeded"
+     },
+     {
+      "clueFragment": "contrariest",
+      "gives": "TERCORANIST",
+      "note": "the word contrariest rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TERCORANIST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CONTRARIEST",
+       "gives": "TERCORANIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A missionary succeeded in converting the most contrary people around.",
+     "walkthrough": "'Devout believer' and 'converting' suggest religion, which is right, but 'evacuation' is bodily.",
+     "definitionFit": "A stercoranist held that the consecrated bread of the Eucharist is digested and excreted like ordinary food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "evacuation"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +847,61 @@
     "text": "Mongoloid? Standard dawning's around East",
     "enumeration": "8"
    },
-   "solution": "PAREOEAN"
+   "solution": "PAREOEAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PAREOEAN",
+    "definitions": [
+     {
+      "text": "Mongoloid?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'s around",
+      "for": "container",
+      "note": "read as 'is around', so one word encloses the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Standard",
+      "gives": "PAR",
+      "note": "par is the standard, the expected level"
+     },
+     {
+      "clueFragment": "dawning",
+      "gives": "EOAN",
+      "note": "Eoan means relating to the dawn"
+     },
+     {
+      "clueFragment": "East",
+      "gives": "E",
+      "note": "E is the abbreviation for East"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "EO",
+      "E",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether a standard is dawning around the East.",
+     "definitionFit": "Pareoean is an old ethnological term for peoples of southern China and South East Asia, classed as Mongoloid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dawning"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +915,65 @@
     "text": "The old cherish discourse once including central points with lecturer",
     "enumeration": "11"
    },
-   "solution": "REFOCILLATE"
+   "solution": "REFOCILLATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REFOCILLATE",
+    "definitions": [
+     {
+      "text": "The old cherish",
+      "at": 0,
+      "note": "'The old' marks the word as archaic"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including means taking in, so these letters go inside the first word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "discourse once",
+      "gives": "RELATE",
+      "note": "to relate once meant to discourse or tell"
+     },
+     {
+      "clueFragment": "central points",
+      "gives": "FOCI",
+      "note": "foci are central points"
+     },
+     {
+      "clueFragment": "lecturer",
+      "gives": "L",
+      "note": "L is the abbreviation for lecturer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "FOCI",
+      "L",
+      "LATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Old-fashioned advice to cherish a lecture whose discourse has clear central points.",
+     "walkthrough": "'The old' is a label marking the definition as archaic, and 'once' does the same job for the discourse word.",
+     "definitionFit": "Refocillate is an obsolete verb meaning to refresh or revive, hence to comfort or cherish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "points"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +987,54 @@
     "text": "Early arrival, Martin maybe, after parking",
     "enumeration": "5"
    },
-   "solution": "PREMY"
+   "solution": "PREMY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PREMY",
+    "definitions": [
+     {
+      "text": "Early arrival",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one thing coming after another puts the cognac name second, behind the parking letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parking",
+      "gives": "P",
+      "note": "P is the abbreviation for parking"
+     },
+     {
+      "clueFragment": "Martin maybe",
+      "gives": "REMY",
+      "note": "Rémy Martin is a brand of cognac"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "REMY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Martin turns up early after finding a parking space.",
+     "walkthrough": "Martin is a surname here, with Rémy the first name of the brandy house.",
+     "definitionFit": "A premy is a colloquial word for a premature baby, one who arrives before due time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Martin"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +1048,65 @@
     "text": "A large vehicle in contact with bike's rear, causing damage",
     "enumeration": "5"
    },
-   "solution": "ABUSE"
+   "solution": "ABUSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ABUSE",
+    "definitions": [
+     {
+      "text": "damage",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rear",
+      "for": "letter_selection",
+      "note": "the rear of a word is its final letter"
+     }
+    ],
+    "linkWords": [
+     "in contact with",
+     "causing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "large vehicle",
+      "gives": "BUS",
+      "note": "a bus is a large passenger vehicle"
+     },
+     {
+      "clueFragment": "bike's",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of bike"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BUS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A bus clipping the back of a bicycle and damaging it.",
+     "definitionFit": "Abuse can mean ill-treatment or misuse that harms something, so damage in the noun sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "contact"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1120,63 @@
     "text": "Stiff punishment to top up endlessly, being sent back",
     "enumeration": "5"
    },
-   "solution": "LIFER"
+   "solution": "LIFER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "LIFER",
+    "definitions": [
+     {
+      "text": "Stiff punishment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without an end, so the final letter is cut off"
+     },
+     {
+      "text": "being sent back",
+      "for": "reversal",
+      "note": "sending something back makes it travel the other way, right to left"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "top up",
+      "gives": "REFILL",
+      "note": "to top up a glass is to refill it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIFER"
+     ],
+     "reversals": [
+      {
+       "from": "REFIL",
+       "to": "LIFER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A harsh penalty for constantly topping up drinks, ending with being sent home.",
+     "walkthrough": "A lifer is also a prisoner serving a life sentence, but here it is the sentence itself.",
+     "definitionFit": "Lifer is slang for a life sentence, the heaviest penalty a court in Britain can impose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1190,50 @@
     "text": "Showy decoration, but heartless",
     "enumeration": "6"
    },
-   "solution": "GARISH"
+   "solution": "GARISH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GARISH",
+    "definitions": [
+     {
+      "text": "Showy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartless",
+      "for": "deletion",
+      "note": "without a heart, so the middle letter is taken out"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "decoration",
+      "gives": "GARNISH",
+      "note": "a garnish is a decoration on a plate of food"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GARISH"
+     ]
+    },
+    "explanation": {
+     "surface": "A dismissive verdict on a showy but soulless decoration.",
+     "definitionFit": "Garish describes something gaudy and over-bright, so showy in a vulgar way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heartless"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1247,64 @@
     "text": "I got mad working with college being overbearing",
     "enumeration": "8"
    },
-   "solution": "DOGMATIC"
+   "solution": "DOGMATIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DOGMATIC",
+    "definitions": [
+     {
+      "text": "overbearing",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "letters that are working move about and change places"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I got mad",
+      "gives": "DOGMATI",
+      "note": "the letters of these three words rearranged"
+     },
+     {
+      "clueFragment": "college",
+      "gives": "C",
+      "note": "C is the abbreviation for college"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOGMATI",
+      "C"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IGOTMAD",
+       "gives": "DOGMATI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student's complaint about losing their temper while working at an overbearing college.",
+     "definitionFit": "Dogmatic means asserting opinions in an arrogant, domineering way, a near synonym of overbearing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1318,43 @@
     "text": "Principal player embraced by Radames",
     "enumeration": "4"
    },
-   "solution": "DAME"
+   "solution": "DAME",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DAME",
+    "definitions": [
+     {
+      "text": "Principal player",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embraced by",
+      "for": "hidden_word",
+      "note": "the letters are held within the following name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Radames",
+      "gives": "DAME",
+      "note": "found inside the name"
+     }
+    ],
+    "explanation": {
+     "surface": "An opera singer clasped in the arms of Radames, Aida's lover in Verdi's opera.",
+     "walkthrough": "The opera setting is a decoy: the principal player is from pantomime.",
+     "definitionFit": "In British pantomime the dame, a comic woman played by a man, is one of the leading roles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "player"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1368,70 @@
     "text": "Wherein you could find muzhiks in Russia subsisting primarily",
     "enumeration": "4"
    },
-   "solution": "MIRS"
+   "solution": "MIRS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "MIRS",
+    "definitions": [
+     {
+      "text": "Wherein you could find muzhiks in Russia subsisting primarily",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter of each word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "muzhiks",
+      "gives": "M",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "I",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "Russia",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "subsisting",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "I",
+      "R",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A description of the places where Russian peasants once scraped a living.",
+     "walkthrough": "The whole clue is both definition and wordplay; muzhiks were Russian peasants.",
+     "definitionFit": "A mir was a village commune in Tsarist Russia, home to the peasants who lived off its land."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1445,48 @@
     "text": "Cheeky, making one crumple by the sound of it",
     "enumeration": "6"
    },
-   "solution": "BUCCAL"
+   "solution": "BUCCAL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BUCCAL",
+    "definitions": [
+     {
+      "text": "Cheeky",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it",
+      "for": "homophone",
+      "note": "this points to how a word is said rather than how it is spelt"
+     }
+    ],
+    "linkWords": [
+     "making one"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crumple",
+      "gives": "BUCCAL",
+      "soundsLike": "BUCKLE",
+      "note": "to crumple under pressure is to buckle"
+     }
+    ],
+    "explanation": {
+     "surface": "Cheekiness that makes someone collapse in a heap.",
+     "walkthrough": "'Cheeky' means impudent on the surface, but the definition is literal: of the cheek.",
+     "definitionFit": "Buccal is the anatomical adjective for the cheek or the mouth cavity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cheeky"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1500,54 @@
     "text": "Signs up old serving women receiving trial",
     "enumeration": "7"
    },
-   "solution": "ATTESTS"
+   "solution": "ATTESTS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ATTESTS",
+    "definitions": [
+     {
+      "text": "Signs up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "receiving means taking something in, so the second word is put inside the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old serving women",
+      "gives": "ATS",
+      "note": "the ATS, Auxiliary Territorial Service, was the British women's army of the Second World War"
+     },
+     {
+      "clueFragment": "trial",
+      "gives": "TEST",
+      "note": "a test is a trial"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "TEST",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Retired servicewomen signing up to take part in a trial.",
+     "definitionFit": "To attest is, in military usage, to enrol or enlist someone, binding them to service."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "serving"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1561,64 @@
     "text": "Regarded as fetish I came across in bed, upside down",
     "enumeration": "7"
    },
-   "solution": "TOTEMIC"
+   "solution": "TOTEMIC",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "TOTEMIC",
+    "definitions": [
+     {
+      "text": "Regarded as fetish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the encounter is placed inside the piece of furniture"
+     },
+     {
+      "text": "upside down",
+      "for": "reversal",
+      "note": "in a down entry, turning something upside down makes it read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bed",
+      "gives": "COT",
+      "note": "a cot is a small bed"
+     },
+     {
+      "clueFragment": "I came across",
+      "gives": "IMET",
+      "note": "came across means met, so I met"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOTEMIC"
+     ],
+     "reversals": [
+      {
+       "from": "CIMETOT",
+       "to": "TOTEMIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A confession of a fetish object found topsy-turvy in a bed.",
+     "definitionFit": "Totemic describes something treated as a totem, an object revered with almost magical significance, as a fetish is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1632,57 @@
     "text": "Love going for English in snack bar, warm brown in colour",
     "enumeration": "6"
    },
-   "solution": "BISTRE"
+   "solution": "BISTRE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "BISTRE",
+    "definitions": [
+     {
+      "text": "warm brown in colour",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going for",
+      "for": "substitution",
+      "note": "one letter going in place of another means a swap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "snack bar",
+      "gives": "BISTRO",
+      "note": "a bistro is a small restaurant or snack bar"
+     },
+     {
+      "clueFragment": "Love",
+      "gives": "O",
+      "note": "love is nil in tennis, the letter O"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BISTRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A romance blossoming in an English cafe with warm brown decor.",
+     "definitionFit": "Bistre is a brownish pigment made from soot, and the name of its warm brown shade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Love"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1696,52 @@
     "text": "Specialist saw carrot after treatment",
     "enumeration": "6"
    },
-   "solution": "TROCAR"
+   "solution": "TROCAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TROCAR",
+    "definitions": [
+     {
+      "text": "Specialist saw",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after treatment",
+      "for": "anagram",
+      "note": "treatment works a thing over and changes it, so the letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "carrot",
+      "gives": "TROCAR",
+      "note": "the word carrot rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CARROT",
+       "gives": "TROCAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A medical specialist examining a carrot after a course of treatment.",
+     "walkthrough": "'Specialist saw' reads as a consultant who saw something; it is a specialist's tool.",
+     "definitionFit": "A trocar is a pointed surgical instrument used to pierce body cavities, a tool for specialists."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "saw"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1755,60 @@
     "text": "They're well drilled, so billet's organized",
     "enumeration": "8"
    },
-   "solution": "OILBELTS"
+   "solution": "OILBELTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OILBELTS",
+    "definitions": [
+     {
+      "text": "They're well drilled",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "organized",
+      "for": "anagram",
+      "note": "something organized is put into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "so",
+      "gives": "SO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "billet",
+      "gives": "BILLET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SOBILLET",
+       "gives": "OILBELTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers who are well drilled, so their billet is kept tidy.",
+     "walkthrough": "'Well drilled' suggests disciplined troops; 'well' is the noun, an oil well. The 's of billet's means 'is'.",
+     "definitionFit": "Oil belts are regions rich in oil, where many wells are drilled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "well"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1822,63 @@
     "text": "Scottish cakes, mostly wrong with recipe for filling",
     "enumeration": "5"
    },
-   "solution": "FARLS"
+   "solution": "FARLS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "FARLS",
+    "definitions": [
+     {
+      "text": "Scottish cakes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the last letter is dropped"
+     },
+     {
+      "text": "for filling",
+      "for": "container",
+      "note": "a filling sits inside something, so this letter goes in"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wrong",
+      "gives": "FALSE",
+      "note": "false means wrong; shortened it loses its E"
+     },
+     {
+      "clueFragment": "recipe",
+      "gives": "R",
+      "note": "R, as in Rx, is the abbreviation for recipe, Latin 'take'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FA",
+      "R",
+      "LS"
+     ]
+    },
+    "explanation": {
+     "surface": "Scottish baking gone mostly wrong because of a faulty recipe for the filling.",
+     "definitionFit": "Farls are thin triangular cakes of oatmeal or flour, a Scottish and Irish griddle bread."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "filling"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1892,46 @@
     "text": "Squalor has reduced local pastureland",
     "enumeration": "6"
    },
-   "solution": "SLEAZE"
+   "solution": "SLEAZE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SLEAZE",
+    "definitions": [
+     {
+      "text": "Squalor",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "has reduced",
+      "gives": "S",
+      "note": "has shortened to its contracted form, just 's"
+     },
+     {
+      "clueFragment": "local pastureland",
+      "gives": "LEAZE",
+      "note": "leaze is a dialect word for pasture"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LEAZE"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that squalor has shrunk the local grazing land.",
+     "definitionFit": "Sleaze is sordid, squalid conditions or behaviour, so a synonym of squalor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reduced"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1945,60 @@
     "text": "Amphibian to examine under either end of engine",
     "enumeration": "4"
    },
-   "solution": "EVET"
+   "solution": "EVET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EVET",
+    "definitions": [
+     {
+      "text": "Amphibian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "either end of",
+      "for": "letter_selection",
+      "note": "the word begins and ends with the same letter, so either end gives the single letter needed"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "under"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "engine",
+      "gives": "E",
+      "select": "first",
+      "note": "engine starts and finishes with the same letter"
+     },
+     {
+      "clueFragment": "examine",
+      "gives": "VET",
+      "note": "to vet is to examine closely"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "VET"
+     ]
+    },
+    "explanation": {
+     "surface": "A newt-like creature turns up to be examined under an engine.",
+     "walkthrough": "In a down entry 'under' places VET below the E.",
+     "definitionFit": "Evet is an old and dialect word for an eft, a newt, which is an amphibian."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "engine"
+    }
+   }
   },
   {
    "number": 28,
@@ -457,7 +2012,58 @@
     "text": "Specialist journal: look for gem that's left to pa therein",
     "enumeration": "4"
    },
-   "solution": "ZINE"
+   "solution": "ZINE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ZINE",
+    "definitions": [
+     {
+      "text": "Specialist journal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that's left",
+      "for": "deletion",
+      "note": "what is left is what remains after something is taken away"
+     },
+     {
+      "text": "therein",
+      "for": "deletion",
+      "note": "points to letters found within the longer word, which are the ones removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "look for gem",
+      "gives": "TOPAZINE",
+      "note": "topazine means having the look of topaz, a gem"
+     },
+     {
+      "clueFragment": "to pa",
+      "gives": "TOPA",
+      "note": "taken as written, the letters to be removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ZINE"
+     ]
+    },
+    "explanation": {
+     "surface": "A trade magazine telling readers where to hunt for the gem their father left them.",
+     "walkthrough": "TOPAZINE, like topaz in appearance, is a rare Chambers word; strip out TO PA and ZINE remains.",
+     "definitionFit": "A zine is a small-circulation magazine, usually devoted to one specialist interest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pa"
+    }
+   }
   },
   {
    "number": 29,
@@ -471,7 +2077,66 @@
     "text": "Anacreontic,'The Eruption of Etna', I penned",
     "enumeration": "5"
    },
-   "solution": "TEIAN"
+   "solution": "TEIAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TEIAN",
+    "definitions": [
+     {
+      "text": "Anacreontic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Eruption",
+      "for": "anagram",
+      "note": "an eruption blasts things apart, so the letters are thrown about"
+     },
+     {
+      "text": "penned",
+      "for": "container",
+      "note": "something penned is enclosed, so this letter is shut inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Etna",
+      "gives": "TEAN",
+      "note": "the name Etna rearranged"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "I",
+      "AN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ETNA",
+       "gives": "TEAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet claims authorship of an Anacreontic ode called The Eruption of Etna.",
+     "definitionFit": "The Greek lyric poet Anacreon came from Teos, so Teian, of Teos, describes him and his verse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "penned"
+    }
+   }
   },
   {
    "number": 30,
@@ -485,7 +2150,74 @@
     "text": "Verse, in poet, looking back, not his first? Could be",
     "enumeration": "5"
    },
-   "solution": "STAVE"
+   "solution": "STAVE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "container",
+     "and_lit"
+    ],
+    "answer": "STAVE",
+    "definitions": [
+     {
+      "text": "Verse, in poet, looking back, not his first? Could be",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not his first",
+      "for": "deletion",
+      "note": "the opening letter of the poet's name is left out"
+     },
+     {
+      "text": "looking back",
+      "for": "reversal",
+      "note": "looking back means facing the other way, so the letters run right to left"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the first letter is placed inside the turned name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poet",
+      "gives": "YEATS",
+      "note": "W.B. Yeats, the Irish poet; Keats works equally well"
+     },
+     {
+      "clueFragment": "Verse",
+      "gives": "V",
+      "note": "V is the abbreviation for verse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STA",
+      "V",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "EATS",
+       "to": "STAE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet reviewing his verse and wondering whether it was his first.",
+     "walkthrough": "The whole clue defines the answer: a poet's stanza might be the verse in question. Either Yeats or Keats loses his first letter.",
+     "definitionFit": "A stave is a stanza or verse of a poem or song."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 31,
@@ -499,7 +2231,63 @@
     "text": "Oriental porcelain – the author's given something similar? No thanks",
     "enumeration": "5"
    },
-   "solution": "IMARI"
+   "solution": "IMARI",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "IMARI",
+    "definitions": [
+     {
+      "text": "Oriental porcelain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "No",
+      "for": "deletion",
+      "note": "no, as in 'none of', means the word that follows is removed"
+     }
+    ],
+    "linkWords": [
+     "–"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the author's",
+      "gives": "IM",
+      "note": "the author's is the setter's I'm, I am"
+     },
+     {
+      "clueFragment": "given something similar",
+      "gives": "ARITA",
+      "note": "Arita is another Japanese porcelain"
+     },
+     {
+      "clueFragment": "thanks",
+      "gives": "TA",
+      "note": "ta is British informal thanks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "ARI"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer offered a piece of oriental porcelain declining politely.",
+     "walkthrough": "Arita and Imari are both Japanese wares from the same district; 'ta' is a British casual thank-you.",
+     "definitionFit": "Imari is a Japanese porcelain named after the port it was shipped from, so an oriental ware."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thanks"
+    }
+   }
   },
   {
    "number": 32,
@@ -513,7 +2301,66 @@
     "text": "Army's quarters? If old, this is divide by lines",
     "enumeration": "8"
    },
-   "solution": "ANTHILLS"
+   "solution": "ANTHILLS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ANTHILLS",
+    "definitions": [
+     {
+      "text": "Army's quarters?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "divide by",
+      "for": "container",
+      "note": "dividing one word with others splits it, leaving them inside"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "If old",
+      "gives": "AN",
+      "note": "an is an archaic word for if"
+     },
+     {
+      "clueFragment": "this",
+      "gives": "THIS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lines",
+      "gives": "LL",
+      "note": "L is an abbreviation for line, so two of them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "THI",
+      "LL",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle about how an army's quarters were divided up, by lines on a map.",
+     "walkthrough": "The army is one of ants. The surface would read more naturally as 'divided', but the parse works.",
+     "definitionFit": "Ant hills are the mounds in which colonies of ants live, the quarters of an insect army."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Army's"
+    }
+   }
   },
   {
    "number": 33,
@@ -527,7 +2374,67 @@
     "text": "Mestee's troubled about name being appropriate",
     "enumeration": "8"
    },
-   "solution": "MEETNESS"
+   "solution": "MEETNESS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MEETNESS",
+    "definitions": [
+     {
+      "text": "being appropriate",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "troubled",
+      "for": "anagram",
+      "note": "troubled means disturbed, so the letters are stirred up"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the reworked letters surround the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mestee's",
+      "gives": "MEETESS",
+      "note": "the letters of mestees rearranged"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEET",
+      "N",
+      "ESS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MESTEES",
+       "gives": "MEETESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A person of mixed ancestry troubled about whether a name is appropriate.",
+     "walkthrough": "A mestee is an old word for a person of mixed descent.",
+     "definitionFit": "Meetness is an old word for fitness or suitability, the state of being proper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "name"
+    }
+   }
   },
   {
    "number": 34,
@@ -541,7 +2448,55 @@
     "text": "Growth: modest boozer has pair separately excised",
     "enumeration": "4"
    },
-   "solution": "CYST"
+   "solution": "CYST",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CYST",
+    "definitions": [
+     {
+      "text": "Growth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has pair separately excised",
+      "for": "deletion",
+      "note": "a matching pair of letters is cut out, one from each word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "modest",
+      "gives": "COY",
+      "note": "coy means modest or shy"
+     },
+     {
+      "clueFragment": "boozer",
+      "gives": "SOT",
+      "note": "a sot is a drunkard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CY",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "A shy drinker has a pair of growths removed separately by a surgeon.",
+     "walkthrough": "The pair is two Os, one excised from each word.",
+     "definitionFit": "A cyst is an abnormal sac-like growth in the body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "boozer"
+    }
+   }
   }
  ]
 }
