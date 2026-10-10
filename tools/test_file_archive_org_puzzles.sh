@@ -197,6 +197,12 @@ check("a solution grid read in part before the partial fix is due; read whole, r
        f.due_reason(part(30, None, "2026-10-01T00:00:00+00:00"), "h", [], "v"),
        f.due_reason(part(0, "its blocks are not the puzzle's", "2026-10-01T00:00:00+00:00"), "h", [], "v"),
        f.due_reason(part(20, None, "2099-01-01T00:00:00+00:00"), "h", [], "v")])
+import scan_queue
+# A reread time is when its fix landed: one still ahead re-reads every row
+# the pass reads until then, over and over.
+check("no reread time is in the future", [],
+      [t for t in (f.REREAD_PARTIAL, *f.REREAD_REFUSED.values())
+       if scan_queue.when(t) > scan_queue.when("now")])
 # Real titles the pass found no title on (no-crossword-found):
 # "Times" garbled past one word, a mark after Crossword, "No" run on or
 # dropped, a space in the number, its 1 read as i.
