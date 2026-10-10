@@ -1419,6 +1419,7 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=()):
         elif words_at or any(t not in MARKS for e in seen_ends for t in e):
             return None, f"the clue's {side} is lost: other readings have {' / '.join(' '.join(e) for e in seen_ends)}"
     fixes, drop, how = {}, set(), "agree"
+    count_cut = None  # where a misread count ends the clue (count_misread)
     # The clue's second word, past an opening letter's stop ("A. Frontier").
     second = next((t for t in mine[1:] if t not in MARKS), "")
     for i, w in enumerate(mine):
@@ -1484,6 +1485,21 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=()):
             # A short word only this reading saw ("come to see", the others
             # read "come see"): the corpus's clues decide.
             how = "settled by the corpus"
+            continue
+        bracketed = (clue[spans[i][0] + len(w):].lstrip().startswith(")")
+                     and "(" not in clue[:spans[i][0]])
+        if (not got and not clue[:spans[i][0]].endswith("-")
+                and (side := count_misread(i, w, low, seen, leads, trails, printing, second, bracketed))):
+            # A count or clue number misread as letters at the clue's edge
+            # ("charge IT" for "charge (7)", "Il Sources" for "11 Sources"):
+            # most readings printing the clue read a number right there.
+            # At the end the clue stops before it, its specks after it gone
+            # ("up? PJ-", "huge UO). L"). A hyphen's second half ("Austr-lia")
+            # is a split word's.
+            if side == "end":
+                count_cut = spans[i][0]
+                break
+            drop.add(i)
             continue
         if not got:
             return None, f"no other reading has {w!r}"
@@ -1652,12 +1668,15 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=()):
     if mine and mine[-1] == "?" and adds.get(len(mine), [""])[0].endswith("?"):
         # Words lost from the clue's end are put in with its "?" after them.
         drop.add(len(mine) - 1)
-    if not fixes and not drop and not adds and not (others and JUNK_MARK.search(clue)):
+    if not fixes and not drop and not adds and count_cut is None and not (others and JUNK_MARK.search(clue)):
         return clue, how
     # Specks between the words go: the other readings saw nothing there.
     speckless = (lambda gap: JUNK_MARK.sub("", gap)) if others else (lambda gap: gap)
     text, k, out = clue, 0, ""
     for i, (at, old) in enumerate(spans):
+        if count_cut is not None and at >= count_cut:
+            k = len(text)
+            break
         new = "" if i in drop else fixes.get(i, old)
         if not new and at > 0 and text[at - 1:at].isalpha() and text[at + len(old):at + len(old) + 1].isalpha():
             new = " "  # a dropped mark between two words ("spirit:after") leaves their space
@@ -1681,9 +1700,41 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=()):
     out += (" " + adds[len(mine)][0] if adds.get(len(mine)) else "") + speckless(text[k:])
     if adds and how == "agree":
         how = "settled by the readings"
-    if drop and how == "agree":
+    if (drop or count_cut is not None) and how == "agree":
         how = "settled by the readings"
     return re.sub(r"\s+([" + MARKS + "])", r"\1", re.sub(r"  +", " ", out)).strip(), how
+
+
+def count_misread(i, w, low, seen, leads, trails, printing, second, bracketed):
+    """The clue's edge, "start" or "end", when this reading's word `w`, its
+    first or last word `i` (lone letters, specks, may follow a last one), is
+    a count or clue number misread as letters ("IT", "HO", "ffl", "Il"): 3
+    letters or fewer, no known word (at the end, all capitals, or any before
+    a bracket the clue never opened, may be; at the start, 2 letters may),
+    at the start before the clue's capital, and more than half the readings
+    printing the clue see its neighbour and nothing between it and a number
+    (`leads`/`trails` empty): at least 2, or 1 when `bracketed` ("hand
+    fa)."); else None."""
+    words = [k for k, t in enumerate(low) if t not in MARKS and t != BREAK]
+    if len(w) > 3 or len(words) < 2 or i not in words or not printing:
+        return None
+    at = words.index(i)
+    last = at and all(t in MARKS or k in words and len(t) == 1 and t not in "ai"
+                      for k, t in enumerate(low[i + 1:], i + 1))
+    if not last and i != words[0]:
+        return None
+    if last:
+        shape = bracketed or w.isupper() or not known(w.lower())
+    else:
+        shape = second[:1].isupper() and (len(w) <= 2 or not known(w.lower()))
+    if not shape:
+        return None
+    near = words[at - 1] if last else words[1]
+    bound = trails if last else leads
+    closed = [k for k, e in enumerate(bound) if e == () and seen[near].get(k, BREAK) != BREAK]
+    if len(closed) >= (1 if bracketed else 2) and len(closed) * 2 > printing:
+        return "end" if last else "start"
+    return None
 
 
 def is_word_only_capital(word, seen):

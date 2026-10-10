@@ -841,6 +841,33 @@ check("a clue-final ? goes after the end words put in, once (mirror)",
       "International Agreement, from retreat of the giant killer?",
       oc.agree("Lnternational Agrecment, from retreat of the ganrkiller ?", [giant, giant])[0])
 
+# Times 1977-09-26 (14716) and 1997-11-05 (20629): a count or clue number
+# read as letters at the clue's edge, where the other readings read a number.
+army = ["#", "Army", "leader", ",", "madly", "raring", "to", "charge", "#"]
+check("a count misread as letters at the clue's end goes (times-14716 15A)",
+      "Army leader, madly raring to charge", oc.agree("Army leader, madly ranng to charge IT", [army, army, army])[0])
+check("a clue number misread as letters before the capital goes (times-14716 11A)",
+      "Tricky way to summon Mephistopheles?",
+      oc.agree("It Tricky way to summon Mephistophdes ?", [["#", "Tricky", "way", "to", "summon", "Mephistopheles", "?", "#"]] * 2)[0])
+up = ["#", "Amount", "Marathon", "leader's", "up", "?", "#"]
+check("the misread count's specks go with it (times-20629 5D)",
+      "Amount Marathon leader's up?", oc.agree("Amount Marathon leader's up? PJ-", [up, up])[0])
+novice = ["#", "could", "be", "raw", "to", "give", "this", "western", "novice", "#"]
+check("a lower-case word at the clue's end is no count (mirror)", None,
+      oc.agree("could be raw to give this western novice one", [novice, novice])[0])
+check("a hyphen's second half is a split word's, no count (mirror, 1978-10-16)", None,
+      oc.agree("Lumber one destroyed in Austr-lia", [["#", "Lumber", "one", "destroyed", "in", "Australia", "#"]] * 2)[0])
+david = ["#", "Drink", "in", "David's", "hand", "#"]
+check("a count read with its bracket needs one reading ending there (times-13971 22D)",
+      "Drink in David's hand", oc.agree("Drink in David's hand fa).", [lost, lost, david])[0])
+huge = ["#", "Some", "turned", "out", "to", "be", "huge", "#"]
+check("specks after a misread count go with it (times-14792 8D)",
+      "Some turned out to be huge", oc.agree("Some turned out to be huge UO). L", [lost, huge, lost, huge])[0])
+check("a bracketed count no reading prints the clue around stays held (mirror)", None,
+      oc.agree("Drink in David's hand fa).", [lost, lost])[0])
+check("one reading ending the clue there is no majority (mirror)", None,
+      oc.agree("Army leader, madly ranng to charge IT", [army, lost, lost])[0])
+
 print(f"FAILS {fails}")
 EOF
 )
