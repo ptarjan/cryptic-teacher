@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,66 @@
     "text": "U-boat then plane boarded by China's principal citizen",
     "enumeration": "7"
    },
-   "solution": "SUBJECT"
+   "solution": "SUBJECT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "SUBJECT",
+    "definitions": [
+     {
+      "text": "citizen",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boarded by",
+      "for": "container",
+      "note": "something boarded by passengers has them climbing inside it"
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "U-boat",
+      "gives": "SUB",
+      "note": "a U-boat is a submarine, a sub"
+     },
+     {
+      "clueFragment": "plane",
+      "gives": "JET",
+      "note": "a jet is a plane"
+     },
+     {
+      "clueFragment": "China's principal",
+      "gives": "C",
+      "select": "first",
+      "note": "the principal, leading letter of China"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUB",
+      "JE",
+      "C",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A wartime passenger hops from submarine to aircraft, where a Chinese dignitary joins the flight.",
+     "definitionFit": "A subject is a member of a state owing allegiance to it, which is what a citizen is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "principal"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +108,56 @@
     "text": "Prim, strait-laced celebrity sitting on church yard",
     "enumeration": "7"
    },
-   "solution": "STARCHY"
+   "solution": "STARCHY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STARCHY",
+    "definitions": [
+     {
+      "text": "Prim, strait-laced",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "sitting on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "celebrity",
+      "gives": "STAR",
+      "note": "a celebrity is a star"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the abbreviation for church"
+     },
+     {
+      "clueFragment": "yard",
+      "gives": "Y",
+      "note": "Y is the abbreviation for yard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR",
+      "CH",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A stuffy, prudish celebrity is perched on a churchyard.",
+     "walkthrough": "In a down clue, sitting on puts the first part above the rest.",
+     "definitionFit": "Starchy describes stiff, formal behaviour, like a collar stiffened with starch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "yard"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +171,56 @@
     "text": "Robber in group stealing equipment",
     "enumeration": "7"
    },
-   "solution": "BRIGAND"
+   "solution": "BRIGAND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BRIGAND",
+    "definitions": [
+     {
+      "text": "Robber",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stealing",
+      "for": "container",
+      "note": "something stealing an item takes it in and holds it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "group",
+      "gives": "BAND",
+      "note": "a band is a group; it wraps round"
+     },
+     {
+      "clueFragment": "equipment",
+      "gives": "RIG",
+      "note": "a rig is a set of equipment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RIG",
+      "AND"
+     ]
+    },
+    "explanation": {
+     "surface": "A thief belongs to a gang that steals gear.",
+     "definitionFit": "A brigand is a bandit, a member of a gang that robs travellers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +234,54 @@
     "text": "\"No good leaving Blighty\" – horny southern African",
     "enumeration": "5"
    },
-   "solution": "ELAND"
+   "solution": "ELAND",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ELAND",
+    "definitions": [
+     {
+      "text": "horny southern African",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "something leaving goes away, so those letters are taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No good",
+      "gives": "NG",
+      "note": "NG is the abbreviation for no good"
+     },
+     {
+      "clueFragment": "Blighty",
+      "gives": "ENGLAND",
+      "note": "Blighty is old British slang for Britain or England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELAND"
+     ]
+    },
+    "explanation": {
+     "surface": "An émigré declares England no good as they leave for southern Africa.",
+     "walkthrough": "Horny here means having horns, not anything racier.",
+     "definitionFit": "The eland is a large spiral-horned antelope of southern and eastern Africa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "horny"
+    }
+   }
   },
   {
    "number": 4,
@@ -94,7 +301,43 @@
      }
     ]
    },
-   "solution": "TEALEAVES"
+   "solution": "TEALEAVES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TEA LEAVES",
+    "definitions": [
+     {
+      "text": "London thieves",
+      "at": 0
+     },
+     {
+      "text": "that might get into pot",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "London thieves",
+      "note": "first meaning: Cockney rhyming slang, tea leaf for thief"
+     },
+     {
+      "clueFragment": "that might get into pot?",
+      "note": "second meaning: what goes into a teapot"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Cockney rhyming slang swaps a word for a rhyming phrase: tea leaf means thief. Pot also hints at prison, where thieves end up.",
+     "definitionFit": "In rhyming slang, thieves are tea leaves; literally, tea leaves are brewed in a teapot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pot"
+    }
+   }
   },
   {
    "number": 5,
@@ -108,7 +351,68 @@
     "text": "Retired double-0 spy laconically carries a tune",
     "enumeration": "7"
    },
-   "solution": "CALYPSO"
+   "solution": "CALYPSO",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CALYPSO",
+    "definitions": [
+     {
+      "text": "a tune",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Retired",
+      "for": "reversal",
+      "note": "something retired has gone back, so the joined letters are read backwards"
+     }
+    ],
+    "linkWords": [
+     "carries"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "double-0",
+      "gives": "O",
+      "note": "the second zero of the pair, read as the letter O"
+     },
+     {
+      "clueFragment": "spy",
+      "gives": "SPY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "laconically",
+      "gives": "LAC",
+      "note": "the start of the word, cut short as laconic speech is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CALYPSO"
+     ],
+     "reversals": [
+      {
+       "from": "OSPYLAC",
+       "to": "CALYPSO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A retired secret agent with a licence to kill hums a tune in his famously clipped style.",
+     "walkthrough": "In effect the answer runs backwards through '0 spy lac', with the zero standing in for an O; 'carries' hints that the letters sit inside the clue.",
+     "definitionFit": "A calypso is a West Indian song style, so one calypso is a tune."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Retired"
+    }
+   }
   },
   {
    "number": 5,
@@ -122,7 +426,74 @@
     "text": "Auntie rising to cuddle a Yankee taxi-driver",
     "enumeration": "5"
    },
-   "solution": "CABBY"
+   "solution": "CABBY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "CABBY",
+    "definitions": [
+     {
+      "text": "taxi-driver",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down answer rising reads from bottom to top, backwards"
+     },
+     {
+      "text": "to cuddle",
+      "for": "container",
+      "note": "cuddling wraps arms around something"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Auntie",
+      "gives": "BBC",
+      "note": "Auntie is a nickname for the BBC, Britain's public broadcaster"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Yankee",
+      "gives": "Y",
+      "note": "Yankee is Y in the NATO alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "A",
+      "BB",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "BBC",
+       "to": "CBB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An aunt stands up to hug an American cab driver.",
+     "walkthrough": "Auntie, the BBC's nickname, is British knowledge; reversed it wraps A.",
+     "definitionFit": "Cabby is an informal word for a cab driver, that is, a taxi-driver."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Auntie"
+    }
+   }
   },
   {
    "number": 6,
@@ -142,7 +513,48 @@
      }
     ]
    },
-   "solution": "LAZYSUSAN"
+   "solution": "LAZYSUSAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAZY SUSAN",
+    "definitions": [
+     {
+      "text": "one bearing many dishes",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Indolent",
+      "gives": "LAZY",
+      "note": "indolent means lazy"
+     },
+     {
+      "clueFragment": "maid",
+      "gives": "SUSAN",
+      "note": "a girl's name standing for a maid, a young woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAZY",
+      "SUSAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A slothful maidservant is the one carrying loads of dishes.",
+     "walkthrough": "The joke is that the device saves a servant's work: the dishes turn while the server stays put.",
+     "definitionFit": "A lazy Susan is a rotating tray placed on a dining table to carry many serving dishes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "maid"
+    }
+   }
   },
   {
    "number": 7,
@@ -156,7 +568,50 @@
     "text": "Thin coating on gold table",
     "enumeration": "7"
    },
-   "solution": "PLATEAU"
+   "solution": "PLATEAU",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLATEAU",
+    "definitions": [
+     {
+      "text": "table",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thin coating",
+      "gives": "PLATE",
+      "note": "plate is a thin layer of metal coating"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "AU is the chemical symbol for gold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLATE",
+      "AU"
+     ]
+    },
+    "explanation": {
+     "surface": "A thin layer of gilt on a table, perhaps an antique.",
+     "walkthrough": "Table is not furniture here but tableland.",
+     "definitionFit": "A plateau is a tableland, an area of high flat ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "table"
+    }
+   }
   },
   {
    "number": 8,
@@ -170,7 +625,54 @@
     "text": "Border and bed both pruned, tidied up",
     "enumeration": "7"
    },
-   "solution": "ORDERED"
+   "solution": "ORDERED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ORDERED",
+    "definitions": [
+     {
+      "text": "tidied up",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "both pruned",
+      "for": "deletion",
+      "note": "pruning trims the tops off, so each word loses its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Border",
+      "gives": "BORDER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bed",
+      "gives": "BED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORDER",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener has pruned the border and flower bed, leaving them neat.",
+     "definitionFit": "Ordered means arranged neatly, put in order, which is what tidied up describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pruned"
+    }
+   }
   },
   {
    "number": 9,
@@ -190,7 +692,51 @@
      }
     ]
    },
-   "solution": "ALIBABA"
+   "solution": "ALIBABA",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "ALI BABA",
+    "definitions": [
+     {
+      "text": "Lad from Middle East",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "it's said",
+      "for": "homophone",
+      "note": "something said is spoken, so we want a spelling that matches the spoken word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The Greatest",
+      "gives": "ALI",
+      "note": "boxer Muhammad Ali's nickname was The Greatest"
+     },
+     {
+      "clueFragment": "Crimper",
+      "gives": "BABA",
+      "soundsLike": "BARBER",
+      "note": "a crimper is a hairdresser; in a non-rhotic British accent the word sounds like this"
+     }
+    ],
+    "explanation": {
+     "surface": "A young man from the Middle East is hailed as the finest hairdresser around.",
+     "walkthrough": "The homophone relies on a British accent that drops the R sounds.",
+     "definitionFit": "Ali Baba, hero of the Arabian Nights tale, is a young man from the Middle East."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Greatest"
+    }
+   }
   },
   {
    "number": 10,
@@ -204,7 +750,56 @@
     "text": "Teammate of Neil A and Michael C gutted red bird",
     "enumeration": "7"
    },
-   "solution": "BUZZARD"
+   "solution": "BUZZARD",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BUZZARD",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gutted",
+      "for": "letter_selection",
+      "note": "gutting removes the insides, leaving only the outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Teammate of Neil A and Michael C",
+      "gives": "BUZZA",
+      "note": "Apollo 11 crew: Neil Armstrong, Michael Collins and Buzz Aldrin, styled the same way as Buzz A"
+     },
+     {
+      "clueFragment": "red",
+      "gives": "RD",
+      "select": "outer",
+      "note": "only the outside letters of red survive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUZZA",
+      "RD"
+     ]
+    },
+    "explanation": {
+     "surface": "Something about the Apollo 11 astronauts and a red bird, a space-flavoured riddle.",
+     "walkthrough": "The clue abbreviates the astronauts' surnames to initials, so the third crewman comes out as Buzz A, giving BUZZ plus A.",
+     "definitionFit": "A buzzard is a broad-winged bird of prey."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gutted"
+    }
+   }
   },
   {
    "number": 11,
@@ -218,7 +813,43 @@
     "text": "One stocks wicked items in the style of Bing?",
     "enumeration": "9"
    },
-   "solution": "CHANDLERY"
+   "solution": "CHANDLERY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHANDLERY",
+    "definitions": [
+     {
+      "text": "One stocks wicked items",
+      "at": 0
+     },
+     {
+      "text": "in the style of Bing",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One stocks wicked items",
+      "note": "first meaning: a shop selling candles, items with wicks"
+     },
+     {
+      "clueFragment": "in the style of Bing",
+      "note": "second meaning: a jokey adjective, like Chandler Bing of the sitcom Friends"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Wicked here means having a wick, not evil; Bing is Chandler Bing from Friends, not Bing Crosby, and adding Y makes a jokey adjective.",
+     "definitionFit": "A chandlery is a candle-maker's shop or stock, and the playful second sense means behaving like Chandler from Friends."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wicked"
+    }
+   }
   },
   {
    "number": 12,
@@ -232,7 +863,61 @@
     "text": "Promise second wife endless years",
     "enumeration": "5"
    },
-   "solution": "SWEAR"
+   "solution": "SWEAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SWEAR",
+    "definitions": [
+     {
+      "text": "Promise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "letter_selection",
+      "note": "without its ends means both first and last letters are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     },
+     {
+      "clueFragment": "years",
+      "gives": "EAR",
+      "select": "middle",
+      "note": "the word with its first and last letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "W",
+      "EAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone vows to give a second wife long, endless years of devotion.",
+     "definitionFit": "To swear is to promise solemnly, as in swearing an oath."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "endless"
+    }
+   }
   },
   {
    "number": 13,
@@ -246,7 +931,39 @@
     "text": "Off-peak call?",
     "enumeration": "5"
    },
-   "solution": "YODEL"
+   "solution": "YODEL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "YODEL",
+    "definitions": [
+     {
+      "text": "Off-peak call?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Off-peak call?",
+      "note": "surface reading: a phone call made at the cheaper time of day"
+     },
+     {
+      "clueFragment": "Off-peak call?",
+      "note": "setter's reading: a call sent out from a mountain peak, as Alpine singers do"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Off-peak is telephone-tariff language, but here it means coming off a mountain peak.",
+     "definitionFit": "A yodel is the warbling Alpine cry traditionally sung across mountain valleys."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Off-peak"
+    }
+   }
   },
   {
    "number": 14,
@@ -260,7 +977,51 @@
     "text": "Ancestral ground, home to duchy",
     "enumeration": "9"
    },
-   "solution": "LANCASTER"
+   "solution": "LANCASTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LANCASTER",
+    "definitions": [
+     {
+      "text": "home to duchy",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ground",
+      "for": "anagram",
+      "note": "ground means crushed and broken up, so the letters are mixed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ancestral",
+      "gives": "ANCESTRAL",
+      "note": "all the letters of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANCESTRAL",
+       "gives": "LANCASTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ancestral grounds belong to a noble duchy.",
+     "walkthrough": "Ground looks like land here but is the past tense of grind.",
+     "definitionFit": "Lancaster is the city giving its name to the Duchy of Lancaster, held by the British monarch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 15,
@@ -280,7 +1041,39 @@
      }
     ]
    },
-   "solution": "VICESQUAD"
+   "solution": "VICESQUAD",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "VICE SQUAD",
+    "definitions": [
+     {
+      "text": "Branch of The Old Bill that puts the squeeze on?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Branch of The Old Bill",
+      "note": "surface reading: a police department, the Old Bill being British slang for the police"
+     },
+     {
+      "clueFragment": "that puts the squeeze on?",
+      "note": "setter's reading: a team of workshop clamps, tools that squeeze"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The Old Bill is British slang for the police. Putting the squeeze on sounds like intimidation, but also describes what a bench vice does.",
+     "definitionFit": "A police unit dealing with gambling, prostitution and drugs, whose name also suggests a group of gripping tools."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "squeeze"
+    }
+   }
   },
   {
    "number": 16,
@@ -294,7 +1087,43 @@
     "text": "A mild blue Conservative, Archer is at home here",
     "enumeration": "9"
    },
-   "solution": "CAMBRIDGE"
+   "solution": "CAMBRIDGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CAMBRIDGE",
+    "definitions": [
+     {
+      "text": "A mild blue",
+      "at": 0
+     },
+     {
+      "text": "Conservative, Archer is at home here",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A mild blue",
+      "note": "first meaning: a soft pale blue colour named after a university"
+     },
+     {
+      "clueFragment": "Conservative, Archer is at home here",
+      "note": "second meaning: the area where Tory peer and novelist Jeffrey Archer lives, at Grantchester"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Blue is also the Conservative party colour, so the surface reads as a moderate Tory; Jeffrey Archer is a Conservative politician and bestselling author.",
+     "definitionFit": "Cambridge blue is a light shade of blue, and the city near Grantchester is Archer's home."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "blue"
+    }
+   }
   },
   {
    "number": 17,
@@ -308,7 +1137,54 @@
     "text": "Mo changes, slipping into oriental dress",
     "enumeration": "9"
    },
-   "solution": "CHEONGSAM"
+   "solution": "CHEONGSAM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHEONGSAM",
+    "definitions": [
+     {
+      "text": "oriental dress",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changes",
+      "for": "anagram",
+      "note": "changes tells us the preceding letters are altered into a new order"
+     }
+    ],
+    "linkWords": [
+     "slipping into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mo changes",
+      "gives": "MOCHANGES",
+      "note": "the name together with the indicator word supplies the letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MOCHANGES",
+       "gives": "CHEONGSAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mo changes outfits, slipping into an eastern-style dress.",
+     "walkthrough": "The word changes is both part of the letters and the signal that they move.",
+     "definitionFit": "A cheongsam is a close-fitting Chinese dress with a high collar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "changes"
+    }
+   }
   },
   {
    "number": 17,
@@ -322,7 +1198,58 @@
     "text": "Max number allowed in vehicle touring Spain being cautious",
     "enumeration": "7"
    },
-   "solution": "CAREFUL"
+   "solution": "CAREFUL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CAREFUL",
+    "definitions": [
+     {
+      "text": "cautious",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "touring goes round something, enclosing it"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Max number allowed in vehicle",
+      "gives": "CARFUL",
+      "note": "as much as a car can hold; it wraps round"
+     },
+     {
+      "clueFragment": "Spain",
+      "gives": "E",
+      "note": "E is the international vehicle code for Spain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "E",
+      "FUL"
+     ]
+    },
+    "explanation": {
+     "surface": "A driver touring Spain is careful not to overload the vehicle.",
+     "walkthrough": "E for Spain comes from España.",
+     "definitionFit": "Careful and cautious both describe taking care to avoid risk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "touring"
+    }
+   }
   },
   {
    "number": 18,
@@ -336,7 +1263,66 @@
     "text": "Saving firm involved in money changing",
     "enumeration": "7"
    },
-   "solution": "ECONOMY"
+   "solution": "ECONOMY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ECONOMY",
+    "definitions": [
+     {
+      "text": "Saving",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changing",
+      "for": "anagram",
+      "note": "changing means altering the order of the letters"
+     },
+     {
+      "text": "involved in",
+      "for": "container",
+      "note": "involved in means caught up inside something"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "firm",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company, a firm"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "MONEY",
+      "note": "taken as written, before rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "CO",
+      "NOMY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MONEY",
+       "gives": "ENOMY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A firm involved in money-changing makes a saving.",
+     "definitionFit": "Economy means thrift, the act of saving money or resources."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "changing"
+    }
+   }
   },
   {
    "number": 19,
@@ -350,7 +1336,73 @@
     "text": "Horrid area Stuyvesant cleared out in New York",
     "enumeration": "5"
    },
-   "solution": "NASTY"
+   "solution": "NASTY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "NASTY",
+    "definitions": [
+     {
+      "text": "Horrid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cleared out",
+      "for": "letter_selection",
+      "note": "clearing out the contents leaves just the outside letters"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the preceding letters inside the next abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New York",
+      "gives": "N",
+      "note": "first half of the abbreviation NY, which wraps round"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     },
+     {
+      "clueFragment": "Stuyvesant",
+      "gives": "ST",
+      "select": "outer",
+      "note": "only the outer letters of the name are kept"
+     },
+     {
+      "clueFragment": "New York",
+      "gives": "Y",
+      "note": "second half of the abbreviation NY"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "A",
+      "ST",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A grim neighbourhood, Stuyvesant, has been cleared in New York.",
+     "walkthrough": "Stuyvesant is a Manhattan area name; NY splits round A and ST.",
+     "definitionFit": "Nasty and horrid are synonyms meaning very unpleasant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cleared"
+    }
+   }
   },
   {
    "number": 20,
@@ -370,7 +1422,75 @@
      }
     ]
    },
-   "solution": "SHUTEYE"
+   "solution": "SHUTEYE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "SHUT-EYE",
+    "definitions": [
+     {
+      "text": "sleep",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "quaintly",
+      "for": "anagram",
+      "note": "quaintly suggests an odd, unusual arrangement of the letters"
+     }
+    ],
+    "linkWords": [
+     "term for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quiet",
+      "gives": "SH",
+      "note": "SH is a call for quiet"
+     },
+     {
+      "clueFragment": "upper-class",
+      "gives": "U",
+      "note": "U means upper-class in British usage"
+     },
+     {
+      "clueFragment": "yet",
+      "gives": "YET",
+      "note": "taken as written, before rearranging"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "U",
+      "TEY",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "YET",
+       "gives": "TEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quiet, posh, yet old-fashioned English word for a nap.",
+     "definitionFit": "Shut-eye is an informal word for sleep, as in getting some shut-eye."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quaintly"
+    }
+   }
   },
   {
    "number": 21,
@@ -384,7 +1504,39 @@
     "text": "Provider of liquidity between banks in Wuhan?",
     "enumeration": "7"
    },
-   "solution": "YANGTZE"
+   "solution": "YANGTZE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "YANGTZE",
+    "definitions": [
+     {
+      "text": "Provider of liquidity between banks in Wuhan?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Provider of liquidity between banks",
+      "note": "surface reading: money markets lending cash between financial institutions"
+     },
+     {
+      "clueFragment": "Provider of liquidity between banks in Wuhan?",
+      "note": "setter's reading: a river, water flowing between riverbanks, passing through the Chinese city"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Liquidity and banks are finance words, but here they mean water and riverbanks.",
+     "definitionFit": "The Yangtze is China's longest river and flows through the city of Wuhan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "liquidity"
+    }
+   }
   },
   {
    "number": 22,
@@ -398,7 +1550,78 @@
     "text": "Major setback – million lost importing international wine",
     "enumeration": "5"
    },
-   "solution": "RIOJA"
+   "solution": "RIOJA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "container"
+    ],
+    "answer": "RIOJA",
+    "definitions": [
+     {
+      "text": "wine",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "setback",
+      "for": "reversal",
+      "note": "a setback here is a setting back, turning the word round"
+     },
+     {
+      "text": "lost",
+      "for": "deletion",
+      "note": "something lost is gone, so that letter is taken away"
+     },
+     {
+      "text": "importing",
+      "for": "container",
+      "note": "importing brings something inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Major",
+      "gives": "MAJOR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "million",
+      "gives": "M",
+      "note": "M is the abbreviation for million"
+     },
+     {
+      "clueFragment": "international",
+      "gives": "I",
+      "note": "I is the abbreviation for international"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "I",
+      "OJA"
+     ],
+     "reversals": [
+      {
+       "from": "MAJOR",
+       "to": "ROJAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A huge financial reversal: a million lost by an importer of foreign wine.",
+     "walkthrough": "Major setback reads as a big disaster, but it means the word major turned round; dropping its final M leaves ROJA, which takes in I.",
+     "definitionFit": "Rioja is a red or white wine from the Spanish region of that name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "setback"
+    }
+   }
   },
   {
    "number": 23,
@@ -412,7 +1635,62 @@
     "text": "Buffoon king undressed queen at home",
     "enumeration": "9"
    },
-   "solution": "HARLEQUIN"
+   "solution": "HARLEQUIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "HARLEQUIN",
+    "definitions": [
+     {
+      "text": "Buffoon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "undressed",
+      "for": "deletion",
+      "note": "undressed means stripped of its outer layer, so first and last letters go"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "king",
+      "gives": "CHARLES",
+      "note": "Charles is a king's name"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "QU",
+      "note": "QU is a recognised abbreviation for queen"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "to be in is to be at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HARLE",
+      "QU",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A clownish king strips off in front of his queen while at home.",
+     "walkthrough": "King must be expanded to a particular king, Charles, before undressing it.",
+     "definitionFit": "Harlequin is the comic servant of the commedia dell'arte, hence a clown or buffoon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "undressed"
+    }
+   }
   },
   {
    "number": 23,
@@ -426,7 +1704,54 @@
     "text": "Full of energy, tough, went like the clappers",
     "enumeration": "5"
    },
-   "solution": "HARED"
+   "solution": "HARED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HARED",
+    "definitions": [
+     {
+      "text": "went like the clappers",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Full of",
+      "for": "container",
+      "note": "something full of a thing holds it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tough",
+      "gives": "HARD",
+      "note": "hard means tough; it wraps round"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the abbreviation for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAR",
+      "E",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tough and energetic charged off at speed.",
+     "walkthrough": "Like the clappers is British slang for very fast.",
+     "definitionFit": "To hare is to run very fast, like a hare, so hared means sped off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -440,7 +1765,57 @@
     "text": "Winger, for example, starts to relish extra time",
     "enumeration": "5"
    },
-   "solution": "EGRET"
+   "solution": "EGRET",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EGRET",
+    "definitions": [
+     {
+      "text": "Winger",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of the following words means their first letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "EG is the abbreviation for for example"
+     },
+     {
+      "clueFragment": "relish extra time",
+      "gives": "RET",
+      "select": "first",
+      "note": "the opening letter of each word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EG",
+      "RET"
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer on the wing, for example, would love some extra time.",
+     "walkthrough": "Winger sounds like a footballer, but it is a creature with wings.",
+     "definitionFit": "An egret is a heron-like bird, and as a winged creature it is a winger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Winger"
+    }
+   }
   },
   {
    "number": 25,
@@ -454,7 +1829,50 @@
     "text": "Vagrant late for training",
     "enumeration": "7"
    },
-   "solution": "FLOATER"
+   "solution": "FLOATER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FLOATER",
+    "definitions": [
+     {
+      "text": "Vagrant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "training",
+      "for": "anagram",
+      "note": "training puts things into a new shape, so the letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "late for",
+      "gives": "LATEFOR",
+      "note": "both words supply the letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LATEFOR",
+       "gives": "FLOATER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drifter turns up late for a training session.",
+     "definitionFit": "A floater is someone who drifts from place to place or job to job, a vagrant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "training"
+    }
+   }
   },
   {
    "number": 26,
@@ -468,7 +1886,55 @@
     "text": "Kestrel filmed in Devon river, black as can be",
     "enumeration": "7"
    },
-   "solution": "DARKEST"
+   "solution": "DARKEST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DARKEST",
+    "definitions": [
+     {
+      "text": "black as can be",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one item inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Devon river",
+      "gives": "DART",
+      "note": "the Dart is a river in Devon, a county in south-west England; it wraps round"
+     },
+     {
+      "clueFragment": "Kestrel filmed",
+      "gives": "KES",
+      "note": "Kes is the 1969 Ken Loach film about a boy and his kestrel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAR",
+      "KES",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A kestrel is filmed by a Devon river in the pitch dark.",
+     "walkthrough": "Kestrel filmed is the film Kes, named after the bird; it sits inside DART.",
+     "definitionFit": "Darkest is the superlative of dark, meaning as black as anything could be."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "filmed"
+    }
+   }
   },
   {
    "number": 27,
@@ -482,7 +1948,68 @@
     "text": "Dearly, desperately gobbling up European cake like this?",
     "enumeration": "7"
    },
-   "solution": "LAYERED"
+   "solution": "LAYERED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LAYERED",
+    "definitions": [
+     {
+      "text": "cake like this",
+      "at": 41,
+      "note": "the answer is an adjective describing the cake"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "desperately",
+      "for": "anagram",
+      "note": "doing something desperately means wildly, so the letters are thrown about"
+     },
+     {
+      "text": "gobbling up",
+      "for": "container",
+      "note": "gobbling up swallows something inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dearly",
+      "gives": "DEARLY",
+      "note": "taken as written, before rearranging"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAY",
+      "E",
+      "RED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DEARLY",
+       "gives": "LAYRED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone desperately wolfs down a European cake, built up in tiers.",
+     "walkthrough": "The definition and wordplay overlap: the gobbling suggests eating a cake, which is the layered thing.",
+     "definitionFit": "A layered cake is built from stacked tiers of sponge and filling, so the cake is described this way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "gobbling"
+    }
+   }
   },
   {
    "number": 28,
@@ -496,7 +2023,45 @@
     "text": "Some believe X tremendous? It's immoderate",
     "enumeration": "7"
    },
-   "solution": "EXTREME"
+   "solution": "EXTREME",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EXTREME",
+    "definitions": [
+     {
+      "text": "immoderate",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means only part of the following words is used"
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "believe X tremendous",
+      "gives": "EXTREME",
+      "note": "the run starts at the end of believe and continues into tremendous"
+     }
+    ],
+    "explanation": {
+     "surface": "Is X tremendous? Believing that would be going too far, someone says.",
+     "definitionFit": "Extreme and immoderate both mean going far beyond what is reasonable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   }
  ]
 }
