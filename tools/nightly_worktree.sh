@@ -193,6 +193,32 @@ _ct_salvage() {
   return 0
 }
 
+# ct_generated <tree>: rebuild the tree's generated files (puzzles/index.*,
+# the puzzle shims, abbreviations.js) unless HEAD is where the last fully
+# successful rebuild stamped them. A rebuild reads every puzzle (40k files):
+# minutes of CPU. Untracked files survive a reset, so a stamp at HEAD means
+# they are current.
+ct_generated() {
+  local tree="$1" head stamp ok=1
+  head="$(git -C "$tree" rev-parse HEAD)"
+  stamp="$(git -C "$tree" rev-parse --absolute-git-dir)/generated.stamp"
+  [ "$(cat "$stamp" 2>/dev/null)" = "$head" ] && [ -e "$tree/puzzles/index.json" ] && return 0
+  # One rebuild at a time across every tree: each reads the whole corpus
+  # into memory in several processes, and the unit queues start several
+  # trees at once. Nice 19 on two cores, like daily_update.sh's detached
+  # rebuild, so it never outruns the OCR units and the burn beside it.
+  exec 6>"$(git -C "$tree" rev-parse --path-format=absolute --git-common-dir)/ct-generated.lock"
+  flock 6
+  rm -f "$stamp"
+  (cd "$tree" && CT_JOBS=2 nice -n 19 python3 tools/fetch_puzzle.py --reindex >/dev/null) ||
+    { ok=0; echo "WORKTREE: could not rebuild puzzles/index.* in $tree — the job will read a stale or missing manifest" >&2; }
+  (cd "$tree" && nice -n 19 python3 tools/build_abbreviations.py >/dev/null) ||
+    { ok=0; echo "WORKTREE: could not rebuild abbreviations.js in $tree — every tool that stamps a page referencing it will stop" >&2; }
+  [ "$ok" = 1 ] && printf '%s\n' "$head" >"$stamp"
+  exec 6>&-
+  return 0
+}
+
 if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
   _ct_main="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
   _ct_tree="${CT_WORKTREE_ROOT:-$HOME/.cryptic-teacher}/$_ct_job"
@@ -267,35 +293,13 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
   if [ -n "$_ct_tree" ]; then
     # The generated files are not tracked, so a tree just reset to origin/master
     # has either none of them (a tree made tonight) or the ones the last run
-    # left, describing files the reset has since changed. Every job reads them —
-    # and every page in the tree names them by content hash — long before the
-    # job reaches its own build step, so they are rebuilt once, here, where the
-    # tree changed.
-    # A rebuild reads every puzzle (40k files): minutes of CPU. Untracked files
-    # survive the reset, so when HEAD is where the last fully successful
-    # rebuild stamped it they are current and the rebuild is skipped. A script
-    # that reads none of them sets CT_GENERATED=none (unexported) before
-    # sourcing this and gets no rebuild at all.
-    _ct_head="$(git -C "$_ct_tree" rev-parse HEAD)"
-    _ct_stamp="$(git -C "$_ct_tree" rev-parse --absolute-git-dir)/generated.stamp"
-    if [ "${CT_GENERATED:-}" = none ]; then
-      :
-    elif [ "$(cat "$_ct_stamp" 2>/dev/null)" != "$_ct_head" ] || [ ! -e "$_ct_tree/puzzles/index.json" ]; then
-      # One rebuild at a time across every tree: each reads the whole corpus
-      # into memory in several processes, and the unit queues start several
-      # trees at once. Nice 19 on two cores, like daily_update.sh's detached
-      # rebuild, so it never outruns the OCR units and the burn beside it.
-      exec 6>"$(git -C "$_ct_tree" rev-parse --path-format=absolute --git-common-dir)/ct-generated.lock"
-      flock 6
-      rm -f "$_ct_stamp"
-      _ct_ok=1
-      (cd "$_ct_tree" && CT_JOBS=2 nice -n 19 python3 tools/fetch_puzzle.py --reindex >/dev/null) ||
-        { _ct_ok=0; echo "WORKTREE: could not rebuild puzzles/index.* in $_ct_tree — the job will read a stale or missing manifest" >&2; }
-      (cd "$_ct_tree" && nice -n 19 python3 tools/build_abbreviations.py >/dev/null) ||
-        { _ct_ok=0; echo "WORKTREE: could not rebuild abbreviations.js in $_ct_tree — every tool that stamps a page referencing it will stop" >&2; }
-      [ "$_ct_ok" = 1 ] && printf '%s\n' "$_ct_head" >"$_ct_stamp"
-      exec 6>&-
-    fi
+    # left, describing files the reset has since changed. A job that reads
+    # them — and every page in the tree names them by content hash — does so
+    # long before its own build step, so they are rebuilt once, here, where
+    # the tree changed. A script that reads none of them sets
+    # CT_GENERATED=none (unexported) before sourcing this and gets no rebuild;
+    # one that needs them only on some path calls ct_generated there.
+    [ "${CT_GENERATED:-}" = none ] || ct_generated "$_ct_tree"
     # One copy of each, in the main checkout, reached from everywhere.
     # tools/data/minutecryptic/ is the Minute Cryptic archive: its daily
     # clue is offered only on the day, so every tree a daily unit runs in

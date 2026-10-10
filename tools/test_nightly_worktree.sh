@@ -61,6 +61,23 @@ for built in fetch_puzzle.py.ran build_abbreviations.py.ran; do
     "$([ -e "$tmp/trees/faketask/$built" ] && echo yes || echo no)" "yes"
 done
 
+# A job that reads none of them at start (CT_GENERATED=none) gets no rebuild,
+# and one that needs them on some later path builds them there (ct_generated).
+cat > "$tmp/main/tools/lazytask.sh" <<'JOB'
+#!/bin/bash
+CT_GENERATED=none
+. "$(dirname "$0")/nightly_worktree.sh"
+cd "$(dirname "$0")/.." || exit 1
+echo "AT START $(ls ./*.ran 2>/dev/null | wc -l | tr -d ' ')"
+ct_generated "$PWD"
+echo "ON DEMAND $(ls ./*.ran 2>/dev/null | wc -l | tr -d ' ')"
+JOB
+git -C "$tmp/main" add tools/lazytask.sh
+git -C "$tmp/main" -c user.email=t@t -c user.name=t commit -qm lazytask
+git -C "$tmp/main" push -q origin HEAD:master
+got="$(ALERT_ENV_FILE=/nonexistent CT_WORKTREE_ROOT="$tmp/trees" bash "$tmp/main/tools/lazytask.sh" 2>&1 | grep -E '^(AT START|ON DEMAND)' | tr '\n' ' ')"
+check "CT_GENERATED=none skips the start rebuild; ct_generated builds them later" "$got" "AT START 0 ON DEMAND 2 "
+
 # A job's publish rebases its own tree, which can rewrite the running script.
 # Bash reads a script file as it goes, so the rest of the run must come from
 # the script as it was when the run began.

@@ -934,6 +934,10 @@ tools/test_unit_queue.sh                      drives a fake queue through tools/
                                               alerted, a failure waits out its retry, a class
                                               cap and a running unit hold starts back, `after`
                                               and `trigger` order them
+tools/test_daily_units.sh                     pins which daily unit kinds get the generated
+                                              files rebuilt as their tree is set up
+                                              (daily_units.py GENERATED): a unit that reads
+                                              none of them skips the whole-corpus pass
 tools/nightly_worktree.sh                     sourced first: re-execs a scheduled job in its
                                               own worktree, never the editor’s
 tools/durable.sh                              sourced by a long job that files into git:
