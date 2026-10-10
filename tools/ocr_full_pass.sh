@@ -58,7 +58,8 @@
 # between them while the units a slice handed over still run (no pause),
 # and within them after each checkpoint (DURABLE_RESYNC): every unit starts
 # as a fresh process off the tree, and the queue re-execs itself when its own
-# code moves, so a fix pushed to master reaches the next unit started.
+# code moves, so a fix pushed to master reaches the next unit started; this
+# script re-execs itself between slices when its own shell code moves.
 #
 # Runs in a worktree of its own (tools/nightly_worktree.sh), at origin/master.
 # All of puzzles/, not the series it files: filing a newspaper puzzle deletes
@@ -113,7 +114,9 @@ publish() {  # publish <what>: commit and push the puzzles filed so far
 # its start and its write loses nothing; one that leaves a tracked file
 # changed makes the move fail, and it is tried again (resync).
 HANDOFF="$(git rev-parse --git-dir)/edition-queue-handoff.json"
-rm -f "$HANDOFF"
+# A re-exec (below) keeps what the slice before it handed over.
+[ -n "${CT_FULL_PASS_REEXEC:-}" ] || rm -f "$HANDOFF"
+unset CT_FULL_PASS_REEXEC
 handed_over() {  # the pids a slice handed over, one a line
   [ -f "$HANDOFF" ] && python3 -c 'import json, sys; [print(r["pid"]) for r in json.load(open(sys.argv[1]))]' "$HANDOFF"
 }
@@ -122,6 +125,29 @@ stop_handed_over() {  # a stop between slices: TERM the units no slice holds
   for pid in $(handed_over); do kill -TERM -- "-$pid" 2>/dev/null; done
 }
 trap 'stop_handed_over; _durable_stop' TERM INT HUP
+
+# Bash keeps the code it parsed at the start, so when a resync moves this
+# script or what it sources, the pass re-execs itself between slices: the same
+# pid (corpus_queue's), the tree's lease on fd 9 and the units the last slice
+# handed over all stay, and the next slice adopts those as before.
+SHELL_FILES=(tools/ocr_full_pass.sh tools/durable.sh tools/unstage_unparsable.sh)
+shell_sum() {
+  cat "${SHELL_FILES[@]}" 2>/dev/null </dev/null | cksum
+}
+SHELL_SUM=$(shell_sum)
+reexec_if_moved() {
+  local err
+  [ "$(shell_sum)" != "$SHELL_SUM" ] || return 0
+  # New code that does not parse would end the pass; it keeps the old.
+  if ! err=$(bash -n tools/ocr_full_pass.sh 2>&1); then
+    echo "the tree's tools/ocr_full_pass.sh does not parse, so the pass keeps its old code: $err"
+    SHELL_SUM=$(shell_sum)
+    return 0
+  fi
+  echo "=== shell code moved: re-execing onto $(git rev-parse --short HEAD) ==="
+  export CT_FULL_PASS_REEXEC=1
+  exec "$BASH" -c '. "$0"' "$PWD/tools/ocr_full_pass.sh"
+}
 
 resync() {  # move the tree to origin/master, again while a handed-over unit keeps it changed
   local n
@@ -161,6 +187,7 @@ slices() {  # slices <what> <filer command...>: run the filer until nothing is l
     resync
     [ "$rc" -eq 0 ] || { echo "$what failed (rc=$rc); stopping"; return 1; }
     grep -q "left for the next run" "$out" || return 0
+    reexec_if_moved
   done
 }
 
