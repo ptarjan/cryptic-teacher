@@ -23,6 +23,9 @@
   "date": "2023-06-12",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,56 @@
     "text": "Away from head, spots small rash",
     "enumeration": "8"
    },
-   "solution": "RECKLESS"
+   "solution": "RECKLESS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RECKLESS",
+    "definitions": [
+     {
+      "text": "rash",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Away from head",
+      "for": "deletion",
+      "note": "something taken away from its head has lost its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spots",
+      "gives": "FRECKLES",
+      "note": "freckles are small brown spots on the skin"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the usual abbreviation for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RECKLES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor notices a small rash of spots that is no longer on the patient's head.",
+     "walkthrough": "'Rash' looks like the medical noun but is the adjective meaning hasty; FRECKLES loses its F before S is added.",
+     "definitionFit": "Rash and reckless are synonyms, both describing behaviour careless of danger or consequences."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rash"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +102,54 @@
     "text": "Force into recycling waste",
     "enumeration": "6"
    },
-   "solution": "REFUSE"
+   "solution": "REFUSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REFUSE",
+    "definitions": [
+     {
+      "text": "waste",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "putting one thing into another places it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "recycling",
+      "gives": "REUSE",
+      "note": "recycling something is putting it to use again"
+     },
+     {
+      "clueFragment": "Force",
+      "gives": "F",
+      "note": "F is the symbol for force in physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "F",
+      "USE"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to make people sort their rubbish for recycling.",
+     "definitionFit": "Refuse is rubbish, material thrown away as waste."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Force"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +163,59 @@
     "text": "Lily, opera star, missing start of season",
     "enumeration": "5"
    },
-   "solution": "CALLA"
+   "solution": "CALLA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "CALLA",
+    "definitions": [
+     {
+      "text": "Lily",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "missing means a letter has gone, here the one named after it"
+     },
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "'start of' keeps only the first letter of 'season'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "opera star",
+      "gives": "CALLAS",
+      "note": "Maria Callas, the celebrated soprano"
+     },
+     {
+      "clueFragment": "season",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of season"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CALLA"
+     ]
+    },
+    "explanation": {
+     "surface": "A diva named Lily misses the opening of the opera season.",
+     "definitionFit": "The calla is the arum lily, a plant with a large white funnel-shaped spathe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lily"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +229,70 @@
     "text": "Word for word wickedly retail lie that is banned",
     "enumeration": "7"
    },
-   "solution": "LITERAL"
+   "solution": "LITERAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "LITERAL",
+    "definitions": [
+     {
+      "text": "Word for word",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "banned",
+      "for": "deletion",
+      "note": "banned means excluded, so those letters are taken out of the word"
+     },
+     {
+      "text": "wickedly",
+      "for": "anagram",
+      "note": "wickedly suggests the letters are badly treated and twisted out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "retail",
+      "gives": "RETAIL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lie",
+      "gives": "LIE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LITERAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RETAILL",
+       "gives": "LITERAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shopkeeper's wicked lie is reported verbatim, and such lies are forbidden.",
+     "walkthrough": "LIE without IE leaves L, which joins RETAIL in the anagram.",
+     "definitionFit": "A literal translation follows the original word for word, without interpretation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retail"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +312,53 @@
      }
     ]
    },
-   "solution": "SOMETHINGELSE"
+   "solution": "SOMETHINGELSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOMETHING ELSE",
+    "definitions": [
+     {
+      "text": "exceptional item",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to need replacement",
+      "for": "anagram",
+      "note": "needing replacement implies the parts must be put back in a different order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hotels seeming",
+      "gives": "HOTELSSEEMING",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HOTELSSEEMING",
+       "gives": "SOMETHINGELSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hotels apparently need renovation before they can be called outstanding.",
+     "definitionFit": "Something else is informal praise for a person or thing that is remarkable or out of the ordinary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "replacement"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +372,64 @@
     "text": "Small group's endless reason to tour capitals",
     "enumeration": "6"
    },
-   "solution": "CAUCUS"
+   "solution": "CAUCUS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "CAUCUS",
+    "definitions": [
+     {
+      "text": "Small group",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "endless means the word loses its final letter"
+     },
+     {
+      "text": "to tour",
+      "for": "container",
+      "note": "to tour something is to travel all the way round it, so one piece goes around another"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reason",
+      "gives": "CAUSE",
+      "note": "a cause is a reason"
+     },
+     {
+      "clueFragment": "capitals",
+      "gives": "UC",
+      "note": "UC is short for upper case, i.e. capital letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "UC",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A minority faction is said to have no end of reasons for visiting capital cities.",
+     "walkthrough": "'Capitals' suggests cities, but here it means capital letters, i.e. upper case.",
+     "definitionFit": "A caucus is a small, often influential group or faction within a larger political body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capitals"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +443,54 @@
     "text": "Pungent gas in area: more complaining heard",
     "enumeration": "7"
    },
-   "solution": "AMMONIA"
+   "solution": "AMMONIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "AMMONIA",
+    "definitions": [
+     {
+      "text": "Pungent gas",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heard",
+      "for": "homophone",
+      "note": "heard tells us the word is taken by its sound rather than its spelling"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     },
+     {
+      "clueFragment": "more complaining",
+      "gives": "MMONIA",
+      "soundsLike": "MOANIER",
+      "note": "moanier means more given to complaining"
+     }
+    ],
+    "explanation": {
+     "surface": "A smelly gas in the room makes people grumble more.",
+     "walkthrough": "Said in a non-rhotic British accent, 'a moanier' matches the gas's name.",
+     "definitionFit": "Ammonia is a colourless gas with a sharp, choking smell."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "area"
+    }
+   }
   },
   {
    "number": 7,
@@ -140,7 +504,50 @@
     "text": "Harassing with knife in competition",
     "enumeration": "9"
    },
-   "solution": "CHIVVYING"
+   "solution": "CHIVVYING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHIVVYING",
+    "definitions": [
+     {
+      "text": "Harassing",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "knife",
+      "gives": "CHIV",
+      "note": "chiv is slang for a knife"
+     },
+     {
+      "clueFragment": "competition",
+      "gives": "VYING",
+      "note": "vying is competing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHIV",
+      "VYING"
+     ]
+    },
+    "explanation": {
+     "surface": "Bullying an opponent by bringing a blade into a contest.",
+     "walkthrough": "'In' looks like a container signal, but the pieces simply run on; being 'in competition' means vying.",
+     "definitionFit": "Chivvying is nagging or pestering someone to hurry, a mild form of harassing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 8,
@@ -154,7 +561,58 @@
     "text": "Drunken butler then scrubbed with soap",
     "enumeration": "8"
    },
-   "solution": "STEPHANO"
+   "solution": "STEPHANO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STEPHANO",
+    "definitions": [
+     {
+      "text": "Drunken butler",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scrubbed",
+      "for": "anagram",
+      "note": "scrubbing rubs things about vigorously, so the letters are thrown around"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "then",
+      "gives": "THEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "soap",
+      "gives": "SOAP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THENSOAP",
+       "gives": "STEPHANO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunken butler is cleaned up with soap.",
+     "definitionFit": "Stephano is the drunken butler in Shakespeare's The Tempest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scrubbed"
+    }
+   }
   },
   {
    "number": 9,
@@ -174,7 +632,73 @@
      }
     ]
    },
-   "solution": "FULLTIMER"
+   "solution": "FULLTIMER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "container"
+    ],
+    "answer": "FULL-TIMER",
+    "definitions": [
+     {
+      "text": "no job share for him",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brief",
+      "for": "deletion",
+      "note": "something brief is cut short, so the word loses its last letter"
+     },
+     {
+      "text": "on return",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so the letters are read backwards"
+     },
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "accepting something means taking it inside, so one word holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cloth worker",
+      "gives": "FULLER",
+      "note": "a fuller cleans and thickens woollen cloth"
+     },
+     {
+      "clueFragment": "hand",
+      "gives": "MITT",
+      "note": "mitt is slang for a hand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FULL",
+      "TIM",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "MIT",
+       "to": "TIM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A textile worker takes on a short-term helper, though he will never share his job.",
+     "walkthrough": "'Brief' and 'on return' both act on the hand before it goes inside the cloth worker.",
+     "definitionFit": "A full-timer works a whole working week in the post, so he does not split it with a job-sharing partner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "hand"
+    }
+   }
   },
   {
    "number": 10,
@@ -194,7 +718,58 @@
      }
     ]
    },
-   "solution": "RUNNINGSTITCH"
+   "solution": "RUNNINGSTITCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RUNNING STITCH",
+    "definitions": [
+     {
+      "text": "One gathering fabric",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the second item behind the first in the answer"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exercise",
+      "gives": "RUNNING",
+      "note": "running is a form of exercise"
+     },
+     {
+      "clueFragment": "pain",
+      "gives": "STITCH",
+      "note": "a stitch is a sharp pain in the side, often after running"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUNNING",
+      "STITCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone collecting cloth gets a pain after a workout.",
+     "walkthrough": "The pain after exercise is the familiar runner's stitch, making the surface apt.",
+     "definitionFit": "A running stitch is a simple in-and-out stitch, which when pulled gathers fabric into folds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gathering"
+    }
+   }
   },
   {
    "number": 11,
@@ -208,7 +783,50 @@
     "text": "On tick, passion for silky fabric",
     "enumeration": "5"
    },
-   "solution": "MOIRE"
+   "solution": "MOIRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOIRE",
+    "definitions": [
+     {
+      "text": "silky fabric",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tick",
+      "gives": "MO",
+      "note": "a tick and a mo are both informal words for a moment"
+     },
+     {
+      "clueFragment": "passion",
+      "gives": "IRE",
+      "note": "ire is anger, a strong passion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "IRE"
+     ]
+    },
+    "explanation": {
+     "surface": "Buying something on credit out of a passion for silk.",
+     "walkthrough": "'On tick' looks like the British idiom for buying on credit; here 'on' only sets the order.",
+     "definitionFit": "Moire is a silk or similar textile given a watered, rippling finish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tick"
+    }
+   }
   },
   {
    "number": 12,
@@ -228,7 +846,51 @@
      }
     ]
    },
-   "solution": "SEAFRET"
+   "solution": "SEAFRET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEA FRET",
+    "definitions": [
+     {
+      "text": "Fog",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the main",
+      "gives": "SEA",
+      "note": "the main is a poetic name for the open sea"
+     },
+     {
+      "clueFragment": "worry",
+      "gives": "FRET",
+      "note": "to fret is to worry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEA",
+      "FRET"
+     ]
+    },
+    "explanation": {
+     "surface": "Fog is the chief concern, as any sailor would say.",
+     "walkthrough": "'The main' reads as 'the chief', but in crosswords it is often the sea.",
+     "definitionFit": "A sea fret is the name, especially on England's east coast, for a cold mist rolling in from the sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 13,
@@ -242,7 +904,53 @@
     "text": "Ancient city square very — what?",
     "enumeration": "7"
    },
-   "solution": "NINEVEH"
+   "solution": "NINEVEH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NINEVEH",
+    "definitions": [
+     {
+      "text": "Ancient city",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "square",
+      "gives": "NINE",
+      "note": "nine is a square number, three times three"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the abbreviation for very"
+     },
+     {
+      "clueFragment": "what?",
+      "gives": "EH",
+      "note": "eh? is said when asking someone to repeat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NINE",
+      "V",
+      "EH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes an ancient city as very square, then is baffled by the remark.",
+     "definitionFit": "Nineveh was a great city of ancient Assyria, on the Tigris in what is now Iraq."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "square"
+    }
+   }
   },
   {
    "number": 14,
@@ -256,7 +964,58 @@
     "text": "Forgery of Conservative affiliations resolved",
     "enumeration": "13"
    },
-   "solution": "FALSIFICATION"
+   "solution": "FALSIFICATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FALSIFICATION",
+    "definitions": [
+     {
+      "text": "Forgery",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "resolved",
+      "for": "anagram",
+      "note": "something resolved has been broken down and worked out afresh, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "affiliations",
+      "gives": "AFFILIATIONS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CAFFILIATIONS",
+       "gives": "FALSIFICATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political scandal: the Tories' links with others have been faked, now cleared up.",
+     "definitionFit": "Falsification is the act of altering documents or records to deceive, which is what forgery is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "resolved"
+    }
+   }
   },
   {
    "number": 14,
@@ -270,7 +1029,51 @@
     "text": "Pays stooge for somewhere to put a pin up",
     "enumeration": "9"
    },
-   "solution": "FOOTSTOOL"
+   "solution": "FOOTSTOOL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FOOTSTOOL",
+    "definitions": [
+     {
+      "text": "somewhere to put a pin up",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pays",
+      "gives": "FOOTS",
+      "note": "to foot the bill is to pay it"
+     },
+     {
+      "clueFragment": "stooge",
+      "gives": "TOOL",
+      "note": "a tool is someone used by others, a stooge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOOTS",
+      "TOOL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone bribes a henchman to find a place to stick a pin.",
+     "walkthrough": "A pin is informal for a leg, so a pin goes up on a footstool.",
+     "definitionFit": "A footstool is a low stool for resting one's feet and legs on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pin"
+    }
+   }
   },
   {
    "number": 15,
@@ -284,7 +1087,55 @@
     "text": "With dots, marks pages in steps",
     "enumeration": "8"
    },
-   "solution": "STIPPLES"
+   "solution": "STIPPLES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STIPPLES",
+    "definitions": [
+     {
+      "text": "With dots, marks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "steps",
+      "gives": "STILES",
+      "note": "stiles are steps for climbing over a fence"
+     },
+     {
+      "clueFragment": "pages",
+      "gives": "PP",
+      "note": "pp is the abbreviation for pages"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STI",
+      "PP",
+      "LES"
+     ]
+    },
+    "explanation": {
+     "surface": "An editor annotates pages with dots at each stage.",
+     "walkthrough": "Stiles are the steps that let walkers climb over a field boundary.",
+     "definitionFit": "To stipple is to mark a surface with many small dots, as in drawing or painting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "steps"
+    }
+   }
   },
   {
    "number": 16,
@@ -298,7 +1149,47 @@
     "text": "Comprehensive but difficult progress",
     "enumeration": "13"
    },
-   "solution": "THOROUGHGOING"
+   "solution": "THOROUGHGOING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THOROUGHGOING",
+    "definitions": [
+     {
+      "text": "Comprehensive",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "but",
+      "gives": "THO",
+      "note": "tho is an informal shortening of though, meaning but"
+     },
+     {
+      "clueFragment": "difficult progress",
+      "gives": "ROUGH GOING",
+      "note": "rough going describes slow, hard progress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THO",
+      "ROUGHGOING"
+     ]
+    },
+    "explanation": {
+     "surface": "A sweeping plan, though advancing it is hard.",
+     "walkthrough": "'But' looks like a link word but supplies THO.",
+     "definitionFit": "Thoroughgoing means complete and leaving nothing out, which is what a comprehensive approach is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "but"
+    }
+   }
   },
   {
    "number": 17,
@@ -318,7 +1209,62 @@
      }
     ]
    },
-   "solution": "ONEEYED"
+   "solution": "ONEEYED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ONE-EYED",
+    "definitions": [
+     {
+      "text": "half blind",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to keep",
+      "for": "container",
+      "note": "to keep something is to hold it within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like O"
+     },
+     {
+      "clueFragment": "a requirement",
+      "gives": "NEED",
+      "note": "a need is a requirement"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "YE",
+      "note": "ye is the old form of you"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "NEE",
+      "YE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Love is said to keep you half blind, a twist on love being blind.",
+     "definitionFit": "Someone one-eyed sees with only one of their two eyes, so is half blind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Love"
+    }
+   }
   },
   {
    "number": 18,
@@ -332,7 +1278,58 @@
     "text": "Immigrant's earnings resented at first",
     "enumeration": "7"
    },
-   "solution": "INCOMER"
+   "solution": "INCOMER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "INCOMER",
+    "definitions": [
+     {
+      "text": "Immigrant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "earnings",
+      "gives": "INCOME",
+      "note": "income is what one earns"
+     },
+     {
+      "clueFragment": "resented",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of resented"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INCOME",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A newcomer's wages were begrudged by the locals initially.",
+     "definitionFit": "An incomer is someone who has moved into an area from elsewhere, a newcomer or immigrant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "earnings"
+    }
+   }
   },
   {
    "number": 19,
@@ -346,7 +1343,58 @@
     "text": "Appearance of a magazine with almost half missing",
     "enumeration": "6"
    },
-   "solution": "ASPECT"
+   "solution": "ASPECT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ASPECT",
+    "definitions": [
+     {
+      "text": "Appearance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with almost half missing",
+      "for": "deletion",
+      "note": "nearly half of the word's letters are dropped from its end"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "magazine",
+      "gives": "SPECTATOR",
+      "note": "The Spectator is a British weekly magazine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SPECT"
+     ]
+    },
+    "explanation": {
+     "surface": "A magazine is published with nearly half its pages missing.",
+     "walkthrough": "The Spectator is a long-running British political weekly; four of its nine letters go.",
+     "definitionFit": "Aspect means the look or appearance of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "magazine"
+    }
+   }
   },
   {
    "number": 20,
@@ -366,7 +1414,55 @@
      }
     ]
    },
-   "solution": "PASSEUL"
+   "solution": "PASSEUL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PAS SEUL",
+    "definitions": [
+     {
+      "text": "Dance sequence",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremes of a word, its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old-fashioned",
+      "gives": "PASSE",
+      "note": "passé means out of date"
+     },
+     {
+      "clueFragment": "unusual",
+      "gives": "UL",
+      "select": "outer",
+      "note": "the outside letters of unusual"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PASSE",
+      "UL"
+     ]
+    },
+    "explanation": {
+     "surface": "A critic describes a dance routine as dated and very odd.",
+     "definitionFit": "A pas seul is a ballet sequence danced by one person, a solo dance sequence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 21,
@@ -380,7 +1476,62 @@
     "text": "Sensitivity restricting one American historian",
     "enumeration": "7"
    },
-   "solution": "TACITUS"
+   "solution": "TACITUS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TACITUS",
+    "definitions": [
+     {
+      "text": "historian",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restricting",
+      "for": "container",
+      "note": "restricting something means hemming it in, so one piece is held within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sensitivity",
+      "gives": "TACT",
+      "note": "tact is sensitivity in dealing with others"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is short for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAC",
+      "I",
+      "T",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "An American historian is so delicate that he holds back.",
+     "walkthrough": "'American' looks like a description of the historian, but it is a separate piece; the historian was Roman.",
+     "definitionFit": "Tacitus was a Roman historian, author of the Annals and the Histories."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "American"
+    }
+   }
   },
   {
    "number": 22,
@@ -394,7 +1545,44 @@
     "text": "To which patron contributes a bit?",
     "enumeration": "5"
    },
-   "solution": "TRONC"
+   "solution": "TRONC",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "and_lit"
+    ],
+    "answer": "TRONC",
+    "definitions": [
+     {
+      "text": "To which patron contributes a bit?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contributes a bit",
+      "for": "hidden_word",
+      "note": "each word contributes a bit, so the answer is made of pieces of neighbouring words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "patron contributes",
+      "gives": "TRONC",
+      "note": "the letters run across the join of the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about what a restaurant customer chips into.",
+     "walkthrough": "The whole clue is the definition: a diner leaves a tip that goes into the shared pool.",
+     "definitionFit": "A tronc is a pool of tips in a restaurant shared out among staff, to which customers contribute."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "bit"
+    }
+   }
   },
   {
    "number": 23,
@@ -408,7 +1596,43 @@
     "text": "Somewhat crazy circular",
     "enumeration": "5"
    },
-   "solution": "LOOPY"
+   "solution": "LOOPY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LOOPY",
+    "definitions": [
+     {
+      "text": "Somewhat crazy",
+      "at": 0
+     },
+     {
+      "text": "circular",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Somewhat crazy",
+      "note": "first meaning: a little mad, informally"
+     },
+     {
+      "clueFragment": "circular",
+      "note": "second meaning: full of loops, curving round"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue reads as a description of a slightly odd leaflet; the two parts are separate meanings.",
+     "definitionFit": "The word is slang for mildly eccentric and also literally describes something formed of loops or rings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "circular"
+    }
+   }
   },
   {
    "number": 24,
@@ -422,7 +1646,62 @@
     "text": "Old-time reel regularly done spontaneously",
     "enumeration": "9"
    },
-   "solution": "EXTEMPORE"
+   "solution": "EXTEMPORE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EXTEMPORE",
+    "definitions": [
+     {
+      "text": "done spontaneously",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means taking letters at regular intervals, here every other one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "EX",
+      "note": "ex means former"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "TEMPO",
+      "note": "tempo is musical time"
+     },
+     {
+      "clueFragment": "reel",
+      "gives": "RE",
+      "select": "alternate",
+      "note": "the first and third letters of reel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "TEMPO",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "An old-fashioned Scottish reel performed off the cuff.",
+     "walkthrough": "'Old-time' looks like a single adjective but splits into two pieces.",
+     "definitionFit": "Extempore describes a speech or performance given without preparation, i.e. improvised on the spot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reel"
+    }
+   }
   },
   {
    "number": 25,
@@ -436,7 +1715,47 @@
     "text": "Three-dimensional figure one slashes",
     "enumeration": "6"
    },
-   "solution": "SOLIDI"
+   "solution": "SOLIDI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOLIDI",
+    "definitions": [
+     {
+      "text": "slashes",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Three-dimensional figure",
+      "gives": "SOLID",
+      "note": "a solid is a geometric figure with three dimensions"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOLID",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A geometry lesson in which a single solid shape cuts through others.",
+     "walkthrough": "'Slashes' looks like a verb but is a plural noun.",
+     "definitionFit": "A solidus is the oblique stroke /, and its plural is solidi, from the Latin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "slashes"
+    }
+   }
   },
   {
    "number": 26,
@@ -456,7 +1775,43 @@
      }
     ]
    },
-   "solution": "SHORTCUT"
+   "solution": "SHORTCUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SHORT CUT",
+    "definitions": [
+     {
+      "text": "Bob, say",
+      "at": 0
+     },
+     {
+      "text": "means to save time",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bob, say",
+      "note": "first meaning: a bob is an example of a cropped hairstyle"
+     },
+     {
+      "clueFragment": "means to save time",
+      "note": "second meaning: a quicker route or method"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Bob' looks like a man's name; here it is a haircut, with 'say' marking it as an example.",
+     "definitionFit": "A bob is a cropped hairstyle, and the same phrase means a quicker way that saves time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bob"
+    }
+   }
   }
  ]
 }
