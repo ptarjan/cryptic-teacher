@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,60 @@
     "text": "Loads of pasta without parmesan at last",
     "enumeration": "6"
    },
-   "solution": "OODLES"
+   "solution": "OODLES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "OODLES",
+    "definitions": [
+     {
+      "text": "Loads",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "'without' tells the solver to take something away from the word before it"
+     },
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "'at last' points to the final letter of the word it follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of pasta",
+      "gives": "NOODLES",
+      "note": "noodles are a kind of pasta"
+     },
+     {
+      "clueFragment": "parmesan",
+      "gives": "N",
+      "select": "last",
+      "note": "the closing letter of parmesan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OODLES"
+     ]
+    },
+    "explanation": {
+     "surface": "A diner piles up pasta but skimps on the cheese topping.",
+     "walkthrough": "'Loads of pasta' reads as one phrase, but 'Loads' alone is the definition and 'of pasta' gives NOODLES, which loses its N to leave OODLES.",
+     "definitionFit": "Oodles is informal for a great quantity, just as loads is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Loads"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +103,75 @@
     "text": "Support for cardinal holding a battered tin",
     "enumeration": "8"
    },
-   "solution": "MAINTAIN"
+   "solution": "MAINTAIN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MAINTAIN",
+    "definitions": [
+     {
+      "text": "Support",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "battered",
+      "for": "anagram",
+      "note": "something battered is knocked out of shape, so these letters are rearranged"
+     },
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "one word holding others means it wraps around them"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cardinal",
+      "gives": "MAIN",
+      "note": "cardinal in the sense of chief or principal"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tin",
+      "gives": "TIN",
+      "note": "taken as written; with the A it is rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAI",
+      "NTAI",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ATIN",
+       "gives": "NTAI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A churchman in red clutches a dented tin can, perhaps collecting for charity.",
+     "walkthrough": "'Cardinal' suggests a churchman or a number, but here it means principal, as in cardinal rule.",
+     "definitionFit": "To maintain someone is to support or provide for them financially."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cardinal"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +185,69 @@
     "text": "Instrument made by theologian during troubled life",
     "enumeration": "6"
    },
-   "solution": "FIDDLE"
+   "solution": "FIDDLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "FIDDLE",
+    "definitions": [
+     {
+      "text": "Instrument",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "troubled",
+      "for": "anagram",
+      "note": "something troubled is disturbed, so these letters are thrown into a new order"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "one thing happening during another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "made by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "life",
+      "gives": "FILE",
+      "note": "the letters of life rearranged"
+     },
+     {
+      "clueFragment": "theologian",
+      "gives": "DD",
+      "note": "DD is Doctor of Divinity, a theology degree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FI",
+      "DD",
+      "LE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LIFE",
+       "gives": "FILE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A divinity scholar takes up music to get through a hard life.",
+     "definitionFit": "A fiddle is an informal name for a violin, a stringed musical instrument."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "theologian"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +267,64 @@
      }
     ]
    },
-   "solution": "BEDTIME"
+   "solution": "BEDTIME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BED TIME",
+    "definitions": [
+     {
+      "text": "occasion of retirement",
+      "at": 48
+     }
+    ],
+    "linkWords": [
+     "given to",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second-rate",
+      "gives": "B",
+      "note": "B grade is second-rate"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "standard abbreviation for editor"
+     },
+     {
+      "clueFragment": "with note",
+      "gives": "TI",
+      "note": "ti is a note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "setter",
+      "gives": "ME",
+      "note": "the setter refers to themself as me"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ED",
+      "TI",
+      "ME"
+     ]
+    },
+    "explanation": {
+     "surface": "A mediocre editor receives a memo from the crossword setter on leaving the job.",
+     "walkthrough": "'Retirement' suggests leaving work, but it means going to bed for the night.",
+     "definitionFit": "Bedtime is when one retires to bed, a common sense of retire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "retirement"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +344,64 @@
      }
     ]
    },
-   "solution": "TOSSUP"
+   "solution": "TOSSUP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TOSS-UP",
+    "definitions": [
+     {
+      "text": "an even chance",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down clue, turning up makes the word read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drunk",
+      "gives": "SOT",
+      "note": "a sot is a drunkard"
+     },
+     {
+      "clueFragment": "with drink",
+      "gives": "SUP",
+      "note": "to sup is to drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOS",
+      "SUP"
+     ],
+     "reversals": [
+      {
+       "from": "SOT",
+       "to": "TOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Whether a drunk shows up wanting another drink is anyone's guess.",
+     "walkthrough": "'Drunk' is a noun, not an adjective, giving SOT.",
+     "definitionFit": "A toss-up is a situation whose outcome is as uncertain as the flip of a coin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Drunk"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +415,55 @@
     "text": "Mother to set up mature plant",
     "enumeration": "8"
    },
-   "solution": "MARIGOLD"
+   "solution": "MARIGOLD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MARIGOLD",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mother",
+      "gives": "MA",
+      "note": "an informal word for mother"
+     },
+     {
+      "clueFragment": "set up",
+      "gives": "RIG",
+      "note": "to rig is to set up or fix"
+     },
+     {
+      "clueFragment": "mature",
+      "gives": "OLD",
+      "note": "old as in grown up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "RIG",
+      "OLD"
+     ]
+    },
+    "explanation": {
+     "surface": "Mum is told to put a fully grown plant in the garden.",
+     "definitionFit": "The marigold is a common garden plant with orange or yellow flowers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +477,62 @@
     "text": "More sensible to admit old man is a philanderer?",
     "enumeration": "9"
    },
-   "solution": "WOMANISER"
+   "solution": "WOMANISER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WOMANISER",
+    "definitions": [
+     {
+      "text": "a philanderer",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admit",
+      "for": "container",
+      "note": "to admit is to let in, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "More sensible",
+      "gives": "WISER",
+      "note": "comparative of wise"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "standard abbreviation for old"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "MAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "OMAN",
+      "ISER"
+     ]
+    },
+    "explanation": {
+     "surface": "Is it wiser to own up that an elderly man is a cad?",
+     "definitionFit": "A womaniser is a man who has many casual affairs, a philanderer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "admit"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +552,49 @@
      }
     ]
    },
-   "solution": "SOFAR"
+   "solution": "SOFAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SO FAR",
+    "definitions": [
+     {
+      "text": "up to now",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "something to sit on",
+      "gives": "SOFA",
+      "note": "a sofa is a seat"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "R for rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOFA",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A king is given a seat in the meantime.",
+     "walkthrough": "King comes first in the clue but its R goes last, 'with' simply joining it to the seat.",
+     "definitionFit": "So far is an idiom meaning until the present time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +614,82 @@
      }
     ]
    },
-   "solution": "BLINDDATE"
+   "solution": "BLINDDATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BLIND DATE",
+    "definitions": [
+     {
+      "text": "possible romantic encounter",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fixed",
+      "for": "anagram",
+      "note": "fixed in the sense of rigged or rearranged"
+     },
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "involving means taking something inside"
+     },
+     {
+      "text": "bedding",
+      "for": "container",
+      "note": "bedding means taking someone to bed, so one piece lies within another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bet",
+      "gives": "BTE",
+      "note": "the letters of bet rearranged, then split around the rest"
+     },
+     {
+      "clueFragment": "woman",
+      "gives": "LINDA",
+      "note": "a woman's name"
+     },
+     {
+      "clueFragment": "duke",
+      "gives": "D",
+      "note": "standard abbreviation for duke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LIND",
+      "D",
+      "A",
+      "TE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BET",
+       "gives": "BTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rigged wager over whether a woman will seduce a duke.",
+     "walkthrough": "Linda wraps around D, and the reshuffled bet wraps around both.",
+     "definitionFit": "A blind date is a meeting arranged between two strangers who may become romantically involved."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fixed"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +703,49 @@
     "text": "Snake in charge of jelly",
     "enumeration": "5"
    },
-   "solution": "ASPIC"
+   "solution": "ASPIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASPIC",
+    "definitions": [
+     {
+      "text": "jelly",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Snake",
+      "gives": "ASP",
+      "note": "an asp is a venomous snake"
+     },
+     {
+      "clueFragment": "in charge",
+      "gives": "IC",
+      "note": "IC is the standard abbreviation for in charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASP",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A snake is put in charge of the jelly.",
+     "definitionFit": "Aspic is a savoury jelly made from meat stock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +759,43 @@
     "text": "Celebrity hiding in Doctor's Tardis?",
     "enumeration": "4"
    },
-   "solution": "STAR"
+   "solution": "STAR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "STAR",
+    "definitions": [
+     {
+      "text": "Celebrity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding in",
+      "for": "hidden_word",
+      "note": "something hiding in words is concealed within their letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor's Tardis",
+      "gives": "STAR",
+      "note": "runs across the possessive ending and the start of the next word"
+     }
+    ],
+    "explanation": {
+     "surface": "A famous person tucked away in Doctor Who's time machine.",
+     "walkthrough": "The Tardis is the time machine in the British TV series Doctor Who.",
+     "definitionFit": "A star is a famous performer, a celebrity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor's"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +809,64 @@
     "text": "Flight from earth to space for a change",
     "enumeration": "6"
    },
-   "solution": "ESCAPE"
+   "solution": "ESCAPE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ESCAPE",
+    "definitions": [
+     {
+      "text": "Flight",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for a change",
+      "for": "anagram",
+      "note": "making a change to the word reorders its letters"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "earth",
+      "gives": "E",
+      "note": "E is the abbreviation for earth"
+     },
+     {
+      "clueFragment": "space",
+      "gives": "SCAPE",
+      "note": "the letters of space rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "SCAPE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SPACE",
+       "gives": "SCAPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rocket flight leaves Earth for outer space as a change of scene.",
+     "walkthrough": "'Flight' suggests air travel, but it means fleeing.",
+     "definitionFit": "Flight in the sense of running away is an escape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flight"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +880,53 @@
     "text": "Redesigned other map's symbol",
     "enumeration": "8"
    },
-   "solution": "METAPHOR"
+   "solution": "METAPHOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "METAPHOR",
+    "definitions": [
+     {
+      "text": "symbol",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Redesigned",
+      "for": "anagram",
+      "note": "something redesigned is made again in a new form"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "other map",
+      "gives": "OTHERMAP",
+      "note": "taken as written, ready for rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OTHERMAP",
+       "gives": "METAPHOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A legend symbol on a redrawn map.",
+     "definitionFit": "A metaphor is a figure of speech in which one thing stands for or represents another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "map's"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +940,50 @@
     "text": "Special fish makes small shiny decoration",
     "enumeration": "7"
    },
-   "solution": "SPANGLE"
+   "solution": "SPANGLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPANGLE",
+    "definitions": [
+     {
+      "text": "small shiny decoration",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Special",
+      "gives": "SP",
+      "note": "SP is an abbreviation for special"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "ANGLE",
+      "note": "to angle is to fish with a rod"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "ANGLE"
+     ]
+    },
+    "explanation": {
+     "surface": "An exotic fish turns into a glittering ornament.",
+     "walkthrough": "'Fish' looks like a noun but is the verb, to fish with rod and line.",
+     "definitionFit": "A spangle is a sequin, a small glittering piece sewn on clothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fish"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +997,58 @@
     "text": "Prairie-dwelling insect finds banana",
     "enumeration": "8"
    },
-   "solution": "PLANTAIN"
+   "solution": "PLANTAIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PLANTAIN",
+    "definitions": [
+     {
+      "text": "banana",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dwelling",
+      "for": "container",
+      "note": "something dwelling in a place lives inside it"
+     }
+    ],
+    "linkWords": [
+     "finds"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prairie",
+      "gives": "PLAIN",
+      "note": "a prairie is a grassy plain"
+     },
+     {
+      "clueFragment": "insect",
+      "gives": "ANT",
+      "note": "an ant is an insect"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PL",
+      "ANT",
+      "AIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A bug living on the prairie discovers a banana.",
+     "definitionFit": "A plantain is a starchy cooking banana."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "dwelling"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +1062,43 @@
     "text": "Listened to advance unaccompanied",
     "enumeration": "4"
    },
-   "solution": "LONE"
+   "solution": "LONE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LONE",
+    "definitions": [
+     {
+      "text": "unaccompanied",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Listened to",
+      "for": "homophone",
+      "note": "what is listened to is heard, so the word is judged by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "advance",
+      "gives": "LONE",
+      "soundsLike": "LOAN",
+      "note": "an advance of money is a loan"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone heeded advice to go forward alone.",
+     "definitionFit": "Lone describes someone on their own, without companions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "advance"
+    }
+   }
   },
   {
    "number": 17,
@@ -281,7 +1112,53 @@
     "text": "South Africa in tasteless campaign",
     "enumeration": "7"
    },
-   "solution": "CRUSADE"
+   "solution": "CRUSADE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CRUSADE",
+    "definitions": [
+     {
+      "text": "campaign",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tasteless",
+      "gives": "CRUDE",
+      "note": "crude as in vulgar"
+     },
+     {
+      "clueFragment": "South Africa",
+      "gives": "SA",
+      "note": "standard abbreviation for South Africa"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRU",
+      "SA",
+      "DE"
+     ]
+    },
+    "explanation": {
+     "surface": "A vulgar political campaign run in South Africa.",
+     "definitionFit": "A crusade is a vigorous campaign for a cause."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +1172,59 @@
     "text": "No thug is beaten for making lots of noise",
     "enumeration": "8"
    },
-   "solution": "SHOUTING"
+   "solution": "SHOUTING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SHOUTING",
+    "definitions": [
+     {
+      "text": "making lots of noise",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is beaten",
+      "for": "anagram",
+      "note": "something beaten is knocked about and out of its shape"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No thug",
+      "gives": "NOTHUG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written; it doubles as part of the indicator"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOTHUGIS",
+       "gives": "SHOUTING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thug gets a beating for being loud.",
+     "walkthrough": "'is' does double duty, supplying two letters and forming the indicator with 'beaten'.",
+     "definitionFit": "Shouting is calling out loudly, which makes lots of noise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thug"
+    }
+   }
   },
   {
    "number": 19,
@@ -309,7 +1238,42 @@
     "text": "Pester a mad antipodean to accept a period of fasting",
     "enumeration": "7"
    },
-   "solution": "RAMADAN"
+   "solution": "RAMADAN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RAMADAN",
+    "definitions": [
+     {
+      "text": "a period of fasting",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to accept",
+      "for": "hidden_word",
+      "note": "the words accept the answer, holding it within their letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pester a mad antipodean",
+      "gives": "RAMADAN",
+      "note": "runs from the end of the first word into the last"
+     }
+    ],
+    "explanation": {
+     "surface": "Nagging a crazy Australian to go along with a diet.",
+     "definitionFit": "Ramadan is the Islamic month during which Muslims fast in daylight hours."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "accept"
+    }
+   }
   },
   {
    "number": 20,
@@ -323,7 +1287,51 @@
     "text": "Strip girl of neckwear",
     "enumeration": "8"
    },
-   "solution": "BANDANNA"
+   "solution": "BANDANNA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BANDANNA",
+    "definitions": [
+     {
+      "text": "neckwear",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Strip",
+      "gives": "BAND",
+      "note": "a band is a strip of material"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "ANNA",
+      "note": "a girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAND",
+      "ANNA"
+     ]
+    },
+    "explanation": {
+     "surface": "Undressing a girl, starting with her scarf.",
+     "walkthrough": "'Strip' looks like a verb but is a noun.",
+     "definitionFit": "A bandanna is a coloured scarf often tied around the neck."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Strip"
+    }
+   }
   },
   {
    "number": 21,
@@ -337,7 +1345,53 @@
     "text": "After training, dog ran to intimidating woman",
     "enumeration": "6"
    },
-   "solution": "DRAGON"
+   "solution": "DRAGON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DRAGON",
+    "definitions": [
+     {
+      "text": "intimidating woman",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After training",
+      "for": "anagram",
+      "note": "training reshapes something, so these letters are put into a new order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog ran",
+      "gives": "DOGRAN",
+      "note": "taken as written, ready for rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DOGRAN",
+       "gives": "DRAGON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newly trained dog runs at a frightening woman.",
+     "definitionFit": "Dragon is a slang term for a fierce, domineering woman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "training"
+    }
+   }
   },
   {
    "number": 22,
@@ -351,7 +1405,56 @@
     "text": "With which to clean up nasty smell in the Home Counties?",
     "enumeration": "6"
    },
-   "solution": "SPONGE"
+   "solution": "SPONGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPONGE",
+    "definitions": [
+     {
+      "text": "With which to clean up",
+      "at": 0,
+      "note": "describes the object, a noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Home Counties",
+      "gives": "SE",
+      "note": "the Home Counties surround London in the south-east of England"
+     },
+     {
+      "clueFragment": "nasty smell",
+      "gives": "PONG",
+      "note": "pong is British slang for a stink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PONG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "How to deal with a bad smell in suburban England?",
+     "walkthrough": "The Home Counties are the counties around London; pong is British slang for a stench.",
+     "definitionFit": "A sponge is a porous object used for wiping and washing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "clean"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1468,74 @@
     "text": "Fixed dodgy date in deserted subway",
     "enumeration": "6"
    },
-   "solution": "STEADY"
+   "solution": "STEADY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STEADY",
+    "definitions": [
+     {
+      "text": "Fixed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dodgy",
+      "for": "anagram",
+      "note": "something dodgy is unreliable or crooked, so the letters are mixed"
+     },
+     {
+      "text": "deserted",
+      "for": "letter_selection",
+      "note": "a deserted word has been emptied of its inside, leaving only its edges"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "subway",
+      "gives": "SY",
+      "select": "outer",
+      "note": "the first and last letters of subway"
+     },
+     {
+      "clueFragment": "date",
+      "gives": "TEAD",
+      "note": "the letters of date rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TEAD",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DATE",
+       "gives": "TEAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shady rendezvous arranged in an empty underpass.",
+     "walkthrough": "'Fixed' looks like rigged, linking to dodgy, but it means firm.",
+     "definitionFit": "Steady describes something firmly fixed in place and not moving."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fixed"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1549,56 @@
     "text": "River in which bands of criminals conceal drug",
     "enumeration": "6"
    },
-   "solution": "GANGES"
+   "solution": "GANGES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GANGES",
+    "definitions": [
+     {
+      "text": "River",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "conceal",
+      "for": "container",
+      "note": "to conceal something is to keep it inside, out of view"
+     }
+    ],
+    "linkWords": [
+     "in which"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bands of criminals",
+      "gives": "GANGS",
+      "note": "gangs are groups of criminals"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GANG",
+      "E",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Gangs hide narcotics in a river.",
+     "definitionFit": "The Ganges is the great river of northern India."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1612,47 @@
     "text": "So-called hazard constituted by piece of meat",
     "enumeration": "5"
    },
-   "solution": "STEAK"
+   "solution": "STEAK",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "STEAK",
+    "definitions": [
+     {
+      "text": "piece of meat",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "So-called",
+      "for": "homophone",
+      "note": "so-called refers to what something is called, its spoken name"
+     }
+    ],
+    "linkWords": [
+     "constituted by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hazard",
+      "gives": "STEAK",
+      "soundsLike": "STAKE",
+      "note": "to hazard is to stake or wager"
+     }
+    ],
+    "explanation": {
+     "surface": "A supposed danger posed by a chunk of meat.",
+     "walkthrough": "'Hazard' looks like a noun meaning danger, but as a verb it means to stake.",
+     "definitionFit": "A steak is a thick slice of meat, usually beef."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hazard"
+    }
+   }
   },
   {
    "number": 25,
@@ -407,7 +1666,48 @@
     "text": "Father making payments for housing and bringing up the kids",
     "enumeration": "9"
    },
-   "solution": "PARENTING"
+   "solution": "PARENTING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARENTING",
+    "definitions": [
+     {
+      "text": "bringing up the kids",
+      "at": 39
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Father",
+      "gives": "PA",
+      "note": "an informal word for father"
+     },
+     {
+      "clueFragment": "making payments for housing",
+      "gives": "RENTING",
+      "note": "renting is paying for a place to live"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "RENTING"
+     ]
+    },
+    "explanation": {
+     "surface": "Dad pays the rent and raises the children.",
+     "definitionFit": "Parenting is the work of raising children."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -421,7 +1721,49 @@
     "text": "Attracted to males and females, relative's an animal!",
     "enumeration": "5"
    },
-   "solution": "BISON"
+   "solution": "BISON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BISON",
+    "definitions": [
+     {
+      "text": "an animal",
+      "at": 43
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attracted to males and females",
+      "gives": "BI",
+      "note": "short for bisexual"
+     },
+     {
+      "clueFragment": "relative",
+      "gives": "SON",
+      "note": "a son is a relative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BI",
+      "SON"
+     ]
+    },
+    "explanation": {
+     "surface": "A bisexual relative is called an animal.",
+     "definitionFit": "The bison is a large wild ox of North America and Europe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 27,
@@ -441,7 +1783,70 @@
      }
     ]
    },
-   "solution": "LAPDANCER"
+   "solution": "LAPDANCER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LAP DANCER",
+    "definitions": [
+     {
+      "text": "provider of sexy entertainment",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exotic",
+      "for": "anagram",
+      "note": "exotic means strange or foreign, so the letters take an unfamiliar order"
+     },
+     {
+      "text": "maintaining",
+      "for": "container",
+      "note": "maintaining means holding, so one piece is kept inside another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldier",
+      "gives": "LANCER",
+      "note": "a lancer is a cavalry soldier"
+     },
+     {
+      "clueFragment": "pad",
+      "gives": "APD",
+      "note": "the letters of pad rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "APD",
+      "ANCER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PAD",
+       "gives": "APD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier keeps an exotic flat for a stripper.",
+     "walkthrough": "'Pad' suggests a flat, but only its letters matter.",
+     "definitionFit": "A lap dancer performs erotic dances close to a seated customer in a club."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pad"
+    }
+   }
   }
  ]
 }
