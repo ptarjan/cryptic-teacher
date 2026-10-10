@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Wake the room when the machine is overloaded, with who is using the CPU.
 
-    tools/load_watch.py            # the cron entry: check, maybe sample, maybe wake
-    tools/load_watch.py --dry-run  # same, but print the message instead of waking
+    tools/load_watch.py --dry-run  # check, maybe sample, print the message it would send
+
+Run by hand; it is no longer scheduled (each wake cost a room turn).
 
 Paul's rule: the box has os.cpu_count() cores and the desktop has more, so a 5-minute
 load average above the core count on two runs in a row is work that belongs on the
