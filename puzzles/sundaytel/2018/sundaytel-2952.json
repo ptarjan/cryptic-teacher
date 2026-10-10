@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,47 @@
     "text": "Part of foot that may be painful in dance",
     "enumeration": "4"
    },
-   "solution": "BALL"
+   "solution": "BALL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BALL",
+    "definitions": [
+     {
+      "text": "Part of foot that may be painful",
+      "at": 0
+     },
+     {
+      "text": "dance",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part of foot that may be painful",
+      "note": "first meaning: the padded area under the toes, which can ache"
+     },
+     {
+      "clueFragment": "dance",
+      "note": "second meaning: a formal dancing party"
+     }
+    ],
+    "explanation": {
+     "surface": "A dancer complains that one part of the foot hurts during the dance.",
+     "walkthrough": "The surface links the two meanings as cause and effect, but they are separate senses of one word.",
+     "definitionFit": "The cushion beneath the toes is called this, and so is a grand formal social gathering for dancing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +89,56 @@
     "text": "Flip ingredient in pub one's unable to choose?",
     "enumeration": "6"
    },
-   "solution": "BEGGAR"
+   "solution": "BEGGAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BEGGAR",
+    "definitions": [
+     {
+      "text": "one's unable to choose?",
+      "at": 23,
+      "note": "a noun phrase from the proverb 'beggars can't be choosers'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing being in another means it sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flip ingredient",
+      "gives": "EGG",
+      "note": "a flip is a drink made with beaten egg"
+     },
+     {
+      "clueFragment": "pub",
+      "gives": "BAR",
+      "note": "a bar is a pub"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "EGG",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at the pub looks at a cocktail recipe and cannot decide what to put in it.",
+     "walkthrough": "'Flip' reads as a verb, but it is an old drink made with beaten egg.",
+     "definitionFit": "The proverb says beggars can't be choosers, so a beggar is someone with no choice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Flip"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +152,57 @@
     "text": "Waters rising, hence state of anxiety",
     "enumeration": "4"
    },
-   "solution": "STEW"
+   "solution": "STEW",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "STEW",
+    "definitions": [
+     {
+      "text": "state of anxiety",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down clue something rising is read from the bottom upwards"
+     }
+    ],
+    "linkWords": [
+     "hence"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Waters",
+      "gives": "WETS",
+      "note": "to water a plant is to wet it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEW"
+     ],
+     "reversals": [
+      {
+       "from": "WETS",
+       "to": "STEW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Floodwaters climb, so people become worried.",
+     "walkthrough": "'Waters' looks like a noun but is the verb, meaning wets.",
+     "definitionFit": "Being in a stew is an idiom for being agitated or worried."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Waters"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +216,62 @@
     "text": "Kindly include head of government in African country",
     "enumeration": "6"
    },
-   "solution": "BENIGN"
+   "solution": "BENIGN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BENIGN",
+    "definitions": [
+     {
+      "text": "Kindly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     },
+     {
+      "text": "include",
+      "for": "container",
+      "note": "to include something is to take it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "African country",
+      "gives": "BENIN",
+      "note": "Benin is a West African state"
+     },
+     {
+      "clueFragment": "government",
+      "gives": "G",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BENI",
+      "G",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to put a gentle leader at the top of an African nation's government.",
+     "walkthrough": "G goes inside BENIN: BENI-G-N. 'Kindly' looks like a polite 'please'.",
+     "definitionFit": "Both adjectives describe a gentle, well-meaning and favourable disposition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Kindly"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +285,72 @@
     "text": "Only Conservative is above criticism, ultimately, for bad behaviour",
     "enumeration": "8"
    },
-   "solution": "SOLECISM"
+   "solution": "SOLECISM",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SOLECISM",
+    "definitions": [
+     {
+      "text": "bad behaviour",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the end, so the final letter is taken"
+     }
+    ],
+    "linkWords": [
+     "for",
+     "above"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Only",
+      "gives": "SOLE",
+      "note": "sole means only"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "criticism",
+      "gives": "M",
+      "select": "last",
+      "note": "the last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOLE",
+      "C",
+      "IS",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A political claim that only the Tory party is beyond reproach for misconduct.",
+     "walkthrough": "In a down clue 'above' means placed before. A solecism is strictly a breach of grammar or etiquette.",
+     "definitionFit": "A solecism is a breach of good manners or etiquette, a social blunder, hence improper conduct."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "above"
+    }
+   }
   },
   {
    "number": 6,
@@ -102,7 +364,64 @@
     "text": "Get marine redeployed on left of colonel's men",
     "enumeration": "10"
    },
-   "solution": "REGIMENTAL"
+   "solution": "REGIMENTAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "REGIMENTAL",
+    "definitions": [
+     {
+      "text": "colonel's men",
+      "at": 33,
+      "note": "adjectival sense: belonging to a regiment"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "redeployed",
+      "for": "anagram",
+      "note": "troops redeployed are moved into new positions, so the letters take a new order"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get marine",
+      "gives": "GETMARINE",
+      "note": "the fodder"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REGIMENTA",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GETMARINE",
+       "gives": "REGIMENTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An order to move a marine to the left flank of a colonel's troops.",
+     "definitionFit": "A colonel commands a regiment, and its soldiers are the men belonging to that military unit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "marine"
+    }
+   }
   },
   {
    "number": 7,
@@ -116,7 +435,62 @@
     "text": "A whistle-blower singularly shod? Not so",
     "enumeration": "8"
    },
-   "solution": "BAREFOOT"
+   "solution": "BAREFOOT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BAREFOOT",
+    "definitions": [
+     {
+      "text": "Not so",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shod",
+      "for": "container",
+      "note": "to be shod is to have one's foot inside footwear"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "whistle-blower",
+      "gives": "REF",
+      "note": "a referee blows the whistle"
+     },
+     {
+      "clueFragment": "singularly",
+      "gives": "BOOT",
+      "note": "single item of footwear: one boot rather than a pair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "A",
+      "REF",
+      "OOT"
+     ]
+    },
+    "explanation": {
+     "surface": "Is a referee wearing just one boot properly shod? No.",
+     "walkthrough": "'Not so' negates the 'shod' just before it, so the definition means unshod. 'Whistle-blower' suggests an informer, but here it is the match official.",
+     "definitionFit": "Someone not wearing shoes has nothing on the feet, which is the meaning of the answer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "whistle-blower"
+    }
+   }
   },
   {
    "number": 8,
@@ -130,7 +504,48 @@
     "text": "For remote settlement, excel in sending mail?",
     "enumeration": "7"
    },
-   "solution": "OUTPOST"
+   "solution": "OUTPOST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OUTPOST",
+    "definitions": [
+     {
+      "text": "remote settlement",
+      "at": 4
+     },
+     {
+      "text": "excel in sending mail?",
+      "at": 23,
+      "note": "a jokey verb: to out-post someone"
+     }
+    ],
+    "linkWords": [
+     "For"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "remote settlement",
+      "note": "first meaning: a distant station or colony"
+     },
+     {
+      "clueFragment": "excel in sending mail?",
+      "note": "second meaning, whimsical: beat someone at posting letters"
+     }
+    ],
+    "explanation": {
+     "surface": "A remote village is praised for its efficient postal service.",
+     "walkthrough": "The second meaning is invented: the prefix OUT- means surpass, as in outrun, and POST means send letters; the question mark flags the coinage.",
+     "definitionFit": "A distant frontier station or small settlement far from the centre is an outpost."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "mail"
+    }
+   }
   },
   {
    "number": 9,
@@ -144,7 +559,48 @@
     "text": "European was bounder, ran for union without approval",
     "enumeration": "6"
    },
-   "solution": "ELOPED"
+   "solution": "ELOPED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELOPED",
+    "definitions": [
+     {
+      "text": "ran for union without approval",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "was bounder",
+      "gives": "LOPED",
+      "note": "to lope is to run with long bounding strides"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LOPED"
+     ]
+    },
+    "explanation": {
+     "surface": "A disreputable European cad ran off to marry without family blessing.",
+     "walkthrough": "'Bounder' suggests a cad, but here it is something that bounds along.",
+     "definitionFit": "Eloping means running away secretly to marry, without parental consent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bounder"
+    }
+   }
   },
   {
    "number": 10,
@@ -158,7 +614,44 @@
     "text": "Steps up attempt to escape",
     "enumeration": "6"
    },
-   "solution": "FLIGHT"
+   "solution": "FLIGHT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FLIGHT",
+    "definitions": [
+     {
+      "text": "Steps up",
+      "at": 0
+     },
+     {
+      "text": "attempt to escape",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Steps up",
+      "note": "first meaning: a staircase, a run of stairs"
+     },
+     {
+      "clueFragment": "attempt to escape",
+      "note": "second meaning: fleeing"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone intensifies a bid to get away.",
+     "walkthrough": "'Steps up' reads as a verb meaning intensifies, but it is the stairs leading upwards.",
+     "definitionFit": "A flight of stairs is a set of steps; taking flight means running away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Steps"
+    }
+   }
   },
   {
    "number": 11,
@@ -178,7 +671,65 @@
      }
     ]
    },
-   "solution": "WHITELIE"
+   "solution": "WHITELIE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "WHITE LIE",
+    "definitions": [
+     {
+      "text": "harmless deception",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absorb",
+      "for": "container",
+      "note": "something absorbed is taken in and held inside"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "We",
+      "gives": "WE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "blow",
+      "gives": "HIT",
+      "note": "a hit is a blow"
+     },
+     {
+      "clueFragment": "are prone",
+      "gives": "LIE",
+      "note": "to lie is to be prone, lying flat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HIT",
+      "E",
+      "LIE"
+     ]
+    },
+    "explanation": {
+     "surface": "People admitting they tend to take a punch by way of innocent pretence.",
+     "walkthrough": "'Prone' reads as 'inclined to', but here means lying flat.",
+     "definitionFit": "A white lie is a small untruth told to be kind, a deceit that does no harm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "prone"
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +749,78 @@
      }
     ]
    },
-   "solution": "CHARMOFFENSIVE"
+   "solution": "CHARMOFFENSIVE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "CHARM OFFENSIVE",
+    "definitions": [
+     {
+      "text": "friendly campaign",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Disorderly",
+      "for": "anagram",
+      "note": "something disorderly is out of its proper arrangement"
+     },
+     {
+      "text": "changing",
+      "for": "anagram",
+      "note": "these letters are changing their places"
+     }
+    ],
+    "linkWords": [
+     "into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "march",
+      "gives": "MARCH",
+      "note": "the first fodder"
+     },
+     {
+      "clueFragment": "cancelled",
+      "gives": "OFF",
+      "note": "an event that is called off is cancelled"
+     },
+     {
+      "clueFragment": "is even",
+      "gives": "ISEVEN",
+      "note": "the second fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHARM",
+      "OFF",
+      "ENSIVE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MARCH",
+       "gives": "CHARM"
+      },
+      {
+       "fodder": "ISEVEN",
+       "gives": "ENSIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unruly protest march is scrapped and becomes a goodwill effort instead.",
+     "definitionFit": "A charm offensive is a deliberate drive to win people over by being pleasant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "march"
+    }
+   }
   },
   {
    "number": 13,
@@ -218,7 +840,65 @@
      }
     ]
    },
-   "solution": "HENPARTIES"
+   "solution": "HENPARTIES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HEN PARTIES",
+    "definitions": [
+     {
+      "text": "Women having fun",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, holding the next part inside"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jolly fellows",
+      "gives": "HEARTIES",
+      "note": "hearties are hearty, jovial chaps"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "musical abbreviation for soft"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "N",
+      "P",
+      "ARTIES"
+     ]
+    },
+    "explanation": {
+     "surface": "Women enjoy themselves with cheerful men gathered round a new piano.",
+     "walkthrough": "N P goes inside HE-ARTIES. A hen party is a British name for a bachelorette party.",
+     "definitionFit": "A hen party is a pre-wedding celebration for women, so such gatherings are groups of women celebrating."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "piano"
+    }
+   }
   },
   {
    "number": 14,
@@ -232,7 +912,50 @@
     "text": "Mainly overlook how to make money illegally",
     "enumeration": "5"
    },
-   "solution": "FORGE"
+   "solution": "FORGE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "FORGE",
+    "definitions": [
+     {
+      "text": "make money illegally",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mainly",
+      "for": "deletion",
+      "note": "mainly means most but not all, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "how to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "overlook",
+      "gives": "FORGET",
+      "note": "to overlook is to forget"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FORGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice that mostly ignoring the rules is the way to earn money criminally.",
+     "definitionFit": "To forge banknotes is to counterfeit currency, producing cash unlawfully."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mainly"
+    }
+   }
   },
   {
    "number": 15,
@@ -246,7 +969,46 @@
     "text": "Shot in game",
     "enumeration": "4"
    },
-   "solution": "SNAP"
+   "solution": "SNAP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SNAP",
+    "definitions": [
+     {
+      "text": "Shot",
+      "at": 0
+     },
+     {
+      "text": "game",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shot",
+      "note": "first meaning: a quick photograph"
+     },
+     {
+      "clueFragment": "game",
+      "note": "second meaning: a children's card game"
+     }
+    ],
+    "explanation": {
+     "surface": "A shot played during a match.",
+     "walkthrough": "Snap is a simple card game in which players call out when two matching cards appear.",
+     "definitionFit": "A snapshot is a casual photograph, and the card game has the same name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shot"
+    }
+   }
   },
   {
    "number": 16,
@@ -260,7 +1022,66 @@
     "text": "Manipulation of figures elevated favourite — be curious about it",
     "enumeration": "8"
    },
-   "solution": "PUPPETRY"
+   "solution": "PUPPETRY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PUPPETRY",
+    "definitions": [
+     {
+      "text": "Manipulation of figures",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round, enclosing the rest"
+     }
+    ],
+    "linkWords": [
+     "it"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "be curious",
+      "gives": "PRY",
+      "note": "to pry is to be nosy"
+     },
+     {
+      "clueFragment": "elevated",
+      "gives": "UP",
+      "note": "elevated means up"
+     },
+     {
+      "clueFragment": "favourite",
+      "gives": "PET",
+      "note": "a pet is a favourite"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "UP",
+      "PET",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone suspects a promoted favourite of cooking the books.",
+     "walkthrough": "'Manipulation of figures' suggests fiddling accounts; the figures are puppets.",
+     "definitionFit": "Puppetry is the art of working puppets, small figures moved by strings or hands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "figures"
+    }
+   }
   },
   {
    "number": 17,
@@ -274,7 +1095,62 @@
     "text": "Disconcerted ruler in the West",
     "enumeration": "5"
    },
-   "solution": "THREW"
+   "solution": "THREW",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "THREW",
+    "definitions": [
+     {
+      "text": "Disconcerted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ruler",
+      "gives": "R",
+      "note": "R for rex or regina, king or queen"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "West",
+      "gives": "W",
+      "note": "compass abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "R",
+      "E",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch in the West has been unsettled.",
+     "walkthrough": "R goes inside THE, then W follows. The definition is a past-tense verb: something threw you.",
+     "definitionFit": "To throw someone is to confuse or unsettle them, so threw is a past tense of disconcert."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ruler"
+    }
+   }
   },
   {
    "number": 18,
@@ -288,7 +1164,47 @@
     "text": "Western criminal paid to kill American poet",
     "enumeration": "7"
    },
-   "solution": "WHITMAN"
+   "solution": "WHITMAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WHITMAN",
+    "definitions": [
+     {
+      "text": "American poet",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Western",
+      "gives": "W",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "criminal paid to kill",
+      "gives": "HITMAN",
+      "note": "a contract killer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HITMAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A cowboy-film outlaw hired to murder an American poet.",
+     "walkthrough": "'Western' suggests a cowboy film; it only supplies one letter.",
+     "definitionFit": "Walt Whitman, author of Leaves of Grass, is a celebrated nineteenth-century US poet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Western"
+    }
+   }
   },
   {
    "number": 19,
@@ -302,7 +1218,46 @@
     "text": "Little child's great strength, as you can hear",
     "enumeration": "4"
    },
-   "solution": "MITE"
+   "solution": "MITE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MITE",
+    "definitions": [
+     {
+      "text": "Little child",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "as you can hear",
+      "for": "homophone",
+      "note": "what you can hear is the spoken sound, not the spelling"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "great strength",
+      "gives": "MITE",
+      "soundsLike": "MIGHT",
+      "note": "might is great power"
+     }
+    ],
+    "explanation": {
+     "surface": "Remarking that a small child is remarkably strong.",
+     "definitionFit": "Mite is an affectionate word for a small child, used for a tiny creature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "strength"
+    }
+   }
   },
   {
    "number": 20,
@@ -316,7 +1271,40 @@
     "text": "How pieces of chintz are ordered — or almost!",
     "enumeration": "14"
    },
-   "solution": "ALPHABETICALLY"
+   "solution": "ALPHABETICALLY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ALPHABETICALLY",
+    "definitions": [
+     {
+      "text": "How pieces of chintz are ordered — or almost!",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "How pieces of chintz are ordered",
+      "note": "surface reading: how a shop stocks lengths of patterned cloth"
+     },
+     {
+      "clueFragment": "or almost",
+      "note": "setter's reading: the letters of both chintz and almost each run in dictionary order"
+     }
+    ],
+    "explanation": {
+     "surface": "A query about how a draper arranges cloth samples.",
+     "walkthrough": "The pieces are letters: C, H, I, N, T, Z already follow A-to-Z order, and so do A, L, M, O, S, T.",
+     "definitionFit": "Letters in A-to-Z sequence are arranged in the order of the abc."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pieces"
+    }
+   }
   },
   {
    "number": 21,
@@ -330,7 +1318,62 @@
     "text": "Surrounded by diamonds, in a haze",
     "enumeration": "6"
    },
-   "solution": "AMIDST"
+   "solution": "AMIDST",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AMIDST",
+    "definitions": [
+     {
+      "text": "Surrounded by",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "haze",
+      "gives": "MIST",
+      "note": "mist is haze"
+     },
+     {
+      "clueFragment": "diamonds",
+      "gives": "D",
+      "note": "card-suit abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MI",
+      "D",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dazzled by diamonds, in a dreamy daze.",
+     "walkthrough": "D goes inside A MIST: A-MI-D-ST.",
+     "definitionFit": "Amidst is a preposition meaning in the middle of, with things all around."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "diamonds"
+    }
+   }
   },
   {
    "number": 22,
@@ -344,7 +1387,53 @@
     "text": "Showing lots of energy against English after start of play",
     "enumeration": "6"
    },
-   "solution": "ACTIVE"
+   "solution": "ACTIVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACTIVE",
+    "definitions": [
+     {
+      "text": "Showing lots of energy",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "start of play",
+      "gives": "ACTI",
+      "note": "Act I, the opening act of a drama"
+     },
+     {
+      "clueFragment": "against",
+      "gives": "V",
+      "note": "versus"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACTI",
+      "V",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A team plays with vigour against England after the first whistle.",
+     "walkthrough": "'Play' suggests sport, but it is a stage play, which begins with Act I.",
+     "definitionFit": "Active means lively and energetic, always on the go."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 23,
@@ -358,7 +1447,59 @@
     "text": "Foreign citizen producing articles about part of UK",
     "enumeration": "8"
    },
-   "solution": "ATHENIAN"
+   "solution": "ATHENIAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ATHENIAN",
+    "definitions": [
+     {
+      "text": "Foreign citizen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means placed round something else"
+     }
+    ],
+    "linkWords": [
+     "producing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "articles",
+      "gives": "ATHEAN",
+      "note": "the articles A, THE and AN"
+     },
+     {
+      "clueFragment": "part of UK",
+      "gives": "NI",
+      "note": "Northern Ireland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATHE",
+      "NI",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "An overseas national writing pieces about a region of Britain.",
+     "walkthrough": "'Articles' suggests newspaper pieces; it means the grammatical articles, with Northern Ireland placed between the last two.",
+     "definitionFit": "A native of Athens is a citizen of the Greek capital, foreign from a British viewpoint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "articles"
+    }
+   }
   },
   {
    "number": 24,
@@ -372,7 +1513,50 @@
     "text": "Alternative responses to request for secluded place",
     "enumeration": "4"
    },
-   "solution": "NOOK"
+   "solution": "NOOK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOOK",
+    "definitions": [
+     {
+      "text": "secluded place",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Alternative responses",
+      "gives": "NO",
+      "note": "one possible reply"
+     },
+     {
+      "clueFragment": "to request",
+      "gives": "OK",
+      "note": "the other possible reply"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "OK"
+     ]
+    },
+    "explanation": {
+     "surface": "Different answers given to someone asking for a private spot.",
+     "walkthrough": "The two replies are refusal and agreement, set side by side.",
+     "definitionFit": "A nook is a sheltered corner or recess, a quiet hidden spot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Alternative"
+    }
+   }
   },
   {
    "number": 25,
@@ -386,7 +1570,43 @@
     "text": "Stuff that's less shiny?",
     "enumeration": "6"
    },
-   "solution": "MATTER"
+   "solution": "MATTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MATTER",
+    "definitions": [
+     {
+      "text": "Stuff",
+      "at": 0
+     },
+     {
+      "text": "that's less shiny?",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stuff",
+      "note": "first meaning: physical substance"
+     },
+     {
+      "clueFragment": "that's less shiny?",
+      "note": "second meaning: the comparative of matt, a dull finish"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense is read as MATT-ER, more matt; the question mark flags the wordplay.",
+     "definitionFit": "Matter is material substance, and a matt surface is dull, so a duller one is comparatively matter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stuff"
+    }
+   }
   },
   {
    "number": 26,
@@ -400,7 +1620,48 @@
     "text": "Noble, sooner than should be the case, ending like that",
     "enumeration": "4"
    },
-   "solution": "EARL"
+   "solution": "EARL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EARL",
+    "definitions": [
+     {
+      "text": "Noble",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending like that",
+      "for": "deletion",
+      "note": "the word's own end comes too soon, as its meaning says, so its tail is cut"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sooner than should be the case",
+      "gives": "EARLY",
+      "note": "early means before the due time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EARL"
+     ]
+    },
+    "explanation": {
+     "surface": "An aristocrat arrives prematurely and leaves the same way.",
+     "walkthrough": "The word for premature is itself ended prematurely, losing its final letter.",
+     "definitionFit": "An earl is a British nobleman ranking below a marquess."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ending"
+    }
+   }
   },
   {
    "number": 27,
@@ -414,7 +1675,42 @@
     "text": "Rubbish removed from seaside briskly",
     "enumeration": "6"
    },
-   "solution": "DEBRIS"
+   "solution": "DEBRIS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DEBRIS",
+    "definitions": [
+     {
+      "text": "Rubbish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removed from",
+      "for": "hidden_word",
+      "note": "the letters are taken out from within the next words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seaside briskly",
+      "gives": "DEBRIS",
+      "note": "the run of letters spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Litter is cleared quickly from the beach.",
+     "definitionFit": "Debris is scattered waste and fragments, a synonym of litter or refuse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "removed"
+    }
+   }
   },
   {
    "number": 28,
@@ -428,7 +1724,53 @@
     "text": "Moron I've confused who will swallow anything?",
     "enumeration": "8"
    },
-   "solution": "OMNIVORE"
+   "solution": "OMNIVORE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OMNIVORE",
+    "definitions": [
+     {
+      "text": "who will swallow anything?",
+      "at": 20,
+      "note": "a descriptive phrase for a noun: one who eats anything"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "something confused is muddled out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Moron I've",
+      "gives": "MORONIVE",
+      "note": "the fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MORONIVE",
+       "gives": "OMNIVORE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An insult: a muddled idiot who believes any story.",
+     "walkthrough": "'Swallow anything' suggests gullibility; literally it is eating any food.",
+     "definitionFit": "An omnivore eats both plants and animals, so its diet excludes almost nothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "swallow"
+    }
+   }
   }
  ]
 }
