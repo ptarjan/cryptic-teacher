@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Most sensational tablets stored in container for preacher",
     "enumeration": "8"
    },
-   "solution": "PULPIEST"
+   "solution": "PULPIEST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PULPIEST",
+    "definitions": [
+     {
+      "text": "Most sensational",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stored in",
+      "for": "container",
+      "note": "goods stored in a place sit inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "container for preacher",
+      "gives": "PULPIT",
+      "note": "the raised enclosed stand from which a sermon is delivered"
+     },
+     {
+      "clueFragment": "tablets",
+      "gives": "ES",
+      "note": "E is slang for an ecstasy tablet, so tablets are Es"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PULPI",
+      "ES",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A tabloid-style sermon: sensational pills found hidden in a pulpit.",
+     "walkthrough": "The ecstasy tablets go inside PULPIT, between its I and T, giving PULPI-ES-T.",
+     "definitionFit": "Pulpy is used of lurid, cheap fiction, so the superlative describes the most lurid, sensationalist material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tablets"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +98,50 @@
     "text": "Some fish guts on the counter ... pass the bucket",
     "enumeration": "3"
    },
-   "solution": "UGH"
+   "solution": "UGH",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "UGH",
+    "definitions": [
+     {
+      "text": "pass the bucket",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "only some of the letters of the following words are taken, a run lying across them"
+     },
+     {
+      "text": "on the counter",
+      "for": "reversal",
+      "note": "counter means opposite in direction, so the run of letters is read the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish guts",
+      "gives": "HGU",
+      "note": "the run straddling the end of fish and the start of guts"
+     }
+    ],
+    "explanation": {
+     "surface": "Fish innards left on the kitchen counter make someone ask for a sick bucket.",
+     "walkthrough": "The counter looks like a kitchen worktop, but it is the signal to read backwards.",
+     "definitionFit": "Asking for the bucket is a jokey way of voicing disgust, which the interjection expresses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "counter"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +155,63 @@
     "text": "Fool comes up with wise quotation",
     "enumeration": "7"
    },
-   "solution": "PASSAGE"
+   "solution": "PASSAGE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PASSAGE",
+    "definitions": [
+     {
+      "text": "quotation",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "comes up",
+      "for": "reversal",
+      "note": "in a down clue rising upward means the word is read from the bottom, so backwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fool",
+      "gives": "SAP",
+      "note": "a sap is a gullible fool"
+     },
+     {
+      "clueFragment": "wise",
+      "gives": "SAGE",
+      "note": "sage means wise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAS",
+      "SAGE"
+     ],
+     "reversals": [
+      {
+       "from": "SAP",
+       "to": "PAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fool surprisingly produces a wise saying.",
+     "definitionFit": "A passage is an extract from a text, the kind of excerpt that is quoted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "comes"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +225,49 @@
     "text": "Perfect bits of lovemaking requiring no tips",
     "enumeration": "5"
    },
-   "solution": "EXACT"
+   "solution": "EXACT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EXACT",
+    "definitions": [
+     {
+      "text": "Perfect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "requiring no tips",
+      "for": "deletion",
+      "note": "a thing without its tips has lost both its end letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bits of lovemaking",
+      "gives": "SEXACTS",
+      "note": "individual episodes of lovemaking, taken as two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXACT"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky line about flawless lovemaking that needs no advice.",
+     "walkthrough": "Tips sounds like advice, but it means the end letters of the phrase, both of which go.",
+     "definitionFit": "Exact and perfect both mean precise and accurate in every detail, as in a perfect copy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tips"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +293,40 @@
     "13-across",
     "19-across",
     "12-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TWENTY THOUSAND LEAGUES UNDER THE SEA",
+    "definitions": [
+     {
+      "text": "Subtitle translated from French?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Subtitle translated from French?",
+      "note": "surface reading: the subtitles under a film, rendered from French dialogue"
+     },
+     {
+      "clueFragment": "Subtitle",
+      "note": "setter's reading: the title of a book about a submarine, translated from a French novel by Jules Verne"
+     }
+    ],
+    "explanation": {
+     "surface": "Talk of reading the English subtitles on a French film.",
+     "walkthrough": "Sub is read as submarine: Verne's novel about Captain Nemo's Nautilus is a sub title, and English readers know it only in translation.",
+     "definitionFit": "Jules Verne wrote the novel in French as Vingt mille lieues sous les mers; the English name is a translation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Subtitle"
+    }
+   }
   },
   {
    "number": 6,
@@ -130,7 +355,62 @@
     "6-across",
     "27-across",
     "9-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "THE OLD MAN AND THE SEA",
+    "definitions": [
+     {
+      "text": "Novel",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "description of Methuselah",
+      "gives": "THEOLDMAN",
+      "note": "Methuselah, who lived 969 years in Genesis, is the archetypal old man"
+     },
+     {
+      "clueFragment": "plus",
+      "gives": "AND",
+      "note": "plus means and"
+     },
+     {
+      "clueFragment": "six of his characters",
+      "gives": "THESEA",
+      "note": "six of the ten letters of the name Methuselah, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THEOLDMAN",
+      "AND",
+      "THESEA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ETHSEA",
+       "gives": "THESEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter, Methuselah, describing himself as a novel character.",
+     "walkthrough": "Methuselah is also this puzzle's setter, so his characters are the letters of his name; T, H, E, S, E and A are drawn from it and put in order.",
+     "definitionFit": "Ernest Hemingway's 1952 novella about the fisherman Santiago won him the Pulitzer Prize."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 6,
@@ -144,7 +424,67 @@
     "text": "Mistake is seized on by extremely tiresome bully",
     "enumeration": "9"
    },
-   "solution": "TERRORISE"
+   "solution": "TERRORISE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "TERRORISE",
+    "definitions": [
+     {
+      "text": "bully",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seized on by",
+      "for": "container",
+      "note": "something seized is held in the grip of another, so these letters sit inside"
+     },
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two outermost letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tiresome",
+      "gives": "TE",
+      "select": "outer",
+      "note": "the first and last letters of tiresome"
+     },
+     {
+      "clueFragment": "Mistake",
+      "gives": "ERROR",
+      "note": "a mistake is an error"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ERROR",
+      "IS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A tedious bully pounces on someone's mistake.",
+     "definitionFit": "To bully someone and to terrorise them both mean to intimidate them with threats or fear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 7,
@@ -158,7 +498,43 @@
     "text": "A lot of ground covered by chauffeur as I abscond",
     "enumeration": "7"
    },
-   "solution": "EURASIA"
+   "solution": "EURASIA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EURASIA",
+    "definitions": [
+     {
+      "text": "A lot of ground",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covered by",
+      "for": "hidden_word",
+      "note": "what is covered by other words lies concealed within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chauffeur as I abscond",
+      "gives": "EURASIA",
+      "note": "the run from the end of chauffeur to the first letter of abscond"
+     }
+    ],
+    "explanation": {
+     "surface": "A runaway passenger confesses to fleeing a chauffeur who has driven a long way.",
+     "walkthrough": "A lot of ground looks like distance travelled, but it is the definition: a vast landmass.",
+     "definitionFit": "The combined continent of Europe and Asia is the largest landmass on Earth, a great deal of territory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 8,
@@ -178,7 +554,61 @@
      }
     ]
    },
-   "solution": "LEMONCHEESE"
+   "solution": "LEMONCHEESE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LEMON CHEESE",
+    "definitions": [
+     {
+      "text": "spread",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Refined",
+      "for": "anagram",
+      "note": "refined material has been processed and reworked, so these letters are recast"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "men",
+      "gives": "MEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "chose",
+      "gives": "CHOSE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "eel",
+      "gives": "EEL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MENCHOSEEEL",
+       "gives": "LEMONCHEESE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Posh gentlemen opted to spread eel on their toast.",
+     "definitionFit": "Lemon cheese is another name for lemon curd, a sweet preserve put on bread or toast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Refined"
+    }
+   }
   },
   {
    "number": 9,
@@ -211,7 +641,67 @@
     "text": "Every so often, rare medusa's shocking couple catching waves",
     "enumeration": "8"
    },
-   "solution": "EARDRUMS"
+   "solution": "EARDRUMS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "EARDRUMS",
+    "definitions": [
+     {
+      "text": "couple catching waves",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Every so often",
+      "for": "letter_selection",
+      "note": "something done every so often happens at intervals, so only alternate letters count"
+     },
+     {
+      "text": "shocking",
+      "for": "anagram",
+      "note": "a shocking state is one of upheaval, so the letters are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rare",
+      "gives": "RR",
+      "select": "alternate",
+      "note": "the first and third letters of rare"
+     },
+     {
+      "clueFragment": "medusa",
+      "gives": "MEDUSA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RRMEDUSA",
+       "gives": "EARDRUMS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rare jellyfish delivers a shock to a pair caught in the waves.",
+     "walkthrough": "The 's stands for is, joining medusa to its anagram signal. The waves the couple catch are sound waves.",
+     "definitionFit": "Each ear has a membrane that vibrates when sound waves strike it, so the pair of them pick up sound."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "waves"
+    }
+   }
   },
   {
    "number": 11,
@@ -225,7 +715,62 @@
     "text": "Character back to fight insect superhero?",
     "enumeration": "6"
    },
-   "solution": "MUTANT"
+   "solution": "MUTANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MUTANT",
+    "definitions": [
+     {
+      "text": "superhero?",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back to",
+      "for": "letter_selection",
+      "note": "the back of a word is its end, so only its final letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Character",
+      "gives": "MU",
+      "note": "mu is a letter of the Greek alphabet, a character"
+     },
+     {
+      "clueFragment": "fight",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of fight"
+     },
+     {
+      "clueFragment": "insect",
+      "gives": "ANT",
+      "note": "an ant is an insect"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MU",
+      "T",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A comic-book character returns to battle an insect-themed superhero.",
+     "walkthrough": "The question mark marks the definition as an example: the X-Men are superheroes who are mutants.",
+     "definitionFit": "In Marvel comics many superheroes, notably the X-Men, owe their powers to being genetic mutants."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Character"
+    }
+   }
   },
   {
    "number": 12,
@@ -281,7 +826,49 @@
     "text": "Sort of reaction produced by commercial poetry",
     "enumeration": "7"
    },
-   "solution": "ADVERSE"
+   "solution": "ADVERSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADVERSE",
+    "definitions": [
+     {
+      "text": "Sort of reaction",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "produced by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "commercial",
+      "gives": "AD",
+      "note": "a commercial is an advertisement, an ad"
+     },
+     {
+      "clueFragment": "poetry",
+      "gives": "VERSE",
+      "note": "poetry is verse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "VERSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A rhyming advertisement provokes some kind of response.",
+     "definitionFit": "An adverse reaction is a harmful or unwanted one, especially to a drug, so the adjective names a kind of reaction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "commercial"
+    }
+   }
   },
   {
    "number": 15,
@@ -295,7 +882,65 @@
     "text": "Was private flogged raw after exposing lies?",
     "enumeration": "9"
    },
-   "solution": "SOLDIERED"
+   "solution": "SOLDIERED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SOLDIERED",
+    "definitions": [
+     {
+      "text": "Was private",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exposing",
+      "for": "letter_selection",
+      "note": "exposing something strips its covering, so the outer letters go and the middle stays"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flogged",
+      "gives": "SOLD",
+      "note": "to flog is slang for to sell"
+     },
+     {
+      "clueFragment": "lies",
+      "gives": "IE",
+      "select": "middle",
+      "note": "lies without its outer letters"
+     },
+     {
+      "clueFragment": "raw",
+      "gives": "RED",
+      "note": "red raw: raw skin is red"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOLD",
+      "IE",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "A private soldier was flogged raw after his lies came out.",
+     "walkthrough": "After places the red after the exposed lies. Flogged here means sold, not whipped.",
+     "definitionFit": "A private is the lowest army rank, so to serve as one is to have soldiered."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "flogged"
+    }
+   }
   },
   {
    "number": 16,
@@ -309,7 +954,71 @@
     "text": "Shipwrecked boy discovered orang and hyena evacuated with another predator",
     "enumeration": "7"
    },
-   "solution": "PIRANHA"
+   "solution": "PIRANHA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PIRANHA",
+    "definitions": [
+     {
+      "text": "another predator",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discovered",
+      "for": "letter_selection",
+      "note": "dis-covered means with its cover removed, so the outer letters go"
+     },
+     {
+      "text": "evacuated",
+      "for": "letter_selection",
+      "note": "something evacuated has been emptied, so only its outer letters are left"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shipwrecked boy",
+      "gives": "PI",
+      "note": "Pi Patel is the shipwrecked boy of Yann Martel's novel Life of Pi"
+     },
+     {
+      "clueFragment": "orang",
+      "gives": "RAN",
+      "select": "middle",
+      "note": "orang without its outer letters"
+     },
+     {
+      "clueFragment": "hyena",
+      "gives": "HA",
+      "select": "outer",
+      "note": "hyena emptied of its middle letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "RAN",
+      "HA"
+     ]
+    },
+    "explanation": {
+     "surface": "A castaway boy shares a lifeboat with an orangutan, a hyena and one more predator.",
+     "walkthrough": "In Life of Pi the boy's lifeboat holds an orangutan, a hyena and a tiger, so another predator fits the scene.",
+     "definitionFit": "The piranha is a sharp-toothed South American fish that hunts other animals, so it is a predator."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "discovered"
+    }
+   }
   },
   {
    "number": 17,
@@ -323,7 +1032,58 @@
     "text": "Spot clergyman getting unsolicited feedback from Cockney",
     "enumeration": "7"
    },
-   "solution": "FRECKLE"
+   "solution": "FRECKLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "FRECKLE",
+    "definitions": [
+     {
+      "text": "Spot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from Cockney",
+      "for": "deletion",
+      "note": "a Cockney Londoner traditionally drops the H at the start of a word"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clergyman",
+      "gives": "FR",
+      "note": "Fr is the abbreviation for Father, a priest"
+     },
+     {
+      "clueFragment": "unsolicited feedback",
+      "gives": "HECKLE",
+      "note": "a heckle is an interruption shouted at a speaker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FR",
+      "ECKLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A priest gets heckled in East London.",
+     "walkthrough": "Cockney is the working-class dialect of London's East End.",
+     "definitionFit": "A freckle is a small brownish spot on the skin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spot"
+    }
+   }
   },
   {
    "number": 18,
@@ -337,7 +1097,60 @@
     "text": "Unequal readings of caesium and uranium give you pause",
     "enumeration": "7"
    },
-   "solution": "CAESURA"
+   "solution": "CAESURA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CAESURA",
+    "definitions": [
+     {
+      "text": "pause",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unequal readings of",
+      "for": "letter_selection",
+      "note": "reading only part of each word, and different-sized parts, means taking opening letters of uneven length"
+     }
+    ],
+    "linkWords": [
+     "give you"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caesium",
+      "gives": "CAES",
+      "select": "first",
+      "note": "the first four letters of caesium"
+     },
+     {
+      "clueFragment": "uranium",
+      "gives": "URA",
+      "select": "first",
+      "note": "the first three letters of uranium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAES",
+      "URA"
+     ]
+    },
+    "explanation": {
+     "surface": "A lab note that mismatched measurements of two elements give a scientist pause.",
+     "walkthrough": "Unequal is what tells you to take four letters of one element and three of the other.",
+     "definitionFit": "A caesura is a break or pause in the middle of a line of verse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "readings"
+    }
+   }
   },
   {
    "number": 19,
@@ -370,7 +1183,70 @@
     "text": "Blokes shortly get Scrooge half-cut with Bob",
     "enumeration": "7"
    },
-   "solution": "GEEZERS"
+   "solution": "GEEZERS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "GEEZERS",
+    "definitions": [
+     {
+      "text": "Blokes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortly",
+      "for": "deletion",
+      "note": "cut short, a word loses its final letter"
+     },
+     {
+      "text": "half-cut",
+      "for": "deletion",
+      "note": "half of the name is cut away, leaving its second half"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "get",
+      "gives": "GET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Scrooge",
+      "gives": "EBENEZER",
+      "note": "Ebenezer is the first name of Dickens's miser Scrooge"
+     },
+     {
+      "clueFragment": "Bob",
+      "gives": "S",
+      "note": "a bob was a shilling, abbreviated s"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GE",
+      "EZER",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Men get Scrooge drunk with Bob Cratchit's help.",
+     "walkthrough": "Half-cut is British slang for tipsy, and Bob suggests Scrooge's clerk Bob Cratchit; here a bob is the old British shilling, written s.",
+     "definitionFit": "Geezer is British slang for a man or fellow, as is bloke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bob"
+    }
+   }
   },
   {
    "number": 21,
@@ -390,7 +1266,65 @@
      }
     ]
    },
-   "solution": "THESEA"
+   "solution": "THESEA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "THE SEA",
+    "definitions": [
+     {
+      "text": "novel",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "binning",
+      "for": "deletion",
+      "note": "binning something throws it away, so those letters are removed"
+     },
+     {
+      "text": "Fancy",
+      "for": "anagram",
+      "note": "fancy means elaborate or fanciful, so the remaining letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aesthete",
+      "gives": "AESTHETE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a certain Lawrence",
+      "gives": "TE",
+      "note": "T. E. Lawrence, Lawrence of Arabia, known by his initials"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THESEA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AESHTE",
+       "gives": "THESEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fancy aesthete discards a novel by D. H. Lawrence.",
+     "walkthrough": "A Lawrence novel suggests D. H.; the Lawrence meant is T. E., and the novel is a separate definition.",
+     "definitionFit": "John Banville's novel of that name won the Booker Prize in 2005."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lawrence"
+    }
+   }
   },
   {
    "number": 22,
@@ -404,7 +1338,54 @@
     "text": "Embarrassed sleuth breaks into exasperated expression",
     "enumeration": "8"
    },
-   "solution": "SHEEPISH"
+   "solution": "SHEEPISH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHEEPISH",
+    "definitions": [
+     {
+      "text": "Embarrassed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaks into",
+      "for": "container",
+      "note": "a burglar who breaks into a house ends up inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exasperated expression",
+      "gives": "SHEESH",
+      "note": "an exclamation of exasperation"
+     },
+     {
+      "clueFragment": "sleuth",
+      "gives": "PI",
+      "note": "a PI is a private investigator"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHEE",
+      "PI",
+      "SH"
+     ]
+    },
+    "explanation": {
+     "surface": "A red-faced detective interrupts someone's irritated outburst.",
+     "definitionFit": "Sheepish describes the awkward, shamefaced look of someone embarrassed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "breaks"
+    }
+   }
   },
   {
    "number": 23,
@@ -432,7 +1413,59 @@
    "group": [
     "23-across",
     "25-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THE SEA THE SEA",
+    "definitions": [
+     {
+      "text": "Murdoch publication",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of order",
+      "for": "anagram",
+      "note": "letters out of order are no longer in their proper sequence"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seethes",
+      "gives": "SEETHES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a hate",
+      "gives": "AHATE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEETHESAHATE",
+       "gives": "THESEATHESEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hostile reader fumes at a Rupert Murdoch newspaper's unacceptable conduct.",
+     "walkthrough": "Murdoch suggests Rupert, the press baron; the author meant is Iris Murdoch.",
+     "definitionFit": "Iris Murdoch's novel of that title won the Booker Prize in 1978."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Murdoch"
+    }
+   }
   },
   {
    "number": 23,
@@ -446,7 +1479,55 @@
     "text": "Spud sampler doesn't want seconds",
     "enumeration": "5"
    },
-   "solution": "TATER"
+   "solution": "TATER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TATER",
+    "definitions": [
+     {
+      "text": "Spud",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doesn't want",
+      "for": "deletion",
+      "note": "what is not wanted is left out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sampler",
+      "gives": "TASTER",
+      "note": "a taster samples food"
+     },
+     {
+      "clueFragment": "seconds",
+      "gives": "S",
+      "note": "s is the abbreviation for seconds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "TER"
+     ]
+    },
+    "explanation": {
+     "surface": "A food sampler declines second helpings of potato.",
+     "walkthrough": "Seconds looks like extra helpings, but it is the unit, abbreviated.",
+     "definitionFit": "Tater and spud are both informal words for a potato."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "seconds"
+    }
+   }
   },
   {
    "number": 24,
@@ -460,7 +1541,69 @@
     "text": "Landowners like stealing Irish resources, ultimately",
     "enumeration": "8"
    },
-   "solution": "ESQUIRES"
+   "solution": "ESQUIRES",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ESQUIRES",
+    "definitions": [
+     {
+      "text": "Landowners",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stealing",
+      "for": "container",
+      "note": "a thief who steals something takes it in, so it ends up held inside"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the very end, so only the final letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like",
+      "gives": "ESQUE",
+      "note": "the suffix -esque means like, in the style of"
+     },
+     {
+      "clueFragment": "Irish",
+      "gives": "IR",
+      "note": "Ir is an abbreviation for Irish"
+     },
+     {
+      "clueFragment": "resources",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of resources"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESQU",
+      "IR",
+      "E",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Absentee landlords plundering Ireland's wealth.",
+     "walkthrough": "Like has to be read as the suffix, as in Kafkaesque.",
+     "definitionFit": "An esquire was historically a member of the landed gentry ranking just below a knight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "like"
+    }
+   }
   },
   {
    "number": 25,
@@ -493,7 +1636,50 @@
     "text": "For example, Ovid's number one",
     "enumeration": "3"
    },
-   "solution": "EGO"
+   "solution": "EGO",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EGO",
+    "definitions": [
+     {
+      "text": "number one",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "For example",
+      "gives": "EG",
+      "note": "e.g. abbreviates exempli gratia, for example"
+     },
+     {
+      "clueFragment": "Ovid's",
+      "gives": "O",
+      "select": "first",
+      "note": "the first letter of Ovid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EG",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about what came first in the Roman poet Ovid's work.",
+     "walkthrough": "Ego is Latin for I, the word Ovid used for himself, so number one doubles as first letter and oneself.",
+     "definitionFit": "Looking after number one means looking after oneself, the self that ego names."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ovid's"
+    }
+   }
   },
   {
    "number": 27,
@@ -530,7 +1716,73 @@
     "text": "Graze from sabre unsheathed when principal spins around",
     "enumeration": "8"
    },
-   "solution": "ABRASION"
+   "solution": "ABRASION",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "ABRASION",
+    "definitions": [
+     {
+      "text": "Graze",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unsheathed",
+      "for": "letter_selection",
+      "note": "a blade drawn from its sheath has its covering removed, so the outer letters go"
+     },
+     {
+      "text": "spins around",
+      "for": "reversal",
+      "note": "something that spins around turns to face the other way, so it is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sabre",
+      "gives": "ABR",
+      "select": "middle",
+      "note": "sabre without its outer letters"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as means when, as in 'as I left'"
+     },
+     {
+      "clueFragment": "principal",
+      "gives": "NOI",
+      "note": "the principal one is number one, No. 1"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABR",
+      "AS",
+      "ION"
+     ],
+     "reversals": [
+      {
+       "from": "NOI",
+       "to": "ION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A duellist suffers a cut when the chief swordsman wheels round.",
+     "definitionFit": "An abrasion is a scrape on the skin, the injury left when something grazes it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "principal"
+    }
+   }
   }
  ]
 }
