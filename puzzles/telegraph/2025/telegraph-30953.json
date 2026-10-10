@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -55,7 +58,47 @@
     "text": "Six deliveries? Company put in too many!",
     "enumeration": "9"
    },
-   "solution": "OVERCROWD"
+   "solution": "OVERCROWD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERCROWD",
+    "definitions": [
+     {
+      "text": "put in too many",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Six deliveries",
+      "gives": "OVER",
+      "note": "in cricket an over is a set of six balls bowled"
+     },
+     {
+      "clueFragment": "Company",
+      "gives": "CROWD",
+      "note": "a crowd is a body of company, as in 'three's a crowd'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "CROWD"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket over, then a complaint that a firm has packed in too many people.",
+     "walkthrough": "An over in cricket is six deliveries by one bowler, a standard convention.",
+     "definitionFit": "To overcrowd a space is to fill it with more people or things than it can comfortably hold."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "deliveries"
+    }
+   }
   },
   {
    "number": 2,
@@ -69,7 +112,51 @@
     "text": "Gas in Middle English with Macbeth?",
     "enumeration": "7"
    },
-   "solution": "METHANE"
+   "solution": "METHANE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "METHANE",
+    "definitions": [
+     {
+      "text": "Gas",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Middle English",
+      "gives": "ME",
+      "note": "ME is the standard abbreviation for Middle English"
+     },
+     {
+      "clueFragment": "Macbeth",
+      "gives": "THANE",
+      "note": "Macbeth was Thane of Glamis and then of Cawdor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "THANE"
+     ]
+    },
+    "explanation": {
+     "surface": "A literary question about some gas in an old English text alongside Shakespeare's Scottish play.",
+     "walkthrough": "A thane was a Scottish lord; Macbeth holds that title in the play.",
+     "definitionFit": "Methane is a colourless flammable gas, the main component of natural gas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Macbeth"
+    }
+   }
   },
   {
    "number": 3,
@@ -83,7 +170,71 @@
     "text": "Scribe torn apart by dominie at last entering SCR",
     "enumeration": "9"
    },
-   "solution": "SCRIVENER"
+   "solution": "SCRIVENER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SCRIVENER",
+    "definitions": [
+     {
+      "text": "Scribe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the final character of the preceding word only"
+     },
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "entering means these pieces go inside the following letters"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "torn apart",
+      "gives": "RIVEN",
+      "note": "riven means split or torn apart"
+     },
+     {
+      "clueFragment": "dominie",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter of dominie"
+     },
+     {
+      "clueFragment": "SCR",
+      "gives": "SCR",
+      "note": "taken as written; the letters are split SC...R around the insert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SC",
+      "RIVEN",
+      "E",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A clerk is mauled by a Scottish schoolmaster as he walks into the senior common room.",
+     "walkthrough": "SCR is the senior common room of a college; a dominie is a Scottish schoolmaster. The inserted letters sit between C and R.",
+     "definitionFit": "A scrivener was a professional copyist or clerk who wrote out documents, i.e. a scribe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "torn"
+    }
+   }
   },
   {
    "number": 4,
@@ -97,7 +248,65 @@
     "text": "Day Scottish man gets admitted to posh school in city",
     "enumeration": "8"
    },
-   "solution": "EDMONTON"
+   "solution": "EDMONTON",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EDMONTON",
+    "definitions": [
+     {
+      "text": "city",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gets admitted to",
+      "for": "container",
+      "note": "being admitted to a place means going inside it, so these letters sit within the school"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Day",
+      "gives": "D",
+      "note": "D is the abbreviation for day"
+     },
+     {
+      "clueFragment": "Scottish man",
+      "gives": "MON",
+      "note": "mon is Scots dialect for man"
+     },
+     {
+      "clueFragment": "posh school",
+      "gives": "ETON",
+      "note": "Eton is the famous English public school"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "D",
+      "MON",
+      "TON"
+     ]
+    },
+    "explanation": {
+     "surface": "A Scotsman is admitted for a day to an elite school in some city.",
+     "walkthrough": "Eton College is England's best-known fee-paying school.",
+     "definitionFit": "Edmonton is the capital city of the Canadian province of Alberta, and also a district of London."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Day"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +330,57 @@
      }
     ]
    },
-   "solution": "DEEPSEADIVER"
+   "solution": "DEEPSEADIVER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DEEP-SEA DIVER",
+    "definitions": [
+     {
+      "text": "One under pressure in the main",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "poor",
+      "for": "anagram",
+      "note": "something poor is in a bad state, so the following letters are put into a damaged new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eve",
+      "gives": "EVE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "despaired",
+      "gives": "DESPAIRED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EVEDESPAIRED",
+       "gives": "DEEPSEADIVER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is under pressure most of the time, and poor Eve has given up hope.",
+     "walkthrough": "'In the main' looks like 'mostly', but the main is the sea, and the pressure is water pressure.",
+     "definitionFit": "A deep-sea diver works far below the ocean surface, enduring great water pressure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +394,59 @@
     "text": "Warmer island for characters within Soay and Rhum?",
     "enumeration": "4"
    },
-   "solution": "OAHU"
+   "solution": "OAHU",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "OAHU",
+    "definitions": [
+     {
+      "text": "Warmer island",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "characters within",
+      "for": "letter_selection",
+      "note": "characters within are the inner letters of each named word, leaving off the edges"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soay",
+      "gives": "OA",
+      "select": "middle",
+      "note": "the two inner letters of Soay"
+     },
+     {
+      "clueFragment": "Rhum",
+      "gives": "HU",
+      "select": "middle",
+      "note": "the two inner letters of Rhum"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OA",
+      "HU"
+     ]
+    },
+    "explanation": {
+     "surface": "Wanting a warmer island in place of two chilly Scottish isles.",
+     "walkthrough": "Soay and Rhum are islands of the Scottish Hebrides, so a Pacific island is warmer than either.",
+     "definitionFit": "Oahu is a Hawaiian island, home to Honolulu, with a tropical climate far hotter than Scotland's."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +460,81 @@
     "text": "Fish nets close to boats I'm capsizing in upheaval at sea",
     "enumeration": "7"
    },
-   "solution": "TSUNAMI"
+   "solution": "TSUNAMI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "reversal",
+     "charade"
+    ],
+    "answer": "TSUNAMI",
+    "definitions": [
+     {
+      "text": "upheaval at sea",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nets",
+      "for": "container",
+      "note": "to net something is to catch it inside, so the fish encloses what follows"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its final character, so only that is kept"
+     },
+     {
+      "text": "capsizing",
+      "for": "reversal",
+      "note": "a capsizing vessel turns over, so this word is read upside down in a down light"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fish",
+      "gives": "TUNA",
+      "note": "the tuna is a large sea fish"
+     },
+     {
+      "clueFragment": "boats",
+      "gives": "S",
+      "select": "last",
+      "note": "final letter of boats"
+     },
+     {
+      "clueFragment": "I'm",
+      "gives": "IM",
+      "note": "taken as written, then turned round"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "S",
+      "UNA",
+      "MI"
+     ],
+     "reversals": [
+      {
+       "from": "IM",
+       "to": "MI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fishing story: catches near the boats, and a fisherman overturning in rough water.",
+     "walkthrough": "The fish holds the letter from boats, then I'm is turned round to MI.",
+     "definitionFit": "A tsunami is a huge sea wave caused by an earthquake or other upheaval of the seabed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nets"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +548,57 @@
     "text": "Relative in French city importing MDMA",
     "enumeration": "5"
    },
-   "solution": "NIECE"
+   "solution": "NIECE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NIECE",
+    "definitions": [
+     {
+      "text": "Relative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "importing",
+      "for": "container",
+      "note": "a place importing goods brings them inside its borders"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French city",
+      "gives": "NICE",
+      "note": "Nice is a city on the French Riviera"
+     },
+     {
+      "clueFragment": "MDMA",
+      "gives": "E",
+      "note": "MDMA is ecstasy, commonly called E"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NI",
+      "E",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A family member caught bringing drugs into a city in France.",
+     "definitionFit": "A niece is a kinship term: the daughter of one's brother or sister."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "importing"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +612,59 @@
     "text": "Eye rat on the loose in bistro, say",
     "enumeration": "6"
    },
-   "solution": "EATERY"
+   "solution": "EATERY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EATERY",
+    "definitions": [
+     {
+      "text": "bistro, say",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the loose",
+      "for": "anagram",
+      "note": "something on the loose runs free, so these letters scatter into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eye",
+      "gives": "EYE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rat",
+      "gives": "RAT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EYERAT",
+       "gives": "EATERY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning to keep an eye out for a rat running free in a small restaurant.",
+     "walkthrough": "'Say' marks the bistro as one example of the answer.",
+     "definitionFit": "An eatery is any informal place to eat, and a bistro is one example of such a restaurant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Eye"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +684,39 @@
      }
     ]
    },
-   "solution": "HENHOUSE"
+   "solution": "HENHOUSE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HEN HOUSE",
+    "definitions": [
+     {
+      "text": "Many layers shed?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Many layers shed?",
+      "note": "surface reading: lots of coats or strata being peeled off or discarded"
+     },
+     {
+      "clueFragment": "layers shed",
+      "note": "setter's reading: a shed that holds many laying hens"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Shed' looks like a verb meaning cast off, but it is a noun, an outbuilding, and layers are egg-laying birds.",
+     "definitionFit": "A henhouse is a hut where poultry roost and lay their eggs, so a shed full of layers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shed"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +730,67 @@
     "text": "US special agents dash into bendy bus lane",
     "enumeration": "12"
    },
-   "solution": "UNTOUCHABLES"
+   "solution": "UNTOUCHABLES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "UNTOUCHABLES",
+    "definitions": [
+     {
+      "text": "US special agents",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "going into something means being placed inside it"
+     },
+     {
+      "text": "bendy",
+      "for": "anagram",
+      "note": "bendy means flexible and twisted, so the letters are bent into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dash",
+      "gives": "TOUCH",
+      "note": "a dash or touch is a small amount, as of seasoning"
+     },
+     {
+      "clueFragment": "bus lane",
+      "gives": "BUSLANE",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "TOUCH",
+      "ABLES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BUSLANE",
+       "gives": "UNABLES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Federal agents rushing into a bus lane, where a bendy bus is an articulated one.",
+     "walkthrough": "'Dash' looks like a rush, but it is a noun for a small amount; the rearranged bus lane splits around it.",
+     "definitionFit": "The Untouchables were Eliot Ness's team of incorruptible Prohibition agents who pursued Al Capone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dash"
+    }
+   }
   },
   {
    "number": 12,
@@ -238,7 +817,43 @@
     "text": "Worthless singing voice we hear",
     "enumeration": "4"
    },
-   "solution": "BASE"
+   "solution": "BASE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BASE",
+    "definitions": [
+     {
+      "text": "Worthless",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "we hear signals that the word is judged by its sound when spoken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "singing voice",
+      "gives": "BASE",
+      "soundsLike": "BASS",
+      "note": "the bass is the lowest male singing voice"
+     }
+    ],
+    "explanation": {
+     "surface": "A dismissive review of a singer's lowest register as worthless.",
+     "definitionFit": "Base means of low value or quality, as in base metals, so worthless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "voice"
+    }
+   }
   },
   {
    "number": 14,
@@ -252,7 +867,48 @@
     "text": "Poem soldier oddly ignored",
     "enumeration": "3"
    },
-   "solution": "ODE"
+   "solution": "ODE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ODE",
+    "definitions": [
+     {
+      "text": "Poem",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly ignored",
+      "for": "letter_selection",
+      "note": "ignoring the odd-numbered positions keeps only the second, fourth and sixth characters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldier",
+      "gives": "ODE",
+      "select": "alternate",
+      "note": "the even letters of soldier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ODE"
+     ]
+    },
+    "explanation": {
+     "surface": "A poem about a soldier who was strangely overlooked.",
+     "definitionFit": "An ode is a lyric poem, usually addressed to a particular subject in an elevated style."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "oddly"
+    }
+   }
   },
   {
    "number": 15,
@@ -266,7 +922,70 @@
     "text": "Nothing in Pan's Enigma worried religious movement",
     "enumeration": "11"
    },
-   "solution": "NEOPAGANISM"
+   "solution": "NEOPAGANISM",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "NEOPAGANISM",
+    "definitions": [
+     {
+      "text": "religious movement",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first item inside the words that follow"
+     },
+     {
+      "text": "worried",
+      "for": "anagram",
+      "note": "worried means harried and shaken about, so the combined letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nothing",
+      "gives": "O",
+      "note": "nothing is zero, which looks like O"
+     },
+     {
+      "clueFragment": "Pan's",
+      "gives": "PANS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Enigma",
+      "gives": "ENIGMA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEOPAGANISM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PANSOENIGMA",
+       "gives": "NEOPAGANISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The puzzle of the god Pan, troubling enough to spawn a religious movement.",
+     "walkthrough": "Pan, the Greek nature god, fits the surface neatly, since neo-paganism revives such deities.",
+     "definitionFit": "Neopaganism is a modern revival of pre-Christian nature worship, a religious movement such as Wicca."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worried"
+    }
+   }
   },
   {
    "number": 16,
@@ -286,7 +1005,39 @@
      }
     ]
    },
-   "solution": "ADNAUSEAM"
+   "solution": "ADNAUSEAM",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "AD NAUSEAM",
+    "definitions": [
+     {
+      "text": "Using Latin to an offensive extent?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Using Latin to an offensive extent?",
+      "note": "surface reading: someone overdoing the classical tags until it grates"
+     },
+     {
+      "clueFragment": "to an offensive extent",
+      "note": "setter's reading: a Latin phrase meaning to a sickening degree"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue seems to mock someone who quotes Latin too much; in fact it asks for the Latin expression that itself means 'to a nauseating degree'.",
+     "definitionFit": "The Latin tag literally means 'to sickness', used of something repeated until it becomes tiresome."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Using"
+    }
+   }
   },
   {
    "number": 17,
@@ -300,7 +1051,58 @@
     "text": "Watched fool getting tied up outside",
     "enumeration": "9"
    },
-   "solution": "MONITORED"
+   "solution": "MONITORED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MONITORED",
+    "definitions": [
+     {
+      "text": "Watched",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "being outside means wrapping around the item named first"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fool",
+      "gives": "NIT",
+      "note": "a nit is a fool, short for nitwit"
+     },
+     {
+      "clueFragment": "tied up",
+      "gives": "MOORED",
+      "note": "a boat tied up at a quay is moored"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "NIT",
+      "ORED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone observed an idiot being bound and left outdoors.",
+     "walkthrough": "'Tied up' looks like the fate of the fool, but it is the berthing word that goes around him.",
+     "definitionFit": "To monitor is to observe or keep under surveillance, so watched is a synonym in the past tense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tied"
+    }
+   }
   },
   {
    "number": 18,
@@ -327,7 +1129,71 @@
     "text": "Chill overwhelms husband in ship or trains?",
     "enumeration": "7"
    },
-   "solution": "SCHOOLS"
+   "solution": "SCHOOLS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCHOOLS",
+    "definitions": [
+     {
+      "text": "trains",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overwhelms",
+      "for": "container",
+      "note": "to overwhelm is to engulf and swallow up, so the first word surrounds the next"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the combined letters inside the vessel"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ship",
+      "gives": "SS",
+      "note": "SS is steamship"
+     },
+     {
+      "clueFragment": "Chill",
+      "gives": "COOL",
+      "note": "to chill is to cool"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "H",
+      "OOL",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A cold spell swamps a married man aboard a ship, or perhaps on the railway.",
+     "walkthrough": "'Trains' looks like the railway rival to ships, but it is a verb meaning teaches.",
+     "definitionFit": "To school someone is to educate or coach them, so schools works as a verb meaning trains."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trains"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1207,47 @@
     "text": "White end missing from magical rod",
     "enumeration": "3"
    },
-   "solution": "WAN"
+   "solution": "WAN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "WAN",
+    "definitions": [
+     {
+      "text": "White",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end missing from",
+      "for": "deletion",
+      "note": "with its end missing, the final letter of the word is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "magical rod",
+      "gives": "WAND",
+      "note": "a wizard's wand is a magical rod"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A wizard's white wand that has lost its tip.",
+     "definitionFit": "Wan means pale and sickly in colour, so white in the face."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "White"
+    }
+   }
   },
   {
    "number": 20,
@@ -366,7 +1272,57 @@
     "20-down",
     "1-across",
     "18-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "WEAPONS OF MASS DESTRUCTION",
+    "definitions": [
+     {
+      "text": "For which frantic US team swoops? Finds no trace?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "frantic",
+      "for": "anagram",
+      "note": "frantic means wildly agitated, so all the letters that follow are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US team swoops",
+      "gives": "USTEAMSWOOPS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Finds no trace",
+      "gives": "FINDSNOTRACE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "USTEAMSWOOPSFINDSNOTRACE",
+       "gives": "WEAPONSOFMASSDESTRUCTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "American inspectors raid site after site and turn up nothing.",
+     "walkthrough": "The whole clue is both the anagram and the definition: it recalls the 2003 Iraq war, when US searches for banned arms found none.",
+     "definitionFit": "Weapons of mass destruction are nuclear, chemical or biological arms, the alleged Iraqi arsenal that searchers never found."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "swoops"
+    }
+   }
   },
   {
    "number": 21,
@@ -380,7 +1336,48 @@
     "text": "London section starts to spy on Home Office",
     "enumeration": "4"
    },
-   "solution": "SOHO"
+   "solution": "SOHO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SOHO",
+    "definitions": [
+     {
+      "text": "London section",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of words are their opening characters, one taken from each"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spy on Home Office",
+      "gives": "SOHO",
+      "select": "first",
+      "note": "initial letters of spy, on, Home and Office"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOHO"
+     ]
+    },
+    "explanation": {
+     "surface": "Part of London where agents begin snooping on the Home Office, Britain's interior ministry.",
+     "definitionFit": "Soho is a district of the West End of central London, known for nightlife and theatres."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spy"
+    }
+   }
   },
   {
    "number": 21,
@@ -394,7 +1391,42 @@
     "text": "Cook involved in fiscal drag",
     "enumeration": "5"
    },
-   "solution": "SCALD"
+   "solution": "SCALD",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SCALD",
+    "definitions": [
+     {
+      "text": "Cook",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved in",
+      "for": "hidden_word",
+      "note": "involved in says the letters are wrapped up inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fiscal drag",
+      "gives": "SCALD",
+      "note": "the run of letters across the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A chef caught up in the economics of fiscal drag, where inflation pushes earners into higher tax bands.",
+     "definitionFit": "To scald is to heat a liquid, such as milk, to just below boiling, a cooking technique."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cook"
+    }
+   }
   },
   {
    "number": 22,
@@ -418,7 +1450,48 @@
      }
     ]
    },
-   "solution": "CAFEAULAIT"
+   "solution": "CAFEAULAIT",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "CAFE AU LAIT",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ships",
+      "for": "hidden_word",
+      "note": "a vessel ships cargo by carrying it inside, so the words that follow hold the letters"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means the carried letters are read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "substantial UAE factory",
+      "gives": "TIALUAEFAC",
+      "note": "the letters run across the end of substantial, all of UAE and the start of factory, then are turned round"
+     }
+    ],
+    "explanation": {
+     "surface": "A big Emirati plant exports a beverage back home.",
+     "definitionFit": "Café au lait is French for 'coffee with milk', a hot drink of coffee and steamed milk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ships"
+    }
+   }
   },
   {
    "number": 23,
@@ -442,7 +1515,57 @@
    "group": [
     "23-down",
     "12-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "MALE CHAUVINISM",
+    "definitions": [
+     {
+      "text": "Such a vile man – I'm possibly a product of this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly signals one of several arrangements, so the preceding letters are recombined"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Such a vile man",
+      "gives": "SUCHAVILEMAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I'm",
+      "gives": "IM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SUCHAVILEMANIM",
+       "gives": "MALECHAUVINISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sexist man muses that his own vileness may be the result of his attitudes.",
+     "walkthrough": "The whole clue is both definition and anagram: the letters before 'possibly' rearrange to the attitude that produces such a man.",
+     "definitionFit": "Male chauvinism is the belief that men are superior to women, the attitude behind a sexist man's behaviour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "possibly"
+    }
+   }
   },
   {
    "number": 24,
@@ -456,7 +1579,60 @@
     "text": "A scruffy old bear inspiring great affection",
     "enumeration": "8"
    },
-   "solution": "ADORABLE"
+   "solution": "ADORABLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ADORABLE",
+    "definitions": [
+     {
+      "text": "inspiring great affection",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scruffy",
+      "for": "anagram",
+      "note": "something scruffy is untidy and dishevelled, so these letters are put in disarray"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "old bear",
+      "gives": "OLDBEAR",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DORABLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OLDBEAR",
+       "gives": "DORABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shabby old teddy bear that is much loved.",
+     "definitionFit": "Adorable means lovable or charming, so it describes something that inspires great affection."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "scruffy"
+    }
+   }
   },
   {
    "number": 25,
@@ -470,7 +1646,46 @@
     "text": "Painter concerned with dark film genre",
     "enumeration": "6"
    },
-   "solution": "RENOIR"
+   "solution": "RENOIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RENOIR",
+    "definitions": [
+     {
+      "text": "Painter",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concerned with",
+      "gives": "RE",
+      "note": "re means regarding or concerning"
+     },
+     {
+      "clueFragment": "dark film genre",
+      "gives": "NOIR",
+      "note": "film noir is the dark crime-movie genre"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "NOIR"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist preoccupied with gloomy crime movies.",
+     "definitionFit": "Pierre-Auguste Renoir was a French Impressionist artist; his son Jean was a film director."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Painter"
+    }
+   }
   },
   {
    "number": 26,
@@ -484,7 +1699,66 @@
     "text": "Hand out is with soft thick sandwiches",
     "enumeration": "8"
    },
-   "solution": "DISPENSE"
+   "solution": "DISPENSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DISPENSE",
+    "definitions": [
+     {
+      "text": "Hand out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sandwiches",
+      "for": "container",
+      "note": "a sandwich has bread on both sides, so the outer word encloses what precedes it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thick",
+      "gives": "DENSE",
+      "note": "dense means thick, as fog or a crowd"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "soft",
+      "gives": "P",
+      "note": "p is piano, the musical term for soft"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IS",
+      "P",
+      "ENSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone distributes soft, thick sandwiches.",
+     "walkthrough": "'Sandwiches' looks like food being handed out, but it is a verb, the enclosing signal.",
+     "definitionFit": "To dispense is to distribute or give out, as a pharmacist dispenses medicine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sandwiches"
+    }
+   }
   },
   {
    "number": 27,
@@ -498,7 +1772,46 @@
     "text": "Adult thought provoked a snigger",
     "enumeration": "6"
    },
-   "solution": "AMUSED"
+   "solution": "AMUSED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMUSED",
+    "definitions": [
+     {
+      "text": "provoked a snigger",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Adult",
+      "gives": "A",
+      "note": "A is the film classification for adult"
+     },
+     {
+      "clueFragment": "thought",
+      "gives": "MUSED",
+      "note": "to muse is to ponder, so mused means thought"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MUSED"
+     ]
+    },
+    "explanation": {
+     "surface": "A grown-up's reflection drew a stifled laugh.",
+     "definitionFit": "To amuse is to make someone laugh, so amused, past tense, matches drawing a snigger from them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thought"
+    }
+   }
   }
  ]
 }
