@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,66 @@
     "text": "Drink in brother's bar, after cutting back",
     "enumeration": "6"
    },
-   "solution": "ABSORB"
+   "solution": "ABSORB",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "ABSORB",
+    "definitions": [
+     {
+      "text": "Drink in",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cutting",
+      "for": "deletion",
+      "note": "cutting trims a word short, here docking the tail of bar"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back tells the solver to read the joined letters from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brother's",
+      "gives": "BROS",
+      "note": "BRO is short for brother, plus the possessive S"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "BAR",
+      "note": "taken as written, before its last letter goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABSORB"
+     ],
+     "reversals": [
+      {
+       "from": "BROSBA",
+       "to": "ABSORB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone drinking at their brother's pub after a spell of cutting down.",
+     "walkthrough": "BAR loses its R to give BA; BROS plus BA, read backwards, gives ABSORB.",
+     "definitionFit": "To drink in, like a sponge, is to soak up or take in, which is absorbing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cutting"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +108,55 @@
     "text": "Taking lid off bottle, pour forth drink",
     "enumeration": "5"
    },
-   "solution": "BOOZE"
+   "solution": "BOOZE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BOOZE",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Taking lid off",
+      "for": "letter_selection",
+      "note": "the lid is the top of a bottle, so only its first letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bottle",
+      "gives": "B",
+      "select": "first",
+      "note": "the top letter of bottle"
+     },
+     {
+      "clueFragment": "pour forth",
+      "gives": "OOZE",
+      "note": "to ooze is to flow or seep out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "OOZE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone uncorks a bottle and pours out a drink.",
+     "definitionFit": "Booze is the informal word for alcoholic drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lid"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +170,50 @@
     "text": "Blur face, but so grotesquely",
     "enumeration": "9"
    },
-   "solution": "OBFUSCATE"
+   "solution": "OBFUSCATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OBFUSCATE",
+    "definitions": [
+     {
+      "text": "Blur",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grotesquely",
+      "for": "anagram",
+      "note": "something grotesque is distorted out of its natural shape, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "face, but so",
+      "gives": "FACEBUTSO",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FACEBUTSO",
+       "gives": "OBFUSCATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An image of a face distorted into something grotesque and blurred.",
+     "definitionFit": "To obfuscate is to make unclear or obscure, so it is to blur."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grotesquely"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +227,54 @@
     "text": "Little room in English county with hi-tech",
     "enumeration": "6"
    },
-   "solution": "BEDSIT"
+   "solution": "BEDSIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEDSIT",
+    "definitions": [
+     {
+      "text": "Little room",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English county",
+      "gives": "BEDS",
+      "note": "Beds is the abbreviation for Bedfordshire, a county north of London"
+     },
+     {
+      "clueFragment": "with",
+      "note": "joins the two pieces"
+     },
+     {
+      "clueFragment": "hi-tech",
+      "gives": "IT",
+      "note": "IT is information technology"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEDS",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A small modern flat in the English shires fitted with gadgets.",
+     "walkthrough": "A bedsit is a British term for a single rented room used for both living and sleeping.",
+     "definitionFit": "A bedsit is a single small rented room serving as bedroom and living space."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hi-tech"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +288,74 @@
     "text": "Pointer tossing rubbish around playfully at first",
     "enumeration": "8"
    },
-   "solution": "SIGNPOST"
+   "solution": "SIGNPOST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SIGNPOST",
+    "definitions": [
+     {
+      "text": "Pointer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rubbish",
+      "for": "anagram",
+      "note": "rubbish as an adjective means poor or worthless, so the word before it is to be knocked into a new shape"
+     },
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first asks for only the opening letter of the word before it"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means the jumbled letters go round the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tossing",
+      "gives": "TOSSING",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "playfully",
+      "gives": "P",
+      "select": "first",
+      "note": "first letter of playfully"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIGN",
+      "P",
+      "OST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOSSING",
+       "gives": "SIGNOST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone playfully tossing rubbish about in a game.",
+     "walkthrough": "Tossing looks like the anagram verb, but it is the fodder; rubbish is the signal, and P goes inside the result.",
+     "definitionFit": "A signpost is a post that points the way, so it is a pointer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tossing"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +379,73 @@
      }
     ]
    },
-   "solution": "SANANDREASFAULT"
+   "solution": "SANANDREASFAULT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "anagram"
+    ],
+    "answer": "SAN ANDREAS FAULT",
+    "definitions": [
+     {
+      "text": "underground line?",
+      "at": 63
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to just the first letter of digger"
+     },
+     {
+      "text": "going in",
+      "for": "container",
+      "note": "going in means the single letter enters the following set of letters"
+     },
+     {
+      "text": "repairs",
+      "for": "anagram",
+      "note": "repairs as a verb means fixes, putting the letters together in a new working order"
+     }
+    ],
+    "linkWords": [
+     "concerning"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Digger",
+      "gives": "D",
+      "select": "first",
+      "note": "first letter of digger"
+     },
+     {
+      "clueFragment": "faster, as annual",
+      "gives": "FASTERASANNUAL",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DFASTERASANNUAL",
+       "gives": "SANANDREASFAULT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A digger working faster to finish annual roadworks above an Underground railway line.",
+     "walkthrough": "Underground line suggests the London Tube, but here it is a crack running beneath the earth.",
+     "definitionFit": "The San Andreas Fault is a geological fracture in California, literally a line running below the ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "underground"
+    }
+   }
   },
   {
    "number": 6,
@@ -132,7 +465,60 @@
      }
     ]
    },
-   "solution": "GREATAPE"
+   "solution": "GREATAPE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GREAT APE",
+    "definitions": [
+     {
+      "text": "Primate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking means holding something inside, so the wine takes in the meal"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in completes the picture of one piece being placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Merlot, say?",
+      "gives": "GRAPE",
+      "note": "Merlot is an example of a grape variety"
+     },
+     {
+      "clueFragment": "lunch",
+      "gives": "EAT",
+      "note": "to lunch is to eat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GR",
+      "EAT",
+      "APE"
+     ]
+    },
+    "explanation": {
+     "surface": "A primate drinking red wine over lunch.",
+     "definitionFit": "Great apes, such as gorillas and chimpanzees, are a group of primates."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "lunch"
+    }
+   }
   },
   {
    "number": 7,
@@ -146,7 +532,43 @@
     "text": "Musician and cake decorator?",
     "enumeration": "5"
    },
-   "solution": "PIPER"
+   "solution": "PIPER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PIPER",
+    "definitions": [
+     {
+      "text": "Musician",
+      "at": 0
+     },
+     {
+      "text": "cake decorator?",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Musician",
+      "note": "first meaning: a player of the bagpipes"
+     },
+     {
+      "clueFragment": "cake decorator?",
+      "note": "second meaning: one who pipes icing onto a cake"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the invented sense: someone who pipes icing.",
+     "definitionFit": "A piper plays pipes, and anyone squeezing icing from a nozzle pipes it, so the word fits both."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "decorator"
+    }
+   }
   },
   {
    "number": 8,
@@ -160,7 +582,64 @@
     "text": "Restaurant worker in battle that is grasped by both hands",
     "enumeration": "9"
    },
-   "solution": "SOMMELIER"
+   "solution": "SOMMELIER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SOMMELIER",
+    "definitions": [
+     {
+      "text": "Restaurant worker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grasped by",
+      "for": "container",
+      "note": "grasped by means held within, so one piece sits inside the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "battle",
+      "gives": "SOMME",
+      "note": "the Somme was a major First World War battle"
+     },
+     {
+      "clueFragment": "both hands",
+      "gives": "LR",
+      "note": "L and R stand for left and right"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation for id est, that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOMME",
+      "L",
+      "IE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A waiter caught up in a war, clutched by both hands.",
+     "definitionFit": "A sommelier is the wine waiter employed in a restaurant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "battle"
+    }
+   }
   },
   {
    "number": 9,
@@ -174,7 +653,69 @@
     "text": "Study poem rejected by poet, trusted friend",
     "enumeration": "10"
    },
-   "solution": "CONFIDANTE"
+   "solution": "CONFIDANTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CONFIDANTE",
+    "definitions": [
+     {
+      "text": "trusted friend",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the poem title is turned around"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Study",
+      "gives": "CON",
+      "note": "to con is an old word for to study"
+     },
+     {
+      "clueFragment": "poem",
+      "gives": "IF",
+      "note": "If is Kipling's famous poem"
+     },
+     {
+      "clueFragment": "poet",
+      "gives": "DANTE",
+      "note": "Dante Alighieri, the Italian poet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "FI",
+      "DANTE"
+     ],
+     "reversals": [
+      {
+       "from": "IF",
+       "to": "FI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet turning down a poem he studied, sharing his doubts with a close friend.",
+     "definitionFit": "A confidante is a person one trusts with private matters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Study"
+    }
+   }
   },
   {
    "number": 10,
@@ -188,7 +729,42 @@
     "text": "Use force to remove shoe",
     "enumeration": "4"
    },
-   "solution": "PUMP"
+   "solution": "PUMP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PUMP",
+    "definitions": [
+     {
+      "text": "Use force to remove",
+      "at": 0
+     },
+     {
+      "text": "shoe",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Use force to remove",
+      "note": "first meaning: to draw out by pressure, as water from a well"
+     },
+     {
+      "clueFragment": "shoe",
+      "note": "second meaning: a light flat shoe"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests wrenching a shoe off; the two halves are separate meanings.",
+     "definitionFit": "To pump water out is to force it out, and a pump is a light slip-on shoe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "remove"
+    }
+   }
   },
   {
    "number": 11,
@@ -202,7 +778,55 @@
     "text": "Again transfer rule-breaking fool",
     "enumeration": "8"
    },
-   "solution": "REASSIGN"
+   "solution": "REASSIGN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REASSIGN",
+    "definitions": [
+     {
+      "text": "Again transfer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "breaking means split open, so the rule word is parted to let the other word in"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rule",
+      "gives": "REIGN",
+      "note": "to reign is to rule"
+     },
+     {
+      "clueFragment": "fool",
+      "gives": "ASS",
+      "note": "an ass is a fool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "ASS",
+      "IGN"
+     ]
+    },
+    "explanation": {
+     "surface": "A fool caught breaking the rules is moved on again.",
+     "walkthrough": "Rule-breaking reads as one adjective, but it splits into the rule word and the breaking signal.",
+     "definitionFit": "To reassign is to allocate or transfer something a second time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rule-breaking"
+    }
+   }
   },
   {
    "number": 12,
@@ -216,7 +840,63 @@
     "text": "Reversal of routine important for country",
     "enumeration": "6"
    },
-   "solution": "TURKEY"
+   "solution": "TURKEY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TURKEY",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reversal of",
+      "for": "reversal",
+      "note": "Reversal of plainly asks for the next word to be read backwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "routine",
+      "gives": "RUT",
+      "note": "a rut is a dull routine"
+     },
+     {
+      "clueFragment": "important",
+      "gives": "KEY",
+      "note": "key means important"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUR",
+      "KEY"
+     ],
+     "reversals": [
+      {
+       "from": "RUT",
+       "to": "TUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Breaking out of a dull routine matters for a nation.",
+     "definitionFit": "Turkey is a country spanning south-east Europe and western Asia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Reversal"
+    }
+   }
   },
   {
    "number": 13,
@@ -230,7 +910,60 @@
     "text": "Hit on the turn, a soldier",
     "enumeration": "4"
    },
-   "solution": "PARA"
+   "solution": "PARA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PARA",
+    "definitions": [
+     {
+      "text": "soldier",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the turn",
+      "for": "reversal",
+      "note": "on the turn means turning round, so the hit word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hit",
+      "gives": "RAP",
+      "note": "a rap is a sharp blow"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "RAP",
+       "to": "PAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier is struck as he turns round.",
+     "definitionFit": "Para is short for paratrooper, a parachute soldier."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 14,
@@ -244,7 +977,64 @@
     "text": "A fine period at hospital — result!",
     "enumeration": "9"
    },
-   "solution": "AFTERMATH"
+   "solution": "AFTERMATH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AFTERMATH",
+    "definitions": [
+     {
+      "text": "result!",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the pencil-grading abbreviation for fine"
+     },
+     {
+      "clueFragment": "period",
+      "gives": "TERM",
+      "note": "a term is a period of time"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the map abbreviation for hospital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "F",
+      "TERM",
+      "AT",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A good spell in hospital, and a successful outcome to cheer.",
+     "definitionFit": "An aftermath is the consequence or result following an event."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fine"
+    }
+   }
   },
   {
    "number": 15,
@@ -258,7 +1048,54 @@
     "text": "Remains hanging around auberge in France, perhaps",
     "enumeration": "8"
    },
-   "solution": "REPUBLIC"
+   "solution": "REPUBLIC",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REPUBLIC",
+    "definitions": [
+     {
+      "text": "France, perhaps",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hanging around",
+      "for": "container",
+      "note": "hanging around means surrounding, so one word wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Remains",
+      "gives": "RELIC",
+      "note": "a relic is something that remains from the past"
+     },
+     {
+      "clueFragment": "auberge",
+      "gives": "PUB",
+      "note": "an auberge is a French inn, so a pub"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "PUB",
+      "LIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Remains of the past lingering around a French country inn.",
+     "definitionFit": "France is an example of a republic, a state with an elected head rather than a monarch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Remains"
+    }
+   }
   },
   {
    "number": 16,
@@ -272,7 +1109,42 @@
     "text": "Lovely, nasty surprise",
     "enumeration": "9"
    },
-   "solution": "BOMBSHELL"
+   "solution": "BOMBSHELL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOMBSHELL",
+    "definitions": [
+     {
+      "text": "Lovely",
+      "at": 0
+     },
+     {
+      "text": "nasty surprise",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lovely",
+      "note": "first meaning, as a noun: a very attractive woman"
+     },
+     {
+      "clueFragment": "nasty surprise",
+      "note": "second meaning: a shocking, unwelcome piece of news"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Lovely reads as an adjective but is the noun for a beautiful woman.",
+     "definitionFit": "Bombshell is slang for a stunning woman and also for a shattering, unexpected revelation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lovely"
+    }
+   }
   },
   {
    "number": 17,
@@ -286,7 +1158,61 @@
     "text": "Throw black rock like that into container",
     "enumeration": "8"
    },
-   "solution": "JETTISON"
+   "solution": "JETTISON",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "JETTISON",
+    "definitions": [
+     {
+      "text": "Throw",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into means placed inside, so one piece is put within the container word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "black rock",
+      "gives": "JET",
+      "note": "jet is a hard black mineral used in jewellery"
+     },
+     {
+      "clueFragment": "container",
+      "gives": "TIN",
+      "note": "a tin is a container"
+     },
+     {
+      "clueFragment": "like that",
+      "gives": "SO",
+      "note": "so means in that way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JET",
+      "TI",
+      "SO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to toss a black stone into a bin.",
+     "definitionFit": "To jettison is to throw overboard or discard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "container"
+    }
+   }
   },
   {
    "number": 18,
@@ -306,7 +1232,62 @@
      }
     ]
    },
-   "solution": "ETCETERA"
+   "solution": "ETCETERA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ET CETERA",
+    "definitions": [
+     {
+      "text": "and so on",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast means scattered widely, so these letters are scattered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Create",
+      "gives": "CREATE",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "film",
+      "gives": "ET",
+      "note": "E.T. is the Spielberg film"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETC",
+      "ET",
+      "ERA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CREATE",
+       "gives": "ETCERA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to make a broadcast about a film.",
+     "walkthrough": "On means the film's two letters sit beside the rearranged letters; here they land in the middle of them.",
+     "definitionFit": "Et cetera is Latin for and the rest, used to mean and so on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 19,
@@ -320,7 +1301,45 @@
     "text": "Red stains by one's ears?",
     "enumeration": "4"
    },
-   "solution": "MARX"
+   "solution": "MARX",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MARX",
+    "definitions": [
+     {
+      "text": "Red",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by one's ears",
+      "for": "homophone",
+      "note": "judged by one's ears means going on what is heard rather than written"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stains",
+      "gives": "MARX",
+      "soundsLike": "MARKS",
+      "note": "marks are stains"
+     }
+    ],
+    "explanation": {
+     "surface": "Red stains near someone's ears.",
+     "walkthrough": "Red looks like the colour of the stains; it is a communist.",
+     "definitionFit": "Karl Marx, founder of communism, is the archetypal Red."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Red"
+    }
+   }
   },
   {
    "number": 20,
@@ -334,7 +1353,48 @@
     "text": "Where entertainment had dismissing opener, not cricket!",
     "enumeration": "6"
    },
-   "solution": "UNFAIR"
+   "solution": "UNFAIR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "UNFAIR",
+    "definitions": [
+     {
+      "text": "not cricket!",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dismissing opener",
+      "for": "deletion",
+      "note": "dismissing the opener sends the first one away, so the first letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where entertainment had",
+      "gives": "FUNFAIR",
+      "note": "a funfair is a place where fun is had"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNFAIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket match where the opening batsman was given out unfairly.",
+     "walkthrough": "Not cricket is a British idiom for unsporting, and dismissing an opener is cricket talk borrowed for the deletion.",
+     "definitionFit": "Saying something is not cricket means it is unsporting or unjust."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "dismissing"
+    }
+   }
   },
   {
    "number": 21,
@@ -348,7 +1408,56 @@
     "text": "Horror film's introduction, okay",
     "enumeration": "6"
    },
-   "solution": "FRIGHT"
+   "solution": "FRIGHT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FRIGHT",
+    "definitions": [
+     {
+      "text": "Horror",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduction",
+      "for": "letter_selection",
+      "note": "the introduction of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "film's",
+      "gives": "F",
+      "select": "first",
+      "note": "first letter of film"
+     },
+     {
+      "clueFragment": "okay",
+      "gives": "RIGHT",
+      "note": "right means okay"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Approval of a horror film's opening.",
+     "walkthrough": "Horror film reads as a genre, but horror is the definition alone.",
+     "definitionFit": "A fright is a sudden feeling of fear, a synonym for horror."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "film's"
+    }
+   }
   },
   {
    "number": 22,
@@ -362,7 +1471,41 @@
     "text": "Crude measure of old",
     "enumeration": "5"
    },
-   "solution": "GROSS"
+   "solution": "GROSS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GROSS",
+    "definitions": [
+     {
+      "text": "Crude",
+      "at": 0
+     },
+     {
+      "text": "measure of old",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crude",
+      "note": "first meaning: coarse or vulgar"
+     },
+     {
+      "clueFragment": "measure of old",
+      "note": "second meaning: an old counting unit of twelve dozen"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Gross means coarse or vulgar, and a gross is 144, a traditional quantity now seldom used."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Crude"
+    }
+   }
   },
   {
    "number": 23,
@@ -376,7 +1519,53 @@
     "text": "Over bit of fish I cast",
     "enumeration": "8"
    },
-   "solution": "FINISHED"
+   "solution": "FINISHED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FINISHED",
+    "definitions": [
+     {
+      "text": "Over",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bit of fish",
+      "gives": "FIN",
+      "note": "a fin is part of a fish"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cast",
+      "gives": "SHED",
+      "note": "to shed is to cast off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIN",
+      "I",
+      "SHED"
+     ]
+    },
+    "explanation": {
+     "surface": "An angler complaining about a part of a fish he cast.",
+     "walkthrough": "Cast looks like an anagram signal, but it is the synonym for shed.",
+     "definitionFit": "Something over has ended, so it is finished."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 24,
@@ -396,7 +1585,56 @@
      }
     ]
    },
-   "solution": "ECOLI"
+   "solution": "ECOLI",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "E COLI",
+    "definitions": [
+     {
+      "text": "Bug",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters lie inside the next words of the clue"
+     },
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down clue, turning up means reading from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "silo, certainly",
+      "gives": "ILOCE",
+      "note": "letters running across the two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ILOCE",
+       "to": "ECOLI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pest turning up in a grain silo, without doubt.",
+     "definitionFit": "E. coli is a bacterium, and a bug is the everyday word for a germ."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bug"
+    }
+   }
   },
   {
    "number": 25,
@@ -410,7 +1648,71 @@
     "text": "Starter of organic root vegetable turned over in sauce",
     "enumeration": "4"
    },
-   "solution": "MAYO"
+   "solution": "MAYO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "MAYO",
+    "definitions": [
+     {
+      "text": "sauce",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Starter of",
+      "for": "letter_selection",
+      "note": "the starter of a word is its first letter"
+     },
+     {
+      "text": "turned over",
+      "for": "reversal",
+      "note": "turned over means flipped, so the joined letters are read backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "organic",
+      "gives": "O",
+      "select": "first",
+      "note": "first letter of organic"
+     },
+     {
+      "clueFragment": "root vegetable",
+      "gives": "YAM",
+      "note": "a yam is a starchy tuber"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAY",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "OYAM",
+       "to": "MAYO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An organic root vegetable dish served in a sauce.",
+     "walkthrough": "Starter looks like a first course, which suits the kitchen picture, but it is the first letter.",
+     "definitionFit": "Mayo is short for mayonnaise, a cold sauce."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Starter"
+    }
+   }
   },
   {
    "number": 26,
@@ -430,7 +1732,67 @@
      }
     ]
    },
-   "solution": "SAUSAGEDOG"
+   "solution": "SAUSAGEDOG",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SAUSAGE DOG",
+    "definitions": [
+     {
+      "text": "Long canine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "roughly",
+      "for": "anagram",
+      "note": "roughly means not exactly, so these letters come out in a loose new order"
+     },
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every second letter is kept"
+     }
+    ],
+    "linkWords": [
+     "cut by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "used, sago",
+      "gives": "USEDSAGO",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "fang",
+      "gives": "AG",
+      "select": "alternate",
+      "note": "second and fourth letters of fang"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "USEDSAGOAG",
+       "gives": "SAUSAGEDOG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A long dog bites through used sago with its fang.",
+     "walkthrough": "The letters from fang join the fodder before the rearrangement.",
+     "definitionFit": "Sausage dog is the informal name for a dachshund, a dog with a long body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "roughly"
+    }
+   }
   },
   {
    "number": 27,
@@ -444,7 +1806,46 @@
     "text": "Old crack in wood?",
     "enumeration": "8"
    },
-   "solution": "CHESTNUT"
+   "solution": "CHESTNUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHESTNUT",
+    "definitions": [
+     {
+      "text": "Old crack",
+      "at": 0
+     },
+     {
+      "text": "wood?",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old crack",
+      "note": "first meaning: a stale joke told too often"
+     },
+     {
+      "clueFragment": "wood?",
+      "note": "second meaning: timber from a particular tree"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Crack reads as a split in timber, but it means a wisecrack.",
+     "definitionFit": "A chestnut is a joke heard too many times, and chestnut is also a hardwood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "crack"
+    }
+   }
   },
   {
    "number": 28,
@@ -458,7 +1859,54 @@
     "text": "During attack, foreign article put down again",
     "enumeration": "6"
    },
-   "solution": "RELAID"
+   "solution": "RELAID",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RELAID",
+    "definitions": [
+     {
+      "text": "put down again",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "During",
+      "for": "container",
+      "note": "during means within the span of, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attack",
+      "gives": "RAID",
+      "note": "a raid is an attack"
+     },
+     {
+      "clueFragment": "foreign article",
+      "gives": "EL",
+      "note": "el is the Spanish word for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EL",
+      "AID"
+     ]
+    },
+    "explanation": {
+     "surface": "An imported item laid down during an assault.",
+     "definitionFit": "To relay a floor or cable is to lay it down a second time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   }
  ]
 }
