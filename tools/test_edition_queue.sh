@@ -571,6 +571,28 @@ fake(rewrite_on="long", rewrite=str(slow), change=['VERSION = "p1"', 'VERSION = 
 slowed = subprocess.run([sys.executable, str(slow)], capture_output=True, text=True, timeout=60)
 check("a code change re-execs the queue while its plan is still being made",
       ["p1", "p2"], [l.split()[1] for l in slowed.stderr.splitlines() if l.startswith("parent ")])
+# Mirror: an image that has not yet made a plan of its own (it runs the kept
+# one) makes it before re-exec'ing on the next change, so changes landing
+# faster than a plan takes still get plans made on new code.
+log.unlink()
+busy = T / "busy_driver.py"
+busy.write_text(driver.read_text().replace('VERSION = "p2"', 'VERSION = "p1"').replace("eq.plan = lambda papers", """import time
+def plan(*a, **k):
+    if VERSION == "p2":
+        src = open(__file__).read()
+        open(__file__, "w").write(src.replace('VERSION = "p2"', 'VERSION = "p3"'))
+        time.sleep(1.5)
+        print("plan made by p2", file=sys.stderr, flush=True)
+    return quick(*a, **k)
+eq.plan = plan
+quick = lambda papers""").replace("replan=0.3, resume=resume", "replan=0.3, resume=resume, seconds=20"))
+eq.UNIT_SCRIPT.write_text(eq.UNIT_SCRIPT.read_text().replace('VERSION = "v2"', 'VERSION = "v1"'))
+fake(rewrite_on="long", rewrite=str(busy), change=['VERSION = "p1"', 'VERSION = "p2"'], sleep={"long": 3})
+busied = subprocess.run([sys.executable, str(busy)], capture_output=True, text=True, timeout=60)
+said = [l.split()[1] if l.startswith("parent ") else l for l in busied.stderr.splitlines()
+        if l.startswith("parent ") or l == "plan made by p2"]
+check("an image re-execs on a change only after making its own first plan",
+      ["p1", "p2", "plan made by p2", "p3"], said)
 
 # ---- --handoff: a slice's end hands its running units to the next run,
 # which counts them in its pools and does not start them again.
