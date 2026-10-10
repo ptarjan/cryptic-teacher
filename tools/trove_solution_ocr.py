@@ -53,6 +53,7 @@ light stays unsolved and available() says why.
 import argparse
 import datetime
 import gzip
+import hashlib
 import itertools
 import json
 import os
@@ -809,23 +810,62 @@ def _day(text):
 _ARTICLES = {}
 
 
+def _read_article(d):
+    """(print day or None, is a solution) read from an article dir, or None
+    when meta.json is unreadable."""
+    try:
+        title = json.loads((d / "meta.json").read_text()).get("title", "")
+    except (OSError, ValueError):
+        return None
+    first = (d / "ocr.txt").read_text(encoding="utf-8", errors="replace")[:400]
+    day = _day(first.splitlines()[0] if first else "")
+    return day, "solution" in title.lower().split(" - trove")[0]
+
+
+def _articles_index_path(cache):
+    key = hashlib.sha1(str(cache).encode()).hexdigest()[:10]
+    return Path.home() / ".cache" / "cryptic-teacher" / f"trove-articles-{key}.json"
+
+
 def _articles(cache):
     """[(print day, article dir, is a solution)] for every cached article with
-    a grid image, read once a process."""
+    a grid image, read once a process. What each dir held is kept in a file
+    keyed by the mtimes of its meta.json and ocr.txt, so a process stats the
+    dirs and reads only the new or changed ones."""
     if cache in _ARTICLES:
         return _ARTICLES[cache]
     out = _ARTICLES[cache] = []
+    index_path = _articles_index_path(cache)
+    try:
+        old = json.loads(index_path.read_text())
+    except (OSError, ValueError):
+        old = {}
+    new = {}
     for d in sorted(cache.iterdir()) if cache.exists() else ():
-        if not (d / "grid.jpg").exists() or not (d / "ocr.txt").exists():
-            continue
         try:
-            title = json.loads((d / "meta.json").read_text()).get("title", "")
-        except (OSError, ValueError):
+            if not (d / "grid.jpg").exists():
+                continue
+            key = [(d / "meta.json").stat().st_mtime_ns, (d / "ocr.txt").stat().st_mtime_ns]
+        except OSError:
             continue
-        first = (d / "ocr.txt").read_text(encoding="utf-8", errors="replace")[:400]
-        day = _day(first.splitlines()[0] if first else "")
-        if day:
-            out.append((day, d, "solution" in title.lower().split(" - trove")[0]))
+        got = old.get(d.name)
+        if got and got[:2] == key:
+            read = (datetime.date.fromisoformat(got[2]) if got[2] else None, got[3])
+        else:
+            read = _read_article(d)
+            if read is None:
+                continue
+        new[d.name] = key + [read[0].isoformat() if read[0] else None, read[1]]
+        if read[0]:
+            out.append((read[0], d, read[1]))
+    if new != old:
+        try:
+            index_path.parent.mkdir(parents=True, exist_ok=True)
+            tmp = index_path.with_name(f"{index_path.name}.{os.getpid()}.tmp")
+            tmp.write_text(json.dumps(new))
+            os.replace(tmp, index_path)
+        except OSError:
+            pass
     return out
 
 
