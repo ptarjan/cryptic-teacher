@@ -1043,6 +1043,22 @@ scan_queue.append(pl, [settled_row(e2), {**settled_row(e1), "inputs": "moved"}])
 check("a moved ledger row makes its edition due again", [("read", "1981-02-03_1", "inputs changed")], due())
 scan_queue.compact(pl, "edition")
 check("a ledger replaced whole (compact) plans the same", [("read", "1981-02-03_1", "inputs changed")], due())
+# A stale scan's read ranks with the fixes when its titles follow a puzzle
+# read without answers: the issue printing that solution (a Saturday prize's
+# six on), whose heading the new scan code may read.
+stale = {**settled_row(e1), "scanKey": "old",
+         "scan": {"date": "1981-02-03", "puzzles": [{"number": 15436, "leaf": 1}], "solutions": []}}
+def e1_reason(day, verdict):
+    scan_queue.append(pl, [stale, {**settled_row(e2), "scan": {"date": day, "puzzles": [], "solutions": []},
+                                   "verdicts": [verdict]}])
+    return [(u["rank"], u["reason"]) for u in f.plan(f.TIMES, pc)[1] if u["rel"].endswith("_1")]
+check("a stale host of an answerless puzzle ranks 2; of a Saturday prize six on; else, refused or answered, 3",
+      [[(2, "scan stale, answers missing")], [(2, "scan stale, answers missing")], [(3, "scan stale")],
+       [(3, "scan stale")], [(3, "scan stale")]],
+      [e1_reason("1981-02-02", {"number": 15435}), e1_reason("1981-01-31", {"number": 15430}),
+       e1_reason("1981-01-31", {"number": 15435}), e1_reason("1981-02-02", {"number": 15435, "refused": True}),
+       e1_reason("1981-02-02", {"number": 15435, "solutionFrom": "1981-02-03 leaf 1"})])
+scan_queue.append(pl, [settled_row(e1), settled_row(e2)])
 (e2 / "pages.json").write_text("{\"x\": 1}")
 check("a dir changed within SETTLED is listed afresh, an in-place write seen", (False, "inputs changed"),
       (e2 in f.dir_cache._SEEN, dict((r, why) for _, r, why in due()).get("1981-05-06_2")))
