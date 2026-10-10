@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,49 @@
      }
     ]
    },
-   "solution": "CARDINALNUMBERS"
+   "solution": "CARDINALNUMBERS",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "charade"
+    ],
+    "answer": "CARDINAL NUMBERS",
+    "definitions": [
+     {
+      "text": "Kind of red figures that count?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kind of red",
+      "gives": "CARDINAL",
+      "note": "cardinal is a deep scarlet, the colour of a cardinal's robes"
+     },
+     {
+      "clueFragment": "figures",
+      "gives": "NUMBERS",
+      "note": "figures are numerals or numbers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARDINAL",
+      "NUMBERS"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about which red-clad dignitaries really matter.",
+     "walkthrough": "The whole clue defines and builds the answer: a shade of red plus figures, read together as the numbers used for counting.",
+     "definitionFit": "In mathematics the counting numbers one, two, three are called cardinals, as opposed to ordinals like first and second."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "red"
+    }
+   }
   },
   {
    "number": 1,
@@ -59,7 +104,39 @@
      }
     ]
    },
-   "solution": "CANTERBURYTALES"
+   "solution": "CANTERBURYTALES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CANTERBURY TALES",
+    "definitions": [
+     {
+      "text": "Stories told from from Pilgrims' Progress to a place in Kent",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pilgrims' Progress",
+      "note": "surface reading: Bunyan's allegory The Pilgrim's Progress"
+     },
+     {
+      "clueFragment": "Stories told",
+      "note": "setter's reading: Chaucer's tales told by pilgrims as they progress towards a cathedral city in Kent"
+     }
+    ],
+    "explanation": {
+     "surface": "Tales passed on from Bunyan's famous book to somewhere in Kent.",
+     "walkthrough": "The clue prints 'from' twice, a slip in the source. Chaucer's pilgrims tell stories on the road to Canterbury, the Kent cathedral city.",
+     "definitionFit": "Chaucer's collection is framed as a storytelling contest among pilgrims travelling to the shrine of Becket in Kent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Progress"
+    }
+   }
   },
   {
    "number": 2,
@@ -73,7 +150,66 @@
     "text": "Scoundrel's uniform drenched in dreadful gore",
     "enumeration": "5"
    },
-   "solution": "ROGUE"
+   "solution": "ROGUE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ROGUE",
+    "definitions": [
+     {
+      "text": "Scoundrel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drenched in",
+      "for": "container",
+      "note": "something drenched in a liquid is surrounded by it, so one piece sits inside another"
+     },
+     {
+      "text": "dreadful",
+      "for": "anagram",
+      "note": "a dreadful mess of a word has its letters thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "uniform",
+      "gives": "U",
+      "note": "U is Uniform in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "gore",
+      "gives": "GORE",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROG",
+      "U",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GORE",
+       "gives": "ROGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A villain's outfit soaked in horrible blood.",
+     "definitionFit": "A rogue is a dishonest or unprincipled person, a direct synonym for a villain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "uniform"
+    }
+   }
   },
   {
    "number": 3,
@@ -87,7 +223,51 @@
     "text": "Fashionable present, for example, that's great",
     "enumeration": "7"
    },
-   "solution": "INTENSE"
+   "solution": "INTENSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INTENSE",
+    "definitions": [
+     {
+      "text": "great",
+      "at": 41
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fashionable",
+      "gives": "IN",
+      "note": "in means trendy or fashionable"
+     },
+     {
+      "clueFragment": "present, for example",
+      "gives": "TENSE",
+      "note": "the present is one example of a grammatical tense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "TENSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A trendy gift that's simply wonderful.",
+     "walkthrough": "'Present' looks like a gift, but 'for example' shows it is an instance of something: a verb tense.",
+     "definitionFit": "Great in the sense of extreme in degree, as in great heat or intense heat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "present"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +281,65 @@
     "text": "Phials for first of urine sample misplaced",
     "enumeration": "7"
    },
-   "solution": "AMPULES"
+   "solution": "AMPULES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "AMPULES",
+    "definitions": [
+     {
+      "text": "Phials",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "only the opening letter of the following word is wanted"
+     },
+     {
+      "text": "misplaced",
+      "for": "anagram",
+      "note": "things misplaced are put in the wrong positions, so the letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "urine",
+      "gives": "U",
+      "select": "first",
+      "note": "the initial letter of urine"
+     },
+     {
+      "clueFragment": "sample",
+      "gives": "SAMPLE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "USAMPLE",
+       "gives": "AMPULES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Little bottles needed because a urine sample went astray.",
+     "definitionFit": "Ampules are small sealed glass vials, typically holding a single dose of medicine, so they are phials."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "misplaced"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +353,42 @@
     "text": "Unaffected note",
     "enumeration": "7"
    },
-   "solution": "NATURAL"
+   "solution": "NATURAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NATURAL",
+    "definitions": [
+     {
+      "text": "Unaffected",
+      "at": 0
+     },
+     {
+      "text": "note",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unaffected",
+      "note": "first meaning: without pretension, behaving genuinely"
+     },
+     {
+      "clueFragment": "note",
+      "note": "second meaning: in music, a note that is neither sharp nor flat"
+     }
+    ],
+    "explanation": {
+     "surface": "A message that stays calm and untouched by events.",
+     "definitionFit": "The word means genuine and unpretentious in manner, and in music names a note that is neither sharpened nor flattened."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +402,58 @@
     "text": "Short skirt, very short, with fur trimming",
     "enumeration": "7"
    },
-   "solution": "MINIVER"
+   "solution": "MINIVER",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "MINIVER",
+    "definitions": [
+     {
+      "text": "fur trimming",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "cut short means the last letter is lopped off the word before it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Short skirt",
+      "gives": "MINI",
+      "note": "a miniskirt, or mini, is a very short skirt"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "VERY",
+      "note": "taken as written, then trimmed of its end"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MINI",
+      "VER"
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny skirt, extremely tiny, edged with fur.",
+     "walkthrough": "'Short' appears twice: the first belongs to the skirt, the second clips the word very.",
+     "definitionFit": "Miniver is a plain white fur, historically ermine, used to trim ceremonial robes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trimming"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +467,69 @@
     "text": "New text about traveller being sociable",
     "enumeration": "9"
    },
-   "solution": "EXTROVERT"
+   "solution": "EXTROVERT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EXTROVERT",
+    "definitions": [
+     {
+      "text": "sociable",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "a new version of the word has its letters made over in a fresh order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the rearranged letters surround the next piece"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "text",
+      "gives": "TEXT",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "traveller",
+      "gives": "ROVER",
+      "note": "a rover is someone who travels or wanders"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXT",
+      "ROVER",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEXT",
+       "gives": "EXTT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fresh text message about a traveller who likes company.",
+     "definitionFit": "An extrovert is an outgoing person who thrives on company, so the word describes someone sociable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "New"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +557,59 @@
      }
     ]
    },
-   "solution": "SENDINTHECLOWNS"
+   "solution": "SENDINTHECLOWNS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEND IN THE CLOWNS",
+    "definitions": [
+     {
+      "text": "a song from a show",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "perhaps",
+      "for": "anagram",
+      "note": "perhaps hints that the words are only one possible arrangement of these letters"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Little time",
+      "gives": "T",
+      "note": "T is the short form of time"
+     },
+     {
+      "clueFragment": "when inn's closed",
+      "gives": "WHENINNSCLOSED",
+      "note": "taken as written, all fourteen letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TWHENINNSCLOSED",
+       "gives": "SENDINTHECLOWNS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A short while at closing time at the pub calls for a show tune.",
+     "walkthrough": "The whole phrase plus one letter is the fodder; 'perhaps' is easy to read as mere hedging.",
+     "definitionFit": "Send in the Clowns is Sondheim's famous ballad from the musical A Little Night Music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "perhaps"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +623,64 @@
     "text": "Strange thing to see in place of evening entertainment",
     "enumeration": "9"
    },
-   "solution": "NIGHTSPOT"
+   "solution": "NIGHTSPOT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "NIGHTSPOT",
+    "definitions": [
+     {
+      "text": "place of evening entertainment",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Strange",
+      "for": "anagram",
+      "note": "a strange form of the word is an odd, unfamiliar arrangement of its letters"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thing",
+      "gives": "THING",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "see",
+      "gives": "SPOT",
+      "note": "to spot something is to see it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIGHT",
+      "SPOT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THING",
+       "gives": "NIGHT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An odd sight to be found at a club after dark.",
+     "definitionFit": "A nightspot is a nightclub or bar, a venue people visit for entertainment after dark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Strange"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +700,58 @@
      }
     ]
    },
-   "solution": "NOTON"
+   "solution": "NOTON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NOT ON",
+    "definitions": [
+     {
+      "text": "off",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "T is the short form of time"
+     },
+     {
+      "clueFragment": "the middle of the day",
+      "gives": "NOON",
+      "note": "midday, twelve o'clock"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "T",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Lunchtime is the moment to step off the bus.",
+     "walkthrough": "'Get off' sounds like leaving, but the definition is just 'off' in the sense of unacceptable.",
+     "definitionFit": "Saying behaviour is a bit off means it is not acceptable, which is exactly the colloquial sense of the answer phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +765,64 @@
     "text": "Re-let a new building that's permanent",
     "enumeration": "7"
    },
-   "solution": "ETERNAL"
+   "solution": "ETERNAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ETERNAL",
+    "definitions": [
+     {
+      "text": "permanent",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "building",
+      "for": "anagram",
+      "note": "building means constructing, so the letters are put together into something new"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Re-let",
+      "gives": "RELET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RELETAN",
+       "gives": "ETERNAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A landlord letting out a fresh building that is here to stay.",
+     "walkthrough": "'New building' reads as one phrase, but new supplies a letter and building is the signal.",
+     "definitionFit": "Eternal means lasting for ever, without end, a close synonym for permanent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "building"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +836,57 @@
     "text": "Artist's fiddle almost conjures up this Italian dish",
     "enumeration": "7"
    },
-   "solution": "RAVIOLI"
+   "solution": "RAVIOLI",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "RAVIOLI",
+    "definitions": [
+     {
+      "text": "this Italian dish",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost the whole word means it stops one letter short"
+     }
+    ],
+    "linkWords": [
+     "conjures up"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Artist's",
+      "gives": "RA",
+      "note": "RA, Royal Academician, is the standard crossword artist"
+     },
+     {
+      "clueFragment": "fiddle",
+      "gives": "VIOLIN",
+      "note": "a fiddle is a violin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "VIOLI"
+     ]
+    },
+    "explanation": {
+     "surface": "A painter's violin playing nearly conjures up a plate of pasta.",
+     "definitionFit": "Ravioli are small square Italian pasta parcels with a filling, served as a dish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fiddle"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +900,45 @@
     "text": "Some of the better audio accessories for the period",
     "enumeration": "3"
    },
-   "solution": "ERA"
+   "solution": "ERA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ERA",
+    "definitions": [
+     {
+      "text": "the period",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some of",
+      "for": "hidden_word",
+      "note": "only part of the following words is needed, a run of letters within them"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "better audio accessories",
+      "gives": "ERA",
+      "note": "the run straddles the gap between the first two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Shopping for upmarket hi-fi extras of a certain vintage.",
+     "definitionFit": "An era is a period of history marked by some distinctive character."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "audio"
+    }
+   }
   },
   {
    "number": 14,
@@ -267,7 +958,50 @@
      }
     ]
    },
-   "solution": "BADNEWS"
+   "solution": "BADNEWS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BAD NEWS",
+    "definitions": [
+     {
+      "text": "unfortunate reports",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "produces"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poor",
+      "gives": "BAD",
+      "note": "poor in quality is bad"
+     },
+     {
+      "clueFragment": "intelligence",
+      "gives": "NEWS",
+      "note": "intelligence in the sense of information received"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAD",
+      "NEWS"
+     ]
+    },
+    "explanation": {
+     "surface": "Sloppy spy work leads to grim dispatches.",
+     "walkthrough": "'Intelligence' suggests brains, but here it means information.",
+     "definitionFit": "Bad news is information that is unwelcome or unlucky, matching reports that are unfortunate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "intelligence"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +1015,57 @@
     "text": "Complaint about Daisy's Personal Equity Plan",
     "enumeration": "9"
    },
-   "solution": "DYSPEPSIA"
+   "solution": "DYSPEPSIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DYSPEPSIA",
+    "definitions": [
+     {
+      "text": "Complaint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about can mean turned around or all over the place, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Daisy's",
+      "gives": "DAISYS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Personal Equity Plan",
+      "gives": "PEP",
+      "note": "PEP was a British tax-free savings scheme, the Personal Equity Plan"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DAISYSPEP",
+       "gives": "DYSPEPSIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone grumbling about Daisy's investment scheme.",
+     "walkthrough": "A PEP was a UK tax-free savings plan, replaced by ISAs in 1999. 'Complaint' reads as a grievance but means an ailment.",
+     "definitionFit": "Dyspepsia is indigestion, and complaint is a standard word for an illness or medical disorder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Complaint"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1079,43 @@
     "text": "Small Scotch",
     "enumeration": "3"
    },
-   "solution": "WEE"
+   "solution": "WEE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WEE",
+    "definitions": [
+     {
+      "text": "Small",
+      "at": 0
+     },
+     {
+      "text": "Scotch",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "note": "first meaning: little, tiny"
+     },
+     {
+      "clueFragment": "Scotch",
+      "note": "second meaning: Scottish, as the word is a Scots one for little"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like ordering a small whisky; instead the word for little is itself Scottish.",
+     "definitionFit": "Wee is the Scots word for little, so it both means tiny and is distinctly a Scottish term."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Scotch"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1129,57 @@
     "text": "Unending generosity by model with the greatest capacity",
     "enumeration": "7"
    },
-   "solution": "LARGEST"
+   "solution": "LARGEST",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "LARGEST",
+    "definitions": [
+     {
+      "text": "with the greatest capacity",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unending",
+      "for": "deletion",
+      "note": "without an ending, so the word loses its last letter"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "generosity",
+      "gives": "LARGESS",
+      "note": "largess, also spelt largesse, is generous giving"
+     },
+     {
+      "clueFragment": "model",
+      "gives": "T",
+      "note": "the Model T was Ford's famous car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LARGES",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion model's endless openhandedness makes her the most bountiful.",
+     "definitionFit": "Largest means biggest in size, so it describes whatever holds the most, or has the greatest capacity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1193,50 @@
     "text": "Worker produced article on time",
     "enumeration": "3"
    },
-   "solution": "ANT"
+   "solution": "ANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANT",
+    "definitions": [
+     {
+      "text": "Worker",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "produced"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "an is the indefinite article"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the short form of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An employee wrote a piece and delivered it by the deadline.",
+     "walkthrough": "'On' just places one piece after the other in a down entry.",
+     "definitionFit": "Worker ants are the sterile females of a colony, so worker is a common crossword term for the insect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Worker"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1250,50 @@
     "text": "It's about teams' lives",
     "enumeration": "7"
    },
-   "solution": "RESIDES"
+   "solution": "RESIDES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RESIDES",
+    "definitions": [
+     {
+      "text": "lives",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means concerning or about"
+     },
+     {
+      "clueFragment": "teams'",
+      "gives": "SIDES",
+      "note": "teams in a match are sides"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "SIDES"
+     ]
+    },
+    "explanation": {
+     "surface": "A story concerning the lives of the players in two teams.",
+     "walkthrough": "'Lives' looks like a plural noun, but it is the verb.",
+     "definitionFit": "To reside somewhere is to have one's home there, so the verb is a synonym of dwells."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lives"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1307,57 @@
     "text": "Searches for water right inside but drifts off",
     "enumeration": "7"
    },
-   "solution": "DROWSES"
+   "solution": "DROWSES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DROWSES",
+    "definitions": [
+     {
+      "text": "drifts off",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "one piece goes inside the other, enclosed by it"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Searches for water",
+      "gives": "DOWSES",
+      "note": "dowsing is searching for underground water, often with a forked stick"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "R",
+      "OWSES"
+     ]
+    },
+    "explanation": {
+     "surface": "A water diviner hunts with a rod but keeps nodding off.",
+     "definitionFit": "To drowse is to doze lightly, so it means falling half asleep or drifting off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1371,69 @@
     "text": "Sitting with one's half-sister arranged",
     "enumeration": "7"
    },
-   "solution": "SESSION"
+   "solution": "SESSION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SESSION",
+    "definitions": [
+     {
+      "text": "Sitting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half",
+      "for": "deletion",
+      "note": "half the following word is kept and the rest dropped"
+     },
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "arranged means set out in a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one's",
+      "gives": "ONES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sister",
+      "gives": "SISTER",
+      "note": "taken as written, then cut in half"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SESSION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONESSIS",
+       "gives": "SESSION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Settling down to sit with your step-sister, as planned.",
+     "walkthrough": "'Half-sister' reads as a relative, but it means the first half of the word sister.",
+     "definitionFit": "A sitting is a single meeting of a body such as a court or parliament, which is a session."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "half-sister"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1447,61 @@
     "text": "Leading light let off alarm  …",
     "enumeration": "7"
    },
-   "solution": "STARTLE"
+   "solution": "STARTLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "STARTLE",
+    "definitions": [
+     {
+      "text": "alarm",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off suggests something gone wrong, so the letters are disordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leading light",
+      "gives": "STAR",
+      "note": "a leading light, a prominent person, is a star"
+     },
+     {
+      "clueFragment": "let",
+      "gives": "LET",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR",
+      "TLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LET",
+       "gives": "TLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity sets off an alarm, with the ellipsis leading into the next clue.",
+     "walkthrough": "'Let off alarm' reads as setting off an alarm; 'alarm' is a verb meaning frighten.",
+     "definitionFit": "To startle someone is to give them a sudden fright, which is to alarm them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 22,
@@ -393,7 +1515,46 @@
     "text": "Sober son administers drugs",
     "enumeration": "7"
    },
-   "solution": "SEDATES"
+   "solution": "SEDATES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEDATES",
+    "definitions": [
+     {
+      "text": "administers drugs",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sober",
+      "gives": "SEDATE",
+      "note": "sedate means calm and serious, sober"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEDATE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A clean-living son still hands out narcotics.",
+     "definitionFit": "To sedate a patient is to give them calming drugs, so the verb means administers drugs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sober"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1568,50 @@
     "text": "Fan married unhappily",
     "enumeration": "7"
    },
-   "solution": "ADMIRER"
+   "solution": "ADMIRER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ADMIRER",
+    "definitions": [
+     {
+      "text": "Fan",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unhappily",
+      "for": "anagram",
+      "note": "unhappily suggests things going badly, so the letters fall into a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "married",
+      "gives": "MARRIED",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MARRIED",
+       "gives": "ADMIRER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A devotee stuck in a miserable marriage.",
+     "definitionFit": "A fan is an enthusiastic supporter, someone who looks up to and admires a person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fan"
+    }
+   }
   },
   {
    "number": 24,
@@ -421,7 +1625,41 @@
     "text": "…  the day before in Madame Veronique",
     "enumeration": "3"
    },
-   "solution": "EVE"
+   "solution": "EVE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EVE",
+    "definitions": [
+     {
+      "text": "the day before",
+      "at": 3
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the letters sit within the following words, spanning them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Madame Veronique",
+      "gives": "EVE",
+      "note": "the run straddles the gap between the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Continuing the previous clue: Madame Veronique got a fright on the previous day.",
+     "definitionFit": "The eve is the day or evening before an event, as in Christmas Eve."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -441,7 +1679,46 @@
      }
     ]
    },
-   "solution": "THEBOSS"
+   "solution": "THEBOSS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "THE BOSS",
+    "definitions": [
+     {
+      "text": "Head",
+      "at": 0
+     },
+     {
+      "text": "unique stud",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Head",
+      "note": "first meaning: the person in charge"
+     },
+     {
+      "clueFragment": "unique stud",
+      "note": "second meaning: a boss is a raised knob or stud, and 'the' marks it as one of a kind"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like the master of a single horse-breeding farm. A boss is a round raised ornament, such as on a shield or ceiling.",
+     "definitionFit": "The boss is the person in charge, and a boss is also a raised knob or stud; the article makes it singular."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stud"
+    }
+   }
   },
   {
    "number": 26,
@@ -455,7 +1732,58 @@
     "text": "Males do, unfortunately, employ an old word for a maid",
     "enumeration": "7"
    },
-   "solution": "DAMOSEL"
+   "solution": "DAMOSEL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DAMOSEL",
+    "definitions": [
+     {
+      "text": "an old word for a maid",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "unfortunately implies things went wrong, so the letters end up out of order"
+     }
+    ],
+    "linkWords": [
+     "employ"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Males",
+      "gives": "MALES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "do",
+      "gives": "DO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MALESDO",
+       "gives": "DAMOSEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Men, regrettably, still hire a domestic servant.",
+     "definitionFit": "Damosel is an archaic spelling of damsel, a young unmarried woman or maiden."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "employ"
+    }
+   }
   },
   {
    "number": 27,
@@ -469,7 +1797,55 @@
     "text": "Spare metre put in waste container",
     "enumeration": "5"
    },
-   "solution": "SKIMP"
+   "solution": "SKIMP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SKIMP",
+    "definitions": [
+     {
+      "text": "Spare",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put in",
+      "for": "container",
+      "note": "one piece is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "waste container",
+      "gives": "SKIP",
+      "note": "a skip is a large open bin for building rubbish, a British term"
+     },
+     {
+      "clueFragment": "metre",
+      "gives": "M",
+      "note": "M is the abbreviation for metre"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKI",
+      "M",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A leftover metre of something thrown into a rubbish bin.",
+     "walkthrough": "In Britain a skip is a big open metal bin for builders' waste. 'Spare' looks like an adjective, but it is the verb.",
+     "definitionFit": "To skimp is to be stingy or economise, much as one spares expense by using too little."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Spare"
+    }
+   }
   },
   {
    "number": 28,
@@ -483,7 +1859,56 @@
     "text": "Doesn't gain a pound, initially, on seafood, even salmon.",
     "enumeration": "5"
    },
-   "solution": "LOSES"
+   "solution": "LOSES",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LOSES",
+    "definitions": [
+     {
+      "text": "Doesn't gain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter of each word counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a pound",
+      "gives": "L",
+      "note": "L, from Latin libra, stands for a pound"
+     },
+     {
+      "clueFragment": "on seafood, even salmon",
+      "gives": "OSES",
+      "select": "first",
+      "note": "the leading letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "OSES"
+     ]
+    },
+    "explanation": {
+     "surface": "A dieter stays the same weight eating fish and salmon.",
+     "walkthrough": "'Initially' looks like it applies only to the pound, but it governs the four words after it.",
+     "definitionFit": "To lose is the opposite of to gain, whether weight or ground, so it means doesn't gain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pound"
+    }
+   }
   },
   {
    "number": 29,
@@ -497,7 +1922,55 @@
     "text": "In winter I've organised a question and answer session",
     "enumeration": "9"
    },
-   "solution": "INTERVIEW"
+   "solution": "INTERVIEW",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INTERVIEW",
+    "definitions": [
+     {
+      "text": "a question and answer session",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "organised",
+      "for": "anagram",
+      "note": "organised means put into a new order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "winter",
+      "gives": "WINTER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I've",
+      "gives": "IVE",
+      "note": "taken as written, apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WINTERIVE",
+       "gives": "INTERVIEW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone boasting of arranging a Q&A event during the cold months.",
+     "definitionFit": "An interview is a meeting in which one party asks questions and the other answers them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "winter"
+    }
+   }
   },
   {
    "number": 30,
@@ -521,7 +1994,57 @@
      }
     ]
    },
-   "solution": "STARSANDSTRIPES"
+   "solution": "STARSANDSTRIPES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STARS AND STRIPES",
+    "definitions": [
+     {
+      "text": "Old Glory",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Top actors",
+      "gives": "STARS",
+      "note": "leading actors are stars"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "with means together with, and"
+     },
+     {
+      "clueFragment": "lines",
+      "gives": "STRIPES",
+      "note": "stripes are lines of colour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STARS",
+      "AND",
+      "STRIPES"
+     ]
+    },
+    "explanation": {
+     "surface": "Leading Hollywood actors read their scripts draped in the American flag.",
+     "walkthrough": "'Lines' suggests an actor's script, but here it means bands of colour.",
+     "definitionFit": "Old Glory is a nickname for the flag of the United States, known for its stars and stripes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lines"
+    }
+   }
   }
  ]
 }
