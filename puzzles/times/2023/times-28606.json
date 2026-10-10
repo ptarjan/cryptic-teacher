@@ -23,6 +23,9 @@
   "date": "2023-05-18",
   "check": "grid rebuilt from the blog's light list (unique after crossings); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,56 @@
     "text": "Seeing out guests? Only the first",
     "enumeration": "6"
    },
-   "solution": "NOTING"
+   "solution": "NOTING",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "NOTING",
+    "definitions": [
+     {
+      "text": "Seeing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Only the first",
+      "for": "letter_selection",
+      "note": "keeping only the first means just the opening letter of the word before it is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "out",
+      "gives": "NOTIN",
+      "note": "someone out is not in"
+     },
+     {
+      "clueFragment": "guests",
+      "gives": "G",
+      "select": "first",
+      "note": "the opening letter of guests"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOTIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A host seeing departing guests to the door, but only bothering with the first one.",
+     "walkthrough": "'Seeing out guests' looks like one phrase; 'Seeing' is the definition and 'out' becomes NOT IN.",
+     "definitionFit": "Noting something means observing or remarking it, a close synonym of seeing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +102,67 @@
     "text": "During autumn time in Spain, cheer up feline",
     "enumeration": "6"
    },
-   "solution": "OCELOT"
+   "solution": "OCELOT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "OCELOT",
+    "definitions": [
+     {
+      "text": "feline",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means the word is read from bottom to top"
+     },
+     {
+      "text": "During",
+      "for": "container",
+      "note": "during places one thing in the middle of another, as something within a time span"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "autumn time",
+      "gives": "OCT",
+      "note": "October, abbreviated, an autumn month"
+     },
+     {
+      "clueFragment": "in Spain, cheer",
+      "gives": "OLE",
+      "note": "the Spanish cry of approval, olé"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OC",
+      "ELO",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "OLE",
+       "to": "ELO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Spanish autumn festival where a wild cat somehow lifts the crowd's spirits.",
+     "walkthrough": "'in Spain' qualifies the cheer: olé is the Spanish crowd's cry, as heard at bullfights.",
+     "definitionFit": "The ocelot is a wild spotted cat of the Americas, so it is a feline."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 3,
@@ -70,7 +182,51 @@
      }
     ]
    },
-   "solution": "ICELANDSPAR"
+   "solution": "ICELANDSPAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ICELAND SPAR",
+    "definitions": [
+     {
+      "text": "Crystallised mineral",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two supermarkets",
+      "gives": "ICELAND",
+      "note": "Iceland is a British frozen-food supermarket chain"
+     },
+     {
+      "clueFragment": "two supermarkets",
+      "gives": "SPAR",
+      "note": "Spar is a chain of convenience stores"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICELAND",
+      "SPAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Some mineral sold in crystal form is stocked by a couple of shops.",
+     "walkthrough": "Iceland and Spar are both British grocery chains; their names joined make the mineral.",
+     "definitionFit": "Iceland spar is a transparent form of calcite, a mineral prized for its crystals and double refraction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "supermarkets"
+    }
+   }
   },
   {
    "number": 4,
@@ -84,7 +240,73 @@
     "text": "Blame energy cuts given wrong rumours?",
     "enumeration": "9"
    },
-   "solution": "GRAPEVINE"
+   "solution": "GRAPEVINE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GRAPEVINE",
+    "definitions": [
+     {
+      "text": "rumours?",
+      "at": 30,
+      "note": "the grapevine is the channel that carries rumours, hence the question mark"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrong",
+      "for": "anagram",
+      "note": "something gone wrong is out of its proper order, so the letters are rearranged"
+     },
+     {
+      "text": "cuts",
+      "for": "container",
+      "note": "to cut into something is to go inside it, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "given",
+      "gives": "GVINE",
+      "note": "the letters of given, rearranged"
+     },
+     {
+      "clueFragment": "Blame",
+      "gives": "RAP",
+      "note": "to take the rap is to take the blame"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RAPE",
+      "VINE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GIVEN",
+       "gives": "GVINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone blames power cuts on mistaken gossip.",
+     "walkthrough": "RAP plus E goes inside the rearranged letters of given, after its first letter.",
+     "definitionFit": "Hearing something on the grapevine means picking up gossip, the informal network along which rumours travel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "cuts"
+    }
+   }
   },
   {
    "number": 5,
@@ -98,7 +320,53 @@
     "text": "Place to save game point, suffering losses",
     "enumeration": "8"
    },
-   "solution": "BANKRUPT"
+   "solution": "BANKRUPT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BANKRUPT",
+    "definitions": [
+     {
+      "text": "suffering losses",
+      "at": 26,
+      "note": "a phrase describing the state of being ruined financially"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Place to save",
+      "gives": "BANK",
+      "note": "a bank is where savings are kept"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "RU",
+      "note": "RU is rugby union"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "PT",
+      "note": "standard abbreviation for point"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BANK",
+      "RU",
+      "PT"
+     ]
+    },
+    "explanation": {
+     "surface": "A player in a game needs a place to save points while losing badly.",
+     "definitionFit": "A bankrupt business has lost so much money it cannot pay its debts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "save"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +380,66 @@
     "text": "Young maverick is to attend prison, about to leave",
     "enumeration": "7"
    },
-   "solution": "BEATNIK"
+   "solution": "BEATNIK",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "BEATNIK",
+    "definitions": [
+     {
+      "text": "Young maverick",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to leave",
+      "for": "deletion",
+      "note": "something told to leave departs, so that letter is removed from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is to",
+      "gives": "BE",
+      "note": "the verb to be"
+     },
+     {
+      "clueFragment": "attend",
+      "gives": "AT",
+      "note": "to attend an event is to be at it"
+     },
+     {
+      "clueFragment": "prison",
+      "gives": "NICK",
+      "note": "nick is British slang for a prison or police station"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c, short for circa, means about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "AT",
+      "NIK"
+     ]
+    },
+    "explanation": {
+     "surface": "A rebellious youngster has to go to jail, only to be let off just before.",
+     "walkthrough": "'is to attend' reads as BE AT, and C is dropped from NICK.",
+     "definitionFit": "A beatnik was a young bohemian of the 1950s who rejected conventional society, a youthful nonconformist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 6,
@@ -132,7 +459,59 @@
      }
     ]
    },
-   "solution": "NOTON"
+   "solution": "NOTON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOT ON",
+    "definitions": [
+     {
+      "text": "this is beyond the pale!",
+      "at": 25,
+      "note": "a whole exclamation standing for the phrase meaning unacceptable"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put on",
+      "for": "charade",
+      "note": "in a down entry, one piece put on another sits above it"
+     }
+    ],
+    "linkWords": [
+     "—"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I shan't",
+      "gives": "NO",
+      "note": "a flat refusal"
+     },
+     {
+      "clueFragment": "weight",
+      "gives": "TON",
+      "note": "a ton is a unit of weight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "TON"
+     ]
+    },
+    "explanation": {
+     "surface": "A dieter vowing never to gain a pound, outraged at the very idea.",
+     "walkthrough": "'put on weight' looks like gaining pounds, but 'put on' just stacks NO over TON. NOT ON is British slang for unacceptable.",
+     "definitionFit": "Something beyond the pale is outside acceptable behaviour, which British speakers call not on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "put"
+    }
+   }
   },
   {
    "number": 7,
@@ -146,7 +525,70 @@
     "text": "Start of royal book tours you heard to create friction",
     "enumeration": "3"
    },
-   "solution": "RUB"
+   "solution": "RUB",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "homophone",
+     "container"
+    ],
+    "answer": "RUB",
+    "definitions": [
+     {
+      "text": "create friction",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter only"
+     },
+     {
+      "text": "you heard",
+      "for": "homophone",
+      "note": "heard signals a letter that sounds like the spoken word"
+     },
+     {
+      "text": "tours",
+      "for": "container",
+      "note": "to tour something is to go round it, so these letters enclose another"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "royal",
+      "gives": "R",
+      "select": "first",
+      "note": "opening letter of royal"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "U",
+      "soundsLike": "YOU",
+      "note": "the letter U sounds like you"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     }
+    ],
+    "explanation": {
+     "surface": "A royal memoir on a promotional tour stirs up trouble, so you hear.",
+     "walkthrough": "R and B together wrap round U.",
+     "definitionFit": "Rubbing two surfaces together produces friction, so to rub is to create it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tours"
+    }
+   }
   },
   {
    "number": 8,
@@ -160,7 +602,62 @@
     "text": "Long to eat something on plate before noon, eating for two",
     "enumeration": "8"
    },
-   "solution": "PREGNANT"
+   "solution": "PREGNANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PREGNANT",
+    "definitions": [
+     {
+      "text": "eating for two",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to eat",
+      "for": "container",
+      "note": "eating takes something inside, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Long",
+      "gives": "PANT",
+      "note": "to pant for something is to long for it"
+     },
+     {
+      "clueFragment": "something on plate",
+      "gives": "REG",
+      "note": "a car's registration, shown on its number plate"
+     },
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "note": "N is short for noon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "REG",
+      "N",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone craving a snack off the plate before lunch, as expectant mothers are said to.",
+     "walkthrough": "REG followed by N goes inside PANT. A UK number plate shows a registration, abbreviated REG.",
+     "definitionFit": "An expectant mother is jokingly said to be eating for two, feeding herself and her unborn baby."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "plate"
+    }
+   }
   },
   {
    "number": 9,
@@ -174,7 +671,73 @@
     "text": "What should be sweet dream, curiously filled with ecstasy and divine sun",
     "enumeration": "8"
    },
-   "solution": "DEMERARA"
+   "solution": "DEMERARA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "DEMERARA",
+    "definitions": [
+     {
+      "text": "What should be sweet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "curiously",
+      "for": "anagram",
+      "note": "done curiously means done oddly, so the letters are rearranged"
+     },
+     {
+      "text": "filled with",
+      "for": "container",
+      "note": "filled with means other letters are placed inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dream",
+      "gives": "DREAM",
+      "note": "the anagram fodder"
+     },
+     {
+      "clueFragment": "ecstasy",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     },
+     {
+      "clueFragment": "divine sun",
+      "gives": "RA",
+      "note": "Ra was the Egyptian sun god"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEM",
+      "ERA",
+      "RA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DREAM",
+       "gives": "DEMRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sweet dream, oddly full of ecstasy and a godly sun, sounds like a trip.",
+     "walkthrough": "The rearranged DEMRA takes E plus RA after its third letter.",
+     "definitionFit": "Demerara is a light brown cane sugar, so it is something that ought to be sweet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sweet"
+    }
+   }
   },
   {
    "number": 10,
@@ -188,7 +751,54 @@
     "text": "Races to get hold of smart electronic device",
     "enumeration": "6"
    },
-   "solution": "TABLET"
+   "solution": "TABLET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TABLET",
+    "definitions": [
+     {
+      "text": "electronic device",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to get hold of",
+      "for": "container",
+      "note": "getting hold of something means grasping it, so one piece is held within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Races",
+      "gives": "TT",
+      "note": "the TT races on the Isle of Man"
+     },
+     {
+      "clueFragment": "smart",
+      "gives": "ABLE",
+      "note": "able means clever"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ABLE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rushes to buy a clever new gadget.",
+     "definitionFit": "A tablet is a flat touchscreen computer, a common electronic device."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Races"
+    }
+   }
   },
   {
    "number": 11,
@@ -202,7 +812,51 @@
     "text": "What consumer of junk food did after cycling spin",
     "enumeration": "6"
    },
-   "solution": "ROTATE"
+   "solution": "ROTATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "cycling"
+    ],
+    "answer": "ROTATE",
+    "definitions": [
+     {
+      "text": "spin",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after cycling",
+      "for": "cycling",
+      "note": "cycling moves letters round in a loop, so the end part moves to the front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What consumer of junk food did",
+      "gives": "ATEROT",
+      "note": "someone eating junk food ate rubbish, or rot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROT",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Describing what happened after a junk-food eater went on an exercise bike.",
+     "walkthrough": "'cycling' looks like the exercise; it means moving the back half of the phrase to the front.",
+     "definitionFit": "To rotate is to turn round on an axis, the same as to spin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cycling"
+    }
+   }
   },
   {
    "number": 12,
@@ -222,7 +876,48 @@
      }
     ]
    },
-   "solution": "NONEVENT"
+   "solution": "NONEVENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NON-EVENT",
+    "definitions": [
+     {
+      "text": "a disappointment",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "which is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nobody",
+      "gives": "NONE",
+      "note": "none means no one"
+     },
+     {
+      "clueFragment": "let off steam",
+      "gives": "VENT",
+      "note": "to vent is to release pent-up feeling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NONE",
+      "VENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A gathering where nobody blew their top, which was a let-down.",
+     "definitionFit": "A non-event is an occasion that fails to live up to expectations, hence an anticlimax."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -236,7 +931,50 @@
     "text": "Classical sextets with part in experimental work",
     "enumeration": "11"
    },
-   "solution": "VIVISECTION"
+   "solution": "VIVISECTION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VIVISECTION",
+    "definitions": [
+     {
+      "text": "experimental work",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Classical sextets",
+      "gives": "VIVI",
+      "note": "two sixes in Roman numerals"
+     },
+     {
+      "clueFragment": "part",
+      "gives": "SECTION",
+      "note": "a section is a part"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIVI",
+      "SECTION"
+     ]
+    },
+    "explanation": {
+     "surface": "Groups of six classical musicians taking part in some new experimental piece.",
+     "walkthrough": "'sextets' looks musical, but each six is the Roman numeral VI, and there are two of them.",
+     "definitionFit": "Vivisection is surgery on living animals for scientific research, a kind of laboratory experimentation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sextets"
+    }
+   }
   },
   {
    "number": 14,
@@ -256,7 +994,57 @@
      }
     ]
    },
-   "solution": "DRINKDRIVING"
+   "solution": "DRINKDRIVING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRINK-DRIVING",
+    "definitions": [
+     {
+      "text": "Travelling high",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D is short for day"
+     },
+     {
+      "clueFragment": "icy area",
+      "gives": "RINK",
+      "note": "an ice rink"
+     },
+     {
+      "clueFragment": "playing golf",
+      "gives": "DRIVING",
+      "note": "a golfer drives off the tee"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RINK",
+      "DRIVING"
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer on a frosty course seems to be travelling at altitude.",
+     "walkthrough": "'High' here means intoxicated, not elevated.",
+     "definitionFit": "Drink-driving is driving while intoxicated, so it is travelling while high in the drunken sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "high"
+    }
+   }
   },
   {
    "number": 15,
@@ -276,7 +1064,66 @@
      }
     ]
    },
-   "solution": "REEDORGAN"
+   "solution": "REEDORGAN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "REED ORGAN",
+    "definitions": [
+     {
+      "text": "Melody Maker",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gathering",
+      "for": "container",
+      "note": "gathering something in means enclosing it, so one letter goes inside"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leftie",
+      "gives": "RED",
+      "note": "a red is a left-winger"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is short for English"
+     },
+     {
+      "clueFragment": "magazine",
+      "gives": "ORGAN",
+      "note": "an organ is a periodical publication of a group"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "E",
+      "ED",
+      "ORGAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A socialist with an English music paper claims it is Melody Maker, the old British music weekly.",
+     "walkthrough": "Melody Maker was a British music magazine, which makes 'magazine' look like the definition; here it is simply anything that makes melodies.",
+     "definitionFit": "A reed organ, such as a harmonium, is a musical instrument, something that makes melodies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Maker"
+    }
+   }
   },
   {
    "number": 16,
@@ -290,7 +1137,63 @@
     "text": "Parisian's to go and smoke, upset and liable to react badly",
     "enumeration": "8"
    },
-   "solution": "ALLERGIC"
+   "solution": "ALLERGIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ALLERGIC",
+    "definitions": [
+     {
+      "text": "liable to react badly",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, something upset is turned upside down, so read bottom to top"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Parisian's to go",
+      "gives": "ALLER",
+      "note": "aller is the French verb to go"
+     },
+     {
+      "clueFragment": "smoke",
+      "gives": "CIG",
+      "note": "a cig is a cigarette"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALLER",
+      "GIC"
+     ],
+     "reversals": [
+      {
+       "from": "CIG",
+       "to": "GIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Parisian wants to go out for a smoke but gets upset because cigarettes disagree with them.",
+     "definitionFit": "Someone allergic has a bodily sensitivity that makes them react badly to certain substances."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 17,
@@ -304,7 +1207,56 @@
     "text": "Spanish girl wearing indoor accessories, being evasive",
     "enumeration": "12"
    },
-   "solution": "SLIPPERINESS"
+   "solution": "SLIPPERINESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SLIPPERINESS",
+    "definitions": [
+     {
+      "text": "being evasive",
+      "at": 41,
+      "note": "a gerund phrase standing for the noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "wearing something means being inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "indoor accessories",
+      "gives": "SLIPPERS",
+      "note": "slippers are worn about the house"
+     },
+     {
+      "clueFragment": "Spanish girl",
+      "gives": "INES",
+      "note": "Inés is a Spanish girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLIPPER",
+      "INES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A Spanish girl padding about in her slippers dodges awkward questions.",
+     "walkthrough": "Inés is a common Spanish first name, the Spanish form of Agnes.",
+     "definitionFit": "Slipperiness is shiftiness, the quality of dodging commitment, so it is the state of being evasive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wearing"
+    }
+   }
   },
   {
    "number": 18,
@@ -318,7 +1270,63 @@
     "text": "Blocked tiny amount of cash divided by Mike Edwards",
     "enumeration": "7"
    },
-   "solution": "IMPEDED"
+   "solution": "IMPEDED",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "IMPEDED",
+    "definitions": [
+     {
+      "text": "Blocked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "divided by",
+      "for": "container",
+      "note": "something divided by another is split open with that other placed in the gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tiny amount of cash",
+      "gives": "IP",
+      "note": "1p, a single penny, read as IP"
+     },
+     {
+      "clueFragment": "Mike",
+      "gives": "M",
+      "note": "Mike is the radio alphabet word for M"
+     },
+     {
+      "clueFragment": "Edwards",
+      "gives": "EDED",
+      "note": "two Eds, as the plural of Edward's short form"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "M",
+      "P",
+      "EDED"
+     ]
+    },
+    "explanation": {
+     "surface": "A paltry sum was split between two men, Mike and someone called Edwards.",
+     "walkthrough": "1p (one penny) looks like IP; M splits it, and Edwards is read as more than one ED.",
+     "definitionFit": "To impede is to obstruct progress, so impeded means blocked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Edwards"
+    }
+   }
   },
   {
    "number": 19,
@@ -332,7 +1340,48 @@
     "text": "Diminutive fellow knowing that is from Rome",
     "enumeration": "6"
    },
-   "solution": "ARCHIE"
+   "solution": "ARCHIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ARCHIE",
+    "definitions": [
+     {
+      "text": "Diminutive fellow",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "knowing",
+      "gives": "ARCH",
+      "note": "arch means slyly knowing"
+     },
+     {
+      "clueFragment": "that is from Rome",
+      "gives": "IE",
+      "note": "i.e., Latin id est, that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARCH",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "A small, worldly-wise man who comes from Rome.",
+     "walkthrough": "'Diminutive' looks like it means short in height; here it means a pet form of a name.",
+     "definitionFit": "Archie is a pet-name form of Archibald, so it is the diminutive of a man's name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Diminutive"
+    }
+   }
   },
   {
    "number": 20,
@@ -346,7 +1395,50 @@
     "text": "After split, decline to show evidence of sorrow",
     "enumeration": "8"
    },
-   "solution": "TEARDROP"
+   "solution": "TEARDROP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEARDROP",
+    "definitions": [
+     {
+      "text": "evidence of sorrow",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "to show"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "split",
+      "gives": "TEAR",
+      "note": "to tear is to split"
+     },
+     {
+      "clueFragment": "decline",
+      "gives": "DROP",
+      "note": "a drop is a decline"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEAR",
+      "DROP"
+     ]
+    },
+    "explanation": {
+     "surface": "After a break-up, someone's spirits slump in a visible way.",
+     "walkthrough": "'split' and 'sorrow' together suggest a break-up, but split is just a rip here.",
+     "definitionFit": "A teardrop is a single tear shed in grief, outward proof of someone's sadness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "split"
+    }
+   }
   },
   {
    "number": 21,
@@ -360,7 +1452,55 @@
     "text": "Feeling sheepish about having donned toupee going outside",
     "enumeration": "5"
    },
-   "solution": "RUING"
+   "solution": "RUING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RUING",
+    "definitions": [
+     {
+      "text": "Feeling sheepish about",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going outside",
+      "for": "container",
+      "note": "something going outside surrounds the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "toupee",
+      "gives": "RUG",
+      "note": "rug is slang for a hairpiece"
+     },
+     {
+      "clueFragment": "having donned",
+      "gives": "IN",
+      "note": "someone with clothes on has them in place, wearing them; in means worn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A man embarrassed at having put on his hairpiece before stepping out.",
+     "walkthrough": "'about' belongs to the definition, not the wordplay; rug is informal for a wig.",
+     "definitionFit": "Rueing something is regretting it, much the same as feeling sheepish about it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 22,
@@ -374,7 +1514,39 @@
     "text": "Vehicle which needs a steer?",
     "enumeration": "6"
    },
-   "solution": "OXCART"
+   "solution": "OXCART",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "OXCART",
+    "definitions": [
+     {
+      "text": "Vehicle which needs a steer?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vehicle which needs a steer?",
+      "note": "surface reading: a vehicle that has to be steered by someone"
+     },
+     {
+      "clueFragment": "steer",
+      "note": "setter's reading: a steer is a castrated bullock, the beast that pulls a farm wagon"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Steer' looks like the verb of driving; it is the noun for a young bull.",
+     "definitionFit": "An ox cart is a wagon drawn by oxen, so a steer is what pulls it along."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "steer"
+    }
+   }
   },
   {
    "number": 23,
@@ -388,7 +1560,62 @@
     "text": "One single soldier keeps blooming rodent",
     "enumeration": "6"
    },
-   "solution": "AGOUTI"
+   "solution": "AGOUTI",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AGOUTI",
+    "definitions": [
+     {
+      "text": "rodent",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeps",
+      "for": "container",
+      "note": "keeping something means holding it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One single",
+      "gives": "A",
+      "note": "a means one single thing"
+     },
+     {
+      "clueFragment": "soldier",
+      "gives": "GI",
+      "note": "a GI is an American soldier"
+     },
+     {
+      "clueFragment": "blooming",
+      "gives": "OUT",
+      "note": "flowers that are blooming are out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "G",
+      "OUT",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A lone soldier somehow keeps a wretched rodent as a pet.",
+     "walkthrough": "'blooming' looks like a mild British curse word; here it means in flower.",
+     "definitionFit": "The agouti is a long-legged burrowing rodent of Central and South America."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "blooming"
+    }
+   }
   },
   {
    "number": 24,
@@ -402,7 +1629,68 @@
     "text": "Love following United making comeback? Sky might show this",
     "enumeration": "3"
    },
-   "solution": "UFO"
+   "solution": "UFO",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "UFO",
+    "definitions": [
+     {
+      "text": "Sky might show this",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "making comeback",
+      "for": "reversal",
+      "note": "a comeback is a return, so the letters run in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love",
+      "gives": "O",
+      "note": "love is nil, the zero O"
+     },
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "F is short for following"
+     },
+     {
+      "clueFragment": "United",
+      "gives": "U",
+      "note": "U is short for United in team names"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "F",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "OFU",
+       "to": "UFO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fans of Manchester United hope for a comeback that Sky Sports will broadcast.",
+     "walkthrough": "Sky is a UK sports broadcaster, so the surface suggests a football match on TV; here it is just the sky above.",
+     "definitionFit": "A UFO is an unidentified flying object, something that might be seen in the sky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sky"
+    }
+   }
   },
   {
    "number": 25,
@@ -416,7 +1704,69 @@
     "text": "Scrap extremely garish suit jackets after trouble",
     "enumeration": "8"
    },
-   "solution": "DOGFIGHT"
+   "solution": "DOGFIGHT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DOGFIGHT",
+    "definitions": [
+     {
+      "text": "Scrap",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two outermost letters"
+     },
+     {
+      "text": "jackets",
+      "for": "container",
+      "note": "a jacket covers what it is put round, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trouble",
+      "gives": "DOG",
+      "note": "to dog someone is to trouble them persistently"
+     },
+     {
+      "clueFragment": "suit",
+      "gives": "FIT",
+      "note": "to fit is to suit"
+     },
+     {
+      "clueFragment": "garish",
+      "gives": "GH",
+      "select": "outer",
+      "note": "the outer letters of garish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOG",
+      "FI",
+      "GH",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone throws out a loud suit after it caused them grief.",
+     "walkthrough": "'Scrap' looks like a verb meaning discard; it is the noun for a fight.",
+     "definitionFit": "A scrap is a fight, and a dogfight is a vicious close-quarters brawl or aerial battle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Scrap"
+    }
+   }
   },
   {
    "number": 26,
@@ -440,7 +1790,66 @@
      }
     ]
    },
-   "solution": "ACTOFGOD"
+   "solution": "ACTOFGOD",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ACT OF GOD",
+    "definitions": [
+     {
+      "text": "sudden damage",
+      "at": 34,
+      "note": "names the result; an act of God is the cause of such damage"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "a new version is a remade one, so the letters are reworked"
+     },
+     {
+      "text": "bags",
+      "for": "container",
+      "note": "to bag something is to put it in a bag, enclosing it"
+     }
+    ],
+    "linkWords": [
+     "in case of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cat food",
+      "gives": "CATFOOD",
+      "note": "the anagram fodder"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is short for good"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CATFOODG",
+       "gives": "ACTOFGOD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fresh tin of cat food comes with a bag of goodies for emergencies.",
+     "walkthrough": "G joins the letters of cat food in the mix. 'in case of' reads like insurance policy wording.",
+     "definitionFit": "Insurers call natural disasters beyond human control acts of God, the cause of sudden unforeseen damage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bags"
+    }
+   }
   },
   {
    "number": 27,
@@ -454,7 +1863,57 @@
     "text": "Partners accepting stake in French football team",
     "enumeration": "6"
    },
-   "solution": "NANTES"
+   "solution": "NANTES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NANTES",
+    "definitions": [
+     {
+      "text": "French football team",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "accepting something is taking it in, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Partners",
+      "gives": "NS",
+      "note": "North and South are partners in bridge"
+     },
+     {
+      "clueFragment": "stake",
+      "gives": "ANTE",
+      "note": "an ante is a poker stake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ANTE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Business partners take a stake in a French football club.",
+     "definitionFit": "FC Nantes is a professional football club from the city of Nantes in western France."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Partners"
+    }
+   }
   }
  ]
 }
