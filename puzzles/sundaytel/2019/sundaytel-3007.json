@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,50 @@
     "text": "Congestion in throat after large measure of vodka, say?",
     "enumeration": "10"
    },
-   "solution": "BOTTLENECK"
+   "solution": "BOTTLENECK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOTTLENECK",
+    "definitions": [
+     {
+      "text": "Congestion",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "large measure of vodka, say",
+      "gives": "BOTTLE",
+      "note": "a whole bottle is a large measure of a spirit such as vodka; 'say' flags the example"
+     },
+     {
+      "clueFragment": "throat",
+      "gives": "NECK",
+      "note": "the neck holds the throat; to neck a drink is also to swallow it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOTTLE",
+      "NECK"
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker gulps a big slug of vodka and feels a blockage in the throat.",
+     "walkthrough": "'after' places the throat word behind the vodka measure, and a bottle's narrow neck is itself the picture of congestion.",
+     "definitionFit": "A bottleneck is a narrow point where traffic or flow piles up, which is exactly congestion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "throat"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +92,46 @@
     "text": "Academic award alongside personal project",
     "enumeration": "4"
    },
-   "solution": "BABY"
+   "solution": "BABY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BABY",
+    "definitions": [
+     {
+      "text": "personal project",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Academic award",
+      "gives": "BA",
+      "note": "Bachelor of Arts, a university degree"
+     },
+     {
+      "clueFragment": "alongside",
+      "gives": "BY",
+      "note": "by means beside or alongside, as in 'sit by me'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "BY"
+     ]
+    },
+    "explanation": {
+     "surface": "A student's degree is earned alongside some pet project of their own.",
+     "definitionFit": "Calling a scheme 'my baby' is an idiom for a pet project one cherishes and is responsible for."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "alongside"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +145,54 @@
     "text": "Saw, for example, cash being lifted",
     "enumeration": "4"
    },
-   "solution": "TOOL"
+   "solution": "TOOL",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TOOL",
+    "definitions": [
+     {
+      "text": "Saw, for example",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being lifted",
+      "for": "reversal",
+      "note": "in a down entry, lifting the word lets it read from the bottom upwards, so it runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cash",
+      "gives": "LOOT",
+      "note": "loot is slang for money or cash"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOOL"
+     ],
+     "reversals": [
+      {
+       "from": "LOOT",
+       "to": "TOOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something such as a saw, perhaps, while some money is being stolen.",
+     "walkthrough": "'Saw' reads like the past tense of see; here it is the cutting implement, given as one example.",
+     "definitionFit": "A saw is one example of a hand implement used for work, so it is a member of that category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Saw"
+    }
+   }
   },
   {
    "number": 3,
@@ -80,7 +212,43 @@
      }
     ]
    },
-   "solution": "LABOURSAVING"
+   "solution": "LABOURSAVING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LABOUR-SAVING",
+    "definitions": [
+     {
+      "text": "Efficient",
+      "at": 0
+     },
+     {
+      "text": "as a political rescue package?",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Efficient",
+      "note": "first meaning: designed to cut down effort and work"
+     },
+     {
+      "clueFragment": "as a political rescue package?",
+      "note": "second, punning meaning: rescuing Labour, the British political party"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Labour is one of Britain's two main political parties, so a package that bails it out is one 'saving Labour'; the question mark flags the pun.",
+     "definitionFit": "Labour-saving devices reduce the human work needed for a task, so they make it efficient."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "political"
+    }
+   }
   },
   {
    "number": 4,
@@ -94,7 +262,51 @@
     "text": "Aristocrats gathered up by damsel, bonded",
     "enumeration": "6"
    },
-   "solution": "NOBLES"
+   "solution": "NOBLES",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "NOBLES",
+    "definitions": [
+     {
+      "text": "Aristocrats",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gathered",
+      "for": "hidden_word",
+      "note": "the letters are collected from inside the run of words that follows, spanning two of them"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means reading the collected letters from bottom to top, so backwards"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "damsel, bonded",
+      "gives": "SELBON",
+      "note": "the tail of damsel joined to the start of bonded"
+     }
+    ],
+    "explanation": {
+     "surface": "Noblemen are rounded up and tied together by a young lady.",
+     "definitionFit": "Nobles are people of high hereditary rank, the same class as aristocrats."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gathered"
+    }
+   }
   },
   {
    "number": 5,
@@ -108,7 +320,63 @@
     "text": "Note theatre-goers originally in stitches",
     "enumeration": "8"
    },
-   "solution": "CROTCHET"
+   "solution": "CROTCHET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CROTCHET",
+    "definitions": [
+     {
+      "text": "Note",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to the very start, so only the opening letter of the phrase is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece is placed inside the other, sitting within its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "theatre-goers",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of theatre-goers"
+     },
+     {
+      "clueFragment": "stitches",
+      "gives": "CROCHET",
+      "note": "crochet is needlework made of looped stitches"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRO",
+      "T",
+      "CHET"
+     ]
+    },
+    "explanation": {
+     "surface": "Theatre audiences are reduced to helpless laughter by some written remark.",
+     "walkthrough": "'in stitches' suggests laughter, but stitches is the needlework word that wraps the single letter.",
+     "definitionFit": "A crotchet is a musical note worth one beat, called a quarter note in American usage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stitches"
+    }
+   }
   },
   {
    "number": 6,
@@ -122,7 +390,48 @@
     "text": "On holiday, a king of Mercia",
     "enumeration": "4"
    },
-   "solution": "OFFA"
+   "solution": "OFFA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OFFA",
+    "definitions": [
+     {
+      "text": "king of Mercia",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "On holiday",
+      "gives": "OFF",
+      "note": "someone off work is on holiday"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFF",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch of old Mercia is away on his holidays.",
+     "walkthrough": "Mercia was an Anglo-Saxon kingdom in the English Midlands.",
+     "definitionFit": "Offa ruled the Anglo-Saxon realm of Mercia in the eighth century and built the dyke named after him."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "holiday"
+    }
+   }
   },
   {
    "number": 7,
@@ -136,7 +445,47 @@
     "text": "Entertainment centre just reduced to tiny pieces",
     "enumeration": "10"
    },
-   "solution": "FAIRGROUND"
+   "solution": "FAIRGROUND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FAIRGROUND",
+    "definitions": [
+     {
+      "text": "Entertainment centre",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "just",
+      "gives": "FAIR",
+      "note": "just and fair both mean impartial"
+     },
+     {
+      "clueFragment": "reduced to tiny pieces",
+      "gives": "GROUND",
+      "note": "ground, as coffee is, means crushed into small particles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAIR",
+      "GROUND"
+     ]
+    },
+    "explanation": {
+     "surface": "A leisure complex is simply smashed to bits.",
+     "walkthrough": "'just' looks like an adverb meaning 'simply', but it is the adjective meaning impartial.",
+     "definitionFit": "A fairground is the site of rides and stalls, a place built for amusement and fun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "just"
+    }
+   }
   },
   {
    "number": 8,
@@ -150,7 +499,67 @@
     "text": "Changes man set about to conceal repair",
     "enumeration": "10"
    },
-   "solution": "AMENDMENTS"
+   "solution": "AMENDMENTS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "AMENDMENTS",
+    "definitions": [
+     {
+      "text": "Changes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests turning things around, so the letters are rearranged"
+     },
+     {
+      "text": "to conceal",
+      "for": "container",
+      "note": "the rearranged letters hide another word inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man set",
+      "gives": "MANSET",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "repair",
+      "gives": "MEND",
+      "note": "to mend is to repair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MEND",
+      "MENTS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MANSET",
+       "gives": "AMENTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man sets out to cover up a repair job, perhaps botched.",
+     "walkthrough": "The rearranged six letters split after their first letter to take in the repair word.",
+     "definitionFit": "Amendments are alterations made to a text or law, so they are changes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 9,
@@ -174,7 +583,39 @@
      }
     ]
    },
-   "solution": "BLOWBYBLOW"
+   "solution": "BLOWBYBLOW",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BLOW-BY-BLOW",
+    "definitions": [
+     {
+      "text": "Possible description of commentary – in boxing?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Possible description of commentary",
+      "note": "surface reading: a running commentary that reports every detail as it happens"
+     },
+     {
+      "clueFragment": "in boxing?",
+      "note": "setter's reading: in a boxing match the commentator literally describes each punch thrown in turn"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The phrase normally means a detailed, step-by-step account; the boxing hint makes it literal, with each punch a 'blow'.",
+     "definitionFit": "A blow-by-blow account narrates events in full sequence, which suits a detailed commentary."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "boxing"
+    }
+   }
   },
   {
    "number": 10,
@@ -188,7 +629,42 @@
     "text": "Fee payable for misdemeanour, OK",
     "enumeration": "4"
    },
-   "solution": "FINE"
+   "solution": "FINE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FINE",
+    "definitions": [
+     {
+      "text": "Fee payable for misdemeanour",
+      "at": 0
+     },
+     {
+      "text": "OK",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fee payable for misdemeanour",
+      "note": "first meaning: a monetary penalty for a minor offence"
+     },
+     {
+      "clueFragment": "OK",
+      "note": "second meaning: all right, acceptable"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as one phrase about a charge being acceptable; the comma splits two unrelated meanings.",
+     "definitionFit": "The word is both a noun for a monetary penalty and an adjective meaning satisfactory or alright."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "OK"
+    }
+   }
   },
   {
    "number": 11,
@@ -208,7 +684,53 @@
      }
     ]
    },
-   "solution": "BALLPOINTPEN"
+   "solution": "BALLPOINTPEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BALLPOINT PEN",
+    "definitions": [
+     {
+      "text": "writer",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Party",
+      "gives": "BALL",
+      "note": "a ball is a formal dance party"
+     },
+     {
+      "clueFragment": "issue",
+      "gives": "POINT",
+      "note": "a point at issue is a matter under discussion"
+     },
+     {
+      "clueFragment": "shut up",
+      "gives": "PEN",
+      "note": "to pen an animal is to shut it up in an enclosure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BALL",
+      "POINT",
+      "PEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A political party's policy matter silences an author.",
+     "walkthrough": "'writer' looks like a person, but it is the implement used for writing.",
+     "definitionFit": "A ballpoint pen is a common writing implement, so it is a writer in the sense of a thing that writes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "writer"
+    }
+   }
   },
   {
    "number": 12,
@@ -222,7 +744,76 @@
     "text": "Very quick, huge car sped round corner, finally",
     "enumeration": "12"
    },
-   "solution": "SUPERCHARGED"
+   "solution": "SUPERCHARGED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SUPERCHARGED",
+    "definitions": [
+     {
+      "text": "Very quick",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "anagram",
+      "note": "sending the letters round suggests whirling them about into a new order"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally means only the closing letter of the word before it is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "huge",
+      "gives": "HUGE",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "car",
+      "gives": "CAR",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "sped",
+      "gives": "SPED",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "corner",
+      "gives": "R",
+      "select": "last",
+      "note": "the last letter of corner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUPERCHARGED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HUGECARSPEDR",
+       "gives": "SUPERCHARGED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A big car tears round a bend at the end of a race.",
+     "walkthrough": "'huge' tempts as SUPER, but every word from huge to sped goes into the mix, plus the final letter of corner.",
+     "definitionFit": "Supercharged means boosted with extra power or energy, so moving or performing very fast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 13,
@@ -236,7 +827,50 @@
     "text": "Worker bound to produce gymnastic feat",
     "enumeration": "10"
    },
-   "solution": "HANDSPRING"
+   "solution": "HANDSPRING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HANDSPRING",
+    "definitions": [
+     {
+      "text": "gymnastic feat",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "to produce"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Worker",
+      "gives": "HAND",
+      "note": "a hand is a manual worker, as in farmhand"
+     },
+     {
+      "clueFragment": "bound",
+      "gives": "SPRING",
+      "note": "to bound is to leap or spring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAND",
+      "SPRING"
+     ]
+    },
+    "explanation": {
+     "surface": "An employee is obliged to put on an athletic display.",
+     "walkthrough": "'bound' reads as 'obliged', but it is the verb for a leap.",
+     "definitionFit": "A handspring is a gymnastic move where the body flips over onto the hands and back to the feet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bound"
+    }
+   }
   },
   {
    "number": 14,
@@ -256,7 +890,68 @@
      }
     ]
    },
-   "solution": "WELLEARNED"
+   "solution": "WELLEARNED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "WELL-EARNED",
+    "definitions": [
+     {
+      "text": "Thoroughly deserved",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first in",
+      "for": "letter_selection",
+      "note": "first in points to the opening letter of the next word only"
+     },
+     {
+      "text": "bagged",
+      "for": "container",
+      "note": "something bagged has been put inside a holder, so one letter sits within the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "we",
+      "gives": "WE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "understood",
+      "gives": "LEARNED",
+      "note": "learned, as a past tense, means grasped or understood"
+     },
+     {
+      "clueFragment": "literature",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of literature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WE",
+      "L",
+      "LEARNED"
+     ]
+    },
+    "explanation": {
+     "surface": "A literary prize was truly merited, as we realised once it was won.",
+     "walkthrough": "The single letter is tucked in between the two words just after WE.",
+     "definitionFit": "Something well-earned has been fully merited by effort, so it is thoroughly deserved."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bagged"
+    }
+   }
   },
   {
    "number": 15,
@@ -270,7 +965,49 @@
     "text": "Hostile, a part of poem?",
     "enumeration": "6"
    },
-   "solution": "AVERSE"
+   "solution": "AVERSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AVERSE",
+    "definitions": [
+     {
+      "text": "Hostile",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "part of poem",
+      "gives": "VERSE",
+      "note": "a verse is a stanza, one section of a poem"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "VERSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a stretch of a poem is unfriendly.",
+     "definitionFit": "To be averse to something is to oppose or dislike it, so one is hostile towards it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hostile"
+    }
+   }
   },
   {
    "number": 16,
@@ -290,7 +1027,43 @@
      }
     ]
    },
-   "solution": "WELLDONE"
+   "solution": "WELLDONE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WELL DONE",
+    "definitions": [
+     {
+      "text": "Congratulations",
+      "at": 0
+     },
+     {
+      "text": "certainly not rare",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Congratulations",
+      "note": "first meaning: an exclamation of praise"
+     },
+     {
+      "clueFragment": "certainly not rare",
+      "note": "second meaning: of steak, cooked right through, the opposite of rare"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'rare' reads as 'uncommon', so the praise sounds frequent; it is the steak sense.",
+     "definitionFit": "The phrase is both a cry of praise for an achievement and the term for meat cooked thoroughly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rare"
+    }
+   }
   },
   {
    "number": 17,
@@ -310,7 +1083,58 @@
      }
     ]
    },
-   "solution": "GREATAPE"
+   "solution": "GREATAPE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GREAT APE",
+    "definitions": [
+     {
+      "text": "primate",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one word is placed within the other, inside its letters"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Feed",
+      "gives": "EAT",
+      "note": "to feed is to eat"
+     },
+     {
+      "clueFragment": "item of fruit",
+      "gives": "GRAPE",
+      "note": "a single grape is one item of fruit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GR",
+      "EAT",
+      "APE"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to put a piece of fruit in front of a monkey at feeding time.",
+     "walkthrough": "The eating word splits the fruit after its first two letters.",
+     "definitionFit": "Great apes, such as gorillas and chimpanzees, are a family of large primates."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Feed"
+    }
+   }
   },
   {
    "number": 18,
@@ -324,7 +1148,51 @@
     "text": "Shipment remarkably found next to shop",
     "enumeration": "8"
    },
-   "solution": "DELIVERY"
+   "solution": "DELIVERY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DELIVERY",
+    "definitions": [
+     {
+      "text": "Shipment",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "found",
+     "next to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shop",
+      "gives": "DELI",
+      "note": "a deli, short for delicatessen, is a food shop"
+     },
+     {
+      "clueFragment": "remarkably",
+      "gives": "VERY",
+      "note": "remarkably and very both mean to a high degree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DELI",
+      "VERY"
+     ]
+    },
+    "explanation": {
+     "surface": "A consignment turns up, surprisingly, beside a store.",
+     "walkthrough": "'next to' places the degree word after the shop word.",
+     "definitionFit": "A delivery is a consignment of goods brought to someone, which is a shipment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "remarkably"
+    }
+   }
   },
   {
    "number": 19,
@@ -338,7 +1206,56 @@
     "text": "Small flier then, or cuckoo",
     "enumeration": "6"
    },
-   "solution": "HORNET"
+   "solution": "HORNET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HORNET",
+    "definitions": [
+     {
+      "text": "Small flier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cuckoo",
+      "for": "anagram",
+      "note": "cuckoo means crazy, so the letters before it are jumbled out of their sense"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "then",
+      "gives": "THEN",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THENOR",
+       "gives": "HORNET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pick a little bird, then, or else a cuckoo.",
+     "walkthrough": "'cuckoo' sits beside 'flier' as if it were another bird; it means mad.",
+     "definitionFit": "A hornet is a large wasp, a flying insect that is small compared with a bird or plane."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cuckoo"
+    }
+   }
   },
   {
    "number": 20,
@@ -352,7 +1269,54 @@
     "text": "Aboard ship, want casual attire",
     "enumeration": "6"
    },
-   "solution": "SLACKS"
+   "solution": "SLACKS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SLACKS",
+    "definitions": [
+     {
+      "text": "casual attire",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Aboard",
+      "for": "container",
+      "note": "being aboard means sitting inside a vessel, so one word goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ship",
+      "gives": "SS",
+      "note": "SS is the abbreviation for steamship"
+     },
+     {
+      "clueFragment": "want",
+      "gives": "LACK",
+      "note": "to want is to lack"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LACK",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "On a ship, someone wants to dress down.",
+     "definitionFit": "Slacks are loose everyday trousers, a kind of informal clothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "want"
+    }
+   }
   },
   {
    "number": 21,
@@ -372,7 +1336,56 @@
      }
     ]
    },
-   "solution": "PLAINSAILING"
+   "solution": "PLAINSAILING",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "PLAIN SAILING",
+    "definitions": [
+     {
+      "text": "A breeze",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "did you say",
+      "for": "homophone",
+      "note": "asking what was said points to how a word sounds rather than how it is written"
+     },
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind sends the travelling word to stand after the flier word, so it comes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flier",
+      "gives": "PLAIN",
+      "soundsLike": "PLANE",
+      "note": "a plane is an aircraft, a flier"
+     },
+     {
+      "clueFragment": "travelling",
+      "gives": "SAILING",
+      "note": "sailing means travelling by water"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks whether a breeze is travelling behind an aircraft.",
+     "walkthrough": "'breeze' suggests wind for sailing, but it means something easy; 'behind' puts the travel word after the flier.",
+     "definitionFit": "Plain sailing is an idiom for something easy and trouble-free, as is a breeze."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "breeze"
+    }
+   }
   },
   {
    "number": 22,
@@ -386,7 +1399,46 @@
     "text": "Follow story that's read out",
     "enumeration": "4"
    },
-   "solution": "TAIL"
+   "solution": "TAIL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TAIL",
+    "definitions": [
+     {
+      "text": "Follow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "read out",
+      "for": "homophone",
+      "note": "reading something out loud means only the sound of the word counts"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "story",
+      "gives": "TAIL",
+      "soundsLike": "TALE",
+      "note": "a tale is a story"
+     }
+    ],
+    "explanation": {
+     "surface": "Keep up with a narrative that is being recited.",
+     "definitionFit": "To tail someone is to follow them closely, usually covertly, as a detective does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Follow"
+    }
+   }
   },
   {
    "number": 23,
@@ -400,7 +1452,62 @@
     "text": "Shame it is entertained by outsiders in party",
     "enumeration": "4"
    },
-   "solution": "PITY"
+   "solution": "PITY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PITY",
+    "definitions": [
+     {
+      "text": "Shame",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is entertained by",
+      "for": "container",
+      "note": "a guest who is entertained is taken in, so one piece is held inside another"
+     },
+     {
+      "text": "outsiders in",
+      "for": "letter_selection",
+      "note": "outsiders means the letters on the outside edges, the first and last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "PY",
+      "select": "outer",
+      "note": "the first and last letters of party"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "IT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "It's a disgrace that a gatecrasher was entertained at a party.",
+     "walkthrough": "Shame here is the regret of 'what a shame', not disgrace.",
+     "definitionFit": "'What a shame' and 'what a pity' are interchangeable, both expressing regret."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outsiders"
+    }
+   }
   },
   {
    "number": 24,
@@ -414,7 +1521,42 @@
     "text": "Some sensational island off Scotland",
     "enumeration": "4"
    },
-   "solution": "IONA"
+   "solution": "IONA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "IONA",
+    "definitions": [
+     {
+      "text": "island off Scotland",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means just a portion, so the letters come from inside a word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sensational",
+      "gives": "IONA",
+      "note": "letters seven to ten of sensational"
+     }
+    ],
+    "explanation": {
+     "surface": "An amazing island lies off the Scottish coast.",
+     "definitionFit": "Iona is a small island in the Inner Hebrides, off Scotland's west coast, famous for its abbey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sensational"
+    }
+   }
   },
   {
    "number": 25,
@@ -428,7 +1570,53 @@
     "text": "Ancient caskets in wreckage of a cargo ship",
     "enumeration": "10"
    },
-   "solution": "SARCOPHAGI"
+   "solution": "SARCOPHAGI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SARCOPHAGI",
+    "definitions": [
+     {
+      "text": "Ancient caskets",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wreckage of",
+      "for": "anagram",
+      "note": "wreckage is something broken up, so the letters that follow are scattered and reassembled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a cargo ship",
+      "gives": "ACARGOSHIP",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACARGOSHIP",
+       "gives": "SARCOPHAGI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Old coffins are found among the remains of a sunken freighter.",
+     "definitionFit": "Sarcophagi, plural of sarcophagus, are stone coffins used in ancient Egypt, Greece and Rome."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wreckage"
+    }
+   }
   },
   {
    "number": 26,
@@ -442,7 +1630,74 @@
     "text": "Initials of Giotto on drawings seen in gallery",
     "enumeration": "4"
    },
-   "solution": "GODS"
+   "solution": "GODS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "GODS",
+    "definitions": [
+     {
+      "text": "gallery",
+      "at": 39,
+      "note": "singular in the clue, but the answer is the plural-form name for that one gallery"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initials of",
+      "for": "letter_selection",
+      "note": "initials are opening letters, so only the first letter of each following word is kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Giotto",
+      "gives": "G",
+      "select": "first",
+      "note": "the first letter of Giotto"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "O",
+      "select": "first",
+      "note": "the first letter of on"
+     },
+     {
+      "clueFragment": "drawings",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of drawings"
+     },
+     {
+      "clueFragment": "seen",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of seen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "O",
+      "D",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Giotto's monogram is spotted on sketches displayed in an art gallery.",
+     "walkthrough": "'gallery' suggests an art gallery for Giotto's sketches; in British theatres the gods are the highest, cheapest gallery.",
+     "definitionFit": "The gods is the informal name for the uppermost balcony of seats in a theatre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "gallery"
+    }
+   }
   },
   {
    "number": 27,
@@ -456,7 +1711,53 @@
     "text": "Only pearls flawed, as far as one is concerned",
     "enumeration": "10"
    },
-   "solution": "PERSONALLY"
+   "solution": "PERSONALLY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PERSONALLY",
+    "definitions": [
+     {
+      "text": "as far as one is concerned",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flawed",
+      "for": "anagram",
+      "note": "flawed means imperfect or damaged, so the letters are put into a different order"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Only pearls",
+      "gives": "ONLYPEARLS",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONLYPEARLS",
+       "gives": "PERSONALLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jeweller's opinion: only these pearls have defects.",
+     "definitionFit": "Personally signals one's own view, meaning speaking for oneself or in one's own opinion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pearls"
+    }
+   }
   }
  ]
 }
