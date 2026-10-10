@@ -23,7 +23,7 @@ files = [f for f in subprocess.run(["git", "ls-files", "tools/*.py", "tools/*.sh
 # What ~/.cache may hold: what a tool rebuilds from the downloads, or a job's
 # own state. Anything fetched from the web is a download.
 DERIVED = ["archive_coverage", "archive_org_crops", "archive_org_tess", "corpus_queue", "coverage_ledger",
-           "cryptic-blog-facts\\.lock", "cryptic-teacher", "gale_inbox", "ocr_remote", "rapidocr", "scan_reread_requests\\.jsonl",
+           "cryptic-blog-facts\\.(?:lock|deferred)", "cryptic-teacher", "gale_inbox", "ocr_remote", "rapidocr", "scan_reread_requests\\.jsonl",
            "vlm_reader"]
 ALLOWED = r"(\.cache|\.config|\.local|\.claude|\.ssh|\.cryptic-teacher)\b"
 rules = [
