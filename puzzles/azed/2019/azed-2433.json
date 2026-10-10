@@ -38,6 +38,9 @@
   "date": "2019-02-03",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,48 @@
     "text": "Chronic unease stings, first to last",
     "enumeration": "5"
    },
-   "solution": "ANGST"
+   "solution": "ANGST",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "ANGST",
+    "definitions": [
+     {
+      "text": "Chronic unease",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first to last",
+      "for": "cycling",
+      "note": "the opening letter of the word is carried round to sit at its tail instead"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stings",
+      "gives": "TANGS",
+      "note": "a tang is a sting, in an old sense recorded in Chambers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANGST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes a persistent, nagging discomfort that keeps pricking them from beginning to end.",
+     "walkthrough": "Move the T of TANGS from the front to the back.",
+     "definitionFit": "Angst is a lasting feeling of anxiety or dread, an ongoing state of disquiet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stings"
+    }
+   }
   },
   {
    "number": 1,
@@ -65,7 +109,67 @@
     "text": "Bill in French cafe if translated includes tip for wench",
     "enumeration": "7"
    },
-   "solution": "AFFICHE"
+   "solution": "AFFICHE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "AFFICHE",
+    "definitions": [
+     {
+      "text": "Bill in French",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "translated",
+      "for": "anagram",
+      "note": "translating turns words into a different form, so these letters are rearranged"
+     },
+     {
+      "text": "tip for",
+      "for": "letter_selection",
+      "note": "the tip of a word is one of its ends, here its final letter"
+     }
+    ],
+    "linkWords": [
+     "includes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cafe if",
+      "gives": "CAFEIF",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "wench",
+      "gives": "H",
+      "select": "last",
+      "note": "the end letter of wench"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CAFEIFH",
+       "gives": "AFFICHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bill in a French cafe, once translated, turns out to include a tip for the waitress.",
+     "walkthrough": "'Bill in French cafe' reads as a restaurant check; the definition stops at 'French', since an affiche is a poster.",
+     "definitionFit": "Affiche is the French word for a poster or placard, a bill stuck up on a wall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bill"
+    }
+   }
   },
   {
    "number": 2,
@@ -79,7 +183,74 @@
     "text": "Timber tree raja, ill, planted in fringes of garden?",
     "enumeration": "6"
    },
-   "solution": "GARJAN"
+   "solution": "GARJAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "GARJAN",
+    "definitions": [
+     {
+      "text": "Timber tree",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ill",
+      "for": "anagram",
+      "note": "something ill is out of sorts, so the word before it is put out of order"
+     },
+     {
+      "text": "planted in",
+      "for": "container",
+      "note": "a plant set into soil is surrounded by it, so one part goes inside another"
+     },
+     {
+      "text": "fringes of",
+      "for": "letter_selection",
+      "note": "the fringes of a word are its edges, its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "garden",
+      "gives": "GN",
+      "select": "outer",
+      "note": "the outside letters of garden"
+     },
+     {
+      "clueFragment": "raja",
+      "gives": "ARJA",
+      "note": "the word raja rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ARJA",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAJA",
+       "gives": "ARJA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sick Indian prince plants a timber tree at the edges of his garden.",
+     "walkthrough": "The question mark admits the raja is only planted figuratively, as letters inside the edges of garden.",
+     "definitionFit": "Garjan is a large South-east Asian tree of the dipterocarp family, valued for its wood and oil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "planted"
+    }
+   }
   },
   {
    "number": 3,
@@ -93,7 +264,55 @@
     "text": "Width where prisoner's confined cut short – one has to hobble",
     "enumeration": "7"
    },
-   "solution": "SPANCEL"
+   "solution": "SPANCEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SPANCEL",
+    "definitions": [
+     {
+      "text": "one has to hobble",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut short",
+      "for": "deletion",
+      "note": "cutting something short trims off its end, so the last letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Width",
+      "gives": "SPAN",
+      "note": "a span is a width or extent"
+     },
+     {
+      "clueFragment": "where prisoner's confined",
+      "gives": "CEL",
+      "note": "a cell with its last letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPAN",
+      "CEL"
+     ]
+    },
+    "explanation": {
+     "surface": "A prisoner's narrow cell has been cut down, and he must hobble about in it.",
+     "walkthrough": "The definition reads as 'a thing one has, to hobble with': a spancel is a hobbling rope.",
+     "definitionFit": "A spancel is a rope tied round an animal's legs to hobble it, so it is what one uses for hobbling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "hobble"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +326,42 @@
     "text": "Part of Everest, endless incline",
     "enumeration": "4"
    },
-   "solution": "TEND"
+   "solution": "TEND",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TEND",
+    "definitions": [
+     {
+      "text": "incline",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Part of",
+      "for": "hidden_word",
+      "note": "only a part of the following run of letters is wanted, lying across the word break"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everest, endless",
+      "gives": "TEND",
+      "note": "found across the end of Everest and the start of endless"
+     }
+    ],
+    "explanation": {
+     "surface": "A climber describes a section of Mount Everest that seems to slope up forever.",
+     "definitionFit": "To tend is to incline or lean towards something, as in a tendency."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "incline"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +375,67 @@
     "text": "Silly ass entering stage messed up prolonged discussion",
     "enumeration": "7"
    },
-   "solution": "GABFEST"
+   "solution": "GABFEST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GABFEST",
+    "definitions": [
+     {
+      "text": "prolonged discussion",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "entering means going inside, so one part is placed within the other"
+     },
+     {
+      "text": "messed up",
+      "for": "anagram",
+      "note": "something messed up is in disorder, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stage",
+      "gives": "GAEST",
+      "note": "the word stage rearranged"
+     },
+     {
+      "clueFragment": "Silly ass",
+      "gives": "BF",
+      "note": "BF, short for bloody fool, is in Chambers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GA",
+      "BF",
+      "EST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STAGE",
+       "gives": "GAEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clumsy fool walks on stage and spoils a long debate in progress.",
+     "walkthrough": "'Silly ass' is not an anagram signal: it is the Chambers abbreviation for bloody fool, which sits inside the rearranged stage.",
+     "definitionFit": "A gabfest is an informal word for a long session of talk or chatter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stage"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +449,66 @@
     "text": "Ratty, say? Vole I see in a small river messing about",
     "enumeration": "10"
    },
-   "solution": "ARVICOLINE"
+   "solution": "ARVICOLINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ARVICOLINE",
+    "definitions": [
+     {
+      "text": "Ratty, say?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "messing about",
+      "for": "anagram",
+      "note": "messing about means fooling around carelessly, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vole I",
+      "gives": "VOLEI",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "see",
+      "gives": "C",
+      "note": "the letter C is pronounced the same as see"
+     },
+     {
+      "clueFragment": "in a",
+      "gives": "INA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "small river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VOLEICINAR",
+       "gives": "ARVICOLINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Watching a vole paddle in a little river, someone recalls Ratty from The Wind in the Willows.",
+     "walkthrough": "Ratty in The Wind in the Willows is in fact a water vole, which explains the 'say?'.",
+     "definitionFit": "Arvicoline describes the vole subfamily of rodents, so the water vole Ratty is an example of one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Ratty"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +522,85 @@
     "text": "Pages in book to look up, including start of preface",
     "enumeration": "5"
    },
-   "solution": "BEEPS"
+   "solution": "BEEPS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "BEEPS",
+    "definitions": [
+     {
+      "text": "Pages",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means reading the word from bottom to top"
+     },
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including means taking something inside, so one letter sits within the other part"
+     },
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter only"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     },
+     {
+      "clueFragment": "to look",
+      "gives": "SEE",
+      "note": "to see is to look"
+     },
+     {
+      "clueFragment": "preface",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of preface"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "EE",
+      "P",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SEE",
+       "to": "EES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone flips the pages of a book back to the beginning to read the preface.",
+     "walkthrough": "'Pages' is a verb here, contacting someone by pager; P goes inside the reversed SEE.",
+     "definitionFit": "To page someone electronically is to beep them, so pages and beeps are synonyms as verbs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pages"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +614,58 @@
     "text": "Early implement – it's found in hole, damaged",
     "enumeration": "6"
    },
-   "solution": "EOLITH"
+   "solution": "EOLITH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EOLITH",
+    "definitions": [
+     {
+      "text": "Early implement",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "damaged",
+      "for": "anagram",
+      "note": "something damaged is knocked out of shape, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "'s found in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hole",
+      "gives": "HOLE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITHOLE",
+       "gives": "EOLITH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An archaeologist reports that a primitive tool turned up, broken, in a pit.",
+     "definitionFit": "An eolith is a crudely chipped flint thought to be among the earliest human tools."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "damaged"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +679,43 @@
     "text": "Like fruit eaten whole, what dieters want to get?",
     "enumeration": "9"
    },
-   "solution": "STONELESS"
+   "solution": "STONELESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STONELESS",
+    "definitions": [
+     {
+      "text": "Like fruit eaten whole",
+      "at": 0
+     },
+     {
+      "text": "what dieters want to get?",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like fruit eaten whole",
+      "note": "first meaning: without a pit, so the whole fruit can be eaten"
+     },
+     {
+      "clueFragment": "what dieters want to get?",
+      "note": "second meaning, split in two: a stone (14 pounds) lighter"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The stone is the British unit of 14 pounds body weight; read the answer as two words for the dieter's goal.",
+     "definitionFit": "A fruit without a pit can be eaten entire, while a slimmer hopes to weigh one stone less."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "eaten"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +729,58 @@
     "text": "Pungent, i.e. no good in Paddy's cuppa",
     "enumeration": "5"
    },
-   "solution": "TANGY"
+   "solution": "TANGY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TANGY",
+    "definitions": [
+     {
+      "text": "Pungent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one thing inside another, here inside the drink"
+     }
+    ],
+    "linkWords": [
+     "i.e."
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paddy's cuppa",
+      "gives": "TAY",
+      "note": "tay is an Irish pronunciation and spelling of tea; Paddy is a nickname for an Irishman"
+     },
+     {
+      "clueFragment": "no good",
+      "gives": "NG",
+      "note": "NG is the abbreviation for no good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "NG",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An Irishman's tea is so strong and sharp that it is no good to drink.",
+     "walkthrough": "Cuppa is British slang for a cup of tea.",
+     "definitionFit": "Tangy means having a sharp, strong flavour or smell, which is what pungent describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Paddy's"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +794,56 @@
     "text": "Like Noddy's friend of yesteryear? Got fired up about copy",
     "enumeration": "9"
    },
-   "solution": "FLAPEARED"
+   "solution": "FLAPEARED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FLAPEARED",
+    "definitions": [
+     {
+      "text": "Like Noddy's friend of yesteryear?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the first word wraps round the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Got fired up",
+      "gives": "FLARED",
+      "note": "to flare up is to get fired up"
+     },
+     {
+      "clueFragment": "copy",
+      "gives": "APE",
+      "note": "to ape is to copy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FL",
+      "APE",
+      "ARED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone got angry when a copy of an old Noddy book turned up.",
+     "walkthrough": "Noddy is the toy hero of Enid Blyton's children's books, and his friend is the gnome Big-Ears.",
+     "definitionFit": "Big-Ears has large, sticking-out ears, which is what flap-eared describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "copy"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +857,43 @@
     "text": "Having a particular appearance in Scotland, it often goes with 'wide'",
     "enumeration": "6"
    },
-   "solution": "FARAND"
+   "solution": "FARAND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FARAND",
+    "definitions": [
+     {
+      "text": "Having a particular appearance in Scotland",
+      "at": 0
+     },
+     {
+      "text": "it often goes with 'wide'",
+      "at": 44
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Having a particular appearance in Scotland",
+      "note": "first meaning: a Scots adjective for having a certain look"
+     },
+     {
+      "clueFragment": "it often goes with 'wide'",
+      "note": "second meaning: the words preceding 'wide' in a familiar phrase"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half points to the phrase 'far and wide', whose first two words run together.",
+     "definitionFit": "Farand is a Scots word meaning having a certain appearance or seeming, as in fair-farand, good-looking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wide"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +907,55 @@
     "text": "Cockchafer grasped in grip of dung-beetle",
     "enumeration": "10"
    },
-   "solution": "DRUMBLEDOR"
+   "solution": "DRUMBLEDOR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DRUMBLEDOR",
+    "definitions": [
+     {
+      "text": "Cockchafer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in grip of",
+      "for": "container",
+      "note": "being in someone's grip means held between their hands, so one word lies within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dung-beetle",
+      "gives": "DOR",
+      "note": "a dor is a dung-beetle"
+     },
+     {
+      "clueFragment": "grasped",
+      "gives": "RUMBLED",
+      "note": "rumbled means understood or found out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RUMBLED",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A cockchafer is caught and held by a dung-beetle.",
+     "walkthrough": "The definition is the first word alone: both insects are beetles, but the dung-beetle only supplies letters.",
+     "definitionFit": "Drumbledor is a dialect name for a large buzzing beetle such as the cockchafer, also called the dumbledore."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grasped"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +969,48 @@
     "text": "Not what interested Spanish pirates in hold of caravel, London bound",
     "enumeration": "6"
    },
-   "solution": "VELLON"
+   "solution": "VELLON",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "VELLON",
+    "definitions": [
+     {
+      "text": "Not what interested Spanish pirates",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in hold of",
+      "for": "hidden_word",
+      "note": "something in a ship's hold is stored inside it, so the answer lies inside these words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caravel, London",
+      "gives": "VELLON",
+      "note": "found across the end of caravel and the start of London"
+     },
+     {
+      "clueFragment": "bound",
+      "note": "surface padding completing the picture of a ship headed for London"
+     }
+    ],
+    "explanation": {
+     "surface": "Spanish pirates look in the hold of a caravel bound for London and find nothing they want.",
+     "walkthrough": "Pirates wanted gold, but vellon was the Spanish copper or silver-copper money, hardly worth stealing.",
+     "definitionFit": "Vellon is base Spanish coinage of copper alloy, the cheap money pirates after gold would ignore."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hold"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1024,53 @@
     "text": "Heron lies tangled in rope between net and land",
     "enumeration": "9"
    },
-   "solution": "SHORELINE"
+   "solution": "SHORELINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SHORELINE",
+    "definitions": [
+     {
+      "text": "rope between net and land",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tangled",
+      "for": "anagram",
+      "note": "tangled things are twisted out of order, so the letters are mixed up"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Heron lies",
+      "gives": "HERONLIES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HERONLIES",
+       "gives": "SHORELINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A heron lies trapped in the rope of a fishing net drawn up on the beach.",
+     "definitionFit": "A shore-line is the rope running from a fishing net to the shore, used to haul it in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Heron"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1084,48 @@
     "text": "Top–hole roue to contact electronically",
     "enumeration": "7"
    },
-   "solution": "RIPPING"
+   "solution": "RIPPING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RIPPING",
+    "definitions": [
+     {
+      "text": "Top–hole",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "roue",
+      "gives": "RIP",
+      "note": "a rip is a rake or debauchee, as is a roue"
+     },
+     {
+      "clueFragment": "to contact electronically",
+      "gives": "PING",
+      "note": "to ping is to send someone an electronic message"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIP",
+      "PING"
+     ]
+    },
+    "explanation": {
+     "surface": "An old rake who is first-rate at sending messages online.",
+     "walkthrough": "Top-hole is dated British slang for excellent.",
+     "definitionFit": "Ripping and top-hole are both old British slang words for excellent or splendid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "roue"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1139,50 @@
     "text": "Old military cap in e.g. Assam company",
     "enumeration": "5"
    },
-   "solution": "CHACO"
+   "solution": "CHACO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHACO",
+    "definitions": [
+     {
+      "text": "Old military cap",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "e.g. Assam",
+      "gives": "CHA",
+      "note": "cha is tea, and Assam is a kind of tea"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "CO"
+     ]
+    },
+    "explanation": {
+     "surface": "An old army cap worn by a company stationed in Assam, in India.",
+     "walkthrough": "Assam seems to be the Indian state, but it is the tea named after it.",
+     "definitionFit": "A chaco, more often shako, is a tall peaked military hat with a plume, worn by soldiers in the past."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Assam"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1196,67 @@
     "text": "Craggy Caledonian is short, even backward",
     "enumeration": "4"
    },
-   "solution": "STEY"
+   "solution": "STEY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "reversal"
+    ],
+    "answer": "STEY",
+    "definitions": [
+     {
+      "text": "Craggy Caledonian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means cut down, so the word loses a letter"
+     },
+     {
+      "text": "backward",
+      "for": "reversal",
+      "note": "going backward means the word is read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "S",
+      "note": "is shortened, as in the contraction 's"
+     },
+     {
+      "clueFragment": "even",
+      "gives": "YET",
+      "note": "yet and even are synonyms, as in 'yet more' or 'even more'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TEY"
+     ],
+     "reversals": [
+      {
+       "from": "YET",
+       "to": "TEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rugged Scotsman is described as short and even rather backward.",
+     "walkthrough": "Caledonian means Scottish: stey is the Scots word for steep.",
+     "definitionFit": "Stey is Scots for steep, so a craggy Scottish slope is stey."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Craggy"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1270,76 @@
     "text": "Early weeks of marriage once: new money splurged with passionate husband around",
     "enumeration": "10"
    },
-   "solution": "HONEYMONTH"
+   "solution": "HONEYMONTH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "HONEYMONTH",
+    "definitions": [
+     {
+      "text": "Early weeks of marriage once",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "splurged",
+      "for": "anagram",
+      "note": "splurged money is scattered about freely, so these letters are thrown into a new order"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so the passionate word wraps the scrambled letters"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "passionate",
+      "gives": "HOT",
+      "note": "hot means passionate"
+     },
+     {
+      "clueFragment": "new money",
+      "gives": "NEYMON",
+      "note": "N for new, plus money, rearranged"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "NEYMON",
+      "T",
+      "H"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NMONEY",
+       "gives": "NEYMON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In the first weeks of marriage, a hot-blooded husband blew his new wealth.",
+     "definitionFit": "Honeymonth is an old form of honeymoon, the first weeks after a wedding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "splurged"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1353,72 @@
     "text": "Restless one climbing point once again, losing weight",
     "enumeration": "7"
    },
-   "solution": "TSIGANE"
+   "solution": "TSIGANE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "TSIGANE",
+    "definitions": [
+     {
+      "text": "Restless one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "in a down entry, climbing means reading the word upward, from last letter to first"
+     },
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing something means it is dropped, so a letter is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "point",
+      "gives": "GIST",
+      "note": "the gist is the main point"
+     },
+     {
+      "clueFragment": "once again",
+      "gives": "ANEW",
+      "note": "anew means once again"
+     },
+     {
+      "clueFragment": "weight",
+      "gives": "W",
+      "note": "W is the abbreviation for weight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TSIG",
+      "ANE"
+     ],
+     "reversals": [
+      {
+       "from": "GIST",
+       "to": "TSIG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A restless mountaineer climbs to the summit again, shedding weight.",
+     "walkthrough": "'once' attaches to 'again', not to the definition.",
+     "definitionFit": "A tsigane is a Hungarian gypsy, one of a traditionally wandering people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1432,64 @@
     "text": "Macabre, old, grey, shifty and crafty",
     "enumeration": "7"
    },
-   "solution": "GRYESLY"
+   "solution": "GRYESLY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "GRYESLY",
+    "definitions": [
+     {
+      "text": "Macabre, old",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shifty",
+      "for": "anagram",
+      "note": "shifty suggests things shifting position, so the letters move around"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grey",
+      "gives": "GRYE",
+      "note": "the word grey rearranged"
+     },
+     {
+      "clueFragment": "crafty",
+      "gives": "SLY",
+      "note": "sly and crafty are synonyms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRYE",
+      "SLY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GREY",
+       "gives": "GRYE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A list of adjectives for a gruesome, aged, untrustworthy schemer.",
+     "walkthrough": "'old' marks the answer as an obsolete spelling.",
+     "definitionFit": "Gryesly is an old spelling of grisly, meaning horrible or gruesome."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shifty"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1503,47 @@
     "text": "Gypsum such as poets used in the manner of wedge",
     "enumeration": "10"
    },
-   "solution": "ALABLASTER"
+   "solution": "ALABLASTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALABLASTER",
+    "definitions": [
+     {
+      "text": "Gypsum such as poets used",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in the manner of",
+      "gives": "ALA",
+      "note": "a la means in the style or manner of"
+     },
+     {
+      "clueFragment": "wedge",
+      "gives": "BLASTER",
+      "note": "a blaster is a sand wedge, a golf club"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALA",
+      "BLASTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A poetic word for gypsum, used in the manner of a wedge.",
+     "walkthrough": "'Wedge' suggests a shape, but it is a golf club played from bunkers.",
+     "definitionFit": "Alablaster is an old poetic form of alabaster, a fine-grained gypsum."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wedge"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1557,57 @@
     "text": "Account written about grain harvest in a foreign language",
     "enumeration": "6"
    },
-   "solution": "ARABIC"
+   "solution": "ARABIC",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ARABIC",
+    "definitions": [
+     {
+      "text": "a foreign language",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "written about",
+      "for": "container",
+      "note": "written about means wrapped around, so the first word surrounds the second"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Account",
+      "gives": "AC",
+      "note": "AC is the abbreviation for account"
+     },
+     {
+      "clueFragment": "grain harvest",
+      "gives": "RABI",
+      "note": "rabi is the spring grain harvest in India"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "RABI",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A report of the grain harvest is written in another country's language.",
+     "definitionFit": "Arabic is the language of the Arab world, a foreign tongue to an English reader."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Account"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1621,61 @@
     "text": "Estate's capital held in hope of maximum reliability",
     "enumeration": "6"
    },
-   "solution": "TRUEST"
+   "solution": "TRUEST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TRUEST",
+    "definitions": [
+     {
+      "text": "of maximum reliability",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capital",
+      "for": "letter_selection",
+      "note": "a capital is the head letter, so only the first of the word is kept"
+     },
+     {
+      "text": "held in",
+      "for": "container",
+      "note": "held in means contained, so the letter goes inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hope",
+      "gives": "TRUST",
+      "note": "to trust is to hope"
+     },
+     {
+      "clueFragment": "Estate's",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of estate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRU",
+      "E",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "A property's capital value held in trust, in the hope of the safest return.",
+     "definitionFit": "Truest is the superlative of true, meaning most faithful or dependable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1689,61 @@
     "text": "Churl turning cheeky, rear whipped",
     "enumeration": "4"
    },
-   "solution": "SERF"
+   "solution": "SERF",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "SERF",
+    "definitions": [
+     {
+      "text": "Churl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning round means facing the other way, so the word is read backwards"
+     },
+     {
+      "text": "rear whipped",
+      "for": "deletion",
+      "note": "having its rear whipped away means the last letter is taken off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheeky",
+      "gives": "FRESH",
+      "note": "fresh means cheeky or impudent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SERF"
+     ],
+     "reversals": [
+      {
+       "from": "FRES",
+       "to": "SERF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rude peasant gets cheeky and has his backside thrashed.",
+     "walkthrough": "'Rear whipped' sounds like a beating; it removes the last letter.",
+     "definitionFit": "A churl was originally a peasant or bondman of low rank, like a serf."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "whipped"
+    }
+   }
   },
   {
    "number": 24,
@@ -415,7 +1757,49 @@
     "text": "Young swimmer, super-loud? Needs suppressing regularly",
     "enumeration": "5"
    },
-   "solution": "SPROD"
+   "solution": "SPROD",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SPROD",
+    "definitions": [
+     {
+      "text": "Young swimmer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Needs suppressing regularly",
+      "for": "letter_selection",
+      "note": "putting down at regular intervals means every second letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "super-loud",
+      "gives": "SPROD",
+      "select": "alternate",
+      "note": "the first, third, fifth, seventh and ninth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPROD"
+     ]
+    },
+    "explanation": {
+     "surface": "A young swimmer who is extremely noisy has to be kept quiet now and then.",
+     "walkthrough": "'Swimmer' means a fish here, not a person.",
+     "definitionFit": "A sprod is a salmon in its second year, a young fish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "swimmer"
+    }
+   }
   },
   {
    "number": 25,
@@ -429,7 +1813,80 @@
     "text": "Musical event amateur orchestra mounted, bit of effort put in",
     "enumeration": "5"
    },
-   "solution": "OPERA"
+   "solution": "OPERA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "OPERA",
+    "definitions": [
+     {
+      "text": "Musical event",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mounted",
+      "for": "reversal",
+      "note": "in a down entry, mounted means climbing upward, so the letters read from the bottom"
+     },
+     {
+      "text": "put in",
+      "for": "container",
+      "note": "put in means inserted, so this letter goes inside"
+     },
+     {
+      "text": "bit of",
+      "for": "letter_selection",
+      "note": "a bit of a word is just a small part, here its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "amateur",
+      "gives": "A",
+      "note": "A is the abbreviation for amateur"
+     },
+     {
+      "clueFragment": "orchestra",
+      "gives": "RPO",
+      "note": "the Royal Philharmonic Orchestra"
+     },
+     {
+      "clueFragment": "effort",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of effort"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OP",
+      "E",
+      "RA"
+     ],
+     "reversals": [
+      {
+       "from": "ARPO",
+       "to": "OPRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An amateur orchestra puts on a musical performance that takes a bit of effort.",
+     "walkthrough": "The RPO is the Royal Philharmonic Orchestra of London.",
+     "definitionFit": "An opera is a staged drama set to music, so a performance of one is a musical event."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mounted"
+    }
+   }
   },
   {
    "number": 26,
@@ -443,7 +1900,68 @@
     "text": "Jock's unshaven? Wife turning stroppy gutted",
     "enumeration": "5"
    },
-   "solution": "BIRSY"
+   "solution": "BIRSY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BIRSY",
+    "definitions": [
+     {
+      "text": "Jock's unshaven?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning round means facing the other way, so the word reads right to left"
+     },
+     {
+      "text": "gutted",
+      "for": "letter_selection",
+      "note": "a gutted thing has its insides removed, so only the outer letters remain"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wife",
+      "gives": "RIB",
+      "note": "a rib is a wife, after Eve made from Adam's rib"
+     },
+     {
+      "clueFragment": "stroppy",
+      "gives": "SY",
+      "select": "outer",
+      "note": "the first and last letters of stroppy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIR",
+      "SY"
+     ],
+     "reversals": [
+      {
+       "from": "RIB",
+       "to": "BIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Scotsman with stubble, whose wife grows bad-tempered and then devastated.",
+     "walkthrough": "Jock is a nickname for a Scot, marking a Scots word; the question mark is because birsy means bristly, which an unshaven chin is.",
+     "definitionFit": "Birsy is Scots for bristly, and an unshaven face is covered in bristles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "gutted"
+    }
+   }
   },
   {
    "number": 27,
@@ -457,7 +1975,39 @@
     "text": "Feature of nursery suggested by dramatist?",
     "enumeration": "7"
    },
-   "solution": "PLAYPEN"
+   "solution": "PLAYPEN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PLAYPEN",
+    "definitions": [
+     {
+      "text": "Feature of nursery suggested by dramatist?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Feature of nursery",
+      "note": "surface reading: an enclosure in a child's room"
+     },
+     {
+      "clueFragment": "suggested by dramatist?",
+      "note": "setter's reading: what a playwright writes with, a play writer's writing tool"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A dramatist writes plays, so the writing implement of a dramatist could be called his play pen.",
+     "definitionFit": "A playpen is a portable enclosure where a baby plays safely, typical of a nursery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dramatist"
+    }
+   }
   },
   {
    "number": 28,
@@ -471,7 +2021,57 @@
     "text": "Offensive term, including L for lout",
     "enumeration": "4"
    },
-   "solution": "SLOB"
+   "solution": "SLOB",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SLOB",
+    "definitions": [
+     {
+      "text": "lout",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including means holding something inside, so the letter is placed within"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Offensive term",
+      "gives": "SOB",
+      "note": "SOB, son of a bitch, is an insult"
+     },
+     {
+      "clueFragment": "L",
+      "gives": "L",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "L",
+      "OB"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of insults where L stands for lout.",
+     "definitionFit": "A slob is a lazy, coarse, untidy person, much like a lout."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "term"
+    }
+   }
   },
   {
    "number": 29,
@@ -485,7 +2085,79 @@
     "text": "Climb's ending in jumble of debris, mostly with ridges",
     "enumeration": "6"
    },
-   "solution": "RIBBED"
+   "solution": "RIBBED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "RIBBED",
+    "definitions": [
+     {
+      "text": "with ridges",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending",
+      "for": "letter_selection",
+      "note": "the ending of a word is its final letter"
+     },
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means all but a little, so the last letter is dropped"
+     },
+     {
+      "text": "jumble of",
+      "for": "anagram",
+      "note": "a jumble is a disordered heap, so the letters are mixed up"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places this letter inside the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "debris",
+      "gives": "RIED",
+      "note": "debris loses its last letter and is rearranged"
+     },
+     {
+      "clueFragment": "Climb's",
+      "gives": "B",
+      "select": "last",
+      "note": "the final letter of climb"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIB",
+      "B",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DEBRI",
+       "gives": "RIBED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "At the end of a climb, someone stumbles through a pile of rubble on a ridged slope.",
+     "definitionFit": "Ribbed means having raised ribs or ridges, as in ribbed fabric."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Climb's"
+    }
+   }
   },
   {
    "number": 30,
@@ -499,7 +2171,78 @@
     "text": "Golfer grips one that is reversed in palm",
     "enumeration": "6"
    },
-   "solution": "ELAEIS"
+   "solution": "ELAEIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "ELAEIS",
+    "definitions": [
+     {
+      "text": "palm",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversed",
+      "for": "reversal",
+      "note": "reversed means turned back to front, so the abbreviation reads backwards"
+     },
+     {
+      "text": "grips",
+      "for": "container",
+      "note": "gripping something means holding it inside, so the golfer's name wraps the rest"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Golfer",
+      "gives": "ELS",
+      "note": "Ernie Els, the South African golfer"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "IE, id est, means that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EL",
+      "A",
+      "EI",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "IE",
+       "to": "EI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer holds one club backwards in his palm.",
+     "walkthrough": "'Palm' seems to be the hand, but it is the tree.",
+     "definitionFit": "Elaeis is the genus of the oil palm, so it names a kind of palm tree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "palm"
+    }
+   }
   },
   {
    "number": 31,
@@ -513,7 +2256,57 @@
     "text": "Magistrate in Rome having to move stealthily once nabbing jailbirds",
     "enumeration": "9"
    },
-   "solution": "PROCONSUL"
+   "solution": "PROCONSUL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PROCONSUL",
+    "definitions": [
+     {
+      "text": "Magistrate in Rome",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nabbing",
+      "for": "container",
+      "note": "nabbing means catching hold of, so the first word closes around the second"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to move stealthily once",
+      "gives": "PROUL",
+      "note": "proul is an old spelling of prowl"
+     },
+     {
+      "clueFragment": "jailbirds",
+      "gives": "CONS",
+      "note": "cons are convicts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "CONS",
+      "UL"
+     ]
+    },
+    "explanation": {
+     "surface": "A Roman magistrate creeps about by night arresting escaped convicts.",
+     "definitionFit": "A proconsul was a Roman official governing a province with the powers of a consul."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "jailbirds"
+    }
+   }
   },
   {
    "number": 32,
@@ -527,7 +2320,62 @@
     "text": "Come out with first from car dealer, reconditioned",
     "enumeration": "7"
    },
-   "solution": "DECLARE"
+   "solution": "DECLARE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "DECLARE",
+    "definitions": [
+     {
+      "text": "Come out with",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first from",
+      "for": "letter_selection",
+      "note": "the first from a word is its opening letter"
+     },
+     {
+      "text": "reconditioned",
+      "for": "anagram",
+      "note": "a reconditioned item has been taken apart and rebuilt, so the letters are reassembled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "car",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of car"
+     },
+     {
+      "clueFragment": "dealer",
+      "gives": "DEALER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CDEALER",
+       "gives": "DECLARE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A second-hand motor salesman admits a reconditioned car is not what he said.",
+     "definitionFit": "To declare is to state openly, to come out with something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reconditioned"
+    }
+   }
   },
   {
    "number": 33,
@@ -541,7 +2389,47 @@
     "text": "House–husband, British painter known for his nudes",
     "enumeration": "5"
    },
-   "solution": "BETTY"
+   "solution": "BETTY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BETTY",
+    "definitions": [
+     {
+      "text": "House–husband",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "painter known for his nudes",
+      "gives": "ETTY",
+      "note": "William Etty, the English painter famous for nudes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ETTY"
+     ]
+    },
+    "explanation": {
+     "surface": "A British artist famous for nudes who also stayed at home and kept house.",
+     "walkthrough": "A betty is a man who busies himself with housework, a dated word.",
+     "definitionFit": "Betty is an old term for a man who does women's household tasks, in effect a house-husband."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "House–husband"
+    }
+   }
   }
  ]
 }
