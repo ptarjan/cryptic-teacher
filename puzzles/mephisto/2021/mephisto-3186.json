@@ -37,6 +37,9 @@
   "date": "2021-09-26",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -50,7 +53,56 @@
     "text": "Right to hold spoon, say, close to chin",
     "enumeration": "4"
    },
-   "solution": "LIEN"
+   "solution": "LIEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LIEN",
+    "definitions": [
+     {
+      "text": "Right to hold",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its final letter, so only the end of the next word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spoon, say",
+      "gives": "LIE",
+      "note": "to spoon is to lie snugly together, so spooning is one way to lie"
+     },
+     {
+      "clueFragment": "chin",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter of chin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A diner holds a spoon up near the chin, perhaps feeding a child.",
+     "walkthrough": "'Right to hold' is the definition, not an instruction to put letters inside others; 'say' marks spooning as an example of lying.",
+     "definitionFit": "A lien is a legal claim entitling a creditor to retain another's property until a debt is paid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hold"
+    }
+   }
   },
   {
    "number": 1,
@@ -74,7 +126,64 @@
      }
     ]
    },
-   "solution": "LOOKUPTO"
+   "solution": "LOOKUPTO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LOOK UP TO",
+    "definitions": [
+     {
+      "text": "respect",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Opening couplet from",
+      "for": "letter_selection",
+      "note": "a couplet is a pair, so the opening two letters of the following name are taken"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lovelace",
+      "gives": "LO",
+      "select": "first",
+      "note": "the first two letters of Lovelace"
+     },
+     {
+      "clueFragment": "certainly",
+      "gives": "OK",
+      "note": "OK, an informal yes"
+     },
+     {
+      "clueFragment": "ready",
+      "gives": "UPTO",
+      "note": "up to, as in up to the job"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "OK",
+      "UPTO"
+     ]
+    },
+    "explanation": {
+     "surface": "A reader admires the first two lines of a poem by the Cavalier poet Richard Lovelace.",
+     "definitionFit": "To look up to someone is an idiom for admiring and respecting them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "couplet"
+    }
+   }
   },
   {
    "number": 2,
@@ -88,7 +197,60 @@
     "text": "I struggle with sums? Uni and me aren't suitably disposed",
     "enumeration": "10"
    },
-   "solution": "INNUMERATE"
+   "solution": "INNUMERATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INNUMERATE",
+    "definitions": [
+     {
+      "text": "I struggle with sums?",
+      "at": 0,
+      "note": "a self-description standing for an adjective"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suitably disposed",
+      "for": "anagram",
+      "note": "disposed means arranged, so these letters are set out in a suitable new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Uni",
+      "gives": "UNI",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "me aren't",
+      "gives": "MEARENT",
+      "note": "taken as written, apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UNIMEARENT",
+       "gives": "INNUMERATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student admits that they and their university are not well suited to maths.",
+     "walkthrough": "The question mark marks the definition as a speaker describing themselves: someone who says 'I struggle with sums' is innumerate.",
+     "definitionFit": "Innumerate is the numerical counterpart of illiterate: lacking basic arithmetic skill."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "disposed"
+    }
+   }
   },
   {
    "number": 3,
@@ -102,7 +264,66 @@
     "text": "Women diving into Seine, racily modern stuff",
     "enumeration": "6"
    },
-   "solution": "NEWIES"
+   "solution": "NEWIES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NEWIES",
+    "definitions": [
+     {
+      "text": "modern stuff",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "diving into",
+      "for": "container",
+      "note": "something diving into water ends up inside it, so one piece goes within the other"
+     },
+     {
+      "text": "racily",
+      "for": "anagram",
+      "note": "done racily, in a lively or loose way, these letters lose their original order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seine",
+      "gives": "SEINE",
+      "note": "the river's name taken as written"
+     },
+     {
+      "clueFragment": "Women",
+      "gives": "W",
+      "note": "W is the abbreviation for women"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "W",
+      "IES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEINE",
+       "gives": "NEIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Parisian women plunging into the Seine, a daring new fashion.",
+     "definitionFit": "Newies is an informal plural noun for new things, novelties or recent productions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "racily"
+    }
+   }
   },
   {
    "number": 4,
@@ -116,7 +337,54 @@
     "text": "Kids' cave with ordinary opening",
     "enumeration": "8"
    },
-   "solution": "FOREWORD"
+   "solution": "FOREWORD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FOREWORD",
+    "definitions": [
+     {
+      "text": "opening",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kids' cave",
+      "gives": "FORE",
+      "note": "cave (Latin for beware) is school slang for a warning cry, as golfers shout fore"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     },
+     {
+      "clueFragment": "ordinary",
+      "gives": "ORD",
+      "note": "ord. is the abbreviation for ordinary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FORE",
+      "W",
+      "ORD"
+     ]
+    },
+    "explanation": {
+     "surface": "Children have a cave with a plain, ordinary entrance.",
+     "walkthrough": "Cave is not a hollow in rock but the schoolboy warning, pronounced KAY-vee; the golfer's fore is a cry of the same kind.",
+     "definitionFit": "A foreword is the introductory section opening a book, written before the main text."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cave"
+    }
+   }
   },
   {
    "number": 4,
@@ -130,7 +398,57 @@
     "text": "Fine once due on a trading transport group",
     "enumeration": "5"
    },
-   "solution": "FLOTA"
+   "solution": "FLOTA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLOTA",
+    "definitions": [
+     {
+      "text": "trading transport group",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "once",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fine",
+      "gives": "F",
+      "note": "F is the pencil-grade abbreviation for fine"
+     },
+     {
+      "clueFragment": "due",
+      "gives": "LOT",
+      "note": "a lot is a share or levy owed, as in scot and lot"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LOT",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A penalty payment is owed on a shipping consortium.",
+     "walkthrough": "'once' marks the definition as historical: a flota sailed long ago.",
+     "definitionFit": "The flota was the Spanish treasure fleet that once carried trade goods between Spain and its American colonies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fine"
+    }
+   }
   },
   {
    "number": 5,
@@ -144,7 +462,46 @@
     "text": "Old Mexican's some cool mechanic",
     "enumeration": "5"
    },
-   "solution": "OLMEC"
+   "solution": "OLMEC",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OLMEC",
+    "definitions": [
+     {
+      "text": "Old Mexican",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some of the following words means only a part of their run of letters is used"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cool mechanic",
+      "gives": "OLMEC",
+      "note": "spans the end of cool and the start of mechanic"
+     }
+    ],
+    "explanation": {
+     "surface": "An ancient Mexican turns out to be a rather cool car mechanic.",
+     "definitionFit": "The Olmec were an early Mesoamerican civilisation on the Gulf coast of Mexico, so one of them is an ancient Mexican."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "some"
+    }
+   }
   },
   {
    "number": 6,
@@ -158,7 +515,59 @@
     "text": "I respond as head of Jewish seminary accepting answer",
     "enumeration": "7"
    },
-   "solution": "REACTOR"
+   "solution": "REACTOR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REACTOR",
+    "definitions": [
+     {
+      "text": "I respond",
+      "at": 0,
+      "note": "a self-description standing for a noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "to accept is to take in, so one piece is received inside the other"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "head of Jewish seminary",
+      "gives": "RECTOR",
+      "note": "a rector heads a college or seminary; Chambers names a Jesuit seminary"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A is the abbreviation for answer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "A",
+      "CTOR"
+     ]
+    },
+    "explanation": {
+     "surface": "The principal of a religious college replies to a question.",
+     "walkthrough": "Chambers defines a rector as head of a Jesuit seminary; the blog transcription, and so this clue, reads Jewish, which the blogger acknowledged as a slip.",
+     "definitionFit": "A reactor is one who reacts, so it can speak of itself as one that responds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "respond"
+    }
+   }
   },
   {
    "number": 7,
@@ -172,7 +581,58 @@
     "text": "Nimble for some is short of colour, Carol goes without second",
     "enumeration": "6"
    },
-   "solution": "WANNEL"
+   "solution": "WANNEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "WANNEL",
+    "definitions": [
+     {
+      "text": "Nimble for some",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "goes without second",
+      "for": "deletion",
+      "note": "going without something means losing it, here the word's second letter"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "short of colour",
+      "gives": "WAN",
+      "note": "wan means pale, lacking colour"
+     },
+     {
+      "clueFragment": "Carol",
+      "gives": "NOEL",
+      "note": "a noel is a Christmas carol"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAN",
+      "NEL"
+     ]
+    },
+    "explanation": {
+     "surface": "An agile figure looks pale while a carol is sung without a second voice.",
+     "walkthrough": "'for some' marks the definition as dialect: wannel is a Scots word.",
+     "definitionFit": "In Scots, wannel describes a body that is supple and agile, so it is a regional word for nimble."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 8,
@@ -192,7 +652,51 @@
      }
     ]
    },
-   "solution": "OILSLICK"
+   "solution": "OILSLICK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OIL SLICK",
+    "definitions": [
+     {
+      "text": "Unpleasant film",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "goes cravenly",
+      "gives": "OILS",
+      "note": "to oil in slang is to flatter or creep, behaving in a servile way"
+     },
+     {
+      "clueFragment": "slaughter",
+      "gives": "LICK",
+      "note": "to lick is to thrash or beat soundly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OILS",
+      "LICK"
+     ]
+    },
+    "explanation": {
+     "surface": "A nasty movie fawningly glosses over a massacre.",
+     "walkthrough": "'over' places one piece above the other in this down clue. 'Film' suggests cinema but is a thin layer.",
+     "definitionFit": "An oil slick is a thin, polluting layer of oil spread over water, literally an unpleasant film."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "film"
+    }
+   }
   },
   {
    "number": 9,
@@ -206,7 +710,52 @@
     "text": "Old salt's not entirely old secret",
     "enumeration": "4"
    },
-   "solution": "DEAR"
+   "solution": "DEAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DEAR",
+    "definitions": [
+     {
+      "text": "Old salt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not entirely",
+      "for": "deletion",
+      "note": "not the entire word, so its final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secret",
+      "gives": "DEARN",
+      "note": "dearn is an archaic word for secret; the old before it flags the word as archaic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A veteran sailor keeps only part of a long-held secret.",
+     "walkthrough": "'Old salt' suggests a sailor, but salt is a dated slang adjective meaning costly.",
+     "definitionFit": "Salt is old slang for expensive, and dear also means high-priced."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "salt"
+    }
+   }
   },
   {
    "number": 10,
@@ -226,7 +775,57 @@
      }
     ]
    },
-   "solution": "BELLELAIDE"
+   "solution": "BELLELAIDE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "BELLE LAIDE",
+    "definitions": [
+     {
+      "text": "Oddly winsome fille",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "falsely",
+      "for": "anagram",
+      "note": "falsely suggests misrepresented, so these letters are put out of their true order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I labelled",
+      "gives": "ILABELLED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ILABELLEDE",
+       "gives": "BELLELAIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wrongly tagged a charming young French girl as European.",
+     "walkthrough": "'Oddly' belongs to the definition, not an alternate-letter signal; fille is French for girl.",
+     "definitionFit": "A belle laide is a woman whose plain or unconventional features nonetheless make her attractive, a strangely appealing girl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Oddly"
+    }
+   }
   },
   {
    "number": 11,
@@ -240,7 +839,60 @@
     "text": "Subject to moan we revised individual's job description",
     "enumeration": "8"
    },
-   "solution": "ONEWOMAN"
+   "solution": "ONEWOMAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ONE-WOMAN",
+    "definitions": [
+     {
+      "text": "individual's job description",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revised",
+      "for": "anagram",
+      "note": "a revised text has been reworked, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Subject to",
+      "gives": "ON",
+      "note": "on, as in on condition of"
+     },
+     {
+      "clueFragment": "moan we",
+      "gives": "MOANWE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "EWOMAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MOANWE",
+       "gives": "EWOMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone whose complaint has been edited sees their job role revised.",
+     "definitionFit": "One-woman describes a show or business run by a single person, so it describes an individual's work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Subject"
+    }
+   }
   },
   {
    "number": 12,
@@ -254,7 +906,51 @@
     "text": "Grit and audacity in a style of some axemen?",
     "enumeration": "10"
    },
-   "solution": "BOTTLENECK"
+   "solution": "BOTTLENECK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOTTLENECK",
+    "definitions": [
+     {
+      "text": "a style of some axemen?",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grit",
+      "gives": "BOTTLE",
+      "note": "bottle is British slang for nerve or courage"
+     },
+     {
+      "clueFragment": "audacity",
+      "gives": "NECK",
+      "note": "neck is cheek or impudence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOTTLE",
+      "NECK"
+     ]
+    },
+    "explanation": {
+     "surface": "Courage and nerve displayed by a team of woodcutters.",
+     "walkthrough": "Axemen suggests woodcutters, but an axe is slang for a guitar.",
+     "definitionFit": "Bottleneck is a slide guitar technique, played with a glass neck on the finger, so it is a guitarists' style."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "axemen"
+    }
+   }
   },
   {
    "number": 13,
@@ -268,7 +964,61 @@
     "text": "Fighting aircraft accommodating upper-class male",
     "enumeration": "6"
    },
-   "solution": "KUMITE"
+   "solution": "KUMITE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "KUMITE",
+    "definitions": [
+     {
+      "text": "Fighting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accommodating",
+      "for": "container",
+      "note": "accommodating means housing, so one piece is put inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aircraft",
+      "gives": "KITE",
+      "note": "kite is slang for an aircraft"
+     },
+     {
+      "clueFragment": "upper-class",
+      "gives": "U",
+      "note": "U is the abbreviation for upper-class"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "U",
+      "M",
+      "ITE"
+     ]
+    },
+    "explanation": {
+     "surface": "A combat plane carries a posh man on board.",
+     "definitionFit": "Kumite is free sparring in karate, the fighting part of training."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "aircraft"
+    }
+   }
   },
   {
    "number": 14,
@@ -282,7 +1032,58 @@
     "text": "Who finds fault with being held by coroner?",
     "enumeration": "6"
    },
-   "solution": "CENSOR"
+   "solution": "CENSOR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CENSOR",
+    "definitions": [
+     {
+      "text": "Who finds fault",
+      "at": 0,
+      "note": "a relative clause standing for a noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held by",
+      "for": "container",
+      "note": "something held by another sits within its grasp, so it goes inside"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coroner",
+      "gives": "COR",
+      "note": "cor. is the abbreviation for coroner"
+     },
+     {
+      "clueFragment": "being",
+      "gives": "ENS",
+      "note": "ens is the philosophical term for being or existence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ENS",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A question asking who criticises things when a coroner is involved.",
+     "definitionFit": "A censor, in an older sense, is a critic: one who censures or passes judgement on faults."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "being"
+    }
+   }
   },
   {
    "number": 15,
@@ -296,7 +1097,67 @@
     "text": "Sustain deal involving piffle that's central to Boris",
     "enumeration": "8"
    },
-   "solution": "PROTRACT"
+   "solution": "PROTRACT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PROTRACT",
+    "definitions": [
+     {
+      "text": "Sustain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "involving means enclosing or including, so the following parts go within"
+     },
+     {
+      "text": "that's central to",
+      "for": "letter_selection",
+      "note": "what is central to a word is its middle letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deal",
+      "gives": "PACT",
+      "note": "a pact is an agreement"
+     },
+     {
+      "clueFragment": "piffle",
+      "gives": "ROT",
+      "note": "rot means nonsense"
+     },
+     {
+      "clueFragment": "Boris",
+      "gives": "R",
+      "select": "middle",
+      "note": "the middle letter of Boris"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ROT",
+      "R",
+      "ACT"
+     ]
+    },
+    "explanation": {
+     "surface": "A political pact full of nonsense typical of Boris Johnson.",
+     "definitionFit": "To protract is to prolong or draw out, keeping something going longer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Boris"
+    }
+   }
   },
   {
    "number": 16,
@@ -310,7 +1171,63 @@
     "text": "Punt is stuffed by learner's sloshes",
     "enumeration": "5"
    },
-   "solution": "BELTS"
+   "solution": "BELTS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BELTS",
+    "definitions": [
+     {
+      "text": "sloshes",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is stuffed by",
+      "for": "container",
+      "note": "something stuffed has a filling put into it, so one piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Punt",
+      "gives": "BET",
+      "note": "a punt is a wager"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L is the learner-driver plate"
+     },
+     {
+      "clueFragment": "'s",
+      "gives": "S",
+      "note": "the possessive ending supplies its letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "L",
+      "T",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A trainee punter rows a flat-bottomed boat and splashes water about.",
+     "walkthrough": "Punt and sloshes suggest boats and water; sloshes is slang for hits.",
+     "definitionFit": "To slosh someone is slang for hitting them hard, and to belt is likewise to strike."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Punt"
+    }
+   }
   },
   {
    "number": 17,
@@ -324,7 +1241,58 @@
     "text": "Brand adopting King Edward's support structure",
     "enumeration": "8"
    },
-   "solution": "STERIGMA"
+   "solution": "STERIGMA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STERIGMA",
+    "definitions": [
+     {
+      "text": "support structure",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "adopting",
+      "for": "container",
+      "note": "to adopt is to take into the family, so one piece is taken inside"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brand",
+      "gives": "STIGMA",
+      "note": "a stigma is a brand or mark of disgrace"
+     },
+     {
+      "clueFragment": "King Edward",
+      "gives": "ER",
+      "note": "ER is Edwardus Rex, King Edward's royal cipher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "ER",
+      "IGMA"
+     ]
+    },
+    "explanation": {
+     "surface": "A potato brand takes on King Edward, the variety, as a supporting product.",
+     "walkthrough": "King Edward is also a familiar British potato variety, which steers the surface toward vegetables.",
+     "definitionFit": "A sterigma is a small stalk in fungi that bears and holds up a spore, a botanical supporting structure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Brand"
+    }
+   }
   },
   {
    "number": 18,
@@ -338,7 +1306,61 @@
     "text": "Cordial Middle Easterner and Crown Office cancelling article",
     "enumeration": "7"
    },
-   "solution": "PERSICO"
+   "solution": "PERSICO",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PERSICO",
+    "definitions": [
+     {
+      "text": "Cordial",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cancelling",
+      "for": "deletion",
+      "note": "to cancel is to strike out, so a word is removed from the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Middle Easterner",
+      "gives": "PERSIAN",
+      "note": "a Persian is from Iran"
+     },
+     {
+      "clueFragment": "Crown Office",
+      "gives": "CO",
+      "note": "CO is the abbreviation for Crown Office"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "an is the indefinite article, the piece removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PERSI",
+      "CO"
+     ]
+    },
+    "explanation": {
+     "surface": "A friendly Iranian and a government department have scrapped a newspaper piece.",
+     "walkthrough": "'Cordial' looks like the adjective friendly but is the drink.",
+     "definitionFit": "Persico is a liqueur flavoured with peach or apricot kernels, a sweet cordial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Cordial"
+    }
+   }
   },
   {
    "number": 19,
@@ -352,7 +1374,53 @@
     "text": "Canadian cooked a fungus",
     "enumeration": "7"
    },
-   "solution": "CANDIDA"
+   "solution": "CANDIDA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CANDIDA",
+    "definitions": [
+     {
+      "text": "fungus",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Canadian",
+      "gives": "CAN",
+      "note": "Can. is the abbreviation for Canadian"
+     },
+     {
+      "clueFragment": "cooked",
+      "gives": "DID",
+      "note": "to do food is to cook it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAN",
+      "DID",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A Canadian chef prepared a mushroom dish.",
+     "walkthrough": "'cooked' looks like an anagram signal, but there are not enough letters; it gives a whole word.",
+     "definitionFit": "Candida is a genus of yeast-like fungi, including the one that causes thrush."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooked"
+    }
+   }
   },
   {
    "number": 20,
@@ -366,7 +1434,56 @@
     "text": "Old light burning in fort",
     "enumeration": "5"
    },
-   "solution": "FLITT"
+   "solution": "FLITT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FLITT",
+    "definitions": [
+     {
+      "text": "Old light",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one part within the other here"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fort",
+      "gives": "FT",
+      "note": "Ft is the abbreviation for fort"
+     },
+     {
+      "clueFragment": "burning",
+      "gives": "LIT",
+      "note": "lit means alight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LIT",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient lamp still glows inside a fortress.",
+     "walkthrough": "'light' suggests a lamp, but here it is the adjective meaning nimble or quick.",
+     "definitionFit": "Flitt is an obsolete Spenserian word meaning fleet or swift, light on one's feet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 21,
@@ -380,7 +1497,48 @@
     "text": "Scots coup it to be highly wicked",
     "enumeration": "5"
    },
-   "solution": "TROCK"
+   "solution": "TROCK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TROCK",
+    "definitions": [
+     {
+      "text": "Scots coup",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it",
+      "gives": "T",
+      "note": "'t is the clipped form of it, as in 'tis"
+     },
+     {
+      "clueFragment": "to be highly wicked",
+      "gives": "ROCK",
+      "note": "wicked is slang for excellent, and to rock is to be excellent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ROCK"
+     ]
+    },
+    "explanation": {
+     "surface": "A Scottish coup d'etat considered thoroughly evil.",
+     "walkthrough": "Coup is not an overthrow but a Scots verb meaning to barter, and wicked is the slang term of praise.",
+     "definitionFit": "Trock is a Scots verb meaning to barter or exchange, which is also a Scots sense of coup."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "coup"
+    }
+   }
   },
   {
    "number": 22,
@@ -394,7 +1552,56 @@
     "text": "Company about to pawn digger?",
     "enumeration": "6"
    },
-   "solution": "CHOCKO"
+   "solution": "CHOCKO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHOCKO",
+    "definitions": [
+     {
+      "text": "digger?",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the first piece goes round the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Company",
+      "gives": "CO",
+      "note": "Co. is the abbreviation for company"
+     },
+     {
+      "clueFragment": "pawn",
+      "gives": "HOCK",
+      "note": "to hock something is to pawn it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HOCK",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A firm is about to sell off its excavator at a pawnshop.",
+     "walkthrough": "Digger is Australian slang for a soldier; the question mark signals that a chocko is a kind of digger.",
+     "definitionFit": "Chocko is Australian slang for a militiaman or conscript, a chocolate soldier, so a kind of Australian soldier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "digger"
+    }
+   }
   },
   {
    "number": 23,
@@ -408,7 +1615,53 @@
     "text": "Say, a suffix lacking power",
     "enumeration": "7"
    },
-   "solution": "ARTICLE"
+   "solution": "ARTICLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ARTICLE",
+    "definitions": [
+     {
+      "text": "Say, a",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking something means being without it, so a letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suffix",
+      "gives": "PARTICLE",
+      "note": "a particle in grammar can be a prefix or suffix"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the abbreviation for power, the letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARTICLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A grammar note offering an example of a suffix missing some force.",
+     "walkthrough": "'Say' marks an example: the word 'a' is one instance of the definition.",
+     "definitionFit": "The word 'a' is the indefinite article, so it is an example of the grammatical category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "a"
+    }
+   }
   },
   {
    "number": 24,
@@ -422,7 +1675,58 @@
     "text": "Even elements in firm ridicule being mischievous",
     "enumeration": "6"
    },
-   "solution": "IMPISH"
+   "solution": "IMPISH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "IMPISH",
+    "definitions": [
+     {
+      "text": "mischievous",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Even elements in",
+      "for": "letter_selection",
+      "note": "the even elements are the letters in second and fourth places"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "firm",
+      "gives": "IM",
+      "select": "alternate",
+      "note": "the second and fourth letters of firm"
+     },
+     {
+      "clueFragment": "ridicule",
+      "gives": "PISH",
+      "note": "pish is an exclamation of contempt; to pish is to scorn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "PISH"
+     ]
+    },
+    "explanation": {
+     "surface": "Mocking rivals within a company is just playful mischief.",
+     "definitionFit": "Impish means behaving like an imp, playfully naughty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "firm"
+    }
+   }
   },
   {
    "number": 25,
@@ -436,7 +1740,60 @@
     "text": "Old hat's spoiled. Damn and blast!",
     "enumeration": "5"
    },
-   "solution": "OATHS"
+   "solution": "OATHS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "OATHS",
+    "definitions": [
+     {
+      "text": "Damn and blast!",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spoiled",
+      "for": "anagram",
+      "note": "something spoiled is ruined, so these letters are knocked out of shape"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "hat's",
+      "gives": "HATS",
+      "note": "taken as written, apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "ATHS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HATS",
+       "gives": "ATHS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone swears on finding an old hat ruined.",
+     "definitionFit": "Damn and blast are curses, and curses are oaths in the sense of profane swearing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "spoiled"
+    }
+   }
   },
   {
    "number": 26,
@@ -450,7 +1807,66 @@
     "text": "Staff money used in subverting ideal glamour",
     "enumeration": "5"
    },
-   "solution": "OMLAH"
+   "solution": "OMLAH",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "OMLAH",
+    "definitions": [
+     {
+      "text": "Staff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "used in",
+      "for": "container",
+      "note": "something used in a mixture is put inside it"
+     },
+     {
+      "text": "subverting",
+      "for": "reversal",
+      "note": "to subvert is literally to turn from below, so in a down entry the order is turned upside down"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ideal glamour",
+      "gives": "HALO",
+      "note": "a halo is an aura of glory or idealised glamour"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "M",
+      "note": "M is the abbreviation for money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "M",
+      "LAH"
+     ],
+     "reversals": [
+      {
+       "from": "HALMO",
+       "to": "OMLAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Employees' pay is being spent on undermining a glamorous ideal.",
+     "definitionFit": "Omlah is an Anglo-Indian word for the body of officials in a court or office, a staff."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Staff"
+    }
+   }
   },
   {
    "number": 27,
@@ -464,7 +1880,66 @@
     "text": "Lag must accept length on one's bird",
     "enumeration": "5"
    },
-   "solution": "COLIN"
+   "solution": "COLIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "COLIN",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must accept",
+      "for": "container",
+      "note": "to accept is to take in, so the following pieces go inside"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lag",
+      "gives": "CON",
+      "note": "an old lag is a convict"
+     },
+     {
+      "clueFragment": "length",
+      "gives": "L",
+      "note": "L is the abbreviation for length"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "L",
+      "I",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A prisoner has to admit to doing a long stretch of bird, prison time.",
+     "walkthrough": "Bird is slang for a prison sentence, which fits the lag in the surface, but here it is a real bird. 'on' sets length before one.",
+     "definitionFit": "The colin is the North American bobwhite quail, a game bird."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bird"
+    }
+   }
   },
   {
    "number": 28,
@@ -478,7 +1953,51 @@
     "text": "Terrible Tudor's town",
     "enumeration": "6"
    },
-   "solution": "STROUD"
+   "solution": "STROUD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STROUD",
+    "definitions": [
+     {
+      "text": "town",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Terrible",
+      "for": "anagram",
+      "note": "terrible suggests damaged or wrecked, so these letters are put into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tudor's",
+      "gives": "TUDORS",
+      "note": "taken as written, apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TUDORS",
+       "gives": "STROUD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A town belonging to a dreadful Tudor monarch.",
+     "walkthrough": "STROUD is a market town in Gloucestershire, England.",
+     "definitionFit": "Stroud is a town in the Cotswolds in western England."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Terrible"
+    }
+   }
   },
   {
    "number": 28,
@@ -492,7 +2011,48 @@
     "text": "With last two off support, eg, Juliet's stage direction alone",
     "enumeration": "4"
    },
-   "solution": "SOLA"
+   "solution": "SOLA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SOLA",
+    "definitions": [
+     {
+      "text": "eg, Juliet's stage direction alone",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "With last two off",
+      "for": "deletion",
+      "note": "with the last two letters taken off, the end of the word is cut"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "support",
+      "gives": "SOLACE",
+      "note": "solace is comfort and support"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOLA"
+     ]
+    },
+    "explanation": {
+     "surface": "An actress playing Juliet gets a stage instruction to be alone.",
+     "walkthrough": "Sola is the feminine form, used for a female character such as Juliet; a male one would be solus.",
+     "definitionFit": "Sola is the Latin stage direction telling a female character that she is alone on stage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 29,
@@ -506,7 +2066,66 @@
     "text": "Tree within part of Tibetan temple circling pole",
     "enumeration": "6"
    },
-   "solution": "MOPANI"
+   "solution": "MOPANI",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "MOPANI",
+    "definitions": [
+     {
+      "text": "Tree",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "within",
+      "for": "container",
+      "note": "within places one piece inside another"
+     },
+     {
+      "text": "circling",
+      "for": "reversal",
+      "note": "circling round turns a word to face the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of Tibetan temple",
+      "gives": "MANI",
+      "note": "a mani is a stone prayer wall in a Tibetan Buddhist temple"
+     },
+     {
+      "clueFragment": "pole",
+      "gives": "PO",
+      "note": "PO is the abbreviation for pole"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "OP",
+      "ANI"
+     ],
+     "reversals": [
+      {
+       "from": "PO",
+       "to": "OP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tree grows inside part of a Tibetan temple, encircling a pole.",
+     "definitionFit": "The mopani is a southern African hardwood tree with butterfly-shaped leaves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "circling"
+    }
+   }
   },
   {
    "number": 30,
@@ -520,7 +2139,48 @@
     "text": "Take up, please, a kilt",
     "enumeration": "8"
    },
-   "solution": "FILLIBEG"
+   "solution": "FILLIBEG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FILLIBEG",
+    "definitions": [
+     {
+      "text": "a kilt",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Take up",
+      "gives": "FILL",
+      "note": "to fill is to take up space"
+     },
+     {
+      "clueFragment": "please",
+      "gives": "IBEG",
+      "note": "I beg is a polite request"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FILL",
+      "IBEG"
+     ]
+    },
+    "explanation": {
+     "surface": "A request to shorten a kilt by taking up its hem.",
+     "walkthrough": "'Take up' suggests hemming a garment but means occupy.",
+     "definitionFit": "A filibeg is the Highland kilt, a pleated knee-length skirt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Take"
+    }
+   }
   },
   {
    "number": 31,
@@ -534,7 +2194,52 @@
     "text": "Want a sarcastic term of esteem that's out of use, alas!",
     "enumeration": "10"
    },
-   "solution": "LACKADAISY"
+   "solution": "LACKADAISY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LACKADAISY",
+    "definitions": [
+     {
+      "text": "alas!",
+      "at": 51
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Want",
+      "gives": "LACK",
+      "note": "to want is to lack"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sarcastic term of esteem that's out of use",
+      "gives": "DAISY",
+      "note": "a daisy was dated slang for something first-rate, often used ironically"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LACK",
+      "A",
+      "DAISY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sighs that an old ironic compliment has fallen out of fashion.",
+     "definitionFit": "Lackadaisy is an archaic exclamation of sorrow, a variant of lackaday, so it means alas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Want"
+    }
+   }
   },
   {
    "number": 32,
@@ -548,7 +2253,69 @@
     "text": "Where Fahrer drives about freely? Nah, recklessly",
     "enumeration": "8"
    },
-   "solution": "AUTOBAHN"
+   "solution": "AUTOBAHN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AUTOBAHN",
+    "definitions": [
+     {
+      "text": "Where Fahrer drives",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "freely",
+      "for": "anagram",
+      "note": "freely means without constraint, so these letters move into a new order"
+     },
+     {
+      "text": "recklessly",
+      "for": "anagram",
+      "note": "done recklessly, wildly, so these letters too are thrown about"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "ABOUT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Nah",
+      "gives": "NAH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUTOB",
+      "AHN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ABOUT",
+       "gives": "AUTOB"
+      },
+      {
+       "fodder": "NAH",
+       "gives": "AHN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A German driver speeds about at will, dismissing caution.",
+     "walkthrough": "Fahrer is German for driver.",
+     "definitionFit": "An autobahn is a German motorway, where German drivers famously drive fast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "drives"
+    }
+   }
   },
   {
    "number": 33,
@@ -562,7 +2329,59 @@
     "text": "I'm avoiding physician before pre-match performance",
     "enumeration": "4"
    },
-   "solution": "HAKA"
+   "solution": "HAKA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "HAKA",
+    "definitions": [
+     {
+      "text": "pre-match performance",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "avoiding",
+      "for": "deletion",
+      "note": "avoiding something means keeping it out, so those letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'm",
+      "gives": "IM",
+      "note": "taken as written, the letters to remove"
+     },
+     {
+      "clueFragment": "physician",
+      "gives": "HAKIM",
+      "note": "a hakim is a Muslim physician"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "A",
+      "note": "a. is the abbreviation for ante, Latin for before"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAK",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A sportsman skips the doctor's check before the team's pre-game ritual.",
+     "definitionFit": "The haka is the Maori war dance performed by New Zealand rugby teams before matches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "physician"
+    }
+   }
   }
  ]
 }
