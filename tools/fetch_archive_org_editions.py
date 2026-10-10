@@ -94,11 +94,7 @@ keeps (1977-07-22, leaf 21: 64 counts, no heading). So is each page headed
 prints its crossword there (1986-03-17, leaf 40).
 
 A rerun skips every edition in done.tsv at the current DETECTOR_VERSION,
-except one whose per-page words (pagetext.json.gz beside a djvu.xml.gz) hold
-an OBJECT on a leaf other than the one its PAGE names (misplaced): that
-edition is fetched again by the whole-djvu.xml path, and its changed files
-make the filer read it again. So is one with no daily title on its fetched
-pages and no text-shown crossword page among the leaves its siblings print
+except one with no daily title on its fetched pages and no text-shown crossword page among the leaves its siblings print
 it on most (prior_unfetched): only the prior_leaves it lacks are fetched.
 Siblings of the edition's own leaf count vote apart too (common_leaves): an
 item mixing 52- and 56-leaf issues splits the count.
@@ -254,12 +250,6 @@ def object_leaves(xml):
     return out
 
 
-def misplaced(xml):
-    """Whether a djvu.xml holds an OBJECT at a position other than the scan
-    leaf its PAGE names."""
-    return any(leaf is not None and leaf != n for n, (_, leaf) in enumerate(object_leaves(xml)))
-
-
 def scan_aligned(xml):
     """The djvu.xml with an empty OBJECT before each one whose PAGE names a
     later leaf than its position (a skipped colour card), so the n-th OBJECT
@@ -323,23 +313,9 @@ def one_pass():
         _PASS.keys = _PASS.leaves = None
 
 
-def _misplaced_file(xml_path):
-    with gzip.open(xml_path) as f:
-        return misplaced(f.read())
-
-
-def words_misplaced(d):
-    """Whether an edition dir's per-page words were stored on another leaf
-    than the one they belong to (misplaced)."""
-    xml_path = os.path.join(d, "djvu.xml.gz")
-    if not (os.path.exists(os.path.join(d, "pagetext.json.gz")) and os.path.exists(xml_path)):
-        return False
-    return memo(xml_path, _misplaced_file)
-
-
 def stale(d):
-    """Whether a done edition is fetched again: words_misplaced or prior_unfetched."""
-    return words_misplaced(d) or prior_unfetched(d)
+    """Whether a done edition is fetched again (prior_unfetched)."""
+    return prior_unfetched(d)
 
 
 def prior_unfetched(d):
@@ -827,10 +803,6 @@ def fetch_edition(fx, item, meta, name):
     text_path = os.path.join(d, "pagetext.json.gz")
     xml_path = os.path.join(d, "djvu.xml.gz")
     cached = None  # {"texts": [...], "words": {leaf: [width, height]}}: the hOCR route
-    if words_misplaced(d):
-        log(f"  {name}: cached words lie on other leaves; fetching the djvu.xml")
-        os.remove(text_path)
-        os.remove(xml_path)
     if os.path.exists(text_path):
         with gzip.open(text_path) as f:
             cached = json.load(f)
