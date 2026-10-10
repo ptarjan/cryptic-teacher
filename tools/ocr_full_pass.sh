@@ -66,6 +66,10 @@
 # deletion is part of the write.
 # shellcheck disable=SC2034  # read by the sourced nightly_worktree.sh
 CT_SALVAGE_PATHS="puzzles"
+# It files puzzles and stamps no page: it reads no generated file
+# (puzzles/index.*, abbreviations.js), so none is rebuilt for it.
+# shellcheck disable=SC2034
+CT_GENERATED=none
 . "$(dirname "$0")/nightly_worktree.sh"
 cd "$(dirname "$0")/.." || exit 1
 # shellcheck disable=SC2034  # read by the sourced durable.sh

@@ -56,6 +56,10 @@ fi
 # A commit a dropped run could not push yet is pushed by the next start.
 # shellcheck disable=SC2034  # read by the sourced nightly_worktree.sh
 CT_SALVAGE_PATHS=""
+# It rebuilds the generated files itself (--reindex below, before anything
+# reads them), so the worktree does not build them first.
+# shellcheck disable=SC2034
+CT_GENERATED=none
 . "$(dirname "$0")/nightly_worktree.sh"
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO" || exit 1
