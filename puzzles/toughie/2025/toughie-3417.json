@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,60 @@
     "text": "Stop in unoccupied zone when cleared",
     "enumeration": "6"
    },
-   "solution": "FREEZE"
+   "solution": "FREEZE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FREEZE",
+    "definitions": [
+     {
+      "text": "Stop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cleared",
+      "for": "letter_selection",
+      "note": "a word cleared of its contents keeps only its outside letters, the middle emptied out"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unoccupied",
+      "gives": "FREE",
+      "note": "an unoccupied seat is free"
+     },
+     {
+      "clueFragment": "zone",
+      "gives": "ZE",
+      "select": "outer",
+      "note": "the word zone with its middle letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FREE",
+      "ZE"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to halt in an empty area once it has been cleared, like traffic or security directions.",
+     "walkthrough": "FREE plus ZE gives FREEZE; 'in' and 'when' only join the parts.",
+     "definitionFit": "To freeze is to stop moving entirely, as in the command to halt on the spot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cleared"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +103,52 @@
     "text": "Key playing triangle",
     "enumeration": "8"
    },
-   "solution": "INTEGRAL"
+   "solution": "INTEGRAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INTEGRAL",
+    "definitions": [
+     {
+      "text": "Key",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing suggests the letters are being toyed with and moved about into new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "triangle",
+      "gives": "TRIANGLE",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRIANGLE",
+       "gives": "INTEGRAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musical note: the key in which a triangle part is being played.",
+     "walkthrough": "'Key' looks musical, sitting beside an instrument, but it is the adjective meaning essential.",
+     "definitionFit": "Something key is essential or central, and an integral part is one that cannot be removed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Key"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +176,40 @@
      }
     ]
    },
-   "solution": "CLOSEBUTNOCIGAR"
+   "solution": "CLOSEBUTNOCIGAR",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CLOSE BUT NO CIGAR",
+    "definitions": [
+     {
+      "text": "Not a mile away from Havana?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not a mile away",
+      "note": "surface reading: very near, nearly reaching something"
+     },
+     {
+      "clueFragment": "from Havana?",
+      "note": "setter's reading: near to, yet failing to be, a Cuban smoke, since a Havana is a type of cigar"
+     }
+    ],
+    "explanation": {
+     "surface": "Seems to be describing a place a short distance from the Cuban capital.",
+     "walkthrough": "A Havana is a Cuban cigar; the phrase meaning a near miss literally says near, but not a cigar.",
+     "definitionFit": "The idiom describes an attempt that came very near success without quite achieving it, fitting 'not a mile away'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Havana"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +223,46 @@
     "text": "Small heart tag",
     "enumeration": "7"
    },
-   "solution": "STICKER"
+   "solution": "STICKER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STICKER",
+    "definitions": [
+     {
+      "text": "tag",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the standard abbreviation for small, as on clothing labels"
+     },
+     {
+      "clueFragment": "heart",
+      "gives": "TICKER",
+      "note": "ticker is informal slang for the heart"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TICKER"
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny label in the shape of a heart, like a gift tag.",
+     "definitionFit": "A sticker is an adhesive label, so it serves as a tag attached to something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +294,44 @@
      }
     ]
    },
-   "solution": "BYHOOKORBYCROOK"
+   "solution": "BYHOOKORBYCROOK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BY HOOK OR BY CROOK",
+    "definitions": [
+     {
+      "text": "Using one of two bent objects",
+      "at": 0
+     },
+     {
+      "text": "come what may",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Using one of two bent objects",
+      "note": "cryptic meaning: by means of either a hook or a crook, both curved implements"
+     },
+     {
+      "clueFragment": "come what may",
+      "note": "second meaning: by any means necessary, whatever happens"
+     }
+    ],
+    "explanation": {
+     "surface": "Using a curved tool to get something done regardless of obstacles.",
+     "walkthrough": "A crook is a shepherd's hooked staff, so both hook and crook are bent objects.",
+     "definitionFit": "The idiom means achieving something by whatever means possible, fair or foul, much like 'come what may'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bent"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +345,59 @@
     "text": "Basket's opening, draw out of it",
     "enumeration": "6"
    },
-   "solution": "BLOTTO"
+   "solution": "BLOTTO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BLOTTO",
+    "definitions": [
+     {
+      "text": "out of it",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "the opening of a word is its first letter, where it begins"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Basket",
+      "gives": "B",
+      "select": "first",
+      "note": "first letter of basket"
+     },
+     {
+      "clueFragment": "draw",
+      "gives": "LOTTO",
+      "note": "a lotto is a lottery, decided by a draw"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LOTTO"
+     ]
+    },
+    "explanation": {
+     "surface": "Pulling something out of a basket that has just been opened, like a prize draw.",
+     "walkthrough": "'out of it' looks like part of the drawing action, but it is the definition: helplessly drunk.",
+     "definitionFit": "Blotto is British slang for extremely drunk, and someone out of it is too intoxicated to function."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "draw"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +411,61 @@
     "text": "Oxygenated liquid measure, a drink",
     "enumeration": "4"
    },
-   "solution": "COLA"
+   "solution": "COLA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "COLA",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Oxygenated",
+      "for": "container",
+      "note": "something oxygenated has oxygen put into it, so the symbol goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "liquid measure",
+      "gives": "CL",
+      "note": "cl is the abbreviation for centilitre"
+     },
+     {
+      "clueFragment": "Oxygenated",
+      "gives": "O",
+      "note": "O is the chemical symbol for oxygen"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "O",
+      "L",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe step: a measure of fizzy liquid poured to make a drink.",
+     "definitionFit": "Cola is a sweet carbonated soft drink, flavoured originally with kola nut."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Oxygenated"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +479,57 @@
     "text": "Mineral in seaweed rejected",
     "enumeration": "4"
    },
-   "solution": "IRON"
+   "solution": "IRON",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "IRON",
+    "definitions": [
+     {
+      "text": "Mineral",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the word is read in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seaweed",
+      "gives": "NORI",
+      "note": "nori is the edible seaweed used to wrap sushi"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRON"
+     ],
+     "reversals": [
+      {
+       "from": "NORI",
+       "to": "IRON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dietary mineral contained in seaweed that someone refused to eat.",
+     "walkthrough": "Seaweed really is rich in this mineral, so the surface is almost true.",
+     "definitionFit": "Iron is a metallic element, counted among the dietary minerals the body needs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rejected"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +543,42 @@
     "text": "Brilliant books",
     "enumeration": "3"
    },
-   "solution": "LIT"
+   "solution": "LIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LIT",
+    "definitions": [
+     {
+      "text": "Brilliant",
+      "at": 0
+     },
+     {
+      "text": "books",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brilliant",
+      "note": "first meaning: illuminated, shining brightly"
+     },
+     {
+      "clueFragment": "books",
+      "note": "second meaning: short for literature"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like praise for some books; the words are separate meanings.",
+     "definitionFit": "Lit means illuminated, hence brilliant, and is also a common abbreviation for literature, the body of written works."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Brilliant"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +592,43 @@
     "text": "Far from bold colour",
     "enumeration": "6"
    },
-   "solution": "YELLOW"
+   "solution": "YELLOW",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "YELLOW",
+    "definitions": [
+     {
+      "text": "Far from bold",
+      "at": 0
+     },
+     {
+      "text": "colour",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Far from bold",
+      "note": "first meaning: cowardly"
+     },
+     {
+      "clueFragment": "colour",
+      "note": "second meaning: the hue of a lemon or a canary"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a pale shade, the opposite of a bold one.",
+     "definitionFit": "Yellow is informal for cowardly, the opposite of brave, and is also a primary colour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bold"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +642,58 @@
     "text": "Numbers ultimately odds – these?",
     "enumeration": "6"
    },
-   "solution": "SEVENS"
+   "solution": "SEVENS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "and_lit"
+    ],
+    "answer": "SEVENS",
+    "definitions": [
+     {
+      "text": "Numbers ultimately odds – these?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the end of the preceding word, its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Numbers",
+      "gives": "S",
+      "select": "last",
+      "note": "last letter of numbers"
+     },
+     {
+      "clueFragment": "odds",
+      "gives": "EVENS",
+      "note": "evens is a betting price, one kind of odds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EVENS"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle about which numbers end up being odd.",
+     "walkthrough": "The whole clue defines: sevens are numbers that are odd, while the wordplay finds a betting term after the last letter of 'Numbers'.",
+     "definitionFit": "Seven is an odd number, so its plural names a set of odd numbers, matching the whole clue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "odds"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +707,66 @@
     "text": "A trio unfortunately locked in jail, European",
     "enumeration": "8"
    },
-   "solution": "CROATIAN"
+   "solution": "CROATIAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CROATIAN",
+    "definitions": [
+     {
+      "text": "European",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "unfortunately suggests things have gone wrong, so the letters end up in the wrong order"
+     },
+     {
+      "text": "locked in",
+      "for": "container",
+      "note": "something locked in is shut inside something else, enclosed by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A trio",
+      "gives": "ATRIO",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "jail",
+      "gives": "CAN",
+      "note": "the can is slang for prison"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ROATI",
+      "AN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ATRIO",
+       "gives": "ROATI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Three people regrettably imprisoned, one of them from Europe.",
+     "definitionFit": "A Croatian is a native of Croatia, a country in south-east Europe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unfortunately"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +786,54 @@
      }
     ]
    },
-   "solution": "HEARTBREAKHOUSE"
+   "solution": "HEARTBREAKHOUSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEARTBREAK HOUSE",
+    "definitions": [
+     {
+      "text": "Play",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the word it follows second, so the clue's later part is written first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suffering",
+      "gives": "HEARTBREAK",
+      "note": "heartbreak is deep emotional suffering"
+     },
+     {
+      "clueFragment": "bingo",
+      "gives": "HOUSE",
+      "note": "house is another name for bingo, called out on a full card"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEARTBREAK",
+      "HOUSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Playing bingo to cheer up after a bad time.",
+     "walkthrough": "'after' places the bingo word second. Heartbreak House is a play by George Bernard Shaw.",
+     "definitionFit": "Shaw's Heartbreak House is a stage drama of 1919, so the title is an instance of a play."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Play"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +847,44 @@
     "text": "Spot nose evidently has!",
     "enumeration": "3"
    },
-   "solution": "SEE"
+   "solution": "SEE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SEE",
+    "definitions": [
+     {
+      "text": "Spot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has",
+      "for": "hidden_word",
+      "note": "has means holds within, so the run of letters is held inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nose evidently",
+      "gives": "SEE",
+      "note": "the letters run across the end of one word and start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "Noticing that someone's nose clearly has a pimple on it.",
+     "walkthrough": "'Spot' looks like a blemish on the nose, but it is the verb meaning notice.",
+     "definitionFit": "To spot something is to notice or catch sight of it, so the two verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Spot"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +898,55 @@
     "text": "Knotted tie also cut off",
     "enumeration": "7"
    },
-   "solution": "ISOLATE"
+   "solution": "ISOLATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ISOLATE",
+    "definitions": [
+     {
+      "text": "cut off",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Knotted",
+      "for": "anagram",
+      "note": "something knotted is twisted and tangled, so the letters are tied into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tie",
+      "gives": "TIE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "also",
+      "gives": "ALSO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TIEALSO",
+       "gives": "ISOLATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tie that has been knotted and then trimmed short.",
+     "definitionFit": "To isolate someone is to separate them from others, the same sense as cutting them off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tie"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +960,46 @@
     "text": "Vital liquid in drain",
     "enumeration": "3"
    },
-   "solution": "SAP"
+   "solution": "SAP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SAP",
+    "definitions": [
+     {
+      "text": "Vital liquid",
+      "at": 0
+     },
+     {
+      "text": "drain",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vital liquid",
+      "note": "first meaning: the fluid that circulates in a plant"
+     },
+     {
+      "clueFragment": "drain",
+      "note": "second meaning: to weaken or exhaust gradually"
+     }
+    ],
+    "explanation": {
+     "surface": "Some important fluid sitting in a drainpipe.",
+     "walkthrough": "'drain' reads as a noun, a pipe, but it is the verb.",
+     "definitionFit": "Sap is the life-giving fluid of plants, and to sap strength is to drain it away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drain"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1013,47 @@
     "text": "Belter, teaspoon on boiled egg, possibly?",
     "enumeration": "7"
    },
-   "solution": "CRACKER"
+   "solution": "CRACKER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CRACKER",
+    "definitions": [
+     {
+      "text": "Belter",
+      "at": 0
+     },
+     {
+      "text": "teaspoon on boiled egg, possibly?",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Belter",
+      "note": "first meaning: something outstandingly good"
+     },
+     {
+      "clueFragment": "teaspoon on boiled egg, possibly?",
+      "note": "cryptic meaning: a spoon tapping an egg breaks its shell"
+     }
+    ],
+    "explanation": {
+     "surface": "A hard whack of a teaspoon on a breakfast egg.",
+     "walkthrough": "A belter is British slang for something excellent; the second part playfully names a thing that breaks a shell.",
+     "definitionFit": "A cracker is informal for an excellent example, and literally a teaspoon striking a shell is what breaks it open."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Belter"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1073,61 @@
      }
     ]
    },
-   "solution": "CHOWMEIN"
+   "solution": "CHOWMEIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHOW MEIN",
+    "definitions": [
+     {
+      "text": "takeaway dish",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without stuffing",
+      "for": "letter_selection",
+      "note": "a word without its stuffing has lost its inner filling, leaving just the outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Food",
+      "gives": "CHOW",
+      "note": "chow is slang for food"
+     },
+     {
+      "clueFragment": "made",
+      "gives": "ME",
+      "select": "outer",
+      "note": "the word made with its middle removed"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHOW",
+      "ME",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Food cooked without any filling, a well-liked thing to order out.",
+     "definitionFit": "Chow mein is a Chinese dish of fried noodles, a staple of takeaway menus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stuffing"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1141,65 @@
     "text": "As is jargon-busting prior to a card game",
     "enumeration": "7"
    },
-   "solution": "CANASTA"
+   "solution": "CANASTA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CANASTA",
+    "definitions": [
+     {
+      "text": "card game",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "busting",
+      "for": "container",
+      "note": "busting means bursting into the middle of something, so one piece breaks in"
+     }
+    ],
+    "linkWords": [
+     "is",
+     "prior to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jargon",
+      "gives": "CANT",
+      "note": "cant is the specialised jargon of a group"
+     },
+     {
+      "clueFragment": "As",
+      "gives": "AS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAN",
+      "AS",
+      "T",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Plain speaking cutting through jargon before a game of cards begins.",
+     "definitionFit": "Canasta is a rummy-type card game played with two packs, popular in the mid twentieth century."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "busting"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1219,59 @@
      }
     ]
    },
-   "solution": "EPISTOLARYNOVEL"
+   "solution": "EPISTOLARYNOVEL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EPISTOLARY NOVEL",
+    "definitions": [
+     {
+      "text": "book of letters",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "represented",
+      "for": "anagram",
+      "note": "represented means presented afresh in another form, so the letters take a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love",
+      "gives": "LOVE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "personality",
+      "gives": "PERSONALITY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LOVEPERSONALITY",
+       "gives": "EPISTOLARYNOVEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Romance and character portrayed in a story told through correspondence.",
+     "walkthrough": "'and' simply joins the two fodder words.",
+     "definitionFit": "An epistolary novel tells its story through a series of letters or documents exchanged by characters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "represented"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1285,42 @@
     "text": "Scrounge cake",
     "enumeration": "6"
    },
-   "solution": "SPONGE"
+   "solution": "SPONGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPONGE",
+    "definitions": [
+     {
+      "text": "Scrounge",
+      "at": 0
+     },
+     {
+      "text": "cake",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scrounge",
+      "note": "first meaning: to cadge off others"
+     },
+     {
+      "clueFragment": "cake",
+      "note": "second meaning: a light airy sweet bake"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like begging for a slice; the two words are separate meanings.",
+     "definitionFit": "To sponge is to live off others' generosity, and a sponge is also a light cake made with eggs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Scrounge"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1334,70 @@
     "text": "Bug for example's eaten raw, I gathered",
     "enumeration": "6"
    },
-   "solution": "EARWIG"
+   "solution": "EARWIG",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EARWIG",
+    "definitions": [
+     {
+      "text": "Bug",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gathered",
+      "for": "anagram",
+      "note": "gathered material is bunched and pleated, so the letters are folded into a new arrangement"
+     },
+     {
+      "text": "eaten",
+      "for": "container",
+      "note": "something eaten is taken inside, so the outer piece swallows the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. abbreviates exempli gratia, for example"
+     },
+     {
+      "clueFragment": "raw, I",
+      "gives": "RAWI",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "ARWI",
+      "G"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAWI",
+       "gives": "ARWI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone noticed an insect, for instance, being eaten uncooked.",
+     "walkthrough": "'I gathered' looks like 'I understood', but 'gathered' acts on the letters of raw and I.",
+     "definitionFit": "An earwig is an insect with pincers, and bug is a loose everyday word for any insect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gathered"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1411,63 @@
     "text": "Meal is on after whipping up kind of pudding",
     "enumeration": "8"
    },
-   "solution": "SEMOLINA"
+   "solution": "SEMOLINA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEMOLINA",
+    "definitions": [
+     {
+      "text": "kind of pudding",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "whipping up",
+      "for": "anagram",
+      "note": "whipping up means beating and mixing, so the letters are stirred into a new order"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Meal",
+      "gives": "MEAL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MEALISON",
+       "gives": "SEMOLINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dinner is served after a dessert has been whisked together.",
+     "definitionFit": "Semolina is coarse wheat flour, cooked with milk into a traditional British school dessert."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Meal"
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1481,42 @@
     "text": "Bird bitten by woodpecker never!",
     "enumeration": "4"
    },
-   "solution": "ERNE"
+   "solution": "ERNE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ERNE",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bitten by",
+      "for": "hidden_word",
+      "note": "something bitten by another is held in its jaws, so the letters sit inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "woodpecker never",
+      "gives": "ERNE",
+      "note": "the letters span the end of one word and the start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "An indignant claim that a woodpecker would never peck another bird.",
+     "definitionFit": "The erne is the white-tailed sea eagle, a large bird of prey, and a crossword staple."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "woodpecker"
+    }
+   }
   },
   {
    "number": 25,
@@ -419,7 +1530,48 @@
     "text": "Something to say on smut",
     "enumeration": "6"
    },
-   "solution": "REMARK"
+   "solution": "REMARK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REMARK",
+    "definitions": [
+     {
+      "text": "Something to say",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means concerning or on the subject of"
+     },
+     {
+      "clueFragment": "smut",
+      "gives": "MARK",
+      "note": "a smut is a sooty mark or smudge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "MARK"
+     ]
+    },
+    "explanation": {
+     "surface": "Having a comment to make about indecent material.",
+     "walkthrough": "'smut' suggests filth in talk, but here it is literal soot, a dirty mark.",
+     "definitionFit": "A remark is a brief comment, quite literally something one says."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "smut"
+    }
+   }
   },
   {
    "number": 26,
@@ -433,7 +1585,62 @@
     "text": "Gem in a newly closed book",
     "enumeration": "6"
    },
-   "solution": "ENIGMA"
+   "solution": "ENIGMA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENIGMA",
+    "definitions": [
+     {
+      "text": "closed book",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "newly",
+      "for": "anagram",
+      "note": "newly means done over afresh, so the letters are made into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gem",
+      "gives": "GEM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GEMINA",
+       "gives": "ENIGMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jewel found inside a book that has just been shut.",
+     "walkthrough": "'closed book' looks like a literal book shut on a gem, but it is the idiom for something baffling.",
+     "definitionFit": "A closed book is an idiom for something or someone impossible to understand, which is what a mystery is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "closed"
+    }
+   }
   },
   {
    "number": 27,
@@ -447,7 +1654,64 @@
     "text": "Three without one … leads to this?",
     "enumeration": "3"
    },
-   "solution": "TWO"
+   "solution": "TWO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "TWO",
+    "definitions": [
+     {
+      "text": "Three without one … leads to this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leads",
+      "for": "letter_selection",
+      "note": "leads are what go at the front, so each word supplies its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Three",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of three"
+     },
+     {
+      "clueFragment": "without",
+      "gives": "W",
+      "select": "first",
+      "note": "first letter of without"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "O",
+      "select": "first",
+      "note": "first letter of one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "W",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A simple sum: take one away from three and see what you get.",
+     "walkthrough": "The whole clue is both definition and wordplay: three minus one is the answer, and so are the first letters of the opening three words.",
+     "definitionFit": "Subtracting a single unit from three leaves the number between one and three."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "leads"
+    }
+   }
   },
   {
    "number": 28,
@@ -461,7 +1725,51 @@
     "text": "Flower from Cork, say, cut",
     "enumeration": "4"
    },
-   "solution": "IRIS"
+   "solution": "IRIS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "IRIS",
+    "definitions": [
+     {
+      "text": "Flower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "something cut has had its end trimmed off, losing its final letter"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cork, say",
+      "gives": "IRISH",
+      "note": "Cork is a county and city in Ireland, so its people are this, as an example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A bloom picked from County Cork, perhaps.",
+     "walkthrough": "'Cork' is not the bark but the Irish county; 'say' marks it as an example.",
+     "definitionFit": "The iris is a garden plant with showy sword-leaved blooms, named after the Greek goddess of the rainbow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cork"
+    }
+   }
   }
  ]
 }
