@@ -24,6 +24,9 @@
   "date": "2025-02-21",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,45 @@
     "text": "Free to think again",
     "enumeration": "6"
    },
-   "solution": "REDEEM"
+   "solution": "REDEEM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REDEEM",
+    "definitions": [
+     {
+      "text": "Free",
+      "at": 0
+     },
+     {
+      "text": "to think again",
+      "at": 5,
+      "note": "a punning sense: read the answer as RE-DEEM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Free",
+      "note": "first meaning: to release or buy back, as a captive or a pledge"
+     },
+     {
+      "clueFragment": "to think again",
+      "note": "second, punning meaning: a prefix meaning again before an old verb meaning to think or judge"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is told they are at liberty to reconsider.",
+     "walkthrough": "Read as RE-DEEM: 'deem' means think or judge, and 're-' means again.",
+     "definitionFit": "To redeem is to free by paying a ransom or settling a debt, as when a captive or pawned item is recovered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "think"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +92,62 @@
     "text": "Training teenage regular to straddle bike",
     "enumeration": "9"
    },
-   "solution": "EDUCATING"
+   "solution": "EDUCATING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "EDUCATING",
+    "definitions": [
+     {
+      "text": "Training",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regular",
+      "for": "letter_selection",
+      "note": "regular means at even intervals, so every other letter of the word is kept"
+     },
+     {
+      "text": "to straddle",
+      "for": "container",
+      "note": "to straddle is to sit astride, with one part on each side of what is between"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teenage",
+      "gives": "ENG",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters of teenage"
+     },
+     {
+      "clueFragment": "bike",
+      "gives": "DUCATI",
+      "note": "Ducati is an Italian motorcycle maker, standing for a bike"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "DUCATI",
+      "NG"
+     ]
+    },
+    "explanation": {
+     "surface": "A young rider is being taught to sit astride a motorbike.",
+     "walkthrough": "Ducati is an Italian motorcycle brand; 'regular' takes the even-placed letters, which split so one sits before the bike and two after.",
+     "definitionFit": "Educating someone is training or teaching them, so the participle stands for the noun-like gerund 'training'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regular"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +161,60 @@
     "text": "Top French star turned writer",
     "enumeration": "5"
    },
-   "solution": "ELIOT"
+   "solution": "ELIOT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "ELIOT",
+    "definitions": [
+     {
+      "text": "writer",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Top",
+      "for": "deletion",
+      "note": "to top something is to cut off its head, so the first letter goes"
+     },
+     {
+      "text": "turned",
+      "for": "reversal",
+      "note": "turned means turned round, so the remaining letters are read from the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French star",
+      "gives": "ETOILE",
+      "note": "étoile is the French word for star"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELIOT"
+     ],
+     "reversals": [
+      {
+       "from": "TOILE",
+       "to": "ELIOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A leading French celebrity has switched careers to become an author.",
+     "walkthrough": "'Top' reads as an adjective for the star, but it is a verb: behead étoile to get TOILE, then reverse it.",
+     "definitionFit": "George Eliot and T. S. Eliot are both famous English-language authors, so the surname fits a writer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Top"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +228,57 @@
     "text": "Soldier needs treatment area with bloody cut",
     "enumeration": "9"
    },
-   "solution": "MANICURED"
+   "solution": "MANICURED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MANICURED",
+    "definitions": [
+     {
+      "text": "cut",
+      "at": 41
+     }
+    ],
+    "linkWords": [
+     "needs",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldier",
+      "gives": "MAN",
+      "note": "a man is an ordinary soldier, as in officers and men"
+     },
+     {
+      "clueFragment": "treatment area",
+      "gives": "ICU",
+      "note": "the intensive care unit of a hospital"
+     },
+     {
+      "clueFragment": "bloody",
+      "gives": "RED",
+      "note": "blood is red"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "ICU",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "A wounded soldier with a bleeding gash must go to the hospital ward.",
+     "walkthrough": "'Cut' looks like the soldier's wound, but it is the definition: tidily trimmed, as nails or a lawn.",
+     "definitionFit": "Manicured means neatly trimmed, said of nails or a lawn that has been carefully cut."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +292,76 @@
     "text": "Endless gross confusion about someone's scientific systems",
     "enumeration": "8"
    },
-   "solution": "ORGANONS"
+   "solution": "ORGANONS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "ORGANONS",
+    "definitions": [
+     {
+      "text": "scientific systems",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endless",
+      "for": "deletion",
+      "note": "without an end, so the final letter of the word is dropped"
+     },
+     {
+      "text": "confusion",
+      "for": "anagram",
+      "note": "confusion means disorder, so the letters are jumbled"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the jumbled letters go round the other piece"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gross",
+      "gives": "GROSS",
+      "note": "taken as written before losing its end"
+     },
+     {
+      "clueFragment": "someone",
+      "gives": "ANON",
+      "note": "anon, short for anonymous, signs work by an unnamed someone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORG",
+      "ANON",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GROS",
+       "gives": "ORGS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A disgusting mess surrounds somebody's research methods.",
+     "walkthrough": "GROS is shuffled to ORGS, which is wrapped around ANON. Collins gives the plural as organons or organa.",
+     "definitionFit": "An organon is a system of rules or principles for scientific or philosophical investigation, after Aristotle's and Bacon's works."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gross"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +375,42 @@
     "text": "Complete protection",
     "enumeration": "7"
    },
-   "solution": "OVERALL"
+   "solution": "OVERALL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OVERALL",
+    "definitions": [
+     {
+      "text": "Complete",
+      "at": 0
+     },
+     {
+      "text": "protection",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Complete",
+      "note": "first meaning: total, taking everything into account"
+     },
+     {
+      "clueFragment": "protection",
+      "note": "second meaning: a loose garment worn over clothes to keep them clean"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two words look like one phrase about full cover, but they are separate meanings of one word.",
+     "definitionFit": "As an adjective it means total or comprehensive; as a noun it is a protective coat or boilersuit worn over other clothes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "protection"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +424,55 @@
     "text": "Misses soldiers holding hands",
     "enumeration": "5"
    },
-   "solution": "GIRLS"
+   "solution": "GIRLS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GIRLS",
+    "definitions": [
+     {
+      "text": "Misses",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding means gripping inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldiers",
+      "gives": "GIS",
+      "note": "GIs are American soldiers"
+     },
+     {
+      "clueFragment": "hands",
+      "gives": "RL",
+      "note": "the right and left hands, abbreviated"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GI",
+      "RL",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Young women watch troops holding hands.",
+     "walkthrough": "'Misses' looks like a verb, but it is the plural of Miss, a title for an unmarried woman.",
+     "definitionFit": "Misses, the plural of Miss, are young unmarried women, a dated synonym for girls."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Misses"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +486,71 @@
     "text": "Hook turf with lever and non-stop wiggling",
     "enumeration": "9"
    },
-   "solution": "NEVERLAND"
+   "solution": "NEVERLAND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "NEVERLAND",
+    "definitions": [
+     {
+      "text": "Hook turf",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stop",
+      "for": "letter_selection",
+      "note": "the stop of a word is where it ends, so only its closing letter is taken"
+     },
+     {
+      "text": "wiggling",
+      "for": "anagram",
+      "note": "wiggling means moving about, so the letters are set in new places"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lever",
+      "gives": "LEVER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "non",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of non"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEVERANDN",
+       "gives": "NEVERLAND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fisherman wiggles a lever to work a hook into the grass.",
+     "walkthrough": "'Hook' is Captain Hook of Peter Pan, so his turf is his home island. The spare N is the stop, or last letter, of non.",
+     "definitionFit": "Neverland is the island in J. M. Barrie's Peter Pan where the pirate Captain Hook lives, so it is his territory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Hook"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +564,48 @@
     "text": "Dark Lord beheaded",
     "enumeration": "5"
    },
-   "solution": "NIGHT"
+   "solution": "NIGHT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "NIGHT",
+    "definitions": [
+     {
+      "text": "Dark",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beheaded",
+      "for": "deletion",
+      "note": "with its head cut off, so the first letter of the word is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lord",
+      "gives": "KNIGHT",
+      "note": "a knight is a titled nobleman, loosely a lord"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A sinister nobleman has been executed.",
+     "walkthrough": "The K of KNIGHT is silent, so beheading it leaves a word that sounds the same.",
+     "definitionFit": "Night is the dark part of the day, and 'the dark' is used as a noun for nighttime."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dark"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +619,55 @@
     "text": "Cut charge during month",
     "enumeration": "8"
    },
-   "solution": "JULIENNE"
+   "solution": "JULIENNE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "JULIENNE",
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during means within the time of, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "month",
+      "gives": "JUNE",
+      "note": "the sixth month"
+     },
+     {
+      "clueFragment": "charge",
+      "gives": "LIEN",
+      "note": "a lien is a legal charge or claim on property"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JU",
+      "LIEN",
+      "NE"
+     ]
+    },
+    "explanation": {
+     "surface": "A fee was reduced partway through the month.",
+     "walkthrough": "'Cut' looks like a verb about the charge, but it is an adjective-like noun for a style of chopping.",
+     "definitionFit": "Julienne describes vegetables chopped into thin matchstick strips, a culinary cut."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cut"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +681,60 @@
     "text": "Destroy a sign in anger",
     "enumeration": "6"
    },
-   "solution": "RAVAGE"
+   "solution": "RAVAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RAVAGE",
+    "definitions": [
+     {
+      "text": "Destroy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one thing inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "anger",
+      "gives": "RAGE",
+      "note": "rage is fierce anger"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sign",
+      "gives": "V",
+      "note": "the V-sign, a gesture made with two fingers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "AV",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone smashes things up while making a rude gesture in fury.",
+     "walkthrough": "The V-sign is a hand gesture: palm outward for victory, palm inward as a rude insult in Britain.",
+     "definitionFit": "To ravage is to devastate or lay waste, a forceful synonym for destroy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sign"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +754,40 @@
      }
     ]
    },
-   "solution": "SANTACLAUS"
+   "solution": "SANTACLAUS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SANTA CLAUS",
+    "definitions": [
+     {
+      "text": "Dancer's driver guided by red light",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dancer's driver",
+      "note": "the surface: whoever drives a professional dancer, a chauffeur perhaps"
+     },
+     {
+      "clueFragment": "guided by red light",
+      "note": "the setter's reading: Dancer is a reindeer, and the sleigh team follows Rudolph's glowing red nose"
+     }
+    ],
+    "explanation": {
+     "surface": "A dancer's chauffeur navigates by red traffic signals, or the red-light district.",
+     "walkthrough": "Dancer is one of the reindeer that pull the Christmas sleigh, which is led by Rudolph the red-nosed reindeer.",
+     "definitionFit": "Father Christmas drives the sleigh pulled by reindeer including Dancer, steered by Rudolph's shining nose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dancer's"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +801,43 @@
     "text": "Rather irritating woman",
     "enumeration": "4"
    },
-   "solution": "RITA"
+   "solution": "RITA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RITA",
+    "definitions": [
+     {
+      "text": "woman",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rather",
+      "for": "hidden_word",
+      "note": "rather means somewhat or to a degree, so only some of the following word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "irritating",
+      "gives": "RITA",
+      "note": "found inside the word, after its first two letters"
+     }
+    ],
+    "explanation": {
+     "surface": "A woman who is somewhat annoying.",
+     "walkthrough": "'Rather' looks like a mild intensifier for irritating, but it says only part of the word is taken.",
+     "definitionFit": "Rita is a female given name, and crosswords often clue names as simply a woman or girl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rather"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +851,59 @@
     "text": "Start diet with essential meal",
     "enumeration": "6"
    },
-   "solution": "DINNER"
+   "solution": "DINNER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DINNER",
+    "definitions": [
+     {
+      "text": "meal",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Start",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, which is all that is kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "diet",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of diet"
+     },
+     {
+      "clueFragment": "essential",
+      "gives": "INNER",
+      "note": "essential in the sense of innermost, at the core"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "INNER"
+     ]
+    },
+    "explanation": {
+     "surface": "Beginning a diet with a meal that is truly necessary.",
+     "walkthrough": "'Start diet' looks like an instruction to begin dieting, but it asks for the first letter only.",
+     "definitionFit": "Dinner is the main meal of the day, eaten in the evening or at midday."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Start"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +923,59 @@
      }
     ]
    },
-   "solution": "NEURALNET"
+   "solution": "NEURALNET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEURAL NET",
+    "definitions": [
+     {
+      "text": "Computer trainer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "failure",
+      "for": "anagram",
+      "note": "a failure to do things in order leaves the letters scrambled"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "learn",
+      "gives": "LEARN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tune",
+      "gives": "TUNE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEARNTUNE",
+       "gives": "NEURALNET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A computer tutor admits being unable to pick up a melody.",
+     "walkthrough": "'Computer trainer' reads as a person who teaches computing, but it describes a system that is itself trained.",
+     "definitionFit": "A neural network is a machine-learning model that is trained on data, loosely modelled on the brain's neurons."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "trainer's"
+    }
+   }
   },
   {
    "number": 15,
@@ -259,7 +989,43 @@
     "text": "Current pet",
     "enumeration": "8"
    },
-   "solution": "LABRADOR"
+   "solution": "LABRADOR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LABRADOR",
+    "definitions": [
+     {
+      "text": "Current",
+      "at": 0
+     },
+     {
+      "text": "pet",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Current",
+      "note": "first meaning: a cold ocean current off north-east Canada"
+     },
+     {
+      "clueFragment": "pet",
+      "note": "second meaning: a popular breed of retriever dog"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Current pet' reads as the animal someone owns now, but the two words are separate meanings.",
+     "definitionFit": "The Labrador Current flows south past Labrador and Newfoundland, and the Labrador retriever is a favourite family dog."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Current"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1045,63 @@
      }
     ]
    },
-   "solution": "BALINGOUT"
+   "solution": "BALINGOUT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BALING OUT",
+    "definitions": [
+     {
+      "text": "leaving",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping means holding within, so the outer word wraps round the rest"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Save",
+      "gives": "BUT",
+      "note": "save and but both mean except"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dialect",
+      "gives": "LINGO",
+      "note": "lingo is informal for a language or dialect"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ALINGO",
+      "UT"
+     ]
+    },
+    "explanation": {
+     "surface": "A language is kept alive by people moving away.",
+     "walkthrough": "'Save' looks like rescue, but it means except. The definition is the act of leaving an aircraft by parachute.",
+     "definitionFit": "Baling out means escaping from an aircraft by parachute, or abandoning a situation, so it is a form of leaving."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Save"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1115,59 @@
     "text": "Show too much new, content with control",
     "enumeration": "9"
    },
-   "solution": "OVEREMOTE"
+   "solution": "OVEREMOTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OVEREMOTE",
+    "definitions": [
+     {
+      "text": "Show too much",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "content",
+      "for": "letter_selection",
+      "note": "the content of something is what is inside, so the outer letters are dropped"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new",
+      "gives": "OVE",
+      "select": "middle",
+      "note": "novel means new; its inner letters are kept"
+     },
+     {
+      "clueFragment": "control",
+      "gives": "REMOTE",
+      "note": "a remote is a remote control for a television"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVE",
+      "REMOTE"
+     ]
+    },
+    "explanation": {
+     "surface": "A new show tests the patience of the person holding the TV control.",
+     "walkthrough": "First find NOVEL for 'new', then take only its insides.",
+     "definitionFit": "To overemote is to act with exaggerated feeling, displaying more emotion than is needed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "content"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1187,56 @@
      }
     ]
    },
-   "solution": "AGNUSDEI"
+   "solution": "AGNUSDEI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AGNUS DEI",
+    "definitions": [
+     {
+      "text": "Prayer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to throw",
+      "for": "anagram",
+      "note": "to throw things is to scatter them, so the letters land in a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gun",
+      "gives": "GUN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "aside",
+      "gives": "ASIDE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GUNASIDE",
+       "gives": "AGNUSDEI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plea to cast away one's weapon.",
+     "walkthrough": "'Throw gun aside' reads as disarmament, but throw jumbles the two words.",
+     "definitionFit": "The Agnus Dei, 'Lamb of God', is a prayer said or sung in the Christian Mass."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "throw"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1250,45 @@
     "text": "Not allowed to report below-par score",
     "enumeration": "7"
    },
-   "solution": "ILLEGAL"
+   "solution": "ILLEGAL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ILLEGAL",
+    "definitions": [
+     {
+      "text": "Not allowed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to report",
+      "for": "homophone",
+      "note": "to report is to give an account out loud, so the sound of the phrase counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "below-par score",
+      "gives": "ILLEGAL",
+      "soundsLike": "ILL EAGLE",
+      "note": "ill is below par in health, and an eagle is a golf score two under par"
+     }
+    ],
+    "explanation": {
+     "surface": "A golfer is barred from reporting an under-par round.",
+     "walkthrough": "'Below-par' does double duty in the reading: ILL is feeling below par, and EAGLE is a golf score.",
+     "definitionFit": "Illegal means forbidden by law, so it is not permitted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "below-par"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1302,43 @@
     "text": "Birds can, maybe",
     "enumeration": "6"
    },
-   "solution": "LADIES"
+   "solution": "LADIES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LADIES",
+    "definitions": [
+     {
+      "text": "Birds",
+      "at": 0
+     },
+     {
+      "text": "can, maybe",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Birds",
+      "note": "first meaning: women, in British slang where a bird is a woman"
+     },
+     {
+      "clueFragment": "can, maybe",
+      "note": "second meaning: a women's public lavatory, can being slang for toilet"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Birds can' looks like the start of a sentence about what birds do; can is a noun, US slang for toilet.",
+     "definitionFit": "Ladies is both a plural of lady, a woman, and the usual British sign for a women's toilet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1352,59 @@
     "text": "Singers and seamen back to back",
     "enumeration": "4"
    },
-   "solution": "ABBA"
+   "solution": "ABBA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ABBA",
+    "definitions": [
+     {
+      "text": "Singers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back to back",
+      "for": "reversal",
+      "note": "back to back means facing opposite ways, so the second copy is turned round"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seamen",
+      "gives": "ABAB",
+      "note": "an AB, able-bodied seaman, is a sailor; the plural asks for two of them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "BA"
+     ],
+     "reversals": [
+      {
+       "from": "AB",
+       "to": "BA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Vocalists and sailors stand back to back.",
+     "walkthrough": "Two sailors give AB twice, with the second one facing the other way.",
+     "definitionFit": "ABBA were the Swedish pop group who won Eurovision in 1974, a famous band of singers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seamen"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1418,61 @@
     "text": "Confront party following business leader",
     "enumeration": "5"
    },
-   "solution": "BRAVE"
+   "solution": "BRAVE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BRAVE",
+    "definitions": [
+     {
+      "text": "Confront",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader of a word is its first letter, at the front"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so the piece named first in the clue is placed second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "business",
+      "gives": "B",
+      "select": "first",
+      "note": "the first letter of business"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "RAVE",
+      "note": "a rave is a large dance party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RAVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dance party is held after the company boss is challenged.",
+     "walkthrough": "'Business leader' looks like a chief executive, but it only asks for the first letter of business.",
+     "definitionFit": "To brave something is to face or confront it boldly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1486,55 @@
     "text": "Scheduled performance of lead dancer",
     "enumeration": "10"
    },
-   "solution": "CALENDARED"
+   "solution": "CALENDARED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CALENDARED",
+    "definitions": [
+     {
+      "text": "Scheduled",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "performance of",
+      "for": "anagram",
+      "note": "a performance is a staged rendering, so the letters are worked into a new shape"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lead",
+      "gives": "LEAD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dancer",
+      "gives": "DANCER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEADDANCER",
+       "gives": "CALENDARED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The principal dancer's show has been fixed in the diary.",
+     "definitionFit": "Calendared means entered on a calendar or timetable, so planned for a set date."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "performance"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1548,54 @@
     "text": "Food containing a seabird",
     "enumeration": "5"
    },
-   "solution": "CAHOW"
+   "solution": "CAHOW",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CAHOW",
+    "definitions": [
+     {
+      "text": "seabird",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Food",
+      "gives": "CHOW",
+      "note": "chow is slang for food"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "A",
+      "HOW"
+     ]
+    },
+    "explanation": {
+     "surface": "A meal that has a seabird inside it.",
+     "walkthrough": "An obscure bird, so the wordplay does the work: CHOW wrapped round A.",
+     "definitionFit": "The cahow is the Bermuda petrel, a rare ocean bird once thought extinct."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1609,49 @@
     "text": "Gold artefacts maybe bedecked Egyptian rulers' heads",
     "enumeration": "5"
    },
-   "solution": "AMBER"
+   "solution": "AMBER",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "AMBER",
+    "definitions": [
+     {
+      "text": "Gold",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heads",
+      "for": "letter_selection",
+      "note": "the heads of words are their opening letters, which are the ones kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artefacts maybe bedecked Egyptian rulers'",
+      "gives": "AMBER",
+      "select": "first",
+      "note": "the first letter of each of the five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMBER"
+     ]
+    },
+    "explanation": {
+     "surface": "Pharaohs' treasures such as gold adorned the rulers' heads.",
+     "walkthrough": "'Heads' looks like the rulers' crowned heads, but it asks for initial letters.",
+     "definitionFit": "Amber is a golden-yellow colour, and also the fossil resin of that hue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heads"
+    }
+   }
   },
   {
    "number": 25,
@@ -425,7 +1665,55 @@
     "text": "Box containing a pot",
     "enumeration": "6"
    },
-   "solution": "PAUNCH"
+   "solution": "PAUNCH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PAUNCH",
+    "definitions": [
+     {
+      "text": "pot",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Box",
+      "gives": "PUNCH",
+      "note": "to box is to fight with fists, so a box is a punch"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "A",
+      "UNCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A crate holding a cooking pot.",
+     "walkthrough": "'Pot' looks like a container, but it is a pot belly; 'Box' is a blow, as in a box on the ears.",
+     "definitionFit": "A paunch is a large protruding belly, also called a pot belly or simply a pot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "pot"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1733,77 @@
      }
     ]
    },
-   "solution": "GOODBOOK"
+   "solution": "GOODBOOK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "GOOD BOOK",
+    "definitions": [
+     {
+      "text": "Bible",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter is taken"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the first piece goes round the next two"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Muck",
+      "gives": "GOO",
+      "note": "goo is sticky muck"
+     },
+     {
+      "clueFragment": "too much",
+      "gives": "OD",
+      "note": "an OD is an overdose, too much of a drug"
+     },
+     {
+      "clueFragment": "but",
+      "gives": "B",
+      "select": "first",
+      "note": "the first letter of but"
+     },
+     {
+      "clueFragment": "acceptable",
+      "gives": "OK",
+      "note": "OK means acceptable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "ODB",
+      "O",
+      "OK"
+     ]
+    },
+    "explanation": {
+     "surface": "Fooling around to excess is still just about tolerated in scripture.",
+     "walkthrough": "'Muck about' reads as messing around, but muck is the outer piece that goes about the next two; acceptable then follows outside.",
+     "definitionFit": "The Good Book is a traditional name for the Bible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 27,
@@ -459,7 +1817,65 @@
     "text": "Rule out strange water-soluble gift",
     "enumeration": "8"
    },
-   "solution": "BESTOWAL"
+   "solution": "BESTOWAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "BESTOWAL",
+    "definitions": [
+     {
+      "text": "gift",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "deletion",
+      "note": "out means removed, so those letters are taken away"
+     },
+     {
+      "text": "strange",
+      "for": "anagram",
+      "note": "strange means odd or unusual, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rule",
+      "gives": "RULE",
+      "note": "the letters to take out, as written"
+     },
+     {
+      "clueFragment": "water-soluble",
+      "gives": "WATERSOLUBLE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BESTOWAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WATSOBLE",
+       "gives": "BESTOWAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Exclude any weird present that dissolves in water.",
+     "walkthrough": "Remove R, U, L, E from WATERSOLUBLE and shuffle the remaining eight letters.",
+     "definitionFit": "A bestowal is the act of giving, or the thing given, so a gift or present."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rule"
+    }
+   }
   },
   {
    "number": 28,
@@ -473,7 +1889,43 @@
     "text": "Better sermons entail less rambling",
     "enumeration": "6"
    },
-   "solution": "TERSER"
+   "solution": "TERSER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TERSER",
+    "definitions": [
+     {
+      "text": "less rambling",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entail",
+      "for": "hidden_word",
+      "note": "to entail is to include within, so the answer sits inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Better sermons",
+      "gives": "TERSER",
+      "note": "found straddling the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Good sermons are shorter and less long-winded.",
+     "walkthrough": "The surface states its own answer: better sermons are terser.",
+     "definitionFit": "Terser means more concise, using fewer words, the opposite of rambling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "entail"
+    }
+   }
   }
  ]
 }
