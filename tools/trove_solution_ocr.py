@@ -745,14 +745,27 @@ def read_framed(image, grid):
     lts = lights(grid)
     accepted, stats, every = reads[0]
     accepted = dict(accepted)
-    letters = {**every, **{rc: ch for key, w in accepted.items() for rc, ch in zip(lts[key], w)}}
+    taken = {rc: ch for key, w in accepted.items() for rc, ch in zip(lts[key], w)}
     for more, _, _ in reads[1:]:
         for key, word in more.items():
-            if key not in accepted and all(letters.get(rc, ch) == ch for rc, ch in zip(lts[key], word)):
+            cells = lts[key]
+            if key in accepted or unsettled(word, [every.get(rc) for rc in cells]):
+                continue
+            if all(taken.get(rc, ch) == ch for rc, ch in zip(cells, word)):
                 accepted[key] = word
-                letters.update(zip(lts[key], word))
+                taken.update(zip(lts[key], word))
     accepted.update(crossed_reads(lts, accepted, every))
     return accepted, {**stats, "accepted": len(accepted), "lattices": len(reads)}
+
+
+def unsettled(word, sure):
+    """Whether the lead lattice's `sure` letters (one per cell, None where
+    unsure) leave another lattice's accepted `word` in doubt: they differ
+    from it and, laid in place of its letters, still spell a listed() word
+    (NONET read as NONER). Lead letters that spell no word (PB?VISO for
+    PROVISO, NEWL?QK for NEWLOOK) are misreads that lattice's own cut made."""
+    mine = "".join(ch or w for ch, w in zip(sure, word))
+    return mine != word and bool(listed(mine))
 
 
 def crossed_reads(lts, accepted, every):

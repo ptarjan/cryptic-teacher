@@ -1438,6 +1438,22 @@ finally:
 check("the surest lattice's lights stand; another's where every cell agrees",
       ({(1, "across"): "CAT", (1, "down"): "COB", (3, "across"): "BED"}, 2),
       (accepted, stats["lattices"]))
+# The leader's sure letters in a light it did not accept veto another
+# lattice's word only where they still spell a word: 15921's leader read
+# PROVISO as PB?VISO and NEWLOOK as NEWL?QK, its own cut's misreads, while
+# NONET read as NONER (15549) stays in doubt.
+def framed(lead_sure):
+    tso.framings = lambda gray, grid: [("o", 0, 0), ("l", 0, 0)]
+    tso.read_lattice = lambda g, ys, xs, grid: {"o": ({(3, "across"): "BED"}, {"cellsSure": 5}, {}),
+                                                "l": ({}, {"cellsSure": 7}, lead_sure)}[g]
+    try:
+        return tso.read_framed(os.path.join(os.environ["TMP"], "grid3.png"), grid3)[0].get((3, "across"))
+    finally:
+        tso.framings, tso.read_lattice = real_framings, real_lattice
+check("a leader's sure misread spelling no word does not veto another lattice's word",
+      "BED", framed({(2, 0): "B", (2, 1): "Q", (2, 2): "D"}))
+check("a leader's sure letter spelling another word leaves the light unread",
+      None, framed({(2, 0): "B", (2, 1): "E", (2, 2): "G"}))
 # crossed_reads(): an unread light's cells take accepted crossings' letters
 # and plain cells' sure reads (Gale 1987: ?MADEUS, ?LEANOR); a numbered
 # cell's own sure read is no letter (DUCKINGSTOOL's D read as a sure B),
