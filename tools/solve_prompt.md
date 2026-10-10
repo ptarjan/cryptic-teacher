@@ -2,21 +2,19 @@
 
 Prize crosswords appear without solutions, which follow about a week later.
 You solve the puzzle cold, then annotate your grid in this same turn, so it
-has hints in the meantime. The answers are published as ours, and the paper's
-key grades them when it arrives: an entry you got wrong has its annotation
-rewritten.
+has hints in the meantime. The paper's key grades your answers when it
+arrives: a wrong entry has its annotation rewritten.
 
 ## Input
 
     python3 tools/solve_packet.py <number>
 
-This prints every clue with its length, plus a crossing map. The map shows, for
-each entry, which of its letters are shared with which letter of which other
-entry. Use it. It is the only thing that can tell you an answer is wrong.
+This prints every clue with its length, plus a crossing map: which letters
+each entry shares with which other entry. It is the only thing that can tell you an answer is wrong.
 An entry marked `printed answer` is the paper's own: your fill must agree with it.
 
 A grid search runs only as `python3 tools/reconstruct_grid.py --lights … [--words …]`
-(it runs on the desktop); never write your own search script or use multiprocessing.
+; never write your own search script or use multiprocessing.
 
 ## Output
 
@@ -71,5 +69,5 @@ End your final message with every entry listed as one of:
 
 Never invent wordplay to promote a GUESS: your annotation states it with
 full authority. If you cannot get the check to pass
-honestly, stop, annotate nothing, and name the entries that beat you. The puzzle then waits for
-the paper's key, a fine outcome.
+honestly, stop, annotate nothing, and name the entries that beat you. Waiting for the paper's key
+is a fine outcome.
