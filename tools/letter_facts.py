@@ -1852,7 +1852,7 @@ class timed:
 _WORKER = {}
 #: The desktops write() reads the clues on, the first that answers, unless
 #: OCR_REMOTE (as tools/ocr_remote.py reads it) names others or is empty.
-DESKTOPS = "micro@100.68.145.15,micro@192.168.1.198"
+DESKTOPS = "micro@192.168.1.198,micro@100.68.145.15"
 #: Processes reading the clues on the desktop (it has 28 threads), and the
 #: seconds without a result after which the desktop is given up on and its
 #: remaining clues read here.

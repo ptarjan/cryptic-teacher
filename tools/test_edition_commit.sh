@@ -2,8 +2,8 @@
 # Does a read unit the edition queue prepared (tools/edition_commit.py)
 # write what the desktop decided and append the edition's row, loading no
 # tree module past its MODULES as it commits; hand a title the desktop left
-# undecided, the desktop lost, or an edition read since it was prepared to
-# the whole unit; and is ocr_remote's code hash kept only for the commit it
+# undecided, a desktop gone LONG_GONE, or an edition read since it was
+# prepared to the whole unit; retry a desktop lost mid-read and end deferred; and is ocr_remote's code hash kept only for the commit it
 # was made from?
 #
 #     bash tools/test_edition_commit.sh
@@ -53,6 +53,7 @@ class Desktop:
         tarfile.open(fileobj=buf, mode="w").close()
         return self.answer, buf.getvalue()
 
+real_session = ocr_remote.session
 execs = []
 class Became(Exception):
     pass
@@ -66,7 +67,7 @@ def run(answer, size=None):
     path = tmp / "x.brief"
     ec.save_brief(path, {"edition": ctx["rel"]}, b"tar", {**ctx, "ledgerSize": size or ledger.stat().st_size})
     desk = Desktop(answer)
-    ocr_remote.session = lambda: desk
+    ocr_remote.session = lambda final=True: desk
     execs.clear()
     try:
         rc = ec.main({"unit": {"kind": "read", "paper": "times", "rel": ctx["rel"]}, "brief": str(path)})
@@ -104,18 +105,68 @@ ed = tmp / "Item" / "1990-01-06"
 check("the whole unit takes that answer as read there, once", (([({"number": 18184}, held)], False, None), False),
       (ocr_remote.edition(ed, found, {}), (tmp / "x.brief.answer").exists()))
 
-def lost(head, tar):
-    raise ocr_remote.Unavailable("gone")
-ocr_remote.lost = lambda e: None
-desk_lost = Desktop(None)
-desk_lost.edition = lost
-ec.save_brief(tmp / "y.brief", {}, b"", {**ctx, "ledgerSize": ledger.stat().st_size})
-ocr_remote.session = lambda: desk_lost
-try:
-    ec.main({"unit": {"rel": ctx["rel"]}, "brief": str(tmp / "y.brief")})
-except Became:
-    pass
-check("a desktop lost mid-read: the whole unit reads here", ("the desktop was lost", ["OCR_REMOTE"]), execs[-1])
+# A desktop lost mid-read (its session reset): opened again and the read
+# made there, BACKOFF apart; its tries spent, the unit ends deferred, and
+# reads here only once the desktop has answered no one for LONG_GONE.
+import time
+ocr_remote.session = real_session
+ocr_remote.desktop_busy.busy = lambda hosts: None
+ocr_remote.SEEN = tmp / "seen"
+naps = []
+ocr_remote.time.sleep = naps.append
+class Dropping(Desktop):
+    host = "nohost"
+    tries = 0
+    def __init__(self, answer, drops):
+        super().__init__(answer)
+        self.drops = drops
+    def edition(self, head, tar):
+        Dropping.tries += 1
+        if Dropping.tries <= self.drops:
+            raise ocr_remote.Unavailable("ssh exited (255): Connection to nohost closed by remote host.")
+        return super().edition(head, tar)
+    def close(self):
+        pass
+
+def lost_run(drops, defer, seen_ago, off=False):
+    Dropping.tries = 0
+    naps.clear()
+    execs.clear()
+    ocr_remote.connect = lambda: None if off else Dropping({"results": [], "vlm": True, "decided": []}, drops)
+    ocr_remote._state().update(pid=os.getpid(), session=None, retry=0.0)
+    ocr_remote.SEEN.touch()
+    os.utime(ocr_remote.SEEN, (time.time() - seen_ago,) * 2)
+    os.environ.pop(ocr_remote.DEFER, None)
+    if defer:
+        os.environ[ocr_remote.DEFER] = "1"
+    path = tmp / "z.brief"
+    ec.save_brief(path, {"edition": ctx["rel"]}, b"tar", {**ctx, "ledgerSize": ledger.stat().st_size})
+    try:
+        rc = ec.main({"unit": {"kind": "read", "paper": "times", "rel": ctx["rel"]}, "brief": str(path)})
+    except Became:
+        rc = "whole"
+    except ocr_remote.DesktopLost:
+        rc = "deferred"
+    return rc, Dropping.tries, list(naps)
+
+check("lost twice mid-read, then answering: the read is made there, no whole unit",
+      (0, 3, [10, 30], []), (*lost_run(2, True, 0), execs))
+check("lost on every try in a deferring unit: it ends deferred, BACKOFF apart, nothing read here",
+      ("deferred", 4, [10, 30, 90], []), (*lost_run(99, True, 0), execs))
+check("a desktop off, but answering within LONG_GONE: deferred after BACKOFF, nothing read here",
+      ("deferred", 0, [10, 30, 90], []), (*lost_run(0, True, 60, off=True), execs))
+check("a desktop off past LONG_GONE: the whole unit reads here",
+      ("whole", [10, 30, 90], ("the desktop is not reading", ["OCR_REMOTE"])),
+      (*lost_run(0, True, ocr_remote.LONG_GONE + 60, off=True)[::2], execs[-1]))
+check("a session that opens is the desktop answering: lost on every read, it still defers",
+      ("deferred", 4), lost_run(99, True, ocr_remote.LONG_GONE + 60)[:2])
+check("lost on every try in a process that does not defer: read here, the desktop held off RETRY",
+      ("whole", 4, True), (*lost_run(99, False, 0)[:2], ocr_remote._state()["retry"] > time.monotonic() + 500))
+check("an answer from the desktop marks it seen", True,
+      (lost_run(0, True, 3600)[0], time.time() - ocr_remote.SEEN.stat().st_mtime < 60)[1])
+os.environ.pop(ocr_remote.DEFER, None)
+check("LAN hosts are tried before tailnet ones", ["micro@192.168.1.198", "box", "micro@100.68.145.15"],
+      ocr_remote.by_path(["micro@100.68.145.15", "micro@192.168.1.198", "box"]))
 
 size = ledger.stat().st_size
 scan_queue.append(ledger, [{"edition": ctx["rel"], "inputs": "x"}])

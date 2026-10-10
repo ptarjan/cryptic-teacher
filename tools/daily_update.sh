@@ -329,7 +329,7 @@ unit_ft() {
     cat "$ft_out"
     alert "the fifteensquared FT fetch failed, so the FT puzzles are filed from the posts already cached:"$'\n'"\`\`\`"$'\n'"$(tail -8 "$ft_out" | cut -c1-200)"$'\n'"\`\`\`"
   fi
-  if OCR_REMOTE="${OCR_REMOTE-micro@100.68.145.15,micro@192.168.1.198}" \
+  if OCR_REMOTE="${OCR_REMOTE-micro@192.168.1.198,micro@100.68.145.15}" \
       python3 tools/ft_puzzles.py --budget-seconds "$FT_GRID_SECONDS" >"$ft_out" 2>&1; then
     cat "$ft_out"
   else
@@ -353,7 +353,7 @@ AZED_SCAN_SECONDS="${AZED_SCAN_SECONDS:-1200}"
 unit_azed() {
   local azed_out rc=0
   azed_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-azed.XXXXXX")"
-  if OCR_REMOTE="${OCR_REMOTE-micro@100.68.145.15,micro@192.168.1.198}" \
+  if OCR_REMOTE="${OCR_REMOTE-micro@192.168.1.198,micro@100.68.145.15}" \
       python3 tools/andlit_azed.py nightly --budget-seconds "$AZED_FETCH_SECONDS" \
       --scan-seconds "$AZED_SCAN_SECONDS" >"$azed_out" 2>&1; then
     grep -v '^  No ' "$azed_out"

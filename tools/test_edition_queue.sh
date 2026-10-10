@@ -270,6 +270,8 @@ if b.get("ps"):
                                             capture_output=True, text=True).stdout.strip())
 else:
     say(f"{{time.monotonic():.3f}} start {{unit['kind']}} {{unit['rel']}} {{VERSION}}")
+if b.get("env"):
+    say(f"desktop {{unit['rel']}} {{os.environ.get('OCR_REMOTE')!r}}")
 if unit["rel"] == b.get("rewrite_on"):
     path = b.get("rewrite", __file__)
     with open(path) as fh:
@@ -747,6 +749,22 @@ fake(outcome={}, default=0.1)
 with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
     eq.dispatch(["times"], cache, workers=1, scan_workers=1, seconds=2.2, replan=0.5)
 check("mirror: once the desktop is idle it starts again", 1, log.read_text().count("start"))
+# A unit the desktop keeps losing (its read ends the server there) is started
+# again with the desktop until it has ended lost LOST_TRIES times, then with none: read here.
+eq.LOST_TRIES = 1
+os.environ["OCR_REMOTE"] = "micro@192.168.1.198"
+real_prepare, eq.prepare = eq.prepare, lambda *a: None  # no desktop probe
+fake(outcome={"d0": "lost"}, default=0.05, env=True)
+log.unlink(missing_ok=True)
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=1, scan_workers=1, seconds=4, replan=0.5)
+desk = [line.split(" ", 2)[2] for line in log.read_text().splitlines() if line.startswith("desktop ")]
+check("a lost unit is started again with the desktop, then after LOST_TRIES with none",
+      (["'micro@192.168.1.198'", "''"], True, False),
+      (desk[:2], "deferred (the desktop was lost)" in err.getvalue(), "failed" in err.getvalue()))
+os.environ.pop("OCR_REMOTE")
+eq.prepare = real_prepare
 eq.desktop_gate_reader = lambda: None
 eq.cpu_gate_reader = lambda: 0.0
 eq.mem_gate_reader = None

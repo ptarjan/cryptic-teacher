@@ -120,7 +120,7 @@ publish() {  # publish <subject>
 
 # The grid searches run on Paul's desktop when it answers (tools/ocr_remote.py,
 # which yields it the moment he games); OCR_REMOTE= keeps them here.
-export OCR_REMOTE="${OCR_REMOTE-micro@100.68.145.15,micro@192.168.1.198}"
+export OCR_REMOTE="${OCR_REMOTE-micro@192.168.1.198,micro@100.68.145.15}"
 
 if [ "$key" = supersede ]; then
   # A book leaf filed here and the newspaper puzzle it reprints, filed by another

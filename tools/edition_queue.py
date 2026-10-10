@@ -122,7 +122,8 @@ def titled():
 def unit_status(unit, run):
     """In the unit's own process: name it after `unit`, run() it and return
     its exit status (EXITS; 1 for an error, logged; "deferred" when its
-    desktop reads met a busy desktop and it defers, ocr_remote.DEFER)."""
+    desktop reads met a busy desktop and it defers, ocr_remote.DEFER; "lost"
+    when the desktop stopped answering them, ocr_remote.DesktopLost)."""
     import edition_commit
     import ocr_remote
     import scan_queue
@@ -131,6 +132,9 @@ def unit_status(unit, run):
         setproctitle.setproctitle(unit_title(unit))
     try:
         return edition_commit.EXITS.get(run(), 1)
+    except ocr_remote.DesktopLost as e:
+        print(f"{unit['kind']} {unit['rel']}: deferred, the desktop was lost ({e})", file=sys.stderr, flush=True)
+        return edition_commit.EXITS["lost"]
     except ocr_remote.DesktopBusy as e:
         print(f"{unit['kind']} {unit['rel']}: deferred, the desktop is busy ({e})", file=sys.stderr, flush=True)
         return edition_commit.EXITS["deferred"]
@@ -237,6 +241,8 @@ if _snapshot is not None and _spec.get("brief"):
     import ocr_remote
     try:
         sys.exit(edition_commit.main(_spec))
+    except ocr_remote.DesktopLost:
+        sys.exit(edition_commit.EXITS["lost"])
     except ocr_remote.DesktopBusy:
         sys.exit(edition_commit.EXITS["deferred"])
     except Exception as e:  # noqa: BLE001 -- the unit's end is its exit status, logged
@@ -432,6 +438,11 @@ def digest(path):
         return None
 
 
+#: Times a unit ends lost (the desktop stopped answering its reads, though it
+#: answers others) before it is started with no desktop: an edition whose read
+#: ends the desktop's server each time is read here, not deferred forever.
+LOST_TRIES = 3
+
 #: Where prepare() leaves each read it made for its unit (edition_commit.load_brief removes it).
 BRIEFS = Path(os.environ.get("TMPDIR") or "/tmp") / "edition-briefs"
 
@@ -586,6 +597,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     finished = {}
     scanned, scan_failed = set(), set()  # (paper, rel) of the scans that ended done, or failed, this run
     outcomes = {}
+    losses = {}  # key_of(unit): times it ended lost (EXITS["lost"])
     beside = [Beside(argv) for argv in beside or ()]
     scans = reads = fetches = []
     planned = None  # when the plan in force was begun
@@ -641,9 +653,12 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         sys.stdout.flush()
         sys.stderr.flush()
         argv = unit_argv(unit)
-        made = prepare(unit, cache, puzzles, reread)
+        alone = losses.get(key_of(unit), 0) >= LOST_TRIES
+        made = None if alone else prepare(unit, cache, puzzles, reread)
         env = {**os.environ, "CT_EDITION_UNIT": json.dumps({**spec, "unit": unit, **({"brief": made} if made else {})})}
-        if unit["kind"] != "fetch":
+        if alone:
+            env["OCR_REMOTE"] = ""
+        elif unit["kind"] != "fetch":
             # Its OCR is not moved onto this host while the desktop yields: it ends deferred, run again once idle.
             env[ocr_remote.DEFER] = "1"
         pid = os.posix_spawn(argv[0], argv, env, setpgroup=0, setsigmask=())
@@ -664,7 +679,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 continue
             unit, t0 = running.pop(pid) if pid in running else adopted.pop(pid)
             rc = os.waitstatus_to_exitcode(status)
-            if rc == EXITS["deferred"]:
+            if rc == EXITS["lost"]:
+                losses[key_of(unit)] = losses.get(key_of(unit), 0) + 1
+            if rc in (EXITS["deferred"], EXITS["lost"]):
                 tried.discard(key_of(unit))  # started again once the desktop is idle
             else:
                 finished[key_of(unit)] = time.monotonic()
@@ -675,7 +692,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             what = {0: "done", 3: "busy (another unit has it)", 4: "held (a run holds the ledger)",
                     5: "failed, the source looks down", 6: "done, but throttled (429)",
                     7: "not started: the disk is full",
-                    EXITS["deferred"]: "deferred (the desktop is busy)"}.get(rc, f"failed (rc={rc})")
+                    EXITS["deferred"]: "deferred (the desktop is busy)",
+                    EXITS["lost"]: "deferred (the desktop was lost)"}.get(rc, f"failed (rc={rc})")
             if unit["kind"] == "fetch":
                 src = unit["paper"]
                 outages[src] = outages[src] + 1 if rc == 5 else 0
