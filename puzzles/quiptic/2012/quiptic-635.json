@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "The academic world quietly skewers French philosopher",
     "enumeration": "6"
    },
-   "solution": "CAMPUS"
+   "solution": "CAMPUS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CAMPUS",
+    "definitions": [
+     {
+      "text": "The academic world",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "skewers",
+      "for": "container",
+      "note": "to skewer is to run something through, so one piece pierces the middle of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French philosopher",
+      "gives": "CAMUS",
+      "note": "Albert Camus, the French existentialist writer and philosopher"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p (piano) is the musical marking for quietly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAM",
+      "P",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A scholar's soft-spoken but cutting attack on a famous French thinker.",
+     "walkthrough": "Albert Camus was a French writer usually filed as an existentialist philosopher; the musical sign for quiet is pierced into his name.",
+     "definitionFit": "A campus is the grounds of a university, so it stands by extension for academic life in general."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "skewers"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +98,48 @@
     "text": "Country originally banned alcoholic drinks",
     "enumeration": "4"
    },
-   "solution": "ALES"
+   "solution": "ALES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ALES",
+    "definitions": [
+     {
+      "text": "alcoholic drinks",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally banned",
+      "for": "deletion",
+      "note": "the original, i.e. first, letter of the word is banned, so it is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Country",
+      "gives": "WALES",
+      "note": "Wales is a country of the United Kingdom"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALES"
+     ]
+    },
+    "explanation": {
+     "surface": "A nation that once imposed prohibition on liquor.",
+     "walkthrough": "Dropping the W from WALES leaves ALES.",
+     "definitionFit": "Ales are beers, a kind of drink containing alcohol."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "originally"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +153,47 @@
     "text": "Theatre providing entertainment for children?",
     "enumeration": "9"
    },
-   "solution": "PLAYHOUSE"
+   "solution": "PLAYHOUSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PLAYHOUSE",
+    "definitions": [
+     {
+      "text": "Theatre",
+      "at": 0
+     },
+     {
+      "text": "entertainment for children",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "providing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Theatre",
+      "note": "first meaning: a building where plays are staged"
+     },
+     {
+      "clueFragment": "entertainment for children",
+      "note": "second meaning: a toy house that children play in"
+     }
+    ],
+    "explanation": {
+     "surface": "A theatre that puts on shows aimed at young audiences.",
+     "walkthrough": "The question mark flags the second, playful sense: a small model house children use for games, often called a Wendy house in Britain.",
+     "definitionFit": "The word names both a building for staging drama and a miniature house built for children's games."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "entertainment"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +207,47 @@
     "text": "He guards small gate, perhaps",
     "enumeration": "6"
    },
-   "solution": "SENTRY"
+   "solution": "SENTRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SENTRY",
+    "definitions": [
+     {
+      "text": "He guards",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the standard abbreviation for small, as on clothing labels"
+     },
+     {
+      "clueFragment": "gate, perhaps",
+      "gives": "ENTRY",
+      "note": "a gate is one example of a way in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ENTRY"
+     ]
+    },
+    "explanation": {
+     "surface": "A man stands watch over a little gate.",
+     "walkthrough": "'Perhaps' signals that gate is just one example of the word wanted.",
+     "definitionFit": "A sentry is a soldier posted to keep watch, so 'he guards' describes his job."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "gate"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +261,70 @@
     "text": "Find out about alternative careers and then start to hesitate",
     "enumeration": "8"
    },
-   "solution": "RESEARCH"
+   "solution": "RESEARCH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RESEARCH",
+    "definitions": [
+     {
+      "text": "Find out about",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "alternative",
+      "for": "anagram",
+      "note": "an alternative version is a different arrangement, so the letters are reordered"
+     },
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "the start of the next word means only its opening letter is used"
+     }
+    ],
+    "linkWords": [
+     "and then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "careers",
+      "gives": "CAREERS",
+      "note": "taken as written, ready to be rearranged"
+     },
+     {
+      "clueFragment": "hesitate",
+      "gives": "H",
+      "select": "first",
+      "note": "the opening letter of hesitate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RESEARC",
+      "H"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CAREERS",
+       "gives": "RESEARC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to someone weighing a change of job: look into other options, then pause.",
+     "definitionFit": "To research a subject is to investigate it and find out facts about it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "alternative"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +338,64 @@
     "text": "Bully kills strumpet, popular and impish creature",
     "enumeration": "15"
    },
-   "solution": "RUMPELSTILTSKIN"
+   "solution": "RUMPELSTILTSKIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RUMPELSTILTSKIN",
+    "definitions": [
+     {
+      "text": "impish creature",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bully",
+      "for": "anagram",
+      "note": "to bully is to push around, so the letters are knocked about into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kills",
+      "gives": "KILLS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "strumpet",
+      "gives": "STRUMPET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "something popular is said to be in"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "KILLSSTRUMPETIN",
+       "gives": "RUMPELSTILTSKIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lurid tabloid headline about a thug who murders a prostitute.",
+     "walkthrough": "All fifteen letters of KILLS, STRUMPET and IN are rearranged together.",
+     "definitionFit": "Rumpelstiltskin is the mischievous little man in the Grimm fairy tale who spins straw into gold."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bully"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +409,60 @@
     "text": "Flattery finally gets you — and us — in a lather",
     "enumeration": "8"
    },
-   "solution": "SOAPSUDS"
+   "solution": "SOAPSUDS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SOAPSUDS",
+    "definitions": [
+     {
+      "text": "lather",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of each of the words that follow"
+     }
+    ],
+    "linkWords": [
+     "in a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flattery",
+      "gives": "SOAP",
+      "note": "soap, as in soft soap, is informal for flattery"
+     },
+     {
+      "clueFragment": "gets you — and us",
+      "gives": "SUDS",
+      "select": "last",
+      "note": "the final letter of each of gets, you, and, us"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOAP",
+      "SUDS"
+     ]
+    },
+    "explanation": {
+     "surface": "Smooth talk gets everyone worked up into a state.",
+     "walkthrough": "Being 'in a lather' means flustered; here the phrase splits, and 'lather' alone is the definition.",
+     "definitionFit": "Soapsuds are the foam formed when soap is mixed with water, which is what lather is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lather"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +476,59 @@
     "text": "Soothsayer and a swami putting foot over head",
     "enumeration": "5"
    },
-   "solution": "AUGUR"
+   "solution": "AUGUR",
+   "annotation": {
+    "type": [
+     "cycling",
+     "charade"
+    ],
+    "answer": "AUGUR",
+    "definitions": [
+     {
+      "text": "Soothsayer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "putting foot over head",
+      "for": "cycling",
+      "note": "the foot is the bottom letter of a down entry, and it is moved up above the top one"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "swami",
+      "gives": "GURU",
+      "note": "a swami is a Hindu religious teacher, a guru"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "UGUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A fortune-teller and a holy man doing a yoga pose with a leg behind the head.",
+     "walkthrough": "In a down answer the foot is the last letter and the head the first, so the final letter of the teacher's title moves to the top.",
+     "definitionFit": "An augur was a Roman priest who foretold events, so the word means a prophet or soothsayer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "foot"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +542,42 @@
     "text": "Imagining making a baby",
     "enumeration": "10"
    },
-   "solution": "CONCEIVING"
+   "solution": "CONCEIVING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CONCEIVING",
+    "definitions": [
+     {
+      "text": "Imagining",
+      "at": 0
+     },
+     {
+      "text": "making a baby",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Imagining",
+      "note": "first meaning: forming an idea in the mind"
+     },
+     {
+      "clueFragment": "making a baby",
+      "note": "second meaning: becoming pregnant"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone daydreaming about starting a family.",
+     "definitionFit": "To conceive is both to form a mental picture of something and to become pregnant with a child."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "making"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +597,69 @@
      }
     ]
    },
-   "solution": "PERANNUM"
+   "solution": "PERANNUM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PER ANNUM",
+    "definitions": [
+     {
+      "text": "each year",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of the following words means each one contributes just its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quiet",
+      "gives": "P",
+      "note": "p (piano) is the musical marking for quiet"
+     },
+     {
+      "clueFragment": "time with a",
+      "gives": "ERA",
+      "note": "an era is a period of time, with A as the word written"
+     },
+     {
+      "clueFragment": "partner",
+      "gives": "N",
+      "note": "in bridge, North is South's partner, abbreviated N"
+     },
+     {
+      "clueFragment": "nark us more",
+      "gives": "NUM",
+      "select": "first",
+      "note": "the first letters of nark, us, more"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ER",
+      "A",
+      "N",
+      "NUM"
+     ]
+    },
+    "explanation": {
+     "surface": "A couple's quiet moments together get more annoying every year.",
+     "walkthrough": "'More' is used up by the initials, so nothing joins the definition; in bridge, North and South are partners. To nark is British slang for to annoy.",
+     "definitionFit": "Per annum is Latin for yearly, used in finance for rates charged or paid every year."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "partner"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +673,57 @@
     "text": "It causes sudden pain as woman embraces Joe",
     "enumeration": "6"
    },
-   "solution": "ANGINA"
+   "solution": "ANGINA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ANGINA",
+    "definitions": [
+     {
+      "text": "It causes sudden pain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embraces",
+      "for": "container",
+      "note": "one who embraces wraps their arms round another, so one piece holds the other inside"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "woman",
+      "gives": "ANNA",
+      "note": "a woman's name"
+     },
+     {
+      "clueFragment": "Joe",
+      "gives": "GI",
+      "note": "GI Joe is slang for an American soldier, so Joe can mean GI"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "GI",
+      "NA"
+     ]
+    },
+    "explanation": {
+     "surface": "Heartache strikes when a woman hugs Joe.",
+     "definitionFit": "Angina is a condition of sudden chest pain caused by too little blood reaching the heart."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Joe"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +743,51 @@
      }
     ]
    },
-   "solution": "HARLEYSTREET"
+   "solution": "HARLEYSTREET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HARLEY STREET",
+    "definitions": [
+     {
+      "text": "address in W1",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Drastically",
+      "for": "anagram",
+      "note": "a drastic change is a radical one, so the letters are thoroughly reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "restyle her at",
+      "gives": "RESTYLEHERAT",
+      "note": "taken as written, all twelve letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RESTYLEHERAT",
+       "gives": "HARLEYSTREET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hairdresser in a smart London postcode gives a client a radical makeover.",
+     "walkthrough": "W1 is the postcode for London's West End.",
+     "definitionFit": "Harley Street is a street in London's W1 district famous for private doctors' practices."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "restyle"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +807,55 @@
      }
     ]
    },
-   "solution": "CHAINSMOKE"
+   "solution": "CHAINSMOKE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHAIN-SMOKE",
+    "definitions": [
+     {
+      "text": "have a dirty habit",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embarrassed",
+      "for": "anagram",
+      "note": "someone embarrassed is flustered and thrown into disorder, so the letters are mixed up"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Each monk is",
+      "gives": "EACHMONKIS",
+      "note": "taken as written, all ten letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EACHMONKIS",
+       "gives": "CHAINSMOKE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Every monk is ashamed of a grubby habit, with a nod to the monk's robe.",
+     "walkthrough": "'Is' reads as part of the verb but belongs to the letters being rearranged.",
+     "definitionFit": "To chain-smoke is to light one cigarette after another, a dirty habit in both senses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "habit"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +869,42 @@
     "text": "Lighthouse protecting you in the old days",
     "enumeration": "4"
    },
-   "solution": "THOU"
+   "solution": "THOU",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "THOU",
+    "definitions": [
+     {
+      "text": "you in the old days",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "protecting",
+      "for": "hidden_word",
+      "note": "something protecting another keeps it safely inside, so the word sits within the one before"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lighthouse",
+      "gives": "THOU",
+      "note": "letters three to six of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "A lighthouse that kept you safe long ago.",
+     "definitionFit": "Thou is the archaic singular form of the pronoun you."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "protecting"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +918,58 @@
     "text": "Almost understand case for drug",
     "enumeration": "8"
    },
-   "solution": "SEDATIVE"
+   "solution": "SEDATIVE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SEDATIVE",
+    "definitions": [
+     {
+      "text": "drug",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the word loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "understand",
+      "gives": "SEE",
+      "note": "to see is to understand"
+     },
+     {
+      "clueFragment": "case",
+      "gives": "DATIVE",
+      "note": "the dative is a grammatical case"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "DATIVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A lawyer nearly grasps the argument for a narcotic.",
+     "walkthrough": "'Case' suggests a legal argument or a container, but it is the grammatical case.",
+     "definitionFit": "A sedative is a calming drug that induces sleep or relaxation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +983,51 @@
     "text": "It's hard to negotiate with drunk guy, perhaps",
     "enumeration": "9"
    },
-   "solution": "TIGHTROPE"
+   "solution": "TIGHTROPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TIGHTROPE",
+    "definitions": [
+     {
+      "text": "It's hard to negotiate",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drunk",
+      "gives": "TIGHT",
+      "note": "tight is slang for drunk"
+     },
+     {
+      "clueFragment": "guy, perhaps",
+      "gives": "ROPE",
+      "note": "a guy is a rope holding a tent steady, one kind of rope"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIGHT",
+      "ROPE"
+     ]
+    },
+    "explanation": {
+     "surface": "Bargaining with someone who has had too much is tough going.",
+     "walkthrough": "'Negotiate' reads as bargaining but means getting across.",
+     "definitionFit": "A tightrope is a high wire that acrobats must cross with great difficulty, hard to negotiate in the sense of traverse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "negotiate"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1041,57 @@
     "text": "Woman taking part in battles showing caution",
     "enumeration": "8"
    },
-   "solution": "WARINESS"
+   "solution": "WARINESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WARINESS",
+    "definitions": [
+     {
+      "text": "caution",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking part in",
+      "for": "container",
+      "note": "to take part in something is to be inside it, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "battles",
+      "gives": "WARS",
+      "note": "wars are battles"
+     },
+     {
+      "clueFragment": "Woman",
+      "gives": "INES",
+      "note": "Ines is a woman's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAR",
+      "INES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman joining combat carefully.",
+     "definitionFit": "Wariness is the state of being careful about danger, a synonym of caution."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Woman"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1105,61 @@
     "text": "Burning novel? Irate men of letters!",
     "enumeration": "8"
    },
-   "solution": "LITERATI"
+   "solution": "LITERATI",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "LITERATI",
+    "definitions": [
+     {
+      "text": "men of letters",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new, so the following letters are made into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Burning",
+      "gives": "LIT",
+      "note": "a fire that is lit is burning"
+     },
+     {
+      "clueFragment": "Irate",
+      "gives": "IRATE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIT",
+      "ERATI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IRATE",
+       "gives": "ERATI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Furious critics want to set a book on fire.",
+     "walkthrough": "'Novel' looks like the book being burnt; it is an adjective meaning new.",
+     "definitionFit": "The literati are the educated, literary class, writers and scholars in general."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1173,49 @@
     "text": "Information and energy combine to form hereditary unit",
     "enumeration": "4"
    },
-   "solution": "GENE"
+   "solution": "GENE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GENE",
+    "definitions": [
+     {
+      "text": "hereditary unit",
+      "at": 39
+     }
+    ],
+    "linkWords": [
+     "combine to form"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Information",
+      "gives": "GEN",
+      "note": "gen is British slang for information"
+     },
+     {
+      "clueFragment": "and energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A science lesson on how data and energy produce something inherited.",
+     "definitionFit": "A gene is the basic unit of heredity passed from parent to offspring."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Information"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1229,49 @@
     "text": "Mammals with just over 100 people who look after them",
     "enumeration": "6"
    },
-   "solution": "CIVETS"
+   "solution": "CIVETS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CIVETS",
+    "definitions": [
+     {
+      "text": "Mammals",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "just over 100",
+      "gives": "CI",
+      "note": "CI is 101 in Roman numerals, just over C"
+     },
+     {
+      "clueFragment": "people who look after them",
+      "gives": "VETS",
+      "note": "vets are the people who care for animals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CI",
+      "VETS"
+     ]
+    },
+    "explanation": {
+     "surface": "A herd of animals with about a hundred keepers.",
+     "definitionFit": "Civets are small catlike carnivorous mammals of Africa and Asia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1285,51 @@
     "text": "Doctor using typist's chair",
     "enumeration": "12"
    },
-   "solution": "PSYCHIATRIST"
+   "solution": "PSYCHIATRIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PSYCHIATRIST",
+    "definitions": [
+     {
+      "text": "Doctor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "using",
+      "for": "anagram",
+      "note": "the letters are being used to make something else, so they are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "typist's chair",
+      "gives": "TYPISTSCHAIR",
+      "note": "taken as written, ignoring the apostrophe"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TYPISTSCHAIR",
+       "gives": "PSYCHIATRIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A GP short of furniture borrows a secretary's seat.",
+     "walkthrough": "'Doctor' is often an anagram indicator, but here it is the definition.",
+     "definitionFit": "A psychiatrist is a medical doctor specialising in mental illness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1343,47 @@
     "text": "Whack 150, get dismissed",
     "enumeration": "5"
    },
-   "solution": "CLOUT"
+   "solution": "CLOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLOUT",
+    "definitions": [
+     {
+      "text": "Whack",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "150",
+      "gives": "CL",
+      "note": "CL is 150 in Roman numerals"
+     },
+     {
+      "clueFragment": "get dismissed",
+      "gives": "OUT",
+      "note": "a batsman who is dismissed in cricket is out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CL",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricketer hits a big score and then loses their wicket.",
+     "walkthrough": "In cricket, a batter scores runs until dismissed, or out.",
+     "definitionFit": "A clout is a heavy blow, so it means a whack."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Whack"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1397,47 @@
     "text": "24 type of vegetable",
     "enumeration": "4"
    },
-   "solution": "LEEK"
+   "solution": "LEEK",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "LEEK",
+    "definitions": [
+     {
+      "text": "type of vegetable",
+      "at": 3
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "24",
+      "gives": "KEEL",
+      "note": "the answer to 24 across read as an instruction: the word keel, turned over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEEK"
+     ],
+     "reversals": [
+      {
+       "from": "KEEL",
+       "to": "LEEK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cross-reference presented as a botanical category: one answer names a vegetable.",
+     "walkthrough": "24 across is KEEL OVER, which read as an instruction says turn KEEL over.",
+     "definitionFit": "A leek is an onion-family vegetable with a long white stem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1451,56 @@
     "text": "Shy, evenly mottled prairie wolf",
     "enumeration": "6"
    },
-   "solution": "COYOTE"
+   "solution": "COYOTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "COYOTE",
+    "definitions": [
+     {
+      "text": "prairie wolf",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "evenly",
+      "for": "letter_selection",
+      "note": "evenly means the even-numbered positions, so only the second, fourth and sixth letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shy",
+      "gives": "COY",
+      "note": "coy means bashful or shy"
+     },
+     {
+      "clueFragment": "mottled",
+      "gives": "OTE",
+      "select": "alternate",
+      "note": "letters two, four and six of mottled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COY",
+      "OTE"
+     ]
+    },
+    "explanation": {
+     "surface": "A timid wild dog with a uniformly patchy coat.",
+     "walkthrough": "'Evenly mottled' looks like a description of fur; it picks out letters.",
+     "definitionFit": "The coyote is a small North American wild dog of the plains, also called the prairie wolf."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "evenly"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1520,61 @@
      }
     ]
    },
-   "solution": "KEELOVER"
+   "solution": "KEELOVER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "KEEL OVER",
+    "definitions": [
+     {
+      "text": "Faint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about can mean turned round, so the exclamation is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expression of fear",
+      "gives": "EEK",
+      "note": "eek is a cry of fright"
+     },
+     {
+      "clueFragment": "partner",
+      "gives": "LOVER",
+      "note": "a lover is a romantic partner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KEE",
+      "LOVER"
+     ],
+     "reversals": [
+      {
+       "from": "EEK",
+       "to": "KEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A weak squeal of alarm about one's other half.",
+     "walkthrough": "'Faint' reads as an adjective for the squeal, but it is the verb.",
+     "definitionFit": "To keel over is to collapse suddenly, as someone does when they faint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Faint"
+    }
+   }
   },
   {
    "number": 25,
@@ -407,7 +1588,61 @@
     "text": "To throw something from ship or plane is not unusual",
     "enumeration": "8"
    },
-   "solution": "JETTISON"
+   "solution": "JETTISON",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "JETTISON",
+    "definitions": [
+     {
+      "text": "To throw something from ship or plane",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusual",
+      "for": "anagram",
+      "note": "something unusual is out of the ordinary, so the letters are put out of their usual order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plane",
+      "gives": "JET",
+      "note": "a jet is a kind of aeroplane"
+     },
+     {
+      "clueFragment": "is not",
+      "gives": "ISNOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JET",
+      "TISON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISNOT",
+       "gives": "TISON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that dumping cargo from vessels or aircraft is a common thing.",
+     "walkthrough": "'Plane' does double duty: it ends the definition and starts the wordplay.",
+     "definitionFit": "To jettison is to discard cargo or equipment from a ship or aircraft, often to lighten it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unusual"
+    }
+   }
   },
   {
    "number": 26,
@@ -421,7 +1656,62 @@
     "text": "Slippery eel's head found in Serpentine",
     "enumeration": "6"
    },
-   "solution": "SNEAKY"
+   "solution": "SNEAKY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SNEAKY",
+    "definitions": [
+     {
+      "text": "Slippery",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "the head of a word is its top or opening letter"
+     },
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "found in means placed inside, so one letter sits within the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Serpentine",
+      "gives": "SNAKY",
+      "note": "serpentine means snakelike, which is snaky"
+     },
+     {
+      "clueFragment": "eel's",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter of eel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SN",
+      "E",
+      "AKY"
+     ]
+    },
+    "explanation": {
+     "surface": "An eel is spotted in the Serpentine, the lake in London's Hyde Park.",
+     "walkthrough": "The capital S makes Serpentine look like the Hyde Park lake; it is the adjective meaning snakelike.",
+     "definitionFit": "Slippery can describe a sly, untrustworthy person, which is what sneaky means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Serpentine"
+    }
+   }
   }
  ]
 }
