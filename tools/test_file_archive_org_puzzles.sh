@@ -1168,6 +1168,21 @@ check("a stale scan's read a reader fix can change ranks with the fixes, not the
       [stale_fixed({"number": 15436, "solutionFrom": "x", "solution": {"accepted": 20, "lights": 30}}),
        stale_fixed({"number": 15436, "refused": True, "cause": "not-a-grid"}),
        stale_fixed({"number": 15436, "solutionFrom": "x", "solution": {"accepted": 30, "lights": 30}})])
+# The answerless puzzle's own edition ranks 2 too, its read waiting on the
+# host's scan; not when no edition is dated within SOLUTION_DAYS after it
+# (e2 is three months on), as nothing it waits on can link a heading.
+check("a stale edition of its own answerless puzzle ranks 3 with no edition within SOLUTION_DAYS after it",
+      [(3, "scan stale")], stale_fixed({"number": 15436}))
+e4 = pc / "NewsUK1981UKEnglish" / "1981-02-04_4"
+e4.mkdir()
+(e4 / "pages.json").write_text("{}")
+settle(e4, e4.parent, pc)
+check("and 2 with one: the next issue, whose scan its read waits on",
+      [(2, "scan stale, answers missing")], stale_fixed({"number": 15436}))
+scan_queue.append(pl, [settled_row(e4)])
+check("an answered or refused one still ranks 3", [[(3, "scan stale")], [(3, "scan stale")]],
+      [stale_fixed({"number": 15436, "solutionFrom": "x", "solution": {"accepted": 30, "lights": 30}}),
+       stale_fixed({"number": 15436, "refused": True})])
 scan_queue.append(pl, [settled_row(e1), settled_row(e2)])
 (e2 / "pages.json").write_text("{\"x\": 1}")
 check("a dir changed within SETTLED is listed afresh, an in-place write seen", (False, "inputs changed"),
