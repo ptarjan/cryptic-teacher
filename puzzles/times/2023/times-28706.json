@@ -23,6 +23,9 @@
   "date": "2023-09-12",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,65 @@
     "text": "Fruit went up in price? Hiked at first by smallest amount",
     "enumeration": "7"
    },
-   "solution": "ROSEHIP"
+   "solution": "ROSEHIP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ROSEHIP",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "went up in price",
+      "gives": "ROSE",
+      "note": "prices that went up rose"
+     },
+     {
+      "clueFragment": "Hiked",
+      "gives": "H",
+      "select": "first",
+      "note": "first letter of Hiked"
+     },
+     {
+      "clueFragment": "smallest amount",
+      "gives": "IP",
+      "note": "1p, one penny, the smallest coin, written with I for 1"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROSE",
+      "H",
+      "IP"
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper notes that the price of fruit crept up by the tiniest margin.",
+     "walkthrough": "One penny is written 1P, and the setter lets the digit 1 stand as the letter I.",
+     "definitionFit": "A rosehip is the berry-like seed pod of the rose, a fruit used for syrup and tea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hiked"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +111,62 @@
     "text": "Volcanic product seen after Ranau's initial eruption",
     "enumeration": "4"
    },
-   "solution": "RASH"
+   "solution": "RASH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RASH",
+    "definitions": [
+     {
+      "text": "eruption",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initial",
+      "for": "letter_selection",
+      "note": "an initial is a word's first letter"
+     },
+     {
+      "text": "seen after",
+      "for": "charade",
+      "note": "something seen after another comes next in the line"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ranau's",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of Ranau"
+     },
+     {
+      "clueFragment": "Volcanic product",
+      "gives": "ASH",
+      "note": "ash is thrown out by volcanoes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ASH"
+     ]
+    },
+    "explanation": {
+     "surface": "Ash follows a volcanic blast near Ranau, a town in Malaysian Borneo.",
+     "walkthrough": "'Eruption' looks volcanic but is the definition: a skin eruption.",
+     "definitionFit": "A rash is an outbreak of red spots on the skin, a skin eruption."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "eruption"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +180,67 @@
     "text": "Telescope firm put out for modification shows tower",
     "enumeration": "7"
    },
-   "solution": "STEEPLE"
+   "solution": "STEEPLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "STEEPLE",
+    "definitions": [
+     {
+      "text": "tower",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put out",
+      "for": "deletion",
+      "note": "something put out is ejected and so removed"
+     },
+     {
+      "text": "for modification",
+      "for": "anagram",
+      "note": "a modification changes the order, so the remaining letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "shows"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Telescope",
+      "gives": "TELESCOPE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "firm",
+      "gives": "CO",
+      "note": "Co is the abbreviation for company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEEPLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TELESPE",
+       "gives": "STEEPLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An optics company remodels its observatory tower.",
+     "definitionFit": "A steeple is a church tower topped with a spire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "firm"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +254,46 @@
     "text": "Big hit from Ruth as poet?",
     "enumeration": "5"
    },
-   "solution": "HOMER"
+   "solution": "HOMER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HOMER",
+    "definitions": [
+     {
+      "text": "Big hit from Ruth",
+      "at": 0
+     },
+     {
+      "text": "poet",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Big hit from Ruth",
+      "note": "first meaning: a home run, Babe Ruth's speciality in baseball"
+     },
+     {
+      "clueFragment": "poet",
+      "note": "second meaning: the ancient Greek author of the Iliad"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Ruth looks like a woman's name or the biblical book, but is Babe Ruth the baseball slugger.",
+     "definitionFit": "In American slang a home run is a homer, and Homer is the epic poet of Greece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ruth"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +307,61 @@
     "text": "Secret lover for Parisian entertaining alpha male?",
     "enumeration": "8"
    },
-   "solution": "PARAMOUR"
+   "solution": "PARAMOUR",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PARAMOUR",
+    "definitions": [
+     {
+      "text": "Secret lover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "to entertain guests is to have them within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for Parisian",
+      "gives": "POUR",
+      "note": "pour is French for for"
+     },
+     {
+      "clueFragment": "alpha",
+      "gives": "A",
+      "note": "A is alpha in the radio alphabet"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "RAM",
+      "note": "a ram is a male sheep"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ARAM",
+      "OUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A Frenchwoman's hidden suitor, a dominant man, is entertained.",
+     "walkthrough": "'Alpha male' reads as one phrase but splits into two pieces.",
+     "definitionFit": "A paramour is an illicit lover, often in an affair kept secret."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "alpha"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +375,54 @@
     "text": "Harry taken in by smooth cheat",
     "enumeration": "7"
    },
-   "solution": "FINAGLE"
+   "solution": "FINAGLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FINAGLE",
+    "definitions": [
+     {
+      "text": "cheat",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken in by",
+      "for": "container",
+      "note": "something taken in by another is held inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smooth",
+      "gives": "FILE",
+      "note": "to file is to smooth with a rasp"
+     },
+     {
+      "clueFragment": "Harry",
+      "gives": "NAG",
+      "note": "to harry someone is to nag them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FI",
+      "NAG",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A harassed man is drawn in by a slick con artist.",
+     "definitionFit": "To finagle is to obtain something by trickery, so it is a verb meaning to cheat or swindle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Harry"
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +436,55 @@
     "text": "Fine cooking expected in dish for dippers",
     "enumeration": "6"
    },
-   "solution": "FONDUE"
+   "solution": "FONDUE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FONDUE",
+    "definitions": [
+     {
+      "text": "dish for dippers",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fine",
+      "gives": "F",
+      "note": "F for fine, as on pencils"
+     },
+     {
+      "clueFragment": "cooking",
+      "gives": "ON",
+      "note": "food that is cooking is on"
+     },
+     {
+      "clueFragment": "expected",
+      "gives": "DUE",
+      "note": "due means expected"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ON",
+      "DUE"
+     ]
+    },
+    "explanation": {
+     "surface": "Good cooking is anticipated in a sharing dish.",
+     "definitionFit": "A fondue is a pot of melted cheese into which diners dip bread on forks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "cooking"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +498,53 @@
     "text": "Fruit from tree in can that needs a shake",
     "enumeration": "9"
    },
-   "solution": "NECTARINE"
+   "solution": "NECTARINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NECTARINE",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that needs a shake",
+      "for": "anagram",
+      "note": "shaking jumbles contents, so these letters are mixed up"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tree in can",
+      "gives": "TREEINCAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TREEINCAN",
+       "gives": "NECTARINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tinned fruit from an orchard tree needs shaking out of the can.",
+     "definitionFit": "A nectarine is a smooth-skinned variety of peach, a stone fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shake"
+    }
+   }
   },
   {
    "number": 7,
@@ -148,7 +558,58 @@
     "text": "Stone from six counties placed in jar",
     "enumeration": "7"
    },
-   "solution": "GRANITE"
+   "solution": "GRANITE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GRANITE",
+    "definitions": [
+     {
+      "text": "Stone",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "placed in",
+      "for": "container",
+      "note": "placed in means put inside another word"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jar",
+      "gives": "GRATE",
+      "note": "to jar is to grate on the nerves"
+     },
+     {
+      "clueFragment": "six counties",
+      "gives": "NI",
+      "note": "Northern Ireland is made up of six counties"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRA",
+      "NI",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "Rocks collected from six regions are put in a pot.",
+     "walkthrough": "'The Six Counties' is a name for Northern Ireland, abbreviated NI.",
+     "definitionFit": "Granite is a hard igneous rock, a common building stone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "jar"
+    }
+   }
   },
   {
    "number": 8,
@@ -168,7 +629,70 @@
      }
     ]
    },
-   "solution": "ENGINEROOM"
+   "solution": "ENGINEROOM",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ENGINE ROOM",
+    "definitions": [
+     {
+      "text": "influential part",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seizing",
+      "for": "container",
+      "note": "seizing something takes it into one's grasp"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eastern",
+      "gives": "E",
+      "note": "E for eastern"
+     },
+     {
+      "clueFragment": "figure",
+      "gives": "NINE",
+      "note": "nine is a number, a figure"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G for good"
+     },
+     {
+      "clueFragment": "opportunity",
+      "gives": "ROOM",
+      "note": "room, as in room to manoeuvre, is scope or opportunity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "N",
+      "G",
+      "INE",
+      "ROOM"
+     ]
+    },
+    "explanation": {
+     "surface": "An oriental figure grabs a fine chance and wins influence.",
+     "definitionFit": "The engine room of an organisation is figuratively the section that drives its work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "figure"
+    }
+   }
   },
   {
    "number": 9,
@@ -188,7 +712,53 @@
      }
     ]
    },
-   "solution": "STEAMIRON"
+   "solution": "STEAMIRON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STEAM IRON",
+    "definitions": [
+     {
+      "text": "that's good for evening out",
+      "at": 25,
+      "note": "cryptic definition of a device"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fashionable",
+      "for": "anagram",
+      "note": "to fashion something is to shape it anew, so these letters are formed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Raiment so",
+      "gives": "RAIMENTSO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RAIMENTSO",
+       "gives": "STEAMIRON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stylish clothing is just the thing for a night out.",
+     "walkthrough": "'Evening out' looks like a night on the town, but it means making creased cloth even.",
+     "definitionFit": "A steam iron flattens creases from clothes, smoothing or levelling the fabric."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "evening"
+    }
+   }
   },
   {
    "number": 10,
@@ -202,7 +772,56 @@
     "text": "Key used by Scottish group making harsh sound",
     "enumeration": "5"
    },
-   "solution": "CLANG"
+   "solution": "CLANG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLANG",
+    "definitions": [
+     {
+      "text": "harsh sound",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "used by",
+      "for": "charade",
+      "note": "one thing used by another sits next to it, so the two parts join"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scottish group",
+      "gives": "CLAN",
+      "note": "a clan is a Scottish family group"
+     },
+     {
+      "clueFragment": "Key",
+      "gives": "G",
+      "note": "G is a musical key"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLAN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A piper's band of clansmen plays in a key that grates on the ear.",
+     "definitionFit": "A clang is a loud metallic ringing noise, a jarring or harsh sound."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Key"
+    }
+   }
   },
   {
    "number": 11,
@@ -216,7 +835,62 @@
     "text": "Walking to pub, real man resolved to neck one",
     "enumeration": "13"
    },
-   "solution": "PERAMBULATION"
+   "solution": "PERAMBULATION",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "PERAMBULATION",
+    "definitions": [
+     {
+      "text": "Walking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to neck",
+      "for": "container",
+      "note": "to neck something is to swallow it, so the letters take it inside"
+     },
+     {
+      "text": "resolved",
+      "for": "anagram",
+      "note": "something resolved has been broken down and worked out again, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to pub, real man",
+      "gives": "TOPUBREALMAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOPUBREALMANI",
+       "gives": "PERAMBULATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sturdy fellow strolls to the pub, determined to down a pint.",
+     "walkthrough": "'Neck' is slang for drinking quickly, here meaning take the extra letter into the mix.",
+     "definitionFit": "Perambulation is a formal noun for a leisurely stroll, the act of going about on foot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "neck"
+    }
+   }
   },
   {
    "number": 12,
@@ -240,7 +914,44 @@
      }
     ]
    },
-   "solution": "BEARWITHME"
+   "solution": "BEARWITHME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BEAR WITH ME",
+    "definitions": [
+     {
+      "text": "Plea for patience",
+      "at": 0
+     },
+     {
+      "text": "heard from Queen, her afternoon tea guest having arrived?",
+      "at": 18,
+      "note": "cryptic: what she might say of her ursine visitor"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plea for patience",
+      "note": "first meaning: a request to wait a moment"
+     },
+     {
+      "clueFragment": "heard from Queen, her afternoon tea guest having arrived?",
+      "note": "second meaning: the late Queen announcing that Paddington has joined her for tea"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "This recalls the 2022 Platinum Jubilee sketch in which Queen Elizabeth took tea with Paddington Bear.",
+     "definitionFit": "The phrase is a stock request to be patient, read literally as having a bear in company."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "guest"
+    }
+   }
   },
   {
    "number": 13,
@@ -254,7 +965,67 @@
     "text": "Retired bore back amongst Aussies missing flight",
     "enumeration": "8"
    },
-   "solution": "EMERITUS"
+   "solution": "EMERITUS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "EMERITUS",
+    "definitions": [
+     {
+      "text": "Retired",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the word is read from right to left"
+     },
+     {
+      "text": "amongst",
+      "for": "container",
+      "note": "something placed amongst others sits inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bore",
+      "gives": "TIRE",
+      "note": "to bore someone is to tire them"
+     },
+     {
+      "clueFragment": "Aussies missing flight",
+      "gives": "EMUS",
+      "note": "emus are flightless Australian birds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "ERIT",
+      "US"
+     ],
+     "reversals": [
+      {
+       "from": "TIRE",
+       "to": "ERIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tedious retiree returns home among Australians who could not get a plane.",
+     "definitionFit": "Emeritus describes a professor who has retired but keeps the title as an honour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flight"
+    }
+   }
   },
   {
    "number": 14,
@@ -268,7 +1039,57 @@
     "text": "Assume tradesman finishing early is not productive",
     "enumeration": "9"
    },
-   "solution": "INFERTILE"
+   "solution": "INFERTILE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "INFERTILE",
+    "definitions": [
+     {
+      "text": "not productive",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finishing early",
+      "for": "deletion",
+      "note": "finishing early means the last letter is not reached"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Assume",
+      "gives": "INFER",
+      "note": "to infer is to deduce or assume"
+     },
+     {
+      "clueFragment": "tradesman",
+      "gives": "TILER",
+      "note": "a tiler is a tradesman who lays tiles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INFER",
+      "TILE"
+     ]
+    },
+    "explanation": {
+     "surface": "One supposes a workman who knocks off early isn't getting much done.",
+     "definitionFit": "Infertile land or animals yield nothing, so the word means unproductive or barren."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tradesman"
+    }
+   }
   },
   {
    "number": 15,
@@ -282,7 +1103,55 @@
     "text": "Like some Cretan scripts nonsensical poet keeps at home",
     "enumeration": "6"
    },
-   "solution": "LINEAR"
+   "solution": "LINEAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LINEAR",
+    "definitions": [
+     {
+      "text": "Like some Cretan scripts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeps",
+      "for": "container",
+      "note": "one who keeps something holds it within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nonsensical poet",
+      "gives": "LEAR",
+      "note": "Edward Lear wrote nonsense verse"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IN",
+      "EAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A daft versifier stays in with ancient Cretan writing.",
+     "walkthrough": "Linear A and Linear B are the two Bronze Age scripts found on Crete.",
+     "definitionFit": "Linear is the adjective naming those Cretan writing systems, Linear A and Linear B."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "nonsensical"
+    }
+   }
   },
   {
    "number": 16,
@@ -296,7 +1165,56 @@
     "text": "Fiat lacking finish? Mine's in late stages of decay",
     "enumeration": "8"
    },
-   "solution": "DECREPIT"
+   "solution": "DECREPIT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "DECREPIT",
+    "definitions": [
+     {
+      "text": "in late stages of decay",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking finish",
+      "for": "deletion",
+      "note": "lacking a finish means without the final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fiat",
+      "gives": "DECREE",
+      "note": "a fiat is an authoritative order, a decree"
+     },
+     {
+      "clueFragment": "Mine",
+      "gives": "PIT",
+      "note": "a pit is a coal mine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DECRE",
+      "PIT"
+     ]
+    },
+    "explanation": {
+     "surface": "An old Fiat car has no paint left and is rusting away.",
+     "walkthrough": "Fiat looks like the Italian car maker, but means a decree; the 's on Mine stands for is.",
+     "definitionFit": "Decrepit means worn out and dilapidated through age, far advanced in decay."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Fiat"
+    }
+   }
   },
   {
    "number": 17,
@@ -310,7 +1228,50 @@
     "text": "Kick in the teeth from theological expert?",
     "enumeration": "6"
    },
-   "solution": "REBUFF"
+   "solution": "REBUFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REBUFF",
+    "definitions": [
+     {
+      "text": "Kick in the teeth",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "theological",
+      "gives": "RE",
+      "note": "RE, religious education, the school subject"
+     },
+     {
+      "clueFragment": "expert",
+      "gives": "BUFF",
+      "note": "a buff is an enthusiast or expert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "BUFF"
+     ]
+    },
+    "explanation": {
+     "surface": "A divinity scholar delivers a crushing put-down.",
+     "walkthrough": "RE is religious education in British schools, read here as theological.",
+     "definitionFit": "A rebuff is a blunt rejection, which is what a kick in the teeth means idiomatically."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "theological"
+    }
+   }
   },
   {
    "number": 18,
@@ -324,7 +1285,39 @@
     "text": "Warmer outside on day to remember?",
     "enumeration": "7"
    },
-   "solution": "BONFIRE"
+   "solution": "BONFIRE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BONFIRE",
+    "definitions": [
+     {
+      "text": "Warmer outside on day to remember?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Warmer outside on day to remember?",
+      "note": "surface: a heater kept outdoors on a memorable date"
+     },
+     {
+      "clueFragment": "Warmer outside on day to remember?",
+      "note": "setter's reading: an outdoor blaze lit for Guy Fawkes Night, the fifth of November to remember"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The rhyme goes 'Remember, remember the fifth of November', the British night of fireworks and blazes for Guy Fawkes.",
+     "definitionFit": "A bonfire is a large outdoor fire, the centrepiece of Britain's November celebrations."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "remember"
+    }
+   }
   },
   {
    "number": 19,
@@ -338,7 +1331,51 @@
     "text": "Place of massacre, or safe place to go?",
     "enumeration": "8"
    },
-   "solution": "PETERLOO"
+   "solution": "PETERLOO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PETERLOO",
+    "definitions": [
+     {
+      "text": "Place of massacre",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "safe",
+      "gives": "PETER",
+      "note": "peter is old criminal slang for a safe"
+     },
+     {
+      "clueFragment": "place to go",
+      "gives": "LOO",
+      "note": "the loo is where one goes, the toilet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PETER",
+      "LOO"
+     ]
+    },
+    "explanation": {
+     "surface": "A grim site of slaughter, or a secure spot to relieve oneself.",
+     "walkthrough": "Peterloo was the 1819 Manchester massacre of reform protesters by cavalry; a peterman is a safe-cracker.",
+     "definitionFit": "St Peter's Field in Manchester, scene of the 1819 killings, became known by this name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "safe"
+    }
+   }
   },
   {
    "number": 20,
@@ -352,7 +1389,54 @@
     "text": "Flexible line is what this writer's all about!",
     "enumeration": "7"
    },
-   "solution": "LISSOME"
+   "solution": "LISSOME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LISSOME",
+    "definitions": [
+     {
+      "text": "Flexible",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L for line"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "what this writer's all about",
+      "gives": "SOME",
+      "note": "'so me' is a colloquial way of saying something is very much the writer's style"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IS",
+      "SOME"
+     ]
+    },
+    "explanation": {
+     "surface": "A supple turn of phrase is the setter's hallmark, the exclamation proud.",
+     "walkthrough": "'So me' is a casual phrase for 'utterly typical of me', and this writer is the setter.",
+     "definitionFit": "Lissome means slim, supple and graceful, moving with flexibility."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "writer's"
+    }
+   }
   },
   {
    "number": 21,
@@ -366,7 +1450,57 @@
     "text": "Feel remorse having run over white bird",
     "enumeration": "6"
    },
-   "solution": "REGRET"
+   "solution": "REGRET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REGRET",
+    "definitions": [
+     {
+      "text": "Feel remorse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down entry, over means placed above, so first"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R for run in cricket scoring"
+     },
+     {
+      "clueFragment": "white bird",
+      "gives": "EGRET",
+      "note": "an egret is a white heron"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EGRET"
+     ]
+    },
+    "explanation": {
+     "surface": "A driver who knocked down a white bird feels sorry.",
+     "walkthrough": "'Run over' reads as a road accident, but over only places the first piece on top.",
+     "definitionFit": "To regret is to feel sorry or remorseful about something done."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 22,
@@ -386,7 +1520,40 @@
      }
     ]
    },
-   "solution": "INNERHEBRIDES"
+   "solution": "INNERHEBRIDES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "INNER HEBRIDES",
+    "definitions": [
+     {
+      "text": "Rum's location",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What the bridesmaid shows?",
+      "note": "surface: what a bridesmaid displays at a wedding"
+     },
+     {
+      "clueFragment": "What the bridesmaid shows?",
+      "note": "setter's reading: the inner part of the words 'the bridesmaid' spells out a group of islands"
+     }
+    ],
+    "explanation": {
+     "surface": "A wedding attendant's outfit and a tot of spirits seem to be in play.",
+     "walkthrough": "Strip 'the bridesmaid' of its outer letters and an island group's name appears in the middle; Rum is an island, not a drink.",
+     "definitionFit": "Rum is one of the small isles of the Inner Hebrides off Scotland's west coast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rum's"
+    }
+   }
   },
   {
    "number": 23,
@@ -400,7 +1567,54 @@
     "text": "Article in German featuring old city artist",
     "enumeration": "5"
    },
-   "solution": "DURER"
+   "solution": "DURER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DURER",
+    "definitions": [
+     {
+      "text": "artist",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "featuring",
+      "for": "container",
+      "note": "featuring means including within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Article in German",
+      "gives": "DER",
+      "note": "der is a German definite article"
+     },
+     {
+      "clueFragment": "old city",
+      "gives": "UR",
+      "note": "Ur is the ancient Mesopotamian city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "UR",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A German piece on an ancient city features a painter.",
+     "definitionFit": "Albrecht Dürer was the great German Renaissance painter and engraver."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Article"
+    }
+   }
   },
   {
    "number": 24,
@@ -414,7 +1628,65 @@
     "text": "Yorkshireman extremely testy with reduced knowledge",
     "enumeration": "4"
    },
-   "solution": "TYKE"
+   "solution": "TYKE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "TYKE",
+    "definitions": [
+     {
+      "text": "Yorkshireman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extreme ends of the word"
+     },
+     {
+      "text": "reduced",
+      "for": "deletion",
+      "note": "reduced means cut short, the last letter dropped"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "testy",
+      "gives": "TY",
+      "select": "outer",
+      "note": "outer letters of testy"
+     },
+     {
+      "clueFragment": "knowledge",
+      "gives": "KEN",
+      "note": "ken is knowledge, as in beyond my ken"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TY",
+      "KE"
+     ]
+    },
+    "explanation": {
+     "surface": "A prickly northerner knows less than he thinks.",
+     "walkthrough": "Tyke is a nickname for someone from Yorkshire, the English county.",
+     "definitionFit": "Tyke is a colloquial, sometimes affectionate name for a native of Yorkshire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reduced"
+    }
+   }
   },
   {
    "number": 25,
@@ -428,7 +1700,62 @@
     "text": "Small island in centre of this nation",
     "enumeration": "5"
    },
-   "solution": "HAITI"
+   "solution": "HAITI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "HAITI",
+    "definitions": [
+     {
+      "text": "nation",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre of",
+      "for": "letter_selection",
+      "note": "the centre of a word is its middle letters"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one thing inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "this",
+      "gives": "HI",
+      "select": "middle",
+      "note": "middle two letters of this"
+     },
+     {
+      "clueFragment": "Small island",
+      "gives": "AIT",
+      "note": "an ait is a small river island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "AIT",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny isle sits at the heart of this country.",
+     "walkthrough": "Haiti is itself an island nation, which makes the surface apt.",
+     "definitionFit": "Haiti is a Caribbean country, sharing Hispaniola with the Dominican Republic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "island"
+    }
+   }
   },
   {
    "number": 26,
@@ -442,7 +1769,68 @@
     "text": "Collection for each politician after resistance by English",
     "enumeration": "9"
    },
-   "solution": "REPERTORY"
+   "solution": "REPERTORY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REPERTORY",
+    "definitions": [
+     {
+      "text": "Collection",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after means placed later in the line"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the symbol for resistance"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E abbreviates English"
+     },
+     {
+      "clueFragment": "for each",
+      "gives": "PER",
+      "note": "per means for each"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "TORY",
+      "note": "a Tory is a British Conservative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "E",
+      "PER",
+      "TORY"
+     ]
+    },
+    "explanation": {
+     "surface": "An English politician is gathered up for each opposing faction.",
+     "definitionFit": "A repertory is a stock or store of items, such as the range of works a company performs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "resistance"
+    }
+   }
   },
   {
    "number": 27,
@@ -456,7 +1844,51 @@
     "text": "First Lady having snooze — struggle here getting up?",
     "enumeration": "7"
    },
-   "solution": "EVEREST"
+   "solution": "EVEREST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EVEREST",
+    "definitions": [
+     {
+      "text": "struggle here getting up?",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "First Lady",
+      "gives": "EVE",
+      "note": "Eve was the first woman in Genesis"
+     },
+     {
+      "clueFragment": "snooze",
+      "gives": "REST",
+      "note": "a snooze is a rest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVE",
+      "REST"
+     ]
+    },
+    "explanation": {
+     "surface": "The President's wife naps, finding it hard to rise.",
+     "walkthrough": "'Getting up' reads as rising from bed, but means climbing the mountain.",
+     "definitionFit": "Everest is the world's highest peak, where climbers famously labour on the ascent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lady"
+    }
+   }
   },
   {
    "number": 28,
@@ -470,7 +1902,57 @@
     "text": "Earthy expression used endlessly by Descartes?",
     "enumeration": "7"
    },
-   "solution": "TERRENE"
+   "solution": "TERRENE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TERRENE",
+    "definitions": [
+     {
+      "text": "Earthy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without its end, the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "used"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expression",
+      "gives": "TERM",
+      "note": "a term is a word or expression"
+     },
+     {
+      "clueFragment": "Descartes",
+      "gives": "RENE",
+      "note": "René Descartes, the French philosopher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TER",
+      "RENE"
+     ]
+    },
+    "explanation": {
+     "surface": "A philosopher endlessly uses a down-to-earth phrase.",
+     "definitionFit": "Terrene is a literary adjective meaning of the earth, earthly or earthy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Descartes"
+    }
+   }
   }
  ]
 }
