@@ -25,8 +25,8 @@ import tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import puzzle_files, read_puzzle_file
 import indicator_keys
+from fetch_puzzle import puzzle_files, read_puzzle_file
 from indicator_keys import clue_pairs
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -40,17 +40,34 @@ def entry_pairs(lex, indicators):
     return set(clue_pairs(lex, indicators))
 
 
+#: The lexicon _file_pairs() reads, set by linked_pairs() before its workers fork.
+_LEX = {}
+
+
+def _file_pairs(path):
+    """The (type, key) pairs one puzzle file's annotations link under _LEX."""
+    out = set()
+    for e in read_puzzle_file(path).get("entries", ()):
+        ann = e.get("annotation") or {}
+        out |= entry_pairs(_LEX, ann.get("indicators"))
+    return out
+
+
 def linked_pairs(lex, skip=frozenset()):
     """Every (type, key) pair one of our annotations already links, reading
-    each puzzle file not in `skip` (the queue: nothing there is annotated)."""
-    out = set()
-    for path in puzzle_files():
-        if path.stem in skip:
-            continue
-        for e in read_puzzle_file(path).get("entries", ()):
-            ann = e.get("annotation") or {}
-            out |= entry_pairs(lex, ann.get("indicators"))
-    return out
+    each puzzle file not in `skip` (the queue: nothing there is annotated).
+    Each file's pairs are reused while the file, the code and the lexicon
+    stand (tools/row_cache.py)."""
+    import row_cache
+    global _LEX
+    _LEX = lex
+    salt = hashlib.sha1(json.dumps(lex, sort_keys=True).encode()).hexdigest()[:16]
+    try:
+        rows = row_cache.cached_map("indicator_cover", _file_pairs,
+                                    [p for p in puzzle_files() if p.stem not in skip], salt=salt)
+    finally:
+        _LEX = {}
+    return set().union(*rows)
 
 
 #: blog_pairs' scan of every post, which takes seconds the burn pays each wave;

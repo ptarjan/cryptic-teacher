@@ -17,7 +17,6 @@ offers.
 
 import re
 
-import parallel
 import puzzle_tags
 import series as series_meta
 
@@ -62,12 +61,16 @@ def longest_answer(puz):
 def facts(puz, meta):
     """What the showcase needs to know about one puzzle, small enough to
     send back from a worker. `meta` is its index row."""
+    return with_meta(file_facts(puz), meta)
+
+
+def file_facts(puz):
+    """facts() as the file alone states them; with_meta() adds the index's."""
     ents = puz["entries"]
     cont = puzzle_tags.continuations(ents)
     tags = puzzle_tags.tags(puz)
     day = series_meta.puzzle_day(puz)
     series = puz.get("series") or "cryptic"
-    diff = (meta or {}).get("difficulty") or {}
     return {
         "id": puz["id"], "series": series, "number": puz["number"],
         "day": day.toordinal() if day else None,
@@ -76,16 +79,26 @@ def facts(puz, meta):
         "answers": sum(1 for e in ents if puzzle_tags.entry_id(e) not in cont
                        and not e["clue"].get("missing")),
         "longest": longest_answer(puz),
-        # big-grid compares the puzzle with its series, so only the index has it.
-        "tags": [k for k in puzzle_tags.TAGS if k in tags
-                 or (k == "big-grid" and k in (meta or {}).get("tags", ()))],
-        "difficulty": diff.get("index") if diff.get("band") else None,
-        "annotated": bool((meta or {}).get("annotated")),
+        "tags": [k for k in puzzle_tags.TAGS if k in tags],
+        "difficulty": None,
+        "annotated": False,
         # A round issue number means something only where the number counts
         # issues: not a date (Metro), not a book's volume * 1000 + position.
         "counted": not (series_meta.is_book(series)
                         or series_meta.number_date(series, puz["number"])),
     }
+
+
+def with_meta(f, meta):
+    """file_facts() `f` with what its index row `meta` states."""
+    meta = meta or {}
+    diff = meta.get("difficulty") or {}
+    return {**f,
+            # big-grid compares the puzzle with its series, so only the index has it.
+            "tags": [k for k in puzzle_tags.TAGS if k in f["tags"]
+                     or (k == "big-grid" and k in meta.get("tags", ()))],
+            "difficulty": diff.get("index") if diff.get("band") else None,
+            "annotated": bool(meta.get("annotated"))}
 
 
 def newest_first(f):
@@ -232,25 +245,28 @@ def wanted(all_facts):
             for f, _ in cards if not f["annotated"]]
 
 
-_META = {}
-
-
 def _file_facts(path):
     from fetch_puzzle import read_puzzle_file
-    puz = read_puzzle_file(path)
-    row = _META.get(puz["id"])
-    if row is None or not row.get("hasSolutions"):
-        return None
-    return facts(puz, row)
+    return file_facts(read_puzzle_file(path))
+
+
+def _file_facts_deps(path, row):
+    """What file_facts() read besides the file (tools/row_cache.py): whether
+    a blog found a nina in the puzzle."""
+    return row["id"] in puzzle_tags.blogged_ninas()
 
 
 def corpus_facts(index):
     """facts() for every listed puzzle with all its answers (the index's
-    hasSolutions), which build_seo_pages gathers as it renders their pages."""
+    hasSolutions), which build_seo_pages gathers as it renders their pages.
+    Each file's part is reused while the file, the code and the book registry
+    it was read under stand (tools/row_cache.py)."""
+    import hashlib
+
+    import row_cache
     from puzzle_paths import puzzle_files
-    global _META
-    _META = {p["id"]: p for p in index["puzzles"]}
-    try:
-        return [f for f in parallel.pmap(_file_facts, puzzle_files()) if f]
-    finally:
-        _META = {}
+    meta = {p["id"]: p for p in index["puzzles"] if p.get("hasSolutions")}
+    paths = [p for p in puzzle_files() if p.stem in meta]
+    salt = hashlib.sha1(series_meta.BOOKS_FILE.read_bytes()).hexdigest()[:16]
+    parts = row_cache.cached_map("showcase", _file_facts, paths, salt=salt, deps=_file_facts_deps)
+    return [with_meta(f, meta[f["id"]]) for f in parts if f["id"] in meta]
