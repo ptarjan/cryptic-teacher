@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,46 @@
     "text": "Do exercises in school",
     "enumeration": "5"
    },
-   "solution": "TRAIN"
+   "solution": "TRAIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TRAIN",
+    "definitions": [
+     {
+      "text": "Do exercises",
+      "at": 0
+     },
+     {
+      "text": "school",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Do exercises",
+      "note": "first meaning: to work out, practise for fitness"
+     },
+     {
+      "clueFragment": "school",
+      "note": "second meaning: as a verb, to instruct or coach someone"
+     }
+    ],
+    "explanation": {
+     "surface": "A PE teacher telling pupils to work out during lessons.",
+     "walkthrough": "'school' looks like a place to exercise, but here it is a verb meaning to teach.",
+     "definitionFit": "The verb covers both practising physically for a sport and instructing someone in a skill."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "school"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +95,39 @@
      }
     ]
    },
-   "solution": "TESTPILOT"
+   "solution": "TESTPILOT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TEST PILOT",
+    "definitions": [
+     {
+      "text": "High flier up for trial?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "High flier up for trial?",
+      "note": "surface reading: an ambitious high achiever facing a court case"
+     },
+     {
+      "clueFragment": "High flier up for trial?",
+      "note": "setter's reading: someone who flies aircraft up in the sky to try them out"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'High flier' suggests a successful career person and 'trial' a court, but both are literal: an aviator and a test.",
+     "definitionFit": "This person's job is flying new or modified aircraft to assess their performance and safety."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trial"
+    }
+   }
   },
   {
    "number": 2,
@@ -77,7 +151,68 @@
      }
     ]
    },
-   "solution": "AGREETODISAGREE"
+   "solution": "AGREETODISAGREE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AGREE TO DISAGREE",
+    "definitions": [
+     {
+      "text": "Drop unresolved argument",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly means the letters might be arranged some other way"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "side",
+      "gives": "SIDE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "greater",
+      "gives": "GREATER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ego",
+      "gives": "EGO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SIDEAGREATEREGO",
+       "gives": "AGREETODISAGREE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Abandon a row with the more egotistical faction, maybe.",
+     "definitionFit": "The idiom means both parties accept that they hold different views and stop arguing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "side"
+    }
+   }
   },
   {
    "number": 3,
@@ -91,7 +226,63 @@
     "text": "Serviette, sort mostly used after game",
     "enumeration": "6"
    },
-   "solution": "NAPKIN"
+   "solution": "NAPKIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "NAPKIN",
+    "definitions": [
+     {
+      "text": "Serviette",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the word loses its final letter"
+     },
+     {
+      "text": "used after",
+      "for": "charade",
+      "note": "what is used after something follows it, so this part goes second"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game",
+      "gives": "NAP",
+      "note": "nap is a card game"
+     },
+     {
+      "clueFragment": "sort",
+      "gives": "KIND",
+      "note": "a sort is a kind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAP",
+      "KIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A table napkin of the usual type is used once a match is over.",
+     "walkthrough": "Nap, short for Napoleon, is an old card game where players bid on tricks.",
+     "definitionFit": "A serviette is the British word for a cloth or paper square used at meals to wipe the mouth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +296,71 @@
     "text": "Perform with copper and doctor, to a degree, in a sort of play",
     "enumeration": "9"
    },
-   "solution": "DOCUDRAMA"
+   "solution": "DOCUDRAMA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOCUDRAMA",
+    "definitions": [
+     {
+      "text": "sort of play",
+      "at": 50
+     }
+    ],
+    "linkWords": [
+     "with",
+     "and",
+     "to",
+     "in a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perform",
+      "gives": "DO",
+      "note": "to do is to perform"
+     },
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "DR",
+      "note": "DR is the abbreviation for doctor"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "degree",
+      "gives": "MA",
+      "note": "MA, a Master of Arts, is a university degree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "CU",
+      "DR",
+      "A",
+      "MA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is acting alongside a policeman and a doctor in a fairly standard drama.",
+     "walkthrough": "'to a degree' reads as 'somewhat', but it supplies A plus a degree; copper is the metal, not the policeman.",
+     "definitionFit": "A docudrama is a dramatised presentation of real events, one particular genre of play or film."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 4,
@@ -119,7 +374,44 @@
     "text": "Put off, in crude terms",
     "enumeration": "5"
    },
-   "solution": "DETER"
+   "solution": "DETER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DETER",
+    "definitions": [
+     {
+      "text": "Put off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in means the letters are found inside the following words"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crude terms",
+      "gives": "DETER",
+      "note": "spans the end of crude and the start of terms"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone was repelled by rough, blunt language.",
+     "definitionFit": "To deter is to discourage someone from acting, which is what putting them off means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -133,7 +425,49 @@
     "text": "Inexpensive, flag of inferior quality",
     "enumeration": "9"
    },
-   "solution": "CHEAPJACK"
+   "solution": "CHEAPJACK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHEAPJACK",
+    "definitions": [
+     {
+      "text": "of inferior quality",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Inexpensive",
+      "gives": "CHEAP",
+      "note": "something inexpensive is cheap"
+     },
+     {
+      "clueFragment": "flag",
+      "gives": "JACK",
+      "note": "a jack is a small flag flown on a ship, as in Union Jack"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHEAP",
+      "JACK"
+     ]
+    },
+    "explanation": {
+     "surface": "A budget banner that is shoddily made.",
+     "definitionFit": "Cheapjack as an adjective describes goods that are shoddy and of low worth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flag"
+    }
+   }
   },
   {
    "number": 6,
@@ -147,7 +481,63 @@
     "text": "Drawings of Mardi Gras, not right somehow",
     "enumeration": "8"
    },
-   "solution": "DIAGRAMS"
+   "solution": "DIAGRAMS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "DIAGRAMS",
+    "definitions": [
+     {
+      "text": "Drawings",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not right",
+      "for": "deletion",
+      "note": "not right means the letter standing for right is left out"
+     },
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "somehow means in some unknown way, so the remaining letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mardi Gras",
+      "gives": "MARDIGRAS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIAGRAMS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MADIGRAS",
+       "gives": "DIAGRAMS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sketches of the carnival that are somehow off.",
+     "walkthrough": "Drop one of the two Rs from Mardi Gras before rearranging.",
+     "definitionFit": "Diagrams are simplified line drawings that show how something is laid out or works."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 7,
@@ -179,7 +569,46 @@
      }
     ]
    },
-   "solution": "ADROPINTHEOCEAN"
+   "solution": "ADROPINTHEOCEAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "A DROP IN THE OCEAN",
+    "definitions": [
+     {
+      "text": "Very little indeed",
+      "at": 0
+     },
+     {
+      "text": "what returning US astronauts may expect",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very little indeed",
+      "note": "first meaning: a tiny amount compared with what is needed"
+     },
+     {
+      "clueFragment": "what returning US astronauts may expect",
+      "note": "second meaning, read literally: American space capsules came back by splashing down at sea"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the playful literal reading: Apollo crews fell from the sky into the sea.",
+     "definitionFit": "The idiom describes a quantity so small that it makes no real difference."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "returning"
+    }
+   }
   },
   {
    "number": 8,
@@ -193,7 +622,64 @@
     "text": "Earmark a tax to be raised",
     "enumeration": "5"
    },
-   "solution": "ALLOT"
+   "solution": "ALLOT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ALLOT",
+    "definitions": [
+     {
+      "text": "Earmark",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue, raising a word means reading it from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tax",
+      "gives": "TOLL",
+      "note": "a toll is a levy for using a road or bridge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LLOT"
+     ],
+     "reversals": [
+      {
+       "from": "TOLL",
+       "to": "LLOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Setting aside a levy that is going to be increased.",
+     "walkthrough": "'raised' sounds like a tax increase, but it turns the word upwards in this down entry.",
+     "definitionFit": "To allot is to assign or set aside for a purpose, just as earmarking does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 9,
@@ -217,7 +703,56 @@
      }
     ]
    },
-   "solution": "SCRAPETHEBARREL"
+   "solution": "SCRAPETHEBARREL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCRAPE THE BARREL",
+    "definitions": [
+     {
+      "text": "Use the least useful thing available",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fix",
+      "gives": "SCRAPE",
+      "note": "a fix and a scrape are both awkward predicaments"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lot",
+      "gives": "BARREL",
+      "note": "a barrel can mean a large quantity, a lot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCRAPE",
+      "THE",
+      "BARREL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone grabs any old rubbish to hand and patches up everything with it.",
+     "walkthrough": "'fix' looks like a verb for repairing, but it is the noun meaning a tight spot.",
+     "definitionFit": "The idiom means resorting to the poorest remaining resources because nothing better is left."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fix"
+    }
+   }
   },
   {
    "number": 10,
@@ -231,7 +766,43 @@
     "text": "Earliest PM",
     "enumeration": "7"
    },
-   "solution": "PREMIER"
+   "solution": "PREMIER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PREMIER",
+    "definitions": [
+     {
+      "text": "Earliest",
+      "at": 0
+     },
+     {
+      "text": "PM",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Earliest",
+      "note": "first meaning: first in time or rank"
+     },
+     {
+      "clueFragment": "PM",
+      "note": "second meaning: a prime minister, as the head of government"
+     }
+    ],
+    "explanation": {
+     "surface": "Seems to ask who was the first prime minister.",
+     "definitionFit": "The adjective means first or foremost, and the noun is a common title for a prime minister."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Earliest"
+    }
+   }
   },
   {
    "number": 11,
@@ -245,7 +816,68 @@
     "text": "Appear in disguise close to ancient balustrade",
     "enumeration": "7"
    },
-   "solution": "PARAPET"
+   "solution": "PARAPET",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PARAPET",
+    "definitions": [
+     {
+      "text": "balustrade",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in disguise",
+      "for": "anagram",
+      "note": "a disguise changes how something looks, so the word before it is rearranged"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only the final letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Appear",
+      "gives": "APPEAR",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "ancient",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of ancient"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARAPE",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "APPEAR",
+       "gives": "PARAPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shows up in costume beside an old stone balustrade.",
+     "walkthrough": "'close to' reads as 'near' but means the end letter.",
+     "definitionFit": "A parapet is a low protective wall or railing along a roof, bridge or balcony edge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 12,
@@ -259,7 +891,47 @@
     "text": "Swag in sack",
     "enumeration": "4"
    },
-   "solution": "LOOT"
+   "solution": "LOOT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LOOT",
+    "definitions": [
+     {
+      "text": "Swag",
+      "at": 0
+     },
+     {
+      "text": "sack",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swag",
+      "note": "first meaning: stolen goods, a burglar's haul"
+     },
+     {
+      "clueFragment": "sack",
+      "note": "second meaning: as a verb, to plunder a captured town"
+     }
+    ],
+    "explanation": {
+     "surface": "A burglar's haul stuffed in a bag.",
+     "walkthrough": "'sack' looks like the bag holding the swag, but it is the verb for pillaging.",
+     "definitionFit": "The noun is plunder taken by thieves, and the verb means to pillage a place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sack"
+    }
+   }
   },
   {
    "number": 13,
@@ -287,7 +959,66 @@
    "group": [
     "13-across",
     "17-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GREAT MINDS THINK ALIKE",
+    "definitions": [
+     {
+      "text": "Saying",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doubtful",
+      "for": "anagram",
+      "note": "something doubtful is uncertain and unsettled, so the following letters are not in a fixed order"
+     }
+    ],
+    "linkWords": [
+     "there's",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "merit",
+      "gives": "MERIT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "talking",
+      "gives": "TALKING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "skinhead",
+      "gives": "SKINHEAD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MERITTALKINGSKINHEAD",
+       "gives": "GREATMINDSTHINKALIKE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A proverb suggesting there's little value in chatting with a skinhead.",
+     "walkthrough": "'Saying' looks like part of the sentence's verb, but it is a noun meaning proverb.",
+     "definitionFit": "This is a well-known proverb, said when two people independently have the same idea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Saying"
+    }
+   }
   },
   {
    "number": 14,
@@ -307,7 +1038,68 @@
      }
     ]
    },
-   "solution": "RELAYRACE"
+   "solution": "RELAYRACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RELAY RACE",
+    "definitions": [
+     {
+      "text": "track event",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ahead of",
+      "for": "charade",
+      "note": "in a down clue, being ahead of something means sitting above it, so that part comes first"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "RE",
+      "note": "re is the second note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "amateur",
+      "gives": "LAY",
+      "note": "lay means non-professional"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket scoring abbreviation for runs"
+     },
+     {
+      "clueFragment": "champion",
+      "gives": "ACE",
+      "note": "an ace is an expert or champion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "LAY",
+      "R",
+      "ACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A note says an amateur athlete leads the champion on the track.",
+     "definitionFit": "A relay race is a team running event in which each runner hands a baton to the next."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 15,
@@ -327,7 +1119,47 @@
      }
     ]
    },
-   "solution": "SMALLBEER"
+   "solution": "SMALLBEER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SMALL BEER",
+    "definitions": [
+     {
+      "text": "Trivia",
+      "at": 0
+     },
+     {
+      "text": "what one may get in the pub",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trivia",
+      "note": "first meaning: matters of little importance"
+     },
+     {
+      "clueFragment": "what one may get in the pub",
+      "note": "second meaning, read literally: a modest half-pint ordered at the bar"
+     }
+    ],
+    "explanation": {
+     "surface": "Seems to talk about a pub quiz and what you might win in it.",
+     "walkthrough": "'Trivia' suggests a pub quiz, but it means unimportant things.",
+     "definitionFit": "Small beer was originally weak beer, so the phrase came to mean things of no consequence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Trivia"
+    }
+   }
   },
   {
    "number": 16,
@@ -347,7 +1179,55 @@
      }
     ]
    },
-   "solution": "SKINDEEP"
+   "solution": "SKINDEEP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SKIN-DEEP",
+    "definitions": [
+     {
+      "text": "Shallow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved in",
+      "for": "container",
+      "note": "something involved in another is wrapped up within it, so one word sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leak",
+      "gives": "SEEP",
+      "note": "to seep is to leak slowly"
+     },
+     {
+      "clueFragment": "type",
+      "gives": "KIND",
+      "note": "a type is a kind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "KIND",
+      "EEP"
+     ]
+    },
+    "explanation": {
+     "surface": "A superficial sort of person caught up in a press leak.",
+     "walkthrough": "'type' tempts as a description of a person, but it is just a synonym for sort.",
+     "definitionFit": "Something skin-deep goes no further than the surface, like beauty in the proverb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "type"
+    }
+   }
   },
   {
    "number": 17,
@@ -380,7 +1260,42 @@
     "text": "Bird spotted in Leatherhead",
     "enumeration": "4"
    },
-   "solution": "RHEA"
+   "solution": "RHEA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RHEA",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spotted in",
+      "for": "hidden_word",
+      "note": "something spotted in a place is seen inside it, so the answer sits within the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leatherhead",
+      "gives": "RHEA",
+      "note": "letters five to eight of the town's name"
+     }
+    ],
+    "explanation": {
+     "surface": "A birdwatcher reports a sighting in Leatherhead, a town in Surrey.",
+     "definitionFit": "The rhea is a large flightless South American bird, related to the ostrich."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spotted"
+    }
+   }
   },
   {
    "number": 19,
@@ -394,7 +1309,56 @@
     "text": "Urge small number to have good warming drink",
     "enumeration": "6"
    },
-   "solution": "EGGNOG"
+   "solution": "EGGNOG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EGGNOG",
+    "definitions": [
+     {
+      "text": "warming drink",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "to have"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Urge",
+      "gives": "EGG",
+      "note": "to egg on is to urge"
+     },
+     {
+      "clueFragment": "small number",
+      "gives": "NO",
+      "note": "No. is the short form of number"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EGG",
+      "NO",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Persuading a few people to have a nice hot drink.",
+     "walkthrough": "'small number' reads as 'a few', but it means the short form of the word number.",
+     "definitionFit": "Eggnog is a rich drink of eggs, milk and often spirits, traditionally served warm in winter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "small"
+    }
+   }
   },
   {
    "number": 20,
@@ -408,7 +1372,58 @@
     "text": "Little Bernard has line in flattery",
     "enumeration": "7"
    },
-   "solution": "BLARNEY"
+   "solution": "BLARNEY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BLARNEY",
+    "definitions": [
+     {
+      "text": "flattery",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another goes inside it, so the single letter is put within the name"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Little Bernard",
+      "gives": "BARNEY",
+      "note": "Barney is a pet form of the name Bernard"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "L",
+      "ARNEY"
+     ]
+    },
+    "explanation": {
+     "surface": "A young boy called Bernard has a sweet-talking line to use.",
+     "walkthrough": "BARNEY takes L after its first letter. Blarney is named after the Irish castle stone said to give the gift of the gab.",
+     "definitionFit": "Blarney is smooth, charming talk meant to flatter or persuade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 20,
@@ -422,7 +1437,58 @@
     "text": "Clubs in English city making a collection",
     "enumeration": "5"
    },
-   "solution": "BATCH"
+   "solution": "BATCH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BATCH",
+    "definitions": [
+     {
+      "text": "a collection",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one thing within the other"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English city",
+      "gives": "BATH",
+      "note": "Bath is a spa city in Somerset"
+     },
+     {
+      "clueFragment": "Clubs",
+      "gives": "C",
+      "note": "C is the card-suit abbreviation for clubs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAT",
+      "C",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Clubs in an English city forming a group or league.",
+     "walkthrough": "C goes between the T and H of BATH.",
+     "definitionFit": "A batch is a quantity of things grouped or produced together, a set."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Clubs"
+    }
+   }
   },
   {
    "number": 21,
@@ -436,7 +1502,50 @@
     "text": "Cat shown in newspaper next to pretty girl",
     "enumeration": "7"
    },
-   "solution": "RAGDOLL"
+   "solution": "RAGDOLL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAGDOLL",
+    "definitions": [
+     {
+      "text": "Cat",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "shown in",
+     "next to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "newspaper",
+      "gives": "RAG",
+      "note": "a rag is a disparaging word for a newspaper"
+     },
+     {
+      "clueFragment": "pretty girl",
+      "gives": "DOLL",
+      "note": "doll is slang for an attractive young woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAG",
+      "DOLL"
+     ]
+    },
+    "explanation": {
+     "surface": "A cat photo printed in the paper beside a pin-up.",
+     "definitionFit": "The Ragdoll is a breed of large, docile domestic cat that goes limp when picked up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cat"
+    }
+   }
   },
   {
    "number": 21,
@@ -450,7 +1559,65 @@
     "text": "Poet may show anger about ending in limerick",
     "enumeration": "5"
    },
-   "solution": "RILKE"
+   "solution": "RILKE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RILKE",
+    "definitions": [
+     {
+      "text": "Poet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending in",
+      "for": "letter_selection",
+      "note": "the ending of a word is its final letter, which alone is kept"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around, so the anger word surrounds the single letter"
+     }
+    ],
+    "linkWords": [
+     "may show"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "anger",
+      "gives": "RILE",
+      "note": "to rile is to anger"
+     },
+     {
+      "clueFragment": "limerick",
+      "gives": "K",
+      "select": "last",
+      "note": "the last letter of limerick"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIL",
+      "K",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A poet might get cross about how a limerick ends.",
+     "walkthrough": "K goes between the L and E of RILE.",
+     "definitionFit": "Rainer Maria Rilke was an Austrian lyric poet, author of the Duino Elegies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "limerick"
+    }
+   }
   },
   {
    "number": 22,
@@ -478,7 +1645,62 @@
      }
     ]
    },
-   "solution": "TURNEDABLINDEYE"
+   "solution": "TURNEDABLINDEYE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TURNED A BLIND EYE",
+    "definitions": [
+     {
+      "text": "Ignored",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in resort",
+      "for": "anagram",
+      "note": "read as re-sort, meaning to sort again, so the preceding letters are put in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "untidy",
+      "gives": "UNTIDY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bleeder",
+      "gives": "BLEEDER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANUNTIDYBLEEDER",
+       "gives": "TURNEDABLINDEYE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone overlooked a scruffy rotter at a holiday resort.",
+     "walkthrough": "'untidy' looks like the anagram signal but is part of the letters; 'resort' split as re-sort does the work. Bleeder is British slang for a contemptible person.",
+     "definitionFit": "To turn a blind eye is the idiom for deliberately pretending not to notice something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "resort"
+    }
+   }
   },
   {
    "number": 23,
@@ -492,7 +1714,57 @@
     "text": "Item on list, part of a shoe",
     "enumeration": "9"
    },
-   "solution": "HEELPIECE"
+   "solution": "HEELPIECE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEELPIECE",
+    "definitions": [
+     {
+      "text": "part of a shoe",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue, one thing on another follows it, so the first word comes second"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "list",
+      "gives": "HEEL",
+      "note": "a ship that lists heels over to one side"
+     },
+     {
+      "clueFragment": "Item",
+      "gives": "PIECE",
+      "note": "an item is a single piece"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEEL",
+      "PIECE"
+     ]
+    },
+    "explanation": {
+     "surface": "A shopping list with a shoe component on it.",
+     "walkthrough": "'list' looks like a written list, but it is the nautical lean.",
+     "definitionFit": "A heelpiece is the part of a shoe forming or covering the heel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "list"
+    }
+   }
   },
   {
    "number": 24,
@@ -506,7 +1778,58 @@
     "text": "Person beyond saving, individual imprisoned by King George",
     "enumeration": "5"
    },
-   "solution": "GONER"
+   "solution": "GONER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GONER",
+    "definitions": [
+     {
+      "text": "Person beyond saving",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "imprisoned by",
+      "for": "container",
+      "note": "something imprisoned is held within walls, so one piece is shut inside the other"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King George",
+      "gives": "GR",
+      "note": "GR, Georgius Rex, is King George's royal cipher"
+     },
+     {
+      "clueFragment": "individual",
+      "gives": "ONE",
+      "note": "one is a single individual"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ONE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A doomed prisoner held in the dungeons of King George.",
+     "walkthrough": "A monarch's cipher is the initial plus R for Rex or Regina, as seen on British postboxes.",
+     "definitionFit": "A goner is informal for someone who is dead or certain to die or fail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "individual"
+    }
+   }
   }
  ]
 }
