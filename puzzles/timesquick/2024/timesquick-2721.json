@@ -24,6 +24,9 @@
   "date": "2024-07-06",
   "check": "grid rebuilt from the blog's light list (unique after crossings); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,45 @@
     "text": "Some seek leeway for Swiss painter",
     "enumeration": "4"
    },
-   "solution": "KLEE"
+   "solution": "KLEE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "KLEE",
+    "definitions": [
+     {
+      "text": "Swiss painter",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "only some of the letters of the following words are wanted, a run lying across the gap"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seek leeway",
+      "gives": "KLEE",
+      "note": "the end of seek joined to the start of leeway"
+     }
+    ],
+    "explanation": {
+     "surface": "A demand that a Swiss artist be given more room for manoeuvre.",
+     "definitionFit": "Paul Klee was a Swiss-born modernist painter, so he is an example of the category named."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +92,61 @@
     "text": "Winner here, champ ultimately surmounting great dislike",
     "enumeration": "6"
    },
-   "solution": "PODIUM"
+   "solution": "PODIUM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PODIUM",
+    "definitions": [
+     {
+      "text": "Winner here",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter of the preceding word is kept"
+     },
+     {
+      "text": "surmounting",
+      "for": "charade",
+      "note": "in a down clue, a piece surmounting another sits above it, so it is written first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "champ",
+      "gives": "P",
+      "select": "last",
+      "note": "the last letter of champ"
+     },
+     {
+      "clueFragment": "great dislike",
+      "gives": "ODIUM",
+      "note": "odium is intense hatred or disgust"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ODIUM"
+     ]
+    },
+    "explanation": {
+     "surface": "A champion stands above a rival who is widely loathed.",
+     "walkthrough": "'Winner here' is a cryptic pointer to the place a victor stands, not a word for the victor.",
+     "definitionFit": "A podium is the raised platform where a winning competitor stands to receive a medal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "champ"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +160,55 @@
     "text": "Nit-picking editor in room off kitchen",
     "enumeration": "8"
    },
-   "solution": "PEDANTRY"
+   "solution": "PEDANTRY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PEDANTRY",
+    "definitions": [
+     {
+      "text": "Nit-picking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item placed in another means it sits inside it, enclosed by the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "room off kitchen",
+      "gives": "PANTRY",
+      "note": "a pantry is a small storeroom beside a kitchen"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ED is the standard abbreviation for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ED",
+      "ANTRY"
+     ]
+    },
+    "explanation": {
+     "surface": "A fussy editor holed up in a side room, correcting every comma.",
+     "walkthrough": "ED goes inside PANT|RY: PANT + ED + RY.",
+     "definitionFit": "Pedantry is excessive concern with minor details and rules, which is what nit-picking describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "room"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +222,42 @@
     "text": "Try small glass of spirits",
     "enumeration": "4"
    },
-   "solution": "SHOT"
+   "solution": "SHOT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SHOT",
+    "definitions": [
+     {
+      "text": "Try",
+      "at": 0
+     },
+     {
+      "text": "small glass of spirits",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Try",
+      "note": "first meaning: an attempt, as in have a go"
+     },
+     {
+      "clueFragment": "small glass of spirits",
+      "note": "second meaning: a single measure of liquor"
+     }
+    ],
+    "explanation": {
+     "surface": "An invitation to sample a little nip of whisky.",
+     "definitionFit": "The noun covers both an attempt at something and a single small measure of strong drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Try"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +271,70 @@
     "text": "He protects troubled lass in difficult situation",
     "enumeration": "6"
    },
-   "solution": "HASSLE"
+   "solution": "HASSLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "HASSLE",
+    "definitions": [
+     {
+      "text": "difficult situation",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "troubled",
+      "for": "anagram",
+      "note": "something troubled is disturbed and out of order, so these letters are rearranged"
+     },
+     {
+      "text": "protects",
+      "for": "container",
+      "note": "to protect something is to surround and shield it, so one piece wraps around the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He",
+      "gives": "HE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lass",
+      "gives": "ASSL",
+      "note": "the letters of lass rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ASSL",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LASS",
+       "gives": "ASSL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man shields an upset young woman when things get tough.",
+     "walkthrough": "The scrambled girl's word sits between the H and E of He.",
+     "definitionFit": "A hassle is a troublesome or annoying situation, a near synonym for a predicament."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "protects"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +348,52 @@
     "text": "Banter about role, doubly English",
     "enumeration": "8"
    },
-   "solution": "REPARTEE"
+   "solution": "REPARTEE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REPARTEE",
+    "definitions": [
+     {
+      "text": "Banter",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means concerning, as in a letter heading"
+     },
+     {
+      "clueFragment": "role",
+      "gives": "PART",
+      "note": "an actor's part is a role"
+     },
+     {
+      "clueFragment": "doubly English",
+      "gives": "EE",
+      "note": "E for English, given twice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "PART",
+      "EE"
+     ]
+    },
+    "explanation": {
+     "surface": "Chat about acting roles, in thoroughly English style.",
+     "definitionFit": "Repartee is quick witty conversation, the same playful exchange that banter names."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "role"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +407,65 @@
     "text": "Unexpectedly vocal, energetic to begin with, in recess",
     "enumeration": "6"
    },
-   "solution": "ALCOVE"
+   "solution": "ALCOVE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ALCOVE",
+    "definitions": [
+     {
+      "text": "recess",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to begin with",
+      "for": "letter_selection",
+      "note": "to begin with points at the opening letter of the word just before it"
+     },
+     {
+      "text": "Unexpectedly",
+      "for": "anagram",
+      "note": "something happening unexpectedly is out of the usual order, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vocal",
+      "gives": "VOCAL",
+      "note": "taken as written, as anagram fodder"
+     },
+     {
+      "clueFragment": "energetic",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of energetic"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VOCALE",
+       "gives": "ALCOVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone surprisingly loud and lively at first, sitting in a corner nook.",
+     "definitionFit": "An alcove is a recess in the wall of a room, so the two words are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recess"
+    }
+   }
   },
   {
    "number": 8,
@@ -135,7 +479,50 @@
     "text": "Cast North as ideal place",
     "enumeration": "6"
    },
-   "solution": "HEAVEN"
+   "solution": "HEAVEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEAVEN",
+    "definitions": [
+     {
+      "text": "ideal place",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cast",
+      "gives": "HEAVE",
+      "note": "to heave is to throw or hurl"
+     },
+     {
+      "clueFragment": "North",
+      "gives": "N",
+      "note": "N is the abbreviation for North"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEAVE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sends a casting director's choice northward, seeing it as paradise.",
+     "walkthrough": "'Cast' looks like an anagram signal, but it is a verb meaning throw.",
+     "definitionFit": "Heaven is used figuratively for any place of perfect happiness, so it is a perfect spot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cast"
+    }
+   }
   },
   {
    "number": 9,
@@ -149,7 +536,50 @@
     "text": "Not sure what to do, hints tea should be served",
     "enumeration": "8"
    },
-   "solution": "HESITANT"
+   "solution": "HESITANT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HESITANT",
+    "definitions": [
+     {
+      "text": "Not sure what to do",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "should be served",
+      "for": "anagram",
+      "note": "food served is prepared and dished up, so these letters are made into something new"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hints tea",
+      "gives": "HINTSTEA",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HINTSTEA",
+       "gives": "HESITANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An uncertain host gets a nudge that it is time to pour tea.",
+     "definitionFit": "Being hesitant means wavering or undecided, unable to settle on a course of action."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "served"
+    }
+   }
   },
   {
    "number": 10,
@@ -163,7 +593,53 @@
     "text": "Personal assistant in street quarrel",
     "enumeration": "4"
    },
-   "solution": "SPAT"
+   "solution": "SPAT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPAT",
+    "definitions": [
+     {
+      "text": "quarrel",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item being in another means it sits inside it, enclosed by the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street"
+     },
+     {
+      "clueFragment": "Personal assistant",
+      "gives": "PA",
+      "note": "PA is the usual abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PA",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An office helper caught up in a row out on the road.",
+     "definitionFit": "A spat is a petty quarrel or squabble, so the noun matches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -177,7 +653,44 @@
     "text": "Allow advice to person wanting hair curled?",
     "enumeration": "6"
    },
-   "solution": "PERMIT"
+   "solution": "PERMIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PERMIT",
+    "definitions": [
+     {
+      "text": "Allow",
+      "at": 0
+     },
+     {
+      "text": "advice to person wanting hair curled?",
+      "at": 6,
+      "note": "a phrase, read as two words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Allow",
+      "note": "first meaning: to give permission"
+     },
+     {
+      "clueFragment": "advice to person wanting hair curled?",
+      "note": "second meaning, split in two: a hairdresser's tip to have a curling treatment done"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split the answer as two words and it becomes a hairdresser's suggestion; a perm is a chemical treatment that sets curls.",
+     "definitionFit": "As a verb the word means to let something happen or give consent, the plain sense of allow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "curled"
+    }
+   }
   },
   {
    "number": 12,
@@ -191,7 +704,68 @@
     "text": "Livingstone, say, once extremely popular, welcoming folk traditions",
     "enumeration": "8"
    },
-   "solution": "EXPLORER"
+   "solution": "EXPLORER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "EXPLORER",
+    "definitions": [
+     {
+      "text": "Livingstone, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremes, so only the first and last letters of the next word are kept"
+     },
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "to welcome someone is to take them in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "once",
+      "gives": "EX",
+      "note": "ex means former"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "PR",
+      "select": "outer",
+      "note": "the first and last letters of popular"
+     },
+     {
+      "clueFragment": "folk traditions",
+      "gives": "LORE",
+      "note": "lore is a body of traditional knowledge and stories"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "P",
+      "LORE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A Victorian traveller who was a hit in his day and embraced local customs.",
+     "definitionFit": "David Livingstone was a famous Scottish explorer of Africa, so he is an example; 'say' flags it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "popular"
+    }
+   }
   },
   {
    "number": 13,
@@ -205,7 +779,66 @@
     "text": "Strange tale about river warning",
     "enumeration": "5"
    },
-   "solution": "ALERT"
+   "solution": "ALERT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ALERT",
+    "definitions": [
+     {
+      "text": "warning",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Strange",
+      "for": "anagram",
+      "note": "strange means odd or abnormal, so these letters come out in an unfamiliar order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the rearranged letters surround the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tale",
+      "gives": "ALET",
+      "note": "the letters of tale rearranged"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALE",
+      "R",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TALE",
+       "gives": "ALET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An odd story told around a river serves as a caution.",
+     "definitionFit": "An alert is a signal of danger, a synonym for a warning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Strange"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +852,56 @@
     "text": "Program the French put into action getting sound of welcome",
     "enumeration": "8"
    },
-   "solution": "APPLAUSE"
+   "solution": "APPLAUSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APPLAUSE",
+    "definitions": [
+     {
+      "text": "sound of welcome",
+      "at": 43
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Program",
+      "gives": "APP",
+      "note": "an app is a software program"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LA",
+      "note": "la is French for the, feminine form"
+     },
+     {
+      "clueFragment": "put into action",
+      "gives": "USE",
+      "note": "to use something is to put it into action"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APP",
+      "LA",
+      "USE"
+     ]
+    },
+    "explanation": {
+     "surface": "A programmer deploying French code wins a warm reception.",
+     "walkthrough": "'put into' looks like a container signal, but the whole phrase is the definition of a verb.",
+     "definitionFit": "Applause is clapping, the noise an audience makes to greet or acclaim someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Program"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +915,48 @@
     "text": "Regularly pre-empt one trying to sell goods",
     "enumeration": "3"
    },
-   "solution": "REP"
+   "solution": "REP",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "REP",
+    "definitions": [
+     {
+      "text": "one trying to sell goods",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter of the next word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pre-empt",
+      "gives": "REP",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters of pre-empt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REP"
+     ]
+    },
+    "explanation": {
+     "surface": "A salesman habitually gets in first before rivals can.",
+     "definitionFit": "A rep, short for representative, is a travelling salesperson for a company."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Regularly"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +970,48 @@
     "text": "Ruthlessly ambitious person using sleight horrifies you at first",
     "enumeration": "5"
    },
-   "solution": "PUSHY"
+   "solution": "PUSHY",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "PUSHY",
+    "definitions": [
+     {
+      "text": "Ruthlessly ambitious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points at the opening letter of each of the words before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "person using sleight horrifies you",
+      "gives": "PUSHY",
+      "select": "first",
+      "note": "the initial letters of these five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUSHY"
+     ]
+    },
+    "explanation": {
+     "surface": "A go-getter who uses trickery appals you from the outset.",
+     "definitionFit": "Pushy describes someone forcefully self-assertive in getting what they want, a near synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sleight"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +1025,54 @@
     "text": "Dog improved with new start (second)",
     "enumeration": "6"
    },
-   "solution": "SETTER"
+   "solution": "SETTER",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "SETTER",
+    "definitions": [
+     {
+      "text": "Dog",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with new start",
+      "for": "substitution",
+      "note": "a new start means the first letter is swapped for a different one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "improved",
+      "gives": "BETTER",
+      "note": "something improved is better"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ETTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog trained up and given a second fresh beginning.",
+     "walkthrough": "The S for second replaces the B at the front of the word for improved.",
+     "definitionFit": "A setter is a gundog breed, such as the Irish or English setter, so it is a kind of dog."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1086,55 @@
     "text": "Expected levy not initially viable — confer",
     "enumeration": "6"
    },
-   "solution": "PARLEY"
+   "solution": "PARLEY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "PARLEY",
+    "definitions": [
+     {
+      "text": "confer",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not initially viable",
+      "for": "deletion",
+      "note": "not with the opening letter of viable means that letter is struck out of the preceding word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Expected",
+      "gives": "PAR",
+      "note": "par is the expected standard, as in golf"
+     },
+     {
+      "clueFragment": "levy",
+      "gives": "LEVY",
+      "note": "taken as written before a letter is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "LEY"
+     ]
+    },
+    "explanation": {
+     "surface": "A tax that is due is unworkable from the start, so talks are needed.",
+     "walkthrough": "The V that begins viable is taken out of levy.",
+     "definitionFit": "To parley is to hold talks, especially with an opponent, a synonym for confer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "viable"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1148,46 @@
     "text": "Music performer's protective cover, we hear",
     "enumeration": "6"
    },
-   "solution": "RAPPER"
+   "solution": "RAPPER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "RAPPER",
+    "definitions": [
+     {
+      "text": "Music performer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "we hear signals a word that is only sounded like the clue's meaning, not spelt the same"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "protective cover",
+      "gives": "RAPPER",
+      "soundsLike": "WRAPPER",
+      "note": "a wrapper is a covering for something; the W is silent"
+     }
+    ],
+    "explanation": {
+     "surface": "A singer's coat or casing, as people say.",
+     "definitionFit": "A rapper is a performer of rap music, so the answer is a kind of musical artist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 19,
@@ -303,7 +1201,53 @@
     "text": "Milton, say, old favourite around",
     "enumeration": "4"
    },
-   "solution": "POET"
+   "solution": "POET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "POET",
+    "definitions": [
+     {
+      "text": "Milton, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means one piece encircles the other, placing it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "favourite",
+      "gives": "PET",
+      "note": "a pet is a favourite, as in teacher's pet"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "O",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A much-loved writer from the past, still widely read.",
+     "definitionFit": "John Milton wrote Paradise Lost, so he is an example of a poet, as 'say' signals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -317,7 +1261,50 @@
     "text": "Feature of football got pal so excited",
     "enumeration": "8"
    },
-   "solution": "GOALPOST"
+   "solution": "GOALPOST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GOALPOST",
+    "definitions": [
+     {
+      "text": "Feature of football",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excited",
+      "for": "anagram",
+      "note": "being excited means agitated and stirred up, so these letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "got pal so",
+      "gives": "GOTPALSO",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GOTPALSO",
+       "gives": "GOALPOST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A friend's thrilling football match got him worked up.",
+     "definitionFit": "A goalpost is one of the two uprights that form a football goal, a fixture of every pitch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "excited"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1318,44 @@
     "text": "Game after Foxtrot?",
     "enumeration": "4"
    },
-   "solution": "GOLF"
+   "solution": "GOLF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GOLF",
+    "definitions": [
+     {
+      "text": "Game",
+      "at": 0
+     },
+     {
+      "text": "after Foxtrot",
+      "at": 5,
+      "note": "describes what follows Foxtrot rather than naming a word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Game",
+      "note": "first meaning: a sport played with clubs and a ball"
+     },
+     {
+      "clueFragment": "after Foxtrot",
+      "note": "second meaning: the code word for G, which follows F in the NATO phonetic alphabet"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Foxtrot looks like a dance, but it is the radio code word for F, and the next letter's code word is the answer.",
+     "definitionFit": "The word names a sport played over a course, and also stands for G in the radio spelling alphabet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Foxtrot"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1369,54 @@
     "text": "Moved fast, exercising in South Dakota",
     "enumeration": "4"
    },
-   "solution": "SPED"
+   "solution": "SPED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPED",
+    "definitions": [
+     {
+      "text": "Moved fast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item being in another means it sits inside it, enclosed by the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South Dakota",
+      "gives": "SD",
+      "note": "SD is the postal abbreviation for South Dakota"
+     },
+     {
+      "clueFragment": "exercising",
+      "gives": "PE",
+      "note": "PE is physical education, i.e. exercise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone raced along while working out on the plains.",
+     "definitionFit": "Sped is the past tense of speed, so it means travelled quickly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exercising"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1430,47 @@
     "text": "Ring again for annulment?",
     "enumeration": "6"
    },
-   "solution": "REPEAL"
+   "solution": "REPEAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REPEAL",
+    "definitions": [
+     {
+      "text": "Ring again",
+      "at": 0,
+      "note": "verb phrase, read as re-peal"
+     },
+     {
+      "text": "annulment",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ring again",
+      "note": "first meaning: sound the bells once more"
+     },
+     {
+      "clueFragment": "annulment",
+      "note": "second meaning: the cancelling of a law"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read as RE (again) plus PEAL (ring of bells), the word means to ring once more; the question mark flags this whimsical split.",
+     "definitionFit": "A repeal is the formal revoking of a law, the same idea as an annulment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ring"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1484,60 @@
     "text": "Kitchen item, jug, at back of empty sink",
     "enumeration": "6"
    },
-   "solution": "SKEWER"
+   "solution": "SKEWER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SKEWER",
+    "definitions": [
+     {
+      "text": "Kitchen item",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "an empty word has its insides removed, leaving only its first and last letters"
+     },
+     {
+      "text": "at back of",
+      "for": "charade",
+      "note": "being at the back of something means it comes after it in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sink",
+      "gives": "SK",
+      "select": "outer",
+      "note": "the first and last letters of sink"
+     },
+     {
+      "clueFragment": "jug",
+      "gives": "EWER",
+      "note": "a ewer is a large jug"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SK",
+      "EWER"
+     ]
+    },
+    "explanation": {
+     "surface": "A jug is left at the back of a drained kitchen sink.",
+     "definitionFit": "A skewer is a metal or wooden spike for holding food while cooking, so it is a kitchen utensil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "empty"
+    }
+   }
   }
  ]
 }
