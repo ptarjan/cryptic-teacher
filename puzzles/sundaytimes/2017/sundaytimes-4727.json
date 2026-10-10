@@ -24,6 +24,9 @@
   "date": "2017-01-08",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,55 @@
     "text": "Duchess is near to show",
     "enumeration": "8"
    },
-   "solution": "DISCLOSE"
+   "solution": "DISCLOSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISCLOSE",
+    "definitions": [
+     {
+      "text": "show",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Duchess",
+      "gives": "D",
+      "note": "D is the abbreviation for duchess"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "near",
+      "gives": "CLOSE",
+      "note": "close means near at hand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IS",
+      "CLOSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A duchess lives close by, ready to put on a show for the neighbours.",
+     "definitionFit": "To disclose is to reveal or make known, a synonym of the verb show."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "near"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +102,61 @@
     "text": "Upset journo in America murdered judge",
     "enumeration": "6"
    },
-   "solution": "DECIDE"
+   "solution": "DECIDE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DECIDE",
+    "definitions": [
+     {
+      "text": "judge",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Upset",
+      "for": "reversal",
+      "note": "in a down clue upset means turned upside down, so the letters read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "journo",
+      "gives": "ED",
+      "note": "ED is short for editor, a journalist"
+     },
+     {
+      "clueFragment": "in America murdered",
+      "gives": "ICED",
+      "note": "iced is American slang for killed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DECI",
+      "DE"
+     ],
+     "reversals": [
+      {
+       "from": "EDICED",
+       "to": "DECIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A distraught reporter in the US says a judge has been killed.",
+     "walkthrough": "'judge' looks like the murder victim, but it is the verb that the whole reversed string means.",
+     "definitionFit": "To judge a matter is to decide it, reaching a verdict or conclusion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "judge"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +170,40 @@
     "text": "Might this performer have you in stitches?",
     "enumeration": "6"
    },
-   "solution": "SINGER"
+   "solution": "SINGER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SINGER",
+    "definitions": [
+     {
+      "text": "Might this performer have you in stitches?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Might this performer have you in stitches?",
+      "note": "surface reading: a comic whose act makes the audience laugh uncontrollably"
+     },
+     {
+      "clueFragment": "in stitches",
+      "note": "setter's reading: stitches are sewing, and the name belongs to a famous brand of sewing machine as well as a vocalist"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about whether a stage act will make you laugh helplessly.",
+     "walkthrough": "'performer' suggests a comedian, but the answer is a vocalist whose name is also that of the classic sewing-machine maker.",
+     "definitionFit": "A vocalist is a performer, and Singer machines literally put fabric in stitches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stitches"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +217,65 @@
     "text": "Uranium and oil developed with Asian state",
     "enumeration": "9"
    },
-   "solution": "LOUISIANA"
+   "solution": "LOUISIANA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LOUISIANA",
+    "definitions": [
+     {
+      "text": "state",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "developed",
+      "for": "anagram",
+      "note": "something developed has grown into a new form, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Uranium",
+      "gives": "U",
+      "note": "U is the chemical symbol for uranium"
+     },
+     {
+      "clueFragment": "oil",
+      "gives": "OIL",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "Asian",
+      "gives": "ASIAN",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UOILASIAN",
+       "gives": "LOUISIANA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Uranium and oil resources are exploited together with an Asian country.",
+     "walkthrough": "'Asian state' looks like the definition, but Asian is fodder and the state is in America.",
+     "definitionFit": "Louisiana is one of the fifty states of the USA, on the Gulf of Mexico."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Asian"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +289,65 @@
     "text": "Switzerland entered into expensive contract for race",
     "enumeration": "12"
    },
-   "solution": "STEEPLECHASE"
+   "solution": "STEEPLECHASE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "STEEPLECHASE",
+    "definitions": [
+     {
+      "text": "race",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entered into",
+      "for": "container",
+      "note": "something that has entered into another thing is now within it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expensive",
+      "gives": "STEEP",
+      "note": "steep means overpriced"
+     },
+     {
+      "clueFragment": "contract",
+      "gives": "LEASE",
+      "note": "a lease is a rental contract"
+     },
+     {
+      "clueFragment": "Switzerland",
+      "gives": "CH",
+      "note": "CH is the international code for Switzerland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEEP",
+      "LE",
+      "CH",
+      "ASE"
+     ]
+    },
+    "explanation": {
+     "surface": "The Swiss sign a costly deal to stage a race.",
+     "walkthrough": "CH, from Confoederatio Helvetica, is Switzerland's vehicle and internet code.",
+     "definitionFit": "A steeplechase is a horse race or athletics race over fences, ditches and water jumps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "contract"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +361,58 @@
     "text": "Son visiting heaven once in religious book",
     "enumeration": "6"
    },
-   "solution": "ESTHER"
+   "solution": "ESTHER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ESTHER",
+    "definitions": [
+     {
+      "text": "religious book",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "visiting",
+      "for": "container",
+      "note": "a visitor goes inside someone's home, so one piece is placed within the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heaven once",
+      "gives": "ETHER",
+      "note": "ether is an old poetic word for the upper sky or heavens"
+     },
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "S",
+      "THER"
+     ]
+    },
+    "explanation": {
+     "surface": "A son pops into heaven, as described in a religious text.",
+     "walkthrough": "'once' marks ETHER as an archaic sense of the heavens; the son's S sits after its first letter.",
+     "definitionFit": "Esther is a book of the Old Testament, so a scriptural text in the Bible."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "visiting"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +426,71 @@
     "text": "Goes off retreating — before military's first assault",
     "enumeration": "5"
    },
-   "solution": "STORM"
+   "solution": "STORM",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STORM",
+    "definitions": [
+     {
+      "text": "assault",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retreating",
+      "for": "reversal",
+      "note": "something retreating moves backwards, so the word is read in reverse"
+     },
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first means only the opening letter of that word is taken"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Goes off",
+      "gives": "ROTS",
+      "note": "food that goes off rots"
+     },
+     {
+      "clueFragment": "military's",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of military"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOR",
+      "M"
+     ],
+     "reversals": [
+      {
+       "from": "ROTS",
+       "to": "STOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An army pulls back before launching its initial attack.",
+     "walkthrough": "'Goes off' sounds like a military advance, but it means turns bad, as milk does.",
+     "definitionFit": "To storm a place is to assault it with a sudden violent attack."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +510,63 @@
      }
     ]
    },
-   "solution": "HIGHNOON"
+   "solution": "HIGHNOON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "HIGH NOON",
+    "definitions": [
+     {
+      "text": "movie",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first character repeated",
+      "for": "letter_selection",
+      "note": "a word's first character is its initial letter, and repeated asks for that letter to be written twice"
+     },
+     {
+      "text": "Mad",
+      "for": "anagram",
+      "note": "something mad is wild and disordered, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Harry's",
+      "gives": "HH",
+      "select": "first",
+      "note": "the first letter of Harry, written twice because the clue says repeated"
+     },
+     {
+      "clueFragment": "in Goon",
+      "gives": "INGOON",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HHINGOON",
+       "gives": "HIGHNOON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Crazy Harry Secombe plays his first role twice in a Goon Show film.",
+     "walkthrough": "'repeated' doubles the H. 'Goon' and 'Harry' evoke Harry Secombe of The Goon Show, a classic British radio comedy, but the answer is a Western.",
+     "definitionFit": "High Noon is the 1952 Western starring Gary Cooper, a famous film."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Goon"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +586,64 @@
      }
     ]
    },
-   "solution": "REDFACED"
+   "solution": "REDFACED",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "RED-FACED",
+    "definitions": [
+     {
+      "text": "Blushed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so this word runs backwards"
+     }
+    ],
+    "linkWords": [
+     "as",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "choice of wine",
+      "gives": "RED",
+      "note": "red or white is the usual choice of wine"
+     },
+     {
+      "clueFragment": "weak coffee's",
+      "gives": "DECAF",
+      "note": "decaf, decaffeinated coffee, has no kick"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RED",
+      "FACED"
+     ],
+     "reversals": [
+      {
+       "from": "DECAF",
+       "to": "FACED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner reddened when the wine order and feeble coffee were sent back.",
+     "definitionFit": "Red-faced describes someone flushed with embarrassment, as a person who has blushed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "weak"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +657,62 @@
     "text": "Prisoner originally found employed at sea",
     "enumeration": "8"
    },
-   "solution": "CONFUSED"
+   "solution": "CONFUSED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CONFUSED",
+    "definitions": [
+     {
+      "text": "at sea",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to the very beginning, so only the opening letter of the next word counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prisoner",
+      "gives": "CON",
+      "note": "con is slang for a convict"
+     },
+     {
+      "clueFragment": "found",
+      "gives": "F",
+      "select": "first",
+      "note": "the first letter of found"
+     },
+     {
+      "clueFragment": "employed",
+      "gives": "USED",
+      "note": "employed means put to use"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "F",
+      "USED"
+     ]
+    },
+    "explanation": {
+     "surface": "A convict was first discovered working aboard ship.",
+     "walkthrough": "'at sea' looks nautical alongside 'employed', but it is the idiom for bewildered.",
+     "definitionFit": "To be at sea is an idiom for being bewildered or lost, which is what confused means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sea"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +726,58 @@
     "text": "Ape put American soldier in water",
     "enumeration": "6"
    },
-   "solution": "PONGID"
+   "solution": "PONGID",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PONGID",
+    "definitions": [
+     {
+      "text": "Ape",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put",
+      "for": "container",
+      "note": "to put something in a place is to set it inside, here inside the water"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "water",
+      "gives": "POND",
+      "note": "a pond is a body of water"
+     },
+     {
+      "clueFragment": "American soldier",
+      "gives": "GI",
+      "note": "GI is the term for a US soldier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PON",
+      "GI",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone imitates an American soldier by plunging him into water.",
+     "walkthrough": "'Ape' reads as a verb, mimic, but it is the noun: the answer is the zoological name for the great apes.",
+     "definitionFit": "A pongid is a member of the Pongidae, the family of great apes such as orang-utans."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ape"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +791,80 @@
     "text": "Senior Catholic girl heard cardinal attempt to entertain one Roman American",
     "enumeration": "12"
    },
-   "solution": "PENITENTIARY"
+   "solution": "PENITENTIARY",
+   "annotation": {
+    "type": [
+     "homophone",
+     "container",
+     "charade"
+    ],
+    "answer": "PENITENTIARY",
+    "definitions": [
+     {
+      "text": "Senior Catholic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heard",
+      "for": "homophone",
+      "note": "heard tells us to go by how the girl's name is spoken, not its spelling"
+     },
+     {
+      "text": "to entertain",
+      "for": "container",
+      "note": "to entertain is to receive as a guest, so the attempt word holds the following letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "PENI",
+      "soundsLike": "PENNY",
+      "note": "Penny is a girl's name, spelt here to fit"
+     },
+     {
+      "clueFragment": "cardinal",
+      "gives": "TEN",
+      "note": "a cardinal number, such as ten"
+     },
+     {
+      "clueFragment": "attempt",
+      "gives": "TRY",
+      "note": "a try is an attempt"
+     },
+     {
+      "clueFragment": "one Roman",
+      "gives": "I",
+      "note": "I is one in Roman numerals"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PENI",
+      "TEN",
+      "T",
+      "IA",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A Catholic girl hears a cardinal attempting to host an American visitor.",
+     "walkthrough": "'cardinal' suggests a churchman beside 'Catholic', but it is a cardinal number; the answer is not the jail but a church office.",
+     "definitionFit": "A penitentiary is a Catholic priest or cardinal with authority over penance, such as the Major Penitentiary in Rome."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cardinal"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +878,43 @@
     "text": "For display, arrange clean bandage",
     "enumeration": "5"
    },
-   "solution": "DRESS"
+   "solution": "DRESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRESS",
+    "definitions": [
+     {
+      "text": "For display, arrange",
+      "at": 0
+     },
+     {
+      "text": "clean bandage",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "For display, arrange",
+      "note": "first meaning: to set out goods attractively, as in a shop window"
+     },
+     {
+      "clueFragment": "clean bandage",
+      "note": "second meaning: to clean and cover a wound"
+     }
+    ],
+    "explanation": {
+     "surface": "A first-aider arranges a clean bandage neatly for show.",
+     "walkthrough": "One blogger saw three meanings, splitting clean from bandage; either way each part is a sense of one verb.",
+     "definitionFit": "You dress a shop window when arranging it for viewers, and dress a wound when treating and covering it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "display"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +928,80 @@
     "text": "Menu distributed during piano playing gives rise to complaint",
     "enumeration": "9"
    },
-   "solution": "PNEUMONIA"
+   "solution": "PNEUMONIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PNEUMONIA",
+    "definitions": [
+     {
+      "text": "complaint",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "distributed",
+      "for": "anagram",
+      "note": "things distributed are spread about, so these letters are scattered into a new order"
+     },
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing suggests the instrument's letters being toyed with and rearranged"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during means in the course of, so one set of letters sits within the other"
+     }
+    ],
+    "linkWords": [
+     "gives rise to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Menu",
+      "gives": "MENU",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "piano",
+      "gives": "PIANO",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "NEUM",
+      "ONIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MENU",
+       "gives": "NEUM"
+      },
+      {
+       "fodder": "PIANO",
+       "gives": "PONIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Handing out menus while someone plays the piano causes a grumble from diners.",
+     "walkthrough": "'complaint' suggests a grievance at the restaurant, but here it is an illness.",
+     "definitionFit": "Complaint can mean an ailment or disease, and pneumonia is an inflammation of the lungs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "complaint"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +1021,69 @@
      }
     ]
    },
-   "solution": "WATERINGHOLE"
+   "solution": "WATERINGHOLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "WATERING HOLE",
+    "definitions": [
+     {
+      "text": "where to get a drink",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter alone"
+     },
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests moving around, so the letters are turned into a different order"
+     }
+    ],
+    "linkWords": [
+     "After"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wedding",
+      "gives": "W",
+      "select": "first",
+      "note": "the first letter of wedding"
+     },
+     {
+      "clueFragment": "nag hotelier",
+      "gives": "NAGHOTELIER",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ATERINGHOLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NAGHOTELIER",
+       "gives": "ATERINGHOLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After the wedding begins, guests pester the hotelier about where the bar is.",
+     "definitionFit": "A watering hole is an informal term for a pub or bar, by analogy with the pool where animals drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "nag"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +1097,67 @@
     "text": "Get actor embarrassed without a piece of clothing",
     "enumeration": "9"
    },
-   "solution": "GREATCOAT"
+   "solution": "GREATCOAT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GREATCOAT",
+    "definitions": [
+     {
+      "text": "piece of clothing",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embarrassed",
+      "for": "anagram",
+      "note": "someone embarrassed is flustered and thrown into confusion, so the letters are mixed up"
+     },
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without here means outside, so the rearranged letters surround the single one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get actor",
+      "gives": "GETACTOR",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRE",
+      "A",
+      "TCOAT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GETACTOR",
+       "gives": "GRETCOAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor is left blushing on stage without a stitch of costume.",
+     "walkthrough": "'without' reads as lacking, but here it has its old sense of outside.",
+     "definitionFit": "A greatcoat is a heavy long overcoat, a garment worn especially by soldiers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1177,40 @@
      }
     ]
    },
-   "solution": "ROADRAGE"
+   "solution": "ROADRAGE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ROAD RAGE",
+    "definitions": [
+     {
+      "text": "Going crazy? On the way, certainly",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Going crazy?",
+      "note": "surface reading: someone is losing their mind"
+     },
+     {
+      "clueFragment": "On the way, certainly",
+      "note": "setter's reading: on the way means on the road, where some drivers lose their temper"
+     }
+    ],
+    "explanation": {
+     "surface": "Asking whether someone is losing it, and answering that they're getting there.",
+     "walkthrough": "'On the way' reads as 'getting close to', but it means literally on the highway.",
+     "definitionFit": "Road rage is violent anger shown by motorists toward other drivers, a kind of madness behind the wheel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1224,51 @@
     "text": "One very tall European runner, say, is in front",
     "enumeration": "8"
    },
-   "solution": "BEANPOLE"
+   "solution": "BEANPOLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEANPOLE",
+    "definitions": [
+     {
+      "text": "One very tall",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is in front"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "runner, say",
+      "gives": "BEAN",
+      "note": "a runner bean is one kind of bean, 'say' showing an example"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "POLE",
+      "note": "a Pole is a person from Poland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEAN",
+      "POLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tall European athlete leads the field.",
+     "walkthrough": "'runner' suggests an athlete, but it is a runner bean, a climbing vegetable; 'is in front' places it before the European.",
+     "definitionFit": "Beanpole is an informal term for a tall, thin person, after the stakes climbing beans grow up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "runner"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1282,82 @@
     "text": "Finished a letter to English priest about surprisingly successful student",
     "enumeration": "12"
    },
-   "solution": "OVERACHIEVER"
+   "solution": "OVERACHIEVER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "OVERACHIEVER",
+    "definitions": [
+     {
+      "text": "surprisingly successful student",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about here means turned around, so the word for the clergyman runs backwards"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finished",
+      "gives": "OVER",
+      "note": "over means ended"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "letter",
+      "gives": "CHI",
+      "note": "chi is a letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "priest",
+      "gives": "REV",
+      "note": "Rev is short for Reverend, a priest's title"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "A",
+      "CHI",
+      "E",
+      "VER"
+     ],
+     "reversals": [
+      {
+       "from": "REV",
+       "to": "VER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone finishes a letter to an English vicar about a student who has done unexpectedly well.",
+     "walkthrough": "'letter' suggests correspondence, but it means one character of an alphabet, here Greek.",
+     "definitionFit": "An overachiever performs better than expected, the label for a pupil who exceeds predictions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "letter"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1377,68 @@
      }
     ]
    },
-   "solution": "FESSUP"
+   "solution": "FESSUP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "FESS UP",
+    "definitions": [
+     {
+      "text": "Own",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely refers to the extremes, so the outermost letters are taken"
+     },
+     {
+      "text": "on reflection",
+      "for": "reversal",
+      "note": "a reflection shows things backwards, so this word is reversed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fashionable",
+      "gives": "FE",
+      "select": "outer",
+      "note": "the first and last letters of fashionable"
+     },
+     {
+      "clueFragment": "cat",
+      "gives": "PUSS",
+      "note": "puss is a familiar word for a cat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FE",
+      "SSUP"
+     ],
+     "reversals": [
+      {
+       "from": "PUSS",
+       "to": "SSUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone owns a very trendy cat and thinks about it.",
+     "walkthrough": "'Own' looks like possessing, but it is the verb meaning admit.",
+     "definitionFit": "To own up is to confess, and fess up is the informal equivalent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Own"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1452,45 @@
     "text": "Valencia's favourite serving father with his daughter?",
     "enumeration": "6"
    },
-   "solution": "PAELLA"
+   "solution": "PAELLA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PAELLA",
+    "definitions": [
+     {
+      "text": "Valencia's favourite serving",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "father",
+      "gives": "PA",
+      "note": "pa is informal for father"
+     },
+     {
+      "clueFragment": "with his daughter?",
+      "gives": "ELLA",
+      "note": "Ella is a girl's name, offered as an example of a daughter, hence the question mark"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "ELLA"
+     ]
+    },
+    "explanation": {
+     "surface": "A father serves his daughter the favourite dish in Valencia.",
+     "definitionFit": "Paella, the rice dish with saffron and seafood or meat, comes from the Valencia region of Spain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1510,40 @@
      }
     ]
    },
-   "solution": "DINNERSET"
+   "solution": "DINNERSET",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DINNER SET",
+    "definitions": [
+     {
+      "text": "One might get completely smashed at traditional meal in Greece",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One might get completely smashed at traditional meal in Greece",
+      "note": "surface reading: a diner gets thoroughly drunk at a festive Greek dinner"
+     },
+     {
+      "clueFragment": "completely smashed",
+      "note": "setter's reading: smashed means broken to pieces, as plates are thrown and broken at Greek celebrations"
+     }
+    ],
+    "explanation": {
+     "surface": "A reveller gets blind drunk at a traditional Greek feast.",
+     "walkthrough": "The custom of plate-smashing at Greek celebrations turns 'smashed' from drunk to broken; the ellipsis carries Greece into the next clue.",
+     "definitionFit": "A full service of plates and dishes for a meal is what ends up broken in that custom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "smashed"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1557,54 @@
     "text": "Go into chippy but ignore the fish",
     "enumeration": "5"
    },
-   "solution": "ENTER"
+   "solution": "ENTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ENTER",
+    "definitions": [
+     {
+      "text": "Go into",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but ignore",
+      "for": "deletion",
+      "note": "ignoring something leaves it out, so those letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chippy",
+      "gives": "CARPENTER",
+      "note": "chippy is British slang for a carpenter"
+     },
+     {
+      "clueFragment": "the fish",
+      "gives": "CARP",
+      "note": "a carp is a freshwater fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Walk into the fish and chip shop but skip the fish.",
+     "walkthrough": "'chippy' is British slang both for a fish-and-chip shop, which the surface uses, and for a carpenter, which the wordplay uses.",
+     "definitionFit": "To enter a place is to go into it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "chippy"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1618,51 @@
     "text": "… and article cheers one of its characters",
     "enumeration": "5"
    },
-   "solution": "THETA"
+   "solution": "THETA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THETA",
+    "definitions": [
+     {
+      "text": "one of its characters",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the is the definite article"
+     },
+     {
+      "clueFragment": "cheers",
+      "gives": "TA",
+      "note": "ta is British informal for thank you"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "TA"
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing the Greek scene, a newspaper article toasts one of its personalities.",
+     "walkthrough": "The ellipsis links to the previous clue, so 'its' means Greece's, and its characters are the letters of its alphabet.",
+     "definitionFit": "Theta is the eighth letter of the Greek alphabet, so one of that country's written symbols."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1676,55 @@
     "text": "A painful swelling produced by one rodent",
     "enumeration": "6"
    },
-   "solution": "AGOUTI"
+   "solution": "AGOUTI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AGOUTI",
+    "definitions": [
+     {
+      "text": "rodent",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "produced by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "painful swelling",
+      "gives": "GOUT",
+      "note": "gout causes painful swelling of the joints"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GOUT",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A sore swollen joint caused by a single rodent bite.",
+     "definitionFit": "The agouti is a burrowing Central and South American rodent related to the guinea pig."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "swelling"
+    }
+   }
   },
   {
    "number": 25,
@@ -423,7 +1738,58 @@
     "text": "Girl's entertaining exploit in fairground feature",
     "enumeration": "8"
    },
-   "solution": "CAROUSEL"
+   "solution": "CAROUSEL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CAROUSEL",
+    "definitions": [
+     {
+      "text": "fairground feature",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "to entertain a guest is to hold them in your home, so one piece is placed within the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl's",
+      "gives": "CAROL",
+      "note": "Carol is a girl's name; the 's stands for is"
+     },
+     {
+      "clueFragment": "exploit",
+      "gives": "USE",
+      "note": "to exploit is to use"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARO",
+      "USE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl enjoys a daring exploit at a fair's main attraction.",
+     "walkthrough": "'Girl's' reads as possessive but is 'girl is', with the girl's name holding the verb.",
+     "definitionFit": "A carousel is a merry-go-round, the revolving ride with wooden horses found at funfairs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "entertaining"
+    }
+   }
   },
   {
    "number": 26,
@@ -437,7 +1803,59 @@
     "text": "Put flower in front of dull unfinished vestibule",
     "enumeration": "6"
    },
-   "solution": "EXEDRA"
+   "solution": "EXEDRA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "EXEDRA",
+    "definitions": [
+     {
+      "text": "vestibule",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfinished",
+      "for": "deletion",
+      "note": "something unfinished lacks its end, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "Put",
+     "in front of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flower",
+      "gives": "EXE",
+      "note": "a flower is something that flows, a river; the Exe flows through Devon"
+     },
+     {
+      "clueFragment": "dull",
+      "gives": "DRAB",
+      "note": "drab means dull and colourless"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXE",
+      "DRA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sets a bloom before a dreary half-decorated entrance hall.",
+     "walkthrough": "'flower' is the crossword river, something that flows; the EXE is a river in south-west England.",
+     "definitionFit": "An exedra is a portico or recessed room in classical architecture, a kind of hall or porch opening off a building."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flower"
+    }
+   }
   },
   {
    "number": 27,
@@ -451,7 +1869,73 @@
     "text": "One after tips in dingy bar — a horrible place",
     "enumeration": "8"
    },
-   "solution": "DYSTOPIA"
+   "solution": "DYSTOPIA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DYSTOPIA",
+    "definitions": [
+     {
+      "text": "a horrible place",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tips in",
+      "for": "letter_selection",
+      "note": "the tips of a word are its two ends, so only the outer letters are kept"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says the single letter follows the earlier pieces in the line"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dingy",
+      "gives": "DY",
+      "select": "outer",
+      "note": "the first and last letters of dingy"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "STOP",
+      "note": "to bar is to stop"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DY",
+      "STOP",
+      "I",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A lone drinker tipping staff in a grim bar finds it a dreadful spot.",
+     "walkthrough": "'tips' looks like gratuities left at the bar, but it means the two ends of the next word.",
+     "definitionFit": "A dystopia is an imagined society that is as bad as possible, the opposite of utopia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tips"
+    }
+   }
   }
  ]
 }
