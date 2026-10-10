@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Supplying drugs offence admitted by setter?",
     "enumeration": "6"
    },
-   "solution": "DOSING"
+   "solution": "DOSING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DOSING",
+    "definitions": [
+     {
+      "text": "Supplying drugs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitted by",
+      "for": "container",
+      "note": "something admitted is let inside, so the offence goes within the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "setter",
+      "gives": "DOG",
+      "note": "a setter is a breed of gun dog"
+     },
+     {
+      "clueFragment": "offence",
+      "gives": "SIN",
+      "note": "an offence or wrongdoing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "SIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle compiler confesses to the crime of dealing drugs.",
+     "walkthrough": "'Setter' looks like the crossword compiler, but here it is the dog.",
+     "definitionFit": "Dosing someone is administering medicine to them in measured amounts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "setter"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +99,67 @@
     "text": "State secret broken by mad men",
     "enumeration": "7"
    },
-   "solution": "DENMARK"
+   "solution": "DENMARK",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DENMARK",
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mad",
+      "for": "anagram",
+      "note": "mad means crazed or disordered, so the following letters are scrambled"
+     },
+     {
+      "text": "broken by",
+      "for": "container",
+      "note": "a word broken by another is split open with the other placed inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secret",
+      "gives": "DARK",
+      "note": "to keep something dark is to keep it secret"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "MEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ENM",
+      "ARK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MEN",
+       "gives": "ENM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An official state secret leaked by crazed men.",
+     "walkthrough": "Echoes Hamlet's 'Something is rotten in the state of Denmark'.",
+     "definitionFit": "Denmark is a sovereign country, a nation state in Scandinavia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "secret"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +173,75 @@
     "text": "Gertrude possibly isn't bothered about termination of spouse",
     "enumeration": "5"
    },
-   "solution": "STEIN"
+   "solution": "STEIN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STEIN",
+    "definitions": [
+     {
+      "text": "Gertrude possibly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bothered",
+      "for": "anagram",
+      "note": "bothered means upset or flustered, so the letters are rearranged"
+     },
+     {
+      "text": "termination of",
+      "for": "letter_selection",
+      "note": "termination is the end, so only the last letter of the word is kept"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around, so the jumbled letters wrap the single one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "isn't",
+      "gives": "ISNT",
+      "note": "taken as written without the apostrophe"
+     },
+     {
+      "clueFragment": "spouse",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of spouse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "E",
+      "IN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISNT",
+       "gives": "STIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hamlet's mother Gertrude shrugs off her husband's death.",
+     "walkthrough": "The surface's Gertrude is Hamlet's mother; the answer is the writer Gertrude Stein.",
+     "definitionFit": "Gertrude Stein was an American writer, so Stein is one possible surname for a Gertrude."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Gertrude"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +255,49 @@
     "text": "Description of Rupert Murdoch brought up in explicit opening",
     "enumeration": "7"
    },
-   "solution": "NEPOTIC"
+   "solution": "NEPOTIC",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "NEPOTIC",
+    "definitions": [
+     {
+      "text": "Description of Rupert Murdoch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the words that follow"
+     },
+     {
+      "text": "brought up",
+      "for": "reversal",
+      "note": "in a down clue, brought up means read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "explicit opening",
+      "gives": "CITOPEN",
+      "note": "letters running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A media mogul's upbringing is revealed in a frank opening chapter.",
+     "walkthrough": "Murdoch has passed control of his media empire to his children, hence the description.",
+     "definitionFit": "Nepotic means favouring one's relatives, as a tycoon handing businesses to his sons does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +311,59 @@
     "text": "Cockney tough guy lying about in Habitat",
     "enumeration": "6"
    },
-   "solution": "TUNDRA"
+   "solution": "TUNDRA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TUNDRA",
+    "definitions": [
+     {
+      "text": "Habitat",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lying about",
+      "for": "reversal",
+      "note": "about here means turned round to face the other way, so the phrase is read backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cockney tough guy",
+      "gives": "ARDNUT",
+      "note": "a hard nut is a tough guy; a Cockney drops the H, giving 'ard nut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUNDRA"
+     ],
+     "reversals": [
+      {
+       "from": "ARDNUT",
+       "to": "TUNDRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hard man from London's East End is sprawled across a furniture shop's showroom.",
+     "walkthrough": "Habitat is also a British furniture store chain, which the surface leans on. Cockney speech drops initial H.",
+     "definitionFit": "Tundra is a treeless Arctic environment, a type of natural home for plants and animals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Habitat"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +383,59 @@
      }
     ]
    },
-   "solution": "UTURNS"
+   "solution": "UTURNS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "U-TURNS",
+    "definitions": [
+     {
+      "text": "flip-flops",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "welcoming means taking in, so one word goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "US is short for the United States of America"
+     },
+     {
+      "clueFragment": "performer",
+      "gives": "TURN",
+      "note": "a turn is a variety act or performer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "TURN",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "The USA greets an entertainer wearing beach sandals.",
+     "walkthrough": "'Flip-flops' looks like footwear but means reversals of policy.",
+     "definitionFit": "A flip-flop is a sudden reversal of opinion, just as a U-turn is in politics."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flip-flops"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +449,73 @@
     "text": "Outlaw high speed on busy road",
     "enumeration": "9"
    },
-   "solution": "DESPERADO"
+   "solution": "DESPERADO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DESPERADO",
+    "definitions": [
+     {
+      "text": "Outlaw",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "high",
+      "for": "anagram",
+      "note": "high means intoxicated, so the word before it is in a wild state"
+     },
+     {
+      "text": "busy",
+      "for": "anagram",
+      "note": "a busy thing is all activity and bustle, so the letters move about"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "speed",
+      "gives": "SPEED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "ROAD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DESPE",
+      "RADO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SPEED",
+       "gives": "DESPE"
+      },
+      {
+       "fodder": "ROAD",
+       "gives": "RADO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bandit racing at full tilt along a crowded highway.",
+     "walkthrough": "'High speed' reads as velocity, but speed is the word to rearrange and high means off one's head; in a down clue the first piece sits on the second.",
+     "definitionFit": "A desperado is a reckless, dangerous criminal, typically in the Wild West."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "high"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +529,82 @@
     "text": "Ophelia exhausted and upset over endlessly gloomy lover",
     "enumeration": "7"
    },
-   "solution": "AMOROSO"
+   "solution": "AMOROSO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "deletion",
+     "container"
+    ],
+    "answer": "AMOROSO",
+    "definitions": [
+     {
+      "text": "lover",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exhausted",
+      "for": "letter_selection",
+      "note": "exhausted means emptied, so only the outer letters of the name remain"
+     },
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upset means turned upside down"
+     },
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without an end means the final letter is dropped"
+     },
+     {
+      "text": "over",
+      "for": "container",
+      "note": "over means covering, so the pair goes around the other word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ophelia",
+      "gives": "OA",
+      "select": "outer",
+      "note": "the first and last letters of Ophelia"
+     },
+     {
+      "clueFragment": "gloomy",
+      "gives": "MOROSE",
+      "note": "morose means sullen and gloomy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MOROS",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "OA",
+       "to": "AO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ophelia, worn out and distressed, mourns her melancholy beloved Hamlet.",
+     "definitionFit": "Amoroso, from Italian, is a lover or gallant, as well as a musical direction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exhausted"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +618,59 @@
     "text": "Youths with Laertes breaking wind",
     "enumeration": "13"
    },
-   "solution": "SOUTHEASTERLY"
+   "solution": "SOUTHEASTERLY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOUTHEASTERLY",
+    "definitions": [
+     {
+      "text": "wind",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking",
+      "for": "anagram",
+      "note": "breaking smashes things apart, so the combined letters are reassembled"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Youths",
+      "gives": "YOUTHS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Laertes",
+      "gives": "LAERTES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "YOUTHSLAERTES",
+       "gives": "SOUTHEASTERLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gang of boys and Laertes break wind together.",
+     "definitionFit": "A southeasterly is a wind blowing from the south-east."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "breaking"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +684,43 @@
     "text": "Madrid's No.11 in times gone by",
     "enumeration": "4"
    },
-   "solution": "ONCE"
+   "solution": "ONCE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ONCE",
+    "definitions": [
+     {
+      "text": "Madrid's No.11",
+      "at": 0
+     },
+     {
+      "text": "in times gone by",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Madrid's No.11",
+      "note": "first meaning: the Spanish word for eleven"
+     },
+     {
+      "clueFragment": "in times gone by",
+      "note": "second meaning: formerly"
+     }
+    ],
+    "explanation": {
+     "surface": "A Real Madrid player wearing the number 11 shirt, back in the old days.",
+     "definitionFit": "Spanish for eleven, and the English adverb meaning at some former time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Madrid's"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +734,58 @@
     "text": "Thrust from Prince murdered Polonius",
     "enumeration": "10"
    },
-   "solution": "PROPULSION"
+   "solution": "PROPULSION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PROPULSION",
+    "definitions": [
+     {
+      "text": "Thrust",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "murdered",
+      "for": "anagram",
+      "note": "a murdered body is mangled, so the letters are knocked out of their order"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prince",
+      "gives": "PR",
+      "note": "PR is a standard abbreviation for prince"
+     },
+     {
+      "clueFragment": "Polonius",
+      "gives": "POLONIUS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PRPOLONIUS",
+       "gives": "PROPULSION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hamlet stabbing Polonius behind the arras, framed as a forceful lunge.",
+     "definitionFit": "Propulsion is the driving force that pushes something forward, just as a thrust does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Thrust"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +799,53 @@
     "text": "Spooner's horse ran into metal bar",
     "enumeration": "6"
    },
-   "solution": "MAGNET"
+   "solution": "MAGNET",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "MAGNET",
+    "definitions": [
+     {
+      "text": "metal bar",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner's",
+      "for": "spoonerism",
+      "note": "Dr Spooner swapped the opening sounds of words, so the starts of the two words trade places"
+     }
+    ],
+    "linkWords": [
+     "into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horse ran",
+      "gives": "MAGNET",
+      "soundsLike": "NAG MET",
+      "note": "a nag is a horse and ran into is met; Spooner swaps their opening sounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAGNET"
+     ]
+    },
+    "explanation": {
+     "surface": "A horse collides with a metal bar, perhaps a fence rail.",
+     "walkthrough": "Swap the opening sounds of NAG MET and you get MAG NET; 'into' does double duty in the surface but is just a joiner here.",
+     "definitionFit": "A magnet is typically a bar of magnetised iron or steel that attracts other iron."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "ran"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +859,64 @@
     "text": "Single fly on counter for fruit",
     "enumeration": "8"
    },
-   "solution": "TANGELOS"
+   "solution": "TANGELOS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TANGELOS",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on counter",
+      "for": "reversal",
+      "note": "counter means running the opposite way, so the pieces are read backwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Single",
+      "gives": "SOLE",
+      "note": "sole means only or single"
+     },
+     {
+      "clueFragment": "fly",
+      "gives": "GNAT",
+      "note": "a gnat is a small fly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TANG",
+      "ELOS"
+     ],
+     "reversals": [
+      {
+       "from": "SOLEGNAT",
+       "to": "TANGELOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lone fly settles on a shop counter where fruit is sold.",
+     "walkthrough": "'Counter' looks like a shop surface but signals the reversal.",
+     "definitionFit": "Tangelos are citrus hybrids of tangerine and pomelo or grapefruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "counter"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +930,51 @@
     "text": "Broadcaster leaves to shoot up",
     "enumeration": "9"
    },
-   "solution": "SKYROCKET"
+   "solution": "SKYROCKET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SKYROCKET",
+    "definitions": [
+     {
+      "text": "shoot up",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Broadcaster",
+      "gives": "SKY",
+      "note": "Sky is a British satellite TV broadcaster"
+     },
+     {
+      "clueFragment": "leaves",
+      "gives": "ROCKET",
+      "note": "rocket is a peppery salad leaf, also called arugula"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKY",
+      "ROCKET"
+     ]
+    },
+    "explanation": {
+     "surface": "A TV presenter walks out to go and film something.",
+     "walkthrough": "'Leaves' looks like a verb (departs) but is salad leaves; 'shoot' looks like filming.",
+     "definitionFit": "To skyrocket is to rise very rapidly, as prices or sales shoot up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +988,68 @@
     "text": "Hillbilly saying Curtis Strange is married",
     "enumeration": "9"
    },
-   "solution": "RUSTICISM"
+   "solution": "RUSTICISM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "RUSTICISM",
+    "definitions": [
+     {
+      "text": "Hillbilly saying",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Strange",
+      "for": "anagram",
+      "note": "strange means odd or out of the ordinary, so the name's letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Curtis",
+      "gives": "RUSTIC",
+      "note": "the letters of Curtis rearranged"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M is the abbreviation for married"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUSTIC",
+      "IS",
+      "M"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CURTIS",
+       "gives": "RUSTIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Golfer Curtis Strange is wed, and this is said in a rural accent.",
+     "walkthrough": "Curtis Strange is an American golfer, so 'Strange' hides as a surname.",
+     "definitionFit": "A rusticism is a rural expression or turn of phrase, typical of country folk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Strange"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +1063,59 @@
     "text": "Prince and Horatio finally getting ring",
     "enumeration": "4"
    },
-   "solution": "HALO"
+   "solution": "HALO",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "HALO",
+    "definitions": [
+     {
+      "text": "ring",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very last letter of the name beside it"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prince",
+      "gives": "HAL",
+      "note": "Prince Hal is Shakespeare's young Henry V"
+     },
+     {
+      "clueFragment": "Horatio",
+      "gives": "O",
+      "select": "last",
+      "note": "the last letter of Horatio"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAL",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Hamlet and his friend Horatio receive a ring, in keeping with the puzzle's Danish theme.",
+     "walkthrough": "The surface suggests Hamlet, but the prince is Hal from Henry IV.",
+     "definitionFit": "A halo is a circle of light, a ring around a saint's head or the moon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Prince"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1129,61 @@
     "text": "My interpretation of timeless ghost",
     "enumeration": "4"
    },
-   "solution": "GOSH"
+   "solution": "GOSH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "GOSH",
+    "definitions": [
+     {
+      "text": "My",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "timeless",
+      "for": "deletion",
+      "note": "without time means losing the abbreviation for time, the letter T"
+     },
+     {
+      "text": "interpretation of",
+      "for": "anagram",
+      "note": "an interpretation is a fresh rendering, so the remaining letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ghost",
+      "gives": "GHOST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOSH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GHOS",
+       "gives": "GOSH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone offers their reading of the ghost of Hamlet's father as eternal.",
+     "walkthrough": "'My' looks like a possessive but is the exclamation of surprise.",
+     "definitionFit": "Both are mild exclamations expressing surprise, as in 'My, how you've grown'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "My"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1197,68 @@
     "text": "Giant pig welcomes dog turning up",
     "enumeration": "7"
    },
-   "solution": "GOLIATH"
+   "solution": "GOLIATH",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "GOLIATH",
+    "definitions": [
+     {
+      "text": "Giant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcomes",
+      "for": "container",
+      "note": "welcoming means taking someone in, so one word goes inside"
+     },
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down clue, turning up means reading from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pig",
+      "gives": "HOG",
+      "note": "a hog is a pig"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "TAIL",
+      "note": "to dog someone is to follow, or tail, them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "LIAT",
+      "H"
+     ],
+     "reversals": [
+      {
+       "from": "HTAILOG",
+       "to": "GOLIATH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A huge pig makes a dog welcome when it shows up.",
+     "walkthrough": "'Dog' reads as a noun but is the verb meaning to follow.",
+     "definitionFit": "Goliath is the Philistine giant slain by David, and the name now means any giant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "dog"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1282,61 @@
      }
     ]
    },
-   "solution": "ASITCOMES"
+   "solution": "ASITCOMES",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "AS IT COMES",
+    "definitions": [
+     {
+      "text": "in any way whatsoever",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ends",
+      "for": "letter_selection",
+      "note": "ends picks out the final letter of each of the two words beside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "TV show",
+      "gives": "SITCOM",
+      "note": "a situation comedy is a kind of TV show"
+     },
+     {
+      "clueFragment": "like this",
+      "gives": "ES",
+      "select": "last",
+      "note": "the last letters of like and this"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SITCOM",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "A comedy series that makes no effort to be anything in particular.",
+     "definitionFit": "Taking things as they come means accepting them however they turn out, without preference."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "like"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1350,71 @@
     "text": "Drama of T.Rex getting on Glastonbury at last",
     "enumeration": "7"
    },
-   "solution": "TRAGEDY"
+   "solution": "TRAGEDY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TRAGEDY",
+    "definitions": [
+     {
+      "text": "Drama",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the final letter of the place name"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "T.",
+      "gives": "T",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Rex",
+      "gives": "R",
+      "note": "R is the abbreviation for rex, Latin for king"
+     },
+     {
+      "clueFragment": "getting on",
+      "gives": "AGED",
+      "note": "someone getting on is growing old"
+     },
+     {
+      "clueFragment": "Glastonbury",
+      "gives": "Y",
+      "select": "last",
+      "note": "the last letter of Glastonbury"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "AGED",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "The glam rock band T. Rex finally takes the stage at the Glastonbury Festival.",
+     "walkthrough": "'Getting on' looks like taking the stage, but it means growing old. Glastonbury is England's best-known music festival.",
+     "definitionFit": "A tragedy is a serious play with an unhappy ending, a form of drama."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rex"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1428,77 @@
     "text": "Claudius maybe has power over queen in northerly city",
     "enumeration": "7"
    },
-   "solution": "EMPEROR"
+   "solution": "EMPEROR",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "EMPEROR",
+    "definitions": [
+     {
+      "text": "Claudius maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "northerly",
+      "for": "reversal",
+      "note": "in a down clue, going northerly means running upwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in says one piece sits inside the other"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the symbol for power"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina, the Queen"
+     },
+     {
+      "clueFragment": "city",
+      "gives": "ROME",
+      "note": "the Italian capital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "PER",
+      "OR"
+     ],
+     "reversals": [
+      {
+       "from": "ROME",
+       "to": "EMOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hamlet's uncle Claudius seizes power over the queen in a city to the north.",
+     "walkthrough": "Claudius here is the Roman emperor, not Hamlet's usurping uncle; 'over' places P above ER.",
+     "definitionFit": "Claudius was the fourth Roman emperor, so he is one example of an emperor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Claudius"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1512,68 @@
     "text": "Doctor Who overwhelmed by support of American singer",
     "enumeration": "6"
    },
-   "solution": "TOWHEE"
+   "solution": "TOWHEE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TOWHEE",
+    "definitions": [
+     {
+      "text": "American singer",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so the letters are rearranged"
+     },
+     {
+      "text": "overwhelmed by",
+      "for": "container",
+      "note": "overwhelmed means engulfed, so the jumbled letters sit inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "support",
+      "gives": "TEE",
+      "note": "a tee supports a golf ball"
+     },
+     {
+      "clueFragment": "Who",
+      "gives": "WHO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OWH",
+      "EE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WHO",
+       "gives": "OWH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Time Lord is upstaged by the backing act for a US vocalist.",
+     "walkthrough": "'Doctor Who' reads as the TV show, but Doctor is the instruction to rearrange. 'Singer' is a songbird.",
+     "definitionFit": "The towhee is a North American songbird of the bunting family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "singer"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1587,62 @@
     "text": "English learning about evil castle",
     "enumeration": "8"
    },
-   "solution": "ELSINORE"
+   "solution": "ELSINORE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ELSINORE",
+    "definitions": [
+     {
+      "text": "castle",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around, so one word wraps round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "learning",
+      "gives": "LORE",
+      "note": "lore is accumulated knowledge or learning"
+     },
+     {
+      "clueFragment": "evil",
+      "gives": "SIN",
+      "note": "a sin is an evil act"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "L",
+      "SIN",
+      "ORE"
+     ]
+    },
+    "explanation": {
+     "surface": "A student of English discovers a sinister fortress.",
+     "walkthrough": "The castle fits the puzzle's Hamlet theme; 'learning' is a noun here, not a verb.",
+     "definitionFit": "Elsinore is Kronborg Castle in Denmark, setting of Hamlet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "learning"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1656,61 @@
     "text": "Short fitting skirts nearly dry",
     "enumeration": "6"
    },
-   "solution": "ABRUPT"
+   "solution": "ABRUPT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ABRUPT",
+    "definitions": [
+     {
+      "text": "Short",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "skirts",
+      "for": "container",
+      "note": "to skirt is to go around the edge, so the outer word encloses the inner"
+     },
+     {
+      "text": "nearly",
+      "for": "deletion",
+      "note": "nearly means not quite all, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fitting",
+      "gives": "APT",
+      "note": "apt means suitable or fitting"
+     },
+     {
+      "clueFragment": "dry",
+      "gives": "BRUT",
+      "note": "brut describes very dry champagne"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BRU",
+      "PT"
+     ]
+    },
+    "explanation": {
+     "surface": "A short skirt that fits well is almost dry after washing.",
+     "walkthrough": "'Skirts' looks like clothing but is the verb meaning to go round.",
+     "definitionFit": "Abrupt means curt or brief in manner, so it can stand for short."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "skirts"
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1724,43 @@
     "text": "Accurate observance in speech",
     "enumeration": "5"
    },
-   "solution": "RIGHT"
+   "solution": "RIGHT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "RIGHT",
+    "definitions": [
+     {
+      "text": "Accurate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in speech",
+      "for": "homophone",
+      "note": "in speech means when spoken, so the word is judged by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "observance",
+      "gives": "RIGHT",
+      "soundsLike": "RITE",
+      "note": "a rite is a religious observance or ceremony"
+     }
+    ],
+    "explanation": {
+     "surface": "Correct observation of the rules of speaking.",
+     "definitionFit": "Right means correct or true, so it can stand for accurate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "observance"
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1780,45 @@
      }
     ]
    },
-   "solution": "DANISHBLUE"
+   "solution": "DANISHBLUE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DANISH BLUE",
+    "definitions": [
+     {
+      "text": "cheese",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two adjectives for 26",
+      "gives": "DANISHBLUE",
+      "note": "26 is the Prince of Denmark, who is Danish and famously melancholy, or blue"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DANISHBLUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of two words describing the answer at 26.",
+     "walkthrough": "Hamlet at 26 is the Danish prince, and his gloom makes him blue.",
+     "definitionFit": "Danish Blue is a soft blue-veined cheese made in Denmark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "adjectives"
+    }
+   }
   },
   {
    "number": 25,
@@ -419,7 +1832,67 @@
     "text": "At first, Rosencrantz and Guildenstern rejected black clothes",
     "enumeration": "4"
    },
-   "solution": "GARB"
+   "solution": "GARB",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "GARB",
+    "definitions": [
+     {
+      "text": "clothes",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "At first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of each following word"
+     },
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "rejected means thrown back, so those letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rosencrantz and Guildenstern",
+      "gives": "RAG",
+      "select": "first",
+      "note": "the first letters of Rosencrantz, and, Guildenstern"
+     },
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "B is the abbreviation for black, as on pencils"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAR",
+      "B"
+     ],
+     "reversals": [
+      {
+       "from": "RAG",
+       "to": "GAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hamlet's two old schoolfriends initially turned down wearing mourning dress.",
+     "definitionFit": "Garb is clothing or attire, especially of a distinctive kind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "black"
+    }
+   }
   },
   {
    "number": 26,
@@ -433,7 +1906,67 @@
     "text": "Prince Harry's initial charm after leaving university",
     "enumeration": "6"
    },
-   "solution": "HAMLET"
+   "solution": "HAMLET",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "HAMLET",
+    "definitions": [
+     {
+      "text": "Prince",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initial",
+      "for": "letter_selection",
+      "note": "initial picks out the first letter of the name it follows"
+     },
+     {
+      "text": "after leaving",
+      "for": "deletion",
+      "note": "leaving means departing, so the letter for the university drops out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Harry's",
+      "gives": "H",
+      "select": "first",
+      "note": "the first letter of Harry"
+     },
+     {
+      "clueFragment": "charm",
+      "gives": "AMULET",
+      "note": "an amulet is a lucky charm"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "AMLET"
+     ]
+    },
+    "explanation": {
+     "surface": "Prince Harry's early charisma after quitting his studies.",
+     "walkthrough": "Prince Harry pulls toward the British royal; the prince is the Danish one.",
+     "definitionFit": "Hamlet is the Prince of Denmark in Shakespeare's tragedy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Harry's"
+    }
+   }
   },
   {
    "number": 27,
@@ -447,7 +1980,61 @@
     "text": "Nurse not the first to swallow unknown aphrodisiac",
     "enumeration": "6"
    },
-   "solution": "OYSTER"
+   "solution": "OYSTER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "OYSTER",
+    "definitions": [
+     {
+      "text": "aphrodisiac",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not the first",
+      "for": "deletion",
+      "note": "not the first means the opening letter is dropped"
+     },
+     {
+      "text": "to swallow",
+      "for": "container",
+      "note": "swallowing takes something inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nurse",
+      "gives": "FOSTER",
+      "note": "to foster is to nurse or nurture"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "Y is an algebraic unknown"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "Y",
+      "STER"
+     ]
+    },
+    "explanation": {
+     "surface": "A nurse refuses to be the first to try a love potion.",
+     "walkthrough": "Y, a mathematical unknown, goes after the first letter of OSTER.",
+     "definitionFit": "Oysters are traditionally reputed to stimulate sexual desire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Nurse"
+    }
+   }
   }
  ]
 }
