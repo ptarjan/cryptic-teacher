@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,70 @@
     "text": "Male model to talk about mirror",
     "enumeration": "4"
    },
-   "solution": "STAG"
+   "solution": "STAG",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "STAG",
+    "definitions": [
+     {
+      "text": "Male",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around, so one word wraps the other"
+     },
+     {
+      "text": "mirror",
+      "for": "reversal",
+      "note": "a mirror shows things back to front, so the result is read from right to left"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "talk",
+      "gives": "GAS",
+      "note": "to gas is to chatter idly"
+     },
+     {
+      "clueFragment": "model",
+      "gives": "T",
+      "note": "the Model T was Ford's famous car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "T",
+      "AG"
+     ],
+     "reversals": [
+      {
+       "from": "GATS",
+       "to": "STAG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A male model is told to talk to his own reflection.",
+     "walkthrough": "T goes inside GAS to make GATS, which read backwards is STAG.",
+     "definitionFit": "A stag is an adult male deer, and the word is also used for men alone, as in a stag party."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +113,54 @@
     "text": "Schedule tax on electronic till",
     "enumeration": "8"
    },
-   "solution": "ROTAVATE"
+   "solution": "ROTAVATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROTAVATE",
+    "definitions": [
+     {
+      "text": "till",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Schedule",
+      "gives": "ROTA",
+      "note": "a rota is a timetable of duties"
+     },
+     {
+      "clueFragment": "tax",
+      "gives": "VAT",
+      "note": "value added tax"
+     },
+     {
+      "clueFragment": "on electronic",
+      "gives": "E",
+      "note": "E is the usual abbreviation for electronic, as in e-mail; on joins it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROTA",
+      "VAT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A shopkeeper is told to schedule tax on the electronic cash register.",
+     "walkthrough": "'Electronic till' looks like a cash register; till is really the verb meaning to work the soil.",
+     "definitionFit": "To rotavate is to break up soil with a rotary cultivator, which is one way to till the ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "till"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +174,42 @@
     "text": "Conduct metal",
     "enumeration": "4"
    },
-   "solution": "LEAD"
+   "solution": "LEAD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEAD",
+    "definitions": [
+     {
+      "text": "Conduct",
+      "at": 0
+     },
+     {
+      "text": "metal",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conduct",
+      "note": "first meaning: to guide or direct"
+     },
+     {
+      "clueFragment": "metal",
+      "note": "second meaning: the heavy grey element Pb"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The verb and the noun are spelt alike but pronounced differently.",
+     "definitionFit": "To lead people is to guide them, and lead is also a soft heavy element used in pipes and roofing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Conduct"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +229,74 @@
      }
     ]
    },
-   "solution": "WATERSKI"
+   "solution": "WATERSKI",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "WATER-SKI",
+    "definitions": [
+     {
+      "text": "sports equipment",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrong",
+      "for": "anagram",
+      "note": "if the letters are wrong they need to be put into a different order"
+     },
+     {
+      "text": "leader's",
+      "for": "letter_selection",
+      "note": "the leader of a word is its opening letter"
+     },
+     {
+      "text": "to steal",
+      "for": "container",
+      "note": "to steal something is to take it in and hold it, so one piece ends up inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Was Keir",
+      "gives": "WASKEIR",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "Tory",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of Tory"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WA",
+      "T",
+      "ERSKI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WASKEIR",
+       "gives": "WAERSKI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political jibe asks whether Keir Starmer stole a Conservative leader's water-sports kit.",
+     "definitionFit": "Water-skis are the long boards a skier stands on while towed behind a boat, so they count as sports equipment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Keir"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +310,67 @@
     "text": "Most unhappy footballer drilled by head of Leeds United",
     "enumeration": "6"
    },
-   "solution": "BLUEST"
+   "solution": "BLUEST",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BLUEST",
+    "definitions": [
+     {
+      "text": "Most unhappy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drilled by",
+      "for": "container",
+      "note": "something drilled has a hole bored into it, so other letters sit inside it"
+     },
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "footballer",
+      "gives": "BEST",
+      "note": "George Best, the Manchester United and Northern Ireland star"
+     },
+     {
+      "clueFragment": "Leeds",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of Leeds"
+     },
+     {
+      "clueFragment": "United",
+      "gives": "U",
+      "note": "U is the standard abbreviation for United in team names"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LU",
+      "EST"
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer is miserable after a drilling from the Leeds United manager.",
+     "definitionFit": "Blue means sad or low in spirits, so the superlative bluest means saddest of all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drilled"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +390,75 @@
      }
     ]
    },
-   "solution": "BARBIEDOLL"
+   "solution": "BARBIEDOLL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BARBIE DOLL",
+    "definitions": [
+     {
+      "text": "attractive young lady",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excited",
+      "for": "anagram",
+      "note": "an excited thing is stirred up, so these letters are jumbled"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during means within the span of, so the jumbled letters go inside the other word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bride's",
+      "gives": "BRIDE",
+      "note": "taken as written for rearranging; the 's is joined to excited, as in 'is excited'"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "a ring is round, like the letter O"
+     },
+     {
+      "clueFragment": "dance",
+      "gives": "BALL",
+      "note": "a ball is a formal dance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "RBIEDO",
+      "LL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BRIDEO",
+       "gives": "RBIEDO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bride, thrilled by her ring, dances at her wedding with a pretty young woman.",
+     "walkthrough": "The 's on Bride's stands for 'is', so the bride is what is excited; the dance is the outer word, not the setting.",
+     "definitionFit": "A Barbie doll is used informally, often dismissively, for a conventionally pretty but vapid young woman, after the toy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "dance"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +472,51 @@
     "text": "Perhaps Ahab's wife is more healthy",
     "enumeration": "6"
    },
-   "solution": "WHALER"
+   "solution": "WHALER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WHALER",
+    "definitions": [
+     {
+      "text": "Perhaps Ahab",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the standard abbreviation for wife"
+     },
+     {
+      "clueFragment": "more healthy",
+      "gives": "HALER",
+      "note": "hale means healthy, so haler is healthier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HALER"
+     ]
+    },
+    "explanation": {
+     "surface": "It sounds like gossip that Ahab's wife is in better health than he is.",
+     "walkthrough": "Captain Ahab hunts the white whale in Moby-Dick; 'perhaps' signals he is an example of the answer.",
+     "definitionFit": "Ahab commands the whaling ship Pequod, so he is an example of a whaler, a person who hunts whales."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "wife"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +536,59 @@
      }
     ]
    },
-   "solution": "XRAY"
+   "solution": "XRAY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "X-RAY",
+    "definitions": [
+     {
+      "text": "Photograph",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounded by",
+      "for": "container",
+      "note": "something surrounded by others is enclosed on both sides, so it sits between them"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "axes",
+      "gives": "XY",
+      "note": "x and y are the two axes of a graph"
+     },
+     {
+      "clueFragment": "gunners",
+      "gives": "RA",
+      "note": "the Royal Artillery are the gunners of the British Army"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "X",
+      "RA",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A picture shows artillerymen ringed by men with axes.",
+     "walkthrough": "'Axes' suggests chopping tools; it is the plural of axis, the x and y lines of a graph.",
+     "definitionFit": "An X-ray is a radiograph, an image of the inside of the body made with radiation, so a kind of photograph."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "axes"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +608,58 @@
      }
     ]
    },
-   "solution": "TBONE"
+   "solution": "TBONE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "T-BONE",
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unlimited",
+      "for": "letter_selection",
+      "note": "without limits means without its boundaries, so the outermost letters go and the middle stays"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "disease",
+      "gives": "TB",
+      "note": "TB is tuberculosis"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "ONE",
+      "select": "middle",
+      "note": "the middle letters of money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TB",
+      "ONE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cuts a disease off using unlimited funds.",
+     "definitionFit": "A T-bone is a steak cut from the loin containing a T-shaped bone, so a cut of meat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cut"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +679,52 @@
      }
     ]
    },
-   "solution": "ALLFATHER"
+   "solution": "ALLFATHER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALL-FATHER",
+    "definitions": [
+     {
+      "text": "Odin",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being renovated",
+      "for": "anagram",
+      "note": "something being renovated is rebuilt, so these letters are reassembled"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hall after",
+      "gives": "HALLAFTER",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HALLAFTER",
+       "gives": "ALLFATHER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Odin's great hall, Valhalla, is newly done up.",
+     "definitionFit": "All-father is a title of Odin in Norse mythology, as the chief god and father of gods and men."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +744,64 @@
      }
     ]
    },
-   "solution": "GRANDJETE"
+   "solution": "GRANDJETE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "GRAND JETE",
+    "definitions": [
+     {
+      "text": "Jump",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its final letter is used"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "£1,000",
+      "gives": "GRAND",
+      "note": "a grand is slang for a thousand pounds"
+     },
+     {
+      "clueFragment": "plane",
+      "gives": "JET",
+      "note": "a jet is an aircraft"
+     },
+     {
+      "clueFragment": "France",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of France"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRAND",
+      "JET",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A holidaymaker leaps from a pricey jet landing near France.",
+     "definitionFit": "A grand jeté is a ballet leap from one foot to the other with legs split, a big jump."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plane"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +815,63 @@
     "text": "British Jack leaves pudding in stomach",
     "enumeration": "5"
    },
-   "solution": "BELLY"
+   "solution": "BELLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "BELLY",
+    "definitions": [
+     {
+      "text": "stomach",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "when someone leaves they are no longer present, so that letter drops out"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "Jack",
+      "gives": "J",
+      "note": "J is jack in a card pack"
+     },
+     {
+      "clueFragment": "pudding",
+      "gives": "JELLY",
+      "note": "jelly is a wobbly dessert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ELLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A British sailor walks away with a pudding in his stomach.",
+     "walkthrough": "A Jack is a British sailor in the surface; here it is the card abbreviation J, taken out of JELLY.",
+     "definitionFit": "Belly is an everyday synonym for the stomach or abdomen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Jack"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +885,72 @@
     "text": "Church has real trouble with saint 29",
     "enumeration": "7"
    },
-   "solution": "CHARLES"
+   "solution": "CHARLES",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CHARLES",
+    "definitions": [
+     {
+      "text": "29",
+      "at": 35,
+      "note": "a cross-reference to 29 down: the answer is a king's name, not a word meaning king"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trouble",
+      "for": "anagram",
+      "note": "trouble suggests disorder, so these letters are thrown into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Church",
+      "gives": "CH",
+      "note": "CH is the abbreviation for church"
+     },
+     {
+      "clueFragment": "real",
+      "gives": "REAL",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "saint",
+      "gives": "S",
+      "note": "S is the abbreviation for saint"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "ARLE",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REAL",
+       "gives": "ARLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A church is in real difficulty over a royal saint.",
+     "walkthrough": "29 down is KING, so the definition is a king; Charles is the name of several British monarchs.",
+     "definitionFit": "Charles I, II and III have all reigned in Britain, so Charles is the name of a king."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trouble"
+    }
+   }
   },
   {
    "number": 13,
@@ -251,7 +964,39 @@
     "text": "Ministerial material?",
     "enumeration": "5"
    },
-   "solution": "CLOTH"
+   "solution": "CLOTH",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CLOTH",
+    "definitions": [
+     {
+      "text": "Ministerial material?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ministerial material?",
+      "note": "surface reading: papers or briefings that a government minister uses"
+     },
+     {
+      "clueFragment": "Ministerial material?",
+      "note": "setter's reading: the fabric a church minister wears, whose name also stands for the clergy as a body"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Minister means a member of the clergy, not a government official; the clergy are collectively known as 'the cloth'.",
+     "definitionFit": "The cloth is an idiom for the clergy, from their distinctive dress, and it is literally a fabric."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ministerial"
+    }
+   }
   },
   {
    "number": 14,
@@ -271,7 +1016,49 @@
      }
     ]
    },
-   "solution": "LEAFINSECT"
+   "solution": "LEAFINSECT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LEAF INSECT",
+    "definitions": [
+     {
+      "text": "Creature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "evolving",
+      "for": "anagram",
+      "note": "something evolving changes form over time, so the letters change their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "can feel it's",
+      "gives": "CANFEELITS",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CANFEELITS",
+       "gives": "LEAFINSECT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An animal senses that it is changing under natural selection.",
+     "definitionFit": "A leaf insect is a tropical insect camouflaged to look like a leaf, so it is a living creature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -285,7 +1072,59 @@
     "text": "Proposition me with other design",
     "enumeration": "7"
    },
-   "solution": "THEOREM"
+   "solution": "THEOREM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THEOREM",
+    "definitions": [
+     {
+      "text": "Proposition",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "design",
+      "for": "anagram",
+      "note": "a design is a fresh arrangement, so the letters are laid out anew"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "other",
+      "gives": "OTHER",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MEOTHER",
+       "gives": "THEOREM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is propositioned along with a third party, by design.",
+     "definitionFit": "In mathematics a theorem is a proposition proved from axioms, and proposition is the formal term for such a statement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Proposition"
+    }
+   }
   },
   {
    "number": 16,
@@ -299,7 +1138,53 @@
     "text": "Setter's covering three quarks in a neutron – confused?",
     "enumeration": "5"
    },
-   "solution": "MUDDY"
+   "solution": "MUDDY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MUDDY",
+    "definitions": [
+     {
+      "text": "confused",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "a covering goes round the outside of something, so these letters enclose the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Setter's",
+      "gives": "MY",
+      "note": "the setter speaking of himself: my"
+     },
+     {
+      "clueFragment": "three quarks in a neutron",
+      "gives": "UDD",
+      "note": "a neutron is made of one up and two down quarks, abbreviated u, d, d"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "UDD",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A physics puzzle about the quark content of a neutron leaves the reader baffled.",
+     "definitionFit": "Muddy thinking is unclear, so muddy can mean muddled or confused."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -313,7 +1198,60 @@
     "text": "Ball game's chaotic conclusion",
     "enumeration": "5"
    },
-   "solution": "OMEGA"
+   "solution": "OMEGA",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "OMEGA",
+    "definitions": [
+     {
+      "text": "conclusion",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chaotic",
+      "for": "anagram",
+      "note": "chaos is disorder, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ball",
+      "gives": "O",
+      "note": "a ball is round like the letter O"
+     },
+     {
+      "clueFragment": "game's",
+      "gives": "GAME",
+      "note": "taken as written for rearranging; the 's stands for is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "MEGA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GAME",
+       "gives": "MEGA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ball game ends in chaos.",
+     "definitionFit": "Omega is the last letter of the Greek alphabet, so it stands for the end or conclusion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ball"
+    }
+   }
   },
   {
    "number": 18,
@@ -327,7 +1265,50 @@
     "text": "(√-1 + 50) ÷ 50? That's difficult",
     "enumeration": "3"
    },
-   "solution": "ILL"
+   "solution": "ILL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ILL",
+    "definitions": [
+     {
+      "text": "difficult",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "(√-1 + 50)",
+      "gives": "IL",
+      "note": "the square root of minus one is i in mathematics, and 50 is L in Roman numerals"
+     },
+     {
+      "clueFragment": "÷ 50",
+      "gives": "L",
+      "note": "division writes one thing over another, so another Roman 50 goes after it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IL",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A sum mixing imaginary and Roman numbers is admitted to be hard.",
+     "walkthrough": "Read the sum as letters: I plus L, then a further L.",
+     "definitionFit": "Ill can mean hard or difficult, as in 'ill at ease' or 'it ill becomes him'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 19,
@@ -341,7 +1322,65 @@
     "text": "Portrait to hang over 29's head",
     "enumeration": "8"
    },
-   "solution": "LIKENESS"
+   "solution": "LIKENESS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "LIKENESS",
+    "definitions": [
+     {
+      "text": "Portrait",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "container",
+      "note": "over here means covering on all sides, so one piece encloses the next"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hang",
+      "gives": "LIE",
+      "note": "the way a garment hangs is the way it lies"
+     },
+     {
+      "clueFragment": "29's",
+      "gives": "K",
+      "note": "29 down is king, abbreviated K in chess"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "NESS",
+      "note": "a ness is a headland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "K",
+      "E",
+      "NESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A portrait is to be hung above a royal's head.",
+     "walkthrough": "'Head' looks like the top of the king; it is a headland, as in Loch Ness or Dungeness, and 29 down is KING, shortened to K.",
+     "definitionFit": "A likeness is a picture or representation of someone, which is what a portrait is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1394,68 @@
     "text": "Decided to put page in dictionary? About time",
     "enumeration": "5"
    },
-   "solution": "OPTED"
+   "solution": "OPTED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OPTED",
+    "definitions": [
+     {
+      "text": "Decided",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put",
+      "for": "container",
+      "note": "putting something in a thing places it inside"
+     },
+     {
+      "text": "About",
+      "for": "container",
+      "note": "about means going round, so the big word wraps another letter"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dictionary",
+      "gives": "OED",
+      "note": "the Oxford English Dictionary"
+     },
+     {
+      "clueFragment": "page",
+      "gives": "P",
+      "note": "p is short for page"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "t is short for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "P",
+      "T",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone resolved to add a page to the dictionary, and about time too.",
+     "definitionFit": "To opt is to choose, so opted is a synonym of decided in the past tense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "About"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1475,73 @@
      }
     ]
    },
-   "solution": "TAJMAHAL"
+   "solution": "TAJMAHAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TAJ MAHAL",
+    "definitions": [
+     {
+      "text": "Wonder",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not even",
+      "for": "letter_selection",
+      "note": "keeping what is not even means keeping only the odd-numbered letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that",
+      "gives": "TA",
+      "select": "alternate",
+      "note": "the first and third letters of that"
+     },
+     {
+      "clueFragment": "Juliet",
+      "gives": "J",
+      "note": "Juliet is J in the phonetic alphabet"
+     },
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "m is short for married"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "prince",
+      "gives": "HAL",
+      "note": "Prince Hal is the young Henry V in Shakespeare"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "J",
+      "M",
+      "A",
+      "HAL"
+     ]
+    },
+    "explanation": {
+     "surface": "It is a wonder that not even Juliet married a prince.",
+     "definitionFit": "The Taj Mahal is one of the New Seven Wonders of the World, the marble mausoleum at Agra."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Juliet"
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1555,65 @@
     "text": "Who's moved by Heather crying?",
     "enumeration": "7"
    },
-   "solution": "HOWLING"
+   "solution": "HOWLING",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "HOWLING",
+    "definitions": [
+     {
+      "text": "crying",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moved",
+      "for": "anagram",
+      "note": "something moved is shifted out of place, so its letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Who",
+      "gives": "WHO",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "Heather",
+      "gives": "LING",
+      "note": "ling is common heather"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOW",
+      "LING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WHO",
+       "gives": "HOW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks which person was so touched by a woman named Heather that they wept.",
+     "walkthrough": "Heather looks like a woman's name; it is the plant, also called ling.",
+     "definitionFit": "Howling is crying loudly, whether in grief or like a baby, so the two words overlap."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Heather"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1627,45 @@
     "text": "Former F1 commentator, one not going by car?",
     "enumeration": "6"
    },
-   "solution": "WALKER"
+   "solution": "WALKER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WALKER",
+    "definitions": [
+     {
+      "text": "Former F1 commentator",
+      "at": 0
+     },
+     {
+      "text": "one not going by car?",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Former F1 commentator",
+      "note": "first meaning: Murray ..., the BBC's long-serving Formula One voice"
+     },
+     {
+      "clueFragment": "one not going by car?",
+      "note": "second meaning: a person who travels on foot"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The joke is that the most famous motor-racing commentator has a name meaning a pedestrian.",
+     "definitionFit": "Murray Walker commentated on Formula One for decades, and a walker is someone who goes on foot rather than driving."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1679,51 @@
     "text": "Large cup for a small mouth?",
     "enumeration": "6"
    },
-   "solution": "GOBLET"
+   "solution": "GOBLET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GOBLET",
+    "definitions": [
+     {
+      "text": "Large cup",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mouth",
+      "gives": "GOB",
+      "note": "gob is slang for mouth"
+     },
+     {
+      "clueFragment": "a small",
+      "gives": "LET",
+      "note": "-let is a suffix meaning a small one, as in piglet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOB",
+      "LET"
+     ]
+    },
+    "explanation": {
+     "surface": "It asks, playfully, why a big cup would suit a little mouth.",
+     "walkthrough": "The joke is that the word for a large cup looks like a small gob.",
+     "definitionFit": "A goblet is a drinking vessel with a stem and foot, typically larger than an ordinary cup."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "small"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1737,56 @@
     "text": "Woman completes 29 + 18, the spoilsport",
     "enumeration": "7"
    },
-   "solution": "KILLJOY"
+   "solution": "KILLJOY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KILLJOY",
+    "definitions": [
+     {
+      "text": "the spoilsport",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "29",
+      "gives": "K",
+      "note": "29 down is king, abbreviated K"
+     },
+     {
+      "clueFragment": "18",
+      "gives": "ILL",
+      "note": "the answer to 18 across"
+     },
+     {
+      "clueFragment": "Woman completes",
+      "gives": "JOY",
+      "note": "Joy is a woman's name, and she comes last to complete the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "ILL",
+      "JOY"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman finishes a sum and is called a spoilsport for it.",
+     "walkthrough": "K plus ILL is completed by JOY.",
+     "definitionFit": "A killjoy is a person who spoils others' fun, which is exactly what a spoilsport does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1800,74 @@
     "text": "Quickly eats starter of fish during unhurried retreat",
     "enumeration": "5"
    },
-   "solution": "WOLFS"
+   "solution": "WOLFS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "reversal"
+    ],
+    "answer": "WOLFS",
+    "definitions": [
+     {
+      "text": "Quickly eats",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starter of",
+      "for": "letter_selection",
+      "note": "a starter comes first, so only the opening letter is kept"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during means in the middle of, so the letter is placed inside"
+     },
+     {
+      "text": "retreat",
+      "for": "reversal",
+      "note": "a retreat is a movement backwards, so the letters are read from the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "F",
+      "select": "first",
+      "note": "the first letter of fish"
+     },
+     {
+      "clueFragment": "unhurried",
+      "gives": "SLOW",
+      "note": "unhurried means slow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WOL",
+      "F",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SFLOW",
+       "to": "WOLFS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner gulps down the fish course during a leisurely withdrawal.",
+     "walkthrough": "F goes into SLOW after the S, and the whole is read backwards.",
+     "definitionFit": "To wolf food is to eat it greedily and fast, so wolfs means quickly eats."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retreat"
+    }
+   }
   },
   {
    "number": 26,
@@ -459,7 +1881,67 @@
     "text": "Cried over exercise, putting on weight",
     "enumeration": "4"
    },
-   "solution": "WEPT"
+   "solution": "WEPT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "WEPT",
+    "definitions": [
+     {
+      "text": "Cried",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "over can mean turned over, so the letters go backwards"
+     },
+     {
+      "text": "putting on",
+      "for": "container",
+      "note": "putting on clothes means wrapping them around oneself, so the outer letters wear the inner ones"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weight",
+      "gives": "WT",
+      "note": "wt is the abbreviation for weight"
+     },
+     {
+      "clueFragment": "exercise",
+      "gives": "PE",
+      "note": "PE is physical education"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "EP",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "PE",
+       "to": "EP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sobbed about their workout because they had gained weight.",
+     "walkthrough": "'Putting on weight' reads as gaining pounds; here the weight abbreviation puts the turned-round exercise on like a garment.",
+     "definitionFit": "Wept is the past tense of weep, meaning shed tears, so it matches cried."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "putting"
+    }
+   }
   },
   {
    "number": 27,
@@ -473,7 +1955,54 @@
     "text": "Standard book on furniture",
     "enumeration": "9"
    },
-   "solution": "BENCHMARK"
+   "solution": "BENCHMARK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BENCHMARK",
+    "definitions": [
+     {
+      "text": "Standard",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across entry one piece sitting on another follows it, so the book goes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "furniture",
+      "gives": "BENCH",
+      "note": "a bench is a long seat"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "MARK",
+      "note": "Mark is a book of the New Testament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BENCH",
+      "MARK"
+     ]
+    },
+    "explanation": {
+     "surface": "A standard book is placed on a piece of furniture.",
+     "walkthrough": "In an across clue, X on Y puts X after Y.",
+     "definitionFit": "A benchmark is a standard or point of reference against which things are measured."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "book"
+    }
+   }
   },
   {
    "number": 28,
@@ -487,7 +2016,48 @@
     "text": "Son goes to the basement in closed buildings",
     "enumeration": "4"
    },
-   "solution": "HUTS"
+   "solution": "HUTS",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "HUTS",
+    "definitions": [
+     {
+      "text": "buildings",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Son goes to the basement in",
+      "for": "cycling",
+      "note": "in a down entry the basement is the bottom, so the son's letter moves from top to foot of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "closed",
+      "gives": "SHUT",
+      "note": "shut means closed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HUTS"
+     ]
+    },
+    "explanation": {
+     "surface": "A son retreats downstairs inside shuttered buildings.",
+     "walkthrough": "S for son moves from the top of SHUT to the bottom.",
+     "definitionFit": "Huts are small simple buildings or shelters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "basement"
+    }
+   }
   },
   {
    "number": 29,
@@ -501,7 +2071,55 @@
     "text": "Royal family's supported by government",
     "enumeration": "4"
    },
-   "solution": "KING"
+   "solution": "KING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KING",
+    "definitions": [
+     {
+      "text": "Royal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supported by",
+      "for": "charade",
+      "note": "in a down entry being supported means sitting above, so the second piece comes underneath"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "family",
+      "gives": "KIN",
+      "note": "kin are relatives"
+     },
+     {
+      "clueFragment": "government",
+      "gives": "G",
+      "note": "g is short for government"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "The royal family relies on the government's backing.",
+     "definitionFit": "A king is a male monarch, so a royal, the noun for a member of the reigning family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 30,
@@ -515,7 +2133,66 @@
     "text": "Child's hero in Paris on vacation with clergy",
     "enumeration": "9"
    },
-   "solution": "PREACHERS"
+   "solution": "PREACHERS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PREACHERS",
+    "definitions": [
+     {
+      "text": "clergy",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "vacated means emptied, so the inside goes and only the outer letters stay"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paris",
+      "gives": "PS",
+      "select": "outer",
+      "note": "the first and last letters of Paris"
+     },
+     {
+      "clueFragment": "Child's hero",
+      "gives": "REACHER",
+      "note": "Jack Reacher is the hero of Lee Child's thrillers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "REACHER",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A child's idol is holidaying in Paris with some priests.",
+     "walkthrough": "'Child' looks like a youngster; it is the author Lee Child, whose hero is Jack Reacher.",
+     "definitionFit": "Preachers are ministers who deliver sermons, so collectively they are clergy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Child's"
+    }
+   }
   },
   {
    "number": 31,
@@ -529,7 +2206,56 @@
     "text": "Ashley Olsen, say, bored by American writer",
     "enumeration": "5"
    },
-   "solution": "TWAIN"
+   "solution": "TWAIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TWAIN",
+    "definitions": [
+     {
+      "text": "writer",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bored by",
+      "for": "container",
+      "note": "something bored by another has it drilled into it, so a letter goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ashley Olsen, say",
+      "gives": "TWIN",
+      "note": "Ashley Olsen has a twin sister, Mary-Kate; 'say' marks her as an example"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is short for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TW",
+      "A",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "An actress is found tedious by a US author.",
+     "walkthrough": "'Bored' suggests tedium; here it means drilled into. Mark Twain is the writer.",
+     "definitionFit": "Mark Twain, author of Huckleberry Finn, is a famous American writer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bored"
+    }
+   }
   }
  ]
 }
