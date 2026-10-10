@@ -974,8 +974,13 @@ PARTED_STOP = re.compile(r"[.,;:!?]+")
 
 
 def greek_model():
-    """The Greek model's .traineddata, beside tesseract's installed eng."""
-    return Path(ocr_clues.tesseract()).resolve().parent.parent / "share" / "tessdata" / f"{GREEK}.traineddata"
+    """The Greek model's .traineddata, beside tesseract's installed eng;
+    None on a host with no tesseract (it reads on the desktop or not at all)."""
+    try:
+        tess = ocr_clues.tesseract()
+    except RuntimeError:
+        return None
+    return Path(tess).resolve().parent.parent / "share" / "tessdata" / f"{GREEK}.traineddata"
 
 
 def greek_box(img, key, box):
@@ -1155,7 +1160,7 @@ def read_file(m):
 
 def model_hash(path):
     """The sha1 of a model file, or None when it is missing."""
-    return hashlib.sha1(path.read_bytes()).hexdigest() if path.exists() else None
+    return hashlib.sha1(path.read_bytes()).hexdigest() if path and path.exists() else None
 
 
 def read_remote(p, h, idx):
