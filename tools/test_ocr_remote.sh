@@ -127,6 +127,28 @@ trove_clue_ocr.read_here = lambda images: "\n".join(
 check("a Trove article's zones read there are its zone files here",
       trove_clue_ocr.read_here(zones), trove_clue_ocr.read_text(zones))
 
+# Off the desktop an OCR process runs OCR_THREADS threads, or one: cv2's
+# pool ignores OMP_NUM_THREADS, so it is capped beside onnxruntime's, and
+# cv2 is imported only through that cap.
+import ast
+was = os.environ.pop("OCR_THREADS", None)
+cv2 = ocr_clues.capped_cv2()
+check("off the desktop cv2 and onnxruntime run one thread", (1, 1),
+      (cv2.getNumThreads(), ocr_clues.engine_threads()["intra_op_num_threads"]))
+os.environ["OCR_THREADS"] = "3"
+check("and OCR_THREADS when it is set", (3, 3),
+      (ocr_clues.engine_threads()["intra_op_num_threads"], ocr_clues.capped_cv2().getNumThreads()))
+os.environ.pop("OCR_THREADS")
+if was is not None:
+    os.environ["OCR_THREADS"] = was
+def imports_cv2(path):
+    return any(isinstance(n, ast.Import) and any(a.name == "cv2" for a in n.names)
+               or isinstance(n, ast.ImportFrom) and n.module == "cv2" for n in ast.walk(ast.parse(path.read_text())))
+# ocr_clues is the cap; ocr_remote only reports cv2's version; qr_check reads no text.
+check("cv2 is imported through ocr_clues.capped_cv2 alone", [],
+      sorted(p.name for p in Path(".").glob("*.py")
+             if p.name not in ("ocr_clues.py", "ocr_remote.py", "qr_check.py") and imports_cv2(p)))
+
 # A search on a busy desktop outlives any fixed answer time while working:
 # the wait is on silence, not on a total. serve() runs here with the search
 # stubbed slow and the heartbeat quick, and a Session reads it over a pipe.

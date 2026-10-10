@@ -113,8 +113,20 @@ def engine(which):
 def engine_threads():
     """The thread counts every RapidOCR engine is made with: OCR_THREADS
     (the desktop's serve() sets its share of that box) or 1, so no reader,
-    test or scratch script here takes every core."""
-    return {"intra_op_num_threads": int(os.environ.get("OCR_THREADS") or 1), "inter_op_num_threads": 1}
+    test or scratch script here takes every core. cv2's own pool (RapidOCR's
+    pre-processing, the crop work) ignores OMP_NUM_THREADS, so it is capped
+    to the same count here."""
+    n = int(os.environ.get("OCR_THREADS") or 1)
+    import cv2
+    cv2.setNumThreads(n)
+    return {"intra_op_num_threads": n, "inter_op_num_threads": 1}
+
+
+def capped_cv2():
+    """cv2, its thread pool capped (engine_threads): the one way OCR code imports it."""
+    engine_threads()
+    import cv2
+    return cv2
 
 
 def reader_key(which):
