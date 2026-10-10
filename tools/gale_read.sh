@@ -30,7 +30,7 @@ DURABLE_PATHS=(puzzles)
 . tools/durable.sh
 
 export PYTHONUNBUFFERED=1
-export OCR_REMOTE="${OCR_REMOTE-micro@100.68.145.15,micro@192.168.1.198}"
+export OCR_REMOTE="${OCR_REMOTE-micro@192.168.1.198,micro@100.68.145.15}"
 export OCR_THREADS="${OCR_THREADS:-1}"
 FRESH="$(python3 -c 'import sys; sys.path.insert(0, "tools"); import gale_inbox; print(gale_inbox.FRESH)')"
 SECONDS_CAP=900

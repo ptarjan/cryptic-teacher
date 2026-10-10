@@ -9,7 +9,8 @@ code: it sends the request to the desktop (tools/ocr_remote.py), waits,
 answering the desktop's VLM asks, writes what the desktop decided
 (scan_queue.file_puzzle) and appends the edition's ledger row. Anything
 else, the whole unit runs as before (`edition_queue.py unit`, exec'd in this
-process): the desktop unavailable (it reads here) or failing the read, a
+process): the desktop unavailable (unset, or gone LONG_GONE: a desktop lost
+for less is tried again, then the unit ends deferred) or failing the read, a
 title it left to the Mac to decide (decided here from the desktop's
 readings, CT_EDITION_ANSWER), the edition read by another unit since it was
 prepared, or a run holding the ledger.
@@ -25,9 +26,10 @@ from pathlib import Path
 #: The filer whose files these are: a held file it wrote names it (source.acquiredBy).
 TOOL = "tools/file_archive_org_puzzles.py"
 #: A unit's exit status: what read_unit/scan_unit/a fetcher's unit returned;
-#: "deferred", its desktop reads met a busy desktop (ocr_remote.DesktopBusy).
+#: "deferred", its desktop reads met a busy desktop (ocr_remote.DesktopBusy);
+#: "lost", the desktop stopped answering it (ocr_remote.DesktopLost).
 EXITS = {"read": 0, "scanned": 0, "current": 0, "fetched": 0, "busy": 3, "held": 4, "outage": 5,
-         "throttled": 6, "disk": 7, "deferred": 8}
+         "throttled": 6, "disk": 7, "deferred": 8, "lost": 9}
 #: The tools modules main() runs, loaded as the unit starts (under the
 #: queue's code lock, edition_queue.snapshot): none of them is loaded later
 #: from a tree that moved meanwhile (test_edition_commit.sh checks a commit
@@ -202,16 +204,14 @@ def main(spec):
             return EXITS["busy"]
         if read_since(ledger, ctx["ledgerSize"], rel):
             whole_unit(spec, "its ledger row moved since it was prepared")
-        s = ocr_remote.session()
-        if s is None:
-            whole_unit(spec, "the desktop is not reading", {"OCR_REMOTE": ""})
         vlm_up = vlm_reader.reachable()
         head = {**head, "vlm": vlm_up}
-        try:
-            got, back = s.edition(head, tar)
-        except ocr_remote.Unavailable as e:
-            ocr_remote.lost(e)
-            whole_unit(spec, "the desktop was lost", {"OCR_REMOTE": ""})
+        # A desktop lost mid-read is tried again (ocr_remote.there), then the
+        # unit ends deferred (DesktopLost) unless it has been gone LONG_GONE.
+        got = ocr_remote.there(lambda s, tar=tar: s.edition(head, tar))
+        if got is None:
+            whole_unit(spec, "the desktop is not reading", {"OCR_REMOTE": ""})
+        got, back = got
         del tar
         if "error" in got:
             whole_unit(spec, f"the read failed there ({got['error']})")

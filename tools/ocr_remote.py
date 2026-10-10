@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """The archive.org filer's editions, and the clue OCR, read on Paul's desktop over ssh.
 
-    OCR_REMOTE=micro@100.68.145.15,micro@192.168.1.198 python3 tools/file_archive_org_puzzles.py ...
+    OCR_REMOTE=micro@192.168.1.198,micro@100.68.145.15 python3 tools/file_archive_org_puzzles.py ...
     python3 tools/ocr_remote.py check        # read one crop both ways
 
 The Mac mini has 4 cores; the desktop has 28. With OCR_REMOTE set, each
@@ -27,9 +27,14 @@ is used only when the versions it reports are this host's, so a reading is
 the same whichever host made it. An edition whose read there opens a file
 that was not shipped, or crashes, is read here instead, the reason logged.
 
-When no host answers, or one stops answering mid-read, the reason is logged
-and this process reads locally, trying the desktop again after RETRY
-seconds: a desktop that is off slows a run down and never stops or hangs it.
+When a session is lost mid-read (the TCP resets on the path that end
+every session at once come in bursts, over in seconds) or no host answers,
+the read is tried there again BACKOFF seconds apart (there()). Once those
+tries are spent this process reads locally, trying the desktop again after
+RETRY seconds, unless it defers (OCR_REMOTE_DEFER): then it raises
+DesktopLost and its unit ends deferred, until no process on this host has
+had an answer from the desktop for LONG_GONE seconds (SEEN): then it reads
+here too. A desktop that is off slows a run down and never stops or hangs it.
 While Paul games on it (tools/desktop_busy.py) no session is opened, an open
 one is closed before its next read and one waiting on a read is abandoned
 (the probe ends the desktop's side): this process reads locally until the
@@ -87,8 +92,16 @@ SEARCH_TIMEOUT = EDITION_TIMEOUT
 UNSHIPPED = ("tools/data/blog_facts/", "tools/data/yt_solvers/")
 #: The list of shipped files, in the desktop's directory, written last.
 MANIFEST = "tools/shipped.txt"
-#: Seconds before a process that lost the desktop tries it again.
+#: Seconds before a process that lost the desktop, its BACKOFF tries spent, tries it again.
 RETRY = 600
+#: Seconds between there()'s tries of a desktop it lost: a burst of reset
+#: sessions is over in seconds, and a read lost to one is made there, not here.
+BACKOFF = (10, 30, 90)
+#: Seconds the desktop answers no process on this host before a deferring
+#: process reads here rather than end deferred.
+LONG_GONE = 1800
+#: Touched by each answer from the desktop, host-wide: its mtime is when it last answered.
+SEEN = Path(tempfile.gettempdir()) / "ocr_remote.seen"
 #: Grid searches a job runs on the desktop at once, each thread over its own
 #: session (tools/acquire_book.py's books, tools/times_grids.py's posts).
 SEARCH_SLOTS = 8
@@ -583,6 +596,26 @@ class DesktopBusy(BaseException):
     read's failure."""
 
 
+class DesktopLost(DesktopBusy):
+    """The desktop stopped answering, BACKOFF tries made, and this process
+    defers (DEFER) while it answered within LONG_GONE."""
+
+
+def seen():
+    """Record that the desktop answered (SEEN)."""
+    SEEN.touch()
+
+
+def gone_for():
+    """Seconds since the desktop last answered a process on this host; with
+    no record yet, it starts now."""
+    try:
+        return time.time() - SEEN.stat().st_mtime
+    except FileNotFoundError:
+        seen()
+        return 0.0
+
+
 def defer_when_busy():
     """Raise DesktopBusy, in this process and those it starts, rather than
     read here while the desktop is busy."""
@@ -813,7 +846,7 @@ def connect():
     if "local" not in _VERSIONS:
         _VERSIONS["local"] = versions()
     reasons = []
-    for host in filter(None, os.environ.get("OCR_REMOTE", "").split(",")):
+    for host in by_path(hosts()):
         try:
             s, why = matched(opened(host))
         except Unavailable as e:
@@ -836,8 +869,7 @@ def connect():
             if s:
                 return s
         reasons.append(why)
-    log("unavailable (" + "; ".join(reasons or ["OCR_REMOTE names no host"])
-        + f"), reading here; trying again in {RETRY}s")
+    log("unavailable (" + "; ".join(reasons or ["OCR_REMOTE names no host"]) + ")")
     return None
 
 
@@ -845,10 +877,26 @@ def hosts():
     return [h for h in os.environ.get("OCR_REMOTE", "").split(",") if h]
 
 
-def session():
+def by_path(names):
+    """`names` with LAN addresses before tailnet ones (100.64.0.0/10): the
+    tailnet path to the desktop goes silent for 20-40s in bursts and
+    Tailscale then resets every session over it; the LAN path does not."""
+    import ipaddress
+
+    def tailnet(name):
+        try:
+            return ipaddress.ip_address(name.rpartition("@")[2]) in ipaddress.ip_network("100.64.0.0/10")
+        except ValueError:
+            return False
+    return sorted(names, key=tailnet)
+
+
+def session(final=True):
     """This process's ready session, or None when OCR_REMOTE is not set, the
     desktop is busy (closing the session; DesktopBusy when this process
-    defers) or no host answers (then not tried again for RETRY seconds)."""
+    defers) or no host answers: then, when `final`, gave_up() (not tried
+    again for RETRY seconds; DesktopLost when this process defers), else
+    Unavailable, for there() to try again."""
     if not hosts():
         return None
     st = _state()
@@ -864,25 +912,69 @@ def session():
             return None
         st["session"] = connect()
         if st["session"] is None:
-            st["retry"] = time.monotonic() + RETRY
+            if not final:
+                raise Unavailable("no host answers")
+            gave_up("no host answers")
             return None
+        seen()
         log(f"reading on {st['session'].host}")
     return st["session"]
 
 
-def lost(e):
-    """Close a session that stopped answering: tried again after RETRY
-    seconds, or once the desktop is idle when it was ended for a game
-    (DesktopBusy when this process defers)."""
+def gave_up(why):
+    """The desktop's tries are spent (`why`): DesktopLost when this process
+    defers and the desktop answered within LONG_GONE; else read here, the
+    desktop tried again after RETRY seconds."""
+    gone = gone_for()
+    if os.environ.get(DEFER) and gone < LONG_GONE:
+        log(f"{why}; deferring (the desktop last answered {gone:.0f}s ago)")
+        raise DesktopLost(why)
+    log(f"{why}, reading here; trying again in {RETRY}s")
+    _state()["retry"] = time.monotonic() + RETRY
+
+
+def lost(e, again=None):
+    """Close a session that stopped answering; whether to try it again in
+    `again` seconds (there()). Ended for a game: tried again once the
+    desktop is idle (DesktopBusy when this process defers). With no `again`
+    (the tries spent): gave_up()."""
     st = _state()
+    host = st["session"].host if st["session"] is not None else ",".join(hosts())
+    if st["session"] is not None:
+        st["session"].close()
+        st["session"] = None
     why = desktop_busy.busy(hosts())
-    wait = 0 if why else RETRY
-    deferred = bool(why and os.environ.get(DEFER))
-    log(f"lost {st['session'].host} ({e}), {'deferring' if deferred else 'reading here'}; trying again "
-        + (f"in {RETRY}s" if wait else "when the desktop is idle"))
-    st["session"].close()
-    st.update(session=None, retry=time.monotonic() + wait)
-    _busy_here(why)
+    if why:
+        log(f"lost {host} ({e}), {'deferring' if os.environ.get(DEFER) else 'reading here'}; "
+            "trying again when the desktop is idle")
+        st["retry"] = time.monotonic()
+        _busy_here(why)
+        return False
+    if again is not None:
+        log(f"lost {host} ({e}); trying it again in {again}s")
+        return True
+    gave_up(f"lost {host} ({e})")
+    return False
+
+
+def there(fn):
+    """fn(session) run on the desktop, or None when session() gives none
+    (then the caller reads here). A session lost on the way is opened again
+    and fn run again, BACKOFF seconds apart, before lost() gives up."""
+    for again in (*BACKOFF, None):
+        try:
+            s = session(final=again is None)
+            if s is None:
+                return None
+            got = fn(s)
+        except Unavailable as e:
+            if not lost(e, again):
+                return None
+            time.sleep(again)
+        else:
+            seen()
+            return got
+    raise AssertionError("unreachable")
 
 
 def edition_request(d, found, solutions):
@@ -948,19 +1040,17 @@ def edition(d, found, solutions):
         Path(answer).unlink()
         if got["edition"] == f"{d.parent.name}/{d.name}":
             return [tuple(r) for r in got["results"]], got["vlm"], None
-    s = session()
-    if s is None:
+    if session() is None:
         return None
     import io
     import tarfile
 
     import file_archive_org_puzzles as fa
     head, tar = edition_request(d, found, solutions)
-    try:
-        got, back = s.edition(head, tar)
-    except Unavailable as e:
-        lost(e)
+    got = there(lambda s: s.edition(head, tar))
+    if got is None:
         return None
+    got, back = got
     if "error" in got:
         log(f"{head['edition']} failed there ({got['error']}), reading it here")
         return None
@@ -1021,16 +1111,13 @@ def scan(d):
 def words(crop, which):
     """raw_words(crop, which) read on the desktop, or None when it is not
     set (no OCR_REMOTE) or not answering: then the caller reads it here."""
-    s = session()
-    if s is None:
+    if session() is None:
         return None
     import io
     buf = io.BytesIO()
     crop.save(buf, format="PNG", compress_level=1)
-    try:
-        got = s.read(buf.getvalue(), which)
-    except Unavailable as e:
-        lost(e)
+    got = there(lambda s: s.read(buf.getvalue(), which))
+    if got is None:
         return None
     if "error" in got:
         log(f"{which} failed there ({got['error']}), reading this crop here")
@@ -1043,14 +1130,10 @@ def call(name, *args, data=b"", **kwargs):
     desktop, or None when OCR_REMOTE is not set, the desktop is not
     answering or the call failed there: then the caller runs it here, in
     local_slot()."""
-    s = session()
-    if s is None:
+    got = there(lambda s: s.call(name, list(args), kwargs, data))
+    if got is None:
         return None
-    try:
-        got, back = s.call(name, list(args), kwargs, data)
-    except Unavailable as e:
-        lost(e)
-        return None
+    got, back = got
     if "error" in got:
         log(f"{name} failed there ({got['error']}), running it here")
         return None
