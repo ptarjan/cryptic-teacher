@@ -323,7 +323,7 @@ def read_edition_here(req, blob, ask_mac):
         with tarfile.open(fileobj=io.BytesIO(blob)) as tar:
             tar.extractall(root, filter="data")
         crops, sent = sent_crops(root)
-        held = {series: {int(n): datetime.date.fromisoformat(day) for n, day in dates.items()}
+        held = {series: fa.Held({int(n): datetime.date.fromisoformat(day) for n, day in dates.items()})
                 for series, dates in req["held"].items()}
         fa.CROPS = crops
         fa.held_dates = held.__getitem__

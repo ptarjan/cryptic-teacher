@@ -136,6 +136,7 @@ run side by side and a batch run (this CLI, holding the ledger's lock
 throughout) holds them off: a unit then ends "held", left for the next plan.
 """
 import argparse
+import bisect
 import datetime
 import gzip
 import hashlib
@@ -2413,9 +2414,32 @@ def held_files(series):
     return out
 
 
+class Held(dict):
+    """{number: date} of a series' filed puzzles, read-only, with its
+    (date, number) pairs sorted once: neighbours bisects them and hosted
+    looks a day up, where a scan of every filed puzzle per edition costs
+    seconds a read start (sister_solutions links every sister edition)."""
+
+    def __init__(self, *a, **k):
+        super().__init__(*a, **k)
+        self.pairs = sorted((d, m) for m, d in self.items())
+        self.on_day = {}
+        for d, m in self.pairs:
+            self.on_day.setdefault(d, []).append(m)
+
+    @classmethod
+    def of(cls, held):
+        return held if isinstance(held, cls) else cls(held)
+
+    def _read_only(self, *a, **k):
+        raise TypeError("Held is read-only: make a new one")
+
+    __setitem__ = __delitem__ = __ior__ = update = pop = popitem = setdefault = clear = _read_only
+
+
 def held_dates(series):
-    """{number: date} of every dated puzzle filed in a series."""
-    return {n: day for n, (day, _, _) in held_files(series) if day}
+    """{number: date} of every dated puzzle filed in a series (Held)."""
+    return Held({n: day for n, (day, _, _) in held_files(series) if day})
 
 
 #: Where the Canberra Times reprints of London Times puzzles are cached:
@@ -2534,8 +2558,9 @@ def same_scan(number, url, day, series):
 def neighbours(day, held):
     """(before, after): the nearest filed (date, number) either side of
     `day` in `held` ({number: date}), each None when there is none."""
-    return (max(((d, m) for m, d in held.items() if d < day), default=None),
-            min(((d, m) for m, d in held.items() if d > day), default=None))
+    pairs = Held.of(held).pairs
+    i, j = bisect.bisect_left(pairs, (day,)), bisect.bisect_right(pairs, (day, math.inf))
+    return pairs[i - 1] if i else None, pairs[j] if j < len(pairs) else None
 
 
 def implied(day, held):
@@ -2636,7 +2661,7 @@ def hosted(found, held):
     prior = {h - one - one * ((h - one).weekday() == 6) for h in on} | \
         {h - 7 * one for h in on if h.weekday() == 5}
     return {t - 1 for t in days} | {t - 6 for t, d in days.items() if d.weekday() == 5} | \
-        {m for m, d in held.items() if d in prior}
+        {m for d in prior for m in Held.of(held).on_day.get(d, ())}
 
 
 def placed(n, day, held):
@@ -3320,10 +3345,22 @@ def sister_solutions(cache, paper):
         path = ledger_of(cache, p)
         if p is paper or p.series != paper.series or not path.exists():
             continue
-        for rel, row in _planned_known(path).items():
-            for s in linked_solutions(p, row.get("scan") or {"puzzles": [], "solutions": []}, held):
-                out.setdefault(s["number"], {**s, "dir": Path(cache) / rel})
+        st = path.stat()
+        stamp = (st.st_mtime_ns, st.st_size)
+        hit = _SISTER_LINKS.get(path)
+        if hit is None or hit[0] != stamp or hit[1] != held:
+            links = [(s["number"], {**s, "dir": Path(cache) / rel}) for rel, row in _planned_known(path).items()
+                     for s in linked_solutions(p, row.get("scan") or {"puzzles": [], "solutions": []}, held)]
+            hit = _SISTER_LINKS[path] = (stamp, held, links)
+        for n, s in hit[2]:
+            out.setdefault(n, s)
     return out
+
+
+#: {sister ledger: ((mtime_ns, size), held_dates, [(number, linked heading)])}
+#: of sister_solutions: worked out again only when the ledger or the
+#: series' filed puzzles move.
+_SISTER_LINKS = {}
 
 
 def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limit=None,
@@ -3433,7 +3470,6 @@ def unsettled(dirs, unscanned):
     every dir when an unscanned one, or the dir itself, has no date."""
     if not unscanned:
         return set()
-    import bisect
     pending = [edition_date(d) for d in unscanned]
     if None in pending:
         return set(dirs)
@@ -3507,7 +3543,6 @@ def plan(paper, cache=CACHE, ledger=None, reread=None, asked=(), dirs=None):
     `dirs` limits the plan to those editions. Each list is by rank, then
     newest first: by edition date ("date", day_of), NEWEST_FIRST papers by
     staged_at (the page Paul saved last first)."""
-    import bisect
     ledger = ledger_of(cache, paper, ledger)
     known = _planned_known(ledger)
     every = _PLANNED_DIRS[(str(cache), paper.key)] = edition_dirs(cache, paper)
