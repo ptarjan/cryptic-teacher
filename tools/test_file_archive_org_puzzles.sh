@@ -2319,6 +2319,17 @@ check("a heading one reader saw on the page and every reader read in its band, g
       [17245], [s_[0] for s_ in got[1]])
 got = gale_bands({rs[2]: gapped[:1]}, {rs[2]: gapped})
 check("(mirror) one reader in its band is not enough", [], got[1])
+# A band is read against the page's titles (Gale 1988-06-28: "Puzzie" under
+# 17,707 read by every reader): the loose heading stands for title-1 only.
+puzzie = [(40, 300, 110, 320, "Solution"), (115, 300, 135, 320, "to"), (140, 300, 190, 320, "Puzzie"),
+          (195, 300, 215, 320, "No"), (220, 300, 275, 320, "17,706")]
+titled = {r: title("The Times Crossword Puzzle No 17,707") + puzzie[:1] for r in rs}
+got = gale_bands(titled, {r: puzzie for r in rs})
+check("a loose heading in its band stands as the page's title-1", [17706], [s_[0] for s_ in got[1]])
+got = gale_bands({r: puzzie[:1] for r in rs}, {r: puzzie for r in rs})
+check("(mirror) with no title read on the page it is not", [], got[1])
+got = gale_bands({r: title("The Times Crossword Puzzle No 17,720") + puzzie[:1] for r in rs}, {r: puzzie for r in rs})
+check("(mirror) nor under a title it is no lag before", [], got[1])
 notice = title("The solution of Saturday's Prize Puzzle No 17,250 will appear next Saturday")
 notice = [(w[0], 300, w[2], 320, w[4]) for w in notice]
 got = gale_bands({r: notice for r in rs}, {r: notice for r in rs})
