@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "English aristocrat's short sword",
     "enumeration": "4"
    },
-   "solution": "EPEE"
+   "solution": "EPEE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "EPEE",
+    "definitions": [
+     {
+      "text": "sword",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "something cut short loses its end, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation for English"
+     },
+     {
+      "clueFragment": "aristocrat's",
+      "gives": "PEE",
+      "note": "an aristocrat is a peer; the 's stands for 'is', and the peer is short of its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "PEE"
+     ]
+    },
+    "explanation": {
+     "surface": "A British nobleman carries a small sword at his side.",
+     "walkthrough": "The 's reads as 'is': the aristocrat is short, so PEER loses its R.",
+     "definitionFit": "An épée is a fencing weapon, a thrusting sword with a stiff blade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +98,46 @@
     "text": "Sharp boss, LSD user",
     "enumeration": "8"
    },
-   "solution": "ACIDHEAD"
+   "solution": "ACIDHEAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACIDHEAD",
+    "definitions": [
+     {
+      "text": "LSD user",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sharp",
+      "gives": "ACID",
+      "note": "acid in the sense of sharp or biting"
+     },
+     {
+      "clueFragment": "boss",
+      "gives": "HEAD",
+      "note": "a head is the boss of an organisation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACID",
+      "HEAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A cutting manager turns out to be dropping LSD.",
+     "definitionFit": "Acid is slang for LSD, and an acidhead is a habitual taker of the drug."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sharp"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +151,64 @@
     "text": "Takes a siesta, then son shaves when up",
     "enumeration": "6"
    },
-   "solution": "SLEEPS"
+   "solution": "SLEEPS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SLEEPS",
+    "definitions": [
+     {
+      "text": "Takes a siesta",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when up",
+      "for": "reversal",
+      "note": "in a down clue, going up means the letters are read from the bottom, backwards"
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "standard abbreviation for son"
+     },
+     {
+      "clueFragment": "shaves",
+      "gives": "PEELS",
+      "note": "to peel is to shave off a thin outer layer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLEEP",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SPEELS",
+       "to": "SLEEPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone naps after lunch, and then their son has a shave on getting up.",
+     "walkthrough": "The whole of S plus PEELS is turned upside down in the column, giving SLEEPS.",
+     "definitionFit": "A siesta is an afternoon nap, so someone taking one sleeps."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shaves"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +222,51 @@
     "text": "Nutty, it is a rum dessert",
     "enumeration": "8"
    },
-   "solution": "TIRAMISU"
+   "solution": "TIRAMISU",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TIRAMISU",
+    "definitions": [
+     {
+      "text": "dessert",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Nutty",
+      "for": "anagram",
+      "note": "nutty means crazy, so these letters go wild and rearrange"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it is a rum",
+      "gives": "ITISARUM",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITISARUM",
+       "gives": "TIRAMISU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pudding with nuts in it, laced with rum.",
+     "walkthrough": "'Nutty' poses as a description of the dessert; it signals the rearrangement. Rum, too, is fodder, not the spirit.",
+     "definitionFit": "Tiramisu is an Italian layered pudding of coffee-soaked sponge and mascarpone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Nutty"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +280,42 @@
     "text": "Nobleman in fear, lately",
     "enumeration": "4"
    },
-   "solution": "EARL"
+   "solution": "EARL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EARL",
+    "definitions": [
+     {
+      "text": "Nobleman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the answer sits inside the run of letters that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fear, lately",
+      "gives": "EARL",
+      "note": "spans the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A peer who has recently become frightened.",
+     "definitionFit": "An earl is a British peer ranking between marquess and viscount."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +329,65 @@
     "text": "European, small Parisienne, appearing in Czech play, will get a coach",
     "enumeration": "10"
    },
-   "solution": "REPETITEUR"
+   "solution": "REPETITEUR",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "REPETITEUR",
+    "definitions": [
+     {
+      "text": "coach",
+      "at": 64
+     }
+    ],
+    "indicators": [
+     {
+      "text": "appearing in",
+      "for": "container",
+      "note": "things appearing in a play are placed inside it"
+     }
+    ],
+    "linkWords": [
+     "will get a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Czech play",
+      "gives": "RUR",
+      "note": "R.U.R. is Karel Čapek's play that introduced the word robot; it is the outer piece"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "standard abbreviation for European"
+     },
+     {
+      "clueFragment": "small Parisienne",
+      "gives": "PETITE",
+      "note": "petite is French for small, in its feminine form"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "E",
+      "PETITE",
+      "UR"
+     ]
+    },
+    "explanation": {
+     "surface": "A small Frenchwoman cast in a Czech drama is given a tutor.",
+     "walkthrough": "R.U.R. (Rossum's Universal Robots) is the Czech play, and it splits around the other pieces; 'Parisienne' tells you to use the French word.",
+     "definitionFit": "A répétiteur is a vocal coach who rehearses opera singers, a sense of coaching or tutoring."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Parisienne"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +401,55 @@
     "text": "A chopped pungent relish",
     "enumeration": "5"
    },
-   "solution": "ASPIC"
+   "solution": "ASPIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ASPIC",
+    "definitions": [
+     {
+      "text": "relish",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chopped",
+      "for": "deletion",
+      "note": "something chopped has a piece cut off its end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pungent",
+      "gives": "SPIC",
+      "note": "spicy, losing its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SPIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A finely cut spicy condiment for the table.",
+     "walkthrough": "'Chopped' looks like kitchen work on the relish; it trims the word for pungent.",
+     "definitionFit": "Aspic is a savoury jelly served alongside meats, loosely an accompaniment or relish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chopped"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +481,68 @@
    "group": [
     "7-down",
     "9-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "A ROLLING STONE GATHERS NO MOSS",
+    "definitions": [
+     {
+      "text": "Saying",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "meeting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one with rock group",
+      "gives": "AROLLINGSTONE",
+      "note": "a member of the rock band the Rolling Stones"
+     },
+     {
+      "clueFragment": "learns",
+      "gives": "GATHERS",
+      "note": "to gather is to learn or infer"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "N",
+      "note": "N is the chess notation for a knight"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "standard abbreviation for old"
+     },
+     {
+      "clueFragment": "racing driver",
+      "gives": "MOSS",
+      "note": "Stirling Moss, the British Formula One driver"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AROLLINGSTONE",
+      "GATHERS",
+      "N",
+      "O",
+      "MOSS"
+     ]
+    },
+    "explanation": {
+     "surface": "A rock musician is introduced to a knighted veteran racing driver.",
+     "walkthrough": "The surface suggests Sir Stirling Moss himself, but 'knight' and 'old' each give one letter, N and O.",
+     "definitionFit": "The proverb is a saying: someone always on the move never accumulates anything."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "knight"
+    }
+   }
   },
   {
    "number": 8,
@@ -173,7 +566,52 @@
      }
     ]
    },
-   "solution": "LAIDANEGG"
+   "solution": "LAIDANEGG",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LAID AN EGG",
+    "definitions": [
+     {
+      "text": "failed completely",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cracked",
+      "for": "anagram",
+      "note": "something cracked is broken up, so its letters are reassembled differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gag Daniel",
+      "gives": "GAGDANIEL",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GAGDANIEL",
+       "gives": "LAIDANEGG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A comedian's joke about Daniel bombed.",
+     "walkthrough": "The surface's comedy flop matches the definition neatly; 'cracked' suits jokes and eggs alike.",
+     "definitionFit": "To lay an egg is an idiom for a performance flopping completely."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cracked"
+    }
+   }
   },
   {
    "number": 9,
@@ -210,7 +648,46 @@
     "text": "Late extra expected",
     "enumeration": "7"
    },
-   "solution": "OVERDUE"
+   "solution": "OVERDUE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERDUE",
+    "definitions": [
+     {
+      "text": "Late",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extra",
+      "gives": "OVER",
+      "note": "over means extra, left in excess"
+     },
+     {
+      "clueFragment": "expected",
+      "gives": "DUE",
+      "note": "due means expected to arrive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "DUE"
+     ]
+    },
+    "explanation": {
+     "surface": "An extra item that was expected late.",
+     "definitionFit": "Something overdue has not arrived by the time it was expected, so it is late."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extra"
+    }
+   }
   },
   {
    "number": 11,
@@ -224,7 +701,53 @@
     "text": "Complaint got from working in metal",
     "enumeration": "7"
    },
-   "solution": "AILMENT"
+   "solution": "AILMENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AILMENT",
+    "definitions": [
+     {
+      "text": "Complaint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "letters that are working are being worked into a new order"
+     }
+    ],
+    "linkWords": [
+     "got from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in metal",
+      "gives": "INMETAL",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INMETAL",
+       "gives": "AILMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A metalworker has picked up an industrial illness.",
+     "definitionFit": "A complaint, in the medical sense, is an illness or ailment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Complaint"
+    }
+   }
   },
   {
    "number": 12,
@@ -238,7 +761,50 @@
     "text": "Newspaper articles with it must give guidance",
     "enumeration": "10"
    },
-   "solution": "LEADERSHIP"
+   "solution": "LEADERSHIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEADERSHIP",
+    "definitions": [
+     {
+      "text": "guidance",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "must give"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Newspaper articles",
+      "gives": "LEADERS",
+      "note": "leaders are a newspaper's editorial articles"
+     },
+     {
+      "clueFragment": "with it",
+      "gives": "HIP",
+      "note": "with it means fashionable, hip"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEADERS",
+      "HIP"
+     ]
+    },
+    "explanation": {
+     "surface": "Editorials that are trendy ought to provide direction.",
+     "walkthrough": "In British papers a leader is the main editorial opinion piece.",
+     "definitionFit": "Leadership is the act of directing others, which is guidance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "with"
+    }
+   }
   },
   {
    "number": 13,
@@ -252,7 +818,55 @@
     "text": "Vegetables popular in French taverns",
     "enumeration": "10"
    },
-   "solution": "AUBERGINES"
+   "solution": "AUBERGINES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AUBERGINES",
+    "definitions": [
+     {
+      "text": "Vegetables",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in says one piece is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French taverns",
+      "gives": "AUBERGES",
+      "note": "auberges are French inns; this is the outer piece"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in means popular, fashionable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUBERG",
+      "IN",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Eggplants are a favourite dish in French inns.",
+     "walkthrough": "AUBERG(IN)ES.",
+     "definitionFit": "Aubergines are the British name for eggplants, purple-skinned vegetables."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "popular"
+    }
+   }
   },
   {
    "number": 14,
@@ -276,7 +890,48 @@
    "group": [
     "14-across",
     "15-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIKE NOBODY'S BUSINESS",
+    "definitions": [
+     {
+      "text": "Very much",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "similar to",
+      "gives": "LIKE",
+      "note": "like means similar to"
+     },
+     {
+      "clueFragment": "Charles Pooter's profession",
+      "gives": "NOBODYSBUSINESS",
+      "note": "Pooter is the Nobody of The Diary of a Nobody, so his trade is a nobody's business"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIKE",
+      "NOBODYSBUSINESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a job resembles that of the Grossmiths' famous clerk.",
+     "walkthrough": "Charles Pooter is the self-important City clerk of George and Weedon Grossmith's comic novel The Diary of a Nobody; the question mark flags the playful reading.",
+     "definitionFit": "The idiom like nobody's business means intensely or to an extraordinary degree, which is very much."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "profession"
+    }
+   }
   },
   {
    "number": 15,
@@ -309,7 +964,71 @@
     "text": "Caledonian company in street with small staff",
     "enumeration": "8"
    },
-   "solution": "SCOTSMAN"
+   "solution": "SCOTSMAN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SCOTSMAN",
+    "definitions": [
+     {
+      "text": "Caledonian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in says the first piece is set inside the second"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "standard abbreviation for street; the outer piece"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "standard abbreviation for company"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "standard abbreviation for small"
+     },
+     {
+      "clueFragment": "staff",
+      "gives": "MAN",
+      "note": "to staff a post is to man it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CO",
+      "T",
+      "S",
+      "MAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A Scottish firm based on a high street with only a few employees.",
+     "walkthrough": "S(CO)T then S and MAN. Caledonia is the Latin name for Scotland.",
+     "definitionFit": "Caledonian as a noun means a native of Scotland, a Scotsman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "staff"
+    }
+   }
   },
   {
    "number": 17,
@@ -329,7 +1048,50 @@
      }
     ]
    },
-   "solution": "INCAMERA"
+   "solution": "INCAMERA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IN CAMERA",
+    "definitions": [
+     {
+      "text": "kept secret",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Embarrassed",
+      "for": "anagram",
+      "note": "someone embarrassed is flustered and disordered, so the letters lose their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "AMERICAN",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AMERICAN",
+       "gives": "INCAMERA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A red-faced American kept the matter quiet.",
+     "definitionFit": "In camera is a legal phrase for proceedings held in private, kept from the public."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Embarrassed"
+    }
+   }
   },
   {
    "number": 18,
@@ -343,7 +1105,62 @@
     "text": "Active agent trapping head of ring",
     "enumeration": "4"
    },
-   "solution": "SPRY"
+   "solution": "SPRY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SPRY",
+    "definitions": [
+     {
+      "text": "Active",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     },
+     {
+      "text": "trapping",
+      "for": "container",
+      "note": "trapping means holding something inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agent",
+      "gives": "SPY",
+      "note": "a secret agent is a spy; the outer piece"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of ring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "R",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An operative captures the leader of a spy ring.",
+     "walkthrough": "SP(R)Y.",
+     "definitionFit": "Spry means lively and nimble, especially of an older person, so active."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 19,
@@ -373,7 +1190,53 @@
      }
     ]
    },
-   "solution": "MONTECARLO"
+   "solution": "MONTECARLO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MONTE CARLO",
+    "definitions": [
+     {
+      "text": "Riviera resort",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "performed",
+      "for": "anagram",
+      "note": "a work performed is put on in a new version, so its letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Carmen and Loot",
+      "gives": "CARMENLOOT",
+      "note": "the letters to be rearranged; 'and' only joins them"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CARMENLOOT",
+       "gives": "MONTECARLO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bizet's opera and Joe Orton's play staged on the Côte d'Azur.",
+     "definitionFit": "Monte Carlo is the casino district of Monaco on the French Riviera coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "performed"
+    }
+   }
   },
   {
    "number": 20,
@@ -387,7 +1250,42 @@
     "text": "Was first killed",
     "enumeration": "6"
    },
-   "solution": "TOPPED"
+   "solution": "TOPPED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TOPPED",
+    "definitions": [
+     {
+      "text": "Was first",
+      "at": 0
+     },
+     {
+      "text": "killed",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Was first",
+      "note": "first meaning: came top, headed a list"
+     },
+     {
+      "clueFragment": "killed",
+      "note": "second meaning: slang for put to death"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as one person's grim fate; the two halves are separate meanings.",
+     "definitionFit": "To top is both to come first and, informally, to kill someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 21,
@@ -401,7 +1299,52 @@
     "text": "Drugs ape so it relaxes",
     "enumeration": "7"
    },
-   "solution": "OPIATES"
+   "solution": "OPIATES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OPIATES",
+    "definitions": [
+     {
+      "text": "Drugs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "relaxes",
+      "for": "anagram",
+      "note": "letters that relax loosen out of their set order and settle differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ape so it",
+      "gives": "APESOIT",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "APESOIT",
+       "gives": "OPIATES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Narcotics calm a monkey down.",
+     "walkthrough": "'Relaxes' fits the surface as the drugs' effect; it is the rearranging signal.",
+     "definitionFit": "Opiates are narcotics derived from opium, a class of drugs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "relaxes"
+    }
+   }
   },
   {
    "number": 22,
@@ -415,7 +1358,60 @@
     "text": "Express disapproval over leader of union in a short skirt",
     "enumeration": "4"
    },
-   "solution": "TUTU"
+   "solution": "TUTU",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TUTU",
+    "definitions": [
+     {
+      "text": "a short skirt",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "the leader of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "over",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Express disapproval",
+      "gives": "TUT",
+      "note": "tut is a sound of disapproval"
+     },
+     {
+      "clueFragment": "union",
+      "gives": "U",
+      "select": "first",
+      "note": "first letter of union"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUT",
+      "U"
+     ]
+    },
+    "explanation": {
+     "surface": "A trade unionist frowns upon a skimpy skirt.",
+     "walkthrough": "In a down clue, 'over' places the first piece above the second.",
+     "definitionFit": "A tutu is a ballerina's short stiff skirt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "union"
+    }
+   }
   },
   {
    "number": 23,
@@ -429,7 +1425,67 @@
     "text": "A pepper pot I cooked - chaps tucked in",
     "enumeration": "7"
    },
-   "solution": "PIMENTO"
+   "solution": "PIMENTO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PIMENTO",
+    "definitions": [
+     {
+      "text": "A pepper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooked means prepared or tampered with, so the letters are reworked"
+     },
+     {
+      "text": "tucked in",
+      "for": "container",
+      "note": "things tucked in are placed inside something else"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pot I",
+      "gives": "PITO",
+      "note": "these letters rearranged; the outer piece"
+     },
+     {
+      "clueFragment": "chaps",
+      "gives": "MEN",
+      "note": "chaps are men"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "MEN",
+      "TO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "POTI",
+       "gives": "PITO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook prepares a pot of peppers, and the men tuck into it.",
+     "walkthrough": "The surface makes 'tucked in' mean eating; here it means placed inside the rearranged letters.",
+     "definitionFit": "A pimento is a sweet red pepper, also called a pimiento."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tucked"
+    }
+   }
   },
   {
    "number": 24,
@@ -443,7 +1499,68 @@
     "text": "Fleet vehicle turned up close to Piccadilly",
     "enumeration": "4"
    },
-   "solution": "NAVY"
+   "solution": "NAVY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NAVY",
+    "definitions": [
+     {
+      "text": "Fleet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turned up means read from the bottom, backwards"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vehicle",
+      "gives": "VAN",
+      "note": "a van is a vehicle"
+     },
+     {
+      "clueFragment": "Piccadilly",
+      "gives": "Y",
+      "select": "last",
+      "note": "last letter of Piccadilly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAV",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "VAN",
+       "to": "NAV"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quick car pulls up near Piccadilly in London.",
+     "walkthrough": "'Fleet' looks like an adjective for fast; it is the noun for ships. Piccadilly is a main street in central London.",
+     "definitionFit": "A navy is a nation's fleet of warships."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fleet"
+    }
+   }
   },
   {
    "number": 25,
@@ -457,7 +1574,72 @@
     "text": "Turn out in uniform attending first showing of Utrillo in gallery",
     "enumeration": "9"
    },
-   "solution": "EVENTUATE"
+   "solution": "EVENTUATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "EVENTUATE",
+    "definitions": [
+     {
+      "text": "Turn out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first showing of",
+      "for": "letter_selection",
+      "note": "the first showing of a word is its opening letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in says one piece is placed inside the other"
+     }
+    ],
+    "linkWords": [
+     "attending"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "uniform",
+      "gives": "EVEN",
+      "note": "even means uniform, level"
+     },
+     {
+      "clueFragment": "gallery",
+      "gives": "TATE",
+      "note": "the Tate is a London art gallery; the outer piece"
+     },
+     {
+      "clueFragment": "Utrillo",
+      "gives": "U",
+      "select": "first",
+      "note": "first letter of Utrillo"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVEN",
+      "T",
+      "U",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in uniform turns up for the opening of a Utrillo show at a gallery.",
+     "walkthrough": "EVEN then T(U)ATE. 'Uniform' is not clothing here but evenness; the Tate is a famous London gallery.",
+     "definitionFit": "To eventuate is to result or happen in the end, which is to turn out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uniform"
+    }
+   }
   },
   {
    "number": 26,
@@ -471,7 +1653,53 @@
     "text": "Wanders right away from Blackburn, say",
     "enumeration": "5"
    },
-   "solution": "ROVES"
+   "solution": "ROVES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ROVES",
+    "definitions": [
+     {
+      "text": "Wanders",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "away from",
+      "for": "deletion",
+      "note": "a letter that goes away from a word is taken out of it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blackburn, say",
+      "gives": "ROVERS",
+      "note": "Blackburn Rovers is an English football club, so Rovers is an example of Blackburn"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "standard abbreviation for right; this letter is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROVES"
+     ]
+    },
+    "explanation": {
+     "surface": "A walker heads off rightwards out of the Lancashire town of Blackburn.",
+     "walkthrough": "Blackburn Rovers is a Lancashire football club; ROVERS minus one R.",
+     "definitionFit": "To rove is to roam about aimlessly, so roves means wanders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Blackburn"
+    }
+   }
   }
  ]
 }
