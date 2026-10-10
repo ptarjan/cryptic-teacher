@@ -24,6 +24,7 @@ vlm_reader.reachable = lambda *a, **k: False
 import file_archive_org_puzzles as f
 import edition_queue as eq
 eq.cpu_gate_reader = lambda: 0.0  # this host's load must not gate the tests' starts
+eq.desktop_gate_reader = lambda: None  # nor whether Paul's desktop is busy
 os.environ["CT_BURN_STATE"] = os.path.join(os.environ["TMP"], "no-burn")  # nor this host's burn
 
 fails = 0
@@ -485,6 +486,23 @@ with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
     eq.dispatch(["times"], cache, workers=3, scan_workers=1, seconds=2.2, replan=0.5)
 check("over the load ceiling nothing starts, and it says so once", (False, 1),
       (log.exists(), err.getvalue().count("cpu-bound")))
+eq.cpu_gate_reader = lambda: 0.0
+eq.desktop_gate_reader = lambda: "a game is running"
+log.unlink(missing_ok=True)
+eq.plan = units([], [(f"d{k}", []) for k in range(3)])
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, seconds=2.2, replan=0.5)
+check("while the desktop yields no OCR unit starts here, and it says so once", (False, 1),
+      (log.exists(), err.getvalue().count("desktop-bound")))
+# mirror: the same plan with the desktop idle starts
+eq.desktop_gate_reader = lambda: None
+log.unlink(missing_ok=True)
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, seconds=2.2, replan=0.5)
+check("with the desktop idle the same units start", (True, 0),
+      (log.exists(), err.getvalue().count("desktop-bound")))
 eq.cpu_gate_reader = lambda: 0.0
 eq.mem_gate_reader = None
 log.unlink(missing_ok=True)
