@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,56 @@
     "text": "Got a loan outside bank, interest-free?",
     "enumeration": "8"
    },
-   "solution": "BORROWED"
+   "solution": "BORROWED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BORROWED",
+    "definitions": [
+     {
+      "text": "Got a loan",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "one word sits outside the other, wrapping round it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "interest-free?",
+      "gives": "BORED",
+      "note": "someone bored has no interest left"
+     },
+     {
+      "clueFragment": "bank",
+      "gives": "ROW",
+      "note": "a bank of seats or keys is a row of them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOR",
+      "ROW",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone took out a loan away from the bank, with no interest charged.",
+     "walkthrough": "'Interest-free' looks like loan terms, but it describes someone with no interest in anything.",
+     "definitionFit": "To have borrowed is to have received something as a loan, past tense matching 'Got'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "interest-free"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +98,65 @@
     "text": "Caught learner initially exiting big intersection on other side",
     "enumeration": "8"
    },
-   "solution": "OVERLEAF"
+   "solution": "OVERLEAF",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "OVERLEAF",
+    "definitions": [
+     {
+      "text": "on other side",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exiting",
+      "for": "deletion",
+      "note": "letters that are exiting leave the longer word behind"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word it follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "select": "first",
+      "note": "the opening letter of learner, as on L-plates"
+     },
+     {
+      "clueFragment": "big intersection",
+      "gives": "CLOVERLEAF",
+      "note": "a cloverleaf is a large road junction with looping slip roads"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVERLEAF"
+     ]
+    },
+    "explanation": {
+     "surface": "A driver is caught out, with a learner leaving a huge road junction on the far side.",
+     "walkthrough": "Remove C and L from CLOVERLEAF and OVERLEAF remains.",
+     "definitionFit": "Overleaf means printed on the reverse of the page, i.e. on the other side of the sheet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Caught"
+    }
+   }
   },
   {
    "number": 3,
@@ -66,7 +176,51 @@
      }
     ]
    },
-   "solution": "ROYALMARINES"
+   "solution": "ROYALMARINES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROYAL MARINES",
+    "definitions": [
+     {
+      "text": "Specialized corps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "things arranged are set out in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in army role, as",
+      "gives": "INARMYROLEAS",
+      "note": "taken as written, twelve letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INARMYROLEAS",
+       "gives": "ROYALMARINES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elite unit is given a special part within the army, as planned.",
+     "walkthrough": "The Royal Marines are Britain's naval infantry, a commando force distinct from the army.",
+     "definitionFit": "The Royal Marines are a specialist amphibious commando force, a corps in its own right."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "arranged"
+    }
+   }
   },
   {
    "number": 4,
@@ -80,7 +234,58 @@
     "text": "Not beyond showing humour with short clue",
     "enumeration": "6"
    },
-   "solution": "WITHIN"
+   "solution": "WITHIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "WITHIN",
+    "definitions": [
+     {
+      "text": "Not beyond",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means cut down, losing the final letter"
+     }
+    ],
+    "linkWords": [
+     "showing",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "humour",
+      "gives": "WIT",
+      "note": "wit is clever humour"
+     },
+     {
+      "clueFragment": "clue",
+      "gives": "HINT",
+      "note": "a hint is a clue"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIT",
+      "HIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A setter shows humour while keeping a clue brief, within limits.",
+     "definitionFit": "Within is the opposite of beyond, meaning inside the limits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 5,
@@ -94,7 +299,49 @@
     "text": "Early deposits, we hear, in regular payment",
     "enumeration": "4"
    },
-   "solution": "DUES"
+   "solution": "DUES",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "DUES",
+    "definitions": [
+     {
+      "text": "regular payment",
+      "at": 28,
+      "note": "the answer is plural, the definition singular in form"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is a spoken word, matched by its sound alone"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Early deposits",
+      "gives": "DUES",
+      "soundsLike": "DEWS",
+      "note": "dew is moisture deposited early in the morning"
+     }
+    ],
+    "explanation": {
+     "surface": "Money paid in early makes up a regular instalment.",
+     "walkthrough": "'Deposits' looks like banking, but these are the morning drops of dew.",
+     "definitionFit": "Dues are fees paid regularly, such as club membership subscriptions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "deposits"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +361,65 @@
      }
     ]
    },
-   "solution": "PITVIPER"
+   "solution": "PITVIPER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PIT VIPER",
+    "definitions": [
+     {
+      "text": "Dangerous striker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grabbed by",
+      "for": "container",
+      "note": "what is grabbed is held inside the grabber's grip"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scottish player",
+      "gives": "PIPER",
+      "note": "a bagpipe player"
+     },
+     {
+      "clueFragment": "the box",
+      "gives": "TV",
+      "note": "the box is slang for television"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "TV",
+      "I",
+      "PER"
+     ]
+    },
+    "explanation": {
+     "surface": "A striker in the penalty box, the danger man, is grabbed by a Scottish footballer.",
+     "walkthrough": "The football surface hides a snake; 'the box' is British slang for television.",
+     "definitionFit": "A pit viper is a venomous snake, and snakes strike at their prey."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "striker"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +433,52 @@
     "text": "Funding a grand opera? Doesn't sound like it!",
     "enumeration": "4"
    },
-   "solution": "AIDA"
+   "solution": "AIDA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AIDA",
+    "definitions": [
+     {
+      "text": "grand opera",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Funding",
+      "gives": "AID",
+      "note": "aid is financial support"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Doesn't sound like it!",
+      "note": "surface padding: a wry aside that the opera is not pronounced like the two pieces"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AID",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether money is going to a big opera production, then says it doesn't seem so.",
+     "walkthrough": "The tail admits that the opera's name is not pronounced like 'aid a': it is said eye-EE-da.",
+     "definitionFit": "Aida is Verdi's grand opera set in ancient Egypt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Funding"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +492,53 @@
     "text": "Watching big game, top journalist described what happened in court",
     "enumeration": "8"
    },
-   "solution": "ATTESTED"
+   "solution": "ATTESTED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ATTESTED",
+    "definitions": [
+     {
+      "text": "described what happened in court",
+      "at": 34
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Watching",
+      "gives": "AT",
+      "note": "watching a match means being at it"
+     },
+     {
+      "clueFragment": "big game",
+      "gives": "TEST",
+      "note": "a Test is a full international cricket match"
+     },
+     {
+      "clueFragment": "top journalist",
+      "gives": "ED",
+      "note": "ED is short for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "TEST",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A senior journalist at a major match reports the events on the field.",
+     "walkthrough": "'Court' suggests tennis but means a court of law, where witnesses give evidence.",
+     "definitionFit": "To attest is to bear witness formally, so a witness attested in court to the events."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +552,51 @@
     "text": "Of a political type different to us, in NI?",
     "enumeration": "8"
    },
-   "solution": "UNIONIST"
+   "solution": "UNIONIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNIONIST",
+    "definitions": [
+     {
+      "text": "Of a political type",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "different",
+      "for": "anagram",
+      "note": "letters made different are rearranged into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to us, in NI",
+      "gives": "TOUSINNI",
+      "note": "taken as written; NI is Northern Ireland"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOUSINNI",
+       "gives": "UNIONIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether a political persuasion in Northern Ireland differs from ours.",
+     "walkthrough": "Unionists in Northern Ireland favour staying in the United Kingdom.",
+     "definitionFit": "Unionist describes politics supporting union with Britain, a political type especially in Northern Ireland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "different"
+    }
+   }
   },
   {
    "number": 10,
@@ -170,7 +610,69 @@
     "text": "Brave — ultimately afraid, see, of nobody",
     "enumeration": "4"
    },
-   "solution": "DEFY"
+   "solution": "DEFY",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "DEFY",
+    "definitions": [
+     {
+      "text": "Brave",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the final letter of each word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "afraid",
+      "gives": "D",
+      "select": "last",
+      "note": "end of afraid"
+     },
+     {
+      "clueFragment": "see",
+      "gives": "E",
+      "select": "last",
+      "note": "end of see"
+     },
+     {
+      "clueFragment": "of",
+      "gives": "F",
+      "select": "last",
+      "note": "end of of"
+     },
+     {
+      "clueFragment": "nobody",
+      "gives": "Y",
+      "select": "last",
+      "note": "end of nobody"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "E",
+      "F",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Being brave means that in the end you fear no one.",
+     "definitionFit": "To brave something is to face it boldly, the verb sense of defying it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ultimately"
+    }
+   }
   },
   {
    "number": 11,
@@ -190,7 +692,75 @@
      }
     ]
    },
-   "solution": "ADHESIVETAPE"
+   "solution": "ADHESIVETAPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADHESIVE TAPE",
+    "definitions": [
+     {
+      "text": "stick with it",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covered by",
+      "for": "charade",
+      "note": "being covered by something here means coming just after it in the line"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "notice",
+      "gives": "AD",
+      "note": "an ad is a notice"
+     },
+     {
+      "clueFragment": "Man's",
+      "gives": "HES",
+      "note": "he's: man is"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "check",
+      "gives": "VET",
+      "note": "to vet is to check"
+     },
+     {
+      "clueFragment": "copy",
+      "gives": "APE",
+      "note": "to ape is to copy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "HES",
+      "I",
+      "VET",
+      "APE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man is included in a notice that I check and duplicate, so stick with it.",
+     "definitionFit": "Adhesive tape is what you stick things with, a sticky strip; the definition is descriptive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stick"
+    }
+   }
   },
   {
    "number": 12,
@@ -204,7 +774,57 @@
     "text": "Rogue, leader of thieves, Russian forger?",
     "enumeration": "12"
    },
-   "solution": "TROUBLEMAKER"
+   "solution": "TROUBLEMAKER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TROUBLEMAKER",
+    "definitions": [
+     {
+      "text": "Rogue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "the leader of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thieves",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of thieves"
+     },
+     {
+      "clueFragment": "Russian forger?",
+      "gives": "ROUBLEMAKER",
+      "note": "a rouble is the Russian currency, so someone making them illicitly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ROUBLEMAKER"
+     ]
+    },
+    "explanation": {
+     "surface": "A villain heads a gang of thieves, perhaps a Russian counterfeiter.",
+     "walkthrough": "The question mark flags the whimsical 'rouble maker'.",
+     "definitionFit": "A troublemaker is a mischievous person who stirs up strife, which a rogue does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "forger"
+    }
+   }
   },
   {
    "number": 13,
@@ -218,7 +838,50 @@
     "text": "Malinger, albeit poorly in earliest stage",
     "enumeration": "8"
    },
-   "solution": "GERMINAL"
+   "solution": "GERMINAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GERMINAL",
+    "definitions": [
+     {
+      "text": "in earliest stage",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "albeit poorly",
+      "for": "anagram",
+      "note": "something done poorly is botched, so the letters come out jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Malinger",
+      "gives": "MALINGER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MALINGER",
+       "gives": "GERMINAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shirks while poorly, even if only in the early stages of illness.",
+     "definitionFit": "Germinal means relating to a germ or seed, so at the very beginning of development."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "poorly"
+    }
+   }
   },
   {
    "number": 14,
@@ -232,7 +895,52 @@
     "text": "Cautiously move below large rocky ridge",
     "enumeration": "5"
    },
-   "solution": "LEDGE"
+   "solution": "LEDGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEDGE",
+    "definitions": [
+     {
+      "text": "rocky ridge",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "below",
+      "for": "charade",
+      "note": "in a down entry, below means placed underneath the next item"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     },
+     {
+      "clueFragment": "Cautiously move",
+      "gives": "EDGE",
+      "note": "to edge is to move slowly and carefully"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EDGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A climber inches beneath a big rocky outcrop.",
+     "definitionFit": "A ledge is a narrow shelf of rock projecting from a cliff face."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -246,7 +954,55 @@
     "text": "Reminder for actor in carefree play, in part",
     "enumeration": "6"
    },
-   "solution": "PROMPT"
+   "solution": "PROMPT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PROMPT",
+    "definitions": [
+     {
+      "text": "Reminder for actor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means put inside the following item"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part",
+      "gives": "PT",
+      "note": "PT is the abbreviation for part"
+     },
+     {
+      "clueFragment": "carefree play",
+      "gives": "ROMP",
+      "note": "a romp is boisterous, lighthearted play"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ROMP",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An actor in a lighthearted show gets a nudge about part of his lines.",
+     "walkthrough": "'Play' and 'part' suggest theatre, but they only give ROMP and PT.",
+     "definitionFit": "A prompt is a word fed to an actor who has forgotten a line."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 16,
@@ -260,7 +1016,60 @@
     "text": "Service area set back a long way away",
     "enumeration": "4"
    },
-   "solution": "AFAR"
+   "solution": "AFAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "AFAR",
+    "definitions": [
+     {
+      "text": "a long way away",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set back",
+      "for": "reversal",
+      "note": "set back means turned to run in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Service",
+      "gives": "RAF",
+      "note": "the Royal Air Force, one of the armed services"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "FAR"
+     ],
+     "reversals": [
+      {
+       "from": "RAFA",
+       "to": "AFAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A military base area has been relocated far off.",
+     "definitionFit": "Afar is a literary adverb for at or from a great distance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Service"
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +1083,69 @@
     "text": "Meeting, with skill, covering disorder up",
     "enumeration": "8"
    },
-   "solution": "ASSEMBLY"
+   "solution": "ASSEMBLY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ASSEMBLY",
+    "definitions": [
+     {
+      "text": "Meeting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means read from the bottom to the top"
+     },
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "covering means wrapping round the other part"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with skill",
+      "gives": "ABLY",
+      "note": "ably means skilfully"
+     },
+     {
+      "clueFragment": "disorder",
+      "gives": "MESS",
+      "note": "a mess is disorder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SSEM",
+      "BLY"
+     ],
+     "reversals": [
+      {
+       "from": "MESS",
+       "to": "SSEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A meeting is run skilfully, hiding the chaos.",
+     "definitionFit": "An assembly is a gathering of people for a common purpose, such as a school meeting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "covering"
+    }
+   }
   },
   {
    "number": 17,
@@ -288,7 +1159,50 @@
     "text": "Stranger not even seen by monarch",
     "enumeration": "5"
    },
-   "solution": "ODDER"
+   "solution": "ODDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ODDER",
+    "definitions": [
+     {
+      "text": "Stranger",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "seen by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not even",
+      "gives": "ODD",
+      "note": "odd numbers are not even"
+     },
+     {
+      "clueFragment": "monarch",
+      "gives": "ER",
+      "note": "Elizabeth Regina, the Queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ODD",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "An unknown person is not even granted an audience with the monarch.",
+     "walkthrough": "'Stranger' looks like a noun, but it is the comparative adjective.",
+     "definitionFit": "Odder is the comparative of odd, meaning more peculiar or unusual."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stranger"
+    }
+   }
   },
   {
    "number": 17,
@@ -302,7 +1216,68 @@
     "text": "Remote lake Stanley finally found in expedition",
     "enumeration": "8"
    },
-   "solution": "OUTLYING"
+   "solution": "OUTLYING",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "OUTLYING",
+    "definitions": [
+     {
+      "text": "Remote",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word before it"
+     },
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "things found in something sit inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expedition",
+      "gives": "OUTING",
+      "note": "an outing is a trip"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the map abbreviation for lake"
+     },
+     {
+      "clueFragment": "Stanley",
+      "gives": "Y",
+      "select": "last",
+      "note": "last letter of Stanley"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "L",
+      "Y",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "Evokes the explorer Stanley discovering a distant lake on an African expedition.",
+     "walkthrough": "L and Y go inside OUTING.",
+     "definitionFit": "Outlying means far from the centre, distant or remote."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Stanley"
+    }
+   }
   },
   {
    "number": 18,
@@ -316,7 +1291,55 @@
     "text": "Offer to wrap new tie",
     "enumeration": "4"
    },
-   "solution": "BIND"
+   "solution": "BIND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BIND",
+    "definitions": [
+     {
+      "text": "tie",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to wrap",
+      "for": "container",
+      "note": "wrapping something puts it inside the wrapper"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Offer",
+      "gives": "BID",
+      "note": "a bid is an offer"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is short for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BI",
+      "N",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone offers to gift-wrap a new necktie.",
+     "walkthrough": "'Tie' looks like a gift, but it is a verb.",
+     "definitionFit": "To bind is to tie or fasten together with cord."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tie"
+    }
+   }
   },
   {
    "number": 19,
@@ -330,7 +1353,58 @@
     "text": "Somebody else supported by a line? Only in theory",
     "enumeration": "8"
    },
-   "solution": "NOTIONAL"
+   "solution": "NOTIONAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOTIONAL",
+    "definitions": [
+     {
+      "text": "Only in theory",
+      "at": 35
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Somebody else",
+      "gives": "NOTI",
+      "note": "somebody else is not I"
+     },
+     {
+      "clueFragment": "supported by",
+      "gives": "ON",
+      "note": "what rests on something is supported by it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOTI",
+      "ON",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone else's backing of a policy line holds only on paper.",
+     "definitionFit": "Notional means existing as an idea rather than in reality, hypothetical."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supported"
+    }
+   }
   },
   {
    "number": 20,
@@ -344,7 +1418,51 @@
     "text": "Something played in time by title-holder?",
     "enumeration": "6"
    },
-   "solution": "SPINET"
+   "solution": "SPINET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPINET",
+    "definitions": [
+     {
+      "text": "Something played",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "title-holder",
+      "gives": "SPINE",
+      "note": "a book's spine carries its title"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPINE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A champion plays something in time.",
+     "walkthrough": "'Title-holder' suggests a champion but is the back of a book; T goes next to SPINE.",
+     "definitionFit": "A spinet is a small harpsichord, an instrument that is played."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "title-holder"
+    }
+   }
   },
   {
    "number": 21,
@@ -358,7 +1476,56 @@
     "text": "Request access to have meal inside",
     "enumeration": "8"
    },
-   "solution": "ENTREATY"
+   "solution": "ENTREATY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ENTREATY",
+    "definitions": [
+     {
+      "text": "Request",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside means placed within the other word"
+     }
+    ],
+    "linkWords": [
+     "to have"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "access",
+      "gives": "ENTRY",
+      "note": "entry means access"
+     },
+     {
+      "clueFragment": "meal",
+      "gives": "EAT",
+      "note": "eats is a colloquial word for food; to eat is to have a meal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENTR",
+      "EAT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks to be let in to get something to eat.",
+     "definitionFit": "An entreaty is an earnest plea, a request made with urgency."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -372,7 +1539,41 @@
     "text": "Deliberately lost, like defeated wrestler, perhaps",
     "enumeration": "6"
    },
-   "solution": "THROWN"
+   "solution": "THROWN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "THROWN",
+    "definitions": [
+     {
+      "text": "Deliberately lost",
+      "at": 0
+     },
+     {
+      "text": "like defeated wrestler, perhaps",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deliberately lost",
+      "note": "first meaning: a match fixed by losing on purpose"
+     },
+     {
+      "clueFragment": "like defeated wrestler, perhaps",
+      "note": "second meaning: hurled to the mat"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two senses suggest a rigged bout, but they are independent.",
+     "definitionFit": "A thrown contest is lost intentionally, and a wrestler thrown by an opponent has been floored."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -392,7 +1593,65 @@
      }
     ]
    },
-   "solution": "MASSHYSTERIA"
+   "solution": "MASSHYSTERIA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MASS HYSTERIA",
+    "definitions": [
+     {
+      "text": "general panic",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed within the following place"
+     }
+    ],
+    "linkWords": [
+     "producing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Male",
+      "gives": "M",
+      "note": "M is short for male"
+     },
+     {
+      "clueFragment": "East",
+      "gives": "ASIA",
+      "note": "the East, as a region"
+     },
+     {
+      "clueFragment": "lawyer of bad repute",
+      "gives": "SHYSTER",
+      "note": "a shyster is an unscrupulous lawyer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AS",
+      "SHYSTER",
+      "IA"
+     ]
+    },
+    "explanation": {
+     "surface": "A disreputable male lawyer in the Far East whips up widespread alarm.",
+     "walkthrough": "The insertion splits the region's name after its second letter.",
+     "definitionFit": "Mass hysteria is collective panic spreading through a population."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "East"
+    }
+   }
   },
   {
    "number": 24,
@@ -406,7 +1665,46 @@
     "text": "Small object put in post",
     "enumeration": "4"
    },
-   "solution": "SEND"
+   "solution": "SEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEND",
+    "definitions": [
+     {
+      "text": "put in post",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the clothing-size abbreviation for small"
+     },
+     {
+      "clueFragment": "object",
+      "gives": "END",
+      "note": "an end is an aim or object"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "A little item is dropped into the mail.",
+     "definitionFit": "To send is to dispatch, as by putting something in the post."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "object"
+    }
+   }
   },
   {
    "number": 25,
@@ -420,7 +1718,50 @@
     "text": "Theorem regularly selected for school period",
     "enumeration": "4"
    },
-   "solution": "TERM"
+   "solution": "TERM",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TERM",
+    "definitions": [
+     {
+      "text": "school period",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly selected",
+      "for": "letter_selection",
+      "note": "regularly selected means taking every other letter at even intervals"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Theorem",
+      "gives": "TERM",
+      "select": "alternate",
+      "note": "first, third, fifth and seventh letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TERM"
+     ]
+    },
+    "explanation": {
+     "surface": "A theorem is routinely chosen for study during a school session.",
+     "definitionFit": "A term is one of the divisions of the school year."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -434,7 +1775,41 @@
     "text": "Part of Southern England understood in North",
     "enumeration": "4"
    },
-   "solution": "KENT"
+   "solution": "KENT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KENT",
+    "definitions": [
+     {
+      "text": "Part of Southern England",
+      "at": 0
+     },
+     {
+      "text": "understood in North",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part of Southern England",
+      "note": "first meaning: the south-eastern English county"
+     },
+     {
+      "clueFragment": "understood in North",
+      "note": "second meaning: Scots and northern English for known"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In Scotland and northern England, ken means to know, with its past form spelt with a T ending.",
+     "definitionFit": "The county is in south-east England, and the dialect past participle of ken means known or understood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -448,7 +1823,55 @@
     "text": "Put in solitary, fellow citizen of ours",
     "enumeration": "8"
    },
-   "solution": "LONDONER"
+   "solution": "LONDONER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LONDONER",
+    "definitions": [
+     {
+      "text": "fellow citizen of ours",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "solitary",
+      "gives": "LONER",
+      "note": "a loner is a solitary person"
+     },
+     {
+      "clueFragment": "Put",
+      "gives": "DON",
+      "note": "to don is to put on clothes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LON",
+      "DON",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "One of our own citizens has been placed in solitary confinement.",
+     "walkthrough": "The Telegraph is a London paper, so 'of ours' points to its home city.",
+     "definitionFit": "A Londoner is an inhabitant of London, the newspaper's own city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "solitary"
+    }
+   }
   },
   {
    "number": 28,
@@ -462,7 +1885,58 @@
     "text": "Primate, in practice, preceded by bishop, say",
     "enumeration": "8"
    },
-   "solution": "MANDRILL"
+   "solution": "MANDRILL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MANDRILL",
+    "definitions": [
+     {
+      "text": "Primate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "preceded by",
+      "for": "charade",
+      "note": "preceded by means another item comes before this one"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bishop, say",
+      "gives": "MAN",
+      "note": "a bishop is a chess man"
+     },
+     {
+      "clueFragment": "practice",
+      "gives": "DRILL",
+      "note": "drill is repetitive practice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "DRILL"
+     ]
+    },
+    "explanation": {
+     "surface": "An archbishop, practising, follows a bishop.",
+     "walkthrough": "A primate is also a church's senior archbishop, which the bishop plays on; here it is the monkey.",
+     "definitionFit": "A mandrill is a large West African baboon with a colourful face, a primate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Primate"
+    }
+   }
   }
  ]
 }
