@@ -1494,6 +1494,20 @@ def swapped(word):
 check("a sure A whose swap to R makes the one word a letter away is that word",
       {(1, "across"): "ESCRITOIRE"}, swapped("ESCAITOIRE"))
 check("a sure R is not swapped to an A", {}, swapped("BRLLOON"))
+# numbered_swaps(): a clue number makes its cell's sure read a misread
+# (15839 BVEREAT, 17215 YMPLORE); the one listed word a change of that cell
+# makes is taken, where half the lights crossing it are accepted. A plain
+# cell's change (BEEIZEBUB) is not taken, nor a light in a grid read
+# around it so little that the crop may be another day's (20372 TSQUARE).
+def numbered_swap(word, crossings_accepted):
+    across = [(1, i) for i in range(len(word))]
+    lts = {(2, "across"): across, (1, "down"): [(0, 1), (1, 1)], (3, "down"): [(0, 3), (1, 3)]}
+    accepted = {(1, "down"): "A" + word[1]} if crossings_accepted else {}
+    return tso.numbered_swaps(lts, accepted, [{}, dict(zip(across, word))])
+check("a numbered cell's sure misread one letter from the only listed word is that word",
+      {(2, "across"): "OVEREAT"}, numbered_swap("BVEREAT", True))
+check("a plain cell's misread is not swapped", {}, numbered_swap("BEEIZEBUB", True))
+check("a light whose crossings are mostly unread is not swapped", {}, numbered_swap("BVEREAT", False))
 # crossed_reads(): an unread light's cells take accepted crossings' letters
 # and plain cells' sure reads (Gale 1987: ?MADEUS, ?LEANOR); a numbered
 # cell's own sure read is no letter (DUCKINGSTOOL's D read as a sure B),
