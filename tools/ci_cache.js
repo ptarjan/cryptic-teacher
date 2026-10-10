@@ -69,7 +69,7 @@ const SMOKE_DEPS = [
     "tools/fetch_archive_org_editions.py", "tools/fetch_ia_book.py", "tools/fetch_privateeye.py", "tools/fetch_puzzle.py", "tools/fetch_times_listing.py",
     "tools/file_archive_org_puzzles.py", "tools/file_penguin_puzzle.py",
     "tools/file_trove_puzzles.py", "tools/find_answer_leaks.py", "tools/grid_fill.py", "tools/grid_verdict.py",
-    "tools/groups.py", "tools/hidden_messages.py", "tools/indicator_keys.py", "tools/json_merge.py",
+    "tools/groups.py", "tools/hidden_messages.py", "tools/indicator_keys.py", "tools/json_merge.py", "tools/mem_gate.py",
     "tools/letter_facts.py", "tools/light_spec.py", "tools/make_og.sh", "tools/make_og_card.py",
     "tools/nightly_worktree.sh", "tools/normalise_linked_enumerations.py", "tools/ocr_clues.py",
     "tools/ocr_full_pass.sh", "tools/ocr_remote.py", "tools/og_card.html",

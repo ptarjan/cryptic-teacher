@@ -55,11 +55,13 @@ import functools
 import hashlib
 import itertools
 import json
+import math
 import multiprocessing
 import os
 import pickle
 import random
 import re
+import signal
 import sys
 import tempfile
 import threading
@@ -1782,7 +1784,7 @@ def write(corpus, votes, said=None, jobs=None):
     blog_facts.write lays it out, one file at a time. `corpus` is rows() in
     their order, iterable more than once (Packed); `said`, read_leads, joined
     in here where the rows lack their leads; `jobs`, the processes reading the
-    clues once the lexicons are built (default one a CPU) and, unset, on the
+    clues once the lexicons are built (default local_jobs()) and, unset, on the
     desktop while one answers, the lexicons too. {field: clues it was inferred in}."""
     with timed("lexicons built"):
         ilex, both, lex, dlex = _lexicons(corpus, list(annotation_rows()), jobs)
@@ -1858,6 +1860,11 @@ DESKTOPS = "micro@192.168.1.198,micro@100.68.145.15"
 #: remaining clues read here.
 DESKTOP_JOBS = 20
 DESKTOP_SILENCE = 300
+#: The desktop priority (ocr_remote.PRIORITIES) the servers run at: below
+#: normal, over the OCR full pass's idle reads, which have no deadline while
+#: this run has its unit's limit (at idle beside them it starves past
+#: DESKTOP_SILENCE). Still under a game's normal.
+SERVE_PRIORITY = "scan"
 #: Seconds without a result after which the local pool is taken for stuck
 #: (a worker lost mid-task leaves imap waiting forever) and the run exits.
 LOCAL_SILENCE = 900
@@ -1886,7 +1893,7 @@ def _chunk_facts(items):
 def _read_clues(corpus, said, jobs):
     """_puzzle_facts for each of `corpus`'s puzzles, in its order: with `jobs`
     unset, on the desktop while one answers and is not busy, then the rest
-    here in a pool of `jobs` processes (default one a CPU)."""
+    here in a pool of `jobs` processes (default local_jobs())."""
     def puzzles(skip=0):
         for pid, rs in itertools.islice(itertools.groupby(corpus, key=lambda r: r[0]), skip, None):
             got = said.get(pid, {})
@@ -1902,11 +1909,11 @@ def _read_clues(corpus, said, jobs):
         except _Unavailable as e:
             print(f"letter_facts.write: {e}; reading {'the rest of ' if done else ''}the clues here"
                   f" after {done} puzzles on the desktop", file=sys.stderr)
-    jobs = jobs or os.cpu_count() or 1
+    jobs = jobs or local_jobs()
     if jobs == 1:
         yield from map(_puzzle_facts, puzzles(done))
         return
-    with multiprocessing.get_context("fork").Pool(jobs) as pool:
+    with multiprocessing.get_context("fork").Pool(jobs, _orphan_exits, (os.getpid(),)) as pool:
         got = pool.imap(_chunk_facts, itertools.batched(puzzles(done), 16))
         while True:
             try:
@@ -1916,6 +1923,35 @@ def _read_clues(corpus, said, jobs):
             except multiprocessing.TimeoutError:
                 sys.exit(f"letter_facts.write: the local pool returned nothing in {LOCAL_SILENCE}s"
                          f" ({jobs} processes, after {done} puzzles on the desktop); a worker is lost or starved")
+
+
+def _orphan_exits(parent):
+    """A local pool worker's start: Ctrl-C is the parent's to handle, and once
+    the parent is gone (a unit's TERM at its limit) the worker exits within a
+    second, silently, not reading on until its result meets a closed pipe."""
+    signal.signal(signal.SIGINT, signal.SIG_IGN)
+
+    def watch():
+        while os.getppid() == parent:
+            time.sleep(1)
+        os._exit(0)
+    threading.Thread(target=watch, daemon=True).start()
+
+
+def local_jobs(load=None, avail=None, rss=None):
+    """The processes to read clues in here: the CPUs no process wants (the
+    count less the 1-minute load), and no more forks than the available
+    memory holds above mem_gate.FLOOR at this process's resident size each
+    (a fork's copy-on-write pages grow to about that); at least 1, which
+    reads in this process and forks none."""
+    import mem_gate
+    load = mem_gate.load() if load is None else load
+    jobs = (os.cpu_count() or 1) - math.ceil(load or 0)
+    avail = mem_gate.available() if avail is None else avail
+    rss = mem_gate.tree_rss([os.getpid()]).get(os.getpid()) if rss is None else rss
+    if avail is not None and rss:
+        jobs = min(jobs, (avail - mem_gate.FLOOR) // rss)
+    return max(1, jobs)
 
 
 class _Unavailable(Exception):
@@ -1939,7 +1975,8 @@ def _lexicons(corpus, ours, jobs):
     """LEXICONS of `corpus` in their order, `ours` (annotation_rows) counted
     where they take it: with `jobs` unset, on the desktop while one answers;
     else here, one process each, so each step's share of a loaded machine
-    is four processes', not one's."""
+    is four processes', not one's, where `jobs` (default local_jobs()) has
+    room for them, else in this process."""
     if jobs is None:
         try:
             return _desktop_lexicons(corpus, ours)
@@ -1947,7 +1984,7 @@ def _lexicons(corpus, ours, jobs):
             print(f"letter_facts.write: {e}; building the lexicons here", file=sys.stderr)
     _WORKER.update(corpus=corpus, ours=ours)
     try:
-        if jobs == 1:
+        if (jobs or local_jobs()) < len(LEXICONS):
             return tuple(map(_build_lexicon, LEXICONS))
         with multiprocessing.get_context("fork").Pool(len(LEXICONS)) as pool:
             return tuple(pool.map(_build_lexicon, LEXICONS))
@@ -1974,7 +2011,7 @@ def _desktop(flag, request):
     """What `letter_facts.py flag` sends back, object by object, on the first
     desktop that takes `request` (tools/ocr_remote.py ships the code): this
     Python's minor version, then each of `request`, then None, pickled to it,
-    to run at idle priority; _Unavailable when none answers, it is busy
+    to run at SERVE_PRIORITY; _Unavailable when none answers, it is busy
     (tools/desktop_busy.py), or it stops partway."""
     import subprocess
 
@@ -2066,10 +2103,10 @@ def serve_clues():
 
 
 def _served():
-    """A desktop server's (stdin, stdout), at full speed and idle priority,
+    """A desktop server's (stdin, stdout), at full speed and SERVE_PRIORITY,
     once the request's Python is this one."""
     import ocr_remote
-    ocr_remote.full_speed()
+    ocr_remote.full_speed(SERVE_PRIORITY)
     inp, out = sys.stdin.buffer, sys.stdout.buffer
     version = pickle.load(inp)
     if version != tuple(sys.version_info[:2]):
@@ -2098,17 +2135,17 @@ def serve_lexicons():
 
 
 def _lexicon_worker(state):
-    """A serve_lexicons worker: at full speed and idle priority, the corpus loaded."""
+    """A serve_lexicons worker: at full speed and SERVE_PRIORITY, the corpus loaded."""
     import ocr_remote
-    ocr_remote.full_speed()
+    ocr_remote.full_speed(SERVE_PRIORITY)
     rows_, ours = pickle.loads(Path(state).read_bytes())
     _WORKER.update(corpus=Packed.of(rows_), ours=ours)
 
 
 def _serve_worker(state):
-    """A serve_clues worker: at full speed and idle priority, the lexicons loaded."""
+    """A serve_clues worker: at full speed and SERVE_PRIORITY, the lexicons loaded."""
     import ocr_remote
-    ocr_remote.full_speed()
+    ocr_remote.full_speed(SERVE_PRIORITY)
     _WORKER.update(pickle.loads(Path(state).read_bytes()))
 
 
@@ -2712,7 +2749,7 @@ def main():
     ap.add_argument("--measure-blockless", type=int, nargs="?", const=4, metavar="SLICE",
                     help="precision of hidden words' carriers, homophones' and spoonerisms' heard blocks,"
                          " and their indicators (default slice %(const)s)")
-    ap.add_argument("--jobs", type=int, help="processes reading the clues for --write (default one a CPU)")
+    ap.add_argument("--jobs", type=int, help="processes reading the clues for --write (default local_jobs())")
     ap.add_argument("--lexicons", action="store_true",
                     help="write only the combined lexicons, as --write does, to tools/data/lexicons/")
     ap.add_argument("--coverage", action="store_true",

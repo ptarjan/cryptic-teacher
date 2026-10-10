@@ -355,6 +355,41 @@ if [ "$pool" = "True
 True" ]; then echo "ok   the local pool reads in order, and exits on a stall"; else
   echo "FAIL local pool: expected [True True], got [$pool]"; fails=$((fails + 1)); fi
 
+# The local pool takes the CPUs the load leaves and no more forks of this
+# process than the memory above the floor holds; at least this one process.
+jobs=$(cd "$REPO/tools" && python3 -c '
+import os, mem_gate, letter_facts as l
+n, G = os.cpu_count(), 1 << 30
+print(l.local_jobs(load=0, avail=1 << 50, rss=G) == n, l.local_jobs(load=n - 1.5, avail=1 << 50, rss=G) == 1,
+      l.local_jobs(load=0, avail=mem_gate.FLOOR + 2 * G + 1, rss=G) == min(n, 2),
+      l.local_jobs(load=0, avail=mem_gate.FLOOR - G, rss=G) == 1, l.local_jobs(load=n * 4, avail=1 << 50, rss=G) == 1)')
+if [ "$jobs" = "True True True True True" ]; then echo "ok   the local pool is sized to the idle CPUs and the free memory"; else
+  echo "FAIL local_jobs: expected all True, got [$jobs]"; fails=$((fails + 1)); fi
+
+# A local pool worker whose parent is killed exits within seconds, printing nothing.
+orphan=$(cd "$REPO/tools" && python3 -c '
+import os, signal, subprocess, sys, time
+kid = subprocess.Popen([sys.executable, "-c", """
+import os, time, letter_facts as l
+def slow(item):
+    time.sleep(60)
+l._puzzle_facts = slow
+print(os.getpid(), flush=True)
+list(l._read_clues([(f"p{i}", "e", "c", "A", {}) for i in range(64)], {}, 2))
+"""], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+pid = int(kid.stdout.readline())
+time.sleep(1)
+workers = [int(p) for p in subprocess.run(["ps", "-A", "-o", "pid=,ppid="], capture_output=True, text=True).stdout.split()[0::2]
+           if False] or [int(a) for a, b in (l.split() for l in subprocess.run(["ps", "-A", "-o", "pid=,ppid="],
+           capture_output=True, text=True).stdout.splitlines()) if int(b) == pid]
+os.kill(pid, signal.SIGTERM)
+kid.wait()
+time.sleep(3)
+alive = [w for w in workers if subprocess.run(["kill", "-0", str(w)], capture_output=True).returncode == 0]
+print(len(workers) == 2, alive == [], kid.stderr.read() == "")')
+if [ "$orphan" = "True True True" ]; then echo "ok   a killed run leaves no pool worker reading on, and no traceback"; else
+  echo "FAIL orphaned workers: expected [True True True], got [$orphan]"; fails=$((fails + 1)); fi
+
 # The lexicons are built on the desktop, its beats skipped; with no desktop,
 # here, a process each, as one process builds them, our annotations counted
 # in the indicator lexicon.
