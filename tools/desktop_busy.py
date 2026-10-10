@@ -126,7 +126,12 @@ def busy(hosts):
         # Saved before the sessions are ended: a process whose session ends
         # reads this verdict, so it waits for idle, not ocr_remote.RETRY.
         tmp = state.with_suffix(f".{os.getpid()}.part")
-        tmp.write_text(json.dumps({"t": clock(), "why": why, "reading": reading}))
+        # A probe that times out (a desktop saturated enough to page) keeps
+        # the last free memory read, with when: its callers charge what they
+        # started since against it (edition_queue.desktop_room).
+        free = ([clock(), reading["freeMB"]] if reading and reading.get("freeMB") is not None
+                else (old or {}).get("free"))
+        tmp.write_text(json.dumps({"t": clock(), "why": why, "reading": reading, "free": free}))
         tmp.replace(state)
         if why and reading["serving"]:
             stop_sessions(host, reading["serving"])
@@ -139,13 +144,11 @@ def busy(hosts):
 
 
 def free_mb(hosts):
-    """(when it was read, the desktop's free physical memory in MB) at its
-    last probe, made again here when older than PROBE_EVERY (busy); None
-    when it did not answer or `hosts` holds no desktop."""
+    """(when it was read, the desktop's free physical memory in MB) at the
+    last probe it answered, probing again when older than PROBE_EVERY
+    (busy); None when it never answered or `hosts` holds no desktop."""
     if not [h for h in hosts if h.rpartition("@")[2] in DESKTOPS]:
         return None
     busy(hosts)
     got = _read(STATE / "desktop_busy.json")
-    if not got or not got.get("reading") or got["reading"].get("freeMB") is None:
-        return None
-    return got["t"], got["reading"]["freeMB"]
+    return tuple(got["free"]) if got and got.get("free") else None
