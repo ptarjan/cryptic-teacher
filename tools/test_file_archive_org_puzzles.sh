@@ -1311,20 +1311,26 @@ for r in range(15):
         heavy[(top + foot) // 2 - 3:(top + foot) // 2 + 3, 7:39] = True
 ys, xs = tso.rules(np.where(heavy, 0, 255).astype(np.uint8), edge)
 check("a frame beside a heavy edge column found within 2px of its middle", True, abs(xs[0] - 2) <= 2)
-# framed_rules(): blocks read alike on any lattice near the grid, so an
-# even lattice reading one more cell's block right is no better fit. A
-# heavy skewed print (Times 14486, 15960) cut on such a lattice lost every
-# light right of its middle; rules() wins unless RULES_SLACK cells behind.
-plain = np.asarray(sheared.convert("L"))
-real_agreement = tso.block_agreement
-def picked(behind):
-    tso.block_agreement = lambda g, grid, lat: 1.0 if g is plain else 1.0 - behind / 225
-    try:
-        return tso.framed_rules(plain, grid17246)[0] is plain
-    finally:
-        tso.block_agreement = real_agreement
-check("rules() kept when an even lattice reads one cell's block better, not three",
-      (False, True), (picked(1), picked(3)))
+# read_framed(): the lattice reading most cells surely leads, and another
+# lattice's lights stand where they agree with its letters. Times 20352 on
+# rules() lost MERCILESS, RACER, ICECAP that an even lattice a few pixels
+# off read; a light whose cell the leader surely reads otherwise does not
+# stand (13977's even lattice read CREATED's D as an R).
+grid3 = ["...", ".#.", "..."]
+lead = ({(1, "across"): "CAT"}, {"cellsSure": 7}, {(0, 0): "C", (0, 1): "A", (0, 2): "T", (2, 2): "D"})
+other = ({(1, "across"): "COT", (1, "down"): "COB", (3, "across"): "BED", (2, "down"): "TOR"},
+         {"cellsSure": 5}, {})
+real_framings, real_lattice = tso.framings, tso.read_lattice
+tso.framings = lambda gray, grid: [("o", 0, 0), ("l", 0, 0)]
+tso.read_lattice = lambda g, ys, xs, grid: {"o": other, "l": lead}[g]
+try:
+    Image.new("L", (30, 30), 255).save(os.path.join(os.environ["TMP"], "grid3.png"))
+    accepted, stats = tso.read_framed(os.path.join(os.environ["TMP"], "grid3.png"), grid3)
+finally:
+    tso.framings, tso.read_lattice = real_framings, real_lattice
+check("the surest lattice's lights stand; another's where every cell agrees",
+      ({(1, "across"): "CAT", (1, "down"): "COB", (3, "across"): "BED"}, 2),
+      (accepted, stats["lattices"]))
 # numbers_printed(): a Times solution grid from the mid-1980s prints no clue
 # numbers; blanking its numbered cells' corners makes a D a sure J (20006
 # DELETE lost), so only a grid whose numbered corners carry ink is blanked.
