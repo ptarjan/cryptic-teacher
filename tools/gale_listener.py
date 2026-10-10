@@ -31,7 +31,11 @@ reads only files new or changed. The standing pass reads each new page as
 a unit of its own (tools/edition_queue.py, plan() and read_unit(): its own
 process, time limit and lock), planned every minute from the mirror the
 every-3-minute gale_inbox tick keeps, so a page is read within minutes of
-landing; `sync` does the same as one batch.
+landing; `sync` does the same as one batch. With OCR_REMOTE set, a page's
+read (its match, clue OCR and grids) runs on the desktop through
+tools/ocr_remote.py (read_remote), all but its whole-page Tesseract read;
+the filing runs here, and the whole read when the desktop is unset, busy
+or fails.
 
 What a page gives is its clues: STORE/listener-N.json, the reading
 tools/archive_org_listener.py writes (clue text and count by light, the
@@ -969,6 +973,11 @@ DASHES = re.compile(r"[-–—]+")
 PARTED_STOP = re.compile(r"[.,;:!?]+")
 
 
+def greek_model():
+    """The Greek model's .traineddata, beside tesseract's installed eng."""
+    return Path(ocr_clues.tesseract()).resolve().parent.parent / "share" / "tessdata" / f"{GREEK}.traineddata"
+
+
 def greek_box(img, key, box):
     """[(x0, y0, x1, y1, text)] the Greek model reads in `box` of the page,
     one line (psm 7: over a looser crop it reads the neighbouring lines'
@@ -978,9 +987,8 @@ def greek_box(img, key, box):
         return [tuple(w) for w in json.loads(path.read_text())]
     crop = img.crop(box).convert("RGB")
     crop = crop.resize((crop.width * GREEK_UPSCALE, crop.height * GREEK_UPSCALE))
-    model = Path(ocr_clues.tesseract()).resolve().parent.parent / "share" / "tessdata" / f"{GREEK}.traineddata"
     got = [(x0 // GREEK_UPSCALE + box[0], y0 // GREEK_UPSCALE + box[1], x1 // GREEK_UPSCALE + box[0],
-            y1 // GREEK_UPSCALE + box[1], t) for x0, y0, x1, y1, t in ocr_clues.tesseract_words(crop, model, psm=7)]
+            y1 // GREEK_UPSCALE + box[1], t) for x0, y0, x1, y1, t in ocr_clues.tesseract_words(crop, greek_model(), psm=7)]
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(got))
     return got
@@ -1145,6 +1153,104 @@ def read_file(m):
     return best
 
 
+def model_hash(path):
+    """The sha1 of a model file, or None when it is missing."""
+    return hashlib.sha1(path.read_bytes()).hexdigest() if path.exists() else None
+
+
+def read_remote(p, h, idx):
+    """(match(p, idx), read_file() of it) of the saved file `p` (sha256 `h`)
+    read on the desktop (read_there) when tools/ocr_remote.py can, else
+    None. The file, the index and the OCR cached for its pages are sent,
+    their whole-page Tesseract read (page_words) made here first: over a
+    whole page the desktop's build lays out other lines than this host's,
+    where over a band or a line it reads the same. The match has no pages;
+    the OCR it cached is kept in OCR_CACHE and the page grids it found in
+    file_gale_listener's cache, so filing reads none of the page here."""
+    import io
+    import tarfile
+
+    import ocr_remote
+    if ocr_remote.session() is None:  # unset, busy or not answering: nothing to make here for it
+        return None
+    try:
+        pages = gi.images(p)
+    except (OSError, ValueError):  # read_one says why, reading it here
+        return None
+    buf = io.BytesIO()
+    with tarfile.open(fileobj=buf, mode="w") as tar:
+        tar.add(p, arcname=f"file/{p.name}")
+        for img, _ in pages:
+            key = image_key(img)
+            page_words(img, key)
+            for f in sorted(OCR_CACHE.glob(f"{key}.*")):
+                tar.add(f, arcname=f"ocr/{f.name}")
+    got = ocr_remote.call("listener_read", p.name, h, [{**r, "date": r["date"].isoformat()} for r in idx],
+                          model_hash(greek_model()), data=buf.getvalue())
+    if got is None:
+        return None
+    (got, back) = got
+    with tarfile.open(fileobj=io.BytesIO(back)) as t:
+        t.extractall(OCR_CACHE, filter="data")
+    import file_gale_listener  # it imports this module
+    file_gale_listener.GRIDS.mkdir(parents=True, exist_ok=True)
+    (file_gale_listener.GRIDS / f"{h}.json").write_text(got["grids"])
+    m = got["match"]
+    m.update(date=m.get("date") and datetime.date.fromisoformat(m["date"]), pages=[])
+    laid = got["laid"] and {lid: tuple(v) for lid, v in got["laid"].items()}
+    return m, (got["verdict"], laid)
+
+
+def read_there(data, name, sha, rows, greek):
+    """tools/ocr_remote.py's "listener_read", run on the desktop: ({"match":
+    match() of the saved file named `name` without its pages, its date ISO,
+    "verdict", "laid": read_file() of it,
+    "grids": file_gale_listener.page_grids' cache file for it}, a tar of the
+    OCR it cached), the file and its cached OCR in the tar `data`, `rows`
+    the index (dates ISO), `greek` the Mac's greek_model() hash; raises when
+    the Greek model here is not that one or the read opened a file it was
+    not sent."""
+    import gc
+    import io
+    import tarfile
+    import tempfile
+
+    import file_gale_listener
+    import ocr_remote
+    if model_hash(greek_model()) != greek:
+        raise ValueError(f"the Greek model here is not the Mac's ({greek_model()})")
+    global OCR_CACHE
+    with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmp:
+        root = Path(tmp)
+        with tarfile.open(fileobj=io.BytesIO(data)) as tar:
+            tar.extractall(root, filter="data")
+        (root / "ocr").mkdir(exist_ok=True)
+        sent = {f.name: f.read_bytes() for f in (root / "ocr").iterdir()}
+        idx = [{**r, "date": datetime.date.fromisoformat(r["date"])} for r in rows]
+        OCR_CACHE, kept = root / "ocr", OCR_CACHE
+        ocr_remote._WATCH[:] = [(str(root), str(TOOLS.parent)), []]
+        try:
+            m = match(root / "file" / name, idx)
+            verdict, laid = read_file(m) if m["number"] is not None else ({}, None)
+            file_gale_listener.page_grids(root / "file" / name, sha, cache=root / "grids")
+        finally:
+            missing, ocr_remote._WATCH[:] = ocr_remote._WATCH[1], [None, []]
+            OCR_CACHE = kept
+        if missing:
+            raise FileNotFoundError("opened files it was not sent: " + ", ".join(sorted(set(missing))[:5]))
+        m.pop("pages")
+        if m.get("date"):
+            m["date"] = m["date"].isoformat()
+        buf = io.BytesIO()
+        with tarfile.open(fileobj=buf, mode="w") as tar:
+            for f in sorted((root / "ocr").iterdir()):
+                if sent.get(f.name) != f.read_bytes():
+                    tar.add(f, arcname=f.name)
+        grids = (root / "grids" / f"{sha}.json").read_text()
+        gc.collect()  # closes the file, which Windows will not delete open
+        return {"match": m, "verdict": verdict, "laid": laid, "grids": grids}, buf.getvalue()
+
+
 def reading(m, row, verdict, laid):
     """The reading written to STORE: archive_org_listener.reading's shape."""
     alike = verdict.get("asPrinted", {})
@@ -1197,12 +1303,18 @@ def read_one(p, h, idx, rows, store, out=sys.stdout, reader=read_file):
     entry = {"file": p.name, "version": VERSION, "readOn": datetime.datetime.now().astimezone().date().isoformat()}
     m = None
     try:
-        try:
-            m = match(p, idx)
-        except (OSError, ValueError) as e:  # reported in the ledger and the checklist
-            m = {"file": p.name, "number": None, "why": f"unreadable: {type(e).__name__}: {e}", "pages": [],
-                 "reports": []}
-        verdict, laid = reader(m) if m["number"] is not None else ({}, None)
+        got = read_remote(p, h, idx) if reader is read_file else None
+        if got is not None:
+            m, (verdict, laid) = got
+        else:
+            import ocr_remote
+            with ocr_remote.local_slot():
+                try:
+                    m = match(p, idx)
+                except (OSError, ValueError) as e:  # reported in the ledger and the checklist
+                    m = {"file": p.name, "number": None, "why": f"unreadable: {type(e).__name__}: {e}", "pages": [],
+                         "reports": []}
+                verdict, laid = reader(m) if m["number"] is not None else ({}, None)
     except subprocess.TimeoutExpired as e:
         # A loaded host's Tesseract: not the page's fault, so it is not
         # ledgered, and the next run reads it again.

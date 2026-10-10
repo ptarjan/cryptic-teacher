@@ -5,7 +5,8 @@
 # clue lists read in column order wherever DOWN falls, the 1930s lists by
 # their numbers in bands across two columns when a heading goes unread, a
 # clue a line when the lists print no counts; is each file read once (the
-# ledger is keyed by its hash; one whose OCR times out stays unread); and
+# ledger is keyed by its hash; one whose OCR times out stays unread); is a
+# read on the desktop the read here, its OCR and grids kept here; and
 # does the checklist list every puzzle of
 # the index, earliest first, marking what is filed or saved, and what the
 # 3-minute tick saw arrive (matched by name or citation, each file once),
@@ -713,6 +714,49 @@ check("a report-only page is not lost", ([1], None),
       next((e["reports"], e["why"]) for e in g.load_ledger(store).values() if e["file"] == "report.png"))
 (inbox / "report.png").unlink()
 g.match = real_match
+
+# A page read on the desktop (read_remote; ocr_remote.call as the desktop
+# answers it, JSON both ways) gives the ledger row and the reading a read
+# here gives; the OCR it cached and the page's grids are kept here, and the
+# next read there is sent that OCR (the page's Tesseract read is made here).
+# The reader is stubbed: it caches a file.
+import ocr_remote
+import file_gale_listener as fgl
+tmp = Path(sys.argv[1])
+g.OCR_CACHE, fgl.GRIDS = tmp / "ocr", tmp / "grids"
+had = []
+def cached_read(m):
+    path = g.OCR_CACHE / f"{m['pages'][0][1]}.0-0-300-200.x.json"
+    had.append(path.exists())
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("[[1, 2, 3, 4, \"aubade\"]]")
+    return {"clues": 1, "agreed": 1, "asPrinted": {"1-across": ["aubade"]}}, {"1-across": ("Spanish for aubade", "(6)", None)}
+g.read_file = cached_read
+calls = []
+def over_json(name, *args, data=b"", **kwargs):
+    calls.append(name)
+    result, back = ocr_remote.run_call(name, data, json.loads(json.dumps(args)), kwargs)
+    return json.loads(json.dumps(result)), back
+saved = inbox / "1930-04-02.png"
+Image.new("RGB", (300, 200), "white").save(saved)
+h = g.file_hash(saved)
+ocr_remote.session = lambda: "a session"
+def read(call, store):
+    ocr_remote.call = call
+    e = g.read_one(saved, h, rows, {r["number"]: r for r in rows}, store, out=out, reader=g.read_file)
+    return {k: v for k, v in e.items() if k != "readOn"}, (store / "listener-1.json").read_text()
+here = read(lambda *a, **k: None, tmp / "here")
+here_ocr = {f.name: f.read_text() for f in g.OCR_CACHE.iterdir()}
+here_grids = fgl.page_grids(saved, h, cache=tmp / "grids-here")
+for f in g.OCR_CACHE.iterdir():
+    f.unlink()
+there = read(over_json, tmp / "there")
+check("a page read there gives the ledger row and reading a read here does", (["listener_read"], here), (calls, there))
+check("the OCR it cached there is cached here", here_ocr, {f.name: f.read_text() for f in g.OCR_CACHE.iterdir()})
+check("and the page's grids are filing's, read here from the cache", here_grids, fgl.page_grids(saved, h))
+read(over_json, tmp / "there2")
+check("a read there again is sent the OCR cached here", [False, False, True], had)
+ocr_remote.call = lambda *a, **k: None
 
 root = Path(sys.argv[1]) / "repo"
 (root / "puzzles" / "listener" / "1930").mkdir(parents=True)
