@@ -6466,12 +6466,10 @@
     indysunday: ["indy sunday", `The Independent on Sunday's cryptic, with its own
       weekly numbering: the daily's setters and its adventurous style, themes and
       hidden grid messages included, and about as hard.`],
-    book: ["book", `Crosswords out of scanned printed books: out-of-print
-      collections, so the puzzles are years older than today's. Each
-      puzzle is named by its book and its place in it — Penguin book 5 No 18 —
-      and dated by the year the book came out, and the answers are our own
-      solve rather than the paper's, because what a book prints is a picture
-      of a filled grid.`],
+    book: ["book", `Puzzles from printed crossword books, most of them now
+      out of print. Each is named by its book and its number in that book,
+      and dated by the year the book came out. Books print their solutions
+      only as pictures of filled grids, so the answers here are our own solve.`],
   };
 
 

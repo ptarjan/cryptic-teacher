@@ -837,26 +837,25 @@ def series_blurbs():
     return app_tables.series_blurbs()
 
 
-def series_blurb(series, ps):
-    """The app's sentence about a series, for a page listing the puzzles ps.
+def series_blurb(series, ps, books_listed=True):
+    """The app's sentence about a series, as HTML, for a page listing the puzzles ps.
 
-    The books line adds which books those puzzles came out of, counted off ps
-    itself: the registry also holds books not acquired yet, and a count read
-    off it describes the shelf plan rather than the page.
+    A books page lists which books its puzzles came out of, read off ps itself:
+    the registry also holds books not acquired yet. The all-puzzles page,
+    with books_listed False, gives only how many.
     """
     text = series_blurbs().get(series)
+    para = f"<p>{esc(text)}</p>" if text else ""
     if not series_meta.is_book(series):
-        return text
+        return para
     rows = {}
     for p in ps:
         row = series_meta.book_row(series, p["number"])
         rows[row["book_index"]] = row["title"]
     titles = [rows[i] for i in sorted(rows)]
-    # Titles carry their own commas ("..., volume 2"), so the list uses semicolons.
-    which = titles[0] if len(titles) < 2 else "; ".join(titles[:-1]) + " and " + titles[-1]
-    own = (f"They come from {len(titles)} books: {which}." if len(titles) > 1
-           else f"They come from one book: {which}.")
-    return f"{text} {own}" if text else own
+    if not books_listed:
+        return para + f"<p>From {len(titles)} book{'s' if len(titles) != 1 else ''}.</p>"
+    return para + '<ul class="s-books">' + "".join(f"<li>{esc(t)}</li>" for t in titles) + "</ul>"
 
 
 def series_name(series):
@@ -976,7 +975,7 @@ def hub_page(idx):
             f'<section class="s-series" id="{esc(s)}">'
             f'<h2><a href="{site_url(series_path(s))}">{esc(series_name(s))}</a> '
             f'{series_badge(s)}</h2>'
-            + (f'<p>{esc(b)}</p>' if (b := series_blurb(s, every)) else "")
+            + series_blurb(s, every, books_listed=False)
             + difficulty_strip(series_name(s), every)
             + '<p class="muted">Pick a year:</p>'
             f'<p class="s-years">{links}</p></section>')
@@ -1052,7 +1051,7 @@ def listing_page(series, year, ps, prev_year, next_year):
         masthead(crumbs),
         '<main class="static-main">',
         f"<h1>{esc(label)}</h1>",
-        *([f'<p>{esc(b)}</p>'] if (b := series_blurb(series, ps)) else []),
+        series_blurb(series, ps),
         difficulty_strip(label, ps),
         f'<p>{len(ps):,} puzzle{"s" if len(ps) != 1 else ""}, newest first. {hub_link()}.</p>',
         f'<p class="muted small-note">{BADGE_KEY}</p>',
@@ -1112,7 +1111,7 @@ def series_page(series, years, today):
             f'<ul class="s-index">{hub_row(latest)}</ul>',
             f'<p class="s-cta"><a class="cta" href="{solve_url(latest["id"])}">Solve it yourself, '
             "with hints one step at a time &rarr;</a></p>",
-            *([f"<p>{esc(blurb)}</p>"] if blurb else []),
+            blurb,
             difficulty_strip(name, every),
             "<h2>Recent puzzles</h2>",
             f'<ul class="s-index">{"".join(hub_row(p) for p in every[1:RECENT + 1])}</ul>',
@@ -1122,7 +1121,7 @@ def series_page(series, years, today):
         title = f"{name}: cryptic crossword answers and explanations, by year"
         desc = ("Cryptic crosswords reprinted in books" if series_meta.is_book(series)
                 else f"{name} crosswords") + ", by year, with the answer to every clue."
-        body += [*([f"<p>{esc(blurb)}</p>"] if blurb else []), difficulty_strip(name, every)]
+        body += [blurb, difficulty_strip(name, every)]
     body += ["<h2>Every year</h2>", f'<p class="s-years">{links}</p>',
              f'<p>{hub_link()}.</p>', "</main>"]
     list_ld = {"@context": "https://schema.org", "@type": "CollectionPage",
