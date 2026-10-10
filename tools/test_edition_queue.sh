@@ -580,6 +580,15 @@ with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
 check("over the load ceiling nothing starts, and it says so once", (False, 1),
       (log.exists(), err.getvalue().count("cpu-bound")))
 eq.cpu_gate_reader = lambda: 0.0
+# A desktop set, this host's load holds back fetches alone: a scan's or
+# read's OCR runs there, its reads here wait on ocr_remote.LOCAL_SLOTS.
+os.environ["OCR_REMOTE"] = "micro@100.68.145.15"
+check("with a desktop set the load gates fetches, not scans or reads", (True, False, False),
+      tuple(eq.load_gated({"kind": k}) for k in ("fetch", "scan", "read")))
+os.environ["OCR_REMOTE"] = ""
+check("mirror: with no desktop the load gates every unit", (True, True, True),
+      tuple(eq.load_gated({"kind": k}) for k in ("fetch", "scan", "read")))
+os.environ.pop("OCR_REMOTE")
 eq.desktop_gate_reader = lambda: "a game is running"
 log.unlink(missing_ok=True)
 eq.plan = units([], [(f"d{k}", []) for k in range(3)])

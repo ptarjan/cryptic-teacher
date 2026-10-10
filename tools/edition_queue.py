@@ -486,6 +486,14 @@ burn_gate_reader = None
 desktop_gate_reader = None
 
 
+def load_gated(unit):
+    """Whether this host's load average holds `unit` back: a fetch always; a
+    scan or read only with no desktop set. With one, its OCR and searches run
+    there, and whatever it would read here waits for one of ocr_remote's
+    LOCAL_SLOTS, so the burn's load on this host does not idle the desktop."""
+    return unit["kind"] == "fetch" or not ocr_remote.hosts()
+
+
 def desktop_yielding():
     """Why the desktop OCR hosts are yielding to Paul, or None (also None
     when no desktop is set: then every read is made here anyway)."""
@@ -736,7 +744,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             if held_back or not mem_gate.room(begun_now, mem_gate_reader):
                 held_back = True
                 continue
-            if cpu_held or not mem_gate.cpu_room(begun_now, cpu_gate_reader):
+            if load_gated(u) and (cpu_held or not mem_gate.cpu_room(begun_now, cpu_gate_reader)):
                 cpu_held = True
                 continue
             start(u)
@@ -750,7 +758,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 f"until a later pass finds room ({len(running) + len(adopted)} running are left alone)")
         if cpu_held and not cpu_bound:
             cpu_bound = True
-            log(f"cpu-bound: load over {mem_gate.LOAD_PER_CORE:g} per core; no unit starts until it falls "
+            log(f"cpu-bound: load over {mem_gate.LOAD_PER_CORE:g} per core; only units the desktop reads start until it falls "
                 f"({len(running) + len(adopted)} running are left alone)")
         if stop:
             break
