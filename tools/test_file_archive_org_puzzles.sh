@@ -1432,6 +1432,19 @@ finally:
 check("the surest lattice's lights stand; another's where every cell agrees",
       ({(1, "across"): "CAT", (1, "down"): "COB", (3, "across"): "BED"}, 2),
       (accepted, stats["lattices"]))
+# crossed_reads(): an unread light's cells take accepted crossings' letters
+# and plain cells' sure reads (Gale 1987: ?MADEUS, ?LEANOR); a numbered
+# cell's own sure read is no letter (DUCKINGSTOOL's D read as a sure B),
+# and a crossing that a sure read contradicts leaves the light unread.
+cat_cob = {(1, "across"): "CAT", (1, "down"): "COB"}
+check("an unread light whose cells crossings and plain sure reads fill stands",
+      {(3, "across"): "BED"}, tso.crossed_reads(tso.lights(grid3), cat_cob, {(2, 1): "E", (2, 2): "D"}))
+check("a numbered cell's own sure read fills no light",
+      {}, tso.crossed_reads(tso.lights(grid3), {(1, "across"): "CAT"},
+                            {(1, 0): "O", (2, 0): "B", (2, 1): "E", (2, 2): "D"}))
+check("a crossing a sure read contradicts fills no light",
+      {}, tso.crossed_reads(tso.lights(grid3), {(1, "across"): "CAT", (3, "across"): "BED"},
+                            {(1, 2): "O", (2, 2): "T"}))
 # numbers_printed(): a Times solution grid from the mid-1980s prints no clue
 # numbers; blanking its numbered cells' corners makes a D a sure J (20006
 # DELETE lost), so only a grid whose numbered corners carry ink is blanked.
