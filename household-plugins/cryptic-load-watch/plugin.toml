@@ -1,0 +1,12 @@
+about    = "Wake the room when the 5-minute load average stays above the core count, with the top CPU consumers ranked"
+room     = "cryptic-crosswords"
+# Every 5 minutes. Reads /proc only; a 30 s sample happens just when load5 has
+# been over the core count on two runs in a row. Wakes at most once an hour unless
+# the top consumer changes. State and a jsonl of every check live in
+# ~/.local/state/cryptic-teacher/ (load_watch.json, load_watch.jsonl).
+schedule = "*/5 * * * *"
+where    = "container"
+run      = "/usr/bin/python3"
+args     = ["/Users/pt/github/cryptic-teacher/tools/load_watch.py"]
+log      = "/Users/pt/github/cryptic-teacher/.load_watch.log"
+timeout  = 300

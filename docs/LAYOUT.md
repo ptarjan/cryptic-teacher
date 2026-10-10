@@ -1976,5 +1976,11 @@ tools/test_worker_resume.sh                   does a run stopped from outside re
 tools/test_session_ids.sh                     does every `claude -p` in tools/ name its
                                               conversation, so a run stopped from outside is
                                               resumed rather than bought again?
+tools/load_watch.py                           wake the room when the machine is overloaded,
+                                              with who is using the CPU
+tools/test_load_watch.sh                      does load_watch.py rank CPU by job, charge exited
+                                              children to their parent, and wake only on two
+                                              high runs in a row, once an hour unless the top
+                                              consumer changes?
 ```
 <!-- LAYOUT-END -->
