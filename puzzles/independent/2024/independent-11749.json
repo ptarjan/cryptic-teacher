@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "Initially doctors diagnosed impetigo though it's only necessary to go on a supplement",
     "enumeration": "8"
    },
-   "solution": "ADDITION"
+   "solution": "ADDITION",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ADDITION",
+    "definitions": [
+     {
+      "text": "supplement",
+      "at": 75
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initially",
+      "for": "letter_selection",
+      "note": "initially points at the opening letter of each of the following words"
+     },
+     {
+      "text": "to go on",
+      "for": "charade",
+      "note": "one piece goes on, after, the next word of the clue, fixing the order of the parts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "doctors diagnosed impetigo though it's only necessary",
+      "gives": "DDITION",
+      "select": "first",
+      "note": "first letters of these seven words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DDITION"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor treating a skin infection only needs to add a supplement to the patient's regime.",
+     "walkthrough": "The seven initials are placed after the A, giving ADDITION; 'a supplement' looks like one phrase but the A is wordplay.",
+     "definitionFit": "An addition is something added on, which is exactly what a supplement is: a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "a"
+    }
+   }
   },
   {
    "number": 1,
@@ -57,7 +114,77 @@
    "group": [
     "1-down",
     "17-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "AGATHA CHRISTIE",
+    "definitions": [
+     {
+      "text": "Novelist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new or fresh, so the letters it sits beside are made into a new order"
+     },
+     {
+      "text": "putting",
+      "for": "container",
+      "note": "putting one thing in another places it inside, with the word 'in' that follows"
+     }
+    ],
+    "linkWords": [
+     "displaying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "range",
+      "gives": "AGA",
+      "note": "an Aga is a make of kitchen range, the big cast-iron cooker"
+     },
+     {
+      "clueFragment": "I hate",
+      "gives": "IHATE",
+      "note": "letters to be rearranged"
+     },
+     {
+      "clueFragment": "character from best-seller",
+      "gives": "CHRIST",
+      "note": "the Bible is said to be the best-selling book of all, and Christ is its central character"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGA",
+      "THA",
+      "CHRIST",
+      "IE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IHATE",
+       "gives": "THAIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer lets slip a dislike of a fellow author's best-selling novel.",
+     "walkthrough": "The key leap is the Bible, often called the world's best-selling book, whose central figure sits inside the rearranged letters.",
+     "definitionFit": "Agatha Christie, author of the Poirot and Marple mysteries, is among the best-selling writers of fiction ever."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "range"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +198,68 @@
     "text": "Male getting into retro blue movies?",
     "enumeration": "6"
    },
-   "solution": "DRAMAS"
+   "solution": "DRAMAS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DRAMAS",
+    "definitions": [
+     {
+      "text": "movies?",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retro",
+      "for": "reversal",
+      "note": "retro means looking backwards, so the word for blue is read the other way round"
+     },
+     {
+      "text": "getting into",
+      "for": "container",
+      "note": "getting into something means going inside it, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blue",
+      "gives": "SAD",
+      "note": "blue as in feeling low"
+     },
+     {
+      "clueFragment": "Male",
+      "gives": "RAM",
+      "note": "a ram is a male sheep"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RAM",
+      "AS"
+     ],
+     "reversals": [
+      {
+       "from": "SAD",
+       "to": "DAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man watching old-fashioned blue films, i.e. pornography.",
+     "walkthrough": "'Blue movies' reads as smut, but blue here means unhappy. The question mark flags that movies are only one kind of drama.",
+     "definitionFit": "Dramas are plays or films telling a story, so movies are an example, signalled by the question mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "blue"
+    }
+   }
   },
   {
    "number": 3,
@@ -99,7 +287,50 @@
      }
     ]
    },
-   "solution": "THATSMORELIKEIT"
+   "solution": "THATSMORELIKEIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THAT'S MORE LIKE IT",
+    "definitions": [
+     {
+      "text": "now we're getting somewhere",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out here means put out of order or disarranged, so these letters must be shuffled into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Make their lot sit",
+      "gives": "MAKETHEIRLOTSIT",
+      "note": "all fifteen letters used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MAKETHEIRLOTSIT",
+       "gives": "THATSMORELIKEIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A frustrated teacher gets the whole class to sit down at last and feels progress is being made.",
+     "definitionFit": "Both are spoken expressions of approval when things start to improve after a poor start."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 4,
@@ -113,7 +344,59 @@
     "text": "Occasionally force dog to come round",
     "enumeration": "5"
    },
-   "solution": "OCCUR"
+   "solution": "OCCUR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OCCUR",
+    "definitions": [
+     {
+      "text": "come round",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means now and then, so only every other letter of the next word is used"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "force",
+      "gives": "OC",
+      "select": "alternate",
+      "note": "second and fourth letters"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "CUR",
+      "note": "a cur is a mongrel dog"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OC",
+      "CUR"
+     ]
+    },
+    "explanation": {
+     "surface": "An owner occasionally has to use force to make the dog come back.",
+     "walkthrough": "'Come round' suggests a dog returning or someone waking; here it means an event coming around, taking place.",
+     "definitionFit": "To occur is to happen, and an event that comes round, like a birthday, takes place again."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Occasionally"
+    }
+   }
   },
   {
    "number": 5,
@@ -127,7 +410,56 @@
     "text": "Practised what a famous Norman did using gilt iron",
     "enumeration": "6"
    },
-   "solution": "GOLFED"
+   "solution": "GOLFED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GOLFED",
+    "definitions": [
+     {
+      "text": "Practised what a famous Norman did",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "using",
+      "for": "container",
+      "note": "using here means taking in or consuming, so one element is absorbed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gilt",
+      "gives": "GOLD",
+      "note": "gilt is a thin coating of gold"
+     },
+     {
+      "clueFragment": "iron",
+      "gives": "FE",
+      "note": "Fe is the chemical symbol for iron"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOL",
+      "FE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A famous Norman practising with a gilded iron club, as golfers do.",
+     "walkthrough": "Greg Norman is an Australian golf champion; 'iron' fits his club, but it is the element FE placed in GOLD.",
+     "definitionFit": "Greg Norman was a professional golfer, so what he did, put into the past tense, is golfed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "iron"
+    }
+   }
   },
   {
    "number": 6,
@@ -147,7 +479,50 @@
      }
     ]
    },
-   "solution": "ORGANISEDLABOUR"
+   "solution": "ORGANISEDLABOUR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ORGANISED LABOUR",
+    "definitions": [
+     {
+      "text": "union?",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unusually",
+      "for": "anagram",
+      "note": "unusually suggests something done in an odd way, so these letters are set out in a strange new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bourgeois lad ran",
+      "gives": "BOURGEOISLADRAN",
+      "note": "all fifteen letters used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BOURGEOISLADRAN",
+       "gives": "ORGANISEDLABOUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A middle-class young man unusually took charge of a trade union.",
+     "definitionFit": "Organised labour means workers grouped in trade unions; a union is an example, hence the question mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Unusually"
+    }
+   }
   },
   {
    "number": 7,
@@ -161,7 +536,72 @@
     "text": "Enjoyment of father joining it for a night to begin with",
     "enumeration": "8"
    },
-   "solution": "FRUITION"
+   "solution": "FRUITION",
+   "annotation": {
+    "type": [
+     "charade",
+     "substitution"
+    ],
+    "answer": "FRUITION",
+    "definitions": [
+     {
+      "text": "Enjoyment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "one thing for another means it takes the other's place, so one letter is swapped out"
+     },
+     {
+      "text": "to begin with",
+      "for": "substitution",
+      "note": "to begin with says the swap happens at the first matching place in the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "father",
+      "gives": "FR",
+      "note": "Fr is the abbreviation for Father, as for a priest"
+     },
+     {
+      "clueFragment": "joining",
+      "gives": "UNION",
+      "note": "a union is a joining together"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a night",
+      "gives": "N",
+      "note": "N is an abbreviation for night; this is the letter swapped out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FR",
+      "U",
+      "IT",
+      "ION"
+     ]
+    },
+    "explanation": {
+     "surface": "A father enjoying the time he has for a night out.",
+     "walkthrough": "'For' is the swap signal: only the first N of the joining word is replaced, the second stays.",
+     "definitionFit": "Fruition is an old word for enjoyment or pleasure in possessing something, before its usual sense of fulfilment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "night"
+    }
+   }
   },
   {
    "number": 8,
@@ -185,7 +625,66 @@
    "group": [
     "8-down",
     "21-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "DETACHED RETINA",
+    "definitions": [
+     {
+      "text": "clinical condition",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving",
+      "for": "anagram",
+      "note": "moving means shifting position, so the word before it has its letters rearranged"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following says this part comes after the other in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "home",
+      "gives": "DETACHED",
+      "note": "a detached is a house standing alone, in estate-agent shorthand"
+     },
+     {
+      "clueFragment": "Keep",
+      "gives": "RETAIN",
+      "note": "to keep is to retain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DETACHED",
+      "RETINA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RETAIN",
+       "gives": "RETINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone keeps moving house after being diagnosed with an illness.",
+     "walkthrough": "'Keep moving home' reads as relocating repeatedly; it is RETAIN rearranged, placed after the word for a type of house.",
+     "definitionFit": "A detached retina is a medical emergency where the light-sensitive layer of the eye peels away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 9,
@@ -199,7 +698,46 @@
     "text": "Page's title after being edited down",
     "enumeration": "4"
    },
-   "solution": "LEAF"
+   "solution": "LEAF",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LEAF",
+    "definitions": [
+     {
+      "text": "Page",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being edited down",
+      "for": "hidden_word",
+      "note": "editing down trims the ends off text, so only an inner run of letters is kept"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "title after",
+      "gives": "LEAF",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A page's heading after editors have cut it down.",
+     "walkthrough": "The apostrophe-s is read as 'is', linking definition to wordplay.",
+     "definitionFit": "A leaf is a single sheet of a book, giving two pages, so the words serve as synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "edited"
+    }
+   }
   },
   {
    "number": 10,
@@ -213,7 +751,64 @@
     "text": "No time to teach naval manoeuvres in flood",
     "enumeration": "9"
    },
-   "solution": "AVALANCHE"
+   "solution": "AVALANCHE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "AVALANCHE",
+    "definitions": [
+     {
+      "text": "flood",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "No time",
+      "for": "deletion",
+      "note": "no time means the letter for time, T, is dropped from the word it applies to"
+     },
+     {
+      "text": "manoeuvres",
+      "for": "anagram",
+      "note": "manoeuvres are movements and repositionings, so the letters are moved into new places"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teach",
+      "gives": "EACH",
+      "note": "the word with its T for time removed"
+     },
+     {
+      "clueFragment": "naval",
+      "gives": "NAVAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EACHNAVAL",
+       "gives": "AVALANCHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "There's no time to teach sailors how to manoeuvre during a flood.",
+     "definitionFit": "An avalanche is figuratively an overwhelming flood or deluge of something, such as letters or complaints."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "manoeuvres"
+    }
+   }
   },
   {
    "number": 11,
@@ -227,7 +822,60 @@
     "text": "Smallest amount of gin and relative's wasted",
     "enumeration": "5"
    },
-   "solution": "GAUNT"
+   "solution": "GAUNT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GAUNT",
+    "definitions": [
+     {
+      "text": "wasted",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Smallest amount of",
+      "for": "letter_selection",
+      "note": "the smallest amount of a word is just a single letter of it, its opening one"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gin",
+      "gives": "G",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "relative",
+      "gives": "AUNT",
+      "note": "an aunt is a relative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "AUNT"
+     ]
+    },
+    "explanation": {
+     "surface": "Just a drop of gin and a relative is wasted, i.e. drunk.",
+     "walkthrough": "'Wasted' reads as drunk, after the gin; here it means emaciated.",
+     "definitionFit": "Gaunt means thin and haggard, as someone wasted by illness or hunger looks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wasted"
+    }
+   }
   },
   {
    "number": 12,
@@ -241,7 +889,61 @@
     "text": "Republican pursuing House seat getting increasingly gruff",
     "enumeration": "7"
    },
-   "solution": "HOARSER"
+   "solution": "HOARSER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOARSER",
+    "definitions": [
+     {
+      "text": "getting increasingly gruff",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pursuing",
+      "for": "charade",
+      "note": "pursuing means coming after, so this part goes at the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "House",
+      "gives": "HO",
+      "note": "HO is the abbreviation for house"
+     },
+     {
+      "clueFragment": "seat",
+      "gives": "ARSE",
+      "note": "seat as in backside, British slang"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "ARSE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A Republican chasing a seat in the House of Representatives grows hoarse from campaigning.",
+     "walkthrough": "The political surface hides a rude meaning: seat is the backside, ARSE in British slang.",
+     "definitionFit": "Hoarser is the comparative of hoarse, rough-voiced, so it describes a voice becoming more gruff."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "seat"
+    }
+   }
   },
   {
    "number": 13,
@@ -255,7 +957,62 @@
     "text": "Maniac putting a jerk on air",
     "enumeration": "7"
    },
-   "solution": "FANATIC"
+   "solution": "FANATIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FANATIC",
+    "definitions": [
+     {
+      "text": "Maniac",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue, one thing on another is placed next to it, after it here"
+     }
+    ],
+    "linkWords": [
+     "putting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "air",
+      "gives": "FAN",
+      "note": "to fan is to air or cool something"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "jerk",
+      "gives": "TIC",
+      "note": "a tic is an involuntary jerk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAN",
+      "A",
+      "TIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A maniac broadcasting a jerky performance on air.",
+     "definitionFit": "A fanatic is someone with obsessive zeal, which is also a sense of maniac: an enthusiast taken to excess."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "air"
+    }
+   }
   },
   {
    "number": 14,
@@ -275,7 +1032,58 @@
      }
     ]
    },
-   "solution": "ROSETTASTONE"
+   "solution": "ROSETTASTONE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ROSETTA STONE",
+    "definitions": [
+     {
+      "text": "Ancient artefact",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "protected by",
+      "for": "container",
+      "note": "something protected by another is surrounded and shielded by it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "political favour?",
+      "gives": "ROSETTE",
+      "note": "a party rosette is the ribbon badge a candidate wears, a favour in the old sense of a worn ribbon"
+     },
+     {
+      "clueFragment": "Villa's location",
+      "gives": "ASTON",
+      "note": "Aston Villa is a Birmingham football club, named after its district"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROSETT",
+      "ASTON",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A valuable artefact kept at a villa under political patronage.",
+     "walkthrough": "Villa means the football club Aston Villa, not a house; a favour is a ribbon or badge worn as a token.",
+     "definitionFit": "The Rosetta Stone is the ancient Egyptian inscribed slab that helped decipher hieroglyphs, now in the British Museum."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Villa's"
+    }
+   }
   },
   {
    "number": 15,
@@ -289,7 +1097,49 @@
     "text": "Ultimately score after extra time",
     "enumeration": "3"
    },
-   "solution": "ERA"
+   "solution": "ERA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ERA",
+    "definitions": [
+     {
+      "text": "time",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter of each of the next words counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "score after extra",
+      "gives": "ERA",
+      "select": "last",
+      "note": "last letters of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERA"
+     ]
+    },
+    "explanation": {
+     "surface": "A football match where the winner finally scores after extra time.",
+     "walkthrough": "'Extra time' looks like a single football phrase, but 'time' is the definition.",
+     "definitionFit": "An era is a period of time, so the two are synonyms in crosswords and everyday speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 16,
@@ -303,7 +1153,62 @@
     "text": "Defeat regularly upset supporter?",
     "enumeration": "3"
    },
-   "solution": "TEE"
+   "solution": "TEE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "TEE",
+    "definitions": [
+     {
+      "text": "supporter?",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every second letter is taken"
+     },
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upset means turned upside down, so the letters read from the bottom up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Defeat",
+      "gives": "EET",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEE"
+     ],
+     "reversals": [
+      {
+       "from": "EET",
+       "to": "TEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sports fan upset by a defeat that keeps happening.",
+     "walkthrough": "'Supporter' points to a fan, but it means something that holds up a golf ball, hence the question mark.",
+     "definitionFit": "A tee is the small peg that holds a golf ball up before driving, so it literally supports it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "supporter"
+    }
+   }
   },
   {
    "number": 17,
@@ -330,7 +1235,70 @@
     "text": "Neighbouring Canada wanting an American jet for deployment",
     "enumeration": "8"
    },
-   "solution": "ADJACENT"
+   "solution": "ADJACENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ADJACENT",
+    "definitions": [
+     {
+      "text": "Neighbouring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wanting",
+      "for": "deletion",
+      "note": "wanting means lacking, so the following letter is missing from the word before"
+     },
+     {
+      "text": "for deployment",
+      "for": "anagram",
+      "note": "deployment means arranging into position, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Canada",
+      "gives": "CANADA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "an American",
+      "gives": "A",
+      "note": "A is the abbreviation for American; this letter is removed"
+     },
+     {
+      "clueFragment": "jet",
+      "gives": "JET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADJACENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CNADAJET",
+       "gives": "ADJACENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Canada, the neighbouring country, lacks a US jet it wants to deploy.",
+     "walkthrough": "'An American' looks like an American jet, but it is just A, the abbreviation, taken from Canada.",
+     "definitionFit": "Adjacent and neighbouring both mean lying next to something: synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "American"
+    }
+   }
   },
   {
    "number": 19,
@@ -350,7 +1318,65 @@
      }
     ]
    },
-   "solution": "HIDDENAGENDA"
+   "solution": "HIDDENAGENDA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "HIDDEN AGENDA",
+    "definitions": [
+     {
+      "text": "ulterior motive",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "on vacation means emptied out, so the inner letters go and only the outside pair stays"
+     },
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "somehow says in some unspecified way, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "revealing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I need a hand",
+      "gives": "INEEDAHAND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "driving",
+      "gives": "DG",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INEEDAHANDDG",
+       "gives": "HIDDENAGENDA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holidaymaker asks for help with the driving, perhaps with some ulterior motive.",
+     "definitionFit": "A hidden agenda is a secret aim behind someone's actions, which is what an ulterior motive is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vacation"
+    }
+   }
   },
   {
    "number": 20,
@@ -364,7 +1390,43 @@
     "text": "Clears cellars",
     "enumeration": "6"
    },
-   "solution": "VAULTS"
+   "solution": "VAULTS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "VAULTS",
+    "definitions": [
+     {
+      "text": "Clears",
+      "at": 0
+     },
+     {
+      "text": "cellars",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clears",
+      "note": "first meaning: jumps over, as a gymnast or pole-vaulter does"
+     },
+     {
+      "clueFragment": "cellars",
+      "note": "second meaning: underground rooms or storage chambers"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like someone emptying out basements, but the first word is a verb of jumping and the second a plural noun.",
+     "definitionFit": "The word is both a verb meaning leaps over and a plural noun for arched underground storerooms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Clears"
+    }
+   }
   },
   {
    "number": 21,
@@ -391,7 +1453,55 @@
     "text": "Fancy, fashionable picture frames",
     "enumeration": "7"
    },
-   "solution": "IMAGINE"
+   "solution": "IMAGINE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IMAGINE",
+    "definitions": [
+     {
+      "text": "Fancy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "frames",
+      "for": "container",
+      "note": "a frame surrounds what it holds, so one word goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "picture",
+      "gives": "IMAGE",
+      "note": "an image is a picture"
+     },
+     {
+      "clueFragment": "fashionable",
+      "gives": "IN",
+      "note": "in means fashionable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMAG",
+      "IN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Fancy, stylish frames for a trendy picture.",
+     "walkthrough": "'Fancy' looks like an adjective for the frames; it is the verb, and the picture word goes around the fashionable one.",
+     "definitionFit": "To fancy something can mean to suppose or picture it in the mind, as imagining does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fancy"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1515,59 @@
     "text": "Memory of niece's school essentially",
     "enumeration": "4"
    },
-   "solution": "ECHO"
+   "solution": "ECHO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ECHO",
+    "definitions": [
+     {
+      "text": "Memory",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "essentially means at its heart, so only the central letters of each word are kept"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "niece's",
+      "gives": "EC",
+      "select": "middle",
+      "note": "the two central letters of the six"
+     },
+     {
+      "clueFragment": "school",
+      "gives": "HO",
+      "select": "middle",
+      "note": "the two central letters of the six"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EC",
+      "HO"
+     ]
+    },
+    "explanation": {
+     "surface": "A fond memory of the school a niece went to.",
+     "walkthrough": "The apostrophe is ignored, so the six letters NIECES give their middle pair.",
+     "definitionFit": "An echo is a lingering trace or reminder of something past, close to a memory of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "essentially"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1581,49 @@
     "text": "Fizzy tea? It's absurd",
     "enumeration": "7"
    },
-   "solution": "CHARADE"
+   "solution": "CHARADE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHARADE",
+    "definitions": [
+     {
+      "text": "It's absurd",
+      "at": 11,
+      "note": "a clause describing the answer, standing for a noun meaning an absurd pretence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea",
+      "gives": "CHAR",
+      "note": "char is British slang for tea"
+     },
+     {
+      "clueFragment": "Fizzy",
+      "gives": "ADE",
+      "note": "-ade is a fizzy drink, as in lemonade or orangeade"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAR",
+      "ADE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone scoffs at the idea of carbonated tea.",
+     "walkthrough": "The fizzy word comes second in the answer though first in the clue.",
+     "definitionFit": "A charade is an absurd pretence, a farce anyone can see through, so the phrase describes one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Fizzy"
+    }
+   }
   },
   {
    "number": 24,
@@ -433,7 +1637,54 @@
     "text": "Ring church about that man",
     "enumeration": "5"
    },
-   "solution": "CHIME"
+   "solution": "CHIME",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHIME",
+    "definitions": [
+     {
+      "text": "Ring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about here means around, so the first word surrounds the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     },
+     {
+      "clueFragment": "that man",
+      "gives": "HIM",
+      "note": "that man is him"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HIM",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells a man to ring the church about him.",
+     "definitionFit": "To chime is to ring, as a bell or clock does: verb synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ring"
+    }
+   }
   },
   {
    "number": 25,
@@ -447,7 +1698,47 @@
     "text": "Present article about ...",
     "enumeration": "5"
    },
-   "solution": "THERE"
+   "solution": "THERE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THERE",
+    "definitions": [
+     {
+      "text": "Present",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "A journalist presenting an article about... something the next clue goes on to say.",
+     "walkthrough": "The trailing dots link this clue to the next one in the surface only; each is solved alone.",
+     "definitionFit": "Present as an adjective means in attendance, which is what there means in 'Is he there?'"
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Present"
+    }
+   }
   },
   {
    "number": 26,
@@ -467,7 +1758,70 @@
      }
     ]
    },
-   "solution": "HOIPOLLOI"
+   "solution": "HOIPOLLOI",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "HOI POLLOI",
+    "definitions": [
+     {
+      "text": "the people",
+      "at": 4
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to hold",
+      "for": "container",
+      "note": "to hold something is to keep it inside, so the other parts go within the state name"
+     },
+     {
+      "text": "struggling",
+      "for": "anagram",
+      "note": "struggling suggests thrashing about, so the letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ohio",
+      "gives": "OHIO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "independent",
+      "gives": "I",
+      "note": "I is the abbreviation for independent"
+     },
+     {
+      "clueFragment": "vote",
+      "gives": "POLL",
+      "note": "a poll is a vote"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOIPOLLOI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OHIPOLLIO",
+       "gives": "HOIPOLLOI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The people of Ohio struggle to hold an election with an independent candidate.",
+     "walkthrough": "The insertion happens first and the whole nine letters are then jumbled; the dots tie the surface to the previous clue only.",
+     "definitionFit": "Hoi polloi, Greek for 'the many', is used in English for the common people or masses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "struggling"
+    }
+   }
   },
   {
    "number": 27,
@@ -487,7 +1841,67 @@
      }
     ]
    },
-   "solution": "ENTITY"
+   "solution": "ENTITY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ENTITY",
+    "definitions": [
+     {
+      "text": "existence",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "letter_selection",
+      "note": "the backing of a word is its rear, its final letter"
+     },
+     {
+      "text": "boring",
+      "for": "container",
+      "note": "boring means drilling into, so this piece goes inside the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Space",
+      "gives": "EN",
+      "note": "an en is a printer's space"
+     },
+     {
+      "clueFragment": "Oddity",
+      "gives": "Y",
+      "select": "last",
+      "note": "last letter"
+     },
+     {
+      "clueFragment": "singer",
+      "gives": "TIT",
+      "note": "a tit is a songbird"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "TIT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A backing singer on Bowie's Space Oddity finds life dull.",
+     "walkthrough": "Space Oddity is David Bowie's song, but the words split: Space gives EN, and the bird sits between EN and Y.",
+     "definitionFit": "Entity can mean being or existence itself, as well as a thing that exists."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "singer"
+    }
+   }
   },
   {
    "number": 28,
@@ -501,7 +1915,50 @@
     "text": "State banks are in disarray",
     "enumeration": "8"
    },
-   "solution": "NEBRASKA"
+   "solution": "NEBRASKA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEBRASKA",
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in disarray",
+      "for": "anagram",
+      "note": "in disarray means in a mess, so these letters are jumbled into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "banks are",
+      "gives": "BANKSARE",
+      "note": "all eight letters used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BANKSARE",
+       "gives": "NEBRASKA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A state's banks are in a mess, as in a financial crisis.",
+     "definitionFit": "Nebraska is one of the fifty US states, an example of the category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "State"
+    }
+   }
   }
  ]
 }
