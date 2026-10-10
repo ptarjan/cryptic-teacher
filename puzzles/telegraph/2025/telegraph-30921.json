@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,56 @@
     "text": "Huge romantic also getting sloppy",
     "enumeration": "12"
    },
-   "solution": "ASTRONOMICAL"
+   "solution": "ASTRONOMICAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASTRONOMICAL",
+    "definitions": [
+     {
+      "text": "Huge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting sloppy",
+      "for": "anagram",
+      "note": "something sloppy is messy and out of order, so the words before it lose their arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "romantic",
+      "gives": "ROMANTIC",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "also",
+      "gives": "ALSO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROMANTICALSO",
+       "gives": "ASTRONOMICAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A huge romantic gesture that has also turned rather sentimental and slushy.",
+     "walkthrough": "'Huge romantic' reads as a phrase, but 'Huge' stands alone as the definition.",
+     "definitionFit": "Astronomical is used informally for any amount so vast it seems measured in light years."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "romantic"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +98,57 @@
     "text": "Assert cast's upset about performer",
     "enumeration": "7"
    },
-   "solution": "ACTRESS"
+   "solution": "ACTRESS",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ACTRESS",
+    "definitions": [
+     {
+      "text": "performer",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset means turned over, so in a down clue the letters read from bottom to top"
+     },
+     {
+      "text": "about",
+      "for": "hidden_word",
+      "note": "about means around, so the words before are wrapped round the answer, which sits inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Assert cast's",
+      "gives": "SSERTCA",
+      "note": "the run of letters from the second letter of the first word into the second word"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "SSERTCA",
+       "to": "ACTRESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone claiming the cast is upset about one of its players.",
+     "walkthrough": "'Cast' and 'performer' make a theatre scene, and 'upset' looks like an anagram signal, but the letters are already there, simply running backwards.",
+     "definitionFit": "An actress is a female performer on stage or screen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +162,50 @@
     "text": "Trunks maybe too drastic, oddly",
     "enumeration": "5"
    },
-   "solution": "TORSI"
+   "solution": "TORSI",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TORSI",
+    "definitions": [
+     {
+      "text": "Trunks maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly means taking the letters in odd-numbered positions only"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "too drastic",
+      "gives": "TORSI",
+      "select": "alternate",
+      "note": "first, third, fifth, seventh and ninth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TORSI"
+     ]
+    },
+    "explanation": {
+     "surface": "A comment that swimming trunks are perhaps too extreme.",
+     "walkthrough": "'Trunks' looks like swimwear or luggage; here it is the human body's trunk, and 'maybe' signals that torsos are one kind.",
+     "definitionFit": "A torso is the trunk of the body; torsi is the Italianate plural."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Trunks"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +219,61 @@
     "text": "Dogged old boy's fed, eating can",
     "enumeration": "9"
    },
-   "solution": "OBSTINATE"
+   "solution": "OBSTINATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OBSTINATE",
+    "definitions": [
+     {
+      "text": "Dogged",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "eating takes something inside, so a piece goes between the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old boy's",
+      "gives": "OBS",
+      "note": "OB stands for old boy, a former pupil; with the 's"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "TIN",
+      "note": "a tin is a can"
+     },
+     {
+      "clueFragment": "fed",
+      "gives": "ATE",
+      "note": "fed in the sense of having eaten"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OBS",
+      "TIN",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A former pupil has been fed tinned food.",
+     "walkthrough": "An old boy is a former pupil of a British school. The can sits between the old boy's and fed, which together surround it.",
+     "definitionFit": "Dogged and obstinate both describe someone stubbornly persistent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dogged"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +287,50 @@
     "text": "Exclude from old Cambridge University",
     "enumeration": "4"
    },
-   "solution": "OMIT"
+   "solution": "OMIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OMIT",
+    "definitions": [
+     {
+      "text": "Exclude",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "Cambridge University",
+      "gives": "MIT",
+      "note": "the Massachusetts Institute of Technology is in Cambridge, Massachusetts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "MIT"
+     ]
+    },
+    "explanation": {
+     "surface": "Being barred from an ancient Cambridge college.",
+     "walkthrough": "Cambridge suggests the English university; the one meant is in Cambridge, Massachusetts.",
+     "definitionFit": "To omit something is to leave it out, so to exclude it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cambridge"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +344,54 @@
     "text": "Restated attractive quality sweetheart valued",
     "enumeration": "8"
    },
-   "solution": "ITERATED"
+   "solution": "ITERATED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ITERATED",
+    "definitions": [
+     {
+      "text": "Restated",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attractive quality",
+      "gives": "IT",
+      "note": "it means sex appeal, as in an it girl"
+     },
+     {
+      "clueFragment": "sweetheart",
+      "gives": "E",
+      "note": "the heart, or middle letter, of sweet"
+     },
+     {
+      "clueFragment": "valued",
+      "gives": "RATED",
+      "note": "rated means valued or assessed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IT",
+      "E",
+      "RATED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone repeated that a lover's charm was highly prized.",
+     "walkthrough": "'Sweetheart' is a beloved in the surface; read as sweet's heart, it is just its middle letter.",
+     "definitionFit": "To iterate is to repeat, so iterated means said again or restated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sweetheart"
+    }
+   }
   },
   {
    "number": 6,
@@ -116,7 +405,39 @@
     "text": "Crime of passion to inflame",
     "enumeration": "5"
    },
-   "solution": "ARSON"
+   "solution": "ARSON",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ARSON",
+    "definitions": [
+     {
+      "text": "Crime of passion to inflame",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crime of passion",
+      "note": "surface reading: an offence committed in the heat of jealousy or love"
+     },
+     {
+      "clueFragment": "to inflame",
+      "note": "setter's reading: inflame literally, meaning to set something on fire"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Crime of passion' and 'inflame' both point to heated emotions; taken literally, the crime is setting fire to property.",
+     "definitionFit": "Arson is the criminal act of deliberately setting fire to property."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "passion"
+    }
+   }
   },
   {
    "number": 7,
@@ -130,7 +451,62 @@
     "text": "Ranch had a nice spread",
     "enumeration": "8"
    },
-   "solution": "HACIENDA"
+   "solution": "HACIENDA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HACIENDA",
+    "definitions": [
+     {
+      "text": "Ranch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spread",
+      "for": "anagram",
+      "note": "spread means scattered about, so the letters are laid out in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "had",
+      "gives": "HAD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nice",
+      "gives": "NICE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HADANICE",
+       "gives": "HACIENDA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The ranch was a pleasant property, a nice spread of land.",
+     "walkthrough": "A spread is also a farm or ranch, which makes the indicator look like part of the definition.",
+     "definitionFit": "A hacienda is a large estate or ranch in Spanish-speaking countries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spread"
+    }
+   }
   },
   {
    "number": 8,
@@ -144,7 +520,48 @@
     "text": "Female perhaps strict and distant",
     "enumeration": "6"
    },
-   "solution": "FRIGID"
+   "solution": "FRIGID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FRIGID",
+    "definitions": [
+     {
+      "text": "distant",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "perhaps strict",
+      "gives": "RIGID",
+      "note": "rigid can mean strict, as in rigid rules"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RIGID"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman who might be stern and aloof.",
+     "definitionFit": "Frigid describes a cold, unfriendly manner, which is how a distant person behaves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -158,7 +575,39 @@
     "text": "Rotating mechanism for fans?",
     "enumeration": "9"
    },
-   "solution": "TURNSTILE"
+   "solution": "TURNSTILE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TURNSTILE",
+    "definitions": [
+     {
+      "text": "Rotating mechanism for fans?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rotating mechanism",
+      "note": "surface reading: the spinning motor inside an electric fan that cools a room"
+     },
+     {
+      "clueFragment": "fans",
+      "note": "setter's reading: fans are sports supporters, let through one at a time by a revolving gate at the ground"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Fans' suggests cooling appliances with rotating blades; here they are the supporters who push through a revolving barrier into a stadium.",
+     "definitionFit": "A turnstile is a revolving gate admitting one spectator at a time to a stadium."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fans"
+    }
+   }
   },
   {
    "number": 10,
@@ -172,7 +621,59 @@
     "text": "Flight of adult incarcerated in prison",
     "enumeration": "5"
    },
-   "solution": "STAIR"
+   "solution": "STAIR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STAIR",
+    "definitions": [
+     {
+      "text": "Flight",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "incarcerated in",
+      "for": "container",
+      "note": "someone incarcerated is locked up inside a jail, so one piece is shut within the other"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prison",
+      "gives": "STIR",
+      "note": "stir is slang for prison"
+     },
+     {
+      "clueFragment": "adult",
+      "gives": "A",
+      "note": "A is the film-rating abbreviation for adult"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "A",
+      "IR"
+     ]
+    },
+    "explanation": {
+     "surface": "An escape of a grown-up who had been locked up in jail.",
+     "walkthrough": "'Flight' tempts as an escape from prison; it is a flight of steps.",
+     "definitionFit": "A flight is a run of steps, and a single step in it is a stair, as in a flight of stairs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Flight"
+    }
+   }
   },
   {
    "number": 11,
@@ -186,7 +687,43 @@
     "text": "Bring out criminal to be heard",
     "enumeration": "6"
    },
-   "solution": "ELICIT"
+   "solution": "ELICIT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ELICIT",
+    "definitions": [
+     {
+      "text": "Bring out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be heard",
+      "for": "homophone",
+      "note": "being heard means we go by the sound of the word, not its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "criminal",
+      "gives": "ELICIT",
+      "soundsLike": "ILLICIT",
+      "note": "illicit means criminal, unlawful"
+     }
+    ],
+    "explanation": {
+     "surface": "Bringing a criminal out into court so he can give evidence.",
+     "definitionFit": "To elicit a response is to draw it out or evoke it from someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 12,
@@ -200,7 +737,62 @@
     "text": "Eager to acquire Dali's last canvas",
     "enumeration": "8"
    },
-   "solution": "PAINTING"
+   "solution": "PAINTING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PAINTING",
+    "definitions": [
+     {
+      "text": "canvas",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "the last of a word is only its final letter"
+     },
+     {
+      "text": "to acquire",
+      "for": "container",
+      "note": "acquiring something means taking it in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eager",
+      "gives": "PANTING",
+      "note": "panting for something is being eager for it"
+     },
+     {
+      "clueFragment": "Dali's",
+      "gives": "I",
+      "select": "last",
+      "note": "final letter of Dali"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "I",
+      "NTING"
+     ]
+    },
+    "explanation": {
+     "surface": "A collector keen to buy a work by Salvador Dali.",
+     "walkthrough": "Dali makes 'canvas' feel like part of the art-buying scene, but it alone is the definition.",
+     "definitionFit": "A canvas is an oil painting, named after the fabric it is done on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Eager"
+    }
+   }
   },
   {
    "number": 13,
@@ -214,7 +806,60 @@
     "text": "Intelligence agency in extremely large party",
     "enumeration": "6"
    },
-   "solution": "SOCIAL"
+   "solution": "SOCIAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SOCIAL",
+    "definitions": [
+     {
+      "text": "party",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first item inside the words that follow it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extremely",
+      "gives": "SO",
+      "note": "so means extremely, as in so big"
+     },
+     {
+      "clueFragment": "Intelligence agency",
+      "gives": "CIA",
+      "note": "the CIA is the US Central Intelligence Agency"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "CIA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Spies from an intelligence service attending a huge gathering.",
+     "walkthrough": "'Extremely large' reads as one phrase but splits into two pieces.",
+     "definitionFit": "A social is an informal party or gathering, such as a club social."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 14,
@@ -228,7 +873,60 @@
     "text": "Motor with old exhaust left roundabout",
     "enumeration": "8"
    },
-   "solution": "CAROUSEL"
+   "solution": "CAROUSEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAROUSEL",
+    "definitions": [
+     {
+      "text": "roundabout",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Motor",
+      "gives": "CAR",
+      "note": "motor is a word for a car"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "exhaust",
+      "gives": "USE",
+      "note": "to use up is to exhaust"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "O",
+      "USE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A car whose old exhaust pipe was dumped at a traffic island.",
+     "walkthrough": "'Roundabout' suggests a traffic junction; it is the British name for a fairground merry-go-round.",
+     "definitionFit": "A carousel is a merry-go-round, which Britons also call a roundabout."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "exhaust"
+    }
+   }
   },
   {
    "number": 15,
@@ -242,7 +940,61 @@
     "text": "Mature offspring adopting a boy",
     "enumeration": "8"
    },
-   "solution": "SEASONED"
+   "solution": "SEASONED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SEASONED",
+    "definitions": [
+     {
+      "text": "Mature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "adopting",
+      "for": "container",
+      "note": "adopting someone takes them into the family, so these pieces are taken inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "offspring",
+      "gives": "SEED",
+      "note": "seed is an old word for offspring or descendants"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "SON",
+      "note": "a son is a boy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "A",
+      "SON",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A grown-up child taking in an adopted boy.",
+     "definitionFit": "Seasoned and mature both describe someone experienced, or food aged until ready."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "offspring"
+    }
+   }
   },
   {
    "number": 16,
@@ -256,7 +1008,63 @@
     "text": "With dodgy males, she's turning immodest",
     "enumeration": "9"
    },
-   "solution": "SHAMELESS"
+   "solution": "SHAMELESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SHAMELESS",
+    "definitions": [
+     {
+      "text": "immodest",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dodgy",
+      "for": "anagram",
+      "note": "something dodgy is unreliable or not right, so the letters are not in their proper places"
+     },
+     {
+      "text": "turning",
+      "for": "anagram",
+      "note": "turning shows the letters being rotated into another arrangement"
+     }
+    ],
+    "linkWords": [
+     "With"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "males",
+      "gives": "MALES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "she's",
+      "gives": "SHES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MALESSHES",
+       "gives": "SHAMELESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In the company of disreputable men, a woman is growing brazen.",
+     "definitionFit": "Shameless and immodest both mean having no sense of decency or embarrassment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 17,
@@ -270,7 +1078,42 @@
     "text": "Light up seaside resort, it's said",
     "enumeration": "8"
    },
-   "solution": "BRIGHTEN"
+   "solution": "BRIGHTEN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BRIGHTEN",
+    "definitions": [
+     {
+      "text": "Light up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "it's said",
+      "for": "homophone",
+      "note": "said points to a word spoken aloud, matched by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seaside resort",
+      "gives": "BRIGHTEN",
+      "soundsLike": "BRIGHTON",
+      "note": "Brighton is a seaside town on England's south coast"
+     }
+    ],
+    "explanation": {
+     "surface": "The illuminations of a coastal town, so people claim.",
+     "definitionFit": "To brighten something is to make it lighter or more cheerful, to light it up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -284,7 +1127,59 @@
     "text": "Bone in undergarment on detailed top",
     "enumeration": "8"
    },
-   "solution": "VERTEBRA"
+   "solution": "VERTEBRA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "VERTEBRA",
+    "definitions": [
+     {
+      "text": "Bone",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "detailed",
+      "for": "deletion",
+      "note": "de-tailed means having its tail removed, so the last letter goes"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "top",
+      "gives": "VERTEX",
+      "note": "the vertex is the top or apex of something"
+     },
+     {
+      "clueFragment": "undergarment",
+      "gives": "BRA",
+      "note": "a bra is an undergarment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VERTE",
+      "BRA"
+     ]
+    },
+    "explanation": {
+     "surface": "Something odd found in underwear worn beneath an elaborate top.",
+     "walkthrough": "'Detailed' looks like intricate decoration on a top; read as de-tailed, it cuts off the last letter. 'On' puts the undergarment after the shortened top.",
+     "definitionFit": "A vertebra is one of the small bones making up the spine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "detailed"
+    }
+   }
   },
   {
    "number": 18,
@@ -298,7 +1193,62 @@
     "text": "Amazon sign contains arrow's head",
     "enumeration": "6"
    },
-   "solution": "VIRAGO"
+   "solution": "VIRAGO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "VIRAGO",
+    "definitions": [
+     {
+      "text": "Amazon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contains",
+      "for": "container",
+      "note": "contains means holds within, so one piece sits inside the other"
+     },
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "the head of a word is only its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sign",
+      "gives": "VIRGO",
+      "note": "Virgo is a sign of the zodiac"
+     },
+     {
+      "clueFragment": "arrow's",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter of arrow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIR",
+      "A",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "A road sign along the Amazon with an arrowhead on it.",
+     "walkthrough": "'Amazon' tempts as the river or the company; here it is a warrior woman.",
+     "definitionFit": "Amazons were legendary women warriors, so an amazon is a strong, fierce woman, as is a virago."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Amazon"
+    }
+   }
   },
   {
    "number": 19,
@@ -312,7 +1262,61 @@
     "text": "Greek god's about gutted abiding heathens",
     "enumeration": "6"
    },
-   "solution": "PAGANS"
+   "solution": "PAGANS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PAGANS",
+    "definitions": [
+     {
+      "text": "heathens",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gutted",
+      "for": "letter_selection",
+      "note": "a gutted thing has its insides removed, keeping only the outside letters"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the first piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek god's",
+      "gives": "PANS",
+      "note": "Pan is the Greek god of the wild; with the 's"
+     },
+     {
+      "clueFragment": "abiding",
+      "gives": "AG",
+      "select": "outer",
+      "note": "first and last letters of abiding"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "AG",
+      "ANS"
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek deity surrounded by gutted, enduring unbelievers.",
+     "definitionFit": "Pagans are followers of non-Christian religions, which is what heathens means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gutted"
+    }
+   }
   },
   {
    "number": 20,
@@ -326,7 +1330,53 @@
     "text": "Line under street from elsewhere",
     "enumeration": "7"
    },
-   "solution": "STRANGE"
+   "solution": "STRANGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRANGE",
+    "definitions": [
+     {
+      "text": "from elsewhere",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "under in a down clue puts the first item lower in the column, after the one it sits beneath"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street"
+     },
+     {
+      "clueFragment": "Line",
+      "gives": "RANGE",
+      "note": "a range is a line, as of mountains"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "RANGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A painted line under the road surface, from somewhere unknown.",
+     "walkthrough": "In a down clue 'under' places the line below the street.",
+     "definitionFit": "Strange can mean foreign or unfamiliar, coming from another place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -340,7 +1390,42 @@
     "text": "Through ageing ingests indigestible food",
     "enumeration": "8"
    },
-   "solution": "ROUGHAGE"
+   "solution": "ROUGHAGE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ROUGHAGE",
+    "definitions": [
+     {
+      "text": "indigestible food",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ingests",
+      "for": "hidden_word",
+      "note": "ingesting is swallowing, so the phrase before holds the answer inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Through ageing",
+      "gives": "ROUGHAGE",
+      "note": "runs from the second letter of the first word into the second"
+     }
+    ],
+    "explanation": {
+     "surface": "As one grows older, the stomach starts swallowing food it cannot digest.",
+     "definitionFit": "Roughage is dietary fibre, the part of food the body cannot digest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ingests"
+    }
+   }
   },
   {
    "number": 22,
@@ -354,7 +1439,56 @@
     "text": "Back nun, at heart a believer",
     "enumeration": "5"
    },
-   "solution": "HINDU"
+   "solution": "HINDU",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HINDU",
+    "definitions": [
+     {
+      "text": "a believer",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at heart",
+      "for": "letter_selection",
+      "note": "the heart of a word is its middle letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Back",
+      "gives": "HIND",
+      "note": "hind means back, as in hind legs"
+     },
+     {
+      "clueFragment": "nun",
+      "gives": "U",
+      "select": "middle",
+      "note": "middle letter of nun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIND",
+      "U"
+     ]
+    },
+    "explanation": {
+     "surface": "Support a nun who is deeply religious.",
+     "walkthrough": "'Back' reads as a verb meaning support; it is the adjective for rear.",
+     "definitionFit": "A Hindu is a follower of Hinduism, so a believer in that faith."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Back"
+    }
+   }
   },
   {
    "number": 23,
@@ -368,7 +1502,62 @@
     "text": "Binge, occasionally nude, consumed by drink",
     "enumeration": "6"
    },
-   "solution": "BENDER"
+   "solution": "BENDER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BENDER",
+    "definitions": [
+     {
+      "text": "Binge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means now and then, so only every other letter is kept"
+     },
+     {
+      "text": "consumed by",
+      "for": "container",
+      "note": "consumed by means swallowed by, so the first piece goes inside the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "BEER",
+      "note": "beer is a drink"
+     },
+     {
+      "clueFragment": "nude",
+      "gives": "ND",
+      "select": "alternate",
+      "note": "first and third letters of nude"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "ND",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A boozy night out ending, now and then, in stripping off.",
+     "walkthrough": "A bender is British slang for a drinking spree.",
+     "definitionFit": "A bender is a bout of heavy drinking, a binge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nude"
+    }
+   }
   },
   {
    "number": 24,
@@ -382,7 +1571,49 @@
     "text": "Devil, even malevolent or nasty initially",
     "enumeration": "5"
    },
-   "solution": "DEMON"
+   "solution": "DEMON",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection"
+    ],
+    "answer": "DEMON",
+    "definitions": [
+     {
+      "text": "Devil, even malevolent or nasty initially",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so each word gives only its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Devil, even malevolent or nasty",
+      "gives": "DEMON",
+      "select": "first",
+      "note": "first letters of the five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEMON"
+     ]
+    },
+    "explanation": {
+     "surface": "A fiend, mean or downright evil from the start.",
+     "walkthrough": "The whole clue defines the answer, and its first letters also spell it, including the word that names it.",
+     "definitionFit": "A demon is an evil spirit or devil, malevolent by nature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 25,
@@ -396,7 +1627,55 @@
     "text": "Naked except for lingerie finally",
     "enumeration": "4"
    },
-   "solution": "BARE"
+   "solution": "BARE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BARE",
+    "definitions": [
+     {
+      "text": "Naked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end, the closing letter of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "except for",
+      "gives": "BAR",
+      "note": "bar means except, as in all bar one"
+     },
+     {
+      "clueFragment": "lingerie",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of lingerie"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Wearing nothing but underwear, at the end.",
+     "definitionFit": "Bare and naked both mean uncovered, without clothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "except"
+    }
+   }
   },
   {
    "number": 26,
@@ -410,7 +1689,55 @@
     "text": "Start to gather meagre harvest",
     "enumeration": "5"
    },
-   "solution": "GLEAN"
+   "solution": "GLEAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GLEAN",
+    "definitions": [
+     {
+      "text": "harvest",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Start to",
+      "for": "letter_selection",
+      "note": "the start of a word is only its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gather",
+      "gives": "G",
+      "select": "first",
+      "note": "first letter of gather"
+     },
+     {
+      "clueFragment": "meagre",
+      "gives": "LEAN",
+      "note": "lean means meagre, as in lean times"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "LEAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Farmers begin bringing in a poor crop.",
+     "definitionFit": "To glean is to gather leftover grain after reaping, so to harvest bit by bit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "harvest"
+    }
+   }
   },
   {
    "number": 27,
@@ -424,7 +1751,57 @@
     "text": "Butcher and master butcher possibly",
     "enumeration": "9"
    },
-   "solution": "TRADESMAN"
+   "solution": "TRADESMAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRADESMAN",
+    "definitions": [
+     {
+      "text": "Butcher",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "butcher possibly",
+      "for": "anagram",
+      "note": "to butcher is to mangle, so the words before are hacked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "master",
+      "gives": "MASTER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANDMASTER",
+       "gives": "TRADESMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A butcher and a master butcher are both, perhaps, shopkeepers.",
+     "walkthrough": "The second 'butcher' is a verb, mangling the letters; 'possibly' reaches back to say a butcher is one example of the answer.",
+     "definitionFit": "A tradesman is a shopkeeper or skilled worker, and a butcher is one example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "butcher"
+    }
+   }
   },
   {
    "number": 28,
@@ -438,7 +1815,56 @@
     "text": "Refined extract insect queen's discharged",
     "enumeration": "12"
    },
-   "solution": "QUINTESSENCE"
+   "solution": "QUINTESSENCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "QUINTESSENCE",
+    "definitions": [
+     {
+      "text": "Refined extract",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discharged",
+      "for": "anagram",
+      "note": "something discharged is let loose and scattered, so the letters are freed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "insect",
+      "gives": "INSECT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "queen's",
+      "gives": "QUEENS",
+      "note": "taken as written, with its s"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INSECTQUEENS",
+       "gives": "QUINTESSENCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A purified substance secreted by a queen bee or ant.",
+     "walkthrough": "The surface evokes royal jelly from a queen bee, but the insect is just letters.",
+     "definitionFit": "A quintessence was the purest essence distilled from a substance, its most concentrated extract."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "discharged"
+    }
+   }
   }
  ]
 }
