@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,49 @@
     "text": "Drink merrily on large merry-go-round",
     "enumeration": "8"
    },
-   "solution": "CAROUSEL"
+   "solution": "CAROUSEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAROUSEL",
+    "definitions": [
+     {
+      "text": "merry-go-round",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drink merrily",
+      "gives": "CAROUSE",
+      "note": "to carouse is to drink and make merry"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAROUSE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone drinking happily while riding a fairground ride.",
+     "definitionFit": "A carousel is the fairground roundabout with rising and falling horses, the same ride as a merry-go-round."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "merrily"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +92,56 @@
     "text": "Unborn creature's enemy with time to go to America",
     "enumeration": "6"
    },
-   "solution": "FOETUS"
+   "solution": "FOETUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FOETUS",
+    "definitions": [
+     {
+      "text": "Unborn creature",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "enemy",
+      "gives": "FOE",
+      "note": "a foe is an enemy"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "US is short for the United States of America"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOE",
+      "T",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "An unborn being's adversary heads off to the States, given time.",
+     "walkthrough": "'with' and 'to go to' just place each piece after the one before.",
+     "definitionFit": "A foetus is an offspring still developing in the womb, a creature not yet born."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "enemy"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +155,54 @@
     "text": "Let Basil out of prison",
     "enumeration": "8"
    },
-   "solution": "BASTILLE"
+   "solution": "BASTILLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BASTILLE",
+    "definitions": [
+     {
+      "text": "prison",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "letting someone out sets them loose, so these letters are freed from their order"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Let Basil",
+      "gives": "LETBASIL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LETBASIL",
+       "gives": "BASTILLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plea to release a man named Basil from jail.",
+     "walkthrough": "'out of prison' reads as one phrase, but 'out' is the anagram signal and 'prison' alone is the definition.",
+     "definitionFit": "The Bastille was the Paris fortress used as a state jail, stormed in 1789 at the start of the French Revolution."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +216,65 @@
     "text": "Pleased to get rid of date unexpectedly, having forty winks",
     "enumeration": "6"
    },
-   "solution": "ASLEEP"
+   "solution": "ASLEEP",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ASLEEP",
+    "definitions": [
+     {
+      "text": "having forty winks",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to get rid of",
+      "for": "deletion",
+      "note": "getting rid of something means a letter is thrown out of the word"
+     },
+     {
+      "text": "unexpectedly",
+      "for": "anagram",
+      "note": "something unexpected comes out in a surprising order, so the remaining letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pleased",
+      "gives": "PLEASED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "date",
+      "gives": "D",
+      "note": "D is the abbreviation for date"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASLEEP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PLEASE",
+       "gives": "ASLEEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone happily cancels a date and takes a nap instead.",
+     "walkthrough": "Remove D from PLEASED, then rearrange PLEASE.",
+     "definitionFit": "Forty winks is a short nap, so someone having forty winks is sleeping."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "date"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +288,46 @@
     "text": "Carbon fibre pencil",
     "enumeration": "6"
    },
-   "solution": "CRAYON"
+   "solution": "CRAYON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRAYON",
+    "definitions": [
+     {
+      "text": "pencil",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Carbon",
+      "gives": "C",
+      "note": "C is the chemical symbol for carbon"
+     },
+     {
+      "clueFragment": "fibre",
+      "gives": "RAYON",
+      "note": "rayon is a synthetic textile fibre"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RAYON"
+     ]
+    },
+    "explanation": {
+     "surface": "A pencil made with carbon fibre.",
+     "definitionFit": "A crayon is a stick of coloured wax or chalk used like a pencil for drawing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fibre"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +341,51 @@
     "text": "Plant drug on mistress",
     "enumeration": "6"
    },
-   "solution": "CLOVER"
+   "solution": "CLOVER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLOVER",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drug",
+      "gives": "C",
+      "note": "C is slang shorthand for cocaine"
+     },
+     {
+      "clueFragment": "mistress",
+      "gives": "LOVER",
+      "note": "a mistress is a lover"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LOVER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hides drugs on a mistress, as if framing her.",
+     "walkthrough": "'Plant drug on' looks like framing someone, but 'Plant' is the definition, a noun.",
+     "definitionFit": "Clover is a low-growing herb of the pea family with three-lobed leaves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Plant"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +399,49 @@
     "text": "Sauce for animal to drink",
     "enumeration": "6"
    },
-   "solution": "CATSUP"
+   "solution": "CATSUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CATSUP",
+    "definitions": [
+     {
+      "text": "Sauce",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "animal",
+      "gives": "CAT",
+      "note": "a cat is an animal"
+     },
+     {
+      "clueFragment": "to drink",
+      "gives": "SUP",
+      "note": "to sup is to drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAT",
+      "SUP"
+     ]
+    },
+    "explanation": {
+     "surface": "A dish of sauce set out for a pet to lap up.",
+     "definitionFit": "Catsup is an American variant spelling of ketchup, the tomato condiment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "animal"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +455,49 @@
     "text": "American writer to have a go at work that rhymes?",
     "enumeration": "6"
    },
-   "solution": "POETRY"
+   "solution": "POETRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POETRY",
+    "definitions": [
+     {
+      "text": "work that rhymes?",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American writer",
+      "gives": "POE",
+      "note": "Edgar Allan Poe, the American author"
+     },
+     {
+      "clueFragment": "have a go",
+      "gives": "TRY",
+      "note": "to try is to have a go"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POE",
+      "TRY"
+     ]
+    },
+    "explanation": {
+     "surface": "An American author attempting some writing in rhyme.",
+     "walkthrough": "The question mark flags that not all poetry rhymes; this is a definition by example.",
+     "definitionFit": "Poetry is literary composition in verse, often though not always written with rhyme."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +511,52 @@
     "text": "Surgeons aim to cut up foolish people",
     "enumeration": "11"
    },
-   "solution": "IGNORAMUSES"
+   "solution": "IGNORAMUSES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IGNORAMUSES",
+    "definitions": [
+     {
+      "text": "foolish people",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to cut up",
+      "for": "anagram",
+      "note": "cutting something up chops it into bits that can be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Surgeons aim",
+      "gives": "SURGEONSAIM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SURGEONSAIM",
+       "gives": "IGNORAMUSES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Surgeons intend to operate on some stupid patients.",
+     "walkthrough": "'cut up' fits surgeons perfectly, which hides its role as the anagram signal.",
+     "definitionFit": "Ignoramuses are ignorant or stupid people, the plural of ignoramus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +576,48 @@
      }
     ]
    },
-   "solution": "COPOUT"
+   "solution": "COPOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COP OUT",
+    "definitions": [
+     {
+      "text": "Fail to take responsibility",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "police officer's",
+      "gives": "COP",
+      "note": "a cop is a police officer; the 's stands for 'is'"
+     },
+     {
+      "clueFragment": "elsewhere",
+      "gives": "OUT",
+      "note": "someone out is not here but elsewhere"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COP",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shirks duty while the officer is away.",
+     "definitionFit": "To cop out is an informal idiom for dodging a duty or commitment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +631,51 @@
     "text": "Got the grade, somehow",
     "enumeration": "8"
    },
-   "solution": "GATHERED"
+   "solution": "GATHERED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GATHERED",
+    "definitions": [
+     {
+      "text": "Got",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "somehow means in some unknown way, so the letters come out in an unknown order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the grade",
+      "gives": "THEGRADE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THEGRADE",
+       "gives": "GATHERED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student surprised to have achieved the required mark.",
+     "walkthrough": "'Got the grade' reads as one phrase; 'Got' alone is the definition.",
+     "definitionFit": "Gathered can mean collected or acquired, the same sense as obtained."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Got"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +689,55 @@
     "text": "That man leading Schutzstaffel?",
     "enumeration": "4"
    },
-   "solution": "HESS"
+   "solution": "HESS",
+   "annotation": {
+    "type": [
+     "charade",
+     "and_lit"
+    ],
+    "answer": "HESS",
+    "definitions": [
+     {
+      "text": "That man leading Schutzstaffel?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leading",
+      "for": "charade",
+      "note": "leading means going in front, so one part is placed before the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "That man",
+      "gives": "HE",
+      "note": "he is the pronoun for that man"
+     },
+     {
+      "clueFragment": "Schutzstaffel",
+      "gives": "SS",
+      "note": "SS is the abbreviation of Schutzstaffel, the Nazi paramilitary force"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about who commanded Hitler's elite guard.",
+     "walkthrough": "The whole clue doubles as a loose definition: Rudolf Hess was a senior Nazi, though Himmler, not he, led the SS.",
+     "definitionFit": "Rudolf Hess was Hitler's deputy in the Nazi party, a prominent figure of that regime."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "leading"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +751,55 @@
     "text": "One stopping the pleasure of others from ill-gotten gains reaching harbour",
     "enumeration": "10"
    },
-   "solution": "SPOILSPORT"
+   "solution": "SPOILSPORT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPOILSPORT",
+    "definitions": [
+     {
+      "text": "One stopping the pleasure of others",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reaching",
+      "for": "charade",
+      "note": "reaching means arriving at, so one part runs straight on into the next"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ill-gotten gains",
+      "gives": "SPOILS",
+      "note": "spoils are goods taken by plunder"
+     },
+     {
+      "clueFragment": "harbour",
+      "gives": "PORT",
+      "note": "a port is a harbour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPOILS",
+      "PORT"
+     ]
+    },
+    "explanation": {
+     "surface": "Pirates' loot arriving at a harbour, spoiling the fun.",
+     "definitionFit": "A spoilsport is a person who ruins other people's enjoyment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +813,50 @@
     "text": "Royal house arranged Lent pageant",
     "enumeration": "11"
    },
-   "solution": "PLANTAGENET"
+   "solution": "PLANTAGENET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PLANTAGENET",
+    "definitions": [
+     {
+      "text": "Royal house",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "arranged means put into a new order, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lent pageant",
+      "gives": "LENTPAGEANT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LENTPAGEANT",
+       "gives": "PLANTAGENET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A royal household organises a procession for Lent.",
+     "definitionFit": "The Plantagenets were the dynasty that ruled England from Henry II to Richard III."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "arranged"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +870,66 @@
     "text": "Fruit containing sadly inert source of goodness",
     "enumeration": "8"
    },
-   "solution": "NUTRIENT"
+   "solution": "NUTRIENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NUTRIENT",
+    "definitions": [
+     {
+      "text": "source of goodness",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sadly",
+      "for": "anagram",
+      "note": "sadly suggests something gone wrong, so the letters are out of order"
+     },
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding inside, so one part sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fruit",
+      "gives": "NUT",
+      "note": "a nut is a dry fruit"
+     },
+     {
+      "clueFragment": "inert",
+      "gives": "INERT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NU",
+      "TRIEN",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INERT",
+       "gives": "TRIEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fruit holding some unhappily inactive substance that is good for you.",
+     "definitionFit": "A nutrient is a substance that nourishes the body, a source of the goodness in food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "sadly"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +943,43 @@
     "text": "Transport door",
     "enumeration": "8"
    },
-   "solution": "ENTRANCE"
+   "solution": "ENTRANCE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ENTRANCE",
+    "definitions": [
+     {
+      "text": "Transport",
+      "at": 0
+     },
+     {
+      "text": "door",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Transport",
+      "note": "first meaning: to carry away with delight, stressed on the second syllable"
+     },
+     {
+      "clueFragment": "door",
+      "note": "second meaning: a way in, stressed on the first syllable"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Transport door' suggests a vehicle's door; transport here is the verb meaning to delight.",
+     "definitionFit": "To entrance is to enrapture, and an entrance is a doorway into a building."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Transport"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +993,57 @@
     "text": "King taken in by devil's associate",
     "enumeration": "6"
    },
-   "solution": "FRIEND"
+   "solution": "FRIEND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FRIEND",
+    "definitions": [
+     {
+      "text": "associate",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken in by",
+      "for": "container",
+      "note": "being taken in by something means being held inside it"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "devil",
+      "gives": "FIEND",
+      "note": "a fiend is a devil"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "R is short for rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "R",
+      "IEND"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch fooled by the devil's accomplice.",
+     "definitionFit": "A friend is a companion or close associate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "taken"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1057,70 @@
     "text": "Indifference to a way to capture heart of royal",
     "enumeration": "6"
    },
-   "solution": "APATHY"
+   "solution": "APATHY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "APATHY",
+    "definitions": [
+     {
+      "text": "Indifference",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heart of",
+      "for": "letter_selection",
+      "note": "the heart of a word is its centre, so only its middle letter is kept"
+     },
+     {
+      "text": "capture",
+      "for": "charade",
+      "note": "capturing something means taking it on, so the way gains another letter at its end"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "way",
+      "gives": "PATH",
+      "note": "a path is a way"
+     },
+     {
+      "clueFragment": "royal",
+      "gives": "Y",
+      "select": "middle",
+      "note": "the middle letter of the five-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PATH",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is unmoved by a plan to seize a royal's heart.",
+     "walkthrough": "Despite 'capture', nothing goes inside anything: the middle letter is simply added after A PATH.",
+     "definitionFit": "Apathy is a lack of interest or concern, the same as indifference."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capture"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1140,71 @@
      }
     ]
    },
-   "solution": "BREASTPUMP"
+   "solution": "BREASTPUMP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BREAST PUMP",
+    "definitions": [
+     {
+      "text": "Device for extracting milk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "freshly expressed",
+      "for": "anagram",
+      "note": "expressed afresh means put a new way, so the letters take a new order"
+     },
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding inside, so one part goes within the other"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "swelling",
+      "gives": "BUMP",
+      "note": "a bump is a swelling"
+     },
+     {
+      "clueFragment": "repast",
+      "gives": "REPAST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "REASTP",
+      "UMP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REPAST",
+       "gives": "REASTP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nursing mother's gadget drawing out milk for a baby's meal.",
+     "walkthrough": "'expressed' is apt, since expressing milk is drawing it from the breast.",
+     "definitionFit": "A breast pump is a device nursing mothers use to draw milk from the breast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "expressed"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1218,41 @@
     "text": "Reluctant to accept part of 7?",
     "enumeration": "6"
    },
-   "solution": "AVERSE"
+   "solution": "AVERSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AVERSE",
+    "definitions": [
+     {
+      "text": "Reluctant to accept",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of 7",
+      "gives": "AVERSE",
+      "note": "a verse is one section of a poem, and 7 is poetry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVERSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone unwilling to take on a piece of verse.",
+     "walkthrough": "7 refers to the answer of 7-down. The cross-reference is split as 'a verse', a stanza of poetry.",
+     "definitionFit": "Averse to something means opposed to it, unwilling to take it on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 20,
@@ -325,7 +1266,65 @@
     "text": "Drink finished before setter's given glass at last!",
     "enumeration": "6"
    },
-   "solution": "PASTIS"
+   "solution": "PASTIS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PASTIS",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the very end, so only the final letter is kept"
+     }
+    ],
+    "linkWords": [
+     "before",
+     "'s given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "finished",
+      "gives": "PAST",
+      "note": "something finished is past"
+     },
+     {
+      "clueFragment": "setter",
+      "gives": "I",
+      "note": "the setter refers to themself as I"
+     },
+     {
+      "clueFragment": "glass",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAST",
+      "I",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter finally gets a glass once the drink is finished.",
+     "definitionFit": "Pastis is an aniseed-flavoured French aperitif, an alcoholic drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "glass"
+    }
+   }
   },
   {
    "number": 21,
@@ -339,7 +1338,41 @@
     "text": "Printing error in nasty polemic",
     "enumeration": "4"
    },
-   "solution": "TYPO"
+   "solution": "TYPO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TYPO",
+    "definitions": [
+     {
+      "text": "Printing error",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nasty polemic",
+      "gives": "TYPO",
+      "note": "letters running across the word break"
+     }
+    ],
+    "explanation": {
+     "surface": "A misprint turns up in an unpleasant political tract.",
+     "definitionFit": "A typo is a typographical slip, a mistake in printed or typed text."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1386,81 @@
     "text": "Cast net to European before fire breaks out in island",
     "enumeration": "8"
    },
-   "solution": "TENERIFE"
+   "solution": "TENERIFE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TENERIFE",
+    "definitions": [
+     {
+      "text": "island",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cast",
+      "for": "anagram",
+      "note": "to cast is to throw, and thrown letters land in a new order"
+     },
+     {
+      "text": "breaks out",
+      "for": "anagram",
+      "note": "breaking out means bursting loose, so these letters scatter and regroup"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "before",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "net",
+      "gives": "TEN",
+      "note": "the letters of this word, rearranged"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "fire",
+      "gives": "RIFE",
+      "note": "the letters of this word, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEN",
+      "E",
+      "RIFE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NET",
+       "gives": "TEN"
+      },
+      {
+       "fodder": "FIRE",
+       "gives": "RIFE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fishermen cast nets while a wildfire breaks out on a holiday island.",
+     "walkthrough": "Two separate anagrams: one of the three-letter word and one of the four-letter word, with E between.",
+     "definitionFit": "Tenerife is the largest of Spain's Canary Islands, off north-west Africa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cast"
+    }
+   }
   },
   {
    "number": 23,
@@ -367,7 +1474,60 @@
     "text": "Quick look at spineless Tory is insufficient",
     "enumeration": "6"
    },
-   "solution": "SCANTY"
+   "solution": "SCANTY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCANTY",
+    "definitions": [
+     {
+      "text": "insufficient",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spineless",
+      "for": "letter_selection",
+      "note": "without a spine means the middle is removed, so only the outer letters remain"
+     }
+    ],
+    "linkWords": [
+     "at",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quick look",
+      "gives": "SCAN",
+      "note": "a scan is a quick look"
+     },
+     {
+      "clueFragment": "Tory",
+      "gives": "TY",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCAN",
+      "TY"
+     ]
+    },
+    "explanation": {
+     "surface": "A glance at a weak-willed Conservative shows he falls short.",
+     "walkthrough": "A Tory is a member of Britain's Conservative Party.",
+     "definitionFit": "Scanty means meagre, too small in amount to be enough."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spineless"
+    }
+   }
   },
   {
    "number": 24,
@@ -381,7 +1541,57 @@
     "text": "Giving medication to scoundrel admitting lust, say",
     "enumeration": "6"
    },
-   "solution": "DOSING"
+   "solution": "DOSING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DOSING",
+    "definitions": [
+     {
+      "text": "Giving medication",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "admitting means letting in, so one part goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scoundrel",
+      "gives": "DOG",
+      "note": "dog is an old word for a rogue or scoundrel"
+     },
+     {
+      "clueFragment": "lust, say",
+      "gives": "SIN",
+      "note": "lust is one of the seven deadly sins; 'say' marks it as an example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "SIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor treats a rogue who confesses to lust.",
+     "definitionFit": "Dosing is administering doses of a medicine to someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 25,
@@ -395,7 +1605,65 @@
     "text": "Irritation in empty tummy is not very significant",
     "enumeration": "6"
    },
-   "solution": "TITCHY"
+   "solution": "TITCHY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TITCHY",
+    "definitions": [
+     {
+      "text": "not very significant",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "emptying a word removes its inside, leaving only the outer letters"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one part inside the other"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tummy",
+      "gives": "TY",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     },
+     {
+      "clueFragment": "Irritation",
+      "gives": "ITCH",
+      "note": "an itch is an irritation of the skin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ITCH",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An itch in a hungry stomach is only a minor matter.",
+     "walkthrough": "Titchy is British slang for very small.",
+     "definitionFit": "Titchy is informal British for tiny, so of little size or importance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "empty"
+    }
+   }
   }
  ]
 }
