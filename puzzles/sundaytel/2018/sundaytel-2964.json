@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,49 @@
     "text": "Song and dance followed by commercial",
     "enumeration": "6"
    },
-   "solution": "BALLAD"
+   "solution": "BALLAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BALLAD",
+    "definitions": [
+     {
+      "text": "Song",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "followed by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dance",
+      "gives": "BALL",
+      "note": "a ball is a formal dance"
+     },
+     {
+      "clueFragment": "commercial",
+      "gives": "AD",
+      "note": "an ad is a commercial, a short advertisement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BALL",
+      "AD"
+     ]
+    },
+    "explanation": {
+     "surface": "A variety act: a song-and-dance routine, then a break for the adverts.",
+     "definitionFit": "A ballad is a narrative song, often sentimental, so it is a kind of song."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "commercial"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +91,43 @@
     "text": "Remarkable as fish may be, unlike whales or dolphins",
     "enumeration": "8"
    },
-   "solution": "SINGULAR"
+   "solution": "SINGULAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SINGULAR",
+    "definitions": [
+     {
+      "text": "Remarkable",
+      "at": 0
+     },
+     {
+      "text": "as fish may be, unlike whales or dolphins",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Remarkable",
+      "note": "first meaning: extraordinary, out of the ordinary"
+     },
+     {
+      "clueFragment": "as fish may be, unlike whales or dolphins",
+      "note": "second meaning: the word fish can be ... in form, while whales and dolphins are plurals"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface pretends to be zoology about fish versus sea mammals; it is grammar, since 'fish' looks the same in the singular and 'whales' and 'dolphins' are plural.",
+     "definitionFit": "Singular means unusual or exceptional, and in grammar it names the number of a noun referring to one thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fish"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +141,66 @@
     "text": "Deny I had flipped in agreement",
     "enumeration": "10"
    },
-   "solution": "CONTRADICT"
+   "solution": "CONTRADICT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "CONTRADICT",
+    "definitions": [
+     {
+      "text": "Deny",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipped",
+      "for": "reversal",
+      "note": "something flipped is turned over, so the letters for 'I had' are read backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "placed in something else, so these letters sit inside the word for agreement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agreement",
+      "gives": "CONTRACT",
+      "note": "a contract is a formal agreement"
+     },
+     {
+      "clueFragment": "I had",
+      "gives": "ID",
+      "note": "I'd is the contraction of I had"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONTRA",
+      "DI",
+      "CT"
+     ],
+     "reversals": [
+      {
+       "from": "ID",
+       "to": "DI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone backtracks: having flipped, they now deny what they had agreed to.",
+     "definitionFit": "To contradict a statement is to assert its opposite, which is a way of denying it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flipped"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +214,52 @@
     "text": "Is a dosing ordered as result of this?",
     "enumeration": "9"
    },
-   "solution": "DIAGNOSIS"
+   "solution": "DIAGNOSIS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "DIAGNOSIS",
+    "definitions": [
+     {
+      "text": "Is a dosing ordered as result of this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "ordered here means arranged into a fresh sequence, so the preceding letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is a dosing",
+      "gives": "ISADOSING",
+      "note": "nine letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISADOSING",
+       "gives": "DIAGNOSIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor's prescription of medicine follows from identifying the illness.",
+     "walkthrough": "'Ordered' reads as a doctor ordering a dose; it is also the signal to rearrange 'is a dosing', and the whole clue then describes the answer.",
+     "definitionFit": "A diagnosis identifies the illness, and a course of medication is prescribed as a consequence of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "ordered"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +273,50 @@
     "text": "Primarily weak, ineffective, mild person",
     "enumeration": "4"
    },
-   "solution": "WIMP"
+   "solution": "WIMP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "WIMP",
+    "definitions": [
+     {
+      "text": "Primarily weak, ineffective, mild person",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter of each following word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weak, ineffective, mild person",
+      "gives": "WIMP",
+      "select": "first",
+      "note": "the initials of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIMP"
+     ]
+    },
+    "explanation": {
+     "surface": "A character sketch of a feeble, timid individual.",
+     "walkthrough": "The whole clue serves both as the instruction to take initial letters and as a description of the answer.",
+     "definitionFit": "A wimp is a feeble, timid person lacking courage, exactly what the description portrays."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Primarily"
+    }
+   }
   },
   {
    "number": 6,
@@ -102,7 +330,43 @@
     "text": "Part of hand that has slippery skin",
     "enumeration": "6"
    },
-   "solution": "BANANA"
+   "solution": "BANANA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BANANA",
+    "definitions": [
+     {
+      "text": "Part of hand",
+      "at": 0
+     },
+     {
+      "text": "that has slippery skin",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part of hand",
+      "note": "first meaning: one fruit from a hand, the cluster in which these fruit grow"
+     },
+     {
+      "clueFragment": "that has slippery skin",
+      "note": "second meaning: the fruit whose discarded peel is the classic slapstick slip hazard"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Part of hand' suggests a finger or thumb, but a hand is also a bunch of this fruit.",
+     "definitionFit": "Bananas grow in clusters called hands, and their peel is famously slippery underfoot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hand"
+    }
+   }
   },
   {
    "number": 7,
@@ -116,7 +380,65 @@
     "text": "Part-time judge has request again about start of case",
     "enumeration": "8"
    },
-   "solution": "RECORDER"
+   "solution": "RECORDER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RECORDER",
+    "definitions": [
+     {
+      "text": "Part-time judge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only that is kept"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the request word wraps around the single kept letter"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "request again",
+      "gives": "REORDER",
+      "note": "to reorder is to order, or request, once more"
+     },
+     {
+      "clueFragment": "case",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter of case"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "C",
+      "ORDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A judge who sits only part of the time asks to rehear a case.",
+     "walkthrough": "In England and Wales a recorder is a barrister or solicitor who sits as a judge part-time.",
+     "definitionFit": "A recorder is the title of a part-time judge in the English courts, sitting in the Crown Court."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "request"
+    }
+   }
   },
   {
    "number": 8,
@@ -130,7 +452,61 @@
     "text": "Endlessly arid zone as part of US",
     "enumeration": "7"
    },
-   "solution": "ARIZONA"
+   "solution": "ARIZONA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ARIZONA",
+    "definitions": [
+     {
+      "text": "part of US",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endlessly",
+      "for": "deletion",
+      "note": "endlessly means without an end, so each of the next three words loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arid",
+      "gives": "ARID",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "zone",
+      "gives": "ZONE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARI",
+      "ZON",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A description of a parched desert region of the United States.",
+     "walkthrough": "'Endlessly' applies to all three words, so 'as' gives just its first letter.",
+     "definitionFit": "Arizona is one of the fifty states that make up the United States, so it is a part of the country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Endlessly"
+    }
+   }
   },
   {
    "number": 9,
@@ -144,7 +520,48 @@
     "text": "Opposing something that goes with it",
     "enumeration": "4"
    },
-   "solution": "AGIN"
+   "solution": "AGIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AGIN",
+    "definitions": [
+     {
+      "text": "Opposing",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "something",
+      "gives": "A",
+      "note": "a, the indefinite article, as in a something"
+     },
+     {
+      "clueFragment": "that goes with it",
+      "gives": "GIN",
+      "note": "gin and it is a cocktail, it being Italian vermouth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Being against something that comes along with it.",
+     "walkthrough": "'It' here is Italian vermouth, as in the drink gin and it. Agin is a dialect form of 'against'.",
+     "definitionFit": "Agin is a dialect or humorous word for against, so it means opposed to."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "it"
+    }
+   }
   },
   {
    "number": 10,
@@ -158,7 +575,56 @@
     "text": "Use as model I am sitting in front of current gallery",
     "enumeration": "7"
    },
-   "solution": "IMITATE"
+   "solution": "IMITATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMITATE",
+    "definitions": [
+     {
+      "text": "Use as model",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "sitting in front of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I am",
+      "gives": "IM",
+      "note": "I'm is the contraction of I am"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     },
+     {
+      "clueFragment": "gallery",
+      "gives": "TATE",
+      "note": "the Tate is the famous London art gallery"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "I",
+      "TATE"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist's model sits for a portrait in front of a gallery's current exhibition.",
+     "walkthrough": "The Tate is a group of British national art galleries, Tate Britain and Tate Modern among them.",
+     "definitionFit": "To imitate is to copy someone, taking them as your model or pattern."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 11,
@@ -172,7 +638,54 @@
     "text": "Settling around North very fast",
     "enumeration": "9"
    },
-   "solution": "LIGHTNING"
+   "solution": "LIGHTNING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LIGHTNING",
+    "definitions": [
+     {
+      "text": "very fast",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means encircling, so the first word wraps the letter for the compass point"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Settling",
+      "gives": "LIGHTING",
+      "note": "lighting on something is coming to rest or settling on it"
+     },
+     {
+      "clueFragment": "North",
+      "gives": "N",
+      "note": "N is the abbreviation for north"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIGHT",
+      "N",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A migrating bird settles quickly after heading north.",
+     "definitionFit": "As an adjective lightning means extremely quick, as in a lightning raid, from the speed of a lightning flash."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Settling"
+    }
+   }
   },
   {
    "number": 12,
@@ -186,7 +699,71 @@
     "text": "Philosopher inserting line in page, odd selection for author",
     "enumeration": "5"
    },
-   "solution": "PLATO"
+   "solution": "PLATO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "PLATO",
+    "definitions": [
+     {
+      "text": "Philosopher",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "odd selection for",
+      "for": "letter_selection",
+      "note": "the odd selection means taking the first, third and fifth letters of the following word"
+     },
+     {
+      "text": "inserting",
+      "for": "container",
+      "note": "inserting means putting something inside, so the line letter goes into the page word chain"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "page",
+      "gives": "P",
+      "note": "p is the abbreviation for page"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     },
+     {
+      "clueFragment": "author",
+      "gives": "ATO",
+      "select": "alternate",
+      "note": "the odd-numbered letters of author"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "L",
+      "ATO"
+     ]
+    },
+    "explanation": {
+     "surface": "A philosopher-author's text is being edited, a line added to a page.",
+     "walkthrough": "Page plus the odd letters of 'author' give P and ATO, and the line letter is inserted between them.",
+     "definitionFit": "Plato was the ancient Greek philosopher who wrote the Republic and taught Aristotle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "author"
+    }
+   }
   },
   {
    "number": 13,
@@ -200,7 +777,43 @@
     "text": "Initially Delphi's extended mouthpiece?",
     "enumeration": "5"
    },
-   "solution": "DELTA"
+   "solution": "DELTA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DELTA",
+    "definitions": [
+     {
+      "text": "Initially Delphi's",
+      "at": 0
+     },
+     {
+      "text": "extended mouthpiece",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Initially Delphi's",
+      "note": "first meaning: Delphi is a Greek place, and its first letter in the Greek alphabet is this letter"
+     },
+     {
+      "clueFragment": "extended mouthpiece",
+      "note": "second meaning: a wide, branching river mouth spreading out into the sea"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests the oracle at Delphi speaking through a priestess; instead one meaning is the Greek letter for D and the other a spread-out river mouth.",
+     "definitionFit": "Delta is the fourth letter of the Greek alphabet, and also the fan-shaped mouth of a river such as the Nile."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mouthpiece"
+    }
+   }
   },
   {
    "number": 14,
@@ -214,7 +827,46 @@
     "text": "Where to find fruit or vegetable",
     "enumeration": "7"
    },
-   "solution": "ORCHARD"
+   "solution": "ORCHARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORCHARD",
+    "definitions": [
+     {
+      "text": "Where to find fruit",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "vegetable",
+      "gives": "CHARD",
+      "note": "chard is a leafy vegetable related to beet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "CHARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper's question about which aisle has the fruit or the veg.",
+     "definitionFit": "An orchard is a plot of fruit trees, so it is a place where fruit grows."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "or"
+    }
+   }
   },
   {
    "number": 15,
@@ -228,7 +880,57 @@
     "text": "Unfriendly when embracing attractive person in immature way",
     "enumeration": "10"
    },
-   "solution": "CHILDISHLY"
+   "solution": "CHILDISHLY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHILDISHLY",
+    "definitions": [
+     {
+      "text": "in immature way",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "embracing means hugging, so the first word wraps around the next one"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unfriendly",
+      "gives": "CHILLY",
+      "note": "a chilly welcome is an unfriendly one"
+     },
+     {
+      "clueFragment": "attractive person",
+      "gives": "DISH",
+      "note": "a dish is slang for a good-looking person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHIL",
+      "DISH",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone acts coldly while hugging a good-looking partner, which seems juvenile.",
+     "definitionFit": "To act childishly is to behave like a child, in a silly or immature manner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "embracing"
+    }
+   }
   },
   {
    "number": 16,
@@ -242,7 +944,52 @@
     "text": "Once rule's broken, it's put in writing",
     "enumeration": "9"
    },
-   "solution": "ENCLOSURE"
+   "solution": "ENCLOSURE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENCLOSURE",
+    "definitions": [
+     {
+      "text": "it's put in writing",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken is smashed apart, so its letters can be put back in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Once rule's",
+      "gives": "ONCERULES",
+      "note": "nine letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONCERULES",
+       "gives": "ENCLOSURE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Once a rule has been broken, it gets recorded on paper.",
+     "walkthrough": "'Put in writing' sounds like recording something, but it means put inside a letter alongside the written message.",
+     "definitionFit": "An enclosure is an item placed inside an envelope with a letter, so it is put in with correspondence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "writing"
+    }
+   }
   },
   {
    "number": 17,
@@ -262,7 +1009,54 @@
      }
     ]
    },
-   "solution": "FOREIGNMINISTER"
+   "solution": "FOREIGNMINISTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FOREIGN MINISTER",
+    "definitions": [
+     {
+      "text": "member of government",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "done badly means done wrongly, so the letters come out in a muddled order"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'm interfering so",
+      "gives": "IMINTERFERINGSO",
+      "note": "fifteen letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IMINTERFERINGSO",
+       "gives": "FOREIGNMINISTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cabinet minister confesses to meddling clumsily.",
+     "walkthrough": "Meddling in other countries' affairs fits the answer's job, which helps the surface.",
+     "definitionFit": "A foreign minister is the cabinet minister responsible for relations with other countries, so a government member."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "badly"
+    }
+   }
   },
   {
    "number": 17,
@@ -276,7 +1070,67 @@
     "text": "Dancing skill possibly OK for covering tango requirement",
     "enumeration": "8"
    },
-   "solution": "FOOTWORK"
+   "solution": "FOOTWORK",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "FOOTWORK",
+    "definitions": [
+     {
+      "text": "Dancing skill",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly suggests one of several arrangements, so the preceding letters may be reordered"
+     },
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "covering means wrapping round, so the jumbled letters surround the next item"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "OK for",
+      "gives": "OKFOR",
+      "note": "five letters taken as written"
+     },
+     {
+      "clueFragment": "tango requirement",
+      "gives": "TWO",
+      "note": "it takes two to tango, as the saying goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOO",
+      "TWO",
+      "RK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OKFOR",
+       "gives": "FOORK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dance teacher says the steps are fine for the basics a tango needs.",
+     "walkthrough": "The proverb 'it takes two to tango' supplies the number needed.",
+     "definitionFit": "Footwork is the skilful movement of the feet, a key accomplishment in dancing or sport."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "requirement"
+    }
+   }
   },
   {
    "number": 18,
@@ -290,7 +1144,70 @@
     "text": "After short voyage North with one parent, land in Caribbean",
     "enumeration": "8"
    },
-   "solution": "TRINIDAD"
+   "solution": "TRINIDAD",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TRINIDAD",
+    "definitions": [
+     {
+      "text": "land in Caribbean",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means cut down, so the word for voyage loses its last letter"
+     }
+    ],
+    "linkWords": [
+     "After",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "voyage",
+      "gives": "TRIP",
+      "note": "a trip is a journey or voyage"
+     },
+     {
+      "clueFragment": "North",
+      "gives": "N",
+      "note": "N is the abbreviation for north"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "parent",
+      "gives": "DAD",
+      "note": "dad is an informal word for a father"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRI",
+      "N",
+      "I",
+      "DAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller sails north with a parent and lands on a Caribbean island.",
+     "definitionFit": "Trinidad is the larger island of Trinidad and Tobago, a country in the southern Caribbean."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "land"
+    }
+   }
   },
   {
    "number": 19,
@@ -304,7 +1221,54 @@
     "text": "Said to include section of round-the-world trip",
     "enumeration": "7"
    },
-   "solution": "ORBITAL"
+   "solution": "ORBITAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ORBITAL",
+    "definitions": [
+     {
+      "text": "of round-the-world trip",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to include",
+      "for": "container",
+      "note": "to include something is to hold it inside, so the first word wraps around the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Said",
+      "gives": "ORAL",
+      "note": "oral means spoken rather than written"
+     },
+     {
+      "clueFragment": "section",
+      "gives": "BIT",
+      "note": "a bit is a part or section"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "BIT",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller describes part of a journey around the globe.",
+     "definitionFit": "Orbital describes a path circling a body such as the Earth, so it relates to a trip round the world."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Said"
+    }
+   }
   },
   {
    "number": 20,
@@ -318,7 +1282,38 @@
     "text": "Game for which paired opponents appear in answer",
     "enumeration": "6"
    },
-   "solution": "BRIDGE"
+   "solution": "BRIDGE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BRIDGE",
+    "definitions": [
+     {
+      "text": "Game for which paired opponents appear in answer",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Game for which paired opponents appear in answer",
+      "note": "surface reading: a game in which a pair of rivals turn up in reply to something"
+     },
+     {
+      "clueFragment": "paired opponents",
+      "note": "setter's reading: a card game played by two partnerships facing each other across the table"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The setter points to a card game played by two partnerships of two, each pair opposing the other.",
+     "definitionFit": "Bridge is a card game for four players in two partnerships, so the opponents come in pairs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "answer"
+    }
+   }
   },
   {
    "number": 21,
@@ -332,7 +1327,48 @@
     "text": "Doctor needing medical help that's often boring",
     "enumeration": "5"
    },
-   "solution": "DRILL"
+   "solution": "DRILL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRILL",
+    "definitions": [
+     {
+      "text": "that's often boring",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor",
+      "gives": "DR",
+      "note": "Dr is the abbreviation for doctor"
+     },
+     {
+      "clueFragment": "needing medical help",
+      "gives": "ILL",
+      "note": "someone ill is unwell and in need of treatment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "ILL"
+     ]
+    },
+    "explanation": {
+     "surface": "A sick doctor whose company is tedious.",
+     "walkthrough": "'Boring' seems to mean dull, but it means making holes.",
+     "definitionFit": "A drill is a tool used for boring holes in wood, metal or teeth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "boring"
+    }
+   }
   },
   {
    "number": 22,
@@ -346,7 +1382,61 @@
     "text": "Suitable flower planted around Kew, mostly",
     "enumeration": "6"
    },
-   "solution": "LIKELY"
+   "solution": "LIKELY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "LIKELY",
+    "definitions": [
+     {
+      "text": "Suitable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the place name loses its last letter"
+     },
+     {
+      "text": "planted around",
+      "for": "container",
+      "note": "planted around means set on all sides, so the flower word surrounds the shortened place name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flower",
+      "gives": "LILY",
+      "note": "the lily is a flower"
+     },
+     {
+      "clueFragment": "Kew",
+      "gives": "KEW",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "KE",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "A fitting bloom has been planted in Kew, the London botanic gardens.",
+     "walkthrough": "Kew Gardens is the Royal Botanic Gardens in south-west London, which suits the flower surface.",
+     "definitionFit": "A likely candidate is a suitable or promising one, a common sense of the adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flower"
+    }
+   }
   },
   {
    "number": 23,
@@ -360,7 +1450,51 @@
     "text": "German musical family's group losing heart",
     "enumeration": "4"
    },
-   "solution": "BACH"
+   "solution": "BACH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BACH",
+    "definitions": [
+     {
+      "text": "German musical family",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing heart",
+      "for": "deletion",
+      "note": "the heart of a word is its central letter, and losing it means dropping that middle"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "group",
+      "gives": "BATCH",
+      "note": "a batch is a group or set"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A German family of musicians loses its spirit.",
+     "definitionFit": "The Bachs were a dynasty of German composers and performers, with Johann Sebastian the most famous member."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 24,
@@ -374,7 +1508,48 @@
     "text": "Carefully consider, in manner of speaking?",
     "enumeration": "5"
    },
-   "solution": "WEIGH"
+   "solution": "WEIGH",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WEIGH",
+    "definitions": [
+     {
+      "text": "Carefully consider",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of speaking",
+      "for": "homophone",
+      "note": "speaking refers to the spoken word, so the answer only matches the word for manner when spoken"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "manner",
+      "gives": "WEIGH",
+      "soundsLike": "WAY",
+      "note": "a way is a manner of doing something"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone thinks hard about how they talk.",
+     "walkthrough": "'In manner of speaking' reads as a stock phrase, but splits into the word for manner and the sound signal.",
+     "definitionFit": "To weigh a matter is to assess it carefully, balancing one side against the other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "speaking"
+    }
+   }
   },
   {
    "number": 25,
@@ -388,7 +1563,46 @@
     "text": "Nelson, for example, in part of ship",
     "enumeration": "4"
    },
-   "solution": "HOLD"
+   "solution": "HOLD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HOLD",
+    "definitions": [
+     {
+      "text": "Nelson, for example",
+      "at": 0
+     },
+     {
+      "text": "part of ship",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nelson, for example",
+      "note": "first meaning: a nelson is a wrestling grip"
+     },
+     {
+      "clueFragment": "part of ship",
+      "note": "second meaning: the space below decks where cargo is stored"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Nelson' and 'ship' point to Admiral Nelson, but a nelson here is a wrestling grip, such as the full nelson.",
+     "definitionFit": "A nelson is a type of grip in wrestling, and the cargo space in a ship's hull is also so named."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nelson"
+    }
+   }
   },
   {
    "number": 26,
@@ -402,7 +1616,64 @@
     "text": "Cronies, having performed turn, remain for comedy act",
     "enumeration": "9"
    },
-   "solution": "SLAPSTICK"
+   "solution": "SLAPSTICK",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SLAPSTICK",
+    "definitions": [
+     {
+      "text": "comedy act",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having performed turn",
+      "for": "reversal",
+      "note": "performing a turn means swinging round, so the word for cronies is read backwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cronies",
+      "gives": "PALS",
+      "note": "pals are close friends"
+     },
+     {
+      "clueFragment": "remain",
+      "gives": "STICK",
+      "note": "to stick is to stay put"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLAP",
+      "STICK"
+     ],
+     "reversals": [
+      {
+       "from": "PALS",
+       "to": "SLAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Friends finish their variety turn and stay on for a comic routine.",
+     "walkthrough": "'Turn' looks like a stage act, which fits the comedy surface, but it is the reversal signal.",
+     "definitionFit": "Slapstick is boisterous physical comedy, full of pratfalls and custard pies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 27,
@@ -416,7 +1687,43 @@
     "text": "Soldier's uniform",
     "enumeration": "7"
    },
-   "solution": "REGULAR"
+   "solution": "REGULAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REGULAR",
+    "definitions": [
+     {
+      "text": "Soldier's",
+      "at": 0
+     },
+     {
+      "text": "uniform",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldier's",
+      "note": "first meaning: a professional soldier in a standing army; the 's is read as 'is'"
+     },
+     {
+      "clueFragment": "uniform",
+      "note": "second meaning: even, consistent, the same throughout"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Uniform' suggests what a soldier wears, but here it is an adjective meaning even; the 's stands for 'is'.",
+     "definitionFit": "A regular is a full-time professional soldier, and regular also means steady and evenly consistent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "uniform"
+    }
+   }
   },
   {
    "number": 28,
@@ -430,7 +1737,42 @@
     "text": "Alternative to case contributing to foolish old allegations",
     "enumeration": "7"
    },
-   "solution": "HOLDALL"
+   "solution": "HOLDALL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HOLDALL",
+    "definitions": [
+     {
+      "text": "Alternative to case",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contributing to",
+      "for": "hidden_word",
+      "note": "contributing to means forming part of, so the answer is found within the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "foolish old allegations",
+      "gives": "HOLDALL",
+      "note": "spans the end of the first word, all of the second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A suitcase figures in some silly, outdated accusations.",
+     "definitionFit": "A holdall is a large soft bag for travel, used instead of a suitcase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   }
  ]
 }
