@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,66 @@
     "text": "Clubs are able to sell back drink",
     "enumeration": "6"
    },
-   "solution": "COGNAC"
+   "solution": "COGNAC",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "COGNAC",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back tells the solver to read the words just before it in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clubs",
+      "gives": "C",
+      "note": "C is the abbreviation for clubs in card games"
+     },
+     {
+      "clueFragment": "are able",
+      "gives": "CAN",
+      "note": "to be able is to be able to do it: 'can'"
+     },
+     {
+      "clueFragment": "to sell",
+      "gives": "GO",
+      "note": "goods that go are sold, as in 'it went for a fiver'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OGNAC"
+     ],
+     "reversals": [
+      {
+       "from": "CANGO",
+       "to": "OGNAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bar's card club licensed to sell drink back to its members.",
+     "walkthrough": "C stays at the front; only 'are able to sell' is turned round, giving COGNAC.",
+     "definitionFit": "Cognac is a French brandy, a specific kind of alcoholic drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Clubs"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +109,51 @@
     "text": "Warning gold is going down in sale",
     "enumeration": "7"
    },
-   "solution": "CAUTION"
+   "solution": "CAUTION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CAUTION",
+    "definitions": [
+     {
+      "text": "Warning",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gold is going down in",
+      "for": "anagram",
+      "note": "the chemical symbol for gold already heads the following word and is said to slide further down it, so its letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sale",
+      "gives": "AUCTION",
+      "note": "an auction is a sale by bidding; Au, the symbol for gold, already sits at its front"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AUCTION",
+       "gives": "CAUTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper's warning that the price of gold is falling at the sales.",
+     "walkthrough": "In AUCTION the gold symbol sits at the top; moving AU one place down the word, after the C, gives CAUTION.",
+     "definitionFit": "A caution is a warning, as in a formal police caution or a word of advice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "going"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +167,46 @@
     "text": "Acknowledge actor's gift",
     "enumeration": "5"
    },
-   "solution": "GRANT"
+   "solution": "GRANT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GRANT",
+    "definitions": [
+     {
+      "text": "Acknowledge",
+      "at": 0
+     },
+     {
+      "text": "gift",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Acknowledge",
+      "note": "first meaning: to concede or admit"
+     },
+     {
+      "clueFragment": "actor's",
+      "note": "a third meaning: Cary ... (or Hugh ...), the film actor"
+     },
+     {
+      "clueFragment": "gift",
+      "note": "second meaning: a sum given"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Three meanings in three words: concede, the actor Cary Grant, and money given. The actor ties in with 23 down, LEACH, Cary Grant's original surname.",
+     "definitionFit": "To grant a point is to admit it, and a grant is money awarded without repayment, a kind of gift."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "actor's"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +220,62 @@
     "text": "Doctor cites case of agoraphobic recluse",
     "enumeration": "7"
    },
-   "solution": "ASCETIC"
+   "solution": "ASCETIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ASCETIC",
+    "definitions": [
+     {
+      "text": "recluse",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so the letters are altered in order"
+     },
+     {
+      "text": "case of",
+      "for": "letter_selection",
+      "note": "the case of a word is its outer shell, so only its first and last letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cites",
+      "gives": "CITES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "agoraphobic",
+      "gives": "AC",
+      "select": "outer",
+      "note": "the outside letters of agoraphobic"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CITESAC",
+       "gives": "ASCETIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor quotes a case study of an agoraphobic who shuns company.",
+     "definitionFit": "An ascetic is someone who lives in austere self-denial, often withdrawn from society, so a recluse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +289,47 @@
     "text": "Moderate payment in advance expected to arrive",
     "enumeration": "6"
    },
-   "solution": "SUBDUE"
+   "solution": "SUBDUE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUBDUE",
+    "definitions": [
+     {
+      "text": "Moderate",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "payment in advance",
+      "gives": "SUB",
+      "note": "a sub is an advance on wages"
+     },
+     {
+      "clueFragment": "expected to arrive",
+      "gives": "DUE",
+      "note": "a train due at noon is expected then"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUB",
+      "DUE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone moderating their spending while an advance payment is expected.",
+     "walkthrough": "'Moderate' looks like an adjective but is the verb: to tone down.",
+     "definitionFit": "To subdue is to tone down or restrain, as one moderates a voice or a light."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Moderate"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +343,46 @@
     "text": "Anxious to be seen as chaste?",
     "enumeration": "6"
    },
-   "solution": "UNEASY"
+   "solution": "UNEASY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UNEASY",
+    "definitions": [
+     {
+      "text": "Anxious",
+      "at": 0
+     },
+     {
+      "text": "chaste",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "to be seen as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Anxious",
+      "note": "first meaning: worried, ill at ease"
+     },
+     {
+      "clueFragment": "chaste",
+      "note": "second, playful meaning: 'easy' is slang for promiscuous, so someone not easy is chaste"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the joke: split the answer as UN-EASY, the opposite of 'easy' in its slang sense of sexually available.",
+     "definitionFit": "Uneasy means troubled and nervous; read as not-easy it humorously suggests virtue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "chaste"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +396,54 @@
     "text": "Novel by me is odd and free from physical constraints",
     "enumeration": "9"
    },
-   "solution": "DISEMBODY"
+   "solution": "DISEMBODY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DISEMBODY",
+    "definitions": [
+     {
+      "text": "free from physical constraints",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Novel",
+      "for": "anagram",
+      "note": "novel means new and different, so the letters are made into a fresh order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "by me is odd",
+      "gives": "BYMEISODD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BYMEISODD",
+       "gives": "DISEMBODY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An author says their own strange novel releases a spirit from the body.",
+     "walkthrough": "'Novel' sounds like a book the speaker wrote, but it signals the rearrangement.",
+     "definitionFit": "To disembody is to separate a soul or spirit from its body, freeing it from physical form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Novel"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +457,51 @@
     "text": "Author audibly expressed regret for destruction of life-support system",
     "enumeration": "7"
    },
-   "solution": "ECOCIDE"
+   "solution": "ECOCIDE",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "ECOCIDE",
+    "definitions": [
+     {
+      "text": "destruction of life-support system",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "audibly",
+      "for": "homophone",
+      "note": "audibly means as heard, so the words are judged by their sound not their spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Author",
+      "gives": "ECO",
+      "note": "Umberto Eco, Italian author of The Name of the Rose"
+     },
+     {
+      "clueFragment": "expressed regret",
+      "gives": "CIDE",
+      "soundsLike": "SIGHED",
+      "note": "to sigh is to express regret; 'sighed' said quickly matches the ending"
+     }
+    ],
+    "explanation": {
+     "surface": "A writer sighs over the wrecking of a life-support machine.",
+     "walkthrough": "'Eco sighed' spoken aloud is ECOCIDE. The life-support system is the planet's ecosystem, not a hospital machine.",
+     "definitionFit": "Ecocide is wholesale destruction of the natural environment, the system that keeps life going."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "life-support"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +515,75 @@
     "text": "Green energy company operated illegally retaining six employees regularly at fault",
     "enumeration": "13"
    },
-   "solution": "ENVIRONMENTAL"
+   "solution": "ENVIRONMENTAL",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ENVIRONMENTAL",
+    "definitions": [
+     {
+      "text": "Green",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retaining",
+      "for": "container",
+      "note": "retaining means holding inside, so one piece goes within the company name"
+     },
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "energy company operated illegally",
+      "gives": "ENRON",
+      "note": "Enron, the US energy firm that collapsed in 2001 amid accounting fraud"
+     },
+     {
+      "clueFragment": "six",
+      "gives": "VI",
+      "note": "Roman numeral for six"
+     },
+     {
+      "clueFragment": "employees",
+      "gives": "MEN",
+      "note": "workers, staff"
+     },
+     {
+      "clueFragment": "at fault",
+      "gives": "TAL",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters of 'at fault'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "VI",
+      "RON",
+      "MEN",
+      "TAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A green energy firm ran crooked books while some employees were at fault.",
+     "walkthrough": "'Green' looks like part of the firm's description but it is the definition. Enron was the US energy giant that collapsed in 2001 amid fraud.",
+     "definitionFit": "Green in politics means concerned with protecting the environment, i.e. environmental."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Green"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +597,51 @@
     "text": "Boat with advanced instrument for making deep soundings",
     "enumeration": "4"
    },
-   "solution": "TUBA"
+   "solution": "TUBA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TUBA",
+    "definitions": [
+     {
+      "text": "instrument for making deep soundings",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boat",
+      "gives": "TUB",
+      "note": "a tub is a slow, clumsy boat"
+     },
+     {
+      "clueFragment": "advanced",
+      "gives": "A",
+      "note": "A is a standard abbreviation for advanced"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUB",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A boat carrying sonar equipment to measure the depth of the sea.",
+     "walkthrough": "'Deep soundings' suggests depth measurement from a boat; here it means low musical notes.",
+     "definitionFit": "The tuba is the lowest-pitched brass instrument, producing deep sounds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "soundings"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +655,53 @@
     "text": "Discount Conservative being supported by meeting on record",
     "enumeration": "10"
    },
-   "solution": "CONCESSION"
+   "solution": "CONCESSION",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "CONCESSION",
+    "definitions": [
+     {
+      "text": "Discount",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on record",
+      "for": "homophone",
+      "note": "something on record is captured as sound, so the spoken form counts, not the spelling"
+     }
+    ],
+    "linkWords": [
+     "being supported by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "CON",
+      "note": "Con is the short form for a Conservative"
+     },
+     {
+      "clueFragment": "meeting",
+      "gives": "CESSION",
+      "soundsLike": "SESSION",
+      "note": "a session is a sitting or meeting"
+     }
+    ],
+    "explanation": {
+     "surface": "A Tory gets a discount after support at a recorded meeting.",
+     "walkthrough": "In an across clue, being supported by just means followed by. 'Con session' spoken matches the answer.",
+     "definitionFit": "A concession is a reduced price for certain groups, such as students or pensioners: a discount."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +715,60 @@
     "text": "Order cheap clothes child rejected",
     "enumeration": "6"
    },
-   "solution": "DIKTAT"
+   "solution": "DIKTAT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DIKTAT",
+    "definitions": [
+     {
+      "text": "Order",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the word for child is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "child",
+      "gives": "KID",
+      "note": "a kid is a child"
+     },
+     {
+      "clueFragment": "cheap clothes",
+      "gives": "TAT",
+      "note": "tat is cheap, tasteless goods, such as shoddy clothes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIK",
+      "TAT"
+     ],
+     "reversals": [
+      {
+       "from": "KID",
+       "to": "DIK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone orders cheap clothing that the child turns down.",
+     "definitionFit": "A diktat is a harsh decree imposed without consultation: an order."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Order"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +782,39 @@
     "text": "Condition that makes one restless?",
     "enumeration": "8"
    },
-   "solution": "INSOMNIA"
+   "solution": "INSOMNIA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "INSOMNIA",
+    "definitions": [
+     {
+      "text": "Condition that makes one restless?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Condition that makes one restless?",
+      "note": "surface reading: an illness causing fidgeting or agitation"
+     },
+     {
+      "clueFragment": "restless",
+      "note": "setter's reading: rest-less, literally without rest, i.e. unable to sleep"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Restless' usually means fidgety; here it is taken literally as having no rest at night.",
+     "definitionFit": "Insomnia is a sleep disorder in which a person cannot get to sleep, so has no rest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "restless"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +828,64 @@
     "text": "Officer belonging to precinct protecting chief of police",
     "enumeration": "9"
    },
-   "solution": "INSPECTOR"
+   "solution": "INSPECTOR",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "INSPECTOR",
+    "definitions": [
+     {
+      "text": "Officer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "protecting",
+      "for": "container",
+      "note": "to protect is to surround and shield, so one piece sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "belonging to",
+      "gives": "IN",
+      "note": "a member belongs in a group"
+     },
+     {
+      "clueFragment": "precinct",
+      "gives": "SECTOR",
+      "note": "a precinct is a district or sector"
+     },
+     {
+      "clueFragment": "chief of police",
+      "gives": "P",
+      "select": "first",
+      "note": "first letter of police"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "S",
+      "P",
+      "ECTOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer at a precinct station guards the chief.",
+     "walkthrough": "Chief of here means first letter, not a senior officer.",
+     "definitionFit": "An inspector is a police officer ranking above a sergeant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chief"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +899,64 @@
     "text": "China tea lab brewed is delicious",
     "enumeration": "9"
    },
-   "solution": "PALATABLE"
+   "solution": "PALATABLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "PALATABLE",
+    "definitions": [
+     {
+      "text": "delicious",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brewed",
+      "for": "anagram",
+      "note": "brewing mixes and stews ingredients together, so the letters are stirred into a new order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "China",
+      "gives": "PAL",
+      "note": "rhyming slang: china plate = mate, i.e. a pal"
+     },
+     {
+      "clueFragment": "tea lab",
+      "gives": "TEALAB",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAL",
+      "ATABLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEALAB",
+       "gives": "ATABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "China tea brewed in a laboratory turns out tasty.",
+     "walkthrough": "China looks like the tea's origin, but it is Cockney rhyming slang: 'china plate' rhymes with mate, so a china is a friend.",
+     "definitionFit": "Palatable means pleasant to taste, so the near-synonym of delicious fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 15,
@@ -243,7 +970,51 @@
     "text": "Boring sample comprising carbon and rock",
     "enumeration": "4"
    },
-   "solution": "CORE"
+   "solution": "CORE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CORE",
+    "definitions": [
+     {
+      "text": "Boring sample",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "comprising"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "carbon",
+      "gives": "C",
+      "note": "C is the chemical symbol for carbon"
+     },
+     {
+      "clueFragment": "rock",
+      "gives": "ORE",
+      "note": "ore is rock from which metal is extracted"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ORE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dull specimen made of carbon and rock.",
+     "walkthrough": "'Boring' seems to mean dull, but it means drilling: a sample taken by boring.",
+     "definitionFit": "A core is a cylinder of rock or ice extracted by drilling, so a sample taken by boring."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Boring"
+    }
+   }
   },
   {
    "number": 16,
@@ -257,7 +1028,46 @@
     "text": "See report have an effect",
     "enumeration": "4"
    },
-   "solution": "TELL"
+   "solution": "TELL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TELL",
+    "definitions": [
+     {
+      "text": "See",
+      "at": 0
+     },
+     {
+      "text": "have an effect",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See",
+      "note": "first meaning: discern"
+     },
+     {
+      "clueFragment": "report",
+      "note": "a third meaning: to relate or inform"
+     },
+     {
+      "clueFragment": "have an effect",
+      "note": "second meaning: to make an impact"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Three separate meanings strung together with no link words.",
+     "definitionFit": "To tell is to discern something, and when strain or age tells it shows its impact."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "report"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1081,50 @@
     "text": "Rat's characteristic yellow pigment",
     "enumeration": "7"
    },
-   "solution": "TRAITOR"
+   "solution": "TRAITOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRAITOR",
+    "definitions": [
+     {
+      "text": "Rat",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "characteristic",
+      "gives": "TRAIT",
+      "note": "a trait is a characteristic"
+     },
+     {
+      "clueFragment": "yellow pigment",
+      "gives": "OR",
+      "note": "or is the heraldic tincture gold or yellow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAIT",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A rat's distinctive yellow colouring.",
+     "walkthrough": "'Rat's' reads as possessive, but the 's is 'is': the rat is the answer.",
+     "definitionFit": "A rat in slang is a betrayer or informer, someone who turns on their own side."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rat's"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1138,74 @@
     "text": "Taking on English politician making false claims about leader of opposition",
     "enumeration": "9"
    },
-   "solution": "EMPLOYING"
+   "solution": "EMPLOYING",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EMPLOYING",
+    "definitions": [
+     {
+      "text": "Taking on",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece is wrapped round another"
+     },
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "'leader of' keeps only the first letter of 'opposition'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "Member of Parliament"
+     },
+     {
+      "clueFragment": "making false claims",
+      "gives": "LYING",
+      "note": "making false statements"
+     },
+     {
+      "clueFragment": "opposition",
+      "gives": "O",
+      "select": "first",
+      "note": "first letter of opposition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MP",
+      "L",
+      "O",
+      "YING"
+     ]
+    },
+    "explanation": {
+     "surface": "An English MP is hiring staff while lying about the opposition leader.",
+     "definitionFit": "To take on workers is to hire them, i.e. employ them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1219,73 @@
     "text": "All excited about cold drink of milk",
     "enumeration": "7"
    },
-   "solution": "LACTEAL"
+   "solution": "LACTEAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LACTEAL",
+    "definitions": [
+     {
+      "text": "of milk",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excited",
+      "for": "anagram",
+      "note": "excited means stirred up, so the letters are thrown into a new order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the stirred letters go round the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "All",
+      "gives": "ALL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C for cold, as on a tap"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "TEA",
+      "note": "a common drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "C",
+      "TEA",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALL",
+       "gives": "LAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Everyone is thrilled about a cold drink of milk.",
+     "walkthrough": "'Drink of milk' looks like one phrase; 'drink' gives TEA and only 'of milk' is the definition.",
+     "definitionFit": "Lacteal is an adjective meaning relating to or consisting of milk, from Latin lac."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1299,55 @@
     "text": "Person put forward new rule in overbearing manner after taking sides",
     "enumeration": "7"
    },
-   "solution": "NOMINEE"
+   "solution": "NOMINEE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "NOMINEE",
+    "definitions": [
+     {
+      "text": "Person put forward",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after taking sides",
+      "for": "deletion",
+      "note": "taking the sides away strips off the outer letters at each end of the phrase's word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "rule in overbearing manner",
+      "gives": "DOMINEER",
+      "note": "to domineer is to rule arrogantly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "OMINEE"
+     ]
+    },
+    "explanation": {
+     "surface": "A candidate brings in a new rule, bossily, after choosing a side.",
+     "walkthrough": "'Taking sides' suggests partisanship; here it means removing both end letters, D and R.",
+     "definitionFit": "A nominee is someone proposed or put forward for an office or award."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sides"
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1361,56 @@
     "text": "Go back on unrealistic promise we'd made ultimately",
     "enumeration": "6"
    },
-   "solution": "RECEDE"
+   "solution": "RECEDE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "RECEDE",
+    "definitions": [
+     {
+      "text": "Go back",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so the final letter of each word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or concerning"
+     },
+     {
+      "clueFragment": "unrealistic promise we'd made",
+      "gives": "CEDE",
+      "select": "last",
+      "note": "the last letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "CEDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Breaking an unrealistic promise that we made.",
+     "walkthrough": "'Go back on' reads as one idiom; the definition is only 'Go back', and 'on' gives RE.",
+     "definitionFit": "To recede is to move back or withdraw, as tide or a hairline does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 21,
@@ -341,7 +1424,53 @@
     "text": "Criticise article about temple",
     "enumeration": "8"
    },
-   "solution": "PANTHEON"
+   "solution": "PANTHEON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PANTHEON",
+    "definitions": [
+     {
+      "text": "temple",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Criticise",
+      "gives": "PAN",
+      "note": "a critic pans a bad show"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "ON",
+      "note": "on means about, concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAN",
+      "THE",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A critic attacks a piece written about a temple.",
+     "walkthrough": "'Article' looks like a newspaper piece; it is the grammatical article.",
+     "definitionFit": "The Pantheon in Rome is a temple to all the gods; a pantheon is any such temple."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 22,
@@ -355,7 +1484,46 @@
     "text": "File that may be used to support newspaper article",
     "enumeration": "6"
    },
-   "solution": "COLUMN"
+   "solution": "COLUMN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COLUMN",
+    "definitions": [
+     {
+      "text": "File",
+      "at": 0
+     },
+     {
+      "text": "newspaper article",
+      "at": 33
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "File",
+      "note": "first meaning: a line of people one behind another"
+     },
+     {
+      "clueFragment": "that may be used to support",
+      "note": "a third meaning: a pillar holding up a roof"
+     },
+     {
+      "clueFragment": "newspaper article",
+      "note": "second meaning: a regular piece by a columnist"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Three senses: a line of marchers, a supporting pillar, and a regular press piece.",
+     "definitionFit": "Soldiers march in a column (a file), and a newspaper column is a regular feature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "File"
+    }
+   }
   },
   {
    "number": 23,
@@ -369,7 +1537,57 @@
     "text": "Start to learn every single actor's first name",
     "enumeration": "5"
    },
-   "solution": "LEACH"
+   "solution": "LEACH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LEACH",
+    "definitions": [
+     {
+      "text": "actor's first name",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, which is all that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "learn",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter of learn"
+     },
+     {
+      "clueFragment": "every single",
+      "gives": "EACH",
+      "note": "each means every one individually"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EACH"
+     ]
+    },
+    "explanation": {
+     "surface": "An actor learning each line starts with the first.",
+     "walkthrough": "The actor is Cary Grant, 2 down, born Archibald Leach; 'first name' means his original surname, not a forename.",
+     "definitionFit": "Cary Grant was born Archibald Alexander Leach, so Leach was the actor's original name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 24,
@@ -383,7 +1601,54 @@
     "text": "Impasse broken by British person working with me",
     "enumeration": "10"
    },
-   "solution": "STABLEMATE"
+   "solution": "STABLEMATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STABLEMATE",
+    "definitions": [
+     {
+      "text": "person working with me",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken by",
+      "for": "container",
+      "note": "a thing broken by something has that something forced into its middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Impasse",
+      "gives": "STALEMATE",
+      "note": "a stalemate is a deadlock"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STA",
+      "B",
+      "LEMATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A British colleague breaks a deadlock at work.",
+     "definitionFit": "A stablemate is someone from the same organisation or stable, a colleague working alongside you."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broken"
+    }
+   }
   },
   {
    "number": 25,
@@ -397,7 +1662,56 @@
     "text": "Expert tackling new problem one may have to face",
     "enumeration": "4"
    },
-   "solution": "ACNE"
+   "solution": "ACNE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ACNE",
+    "definitions": [
+     {
+      "text": "problem one may have to face",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tackling",
+      "for": "container",
+      "note": "tackling means grappling with, holding the other piece in its grip"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Expert",
+      "gives": "ACE",
+      "note": "an ace is an expert"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "N",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A specialist tackling a fresh difficulty they must confront.",
+     "walkthrough": "'Have to face' sounds like confronting a challenge; it means on the face.",
+     "definitionFit": "Acne is a skin condition that typically appears on the face, a literal problem to face."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "face"
+    }
+   }
   },
   {
    "number": 26,
@@ -411,7 +1725,47 @@
     "text": "Joint bank statement revealing some doubts",
     "enumeration": "6"
    },
-   "solution": "REEFER"
+   "solution": "REEFER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REEFER",
+    "definitions": [
+     {
+      "text": "Joint",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bank",
+      "gives": "REEF",
+      "note": "a reef is a ridge or bank of rock or sand in the sea"
+     },
+     {
+      "clueFragment": "statement revealing some doubts",
+      "gives": "ER",
+      "note": "'er' is a hesitant sound expressing doubt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REEF",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A joint bank account statement showing some uncertainties.",
+     "walkthrough": "'Joint bank statement' reads as a shared account, but joint is the definition and bank is a sandbank.",
+     "definitionFit": "A reefer is slang for a cannabis cigarette, also called a joint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 27,
@@ -425,7 +1779,43 @@
     "text": "Ambassador is partial to caramel cheesecake",
     "enumeration": "6"
    },
-   "solution": "ELCHEE"
+   "solution": "ELCHEE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ELCHEE",
+    "definitions": [
+     {
+      "text": "Ambassador",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is partial to",
+      "for": "hidden_word",
+      "note": "partial means taking only a part, so the letters run inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caramel cheesecake",
+      "gives": "ELCHEE",
+      "note": "letters running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "An ambassador who has a fondness for caramel cheesecake.",
+     "walkthrough": "'Is partial to' looks like liking, but it means part of the following words.",
+     "definitionFit": "Elchee is an old word, from Turkish, for an ambassador or envoy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "partial"
+    }
+   }
   }
  ]
 }
