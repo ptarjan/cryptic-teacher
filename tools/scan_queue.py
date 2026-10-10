@@ -376,6 +376,7 @@ VOTE_MENDED = (
                                    "start is lost: other readings have")),
     ("2026-10-09T09:45:00+00:00", ("no reading laid a clue on it",)),
     ("2026-10-09T22:50:00+00:00", ("readings differ", "no other reading has", "not a word")),
+    ("2026-10-10T01:00:00+00:00", ("no other reading has",)),
 )
 
 
