@@ -114,6 +114,19 @@ check("a scan there gives a scan here's headings and cached readings", here,
 check("and finds a title and caches its readings (both are in the comparison)", (True, True),
       (len(here[0]["puzzles"]) > 0, len(here[1]) > 0))
 
+# A Trove article's zones are read there from the bytes of its zone files:
+# each image arrives whole and in order. The reader is stubbed: an image's
+# size and first pixel.
+import trove_clue_ocr
+zones = []
+for i, (w, h) in enumerate([(40, 30), (25, 60), (70, 10)]):
+    zones.append(tmp / f"zone{i}.png")
+    Image.new("RGB", (w, h), (i * 40, 0, 0)).save(zones[-1])
+trove_clue_ocr.read_here = lambda images: "\n".join(
+    f"{im.size} {im.getpixel((0, 0))}" for im in map(Image.open, images))
+check("a Trove article's zones read there are its zone files here",
+      trove_clue_ocr.read_here(zones), trove_clue_ocr.read_text(zones))
+
 # A search on a busy desktop outlives any fixed answer time while working:
 # the wait is on silence, not on a total. serve() runs here with the search
 # stubbed slow and the heartbeat quick, and a Session reads it over a pipe.

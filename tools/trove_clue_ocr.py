@@ -57,10 +57,12 @@ _ENGINE = None
 def engine():
     global _ENGINE
     if _ENGINE is None:
+        import ocr_clues
         import trove_solution_ocr
         from rapidocr_onnxruntime import RapidOCR
         extra = [m for m in trove_solution_ocr.EXTRA_MODELS if m.exists()]
-        _ENGINE = RapidOCR(rec_model_path=str(extra[0])) if extra else RapidOCR()
+        threads = ocr_clues.engine_threads()
+        _ENGINE = RapidOCR(rec_model_path=str(extra[0]), **threads) if extra else RapidOCR(**threads)
     return _ENGINE
 
 
@@ -69,7 +71,20 @@ def zone_images(aid, zones=ZONES):
 
 
 def read_text(images):
-    """RapidOCR's text of the zone images, one printed row a line."""
+    """RapidOCR's text of the zone image files, one printed row a line: read
+    on the desktop when tools/ocr_remote.py can (the files' bytes sent as
+    they are), else here."""
+    import ocr_remote
+    blobs = [Path(p).read_bytes() for p in images]
+    got = ocr_remote.call("trove_text", [len(b) for b in blobs], data=b"".join(blobs))
+    if got is not None:
+        return got[0]
+    with ocr_remote.local_slot():
+        return read_here(images)
+
+
+def read_here(images):
+    """read_text() of the zone images (files or file objects), read here."""
     import numpy as np
     from PIL import Image
     lines = []

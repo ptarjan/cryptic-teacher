@@ -105,11 +105,16 @@ def engine(which):
             tmp = model.with_suffix(".part")
             tmp.write_bytes(data)
             tmp.replace(model)
-        # Each parallel reader gets its share of the cores, or N workers each
-        # take all of them and the host runs at N times its CPU count.
-        threads = {"intra_op_num_threads": int(os.environ.get("OCR_THREADS", "-1")), "inter_op_num_threads": 1}
+        threads = engine_threads()
         _ENGINES[which] = RapidOCR(rec_model_path=str(model), **threads) if model else RapidOCR(**threads)
     return _ENGINES[which]
+
+
+def engine_threads():
+    """The thread counts every RapidOCR engine is made with: OCR_THREADS
+    (the desktop's serve() sets its share of that box) or 1, so no reader,
+    test or scratch script here takes every core."""
+    return {"intra_op_num_threads": int(os.environ.get("OCR_THREADS") or 1), "inter_op_num_threads": 1}
 
 
 def reader_key(which):

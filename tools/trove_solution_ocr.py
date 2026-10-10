@@ -107,8 +107,11 @@ def recognisers():
         import rapidocr_onnxruntime
         models = [Path(rapidocr_onnxruntime.__file__).parent / "models" / "ch_PP-OCRv4_rec_infer.onnx"]
         models += [m for m in EXTRA_MODELS if m.exists()]
+        import ocr_clues
         opts = ort.SessionOptions()
         opts.log_severity_level = 3
+        for k, v in ocr_clues.engine_threads().items():
+            setattr(opts, k, v)
         _REC = []
         for model in models:
             sess = ort.InferenceSession(str(model), opts, providers=["CPUExecutionProvider"])
