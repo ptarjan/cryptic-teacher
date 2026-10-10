@@ -1012,6 +1012,51 @@ check("a Gale page is the Gale run's, never the Times run's, and files as the Ti
       (["1974-05-01_1", "1990-01-02_3", "1974-05-02_2"], ["1987-03-02"], "gale", "times", "filed-gale.jsonl"),
       ([d.name for d in f.edition_dirs(cache)], [d.name for d in f.edition_dirs(cache, f.GALE)],
        f.paper_of(cache / "GaleTimes1987UKEnglish" / "x").key, f.GALE.series, f.LEDGER_NAMES["gale"]))
+# edition_dirs() looks again at no edition found holding pages.json while
+# its item is unmoved; one removed whole, or new and yet to get its
+# pages.json, is still seen.
+import shutil, time
+wc = Path(os.environ["TMP"]) / "withpages"
+it = wc / "NewsUK1982UKEnglish"
+for e in ("1982-01-01_1", "1982-01-02_2"):
+    (it / e).mkdir(parents=True)
+    (it / e / "pages.json").write_text("{}")
+(it / "1982-01-03_3").mkdir()
+def settle_all():
+    for d in (*it.iterdir(), it, wc):
+        os.utime(d, (time.time() - 600, time.time() - 600))
+settle_all()
+names = lambda: [d.name for d in f.edition_dirs(wc)]
+first = names()
+looked = []
+real_listed = f.dir_cache.listed
+f.dir_cache.listed = lambda d: (looked.append(Path(d).name), real_listed(d))[1]
+again = names()
+f.dir_cache.listed = real_listed
+(it / "1982-01-03_3" / "pages.json").write_text("{}")
+grown = names()
+check("an edition holding pages.json in an unmoved item is not looked at again; one yet to hold it is",
+      (["1982-01-01_1", "1982-01-02_2"], first, ["1982-01-03_3"]),
+      (again, first, [n for n in looked if n != "withpages"]))
+check("a new pages.json in an unmoved item is seen", ["1982-01-01_1", "1982-01-02_2", "1982-01-03_3"], grown)
+shutil.rmtree(it / "1982-01-02_2")
+(it / "1982-01-02_2").mkdir()
+settle_all()
+check("an edition removed whole and laid out again without pages.json is gone (its item moved)",
+      ["1982-01-01_1", "1982-01-03_3"], names())
+# held_files: one brief() reads a series once, whoever asks; outside one, each call looks again.
+hp = Path(os.environ["TMP"]) / "heldroot"
+(hp / "puzzles" / "zz" / "1999").mkdir(parents=True)
+(hp / "puzzles" / "zz" / "1999" / "zz-1.json").write_text('{"date": "1999-01-01"}')
+real_root, f.ROOT = f.ROOT, hp
+f._HELD_NOW.files = {}
+before = f.held_files("zz")
+(hp / "puzzles" / "zz" / "1999" / "zz-2.json").write_text('{"date": "1999-01-02"}')
+inside = f.held_files("zz")
+f._HELD_NOW.files = None
+check("held_files within a brief is its first read; outside it a new file is seen",
+      ([1], [1], [1, 2]), ([n for n, _ in before], [n for n, _ in inside], sorted(n for n, _ in f.held_files("zz"))))
+f.ROOT = real_root
 # plan() lists a settled dir once (dir_cache.seen): a replaced file, a new edition or
 # a moved ledger row each make an edition due again; a fresh dir is not kept.
 import scan_queue, time

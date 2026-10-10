@@ -146,6 +146,7 @@ import os
 import re
 import subprocess
 import sys
+import threading
 import time
 import urllib.parse
 import xml.etree.ElementTree as ET
@@ -1646,13 +1647,28 @@ def edition_dirs(cache=CACHE, paper=None):
     decade the fetch has."""
     if not cache.exists():
         return []
-    years = [sorted(d for d in (item / n for n in dir_cache.listed(item)) if "pages.json" in dir_cache.listed(d))
+    years = [sorted(item / n for n in with_pages(item))
              for item in (cache / n for n in dir_cache.listed(cache))
              if any(p.item.match(item.name) for p in (paper or TIMES, *(paper or TIMES).also))]
     out = []
     for k in range(max(map(len, years), default=0)):
         out += [y[k] for y in years if k < len(y)]
     return out
+
+
+def with_pages(item):
+    """The names of item dir `item`'s editions holding a pages.json. One found
+    holding it is not looked at again while the item's dir_key is unmoved:
+    pages.json is only ever replaced (write_atomic, gale_inbox.relink), and an
+    edition goes or comes back whole (gale_inbox.stage's rmtree and rename),
+    which moves the item."""
+    try:
+        _, names, memo = dir_cache.seen(item)
+    except (FileNotFoundError, NotADirectoryError):
+        return []
+    known = memo.setdefault("with_pages", set())
+    known.update(n for n in names if n not in known and "pages.json" in dir_cache.listed(item / n))
+    return [n for n in names if n in known]
 
 
 def scan(d):
@@ -2404,10 +2420,18 @@ def issues_between(a, b):
 _HELD = {}
 
 
+#: {series: held_files(series)} while this thread runs a brief(): one unit
+#: start reads a series once, not once for each of its askers.
+_HELD_NOW = threading.local()
+
+
 def held_files(series):
     """[(number, (date or None, source url, date text))] of every puzzle
     filed in a series, each file parsed once a process and again only when
     its stat moves."""
+    now = getattr(_HELD_NOW, "files", None)
+    if now is not None and series in now:
+        return list(now[series])
     out = []
     for p in (ROOT / "puzzles" / series).glob("*/*.json"):
         st = p.stat()
@@ -2419,6 +2443,8 @@ def held_files(series):
             seen = _HELD[p] = (stamp, (date and datetime.date.fromisoformat(date[:10]),
                                        (d.get("source") or {}).get("url"), (date or "")[:10]))
         out.append((int(p.stem.split("-")[1]), seen[1]))
+    if now is not None:
+        now[series] = list(out)
     return out
 
 
@@ -3328,12 +3354,18 @@ def _fold_standing(known, line):
     _fold_known(known, line)
 
 
-def scan_stands(paper, rel, cache=CACHE):
+def standing(paper, cache=CACHE):
+    """{edition: ledger row} of `paper`'s ledger now, for scan_stands."""
+    return dir_cache.appended(ledger_of(cache, paper), dict, _fold_standing)
+
+
+def scan_stands(paper, rel, cache=CACHE, rows=None):
     """Whether edition `rel`'s ledger row holds a current scan (scan_current)
     now: the queue asks before it starts a scan unit from a plan made
     earlier. Its own fold of the ledger (dir_cache.appended, only lines
-    appended since parsed), apart from plan()'s on the planner thread."""
-    row = dir_cache.appended(ledger_of(cache, paper), dict, _fold_standing).get(rel)
+    appended since parsed), apart from plan()'s on the planner thread;
+    `rows`, a standing() taken earlier, saves the ledger's re-read."""
+    row = (standing(paper, cache) if rows is None else rows).get(rel)
     return bool(row) and scan_current(row, input_hash(Path(cache) / rel))
 
 
@@ -3677,8 +3709,12 @@ def brief(paper, rel, cache=CACHE, ledger=None, puzzles=None, source=SOURCE, rer
     dirs = _PLANNED_DIRS.get((str(cache), paper.key))
     if dirs is not None and Path(cache) / rel not in dirs:
         dirs = [*dirs, Path(cache) / rel]
-    return _run(cache, False, ledger, None, puzzles, None, source, paper, None, 1, reread, editions=[rel],
-                unit={"force": force, "dirs": dirs, "brief": True})
+    _HELD_NOW.files = {}
+    try:
+        return _run(cache, False, ledger, None, puzzles, None, source, paper, None, 1, reread, editions=[rel],
+                    unit={"force": force, "dirs": dirs, "brief": True})
+    finally:
+        _HELD_NOW.files = None
 
 
 def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, workers, reread, editions=None,
