@@ -29,7 +29,7 @@ import desktop_busy
 from ocr_clues import unhyphen
 
 TOOLS = Path(__file__).resolve().parent
-URL = os.environ.get("VLM_READER_URL", "http://100.68.145.15:8090")
+URL = os.environ.get("VLM_READER_URL", "http://192.168.1.198:8090")
 MODEL = os.environ.get("VLM_READER_MODEL", "qwen3.0-vl-8b")
 PROMPT = TOOLS / "vlm_column_prompt.md"
 PICK_PROMPT = TOOLS / "vlm_pick_prompt.md"
