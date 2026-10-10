@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,45 @@
     "text": "This thick-skinned? Give us a ring",
     "enumeration": "6"
    },
-   "solution": "CALLUS"
+   "solution": "CALLUS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CALLUS",
+    "definitions": [
+     {
+      "text": "This thick-skinned?",
+      "at": 0,
+      "note": "the clue asks what this thick-skinned thing is: a noun for hardened skin"
+     },
+     {
+      "text": "Give us a ring",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This thick-skinned?",
+      "note": "first meaning: a patch of hardened, thickened skin"
+     },
+     {
+      "clueFragment": "Give us a ring",
+      "note": "second meaning, read as two words: a request to telephone the speakers"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone thick-skinned is invited to phone in.",
+     "walkthrough": "Split the answer as CALL US and it is exactly the request 'give us a ring'.",
+     "definitionFit": "A callus is a hard, thickened area of skin formed by repeated friction, so it is literally a thick-skinned spot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +87,62 @@
     "text": "A collector entertained by favourite bird",
     "enumeration": "8"
    },
-   "solution": "PARAKEET"
+   "solution": "PARAKEET",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PARAKEET",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertained by",
+      "for": "container",
+      "note": "a guest entertained by a host is taken in and held within their home"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "favourite",
+      "gives": "PET",
+      "note": "a pet is a favourite, as in teacher's pet"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "collector",
+      "gives": "RAKE",
+      "note": "a rake is a garden tool that collects leaves"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "A",
+      "RAKE",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A collector is being hosted by someone's favourite bird.",
+     "walkthrough": "'collector' sounds like a person who amasses things; here it is a garden tool that gathers leaves.",
+     "definitionFit": "A parakeet is a small long-tailed parrot, so it is one kind of bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "collector"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +156,67 @@
     "text": "Gin swilled in happy party",
     "enumeration": "10"
    },
-   "solution": "CONTINGENT"
+   "solution": "CONTINGENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CONTINGENT",
+    "definitions": [
+     {
+      "text": "party",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swilled",
+      "for": "anagram",
+      "note": "liquor swilled round a glass is sloshed about, so its letters are churned into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the plain sense of placing one thing within another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "happy",
+      "gives": "CONTENT",
+      "note": "content means satisfied, happy"
+     },
+     {
+      "clueFragment": "Gin",
+      "gives": "ING",
+      "note": "the letters of gin, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONT",
+      "ING",
+      "ENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GIN",
+       "gives": "ING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at a jolly gathering is knocking back gin.",
+     "walkthrough": "'party' suggests a celebration, matching the gin, but here it means a group or delegation.",
+     "definitionFit": "A contingent is a group of people forming part of a larger gathering, a party in the sense of a delegation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +230,59 @@
     "text": "Mixture of peas and tripe, stimulating food!",
     "enumeration": "9"
    },
-   "solution": "APPETISER"
+   "solution": "APPETISER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "APPETISER",
+    "definitions": [
+     {
+      "text": "stimulating food",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mixture of",
+      "for": "anagram",
+      "note": "a mixture stirs things together, so the letters that follow are blended into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peas",
+      "gives": "PEAS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "and",
+      "note": "joins the two lots of fodder"
+     },
+     {
+      "clueFragment": "tripe",
+      "gives": "TRIPE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PEASTRIPE",
+       "gives": "APPETISER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dish of peas mixed with tripe is offered as a lively starter.",
+     "definitionFit": "An appetiser is a small dish served before a meal to stimulate the appetite."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mixture"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +296,70 @@
     "text": "Comfortable with army, Royal Marines initially",
     "enumeration": "4"
    },
-   "solution": "WARM"
+   "solution": "WARM",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "WARM",
+    "definitions": [
+     {
+      "text": "Comfortable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter of each preceding word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "select": "first",
+      "note": "opening letter of this word"
+     },
+     {
+      "clueFragment": "army",
+      "gives": "A",
+      "select": "first",
+      "note": "opening letter of this word"
+     },
+     {
+      "clueFragment": "Royal",
+      "gives": "R",
+      "select": "first",
+      "note": "opening letter of this word"
+     },
+     {
+      "clueFragment": "Marines",
+      "gives": "M",
+      "select": "first",
+      "note": "opening letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "A",
+      "R",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier feels at ease alongside the army and the Royal Marines.",
+     "walkthrough": "'initially' covers all four words, not just the last.",
+     "definitionFit": "Warm and comfortable are near synonyms for being snug and pleasantly heated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "initially"
+    }
+   }
   },
   {
    "number": 6,
@@ -102,7 +373,55 @@
     "text": "Spot touching the boil",
     "enumeration": "6"
    },
-   "solution": "SEETHE"
+   "solution": "SEETHE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEETHE",
+    "definitions": [
+     {
+      "text": "boil",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "touching",
+      "for": "charade",
+      "note": "things touching sit side by side, so the two pieces are placed next to each other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spot",
+      "gives": "SEE",
+      "note": "to spot something is to see it"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEE",
+      "THE"
+     ]
+    },
+    "explanation": {
+     "surface": "A spot on the skin is starting to come to a head.",
+     "walkthrough": "'Spot' and 'boil' both look like skin blemishes; here one is a verb of noticing and the other a verb of bubbling.",
+     "definitionFit": "To seethe is to bubble and churn like liquid at boiling point, so the verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Spot"
+    }
+   }
   },
   {
    "number": 7,
@@ -116,7 +435,43 @@
     "text": "Caged by parvenu, that chirruping bird",
     "enumeration": "8"
    },
-   "solution": "NUTHATCH"
+   "solution": "NUTHATCH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NUTHATCH",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Caged by",
+      "for": "hidden_word",
+      "note": "something caged is enclosed by bars, so the answer is enclosed within the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parvenu, that chirruping",
+      "gives": "NUTHATCH",
+      "note": "the letters run across the end of the first word, all of the second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A social climber keeps a songbird in a cage.",
+     "walkthrough": "The answer runs through parveNU THAT CHirruping, ignoring the comma.",
+     "definitionFit": "The nuthatch is a small European woodland bird that climbs tree trunks head first."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Caged"
+    }
+   }
   },
   {
    "number": 8,
@@ -130,7 +485,49 @@
     "text": "Seafood sailor has without garnish?",
     "enumeration": "7"
    },
-   "solution": "ABALONE"
+   "solution": "ABALONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABALONE",
+    "definitions": [
+     {
+      "text": "Seafood",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sailor",
+      "gives": "AB",
+      "note": "AB, able-bodied seaman, is the usual crossword sailor"
+     },
+     {
+      "clueFragment": "without garnish",
+      "gives": "ALONE",
+      "note": "served alone, with nothing added on the side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "ALONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor eats his fish plain, without trimmings.",
+     "definitionFit": "Abalone is an edible sea snail whose flesh is prized as a delicacy, so it counts as seafood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "garnish"
+    }
+   }
   },
   {
    "number": 9,
@@ -144,7 +541,54 @@
     "text": "Bad electrified lifts",
     "enumeration": "4"
    },
-   "solution": "EVIL"
+   "solution": "EVIL",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "EVIL",
+    "definitions": [
+     {
+      "text": "Bad",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lifts",
+      "for": "reversal",
+      "note": "in a down clue, lifting a word raises it so it reads from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "electrified",
+      "gives": "LIVE",
+      "note": "a live wire carries current"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVIL"
+     ],
+     "reversals": [
+      {
+       "from": "LIVE",
+       "to": "EVIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Electrically powered lifts are said to be dangerous.",
+     "walkthrough": "In a down clue, 'lifts' tells you to read the word upwards.",
+     "definitionFit": "Evil and bad are synonyms, both meaning morally wrong or harmful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lifts"
+    }
+   }
   },
   {
    "number": 10,
@@ -158,7 +602,64 @@
     "text": "Tableland where petal's unfolded, gold",
     "enumeration": "7"
    },
-   "solution": "PLATEAU"
+   "solution": "PLATEAU",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "PLATEAU",
+    "definitions": [
+     {
+      "text": "Tableland",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfolded",
+      "for": "anagram",
+      "note": "something unfolded is opened out and rearranged, so the letters take a new order"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "petal",
+      "gives": "PLATE",
+      "note": "the letters of petal, opened out into a new order"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLATE",
+      "AU"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PETAL",
+       "gives": "PLATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "On a high plain a flower opens to show golden colour.",
+     "walkthrough": "The 's after petal is 'is', joining the fodder to its signal.",
+     "definitionFit": "A plateau is a raised area of fairly flat land, which is what tableland means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unfolded"
+    }
+   }
   },
   {
    "number": 11,
@@ -172,7 +673,45 @@
     "text": "Most ignorant, it's implied — if nothing else",
     "enumeration": "9"
    },
-   "solution": "LEASTWISE"
+   "solution": "LEASTWISE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEASTWISE",
+    "definitions": [
+     {
+      "text": "Most ignorant, it's implied",
+      "at": 0,
+      "note": "read as two words, the answer means least wise, which implies most ignorant"
+     },
+     {
+      "text": "if nothing else",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Most ignorant, it's implied",
+      "note": "first meaning, split into two words: the least clever"
+     },
+     {
+      "clueFragment": "if nothing else",
+      "note": "second meaning: at least, at any rate"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is told they are, if nothing else, the most ignorant person present.",
+     "walkthrough": "'it's implied' admits the first sense is indirect: being least wise implies being most ignorant.",
+     "definitionFit": "Leastwise is a dialect or informal adverb meaning at least, used like 'if nothing else'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "implied"
+    }
+   }
   },
   {
    "number": 12,
@@ -186,7 +725,43 @@
     "text": "Agreement one's struck",
     "enumeration": "5"
    },
-   "solution": "MATCH"
+   "solution": "MATCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MATCH",
+    "definitions": [
+     {
+      "text": "Agreement",
+      "at": 0
+     },
+     {
+      "text": "one's struck",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agreement",
+      "note": "first meaning: a correspondence, things that go together"
+     },
+     {
+      "clueFragment": "one's struck",
+      "note": "second meaning: the thing you strike to light a flame"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'one's struck' sounds like striking a deal, which seems to continue 'Agreement'.",
+     "definitionFit": "A match is both a pairing that corresponds and a small stick tipped with chemicals that ignites when rubbed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "struck"
+    }
+   }
   },
   {
    "number": 13,
@@ -200,7 +775,42 @@
     "text": "Back on ship, harsh",
     "enumeration": "5"
    },
-   "solution": "STERN"
+   "solution": "STERN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STERN",
+    "definitions": [
+     {
+      "text": "Back on ship",
+      "at": 0
+     },
+     {
+      "text": "harsh",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Back on ship",
+      "note": "first meaning: the rear part of a vessel"
+     },
+     {
+      "clueFragment": "harsh",
+      "note": "second meaning: severe, strict"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a severe return to sea; the comma separates two meanings.",
+     "definitionFit": "The stern is the rear of a boat, and stern also describes a strict, severe manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Back"
+    }
+   }
   },
   {
    "number": 14,
@@ -214,7 +824,63 @@
     "text": "Look at cricket, for example, to catch Pakistan's opener",
     "enumeration": "7"
    },
-   "solution": "INSPECT"
+   "solution": "INSPECT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "INSPECT",
+    "definitions": [
+     {
+      "text": "Look at",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to catch",
+      "for": "container",
+      "note": "to catch something is to hold it, so one piece is held within the other"
+     },
+     {
+      "text": "opener",
+      "for": "letter_selection",
+      "note": "an opener comes first, so only the first letter of the possessive word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cricket, for example",
+      "gives": "INSECT",
+      "note": "a cricket is one kind of insect"
+     },
+     {
+      "clueFragment": "Pakistan's",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter of the country's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INS",
+      "P",
+      "ECT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone examines a cricket match in which Pakistan's opening batsman is caught out.",
+     "walkthrough": "Cricket the sport and 'opener' (batsman) point to the game; the cricket here is the chirping creature.",
+     "definitionFit": "To inspect something is to examine it closely, to look at it carefully."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cricket"
+    }
+   }
   },
   {
    "number": 15,
@@ -234,7 +900,60 @@
      }
     ]
    },
-   "solution": "SERBOCROAT"
+   "solution": "SERBOCROAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SERBO-CROAT",
+    "definitions": [
+     {
+      "text": "European",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confusing",
+      "for": "anagram",
+      "note": "confusing things mixes them up, so the letters are jumbled into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "corset",
+      "gives": "CORSET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "with",
+      "note": "joins the two lots of fodder"
+     },
+     {
+      "clueFragment": "a bra",
+      "gives": "ABRO",
+      "note": "taken as written, but with an O where the printed words have a second A: the setter's slip"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CORSETABRA",
+       "gives": "SERBOCROAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A continental shopper muddles up a corset and a bra.",
+     "walkthrough": "As printed the fodder is a letter out: it has an extra A and lacks a second O, so the setter slipped; 'a boa' for 'a bra' would work.",
+     "definitionFit": "Serbo-Croat is a South Slavic language of the Balkans, so it is a European tongue; the noun can also name a speaker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "confusing"
+    }
+   }
   },
   {
    "number": 16,
@@ -254,7 +973,48 @@
      }
     ]
    },
-   "solution": "CARDSHARP"
+   "solution": "CARDSHARP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CARD-SHARP",
+    "definitions": [
+     {
+      "text": "a playing fiddler?",
+      "at": 33
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jack, for example",
+      "gives": "CARD",
+      "note": "the jack is a playing card"
+     },
+     {
+      "clueFragment": "out of tune",
+      "gives": "SHARP",
+      "note": "a note pitched too high is sharp"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARD",
+      "SHARP"
+     ]
+    },
+    "explanation": {
+     "surface": "A violinist named Jack plays badly out of tune.",
+     "walkthrough": "'fiddler' suggests a violinist, but here it means a cheat, and 'playing' means playing cards.",
+     "definitionFit": "A card sharp cheats at cards, so he fiddles while playing: a swindler at the card table."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fiddler"
+    }
+   }
   },
   {
    "number": 17,
@@ -282,7 +1042,44 @@
      }
     ]
    },
-   "solution": "INTHESAMEBREATH"
+   "solution": "INTHESAMEBREATH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IN THE SAME BREATH",
+    "definitions": [
+     {
+      "text": "Together",
+      "at": 0
+     },
+     {
+      "text": "needing no further inspiration?",
+      "at": 10,
+      "note": "a cryptic reading of the phrase: said without taking another breath in"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Together",
+      "note": "first meaning: at the same moment, simultaneously"
+     },
+     {
+      "clueFragment": "needing no further inspiration?",
+      "note": "second meaning, taking inspiration literally as breathing in: all said on one inhalation"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Inspiration here is the act of inhaling, not a creative idea; the question mark flags that pun.",
+     "definitionFit": "The idiom describes two remarks made almost simultaneously, so it means together, at once."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "inspiration"
+    }
+   }
   },
   {
    "number": 17,
@@ -296,7 +1093,67 @@
     "text": "Familiar prisoner keeps it up",
     "enumeration": "8"
    },
-   "solution": "INTIMATE"
+   "solution": "INTIMATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "INTIMATE",
+    "definitions": [
+     {
+      "text": "Familiar",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading the word from bottom to top"
+     },
+     {
+      "text": "keeps",
+      "for": "container",
+      "note": "to keep something is to hold it inside, so one word holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prisoner",
+      "gives": "INMATE",
+      "note": "an inmate is someone held in prison"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "TI",
+      "note": "the word it, written upwards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "TI",
+      "MATE"
+     ],
+     "reversals": [
+      {
+       "from": "IT",
+       "to": "TI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A well-known convict keeps up some activity.",
+     "walkthrough": "'keeps it up' reads like an idiom, but it splits into the container signal, the word it, and the reversal signal.",
+     "definitionFit": "Intimate and familiar are synonyms, describing a close, personal acquaintance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 18,
@@ -310,7 +1167,50 @@
     "text": "Couple of fools batting for killer",
     "enumeration": "8"
    },
-   "solution": "ASSASSIN"
+   "solution": "ASSASSIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASSASSIN",
+    "definitions": [
+     {
+      "text": "killer",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Couple of fools",
+      "gives": "ASSASS",
+      "note": "two fools, each an ass"
+     },
+     {
+      "clueFragment": "batting",
+      "gives": "IN",
+      "note": "a cricket batsman who is batting is in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASSASS",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Two hopeless batsmen are at the crease for a team called Killer.",
+     "walkthrough": "In cricket, the side or player batting is said to be 'in'.",
+     "definitionFit": "An assassin is a killer, especially one who murders a prominent person for pay or politics."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "batting"
+    }
+   }
   },
   {
    "number": 19,
@@ -324,7 +1224,55 @@
     "text": "Fed nothing, tried food grilled",
     "enumeration": "7"
    },
-   "solution": "TOASTED"
+   "solution": "TOASTED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TOASTED",
+    "definitions": [
+     {
+      "text": "grilled",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fed",
+      "for": "container",
+      "note": "food that is fed in is put inside, so one piece is inserted into the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tried food",
+      "gives": "TASTED",
+      "note": "to taste is to try food"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "O",
+      "ASTED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone given nothing to eat sampled some grilled food.",
+     "walkthrough": "'Fed' reads as the past tense of feeding someone; it is the signal to slip nothing into the tasting.",
+     "definitionFit": "Toasted bread or cheese is browned under a grill, so toasted means grilled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fed"
+    }
+   }
   },
   {
    "number": 20,
@@ -338,7 +1286,47 @@
     "text": "A secondary route on the continent?",
     "enumeration": "6"
    },
-   "solution": "ABROAD"
+   "solution": "ABROAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABROAD",
+    "definitions": [
+     {
+      "text": "on the continent?",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "secondary route",
+      "gives": "BROAD",
+      "note": "British roads are graded A for main routes and B for secondary ones, so this is a B-class road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BROAD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks about a minor road through mainland Europe.",
+     "walkthrough": "British roads are graded A (main) and B (secondary). The question mark admits abroad is only one example of being on the continent.",
+     "definitionFit": "To a Briton, being on the continent of Europe means being overseas, in a foreign country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "secondary"
+    }
+   }
   },
   {
    "number": 21,
@@ -352,7 +1340,44 @@
     "text": "Start in the theatre?",
     "enumeration": "5"
    },
-   "solution": "ONSET"
+   "solution": "ONSET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ONSET",
+    "definitions": [
+     {
+      "text": "Start",
+      "at": 0
+     },
+     {
+      "text": "in the theatre?",
+      "at": 6,
+      "note": "a phrase, read as two words: on set"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Start",
+      "note": "first meaning: the beginning of something"
+     },
+     {
+      "clueFragment": "in the theatre?",
+      "note": "second meaning, split into two words: on the stage scenery, performing"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split as ON SET, the answer means on stage; the question mark flags that a film set fits just as well.",
+     "definitionFit": "The onset of something is its beginning, as in the onset of winter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "theatre"
+    }
+   }
   },
   {
    "number": 22,
@@ -366,7 +1391,60 @@
     "text": "Difficult Norse god nearly dispensing with earl",
     "enumeration": "6"
    },
-   "solution": "THORNY"
+   "solution": "THORNY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "THORNY",
+    "definitions": [
+     {
+      "text": "Difficult",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dispensing with",
+      "for": "deletion",
+      "note": "to dispense with something is to do without it, so those letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Norse god",
+      "gives": "THOR",
+      "note": "Thor is the Norse god of thunder"
+     },
+     {
+      "clueFragment": "nearly",
+      "gives": "NEARLY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "earl",
+      "gives": "EARL",
+      "note": "taken as written: the letters to remove"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THOR",
+      "NY"
+     ]
+    },
+    "explanation": {
+     "surface": "A Norse god sacks an earl, nearly, and it proves awkward.",
+     "walkthrough": "'nearly' is not a shortening signal: it is the word itself, with the letters of earl taken out of its middle.",
+     "definitionFit": "A thorny problem is a tricky one, full of difficulties like thorns on a stem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nearly"
+    }
+   }
   },
   {
    "number": 23,
@@ -380,7 +1458,43 @@
     "text": "Some pretty neat river",
     "enumeration": "4"
    },
-   "solution": "TYNE"
+   "solution": "TYNE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TYNE",
+    "definitions": [
+     {
+      "text": "river",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means a part of, so the answer is a portion of the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pretty neat",
+      "gives": "TYNE",
+      "note": "the letters span the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A river is described as rather tidy.",
+     "walkthrough": "The answer runs through pretTY NEat.",
+     "definitionFit": "The Tyne is a river in north-east England that flows through Newcastle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 24,
@@ -394,7 +1508,42 @@
     "text": "Spring walk",
     "enumeration": "5"
    },
-   "solution": "MARCH"
+   "solution": "MARCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MARCH",
+    "definitions": [
+     {
+      "text": "Spring",
+      "at": 0
+     },
+     {
+      "text": "walk",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spring",
+      "note": "first meaning: a month of spring in the northern hemisphere"
+     },
+     {
+      "clueFragment": "walk",
+      "note": "second meaning: to walk in step, as soldiers do"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Spring walk' reads as a stroll in the season; the two words are separate meanings.",
+     "definitionFit": "March is the month when spring begins, and to march is to walk with a regular, measured stride."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spring"
+    }
+   }
   },
   {
    "number": 25,
@@ -408,7 +1557,43 @@
     "text": "Welcome drop of the hard stuff?",
     "enumeration": "4"
    },
-   "solution": "HAIL"
+   "solution": "HAIL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HAIL",
+    "definitions": [
+     {
+      "text": "Welcome",
+      "at": 0
+     },
+     {
+      "text": "drop of the hard stuff?",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Welcome",
+      "note": "first meaning: to greet or call out to someone"
+     },
+     {
+      "clueFragment": "drop of the hard stuff?",
+      "note": "second meaning: frozen rain falling as hard pellets"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'drop of the hard stuff' suggests a glass of spirits; here the drops are literally hard, falling ice.",
+     "definitionFit": "To hail someone is to greet them, and hail is ice pellets falling from the sky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stuff"
+    }
+   }
   },
   {
    "number": 26,
@@ -428,7 +1613,57 @@
      }
     ]
    },
-   "solution": "HEYPRESTO"
+   "solution": "HEYPRESTO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HEY PRESTO",
+    "definitions": [
+     {
+      "text": "Spell words",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrong",
+      "for": "anagram",
+      "note": "letters that are wrong are out of place, so they must be put into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "here",
+      "gives": "HERE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "typos",
+      "gives": "TYPOS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HERETYPOS",
+       "gives": "HEYPRESTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A proofreader complains that the spelling has gone awry because of typing errors.",
+     "walkthrough": "'Spell' points at spelling, but here it is a magic spell.",
+     "definitionFit": "A conjuror says this phrase at the moment of a trick, so it is the magic words of a spell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Spell"
+    }
+   }
   },
   {
    "number": 27,
@@ -442,7 +1677,58 @@
     "text": "Grabbing attention, row gets more emotional",
     "enumeration": "7"
    },
-   "solution": "TEARIER"
+   "solution": "TEARIER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TEARIER",
+    "definitions": [
+     {
+      "text": "more emotional",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Grabbing",
+      "for": "container",
+      "note": "something grabbing another holds it in its grip, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "row",
+      "gives": "TIER",
+      "note": "a tier is a row of seats"
+     },
+     {
+      "clueFragment": "attention",
+      "gives": "EAR",
+      "note": "to give someone your ear is to pay attention"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "EAR",
+      "IER"
+     ]
+    },
+    "explanation": {
+     "surface": "An attention-seeking quarrel makes everyone more upset.",
+     "walkthrough": "'row' tempts as a quarrel; it is a line of seats.",
+     "definitionFit": "Tearier means closer to crying, the comparative of tearful, so more emotional."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 28,
@@ -456,7 +1742,49 @@
     "text": "Mother-in-law perhaps initially disappearing — joy!",
     "enumeration": "7"
    },
-   "solution": "ELATION"
+   "solution": "ELATION",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ELATION",
+    "definitions": [
+     {
+      "text": "joy",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially disappearing",
+      "for": "deletion",
+      "note": "the first letter disappearing means the opening letter of the word is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mother-in-law perhaps",
+      "gives": "RELATION",
+      "note": "a mother-in-law is one kind of relative by marriage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELATION"
+     ]
+    },
+    "explanation": {
+     "surface": "The mother-in-law going away is cause for delight.",
+     "walkthrough": "The old mother-in-law joke: her leaving brings joy.",
+     "definitionFit": "Elation is great happiness and exhilaration, a synonym of joy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "disappearing"
+    }
+   }
   }
  ]
 }
