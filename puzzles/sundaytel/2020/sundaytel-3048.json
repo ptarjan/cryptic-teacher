@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,44 @@
     "text": "Loaf rose, say?",
     "enumeration": "7"
    },
-   "solution": "BLOOMER"
+   "solution": "BLOOMER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BLOOMER",
+    "definitions": [
+     {
+      "text": "Loaf",
+      "at": 0
+     },
+     {
+      "text": "rose, say",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Loaf",
+      "note": "first meaning: a long crusty British loaf with diagonal slashes on top"
+     },
+     {
+      "clueFragment": "rose, say",
+      "note": "second meaning, whimsical: a flower is something that blooms"
+     }
+    ],
+    "explanation": {
+     "surface": "A baker wonders whether the dough has risen.",
+     "walkthrough": "'Loaf rose' reads as a verb about dough rising, but rose is the flower; 'say' flags it as one example of a plant that flowers.",
+     "definitionFit": "A bloomer is a British bread loaf, and any flowering plant is jokingly a thing that blooms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rose"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +86,42 @@
     "text": "Particular French holiday destination",
     "enumeration": "4"
    },
-   "solution": "NICE"
+   "solution": "NICE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NICE",
+    "definitions": [
+     {
+      "text": "Particular",
+      "at": 0
+     },
+     {
+      "text": "French holiday destination",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Particular",
+      "note": "first meaning: precise, fine in its distinctions"
+     },
+     {
+      "clueFragment": "French holiday destination",
+      "note": "second meaning: the resort city on the Riviera"
+     }
+    ],
+    "explanation": {
+     "surface": "A specific resort in France is being singled out.",
+     "definitionFit": "The adjective can mean subtle or fastidious, and the same spelling names the Riviera resort city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Particular"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +135,51 @@
     "text": "Check building if shut",
     "enumeration": "6"
    },
-   "solution": "SHUFTI"
+   "solution": "SHUFTI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SHUFTI",
+    "definitions": [
+     {
+      "text": "Check",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "building",
+      "for": "anagram",
+      "note": "building means constructing, so the following letters are put together in a new form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "if shut",
+      "gives": "IFSHUT",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IFSHUT",
+       "gives": "SHUFTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells a caretaker to inspect the premises in case it has been closed.",
+     "walkthrough": "SHUFTI is British slang, from Arabic via the army, for a quick look.",
+     "definitionFit": "Having a shufti is taking a quick look, so the noun is an informal glance or inspection."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "building"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +193,70 @@
     "text": "Introductory drink provided after weary old man turns up",
     "enumeration": "8"
    },
-   "solution": "APERITIF"
+   "solution": "APERITIF",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "APERITIF",
+    "definitions": [
+     {
+      "text": "Introductory drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the word for provided at the end, following the other pieces"
+     },
+     {
+      "text": "turns up",
+      "for": "reversal",
+      "note": "in a down clue, turning up means reading the letters from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weary",
+      "gives": "TIRE",
+      "note": "to weary is to tire"
+     },
+     {
+      "clueFragment": "old man",
+      "gives": "PA",
+      "note": "an old man is a father, PA"
+     },
+     {
+      "clueFragment": "provided",
+      "gives": "IF",
+      "note": "provided (that) means if"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APERIT",
+      "IF"
+     ],
+     "reversals": [
+      {
+       "from": "TIREPA",
+       "to": "APERIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tired father arrives and is offered a drink before dinner.",
+     "definitionFit": "An aperitif is an alcoholic drink taken before a meal to stimulate the appetite."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "provided"
+    }
+   }
   },
   {
    "number": 5,
@@ -94,7 +276,86 @@
      }
     ]
    },
-   "solution": "GOODNESSME"
+   "solution": "GOODNESSME",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "GOODNESS ME",
+    "definitions": [
+     {
+      "text": "oh dear!",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the word end is read from bottom to top"
+     },
+     {
+      "text": "horrible",
+      "for": "anagram",
+      "note": "something horrible is a mess, so the letters of mess are jumbled"
+     },
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down entry, under puts the rest beneath the sticky stuff"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "something sticky",
+      "gives": "GOO",
+      "note": "goo is sticky stuff"
+     },
+     {
+      "clueFragment": "End",
+      "gives": "END",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mess",
+      "gives": "MESS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOO",
+      "DNE",
+      "SSME"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MESS",
+       "gives": "SSME"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "END",
+       "to": "DNE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gets covered in a horrible gluey mess and exclaims in dismay.",
+     "definitionFit": "Goodness me is a mild exclamation of surprise or dismay, much like the sighed interjection."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "End"
+    }
+   }
   },
   {
    "number": 6,
@@ -108,7 +369,55 @@
     "text": "Rest packed into refuse — how solid?",
     "enumeration": "7"
    },
-   "solution": "DENSITY"
+   "solution": "DENSITY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DENSITY",
+    "definitions": [
+     {
+      "text": "how solid?",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "packed into",
+      "for": "container",
+      "note": "packed into means stuffed inside, so one word goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "refuse",
+      "gives": "DENY",
+      "note": "to refuse is to deny"
+     },
+     {
+      "clueFragment": "Rest",
+      "gives": "SIT",
+      "note": "to rest is to sit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEN",
+      "SIT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone declines to take a break, perhaps while compacting rubbish.",
+     "walkthrough": "'Refuse' looks like rubbish, but it is the verb meaning to decline.",
+     "definitionFit": "Density measures mass per unit volume, which is how compact or solid a substance is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "refuse"
+    }
+   }
   },
   {
    "number": 7,
@@ -122,7 +431,58 @@
     "text": "Number on both sides in small craft",
     "enumeration": "7"
    },
-   "solution": "SLEIGHT"
+   "solution": "SLEIGHT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SLEIGHT",
+    "definitions": [
+     {
+      "text": "craft",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on both sides",
+      "for": "container",
+      "note": "a word lying on both sides of another wraps round it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "SLIGHT",
+      "note": "slight means small"
+     },
+     {
+      "clueFragment": "Number",
+      "gives": "E",
+      "note": "e is the mathematical constant, Euler's number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SL",
+      "E",
+      "IGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A numbered vessel flanked on each side by a little boat.",
+     "walkthrough": "'Small craft' looks like a boat, but the two words split: small is the wordplay and craft, meaning skill or cunning, is the definition.",
+     "definitionFit": "Sleight is dexterous skill or cunning, as in sleight of hand, which matches craft as artful trickery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "craft"
+    }
+   }
   },
   {
    "number": 8,
@@ -136,7 +496,43 @@
     "text": "Person kissing reverend who would muddle his words",
     "enumeration": "7"
    },
-   "solution": "SPOONER"
+   "solution": "SPOONER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPOONER",
+    "definitions": [
+     {
+      "text": "Person kissing",
+      "at": 0
+     },
+     {
+      "text": "reverend who would muddle his words",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Person kissing",
+      "note": "first meaning: one who spoons, an old word for kissing and cuddling"
+     },
+     {
+      "clueFragment": "reverend who would muddle his words",
+      "note": "second meaning: the Oxford don famous for swapping the initial sounds of words"
+     }
+    ],
+    "explanation": {
+     "surface": "A clergyman so flustered by kissing that he gets his words in a tangle.",
+     "definitionFit": "To spoon is old slang for to canoodle, and the Reverend William Spooner gave his name to transposed-sound slips."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "kissing"
+    }
+   }
   },
   {
    "number": 9,
@@ -150,7 +546,70 @@
     "text": "In a flash, one bit endlessly fractured",
     "enumeration": "11"
    },
-   "solution": "FASHIONABLE"
+   "solution": "FASHIONABLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "FASHIONABLE",
+    "definitions": [
+     {
+      "text": "In",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "endlessly means without an end, so the final letter is dropped"
+     },
+     {
+      "text": "fractured",
+      "for": "anagram",
+      "note": "something fractured is broken into pieces, so the letters are reassembled differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a flash",
+      "gives": "AFLASH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bit",
+      "gives": "BIT",
+      "note": "taken as written, before its last letter goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FASHIONABLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AFLASHONEBI",
+       "gives": "FASHIONABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In an instant, a single piece snapped off.",
+     "walkthrough": "The definition is the single word 'In', hiding at the front where it looks like part of the phrase 'in a flash'.",
+     "definitionFit": "Something in is currently popular or trendy, the same as being in vogue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "In"
+    }
+   }
   },
   {
    "number": 10,
@@ -170,7 +629,66 @@
      }
     ]
    },
-   "solution": "LOVEAFFAIR"
+   "solution": "LOVEAFFAIR",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "LOVE AFFAIR",
+    "definitions": [
+     {
+      "text": "romance!",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the pair of words goes round the article"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nothing",
+      "gives": "LOVE",
+      "note": "love is a score of nothing in tennis"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the pencil-grading abbreviation for fine"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "FAIR",
+      "note": "fine weather is fair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOVE",
+      "A",
+      "F",
+      "FAIR"
+     ]
+    },
+    "explanation": {
+     "surface": "Echoing the song 'A Fine Romance', nothing is fine about this one.",
+     "definitionFit": "A love affair is a romantic relationship, often a passionate or short-lived one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Nothing"
+    }
+   }
   },
   {
    "number": 11,
@@ -184,7 +702,42 @@
     "text": "Trace race",
     "enumeration": "4"
    },
-   "solution": "DASH"
+   "solution": "DASH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DASH",
+    "definitions": [
+     {
+      "text": "Trace",
+      "at": 0
+     },
+     {
+      "text": "race",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trace",
+      "note": "first meaning: a small amount, a splash of something"
+     },
+     {
+      "clueFragment": "race",
+      "note": "second meaning: to rush, or a sprint"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two words rhyme and look linked, but they are separate meanings of one short word.",
+     "definitionFit": "A tiny added amount is a dash, and hurrying somewhere or a short sprint is also a dash."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Trace"
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +751,78 @@
     "text": "Behind me, light winds catching a standing stone, say?",
     "enumeration": "8"
    },
-   "solution": "MEGALITH"
+   "solution": "MEGALITH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "MEGALITH",
+    "definitions": [
+     {
+      "text": "standing stone, say?",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "winds",
+      "for": "anagram",
+      "note": "winds as a verb means twists about, so the letters are twisted into a new order"
+     },
+     {
+      "text": "catching",
+      "for": "container",
+      "note": "catching means holding inside, so the jumble closes round the article"
+     },
+     {
+      "text": "Behind",
+      "for": "charade",
+      "note": "behind means coming after, so the rest follows the first-person word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "light",
+      "gives": "LIGHT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "G",
+      "A",
+      "LITH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LIGHT",
+       "gives": "GLITH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Behind the speaker, gentle breezes swirl round an ancient standing stone.",
+     "definitionFit": "A megalith is a large prehistoric stone, and a standing stone is one example, hence the question mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "winds"
+    }
+   }
   },
   {
    "number": 13,
@@ -212,7 +836,57 @@
     "text": "Minor shift, serving joint following dessert",
     "enumeration": "10"
    },
-   "solution": "AFTERSHOCK"
+   "solution": "AFTERSHOCK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AFTERSHOCK",
+    "definitions": [
+     {
+      "text": "Minor shift",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so the joint goes after the dessert"
+     }
+    ],
+    "linkWords": [
+     "serving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dessert",
+      "gives": "AFTERS",
+      "note": "afters is British slang for pudding, the course after the main one"
+     },
+     {
+      "clueFragment": "joint",
+      "gives": "HOCK",
+      "note": "the hock is the joint in an animal's hind leg"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AFTERS",
+      "HOCK"
+     ]
+    },
+    "explanation": {
+     "surface": "A short restaurant shift: serving the roast joint after the pudding.",
+     "walkthrough": "'Serving' just joins definition and wordplay. In Britain afters means dessert.",
+     "definitionFit": "An aftershock is a smaller tremor following an earthquake, a minor shift of the ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "shift"
+    }
+   }
   },
   {
    "number": 14,
@@ -226,7 +900,54 @@
     "text": "In bid, bolt down agreement",
     "enumeration": "6"
    },
-   "solution": "TREATY"
+   "solution": "TREATY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TREATY",
+    "definitions": [
+     {
+      "text": "agreement",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "in places one word inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bid",
+      "gives": "TRY",
+      "note": "a bid is an attempt, a try"
+     },
+     {
+      "clueFragment": "bolt down",
+      "gives": "EAT",
+      "note": "to bolt down food is to eat it quickly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "EAT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "During negotiations, an agreement is fastened down tight.",
+     "definitionFit": "A treaty is a formal pact between states, a written agreement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bolt"
+    }
+   }
   },
   {
    "number": 15,
@@ -240,7 +961,53 @@
     "text": "Distant position of angle",
     "enumeration": "11"
    },
-   "solution": "STANDOFFISH"
+   "solution": "STANDOFFISH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STANDOFFISH",
+    "definitions": [
+     {
+      "text": "Distant",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "position",
+      "gives": "STAND",
+      "note": "a stand is a position taken"
+     },
+     {
+      "clueFragment": "of",
+      "gives": "OF",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "angle",
+      "gives": "FISH",
+      "note": "to angle is to fish with a rod"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAND",
+      "OF",
+      "FISH"
+     ]
+    },
+    "explanation": {
+     "surface": "A remote geometric position, measured at some angle.",
+     "walkthrough": "'Angle' looks geometric, but it is the verb meaning to go fishing.",
+     "definitionFit": "Someone standoffish is aloof and cool towards others, emotionally distant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "angle"
+    }
+   }
   },
   {
    "number": 16,
@@ -260,7 +1027,55 @@
      }
     ]
    },
-   "solution": "NOAHSARK"
+   "solution": "NOAHSARK",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NOAHS ARK",
+    "definitions": [
+     {
+      "text": "floating zoo?",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cuckoo",
+      "for": "anagram",
+      "note": "cuckoo means crazy, so the letters go mad and rearrange"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shark on with a",
+      "gives": "SHARKONA",
+      "note": "the letters to be rearranged; with simply joins the parts of the fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SHARKONA",
+       "gives": "NOAHSARK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shark and a cuckoo aboard a floating menagerie.",
+     "walkthrough": "The animal names make 'cuckoo' look like another passenger, but it signals the rearrangement.",
+     "definitionFit": "The biblical vessel carried a pair of every animal through the Flood, a seagoing menagerie."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "cuckoo"
+    }
+   }
   },
   {
    "number": 17,
@@ -274,7 +1089,57 @@
     "text": "Ancient carrier requires map to orbit moon",
     "enumeration": "7"
    },
-   "solution": "CHARIOT"
+   "solution": "CHARIOT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHARIOT",
+    "definitions": [
+     {
+      "text": "Ancient carrier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to orbit",
+      "for": "container",
+      "note": "to orbit is to circle round, so one word encircles the other"
+     }
+    ],
+    "linkWords": [
+     "requires"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "map",
+      "gives": "CHART",
+      "note": "a chart is a map"
+     },
+     {
+      "clueFragment": "moon",
+      "gives": "IO",
+      "note": "Io is one of Jupiter's moons"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAR",
+      "IO",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An old spacecraft needs a map to circle the moon.",
+     "definitionFit": "A chariot was a horse-drawn vehicle of antiquity, carrying warriors or racers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "carrier"
+    }
+   }
   },
   {
    "number": 18,
@@ -288,7 +1153,56 @@
     "text": "Fish left in hat!",
     "enumeration": "7"
    },
-   "solution": "BLOATER"
+   "solution": "BLOATER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BLOATER",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one item inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hat",
+      "gives": "BOATER",
+      "note": "a boater is a flat-topped straw hat"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "L",
+      "OATER"
+     ]
+    },
+    "explanation": {
+     "surface": "A fish has been left inside someone's hat.",
+     "walkthrough": "A bloater is a lightly smoked whole herring, a British speciality.",
+     "definitionFit": "A bloater is a cured herring, so it is a kind of fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 19,
@@ -302,7 +1216,44 @@
     "text": "Somewhat infectious, her parent a probable carrier?",
     "enumeration": "6"
    },
-   "solution": "SHERPA"
+   "solution": "SHERPA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SHERPA",
+    "definitions": [
+     {
+      "text": "a probable carrier?",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means only part of, so the answer is a stretch of the next words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "infectious, her parent",
+      "gives": "SHERPA",
+      "note": "letters running across the words from infectious into parent"
+     }
+    ],
+    "explanation": {
+     "surface": "A contagious mother or father is likely to be a disease carrier.",
+     "walkthrough": "'Carrier' suggests disease, but it means a porter.",
+     "definitionFit": "Sherpas are a Himalayan people famed as mountain porters, so one is likely to carry loads."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "carrier"
+    }
+   }
   },
   {
    "number": 20,
@@ -322,7 +1273,43 @@
      }
     ]
    },
-   "solution": "ABOVEALL"
+   "solution": "ABOVEALL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ABOVE ALL",
+    "definitions": [
+     {
+      "text": "Where absolute ruler is positioned",
+      "at": 0
+     },
+     {
+      "text": "especially",
+      "at": 36
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where absolute ruler is positioned",
+      "note": "first meaning, taken literally: a supreme ruler stands higher than everyone"
+     },
+     {
+      "clueFragment": "especially",
+      "note": "second meaning: more than anything else"
+     }
+    ],
+    "explanation": {
+     "surface": "Asking where a despot stands, with special emphasis.",
+     "definitionFit": "The phrase means most importantly, and read literally describes a monarch placed over every subject."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ruler"
+    }
+   }
   },
   {
    "number": 21,
@@ -336,7 +1323,50 @@
     "text": "Dried out meat in NW English town",
     "enumeration": "6"
    },
-   "solution": "OLDHAM"
+   "solution": "OLDHAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OLDHAM",
+    "definitions": [
+     {
+      "text": "NW English town",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dried out",
+      "gives": "OLD",
+      "note": "something dried out is old and past its best"
+     },
+     {
+      "clueFragment": "meat",
+      "gives": "HAM",
+      "note": "ham is cured pork"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OLD",
+      "HAM"
+     ]
+    },
+    "explanation": {
+     "surface": "Stale, desiccated meat found in a town in northern England.",
+     "walkthrough": "Oldham is a town near Manchester in north-west England.",
+     "definitionFit": "Oldham is a large former mill town in Greater Manchester, in the north-west of England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dried"
+    }
+   }
   },
   {
    "number": 22,
@@ -350,7 +1380,50 @@
     "text": "Curve in tree initially hidden",
     "enumeration": "4"
    },
-   "solution": "ARCH"
+   "solution": "ARCH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ARCH",
+    "definitions": [
+     {
+      "text": "Curve",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially hidden",
+      "for": "deletion",
+      "note": "initially hidden means the first letter is concealed and so dropped"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tree",
+      "gives": "LARCH",
+      "note": "the larch is a deciduous conifer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A bend in a tree trunk that is at first concealed.",
+     "definitionFit": "An arch is a curved structure spanning an opening, so it is a curve shape."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hidden"
+    }
+   }
   },
   {
    "number": 23,
@@ -370,7 +1443,56 @@
      }
     ]
    },
-   "solution": "SALADCREAM"
+   "solution": "SALADCREAM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SALAD CREAM",
+    "definitions": [
+     {
+      "text": "saucy thing",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the funny thing goes round the boy"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Something funny",
+      "gives": "SCREAM",
+      "note": "a very funny thing is a scream"
+     },
+     {
+      "clueFragment": "a boy",
+      "gives": "ALAD",
+      "note": "a boy is a lad"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ALAD",
+      "CREAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky lad is hilarious, a really saucy character.",
+     "walkthrough": "Salad cream is a tangy, mayonnaise-like British dressing; 'saucy' looks like cheeky but means sauce-like.",
+     "definitionFit": "Salad cream is a bottled condiment, literally a sauce, so it is a saucy item."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "saucy"
+    }
+   }
   },
   {
    "number": 24,
@@ -384,7 +1506,42 @@
     "text": "Bird man",
     "enumeration": "4"
    },
-   "solution": "ROOK"
+   "solution": "ROOK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROOK",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     },
+     {
+      "text": "man",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bird",
+      "note": "first meaning: a black crow-like bird"
+     },
+     {
+      "clueFragment": "man",
+      "note": "second meaning: a chess piece, also called a castle"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Man' is a chess term for any piece, here the one shaped like a castle.",
+     "definitionFit": "The crow family includes the rook, and in chess the castle piece is also named rook."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "man"
+    }
+   }
   },
   {
    "number": 25,
@@ -398,7 +1555,45 @@
     "text": "Feeling of anxiety in business?",
     "enumeration": "7"
    },
-   "solution": "CONCERN"
+   "solution": "CONCERN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CONCERN",
+    "definitions": [
+     {
+      "text": "Feeling of anxiety",
+      "at": 0
+     },
+     {
+      "text": "business?",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Feeling of anxiety",
+      "note": "first meaning: worry"
+     },
+     {
+      "clueFragment": "business?",
+      "note": "second meaning: a firm or company"
+     }
+    ],
+    "explanation": {
+     "surface": "Nervousness is felt in the workplace.",
+     "definitionFit": "Concern is worry, and a commercial firm is also called a going concern."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "business"
+    }
+   }
   },
   {
    "number": 26,
@@ -412,7 +1607,55 @@
     "text": "Hang around an old house",
     "enumeration": "7"
    },
-   "solution": "HANOVER"
+   "solution": "HANOVER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HANOVER",
+    "definitions": [
+     {
+      "text": "old house",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means encircling, so the first word wraps about the article"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hang",
+      "gives": "HOVER",
+      "note": "to hang in the air is to hover"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "AN",
+      "OVER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to loiter near an ancient dwelling.",
+     "walkthrough": "'Hang around' reads as one phrase meaning loiter, but it splits into a verb and a container signal; 'house' is a royal dynasty.",
+     "definitionFit": "The House of Hanover was the dynasty that ruled Britain from George I to Victoria, a royal house."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "house"
+    }
+   }
   }
  ]
 }
