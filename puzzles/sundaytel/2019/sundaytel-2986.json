@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,45 @@
     "text": "Bed delivery discussed?",
     "enumeration": "5"
    },
-   "solution": "BERTH"
+   "solution": "BERTH",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BERTH",
+    "definitions": [
+     {
+      "text": "Bed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discussed",
+      "for": "homophone",
+      "note": "something discussed is spoken about, so the solver goes by what the word sounds like"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "delivery",
+      "gives": "BERTH",
+      "soundsLike": "BIRTH",
+      "note": "a delivery in a maternity ward is a birth, which is said the same as the bed word"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone wonders whether the arrival of a new bed was talked over.",
+     "walkthrough": "'Delivery' suggests a parcel or van, but here it is childbirth.",
+     "definitionFit": "A berth is a sleeping bunk on a ship or train, so a bed by synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "delivery"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +87,64 @@
     "text": "Invoice Gabon produced for flooded channel in Oz",
     "enumeration": "9"
    },
-   "solution": "BILLABONG"
+   "solution": "BILLABONG",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "BILLABONG",
+    "definitions": [
+     {
+      "text": "flooded channel in Oz",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "produced",
+      "for": "anagram",
+      "note": "something produced is made up or worked into shape, so the country's letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Invoice",
+      "gives": "BILL",
+      "note": "an invoice is a bill"
+     },
+     {
+      "clueFragment": "Gabon",
+      "gives": "GABON",
+      "note": "the African country's name supplies the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BILL",
+      "ABONG"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GABON",
+       "gives": "ABONG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An invoice from Gabon is raised for some watery Australian project.",
+     "walkthrough": "A billabong is an Australian word for a backwater or oxbow pool left by a river; Oz is Australia.",
+     "definitionFit": "In Australia a billabong is a branch of a river that fills in floods and becomes a stagnant pool, hence a flooded channel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "produced"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +158,55 @@
     "text": "Dangerous rig unfinished, limit to achievement?",
     "enumeration": "5"
    },
-   "solution": "RISKY"
+   "solution": "RISKY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RISKY",
+    "definitions": [
+     {
+      "text": "Dangerous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfinished",
+      "for": "deletion",
+      "note": "a thing left unfinished lacks its end, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rig",
+      "gives": "RI",
+      "note": "rig without its final letter"
+     },
+     {
+      "clueFragment": "limit to achievement",
+      "gives": "SKY",
+      "note": "from the saying that the sky is the limit for what one can achieve"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RI",
+      "SKY"
+     ]
+    },
+    "explanation": {
+     "surface": "An oil rig left half-built is hazardous, and perhaps caps what can be achieved.",
+     "walkthrough": "'The sky's the limit' means there is no limit to what can be achieved, so the sky is that limit.",
+     "definitionFit": "Risky and dangerous are synonyms, both describing something likely to cause harm or loss."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "limit"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +220,43 @@
     "text": "Dog that flies!",
     "enumeration": "7"
    },
-   "solution": "HARRIER"
+   "solution": "HARRIER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HARRIER",
+    "definitions": [
+     {
+      "text": "Dog",
+      "at": 0
+     },
+     {
+      "text": "that flies",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dog",
+      "note": "first meaning: a hound bred for hunting hares"
+     },
+     {
+      "clueFragment": "that flies",
+      "note": "second meaning: a bird of prey, and also the jump-jet aircraft"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The exclamation mark pretends a dog has taken off; the word simply names both a hound and a hawk.",
+     "definitionFit": "The same name covers a hare-hunting hound and a hawk of the genus Circus, as well as the British vertical take-off jet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Dog"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +270,55 @@
     "text": "Smart wrapping paper going in large quantities",
     "enumeration": "9"
    },
-   "solution": "STREAMING"
+   "solution": "STREAMING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STREAMING",
+    "definitions": [
+     {
+      "text": "going in large quantities",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrapping",
+      "for": "container",
+      "note": "to wrap something is to go around it, so one word encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Smart",
+      "gives": "STING",
+      "note": "to smart is to sting, as a wound does"
+     },
+     {
+      "clueFragment": "paper",
+      "gives": "REAM",
+      "note": "a ream is a quantity of paper, 500 sheets"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "REAM",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A sharp-looking parcel of paper is apparently being sent out in bulk.",
+     "walkthrough": "'Smart' looks like an adjective for neat wrapping, but it is the verb meaning to hurt.",
+     "definitionFit": "Streaming describes something flowing out in a steady, plentiful rush, like tears or crowds pouring through a gate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Smart"
+    }
+   }
   },
   {
    "number": 4,
@@ -102,7 +332,59 @@
     "text": "Vegetable garden's ending in the country",
     "enumeration": "6"
    },
-   "solution": "SWEDEN"
+   "solution": "SWEDEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SWEDEN",
+    "definitions": [
+     {
+      "text": "the country",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending",
+      "for": "letter_selection",
+      "note": "the ending of a word is its last letter, which is all that is kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vegetable",
+      "gives": "SWEDE",
+      "note": "a swede is a root vegetable, a rutabaga"
+     },
+     {
+      "clueFragment": "garden's",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter of garden"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWEDE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A root vegetable is found at the far end of a country garden.",
+     "walkthrough": "A swede is the British name for rutabaga.",
+     "definitionFit": "Sweden is a Scandinavian nation, so it fits as an example of a country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "country"
+    }
+   }
   },
   {
    "number": 5,
@@ -116,7 +398,57 @@
     "text": "Seriously consider space in rowing team, after audition?",
     "enumeration": "8"
    },
-   "solution": "RUMINATE"
+   "solution": "RUMINATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "RUMINATE",
+    "definitions": [
+     {
+      "text": "Seriously consider",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after audition",
+      "for": "homophone",
+      "note": "an audition is a hearing, so the words are judged by how they are heard"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "space",
+      "gives": "RUM",
+      "soundsLike": "ROOM",
+      "note": "space is room"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rowing team",
+      "gives": "ATE",
+      "soundsLike": "EIGHT",
+      "note": "a racing rowing crew of eight oarsmen is an eight"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone weighs up whether a rowing crew has a seat free, once trials are over.",
+     "walkthrough": "Said aloud, 'room in eight' runs together into the four-syllable verb; an eight is a racing boat with eight rowers.",
+     "definitionFit": "To ruminate is to think deeply and at length, as a cow chews the cud, so to ponder seriously."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "audition"
+    }
+   }
   },
   {
    "number": 6,
@@ -130,7 +462,51 @@
     "text": "Butcher married lover",
     "enumeration": "7"
    },
-   "solution": "ADMIRER"
+   "solution": "ADMIRER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ADMIRER",
+    "definitions": [
+     {
+      "text": "lover",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Butcher",
+      "for": "anagram",
+      "note": "to butcher something is to hack it about, so the letters are cut up and rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "married",
+      "gives": "MARRIED",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MARRIED",
+       "gives": "ADMIRER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A married butcher has a sweetheart on the side.",
+     "walkthrough": "'Butcher' reads as a tradesman, but it is the verb to mangle.",
+     "definitionFit": "An admirer is someone romantically devoted to another, a suitor, so a lover."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Butcher"
+    }
+   }
   },
   {
    "number": 7,
@@ -144,7 +520,62 @@
     "text": "Audacious banking rules originally, not wise",
     "enumeration": "9"
    },
-   "solution": "IMPRUDENT"
+   "solution": "IMPRUDENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "IMPRUDENT",
+    "definitions": [
+     {
+      "text": "not wise",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "banking",
+      "for": "container",
+      "note": "a bank holds deposits, so banking means keeping something inside"
+     },
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "what something is originally is how it starts, so the first letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Audacious",
+      "gives": "IMPUDENT",
+      "note": "audacious in the sense of cheeky or impertinent"
+     },
+     {
+      "clueFragment": "rules",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of rules"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMP",
+      "R",
+      "UDENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Bold financial regulation is described as foolish.",
+     "walkthrough": "The financial surface of 'banking rules' hides a container: the cheeky word holds R.",
+     "definitionFit": "Imprudent means lacking prudence or good judgement, so unwise, by direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "banking"
+    }
+   }
   },
   {
    "number": 8,
@@ -158,7 +589,53 @@
     "text": "Flier in garden, bee regularly seen",
     "enumeration": "5"
    },
-   "solution": "GREBE"
+   "solution": "GREBE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "GREBE",
+    "definitions": [
+     {
+      "text": "Flier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals means every other letter is kept"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "seen"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "garden, bee",
+      "gives": "GREBE",
+      "select": "alternate",
+      "note": "the first, third, fifth, seventh and ninth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREBE"
+     ]
+    },
+    "explanation": {
+     "surface": "A flying creature, a bee, is spotted in the garden from time to time.",
+     "walkthrough": "'Flier' points to the bee in the surface, but the answer is a water bird.",
+     "definitionFit": "A grebe is a diving water bird, and birds are fliers, so it is an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bee"
+    }
+   }
   },
   {
    "number": 9,
@@ -178,7 +655,52 @@
      }
     ]
    },
-   "solution": "LASERBEAM"
+   "solution": "LASERBEAM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LASER BEAM",
+    "definitions": [
+     {
+      "text": "light",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sculpture of",
+      "for": "anagram",
+      "note": "a sculpture shapes material into a new form, so the letters are remodelled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mere balsa",
+      "gives": "MEREBALSA",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MEREBALSA",
+       "gives": "LASERBEAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sculpture made only of balsa wood is a lightweight piece.",
+     "walkthrough": "'Light' tempts as weight, matching balsa, but it is light in the sense of radiation.",
+     "definitionFit": "A laser beam is a narrow concentrated ray of light, so the answer is an example of light."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 10,
@@ -192,7 +714,62 @@
     "text": "Wood pigeon's head cradled by bloke",
     "enumeration": "5"
    },
-   "solution": "MAPLE"
+   "solution": "MAPLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MAPLE",
+    "definitions": [
+     {
+      "text": "Wood",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     },
+     {
+      "text": "cradled by",
+      "for": "container",
+      "note": "something cradled is held in the arms, so one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bloke",
+      "gives": "MALE",
+      "note": "a bloke is a man, a male"
+     },
+     {
+      "clueFragment": "pigeon's",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of pigeon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "P",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A wood pigeon is held gently in a man's hands.",
+     "walkthrough": "'Wood pigeon' reads as one bird; the definition is just 'Wood'. Bloke is British slang for a man.",
+     "definitionFit": "Maple is a hardwood timber used for furniture and floors, so a kind of wood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wood"
+    }
+   }
   },
   {
    "number": 11,
@@ -206,7 +783,50 @@
     "text": "Amenity to be repaired – date not fixed",
     "enumeration": "7"
    },
-   "solution": "ANYTIME"
+   "solution": "ANYTIME",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANYTIME",
+    "definitions": [
+     {
+      "text": "date not fixed",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be repaired",
+      "for": "anagram",
+      "note": "something repaired is put back together, so these letters are reassembled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Amenity",
+      "gives": "AMENITY",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AMENITY",
+       "gives": "ANYTIME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A broken facility needs mending, but nobody has set a date for it.",
+     "definitionFit": "Anytime means at whatever moment one chooses, so no specific occasion has been set."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "repaired"
+    }
+   }
   },
   {
    "number": 12,
@@ -220,7 +840,75 @@
     "text": "Support true reforms after move quickly backfiring",
     "enumeration": "7"
    },
-   "solution": "NURTURE"
+   "solution": "NURTURE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "NURTURE",
+    "definitions": [
+     {
+      "text": "Support",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backfiring",
+      "for": "reversal",
+      "note": "something backfiring goes the wrong way, so the word runs backwards"
+     },
+     {
+      "text": "reforms",
+      "for": "anagram",
+      "note": "to reform is to form again in a new shape, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "move quickly",
+      "gives": "NUR",
+      "note": "to move quickly is to run, written backwards"
+     },
+     {
+      "clueFragment": "true",
+      "gives": "TURE",
+      "note": "the letters of true rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUR",
+      "TURE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NUR",
+       "gives": "RUN"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "RUN",
+       "to": "NUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political backer of true reform finds a hasty move has gone wrong.",
+     "definitionFit": "To nurture is to care for and encourage growth, so to support someone or something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reforms"
+    }
+   }
   },
   {
    "number": 13,
@@ -234,7 +922,43 @@
     "text": "Where nurses may be found, ahead",
     "enumeration": "6"
    },
-   "solution": "ONWARD"
+   "solution": "ONWARD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ONWARD",
+    "definitions": [
+     {
+      "text": "Where nurses may be found",
+      "at": 0
+     },
+     {
+      "text": "ahead",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where nurses may be found",
+      "note": "first meaning, read as two words: on a hospital ward"
+     },
+     {
+      "clueFragment": "ahead",
+      "note": "second meaning: forward, further on"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first half is the answer split in two, a place in a hospital; the second is the single word.",
+     "definitionFit": "Onward means forward in space or time, continuing ahead; split, the letters say a nurse is at work on the ward."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nurses"
+    }
+   }
   },
   {
    "number": 14,
@@ -248,7 +972,59 @@
     "text": "Son-in-law and I suspect one supported old US president",
     "enumeration": "9"
    },
-   "solution": "WILSONIAN"
+   "solution": "WILSONIAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WILSONIAN",
+    "definitions": [
+     {
+      "text": "one supported old US president",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suspect",
+      "for": "anagram",
+      "note": "a suspect account is not to be trusted as given, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son-in-law",
+      "gives": "SONINLAW",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SONINLAWI",
+       "gives": "WILSONIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man and his son-in-law are both under suspicion of having backed a former American leader.",
+     "walkthrough": "The definition reads as 'one [who] supported', a follower of Woodrow Wilson.",
+     "definitionFit": "A Wilsonian is a follower of Woodrow Wilson, US president 1913 to 1921, and his liberal internationalist policies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suspect"
+    }
+   }
   },
   {
    "number": 15,
@@ -262,7 +1038,56 @@
     "text": "Those looking to clothe king in his birthday suit?",
     "enumeration": "8"
    },
-   "solution": "STARKERS"
+   "solution": "STARKERS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STARKERS",
+    "definitions": [
+     {
+      "text": "in his birthday suit",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to clothe",
+      "for": "container",
+      "note": "to clothe someone is to wrap them round, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Those looking",
+      "gives": "STARERS",
+      "note": "people looking hard are starers"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR",
+      "K",
+      "ERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Onlookers would cover the naked king, as in the tale of the emperor's new clothes.",
+     "walkthrough": "Starkers is British slang for completely naked.",
+     "definitionFit": "A birthday suit is bare skin, the state one was born in, so being in it means naked."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "clothe"
+    }
+   }
   },
   {
    "number": 16,
@@ -276,7 +1101,46 @@
     "text": "Chant revealed spinster or bachelor?",
     "enumeration": "9"
    },
-   "solution": "SINGLETON"
+   "solution": "SINGLETON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SINGLETON",
+    "definitions": [
+     {
+      "text": "spinster or bachelor",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chant",
+      "gives": "SING",
+      "note": "to chant is to sing"
+     },
+     {
+      "clueFragment": "revealed",
+      "gives": "LETON",
+      "note": "to let on is to reveal a secret"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SING",
+      "LETON"
+     ]
+    },
+    "explanation": {
+     "surface": "A sung chant gives away whether someone is unmarried.",
+     "definitionFit": "A singleton is a person who is not in a relationship, which covers both an unmarried woman and an unmarried man."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Chant"
+    }
+   }
   },
   {
    "number": 17,
@@ -290,7 +1154,60 @@
     "text": "Wrong grade needing correction, shocked",
     "enumeration": "8"
    },
-   "solution": "OUTRAGED"
+   "solution": "OUTRAGED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "OUTRAGED",
+    "definitions": [
+     {
+      "text": "shocked",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "needing correction",
+      "for": "anagram",
+      "note": "something needing correction is not in proper order, so its letters must be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wrong",
+      "gives": "OUT",
+      "note": "a figure that is out is wrong, as in a sum that is out by ten"
+     },
+     {
+      "clueFragment": "grade",
+      "gives": "GRADE",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "RAGED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GRADE",
+       "gives": "RAGED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student is appalled by an incorrect mark that has to be fixed.",
+     "definitionFit": "Outraged means deeply offended and indignant, the angry kind of being shocked."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Wrong"
+    }
+   }
   },
   {
    "number": 18,
@@ -310,7 +1227,65 @@
      }
     ]
    },
-   "solution": "GOLFCLUB"
+   "solution": "GOLFCLUB",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "GOLF CLUB",
+    "definitions": [
+     {
+      "text": "Driver perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversing",
+      "for": "reversal",
+      "note": "reversing means going backwards, so the word is written from end to start"
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hit",
+      "gives": "FLOG",
+      "note": "to flog is to beat, to hit"
+     },
+     {
+      "clueFragment": "hit again",
+      "gives": "CLUB",
+      "note": "to club is to strike with a stick, a second word for hit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOLF",
+      "CLUB"
+     ],
+     "reversals": [
+      {
+       "from": "FLOG",
+       "to": "GOLF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A motorist hits something while backing up, then hits it again.",
+     "walkthrough": "'Driver' suggests a motorist, which the reversing supports; it is the longest club in a golf bag.",
+     "definitionFit": "A driver is the golf club used for long tee shots, so it is an example of the answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Driver"
+    }
+   }
   },
   {
    "number": 19,
@@ -324,7 +1299,57 @@
     "text": "Learner dropping in 23, one working at last",
     "enumeration": "7"
    },
-   "solution": "COBBLER"
+   "solution": "COBBLER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "COBBLER",
+    "definitions": [
+     {
+      "text": "one working at last",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropping in",
+      "for": "container",
+      "note": "dropping in means moving down to a lower place within the word, so the letter is taken out and set back further on"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "23",
+      "gives": "CLOBBER",
+      "note": "the answer to 23 Across"
+     },
+     {
+      "clueFragment": "Learner",
+      "gives": "L",
+      "note": "L is the learner driver's plate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COBB",
+      "L",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A trainee finally gets to work after being hit, read as dropping in at last.",
+     "walkthrough": "In a down entry the L of 23 drops lower down the word, from second place to fifth. A last is the foot-shaped block a shoemaker works on.",
+     "definitionFit": "A cobbler mends shoes on a last, a foot-shaped form, so he is one working at a last."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "last"
+    }
+   }
   },
   {
    "number": 20,
@@ -344,7 +1369,62 @@
      }
     ]
    },
-   "solution": "SPOTON"
+   "solution": "SPOTON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SPOT ON",
+    "definitions": [
+     {
+      "text": "perfect",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scoffing",
+      "for": "container",
+      "note": "to scoff food is to eat it, taking it inside"
+     },
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Feeder",
+      "gives": "SPOON",
+      "note": "a spoon is used for feeding"
+     },
+     {
+      "clueFragment": "dessert",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of dessert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPO",
+      "T",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A child at the table finishes the pudding and declares it perfect.",
+     "walkthrough": "To scoff, in British usage, is to eat greedily.",
+     "definitionFit": "Spot on is an idiom for exactly right or accurate, which is to say perfect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Feeder"
+    }
+   }
   },
   {
    "number": 21,
@@ -358,7 +1438,66 @@
     "text": "Praise suggestion to carry double in lift",
     "enumeration": "7"
    },
-   "solution": "PLAUDIT"
+   "solution": "PLAUDIT",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "PLAUDIT",
+    "definitions": [
+     {
+      "text": "Praise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to carry",
+      "for": "container",
+      "note": "to carry something is to hold it, so one piece holds the other"
+     },
+     {
+      "text": "in lift",
+      "for": "reversal",
+      "note": "in a down entry a lift raises the letters, so they read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suggestion",
+      "gives": "TIP",
+      "note": "a tip is a hint or suggestion"
+     },
+     {
+      "clueFragment": "double",
+      "gives": "DUAL",
+      "note": "dual means double, twofold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LAUD",
+      "IT"
+     ],
+     "reversals": [
+      {
+       "from": "TIDUALP",
+       "to": "PLAUDIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Praise goes to an idea for fitting twice the load into an elevator.",
+     "definitionFit": "A plaudit is an expression of approval or applause, a synonym for praise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lift"
+    }
+   }
   },
   {
    "number": 22,
@@ -372,7 +1511,42 @@
     "text": "Extract juice from fruit",
     "enumeration": "6"
    },
-   "solution": "SQUASH"
+   "solution": "SQUASH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SQUASH",
+    "definitions": [
+     {
+      "text": "Extract juice from",
+      "at": 0
+     },
+     {
+      "text": "fruit",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Extract juice from",
+      "note": "first meaning: to crush or press, as fruit is pressed for its juice"
+     },
+     {
+      "clueFragment": "fruit",
+      "note": "second meaning: a gourd such as butternut, botanically a fruit"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue reads as one instruction; split it after 'from'. In Britain squash is also a fruit cordial, which deepens the surface.",
+     "definitionFit": "To squash is to crush flat, squeezing out juice, and a squash is a gourd, which botanists class as a fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fruit"
+    }
+   }
   },
   {
    "number": 23,
@@ -386,7 +1560,43 @@
     "text": "Whitewash clothes",
     "enumeration": "7"
    },
-   "solution": "CLOBBER"
+   "solution": "CLOBBER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CLOBBER",
+    "definitions": [
+     {
+      "text": "Whitewash",
+      "at": 0
+     },
+     {
+      "text": "clothes",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Whitewash",
+      "note": "first meaning: to defeat heavily, to thrash"
+     },
+     {
+      "clueFragment": "clothes",
+      "note": "second meaning: British slang for gear or garments"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Whitewash looks like paint or laundry next to clothes, but it is the sporting sense of a crushing defeat.",
+     "definitionFit": "To clobber is to beat soundly, as a whitewash is a total defeat; as a noun, clobber is British slang for one's clothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Whitewash"
+    }
+   }
   },
   {
    "number": 23,
@@ -400,7 +1610,46 @@
     "text": "Somewhat ecstatic at changes in contract",
     "enumeration": "5"
    },
-   "solution": "CATCH"
+   "solution": "CATCH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CATCH",
+    "definitions": [
+     {
+      "text": "contract",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means only a part, so the answer is a portion of the following words"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ecstatic at changes",
+      "gives": "CATCH",
+      "note": "found running across the end of the first word, the second word and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is rather thrilled by alterations made to an agreement.",
+     "walkthrough": "'Contract' looks like a legal document, but it is the verb meaning to pick up an illness.",
+     "definitionFit": "To catch a cold is to contract one, so the two verbs are synonyms for becoming infected."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "contract"
+    }
+   }
   },
   {
    "number": 24,
@@ -414,7 +1663,66 @@
     "text": "Two rights thrown in unexpectedly equal fight",
     "enumeration": "7"
    },
-   "solution": "QUARREL"
+   "solution": "QUARREL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "QUARREL",
+    "definitions": [
+     {
+      "text": "fight",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "thrown in",
+      "for": "container",
+      "note": "things thrown in are added inside, so these letters go within the others"
+     },
+     {
+      "text": "unexpectedly",
+      "for": "anagram",
+      "note": "something turning out unexpectedly is not in its predicted order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "equal",
+      "gives": "QUAEL",
+      "note": "the letters of equal rearranged"
+     },
+     {
+      "clueFragment": "Two rights",
+      "gives": "RR",
+      "note": "R is the abbreviation for right, twice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUA",
+      "RR",
+      "EL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EQUAL",
+       "gives": "QUAEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two right-wingers join in, and an evenly matched bout turns surprising.",
+     "definitionFit": "A quarrel is an angry argument or row, a fight with words."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rights"
+    }
+   }
   },
   {
    "number": 25,
@@ -428,7 +1736,65 @@
     "text": "Path where first of twigs collected by rake",
     "enumeration": "5"
    },
-   "solution": "ROUTE"
+   "solution": "ROUTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ROUTE",
+    "definitions": [
+     {
+      "text": "Path",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter"
+     },
+     {
+      "text": "collected by",
+      "for": "container",
+      "note": "something collected is gathered up and held, so it goes inside"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rake",
+      "gives": "ROUE",
+      "note": "a rake is a dissolute man, a roué"
+     },
+     {
+      "clueFragment": "twigs",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of twigs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROU",
+      "T",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A garden path where fallen twigs are gathered up with a rake.",
+     "walkthrough": "'Rake' suggests the garden tool; it is a womaniser.",
+     "definitionFit": "A route is a way taken from one place to another, so a path."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rake"
+    }
+   }
   },
   {
    "number": 26,
@@ -442,7 +1808,59 @@
     "text": "Case left behind large rooms, unopened",
     "enumeration": "5"
    },
-   "solution": "TRIAL"
+   "solution": "TRIAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TRIAL",
+    "definitions": [
+     {
+      "text": "Case",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unopened",
+      "for": "deletion",
+      "note": "a thing unopened has not had its front opened, so the first letter goes"
+     },
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind means coming after, so this letter is placed at the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "large rooms",
+      "gives": "TRIA",
+      "note": "atria are large halls or rooms, without the first letter"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRIA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A briefcase has been forgotten at the back of some big halls that were never unlocked.",
+     "definitionFit": "A case is a matter before a court, and a trial is the hearing of it, so the words are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Case"
+    }
+   }
   },
   {
    "number": 27,
@@ -462,7 +1880,54 @@
      }
     ]
    },
-   "solution": "GRANDAUNT"
+   "solution": "GRANDAUNT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GRAND-AUNT",
+    "definitions": [
+     {
+      "text": "elderly relative",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Hoarding",
+      "for": "container",
+      "note": "to hoard is to stash something away, so one piece is kept inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cadaverous",
+      "gives": "GAUNT",
+      "note": "cadaverous means corpse-like, haggard"
+     },
+     {
+      "clueFragment": "money abroad",
+      "gives": "RAND",
+      "note": "the rand is South Africa's currency, foreign money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RAND",
+      "AUNT"
+     ]
+    },
+    "explanation": {
+     "surface": "A haggard old relative sits on a stash of money overseas.",
+     "definitionFit": "A grandaunt is the sister of a grandparent, so a relative of an older generation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hoarding"
+    }
+   }
   },
   {
    "number": 28,
@@ -476,7 +1941,79 @@
     "text": "Percentage turned around, saving dosh initially in hospitals",
     "enumeration": "9"
    },
-   "solution": "HUNDREDTH"
+   "solution": "HUNDREDTH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "HUNDREDTH",
+    "definitions": [
+     {
+      "text": "Percentage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the first letter is taken"
+     },
+     {
+      "text": "around",
+      "for": "anagram",
+      "note": "turned around means thrown out of order, so the letters are mixed"
+     },
+     {
+      "text": "saving",
+      "for": "container",
+      "note": "to save something is to keep it, so it is held within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hospitals",
+      "gives": "HH",
+      "note": "H is the abbreviation for hospital, twice for the plural"
+     },
+     {
+      "clueFragment": "turned",
+      "gives": "TURNED",
+      "note": "the word itself, part of the letters to rearrange"
+     },
+     {
+      "clueFragment": "dosh",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of dosh"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "UNDREDT",
+      "H"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TURNEDD",
+       "gives": "UNDREDT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A share of hospital funding is reversed, sparing some cash at first.",
+     "walkthrough": "The word 'turned' and the D of dosh are mixed together, then placed between two Hs; dosh is British slang for money.",
+     "definitionFit": "One hundredth is one per cent, so the fraction is a percentage taken loosely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 29,
@@ -496,7 +2033,44 @@
      }
     ]
    },
-   "solution": "TIEIN"
+   "solution": "TIEIN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TIE-IN",
+    "definitions": [
+     {
+      "text": "Related item",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "something reported is relayed by word of mouth, so it is the sound that counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hotel at Bangkok perhaps",
+      "gives": "TIEIN",
+      "soundsLike": "THAI INN",
+      "note": "Bangkok is in Thailand, so a hotel there could be a Thai inn"
+     }
+    ],
+    "explanation": {
+     "surface": "A guest asks whether a linked product is on offer at a Bangkok hotel.",
+     "definitionFit": "A tie-in is a product linked to a film, book or event, such as a novel of the film, so a related item."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hotel"
+    }
+   }
   }
  ]
 }
