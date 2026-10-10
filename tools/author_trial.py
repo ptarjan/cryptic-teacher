@@ -51,10 +51,11 @@ FILL = ROOT / "tools/data/sample_fill_11.json"
 
 def claude(prompt, model, effort, timeout=1800):
     """One fresh, tool-less `claude -p` in an empty directory; its stdout."""
-    env = dict(os.environ)
-    path = subprocess.run(["bash", "-c", ". tools/claude_path.sh; echo $PATH"], cwd=ROOT,
-                          capture_output=True, text=True, check=False).stdout.strip()
-    env["PATH"] = path or env.get("PATH", "")
+    # The environment tools/claude_path.sh leaves: the CLI on PATH, the
+    # bridge's own claude variables gone.
+    out = subprocess.run(["bash", "-c", ". tools/claude_path.sh; env -0"], cwd=ROOT,
+                         capture_output=True, text=True, check=True).stdout
+    env = dict(kv.split("=", 1) for kv in out.split("\0") if "=" in kv)
     with tempfile.TemporaryDirectory() as cwd:
         r = subprocess.run(["claude", "-p", "--model", model, "--effort", effort,
                             "--tools", "", "--no-session-persistence"],

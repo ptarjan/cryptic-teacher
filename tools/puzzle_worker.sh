@@ -266,9 +266,10 @@ restore_puzzle() {
 # The burn's runs share one index. Unlocked, one run's `git add` dies on
 # index.lock while a sibling commits, and a commit takes whatever its siblings
 # have staged. So each stages, commits and names its commit under this lock,
-# and pushes that commit by name rather than HEAD.
-index_lock() { exec 9>"$(git rev-parse --git-path ct-index.lock)"; flock 9; }
-index_unlock() { flock -u 9; exec 9>&-; }
+# and pushes that commit by name rather than HEAD. fd 8: fd 9 is the tree's
+# lease (tools/nightly_worktree.sh), held for the whole run.
+index_lock() { exec 8>"$(git rev-parse --git-path ct-index.lock)"; flock 8; }
+index_unlock() { flock -u 8; exec 8>&-; }
 # Undo a run's edits to one puzzle (restore_puzzle) and its rows of the
 # source-correction tables (tools/data/source_*_wrong.json, fetch_puzzle.py):
 # back as HEAD has them, then any SOURCE_CLUE_WRONG row left for a clue the
