@@ -3,7 +3,8 @@
 # read a unit of its own: rows appended, the last standing, never a whole
 # rewrite under another unit; one unit per edition; the most urgent first
 # (Gale pages saved by hand, then never read, then the re-reads); a read
-# only after the scans its solution needs; a slow unit killed at its own
+# only after the scans its solution needs, and a scan held while a read
+# pool of reads is ready; a slow unit killed at its own
 # limit without holding up the rest; a capped run saying what it left; and
 # a TERM passed on to the units?
 #
@@ -314,6 +315,21 @@ with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.St
 ev = [line.split()[1:] for line in log.read_text().splitlines()]
 check("a whole-corpus unit waits, in its own idle pool, until no new one is left to start", True,
       ev.index(["start", "read", "n2", "v1"]) < ev.index(["start", "scan", "b1", "v1"]))
+log.unlink()
+fake(sleep={"r1": 0.6, "r2": 0.6})
+eq.plan = units(["s9"], [("r1", []), ("r2", [])])
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=1, scan_workers=1, replan=0.2)
+ev = [line.split()[1:] for line in log.read_text().splitlines()]
+check("a scan no read waits on holds while a full read pool of reads is ready", True,
+      ev.index(["start", "read", "r2", "v1"]) < ev.index(["start", "scan", "s9", "v1"]))
+log.unlink()
+eq.plan = units(["s9"], [("r1", []), ("r2", [])])
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, replan=0.2)
+ev = [line.split()[1:] for line in log.read_text().splitlines()]
+check("with fewer ready reads than read slots the scans start at once", True,
+      ev.index(["start", "scan", "s9", "v1"]) < ev.index(["end", "read", "r1"]))
 log.unlink()
 fake(sleep={"s0": 1.5})
 eq.plan = units(["s0", "s1"], [("r1", ["s1"])])

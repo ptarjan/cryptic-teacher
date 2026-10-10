@@ -29,7 +29,11 @@ A read never starts before its own planned scan has ended done: a read
 unit making that scan itself does it at the reads' idle desktop priority
 and then reads the whole edition here, not prepared, past READ_SECONDS.
 Scans run whole on the desktop (ocr_remote.scan, its CPU) in SCAN_WORKERS
-slots, reads in --workers slots (mostly a wait on the desktop VLM).
+slots, reads in --workers slots (mostly the desktop's CPU: its VLM is idle
+most of the time). A scan holds while the next --workers ready reads of
+its rank or more urgent are there and none of them needs it: scans run
+above the reads there and finish ten times as fast, so unchecked they keep
+most of the desktop's cores while the scanned editions' reads queue behind them.
 
 --fetch SOURCE adds a fetcher's units (FETCHERS: archive.org, one edition
 each, fetch_archive_org_editions.fetch_unit) in a pool of their own, its
@@ -894,6 +898,27 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             if u["paper"] not in stands:
                 stands[u["paper"]] = fa.standing(paper, cache)
             return fa.scan_stands(paper, u["rel"], cache, stands[u["paper"]])
+
+        def waits(u, scanning=scanning, unscanned=unscanned, rescanned=rescanned):
+            """Whether read `u` waits on a scan: one it needs running, its own
+            planned and not yet done, or one of a stale-scan re-read's ended
+            since the plan."""
+            return (any((u["paper"], r) in scanning for r in u["needs"]) or (u["paper"], u["rel"]) in unscanned
+                    or (u["reason"] in fa.STALE_SCAN and any((u["paper"], r) in rescanned for r in u["needs"])))
+        firsts = {key_of(u) for u in first}
+        ready = []
+
+        def fed(u, ready=ready, reads=reads, busy=busy, waits=waits):
+            """Whether scan `u` only feeds a backlog: the next full read pool
+            of ready reads ranked as it or more urgent, in the queue's order,
+            are there and none needs it. Then its desktop CPU (scans run above
+            reads there) is the reads' instead."""
+            if not ready:
+                ready.append([v for v in reads if slot_of(v) == "read" and key_of(v) not in tried
+                              and key_of(v) not in busy and not waits(v)])
+            nxt = [v for v in ready[0] if v["rank"] <= u["rank"]][:pools["read"]]
+            return len(nxt) >= pools["read"] and not any(v["paper"] == u["paper"] and u["rel"] in v["needs"]
+                                                         for v in nxt)
         for u in first + scans + reads + fetches if any(v > 0 for v in free.values()) else ():
             if not may_start() or free[slot_of(u)] <= 0 or key_of(u) in tried:
                 continue
@@ -904,13 +929,11 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 tried.add(key_of(u))
                 scanned.add((u["paper"], u["rel"]))
                 continue
-            if u["kind"] == "read" and any((u["paper"], r) in scanning for r in u["needs"]):
+            if u["kind"] == "scan" and key_of(u) not in firsts and fed(u):
                 continue
-            if u["kind"] == "read" and (u["paper"], u["rel"]) in unscanned:
-                if (u["paper"], u["rel"]) in scan_failed:
+            if u["kind"] == "read" and waits(u):
+                if (u["paper"], u["rel"]) in unscanned and (u["paper"], u["rel"]) in scan_failed:
                     tried.add(key_of(u))
-                continue
-            if u["kind"] == "read" and u["reason"] in fa.STALE_SCAN and any((u["paper"], r) in rescanned for r in u["needs"]):
                 continue
             if starved or (yielding and u["kind"] != "fetch"):
                 continue
