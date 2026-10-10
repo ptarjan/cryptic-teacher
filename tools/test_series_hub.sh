@@ -15,6 +15,7 @@
 set -uo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 out=$(PYTHONPATH="$REPO/tools" python3 - <<'PY' 2>&1
+import re
 import app_tables as A
 import build_seo_pages as B
 
@@ -35,12 +36,12 @@ ps = [{"series": "times", "number": i, "id": f"times-{i}", "date": "2025-01-01",
       for i in range(30)]
 page = B.hub_page({"puzzles": ps})
 section = page.split('<section class="s-series"', 1)[1].split("</section>", 1)[0]
-print("NOTOTAL", "30 puzzle" not in section)
+desc = lambda pg: re.search(r'<meta name="description" content="([^"]*)"', pg).group(1)
+print("NOTOTAL", "30 puzzle" not in section and not re.search(r"\d", desc(page)))
 print("STRIP", page.count('class="chart strip"') == 1 and "harder than 50%" in page
       and "diff-tough" in page and 'class="median"' in page)
 print("FEW", B.difficulty_strip("x", ps[:B.STRIP_MIN - 1]) == "")
 
-import re
 from datetime import date
 for p in ps:
     p["date"] = f"2025-01-{1 + p['number'] % 28:02d}"
@@ -77,6 +78,7 @@ print("LINKED", f'{B.BASE}/puzzles/series/times/"' in page
 # same link back; the badges and the percentile sentence are built by one
 # helper each, and the app's chips and tooltip say what the pages say.
 listing = B.listing_page("times", "2025", ps, None, None)
+print("YEARDESC", not re.search(r"\d+ Times", desc(listing)) and "30" not in desc(listing))
 print("LEGEND", all(B.BADGE_KEY in pg for pg in (page, today, listing))
       and "Gentle, Moderate" not in page)
 print("YEARSTRIP", listing.count('class="chart strip"') == 1)
@@ -112,7 +114,7 @@ print("REPRINT", [p["number"] for ps_ in gm.values() for p in ps_] == [3146]
 PY
 )
 echo "$out"
-for k in COUNT GRID APP NOTOTAL STRIP FEW TODAY LATEST LEADS NOCOUNT YEARCOUNTS PATHS STAGE LINKED LEGEND YEARSTRIP HUBLINK ONEWAY COUNTS NOTE CHIPS REPRINT; do
+for k in COUNT GRID APP NOTOTAL STRIP FEW TODAY LATEST LEADS NOCOUNT YEARCOUNTS PATHS STAGE LINKED YEARDESC LEGEND YEARSTRIP HUBLINK ONEWAY COUNTS NOTE CHIPS REPRINT; do
   grep -qx "$k True" <<<"$out" || { echo "FAIL: $k"; exit 1; }
 done
 echo "PASS"

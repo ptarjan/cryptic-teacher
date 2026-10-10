@@ -2,8 +2,8 @@
 # Do new puzzles get found fast? /sitemap.xml must be a sitemap index (the URL
 # Search Console holds) over a small sitemap-recent.xml, carrying the last
 # RECENT_DAYS of puzzles and every page that changes daily, and the archive
-# parts holding the rest, each puzzle in exactly one. The homepage and /puzzles/
-# link each paper's newest puzzle, one per paper, leaving out a back archive;
+# parts holding the rest, each puzzle in exactly one. The homepage links every
+# series page and each printing paper's newest puzzle; /puzzles/ links no puzzle;
 # and a puzzle page pages Newer/Older within its own series and links the
 # series' landing page.
 #
@@ -46,8 +46,15 @@ print("SPLIT", all((f"{B.BASE}/puzzles/{p['id']}/" in recent) == (date.fromisofo
                    for p in ps) and len(archive) > 0)
 print("DAILY", f"{B.BASE}/puzzles/series/cryptic/" in recent and f"{B.BASE}/" in recent)
 
-home, hub = B.homepage_nav(idx), B.hub_page(idx)
-print("NOPICKS", not any(f"{B.BASE}/puzzles/{p['id']}/" in home + hub for p in ps))
+home, hub = B.homepage_nav(idx, top), B.hub_page(idx)
+answers = lambda page: {p["id"] for p in ps if f"{B.BASE}/puzzles/{p['id']}/" in page}
+print("NOPICKS", answers(hub) == set())
+# The homepage links each printing paper's newest puzzle (solver first, then
+# its answer page) and every series page; a back archive is a series link only.
+print("LATEST", answers(home) == {"cryptic-30200", "everyman-4171"}
+      and f'{B.BASE}/?p=cryptic-30200">' in home
+      and all(f'{B.BASE}/puzzles/series/{s}/"' in home for s in ("cryptic", "everyman", "canberra"))
+      and "canberra-720630" not in home)
 
 stubs = ps
 nb = dict(zip([p["id"] for p in stubs], B.series_neighbours(stubs)))
@@ -61,7 +68,7 @@ print("PAGERHTML", 'rel="prev"' in page and 'rel="next"' in page
 PY
 )
 echo "$out"
-for k in INDEX ONCE SPLIT DAILY NOPICKS PAGER PAGERHTML; do
+for k in INDEX ONCE SPLIT DAILY NOPICKS LATEST PAGER PAGERHTML; do
   grep -qx "$k True" <<<"$out" || { echo "FAIL: $k"; exit 1; }
 done
 echo "PASS"
