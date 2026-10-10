@@ -24,6 +24,9 @@
   "date": "2024-03-15",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,65 @@
     "text": "Fish male clerk left out for cooking",
     "enumeration": "8"
    },
-   "solution": "MACKEREL"
+   "solution": "MACKEREL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "MACKEREL",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left out",
+      "for": "deletion",
+      "note": "something left out is omitted, so the word naming the side is dropped from the letters"
+     },
+     {
+      "text": "for cooking",
+      "for": "anagram",
+      "note": "cooking stirs ingredients together, so the remaining letters get mixed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "male clerk",
+      "gives": "MALECLERK",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left; one L is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MACKEREL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MAECLERK",
+       "gives": "MACKEREL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man working as a clerk is excluded from the kitchen while dinner is being prepared.",
+     "walkthrough": "Only one of the two Ls in MALE CLERK goes; the other eight letters rearrange to MACKEREL.",
+     "definitionFit": "The mackerel is a common striped sea fish of the Atlantic, often eaten smoked."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooking"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +112,58 @@
     "text": "Encountered crook regularly in underground",
     "enumeration": "5"
    },
-   "solution": "METRO"
+   "solution": "METRO",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "METRO",
+    "definitions": [
+     {
+      "text": "underground",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so only every other letter of the word is kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Encountered",
+      "gives": "MET",
+      "note": "past tense of meet"
+     },
+     {
+      "clueFragment": "crook",
+      "gives": "RO",
+      "select": "alternate",
+      "note": "the second and fourth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MET",
+      "RO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone bumped into a criminal on the Tube.",
+     "definitionFit": "A metro is an underground railway system in a city, such as the Paris Métro."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crook"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +183,71 @@
      }
     ]
    },
-   "solution": "CLOSEUP"
+   "solution": "CLOSEUP",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CLOSE-UP",
+    "definitions": [
+     {
+      "text": "Photograph",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word just before it"
+     },
+     {
+      "text": "plugging",
+      "for": "container",
+      "note": "something plugging a hole sits inside it, so these letters go within the prize word"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Spanish",
+      "gives": "LOS",
+      "note": "Spanish for 'the' (masculine plural)"
+     },
+     {
+      "clueFragment": "eleven",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "trophy",
+      "gives": "CUP",
+      "note": "a cup is a sporting trophy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LOS",
+      "E",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A picture of a Spanish football team clutching their trophy.",
+     "definitionFit": "A close-up is a photograph taken at very short range, filling the frame with its subject."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eleven"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +261,45 @@
     "text": "Deadpan European staying in one place",
     "enumeration": "11"
    },
-   "solution": "EMOTIONLESS"
+   "solution": "EMOTIONLESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EMOTIONLESS",
+    "definitions": [
+     {
+      "text": "Deadpan",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "staying in one place",
+      "gives": "MOTIONLESS",
+      "note": "not moving at all"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MOTIONLESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A poker-faced continental who never moves from the spot.",
+     "definitionFit": "A deadpan delivery shows no feeling, which is what emotionless means: impassive and expressionless."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +313,62 @@
     "text": "Young bird, say, allowed around area",
     "enumeration": "6"
    },
-   "solution": "EAGLET"
+   "solution": "EAGLET",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EAGLET",
+    "definitions": [
+     {
+      "text": "Young bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the short word for 'say' wraps around the letter that follows in the clue"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "e.g., for example"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "allowed",
+      "gives": "LET",
+      "note": "let means permitted"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "A",
+      "G",
+      "LET"
+     ]
+    },
+    "explanation": {
+     "surface": "A fledgling, for instance, is permitted to roam the neighbourhood.",
+     "walkthrough": "'Say' is the usual crossword signal for 'for example', abbreviated with two letters; 'around' applies only to that pair.",
+     "definitionFit": "An eaglet is a young eagle, a chick still in or near the nest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +382,46 @@
     "text": "Employed, but taken advantage of",
     "enumeration": "4"
    },
-   "solution": "USED"
+   "solution": "USED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "USED",
+    "definitions": [
+     {
+      "text": "Employed",
+      "at": 0
+     },
+     {
+      "text": "taken advantage of",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Employed",
+      "note": "first meaning: put to use"
+     },
+     {
+      "clueFragment": "taken advantage of",
+      "note": "second meaning: exploited selfishly"
+     }
+    ],
+    "explanation": {
+     "surface": "A worker who has a job but feels exploited by the boss.",
+     "definitionFit": "The past participle covers both neutral utilisation and the unkind sense of being exploited by someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Employed"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +435,62 @@
     "text": "Cut back on masonry initially dumped in builder's container",
     "enumeration": "5"
    },
-   "solution": "SKIMP"
+   "solution": "SKIMP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SKIMP",
+    "definitions": [
+     {
+      "text": "Cut back on",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the first letter of the word is wanted"
+     },
+     {
+      "text": "dumped in",
+      "for": "container",
+      "note": "rubbish dumped in a receptacle ends up inside it, so this letter goes within the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "masonry",
+      "gives": "M",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "builder's container",
+      "gives": "SKIP",
+      "note": "a skip is a large open bin for building rubble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKI",
+      "M",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "Spending is trimmed as stonework goes in the rubbish bin.",
+     "walkthrough": "A skip is the British name for the big metal bin left outside building sites (a dumpster).",
+     "definitionFit": "To skimp on something is to economise on it, spending or using less than is needed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dumped"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +504,62 @@
     "text": "Go off at a tangent about son in rented accommodation",
     "enumeration": "7"
    },
-   "solution": "DIGRESS"
+   "solution": "DIGRESS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DIGRESS",
+    "definitions": [
+     {
+      "text": "Go off at a tangent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the preceding pair of items inside the word for lodgings"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rented accommodation",
+      "gives": "DIGS",
+      "note": "digs is British slang for lodgings"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means concerning"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIG",
+      "RE",
+      "S",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A tenant rambles on about a son living in a rented flat.",
+     "walkthrough": "Digs is British slang for rented rooms, usually a lodger's or student's.",
+     "definitionFit": "To digress is to stray from the main subject, which is exactly what going off at a tangent means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +573,47 @@
     "text": "Complete yet difficult progress",
     "enumeration": "13"
    },
-   "solution": "THOROUGHGOING"
+   "solution": "THOROUGHGOING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THOROUGHGOING",
+    "definitions": [
+     {
+      "text": "Complete",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "yet",
+      "gives": "THO",
+      "note": "informal short form of 'though'"
+     },
+     {
+      "clueFragment": "difficult progress",
+      "gives": "ROUGHGOING",
+      "note": "rough going is hard, slow advance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THO",
+      "ROUGHGOING"
+     ]
+    },
+    "explanation": {
+     "surface": "An arduous journey that has been finished despite obstacles.",
+     "walkthrough": "'Complete yet' looks like 'finished so far', but 'yet' means though, written THO.",
+     "definitionFit": "Thoroughgoing means total or out-and-out, as in a thoroughgoing reform that leaves nothing untouched."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "yet"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +627,63 @@
     "text": "Relative of Shakespearean fairy in more imposing surroundings",
     "enumeration": "11"
    },
-   "solution": "GRANDMOTHER"
+   "solution": "GRANDMOTHER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GRANDMOTHER",
+    "definitions": [
+     {
+      "text": "Relative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in, paired with the later word about surroundings, signals one piece sitting inside the other"
+     },
+     {
+      "text": "surroundings",
+      "for": "container",
+      "note": "surroundings enclose something, so the comparative wraps around the fairy"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more imposing",
+      "gives": "GRANDER",
+      "note": "comparative of grand"
+     },
+     {
+      "clueFragment": "Shakespearean fairy",
+      "gives": "MOTH",
+      "note": "Moth is one of Titania's fairies in A Midsummer Night's Dream"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRAND",
+      "MOTH",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A family member of a Shakespeare sprite lives in a grander house.",
+     "walkthrough": "Moth, Peaseblossom, Cobweb and Mustardseed are the fairies attending Titania.",
+     "definitionFit": "A grandmother is a parent's mother, a close family relation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "surroundings"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +697,43 @@
     "text": "Daggers concealed in robe lining",
     "enumeration": "5"
    },
-   "solution": "OBELI"
+   "solution": "OBELI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OBELI",
+    "definitions": [
+     {
+      "text": "Daggers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "concealed in",
+      "for": "hidden_word",
+      "note": "concealed in says the letters lie tucked inside the run of words that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "robe lining",
+      "gives": "OBELI",
+      "note": "spans the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Knives are tucked away in the lining of a gown.",
+     "definitionFit": "An obelus is the dagger-shaped printer's mark (†); obeli is its plural."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Daggers"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +747,64 @@
     "text": "Instance of former member overcome by drink",
     "enumeration": "7"
    },
-   "solution": "EXAMPLE"
+   "solution": "EXAMPLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EXAMPLE",
+    "definitions": [
+     {
+      "text": "Instance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overcome by",
+      "for": "container",
+      "note": "overcome by means engulfed, so the word for member is swallowed by the drink"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former",
+      "gives": "EX",
+      "note": "ex- means former"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "ALE",
+      "note": "a kind of beer"
+     },
+     {
+      "clueFragment": "member",
+      "gives": "MP",
+      "note": "Member of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "A",
+      "MP",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A case of an ex-MP who has had too much to drink.",
+     "definitionFit": "An example is one case or specimen of something, a synonym for an instance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "member"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +818,53 @@
     "text": "A large tree growing in a mountainous region",
     "enumeration": "6"
    },
-   "solution": "ALPINE"
+   "solution": "ALPINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALPINE",
+    "definitions": [
+     {
+      "text": "growing in a mountainous region",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "standard abbreviation, as in clothing sizes"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "PINE",
+      "note": "a conifer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "L",
+      "PINE"
+     ]
+    },
+    "explanation": {
+     "surface": "A big conifer thrives high up in the hills.",
+     "walkthrough": "'A large tree' reads as the subject; the definition is the whole phrase after it.",
+     "definitionFit": "Alpine plants are those native to high mountain slopes above the tree line."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "large"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +878,45 @@
     "text": "What broadcasters may use in traffic tailback, do we hear?",
     "enumeration": "7"
    },
-   "solution": "AUTOCUE"
+   "solution": "AUTOCUE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "AUTOCUE",
+    "definitions": [
+     {
+      "text": "What broadcasters may use",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "do we hear",
+      "for": "homophone",
+      "note": "do we hear asks the solver to judge the phrase by its sound rather than its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "traffic tailback",
+      "gives": "AUTOCUE",
+      "soundsLike": "AUTO QUEUE",
+      "note": "a line of cars is a queue of autos"
+     }
+    ],
+    "explanation": {
+     "surface": "Newsreaders wonder whether they need a device while stuck in a traffic jam.",
+     "walkthrough": "A tailback is the British word for a long line of stationary traffic. Autocue is the UK trade name for a teleprompter.",
+     "definitionFit": "Presenters read their script from a screen beside the camera lens, the teleprompter known in Britain by this brand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tailback"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +930,54 @@
     "text": "Business transaction restricted by one's principles",
     "enumeration": "6"
    },
-   "solution": "IDEALS"
+   "solution": "IDEALS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IDEALS",
+    "definitions": [
+     {
+      "text": "principles",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restricted by",
+      "for": "container",
+      "note": "restricted by means hemmed in, so the transaction sits within the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one's",
+      "gives": "IS",
+      "note": "one is I, with the possessive S"
+     },
+     {
+      "clueFragment": "Business transaction",
+      "gives": "DEAL",
+      "note": "a deal is a business agreement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "DEAL",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A trader says their scruples limit which deals they can strike.",
+     "definitionFit": "Ideals are standards of conduct one aims at, the moral principles someone lives by."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "restricted"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +991,69 @@
     "text": "Try a casual worker in borders of Tibet",
     "enumeration": "7"
    },
-   "solution": "ATTEMPT"
+   "solution": "ATTEMPT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ATTEMPT",
+    "definitions": [
+     {
+      "text": "Try",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "borders of",
+      "for": "letter_selection",
+      "note": "the borders of a word are its edges, so only its first and last letters count"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the casual worker between the two edge letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Tibet",
+      "gives": "TT",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "casual worker",
+      "gives": "TEMP",
+      "note": "a temporary employee"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "T",
+      "TEMP",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An invitation to try temping on the frontiers of Tibet.",
+     "walkthrough": "The 'a' stays outside at the front; only the worker sits between the borders.",
+     "definitionFit": "An attempt is an effort to do something, the noun sense of a try; both also work as verbs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "borders"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1067,66 @@
     "text": "Quick snooze set up worker in close-fitting headgear",
     "enumeration": "6"
    },
-   "solution": "CATNAP"
+   "solution": "CATNAP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "CATNAP",
+    "definitions": [
+     {
+      "text": "Quick snooze",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set up",
+      "for": "reversal",
+      "note": "in a down clue, set up means raised from bottom to top, so the letters run backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the turned-round worker inside the headgear"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "worker",
+      "gives": "ANT",
+      "note": "the worker ant is the crossword's favourite worker"
+     },
+     {
+      "clueFragment": "close-fitting headgear",
+      "gives": "CAP",
+      "note": "a cap is a snug hat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "TNA",
+      "P"
+     ],
+     "reversals": [
+      {
+       "from": "ANT",
+       "to": "TNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A labourer in a snug cap grabs forty winks.",
+     "definitionFit": "A catnap is a short light sleep taken during the day, a brief doze."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1140,49 @@
     "text": "Girl taking a long time to produce a piece of mosaic",
     "enumeration": "7"
    },
-   "solution": "TESSERA"
+   "solution": "TESSERA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TESSERA",
+    "definitions": [
+     {
+      "text": "a piece of mosaic",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "taking",
+     "to produce"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "TESS",
+      "note": "a girl's name, as in Tess of the d'Urbervilles"
+     },
+     {
+      "clueFragment": "a long time",
+      "gives": "ERA",
+      "note": "an era is a long period"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TESS",
+      "ERA"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman spends ages making a tile for a mosaic.",
+     "definitionFit": "A tessera is one of the small square tiles of stone or glass from which a mosaic is assembled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1196,41 @@
     "text": "Do away with uncultivated vegetation",
     "enumeration": "5"
    },
-   "solution": "SCRUB"
+   "solution": "SCRUB",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCRUB",
+    "definitions": [
+     {
+      "text": "Do away with",
+      "at": 0
+     },
+     {
+      "text": "uncultivated vegetation",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Do away with",
+      "note": "first meaning: cancel or abandon (informal)"
+     },
+     {
+      "clueFragment": "uncultivated vegetation",
+      "note": "second meaning: stunted bushes and brushwood"
+     }
+    ],
+    "explanation": {
+     "surface": "Get rid of the wild undergrowth.",
+     "definitionFit": "To scrub a plan is to cancel it, and scrub is also land covered with low scrubby bushes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1244,49 @@
     "text": "Creature like Tarka having higher temperature in Bow?",
     "enumeration": "5"
    },
-   "solution": "OTTER"
+   "solution": "OTTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OTTER",
+    "definitions": [
+     {
+      "text": "Creature like Tarka",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in Bow?",
+      "for": "deletion",
+      "note": "Bow is an East End district whose Cockney speech drops the aitch at the start of words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "having higher temperature",
+      "gives": "HOTTER",
+      "note": "warmer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OTTER"
+     ]
+    },
+    "explanation": {
+     "surface": "An otter runs a fever in the town of Bow.",
+     "walkthrough": "Bow is in East London, Cockney territory, where the H is famously dropped. Tarka the Otter is Henry Williamson's 1927 novel.",
+     "definitionFit": "Tarka is the otter hero of a classic English animal story, so a creature like him is an otter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bow"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1300,61 @@
     "text": "Posh doctor involved in Royal Academy dance",
     "enumeration": "5"
    },
-   "solution": "RUMBA"
+   "solution": "RUMBA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RUMBA",
+    "definitions": [
+     {
+      "text": "dance",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved in",
+      "for": "container",
+      "note": "involved in means wrapped up inside, so the first two pieces go within the academy"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Posh",
+      "gives": "U",
+      "note": "U means upper-class"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MB",
+      "note": "Bachelor of Medicine"
+     },
+     {
+      "clueFragment": "Royal Academy",
+      "gives": "RA",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "U",
+      "MB",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A smart physician takes part in a ball at the Royal Academy.",
+     "definitionFit": "The rumba is a Cuban ballroom dance with a rhythmic hip-swaying step."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Posh"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1368,67 @@
     "text": "Flowering plant her many chums cultivated? About time",
     "enumeration": "13"
    },
-   "solution": "CHRYSANTHEMUM"
+   "solution": "CHRYSANTHEMUM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CHRYSANTHEMUM",
+    "definitions": [
+     {
+      "text": "Flowering plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cultivated",
+      "for": "anagram",
+      "note": "cultivated soil is worked over, so these letters are turned into a new order"
+     },
+     {
+      "text": "About",
+      "for": "container",
+      "note": "About means surrounding, so the rearranged letters wrap the unit of time"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "her many chums",
+      "gives": "HERMANYCHUMS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHRYSAN",
+      "T",
+      "HEMUM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HERMANYCHUMS",
+       "gives": "CHRYSANHEMUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener's friends grew a bloom, and not before time.",
+     "walkthrough": "'Cultivated' suits a plant clue so well it reads as description, but it signals the rearrangement; the T goes inside the result.",
+     "definitionFit": "The chrysanthemum is a popular garden and florist's plant with large showy autumn blooms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cultivated"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1442,51 @@
     "text": "Island easily located by Amundsen at first?",
     "enumeration": "4"
    },
-   "solution": "ELBA"
+   "solution": "ELBA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "ELBA",
+    "definitions": [
+     {
+      "text": "Island easily located by Amundsen at first?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of each preceding word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "easily located by Amundsen",
+      "gives": "ELBA",
+      "select": "first",
+      "note": "first letters of each word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELBA"
+     ]
+    },
+    "explanation": {
+     "surface": "A small Mediterranean island would pose no challenge to a great polar explorer.",
+     "walkthrough": "Roald Amundsen was the Norwegian who first reached the South Pole. The whole clue defines, and its tail supplies the letters.",
+     "definitionFit": "Elba is the Italian island where Napoleon was exiled, small enough for any explorer to find."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Amundsen"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1500,53 @@
     "text": "Rate poet engineered for stage production",
     "enumeration": "8"
    },
-   "solution": "OPERETTA"
+   "solution": "OPERETTA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OPERETTA",
+    "definitions": [
+     {
+      "text": "stage production",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "engineered",
+      "for": "anagram",
+      "note": "something engineered is constructed afresh, so these letters are built into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rate poet",
+      "gives": "RATEPOET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RATEPOET",
+       "gives": "OPERETTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A versifier is graded on a piece written for the theatre.",
+     "definitionFit": "An operetta is a short light opera with spoken dialogue, performed on stage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "engineered"
+    }
+   }
   }
  ]
 }
