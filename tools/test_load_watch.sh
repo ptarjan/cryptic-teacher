@@ -41,12 +41,12 @@ def drop(proc, pid):
         (Path(proc) / str(pid) / n).unlink()
     (Path(proc) / str(pid)).rmdir()
 
-def fresh(name, load5):
+def fresh(name, load5, avg60=2.25):
     p = tmp / name
     p.mkdir()
     (p / "loadavg").write_text(f"{load5} {load5} {load5} 3/100 999\n")
     (p / "pressure").mkdir()
-    (p / "pressure/cpu").write_text("some avg10=1.50 avg60=2.25 avg300=3.00 total=1\n")
+    (p / "pressure/cpu").write_text(f"some avg10=1.50 avg60={avg60} avg300=3.00 total=1\n")
     return str(p)
 
 # key(): script name, flag, edition_queue unit kind, the claude burn, plain binary.
@@ -135,7 +135,7 @@ def run(proc, state, **kw):
                    hz=100, seconds=10, **kw)
 
 state = tmp / "state"
-proc = fresh("p1", 3.0)
+proc = fresh("p1", 3.0, avg60=30.5)
 put(proc, 30, ["python3", "/x/fetch_puzzle.py", "--reindex"], ppid=29, state="R", u=0)
 put(proc, 29, ["bash", "/x/gale_read.sh"], ppid=1)
 put(proc, 31, ["sleep", "9"], state="D")
@@ -156,7 +156,7 @@ rec = run(proc, state, sleep=burn({30: 1260}))  # 12.6 s of CPU in a 10 s window
 check("second high run wakes", "woke", rec["action"])
 check("top consumer", "fetch_puzzle.py --reindex", rec["top"])
 check("message is ranked and carries the work", True,
-      woke[0].startswith("load 15 on 6 cores: tasks stalled waiting for CPU 2.25% of the last minute")
+      woke[0].startswith("load 15 on 6 cores: tasks stalled waiting for CPU 30.5% of the last minute")
       and "Top consumers: 1.3 cores fetch_puzzle.py --reindex (parent gale_read.sh)" in woke[0]
       and "desktop CPU" in woke[0] and "1 in D-state" in woke[0])
 check("running count excludes the sampler itself", 0, rec["R"])
@@ -179,12 +179,20 @@ clock[0] += 4000
 check("same top after the hour wakes", "woke", run(proc, state, sleep=burn({40: 3000}))["action"])
 (Path(proc) / "loadavg").write_text("2 2 2 3/100 999\n")
 check("calm resets the streak", 0, run(proc, state, sleep=burn({}))["over"])
+# A high load average with tasks rarely waiting (D-state, other VM work) wakes no one.
+proc3 = fresh("p3", 9.0)
+put(proc3, 60, ["python3", "y.py"], state="R")
+st3 = tmp / "state3"
+quiet = []
+for _ in range(2):
+    rec = lw.main(proc=proc3, state_dir=st3, ncores=6, now=lambda: 5.0, waker=quiet.append, hz=100, seconds=1, sleep=lambda _: None)
+check("high load, low CPU pressure: not-waiting", ("not-waiting", []), (rec["action"], quiet))
 lines = (state / "load_watch.jsonl").read_text().splitlines()
 check("one jsonl line per check", 7, len(lines))
 check("log lines are json with an action", True, all("action" in json.loads(l) for l in lines))
 
 # A failed wake is recorded and retried next run (no woke_at saved).
-proc2 = fresh("p2", 20.0)
+proc2 = fresh("p2", 20.0, avg60=30.5)
 put(proc2, 50, ["python3", "z.py"], state="R")
 st2 = tmp / "state2"
 failing = lambda text: False
