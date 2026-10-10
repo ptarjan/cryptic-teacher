@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "Tell cockney chap to take role",
     "enumeration": "6"
    },
-   "solution": "IMPART"
+   "solution": "IMPART",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPART",
+    "definitions": [
+     {
+      "text": "Tell",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to take"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cockney chap",
+      "gives": "IM",
+      "note": "a Londoner of the East End drops the H, so 'him' comes out as 'im"
+     },
+     {
+      "clueFragment": "role",
+      "gives": "PART",
+      "note": "an actor's part is the role played"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "PART"
+     ]
+    },
+    "explanation": {
+     "surface": "A Londoner is told to take on a role in a play.",
+     "walkthrough": "Cockney speech drops initial H, a standard crossword convention, so a chap referred to as 'him' becomes IM.",
+     "definitionFit": "To impart news is to communicate or pass it on, which is a synonym for tell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tell"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +93,47 @@
     "text": "Catcalls coming from the stables?",
     "enumeration": "4"
    },
-   "solution": "MEWS"
+   "solution": "MEWS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MEWS",
+    "definitions": [
+     {
+      "text": "Catcalls",
+      "at": 0
+     },
+     {
+      "text": "the stables",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "coming from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Catcalls",
+      "note": "first meaning: the cries a cat makes, read literally as cat calls"
+     },
+     {
+      "clueFragment": "the stables",
+      "note": "second meaning: a row of stables round a yard, now often converted to houses"
+     }
+    ],
+    "explanation": {
+     "surface": "Jeering heard from a horse yard.",
+     "walkthrough": "Catcalls usually means jeers, but here it is split into the calls of cats. A mews was originally a row of stables, typically in a London back street.",
+     "definitionFit": "Mews are the noises of cats, and also stable buildings grouped around a yard or lane."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Catcalls"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +147,59 @@
     "text": "Lack of balance in short American mystery novel",
     "enumeration": "9"
    },
-   "solution": "ASYMMETRY"
+   "solution": "ASYMMETRY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASYMMETRY",
+    "definitions": [
+     {
+      "text": "Lack of balance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new or unfamiliar, so the letters are made into a fresh arrangement"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "short American",
+      "gives": "AM",
+      "note": "Am. is the standard abbreviation for American"
+     },
+     {
+      "clueFragment": "mystery",
+      "gives": "MYSTERY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AMMYSTERY",
+       "gives": "ASYMMETRY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A critic finds an imbalance in a brief US detective novel.",
+     "walkthrough": "'Novel' looks like a noun naming the book, but it is the anagram signal working on the abbreviation and the word beside it.",
+     "definitionFit": "Asymmetry is the absence of matching proportions on either side, which is a lack of balance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +219,65 @@
      }
     ]
    },
-   "solution": "TEAURN"
+   "solution": "TEAURN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TEA URN",
+    "definitions": [
+     {
+      "text": "catering equipment",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of each of the following words"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places those letters inside the following word"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "turn",
+      "gives": "TURN",
+      "note": "taken as written; it is split to hold the letters"
+     },
+     {
+      "clueFragment": "each apprentice",
+      "gives": "EA",
+      "select": "first",
+      "note": "the first letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "EA",
+      "URN"
+     ]
+    },
+    "explanation": {
+     "surface": "Every trainee in rotation is handed some kitchen kit.",
+     "walkthrough": "The initials go inside TURN after its first letter, giving T-EA-URN.",
+     "definitionFit": "A tea urn is a large heated vessel used to serve hot water at events, a piece of catering kit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +291,53 @@
     "text": "Drainage sorted out for plant",
     "enumeration": "8"
    },
-   "solution": "GARDENIA"
+   "solution": "GARDENIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GARDENIA",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sorted out",
+      "for": "anagram",
+      "note": "something sorted out has been rearranged into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drainage",
+      "gives": "DRAINAGE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DRAINAGE",
+       "gives": "GARDENIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener fixes the drainage before putting in a plant.",
+     "definitionFit": "The gardenia is a fragrant white-flowered shrub, an example of a plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sorted"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +357,58 @@
      }
     ]
    },
-   "solution": "GREENHOUSEGASES"
+   "solution": "GREENHOUSEGASES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GREENHOUSE GASES",
+    "definitions": [
+     {
+      "text": "cause of global warming",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "at",
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Inexperienced",
+      "gives": "GREEN",
+      "note": "green means new and untried"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "HOUSE",
+      "note": "a house is a home"
+     },
+     {
+      "clueFragment": "fumes",
+      "gives": "GASES",
+      "note": "fumes are gases or vapours"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREEN",
+      "HOUSE",
+      "GASES"
+     ]
+    },
+    "explanation": {
+     "surface": "A novice sits at home angry about climate change.",
+     "walkthrough": "'Fumes' reads as a verb for seething, but here it is a plural noun.",
+     "definitionFit": "Greenhouse gases such as carbon dioxide trap heat in the atmosphere and are a major driver of climate change."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fumes"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +422,63 @@
     "text": "Fortifications: force down hard and strap up",
     "enumeration": "8"
    },
-   "solution": "RAMPARTS"
+   "solution": "RAMPARTS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "RAMPARTS",
+    "definitions": [
+     {
+      "text": "Fortifications",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means the word is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "force down hard",
+      "gives": "RAM",
+      "note": "to ram is to force something down hard"
+     },
+     {
+      "clueFragment": "strap",
+      "gives": "STRAP",
+      "note": "taken as written, then turned round"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAM",
+      "PARTS"
+     ],
+     "reversals": [
+      {
+       "from": "STRAP",
+       "to": "PARTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for defensive works: pound the earth and buckle the strap.",
+     "definitionFit": "Ramparts are defensive walls or embankments, the fortifications around a castle or town."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "strap"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +492,74 @@
     "text": "Tedium when nun travels between Spain and Italy",
     "enumeration": "5"
    },
-   "solution": "ENNUI"
+   "solution": "ENNUI",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ENNUI",
+    "definitions": [
+     {
+      "text": "Tedium",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "travels",
+      "for": "anagram",
+      "note": "a word that travels moves about, so its letters are moved around"
+     },
+     {
+      "text": "between",
+      "for": "container",
+      "note": "between places the shuffled letters inside the two country codes"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spain",
+      "gives": "E",
+      "note": "E is the international vehicle code for Spain (España)"
+     },
+     {
+      "clueFragment": "nun",
+      "gives": "NUN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Italy",
+      "gives": "I",
+      "note": "I is the international vehicle code for Italy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "NNU",
+      "I"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NUN",
+       "gives": "NNU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bored nun on a long journey between two Mediterranean countries.",
+     "definitionFit": "Ennui is listless weariness from lack of interest, a close synonym of tedium."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "travels"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +573,68 @@
     "text": "Retaliating after a fashion, student leaves to gain favour",
     "enumeration": "10"
    },
-   "solution": "INGRATIATE"
+   "solution": "INGRATIATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "INGRATIATE",
+    "definitions": [
+     {
+      "text": "gain favour",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "student leaves",
+      "for": "deletion",
+      "note": "leaves means departs, so the learner's letter goes out of the word"
+     },
+     {
+      "text": "after a fashion",
+      "for": "anagram",
+      "note": "after a fashion means loosely or in some altered manner, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Retaliating",
+      "gives": "RETALIATING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L for learner, as on a British learner driver's plate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INGRATIATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RETAIATING",
+       "gives": "INGRATIATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instead of hitting back, a pupil walks away to win approval.",
+     "walkthrough": "Remove the L from the first word, then rearrange the remaining ten letters.",
+     "definitionFit": "To ingratiate oneself is to work one's way into someone's good graces, winning their approval."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +654,48 @@
      }
     ]
    },
-   "solution": "AWAYGAME"
+   "solution": "AWAYGAME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AWAY GAME",
+    "definitions": [
+     {
+      "text": "when performance is at a different venue",
+      "at": 13,
+      "note": "a descriptive phrase for a fixture played on the opponent's ground"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not in",
+      "gives": "AWAY",
+      "note": "someone not in is away"
+     },
+     {
+      "clueFragment": "play",
+      "gives": "GAME",
+      "note": "a game is a period of play"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AWAY",
+      "GAME"
+     ]
+    },
+    "explanation": {
+     "surface": "A sports report on a team out of action while touring elsewhere.",
+     "walkthrough": "'Not in play' looks like a single sporting phrase, but it splits into two pieces.",
+     "definitionFit": "An away game is a match played at the opposing team's ground rather than one's own."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +709,50 @@
     "text": "Household of males era produced",
     "enumeration": "6"
    },
-   "solution": "MENAGE"
+   "solution": "MENAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MENAGE",
+    "definitions": [
+     {
+      "text": "Household",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of",
+     "produced"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "males",
+      "gives": "MEN",
+      "note": "men are adult males"
+     },
+     {
+      "clueFragment": "era",
+      "gives": "AGE",
+      "note": "an age is an era"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEN",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A home of men, the product of its time.",
+     "definitionFit": "Ménage is a borrowed French word for the members of a domestic establishment, a household."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "produced"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +772,55 @@
      }
     ]
    },
-   "solution": "MARINEANIMAL"
+   "solution": "MARINEANIMAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MARINE ANIMAL",
+    "definitions": [
+     {
+      "text": "sea creature",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests the letters are turned around and moved into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Armenian",
+      "gives": "ARMENIAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mail",
+      "gives": "MAIL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARMENIANMAIL",
+       "gives": "MARINEANIMAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A post from Armenia concerns some ocean dweller.",
+     "definitionFit": "Any animal living in the ocean, such as a dolphin or crab, is a sea creature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +834,60 @@
     "text": "Usual Boris nonsense, but good for you!",
     "enumeration": "10"
    },
-   "solution": "SALUBRIOUS"
+   "solution": "SALUBRIOUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SALUBRIOUS",
+    "definitions": [
+     {
+      "text": "good for you",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nonsense",
+      "for": "anagram",
+      "note": "nonsense is garbled speech, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Usual",
+      "gives": "USUAL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Boris",
+      "gives": "BORIS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "USUALBORIS",
+       "gives": "SALUBRIOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jibe that Boris Johnson's usual waffle is nonetheless healthy.",
+     "walkthrough": "Boris is Boris Johnson, the former UK prime minister known for bluster.",
+     "definitionFit": "Salubrious means health-giving or wholesome, so something salubrious is good for you."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "nonsense"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +901,56 @@
     "text": "A hit? I'm going off this deal",
     "enumeration": "4"
    },
-   "solution": "PACT"
+   "solution": "PACT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PACT",
+    "definitions": [
+     {
+      "text": "deal",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going off",
+      "for": "deletion",
+      "note": "going off means leaving, so those letters depart from the word"
+     }
+    ],
+    "linkWords": [
+     "this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A hit",
+      "gives": "IMPACT",
+      "note": "an impact is a hit or collision"
+     },
+     {
+      "clueFragment": "I'm",
+      "gives": "IM",
+      "note": "taken as written, apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PACT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who has just been struck announces they are leaving the arrangement.",
+     "walkthrough": "'I'm going off' sounds like someone quitting, but the two letters of I'm are removed from the start of the word for a hit.",
+     "definitionFit": "A pact is a formal agreement between parties, a synonym for deal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hit"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +964,50 @@
     "text": "Get ahead but not in this part of Sunset Boulevard",
     "enumeration": "8"
    },
-   "solution": "OUTSTRIP"
+   "solution": "OUTSTRIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTSTRIP",
+    "definitions": [
+     {
+      "text": "Get ahead",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not in",
+      "gives": "OUT",
+      "note": "out is the opposite of in"
+     },
+     {
+      "clueFragment": "this part of Sunset Boulevard",
+      "gives": "STRIP",
+      "note": "the Sunset Strip is the famous nightclub stretch of Sunset Boulevard in Los Angeles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "STRIP"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to get on in Hollywood without hanging around the famous nightlife district.",
+     "walkthrough": "The Sunset Strip is the well-known section of Sunset Boulevard in West Hollywood.",
+     "definitionFit": "To outstrip is to go faster than and leave behind, which is to get ahead of someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "not"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1021,70 @@
     "text": "Board accepting revised role that is satisfactory  …",
     "enumeration": "9"
    },
-   "solution": "TOLERABLE"
+   "solution": "TOLERABLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TOLERABLE",
+    "definitions": [
+     {
+      "text": "satisfactory",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revised",
+      "for": "anagram",
+      "note": "something revised has been altered, so the letters are put in a new order"
+     },
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "accepting means taking in, so the first word holds the other inside it"
+     }
+    ],
+    "linkWords": [
+     "that is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Board",
+      "gives": "TABLE",
+      "note": "a table is a board, as in board and lodging"
+     },
+     {
+      "clueFragment": "role",
+      "gives": "ROLE",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OLER",
+      "ABLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROLE",
+       "gives": "OLER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A committee approves a changed job description as adequate.",
+     "walkthrough": "The rearranged letters sit after the T of TABLE. The ellipsis joins this clue to the next only for the surface.",
+     "definitionFit": "Something tolerable is acceptable or good enough, which is what satisfactory means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Board"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1098,46 @@
     "text": "…  of necessity for each law-keeping organisation",
     "enumeration": "8"
    },
-   "solution": "PERFORCE"
+   "solution": "PERFORCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PERFORCE",
+    "definitions": [
+     {
+      "text": "of necessity",
+      "at": 3
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for each",
+      "gives": "PER",
+      "note": "per means for each, as in miles per hour"
+     },
+     {
+      "clueFragment": "law-keeping organisation",
+      "gives": "FORCE",
+      "note": "a police force keeps the law"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PER",
+      "FORCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing the previous clue: something essential for every police force.",
+     "definitionFit": "Perforce is an old-fashioned adverb meaning necessarily or by unavoidable circumstance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "organisation"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1157,65 @@
      }
     ]
    },
-   "solution": "BUSYBEES"
+   "solution": "BUSYBEES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "BUSY BEES",
+    "definitions": [
+     {
+      "text": "live wires",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Maybe",
+      "for": "anagram",
+      "note": "maybe signals a possible version, so the letters may be put in a different order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "buys",
+      "gives": "BUYS",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "buzzers",
+      "gives": "BEES",
+      "note": "bees buzz"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUSY",
+      "BEES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BUYS",
+       "gives": "BUSY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An energetic person perhaps purchases doorbells or other buzzing devices.",
+     "walkthrough": "'Buzzers' suggests electrical gadgets, which fits the wires; here it means insects.",
+     "definitionFit": "Live wires are lively, energetic people, just like busy bees who are constantly active."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "buzzers"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1229,49 @@
     "text": "US city Lawrence discovered recently",
     "enumeration": "4"
    },
-   "solution": "LATE"
+   "solution": "LATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LATE",
+    "definitions": [
+     {
+      "text": "recently",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "discovered"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US city",
+      "gives": "LA",
+      "note": "LA is Los Angeles"
+     },
+     {
+      "clueFragment": "Lawrence",
+      "gives": "TE",
+      "note": "T. E. Lawrence, Lawrence of Arabia, by his initials"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "An American city found Lawrence not long ago.",
+     "definitionFit": "Late can be used as an adverb meaning lately or recently, as in 'of late'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lawrence"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1285,43 @@
     "text": "Thread a way through London",
     "enumeration": "6"
    },
-   "solution": "STRAND"
+   "solution": "STRAND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRAND",
+    "definitions": [
+     {
+      "text": "Thread",
+      "at": 0
+     },
+     {
+      "text": "a way through London",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thread",
+      "note": "first meaning: a single fibre or filament"
+     },
+     {
+      "clueFragment": "a way through London",
+      "note": "second meaning: the street in central London running from Trafalgar Square towards the City"
+     }
+    ],
+    "explanation": {
+     "surface": "Instructions to wind one's way across London.",
+     "walkthrough": "The Strand is a major street in central London, familiar from the Monopoly board.",
+     "definitionFit": "A strand is a single thread of fibre, and the Strand is a well-known London thoroughfare."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Thread"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1335,65 @@
     "text": "Boxer's trophy comes with unusual freight",
     "enumeration": "12"
    },
-   "solution": "PRIZEFIGHTER"
+   "solution": "PRIZEFIGHTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "PRIZEFIGHTER",
+    "definitions": [
+     {
+      "text": "Boxer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusual",
+      "for": "anagram",
+      "note": "unusual means out of the normal pattern, so the letters take an odd order"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "comes with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trophy",
+      "gives": "PRIZE",
+      "note": "a trophy is a prize"
+     },
+     {
+      "clueFragment": "freight",
+      "gives": "FREIGHT",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRIZE",
+      "FIGHTER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FREIGHT",
+       "gives": "FIGHTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boxer's cup arrives with an odd cargo.",
+     "walkthrough": "The 's stands for 'is', joining the definition to the wordplay.",
+     "definitionFit": "A prizefighter is a professional boxer who fights for money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "freight"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1407,64 @@
     "text": "Last character's new loan applies to the region",
     "enumeration": "5"
    },
-   "solution": "ZONAL"
+   "solution": "ZONAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ZONAL",
+    "definitions": [
+     {
+      "text": "applies to the region",
+      "at": 26,
+      "note": "a verb phrase standing for the adjective, meaning relating to a region"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "new suggests a fresh form, so the letters are remade"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Last character",
+      "gives": "Z",
+      "note": "Z is the last letter of the alphabet"
+     },
+     {
+      "clueFragment": "loan",
+      "gives": "LOAN",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Z",
+      "ONAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOAN",
+       "gives": "ONAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A final person's fresh borrowing is subject to local rules.",
+     "definitionFit": "Zonal describes what concerns or belongs to a particular zone or area."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1478,41 @@
     "text": "Insignificant body of water",
     "enumeration": "4"
    },
-   "solution": "MERE"
+   "solution": "MERE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MERE",
+    "definitions": [
+     {
+      "text": "Insignificant",
+      "at": 0
+     },
+     {
+      "text": "body of water",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Insignificant",
+      "note": "first meaning: nothing more than"
+     },
+     {
+      "clueFragment": "body of water",
+      "note": "second meaning: a lake or pond, a word used in northern English place names"
+     }
+    ],
+    "explanation": {
+     "surface": "A dismissive description of an unimportant pond.",
+     "definitionFit": "Mere as an adjective means trifling or slight; as a noun it is an old word for a lake, as in Windermere."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1526,43 @@
     "text": "Artisan becoming a member?",
     "enumeration": "6"
    },
-   "solution": "JOINER"
+   "solution": "JOINER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "JOINER",
+    "definitions": [
+     {
+      "text": "Artisan",
+      "at": 0
+     },
+     {
+      "text": "becoming a member?",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Artisan",
+      "note": "first meaning: a skilled woodworker who makes doors and fittings"
+     },
+     {
+      "clueFragment": "becoming a member?",
+      "note": "second meaning: someone who signs up to a club, read literally"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the playful second reading, one who joins.",
+     "definitionFit": "A joiner is a carpenter who makes fittings, and also, literally, a person who joins a club or society."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "member"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1576,46 @@
     "text": "Slaughterhouse found in a terrible mess",
     "enumeration": "8"
    },
-   "solution": "SHAMBLES"
+   "solution": "SHAMBLES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SHAMBLES",
+    "definitions": [
+     {
+      "text": "Slaughterhouse",
+      "at": 0
+     },
+     {
+      "text": "terrible mess",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "found in a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slaughterhouse",
+      "note": "first meaning: the original sense, a place where meat is butchered"
+     },
+     {
+      "clueFragment": "terrible mess",
+      "note": "second meaning: the modern sense, a chaotic situation"
+     }
+    ],
+    "explanation": {
+     "surface": "An abattoir discovered in a dreadful state.",
+     "walkthrough": "The Shambles in York is a street named for its old butchers' stalls.",
+     "definitionFit": "Shambles originally meant a meat market or abattoir, and now means a scene of total disorder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "found"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1629,46 @@
     "text": "Afterthought changes books of sacred songs",
     "enumeration": "8"
    },
-   "solution": "PSALTERS"
+   "solution": "PSALTERS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PSALTERS",
+    "definitions": [
+     {
+      "text": "books of sacred songs",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Afterthought",
+      "gives": "PS",
+      "note": "a PS, postscript, is an afterthought added to a letter"
+     },
+     {
+      "clueFragment": "changes",
+      "gives": "ALTERS",
+      "note": "alters means changes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PS",
+      "ALTERS"
+     ]
+    },
+    "explanation": {
+     "surface": "A late addition revises hymn books.",
+     "definitionFit": "A psalter is a volume containing the Psalms, the sacred songs of the Bible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "changes"
+    }
+   }
   },
   {
    "number": 26,
@@ -427,7 +1682,51 @@
     "text": "Flower writer might grow",
     "enumeration": "6"
    },
-   "solution": "DEEPEN"
+   "solution": "DEEPEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DEEPEN",
+    "definitions": [
+     {
+      "text": "grow",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "might"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flower",
+      "gives": "DEE",
+      "note": "a flower is something that flows, a river, and the Dee is a British river"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "PEN",
+      "note": "a pen is a writing instrument"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEE",
+      "PEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener's note on a bloom that a novelist could cultivate.",
+     "walkthrough": "'Flower' wants to be a bloom; it is a river, something that flows. The Dee runs through Wales, England and also Scotland.",
+     "definitionFit": "To deepen is to intensify or increase, which is a sense of grow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Flower"
+    }
+   }
   }
  ]
 }
