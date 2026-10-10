@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Water falling, cloud in sight?",
     "enumeration": "8"
    },
-   "solution": "CATARACT"
+   "solution": "CATARACT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CATARACT",
+    "definitions": [
+     {
+      "text": "Water falling",
+      "at": 0
+     },
+     {
+      "text": "cloud in sight",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Water falling",
+      "note": "first meaning: a large, steep waterfall"
+     },
+     {
+      "clueFragment": "cloud in sight",
+      "note": "second meaning: an eye condition that clouds the lens and blurs vision"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests rain falling from a cloud you can see; the two halves are separate meanings, one a waterfall, the other the eye disorder.",
+     "definitionFit": "A cataract is both a big waterfall and an opacity of the eye's lens that clouds a person's vision."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cloud"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +86,48 @@
     "text": "Mean hail storm",
     "enumeration": "7"
    },
-   "solution": "AVERAGE"
+   "solution": "AVERAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AVERAGE",
+    "definitions": [
+     {
+      "text": "Mean",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hail",
+      "gives": "AVE",
+      "note": "Ave is a Latin greeting, to hail someone"
+     },
+     {
+      "clueFragment": "storm",
+      "gives": "RAGE",
+      "note": "to storm is to rage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVE",
+      "RAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A spiteful hailstorm battering the countryside.",
+     "walkthrough": "'Mean' looks like an adjective describing the storm, but it is the statistical noun, and 'hail' is a greeting rather than weather.",
+     "definitionFit": "In statistics the mean is the arithmetic average of a set of values."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hail"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +141,47 @@
     "text": "Musical in need of opening song",
     "enumeration": "3"
    },
-   "solution": "AIR"
+   "solution": "AIR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AIR",
+    "definitions": [
+     {
+      "text": "song",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in need of opening",
+      "for": "deletion",
+      "note": "lacking its opening means the show's title loses its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Musical",
+      "gives": "HAIR",
+      "note": "Hair is the 1960s rock musical"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A stage show that badly needs a good opening number.",
+     "definitionFit": "An air is a tune or melody, so it serves as a word for a song."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +195,62 @@
     "text": "Cupid got off lightly in the end, not knowing right from wrong",
     "enumeration": "9"
    },
-   "solution": "AMORALITY"
+   "solution": "AMORALITY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "AMORALITY",
+    "definitions": [
+     {
+      "text": "not knowing right from wrong",
+      "at": 34,
+      "note": "an adjectival phrase for a noun answer: the state of not knowing right from wrong"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the end",
+      "for": "letter_selection",
+      "note": "in the end points to the final letter of the word just before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cupid",
+      "gives": "AMOR",
+      "note": "Amor is the Latin name for Cupid, the god of love"
+     },
+     {
+      "clueFragment": "got off",
+      "gives": "ALIT",
+      "note": "alit is an old past tense of alight, to get off a vehicle"
+     },
+     {
+      "clueFragment": "lightly",
+      "gives": "Y",
+      "select": "last",
+      "note": "the last letter of lightly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMOR",
+      "ALIT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Cupid escaped with a light punishment because he couldn't tell right from wrong.",
+     "definitionFit": "Amorality is the absence of any moral sense, being unaware of or indifferent to right and wrong."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "got"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +270,66 @@
      }
     ]
    },
-   "solution": "TANKTOP"
+   "solution": "TANKTOP",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TANK TOP",
+    "definitions": [
+     {
+      "text": "Trunk warmer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back of",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "result of sun",
+      "gives": "TAN",
+      "note": "a suntan is what the sun produces on skin"
+     },
+     {
+      "clueFragment": "Buick",
+      "gives": "K",
+      "select": "last",
+      "note": "the final letter of Buick"
+     },
+     {
+      "clueFragment": "Super",
+      "gives": "TOP",
+      "note": "super and top both mean excellent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAN",
+      "K",
+      "TOP"
+     ]
+    },
+    "explanation": {
+     "surface": "A car's boot heater, made from the sun beating on the rear of a Buick Super model.",
+     "walkthrough": "'Trunk' is American for a car boot, matching the Buick, but here it is the human torso. A tank top is a sleeveless knitted pullover.",
+     "definitionFit": "A tank top is a sleeveless sweater worn over a shirt, warming the wearer's torso, or trunk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Trunk"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +343,61 @@
     "text": "FBI suspect one of its agents hit",
     "enumeration": "6"
    },
-   "solution": "BIFFED"
+   "solution": "BIFFED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "BIFFED",
+    "definitions": [
+     {
+      "text": "hit",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suspect",
+      "for": "anagram",
+      "note": "something suspect is dodgy or not right, so these letters are out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "FBI",
+      "gives": "FBI",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one of its agents",
+      "gives": "FED",
+      "note": "a Fed is an American slang term for an FBI agent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIF",
+      "FED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FBI",
+       "gives": "BIF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Bureau suspects one of its own agents has struck someone.",
+     "walkthrough": "'Suspect' reads as a verb with the FBI as its subject; it is an adjective signalling the reshuffle.",
+     "definitionFit": "To biff is informal British for striking someone with a punch, so biffed is a past tense for hit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "suspect"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +411,44 @@
     "text": "Implacable attorney lodges complaint",
     "enumeration": "5"
    },
-   "solution": "BLEAT"
+   "solution": "BLEAT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "BLEAT",
+    "definitions": [
+     {
+      "text": "complaint",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lodges",
+      "for": "hidden_word",
+      "note": "the phrase gives lodging to, or houses, the letters within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Implacable attorney",
+      "gives": "BLEAT",
+      "note": "spanning the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A relentless lawyer files a formal complaint.",
+     "walkthrough": "'Lodges' looks like the legal sense of lodging a complaint; it actually says the phrase holds the answer.",
+     "definitionFit": "A bleat is a feeble, whining grumble, so it is an informal word for a complaint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lodges"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +468,61 @@
      }
     ]
    },
-   "solution": "FATHERBROWN"
+   "solution": "FATHERBROWN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FATHER BROWN",
+    "definitions": [
+     {
+      "text": "detective",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spreads",
+      "for": "container",
+      "note": "she spreads herself between the words on either side, sitting in the middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thick",
+      "gives": "FAT",
+      "note": "fat and thick both mean broad or plump"
+     },
+     {
+      "clueFragment": "That woman",
+      "gives": "HER",
+      "note": "her refers to a woman"
+     },
+     {
+      "clueFragment": "toast",
+      "gives": "BROWN",
+      "note": "to toast bread is to brown it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAT",
+      "HER",
+      "BROWN"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman generously buttering thick toast.",
+     "walkthrough": "The woman sits between the thick and the toast, like filling. Father Brown is G K Chesterton's priest-sleuth.",
+     "definitionFit": "Father Brown is the Catholic priest who solves crimes in G K Chesterton's stories, a classic fictional detective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spreads"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +536,59 @@
     "text": "Teary having plucked flanks, choose wax remover",
     "enumeration": "7"
    },
-   "solution": "EARPICK"
+   "solution": "EARPICK",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "EARPICK",
+    "definitions": [
+     {
+      "text": "wax remover",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having plucked flanks",
+      "for": "deletion",
+      "note": "plucking a word's flanks pulls off the letters at its two sides"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Teary",
+      "gives": "TEARY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "choose",
+      "gives": "PICK",
+      "note": "to pick is to choose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAR",
+      "PICK"
+     ]
+    },
+    "explanation": {
+     "surface": "A tearful person who has plucked hair from their sides picks a depilatory wax.",
+     "walkthrough": "'Wax remover' suggests hair waxing to go with the plucking; it is a tool for clearing earwax.",
+     "definitionFit": "An earpick is a small implement for scooping wax out of the ear canal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wax"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +612,57 @@
      }
     ]
    },
-   "solution": "DEARJOHNLETTER"
+   "solution": "DEARJOHNLETTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DEAR JOHN LETTER",
+    "definitions": [
+     {
+      "text": "leaving note",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "costing extra",
+      "gives": "DEAR",
+      "note": "dear means expensive"
+     },
+     {
+      "clueFragment": "Facilities",
+      "gives": "JOHN",
+      "note": "the john is American slang for the toilet, the facilities"
+     },
+     {
+      "clueFragment": "landlord",
+      "gives": "LETTER",
+      "note": "a landlord lets property, so is one who lets"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEAR",
+      "JOHN",
+      "LETTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A landlord charges extra for amenities and then leaves a note.",
+     "walkthrough": "'Facilities' are the toilet, and the fragments run in the clue in reverse of their order in the answer. 'Leaving note' looks like the landlord leaving, but it is a note announcing someone's departure.",
+     "definitionFit": "A Dear John letter is one ending a romantic relationship, the note a partner writes when walking out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leaving"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +676,43 @@
     "text": "Unlikely to run like Usain Bolt, perhaps",
     "enumeration": "4"
    },
-   "solution": "FAST"
+   "solution": "FAST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FAST",
+    "definitions": [
+     {
+      "text": "Unlikely to run",
+      "at": 0
+     },
+     {
+      "text": "like Usain Bolt, perhaps",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unlikely to run",
+      "note": "first meaning: of a dye, colourfast and not bleeding in the wash"
+     },
+     {
+      "clueFragment": "like Usain Bolt, perhaps",
+      "note": "second meaning: quick, as the Jamaican sprinter is"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The joke is that the world's fastest sprinter would be unlikely to run; the first meaning is about dyes that do not bleed.",
+     "definitionFit": "Fast describes a dye fixed so it will not wash out, and also means quick, like the record-holding sprinter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +726,70 @@
     "text": "One crater formed, and no more dinosaurs",
     "enumeration": "11"
    },
-   "solution": "TRICERATOPS"
+   "solution": "TRICERATOPS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TRICERATOPS",
+    "definitions": [
+     {
+      "text": "dinosaurs",
+      "at": 31,
+      "note": "the answer can be singular or plural; here it is the plural"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "formed",
+      "for": "anagram",
+      "note": "something formed has been shaped into a new arrangement, so these letters are rebuilt"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "crater",
+      "gives": "CRATER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "no more",
+      "gives": "TOPS",
+      "note": "tops means at most, no more than"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRICERA",
+      "TOPS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ICRATER",
+       "gives": "TRICERA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An impact crater formed, and dinosaurs were wiped out.",
+     "walkthrough": "The surface alludes to the asteroid strike that ended the dinosaurs; 'no more' is not extinction but the slang 'tops', as in ten pounds, tops.",
+     "definitionFit": "Triceratops was a three-horned plant-eating dinosaur; the name serves as its own plural."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "more"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +803,53 @@
     "text": "The opposite article is on taxes",
     "enumeration": "10"
    },
-   "solution": "ANTITHESIS"
+   "solution": "ANTITHESIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANTITHESIS",
+    "definitions": [
+     {
+      "text": "The opposite",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "an is the indefinite article"
+     },
+     {
+      "clueFragment": "taxes",
+      "gives": "TITHES",
+      "note": "tithes are levies of a tenth, a church tax"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "TITHES",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper item takes the contrary line on taxation.",
+     "walkthrough": "'Is on' places the word is after the taxes in the answer.",
+     "definitionFit": "An antithesis is the direct contrary of something, its exact reverse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +863,60 @@
     "text": "Couple in the back of huge car could be stars",
     "enumeration": "6"
    },
-   "solution": "GEMINI"
+   "solution": "GEMINI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GEMINI",
+    "definitions": [
+     {
+      "text": "stars",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Couple in the back of",
+      "for": "letter_selection",
+      "note": "a couple from the back means the final pair of letters of the next word"
+     }
+    ],
+    "linkWords": [
+     "could be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "huge",
+      "gives": "GE",
+      "select": "last",
+      "note": "the last two letters of huge"
+     },
+     {
+      "clueFragment": "car",
+      "gives": "MINI",
+      "note": "the Mini is a small British car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GE",
+      "MINI"
+     ]
+    },
+    "explanation": {
+     "surface": "A pair squeezed into the back seat of a big car might be celebrities.",
+     "walkthrough": "'Couple' looks like the twins of the answer, but it only takes two letters; the definition is 'stars'.",
+     "definitionFit": "Gemini, the Twins, is a constellation, a named group of stars in the night sky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Couple"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +936,63 @@
      }
     ]
    },
-   "solution": "PUSHBIKE"
+   "solution": "PUSHBIKE",
+   "annotation": {
+    "type": [
+     "cycling",
+     "container"
+    ],
+    "answer": "PUSH-BIKE",
+    "definitions": [
+     {
+      "text": "Military staff protects old president, cycling this?",
+      "at": 0,
+      "note": "the whole clue is an extended definition: a bike you pedal"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cycling",
+      "for": "cycling",
+      "note": "cycling a word rotates its letters, here moving the first one round to the end"
+     },
+     {
+      "text": "protects",
+      "for": "container",
+      "note": "the staff protects by wrapping around what it guards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Military staff",
+      "gives": "PIKE",
+      "note": "a pike is a long spear carried by infantry"
+     },
+     {
+      "clueFragment": "old president",
+      "gives": "BUSH",
+      "note": "George Bush, a former US president"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "USHB",
+      "IKE"
+     ]
+    },
+    "explanation": {
+     "surface": "An armed guard protecting an ex-president on a bike ride.",
+     "walkthrough": "Bush cycled becomes USHB, which sits inside the pike. 'Cycling' does double duty: it turns the president round and hints at what you do on the answer.",
+     "definitionFit": "A pushbike is an ordinary pedal bicycle, the kind you go cycling on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cycling"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +1006,75 @@
     "text": "Broke circumnavigators finally fixed boat and got on",
     "enumeration": "9"
    },
-   "solution": "SABOTAGED"
+   "solution": "SABOTAGED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "SABOTAGED",
+    "definitions": [
+     {
+      "text": "Broke",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of the word before it"
+     },
+     {
+      "text": "fixed",
+      "for": "anagram",
+      "note": "fixed can mean rigged or rearranged, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "circumnavigators",
+      "gives": "S",
+      "select": "last",
+      "note": "the last letter of circumnavigators"
+     },
+     {
+      "clueFragment": "boat",
+      "gives": "BOAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "got on",
+      "gives": "AGED",
+      "note": "to get on is to grow old, so got on means aged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ABOT",
+      "AGED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BOAT",
+       "gives": "ABOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Penniless round-the-world sailors repaired their vessel and set off.",
+     "walkthrough": "'Broke' looks like penniless, describing the sailors; it is the past tense of break, deliberately wrecked.",
+     "definitionFit": "To sabotage something is to break or wreck it on purpose, so sabotaged means deliberately broke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Broke"
+    }
+   }
   },
   {
    "number": 16,
@@ -291,7 +1094,86 @@
      }
     ]
    },
-   "solution": "JANEEYRE"
+   "solution": "JANEEYRE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "JANE EYRE",
+    "definitions": [
+     {
+      "text": "novel",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "less",
+      "for": "deletion",
+      "note": "less means without, so a letter is taken away"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the shortened word inside the letters that follow"
+     },
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first points to the opening letter of the surname"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "J",
+      "gives": "JAY",
+      "note": "jay is how the letter J is spelt out"
+     },
+     {
+      "clueFragment": "Need",
+      "gives": "NEED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "depth",
+      "gives": "D",
+      "note": "D is the abbreviation for depth"
+     },
+     {
+      "clueFragment": "R",
+      "gives": "R",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Ewing's",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of Ewing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JA",
+      "NEE",
+      "Y",
+      "R",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A Dallas villain's first need is less depth.",
+     "walkthrough": "The bare letter J must be written out as the word for it before anything can go inside. J R Ewing was the scheming oil baron in the US soap Dallas.",
+     "definitionFit": "Jane Eyre is Charlotte Brontë's 1847 novel about a governess, a classic of English fiction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1187,62 @@
     "text": "In a bar take drugs, possibly hard",
     "enumeration": "7"
    },
-   "solution": "AROUSED"
+   "solution": "AROUSED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AROUSED",
+    "definitions": [
+     {
+      "text": "possibly hard",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "in places one piece inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "ROD",
+      "note": "a rod is a bar of metal or wood"
+     },
+     {
+      "clueFragment": "take drugs",
+      "gives": "USE",
+      "note": "to use is slang for taking drugs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "RO",
+      "USE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in a pub taking drugs, maybe hard ones.",
+     "walkthrough": "'Hard' looks like hard drugs, but it is the definition: sexual arousal. A rod is a bar, and USE goes inside it after the A.",
+     "definitionFit": "Someone aroused is sexually excited, and an aroused man may possibly be hard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hard"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1256,61 @@
     "text": "Ten bats with red or white splice",
     "enumeration": "7"
    },
-   "solution": "ENTWINE"
+   "solution": "ENTWINE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ENTWINE",
+    "definitions": [
+     {
+      "text": "splice",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bats",
+      "for": "anagram",
+      "note": "bats means crazy or mad, so these letters go haywire"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ten",
+      "gives": "TEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "red or white",
+      "gives": "WINE",
+      "note": "red and white are the two common kinds of wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENT",
+      "WINE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEN",
+       "gives": "ENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ten cricket bats bound together with red or white tape.",
+     "walkthrough": "'Bats' looks like cricket bats, and 'splice' is the joint of a cricket bat's handle to its blade, but bats means crazy here.",
+     "definitionFit": "To splice is to join ropes or strands by weaving them together, which is to entwine them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bats"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1324,62 @@
     "text": "Nearly all bed covers left under the table",
     "enumeration": "6"
    },
-   "solution": "BLOTTO"
+   "solution": "BLOTTO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "BLOTTO",
+    "definitions": [
+     {
+      "text": "under the table",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Nearly all",
+      "for": "deletion",
+      "note": "nearly all of a word means all except its final letter"
+     },
+     {
+      "text": "covers",
+      "for": "container",
+      "note": "one word covers another by wrapping around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bed",
+      "gives": "BOTTOM",
+      "note": "a bed, as of a river, is its bottom"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "L",
+      "OTTO"
+     ]
+    },
+    "explanation": {
+     "surface": "Nearly all the bedclothes have been left under the table.",
+     "walkthrough": "'Under the table' looks like a place where bed covers lie; it is the idiom for so drunk you fall down.",
+     "definitionFit": "Blotto is British slang for extremely drunk, the state of someone drunk enough to end up under the table."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "table"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1393,60 @@
     "text": "Defeat, on splits in armistice",
     "enumeration": "7"
    },
-   "solution": "TROUNCE"
+   "solution": "TROUNCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TROUNCE",
+    "definitions": [
+     {
+      "text": "Defeat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "splits in",
+      "for": "container",
+      "note": "the word splits and goes in separately, each part placed within the next word"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "armistice",
+      "gives": "TRUCE",
+      "note": "an armistice is a truce"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "O",
+      "U",
+      "N",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "Losing a war, one side violates the ceasefire.",
+     "walkthrough": "The two letters of on go into the truce separately, one after TR and one after U.",
+     "definitionFit": "To trounce an opponent is to defeat them heavily and decisively."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "splits"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1466,54 @@
      }
     ]
    },
-   "solution": "BONAPPETIT"
+   "solution": "BONAPPETIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BON APPETIT",
+    "definitions": [
+     {
+      "text": "The French enjoy",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the smell they make",
+      "gives": "BO",
+      "note": "BO is body odour, the smell people make"
+     },
+     {
+      "clueFragment": "down",
+      "gives": "NAP",
+      "note": "nap is the soft, downy surface of fabric"
+     },
+     {
+      "clueFragment": "their wee",
+      "gives": "PETIT",
+      "note": "petit is French for small, which is wee in Scottish usage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "NAP",
+      "PETIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A rude jibe that the French relish their own smells and drink their urine.",
+     "walkthrough": "'Their' refers back to the French, so their word for wee is petit. 'Wee' wants to be urine, but it is small.",
+     "definitionFit": "Bon appétit is the French wish to diners to enjoy their meal, literally good appetite."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "wee"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1527,51 @@
     "text": "Spike attached to stone overhangs",
     "enumeration": "5"
    },
-   "solution": "PITON"
+   "solution": "PITON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PITON",
+    "definitions": [
+     {
+      "text": "Spike",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stone",
+      "gives": "PIT",
+      "note": "the stone of a fruit is its pit"
+     },
+     {
+      "clueFragment": "attached to",
+      "gives": "ON",
+      "note": "on can mean fixed to, as in a coat on a hook"
+     },
+     {
+      "clueFragment": "overhangs",
+      "note": "a placement word only: in a down entry the stone hangs over the other piece, so it comes first"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIT",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A climbing spike fixed to a rock overhang.",
+     "walkthrough": "'Overhangs' is a placement signal in a down clue: the stone sits above the other piece.",
+     "definitionFit": "A piton is a metal spike driven into rock to support a climber's rope."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stone"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1585,60 @@
     "text": "Corner immediately after turning right",
     "enumeration": "4"
    },
-   "solution": "NOOK"
+   "solution": "NOOK",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NOOK",
+    "definitions": [
+     {
+      "text": "Corner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning round means the letters face the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "immediately after",
+      "gives": "ON",
+      "note": "on can mean straight after, as in on arrival"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "OK",
+      "note": "OK means all right, correct"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "OK"
+     ],
+     "reversals": [
+      {
+       "from": "ON",
+       "to": "NO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to turn right just past a corner.",
+     "definitionFit": "A nook is a small recess or sheltered corner of a room."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 24,
@@ -415,7 +1658,73 @@
      }
     ]
    },
-   "solution": "SMOOTHINGPLANE"
+   "solution": "SMOOTHINGPLANE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SMOOTHING PLANE",
+    "definitions": [
+     {
+      "text": "carpenter's tool",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after adapting",
+      "for": "anagram",
+      "note": "adapting means altering, so these letters are changed into a new order"
+     },
+     {
+      "text": "cuts",
+      "for": "container",
+      "note": "something that cuts into a word lands inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man loose",
+      "gives": "MANLOOSE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Fine",
+      "gives": "THIN",
+      "note": "fine and thin both mean slender"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "GP",
+      "note": "a GP is a general practitioner, a family doctor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SMOO",
+      "THIN",
+      "GP",
+      "LANE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MANLOOSE",
+       "gives": "SMOOLANE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A good doctor frees a man after an operation using a woodworking tool.",
+     "walkthrough": "THIN and GP go together into the middle of the rearranged man loose.",
+     "definitionFit": "A smoothing plane is a short hand plane a carpenter uses to give wood a final smooth finish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fine"
+    }
+   }
   },
   {
    "number": 25,
@@ -429,7 +1738,48 @@
     "text": "Grazing the top half of foliage",
     "enumeration": "3"
    },
-   "solution": "LEA"
+   "solution": "LEA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LEA",
+    "definitions": [
+     {
+      "text": "Grazing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the top half of",
+      "for": "deletion",
+      "note": "the top half of a down entry means its first half, so the second half is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "foliage",
+      "gives": "LEAVES",
+      "note": "the leaves of a plant are its foliage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEA"
+     ]
+    },
+    "explanation": {
+     "surface": "Animals grazing on the upper half of a tree's foliage.",
+     "walkthrough": "'Grazing' looks like a verb for animals eating, but it is a noun for grassland.",
+     "definitionFit": "A lea is a meadow or pasture, land given over to grazing for livestock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Grazing"
+    }
+   }
   },
   {
    "number": 26,
@@ -449,7 +1799,43 @@
      }
     ]
    },
-   "solution": "ODDSON"
+   "solution": "ODDSON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ODDS-ON",
+    "definitions": [
+     {
+      "text": "Expected",
+      "at": 0
+     },
+     {
+      "text": "Tertius or Quintus, possibly but not Sextus",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Expected",
+      "note": "first meaning: very likely to happen, as a betting favourite"
+     },
+     {
+      "clueFragment": "Tertius or Quintus, possibly but not Sextus",
+      "note": "second meaning: Roman names meaning third and fifth child describe an odd-numbered boy, while sixth is even"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Tertius, Quintus and Sextus were Roman forenames for the third, fifth and sixth child; three and five are odd, six is not.",
+     "definitionFit": "Odds-on describes a likely winner in betting, hence expected; read as two words it is a third or fifth male child."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sextus"
+    }
+   }
   },
   {
    "number": 27,
@@ -463,7 +1849,61 @@
     "text": "Nurse rapped for messing up last sheet",
     "enumeration": "8"
    },
-   "solution": "ENDPAPER"
+   "solution": "ENDPAPER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ENDPAPER",
+    "definitions": [
+     {
+      "text": "last sheet",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for messing up",
+      "for": "anagram",
+      "note": "messing up a word scrambles it, so its letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nurse",
+      "gives": "EN",
+      "note": "EN is an enrolled nurse"
+     },
+     {
+      "clueFragment": "rapped",
+      "gives": "RAPPED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "DPAPER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAPPED",
+       "gives": "DPAPER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nurse is scolded for making a mess of the final bed sheet.",
+     "walkthrough": "'Sheet' suggests bedding to go with the nurse; it is a page of a book.",
+     "definitionFit": "An endpaper is the blank leaf at the very end, or start, of a book, glued to the cover."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sheet"
+    }
+   }
   }
  ]
 }
