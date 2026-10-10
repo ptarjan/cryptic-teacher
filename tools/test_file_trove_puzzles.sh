@@ -316,6 +316,15 @@ print(*[O.known(w) for w in ('WOOFR', 'WOOFST', 'WOOFD', 'WOOFES', 'RUGE')],
       *[O.known(w) for w in ('WOOER', 'WISER', 'WISEST', 'BAKED', 'BOXES', 'WOOFED')])")
 check "a misread on an inflection is no word" "False False False False False True True True True True True" "$got"
 
+# A light read surely in every cell and whole may be a UKACD word or a
+# cmudict name WordNet lacks (REDINGOTE, OLOROSO, HILARY); a letter misread surely still leaves no word
+# (PIRSTREFUSAL, AGREETNG), and glyph matching keeps known() alone.
+got=$(cd "$REPO/tools" && python3 -c "
+import trove_solution_ocr as O
+print(*[O.sure_word(w) for w in ('REDINGOTE', 'OLOROSO', 'HILARY', 'HOUSE')],
+      *[O.sure_word(w) for w in ('PIRSTREFUSAL', 'AGREETNG', 'PORCE', 'SERAGLTO')], O.known('REDINGOTE'))")
+check "a sure whole read takes the cryptic lexicon, a sure misread no word" "True True True True False False False False False" "$got"
+
 # Reading the 2 June 1972 solution against that day's grid: whatever it
 # accepts fits its light and is one of the answers a person reads off the
 # scan. Skipped where the OCR engine is not installed (CI's test job).
