@@ -25,6 +25,9 @@ BEFORE), which start only once nothing more urgent waits in any pool; each
 rank the newest edition first.
 A read waits until the scans it needs (its own, and the SOLUTION_DAYS after
 it, where its solution prints) are made; those scans take the read's rank.
+A read never starts before its own planned scan has ended done: a read
+unit making that scan itself does it at the reads' idle desktop priority
+and then reads the whole edition here, not prepared, past READ_SECONDS.
 Scans run whole on the desktop (ocr_remote.scan, its CPU) in SCAN_WORKERS
 slots, reads in --workers slots (mostly a wait on the desktop VLM).
 
@@ -581,6 +584,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     running = {}  # pid: (unit, started)
     tried = set()
     finished = {}
+    scanned, scan_failed = set(), set()  # (paper, rel) of the scans that ended done, or failed, this run
     outcomes = {}
     beside = [Beside(argv) for argv in beside or ()]
     scans = reads = fetches = []
@@ -664,6 +668,10 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 tried.discard(key_of(unit))  # started again once the desktop is idle
             else:
                 finished[key_of(unit)] = time.monotonic()
+            if unit["kind"] == "scan" and rc == 0:
+                scanned.add((unit["paper"], unit["rel"]))
+            elif unit["kind"] == "scan" and rc != EXITS["deferred"]:
+                scan_failed.add((unit["paper"], unit["rel"]))
             what = {0: "done", 3: "busy (another unit has it)", 4: "held (a run holds the ledger)",
                     5: "failed, the source looks down", 6: "done, but throttled (429)",
                     7: "not started: the disk is full",
@@ -780,10 +788,12 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         # A read of an edition read before, waiting only on a new scan, starts
         # after the plan that follows its scans: the scan may leave it not due.
         rescanned = {(p, r) for (k, p, r), t in finished.items() if k == "scan" and t > (planned or 0)}
-        # A read waits on the scans it needs only while they run: one still
-        # queued behind a full scan pool is made by the read unit itself
-        # (its own edition), or stands as last scanned (the days after it).
+        # A read waits on the scans it needs while they run, and on its own
+        # edition's planned scan until that ends done (a scan that failed or
+        # was killed leaves the read for the next run); a days-after scan
+        # still queued behind a full scan pool stands as last scanned.
         scanning = {(p, r) for k, p, r in busy if k == "scan"}
+        unscanned = {(u["paper"], u["rel"]) for u in scans} - scanned
         free = dict(pools)
         for _, (u, _) in units_running():
             free[slot_of(u)] = free.get(slot_of(u), 0) - 1
@@ -814,6 +824,10 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             if urgent and u["kind"] != "fetch" and u["rank"] >= fa.BLANKET:
                 continue
             if u["kind"] == "read" and any((u["paper"], r) in scanning for r in u["needs"]):
+                continue
+            if u["kind"] == "read" and (u["paper"], u["rel"]) in unscanned:
+                if (u["paper"], u["rel"]) in scan_failed:
+                    tried.add(key_of(u))
                 continue
             if u["kind"] == "read" and u["reason"] in fa.STALE_SCAN and any((u["paper"], r) in rescanned for r in u["needs"]):
                 continue
