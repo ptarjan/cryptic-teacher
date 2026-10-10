@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "Coast road is my special place",
     "enumeration": "8"
    },
-   "solution": "CORNICHE"
+   "solution": "CORNICHE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CORNICHE",
+    "definitions": [
+     {
+      "text": "Coast road",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "my",
+      "gives": "COR",
+      "note": "cor! is an exclamation of surprise, like 'my!'"
+     },
+     {
+      "clueFragment": "special place",
+      "gives": "NICHE",
+      "note": "a niche is a place specially suited to someone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COR",
+      "NICHE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone declares a coastal drive their favourite spot.",
+     "walkthrough": "'my' is not possessive here but the exclamation, as in 'my, how lovely!'",
+     "definitionFit": "A corniche is a road cut along a cliff or coast, famously on the Riviera."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "my"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +93,42 @@
     "text": "Get lost, not entirely unscathed",
     "enumeration": "4"
    },
-   "solution": "SCAT"
+   "solution": "SCAT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SCAT",
+    "definitions": [
+     {
+      "text": "Get lost",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not entirely",
+      "for": "hidden_word",
+      "note": "only part of the following word is used, so the letters sit inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unscathed",
+      "gives": "SCAT",
+      "note": "letters two to five of this word"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is told to go away while not quite escaping harm.",
+     "definitionFit": "Scat is an informal command telling someone to leave at once, like 'go away'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "entirely"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +142,65 @@
     "text": "Senior academic receives pay mainly to get rid of faculty",
     "enumeration": "6"
    },
-   "solution": "DEAFEN"
+   "solution": "DEAFEN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "DEAFEN",
+    "definitions": [
+     {
+      "text": "get rid of faculty",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mainly",
+      "for": "deletion",
+      "note": "mainly means most of the word, so its last letter is dropped"
+     },
+     {
+      "text": "receives",
+      "for": "container",
+      "note": "a word that receives something takes it inside itself"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Senior academic",
+      "gives": "DEAN",
+      "note": "a dean heads a university faculty"
+     },
+     {
+      "clueFragment": "pay",
+      "gives": "FE",
+      "note": "a fee is a payment; mainly drops its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEA",
+      "FE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A senior professor takes a payoff to wind up a university department.",
+     "walkthrough": "The surface's 'faculty' is a university department; the definition's faculty is the sense of hearing.",
+     "definitionFit": "To deafen is to destroy someone's hearing, and hearing is one of the bodily faculties or senses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "faculty"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +214,74 @@
     "text": "Evidence of settlement upset man in rainforest on vacation",
     "enumeration": "7"
    },
-   "solution": "RECEIPT"
+   "solution": "RECEIPT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RECEIPT",
+    "definitions": [
+     {
+      "text": "Evidence of settlement",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upset turns the word upside down so it reads bottom to top"
+     },
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "a word on vacation has emptied out, leaving only its outside letters"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another is put inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man",
+      "gives": "PIECE",
+      "note": "a chessman is also called a piece"
+     },
+     {
+      "clueFragment": "rainforest",
+      "gives": "RT",
+      "select": "outer",
+      "note": "first and last letters only"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ECEIP",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "PIECE",
+       "to": "ECEIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man overturned in a deserted rainforest somehow proves a deal was settled.",
+     "walkthrough": "'man' is a chess piece, not a person.",
+     "definitionFit": "A receipt is the written proof that a bill has been paid or settled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "man"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +295,54 @@
     "text": "Discharge Democrat kicked out of blue state",
     "enumeration": "8"
    },
-   "solution": "EJECTION"
+   "solution": "EJECTION",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EJECTION",
+    "definitions": [
+     {
+      "text": "Discharge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kicked out of",
+      "for": "deletion",
+      "note": "something kicked out is removed from the larger word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Democrat",
+      "gives": "D",
+      "note": "standard abbreviation for a Democrat"
+     },
+     {
+      "clueFragment": "blue state",
+      "gives": "DEJECTION",
+      "note": "feeling blue is a state of low spirits"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EJECTION"
+     ]
+    },
+    "explanation": {
+     "surface": "A Democrat is thrown out of a Democratic-voting US state.",
+     "walkthrough": "'blue state' reads as an American Democrat-voting state, but it is the mood of being blue.",
+     "definitionFit": "Ejection and discharge both mean the act of throwing or sending something out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "blue"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +366,60 @@
      }
     ]
    },
-   "solution": "ONTHETABLE"
+   "solution": "ONTHETABLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ON THE TABLE",
+    "definitions": [
+     {
+      "text": "up for discussion",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the outer words go round the small one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In contact with",
+      "gives": "ON",
+      "note": "on, as touching a surface"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "board",
+      "gives": "TABLE",
+      "note": "a board can be a table, as in 'bed and board'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "THE",
+      "TABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone talks to the company board about an article that is being debated.",
+     "walkthrough": "The article sits between the two halves rather than inside one word: 'In contact with board' gives an outer pair split around it. 'board' here is a table, as in bed and board.",
+     "definitionFit": "A proposal on the table has been put forward and is open for discussion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 7,
@@ -127,7 +433,61 @@
     "text": "In favour of accepting pound sterling in old money",
     "enumeration": "6"
    },
-   "solution": "FLORIN"
+   "solution": "FLORIN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "FLORIN",
+    "definitions": [
+     {
+      "text": "old money",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "a word accepting another takes it inside itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In favour of",
+      "gives": "FOR",
+      "note": "for, as in 'all those for?'"
+     },
+     {
+      "clueFragment": "pound sterling",
+      "gives": "L",
+      "note": "L, from libra, is the symbol for pound sterling"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "L",
+      "OR",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone backs taking sterling in pre-decimal currency.",
+     "definitionFit": "The florin was a British coin worth two shillings, used before decimalisation in 1971."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 8,
@@ -141,7 +501,43 @@
     "text": "Material that's used in construction",
     "enumeration": "8"
    },
-   "solution": "CONCRETE"
+   "solution": "CONCRETE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CONCRETE",
+    "definitions": [
+     {
+      "text": "Material",
+      "at": 0
+     },
+     {
+      "text": "that's used in construction",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Material",
+      "note": "first meaning: physical, tangible, real"
+     },
+     {
+      "clueFragment": "that's used in construction",
+      "note": "second meaning: the building material made of cement and aggregate"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue reads as one description of a building material; 'Material' is also an adjective meaning solid and real.",
+     "definitionFit": "Concrete as an adjective means tangible or real, and as a noun it is the familiar building mix of cement, sand and stone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Material"
+    }
+   }
   },
   {
    "number": 9,
@@ -155,7 +551,56 @@
     "text": "Psychiatrist barely escaped highly competitive environment",
     "enumeration": "6"
    },
-   "solution": "JUNGLE"
+   "solution": "JUNGLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "JUNGLE",
+    "definitions": [
+     {
+      "text": "highly competitive environment",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "barely",
+      "for": "letter_selection",
+      "note": "something bare is stripped, so the word loses its outside letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Psychiatrist",
+      "gives": "JUNG",
+      "note": "Carl Jung, the Swiss psychiatrist"
+     },
+     {
+      "clueFragment": "escaped",
+      "gives": "LE",
+      "select": "middle",
+      "note": "fled, stripped of its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JUNG",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A psychiatrist only just got out of a cut-throat workplace.",
+     "walkthrough": "'barely' seems to mean 'only just', but it strips fled (escaped) bare.",
+     "definitionFit": "Calling a place a jungle is the idiom for a ruthless, every-man-for-himself setting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "barely"
+    }
+   }
   },
   {
    "number": 10,
@@ -169,7 +614,61 @@
     "text": "Draw together writer's material over time",
     "enumeration": "4"
    },
-   "solution": "KNIT"
+   "solution": "KNIT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "KNIT",
+    "definitions": [
+     {
+      "text": "Draw together",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over means flipped round, so the word reads backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "writer's material",
+      "gives": "INK",
+      "note": "what a writer puts on paper"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KNI",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "INK",
+       "to": "KNI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An author slowly gathers up their material.",
+     "walkthrough": "'material' suggests the yarn of knitting, but it is the writer's ink.",
+     "definitionFit": "To knit is to draw together, as in knitting one's brows or a bone knitting as it heals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "material"
+    }
+   }
   },
   {
    "number": 11,
@@ -189,7 +688,48 @@
      }
     ]
    },
-   "solution": "FRENCHHORN"
+   "solution": "FRENCHHORN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FRENCH HORN",
+    "definitions": [
+     {
+      "text": "Something in the wind",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "from Europe",
+      "gives": "FRENCH",
+      "note": "French, from France in Europe"
+     },
+     {
+      "clueFragment": "projecting growth in Jersey?",
+      "gives": "HORN",
+      "note": "a horn grows out of a cow's head, and a Jersey is a breed of cow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRENCH",
+      "HORN"
+     ]
+    },
+    "explanation": {
+     "surface": "A rumour from the Continent about something sticking out on a Channel Island.",
+     "walkthrough": "'Jersey' is a breed of dairy cow, not the island; 'in the wind' means the wind section of an orchestra.",
+     "definitionFit": "The French horn is a brass instrument played in the wind section of an orchestra."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Jersey"
+    }
+   }
   },
   {
    "number": 12,
@@ -203,7 +743,59 @@
     "text": "Dissident group ousting leader in fratricidal gesture",
     "enumeration": "6"
    },
-   "solution": "ACTION"
+   "solution": "ACTION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "ACTION",
+    "definitions": [
+     {
+      "text": "gesture",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ousting",
+      "for": "deletion",
+      "note": "ousting throws something out, so one letter is removed"
+     },
+     {
+      "text": "leader in",
+      "for": "letter_selection",
+      "note": "'leader in' keeps only the first letter of 'fratricidal'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dissident group",
+      "gives": "FACTION",
+      "note": "a breakaway group within a larger body"
+     },
+     {
+      "clueFragment": "fratricidal",
+      "gives": "F",
+      "select": "first",
+      "note": "first letter of that word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACTION"
+     ]
+    },
+    "explanation": {
+     "surface": "A rebel group gets rid of its head in a brother-killing move.",
+     "definitionFit": "A gesture can be any act or deed, as in 'a gesture of goodwill'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 13,
@@ -223,7 +815,60 @@
      }
     ]
    },
-   "solution": "INPROGRESS"
+   "solution": "INPROGRESS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "IN PROGRESS",
+    "definitions": [
+     {
+      "text": "On-going",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mainly",
+      "for": "deletion",
+      "note": "mainly means most of the word, so its last letter is dropped"
+     },
+     {
+      "text": "blocking",
+      "for": "container",
+      "note": "something blocking a passage sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "means of access",
+      "gives": "INGRESS",
+      "note": "ingress is a way in"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "PRO",
+      "note": "a prop supports; mainly drops its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "PRO",
+      "GRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing backing that mostly obstructs an entrance.",
+     "definitionFit": "Work in progress is still under way, which is exactly what ongoing means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 14,
@@ -237,7 +882,62 @@
     "text": "Suffering can start to generate work",
     "enumeration": "8"
    },
-   "solution": "PAINTING"
+   "solution": "PAINTING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PAINTING",
+    "definitions": [
+     {
+      "text": "work",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Suffering",
+      "gives": "PAIN",
+      "note": "pain is suffering"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "TIN",
+      "note": "a tin is a can"
+     },
+     {
+      "clueFragment": "generate",
+      "gives": "G",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAIN",
+      "TIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Hardship may be what gets a person working.",
+     "walkthrough": "'can' looks like a verb but is the metal container.",
+     "definitionFit": "A painting is a work of art, so work stands for it as a general term."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 15,
@@ -251,7 +951,48 @@
     "text": "Realise messenger's leaked material",
     "enumeration": "7"
    },
-   "solution": "SEEPAGE"
+   "solution": "SEEPAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEEPAGE",
+    "definitions": [
+     {
+      "text": "leaked material",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Realise",
+      "gives": "SEE",
+      "note": "to see is to realise or understand"
+     },
+     {
+      "clueFragment": "messenger's",
+      "gives": "PAGE",
+      "note": "a page carries messages; the 's is read as 'is'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEE",
+      "PAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone realises a courier has passed on secrets.",
+     "walkthrough": "'leaked material' suggests secret documents but means liquid that has oozed out.",
+     "definitionFit": "Seepage is the fluid that has slowly escaped through a gap or porous surface."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leaked"
+    }
+   }
   },
   {
    "number": 16,
@@ -265,7 +1006,48 @@
     "text": "Catching sight of good way to deal with matter?",
     "enumeration": "8"
    },
-   "solution": "GLANCING"
+   "solution": "GLANCING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GLANCING",
+    "definitions": [
+     {
+      "text": "Catching sight of",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "way to deal with matter?",
+      "gives": "LANCING",
+      "note": "a boil full of pus, or matter, is treated by piercing it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "LANCING"
+     ]
+    },
+    "explanation": {
+     "surface": "Seeing a good method of handling some business.",
+     "walkthrough": "'matter' is used in its medical sense of pus.",
+     "definitionFit": "Glancing at something is getting a brief look at it, so it is catching sight of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "matter"
+    }
+   }
   },
   {
    "number": 17,
@@ -279,7 +1061,61 @@
     "text": "Nosey creature is unable to stand missing start of conversation",
     "enumeration": "7"
    },
-   "solution": "ANTBEAR"
+   "solution": "ANTBEAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "ANTBEAR",
+    "definitions": [
+     {
+      "text": "Nosey creature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "missing means lacking, so a letter is left out"
+     },
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "'start of' keeps only the first letter of 'conversation'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is unable to stand",
+      "gives": "CANT BEAR",
+      "note": "can't bear means cannot tolerate"
+     },
+     {
+      "clueFragment": "conversation",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of that word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANTBEAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A busybody can't stand a chat that begins without them.",
+     "walkthrough": "'Nosey' suggests prying but is literal: the creature has a long snout.",
+     "definitionFit": "The antbear, or aardvark, is an African mammal with a long snout for eating ants and termites."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nosey"
+    }
+   }
   },
   {
    "number": 18,
@@ -293,7 +1129,73 @@
     "text": "Reacting badly on almost being choked by fresh garlic",
     "enumeration": "8"
    },
-   "solution": "ALLERGIC"
+   "solution": "ALLERGIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "ALLERGIC",
+    "definitions": [
+     {
+      "text": "Reacting badly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the last letter goes"
+     },
+     {
+      "text": "fresh",
+      "for": "anagram",
+      "note": "fresh suggests something made anew, so the letters are rearranged"
+     },
+     {
+      "text": "being choked by",
+      "for": "container",
+      "note": "something choked by another is gripped inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "LE",
+      "note": "on is the leg side in cricket; almost drops the G"
+     },
+     {
+      "clueFragment": "garlic",
+      "gives": "GARLIC",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "LE",
+      "RGIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GARLIC",
+       "gives": "ALRGIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone nearly gags on fresh garlic and has a bad reaction.",
+     "walkthrough": "In cricket the on side is also called the leg side, so 'on' gives LEG.",
+     "definitionFit": "Being allergic means one's body reacts badly to a substance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 19,
@@ -307,7 +1209,72 @@
     "text": "Swimmer left in swimming pool couldn't know to begin with",
     "enumeration": "7"
    },
-   "solution": "POLLOCK"
+   "solution": "POLLOCK",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "POLLOCK",
+    "definitions": [
+     {
+      "text": "Swimmer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swimming",
+      "for": "anagram",
+      "note": "swimming letters move about freely and settle in a new order"
+     },
+     {
+      "text": "to begin with",
+      "for": "letter_selection",
+      "note": "what each word begins with is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "pool",
+      "gives": "POOL",
+      "note": "letters to be rearranged with L"
+     },
+     {
+      "clueFragment": "couldn't know",
+      "gives": "CK",
+      "select": "first",
+      "note": "first letters of each word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POLLO",
+      "CK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LPOOL",
+       "gives": "POLLO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A swimmer left in the pool didn't know how to start.",
+     "definitionFit": "The pollock is a sea fish of the cod family, so it is a swimmer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Swimmer"
+    }
+   }
   },
   {
    "number": 20,
@@ -321,7 +1288,60 @@
     "text": "Difficulty following depression as an alternative state",
     "enumeration": "8"
    },
-   "solution": "COLORADO"
+   "solution": "COLORADO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COLORADO",
+    "definitions": [
+     {
+      "text": "state",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following places one piece after the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "depression",
+      "gives": "COL",
+      "note": "a col is a dip between two peaks"
+     },
+     {
+      "clueFragment": "as an alternative",
+      "gives": "OR",
+      "note": "or introduces an alternative"
+     },
+     {
+      "clueFragment": "Difficulty",
+      "gives": "ADO",
+      "note": "ado is fuss or trouble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COL",
+      "OR",
+      "ADO"
+     ]
+    },
+    "explanation": {
+     "surface": "Trouble after a bout of depression offers another state of mind.",
+     "walkthrough": "'state' reads as a state of mind; it is the US state.",
+     "definitionFit": "Colorado is one of the fifty states of the USA."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "depression"
+    }
+   }
   },
   {
    "number": 21,
@@ -335,7 +1355,52 @@
     "text": "Skilful plan eliminating staff work",
     "enumeration": "6"
    },
-   "solution": "OEUVRE"
+   "solution": "OEUVRE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OEUVRE",
+    "definitions": [
+     {
+      "text": "work",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eliminating",
+      "for": "deletion",
+      "note": "eliminating gets rid of something, so those letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Skilful plan",
+      "gives": "MANOEUVRE",
+      "note": "a clever move or scheme"
+     },
+     {
+      "clueFragment": "staff",
+      "gives": "MAN",
+      "note": "to staff is to man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OEUVRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A clever scheme to cut jobs.",
+     "definitionFit": "Oeuvre is a French borrowing for an artist's body of work, or a single work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "staff"
+    }
+   }
   },
   {
    "number": 22,
@@ -349,7 +1414,64 @@
     "text": "Bug in live telecast",
     "enumeration": "6"
    },
-   "solution": "BEETLE"
+   "solution": "BEETLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "BEETLE",
+    "definitions": [
+     {
+      "text": "Bug",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cast",
+      "for": "anagram",
+      "note": "cast can mean thrown, so the letters before it are tossed into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "live",
+      "gives": "BE",
+      "note": "to be is to exist, to live"
+     },
+     {
+      "clueFragment": "telecast",
+      "gives": "TELE",
+      "note": "the word splits as tele plus cast; tele supplies the letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "ETLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TELE",
+       "gives": "ETLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A glitch appears during a live broadcast.",
+     "walkthrough": "The word telecast splits into tele and cast, the second half working on the first.",
+     "definitionFit": "A beetle is an insect, and bug is the everyday word for one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "telecast"
+    }
+   }
   },
   {
    "number": 22,
@@ -363,7 +1485,56 @@
     "text": "Person who gets shot by outlaw carrying gun?",
     "enumeration": "6"
    },
-   "solution": "BARMAN"
+   "solution": "BARMAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BARMAN",
+    "definitions": [
+     {
+      "text": "Person who gets shot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "a word carrying another holds it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outlaw",
+      "gives": "BAN",
+      "note": "to outlaw is to ban"
+     },
+     {
+      "clueFragment": "gun",
+      "gives": "ARM",
+      "note": "a gun is a firearm, an arm"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ARM",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A victim gunned down by an armed bandit.",
+     "walkthrough": "'shot' reads as gunfire, but it is a small measure of spirits poured and served.",
+     "definitionFit": "A barman serves drinks, so he is the one who gets you a shot of whisky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 23,
@@ -377,7 +1548,78 @@
     "text": "University starts to require registration in crucial changes relating to course",
     "enumeration": "10"
    },
-   "solution": "CURRICULAR"
+   "solution": "CURRICULAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "CURRICULAR",
+    "definitions": [
+     {
+      "text": "relating to course",
+      "at": 61
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of words are their opening letters"
+     },
+     {
+      "text": "changes",
+      "for": "anagram",
+      "note": "changes means the letters are altered into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places those letters inside the rearranged word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crucial",
+      "gives": "CRUCIAL",
+      "note": "letters to be rearranged"
+     },
+     {
+      "clueFragment": "University",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     },
+     {
+      "clueFragment": "require registration",
+      "gives": "RR",
+      "select": "first",
+      "note": "first letters of each word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "URR",
+      "ICULAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CRUCIAL",
+       "gives": "CICULAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A university needs enrolment during critical changes to its course.",
+     "definitionFit": "Curricular describes anything belonging to a curriculum, the content of a course of study."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crucial"
+    }
+   }
   },
   {
    "number": 24,
@@ -391,7 +1633,55 @@
     "text": "Lived with learner losing items regularly",
     "enumeration": "4"
    },
-   "solution": "WERE"
+   "solution": "WERE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "WERE",
+    "definitions": [
+     {
+      "text": "Lived",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing items regularly",
+      "for": "letter_selection",
+      "note": "dropping every other letter at even intervals keeps the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "ERE",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ERE"
+     ]
+    },
+    "explanation": {
+     "surface": "Shared a home with a student who keeps losing things.",
+     "definitionFit": "Were is a past form of be, and to be is to exist or live, so it fits lived."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "items"
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1695,47 @@
     "text": "Ladies' man disheartened female author",
     "enumeration": "4"
    },
-   "solution": "WOLF"
+   "solution": "WOLF",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "WOLF",
+    "definitions": [
+     {
+      "text": "Ladies' man",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disheartened",
+      "for": "deletion",
+      "note": "losing heart means losing the central letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female author",
+      "gives": "WOOLF",
+      "note": "Virginia Woolf, the novelist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WOLF"
+     ]
+    },
+    "explanation": {
+     "surface": "A womaniser has upset a woman writer.",
+     "definitionFit": "A wolf is slang for a predatory womaniser who chases women."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "disheartened"
+    }
+   }
   },
   {
    "number": 25,
@@ -419,7 +1749,60 @@
     "text": "Almost willing to accept one's captive here",
     "enumeration": "6"
    },
-   "solution": "PRISON"
+   "solution": "PRISON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "PRISON",
+    "definitions": [
+     {
+      "text": "captive here",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the last letter goes"
+     },
+     {
+      "text": "to accept",
+      "for": "container",
+      "note": "accepting something takes it in"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "willing",
+      "gives": "PRON",
+      "note": "prone means inclined or willing; almost drops the E"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "IS",
+      "note": "I is one, and 's stands for is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "IS",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is nearly ready to admit they are being held.",
+     "definitionFit": "A prison is the place where a captive is held, so it is where one is captive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "willing"
+    }
+   }
   },
   {
    "number": 26,
@@ -433,7 +1816,53 @@
     "text": "Remained behind fellow minister",
     "enumeration": "8"
    },
-   "solution": "CHAPLAIN"
+   "solution": "CHAPLAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHAPLAIN",
+    "definitions": [
+     {
+      "text": "minister",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind places the first piece after the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fellow",
+      "gives": "CHAP",
+      "note": "a chap is a fellow"
+     },
+     {
+      "clueFragment": "Remained",
+      "gives": "LAIN",
+      "note": "lain, past participle of lie, as in stayed put"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAP",
+      "LAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A man stayed behind after a clergyman left.",
+     "definitionFit": "A chaplain is a minister of religion attached to a college, hospital, regiment or prison."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Remained"
+    }
+   }
   }
  ]
 }
