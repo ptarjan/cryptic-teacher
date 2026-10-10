@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,47 @@
     "text": "Distinguished, though undecorated?",
     "enumeration": "7"
    },
-   "solution": "NOTICED"
+   "solution": "NOTICED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NOTICED",
+    "definitions": [
+     {
+      "text": "Distinguished",
+      "at": 0
+     },
+     {
+      "text": "undecorated?",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "though"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Distinguished",
+      "note": "first meaning: spotted, picked out from the rest"
+     },
+     {
+      "clueFragment": "undecorated?",
+      "note": "second meaning, read cryptically: a plain cake"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone stood out from the crowd despite wearing no medals or ribbons.",
+     "walkthrough": "The second meaning splits the answer into two words, NOT ICED, which is what an undecorated cake is; the question mark flags the pun.",
+     "definitionFit": "To have been distinguished is to have been perceived or spotted, which is the plain verb sense of the answer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "undecorated"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +90,64 @@
     "text": "Exchange coupon, finally joining 14 across queue, say?",
     "enumeration": "6"
    },
-   "solution": "NASDAQ"
+   "solution": "NASDAQ",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "homophone"
+    ],
+    "answer": "NASDAQ",
+    "definitions": [
+     {
+      "text": "Exchange",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end of the preceding word"
+     },
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say asks for the word as spoken, giving a letter of the same sound"
+     }
+    ],
+    "linkWords": [
+     "joining"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coupon",
+      "gives": "N",
+      "select": "last",
+      "note": "its last letter"
+     },
+     {
+      "clueFragment": "14 across",
+      "gives": "ASDA",
+      "note": "Asda is a British supermarket chain"
+     },
+     {
+      "clueFragment": "queue",
+      "gives": "Q",
+      "soundsLike": "QUEUE",
+      "note": "the letter's name sounds the same"
+     }
+    ],
+    "explanation": {
+     "surface": "A shopper hands over a voucher at the end of a supermarket line.",
+     "definitionFit": "The Nasdaq is the American stock exchange known for technology shares."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Exchange"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +161,54 @@
     "text": "Island 14 across opened by king",
     "enumeration": "6"
    },
-   "solution": "TRESCO"
+   "solution": "TRESCO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRESCO",
+    "definitions": [
+     {
+      "text": "Island",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opened by",
+      "for": "container",
+      "note": "a store opened by someone has them cut in at the doorway, inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "14 across",
+      "gives": "TESCO",
+      "note": "Tesco is Britain's biggest supermarket chain"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R for rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "ESCO"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch cuts the ribbon at an island's new supermarket.",
+     "definitionFit": "Tresco is one of the Isles of Scilly, off the tip of Cornwall."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opened"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +222,66 @@
     "text": "Garden's cold, almost shivering in the night air",
     "enumeration": "10"
    },
-   "solution": "CRADLESONG"
+   "solution": "CRADLESONG",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "CRADLESONG",
+    "definitions": [
+     {
+      "text": "night air",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite the whole thing, so the last letter goes"
+     },
+     {
+      "text": "shivering",
+      "for": "anagram",
+      "note": "shivering letters are shaken about, landing in a new order"
+     }
+    ],
+    "linkWords": [
+     "in the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Garden's",
+      "gives": "GARDENS",
+      "note": "the 's supplies an S"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "COL",
+      "note": "the word without its last letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GARDENSCOL",
+       "gives": "CRADLESONG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It is chilly in the garden, and someone is nearly shaking in the evening breeze.",
+     "walkthrough": "'Night air' reads as the evening breeze, but air means a tune: one sung at bedtime.",
+     "definitionFit": "A cradlesong is a lullaby, the tune or air sung to a baby at night."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "air"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +295,56 @@
     "text": "Put off as revolutionary supplied with rations again?",
     "enumeration": "5"
    },
-   "solution": "DEFER"
+   "solution": "DEFER",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "DEFER",
+    "definitions": [
+     {
+      "text": "Put off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "a revolution turns things right round, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "supplied with rations again",
+      "gives": "REFED",
+      "note": "fed once more"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEFER"
+     ],
+     "reversals": [
+      {
+       "from": "REFED",
+       "to": "DEFER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rebel fighter, given food once more, postpones the action.",
+     "definitionFit": "To defer is to postpone or delay, which is to put something off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +364,63 @@
      }
     ]
    },
-   "solution": "TESTBED"
+   "solution": "TESTBED",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TEST BED",
+    "definitions": [
+     {
+      "text": "laboratory",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back the way it came, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Outstanding money",
+      "gives": "DEBT",
+      "note": "money still owed"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "SET",
+      "note": "a set is a group"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TES",
+      "TBED"
+     ],
+     "reversals": [
+      {
+       "from": "DEBTSET",
+       "to": "TESTBED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A collection of unpaid bills gets turned down by a research lab.",
+     "definitionFit": "A test bed is an environment for trying out new equipment or ideas, in effect a laboratory."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rejected"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +434,80 @@
     "text": "Restaurant where a rubbish dessert served up, one scoffed",
     "enumeration": "9"
    },
-   "solution": "TRATTORIA"
+   "solution": "TRATTORIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "TRATTORIA",
+    "definitions": [
+     {
+      "text": "Restaurant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "served up",
+      "for": "reversal",
+      "note": "in a down answer, up means read from the bottom to the top"
+     },
+     {
+      "text": "scoffed",
+      "for": "container",
+      "note": "something scoffed is eaten, so it ends up inside"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rubbish",
+      "gives": "ROT",
+      "note": "nonsense"
+     },
+     {
+      "clueFragment": "dessert",
+      "gives": "TART",
+      "note": "a sweet pastry"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRATTOR",
+      "I",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "AROTTART",
+       "to": "TRATTORA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A review of an eatery where a dreadful pudding came out and somebody wolfed it down.",
+     "definitionFit": "A trattoria is an informal Italian restaurant, so this is a specific type of eatery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "scoffed"
+    }
+   }
   },
   {
    "number": 6,
@@ -147,7 +531,51 @@
    "group": [
     "6-down",
     "21-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SODA LIME",
+    "definitions": [
+     {
+      "text": "Chemical used in anaesthesia",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it appears",
+      "gives": "SO",
+      "note": "'So' as an exclamation of discovery: so it seems"
+     },
+     {
+      "clueFragment": "I'm a surrealist!",
+      "gives": "DALIME",
+      "note": "the speaker is the Spanish surrealist painter, saying his surname then 'me'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "DALIME"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone woozy from the anaesthetic gas announces that they have turned into a surrealist.",
+     "walkthrough": "Read the answer as 'So, Dali me!', the cry of someone realising they are the Spanish surrealist painter.",
+     "definitionFit": "Soda lime absorbs exhaled carbon dioxide in anaesthetic breathing circuits, so it is a chemical used there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "appears"
+    }
+   }
   },
   {
    "number": 7,
@@ -161,7 +589,68 @@
     "text": "Uprising overblown in English county seat",
     "enumeration": "8"
    },
-   "solution": "BUTTOCKS"
+   "solution": "BUTTOCKS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "BUTTOCKS",
+    "definitions": [
+     {
+      "text": "seat",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Uprising",
+      "for": "reversal",
+      "note": "rising up in a down answer means reading from bottom to top"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first piece inside the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English county",
+      "gives": "BUCKS",
+      "note": "Bucks is short for Buckinghamshire, a county west of London"
+     },
+     {
+      "clueFragment": "overblown",
+      "gives": "OTT",
+      "note": "over the top, exaggerated"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BU",
+      "TTO",
+      "CKS"
+     ],
+     "reversals": [
+      {
+       "from": "OTT",
+       "to": "TTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exaggerated rebellion in a county's parliamentary constituency.",
+     "walkthrough": "'Seat' suggests a parliamentary seat in the county, but it is the part of the body one sits on.",
+     "definitionFit": "Your seat in slang is your backside, the part of the body you sit on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "seat"
+    }
+   }
   },
   {
    "number": 8,
@@ -175,7 +664,60 @@
     "text": "Belittle Greek character impaled from below",
     "enumeration": "8"
    },
-   "solution": "DEROGATE"
+   "solution": "DEROGATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DEROGATE",
+    "definitions": [
+     {
+      "text": "Belittle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from below",
+      "for": "reversal",
+      "note": "read from below, a down answer runs bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek character",
+      "gives": "ETA",
+      "note": "the seventh letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "impaled",
+      "gives": "GORED",
+      "note": "pierced, as by a bull's horn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEROG",
+      "ATE"
+     ],
+     "reversals": [
+      {
+       "from": "ETAGORED",
+       "to": "DEROGATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek figure is run through from underneath, a humiliating fate.",
+     "definitionFit": "To derogate from someone is to disparage or detract from them, which is to belittle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 9,
@@ -189,7 +731,64 @@
     "text": "Lincoln to the west borders quiet ancient kingdom",
     "enumeration": "5"
    },
-   "solution": "SHEBA"
+   "solution": "SHEBA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SHEBA",
+    "definitions": [
+     {
+      "text": "ancient kingdom",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to the west",
+      "for": "reversal",
+      "note": "in an across answer, heading west means reading from right to left"
+     }
+    ],
+    "linkWords": [
+     "borders"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quiet",
+      "gives": "SH",
+      "note": "the call for silence"
+     },
+     {
+      "clueFragment": "Lincoln",
+      "gives": "ABE",
+      "note": "Abraham Lincoln's familiar first name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "EBA"
+     ],
+     "reversals": [
+      {
+       "from": "ABE",
+       "to": "EBA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A map description: Lincoln lies to the west of a peaceful old realm.",
+     "walkthrough": "'Borders' just says the two pieces sit next to each other, with the quiet piece first.",
+     "definitionFit": "Sheba was the biblical kingdom whose queen visited Solomon, an ancient realm in southern Arabia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lincoln"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +802,55 @@
     "text": "Shark that's rude farts when swimming",
     "enumeration": "9"
    },
-   "solution": "FRAUDSTER"
+   "solution": "FRAUDSTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FRAUDSTER",
+    "definitions": [
+     {
+      "text": "Shark",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when swimming",
+      "for": "anagram",
+      "note": "swimming letters are moving about freely, so they settle into a new order"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rude farts",
+      "gives": "RUDEFARTS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RUDEFARTS",
+       "gives": "FRAUDSTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A schoolboy joke about a shark breaking wind in the water.",
+     "walkthrough": "'Shark' reads as the fish, but here it is the human kind: a swindler.",
+     "definitionFit": "A shark in slang is a cheat who preys on others, the same as a con artist or swindler."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Shark"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +864,76 @@
     "text": "Rev fills a box with church literature lacking in content",
     "enumeration": "10"
    },
-   "solution": "ACCELERATE"
+   "solution": "ACCELERATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "ACCELERATE",
+    "definitions": [
+     {
+      "text": "Rev",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking in content",
+      "for": "letter_selection",
+      "note": "with its contents gone, a word keeps only its two ends"
+     },
+     {
+      "text": "fills",
+      "for": "container",
+      "note": "whatever fills something sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "box",
+      "gives": "CRATE",
+      "note": "a crate is a box; the inner letters are placed after its first letter"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "Church of England"
+     },
+     {
+      "clueFragment": "literature",
+      "gives": "LE",
+      "select": "outer",
+      "note": "just the first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "C",
+      "CE",
+      "LE",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A vicar stocks a box with church pamphlets that have nothing in them.",
+     "walkthrough": "'Rev' looks like a clergyman, which the church setting supports, but it is the verb for speeding an engine up.",
+     "definitionFit": "To rev an engine is to increase its speed, so it means to make go faster."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rev"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +947,44 @@
     "text": "Asian money sound as a bell",
     "enumeration": "4"
    },
-   "solution": "DONG"
+   "solution": "DONG",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DONG",
+    "definitions": [
+     {
+      "text": "Asian money",
+      "at": 0
+     },
+     {
+      "text": "sound as a bell",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Asian money",
+      "note": "first meaning: the currency of Vietnam"
+     },
+     {
+      "clueFragment": "sound as a bell",
+      "note": "second meaning: the noise a bell makes"
+     }
+    ],
+    "explanation": {
+     "surface": "Asian currency is described as rock solid.",
+     "walkthrough": "'Sound as a bell' reads as the idiom for perfectly healthy; here it means the actual sound a bell makes.",
+     "definitionFit": "The word is both the Vietnamese unit of currency and an imitation of a deep ringing bell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +998,67 @@
     "text": "With pins visible, a bleeder badly cut by mount",
     "enumeration": "10"
    },
-   "solution": "BARELEGGED"
+   "solution": "BARELEGGED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BARELEGGED",
+    "definitions": [
+     {
+      "text": "With pins visible",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "done badly, the letters come out in a muddled order"
+     },
+     {
+      "text": "cut by",
+      "for": "container",
+      "note": "a word cut by another has it inserted into a gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a bleeder",
+      "gives": "ABLEEDER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mount",
+      "gives": "GG",
+      "note": "a gee-gee, a child's word for a horse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BARELE",
+      "GG",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ABLEEDER",
+       "gives": "BARELEED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rider's exposed legs get badly scratched by a horse.",
+     "walkthrough": "'Pins' is slang for legs.",
+     "definitionFit": "Pins are informal for legs, so with legs on show is the same as wearing nothing on them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "pins"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +1072,64 @@
     "text": "Fat bags for every brand that's a big seller",
     "enumeration": "11"
    },
-   "solution": "SUPERMARKET"
+   "solution": "SUPERMARKET",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SUPERMARKET",
+    "definitions": [
+     {
+      "text": "a big seller",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bags",
+      "for": "container",
+      "note": "to bag something is to put it in a sack, so these letters go inside"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fat",
+      "gives": "SUET",
+      "note": "hard animal fat used in cooking"
+     },
+     {
+      "clueFragment": "for every",
+      "gives": "PER",
+      "note": "as in 'per person'"
+     },
+     {
+      "clueFragment": "brand",
+      "gives": "MARK",
+      "note": "a brand or trademark"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "PER",
+      "MARK",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "Bagged fat sells strongly whatever the brand.",
+     "definitionFit": "A big store selling food and household goods is literally a large retailer, so a big seller."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "bags"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +1143,59 @@
     "text": "Messed up with payroll, by and large",
     "enumeration": "9"
    },
-   "solution": "POPULARLY"
+   "solution": "POPULARLY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "POPULARLY",
+    "definitions": [
+     {
+      "text": "by and large",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Messed",
+      "for": "anagram",
+      "note": "something messed about with is jumbled into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "up",
+      "gives": "UP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "payroll",
+      "gives": "PAYROLL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UPPAYROLL",
+       "gives": "POPULARLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone, on the whole, botched the payroll.",
+     "walkthrough": "'Messed up' looks like one phrase, but only 'Messed' signals the shuffle; 'up' is part of the letters.",
+     "definitionFit": "Popularly can mean generally or among most people, close to on the whole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1209,64 @@
     "text": "Figure-hugging clothes fade briefly in autumn",
     "enumeration": "8"
    },
-   "solution": "TWILIGHT"
+   "solution": "TWILIGHT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TWILIGHT",
+    "definitions": [
+     {
+      "text": "autumn",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "kept brief, the word loses its last letter"
+     },
+     {
+      "text": "clothes",
+      "for": "container",
+      "note": "used as a verb, to clothe is to wrap round something"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Figure-hugging",
+      "gives": "TIGHT",
+      "note": "close-fitting"
+     },
+     {
+      "clueFragment": "fade",
+      "gives": "WIL",
+      "note": "wilt without its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "WIL",
+      "IGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Skin-tight garments lose their colour as the leaves turn.",
+     "walkthrough": "'Clothes' looks like a noun after 'Figure-hugging', but it is a verb wrapping one piece round the other.",
+     "definitionFit": "Both words describe a late stage of decline, as in the twilight or autumn of one's years."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "clothes"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1280,50 @@
     "text": "Principality's family 14 across that's ghastly?",
     "enumeration": "8"
    },
-   "solution": "GRIMALDI"
+   "solution": "GRIMALDI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRIMALDI",
+    "definitions": [
+     {
+      "text": "Principality's family",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ghastly",
+      "gives": "GRIM",
+      "note": "grim means dreadful"
+     },
+     {
+      "clueFragment": "14 across",
+      "gives": "ALDI",
+      "note": "Aldi is a German discount supermarket chain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRIM",
+      "ALDI"
+     ]
+    },
+    "explanation": {
+     "surface": "Monaco's royals visit a supermarket and find it awful.",
+     "definitionFit": "The Grimaldis are the ruling house of Monaco, so the principality's royal family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "ghastly"
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1347,61 @@
      }
     ]
    },
-   "solution": "WARANDPEACE"
+   "solution": "WARANDPEACE",
+   "annotation": {
+    "type": [
+     "container",
+     "homophone",
+     "charade"
+    ],
+    "answer": "WAR AND PEACE",
+    "definitions": [
+     {
+      "text": "Classic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about which written",
+      "for": "container",
+      "note": "the second piece is written around the first, which sits inside it"
+     },
+     {
+      "text": "recited",
+      "for": "homophone",
+      "note": "something recited is spoken out loud, so we go by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "huge pile of notes",
+      "gives": "WAD",
+      "note": "a thick bundle of banknotes"
+     },
+     {
+      "clueFragment": "published",
+      "gives": "RAN",
+      "note": "a newspaper ran the story"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "PEACE",
+      "soundsLike": "PIECE",
+      "note": "a piece is a work of art or writing"
+     }
+    ],
+    "explanation": {
+     "surface": "A classic novel was published and earned its author a fortune.",
+     "walkthrough": "The first piece goes inside the wad of notes to make WARAND; PEACE then follows.",
+     "definitionFit": "Tolstoy's War and Peace is one of the great classics of world literature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "notes"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1415,65 @@
     "text": "Green dresses perfect ultimately for mother",
     "enumeration": "6"
    },
-   "solution": "NATIVE"
+   "solution": "NATIVE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "NATIVE",
+    "definitions": [
+     {
+      "text": "mother",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the final letter of the word before"
+     },
+     {
+      "text": "dresses",
+      "for": "container",
+      "note": "to dress something is to clothe it, so one piece wraps round the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Green",
+      "gives": "NAIVE",
+      "note": "green means inexperienced; its letters go round the next piece"
+     },
+     {
+      "clueFragment": "perfect",
+      "gives": "T",
+      "select": "last",
+      "note": "its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NA",
+      "T",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "An eco-minded person wears something perfect for a mum.",
+     "walkthrough": "'Green' looks like the definition, but it is the wrapper: naive.",
+     "definitionFit": "Mother and native are interchangeable before tongue or country, both meaning of one's origin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Green"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1487,45 @@
     "text": "Romantic novel authors from Hollywood discussed?",
     "enumeration": "6"
    },
-   "solution": "RIDERS"
+   "solution": "RIDERS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "RIDERS",
+    "definitions": [
+     {
+      "text": "Romantic novel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discussed",
+      "for": "homophone",
+      "note": "something discussed is talked about, so go by the spoken form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "authors from Hollywood",
+      "gives": "RIDERS",
+      "soundsLike": "WRITERS",
+      "note": "authors are writers; in an American accent the T is softened to a D"
+     }
+    ],
+    "explanation": {
+     "surface": "Hollywood talks about the people who write romance novels.",
+     "walkthrough": "Riders is Jilly Cooper's 1985 bonkbuster about British show-jumpers. 'Romantic novel authors' looks like one phrase; the definition is only the first two words.",
+     "definitionFit": "Riders is a famous British romantic novel by Jilly Cooper, set in the horse-riding world."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "authors"
+    }
+   }
   },
   {
    "number": 21,
@@ -380,7 +1552,70 @@
     "text": "The rich and famous pigs at one with leader in government?",
     "enumeration": "10"
    },
-   "solution": "GLITTERATI"
+   "solution": "GLITTERATI",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "GLITTERATI",
+    "definitions": [
+     {
+      "text": "The rich and famous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader in",
+      "for": "letter_selection",
+      "note": "the leader of a word is the letter at its front"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "government",
+      "gives": "G",
+      "select": "first",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "pigs",
+      "gives": "LITTER",
+      "note": "a sow's litter of piglets"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "LITTER",
+      "AT",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A jibe that wealthy celebrities are greedy pigs alongside a politician.",
+     "definitionFit": "The glitterati are fashionable, glamorous celebrities, the rich and famous set."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pigs"
+    }
+   }
   },
   {
    "number": 23,
@@ -394,7 +1629,55 @@
     "text": "Track runs between 7 down",
     "enumeration": "5"
    },
-   "solution": "TRAIL"
+   "solution": "TRAIL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRAIL",
+    "definitions": [
+     {
+      "text": "Track",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "between",
+      "for": "container",
+      "note": "between puts one piece in the middle of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "7 down",
+      "gives": "TAIL",
+      "note": "slang for the buttocks"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "the cricket scoring abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "AIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A path runs between a pair of buttocks, a cheeky image.",
+     "definitionFit": "A trail is a path or a set of tracks to follow, so it means a track."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 24,
@@ -408,7 +1691,53 @@
     "text": "The Four Tops in elegant tuxedos, unique in fashion designer's case?",
     "enumeration": "4"
    },
-   "solution": "ETUI"
+   "solution": "ETUI",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ETUI",
+    "definitions": [
+     {
+      "text": "fashion designer's case?",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "The Four Tops",
+      "for": "letter_selection",
+      "note": "the tops of four words are their opening letters"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "elegant tuxedos, unique in",
+      "gives": "ETUI",
+      "select": "first",
+      "note": "the first letter of each word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETUI"
+     ]
+    },
+    "explanation": {
+     "surface": "The Motown group The Four Tops, dressed in fine tuxedos, are a designer's showpiece.",
+     "walkthrough": "The Four Tops were a 1960s Motown vocal group famous for matching stage suits.",
+     "definitionFit": "An etui is a small ornamental case for needles and sewing items, the sort a dressmaker might keep."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tops"
+    }
+   }
   },
   {
    "number": 25,
@@ -422,7 +1751,43 @@
     "text": "Visiting Cambridge later, I assume summer tourists would go there",
     "enumeration": "9"
    },
-   "solution": "GELATERIA"
+   "solution": "GELATERIA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GELATERIA",
+    "definitions": [
+     {
+      "text": "summer tourists would go there",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Visiting",
+      "for": "hidden_word",
+      "note": "the answer is a guest staying inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cambridge later, I assume",
+      "gives": "GELATERIA",
+      "note": "runs across the end of the first word, the second word and the start of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone guesses where tourists will head when they reach Cambridge later in summer.",
+     "walkthrough": "The hidden letters run into 'assume', so 'I assume' does double duty.",
+     "definitionFit": "An ice cream parlour is where hot holidaymakers head in summer, an example-style definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Cambridge"
+    }
+   }
   },
   {
    "number": 26,
@@ -436,7 +1801,44 @@
     "text": "Front men on the radio?",
     "enumeration": "5"
    },
-   "solution": "GUISE"
+   "solution": "GUISE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GUISE",
+    "definitions": [
+     {
+      "text": "Front",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the radio",
+      "for": "homophone",
+      "note": "radio is heard rather than seen, so we go by how it sounds"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "men",
+      "gives": "GUISE",
+      "soundsLike": "GUYS",
+      "note": "guys are men"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about the frontmen presenting a radio show.",
+     "definitionFit": "A guise is an outward appearance or pretence, a false front put on for show."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Front"
+    }
+   }
   },
   {
    "number": 27,
@@ -450,7 +1852,62 @@
     "text": "College essay's covered in that stuff",
     "enumeration": "7"
    },
-   "solution": "TRINITY"
+   "solution": "TRINITY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TRINITY",
+    "definitions": [
+     {
+      "text": "College",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covered",
+      "for": "container",
+      "note": "the essay has covered the rest, wrapping round it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "essay",
+      "gives": "TRY",
+      "note": "an essay is an attempt"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "that stuff",
+      "gives": "IT",
+      "note": "it stands for a thing already mentioned"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "IN",
+      "IT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A student's essay comes back plastered in some substance.",
+     "walkthrough": "The 's is 'has': the essay has covered the other two pieces.",
+     "definitionFit": "Trinity is the name of colleges at both Oxford and Cambridge universities."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "essay"
+    }
+   }
   },
   {
    "number": 28,
@@ -464,7 +1921,51 @@
     "text": "With top off, female working in 14 across?",
     "enumeration": "7"
    },
-   "solution": "LIDLESS"
+   "solution": "LIDLESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIDLESS",
+    "definitions": [
+     {
+      "text": "With top off",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "working in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "14 across",
+      "gives": "LIDL",
+      "note": "Lidl is a German discount supermarket chain"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "ESS",
+      "note": "the suffix marking a female, as in waitress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIDL",
+      "ESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky question about a woman topless at work in a supermarket.",
+     "walkthrough": "A woman working at Lidl would cheekily be a 'Lidl-ess', as a woman who waits is a waitress.",
+     "definitionFit": "Something without its lid has no cover or cap, so it has its top off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "top"
+    }
+   }
   }
  ]
 }
