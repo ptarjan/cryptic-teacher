@@ -117,6 +117,22 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
+      # The pages this deploy changes, for IndexNow once it is live. The cache
+      # carries the last build's page hashes; a cold one sends the recent
+      # sitemap (see tools/indexnow.py).
+      - name: Restore the IndexNow manifest
+        uses: actions/cache@v4
+        with:
+          path: .indexnow
+          key: indexnow-${{ github.sha }}
+          restore-keys: indexnow-
+      - name: List the changed pages
+        run: python3 tools/indexnow.py changed _site .indexnow/manifest.json indexnow-urls.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: indexnow-urls
+          path: indexnow-urls.txt
+          retention-days: 1
 
   # Its own job so it runs beside the build instead of in front of the
   # staging: it reads only the puzzle sources and tools/data, none of what the
@@ -149,3 +165,22 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # After the deploy, so Bing fetches what is live. A failure here leaves the
+  # site deployed and the run red, with IndexNow's reply in the log.
+  indexnow:
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            tools/indexnow.py
+            f95c3e3037390dda228633f7d76588f2.txt
+          sparse-checkout-cone-mode: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: indexnow-urls
+      - name: Ping IndexNow
+        run: python3 tools/indexnow.py ping indexnow-urls.txt
