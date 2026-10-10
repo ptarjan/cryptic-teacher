@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,47 @@
     "text": "Lease, for four seasons, a supplier to the dairy",
     "enumeration": "8"
    },
-   "solution": "AYRSHIRE"
+   "solution": "AYRSHIRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AYRSHIRE",
+    "definitions": [
+     {
+      "text": "a supplier to the dairy",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for four seasons",
+      "gives": "AYRS",
+      "note": "four seasons make a year: A YR'S, with YR the usual abbreviation for year"
+     },
+     {
+      "clueFragment": "Lease",
+      "gives": "HIRE",
+      "note": "to lease something is to hire it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AYRS",
+      "HIRE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone renting out land for a year to a dairy supplier.",
+     "walkthrough": "Read the first half as A YEAR'S HIRE: a lease that lasts four seasons.",
+     "definitionFit": "The Ayrshire is a Scottish breed of dairy cattle, so the animal literally supplies milk to the dairy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "seasons"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +90,57 @@
     "text": "Back to reality too soon, pa",
     "enumeration": "6"
    },
-   "solution": "YEARLY"
+   "solution": "YEARLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "YEARLY",
+    "definitions": [
+     {
+      "text": "pa",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Back to",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter, so only its tail is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reality",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of reality"
+     },
+     {
+      "clueFragment": "too soon",
+      "gives": "EARLY",
+      "note": "arriving too soon is arriving early"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "EARLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A child complaining that Dad has come back to the real world too soon.",
+     "walkthrough": "'pa' looks like a father, but it is the Latin abbreviation per annum.",
+     "definitionFit": "Per annum, abbreviated p.a., means each year, which is what yearly describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pa"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +160,71 @@
      }
     ]
    },
-   "solution": "SOYABEANS"
+   "solution": "SOYABEANS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SOYA BEANS",
+    "definitions": [
+     {
+      "text": "sauce ingredients",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picking up",
+      "for": "reversal",
+      "note": "in a down entry, picking something up lifts it so it reads from the bottom upwards"
+     },
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "to tour a place is to go all round it, so one set of letters surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Younger men",
+      "gives": "SONS",
+      "note": "sons are the younger men of a family"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "modern marketplace",
+      "gives": "EBAY",
+      "note": "eBay is an online marketplace"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "YABEA",
+      "NS"
+     ],
+     "reversals": [
+      {
+       "from": "AEBAY",
+       "to": "YABEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Young men browsing an online market for things to put in a sauce.",
+     "definitionFit": "Soya beans are fermented to make soy sauce, so they are its basic ingredients."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "touring"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +248,42 @@
      }
     ]
    },
-   "solution": "ISNTITJUST"
+   "solution": "ISNTITJUST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ISNT IT JUST",
+    "definitions": [
+     {
+      "text": "Indeed, and then some",
+      "at": 0
+     },
+     {
+      "text": "doubts expressed about the legal system?",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Indeed, and then some",
+      "note": "first meaning: an emphatic agreement, 'and how!'"
+     },
+     {
+      "clueFragment": "doubts expressed about the legal system?",
+      "note": "second meaning: read literally, a question asking whether the system is fair"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second reading takes the phrase literally: someone asking whether the justice system is really just.",
+     "definitionFit": "The idiom is an emphatic yes, while its literal words question whether something is fair, the doubt a sceptic of the courts would voice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +297,52 @@
     "text": "This person's delivered from mic when speaking",
     "enumeration": "5"
    },
-   "solution": "EMCEE"
+   "solution": "EMCEE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "homophone",
+     "and_lit"
+    ],
+    "answer": "EMCEE",
+    "definitions": [
+     {
+      "text": "This person's delivered from mic when speaking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "letter_selection",
+      "note": "taken from the word, here its two outside letters"
+     },
+     {
+      "text": "when speaking",
+      "for": "homophone",
+      "note": "spoken out loud, the letters become the way they are said rather than written"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mic",
+      "gives": "EMCEE",
+      "select": "outer",
+      "soundsLike": "M C",
+      "note": "the first and last letters of mic, said as letter names and written out in full"
+     }
+    ],
+    "explanation": {
+     "surface": "A description of a host speaking into a microphone.",
+     "walkthrough": "M and C said out loud give the spelt-out form of MC, master of ceremonies, and an MC is exactly someone who talks into a mic.",
+     "definitionFit": "An emcee is a master of ceremonies or compère, the host who addresses the audience through a microphone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "delivered"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +356,48 @@
     "text": "Expert leaves plant in East London?",
     "enumeration": "6"
    },
-   "solution": "PROTEA"
+   "solution": "PROTEA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROTEA",
+    "definitions": [
+     {
+      "text": "plant in East London?",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Expert",
+      "gives": "PRO",
+      "note": "a pro is an expert"
+     },
+     {
+      "clueFragment": "leaves",
+      "gives": "TEA",
+      "note": "tea leaves"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "TEA"
+     ]
+    },
+    "explanation": {
+     "surface": "A specialist departing from a garden in the East End.",
+     "walkthrough": "'East London' suggests the Cockney East End; it is the city in South Africa, where the protea is the national flower. 'leaves' looks like a verb but is the noun.",
+     "definitionFit": "The protea is a flowering shrub native to South Africa, home of the city of East London."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +411,41 @@
     "text": "The best start",
     "enumeration": "4"
    },
-   "solution": "PICK"
+   "solution": "PICK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PICK",
+    "definitions": [
+     {
+      "text": "The best",
+      "at": 0
+     },
+     {
+      "text": "start",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The best",
+      "note": "first meaning: the choicest"
+     },
+     {
+      "clueFragment": "start",
+      "note": "second meaning: to begin"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read as a phrase it sounds like praise for a good beginning; the two words are separate meanings.",
+     "definitionFit": "The word is a noun for the choicest one and a verb for provoking or beginning a quarrel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +459,46 @@
     "text": "This picnic could be better",
     "enumeration": "5"
    },
-   "solution": "OUTDO"
+   "solution": "OUTDO",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OUTDO",
+    "definitions": [
+     {
+      "text": "This picnic",
+      "at": 0
+     },
+     {
+      "text": "be better",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "could"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This picnic",
+      "note": "first meaning, split in two"
+     },
+     {
+      "clueFragment": "be better",
+      "note": "second meaning: to surpass someone"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A DO is a party, so an outdoor party is an OUT DO.",
+     "definitionFit": "To outdo a rival is to surpass them, and a picnic is a social gathering held in the open air."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "picnic"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +512,54 @@
     "text": "Unrestrained voice, little being large",
     "enumeration": "8"
    },
-   "solution": "ENORMOUS"
+   "solution": "ENORMOUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ENORMOUS",
+    "definitions": [
+     {
+      "text": "large",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unrestrained",
+      "for": "deletion",
+      "note": "with nothing holding it in, the letters at each end are stripped away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "voice",
+      "gives": "TENOR",
+      "note": "a tenor is a singing voice"
+     },
+     {
+      "clueFragment": "little being",
+      "gives": "MOUSE",
+      "note": "a mouse is a tiny creature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENORMOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A small creature with a loud, uninhibited voice that turns out to be big.",
+     "walkthrough": "Join TENOR and MOUSE, then drop the outside letters of the whole string.",
+     "definitionFit": "Enormous means very big, a stronger synonym of large."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Unrestrained"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +573,46 @@
     "text": "Little soul from old Egyptian times",
     "enumeration": "4"
    },
-   "solution": "BABY"
+   "solution": "BABY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BABY",
+    "definitions": [
+     {
+      "text": "Little",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soul from old Egyptian",
+      "gives": "BA",
+      "note": "in ancient Egyptian belief the ba was a part of the soul"
+     },
+     {
+      "clueFragment": "times",
+      "gives": "BY",
+      "note": "as in multiplication: three by four"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "BY"
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny spirit dating back to the age of the pharaohs.",
+     "definitionFit": "As an adjective baby means small, as in baby carrots or baby grand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "times"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +632,42 @@
      }
     ]
    },
-   "solution": "NICKCOTTON"
+   "solution": "NICKCOTTON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NICK COTTON",
+    "definitions": [
+     {
+      "text": "East End rogue",
+      "at": 0
+     },
+     {
+      "text": "put textile mill heist into action?",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "East End rogue",
+      "note": "first meaning: the villain of the soap EastEnders"
+     },
+     {
+      "clueFragment": "put textile mill heist into action?",
+      "note": "second meaning, read literally: to steal fabric"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "EastEnders is a long-running BBC soap set in East London; NICK is British slang for steal.",
+     "definitionFit": "Nick Cotton was the soap's notorious bad lot, and the name read as a phrase means stealing cotton from a mill."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 11,
@@ -215,7 +687,85 @@
      }
     ]
    },
-   "solution": "OLDBAILEY"
+   "solution": "OLDBAILEY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "OLD BAILEY",
+    "definitions": [
+     {
+      "text": "court",
+      "at": 61
+     }
+    ],
+    "indicators": [
+     {
+      "text": "struck",
+      "for": "anagram",
+      "note": "something struck is knocked about, so these letters are thrown into a new order"
+     },
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "a word that is missing something has had part of it taken out"
+     },
+     {
+      "text": "eclipsing",
+      "for": "container",
+      "note": "an eclipsing body passes in front and covers another, so one set of letters surrounds the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One ball",
+      "gives": "O",
+      "note": "a single ball is round, the shape of the letter O"
+     },
+     {
+      "clueFragment": "ideally",
+      "gives": "IDEALLY",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "BALL",
+      "note": "another ball"
+     },
+     {
+      "clueFragment": "the whole",
+      "gives": "ALL",
+      "note": "the whole of something is all of it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "LD",
+      "B",
+      "AILEY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IDEALLY",
+       "gives": "LDAILEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket shot sweetly timed, with one ball hiding another.",
+     "walkthrough": "'One ball' is a letter shaped like a ball, not a delivery; 'the whole' is the word to remove from another ball, leaving a single letter to tuck inside.",
+     "definitionFit": "The Old Bailey is the popular name for the Central Criminal Court in London."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "struck"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +779,56 @@
     "text": "A visual sign medium is entranced?",
     "enumeration": "5"
    },
-   "solution": "COMMA"
+   "solution": "COMMA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COMMA",
+    "definitions": [
+     {
+      "text": "A visual sign",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is entranced",
+      "for": "container",
+      "note": "someone entranced has been put into a deep state and is inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "medium",
+      "gives": "M",
+      "note": "M is the clothing-size abbreviation for medium"
+     },
+     {
+      "clueFragment": "entranced",
+      "gives": "COMA",
+      "note": "a coma is a deep trance-like state, which surrounds the letter for medium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "M",
+      "MA"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a spiritualist in a trance is showing a sign you can see.",
+     "walkthrough": "The medium looks like a psychic, but it is just the size letter.",
+     "definitionFit": "A comma is a punctuation mark, a sign read by eye that marks a pause."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "medium"
+    }
+   }
   },
   {
    "number": 13,
@@ -249,7 +848,66 @@
      }
     ]
    },
-   "solution": "PAPERCHASE"
+   "solution": "PAPERCHASE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PAPER CHASE",
+    "definitions": [
+     {
+      "text": "event across country",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "to enter something is to go inside it, so these letters sit within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bar set high",
+      "gives": "PERCH",
+      "note": "a perch is a raised bar for a bird"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as means when"
+     },
+     {
+      "clueFragment": "sports",
+      "gives": "PE",
+      "note": "PE is physical education, school sports"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "APERCHAS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A high-jump bar being raised during a cross-country athletics meeting.",
+     "walkthrough": "'sports event' looks like one unit; 'sports' alone gives the outer letters and 'event across country' defines.",
+     "definitionFit": "A paper chase is a cross-country race in which runners follow a trail of scattered paper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 14,
@@ -269,7 +927,64 @@
      }
     ]
    },
-   "solution": "GASJAR"
+   "solution": "GASJAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "GAS JAR",
+    "definitions": [
+     {
+      "text": "Vessel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "switching",
+      "for": "reversal",
+      "note": "switching direction and heading to port, leftwards, means the letters run right to left"
+     }
+    ],
+    "linkWords": [
+     "to port"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "government",
+      "gives": "RAJ",
+      "note": "the Raj was British rule in India"
+     },
+     {
+      "clueFragment": "flag",
+      "gives": "SAG",
+      "note": "to flag is to tire or sag"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAS",
+      "JAR"
+     ],
+     "reversals": [
+      {
+       "from": "RAJSAG",
+       "to": "GASJAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ship changing its ensign as it comes into harbour.",
+     "walkthrough": "Port is the left side of a ship, so heading to port means going right to left. 'flag' looks like a banner but is the verb meaning droop.",
+     "definitionFit": "A gas jar is a glass laboratory container for collecting gases."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flag"
+    }
+   }
   },
   {
    "number": 15,
@@ -283,7 +998,41 @@
     "text": "Tease wife",
     "enumeration": "3"
    },
-   "solution": "RIB"
+   "solution": "RIB",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RIB",
+    "definitions": [
+     {
+      "text": "Tease",
+      "at": 0
+     },
+     {
+      "text": "wife",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tease",
+      "note": "first meaning: to mock gently"
+     },
+     {
+      "clueFragment": "wife",
+      "note": "second meaning: a humorous term for a wife"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as an instruction to tease one's wife; the words are two separate meanings.",
+     "definitionFit": "Ribbing someone is mocking them, and Genesis has Eve fashioned from Adam's rib, hence the jocular term for a spouse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 16,
@@ -297,7 +1046,39 @@
     "text": "We're going to receive them from our friends at the Elysee Palace",
     "enumeration": "6"
    },
-   "solution": "ADIEUX"
+   "solution": "ADIEUX",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ADIEUX",
+    "definitions": [
+     {
+      "text": "We're going to receive them from our friends at the Elysee Palace",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "We're going to receive them",
+      "note": "surface reading: gifts or guests coming our way"
+     },
+     {
+      "clueFragment": "from our friends at the Elysee Palace",
+      "note": "setter's reading: when we leave, the French say goodbye to us"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'We're going' is about leaving, not about future events, and the Elysée Palace stands for France.",
+     "definitionFit": "The French plural word for farewells is what departing guests hear from French hosts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "going"
+    }
+   }
   },
   {
    "number": 17,
@@ -321,7 +1102,63 @@
      }
     ]
    },
-   "solution": "INYERFACE"
+   "solution": "INYERFACE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "IN-YER-FACE",
+    "definitions": [
+     {
+      "text": "Provocative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "vulgar",
+      "for": "anagram",
+      "note": "something vulgar is crude and coarse, so these letters are roughed up into a new order"
+     }
+    ],
+    "linkWords": [
+     "put on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "finery",
+      "gives": "FINERY",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "ACE",
+      "note": "an ace is a one in cards; the 's is 'is'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INYERF",
+      "ACE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FINERY",
+       "gives": "INYERF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wearing gaudy clothes to provoke a reaction.",
+     "definitionFit": "In-yer-face is slang for aggressively confrontational, deliberately designed to provoke."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one's"
+    }
+   }
   },
   {
    "number": 18,
@@ -341,7 +1178,69 @@
      }
     ]
    },
-   "solution": "FULLMOON"
+   "solution": "FULLMOON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "FULL MOON",
+    "definitions": [
+     {
+      "text": "Fitting phase",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the start",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter, which is all that is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the letters go inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "play",
+      "gives": "FUN",
+      "note": "play is fun"
+     },
+     {
+      "clueFragment": "lycanthropes lying",
+      "gives": "LL",
+      "select": "first",
+      "note": "the first letters of both words"
+     },
+     {
+      "clueFragment": "low",
+      "gives": "MOO",
+      "note": "to low is to moo like cattle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FU",
+      "LLMOO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Werewolves hiding during a stage of a play.",
+     "walkthrough": "'lying low' looks like hiding, but low is the cattle noise. A full moon is fitting because lunacy and werewolf fits were blamed on it.",
+     "definitionFit": "The full moon is the lunar phase traditionally blamed for fits of madness and werewolf transformations."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "low"
+    }
+   }
   },
   {
    "number": 19,
@@ -355,7 +1254,64 @@
     "text": "Uneasy, we go to get surgeons?",
     "enumeration": "6"
    },
-   "solution": "NURSES"
+   "solution": "NURSES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "NURSES",
+    "definitions": [
+     {
+      "text": "we",
+      "at": 8,
+      "note": "seen from the nurses' own side: we who work with surgeons"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Uneasy",
+      "for": "anagram",
+      "note": "uneasy letters are unsettled and so shift into a different order"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "surgeons",
+      "gives": "SURGEONS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "go",
+      "gives": "GO",
+      "note": "taken as written, the letters to take away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NURSES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SURGEONS",
+       "gives": "NURSESGO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nervous staff leaving to fetch the surgeons.",
+     "walkthrough": "This works in reverse: the answer plus GO, shuffled, makes SURGEONS, so speaking as the answer, 'we' add 'go' to get surgeons.",
+     "definitionFit": "The clue is spoken in the voice of hospital nurses, the staff who assist surgeons, so 'we' stands for them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "we"
+    }
+   }
   },
   {
    "number": 20,
@@ -375,7 +1331,43 @@
      }
     ]
    },
-   "solution": "BYEBYE"
+   "solution": "BYEBYE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BYE-BYE",
+    "definitions": [
+     {
+      "text": "Extras",
+      "at": 0
+     },
+     {
+      "text": "later!",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Extras",
+      "note": "first meaning: two byes, runs scored as extras in cricket"
+     },
+     {
+      "clueFragment": "later!",
+      "note": "second meaning: a casual farewell, see you later"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In cricket a bye is a run scored when the ball passes the batter untouched, and counts among the extras.",
+     "definitionFit": "Bye-bye is an informal goodbye, the same parting as 'later!', and also two cricket byes side by side."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Extras"
+    }
+   }
   },
   {
    "number": 21,
@@ -389,7 +1381,75 @@
     "text": "Flat race pro knocked off after climbing a mountain",
     "enumeration": "6"
    },
-   "solution": "PLANAR"
+   "solution": "PLANAR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "PLANAR",
+    "definitions": [
+     {
+      "text": "Flat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "in a down entry, climbing means reading from the bottom upwards"
+     },
+     {
+      "text": "knocked off",
+      "for": "deletion",
+      "note": "something knocked off is removed from the word"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a mountain",
+      "gives": "ANALP",
+      "note": "AN ALP, an Alpine peak"
+     },
+     {
+      "clueFragment": "race",
+      "gives": "RACE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pro",
+      "gives": "ACE",
+      "note": "an ace is an expert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLANA",
+      "R"
+     ],
+     "reversals": [
+      {
+       "from": "ANALP",
+       "to": "PLANA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A professional flat-race jockey thrown off after riding up a mountain.",
+     "walkthrough": "'Flat race' reads as horse racing, but 'Flat' is the definition and 'race' a separate word.",
+     "definitionFit": "Planar means lying in a single plane, so a planar surface is flat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flat"
+    }
+   }
   },
   {
    "number": 22,
@@ -403,7 +1463,67 @@
     "text": "Form you poetically may frame in reflective mode?",
     "enumeration": "5"
    },
-   "solution": "ELEGY"
+   "solution": "ELEGY",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal",
+     "and_lit"
+    ],
+    "answer": "ELEGY",
+    "definitions": [
+     {
+      "text": "Form you poetically may frame in reflective mode?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "may frame",
+      "for": "container",
+      "note": "a frame goes around a picture, so these letters surround the other word"
+     },
+     {
+      "text": "in reflective mode",
+      "for": "reversal",
+      "note": "a reflection in a mirror reverses, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "you poetically",
+      "gives": "YE",
+      "note": "ye is the archaic and poetic form of you"
+     },
+     {
+      "clueFragment": "Form",
+      "gives": "GEL",
+      "note": "to gel is to take form"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LEG",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "YGELE",
+       "to": "ELEGY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to a poet on what shape a contemplative verse might take.",
+     "definitionFit": "An elegy is a poetic form of mournful reflection, which is exactly what you might compose in a reflective mood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Form"
+    }
+   }
   },
   {
    "number": 23,
@@ -417,7 +1537,63 @@
     "text": "Bother, one's discovered in crossword pattern",
     "enumeration": "5"
    },
-   "solution": "GRIND"
+   "solution": "GRIND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GRIND",
+    "definitions": [
+     {
+      "text": "Bother",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discovered",
+      "for": "letter_selection",
+      "note": "dis-covered means with the cover off, so the outside letters go and the middle stays"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the letter goes inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crossword pattern",
+      "gives": "GRID",
+      "note": "the grid is the pattern of squares"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "N",
+      "select": "middle",
+      "note": "the middle of one; the 's is 'is'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRI",
+      "N",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Annoyance that someone has been found hiding in a crossword grid.",
+     "walkthrough": "'discovered' reads as found, but means uncovered.",
+     "definitionFit": "A grind is a tiresome chore, something that is a bother to get through."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "discovered"
+    }
+   }
   },
   {
    "number": 24,
@@ -431,7 +1607,45 @@
     "text": "Song intoned by Norman Stanley Fletcher?",
     "enumeration": "9"
    },
-   "solution": "BARCAROLE"
+   "solution": "BARCAROLE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BARCAROLE",
+    "definitions": [
+     {
+      "text": "Song",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "intoned",
+      "for": "homophone",
+      "note": "something intoned is spoken out loud, so it is the sound that counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "by Norman Stanley Fletcher",
+      "gives": "BARCAROLE",
+      "soundsLike": "BARKER ROLE",
+      "note": "Norman Stanley Fletcher of the sitcom Porridge was played by Ronnie Barker"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about what a famous TV jailbird might sing.",
+     "walkthrough": "Porridge was a British TV sitcom set in a prison; its lead, Fletcher, was Ronnie Barker's best-known part.",
+     "definitionFit": "A barcarole is a song of the Venetian gondoliers, or music written in that rocking style."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "intoned"
+    }
+   }
   },
   {
    "number": 25,
@@ -445,7 +1659,46 @@
     "text": "Make distribution of shares, Genesis to Malachi inclusive",
     "enumeration": "5"
    },
-   "solution": "ALLOT"
+   "solution": "ALLOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALLOT",
+    "definitions": [
+     {
+      "text": "Make distribution of shares",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inclusive",
+      "gives": "ALL",
+      "note": "including everything, all of it"
+     },
+     {
+      "clueFragment": "Genesis to Malachi",
+      "gives": "OT",
+      "note": "the first and last books of the Old Testament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "OT"
+     ]
+    },
+    "explanation": {
+     "surface": "A financial instruction framed as reading the Bible from cover to cover.",
+     "definitionFit": "To allot shares is to distribute them among applicants, the usual term for a share issue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Genesis"
+    }
+   }
   },
   {
    "number": 26,
@@ -465,7 +1718,50 @@
      }
     ]
    },
-   "solution": "ISAY"
+   "solution": "ISAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "I SAY",
+    "definitions": [
+     {
+      "text": "Goodness",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "goes",
+      "gives": "IS",
+      "note": "as in 'the saying goes', where goes stands for is"
+     },
+     {
+      "clueFragment": "for ever",
+      "gives": "AY",
+      "note": "ay, or aye, is an old word for always"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "AY"
+     ]
+    },
+    "explanation": {
+     "surface": "Kindness that lasts without end.",
+     "walkthrough": "'Goodness' looks like virtue, but it is the exclamation of surprise.",
+     "definitionFit": "I say! is a dated British exclamation of surprise, just like crying goodness!"
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Goodness"
+    }
+   }
   },
   {
    "number": 27,
@@ -489,7 +1785,50 @@
      }
     ]
    },
-   "solution": "TONICSOLFA"
+   "solution": "TONICSOLFA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TONIC SOL-FA",
+    "definitions": [
+     {
+      "text": "Some music",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after contretemps",
+      "for": "anagram",
+      "note": "a contretemps is a mishap or squabble, after which things are in disarray"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fans cool it",
+      "gives": "FANSCOOLIT",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FANSCOOLIT",
+       "gives": "TONICSOLFA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Music lovers calming down after a row.",
+     "definitionFit": "Tonic sol-fa is a system of naming notes (doh, ray, me) used to teach singing, so it is a form of music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cool"
+    }
+   }
   },
   {
    "number": 28,
@@ -503,7 +1842,64 @@
     "text": "Out for love, this relative would be a source of joy for sailor",
     "enumeration": "4"
    },
-   "solution": "AUNT"
+   "solution": "AUNT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "AUNT",
+    "definitions": [
+     {
+      "text": "this relative",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "source of",
+      "for": "letter_selection",
+      "note": "the source is where a word begins, its first letter"
+     },
+     {
+      "text": "would be",
+      "for": "deletion",
+      "note": "the answer is what the outing would be without that letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Out for love",
+      "gives": "JAUNT",
+      "note": "a jaunt is a trip out for pleasure"
+     },
+     {
+      "clueFragment": "joy",
+      "gives": "J",
+      "select": "first",
+      "note": "the first letter of joy"
+     },
+     {
+      "clueFragment": "for sailor",
+      "note": "surface padding, an extra joke: with a Y added the trip becomes naval slang for a master-at-arms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUNT"
+     ]
+    },
+    "explanation": {
+     "surface": "An aunt who would delight a sailor if she were out on a date.",
+     "walkthrough": "The trip minus that letter gives the answer; add a Y to the trip and you have JAUNTY, naval slang for a master-at-arms, hence the sailor.",
+     "definitionFit": "An aunt is a parent's sister, a family relative."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 29,
@@ -523,7 +1919,47 @@
      }
     ]
    },
-   "solution": "ONEDAY"
+   "solution": "ONEDAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ONE DAY",
+    "definitions": [
+     {
+      "text": "Sometime",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "during",
+      "gives": "ON",
+      "note": "on, as in on Monday, means during"
+     },
+     {
+      "clueFragment": "June 7, 1944",
+      "gives": "EDAY",
+      "note": "D-Day was June 6, 1944, so the next day is E-Day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "EDAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about events in the days after the Normandy landings.",
+     "definitionFit": "One day means at some unspecified time, just as sometime does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "June"
+    }
+   }
   },
   {
    "number": 30,
@@ -543,7 +1979,65 @@
      }
     ]
    },
-   "solution": "THEMETRO"
+   "solution": "THEMETRO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "THE METRO",
+    "definitions": [
+     {
+      "text": "Brit's means to reach Sorbonne",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Last",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter, the only one kept"
+     },
+     {
+      "text": "solving",
+      "for": "anagram",
+      "note": "solving a problem works it out, so these letters are worked into a new order"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fermat's",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of Fermat"
+     },
+     {
+      "clueFragment": "Theorem",
+      "gives": "THEOREM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TTHEOREM",
+       "gives": "THEMETRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mathematician heading to a Paris university after cracking a famous problem.",
+     "definitionFit": "The Sorbonne is in Paris, and a Briton would get there on the city's underground railway, the Métro."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "solving"
+    }
+   }
   }
  ]
 }
