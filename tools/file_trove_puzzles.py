@@ -92,6 +92,9 @@ TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import canberra_london_numbers
+import dir_cache
+import downloads
+import edition_commit
 import enumeration
 import ocr_clues
 import reconstruct_grid as rg
@@ -104,7 +107,6 @@ import vlm_reader as vlm
 from fetch_puzzle import puzzle_path, source_clue, write_puzzle_file
 from file_penguin_puzzle import separators
 from groups import entry_id
-import downloads
 from ocr_clues import SEE_RE
 
 SERIES = "canberra"
@@ -1112,10 +1114,15 @@ def held_files(puzzles=None):
     paths = Path(puzzles).glob("*.json") if puzzles else (ROOT / "puzzles" / SERIES).glob("*/*.json")
     out = {}
     for path in paths:
-        src = json.loads(path.read_text()).get("source") or {}
-        if src.get("acquiredBy") == TOOL and src.get("url"):
-            out[src["url"].rsplit("/", 1)[1]] = path
+        by, url = dir_cache.derived(path, acquired_from)
+        if by == TOOL and url:
+            out[url.rsplit("/", 1)[1]] = path
     return out
+
+
+def acquired_from(puzzle):
+    src = puzzle.get("source") or {}
+    return src.get("acquiredBy"), src.get("url")
 
 
 def inputs_of(d, held=None):
@@ -1124,9 +1131,8 @@ def inputs_of(d, held=None):
     letter), which a read mends or blanks (file_archive_org_puzzles.mend_held).
     _run keys the ledger by the inputs after its write, so an article is
     read once for it."""
-    import file_archive_org_puzzles as fa  # it imports this module
     h = input_hash(d)
-    if held and held.exists() and fa.strayed(json.loads(held.read_text())):
+    if held and held.exists() and dir_cache.derived(held, edition_commit.any_strayed):
         h += "+strayed"
     return h
 
@@ -1365,7 +1371,10 @@ def article_date(d):
     ("01 Jan 1972 - ..."), "" when it has none; read once a process."""
     if d.name not in _DATES:
         try:
-            title = json.loads((d / "meta.json").read_text()).get("title", "")
+            _, _, memo = dir_cache.seen(d)
+            if "title" not in memo:
+                memo["title"] = json.loads((d / "meta.json").read_text()).get("title", "")
+            title = memo["title"]
             day = datetime.datetime.strptime(title.split(" - ", 1)[0].strip(), "%d %b %Y").date().isoformat()  # noqa: DTZ007 -- a print day
         except (OSError, ValueError, AttributeError):
             day = ""

@@ -23,6 +23,8 @@ import sys
 import time
 from pathlib import Path
 
+import dir_cache
+
 #: The filer whose files these are: a held file it wrote names it (source.acquiredBy).
 TOOL = "tools/file_archive_org_puzzles.py"
 #: A unit's exit status: what read_unit/scan_unit/a fetcher's unit returned;
@@ -34,7 +36,7 @@ EXITS = {"read": 0, "scanned": 0, "current": 0, "fetched": 0, "busy": 3, "held":
 #: queue's code lock, edition_queue.snapshot): none of them is loaded later
 #: from a tree that moved meanwhile (test_edition_commit.sh checks a commit
 #: loads nothing past these).
-MODULES = ("annotation", "desktop_busy", "fetch_puzzle", "find_answer_leaks", "groups", "hidden_messages",
+MODULES = ("annotation", "desktop_busy", "dir_cache", "fetch_puzzle", "find_answer_leaks", "groups", "hidden_messages",
            "ocr_clues", "ocr_remote", "puzzle_integrity", "puzzle_paths", "reprints", "scan_queue",
            "trove_solution_ocr", "validate_annotations", "vlm_reader")
 
@@ -94,9 +96,17 @@ def held_paths(series, numbers):
     out = []
     for n in numbers:
         path = puzzle_path(series, n)
-        if path.exists() and (json.loads(path.read_text()).get("source") or {}).get("acquiredBy") == TOOL:
+        if path.exists() and dir_cache.derived(path, acquired_by) == TOOL:
             out.append(path)
     return out
+
+
+def acquired_by(puzzle):
+    return (puzzle.get("source") or {}).get("acquiredBy")
+
+
+def any_strayed(puzzle):
+    return bool(strayed(puzzle))
 
 
 def inputs(files_hash, reprints, series, numbers):
@@ -104,7 +114,7 @@ def inputs(files_hash, reprints, series, numbers):
     hash, its reprints' (reprint_key), and "+strayed" when a held file of
     its `numbers` holds a stray clue."""
     extra = reprints
-    if any(strayed(json.loads(path.read_text())) for path in held_paths(series, numbers)):
+    if any(dir_cache.derived(path, any_strayed) for path in held_paths(series, numbers)):
         extra = (extra or "") + "+strayed"
     return f"{files_hash}+{extra}" if extra else files_hash
 

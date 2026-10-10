@@ -3200,9 +3200,11 @@ def input_hash(d):
     """The edition's files by name and size."""
     _, names, memo = dir_cache.seen(d)
     if "inputs" not in memo:
+        if "sizes" not in memo:
+            memo["sizes"] = tuple(os.stat(d / n).st_size for n in names)
         h = hashlib.sha256()
-        for n in names:
-            h.update(f"{n}:{os.stat(d / n).st_size}".encode())
+        for n, size in zip(names, memo["sizes"], strict=True):
+            h.update(f"{n}:{size}".encode())
         memo["inputs"] = h.hexdigest()[:16]
     return memo["inputs"]
 
