@@ -163,6 +163,7 @@ _ct_salvage() {
     git -C "$tree" add -- "$c" || return 1
   done
   ct_unstage_unparsable "$tree"
+  ct_unstage_refused "$tree"
   if ! git -C "$tree" diff --cached --quiet; then
     git -C "$tree" commit -q -m "$job: salvaged from a run that was dropped" || return 1
   fi
