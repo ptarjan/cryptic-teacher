@@ -38,6 +38,9 @@
   "date": "2021-11-07",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,47 @@
     "text": "Wee stain spelling area of wet mud",
     "enumeration": "7"
    },
-   "solution": "SPLATCH"
+   "solution": "SPLATCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPLATCH",
+    "definitions": [
+     {
+      "text": "Wee stain",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spelling",
+      "gives": "SP",
+      "note": "sp. is the dictionary abbreviation for spelling"
+     },
+     {
+      "clueFragment": "area of wet mud",
+      "gives": "LATCH",
+      "note": "a latch is a Scots and dialect word for a mire or boggy patch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "LATCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A small stain spells out a muddy patch, like a Rorschach blot read as a puddle.",
+     "walkthrough": "'Wee' is the Scots word for small, flagging that the answer is Scots too: a splatch is a Scottish splotch.",
+     "definitionFit": "Splatch is a Scots word for a blot or splash of dirt, so a small stain fits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spelling"
+    }
+   }
   },
   {
    "number": 1,
@@ -65,7 +108,65 @@
     "text": "This fortune-teller calls art? Is crystal ball possibly",
     "enumeration": "5"
    },
-   "solution": "SYBIL"
+   "solution": "SYBIL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion"
+    ],
+    "answer": "SYBIL",
+    "definitions": [
+     {
+      "text": "This fortune-teller",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly says the letters could be arranged otherwise, so they are reshuffled"
+     },
+     {
+      "text": "calls art?",
+      "for": "deletion",
+      "note": "the answer together with these extra words makes up the fodder, so they must be taken away again"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is crystal ball",
+      "gives": "ISCRYSTALBALL",
+      "note": "the full fodder, taken as written"
+     },
+     {
+      "clueFragment": "calls art",
+      "gives": "CALLSART",
+      "note": "the letters to set aside once the fodder is rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SYBIL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISCRYSTALBALL",
+       "gives": "SYBILCALLSART"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clairvoyant gazes at her crystal ball, and someone wonders whether it counts as art.",
+     "walkthrough": "A composite anagram: the answer plus CALLS ART has the same letters as IS CRYSTAL BALL, so rearrange and remove CALLS ART.",
+     "definitionFit": "A sibyl was a prophetess of the ancient world, and Sybil is the stock name for a seer or fortune-teller."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "calls"
+    }
+   }
   },
   {
    "number": 2,
@@ -79,7 +180,82 @@
     "text": "Family of lice like this to catch in gym are on the rise",
     "enumeration": "10"
    },
-   "solution": "PSOCOPTERA"
+   "solution": "PSOCOPTERA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "reversal"
+    ],
+    "answer": "PSOCOPTERA",
+    "definitions": [
+     {
+      "text": "Family of lice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the preceding words inside the word for a school exercise class"
+     },
+     {
+      "text": "on the rise",
+      "for": "reversal",
+      "note": "in a down clue, rising means the letters read upwards, from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like this",
+      "gives": "SO",
+      "note": "so means in this way"
+     },
+     {
+      "clueFragment": "catch",
+      "gives": "COP",
+      "note": "to cop is to catch or nab"
+     },
+     {
+      "clueFragment": "gym",
+      "gives": "PT",
+      "note": "PT, physical training, is school gym"
+     },
+     {
+      "clueFragment": "are",
+      "gives": "ARE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "SOCOP",
+      "T",
+      "ERA"
+     ],
+     "reversals": [
+      {
+       "from": "ARE",
+       "to": "ERA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A naturalist describes catching lice in the school gym, where they are multiplying.",
+     "walkthrough": "PT, physical training, is the British school name for gym classes. 'Like this to catch' reads as one phrase but is two pieces.",
+     "definitionFit": "Psocoptera is the insect order of booklice and barklice, a taxonomic grouping of louse-like insects."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "catch"
+    }
+   }
   },
   {
    "number": 3,
@@ -93,7 +269,66 @@
     "text": "Faithful about family king abandoned, marking direct descent",
     "enumeration": "6"
    },
-   "solution": "LINEAL"
+   "solution": "LINEAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "LINEAL",
+    "definitions": [
+     {
+      "text": "marking direct descent",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandoned",
+      "for": "deletion",
+      "note": "abandoned says the royal letter is left out of the family word"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means the word for faithful goes round what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Faithful",
+      "gives": "LEAL",
+      "note": "leal is Scots for loyal or faithful"
+     },
+     {
+      "clueFragment": "family",
+      "gives": "KIN",
+      "note": "kin are your family"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IN",
+      "EAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A loyal family history notes where the king walked out, a break in the royal line.",
+     "walkthrough": "Leal is an old Scots word for loyal, as in 'the land o' the leal'.",
+     "definitionFit": "Lineal descent goes in a direct line from parent to child, so lineal describes that unbroken ancestry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "abandoned"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +342,58 @@
     "text": "Covenant reached by doctor, character closing surgery",
     "enumeration": "6"
    },
-   "solution": "TREATY"
+   "solution": "TREATY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TREATY",
+    "definitions": [
+     {
+      "text": "Covenant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "character closing",
+      "for": "letter_selection",
+      "note": "the character closing a word is its final letter, the one that ends it"
+     }
+    ],
+    "linkWords": [
+     "reached by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doctor",
+      "gives": "TREAT",
+      "note": "to doctor a patient is to treat them"
+     },
+     {
+      "clueFragment": "surgery",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of surgery"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TREAT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An agreement is struck by a doctor at the end of surgery hours.",
+     "definitionFit": "A treaty is a formal agreement between parties, which is what a covenant is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +407,50 @@
     "text": "Product of hydrolysis requiring instruments and electromotive force",
     "enumeration": "7"
    },
-   "solution": "CELLOSE"
+   "solution": "CELLOSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CELLOSE",
+    "definitions": [
+     {
+      "text": "Product of hydrolysis",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "requiring",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "instruments",
+      "gives": "CELLOS",
+      "note": "cellos are stringed instruments"
+     },
+     {
+      "clueFragment": "electromotive force",
+      "gives": "E",
+      "note": "E is the physics symbol for electromotive force"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CELLOS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A chemistry lab notes a reaction that apparently needs instruments and an electric push.",
+     "definitionFit": "Cellose, or cellobiose, is a sugar formed when cellulose is broken down by hydrolysis."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "instruments"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +464,71 @@
     "text": "They're familiar to printers old and new in newspaper section",
     "enumeration": "5"
    },
-   "solution": "FONTS"
+   "solution": "FONTS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "FONTS",
+    "definitions": [
+     {
+      "text": "They're familiar to printers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the preceding pair of letters inside the newspaper's initials"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "newspaper",
+      "gives": "FT",
+      "note": "the FT is the Financial Times"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is a standard abbreviation for old"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is a standard abbreviation for new"
+     },
+     {
+      "clueFragment": "section",
+      "gives": "S",
+      "note": "s. abbreviates section"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "O",
+      "N",
+      "T",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Printers, past and present, know their way around a section of the newspaper.",
+     "walkthrough": "O and N go inside FT, then S for section follows.",
+     "definitionFit": "Fonts are sets of type in one design and size, the everyday stock of a printer's trade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "section"
+    }
+   }
   },
   {
    "number": 6,
@@ -149,7 +542,62 @@
     "text": "Imagine once e.g. breaking hand in two places",
     "enumeration": "5"
    },
-   "solution": "FEIGN"
+   "solution": "FEIGN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FEIGN",
+    "definitions": [
+     {
+      "text": "Imagine once",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "breaking says the abbreviation splits the other word open and sits inside it"
+     },
+     {
+      "text": "in two places",
+      "for": "container",
+      "note": "two places means the break happens twice, so the inserted letters are separated from each other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hand",
+      "gives": "FIN",
+      "note": "fin is slang for a hand"
+     },
+     {
+      "clueFragment": "e.g.",
+      "gives": "EG",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "E",
+      "I",
+      "G",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Imagining, say, a broken hand with two fractures.",
+     "walkthrough": "'In two places' means the break happens twice: E goes after the F and G after the I, so the two letters are not kept together.",
+     "definitionFit": "Feign once meant to invent or imagine, an obsolete sense, hence 'once' in the definition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hand"
+    }
+   }
   },
   {
    "number": 7,
@@ -163,7 +611,54 @@
     "text": "Regular course test including a short piece?",
     "enumeration": "7"
    },
-   "solution": "ORBITAL"
+   "solution": "ORBITAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ORBITAL",
+    "definitions": [
+     {
+      "text": "Regular course",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including means the test word holds the next piece inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "test",
+      "gives": "ORAL",
+      "note": "an oral is a spoken examination"
+     },
+     {
+      "clueFragment": "a short piece",
+      "gives": "BIT",
+      "note": "a bit is a small piece"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "BIT",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A course assessment that includes a short piece of writing.",
+     "definitionFit": "An orbital is the circuit a body travels repeatedly round another, a path followed regularly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 8,
@@ -177,7 +672,42 @@
     "text": "Instrument essential to tune bells",
     "enumeration": "5"
    },
-   "solution": "NEBEL"
+   "solution": "NEBEL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NEBEL",
+    "definitions": [
+     {
+      "text": "Instrument",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essential to",
+      "for": "hidden_word",
+      "note": "essential to means the word lies at the core of the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tune bells",
+      "gives": "NEBEL",
+      "note": "the letters run across the gap between the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "An instrument needed to tune a set of bells.",
+     "definitionFit": "The nebel is an ancient Hebrew stringed instrument, probably a kind of harp or lyre."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tune"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +721,55 @@
     "text": "Furrowed part of the US bordering another",
     "enumeration": "7"
    },
-   "solution": "STRIATE"
+   "solution": "STRIATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STRIATE",
+    "definitions": [
+     {
+      "text": "Furrowed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bordering",
+      "for": "container",
+      "note": "bordering means the first part surrounds the second on both sides"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of the US",
+      "gives": "STATE",
+      "note": "the US is divided into states"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "RI",
+      "note": "RI is Rhode Island, another US state"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "RI",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tourist describes a ploughed region of America next to its neighbour.",
+     "walkthrough": "RI is the postal abbreviation for Rhode Island. The blog doubted the adjective use, but the print Chambers and the OED both give striate as an adjective.",
+     "definitionFit": "Striate means marked with fine parallel grooves or lines, so furrowed fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "another"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +783,68 @@
     "text": "Godless hiding gun in disguised terrine",
     "enumeration": "10"
    },
-   "solution": "IRREVERENT"
+   "solution": "IRREVERENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "IRREVERENT",
+    "definitions": [
+     {
+      "text": "Godless",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disguised",
+      "for": "anagram",
+      "note": "something disguised has its appearance altered, so the letters are rearranged"
+     },
+     {
+      "text": "hiding",
+      "for": "container",
+      "note": "hiding means the scrambled dish conceals the next word inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "terrine",
+      "gives": "TERRINE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gun",
+      "gives": "REV",
+      "note": "to gun an engine is to rev it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IR",
+      "REV",
+      "ERENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TERRINE",
+       "gives": "IRERENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A heathen smuggles a firearm inside a disguised pâté.",
+     "walkthrough": "'Gun' looks like a weapon but is the verb, as when a driver guns the engine.",
+     "definitionFit": "Irreverent means lacking respect for sacred things, close to godless or impious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "gun"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +858,56 @@
     "text": "Ally constant in axis, say",
     "enumeration": "5"
    },
-   "solution": "BONCE"
+   "solution": "BONCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BONCE",
+    "definitions": [
+     {
+      "text": "Ally",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the constant inside the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "axis, say",
+      "gives": "BONE",
+      "note": "the axis is the second vertebra of the neck, a bone; say marks it as an example"
+     },
+     {
+      "clueFragment": "constant",
+      "gives": "C",
+      "note": "c is the symbol for a constant, such as the speed of light"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BON",
+      "C",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A wartime partner who stood firm within the Axis powers.",
+     "walkthrough": "'Ally' and 'axis' paint wartime alliances, but an ally (or alley) is a playing marble, and the axis is a neck vertebra.",
+     "definitionFit": "A bonce is a large playing marble, and an ally is a choice marble, so the two are interchangeable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ally"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +921,42 @@
     "text": "Speak incomprehensibly, horse refusing jump?",
     "enumeration": "6"
    },
-   "solution": "JIBBER"
+   "solution": "JIBBER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "JIBBER",
+    "definitions": [
+     {
+      "text": "Speak incomprehensibly",
+      "at": 0
+     },
+     {
+      "text": "horse refusing jump?",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Speak incomprehensibly",
+      "note": "first meaning: to gibber or jabber"
+     },
+     {
+      "clueFragment": "horse refusing jump?",
+      "note": "second meaning: a horse that jibs, balking at a fence"
+     }
+    ],
+    "explanation": {
+     "surface": "A rider babbles nonsense as the horse refuses a fence.",
+     "definitionFit": "Jibber is a variant of gibber, to babble, and also names a horse given to jibbing, stopping short."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Speak"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +970,74 @@
     "text": "Cable maybe chaps fitted in east when missing – here's proof",
     "enumeration": "10"
    },
-   "solution": "EVINCEMENT"
+   "solution": "EVINCEMENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "container"
+    ],
+    "answer": "EVINCEMENT",
+    "definitions": [
+     {
+      "text": "here's proof",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "missing says the following word is left out of the compass direction"
+     },
+     {
+      "text": "fitted in",
+      "for": "container",
+      "note": "fitted in means placed inside what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "east",
+      "gives": "EAST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as can mean when, as in 'as the sun rose'"
+     },
+     {
+      "clueFragment": "Cable maybe",
+      "gives": "VINCE",
+      "note": "Vince Cable is a former British Liberal Democrat leader; maybe marks him as one example"
+     },
+     {
+      "clueFragment": "chaps",
+      "gives": "MEN",
+      "note": "chaps are men"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "VINCE",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Installers lay a cable in the east, and a missing man's whereabouts become the evidence.",
+     "walkthrough": "'Cable' reads as a wire but is a politician, Vince Cable, former UK Business Secretary.",
+     "definitionFit": "Evincement is the act of showing clearly or proving, so something that evinces is proof."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Cable"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +1051,51 @@
     "text": "I cackle wildly – it'll stop mount skidding",
     "enumeration": "7"
    },
-   "solution": "ICECALK"
+   "solution": "ICECALK",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ICECALK",
+    "definitions": [
+     {
+      "text": "it'll stop mount skidding",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wildly",
+      "for": "anagram",
+      "note": "wildly means the letters are thrown about in no set order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I cackle",
+      "gives": "ICACKLE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ICACKLE",
+       "gives": "ICECALK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cackles wildly at the thing that keeps a horse from slipping.",
+     "walkthrough": "'Mount' is a horse, not a hill.",
+     "definitionFit": "An ice-calk is a spike on a horseshoe that grips icy ground, so it keeps the horse from sliding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "mount"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1109,55 @@
     "text": "Relaxed no longer, when in grip of destiny",
     "enumeration": "5"
    },
-   "solution": "LOAST"
+   "solution": "LOAST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LOAST",
+    "definitions": [
+     {
+      "text": "Relaxed no longer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in grip of",
+      "for": "container",
+      "note": "in the grip of means held inside the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "destiny",
+      "gives": "LOT",
+      "note": "your lot is your fate or destiny"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as can mean when"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "AS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone can no longer relax once fate has them in its grip.",
+     "walkthrough": "'No longer' marks an obsolete form: loast is an old past participle of loose.",
+     "definitionFit": "Loast is an obsolete form meaning loosed, so it means relaxed or set loose in old writing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Relaxed"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1171,63 @@
     "text": "Small constellation, one with twinkly tail",
     "enumeration": "6"
    },
-   "solution": "ANTLIA"
+   "solution": "ANTLIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ANTLIA",
+    "definitions": [
+     {
+      "text": "Small constellation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "twinkly",
+      "for": "anagram",
+      "note": "something twinkly flickers and shifts, so the letters move about"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "AN",
+      "note": "an means one"
+     },
+     {
+      "clueFragment": "tail",
+      "gives": "TAIL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "TLIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TAIL",
+       "gives": "TLIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A little star group with one twinkling star trailing behind it, like a comet.",
+     "definitionFit": "Antlia, the Air Pump, is a small faint constellation of the southern sky."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tail"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1241,67 @@
     "text": "Australian shrubs cover one fresh pulled up",
     "enumeration": "7"
    },
-   "solution": "WARATAH"
+   "solution": "WARATAH",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "WARATAH",
+    "definitions": [
+     {
+      "text": "Australian shrubs",
+      "at": 0,
+      "note": "plural, while the answer is singular; the name covers the genus"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pulled up",
+      "for": "reversal",
+      "note": "in a down clue, pulled up means the letters are read from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cover",
+      "gives": "HAT",
+      "note": "a hat covers the head"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "fresh",
+      "gives": "RAW",
+      "note": "raw means new or fresh"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAR",
+      "A",
+      "TAH"
+     ],
+     "reversals": [
+      {
+       "from": "HATARAW",
+       "to": "WARATAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener covers one newly uprooted plant from the outback.",
+     "definitionFit": "The waratah is an Australian shrub with large red flower heads, the floral emblem of New South Wales."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cover"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1315,48 @@
     "text": "Fruit tasted, ready for plucking?",
     "enumeration": "7"
    },
-   "solution": "PLUMATE"
+   "solution": "PLUMATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLUMATE",
+    "definitions": [
+     {
+      "text": "ready for plucking?",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fruit",
+      "gives": "PLUM",
+      "note": "a plum is a fruit"
+     },
+     {
+      "clueFragment": "tasted",
+      "gives": "ATE",
+      "note": "ate means tasted or consumed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLUM",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Fruit sampled and judged ripe enough to pick.",
+     "walkthrough": "The surface reads 'plucking' as picking fruit; the definition means plucking a bird, so feathered.",
+     "definitionFit": "Plumate means feathered or plume-like, and only a feathered bird can be plucked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plucking"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1370,75 @@
     "text": "Is it squidged in pats round either edge of river?",
     "enumeration": "7"
    },
-   "solution": "SPRAINT"
+   "solution": "SPRAINT",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SPRAINT",
+    "definitions": [
+     {
+      "text": "Is it squidged in pats round either edge of river?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "squidged",
+      "for": "anagram",
+      "note": "squidged means squashed out of shape, so the letters are rearranged"
+     },
+     {
+      "text": "either edge of",
+      "for": "letter_selection",
+      "note": "either edge points to the letter at the start or end, which here are the same"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means the scrambled letters go around the single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in pats",
+      "gives": "INPATS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "select": "first",
+      "note": "river begins and ends with the same letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "R",
+      "AINT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INPATS",
+       "gives": "SPAINT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering whether that is something squashed into pats on a riverbank.",
+     "walkthrough": "The whole clue is both wordplay and definition: otter droppings are left in small heaps beside rivers.",
+     "definitionFit": "Spraint is otter dung, deposited in pats along the edges of the rivers otters live in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "pats"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1452,50 @@
     "text": "Paler or trembling, like lips?",
     "enumeration": "7"
    },
-   "solution": "PREORAL"
+   "solution": "PREORAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PREORAL",
+    "definitions": [
+     {
+      "text": "like lips?",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trembling",
+      "for": "anagram",
+      "note": "trembling suggests shaking about, so the letters are disturbed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paler or",
+      "gives": "PALEROR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PALEROR",
+       "gives": "PREORAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether lips turn paler or start trembling, as with fear or cold.",
+     "definitionFit": "Preoral means situated in front of the mouth, which is where lips are; the question mark admits the stretch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Paler"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1509,52 @@
     "text": "Wherein to find elite RA working?",
     "enumeration": "7"
    },
-   "solution": "ATELIER"
+   "solution": "ATELIER",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram"
+    ],
+    "answer": "ATELIER",
+    "definitions": [
+     {
+      "text": "Wherein to find elite RA working?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "working means set in motion, so the letters are put to a new use and order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "elite RA",
+      "gives": "ELITERA",
+      "note": "RA is a Royal Academician, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ELITERA",
+       "gives": "ATELIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking where you would find a top Royal Academician at work.",
+     "walkthrough": "The whole clue is the definition as well as the wordplay; an RA is a member of the Royal Academy of Arts in London.",
+     "definitionFit": "An atelier is an artist's studio or workshop, exactly where an Academician would be at work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1568,65 @@
     "text": "First sign of racism in school creating turmoil as before",
     "enumeration": "6"
    },
-   "solution": "STOWRE"
+   "solution": "STOWRE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STOWRE",
+    "definitions": [
+     {
+      "text": "turmoil as before",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "First sign of",
+      "for": "letter_selection",
+      "note": "the first sign of a word is its opening letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places that letter inside the name of the school"
+     }
+    ],
+    "linkWords": [
+     "creating"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "STOWE",
+      "note": "Stowe is an English public school in Buckinghamshire"
+     },
+     {
+      "clueFragment": "racism",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of racism"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOW",
+      "R",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A racist remark at a boarding school causes uproar, just like last time.",
+     "walkthrough": "'As before' marks an old word; the blog's commenters thought it redundant, as Chambers does not mark stowre obsolete.",
+     "definitionFit": "Stowre is a variant of stour, an old word for tumult, commotion or conflict."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "before"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1640,57 @@
     "text": "Unploughed field due to knowledge number's left in places",
     "enumeration": "6"
    },
-   "solution": "LEARIG"
+   "solution": "LEARIG",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LEARIG",
+    "definitions": [
+     {
+      "text": "Unploughed field",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left in places",
+      "for": "deletion",
+      "note": "left means departed, and in places says it goes from more than one spot"
+     }
+    ],
+    "linkWords": [
+     "due to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "knowledge",
+      "gives": "LEARNING",
+      "note": "learning is acquired knowledge"
+     },
+     {
+      "clueFragment": "number's",
+      "gives": "N",
+      "note": "n stands for an unspecified number in maths"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEAR",
+      "IG"
+     ]
+    },
+    "explanation": {
+     "surface": "A field stays unploughed because of what a farmer knows about the numbers.",
+     "walkthrough": "Both Ns go from LEARNING. A lea-rig is a Scots term.",
+     "definitionFit": "A learig is a grassy ridge left unploughed in a field, from lea, meaning untilled grassland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "number's"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1704,71 @@
     "text": "What's next to do? Think about filling in that CV",
     "enumeration": "6"
    },
-   "solution": "RESUME"
+   "solution": "RESUME",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "RESUME",
+    "definitions": [
+     {
+      "text": "CV",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned around, so the thinking word runs backwards"
+     },
+     {
+      "text": "filling in",
+      "for": "container",
+      "note": "filling in means stuffed inside the preceding letters"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What's next to do?",
+      "gives": "RE",
+      "note": "in the sol-fa scale do is followed by re"
+     },
+     {
+      "clueFragment": "Think",
+      "gives": "MUSE",
+      "note": "to muse is to think"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ESUM",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "MUSE",
+       "to": "ESUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jobseeker wondering what to do next is told to think about completing a CV.",
+     "walkthrough": "'What's next to do?' sounds like a career question but means the note after do in do-re-mi.",
+     "definitionFit": "A résumé is the American term for a curriculum vitae, a summary of your career."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "do"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1782,53 @@
     "text": "Plant bodies Aegean island's reared",
     "enumeration": "5"
    },
-   "solution": "SOMAS"
+   "solution": "SOMAS",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SOMAS",
+    "definitions": [
+     {
+      "text": "Plant bodies",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reared",
+      "for": "reversal",
+      "note": "reared means raised up, so in a down clue the letters read upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aegean island's",
+      "gives": "SAMOS",
+      "note": "Samos is a Greek island in the eastern Aegean"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOMAS"
+     ],
+     "reversals": [
+      {
+       "from": "SAMOS",
+       "to": "SOMAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Plants grown on a Greek island.",
+     "definitionFit": "Soma is the biological term for the body of an organism apart from its reproductive cells, plants included."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reared"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1842,61 @@
     "text": "Wildcat grabbing swan's tail in savage struggle",
     "enumeration": "5"
    },
-   "solution": "MANUL"
+   "solution": "MANUL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MANUL",
+    "definitions": [
+     {
+      "text": "Wildcat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tail",
+      "for": "letter_selection",
+      "note": "a word's tail is its final letter"
+     },
+     {
+      "text": "grabbing",
+      "for": "container",
+      "note": "the struggle word grabs and holds the letter within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "savage struggle",
+      "gives": "MAUL",
+      "note": "a maul is a violent scrum or brawl"
+     },
+     {
+      "clueFragment": "swan's",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter of swan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "N",
+      "UL"
+     ]
+    },
+    "explanation": {
+     "surface": "A wild cat seizes a swan by the tail in a vicious fight.",
+     "definitionFit": "The manul, or Pallas's cat, is a small wild cat of the Central Asian steppes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "savage"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1910,55 @@
     "text": "Wood? River circles small one",
     "enumeration": "5"
    },
-   "solution": "TREES"
+   "solution": "TREES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TREES",
+    "definitions": [
+     {
+      "text": "Wood?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circles",
+      "for": "container",
+      "note": "circles means goes all the way round what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "River",
+      "gives": "TEES",
+      "note": "the Tees is a river in north-east England"
+     },
+     {
+      "clueFragment": "small one",
+      "gives": "R",
+      "note": "a small, abbreviated river is R"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "EES"
+     ]
+    },
+    "explanation": {
+     "surface": "A river winds round a little wood.",
+     "walkthrough": "'Small one' refers back to river: R is its abbreviation. The question mark marks wood as an example of trees en masse.",
+     "definitionFit": "A wood is a collection of trees growing together, so the trees make up the wood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 28,
@@ -457,7 +1972,66 @@
     "text": "Wine holds up, short time bottled",
     "enumeration": "5"
    },
-   "solution": "SYRAH"
+   "solution": "SYRAH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SYRAH",
+    "definitions": [
+     {
+      "text": "Wine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "up in a down clue means the word reads from bottom to top"
+     },
+     {
+      "text": "bottled",
+      "for": "container",
+      "note": "bottled means held inside, as in a bottle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "holds",
+      "gives": "HAS",
+      "note": "to have is to hold"
+     },
+     {
+      "clueFragment": "short time",
+      "gives": "YR",
+      "note": "yr is the short form of year"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "YR",
+      "AH"
+     ],
+     "reversals": [
+      {
+       "from": "HAS",
+       "to": "SAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wine that keeps well, bottled after only a short time.",
+     "definitionFit": "Syrah, also called Shiraz, is a red grape variety and the wine made from it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "holds"
+    }
+   }
   },
   {
    "number": 29,
@@ -471,7 +2045,52 @@
     "text": "Neutering precludes this cross-breed – nothing smelly",
     "enumeration": "7"
    },
-   "solution": "ZOOGAMY"
+   "solution": "ZOOGAMY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ZOOGAMY",
+    "definitions": [
+     {
+      "text": "Neutering precludes this",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cross-breed",
+      "gives": "ZO",
+      "note": "a zo is a cross between a yak and a cow"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O is zero"
+     },
+     {
+      "clueFragment": "smelly",
+      "gives": "GAMY",
+      "note": "gamy, or gamey, means strong-smelling like high game"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ZO",
+      "O",
+      "GAMY"
+     ]
+    },
+    "explanation": {
+     "surface": "A vet notes that neutering stops a pungent hybrid animal from breeding.",
+     "definitionFit": "Zoogamy is sexual reproduction in animals, which neutering makes impossible."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "cross-breed"
+    }
+   }
   },
   {
    "number": 30,
@@ -485,7 +2104,54 @@
     "text": "Tall Pacific tree, piece incorporated in cross",
     "enumeration": "6"
    },
-   "solution": "TAMANU"
+   "solution": "TAMANU",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TAMANU",
+    "definitions": [
+     {
+      "text": "Tall Pacific tree",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "incorporated in",
+      "for": "container",
+      "note": "incorporated in means taken inside the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cross",
+      "gives": "TAU",
+      "note": "a tau cross is T-shaped, named after the Greek letter"
+     },
+     {
+      "clueFragment": "piece",
+      "gives": "MAN",
+      "note": "a man is a piece in chess or draughts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "MAN",
+      "U"
+     ]
+    },
+    "explanation": {
+     "surface": "A section of a tall island tree built into a crucifix.",
+     "definitionFit": "The tamanu is a large tree of the Pacific islands and South-East Asia, valued for timber and oil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "piece"
+    }
+   }
   },
   {
    "number": 31,
@@ -499,7 +2165,63 @@
     "text": "Snare-maker maybe creating fury, restrained by women's resistance",
     "enumeration": "5"
    },
-   "solution": "WIRER"
+   "solution": "WIRER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "WIRER",
+    "definitions": [
+     {
+      "text": "Snare-maker maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restrained by",
+      "for": "container",
+      "note": "restrained by means held in check between the letters that follow"
+     }
+    ],
+    "linkWords": [
+     "creating"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "women's",
+      "gives": "W",
+      "note": "W is an abbreviation for women"
+     },
+     {
+      "clueFragment": "fury",
+      "gives": "IRE",
+      "note": "ire is anger or fury"
+     },
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the symbol for electrical resistance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "IRE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A trapper's anger is kept in check by women resisting him.",
+     "definitionFit": "A wirer is someone who sets wire snares for game, so a snare-maker is one example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "resistance"
+    }
+   }
   },
   {
    "number": 32,
@@ -512,7 +2234,55 @@
    "clue": {
     "text": "Rite suffused with an aura, as the case determines? (10, three words)"
    },
-   "solution": "ANATURAREI"
+   "solution": "ANATURAREI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "A NATURA REI",
+    "definitions": [
+     {
+      "text": "as the case determines?",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suffused with",
+      "for": "anagram",
+      "note": "suffused means spread through and mixed, so all the letters are blended together"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rite",
+      "gives": "RITE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "an aura",
+      "gives": "ANAURA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RITEANAURA",
+       "gives": "ANATURAREI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ceremony steeped in a mystical glow.",
+     "definitionFit": "A natura rei is Latin for from the nature of the thing, so it means as the matter itself determines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rite"
+    }
+   }
   },
   {
    "number": 33,
@@ -526,7 +2296,61 @@
     "text": "Part of golf club: selected club lost latitude",
     "enumeration": "5"
    },
-   "solution": "HOSEL"
+   "solution": "HOSEL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "HOSEL",
+    "definitions": [
+     {
+      "text": "Part of golf club",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost",
+      "for": "deletion",
+      "note": "lost means the word for selected has dropped the card-suit letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "selected",
+      "gives": "CHOSE",
+      "note": "chose means selected"
+     },
+     {
+      "clueFragment": "club",
+      "gives": "C",
+      "note": "C stands for clubs, the card suit"
+     },
+     {
+      "clueFragment": "latitude",
+      "gives": "L",
+      "note": "L is an abbreviation for latitude"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOSE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer's chosen club has lost its range.",
+     "walkthrough": "'Club' repeats the definition's golf club but here means the card suit.",
+     "definitionFit": "The hosel is the socket of a golf club head into which the shaft fits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 34,
@@ -540,7 +2364,68 @@
     "text": "Tangle in one end of leash at full stretch",
     "enumeration": "7"
    },
-   "solution": "ALENGTH"
+   "solution": "ALENGTH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "A-LENGTH",
+    "definitions": [
+     {
+      "text": "at full stretch",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in one",
+      "for": "anagram",
+      "note": "in one means in a tangle itself, so the word is knotted into a new order"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "end points to the final letter of the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tangle",
+      "gives": "TANGLE",
+      "note": "taken as written, and also the image of the scrambling"
+     },
+     {
+      "clueFragment": "leash",
+      "gives": "H",
+      "select": "last",
+      "note": "the last letter of leash"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALENGT",
+      "H"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TANGLE",
+       "gives": "ALENGT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog walker gets tangled in the leash as the dog pulls as far as it can.",
+     "walkthrough": "'Tangle in one' means put the word tangle into a tangle, so the fodder doubles as its own instruction.",
+     "definitionFit": "A-length is an old adverb meaning stretched out at full length."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   }
  ]
 }
