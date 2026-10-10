@@ -102,8 +102,17 @@ check("an edit it never runs leaves it: an uncalled method, another function, an
       [k0] * 6,
       [key_of(m=("return 1", "return 7")), key_of(m=("return 3", "return 4")), key_of(n=("return 0", "return 5")),
        key_of(m=("Doc.", "Other doc.")), key_of(m=("# a local", "# the local")), key_of(m=("return 9", "return 8"))])
-check("the old whole-name key is the one the ledger rows carry, re-keyed not rescanned", True,
-      len(f.whole_name_scan_key()) == 16 and f.whole_name_scan_key() != f.scan_key())
+helper_out = code_reach.TRANSPORT + ("n.helper",)
+check("a definition named opaque (code_reach.SIZING's form) leaves the key: its edit moves nothing",
+      [code_reach.key("m", {"scan"}, texts=base, opaque=helper_out), False],
+      [code_reach.key("m", {"scan"}, texts={**base, "n": base["n"].replace("return x + 1", "return x + 2")},
+                      opaque=helper_out), code_reach.key("m", {"scan"}, texts=base, opaque=helper_out) == k0])
+sized = {f"{m}.{d}" for m, d in code_reach.reach("file_archive_org_puzzles", f.SCAN_ROOTS)}
+narrow = {f"{m}.{d}" for m, d in code_reach.reach("file_archive_org_puzzles", f.SCAN_ROOTS,
+                                                  opaque=code_reach.TRANSPORT + code_reach.SIZING)}
+check("scan() reaches each thread-pool sizing definition, and its key leaves them out: a thread cap rescans nothing",
+      (set(code_reach.SIZING), set(), True),
+      (set(code_reach.SIZING) & sized, set(code_reach.SIZING) & narrow, f.sized_scan_key() != f.scan_key()))
 check("a title no verdict covers makes the edition due", "titles changed",
       f.due_reason({"inputs": "h", "solutionsSeen": [], "verdicts": [], "vlm": "v",
                     "scan": {"puzzles": [{"number": 18862}]}}, "h", [], "v"))
