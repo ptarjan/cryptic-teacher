@@ -1069,6 +1069,33 @@ scan_queue.append(pl, [{**settled_row(e2), "scan": {"date": "1981-06-22", "puzzl
                                                       "solutions": [{"number": 15557, "leaf": 1}]}}])
 check("and a Gale run sees the archive.org scans' headings", {15557: pc / "NewsUK1981UKEnglish" / "1981-05-06_2"},
       {n: s["dir"] for n, s in f.sister_solutions(pc, f.GALE).items()})
+# A read start links every sister edition's headings (sister_solutions):
+# kept until the sister ledger or the series' filed puzzles move.
+linked, real_linked, real_held_dates = [], f.linked_solutions, f.held_dates
+f.linked_solutions = lambda *a: (linked.append(a[0]), real_linked(*a))[1]
+try:
+    f.sister_solutions(pc, f.GALE)
+    linked.clear()
+    f.sister_solutions(pc, f.GALE)
+    check("an unmoved sister ledger and filed puzzles: no heading linked again", [], linked)
+    scan_queue.append(pl, [settled_row(e1)])
+    f.sister_solutions(pc, f.GALE)
+    check("mirror: the sister ledger appended to: its headings linked again", True, bool(linked))
+    linked.clear()
+    f.held_dates = lambda series: f.Held({**real_held_dates(series), 99999: datetime.date(1999, 1, 1)})
+    f.sister_solutions(pc, f.GALE)
+    check("mirror: a puzzle filed in the series: its headings linked again", True, bool(linked))
+finally:
+    f.linked_solutions, f.held_dates = real_linked, real_held_dates
+held = f.Held({15556: datetime.date(1981, 6, 19), 15557: datetime.date(1981, 6, 20), 15550: datetime.date(1981, 6, 12)})
+check("neighbours: the nearest filed either side, by bisecting the sorted dates",
+      ((datetime.date(1981, 6, 12), 15550), (datetime.date(1981, 6, 20), 15557)),
+      f.neighbours(datetime.date(1981, 6, 19), held))
+try:
+    held[1] = datetime.date(1981, 1, 1)
+    check("Held is read-only", "raised", "set")
+except TypeError:
+    check("Held is read-only", "raised", "raised")
 check("filer_of: each edition to the run that reads it (the 1930 Times the Times run's)",
       ["gale", "times", "times", "ft", None],
       [getattr(f.filer_of(r), "key", None) for r in ("GaleTimes1987UKEnglish/1987-03-02", "NewsUK1990UKEnglish/x",
