@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,49 @@
     "text": "Tennis player looking the same when returning",
     "enumeration": "5"
    },
-   "solution": "SELES"
+   "solution": "SELES",
+   "annotation": {
+    "type": [
+     "palindrome"
+    ],
+    "answer": "SELES",
+    "definitions": [
+     {
+      "text": "Tennis player",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "looking the same when returning",
+      "for": "palindrome",
+      "note": "a name that looks unchanged when read in the return direction is spelt identically both ways"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tennis player",
+      "gives": "SELES",
+      "note": "a Yugoslav-born American former world number one whose surname reads identically in both directions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SELES"
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis player who looks the same each time she sends the ball back over the net.",
+     "walkthrough": "'Returning' suggests a tennis return, but here it means reading the name from right to left.",
+     "definitionFit": "Monica Seles won nine Grand Slam singles titles, so she is a famous example of a tennis player."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "returning"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +91,51 @@
     "text": "Job moved to Tunisia",
     "enumeration": "9"
    },
-   "solution": "SITUATION"
+   "solution": "SITUATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SITUATION",
+    "definitions": [
+     {
+      "text": "Job",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moved",
+      "for": "anagram",
+      "note": "letters that have been moved are shifted into new positions"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to Tunisia",
+      "gives": "TOTUNISIA",
+      "note": "the letters of both words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOTUNISIA",
+       "gives": "SITUATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has been relocated to North Africa for work.",
+     "walkthrough": "'to' looks like a link word, but its letters are needed in the mix.",
+     "definitionFit": "A situation is a post or position of employment, as in 'situations vacant'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "to"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +149,53 @@
     "text": "Liberal beat a South American animal",
     "enumeration": "5"
    },
-   "solution": "LLAMA"
+   "solution": "LLAMA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LLAMA",
+    "definitions": [
+     {
+      "text": "South American animal",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "note": "standard abbreviation for Liberal"
+     },
+     {
+      "clueFragment": "beat",
+      "gives": "LAM",
+      "note": "to lam is to thrash or beat"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "LAM",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A Liberal politician hits an Andean beast.",
+     "walkthrough": "LAM is an informal verb meaning to hit hard.",
+     "definitionFit": "The llama is a domesticated pack animal of the Andes in South America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "beat"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +209,74 @@
     "text": "Drinking bout sounds uplifting around middle of Christmas",
     "enumeration": "7"
    },
-   "solution": "SESSION"
+   "solution": "SESSION",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "SESSION",
+    "definitions": [
+     {
+      "text": "Drinking bout",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uplifting",
+      "for": "reversal",
+      "note": "in a down entry, something lifted up is read from the bottom upwards"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means placed on either side of something else"
+     },
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "the middle of a word is its central letter, the one equidistant from both ends"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sounds",
+      "gives": "NOISES",
+      "note": "sounds as a plural noun"
+     },
+     {
+      "clueFragment": "Christmas",
+      "gives": "S",
+      "select": "middle",
+      "note": "the fifth of nine letters is the centre one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "S",
+      "SION"
+     ],
+     "reversals": [
+      {
+       "from": "NOISES",
+       "to": "SESION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boozy festive session sounds cheerful.",
+     "walkthrough": "'Sounds' looks like a homophone signal but is simply a noun; 'uplifting' looks like praise.",
+     "definitionFit": "A session is a period of heavy drinking, as in a long session at the pub."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sounds"
+    }
+   }
   },
   {
    "number": 4,
@@ -94,7 +296,75 @@
      }
     ]
    },
-   "solution": "TRUMPEDUP"
+   "solution": "TRUMPEDUP",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "TRUMPED-UP",
+    "definitions": [
+     {
+      "text": "False",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word before it"
+     },
+     {
+      "text": "turned",
+      "for": "reversal",
+      "note": "something turned round faces the other way, so read it backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US president",
+      "gives": "TRUMP",
+      "note": "Donald Trump"
+     },
+     {
+      "clueFragment": "he",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter of he"
+     },
+     {
+      "clueFragment": "sweet",
+      "gives": "PUD",
+      "note": "pud is British slang for pudding, a dessert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRUMP",
+      "E",
+      "DUP"
+     ],
+     "reversals": [
+      {
+       "from": "PUD",
+       "to": "DUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Did the US president turn into a sweet? Not true.",
+     "walkthrough": "'Sweet' here is the British sense of dessert, shortened to PUD.",
+     "definitionFit": "Trumped-up charges are invented or fabricated ones, so the phrase means false."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "sweet"
+    }
+   }
   },
   {
    "number": 4,
@@ -108,7 +378,56 @@
     "text": "Hard cheese keeping hard, however",
     "enumeration": "6"
    },
-   "solution": "THOUGH"
+   "solution": "THOUGH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THOUGH",
+    "definitions": [
+     {
+      "text": "however",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "to keep something is to hold it within you"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hard cheese",
+      "gives": "TOUGH",
+      "note": "'tough!' and 'hard cheese!' are both unsympathetic British exclamations meaning bad luck"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H for hard, as on pencils"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "H",
+      "OUGH"
+     ]
+    },
+    "explanation": {
+     "surface": "A firm cheese that stays firm, nonetheless.",
+     "walkthrough": "'Hard cheese' reads as a cheese type but is the British idiom for tough luck.",
+     "definitionFit": "Though is used as an adverb meaning nevertheless or however, as in 'it was late, though'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cheese"
+    }
+   }
   },
   {
    "number": 5,
@@ -122,7 +441,68 @@
     "text": "University student with porridge eating at last",
     "enumeration": "8"
    },
-   "solution": "ULTIMATE"
+   "solution": "ULTIMATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ULTIMATE",
+    "definitions": [
+     {
+      "text": "last",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "something eating another takes it inside itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "University",
+      "gives": "U",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L for learner, as on L-plates"
+     },
+     {
+      "clueFragment": "porridge",
+      "gives": "TIME",
+      "note": "porridge is British slang for a prison sentence, which is doing time"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "L",
+      "TIM",
+      "AT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A university student finally gets round to eating breakfast oats.",
+     "walkthrough": "'At last' looks like a phrase, but 'at' goes inside TIME and 'last' alone is the definition.",
+     "definitionFit": "Ultimate means final or coming at the end, so it is an adjective synonym for last."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "porridge"
+    }
+   }
   },
   {
    "number": 6,
@@ -136,7 +516,61 @@
     "text": "Errand boy describing a ship's journey",
     "enumeration": "7"
    },
-   "solution": "PASSAGE"
+   "solution": "PASSAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PASSAGE",
+    "definitions": [
+     {
+      "text": "journey",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "describing",
+      "for": "container",
+      "note": "to describe a shape is to draw a line around it, so one piece encircles another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Errand boy",
+      "gives": "PAGE",
+      "note": "a page is a boy who runs errands"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ship",
+      "gives": "SS",
+      "note": "SS for steamship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "A",
+      "SS",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A messenger boy tells of a sea voyage.",
+     "walkthrough": "'Describing' looks like telling a story, but in crosswords it can mean drawing around.",
+     "definitionFit": "A passage is a journey, especially one by sea, as in working one's passage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "describing"
+    }
+   }
   },
   {
    "number": 7,
@@ -150,7 +584,59 @@
     "text": "Grew peeved with old bust",
     "enumeration": "9"
    },
-   "solution": "DEVELOPED"
+   "solution": "DEVELOPED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DEVELOPED",
+    "definitions": [
+     {
+      "text": "Grew",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bust",
+      "for": "anagram",
+      "note": "something bust is broken apart, so the letters are reassembled"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peeved",
+      "gives": "PEEVED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "OLD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PEEVEDOLD",
+       "gives": "DEVELOPED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone became annoyed at an old sculpted head.",
+     "walkthrough": "'Bust' looks like a sculpture but signals breaking up the letters.",
+     "definitionFit": "To develop is to grow or mature, so developed is the past tense synonym of grew."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bust"
+    }
+   }
   },
   {
    "number": 8,
@@ -164,7 +650,57 @@
     "text": "Drinks in flipping bad mood",
     "enumeration": "5"
    },
-   "solution": "PORTS"
+   "solution": "PORTS",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "PORTS",
+    "definitions": [
+     {
+      "text": "Drinks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "flipping something turns it over end to end"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bad mood",
+      "gives": "STROP",
+      "note": "a strop is a sulk or fit of temper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PORTS"
+     ],
+     "reversals": [
+      {
+       "from": "STROP",
+       "to": "PORTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone drinks while in a really foul temper.",
+     "walkthrough": "'Flipping' reads as a mild British swear word qualifying the mood.",
+     "definitionFit": "Port is a fortified wine, so ports are drinks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flipping"
+    }
+   }
   },
   {
    "number": 9,
@@ -178,7 +714,65 @@
     "text": "Queen in light brown dress in ferry?",
     "enumeration": "9"
    },
-   "solution": "TRANSPORT"
+   "solution": "TRANSPORT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TRANSPORT",
+    "definitions": [
+     {
+      "text": "ferry?",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the following one"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Queen",
+      "gives": "R",
+      "note": "R for Regina"
+     },
+     {
+      "clueFragment": "light brown",
+      "gives": "TAN",
+      "note": "a light brown colour"
+     },
+     {
+      "clueFragment": "dress",
+      "gives": "SPORT",
+      "note": "to sport clothes is to wear or dress in them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "AN",
+      "SPORT"
+     ]
+    },
+    "explanation": {
+     "surface": "The Queen travels on a ferry wearing a tan outfit.",
+     "walkthrough": "The question mark marks ferry as an example: a ferry is one kind of transport.",
+     "definitionFit": "A ferry is a vessel carrying passengers, so it is an example of transport."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dress"
+    }
+   }
   },
   {
    "number": 10,
@@ -192,7 +786,61 @@
     "text": "Spanish golfer by Turnberry's third making cut",
     "enumeration": "5"
    },
-   "solution": "SEVER"
+   "solution": "SEVER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SEVER",
+    "definitions": [
+     {
+      "text": "cut",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "third",
+      "for": "letter_selection",
+      "note": "third picks out the letter in position three of the named word"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spanish golfer",
+      "gives": "SEVE",
+      "note": "Seve Ballesteros, the Spanish golfing great"
+     },
+     {
+      "clueFragment": "Turnberry's",
+      "gives": "R",
+      "select": 3,
+      "note": "third letter of Turnberry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEVE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A Spanish golfer at the Turnberry course makes the cut.",
+     "walkthrough": "Turnberry is a Scottish links course that has hosted the Open; making the cut is a golf term.",
+     "definitionFit": "To sever is to cut through or cut off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 11,
@@ -206,7 +854,54 @@
     "text": "Wonderful American mother with pizzazz",
     "enumeration": "7"
    },
-   "solution": "AMAZING"
+   "solution": "AMAZING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMAZING",
+    "definitions": [
+     {
+      "text": "Wonderful",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MA",
+      "note": "familiar word for mother"
+     },
+     {
+      "clueFragment": "pizzazz",
+      "gives": "ZING",
+      "note": "zing is energy or liveliness"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MA",
+      "ZING"
+     ]
+    },
+    "explanation": {
+     "surface": "A lively American mum is marvellous.",
+     "definitionFit": "Amazing and wonderful are both adjectives for something astonishingly good."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -220,7 +915,67 @@
     "text": "Shilling found in beers after this writer's complaint",
     "enumeration": "7"
    },
-   "solution": "MEASLES"
+   "solution": "MEASLES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MEASLES",
+    "definitions": [
+     {
+      "text": "complaint",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "after",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "this writer",
+      "gives": "ME",
+      "note": "the setter referring to themself"
+     },
+     {
+      "clueFragment": "Shilling",
+      "gives": "S",
+      "note": "s was the abbreviation for the shilling, an old British coin worth twelve pence"
+     },
+     {
+      "clueFragment": "beers",
+      "gives": "ALES",
+      "note": "ales are beers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "A",
+      "S",
+      "LES"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer grumbles at finding a coin in the beer.",
+     "walkthrough": "'Complaint' looks like a grumble, but is meant medically.",
+     "definitionFit": "Complaint can mean an illness, and measles is an infectious childhood disease."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "complaint"
+    }
+   }
   },
   {
    "number": 13,
@@ -234,7 +989,59 @@
     "text": "Child actually has name for chapter",
     "enumeration": "6"
    },
-   "solution": "INFANT"
+   "solution": "INFANT",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "INFANT",
+    "definitions": [
+     {
+      "text": "Child",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has name for chapter",
+      "for": "substitution",
+      "note": "one letter is put in place of another: an abbreviation for name replaces one for chapter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "actually",
+      "gives": "INFACT",
+      "note": "in fact means actually"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "chapter",
+      "gives": "C",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INFA",
+      "N",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A child actually swaps a name for a chapter heading.",
+     "definitionFit": "An infant is a very young child, a baby or toddler."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chapter"
+    }
+   }
   },
   {
    "number": 14,
@@ -248,7 +1055,65 @@
     "text": "Scares female with suitable chickens? Not at first",
     "enumeration": "9"
    },
-   "solution": "FRIGHTENS"
+   "solution": "FRIGHTENS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "FRIGHTENS",
+    "definitions": [
+     {
+      "text": "Scares",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not at first",
+      "for": "deletion",
+      "note": "not at first says the opening letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "suitable",
+      "gives": "RIGHT",
+      "note": "right means suitable or appropriate"
+     },
+     {
+      "clueFragment": "chickens?",
+      "gives": "HENS",
+      "note": "hens are female chickens"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RIGHT",
+      "ENS"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman with the right sort of chickens frightens people.",
+     "walkthrough": "'Chickens' also suggests cowards, who are easily scared, hence the question mark.",
+     "definitionFit": "To frighten someone is to scare them, so frightens is the matching verb form."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "chickens"
+    }
+   }
   },
   {
    "number": 15,
@@ -262,7 +1127,58 @@
     "text": "Tries attracting trout primarily with lures",
     "enumeration": "8"
    },
-   "solution": "ATTEMPTS"
+   "solution": "ATTEMPTS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ATTEMPTS",
+    "definitions": [
+     {
+      "text": "Tries",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so take leading letters"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attracting trout",
+      "gives": "AT",
+      "select": "first",
+      "note": "the first letter of each word"
+     },
+     {
+      "clueFragment": "lures",
+      "gives": "TEMPTS",
+      "note": "to lure is to tempt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "TEMPTS"
+     ]
+    },
+    "explanation": {
+     "surface": "An angler tries to catch trout using lures.",
+     "definitionFit": "Attempts and tries are both verbs meaning makes an effort to do something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lures"
+    }
+   }
   },
   {
    "number": 16,
@@ -276,7 +1192,56 @@
     "text": "Sir's super new floors",
     "enumeration": "9"
    },
-   "solution": "SURPRISES"
+   "solution": "SURPRISES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SURPRISES",
+    "definitions": [
+     {
+      "text": "floors",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "something new has been made over, so its letters come in a fresh arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sir's",
+      "gives": "SIRS",
+      "note": "the letters as written, apostrophe ignored"
+     },
+     {
+      "clueFragment": "super",
+      "gives": "SUPER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SIRSSUPER",
+       "gives": "SURPRISES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A knight's excellent new floorboards.",
+     "walkthrough": "'Floors' looks like a noun about flooring; it is the verb meaning stuns.",
+     "definitionFit": "To floor someone is to astonish or stagger them, so it is a verb synonym of surprises."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "floors"
+    }
+   }
   },
   {
    "number": 17,
@@ -290,7 +1255,53 @@
     "text": "Second best editor cried",
     "enumeration": "8"
    },
-   "solution": "SCREAMED"
+   "solution": "SCREAMED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCREAMED",
+    "definitions": [
+     {
+      "text": "cried",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "S",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "best",
+      "gives": "CREAM",
+      "note": "the cream is the best of anything"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CREAM",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "The runner-up editor broke down in tears.",
+     "walkthrough": "'Second best' reads as one phrase, but splits into two pieces.",
+     "definitionFit": "Cried can mean shouted out loud, which is what someone who screamed did."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Second"
+    }
+   }
   },
   {
    "number": 18,
@@ -304,7 +1315,55 @@
     "text": "Bore is sitting in shade",
     "enumeration": "8"
    },
-   "solution": "NUISANCE"
+   "solution": "NUISANCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NUISANCE",
+    "definitions": [
+     {
+      "text": "Bore",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sitting in",
+      "for": "container",
+      "note": "something sitting in another is placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "shade",
+      "gives": "NUANCE",
+      "note": "a shade of meaning is a nuance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NU",
+      "IS",
+      "ANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tedious person sits in the shadow.",
+     "walkthrough": "'Bore' could be a verb in the past tense; it is the noun for a tiresome person or thing.",
+     "definitionFit": "A bore and a nuisance are both nouns for an annoying person or thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shade"
+    }
+   }
   },
   {
    "number": 19,
@@ -318,7 +1377,57 @@
     "text": "State aid gets eradicated initially? This could be mean",
     "enumeration": "7"
    },
-   "solution": "AVERAGE"
+   "solution": "AVERAGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "AVERAGE",
+    "definitions": [
+     {
+      "text": "This could be mean",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letters of the words before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "State",
+      "gives": "AVER",
+      "note": "to aver is to state or assert"
+     },
+     {
+      "clueFragment": "aid gets eradicated",
+      "gives": "AGE",
+      "select": "first",
+      "note": "first letter of each word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVER",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "If state aid is wiped out, someone could call that mean.",
+     "walkthrough": "'Mean' looks like stingy; here it is the arithmetic sense.",
+     "definitionFit": "In statistics the mean is the most common kind of average, so an average could be a mean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mean"
+    }
+   }
   },
   {
    "number": 20,
@@ -332,7 +1441,66 @@
     "text": "Left one day in German aircraft",
     "enumeration": "6"
    },
-   "solution": "GLIDER"
+   "solution": "GLIDER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "GLIDER",
+    "definitions": [
+     {
+      "text": "aircraft",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the preceding pieces inside the next one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Left",
+      "gives": "L",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "GER",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "LID",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone departed one day in a German plane.",
+     "walkthrough": "'Left' looks like a past-tense verb but is the abbreviation.",
+     "definitionFit": "A glider is an engineless aircraft that flies on air currents."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Left"
+    }
+   }
   },
   {
    "number": 21,
@@ -346,7 +1514,67 @@
     "text": "Missing call almost upset Charles?",
     "enumeration": "7"
    },
-   "solution": "LACKING"
+   "solution": "LACKING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "LACKING",
+    "definitions": [
+     {
+      "text": "Missing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is dropped"
+     },
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down entry, upset means turned upside down, so read from the bottom up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "call",
+      "gives": "CALL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Charles?",
+      "gives": "KING",
+      "note": "King Charles III, the British monarch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAC",
+      "KING"
+     ],
+     "reversals": [
+      {
+       "from": "CAL",
+       "to": "LAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A missed phone call has upset Charles.",
+     "walkthrough": "The question mark flags Charles as an example of a king.",
+     "definitionFit": "Missing and lacking are both adjectives for something absent or not there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 22,
@@ -360,7 +1588,65 @@
     "text": "Got rid of soft egg on top of dish",
     "enumeration": "6"
    },
-   "solution": "PURGED"
+   "solution": "PURGED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PURGED",
+    "definitions": [
+     {
+      "text": "Got rid of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "in a down entry the top of a word is its opening letter"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soft",
+      "gives": "P",
+      "note": "p for piano, the musical direction to play softly"
+     },
+     {
+      "clueFragment": "egg",
+      "gives": "URGE",
+      "note": "to egg on is to urge"
+     },
+     {
+      "clueFragment": "dish",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "URGE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A soft-boiled egg is placed on top of a dish.",
+     "walkthrough": "'Egg on' reads as food on a plate; 'egg' alone means urge, while 'on' places it above the last piece in this down clue.",
+     "definitionFit": "To purge is to rid oneself of something unwanted, so purged means got rid of."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "egg"
+    }
+   }
   },
   {
    "number": 23,
@@ -374,7 +1660,68 @@
     "text": "Reach a church – that is half of nave",
     "enumeration": "7"
    },
-   "solution": "ACHIEVE"
+   "solution": "ACHIEVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ACHIEVE",
+    "definitions": [
+     {
+      "text": "Reach",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half of",
+      "for": "letter_selection",
+      "note": "half of a word keeps only some of its letters, here the back pair"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e., Latin id est"
+     },
+     {
+      "clueFragment": "nave",
+      "gives": "VE",
+      "select": "last",
+      "note": "the second half of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CH",
+      "IE",
+      "VE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gets to a church and finds half the nave.",
+     "walkthrough": "The church setting makes 'nave' feel like architecture, but only its letters matter.",
+     "definitionFit": "To achieve a goal is to reach or attain it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Reach"
+    }
+   }
   },
   {
    "number": 23,
@@ -388,7 +1735,42 @@
     "text": "Somewhat normal to stifle voices",
     "enumeration": "5"
    },
-   "solution": "ALTOS"
+   "solution": "ALTOS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ALTOS",
+    "definitions": [
+     {
+      "text": "voices",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means to some extent, so only part of the following words is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "normal to stifle",
+      "gives": "ALTOS",
+      "note": "runs across the end of normal, all of to and the start of stifle"
+     }
+    ],
+    "explanation": {
+     "surface": "It is fairly usual to muffle voices.",
+     "definitionFit": "Altos are singers of the low female or high male range, i.e. a kind of voice in a choir."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stifle"
+    }
+   }
   },
   {
    "number": 24,
@@ -402,7 +1784,61 @@
     "text": "Reveal note man found in ancient city",
     "enumeration": "7"
    },
-   "solution": "UNCOVER"
+   "solution": "UNCOVER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "UNCOVER",
+    "definitions": [
+     {
+      "text": "Reveal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in another lies inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "note",
+      "gives": "N",
+      "note": "N for note"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "COVE",
+      "note": "cove is old British slang for a man or chap"
+     },
+     {
+      "clueFragment": "ancient city",
+      "gives": "UR",
+      "note": "Ur of the Chaldees, the Sumerian city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "NCOVE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A note left by a man is discovered in a ruined city.",
+     "walkthrough": "UR is the crossword's favourite ancient city.",
+     "definitionFit": "To uncover something is to expose or reveal it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "man"
+    }
+   }
   },
   {
    "number": 25,
@@ -416,7 +1852,53 @@
     "text": "Behold type of painting in V&A",
     "enumeration": "5"
    },
-   "solution": "VOILA"
+   "solution": "VOILA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VOILA",
+    "definitions": [
+     {
+      "text": "Behold",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the first piece inside the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "type of painting",
+      "gives": "OIL",
+      "note": "oil painting"
+     },
+     {
+      "clueFragment": "V&A",
+      "gives": "VA",
+      "note": "the Victoria and Albert Museum in London"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "OIL",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Look at this kind of painting in a London museum.",
+     "definitionFit": "Voila is a French exclamation meaning there it is, used like the command behold."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -430,7 +1912,49 @@
     "text": "Greek character's itchiest hat regularly removed",
     "enumeration": "5"
    },
-   "solution": "THETA"
+   "solution": "THETA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "THETA",
+    "definitions": [
+     {
+      "text": "Greek character's",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly removed",
+      "for": "letter_selection",
+      "note": "removing at regular intervals drops every other letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "itchiest hat",
+      "gives": "THETA",
+      "select": "alternate",
+      "note": "the second, fourth, sixth letters and so on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THETA"
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek man's hat is so scratchy he takes it off.",
+     "walkthrough": "The 's after 'character' is read as 'is' joining definition to wordplay.",
+     "definitionFit": "Theta is the eighth letter of the Greek alphabet, a character in that writing system."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 27,
@@ -444,7 +1968,62 @@
     "text": "Makes bigger figs, I mean bananas",
     "enumeration": "9"
    },
-   "solution": "MAGNIFIES"
+   "solution": "MAGNIFIES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MAGNIFIES",
+    "definitions": [
+     {
+      "text": "Makes bigger",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bananas",
+      "for": "anagram",
+      "note": "bananas means crazy, so the letters go wild"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "figs",
+      "gives": "FIGS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mean",
+      "gives": "MEAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FIGSIMEAN",
+       "gives": "MAGNIFIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fruit-seller's figs, and bananas, are enlarged.",
+     "walkthrough": "Among figs, 'bananas' looks like another fruit; it is the slang for mad.",
+     "definitionFit": "To magnify is to enlarge something, so magnifies means makes it bigger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bananas"
+    }
+   }
   },
   {
    "number": 28,
@@ -458,7 +2037,56 @@
     "text": "Cook needs spud put aside",
     "enumeration": "9"
    },
-   "solution": "SUSPENDED"
+   "solution": "SUSPENDED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SUSPENDED",
+    "definitions": [
+     {
+      "text": "put aside",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cook",
+      "for": "anagram",
+      "note": "to cook ingredients is to mix and alter them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "needs",
+      "gives": "NEEDS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "spud",
+      "gives": "SPUD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NEEDSSPUD",
+       "gives": "SUSPENDED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The chef must have a potato set aside.",
+     "walkthrough": "Spud is informal for potato, which fits the kitchen picture.",
+     "definitionFit": "To suspend something is to set it aside temporarily, so suspended means put aside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cook"
+    }
+   }
   },
   {
    "number": 29,
@@ -472,7 +2100,65 @@
     "text": "Rabbit crossing river with small rat",
     "enumeration": "5"
    },
-   "solution": "GRASS"
+   "solution": "GRASS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "GRASS",
+    "definitions": [
+     {
+      "text": "rat",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "something crossing another spans it, holding it inside"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rabbit",
+      "gives": "GAS",
+      "note": "to rabbit and to gas are both British slang for chattering on"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "R",
+      "AS",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A rabbit crosses a stream alongside a little rat.",
+     "walkthrough": "'Rabbit' and 'rat' look like animals; both are verbs, chatter and inform on.",
+     "definitionFit": "To grass is British slang for informing to the police, just as to rat on someone is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rabbit"
+    }
+   }
   }
  ]
 }
