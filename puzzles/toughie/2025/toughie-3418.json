@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,73 @@
     "text": "At first, thief only really cared for jewellery",
     "enumeration": "4"
    },
-   "solution": "TORC"
+   "solution": "TORC",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TORC",
+    "definitions": [
+     {
+      "text": "jewellery",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "At first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of each of the following words"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thief",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "only",
+      "gives": "O",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "really",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "cared",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "O",
+      "R",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A burglar whose only real interest was the jewels.",
+     "walkthrough": "A torc is a twisted metal neck ring worn by ancient Celts.",
+     "definitionFit": "A torc is an ornamental neck band, an example of jewellery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cared"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +116,42 @@
     "text": "Visualise section of ride at Eastbourne",
     "enumeration": "6"
    },
-   "solution": "IDEATE"
+   "solution": "IDEATE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "IDEATE",
+    "definitions": [
+     {
+      "text": "Visualise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "section of",
+      "for": "hidden_word",
+      "note": "a section is only a part, so the answer is a run of letters lifted from inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ride at Eastbourne",
+      "gives": "IDEATE",
+      "note": "the letters run across the gap between the first two words and into the third"
+     }
+    ],
+    "explanation": {
+     "surface": "Picture a stretch of a seaside trip at the Sussex resort of Eastbourne.",
+     "definitionFit": "To ideate is to form an idea or mental image, a synonym for picturing something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "section"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +165,56 @@
     "text": "Having a few parties after cracking audition",
     "enumeration": "10"
    },
-   "solution": "TRILATERAL"
+   "solution": "TRILATERAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRILATERAL",
+    "definitions": [
+     {
+      "text": "Having a few parties",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cracking",
+      "for": "container",
+      "note": "something cracking another breaks into it, so it sits inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "audition",
+      "gives": "TRIAL",
+      "note": "an audition is a trial for a performer"
+     },
+     {
+      "clueFragment": "after",
+      "gives": "LATER",
+      "note": "after means later"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRI",
+      "LATER",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who throws parties once the audition has gone well.",
+     "walkthrough": "'Parties' are the sides to an agreement, and 'a few' here means three, matching the tri- prefix.",
+     "definitionFit": "A trilateral treaty involves three sides, so it has a small number of participants."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "parties"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +228,72 @@
     "text": "Avoid backing little Scottish boarding school? On the contrary!",
     "enumeration": "6"
    },
-   "solution": "ESCHEW"
+   "solution": "ESCHEW",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ESCHEW",
+    "definitions": [
+     {
+      "text": "Avoid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means going in reverse, so the word for little is read from its end"
+     },
+     {
+      "text": "boarding",
+      "for": "container",
+      "note": "to board is to get into something, so one piece is placed inside the other"
+     },
+     {
+      "text": "On the contrary!",
+      "for": "container",
+      "note": "this flips which piece boards which, so the turned-round word holds the other one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "little Scottish",
+      "gives": "WEE",
+      "note": "wee is Scottish for little"
+     },
+     {
+      "clueFragment": "school",
+      "gives": "SCH",
+      "note": "SCH is the abbreviation for school"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "SCH",
+      "EW"
+     ],
+     "reversals": [
+      {
+       "from": "WEE",
+       "to": "EEW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Steer clear of supporting a small Scottish boarding school, or perhaps the reverse.",
+     "walkthrough": "Read literally, the little word would board the school; 'On the contrary!' swaps the roles, so the school boards the turned-round word.",
+     "definitionFit": "To eschew something is to deliberately keep away from it, a formal synonym for shun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boarding"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +307,66 @@
     "text": "Rising movement erupts violently, receiving fine",
     "enumeration": "8"
    },
-   "solution": "UPSTROKE"
+   "solution": "UPSTROKE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "UPSTROKE",
+    "definitions": [
+     {
+      "text": "Rising movement",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "violently",
+      "for": "anagram",
+      "note": "something done violently is thrown about, so these letters are scrambled"
+     },
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "receiving means taking in, so another piece goes inside the jumble"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "erupts",
+      "gives": "ERUPTS",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "OK",
+      "note": "OK means fine, all right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UPSTR",
+      "OK",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ERUPTS",
+       "gives": "UPSTRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something rises and bursts out violently while taking in fine particles.",
+     "definitionFit": "An upstroke is an upward stroke of a pen or piston, a movement that goes up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fine"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +380,43 @@
     "text": "Some savour Dutch language",
     "enumeration": "4"
    },
-   "solution": "URDU"
+   "solution": "URDU",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "URDU",
+    "definitions": [
+     {
+      "text": "language",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means only part, so the answer is taken from within the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "savour Dutch",
+      "gives": "URDU",
+      "note": "the end of the first word joined to the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Taste some Dutch food or a bit of Dutch speech.",
+     "walkthrough": "'Dutch language' looks like one phrase, but Dutch only supplies letters.",
+     "definitionFit": "Urdu is the national language of Pakistan, an example of a tongue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dutch"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +430,62 @@
     "text": "Sport extremely inviting black French robe",
     "enumeration": "8"
    },
-   "solution": "PEIGNOIR"
+   "solution": "PEIGNOIR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PEIGNOIR",
+    "definitions": [
+     {
+      "text": "robe",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremes of a word, its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sport",
+      "gives": "PE",
+      "note": "PE is physical education, school sport"
+     },
+     {
+      "clueFragment": "inviting",
+      "gives": "IG",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "black French",
+      "gives": "NOIR",
+      "note": "noir is French for black"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "IG",
+      "NOIR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wears a striking, inviting black French dressing gown.",
+     "walkthrough": "'Sport' looks like a verb meaning wear; it is the school subject.",
+     "definitionFit": "A peignoir is a woman's light dressing gown, a kind of loose robe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sport"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +505,78 @@
      }
     ]
    },
-   "solution": "PONDSKATER"
+   "solution": "PONDSKATER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "POND SKATER",
+    "definitions": [
+     {
+      "text": "bug",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nursed by",
+      "for": "container",
+      "note": "something nursed is held in the arms, so the following word wraps around it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pressure",
+      "gives": "P",
+      "note": "P is the symbol for pressure"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "DR",
+      "note": "DR is the abbreviation for doctor"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "princess",
+      "gives": "KATE",
+      "note": "Kate, Princess of Wales"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ON",
+      "D",
+      "S",
+      "KATE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A royal under strain is cared for by a doctor for some infection.",
+     "walkthrough": "'Bug' reads as an illness in this medical picture, but it is a literal insect.",
+     "definitionFit": "A pond skater is a water insect that glides on the surface, and bug is a loose name for any insect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bug"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +590,45 @@
     "text": "Heard on EastEnders, one who keeps everything calm",
     "enumeration": "5"
    },
-   "solution": "ORDER"
+   "solution": "ORDER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ORDER",
+    "definitions": [
+     {
+      "text": "calm",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heard on EastEnders",
+      "for": "homophone",
+      "note": "EastEnders is a BBC soap set in East London, so this means as said in a Cockney accent that drops the opening h"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one who keeps everything",
+      "gives": "ORDER",
+      "soundsLike": "OARDER",
+      "note": "someone who keeps everything is a hoarder, said without its h"
+     }
+    ],
+    "explanation": {
+     "surface": "A soap-opera character who keeps the peace in the square.",
+     "walkthrough": "Cockney speech drops the h, so 'hoarder' comes out sounding like the answer.",
+     "definitionFit": "Order as in law and order is a state of peace and quiet, a synonym for calm as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "EastEnders"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +642,65 @@
     "text": "This comic character takes to cooking porterhouse steak",
     "enumeration": "9"
    },
-   "solution": "SUPERHERO"
+   "solution": "SUPERHERO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SUPERHERO",
+    "definitions": [
+     {
+      "text": "This comic character",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "takes",
+      "for": "deletion",
+      "note": "takes here means takes away, so those letters are removed"
+     },
+     {
+      "text": "cooking",
+      "for": "anagram",
+      "note": "cooking alters something's form, so the remaining letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "porterhouse steak",
+      "gives": "PORTERHOUSE",
+      "note": "the name of the cut supplies the letters"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written, the letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUPERHERO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PRERHOUSE",
+       "gives": "SUPERHERO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cartoon figure turns to grilling a big steak.",
+     "walkthrough": "'Takes to' reads as 'starts doing', but it splits: 'takes' means takes away, and 'to' is the pair of letters removed.",
+     "definitionFit": "A superhero such as Superman is a character typical of comic books."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "takes"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +714,60 @@
     "text": "Tea room returned bread",
     "enumeration": "7"
    },
-   "solution": "CHALLAH"
+   "solution": "CHALLAH",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CHALLAH",
+    "definitions": [
+     {
+      "text": "bread",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "returned means sent back, so the word is written in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tea",
+      "gives": "CHA",
+      "note": "cha is slang for tea"
+     },
+     {
+      "clueFragment": "room",
+      "gives": "HALL",
+      "note": "a hall is a large room"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "LLAH"
+     ],
+     "reversals": [
+      {
+       "from": "HALL",
+       "to": "LLAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tearoom sent back the loaf it was given.",
+     "definitionFit": "Challah is a braided Jewish loaf eaten on the Sabbath, a type of bread."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returned"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +781,68 @@
     "text": "Did tramp originally tell Dickens to describe his simple character?",
     "enumeration": "7"
    },
-   "solution": "TRUDGED"
+   "solution": "TRUDGED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TRUDGED",
+    "definitions": [
+     {
+      "text": "Did tramp",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally means at the origin, so each word gives only its opening letter"
+     },
+     {
+      "text": "to describe",
+      "for": "container",
+      "note": "to describe a shape is to draw around it, so the two letters go around the character"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tell",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "his simple character",
+      "gives": "RUDGE",
+      "note": "Barnaby Rudge is Dickens's simple-minded hero"
+     },
+     {
+      "clueFragment": "Dickens",
+      "gives": "D",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RUDGE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A question whether a vagrant first told Dickens how to write his simple-minded hero.",
+     "walkthrough": "'Tramp' looks like a vagrant but is the verb, walked heavily.",
+     "definitionFit": "To trudge is to walk slowly and heavily, much as to tramp is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tramp"
+    }
+   }
   },
   {
    "number": 13,
@@ -207,7 +856,58 @@
     "text": "London borough's tendency to suppress resistance",
     "enumeration": "5"
    },
-   "solution": "BRENT"
+   "solution": "BRENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BRENT",
+    "definitions": [
+     {
+      "text": "London borough",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to suppress",
+      "for": "container",
+      "note": "to suppress something is to hold it down, so the letter is kept inside"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tendency",
+      "gives": "BENT",
+      "note": "a bent is a natural inclination"
+     },
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the symbol for electrical resistance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "R",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A London council is inclined to stamp out any opposition.",
+     "walkthrough": "Brent is a borough in north-west London.",
+     "definitionFit": "Brent is one of the 32 administrative districts of Greater London."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "resistance"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +921,57 @@
     "text": "Book on tree spirit is nonsense",
     "enumeration": "10"
    },
-   "solution": "BALDERDASH"
+   "solution": "BALDERDASH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BALDERDASH",
+    "definitions": [
+     {
+      "text": "nonsense",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "on",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "ALDER",
+      "note": "the alder is a tree"
+     },
+     {
+      "clueFragment": "spirit",
+      "gives": "DASH",
+      "note": "dash means verve or spirit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ALDER",
+      "DASH"
+     ]
+    },
+    "explanation": {
+     "surface": "A book about tree spirits is dismissed as rubbish.",
+     "walkthrough": "'Tree spirit' suggests a dryad, but the two words split: a tree, then spirit as in dash and vigour.",
+     "definitionFit": "Balderdash is senseless talk or writing, a synonym for rubbish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +985,69 @@
     "text": "Club hit inspires teenager to start festival",
     "enumeration": "9"
    },
-   "solution": "WOODSTOCK"
+   "solution": "WOODSTOCK",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "WOODSTOCK",
+    "definitions": [
+     {
+      "text": "festival",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to start",
+      "for": "letter_selection",
+      "note": "to start means only the beginning, so the word gives its first letter"
+     },
+     {
+      "text": "inspires",
+      "for": "container",
+      "note": "to inspire is literally to breathe in, so the letter goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Club",
+      "gives": "WOOD",
+      "note": "a wood is a golf club"
+     },
+     {
+      "clueFragment": "hit",
+      "gives": "SOCK",
+      "note": "to sock is to punch"
+     },
+     {
+      "clueFragment": "teenager",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WOOD",
+      "S",
+      "T",
+      "OCK"
+     ]
+    },
+    "explanation": {
+     "surface": "A nightclub hit song moves a teenager to launch a festival.",
+     "walkthrough": "'Club hit' suggests a dance track; club is a golf club and hit is a separate verb.",
+     "definitionFit": "Woodstock was the famous 1969 rock festival in New York State."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Club"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +1061,56 @@
     "text": "Promises no cryptic compiler may use this",
     "enumeration": "10"
    },
-   "solution": "SPOONERISM"
+   "solution": "SPOONERISM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPOONERISM",
+    "definitions": [
+     {
+      "text": "compiler may use this",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cryptic",
+      "for": "anagram",
+      "note": "cryptic means puzzling or obscured, so these letters are disguised by rearrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Promises",
+      "gives": "PROMISES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "no",
+      "gives": "NO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PROMISESNO",
+       "gives": "SPOONERISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Crossword setters swear they will never use a certain trick, yet might.",
+     "walkthrough": "'Cryptic' sits in both halves: it rearranges the letters and describes the compiler.",
+     "definitionFit": "Spoonerism, the swapping of opening sounds, is a device setters of cryptic puzzles use in clues."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "cryptic"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1130,78 @@
      }
     ]
    },
-   "solution": "LIBERALDEMOCRAT"
+   "solution": "LIBERALDEMOCRAT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "LIBERAL DEMOCRAT",
+    "definitions": [
+     {
+      "text": "Politician",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disseminating",
+      "for": "anagram",
+      "note": "disseminating means scattering widely, so the letters are spread into a new order"
+     },
+     {
+      "text": "the heart of",
+      "for": "letter_selection",
+      "note": "the heart of a word is its centre, so only its middle letters count"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bald",
+      "gives": "BALD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lie",
+      "gives": "LIE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "came",
+      "gives": "CAME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Surrey",
+      "gives": "RR",
+      "select": "middle",
+      "note": "the two middle letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BALDLIECAMETORR",
+       "gives": "LIBERALDEMOCRAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician spreading a blatant falsehood arrives in the middle of a home county.",
+     "walkthrough": "Surrey is a county just south-west of London; its six letters have two in the middle. The Liberal Democrats are a UK party.",
+     "definitionFit": "A Liberal Democrat is a member of that British party, so an example of a politician."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "came"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1215,63 @@
     "text": "One who's not in a union, but embraces revolutionary look",
     "enumeration": "8"
    },
-   "solution": "BACHELOR"
+   "solution": "BACHELOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BACHELOR",
+    "definitions": [
+     {
+      "text": "One who's not in a union",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embraces",
+      "for": "container",
+      "note": "something that embraces another wraps its arms round it, so the other pieces go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "but",
+      "gives": "BAR",
+      "note": "but and bar both mean except"
+     },
+     {
+      "clueFragment": "revolutionary",
+      "gives": "CHE",
+      "note": "Che Guevara, the revolutionary"
+     },
+     {
+      "clueFragment": "look",
+      "gives": "LO",
+      "note": "lo is an old word for look!"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "CHE",
+      "LO",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A non-union worker who nevertheless cosies up to a radical image.",
+     "walkthrough": "'Union' suggests a trade union; it is marriage. 'But' looks like a link but supplies a piece.",
+     "definitionFit": "A bachelor is an unmarried man, someone not joined in wedlock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "union"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1285,71 @@
     "text": "US police arresting one with uneven array of stones",
     "enumeration": "8"
    },
-   "solution": "LAPIDARY"
+   "solution": "LAPIDARY",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LAPIDARY",
+    "definitions": [
+     {
+      "text": "of stones",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arresting",
+      "for": "container",
+      "note": "police arresting someone take them in, so a letter is held inside"
+     },
+     {
+      "text": "uneven",
+      "for": "letter_selection",
+      "note": "uneven means odd, so only the odd-numbered letters are kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US police",
+      "gives": "LAPD",
+      "note": "the Los Angeles Police Department"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "array",
+      "gives": "ARY",
+      "select": "alternate",
+      "note": "first, third and fifth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAP",
+      "I",
+      "D",
+      "ARY"
+     ]
+    },
+    "explanation": {
+     "surface": "American cops arrest a man carrying a lopsided display of gems.",
+     "definitionFit": "Lapidary is an adjective for things relating to gemstones or their cutting and engraving."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "uneven"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1363,58 @@
     "text": "Typical EU, desperate for sources of oil",
     "enumeration": "9"
    },
-   "solution": "EUCALYPTI"
+   "solution": "EUCALYPTI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EUCALYPTI",
+    "definitions": [
+     {
+      "text": "sources of oil",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "desperate",
+      "for": "anagram",
+      "note": "someone desperate is in a wild state, so the letters are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Typical",
+      "gives": "TYPICAL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "EU",
+      "gives": "EU",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TYPICALEU",
+       "gives": "EUCALYPTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jibe that the European Union is predictably desperate for oil supplies.",
+     "definitionFit": "Eucalyptus trees, plural here, yield the aromatic eucalyptus oil from their leaves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "oil"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1434,39 @@
      }
     ]
    },
-   "solution": "INCALF"
+   "solution": "INCALF",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "IN CALF",
+    "definitions": [
+     {
+      "text": "Getting ready to drop a little lower?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Getting ready to drop a little lower?",
+      "note": "surface reading: preparing to sink somewhat further down"
+     },
+     {
+      "clueFragment": "Getting ready to drop a little lower?",
+      "note": "setter's reading: to drop is to give birth, and a little lower is a young animal that moos, or lows"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Lower' reads as more low, but here it is one who lows, like a cow; a cow about to give birth to its young is pregnant.",
+     "definitionFit": "The phrase describes a cow that is pregnant and expecting to give birth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lower"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1480,50 @@
     "text": "New decorator's more pleasant",
     "enumeration": "5"
    },
-   "solution": "NICER"
+   "solution": "NICER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NICER",
+    "definitions": [
+     {
+      "text": "more pleasant",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "decorator",
+      "gives": "ICER",
+      "note": "one who decorates cakes with icing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ICER"
+     ]
+    },
+    "explanation": {
+     "surface": "The new painter and decorator is an improvement.",
+     "walkthrough": "'Decorator' suggests someone painting a house; here it is someone icing a cake.",
+     "definitionFit": "Nicer is the comparative of nice, so it means more agreeable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "decorator"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1543,64 @@
      }
     ]
    },
-   "solution": "CAVEIN"
+   "solution": "CAVEIN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "CAVE IN",
+    "definitions": [
+     {
+      "text": "yield",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Picked up",
+      "for": "reversal",
+      "note": "in a down clue, picking something up lifts it so it reads from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "current",
+      "gives": "AC",
+      "note": "AC is alternating current"
+     },
+     {
+      "clueFragment": "deposit of ore",
+      "gives": "VEIN",
+      "note": "a vein is a seam of mineral in rock"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "VEIN"
+     ],
+     "reversals": [
+      {
+       "from": "AC",
+       "to": "CA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A miner collects the output of a fresh seam of ore.",
+     "walkthrough": "'Picked up' tempts a sound-alike reading; it lifts a word in this down entry. 'Yield' looks like a noun for output but means give way.",
+     "definitionFit": "To cave in is to collapse or give way under pressure, a phrasal synonym for yield."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "yield"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1614,58 @@
     "text": "Finish a large amount of stout, being unwilling to change",
     "enumeration": "7"
    },
-   "solution": "DIEHARD"
+   "solution": "DIEHARD",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "DIEHARD",
+    "definitions": [
+     {
+      "text": "unwilling to change",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a large amount of",
+      "for": "deletion",
+      "note": "a large amount is most but not all, so the word loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finish",
+      "gives": "DIE",
+      "note": "to die is to come to an end"
+     },
+     {
+      "clueFragment": "stout",
+      "gives": "HARDY",
+      "note": "stout and hardy both mean sturdy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIE",
+      "HARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker downs most of a pint of stout, refusing to change habits.",
+     "walkthrough": "'Stout' looks like the dark beer; it is the adjective for sturdy.",
+     "definitionFit": "A diehard position is stubbornly conservative, resisting any reform."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stout"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1679,59 @@
     "text": "Cases of academic negligence leading to teenager's complaint?",
     "enumeration": "4"
    },
-   "solution": "ACNE"
+   "solution": "ACNE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ACNE",
+    "definitions": [
+     {
+      "text": "teenager's complaint",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cases of",
+      "for": "letter_selection",
+      "note": "a case is an outer covering, so each word gives just its outside letters"
+     }
+    ],
+    "linkWords": [
+     "leading to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "academic",
+      "gives": "AC",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "negligence",
+      "gives": "NE",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "NE"
+     ]
+    },
+    "explanation": {
+     "surface": "Neglect in schools causing problems for teenagers.",
+     "definitionFit": "Acne is the skin condition of spots that commonly afflicts adolescents."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Cases"
+    }
+   }
   },
   {
    "number": 25,
@@ -407,7 +1745,54 @@
     "text": "Boat party in Hollywood location",
     "enumeration": "7"
    },
-   "solution": "CARAVEL"
+   "solution": "CARAVEL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CARAVEL",
+    "definitions": [
+     {
+      "text": "Boat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hollywood location",
+      "gives": "CAL",
+      "note": "Hollywood is in California, CAL for short"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "RAVE",
+      "note": "a rave is a lively party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "RAVE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A party on a yacht somewhere in Hollywood.",
+     "definitionFit": "A caravel is a small, fast sailing ship of the 15th–17th centuries, a kind of boat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "location"
+    }
+   }
   },
   {
    "number": 26,
@@ -421,7 +1806,49 @@
     "text": "Singer heads off illnesses",
     "enumeration": "4"
    },
-   "solution": "LULU"
+   "solution": "LULU",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LULU",
+    "definitions": [
+     {
+      "text": "Singer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heads off",
+      "for": "deletion",
+      "note": "with the heads off, each word loses its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "illnesses",
+      "gives": "FLUFLU",
+      "note": "two bouts of a common virus"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LU",
+      "LU"
+     ]
+    },
+    "explanation": {
+     "surface": "A vocalist leaves early because of illness.",
+     "walkthrough": "Plural 'illnesses' gives the virus twice; each copy loses its head. Lulu is a Scottish pop singer.",
+     "definitionFit": "Lulu is the Scottish singer famous for 'Shout', so an example of a singer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heads"
+    }
+   }
   },
   {
    "number": 27,
@@ -435,7 +1862,65 @@
     "text": "Tatty underclothes abandoned by the dirty dog",
     "enumeration": "9"
    },
-   "solution": "SCOUNDREL"
+   "solution": "SCOUNDREL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SCOUNDREL",
+    "definitions": [
+     {
+      "text": "dirty dog",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Tatty",
+      "for": "anagram",
+      "note": "tatty means shabby and worn, so the letters are in a mess"
+     },
+     {
+      "text": "abandoned by",
+      "for": "deletion",
+      "note": "abandoned by means left behind, so those letters drop out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "underclothes",
+      "gives": "UNDERCLOTHES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written, the letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCOUNDREL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UNDERCLOS",
+       "gives": "SCOUNDREL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shabby underwear left behind by a filthy mutt.",
+     "walkthrough": "'Dirty dog' suggests an actual animal; it is a person.",
+     "definitionFit": "A dirty dog is an idiom for a dishonest, contemptible person, a rogue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "dog"
+    }
+   }
   },
   {
    "number": 28,
@@ -449,7 +1934,42 @@
     "text": "Even you could make alcohol in this",
     "enumeration": "5"
    },
-   "solution": "STILL"
+   "solution": "STILL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STILL",
+    "definitions": [
+     {
+      "text": "Even",
+      "at": 0
+     },
+     {
+      "text": "you could make alcohol in this",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Even",
+      "note": "first meaning: yet, as in even more or ... more"
+     },
+     {
+      "clueFragment": "you could make alcohol in this",
+      "note": "second meaning: apparatus for distilling spirits"
+     }
+    ],
+    "explanation": {
+     "surface": "Even you would be able to brew your own booze in this.",
+     "definitionFit": "The word is an adverb meaning yet, as in better still, and a noun for distilling equipment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Even"
+    }
+   }
   }
  ]
 }
