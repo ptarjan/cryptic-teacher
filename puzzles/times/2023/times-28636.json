@@ -23,6 +23,9 @@
   "date": "2023-06-22",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,64 @@
     "text": "Doctor's order almost received by another doctor",
     "enumeration": "6"
    },
-   "solution": "MEDICO"
+   "solution": "MEDICO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "MEDICO",
+    "definitions": [
+     {
+      "text": "Doctor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter of that word is dropped"
+     },
+     {
+      "text": "received by",
+      "for": "container",
+      "note": "something received is taken inside, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "another doctor",
+      "gives": "MO",
+      "note": "MO is a medical officer, an army doctor"
+     },
+     {
+      "clueFragment": "order",
+      "gives": "EDICT",
+      "note": "an edict is an official order; only its first four letters are kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "EDIC",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor's instruction is passed along and accepted by a colleague.",
+     "walkthrough": "MO, a medical officer, is standard crossword shorthand for a doctor; the definition and the outer piece are both doctors on purpose.",
+     "definitionFit": "Medico is an informal word for a physician or medical student, a plain synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 1,
@@ -56,7 +116,56 @@
      }
     ]
    },
-   "solution": "MEANSTEST"
+   "solution": "MEANSTEST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MEANS TEST",
+    "definitions": [
+     {
+      "text": "earning scrutiny?",
+      "at": 35,
+      "note": "the test that scrutinises earnings"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one word goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Least charitable",
+      "gives": "MEANEST",
+      "note": "mean means stingy, so meanest is least generous"
+     },
+     {
+      "clueFragment": "holy person",
+      "gives": "ST",
+      "note": "ST is short for saint"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEAN",
+      "ST",
+      "EST"
+     ]
+    },
+    "explanation": {
+     "surface": "The stingiest person is scornful of a saint's earnings.",
+     "walkthrough": "Earning scrutiny is read as scrutiny of earnings, a cryptic hint flagged by the question mark.",
+     "definitionFit": "A means test examines a person's income and assets to decide eligibility for state benefits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "earning"
+    }
+   }
   },
   {
    "number": 2,
@@ -70,7 +179,63 @@
     "text": "Artist succeeded, getting on towards the top",
     "enumeration": "5"
    },
-   "solution": "DEGAS"
+   "solution": "DEGAS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DEGAS",
+    "definitions": [
+     {
+      "text": "Artist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "towards the top",
+      "for": "reversal",
+      "note": "in a down clue, moving towards the top means reading the letters upwards, so backwards"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "succeeded",
+      "gives": "S",
+      "note": "S is the abbreviation for succeeded, used in family trees"
+     },
+     {
+      "clueFragment": "getting on",
+      "gives": "AGED",
+      "note": "getting on means growing old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEGA",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SAGED",
+       "to": "DEGAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter who made it, achieving success as he grew older and rose to the top.",
+     "definitionFit": "Edgar Degas was a French Impressionist painter famous for ballet dancers, an example of an artist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "getting"
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +249,50 @@
     "text": "My ideal place — it's found by the coast",
     "enumeration": "8"
    },
-   "solution": "CORNICHE"
+   "solution": "CORNICHE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CORNICHE",
+    "definitions": [
+     {
+      "text": "it's found by the coast",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "—"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "My",
+      "gives": "COR",
+      "note": "cor is a British exclamation of surprise, like my!"
+     },
+     {
+      "clueFragment": "ideal place",
+      "gives": "NICHE",
+      "note": "a niche is a perfectly suited position"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COR",
+      "NICHE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone declares their perfect spot is down by the seaside.",
+     "walkthrough": "My is an exclamation, not a possessive.",
+     "definitionFit": "A corniche is a road running along a cliff edge or seafront, so it lies beside the shore."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "My"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +306,66 @@
     "text": "Lark's flight, gathering wings in abroad",
     "enumeration": "8"
    },
-   "solution": "ESCAPADE"
+   "solution": "ESCAPADE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ESCAPADE",
+    "definitions": [
+     {
+      "text": "Lark",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wings",
+      "for": "letter_selection",
+      "note": "the wings of a word are its two edges, so only the first and last letters are kept"
+     },
+     {
+      "text": "gathering",
+      "for": "container",
+      "note": "to gather something is to draw it into yourself, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flight",
+      "gives": "ESCAPE",
+      "note": "flight in the sense of running away"
+     },
+     {
+      "clueFragment": "abroad",
+      "gives": "AD",
+      "select": "outer",
+      "note": "the outside letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESCAP",
+      "AD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A songbird's migration takes it overseas, flapping its wings as it goes.",
+     "walkthrough": "The surface makes lark a bird; it is a prank or bit of fun, and flight means fleeing, not flying.",
+     "definitionFit": "A lark is a carefree adventure or bit of mischief, which is exactly what an escapade is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lark"
+    }
+   }
   },
   {
    "number": 5,
@@ -118,7 +385,68 @@
      }
     ]
    },
-   "solution": "SELFCONFIDENT"
+   "solution": "SELFCONFIDENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SELF-CONFIDENT",
+    "definitions": [
+     {
+      "text": "Showing conviction",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excited",
+      "for": "anagram",
+      "note": "excited letters are stirred up and agitated, so they settle in a new order"
+     },
+     {
+      "text": "breaking in",
+      "for": "container",
+      "note": "a burglar breaking in gets inside, so one piece enters the middle of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in, Feds felt",
+      "gives": "INFEDSFELT",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "criminal",
+      "gives": "CON",
+      "note": "a con is a convict"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SELF",
+      "CON",
+      "FIDENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INFEDSFELT",
+       "gives": "SELFFIDENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "FBI agents are thrilled when a burglar is caught breaking in, enough to secure a conviction.",
+     "walkthrough": "Conviction suggests a court verdict, but here it means sureness.",
+     "definitionFit": "Self-confident means assured of one's own abilities, which is to act with firm belief or conviction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "conviction"
+    }
+   }
   },
   {
    "number": 6,
@@ -132,7 +460,58 @@
     "text": "Fruit and nuts bachelor's put away",
     "enumeration": "6"
    },
-   "solution": "ANANAS"
+   "solution": "ANANAS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ANANAS",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put away",
+      "for": "deletion",
+      "note": "to put something away is to remove it from sight, so that letter is taken out"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nuts",
+      "gives": "BANANAS",
+      "note": "bananas is slang for crazy"
+     },
+     {
+      "clueFragment": "bachelor",
+      "gives": "B",
+      "note": "B is the abbreviation for bachelor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANANAS"
+     ]
+    },
+    "explanation": {
+     "surface": "A single man has eaten up his fruit and nuts.",
+     "walkthrough": "Fruit and nuts reads as a snack, but nuts means crazy here.",
+     "definitionFit": "Ananas is the name for the pineapple in many languages and an old English word for it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nuts"
+    }
+   }
   },
   {
    "number": 7,
@@ -146,7 +525,64 @@
     "text": "Recorded work in car with caution, gripping wheel",
     "enumeration": "9"
    },
-   "solution": "AUDIOBOOK"
+   "solution": "AUDIOBOOK",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AUDIOBOOK",
+    "definitions": [
+     {
+      "text": "Recorded work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gripping",
+      "for": "container",
+      "note": "gripping something means holding it tightly within, so one piece sits inside"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "car",
+      "gives": "AUDI",
+      "note": "Audi is a German car make"
+     },
+     {
+      "clueFragment": "wheel",
+      "gives": "O",
+      "note": "a wheel is round, the shape of the letter"
+     },
+     {
+      "clueFragment": "caution",
+      "gives": "BOOK",
+      "note": "a referee books a player when giving a caution"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUDI",
+      "O",
+      "BOOK"
+     ]
+    },
+    "explanation": {
+     "surface": "Driving carefully, both hands on the steering wheel, while recording some work.",
+     "walkthrough": "AUDI and BOOK together surround O, giving AUDIOBOOK.",
+     "definitionFit": "An audiobook is a spoken recording of a book, so a literary work that has been recorded."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caution"
+    }
+   }
   },
   {
    "number": 8,
@@ -160,7 +596,52 @@
     "text": "Fish guzzler's sorrow after missing starter",
     "enumeration": "5"
    },
-   "solution": "EGRET"
+   "solution": "EGRET",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EGRET",
+    "definitions": [
+     {
+      "text": "Fish guzzler",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after missing starter",
+      "for": "deletion",
+      "note": "missing its starter means the opening letter is gone"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sorrow",
+      "gives": "REGRET",
+      "note": "regret means sorrow or remorse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EGRET"
+     ]
+    },
+    "explanation": {
+     "surface": "A glutton for seafood feels sad after skipping the first course.",
+     "walkthrough": "Starter suggests the first course of a meal; it is the first letter.",
+     "definitionFit": "An egret is a heron-like wading bird that feeds on fish, making it a consumer of fish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "starter"
+    }
+   }
   },
   {
    "number": 9,
@@ -174,7 +655,73 @@
     "text": "Country song containing line for one on the rebound",
     "enumeration": "7"
    },
-   "solution": "ALGERIA"
+   "solution": "ALGERIA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ALGERIA",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the rebound",
+      "for": "reversal",
+      "note": "something on the rebound bounces back the way it came, so the letters run backwards"
+     },
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding inside, so the song wraps around the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "song",
+      "gives": "ARIA",
+      "note": "an aria is a solo song in an opera"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     },
+     {
+      "clueFragment": "for one",
+      "gives": "GE",
+      "note": "for one means for example, EG, which is turned round"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "L",
+      "GE",
+      "RIA"
+     ],
+     "reversals": [
+      {
+       "from": "EG",
+       "to": "GE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A country-and-western song with a line about someone dating again after a breakup.",
+     "walkthrough": "Country song looks like one genre; country is the definition and song a separate piece.",
+     "definitionFit": "Algeria is a nation in North Africa, an example of a country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Country"
+    }
+   }
   },
   {
    "number": 10,
@@ -198,7 +745,59 @@
      }
     ]
    },
-   "solution": "ASKFORTROUBLE"
+   "solution": "ASKFORTROUBLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ASK FOR TROUBLE",
+    "definitions": [
+     {
+      "text": "take risks",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "crossing here means having something cut across the middle, so a letter goes inside"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What Moscow beggar may do",
+      "gives": "ASKFORROUBLE",
+      "note": "the Russian currency is the rouble, so a beggar there would plead for one"
+     },
+     {
+      "clueFragment": "certain junction",
+      "gives": "T",
+      "note": "a T-junction, shaped like the letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASKFOR",
+      "T",
+      "ROUBLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Russian vagrant begging at a busy crossroads is courting danger.",
+     "definitionFit": "To ask for trouble is an idiom for acting in a way likely to bring harm, so to court danger."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "crossing"
+    }
+   }
   },
   {
    "number": 11,
@@ -212,7 +811,56 @@
     "text": "Lover, maybe one who's inclined to embrace daughter",
     "enumeration": "7"
    },
-   "solution": "LEANDER"
+   "solution": "LEANDER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LEANDER",
+    "definitions": [
+     {
+      "text": "Lover, maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to embrace",
+      "for": "container",
+      "note": "an embrace wraps arms around someone, so one piece is held inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one who's inclined",
+      "gives": "LEANER",
+      "note": "someone who leans is inclined at an angle"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEAN",
+      "D",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A romantic partner who tends to hug a daughter.",
+     "walkthrough": "In Greek myth Leander swam the Hellespont nightly to his lover Hero, so 'maybe' marks him as one example.",
+     "definitionFit": "Leander is the famous mythical lover of Hero, so he is an example of a lover."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "inclined"
+    }
+   }
   },
   {
    "number": 12,
@@ -226,7 +874,65 @@
     "text": "Compilers in transport getting reduced fare from Asia",
     "enumeration": "5"
    },
-   "solution": "SUSHI"
+   "solution": "SUSHI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SUSHI",
+    "definitions": [
+     {
+      "text": "fare from Asia",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reduced",
+      "for": "deletion",
+      "note": "reduced means cut down, so the vessel loses its last letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Compilers",
+      "gives": "US",
+      "note": "the setters of the crossword referring to themselves as us"
+     },
+     {
+      "clueFragment": "transport",
+      "gives": "SHIP",
+      "note": "a ship is a means of transport; it loses its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "US",
+      "HI"
+     ]
+    },
+    "explanation": {
+     "surface": "The puzzle setters on a cut-price ticket for a trip from Asia.",
+     "walkthrough": "Fare and transport suggest travel prices, but fare is food here.",
+     "definitionFit": "Sushi is a Japanese dish of vinegared rice with raw fish, food that originates in Asia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fare"
+    }
+   }
   },
   {
    "number": 13,
@@ -240,7 +946,53 @@
     "text": "Abandon a bit of boxing for a bit of footie",
     "enumeration": "9"
    },
-   "solution": "KICKABOUT"
+   "solution": "KICKABOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KICKABOUT",
+    "definitions": [
+     {
+      "text": "a bit of footie",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Abandon",
+      "gives": "KICK",
+      "note": "to kick a habit is to give it up"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bit of boxing",
+      "gives": "BOUT",
+      "note": "a bout is a single boxing contest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KICK",
+      "A",
+      "BOUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Giving up on boxing to play a little football instead.",
+     "walkthrough": "Footie is British slang for football (soccer).",
+     "definitionFit": "A kickabout is an informal, casual game of football, just a little play rather than a match."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Abandon"
+    }
+   }
   },
   {
    "number": 14,
@@ -254,7 +1006,52 @@
     "text": "Unable to take off bra? Undo the elastic",
     "enumeration": "10"
    },
-   "solution": "EARTHBOUND"
+   "solution": "EARTHBOUND",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EARTHBOUND",
+    "definitions": [
+     {
+      "text": "Unable to take off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "elastic",
+      "for": "anagram",
+      "note": "elastic material stretches out of shape, so the letters before it are pulled into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bra? Undo the",
+      "gives": "BRAUNDOTHE",
+      "note": "the letters of these words, ignoring the punctuation"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BRAUNDOTHE",
+       "gives": "EARTHBOUND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Struggling to remove a bra, someone is told to undo the elastic.",
+     "walkthrough": "Take off suggests undressing; it means leaving the ground, as an aircraft does.",
+     "definitionFit": "Something earthbound is confined to the ground and cannot fly up from it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 15,
@@ -268,7 +1065,52 @@
     "text": "Make children soldiers for fascist leader",
     "enumeration": "9"
    },
-   "solution": "REPRODUCE"
+   "solution": "REPRODUCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REPRODUCE",
+    "definitions": [
+     {
+      "text": "Make children",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldiers",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers"
+     },
+     {
+      "clueFragment": "for",
+      "gives": "PRO",
+      "note": "pro means in favour of"
+     },
+     {
+      "clueFragment": "fascist leader",
+      "gives": "DUCE",
+      "note": "Il Duce was the title of Mussolini"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "PRO",
+      "DUCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dictator conscripting children into the army.",
+     "definitionFit": "To reproduce is to have offspring, which is to produce young of one's own."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Make"
+    }
+   }
   },
   {
    "number": 16,
@@ -282,7 +1124,60 @@
     "text": "Clothing for panto with navy blue material",
     "enumeration": "4"
    },
-   "solution": "PORN"
+   "solution": "PORN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PORN",
+    "definitions": [
+     {
+      "text": "blue material",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Clothing for",
+      "for": "letter_selection",
+      "note": "clothing is what covers the outside, so only the edge letters of the word are kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "panto",
+      "gives": "PO",
+      "select": "outer",
+      "note": "the first and last letters"
+     },
+     {
+      "clueFragment": "navy",
+      "gives": "RN",
+      "note": "RN is the Royal Navy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "RN"
+     ]
+    },
+    "explanation": {
+     "surface": "A costume for a pantomime made from navy-blue cloth.",
+     "walkthrough": "A panto (pantomime) is a British family Christmas stage show; blue here means smutty, not a colour.",
+     "definitionFit": "Blue is an idiom for indecent or sexually explicit, so blue material is pornography."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "blue"
+    }
+   }
   },
   {
    "number": 17,
@@ -296,7 +1191,68 @@
     "text": "With butterflies on the move, rely on us to capture five",
     "enumeration": "9"
    },
-   "solution": "NERVOUSLY"
+   "solution": "NERVOUSLY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NERVOUSLY",
+    "definitions": [
+     {
+      "text": "With butterflies",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the move",
+      "for": "anagram",
+      "note": "letters on the move are moving about, so they end up in a different order"
+     },
+     {
+      "text": "to capture",
+      "for": "container",
+      "note": "capturing something means holding it inside, so one piece is enclosed by the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rely on us",
+      "gives": "RELYONUS",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "five",
+      "gives": "V",
+      "note": "V is the Roman numeral for five"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NER",
+      "V",
+      "OUSLY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RELYONUS",
+       "gives": "NEROUSLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Collectors on a field trip count on us to catch five butterflies.",
+     "walkthrough": "Butterflies sound like insects to be caught; having butterflies is an idiom for feeling anxious.",
+     "definitionFit": "Having butterflies in your stomach means feeling jittery, so doing something with them is acting anxiously."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "butterflies"
+    }
+   }
   },
   {
    "number": 18,
@@ -316,7 +1272,58 @@
      }
     ]
    },
-   "solution": "SPACEAGE"
+   "solution": "SPACEAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPACE-AGE",
+    "definitions": [
+     {
+      "text": "ultramodern",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "welcoming someone means taking them in, so one piece sits inside the other"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rishi",
+      "gives": "SAGE",
+      "note": "a rishi is a Hindu sage or seer"
+     },
+     {
+      "clueFragment": "step",
+      "gives": "PACE",
+      "note": "a pace is a single step"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PACE",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A politician named Rishi welcomes a forward-looking policy move.",
+     "walkthrough": "Rishi looks like a reference to Rishi Sunak, the former UK prime minister; it is the Hindu word for a holy wise man.",
+     "definitionFit": "Space-age describes something very advanced or futuristic, a synonym for highly modern."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rishi"
+    }
+   }
   },
   {
    "number": 19,
@@ -330,7 +1337,44 @@
     "text": "Appearance of an unwanted character in party politics",
     "enumeration": "4"
    },
-   "solution": "TYPO"
+   "solution": "TYPO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TYPO",
+    "definitions": [
+     {
+      "text": "Appearance of an unwanted character",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in tells us the letters lie inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party politics",
+      "gives": "TYPO",
+      "note": "the letters run across the gap between the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A disliked figure turning up in the world of party politics.",
+     "walkthrough": "Character means a letter or symbol, not a person.",
+     "definitionFit": "A typo is a typing error, where a wrong letter or symbol appears in text."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 20,
@@ -350,7 +1394,39 @@
      }
     ]
    },
-   "solution": "STRIPPOKER"
+   "solution": "STRIPPOKER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "STRIP POKER",
+    "definitions": [
+     {
+      "text": "Better to reveal everything, perhaps, in this game?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Better to reveal everything",
+      "note": "surface reading: is honesty the best policy, coming clean about it all"
+     },
+     {
+      "clueFragment": "Better",
+      "note": "setter's reading: a better is someone who places bets, who in this card game may end up naked"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Better is read as one who bets, and revealing everything is literal: in this card game losers shed their clothes.",
+     "definitionFit": "Strip poker is a poker variant in which losing players remove garments, so a gambler may end up exposing everything."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Better"
+    }
+   }
   },
   {
    "number": 21,
@@ -364,7 +1440,64 @@
     "text": "Profiteer has no problem in case of uproar",
     "enumeration": "6"
    },
-   "solution": "USURER"
+   "solution": "USURER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "USURER",
+    "definitions": [
+     {
+      "text": "Profiteer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "case of",
+      "for": "letter_selection",
+      "note": "a case is the outer shell, so just the first and last letters are kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "uproar",
+      "gives": "UR",
+      "select": "outer",
+      "note": "the outside letters of the word"
+     },
+     {
+      "clueFragment": "no problem",
+      "gives": "SURE",
+      "note": "sure, as in the reply 'no problem!'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "SURE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A greedy businessman calmly handles a public outcry.",
+     "definitionFit": "A usurer lends money at exorbitant interest, taking unfair gains from borrowers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 22,
@@ -378,7 +1511,62 @@
     "text": "Uncovers bum note playing something with a bit of sparkle",
     "enumeration": "9"
    },
-   "solution": "MOONSTONE"
+   "solution": "MOONSTONE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "MOONSTONE",
+    "definitions": [
+     {
+      "text": "something with a bit of sparkle",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing about with something rearranges it, so the letters of note change order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Uncovers bum",
+      "gives": "MOONS",
+      "note": "to moon is to bare your bottom at someone"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "NOTE",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOONS",
+      "TONE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOTE",
+       "gives": "TONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone bares their backside while playing a wrong note in a performance.",
+     "walkthrough": "Bum is British slang for bottom, and mooning means showing it.",
+     "definitionFit": "A moonstone is a gem with a pearly, shimmering sheen, so it has some sparkle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bum"
+    }
+   }
   },
   {
    "number": 22,
@@ -392,7 +1580,61 @@
     "text": "Underground resistance interrupts feminist movement briefly",
     "enumeration": "5"
    },
-   "solution": "METRO"
+   "solution": "METRO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "METRO",
+    "definitions": [
+     {
+      "text": "Underground",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the last letter of the movement's name is dropped"
+     },
+     {
+      "text": "interrupts",
+      "for": "container",
+      "note": "to interrupt is to break into the middle of something"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "feminist movement",
+      "gives": "METOO",
+      "note": "MeToo is the campaign against sexual harassment; it loses its last letter"
+     },
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the symbol for electrical resistance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MET",
+      "R",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An underground resistance group disrupts a women's campaign.",
+     "walkthrough": "Underground resistance suggests a secret movement; underground is the definition alone.",
+     "definitionFit": "A metro is an underground railway system in a city, such as the Paris Métro."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Underground"
+    }
+   }
   },
   {
    "number": 23,
@@ -406,7 +1648,48 @@
     "text": "American's phone ring — it may produce a tune",
     "enumeration": "5"
    },
-   "solution": "CELLO"
+   "solution": "CELLO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CELLO",
+    "definitions": [
+     {
+      "text": "it may produce a tune",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American's phone",
+      "gives": "CELL",
+      "note": "Americans call a mobile phone a cell"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "O is round like a ring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CELL",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An American mobile with a ringtone that plays a tune.",
+     "walkthrough": "Phone ring and tune suggest a ringtone; the definition is a musical instrument.",
+     "definitionFit": "The cello is a bowed string instrument, and instruments are played to make melodies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 24,
@@ -420,7 +1703,53 @@
     "text": "Allowed on a lake",
     "enumeration": "5"
    },
-   "solution": "LEGAL"
+   "solution": "LEGAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEGAL",
+    "definitions": [
+     {
+      "text": "Allowed",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "LEG",
+      "note": "in cricket the leg side is also called the on side"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the abbreviation for lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEG",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Permission is granted to go out on a lake.",
+     "walkthrough": "On looks like a preposition, but in cricket the on side and leg side are the same half of the field.",
+     "definitionFit": "Legal means permitted by law, so something legal is allowed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 25,
@@ -440,7 +1769,51 @@
      }
     ]
    },
-   "solution": "TRUERIB"
+   "solution": "TRUERIB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRUE RIB",
+    "definitions": [
+     {
+      "text": "one found in a cage",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Straight",
+      "gives": "TRUE",
+      "note": "true in the sense of straight or level"
+     },
+     {
+      "clueFragment": "guy",
+      "gives": "RIB",
+      "note": "to guy someone is to mock or tease them, as is to rib"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRUE",
+      "RIB"
+     ]
+    },
+    "explanation": {
+     "surface": "An honest or heterosexual man ends up locked in a cage.",
+     "walkthrough": "Guy is a verb, not a man, and the cage is the ribcage.",
+     "definitionFit": "A true rib is one of the upper rib bones joined directly to the breastbone, part of the ribcage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "guy"
+    }
+   }
   },
   {
    "number": 26,
@@ -460,7 +1833,67 @@
      }
     ]
    },
-   "solution": "TEARGAS"
+   "solution": "TEARGAS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TEAR GAS",
+    "definitions": [
+     {
+      "text": "means to suppress disorder",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "criminal suggests something bent or crooked, so these letters are twisted into a new order"
+     },
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without is used in its old sense of outside, so the rearranged letters go around the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Taser a",
+      "gives": "TASERA",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEAR",
+      "G",
+      "AS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TASERA",
+       "gives": "TEARAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Using a stun gun on a lawbreaker, not a good way to control a riot.",
+     "walkthrough": "Without is read as outside, not lacking; the rearranged letters wrap around G.",
+     "definitionFit": "Tear gas is used by police to disperse rioting crowds, a way to quell unrest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 27,
@@ -480,7 +1913,54 @@
      }
     ]
    },
-   "solution": "ONEARMED"
+   "solution": "ONEARMED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ONE-ARMED",
+    "definitions": [
+     {
+      "text": "sort of bandit",
+      "at": 33
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Running",
+      "gives": "ON",
+      "note": "a machine that is running is on"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is ecstasy"
+     },
+     {
+      "clueFragment": "possibly dangerous",
+      "gives": "ARMED",
+      "note": "someone armed carries a weapon and may be dangerous"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "E",
+      "ARMED"
+     ]
+    },
+    "explanation": {
+     "surface": "A fleeing outlaw on drugs, potentially carrying a gun.",
+     "walkthrough": "A one-armed bandit is a slot machine, so the bandit is not a criminal at all.",
+     "definitionFit": "One-armed describes the slot machine nicknamed a bandit for its lever and the money it takes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bandit"
+    }
+   }
   },
   {
    "number": 28,
@@ -494,7 +1974,56 @@
     "text": "Phosphorus included by hand on another match",
     "enumeration": "6"
    },
-   "solution": "REPLAY"
+   "solution": "REPLAY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REPLAY",
+    "definitions": [
+     {
+      "text": "another match",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "included by",
+      "for": "container",
+      "note": "something included by another is held within it, so one piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hand on",
+      "gives": "RELAY",
+      "note": "to relay a message is to pass it on"
+     },
+     {
+      "clueFragment": "Phosphorus",
+      "gives": "P",
+      "note": "P is the chemical symbol for phosphorus"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "P",
+      "LAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A chemical element is handed along to be used in yet another match.",
+     "walkthrough": "Phosphorus and match point to matchsticks; the match is a sporting fixture.",
+     "definitionFit": "A replay is a game played again after a draw, so it is another match between the same teams."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Phosphorus"
+    }
+   }
   }
  ]
 }
