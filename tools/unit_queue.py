@@ -307,7 +307,7 @@ def tick(queue, dry=False):
                 burn_bound = True
                 print(f"{queue}: {mem_gate.burn_line(starved)}; due units wait for the next tick")
             continue
-        if not mem_gate.room(len(started), MEM_READER):
+        if not mem_gate.room(len(started) * mem_gate.UNIT, MEM_READER):
             waiting.append(unit.key)
             if not memory_bound:
                 memory_bound = True

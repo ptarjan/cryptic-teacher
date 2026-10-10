@@ -1,8 +1,13 @@
 """Is there memory, and CPU, for one more unit? The queues (tools/edition_queue.py,
-tools/unit_queue.py) size their pools in CPU slots; each unit process holds
-~550 MB, so the pools alone can outrun the host. A queue asks `room()` before
-starting a unit and, when it says no, leaves the unit for its next plan.
-Running units are never touched.
+tools/unit_queue.py) size their pools in CPU slots, so the pools alone can
+outrun the host. A queue asks `room()` before starting a unit and, when it
+says no, leaves the unit for its next plan. Running units are never touched.
+
+`available()` already holds what running units use; `room()` charges only
+the units begun this pass, which have not grown yet, and the one to start.
+`unit_costs()` prices each kind at the largest resident size (process plus
+children) of its running units, at least UNIT_MIN; a kind none of whose
+units runs is charged UNIT.
 
 `available()` is the kernel's own figure: MemAvailable in /proc/meminfo on
 Linux; on macOS the free, speculative, purgeable and file-backed page counts
@@ -31,6 +36,7 @@ from pathlib import Path
 #: not gate them).
 FLOOR = int(os.environ.get("CT_MEM_FLOOR") or 3 << 30)
 UNIT = 600 << 20
+UNIT_MIN = 128 << 20
 #: Runnable processes per core past which no unit starts: 2 keeps a 4-core
 #: host under load 8, so the bridge and an interactive shell still get a core
 #: (CT_LOAD_PER_CORE overrides: tests run ticks on a host whose own load must
@@ -59,12 +65,51 @@ def available():
         return None
 
 
-def room(started=0, reader=None, floor=FLOOR, unit=UNIT):
-    """True if one more unit fits: what is available, less `started` units
-    begun in this pass (they have not grown yet), stays above the floor
-    with this one's share."""
+def room(charged=0, reader=None, floor=FLOOR, unit=UNIT):
+    """True if one more unit fits: what is available, less `charged` bytes
+    for the units begun in this pass, stays above the floor with this
+    one's `unit`."""
     avail = (reader or available)()
-    return avail is None or avail - started * unit >= floor + unit
+    return avail is None or avail - charged >= floor + unit
+
+
+def tree_rss(pids, table=None):
+    """{pid: resident bytes of it and its descendants} for each of `pids`
+    found in `table` ([(pid, ppid, rss KiB)], else this host's ps)."""
+    if table is None:
+        try:
+            out = subprocess.run(["ps", "-A", "-o", "pid=,ppid=,rss="], capture_output=True, text=True,
+                                 check=True, timeout=10).stdout
+            table = [tuple(int(f) for f in line.split()) for line in out.splitlines() if line.strip()]
+        except (OSError, ValueError, subprocess.SubprocessError):
+            return {}
+    kids, rss = {}, {}
+    for pid, ppid, kb in table:
+        kids.setdefault(ppid, []).append(pid)
+        rss[pid] = kb << 10
+    out = {}
+    for root in pids:
+        if root not in rss:
+            continue
+        total, stack, seen = 0, [root], set()
+        while stack:
+            p = stack.pop()
+            if p not in seen:
+                seen.add(p)
+                total += rss.get(p, 0)
+                stack += kids.get(p, [])
+        out[root] = total
+    return out
+
+
+def unit_costs(kinds, table=None):
+    """{kind: bytes one more unit of it is charged}, from `kinds` ({pid:
+    kind} of the running units): the largest measured, at least UNIT_MIN.
+    A kind absent from the result is charged UNIT."""
+    costs = {}
+    for pid, size in tree_rss(list(kinds), table).items():
+        costs[kinds[pid]] = max(costs.get(kinds[pid], UNIT_MIN), size)
+    return costs
 
 
 def load():
