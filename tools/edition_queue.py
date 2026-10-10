@@ -255,6 +255,7 @@ if _spec.get("unit", {}).get("kind") in ("scan", "read"):
         os.close(_snapshot)
     sys.exit(unit_main(_spec))
 import code_reach  # noqa: E402
+import dir_cache  # noqa: E402
 import edition_commit  # noqa: E402
 import fetch_archive_org_editions as fetch_ao  # noqa: E402
 import fetch_trove  # noqa: E402
@@ -322,6 +323,20 @@ def plan(papers, cache=fa.CACHE, reread=None, newer=None, out=None):
     A paper whose ledger a batch run holds throughout is left out (its units
     could not add their rows). `newer` (a time.time()) keeps only the reads
     of editions laid out since then and the scans they need."""
+    dir_cache.load(DIR_CACHE)
+    try:
+        return _plan(papers, cache, reread, newer, out)
+    finally:
+        dir_cache.save(DIR_CACHE)
+
+
+#: Where plan() keeps the edition and article dirs' listings between
+#: processes (dir_cache.save): a slice or a re-exec starts warm, not with a
+#: stat of every file on the media mount.
+DIR_CACHE = Path(os.path.expanduser("~/.cache/corpus_queue/dir_cache.pickle"))
+
+
+def _plan(papers, cache, reread, newer, out):
     asked = {}
     try:
         for req in scan_queue.all_open_requests():
@@ -836,6 +851,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         # A pass with no free slot starts nothing; and once a gate holds
         # one unit back it holds every later one (begun_now only grows), so
         # the gates are read at most once a unit begun, not once a unit due.
+        mem_read, cpu_read = {}, {}
         for u in scans + reads + fetches if any(v > 0 for v in free.values()) else ():
             if not may_start() or free[slot_of(u)] <= 0 or key_of(u) in tried:
                 continue
@@ -854,12 +870,17 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             if costs is None:
                 costs = mem_gate.unit_costs({pid: slot_of(v) for pid, (v, _) in units_running()})
             cost = costs.get(slot_of(u), mem_gate.UNIT)
-            if held_back or not mem_gate.room(charged, mem_gate_reader, unit=cost):
+            if not held_back and (charged, cost) not in mem_read:
+                mem_read[charged, cost] = mem_gate.room(charged, mem_gate_reader, unit=cost)
+            if held_back or not mem_read[charged, cost]:
                 held_back = True
                 continue
-            if load_gated(u) and (cpu_held or not mem_gate.cpu_room(begun_now, cpu_gate_reader)):
-                cpu_held = True
-                continue
+            if load_gated(u):
+                if not cpu_held and begun_now not in cpu_read:
+                    cpu_read[begun_now] = mem_gate.cpu_room(begun_now, cpu_gate_reader)
+                if cpu_held or not cpu_read[begun_now]:
+                    cpu_held = True
+                    continue
             start(u)
             begun_now += 1
             charged += cost

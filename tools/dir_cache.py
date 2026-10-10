@@ -11,7 +11,9 @@ A ledger is appended to or replaced whole (a new inode); appended() parses
 only the whole lines added since its last call, and reads a ledger cut or
 rewritten in place (its bytes before the mark moved) whole again.
 """
+import json
 import os
+import pickle
 import time
 
 #: Seconds since a dir's last change before its state is kept.
@@ -23,6 +25,13 @@ _SEEN = {}
 
 #: {(ledger, fold): (inode, bytes read, their last 64 bytes, folded)} (appended).
 _READ = {}
+
+#: The memo entries save() keeps: facts of the files (each name's size, a
+#: meta.json's title), not values derived by code that may change.
+FACTS = ("sizes", "title")
+
+#: {(file, derive): ((mtime_ns, size), derive(its parsed JSON))} (derived).
+_DERIVED = {}
 
 
 def dir_key(d):
@@ -80,3 +89,45 @@ def appended(ledger, start, fold):
     done += end
     _READ[k] = (st.st_ino, done, (tail + data[:end])[-64:], acc)
     return acc
+
+
+def derived(path, derive):
+    """derive(the JSON in file `path`), parsed again only when its
+    (mtime_ns, size) moved; a file changed within SETTLED seconds is
+    parsed each call. Raises FileNotFoundError."""
+    st = os.stat(path)
+    stamp = (st.st_mtime_ns, st.st_size)
+    k = (os.fspath(path), derive)
+    hit = _DERIVED.get(k)
+    if hit and hit[0] == stamp:
+        return hit[1]
+    with open(path, "rb") as f:
+        value = derive(json.loads(f.read()))
+    if time.time() - st.st_mtime > SETTLED:
+        _DERIVED[k] = (stamp, value)
+    else:
+        _DERIVED.pop(k, None)
+    return value
+
+
+def save(path):
+    """Write the settled dirs' listings and FACTS to `path`, for load() in
+    the next process (a re-exec or the next slice) to start warm."""
+    snap = {d: (key, names, {k: memo[k] for k in FACTS if k in memo}) for d, (key, names, memo) in _SEEN.items()}
+    tmp = f"{os.fspath(path)}.{os.getpid()}.tmp"
+    os.makedirs(os.path.dirname(os.fspath(path)) or ".", exist_ok=True)
+    with open(tmp, "wb") as f:
+        pickle.dump(snap, f, protocol=pickle.HIGHEST_PROTOCOL)
+    os.replace(tmp, path)
+
+
+def load(path):
+    """Take the listings save() wrote to `path` for each dir this process
+    has not listed; each stands only while its dir_key is unmoved (seen)."""
+    try:
+        with open(path, "rb") as f:
+            snap = pickle.load(f)
+    except (OSError, EOFError, pickle.UnpicklingError, AttributeError, ValueError):
+        return
+    for d, hit in snap.items():
+        _SEEN.setdefault(d, hit)
