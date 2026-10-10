@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,47 @@
     "text": "A lot, therefore count",
     "enumeration": "6"
    },
-   "solution": "SORELY"
+   "solution": "SORELY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SORELY",
+    "definitions": [
+     {
+      "text": "A lot",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "therefore",
+      "gives": "SO",
+      "note": "so means therefore, as in 'so it follows'"
+     },
+     {
+      "clueFragment": "count",
+      "gives": "RELY",
+      "note": "to count on someone is to rely on them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "RELY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reasons through a sum: there are many, therefore start counting.",
+     "walkthrough": "'Count' looks like a noun or a tally, but it is the verb in 'count on'.",
+     "definitionFit": "Sorely is an intensifier meaning greatly or very much, as in 'sorely missed'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "count"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +90,44 @@
     "text": "Wonderful location of sticky car?",
     "enumeration": "7"
    },
-   "solution": "SUBLIME"
+   "solution": "SUBLIME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SUBLIME",
+    "definitions": [
+     {
+      "text": "Wonderful",
+      "at": 0
+     },
+     {
+      "text": "location of sticky car?",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wonderful",
+      "note": "first meaning: supremely fine or awe-inspiring"
+     },
+     {
+      "clueFragment": "location of sticky car?",
+      "note": "second meaning, read as two words: a car parked under a lime tree gets coated in sticky sap drips"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks where a gummed-up but marvellous car was parked.",
+     "walkthrough": "Split the answer as SUB LIME: beneath a lime tree, whose dripping honeydew leaves parked cars sticky. The question mark flags the playful second meaning.",
+     "definitionFit": "Sublime describes something of outstanding, awe-inspiring excellence, a close synonym for wonderful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sticky"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +141,62 @@
     "text": "Take order from queen, one maid's ordered",
     "enumeration": "9"
    },
-   "solution": "RANDOMISE"
+   "solution": "RANDOMISE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "RANDOMISE",
+    "definitions": [
+     {
+      "text": "Take order from",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "ordered here means arranged afresh, so the preceding letters are put into a new sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "queen",
+      "gives": "R",
+      "note": "R stands for Regina, Latin for queen"
+     },
+     {
+      "clueFragment": "one maid's",
+      "gives": "ONEMAIDS",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ANDOMISE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONEMAIDS",
+       "gives": "ANDOMISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A servant is told by the queen what to do, then sent off with her orders.",
+     "walkthrough": "'Take order from' reads like obeying a command, but it means remove the order from something.",
+     "definitionFit": "To randomise a sequence is to strip it of any pattern, so it removes the arrangement it had."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +210,40 @@
     "text": "Box you might help to pack, thus missing flight?",
     "enumeration": "4"
    },
-   "solution": "LIFT"
+   "solution": "LIFT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LIFT",
+    "definitions": [
+     {
+      "text": "Box you might help to pack, thus missing flight?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Box you might help to pack, thus missing flight?",
+      "note": "surface reading: a carton someone helps fill, perhaps leaving them late for a plane"
+     },
+     {
+      "clueFragment": "Box you might help to pack, thus missing flight?",
+      "note": "setter's reading: a boxlike car people cram into, which spares them a flight of stairs"
+     }
+    ],
+    "explanation": {
+     "surface": "Helping someone fill a packing case makes you late for your plane.",
+     "walkthrough": "'Flight' is a run of stairs, not an aeroplane trip, and 'pack' is crowding in as passengers do. In British English a lift is an elevator.",
+     "definitionFit": "A lift is the British word for an elevator, a cabin carrying people between floors instead of climbing stairs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flight"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +257,50 @@
     "text": "Cap of ointment for your mouth",
     "enumeration": "8"
    },
-   "solution": "BALMORAL"
+   "solution": "BALMORAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BALMORAL",
+    "definitions": [
+     {
+      "text": "Cap",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ointment",
+      "gives": "BALM",
+      "note": "balm is a soothing ointment"
+     },
+     {
+      "clueFragment": "for your mouth",
+      "gives": "ORAL",
+      "note": "oral means relating to the mouth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BALM",
+      "ORAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A lid on a tube of lip salve.",
+     "walkthrough": "'Cap' seems to be a tube's top, but it is a Scottish hat; a Balmoral is also the royal castle in Scotland.",
+     "definitionFit": "A Balmoral is a flat brimless Scottish bonnet, a type of hat named after the royal estate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cap"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +314,49 @@
     "text": "Not all got tan naturally, turning an orange colour",
     "enumeration": "7"
    },
-   "solution": "ANNATTO"
+   "solution": "ANNATTO",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ANNATTO",
+    "definitions": [
+     {
+      "text": "an orange colour",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not all",
+      "for": "hidden_word",
+      "note": "not all of the words are used, only a run of letters lying inside them"
+     },
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning round means that run of letters is taken from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "got tan naturally",
+      "gives": "OTTANNA",
+      "note": "a run of letters spanning the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "Some sunbathers browned without help, gradually going orange.",
+     "walkthrough": "Reading OTTANNA backwards gives ANNATTO.",
+     "definitionFit": "Annatto is a yellow-orange dye from the seeds of the achiote tree, used to colour cheese and butter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "naturally"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +370,62 @@
     "text": "Film for everyone ends in threesome, synopsis wrongly explains",
     "enumeration": "10"
    },
-   "solution": "MISTEACHES"
+   "solution": "MISTEACHES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MISTEACHES",
+    "definitions": [
+     {
+      "text": "wrongly explains",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ends in",
+      "for": "letter_selection",
+      "note": "the ends in the following words means just their final letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Film",
+      "gives": "MIST",
+      "note": "a mist is a thin film, as on a window"
+     },
+     {
+      "clueFragment": "for everyone",
+      "gives": "EACH",
+      "note": "each means for every one, as in 'a pound each'"
+     },
+     {
+      "clueFragment": "threesome, synopsis",
+      "gives": "ES",
+      "select": "last",
+      "note": "the final letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIST",
+      "EACH",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "A review: an adults' film whose plot summary misrepresents its three-way climax.",
+     "walkthrough": "'Film for everyone' suggests a U-rated movie, but the two halves split: film, then for everyone.",
+     "definitionFit": "To misteach is to instruct badly or incorrectly, so misteaches means explains things wrongly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Film"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +439,44 @@
     "text": "Collection of holes shaped by drill",
     "enumeration": "5"
    },
-   "solution": "ROUND"
+   "solution": "ROUND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROUND",
+    "definitions": [
+     {
+      "text": "Collection of holes",
+      "at": 0
+     },
+     {
+      "text": "shaped by drill",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Collection of holes",
+      "note": "first meaning: a full set of holes played on a golf course"
+     },
+     {
+      "clueFragment": "shaped by drill",
+      "note": "second meaning: circular, the shape a drill bores"
+     }
+    ],
+    "explanation": {
+     "surface": "A set of holes made by a power drill.",
+     "walkthrough": "The surface wants the holes to be the drill's work, but the first meaning is golf.",
+     "definitionFit": "A round of golf is the set of eighteen holes played, and a drilled hole is circular in shape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "holes"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +496,71 @@
      }
     ]
    },
-   "solution": "LIKEMAD"
+   "solution": "LIKEMAD",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "reversal"
+    ],
+    "answer": "LIKE MAD",
+    "definitions": [
+     {
+      "text": "very quickly",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means cut off, so the word for the garment loses its last letter"
+     },
+     {
+      "text": "pulled up",
+      "for": "reversal",
+      "note": "in a down entry, pulled up means read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Actor in drag",
+      "gives": "DAME",
+      "note": "the pantomime dame is a comic female role played by a man"
+     },
+     {
+      "clueFragment": "skirt",
+      "gives": "KIL",
+      "note": "a kilt, the Scottish pleated skirt, with its end cut off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIK",
+      "EMAD"
+     ],
+     "reversals": [
+      {
+       "from": "DAMEKIL",
+       "to": "LIKEMAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cross-dressing performer hitches up a miniskirt in a hurry.",
+     "walkthrough": "Pantomime, a British Christmas stage show, casts a man as the dame. DAME plus KIL, read upwards, gives LIKE MAD.",
+     "definitionFit": "Like mad is an informal idiom meaning with great speed or energy, as in 'running like mad'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "drag"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +574,55 @@
     "text": "Locate collection of books including nothing by Proust",
     "enumeration": "6"
    },
-   "solution": "ORIENT"
+   "solution": "ORIENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ORIENT",
+    "definitions": [
+     {
+      "text": "Locate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including means the first term holds the next one inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "collection of books",
+      "gives": "OT",
+      "note": "OT is the Old Testament, a collection of books of the Bible"
+     },
+     {
+      "clueFragment": "nothing by Proust",
+      "gives": "RIEN",
+      "note": "rien is French for nothing, as the French writer Proust would say"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "RIEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A library search for a volume of Proust that holds nothing.",
+     "walkthrough": "'By Proust' signals the word is in French.",
+     "definitionFit": "To orient something is to fix its position or bearings, a close sense of locate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Proust"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +650,62 @@
      }
     ]
    },
-   "solution": "BANGFORONESBUCK"
+   "solution": "BANGFORONESBUCK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BANG FOR ONES BUCK",
+    "definitions": [
+     {
+      "text": "Value",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sex",
+      "gives": "BANG",
+      "note": "bang is slang for sex"
+     },
+     {
+      "clueFragment": "alone",
+      "gives": "FORONE",
+      "note": "for one means solo, as in a table for one"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "rabbit",
+      "gives": "BUCK",
+      "note": "a buck is a male rabbit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BANG",
+      "FORONE",
+      "S",
+      "BUCK"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky ad promising solo excitement involving a little bunny.",
+     "definitionFit": "Bang for one's buck is an idiom for good return on money spent, that is, value."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "rabbit"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +719,43 @@
     "text": "Someone loved doing nothing when told",
     "enumeration": "4"
    },
-   "solution": "IDOL"
+   "solution": "IDOL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "IDOL",
+    "definitions": [
+     {
+      "text": "Someone loved",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when told",
+      "for": "homophone",
+      "note": "something told is spoken, so it is the sound of the word that counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doing nothing",
+      "gives": "IDOL",
+      "soundsLike": "IDLE",
+      "note": "idle means doing nothing"
+     }
+    ],
+    "explanation": {
+     "surface": "A beloved person lazes about whenever instructed.",
+     "definitionFit": "An idol is a person adored or worshipped, such as a pop star by fans."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "told"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +769,56 @@
     "text": "Paganism party for women maiden starts with fire",
     "enumeration": "10"
    },
-   "solution": "HEATHENDOM"
+   "solution": "HEATHENDOM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEATHENDOM",
+    "definitions": [
+     {
+      "text": "Paganism",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "starts with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fire",
+      "gives": "HEAT",
+      "note": "fire as in burning warmth"
+     },
+     {
+      "clueFragment": "party for women",
+      "gives": "HENDO",
+      "note": "a hen do is a British party for a bride-to-be and her female friends"
+     },
+     {
+      "clueFragment": "maiden",
+      "gives": "M",
+      "note": "M is maiden, the cricket abbreviation for an over with no runs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEAT",
+      "HENDO",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A pagan rite: a women's gathering where a young girl lights the bonfire.",
+     "walkthrough": "'Starts with fire' places the word for fire at the front of the other two parts.",
+     "definitionFit": "Heathendom is the state or world of heathens, those outside the major religions, so paganism."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "maiden"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +842,57 @@
      }
     ]
    },
-   "solution": "NEXTINLINE"
+   "solution": "NEXTINLINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NEXT IN LINE",
+    "definitions": [
+     {
+      "text": "expected to succeed",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clothes store",
+      "gives": "NEXT",
+      "note": "Next is a British high-street clothing chain"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     },
+     {
+      "clueFragment": "range",
+      "gives": "LINE",
+      "note": "a line is a product range"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEXT",
+      "IN",
+      "LINE"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion retailer with a hit collection is tipped to do well.",
+     "walkthrough": "'Succeed' reads as do well, but it means follow on, as an heir does.",
+     "definitionFit": "Next in line is the person due to take over a role or throne, that is, to succeed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "succeed"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +906,54 @@
     "text": "Urgent information put through door",
     "enumeration": "7"
    },
-   "solution": "EXIGENT"
+   "solution": "EXIGENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EXIGENT",
+    "definitions": [
+     {
+      "text": "Urgent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put through",
+      "for": "container",
+      "note": "put through means pushed inside, so one part goes in the middle of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "door",
+      "gives": "EXIT",
+      "note": "an exit is a door out"
+     },
+     {
+      "clueFragment": "information",
+      "gives": "GEN",
+      "note": "gen is British slang for information"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXI",
+      "GEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An urgent message is slipped under the door.",
+     "definitionFit": "Exigent means pressing or demanding immediate action, a formal synonym of urgent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "information"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +967,50 @@
     "text": "Rows of apples, perhaps having yellow edible leaves",
     "enumeration": "7"
    },
-   "solution": "ORCHARD"
+   "solution": "ORCHARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORCHARD",
+    "definitions": [
+     {
+      "text": "Rows of apples, perhaps",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "yellow",
+      "gives": "OR",
+      "note": "or is gold or yellow in heraldry"
+     },
+     {
+      "clueFragment": "edible leaves",
+      "gives": "CHARD",
+      "note": "chard is a leafy green vegetable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "CHARD"
+     ]
+    },
+    "explanation": {
+     "surface": "Lines of apples alongside yellow salad greens in a market.",
+     "walkthrough": "'Rows of apples' looks like a display of fruit; it means rows of apple trees.",
+     "definitionFit": "An orchard is ground planted with fruit trees in rows, apple trees being the classic example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Rows"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1024,60 @@
     "text": "Almost every seabird fed every other",
     "enumeration": "9"
    },
-   "solution": "ALTERNATE"
+   "solution": "ALTERNATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ALTERNATE",
+    "definitions": [
+     {
+      "text": "every other",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means not quite complete, so the word loses its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "every",
+      "gives": "AL",
+      "note": "all, cut short"
+     },
+     {
+      "clueFragment": "seabird",
+      "gives": "TERN",
+      "note": "a tern is a seabird"
+     },
+     {
+      "clueFragment": "fed",
+      "gives": "ATE",
+      "note": "ate means fed, consumed food"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "TERN",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Nearly all the gulls ate, but only on alternate days.",
+     "definitionFit": "Alternate as an adjective means every second one, as in 'alternate Tuesdays'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fed"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1091,53 @@
     "text": "Greeting Republican, a Kennedy turned aside",
     "enumeration": "7"
    },
-   "solution": "AVERTED"
+   "solution": "AVERTED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AVERTED",
+    "definitions": [
+     {
+      "text": "turned aside",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greeting",
+      "gives": "AVE",
+      "note": "ave is the Latin greeting hail"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     },
+     {
+      "clueFragment": "a Kennedy",
+      "gives": "TED",
+      "note": "Ted Kennedy was a US senator"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVE",
+      "R",
+      "TED"
+     ]
+    },
+    "explanation": {
+     "surface": "A Kennedy snubbed a hello from a Republican rival.",
+     "walkthrough": "Kennedys were Democrats, so the Republican and Kennedy look like a political pair; they are just letters.",
+     "definitionFit": "To avert is to turn away, as in averting one's eyes, so averted means turned aside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Kennedy"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1151,60 @@
     "text": "Defendant doomed, wanting introduction to Rumpole",
     "enumeration": "7"
    },
-   "solution": "ACCUSED"
+   "solution": "ACCUSED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "ACCUSED",
+    "definitions": [
+     {
+      "text": "Defendant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wanting",
+      "for": "deletion",
+      "note": "wanting means lacking, so a letter is missing from the word"
+     },
+     {
+      "text": "introduction to",
+      "for": "letter_selection",
+      "note": "'introduction to' keeps only the first letter of 'Rumpole'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doomed",
+      "gives": "ACCURSED",
+      "note": "accursed means doomed or damned"
+     },
+     {
+      "clueFragment": "Rumpole",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of Rumpole"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACCUSED"
+     ]
+    },
+    "explanation": {
+     "surface": "The man in the dock is lost without his barrister's opening speech.",
+     "walkthrough": "Rumpole of the Bailey is a fictional British defence barrister from TV and books, which suits the courtroom surface.",
+     "definitionFit": "The accused is the person charged with a crime and standing trial, the defendant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "introduction"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1218,55 @@
     "text": "Beer that's disgusting - bother drinking it?",
     "enumeration": "7"
    },
-   "solution": "DRAUGHT"
+   "solution": "DRAUGHT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DRAUGHT",
+    "definitions": [
+     {
+      "text": "Beer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drinking it",
+      "for": "container",
+      "note": "drinking means taking in, so the oath swallows the exclamation that went before"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bother",
+      "gives": "DRAT",
+      "note": "drat is a mild oath like bother"
+     },
+     {
+      "clueFragment": "that's disgusting",
+      "gives": "UGH",
+      "note": "ugh is what one says at something disgusting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRA",
+      "UGH",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker winces at foul beer and wonders whether to bother.",
+     "walkthrough": "The 'it' points back to 'that's disgusting', which goes inside the oath.",
+     "definitionFit": "Draught beer is drawn from a cask or keg, so a draught is a serving of beer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bother"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1280,67 @@
     "text": "Picks length to cut new carpet",
     "enumeration": "7"
    },
-   "solution": "PLECTRA"
+   "solution": "PLECTRA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PLECTRA",
+    "definitions": [
+     {
+      "text": "Picks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to cut",
+      "for": "container",
+      "note": "to cut means to slice into, so one letter goes in the middle of the rest"
+     },
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "new signals the floor covering's letters are made into a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "carpet",
+      "gives": "PECTRA",
+      "note": "carpet, rearranged"
+     },
+     {
+      "clueFragment": "length",
+      "gives": "L",
+      "note": "L is the abbreviation for length"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "L",
+      "ECTRA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CARPET",
+       "gives": "PECTRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fitter chooses how much to trim off a newly laid rug.",
+     "walkthrough": "'Picks' reads as chooses, but it is the noun for guitar picks.",
+     "definitionFit": "Plectra is the plural of plectrum, the small flat pick used to pluck guitar strings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Picks"
+    }
+   }
   },
   {
    "number": 19,
@@ -357,7 +1354,67 @@
     "text": "Father yards behind Penny on foot ahead",
     "enumeration": "6"
    },
-   "solution": "PREPAY"
+   "solution": "PREPAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PREPAY",
+    "definitions": [
+     {
+      "text": "foot ahead",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind means coming after, so the father and yards go second, following the coin and the preposition"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Penny",
+      "gives": "P",
+      "note": "P is the abbreviation for penny"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or concerning"
+     },
+     {
+      "clueFragment": "Father",
+      "gives": "PA",
+      "note": "pa is a familiar word for father"
+     },
+     {
+      "clueFragment": "yards",
+      "gives": "Y",
+      "note": "Y is the abbreviation for yards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RE",
+      "PA",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Dad walks a few yards behind Penny, who strides ahead on foot.",
+     "walkthrough": "'Foot' is to pay, as in footing the bill, not walking; 'behind' puts the father's letters after the others.",
+     "definitionFit": "To prepay is to settle a bill in advance, that is, to foot it ahead of time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "foot"
+    }
+   }
   },
   {
    "number": 20,
@@ -371,7 +1428,59 @@
     "text": "Cop collects millions in support of member",
     "enumeration": "7"
    },
-   "solution": "ARMREST"
+   "solution": "ARMREST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ARMREST",
+    "definitions": [
+     {
+      "text": "support of member",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "collects",
+      "for": "container",
+      "note": "collects means gathers in, so the police action's word holds the next letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cop",
+      "gives": "ARREST",
+      "note": "to cop someone is to nab or arrest them"
+     },
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "M is the abbreviation for million"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "M",
+      "REST"
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer pockets millions in backing a Member of Parliament.",
+     "walkthrough": "'Member' suggests a politician, but here it is a limb; 'Cop' is the verb, not the police officer.",
+     "definitionFit": "An armrest supports the arm, and a limb is called a member."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "member"
+    }
+   }
   },
   {
    "number": 21,
@@ -385,7 +1494,67 @@
     "text": "City unprotected during shift, moving north east",
     "enumeration": "10"
    },
-   "solution": "COPENHAGEN"
+   "solution": "COPENHAGEN",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "COPENHAGEN",
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during means within the span of, so one word goes inside the other"
+     },
+     {
+      "text": "moving north east",
+      "for": "anagram",
+      "note": "moving the north letter eastward shifts it to the right, rearranging the end of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shift",
+      "gives": "CHANGE",
+      "note": "a change is a shift"
+     },
+     {
+      "clueFragment": "unprotected",
+      "gives": "OPEN",
+      "note": "open means exposed, unprotected"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OPEN",
+      "HAGEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HANGE",
+       "gives": "HAGEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A city left unguarded while the watch changes.",
+     "walkthrough": "In a grid, north is the letter N and east is to the right, so the N slides along to the end of the word.",
+     "definitionFit": "Copenhagen is the capital city of Denmark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shift"
+    }
+   }
   },
   {
    "number": 22,
@@ -399,7 +1568,43 @@
     "text": "Respect couple sharing a hooker",
     "enumeration": "5"
    },
-   "solution": "PROPS"
+   "solution": "PROPS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PROPS",
+    "definitions": [
+     {
+      "text": "Respect",
+      "at": 0
+     },
+     {
+      "text": "couple sharing a hooker",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Respect",
+      "note": "first meaning: slang for due credit or respect"
+     },
+     {
+      "clueFragment": "couple sharing a hooker",
+      "note": "second meaning: in rugby the two front-row forwards flanking the hooker in a scrum"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Hooker' wants to mean a prostitute; in rugby the hooker is the player between the two props in the scrum.",
+     "definitionFit": "Props is slang for proper acknowledgement, and in rugby the two props bind either side of the hooker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hooker"
+    }
+   }
   },
   {
    "number": 23,
@@ -413,7 +1618,39 @@
     "text": "Dance for a year",
     "enumeration": "4"
    },
-   "solution": "PROM"
+   "solution": "PROM",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PROM",
+    "definitions": [
+     {
+      "text": "Dance for a year",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dance for a year",
+      "note": "surface reading: dancing nonstop for twelve months"
+     },
+     {
+      "clueFragment": "Dance for a year",
+      "note": "setter's reading: a formal ball held for a school year group as they leave"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'A year' reads as a length of time, but it is a school year group, such as the leavers' class.",
+     "definitionFit": "A prom is a formal school dance, typically held for the graduating year group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "year"
+    }
+   }
   },
   {
    "number": 24,
@@ -427,7 +1664,61 @@
     "text": "Life squashes last of your spirit",
     "enumeration": "4"
    },
-   "solution": "BRIO"
+   "solution": "BRIO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BRIO",
+    "definitions": [
+     {
+      "text": "spirit",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "squashes",
+      "for": "container",
+      "note": "squashes means crams in, so one part is pressed inside the other"
+     },
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "last of means only the final letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Life",
+      "gives": "BIO",
+      "note": "bio is a short form for life, as in biography"
+     },
+     {
+      "clueFragment": "your",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of your"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "R",
+      "IO"
+     ]
+    },
+    "explanation": {
+     "surface": "Life crushes the last of a person's spirit.",
+     "definitionFit": "Brio is vigour or vivacity, a lively spirit, borrowed from Italian."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "squashes"
+    }
+   }
   },
   {
    "number": 25,
@@ -447,7 +1738,51 @@
      }
     ]
    },
-   "solution": "SMOKINGCARRIAGE"
+   "solution": "SMOKINGCARRIAGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SMOKING CARRIAGE",
+    "definitions": [
+     {
+      "text": "Fusty outdated place for travellers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "built",
+      "for": "anagram",
+      "note": "built means constructed, so the letters are assembled into something new"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on Garrick's image",
+      "gives": "ONGARRICKSIMAGE",
+      "note": "taken as written, every letter used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONGARRICKSIMAGE",
+       "gives": "SMOKINGCARRIAGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musty old theatre designed around the persona of actor David Garrick.",
+     "walkthrough": "'Fusty' is apt: smoking carriages were smoky, stale-smelling railway carriages, now banned.",
+     "definitionFit": "A smoking carriage was a railway carriage where passengers were allowed to smoke, a thing of the past."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Garrick's"
+    }
+   }
   },
   {
    "number": 26,
@@ -461,7 +1796,61 @@
     "text": "Line pulled from detective's boiler a little floppy",
     "enumeration": "8"
    },
-   "solution": "DISKETTE"
+   "solution": "DISKETTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "DISKETTE",
+    "definitions": [
+     {
+      "text": "a little floppy",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Line pulled from",
+      "for": "deletion",
+      "note": "pulled from means taken out of, so the letter for line is removed from the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "detective's",
+      "gives": "DIS",
+      "note": "DI is a detective inspector, plus the 's"
+     },
+     {
+      "clueFragment": "boiler",
+      "gives": "KETTLE",
+      "note": "a kettle boils water"
+     },
+     {
+      "clueFragment": "Line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "KETTE"
+     ]
+    },
+    "explanation": {
+     "surface": "A detective's kettle has lost its flex and gone a bit limp.",
+     "walkthrough": "'Floppy' looks like an adjective, but it is the noun, a floppy disk.",
+     "definitionFit": "A diskette is a small floppy disk for storing computer data, and the -ette ending marks smallness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "floppy"
+    }
+   }
   },
   {
    "number": 27,
@@ -475,7 +1864,51 @@
     "text": "Effective separate WC when camping, perhaps",
     "enumeration": "6"
    },
-   "solution": "POTENT"
+   "solution": "POTENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POTENT",
+    "definitions": [
+     {
+      "text": "Effective",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "separate"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "WC",
+      "gives": "PO",
+      "note": "a po is a chamber pot, a makeshift toilet"
+     },
+     {
+      "clueFragment": "when camping, perhaps",
+      "gives": "TENT",
+      "note": "a tent is what one sleeps in when camping"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "TENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice that a separate toilet tent works well on a camping trip.",
+     "walkthrough": "A po tent is a small separate tent housing a portable toilet at a campsite; read as two words it gives POTENT.",
+     "definitionFit": "Potent means powerful and strongly effective, as a potent remedy is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "separate"
+    }
+   }
   }
  ]
 }
