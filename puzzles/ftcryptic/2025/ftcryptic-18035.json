@@ -24,6 +24,9 @@
   "date": "2025-04-24",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,64 @@
     "text": "Hot on current affairs, quizzer's back in second place",
     "enumeration": "8"
    },
-   "solution": "TROPICAL"
+   "solution": "TROPICAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TROPICAL",
+    "definitions": [
+     {
+      "text": "Hot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "letter_selection",
+      "note": "the back of a word is its tail end, so only its last letter is kept"
+     },
+     {
+      "text": "in second place",
+      "for": "container",
+      "note": "a letter put in second place is slotted in straight after the opening letter of the other word"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "current affairs",
+      "gives": "TOPICAL",
+      "note": "current affairs are topical matters"
+     },
+     {
+      "clueFragment": "quizzer",
+      "gives": "R",
+      "select": "last",
+      "note": "the back of quizzer is its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "OPICAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A quiz contestant strong on current affairs, though only the runner-up, is in hot form.",
+     "definitionFit": "Tropical climates are hot ones, so the adjective serves as a synonym for sweltering."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hot"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +111,42 @@
     "text": "Make a little more achievable",
     "enumeration": "5"
    },
-   "solution": "REACH"
+   "solution": "REACH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "REACH",
+    "definitions": [
+     {
+      "text": "Make",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a little",
+      "for": "hidden_word",
+      "note": "only a small portion of the following words is wanted, a run of letters lying inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more achievable",
+      "gives": "REACH",
+      "note": "the letters straddle the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to make a goal slightly easier to attain.",
+     "definitionFit": "To make a place or a target is to arrive at it, the same sense as reaching it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Make"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +174,48 @@
      }
     ]
    },
-   "solution": "PIEINTHESKY"
+   "solution": "PIEINTHESKY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PIE IN THE SKY",
+    "definitions": [
+     {
+      "text": "That's unlikely",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Something hearty",
+      "gives": "PIE",
+      "note": "a pie is a hearty, filling dish"
+     },
+     {
+      "clueFragment": "from Ryanair",
+      "gives": "INTHESKY",
+      "note": "anything from an airline's in-flight menu is served up there, high above the ground"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIE",
+      "INTHESKY"
+     ]
+    },
+    "explanation": {
+     "surface": "A sardonic look at budget-airline catering: a hearty meal on Ryanair is a fantasy.",
+     "walkthrough": "Ryanair is a no-frills European airline, so a hearty meal served on board is itself a fine example of the answer.",
+     "definitionFit": "The idiom names a hope or promise with little chance of ever coming true, an improbable prospect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ryanair"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +229,65 @@
     "text": "Advocate styling punk's head with Mohican",
     "enumeration": "8"
    },
-   "solution": "CHAMPION"
+   "solution": "CHAMPION",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "CHAMPION",
+    "definitions": [
+     {
+      "text": "Advocate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter, at the top of a down entry"
+     },
+     {
+      "text": "styling",
+      "for": "anagram",
+      "note": "styling hair rearranges it, so these letters are rearranged too"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "punk's",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter of punk"
+     },
+     {
+      "clueFragment": "Mohican",
+      "gives": "MOHICAN",
+      "note": "taken as written; a Mohican is the crested punk haircut"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PMOHICAN",
+       "gives": "CHAMPION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A supporter of a punk's right to wear his hair in a Mohican.",
+     "definitionFit": "As verbs both mean to argue publicly in favour of a cause, to support it actively."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "styling"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +307,67 @@
      }
     ]
    },
-   "solution": "LATERALTHINKING"
+   "solution": "LATERALTHINKING",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "LATERAL THINKING",
+    "definitions": [
+     {
+      "text": "seeking unusual views",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one group sits within another, placed inside its letters"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "the farewell phrase comes first and the house follows it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "so long",
+      "gives": "LATER",
+      "note": "'later!' is an informal goodbye, like 'so long'"
+     },
+     {
+      "clueFragment": "Icelandic house",
+      "gives": "ALTHING",
+      "note": "the Althing is the parliament of Iceland"
+     },
+     {
+      "clueFragment": "Family",
+      "gives": "KIN",
+      "note": "kin are one's relatives"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LATER",
+      "ALTHIN",
+      "KIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A family on an Icelandic trip, having long sought unusual views of the landscape.",
+     "walkthrough": "A house here is a legislative chamber, as in the House of Commons, and 'so long' is a farewell rather than a length of time.",
+     "definitionFit": "The phrase describes problem-solving by indirect, creative approaches rather than conventional logic, a search for unexpected angles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "house"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +381,46 @@
     "text": "Missiles carried by strong man",
     "enumeration": "6"
    },
-   "solution": "SAMSON"
+   "solution": "SAMSON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SAMSON",
+    "definitions": [
+     {
+      "text": "strong man",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Missiles",
+      "gives": "SAMS",
+      "note": "SAMs are surface-to-air missiles"
+     },
+     {
+      "clueFragment": "carried by",
+      "gives": "ON",
+      "note": "something carried by a vehicle is on it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAMS",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A muscleman heaving a load of missiles about.",
+     "definitionFit": "In the Bible Samson's strength was legendary, so his name stands for any very powerful man."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "carried"
+    }
+   }
   },
   {
    "number": 6,
@@ -141,7 +434,68 @@
     "text": "Obsequious Yankee Mike butters up",
     "enumeration": "6"
    },
-   "solution": "SMARMY"
+   "solution": "SMARMY",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SMARMY",
+    "definitions": [
+     {
+      "text": "Obsequious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, reading up means reading the letters from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yankee",
+      "gives": "Y",
+      "note": "Yankee is Y in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "Mike",
+      "gives": "M",
+      "note": "Mike is M in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "butters",
+      "gives": "RAMS",
+      "note": "a goat or ram that butts is a butter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SMAR",
+      "M",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "YMRAMS",
+       "to": "SMARMY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fawning American called Mike flatters people; to butter up is to flatter.",
+     "walkthrough": "'Butters up' looks like the flattery idiom, but butters is a noun for animals that butt, and up is the reversal.",
+     "definitionFit": "Both words describe an oily, ingratiating manner towards those one wants to please."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "butters"
+    }
+   }
   },
   {
    "number": 7,
@@ -155,7 +509,54 @@
     "text": "Anorak pouch showing larger size initially",
     "enumeration": "3"
    },
-   "solution": "MAC"
+   "solution": "MAC",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "MAC",
+    "definitions": [
+     {
+      "text": "Anorak",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "showing",
+      "for": "substitution",
+      "note": "the word now displays a different size label in place of its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pouch",
+      "gives": "SAC",
+      "note": "a sac is a pouch in an animal or plant"
+     },
+     {
+      "clueFragment": "larger size initially",
+      "gives": "M",
+      "note": "M for medium is the size label above S for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AC"
+     ]
+    },
+    "explanation": {
+     "surface": "A jacket pocket that seems to come in a bigger size than expected.",
+     "walkthrough": "SAC begins with S, the small size; swap it for M, the next size up.",
+     "definitionFit": "A mac, short for mackintosh, is a waterproof coat, loosely equated with an anorak in crosswords."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pouch"
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +570,56 @@
     "text": "No longer in love with pig, daughter's into the drink",
     "enumeration": "9"
    },
-   "solution": "OVERBOARD"
+   "solution": "OVERBOARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERBOARD",
+    "definitions": [
+     {
+      "text": "into the drink",
+      "at": 39
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No longer in love with",
+      "gives": "OVER",
+      "note": "to be over someone is to have stopped loving them"
+     },
+     {
+      "clueFragment": "pig",
+      "gives": "BOAR",
+      "note": "a boar is a male pig"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "BOAR",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who has gone off their pig while their daughter has taken to drinking.",
+     "definitionFit": "Falling overboard means going over the side of a ship into the sea, which slang calls the drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +633,62 @@
     "text": "Poor neighbourhood most liked close to swell area",
     "enumeration": "6"
    },
-   "solution": "FAVELA"
+   "solution": "FAVELA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "FAVELA",
+    "definitions": [
+     {
+      "text": "Poor neighbourhood",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its final letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "most liked",
+      "gives": "FAVE",
+      "note": "fave is informal for favourite"
+     },
+     {
+      "clueFragment": "swell",
+      "gives": "L",
+      "select": "last",
+      "note": "the final letter of swell"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAVE",
+      "L",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A deprived district that has become the most popular spot near a fashionable area.",
+     "walkthrough": "A favela is a shanty town in Brazil; 'swell' in the surface suggests smart people, but only its last letter is used.",
+     "definitionFit": "A favela is a Brazilian slum or shanty town, a poor district on a city's edge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "swell"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +702,48 @@
     "text": "Tesla came out after early development with a biodegradable roof",
     "enumeration": "8"
    },
-   "solution": "THATCHED"
+   "solution": "THATCHED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THATCHED",
+    "definitions": [
+     {
+      "text": "with a biodegradable roof",
+      "at": 39
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tesla",
+      "gives": "T",
+      "note": "T is the symbol for the tesla, the unit of magnetic flux density"
+     },
+     {
+      "clueFragment": "came out after early development",
+      "gives": "HATCHED",
+      "note": "a chick emerges from the egg once its early growth is complete"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HATCHED"
+     ]
+    },
+    "explanation": {
+     "surface": "An electric car launched after early development work, fitted with an eco-friendly roof.",
+     "walkthrough": "Tesla looks like the car maker but is the unit of magnetic flux density.",
+     "definitionFit": "A thatched roof is made of straw or reed, plant material that decays naturally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Tesla"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +757,52 @@
     "text": "Slight obsession with golf forgotten",
     "enumeration": "4"
    },
-   "solution": "THIN"
+   "solution": "THIN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "THIN",
+    "definitions": [
+     {
+      "text": "Slight",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "forgotten",
+      "for": "deletion",
+      "note": "something forgotten is left out, so that letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "obsession",
+      "gives": "THING",
+      "note": "to have a thing about something is to be obsessed with it"
+     },
+     {
+      "clueFragment": "golf",
+      "gives": "G",
+      "note": "Golf is G in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A minor fixation with golf, now dropped.",
+     "definitionFit": "A slight build is a thin, slender one, so the adjectives are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "golf"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +816,59 @@
     "text": "Soldier, mother and kid love capital that's 1",
     "enumeration": "10"
    },
-   "solution": "PARAMARIBO"
+   "solution": "PARAMARIBO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARAMARIBO",
+    "definitions": [
+     {
+      "text": "capital that's 1",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldier",
+      "gives": "PARA",
+      "note": "a para is a paratrooper"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MA",
+      "note": "ma is an informal word for mother"
+     },
+     {
+      "clueFragment": "kid",
+      "gives": "RIB",
+      "note": "to kid and to rib both mean to tease"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, which looks like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARA",
+      "MA",
+      "RIB",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier, his mother and a teasing loved one, all in some capital city.",
+     "walkthrough": "The 1 points to 1 Across, TROPICAL: Paramaribo, capital of Suriname, lies just north of the equator.",
+     "definitionFit": "Paramaribo, the capital of Suriname in South America, has a hot equatorial climate, matching the cross-referenced answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "kid"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +888,51 @@
      }
     ]
    },
-   "solution": "ROADMENDING"
+   "solution": "ROADMENDING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROAD-MENDING",
+    "definitions": [
+     {
+      "text": "improving bumps for the driver",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "jolts",
+      "for": "anagram",
+      "note": "a jolt shakes things up, so these letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dodgem ran in",
+      "gives": "DODGEMRANIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DODGEMRANIN",
+       "gives": "ROADMENDING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dodgem car lurching about a fairground rink, bumping as it goes.",
+     "definitionFit": "Repairing a road's surface smooths out its bumps, making the drive more comfortable for motorists."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bumps"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +946,85 @@
     "text": "Wife has smeared a bit of lipstick on bend plumber's fitting",
     "enumeration": "8"
    },
-   "solution": "WASHBOWL"
+   "solution": "WASHBOWL",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "WASHBOWL",
+    "definitions": [
+     {
+      "text": "plumber's fitting",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "smeared",
+      "for": "anagram",
+      "note": "smearing messes something up, so these letters are scrambled"
+     },
+     {
+      "text": "a bit of",
+      "for": "letter_selection",
+      "note": "only a small piece of the word is wanted, its first letter"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across entry, putting one thing on another places it after, to the right"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     },
+     {
+      "clueFragment": "has",
+      "gives": "ASH",
+      "note": "the three letters rearranged"
+     },
+     {
+      "clueFragment": "bend",
+      "gives": "BOW",
+      "note": "to bow is to bend at the waist"
+     },
+     {
+      "clueFragment": "lipstick",
+      "gives": "L",
+      "select": "first",
+      "note": "the opening letter of lipstick"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ASH",
+      "BOW",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HAS",
+       "gives": "ASH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wife has smudged lipstick on the curved part of a plumbing fitting.",
+     "walkthrough": "In an across clue, 'a bit of lipstick on bend' puts the L after BOW.",
+     "definitionFit": "A washbowl is a basin for washing, a fixture a plumber installs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bend"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +1038,71 @@
     "text": "Group of stars notice U-turns south of an airfield",
     "enumeration": "9"
    },
-   "solution": "ANDROMEDA"
+   "solution": "ANDROMEDA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ANDROMEDA",
+    "definitions": [
+     {
+      "text": "Group of stars",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "U-turns",
+      "for": "reversal",
+      "note": "making a U-turn means heading back the way you came, so the word reads backwards"
+     },
+     {
+      "text": "south of",
+      "for": "charade",
+      "note": "in a down entry, south of means placed below, so the notice comes last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "airfield",
+      "gives": "DROME",
+      "note": "drome is a short form of aerodrome"
+     },
+     {
+      "clueFragment": "notice",
+      "gives": "AD",
+      "note": "an ad is a notice, an advertisement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "DROME",
+      "DA"
+     ],
+     "reversals": [
+      {
+       "from": "AD",
+       "to": "DA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A notice board reporting stars making U-turns over an airfield, like an aerobatic display team.",
+     "definitionFit": "Andromeda is a constellation of the northern sky, a named group of stars."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stars"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1116,59 @@
     "text": "One pound off everything because it's terrible",
     "enumeration": "4"
    },
-   "solution": "ALAS"
+   "solution": "ALAS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ALAS",
+    "definitions": [
+     {
+      "text": "it's terrible",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "deletion",
+      "note": "taking something off removes it, so that letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "everything",
+      "gives": "ALL",
+      "note": "all means everything"
+     },
+     {
+      "clueFragment": "One pound",
+      "gives": "L",
+      "note": "L, from the Latin libra, is a pound; one of them goes"
+     },
+     {
+      "clueFragment": "because",
+      "gives": "AS",
+      "note": "as can mean because"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "AS"
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper lamenting a sale that takes just a pound off everything.",
+     "definitionFit": "Alas is an exclamation of sorrow or regret, the cry one gives when something is dreadful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pound"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1182,48 @@
     "text": "At Penthouse, perhaps magazine boss under pressure",
     "enumeration": "8"
    },
-   "solution": "INFLATED"
+   "solution": "INFLATED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INFLATED",
+    "definitions": [
+     {
+      "text": "under pressure",
+      "at": 36
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "At Penthouse, perhaps",
+      "gives": "INFLAT",
+      "note": "a penthouse is a kind of flat, so living there is being in a flat"
+     },
+     {
+      "clueFragment": "magazine boss",
+      "gives": "ED",
+      "note": "ed is short for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INFLAT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "The editor of Penthouse magazine feeling the strain.",
+     "walkthrough": "Penthouse is a men's magazine, which makes 'magazine boss' read as one phrase about it; here a penthouse is a top-floor apartment.",
+     "definitionFit": "A tyre or balloon is inflated by filling it with air under pressure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Penthouse"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1237,48 @@
     "text": "Cycling team plotting day in Rome",
     "enumeration": "4"
    },
-   "solution": "IDES"
+   "solution": "IDES",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "IDES",
+    "definitions": [
+     {
+      "text": "plotting day in Rome",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cycling",
+      "for": "cycling",
+      "note": "cycling moves round in a loop, so a letter travels from the front to the back"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "team",
+      "gives": "SIDE",
+      "note": "a side is a sports team"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDES"
+     ]
+    },
+    "explanation": {
+     "surface": "A cycling team scheming on a race day in Rome.",
+     "walkthrough": "The S at the front of SIDE moves to the end.",
+     "definitionFit": "Caesar was assassinated by conspirators on the Ides of March, a Roman calendar date tied to plotting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Cycling"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1292,68 @@
     "text": "Artisanal chef unwrapped sandwiches with bananas",
     "enumeration": "8"
    },
-   "solution": "HANDMADE"
+   "solution": "HANDMADE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "HANDMADE",
+    "definitions": [
+     {
+      "text": "Artisanal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unwrapped",
+      "for": "letter_selection",
+      "note": "removing the wrapping strips the outer letters, leaving the middle"
+     },
+     {
+      "text": "sandwiches",
+      "for": "container",
+      "note": "to sandwich is to hold something between two outer layers"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chef",
+      "gives": "HE",
+      "select": "middle",
+      "note": "the inner letters of chef"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "and means with or plus"
+     },
+     {
+      "clueFragment": "bananas",
+      "gives": "MAD",
+      "note": "bananas is slang for crazy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "AND",
+      "MAD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A craft chef unwrapping sandwiches made with bananas.",
+     "definitionFit": "Artisanal goods are made by skilled hands rather than machines, the same as handmade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sandwiches"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1373,61 @@
      }
     ]
    },
-   "solution": "SUCHAS"
+   "solution": "SUCHAS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SUCH AS",
+    "definitions": [
+     {
+      "text": "Like",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the drink is placed inside the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South",
+      "gives": "S",
+      "note": "S is the abbreviation for south"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "the US is short for the United States of America"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "CHA",
+      "note": "cha or char is slang for tea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "U",
+      "CHA",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Comparing tea as it is drunk in South America.",
+     "walkthrough": "'South America' reads as one region, but each word is clued separately, and the tea sits inside the second.",
+     "definitionFit": "Both introduce examples: 'fruits like apples' and 'fruits such as apples' mean the same."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "America"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1441,57 @@
     "text": "Large, opulently fitted long tent with beds",
     "enumeration": "10"
    },
-   "solution": "POLYTUNNEL"
+   "solution": "POLYTUNNEL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "POLYTUNNEL",
+    "definitions": [
+     {
+      "text": "long tent with beds",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fitted",
+      "for": "anagram",
+      "note": "fitting things together arranges them into a new form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Large",
+      "gives": "N",
+      "note": "as printed this is L, the abbreviation for large, but the parse needs an N here and no clue word supplies one: the setter's slip"
+     },
+     {
+      "clueFragment": "opulently",
+      "gives": "OPULENTLY",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OPULENTLY",
+       "gives": "POLYTUNNEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grand, luxuriously furnished marquee with beds, like glamping.",
+     "walkthrough": "As printed the anagram fails: the fodder has one L too many and one N too few, so 'Large' should have given N, for example from 'New'.",
+     "definitionFit": "A polytunnel is a long tunnel-shaped polythene greenhouse sheltering garden beds, loosely a tent for plants."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "beds"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1505,43 @@
     "text": "Sensor recognises sounds",
     "enumeration": "4"
    },
-   "solution": "NOSE"
+   "solution": "NOSE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "NOSE",
+    "definitions": [
+     {
+      "text": "Sensor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sounds",
+      "for": "homophone",
+      "note": "sounds means the word is judged by how it is spoken, not spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "recognises",
+      "gives": "NOSE",
+      "soundsLike": "KNOWS",
+      "note": "someone who recognises a thing knows it"
+     }
+    ],
+    "explanation": {
+     "surface": "A detector that identifies noises.",
+     "definitionFit": "The nose is the organ of smell, a sensor detecting odours."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Sensor"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1555,64 @@
     "text": "Fellow that was silly held up to ridicule",
     "enumeration": "5"
    },
-   "solution": "SPOOF"
+   "solution": "SPOOF",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SPOOF",
+    "definitions": [
+     {
+      "text": "ridicule",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held up",
+      "for": "reversal",
+      "note": "in a down entry, holding something up turns it to read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "F",
+      "note": "F is the abbreviation for fellow"
+     },
+     {
+      "clueFragment": "that was silly",
+      "gives": "OOPS",
+      "note": "'oops' is what you say after a silly blunder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPOO",
+      "F"
+     ],
+     "reversals": [
+      {
+       "from": "FOOPS",
+       "to": "SPOOF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man who behaved foolishly and was publicly mocked.",
+     "walkthrough": "'Held up to ridicule' reads as one idiom, but held up is the reversal and ridicule alone is the definition.",
+     "definitionFit": "To spoof something is to parody it, mocking it by humorous imitation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "held"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1632,63 @@
      }
     ]
    },
-   "solution": "FENGSHUI"
+   "solution": "FENGSHUI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "FENG SHUI",
+    "definitions": [
+     {
+      "text": "using energy for interior design",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "case of",
+      "for": "letter_selection",
+      "note": "a case surrounds its contents, so only the outer letters are kept"
+     },
+     {
+      "text": "Strange",
+      "for": "anagram",
+      "note": "something strange is out of the ordinary, so these letters come out in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French",
+      "gives": "FH",
+      "select": "outer",
+      "note": "the first and last letters of French"
+     },
+     {
+      "clueFragment": "genius",
+      "gives": "GENIUS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FHGENIUS",
+       "gives": "FENGSHUI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An odd tale of a French genius who harnessed energy for interior design.",
+     "walkthrough": "'Using energy' looks like E for energy in the wordplay, but it belongs to the definition.",
+     "definitionFit": "Feng shui is the Chinese practice of arranging rooms to channel the flow of qi, or life energy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "energy"
+    }
+   }
   },
   {
    "number": 25,
@@ -425,7 +1702,55 @@
     "text": "Doctor bandages a break",
     "enumeration": "3"
    },
-   "solution": "GAP"
+   "solution": "GAP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GAP",
+    "definitions": [
+     {
+      "text": "break",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bandages",
+      "for": "container",
+      "note": "a bandage wraps round something, so one piece goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor",
+      "gives": "GP",
+      "note": "a GP is a general practitioner, a family doctor"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "A",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor dressing a fracture.",
+     "definitionFit": "A gap is an opening or interval, as a break in a fence or in time is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "break"
+    }
+   }
   },
   {
    "number": 26,
@@ -439,7 +1764,57 @@
     "text": "Man wielding shears has trouble getting into summit",
     "enumeration": "6"
    },
-   "solution": "TAILOR"
+   "solution": "TAILOR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TAILOR",
+    "definitions": [
+     {
+      "text": "Man wielding shears",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting into",
+      "for": "container",
+      "note": "getting into something places it inside, so one word goes within the other"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "summit",
+      "gives": "TOR",
+      "note": "a tor is a rocky hilltop, especially on Dartmoor"
+     },
+     {
+      "clueFragment": "trouble",
+      "gives": "AIL",
+      "note": "to ail is to trouble or afflict"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "AIL",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A man carrying shears struggles to reach a mountain top.",
+     "definitionFit": "A tailor cuts cloth with large shears, so a man wielding them describes his trade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "summit"
+    }
+   }
   },
   {
    "number": 27,
@@ -453,7 +1828,39 @@
     "text": "Estate suitable for learners?",
     "enumeration": "6"
    },
-   "solution": "CAMPUS"
+   "solution": "CAMPUS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CAMPUS",
+    "definitions": [
+     {
+      "text": "Estate suitable for learners?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Estate suitable for learners?",
+      "note": "surface reading: a car or housing estate fit for learner drivers"
+     },
+     {
+      "clueFragment": "Estate suitable for learners?",
+      "note": "setter's reading: the grounds and buildings of a university, where students learn"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Learners suggests L-plate drivers, and an estate suggests a car; the estate is in fact a university's grounds.",
+     "definitionFit": "A university's site of buildings and grounds is its own estate, home to its students."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "learners"
+    }
+   }
   },
   {
    "number": 28,
@@ -473,7 +1880,76 @@
      }
     ]
    },
-   "solution": "GODSGIFT"
+   "solution": "GODSGIFT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "GODS GIFT",
+    "definitions": [
+     {
+      "text": "one perfect",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from the east",
+      "for": "reversal",
+      "note": "in an across entry, coming from the east means reading from right to left"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "one word goes round the outside of the others"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bought",
+      "gives": "GOT",
+      "note": "got means obtained or bought"
+     },
+     {
+      "clueFragment": "500",
+      "gives": "D",
+      "note": "D is 500 in Roman numerals"
+     },
+     {
+      "clueFragment": "fruit trees",
+      "gives": "FIGS",
+      "note": "fig trees bear figs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "D",
+      "SGIF",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "FIGS",
+       "to": "SGIF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A buyer of 500 imported fruit trees wonders whether any is flawless.",
+     "walkthrough": "'Fruit trees' are named for their fruit; the dash hides that 'is one perfect?' is a definition of a person.",
+     "definitionFit": "Someone who thinks they are God's gift believes they are flawless, an idiom for an ideal person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bought"
+    }
+   }
   }
  ]
 }
