@@ -787,7 +787,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         free = dict(pools)
         for _, (u, _) in units_running():
             free[slot_of(u)] = free.get(slot_of(u), 0) - 1
-        begun_now = 0
+        begun_now = charged = 0
+        costs = None  # unit_costs, measured at this pass's first start
         held_back = cpu_held = False
         starved = mem_gate.burn_starved(burn_gate_reader)
         if starved and not burn_bound:
@@ -818,7 +819,10 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 continue
             if starved or (yielding and u["kind"] != "fetch"):
                 continue
-            if held_back or not mem_gate.room(begun_now, mem_gate_reader):
+            if costs is None:
+                costs = mem_gate.unit_costs({pid: slot_of(v) for pid, (v, _) in units_running()})
+            cost = costs.get(slot_of(u), mem_gate.UNIT)
+            if held_back or not mem_gate.room(charged, mem_gate_reader, unit=cost):
                 held_back = True
                 continue
             if load_gated(u) and (cpu_held or not mem_gate.cpu_room(begun_now, cpu_gate_reader)):
@@ -826,13 +830,17 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 continue
             start(u)
             begun_now += 1
+            charged += cost
             free[slot_of(u)] -= 1
             if u["kind"] == "scan":
                 scanning.add((u["paper"], u["rel"]))
         if held_back and not memory_bound:
             memory_bound = True
-            log(f"memory-bound: under {(mem_gate.FLOOR + mem_gate.UNIT) >> 20} MB available; no unit starts "
-                f"until a later pass finds room ({len(running) + len(adopted)} running are left alone)")
+            log(f"memory-bound: {((mem_gate_reader or mem_gate.available)() or 0) >> 20} MB available, floor {mem_gate.FLOOR >> 20} MB, "
+                f"{charged >> 20} MB charged to {begun_now} begun this pass; a unit costs "
+                + ", ".join(f"{k} {v >> 20} MB" for k, v in sorted((costs or {}).items()))
+                + f" (else {mem_gate.UNIT >> 20} MB); no unit starts until a later pass finds room "
+                f"({len(running) + len(adopted)} running are left alone)")
         if cpu_held and not cpu_bound:
             cpu_bound = True
             log(f"cpu-bound: load over {mem_gate.LOAD_PER_CORE:g} per core; only units the desktop reads start until it falls "

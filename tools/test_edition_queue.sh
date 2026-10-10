@@ -659,7 +659,22 @@ G = 1 << 30
 check("room: plenty available starts", True, mg.room(0, lambda: 16 * G))
 check("room: below floor plus a unit does not", False, mg.room(0, lambda: 3 * G))
 check("room: units begun this pass count against it", (True, True, False),
-      tuple(mg.room(n, lambda: mg.FLOOR + int(2.5 * mg.UNIT)) for n in (0, 1, 2)))
+      tuple(mg.room(n * mg.UNIT, lambda: mg.FLOOR + int(2.5 * mg.UNIT)) for n in (0, 1, 2)))
+M = 1 << 20
+_ps = [(10, 1, 80 * 1024), (11, 10, 120 * 1024), (12, 11, 30 * 1024), (20, 1, 70 * 1024), (30, 1, 900 * 1024), (40, 1, 10 * 1024)]
+check("tree_rss: a unit is charged with its children and theirs", {10: 230 * M, 20: 70 * M},
+      mg.tree_rss([10, 20, 99], _ps))
+check("unit_costs: the largest unit of a kind, at least UNIT_MIN; kinds none runs are absent",
+      {"read": 230 * M, "scan": 900 * M, "fetch archive.org": mg.UNIT_MIN},
+      mg.unit_costs({10: "read", 20: "read", 30: "scan", 40: "fetch archive.org"}, _ps))
+# Desktop reads measured at ~100 MB: 4 GB over the floor starts many, where a flat UNIT started 6.
+_cost = mg.unit_costs({10: "read"}, _ps)["read"]
+_avail = lambda: mg.FLOOR + 4 * G
+check("room: measured cheap units fit more per pass than the flat UNIT", (17, 6),
+      tuple(next(n for n in range(100) if not mg.room(n * c, _avail, unit=c)) for c in (_cost, mg.UNIT)))
+# mirror: a measured heavy kind fits fewer than the flat UNIT, so the gate still holds
+check("room: a measured heavy kind is charged its size, not UNIT", 4,
+      next(n for n in range(100) if not mg.room(n * 900 * M, _avail, unit=900 * M)))
 check("room: an unreadable figure gates nothing", True, mg.room(0, lambda: None))
 check("available() reads this host", True, (mg.available() or 1) > 0)
 check("cpu_room: under the load ceiling starts", True, mg.cpu_room(0, lambda: 3.0, cores=4))
