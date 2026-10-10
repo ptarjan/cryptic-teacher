@@ -44,7 +44,10 @@ of a page) is read by read_framed instead:
   4. A light is accepted when every cell is read and its word is answer():
      one known() word, or words of 3+ letters run together and read whole;
      or when every cell is read surely and a recogniser read it whole as a
-     sure_word(), which takes the British cryptic lexicon and names too.
+     sure_word(), which takes the British cryptic lexicon, names and the
+     corpus's own typed answers too. A sure whole read one CONFUSABLE
+     letter from the one listed() word a letter's change makes, with no
+     crossing saying otherwise, is that word (swapped_reads: PIRSTREFUSAL).
 
 read_grid_letters reads a Listener report's filled grid the same way, on
 the lattice listener_grid finds and the lights of the puzzle's own grid.
@@ -59,8 +62,11 @@ import hashlib
 import itertools
 import json
 import os
+import pickle
 import re
+import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 import numpy as np
@@ -68,8 +74,8 @@ from PIL import Image, ImageFilter
 
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
-import trove_grid
 import downloads
+import trove_grid
 
 CACHE = downloads.TROVE
 #: Every letter of an accepted answer is read at least this surely.
@@ -812,10 +818,60 @@ def read_lattice(gray, ys, xs, grid):
                     letters.get(rc, ch) == ch for rc, ch in zip(cells, word)) and all(
                     best_match(glyphs[rc], models, numbers[rc], ch) for rc, ch in zip(cells, word) if rc in numbers):
                 accepted[key] = word
+    accepted.update(swapped_reads(lts, every, full, accepted, letters))
     stats = {"lights": len(lts), "fullReads": len(full), "accepted": len(accepted),
              "cellsRead": len(read), "cellsMatched": len(matched), "cells": len(glyphs),
              "cellsSure": len(every), "blocks": round(block_agreement(gray, grid, (ys, xs)), 3)}
     return accepted, stats, every
+
+
+#: The letters a heavy print's sure read gives for one another: the
+#: recogniser reads FIRSTREFUSAL's F as a sure P, KIDNAPPER's K as an R.
+CONFUSABLE = {"F": "PE", "P": "F", "E": "F", "K": "R", "R": "K", "D": "B", "B": "D",
+              "I": "T", "T": "I", "C": "G", "G": "C"}
+
+
+def swapped_reads(lts, every, full, accepted, letters):
+    """{key: word} for lights read surely in every cell (`every`) and whole
+    as no sure_word(), where the one listed() word any single letter's
+    change makes is a CONFUSABLE swap: PIRSTREFUSAL is FIRSTREFUSAL,
+    AGREETNG is AGREEING. A second word one letter away (BADDOCK: PADDOCK,
+    HADDOCK, DADDOCK) leaves the light unread: the true letter need not be
+    a confusable one. Each other cell must agree with `letters`, every
+    light `accepted` through the changed cell must hold the new letter
+    there, and one not accepted, read surely in full, must be no word with
+    the old. Each light taken counts for its crossings, until none is
+    taken."""
+    through = {}
+    for key, cells in lts.items():
+        for i, rc in enumerate(cells):
+            through.setdefault(rc, []).append((key, i))
+    have, out = dict(accepted), {}
+
+    def crossed(key):
+        """Whether a crossing light read surely in full is a word as read."""
+        return all(rc in every for rc in lts[key]) and sure_word("".join(every[rc] for rc in lts[key]))
+
+    settled = True
+    while settled:
+        settled = False
+        for key, cells in lts.items():
+            if key in have or not all(rc in every for rc in cells):
+                continue
+            word = "".join(every[rc] for rc in cells)
+            if word not in full.get(key, ()) or sure_word(word) or any(
+                    letters.get(rc, ch) != ch for rc, ch in zip(cells, word)):
+                continue
+            near = [(i, new) for i, ch in enumerate(word) for new in AZ
+                    if new != ch and listed(word[:i] + new + word[i + 1:])]
+            if len(near) != 1:
+                continue
+            i, new = near[0]
+            if new in CONFUSABLE.get(word[i], "") and all(
+                    have[k][j] == new if k in have else not crossed(k) for k, j in through[cells[i]] if k != key):
+                have[key] = out[key] = word[:i] + new + word[i + 1:]
+                settled = True
+    return out
 
 
 def read_answers(image, grid, tight=False):
@@ -924,18 +980,105 @@ def sure_word(word):
     """Whether a light read surely in every cell and whole as `word` may be
     filed: a known() word, or one of tools/data/lexicon.tsv's (UKACD, the
     British cryptic word list: REDINGOTE, OLOROSO, WHODUNNIT are no
-    WordNet words) or cmudict's (names: HILARY, GLADYS, OSRIC). A letter
+    WordNet words), cmudict's (names: HILARY, GLADYS, OSRIC) or
+    corpus_words()' (phrases: HOLIERTHANTHOU, LEFTOFF, GOBETWEEN). A letter
     misread surely still leaves no word there (PIRSTREFUSAL, AGREETNG). Glyph-matched letters stay with known(): a
     wider list gives a guessed letter more words to land on."""
+    return known(word) or listed(word)
+
+
+def listed(word):
+    """Whether `word` is one listed word, no run-together: WordNet's (a lemma
+    or a regular inflection), tools/data/lexicon.tsv's, cmudict's or
+    corpus_words()'."""
     global _LISTED
-    if known(word):
-        return True
     if _LISTED is None:
         with open(TOOLS / "data" / "lexicon.tsv", encoding="utf-8") as f:
             _LISTED = {line.split("\t", 1)[0] for line in f if not line.startswith("#")}
         with gzip.open(TOOLS / "data" / "cmudict.txt.gz", "rt", encoding="utf-8") as f:
             _LISTED |= {line.split("\t", 1)[0].upper() for line in f if not line.startswith("#")}
-    return word.upper() in _LISTED
+    known("A")
+    return word.lower() in _WORDS or word.upper() in _LISTED or word.upper() in corpus_words()
+
+
+#: The repo whose committed puzzles/ corpus_words() reads (tests point it at
+#: a scratch git tree), and the channels and solution origins it trusts: a
+#: person typed these answers. An OCR read of a page (newspaper, book) or a
+#: model's solve is left out, so a misread filed once never vouches for
+#: itself. Clue words are left out too: a typo in a clue (the Guardian's
+#: "Ecstacy" in cryptic-23537) vouched for a misread ECSTASY.
+CORPUS_ROOT = TOOLS.parent
+CORPUS_CHANNELS = ("publisher", "wayback", "blog", "authored")
+CORPUS_ORIGINS = ("published", "writeup", "authored")
+_CORPUS = {}
+_PUZZLE_FILE = re.compile(r"puzzles/[^/]+/[^/]+/[^/]+-[0-9]+\.json")
+
+
+def _corpus_answers(body):
+    """The answers, space-separated, a puzzle file's bytes give
+    corpus_words()."""
+    pz = json.loads(body)
+    if ((pz.get("source") or {}).get("retrievedFrom") not in CORPUS_CHANNELS
+            or (pz.get("solutions") or {}).get("origin") not in CORPUS_ORIGINS):
+        return ""
+    return " ".join(sorted({re.sub(r"[^A-Z]", "", e["solution"].upper())
+                            for e in pz.get("entries") or [] if e.get("solution")} - {""}))
+
+
+def corpus_words():
+    """The answers of CORPUS_ROOT's committed puzzle files from a CORPUS_CHANNELS source with a
+    CORPUS_ORIGINS solution, upper case. Each file's words are cached by its
+    git blob in the git common dir, so a run parses only the files changed
+    since the last, and the set itself by the blobs it was made of; outside
+    a git checkout the set is empty."""
+    key = str(CORPUS_ROOT)
+    if key in _CORPUS:
+        return _CORPUS[key]
+    git = ["git", "-C", str(CORPUS_ROOT)]
+    listed = subprocess.run(git + ["ls-files", "-s", "-z", "--", "puzzles"], capture_output=True, text=True,
+                            check=False)
+    common = subprocess.run(git + ["rev-parse", "--path-format=absolute", "--git-common-dir"],
+                            capture_output=True, text=True, check=False)
+    if listed.returncode or common.returncode:
+        _CORPUS[key] = frozenset()
+        return _CORPUS[key]
+    blobs = {rec.split("\t", 1)[0].split()[1] for rec in listed.stdout.split("\0")
+             if "\t" in rec and _PUZZLE_FILE.fullmatch(rec.split("\t", 1)[1])}
+    store = Path(common.stdout.strip()) / "ct-corpus-answers.pickle"
+    merged = store.with_name("ct-corpus-answers.txt")
+    digest = hashlib.sha1(" ".join(sorted(blobs)).encode()).hexdigest()
+    try:
+        with open(merged, encoding="utf-8") as f:
+            if f.readline().strip() == digest:
+                _CORPUS[key] = frozenset(f.read().split())
+                return _CORPUS[key]
+    except OSError:
+        pass
+    try:
+        with open(store, "rb") as f:
+            cached = pickle.load(f)
+    except (OSError, EOFError, pickle.UnpicklingError):
+        cached = {}
+    fresh = sorted(blobs - cached.keys())
+    if fresh:
+        out = subprocess.run(git + ["cat-file", "--batch"], input="\n".join(fresh).encode() + b"\n",
+                             capture_output=True, check=True).stdout
+        pos = 0
+        while pos < len(out):
+            nl = out.index(b"\n", pos)
+            sha, _, size = out[pos:nl].split()
+            cached[sha.decode()] = _corpus_answers(out[nl + 1:nl + 1 + int(size)])
+            pos = nl + 2 + int(size)
+    if fresh or cached.keys() - blobs:
+        cached = {b: cached[b] for b in blobs}
+        with tempfile.NamedTemporaryFile("wb", dir=store.parent, delete=False) as f:
+            pickle.dump(cached, f)
+        os.replace(f.name, store)
+    _CORPUS[key] = frozenset(" ".join(cached[b] for b in blobs).split())
+    with tempfile.NamedTemporaryFile("w", encoding="utf-8", dir=store.parent, delete=False) as f:
+        f.write(digest + "\n" + "\n".join(sorted(_CORPUS[key])))
+    os.replace(f.name, merged)
+    return _CORPUS[key]
 
 
 # ------------------------------------------------------------ pairing

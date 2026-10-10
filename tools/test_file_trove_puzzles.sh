@@ -321,9 +321,51 @@ check "a misread on an inflection is no word" "False False False False False Tru
 # (PIRSTREFUSAL, AGREETNG), and glyph matching keeps known() alone.
 got=$(cd "$REPO/tools" && python3 -c "
 import trove_solution_ocr as O
+O.CORPUS_ROOT = '$tmp'
 print(*[O.sure_word(w) for w in ('REDINGOTE', 'OLOROSO', 'HILARY', 'HOUSE')],
       *[O.sure_word(w) for w in ('PIRSTREFUSAL', 'AGREETNG', 'PORCE', 'SERAGLTO')], O.known('REDINGOTE'))")
 check "a sure whole read takes the cryptic lexicon, a sure misread no word" "True True True True False False False False False" "$got"
+
+# A sure misread whose one listed word a letter away is a confusable swap is
+# that word (RIDNAPPER is KIDNAPPER); a second word a letter away (PORCE:
+# FORCE, PONCE, PORCH; BADDOCK: PADDOCK, HADDOCK), an accepted crossing
+# holding the old letter, or a crossing read surely as a word with it
+# leaves the light unread.
+got=$(cd "$REPO/tools" && python3 -c "
+import trove_solution_ocr as O
+O.CORPUS_ROOT = '$tmp'
+A, D, P, B = (1, 'across'), (1, 'down'), (2, 'across'), (3, 'across')
+lts = {A: [(0, i) for i in range(9)], D: [(0, 0), (1, 0), (2, 0)], P: [(3, i) for i in range(5)],
+       B: [(5, i) for i in range(7)]}
+every = {**dict(zip(lts[A], 'RIDNAPPER')), **dict(zip(lts[P], 'PORCE')), **dict(zip(lts[B], 'BADDOCK')),
+         (1, 0): 'X', (2, 0): 'Q'}
+full = {A: {'RIDNAPPER'}, P: {'PORCE'}, B: {'BADDOCK'}}
+print(O.swapped_reads(lts, every, full, {}, every),
+      O.swapped_reads(lts, every, full, {D: 'RAN'}, every),
+      O.swapped_reads(lts, {**every, (1, 0): 'A', (2, 0): 'N'}, full, {}, every),
+      O.swapped_reads(lts, every, full, {D: 'KXQ'}, every))")
+check "a confusable swap to the one word a letter away is taken, a second word or a crossing clash is not" "{(1, 'across'): 'KIDNAPPER'} {} {} {(1, 'across'): 'KIDNAPPER'}" "$got"
+
+# corpus_words() takes the answers of puzzles a person typed (a publisher's
+# feed, a blog's write-up), never an OCR read of a page, a model's solve or
+# a clue's words: a misread filed once, or a clue's typo, must not vouch for
+# a misread.
+mkdir -p "$tmp/corpus/puzzles/x/2000"
+put() {  # put <id> <channel> <origin> <answer> <clue>
+  printf '{"id":"%s","source":{"retrievedFrom":"%s"},"solutions":{"origin":"%s"},"entries":[{"solution":"%s","clue":{"text":"%s"}}]}' \
+    "$1" "$2" "$3" "$4" "$5" > "$tmp/corpus/puzzles/x/2000/$1.json"
+}
+put x-1 publisher published "LEFT OFF" "Departed, gone between"
+put x-2 newspaper published NILERX "Mixed ocrword"
+put x-3 publisher model MODELWORD "Feed clue"
+put x-4 blog writeup HOLIERTHANTHOU "Smug"
+git -C "$tmp/corpus" init -q && git -C "$tmp/corpus" add puzzles
+got=$(cd "$REPO/tools" && python3 -c "
+import trove_solution_ocr as O
+O.CORPUS_ROOT = '$tmp/corpus'
+w = O.corpus_words()
+print(*[x in w for x in ('LEFTOFF', 'HOLIERTHANTHOU', 'GONE', 'NILERX', 'MODELWORD')], O.sure_word('HOLIERTHANTHOU'))")
+check "corpus words: typed answers, no OCR read, model solve or clue word" "True True False False False True" "$got"
 
 # Reading the 2 June 1972 solution against that day's grid: whatever it
 # accepts fits its light and is one of the answers a person reads off the
