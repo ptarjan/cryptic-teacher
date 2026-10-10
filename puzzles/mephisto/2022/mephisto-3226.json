@@ -37,6 +37,9 @@
   "date": "2022-07-03",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -50,7 +53,58 @@
     "text": "Country house tea served after short time",
     "enumeration": "6"
    },
-   "solution": "DATCHA"
+   "solution": "DATCHA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "DATCHA",
+    "definitions": [
+     {
+      "text": "Country house",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "something made short has lost its tail, so the final letter of the time word is dropped"
+     }
+    ],
+    "linkWords": [
+     "served after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "DATE",
+      "note": "a date is a point in time"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "CHA",
+      "note": "cha is a slang word for tea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAT",
+      "CHA"
+     ]
+    },
+    "explanation": {
+     "surface": "At a country house, tea is brought out after a brief pause.",
+     "walkthrough": "'Served after' places the tea word behind the clipped time word.",
+     "definitionFit": "A datcha is a variant spelling of dacha, the Russian word for a country villa or cottage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "served"
+    }
+   }
   },
   {
    "number": 1,
@@ -64,7 +118,62 @@
     "text": "Fantastic friends hid us, no longer destitute",
     "enumeration": "12"
    },
-   "solution": "DISFURNISHED"
+   "solution": "DISFURNISHED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DISFURNISHED",
+    "definitions": [
+     {
+      "text": "no longer destitute",
+      "at": 26,
+      "note": "'no longer' marks the answer as an obsolete word for destitute"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fantastic",
+      "for": "anagram",
+      "note": "something fantastic is wildly imagined, so the letters following are freely rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "friends",
+      "gives": "FRIENDS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hid",
+      "gives": "HID",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "us",
+      "gives": "US",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FRIENDSHIDUS",
+       "gives": "DISFURNISHED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wonderful friends sheltered us, so we are no longer penniless.",
+     "walkthrough": "The surface suggests the hiding ended our poverty, but 'no longer' is a dictionary label: DISFURNISHED is an obsolete word meaning destitute.",
+     "definitionFit": "To be disfurnished was to be stripped of possessions, an old word for being left in want."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "longer"
+    }
+   }
   },
   {
    "number": 2,
@@ -84,7 +193,60 @@
      }
     ]
    },
-   "solution": "ATERRE"
+   "solution": "ATERRE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "A TERRE",
+    "definitions": [
+     {
+      "text": "on the ground",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arisen",
+      "for": "reversal",
+      "note": "in a down entry something that has arisen reads from bottom to top, so the word is turned round"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Had",
+      "gives": "ATE",
+      "note": "had a meal, ate"
+     },
+     {
+      "clueFragment": "sin",
+      "gives": "ERR",
+      "note": "to err is to sin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATE",
+      "RRE"
+     ],
+     "reversals": [
+      {
+       "from": "ERR",
+       "to": "RRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question of whether wrongdoing had come up from the earth.",
+     "definitionFit": "A terre is French for on or to the ground, used in English of ballet steps and riding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arisen"
+    }
+   }
   },
   {
    "number": 3,
@@ -98,7 +260,45 @@
     "text": "Poet's body making rude sound",
     "enumeration": "5"
    },
-   "solution": "CORSE"
+   "solution": "CORSE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CORSE",
+    "definitions": [
+     {
+      "text": "Poet's body",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "making",
+      "for": "homophone",
+      "note": "making a sound means the word is to be judged by how it is spoken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rude sound",
+      "gives": "CORSE",
+      "soundsLike": "COARSE",
+      "note": "coarse means rude or vulgar, and the answer is pronounced the same"
+     }
+    ],
+    "explanation": {
+     "surface": "A poet's corpse emitting a vulgar noise.",
+     "walkthrough": "'Poet's' flags a literary archaism: corse is the old poetic form of corpse.",
+     "definitionFit": "Corse is an archaic poetic word for a corpse, a dead body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "body"
+    }
+   }
   },
   {
    "number": 4,
@@ -112,7 +312,58 @@
     "text": "Writer's bed secured by key",
     "enumeration": "6"
    },
-   "solution": "ALCOTT"
+   "solution": "ALCOTT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ALCOTT",
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "secured by",
+      "for": "container",
+      "note": "something secured by another is held within it, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "key",
+      "gives": "ALT",
+      "note": "Alt is a key on a computer keyboard"
+     },
+     {
+      "clueFragment": "bed",
+      "gives": "COT",
+      "note": "a cot is a small bed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "COT",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer keeps their bed locked with a key.",
+     "walkthrough": "Louisa May Alcott wrote Little Women.",
+     "definitionFit": "Louisa May Alcott was an American novelist, so she is an example of a writer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 5,
@@ -126,7 +377,50 @@
     "text": "Gate-like structures in harbour attended by copper once",
     "enumeration": "6"
    },
-   "solution": "PORTAS"
+   "solution": "PORTAS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PORTAS",
+    "definitions": [
+     {
+      "text": "Gate-like structures",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "attended by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "harbour",
+      "gives": "PORT",
+      "note": "a port is a harbour"
+     },
+     {
+      "clueFragment": "copper once",
+      "gives": "AS",
+      "note": "the as was a Roman copper coin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PORT",
+      "AS"
+     ]
+    },
+    "explanation": {
+     "surface": "Gateways in a harbour once guarded by a policeman.",
+     "walkthrough": "'Copper' suggests a policeman or the element Cu, but here it is an ancient Roman coin.",
+     "definitionFit": "Portas is the plural of porta, an anatomical term for a gateway-like opening into an organ."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 5,
@@ -140,7 +434,58 @@
     "text": "Group traversing island to find place down under",
     "enumeration": "6"
    },
-   "solution": "POSSIE"
+   "solution": "POSSIE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "POSSIE",
+    "definitions": [
+     {
+      "text": "place down under",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "traversing",
+      "for": "container",
+      "note": "a thing traversing another spans across it, so it wraps around the other piece"
+     }
+    ],
+    "linkWords": [
+     "to find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Group",
+      "gives": "POSSE",
+      "note": "a posse is a group of people"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POSS",
+      "I",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A party crosses an island looking for a spot in Australia.",
+     "walkthrough": "Down under means Australia, where possie is slang.",
+     "definitionFit": "Possie is Australian slang for a position or place, so it is a place as said in Australia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Group"
+    }
+   }
   },
   {
    "number": 6,
@@ -154,7 +499,52 @@
     "text": "Concerning Thatcher's shortened dictum, it helps to build up an image",
     "enumeration": "6"
    },
-   "solution": "RETINA"
+   "solution": "RETINA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "RETINA",
+    "definitions": [
+     {
+      "text": "it helps to build up an image",
+      "at": 40
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Concerning",
+      "gives": "RE",
+      "note": "re means concerning"
+     },
+     {
+      "clueFragment": "Thatcher's shortened dictum",
+      "gives": "TINA",
+      "note": "Margaret Thatcher's slogan 'There Is No Alternative', cut to its initials"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "TINA"
+     ]
+    },
+    "explanation": {
+     "surface": "Something about Mrs Thatcher's brief saying helps build an image of her.",
+     "walkthrough": "Margaret Thatcher, UK prime minister 1979-90, was known for saying 'There Is No Alternative', shortened to its initials.",
+     "definitionFit": "The retina is the light-sensitive layer at the back of the eye, on which the visual image is formed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "image"
+    }
+   }
   },
   {
    "number": 7,
@@ -168,7 +558,55 @@
     "text": "Resembling an illness for which antidote would be inappropriate",
     "enumeration": "8"
    },
-   "solution": "TETANOID"
+   "solution": "TETANOID",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TETANOID",
+    "definitions": [
+     {
+      "text": "Resembling an illness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inappropriate",
+      "for": "anagram",
+      "note": "something inappropriate is out of place, so these letters are put in a different order"
+     }
+    ],
+    "linkWords": [
+     "for which",
+     "would be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "antidote",
+      "gives": "ANTIDOTE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANTIDOTE",
+       "gives": "TETANOID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A disease so resistant that no cure would suit it.",
+     "walkthrough": "The surface reads as a medical remark, and tetanus is indeed such an illness.",
+     "definitionFit": "Tetanoid means like tetanus, the illness causing muscle spasms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inappropriate"
+    }
+   }
   },
   {
    "number": 8,
@@ -182,7 +620,53 @@
     "text": "One name for an African country, or one expelling a couple of odd characters",
     "enumeration": "6"
    },
-   "solution": "AZANIA"
+   "solution": "AZANIA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AZANIA",
+    "definitions": [
+     {
+      "text": "One name for an African country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "expelling a couple of odd characters",
+      "for": "deletion",
+      "note": "expelling throws out, and the odd characters are those in odd-numbered positions, so two of them go"
+     }
+    ],
+    "linkWords": [
+     ", or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "TANZANIA",
+      "note": "'one' stands for another African country, Tanzania"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "ZANIA"
+     ]
+    },
+    "explanation": {
+     "surface": "A name for an African state, or a state that has thrown out two eccentrics.",
+     "walkthrough": "TANZANIA loses its first and third letters, T and N, both at odd positions. 'Odd characters' looks like eccentric people.",
+     "definitionFit": "Azania is a name proposed by black nationalists for South Africa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "odd"
+    }
+   }
   },
   {
    "number": 9,
@@ -196,7 +680,71 @@
     "text": "Irritating feature of nasty scar with itch on top of head?",
     "enumeration": "12"
    },
-   "solution": "SCRATCHINESS"
+   "solution": "SCRATCHINESS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SCRATCHINESS",
+    "definitions": [
+     {
+      "text": "Irritating feature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nasty",
+      "for": "anagram",
+      "note": "nasty suggests something messed up, so these letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "with",
+     "on top of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scar",
+      "gives": "SCAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "itch",
+      "gives": "ITCH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "NESS",
+      "note": "a ness is a headland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCRATCHI",
+      "NESS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SCARITCH",
+       "gives": "SCRATCHI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An annoying scar that itches on the scalp.",
+     "walkthrough": "'Head' seems to be the scalp, but it is a headland, a ness; in a down entry 'on top of' places the anagram above it.",
+     "definitionFit": "Scratchiness is the quality of being rough and irritating to the skin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 10,
@@ -210,7 +758,49 @@
     "text": "English author with Eastern dress",
     "enumeration": "9"
    },
-   "solution": "TROLLOPEE"
+   "solution": "TROLLOPEE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TROLLOPEE",
+    "definitions": [
+     {
+      "text": "dress",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English author",
+      "gives": "TROLLOPE",
+      "note": "Anthony Trollope, the English novelist"
+     },
+     {
+      "clueFragment": "Eastern",
+      "gives": "E",
+      "note": "E is the abbreviation for Eastern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TROLLOPE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A British novelist wearing oriental clothing.",
+     "definitionFit": "A trollopee was a loose informal gown worn by women in the 18th century."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Eastern"
+    }
+   }
   },
   {
    "number": 11,
@@ -224,7 +814,57 @@
     "text": "Work with fabric of pillar outside church",
     "enumeration": "5"
    },
-   "solution": "LACET"
+   "solution": "LACET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LACET",
+    "definitions": [
+     {
+      "text": "Work with fabric",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "one piece sitting outside another encloses it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pillar",
+      "gives": "LAT",
+      "note": "a lat is an Indian pillar or column"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "CE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Textile work covering a column outside a church.",
+     "definitionFit": "Lacet is a type of braid work made with fabric tape, used in lacemaking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pillar"
+    }
+   }
   },
   {
    "number": 12,
@@ -238,7 +878,55 @@
     "text": "Maybe saw one disappearing in mountain range",
     "enumeration": "5"
    },
-   "solution": "SERRA"
+   "solution": "SERRA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SERRA",
+    "definitions": [
+     {
+      "text": "Maybe saw",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disappearing",
+      "for": "deletion",
+      "note": "something disappearing is gone, so that letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "mountain range",
+      "gives": "SIERRA",
+      "note": "a sierra is a jagged mountain range"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ERRA"
+     ]
+    },
+    "explanation": {
+     "surface": "Perhaps someone saw a person vanish in the mountains.",
+     "walkthrough": "'Saw' looks like the past of see, but it is the cutting tool, defined by example ('Maybe').",
+     "definitionFit": "Serra is a saw-like part or structure in zoology, from Latin serra, a saw."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "saw"
+    }
+   }
   },
   {
    "number": 13,
@@ -252,7 +940,52 @@
     "text": "Model meeting sailor? One has long neck and rounded body",
     "enumeration": "6"
    },
-   "solution": "SITTAR"
+   "solution": "SITTAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SITTAR",
+    "definitions": [
+     {
+      "text": "One has long neck and rounded body",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "meeting",
+     "?"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Model",
+      "gives": "SIT",
+      "note": "to sit for an artist is to model"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "TAR",
+      "note": "a tar is a sailor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIT",
+      "TAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A model meets a sailor, one with a long neck and a rounded figure.",
+     "walkthrough": "The definition reads like a description of a person, but it is the shape of the instrument.",
+     "definitionFit": "Sittar is a variant spelling of sitar, the Indian stringed instrument with a long neck and gourd body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "neck"
+    }
+   }
   },
   {
    "number": 14,
@@ -266,7 +999,60 @@
     "text": "Paintings fine? Scores done badly",
     "enumeration": "7"
    },
-   "solution": "FRESCOS"
+   "solution": "FRESCOS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "FRESCOS",
+    "definitions": [
+     {
+      "text": "Paintings",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "done badly",
+      "for": "anagram",
+      "note": "something done badly is botched, so these letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the pencil-grade abbreviation for fine"
+     },
+     {
+      "clueFragment": "Scores",
+      "gives": "SCORES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RESCOS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SCORES",
+       "gives": "RESCOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Are the paintings any good? The marks they got were poor.",
+     "definitionFit": "Frescos are paintings made on wet plaster on walls or ceilings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fine"
+    }
+   }
   },
   {
    "number": 15,
@@ -280,7 +1066,53 @@
     "text": "Goddess knocking over a helper",
     "enumeration": "5"
    },
-   "solution": "DIANA"
+   "solution": "DIANA",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "DIANA",
+    "definitions": [
+     {
+      "text": "Goddess",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocking over",
+      "for": "reversal",
+      "note": "knocking something over turns it end to end, so the words are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a helper",
+      "gives": "ANAID",
+      "note": "a helper is an aid, giving an aid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIANA"
+     ],
+     "reversals": [
+      {
+       "from": "ANAID",
+       "to": "DIANA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A goddess bowls over an assistant.",
+     "definitionFit": "Diana was the Roman goddess of hunting and the moon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "helper"
+    }
+   }
   },
   {
    "number": 16,
@@ -294,7 +1126,63 @@
     "text": "No longer resigning from a group in government",
     "enumeration": "8"
    },
-   "solution": "ABANDING"
+   "solution": "ABANDING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABANDING",
+    "definitions": [
+     {
+      "text": "No longer resigning",
+      "at": 0,
+      "note": "'No longer' marks the answer as obsolete"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "BAND",
+      "note": "a band is a group"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "government",
+      "gives": "G",
+      "note": "G is the abbreviation for government"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BAND",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone quitting a party while in power.",
+     "walkthrough": "'No longer' is a dictionary label: ABANDING is an obsolete form of abandoning.",
+     "definitionFit": "To aband was an old verb meaning to abandon or give up, so abanding is resigning in obsolete form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "group"
+    }
+   }
   },
   {
    "number": 17,
@@ -308,7 +1196,51 @@
     "text": "Is it not common pub with sort of appeal?",
     "enumeration": "5"
    },
-   "solution": "INNIT"
+   "solution": "INNIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INNIT",
+    "definitions": [
+     {
+      "text": "Is it not common",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "INN",
+      "note": "an inn is a pub"
+     },
+     {
+      "clueFragment": "sort of appeal",
+      "gives": "IT",
+      "note": "it is sex appeal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INN",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "Isn't it an ordinary pub with a certain charm?",
+     "walkthrough": "'Common' is the definition's label for informal or slangy speech.",
+     "definitionFit": "Innit is a slangy, colloquial contraction of isn't it, used in casual British speech."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "common"
+    }
+   }
   },
   {
    "number": 18,
@@ -322,7 +1254,50 @@
     "text": "Argumentative type given Jewish title, say",
     "enumeration": "8"
    },
-   "solution": "REBUTTER"
+   "solution": "REBUTTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REBUTTER",
+    "definitions": [
+     {
+      "text": "Argumentative type",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jewish title",
+      "gives": "REB",
+      "note": "Reb is a Yiddish courtesy title, like Mister"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "UTTER",
+      "note": "to utter is to say"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REB",
+      "UTTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A combative person granted a Jewish honorific, for example.",
+     "walkthrough": "'Say' looks like 'for example', but it is the verb.",
+     "definitionFit": "A rebutter is someone who rebuts, arguing against a case."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 19,
@@ -336,7 +1311,60 @@
     "text": "Tree in old Arab territory planted in deficient ground",
     "enumeration": "6"
    },
-   "solution": "SOUARI"
+   "solution": "SOUARI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SOUARI",
+    "definitions": [
+     {
+      "text": "Tree",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "planted in",
+      "for": "container",
+      "note": "something planted in soil sits inside it, so one piece goes within the other"
+     },
+     {
+      "text": "deficient",
+      "for": "deletion",
+      "note": "a deficient thing is lacking something, so a letter is missing from its end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old Arab territory",
+      "gives": "UAR",
+      "note": "the United Arab Republic, the former union of Egypt and Syria"
+     },
+     {
+      "clueFragment": "ground",
+      "gives": "SOIL",
+      "note": "soil is ground"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "UAR",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A tree from an old Arab land planted in poor ground.",
+     "definitionFit": "The souari is a tall South American tree that yields souari nuts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "deficient"
+    }
+   }
   },
   {
    "number": 20,
@@ -350,7 +1378,68 @@
     "text": "Address for man — retires after work, having time to waste",
     "enumeration": "6"
    },
-   "solution": "SIRREE"
+   "solution": "SIRREE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SIRREE",
+    "definitions": [
+     {
+      "text": "Address for man",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having time to waste",
+      "for": "deletion",
+      "note": "time that is wasted is lost, so its abbreviation is removed"
+     },
+     {
+      "text": "after work",
+      "for": "anagram",
+      "note": "once something has been worked it has been reshaped, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "—"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "retires",
+      "gives": "RETIRES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIRREE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REIRES",
+       "gives": "SIRREE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man stops working and then has plenty of time to waste.",
+     "walkthrough": "Remove T from the given word, then rearrange what is left.",
+     "definitionFit": "Sirree is an emphatic American form of 'sir', used in addressing a man, as in 'yes sirree'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retires"
+    }
+   }
   },
   {
    "number": 21,
@@ -364,7 +1453,70 @@
     "text": "Chaotic infant left with husband is to be tucked in",
     "enumeration": "8"
    },
-   "solution": "BABELISH"
+   "solution": "BABELISH",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BABELISH",
+    "definitions": [
+     {
+      "text": "Chaotic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be tucked in",
+      "for": "container",
+      "note": "something tucked in is slipped inside another, so it goes between letters"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "infant",
+      "gives": "BABE",
+      "note": "a babe is an infant"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BABE",
+      "L",
+      "IS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "An unruly baby, left with its father, is to be put to bed.",
+     "walkthrough": "IS is tucked between L and H.",
+     "definitionFit": "Babelish means like Babel, the tower of confused tongues, hence confused and chaotic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tucked"
+    }
+   }
   },
   {
    "number": 22,
@@ -378,7 +1530,56 @@
     "text": "Man coming in behind in the van",
     "enumeration": "6"
    },
-   "solution": "AFRONT"
+   "solution": "AFRONT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AFRONT",
+    "definitions": [
+     {
+      "text": "in the van",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming in",
+      "for": "container",
+      "note": "something coming in enters another, so it is placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "behind",
+      "gives": "AFT",
+      "note": "aft means behind, at the rear of a ship"
+     },
+     {
+      "clueFragment": "Man",
+      "gives": "RON",
+      "note": "Ron is a man's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AF",
+      "RON",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A man climbs into the back of the van.",
+     "walkthrough": "'Van' looks like a vehicle, but it is the vanguard, the front.",
+     "definitionFit": "Afront is an old word meaning in front, which is what being in the van, or vanguard, means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "van"
+    }
+   }
   },
   {
    "number": 23,
@@ -392,7 +1593,68 @@
     "text": "Indian water-carrier upsetting British when river has dried up?",
     "enumeration": "6"
    },
-   "solution": "BHISTI"
+   "solution": "BHISTI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "BHISTI",
+    "definitions": [
+     {
+      "text": "Indian water-carrier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has dried up",
+      "for": "deletion",
+      "note": "a dried-up river has gone, so its abbreviation is removed"
+     },
+     {
+      "text": "upsetting",
+      "for": "anagram",
+      "note": "upsetting something throws it into disorder, so its letters are reshuffled"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "BRITISH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BHISTI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BITISH",
+       "gives": "BHISTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Indian water-bearer annoys the British when the river runs dry.",
+     "walkthrough": "The surface is apt: a water-carrier would be needed when the river fails.",
+     "definitionFit": "A bhisti is a water-carrier in India, carrying water in a goatskin bag."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upsetting"
+    }
+   }
   },
   {
    "number": 24,
@@ -406,7 +1668,57 @@
     "text": "Jock's intent is to tidy up when female has gone",
     "enumeration": "5"
    },
-   "solution": "ETTLE"
+   "solution": "ETTLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ETTLE",
+    "definitions": [
+     {
+      "text": "Jock's intent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has gone",
+      "for": "deletion",
+      "note": "something that has gone is no longer there, so its letter is removed"
+     }
+    ],
+    "linkWords": [
+     "is",
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to tidy up",
+      "gives": "FETTLE",
+      "note": "to fettle is to tidy up or put in order"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETTLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Scotsman plans to clean up once the woman has left.",
+     "walkthrough": "Jock is a stock name for a Scotsman, so 'Jock's' marks a Scots word.",
+     "definitionFit": "Ettle is a Scots word for an aim or intention."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Jock's"
+    }
+   }
   },
   {
    "number": 25,
@@ -420,7 +1732,64 @@
     "text": "Backbone's twisting movement — trouble with one falling",
     "enumeration": "6"
    },
-   "solution": "SPINAL"
+   "solution": "SPINAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SPINAL",
+    "definitions": [
+     {
+      "text": "Backbone's",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "falling",
+      "for": "deletion",
+      "note": "a thing falling drops away, so that letter leaves the word"
+     }
+    ],
+    "linkWords": [
+     "—",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "twisting movement",
+      "gives": "SPIN",
+      "note": "a spin is a twisting movement"
+     },
+     {
+      "clueFragment": "trouble",
+      "gives": "AIL",
+      "note": "to ail is to trouble"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPIN",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A twisting move of the back causes trouble when someone falls.",
+     "walkthrough": "'Backbone's' is an adjective in disguise: of the backbone.",
+     "definitionFit": "Spinal means relating to the spine, the backbone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trouble"
+    }
+   }
   },
   {
    "number": 26,
@@ -434,7 +1803,55 @@
     "text": "The first person to penetrate island in old Greek region",
     "enumeration": "5"
    },
-   "solution": "IONIA"
+   "solution": "IONIA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IONIA",
+    "definitions": [
+     {
+      "text": "old Greek region",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to penetrate",
+      "for": "container",
+      "note": "to penetrate is to get inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The first person",
+      "gives": "I",
+      "note": "I is the first person pronoun"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "IONA",
+      "note": "Iona is a Scottish island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ION",
+      "I",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "The first man to land on an island in ancient Greece.",
+     "walkthrough": "'The first person' sounds like a pioneer, but it is the grammatical first person.",
+     "definitionFit": "Ionia was the ancient Greek region on the west coast of Asia Minor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 27,
@@ -448,7 +1865,47 @@
     "text": "Archbishop's imprisoned envoy lingered endlessly",
     "enumeration": "5"
    },
-   "solution": "WAITE"
+   "solution": "WAITE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "WAITE",
+    "definitions": [
+     {
+      "text": "Archbishop's imprisoned envoy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "endlessly means without its end, so the final letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lingered",
+      "gives": "WAITED",
+      "note": "to linger is to wait"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAITE"
+     ]
+    },
+    "explanation": {
+     "surface": "An archbishop's envoy, held captive, waited on and on.",
+     "walkthrough": "Terry Waite, the Archbishop of Canterbury's envoy, was held hostage in Lebanon for nearly five years; the surface fits him.",
+     "definitionFit": "Terry Waite was envoy to the Archbishop of Canterbury and was kidnapped in Beirut in 1987."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -462,7 +1919,60 @@
     "text": "Sweat pouring out round a lowly Indian",
     "enumeration": "5"
    },
-   "solution": "SUDRA"
+   "solution": "SUDRA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SUDRA",
+    "definitions": [
+     {
+      "text": "lowly Indian",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "deletion",
+      "note": "out means removed, so that letter leaves the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sweat pouring",
+      "gives": "SUDOR",
+      "note": "sudor is the medical term for sweat"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "a round letter, O"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUDR",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A low-caste Indian dripping with sweat.",
+     "walkthrough": "'Round' looks like 'around', but it is the letter O, which goes out of the sweat word.",
+     "definitionFit": "Sudra is the lowest of the four traditional Hindu castes, so a Sudra is a lowly Indian."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 29,
@@ -476,7 +1986,60 @@
     "text": "Criminal trial because of drug",
     "enumeration": "7"
    },
-   "solution": "RITALIN"
+   "solution": "RITALIN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "RITALIN",
+    "definitions": [
+     {
+      "text": "drug",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Criminal",
+      "for": "anagram",
+      "note": "criminal suggests something crooked, so these letters are twisted into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trial",
+      "gives": "TRIAL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "because of",
+      "gives": "IN",
+      "note": "in can mean because of, as in 'in view of'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RITAL",
+      "IN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRIAL",
+       "gives": "RITAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A criminal case brought because of a drug.",
+     "definitionFit": "Ritalin is a stimulant drug, a brand name of methylphenidate used for ADHD."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Criminal"
+    }
+   }
   },
   {
    "number": 30,
@@ -490,7 +2053,74 @@
     "text": "What salon offers is a horrid cut, not right!",
     "enumeration": "6"
    },
-   "solution": "HAIRDO"
+   "solution": "HAIRDO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "HAIRDO",
+    "definitions": [
+     {
+      "text": "What salon offers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not right",
+      "for": "deletion",
+      "note": "not right means without the right-hand abbreviation, so that letter goes"
+     },
+     {
+      "text": "cut",
+      "for": "anagram",
+      "note": "cut up means chopped and rearranged, so the letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "horrid",
+      "gives": "HORRID",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAIRDO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AHORID",
+       "gives": "HAIRDO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sour review of a hairdresser: all it offers is an awful haircut.",
+     "walkthrough": "'Cut' reads as a haircut, perfect for a salon, but it is the anagram signal.",
+     "definitionFit": "A hairdo is a styled haircut, which is what a hair salon provides."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 31,
@@ -504,7 +2134,54 @@
     "text": "Plant in India blocking minor road",
     "enumeration": "5"
    },
-   "solution": "LIANE"
+   "solution": "LIANE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LIANE",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blocking",
+      "for": "container",
+      "note": "something blocking a road sits in the middle of it, so it goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "India",
+      "gives": "I",
+      "note": "India is I in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "minor road",
+      "gives": "LANE",
+      "note": "a lane is a minor road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "I",
+      "ANE"
+     ]
+    },
+    "explanation": {
+     "surface": "A plant in India obstructs a side road.",
+     "definitionFit": "Liane is a variant of liana, a climbing woody plant of tropical forests."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "India"
+    }
+   }
   },
   {
    "number": 32,
@@ -524,7 +2201,64 @@
      }
     ]
    },
-   "solution": "NEONTETRA"
+   "solution": "NEONTETRA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEON TETRA",
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disturbed",
+      "for": "anagram",
+      "note": "something disturbed is thrown out of order, so these letters are reshuffled"
+     }
+    ],
+    "linkWords": [
+     "swimming in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "ONE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Trent",
+      "gives": "TRENT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONETRENTA",
+       "gives": "NEONTETRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone swimming in the River Trent upsets a fish.",
+     "walkthrough": "The Trent is a major river in the English Midlands.",
+     "definitionFit": "The neon tetra is a small bright blue and red freshwater fish popular in aquariums."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "disturbed"
+    }
+   }
   },
   {
    "number": 33,
@@ -538,7 +2272,64 @@
     "text": "I had written about romance in the abstract",
     "enumeration": "6"
    },
-   "solution": "DIGEST"
+   "solution": "DIGEST",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DIGEST",
+    "definitions": [
+     {
+      "text": "abstract",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned around, so the short form is read backwards"
+     }
+    ],
+    "linkWords": [
+     "in the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I had written",
+      "gives": "ID",
+      "note": "I had is written in short as I'd"
+     },
+     {
+      "clueFragment": "romance",
+      "gives": "GEST",
+      "note": "a gest is a medieval romance or tale of deeds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "GEST"
+     ],
+     "reversals": [
+      {
+       "from": "ID",
+       "to": "DI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "I had written about romance only in general terms.",
+     "walkthrough": "'Abstract' looks like an adjective, but it is the noun for a summary.",
+     "definitionFit": "A digest is a summary or condensed version, the same as an abstract."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "abstract"
+    }
+   }
   },
   {
    "number": 34,
@@ -552,7 +2343,56 @@
     "text": "More than one model is securing business arrangement",
     "enumeration": "6"
    },
-   "solution": "IDEALS"
+   "solution": "IDEALS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IDEALS",
+    "definitions": [
+     {
+      "text": "More than one model",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "securing",
+      "for": "container",
+      "note": "securing something means holding it fast within, so one piece surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "business arrangement",
+      "gives": "DEAL",
+      "note": "a deal is a business arrangement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "DEAL",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Several fashion models sealing a business deal.",
+     "walkthrough": "'Model' suggests a fashion model, but here it is a perfect example.",
+     "definitionFit": "Ideals are perfect standards to copy, so they are models in the sense of exemplars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "model"
+    }
+   }
   }
  ]
 }
