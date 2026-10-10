@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,62 @@
     "text": "In France you rent — landlord finally instructed",
     "enumeration": "7"
    },
-   "solution": "TUTORED"
+   "solution": "TUTORED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TUTORED",
+    "definitions": [
+     {
+      "text": "instructed",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word it follows, so only that end letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In France you",
+      "gives": "TU",
+      "note": "tu is the familiar French word for you"
+     },
+     {
+      "clueFragment": "rent",
+      "gives": "TORE",
+      "note": "rent as a past tense of rend means ripped"
+     },
+     {
+      "clueFragment": "landlord",
+      "gives": "D",
+      "select": "last",
+      "note": "the last letter of landlord"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TU",
+      "TORE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A tenant in France pays the rent, and the landlord at last gives them their instructions.",
+     "walkthrough": "'Rent' looks like a noun about lodging, but it is the past tense of rend, to tear.",
+     "definitionFit": "To have tutored someone is to have taught or coached them, a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rent"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +105,58 @@
     "text": "Putin's heart — and his dough in hot water",
     "enumeration": "7"
    },
-   "solution": "TROUBLE"
+   "solution": "TROUBLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TROUBLE",
+    "definitions": [
+     {
+      "text": "hot water",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heart",
+      "for": "letter_selection",
+      "note": "the heart of a word is its central letter, so only the middle one is kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Putin's",
+      "gives": "T",
+      "select": "middle",
+      "note": "the middle letter of Putin"
+     },
+     {
+      "clueFragment": "his dough",
+      "gives": "ROUBLE",
+      "note": "the rouble is Russia's currency, and dough is slang for money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ROUBLE"
+     ]
+    },
+    "explanation": {
+     "surface": "The Russian president's courage and his money are both in a fix.",
+     "definitionFit": "To be in hot water is an idiom for being in trouble, so hot water stands for the noun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dough"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +170,43 @@
     "text": "One raising glass that's used in the kitchen?",
     "enumeration": "7"
    },
-   "solution": "TOASTER"
+   "solution": "TOASTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TOASTER",
+    "definitions": [
+     {
+      "text": "One raising glass",
+      "at": 0
+     },
+     {
+      "text": "that's used in the kitchen?",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One raising glass",
+      "note": "first meaning: someone proposing a toast"
+     },
+     {
+      "clueFragment": "that's used in the kitchen?",
+      "note": "second meaning: an appliance for browning bread"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two halves seem to describe one kitchen gadget for lifting glassware; they are separate senses.",
+     "definitionFit": "A person who proposes a toast lifts their glass, and the electric appliance browns slices of bread."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "raising"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +220,62 @@
     "text": "Rubbish emptied in English river",
     "enumeration": "5"
    },
-   "solution": "RHINE"
+   "solution": "RHINE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RHINE",
+    "definitions": [
+     {
+      "text": "river",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "emptied",
+      "for": "letter_selection",
+      "note": "emptied removes the inside of the word, leaving only its two end letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rubbish",
+      "gives": "RH",
+      "select": "outer",
+      "note": "the outer letters of Rubbish"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RH",
+      "IN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Litter is dumped into an English river.",
+     "walkthrough": "'English river' reads as one phrase, but the Rhine is a continental river and English just supplies a letter.",
+     "definitionFit": "The Rhine is a major European river flowing through Switzerland, Germany and the Netherlands."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "English"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +289,53 @@
     "text": "Talk that's loose is so crude",
     "enumeration": "9"
    },
-   "solution": "DISCOURSE"
+   "solution": "DISCOURSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DISCOURSE",
+    "definitions": [
+     {
+      "text": "Talk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loose",
+      "for": "anagram",
+      "note": "loose means not held in place, so the letters that follow come free and rearrange"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is so crude",
+      "gives": "ISSOCRUDE",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISSOCRUDE",
+       "gives": "DISCOURSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Loose talk is so vulgar.",
+     "definitionFit": "Discourse is formal speech or conversation, a synonym for talk as a noun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "loose"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +349,49 @@
     "text": "Saint growing old but performing dramatically",
     "enumeration": "7"
    },
-   "solution": "STAGING"
+   "solution": "STAGING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STAGING",
+    "definitions": [
+     {
+      "text": "performing dramatically",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saint",
+      "gives": "ST",
+      "note": "ST is the standard abbreviation for saint"
+     },
+     {
+      "clueFragment": "growing old",
+      "gives": "AGING",
+      "note": "a synonym, in the shorter spelling of ageing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "AGING"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly saint still treads the boards with theatrical flair.",
+     "definitionFit": "Staging a play means putting it on and performing it in a theatre, the dramatic sense of the word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "growing"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +405,46 @@
     "text": "Pole for the workforce",
     "enumeration": "5"
    },
-   "solution": "STAFF"
+   "solution": "STAFF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STAFF",
+    "definitions": [
+     {
+      "text": "Pole",
+      "at": 0
+     },
+     {
+      "text": "the workforce",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pole",
+      "note": "first meaning: a stick or rod"
+     },
+     {
+      "clueFragment": "the workforce",
+      "note": "second meaning: the employees of an organisation"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Pole' with a capital looks like a Polish worker; it is a long stick.",
+     "definitionFit": "A staff is a walking stick or rod, and also the body of people employed somewhere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pole"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +458,51 @@
     "text": "They're not about to disturb a bees' nest",
     "enumeration": "9"
    },
-   "solution": "ABSENTEES"
+   "solution": "ABSENTEES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ABSENTEES",
+    "definitions": [
+     {
+      "text": "They're not about",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to disturb",
+      "for": "anagram",
+      "note": "to disturb something is to stir it up, so the letters are knocked out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a bees' nest",
+      "gives": "ABEESNEST",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ABEESNEST",
+       "gives": "ABSENTEES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some people are not going to poke a hive of bees.",
+     "walkthrough": "'about to' reads as 'going to'; split instead, 'not about' is the definition and 'to disturb' the signal.",
+     "definitionFit": "Absentees are people who are missing, not around, so they are not about."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +516,54 @@
     "text": "Lights that fused singe it",
     "enumeration": "7"
    },
-   "solution": "IGNITES"
+   "solution": "IGNITES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IGNITES",
+    "definitions": [
+     {
+      "text": "Lights",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fused",
+      "for": "anagram",
+      "note": "fused means melted together, so the letters run into one another and come out remixed"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "singe it",
+      "gives": "SINGEIT",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SINGEIT",
+       "gives": "IGNITES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lamps with a blown fuse scorch things.",
+     "walkthrough": "'Lights' is a verb here, not lamps.",
+     "definitionFit": "To ignite is to set alight, so ignites means lights as a verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lights"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +577,49 @@
     "text": "Knight had to go after festival",
     "enumeration": "7"
    },
-   "solution": "GALAHAD"
+   "solution": "GALAHAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GALAHAD",
+    "definitions": [
+     {
+      "text": "Knight",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to go after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "festival",
+      "gives": "GALA",
+      "note": "a gala is a festive occasion"
+     },
+     {
+      "clueFragment": "had",
+      "gives": "HAD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GALA",
+      "HAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A knight had to leave once the festivities were over.",
+     "definitionFit": "Sir Galahad is the purest of King Arthur's Knights of the Round Table, the one who found the Grail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "go"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +633,57 @@
     "text": "Organist initially changes organs",
     "enumeration": "7"
    },
-   "solution": "OVARIES"
+   "solution": "OVARIES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OVARIES",
+    "definitions": [
+     {
+      "text": "organs",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter of the word before it is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Organist",
+      "gives": "O",
+      "select": "first",
+      "note": "the first letter of Organist"
+     },
+     {
+      "clueFragment": "changes",
+      "gives": "VARIES",
+      "note": "to change is to vary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "VARIES"
+     ]
+    },
+    "explanation": {
+     "surface": "A church organist keeps switching the instruments, or stops, they play.",
+     "walkthrough": "'Organs' reads as the musical instruments the organist plays; here it means body parts.",
+     "definitionFit": "Ovaries are the female reproductive glands, an example of internal bodily organs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "organs"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +697,66 @@
     "text": "Team that's second in sporting venue by lake",
     "enumeration": "7"
    },
-   "solution": "ARSENAL"
+   "solution": "ARSENAL",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ARSENAL",
+    "definitions": [
+     {
+      "text": "Team",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the second item inside the venue word, which wraps around it"
+     }
+    ],
+    "linkWords": [
+     "that's",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sporting venue",
+      "gives": "ARENA",
+      "note": "an arena is a stadium for sport"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the abbreviation for lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "S",
+      "ENA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A sports side finishes runner-up at a lakeside stadium.",
+     "walkthrough": "Arsenal is a London football club.",
+     "definitionFit": "Arsenal is a well-known English Premier League football club, so it is an example of a team."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +776,49 @@
      }
     ]
    },
-   "solution": "BETTEROFF"
+   "solution": "BETTEROFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BETTER OFF",
+    "definitions": [
+     {
+      "text": "with more money",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gambler",
+      "gives": "BETTER",
+      "note": "one who bets, also spelt bettor"
+     },
+     {
+      "clueFragment": "away",
+      "gives": "OFF",
+      "note": "off as in gone, departed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BETTER",
+      "OFF"
+     ]
+    },
+    "explanation": {
+     "surface": "A punter walks away from the bookie with a bigger wallet.",
+     "definitionFit": "Being better off is the idiom for being in an improved financial position, wealthier than before."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "away"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +832,51 @@
     "text": "Nick is refusing to have letters on taps?",
     "enumeration": "5"
    },
-   "solution": "NOTCH"
+   "solution": "NOTCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOTCH",
+    "definitions": [
+     {
+      "text": "Nick",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "refusing to have",
+      "gives": "NOT",
+      "note": "refusing amounts to saying not"
+     },
+     {
+      "clueFragment": "letters on taps",
+      "gives": "CH",
+      "note": "taps are marked C for cold and H for hot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOT",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone named Nick turns down the lettering on a set of taps.",
+     "walkthrough": "'Nick' poses as a man's name but is the definition, a small cut.",
+     "definitionFit": "A notch is a small V-shaped cut, the same as a nick in an edge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Nick"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +890,56 @@
     "text": "Going west in glider really was wrong",
     "enumeration": "5"
    },
-   "solution": "ERRED"
+   "solution": "ERRED",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ERRED",
+    "definitions": [
+     {
+      "text": "was wrong",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the words that follow, running across their gap"
+     },
+     {
+      "text": "Going west",
+      "for": "reversal",
+      "note": "in an across clue going west means reading from right to left, backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "glider really",
+      "gives": "DERRE",
+      "note": "the letters straddling the two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "DERRE",
+       "to": "ERRED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A glider flying west was a real mistake, perhaps off course.",
+     "definitionFit": "To err is to make a mistake, so erred is the past tense meaning was wrong."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "west"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +953,64 @@
     "text": "Fix Irish father up with fur",
     "enumeration": "9"
    },
-   "solution": "DETERMINE"
+   "solution": "DETERMINE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DETERMINE",
+    "definitions": [
+     {
+      "text": "Fix",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue up means reading from the bottom upwards, backwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Irish father",
+      "gives": "TED",
+      "note": "Father Ted is the Irish priest of the TV sitcom"
+     },
+     {
+      "clueFragment": "fur",
+      "gives": "ERMINE",
+      "note": "ermine is a white fur from the stoat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DET",
+      "ERMINE"
+     ],
+     "reversals": [
+      {
+       "from": "TED",
+       "to": "DET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Irish priest is repaired using some fur.",
+     "walkthrough": "Father Ted was a popular 1990s sitcom about an Irish priest, so Irish father gives TED.",
+     "definitionFit": "To fix a date or price is to settle or decide it, which is to determine it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "father"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1024,43 @@
     "text": "Put right — no longer naked?",
     "enumeration": "9"
    },
-   "solution": "REDRESSED"
+   "solution": "REDRESSED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REDRESSED",
+    "definitions": [
+     {
+      "text": "Put right",
+      "at": 0
+     },
+     {
+      "text": "no longer naked",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Put right",
+      "note": "first meaning: corrected, a wrong remedied"
+     },
+     {
+      "clueFragment": "no longer naked",
+      "note": "second meaning: clothed again"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense splits the word as RE-DRESSED, dressed once more, which the question mark flags.",
+     "definitionFit": "Redressed means set right, as a grievance is; read as re-dressed it means clothed again after being bare."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "naked"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1074,54 @@
     "text": "Mad bikers frantic to get off",
     "enumeration": "9"
    },
-   "solution": "DISEMBARK"
+   "solution": "DISEMBARK",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DISEMBARK",
+    "definitions": [
+     {
+      "text": "get off",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "frantic",
+      "for": "anagram",
+      "note": "frantic means wildly agitated, so the letters are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mad bikers",
+      "gives": "MADBIKERS",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MADBIKERS",
+       "gives": "DISEMBARK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Crazed motorcyclists are desperate to dismount.",
+     "walkthrough": "'Mad' looks like the anagram signal, but it is fodder; 'frantic' does the shuffling.",
+     "definitionFit": "To disembark is to leave a ship, plane or vehicle, which is to get off it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mad"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1135,55 @@
     "text": "Many a titled lady? About fifty!",
     "enumeration": "9"
    },
-   "solution": "COUNTLESS"
+   "solution": "COUNTLESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COUNTLESS",
+    "definitions": [
+     {
+      "text": "Many",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "About",
+      "for": "container",
+      "note": "about means around, so the titled lady wraps around the number"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a titled lady",
+      "gives": "COUNTESS",
+      "note": "a countess is a noblewoman"
+     },
+     {
+      "clueFragment": "fifty",
+      "gives": "L",
+      "note": "L is the Roman numeral for fifty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COUNT",
+      "L",
+      "ESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Plenty of aristocratic ladies, roughly fifty of them, turn up.",
+     "walkthrough": "'About fifty' reads as an estimate of how many; 'About' is really the wrapping signal.",
+     "definitionFit": "Countless means too numerous to count, so it serves as a stronger form of many."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "About"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1197,54 @@
     "text": "Officer liable to stop brother's killer",
     "enumeration": "7"
    },
-   "solution": "CAPTAIN"
+   "solution": "CAPTAIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CAPTAIN",
+    "definitions": [
+     {
+      "text": "Officer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to stop",
+      "for": "container",
+      "note": "to stop is to plug a gap, so this word goes inside the other like a stopper"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brother's killer",
+      "gives": "CAIN",
+      "note": "in Genesis Cain killed his brother Abel"
+     },
+     {
+      "clueFragment": "liable",
+      "gives": "APT",
+      "note": "apt to means liable to"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "APT",
+      "AIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer is likely to arrest a fratricide.",
+     "definitionFit": "A captain is a commissioned officer in the army or navy, or the commander of a ship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stop"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1258,43 @@
     "text": "Not changing questionnaire for undergraduates?",
     "enumeration": "7"
    },
-   "solution": "UNIFORM"
+   "solution": "UNIFORM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UNIFORM",
+    "definitions": [
+     {
+      "text": "Not changing",
+      "at": 0
+     },
+     {
+      "text": "questionnaire for undergraduates?",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not changing",
+      "note": "first meaning: constant, the same throughout"
+     },
+     {
+      "clueFragment": "questionnaire for undergraduates?",
+      "note": "second meaning: a university form"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the second sense, read as UNI (university) plus FORM (a document to fill in).",
+     "definitionFit": "Uniform describes something unvarying; a form handed out at uni would be a uni form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "questionnaire"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1308,43 @@
     "text": "Fibre used in optics is altered",
     "enumeration": "5"
    },
-   "solution": "SISAL"
+   "solution": "SISAL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SISAL",
+    "definitions": [
+     {
+      "text": "Fibre",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "used in",
+      "for": "hidden_word",
+      "note": "used in tells you the letters are tucked inside the next run of words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "optics is altered",
+      "gives": "SISAL",
+      "note": "the run of letters spanning the end of optics, is, and the start of altered"
+     }
+    ],
+    "explanation": {
+     "surface": "A fibre used in fibre optics gets modified.",
+     "walkthrough": "'Altered' sounds like an anagram signal, but there is nothing to shuffle.",
+     "definitionFit": "Sisal is a stiff plant fibre from an agave, used to make rope and matting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "altered"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1358,54 @@
     "text": "Thin line in transmitter",
     "enumeration": "7"
    },
-   "solution": "SLENDER"
+   "solution": "SLENDER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SLENDER",
+    "definitions": [
+     {
+      "text": "Thin",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first item inside the next word, which surrounds it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "transmitter",
+      "gives": "SENDER",
+      "note": "a transmitter sends signals"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "L",
+      "ENDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A weak signal line runs through a radio transmitter.",
+     "definitionFit": "Slender means slim or narrow, a synonym for thin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Thin"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1419,47 @@
     "text": "Fancy man compared",
     "enumeration": "7"
    },
-   "solution": "LIKENED"
+   "solution": "LIKENED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIKENED",
+    "definitions": [
+     {
+      "text": "compared",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fancy",
+      "gives": "LIKE",
+      "note": "to fancy something is to like it"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "NED",
+      "note": "Ned is a man's name, short for Edward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIKE",
+      "NED"
+     ]
+    },
+    "explanation": {
+     "surface": "A lover is held up against another.",
+     "walkthrough": "'Fancy man' reads as a lover; split, Fancy is a verb and man a name.",
+     "definitionFit": "To liken one thing to another is to compare them, so likened means compared."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fancy"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1473,40 @@
     "text": "Previous head of a religious community",
     "enumeration": "5"
    },
-   "solution": "PRIOR"
+   "solution": "PRIOR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PRIOR",
+    "definitions": [
+     {
+      "text": "Previous",
+      "at": 0
+     },
+     {
+      "text": "head of a religious community",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Previous",
+      "note": "first meaning: earlier, coming before"
+     },
+     {
+      "clueFragment": "head of a religious community",
+      "note": "second meaning: a monk in charge of a priory"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The adjective means earlier in time, and the noun is the superior of a monastic house, ranking below an abbot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1526,63 @@
      }
     ]
    },
-   "solution": "RUMPSTEAK"
+   "solution": "RUMPSTEAK",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "RUMP STEAK",
+    "definitions": [
+     {
+      "text": "Meat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fresh",
+      "for": "anagram",
+      "note": "fresh means new, so these letters are made into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "RUM",
+      "note": "rum is a spirit"
+     },
+     {
+      "clueFragment": "kept as",
+      "gives": "KEPTAS",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUM",
+      "PSTEAK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "KEPTAS",
+       "gives": "PSTEAK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Meat and a drink are stored to keep them fresh.",
+     "definitionFit": "Rump steak is a cut of beef from the hindquarters, an example of meat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fresh"
+    }
+   }
   },
   {
    "number": 23,
@@ -409,7 +1596,59 @@
     "text": "Long time after end of winter storms",
     "enumeration": "5"
    },
-   "solution": "RAGES"
+   "solution": "RAGES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RAGES",
+    "definitions": [
+     {
+      "text": "storms",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "end of picks out only the final letter of the following word"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "winter",
+      "gives": "R",
+      "select": "last",
+      "note": "the last letter of winter"
+     },
+     {
+      "clueFragment": "Long time",
+      "gives": "AGES",
+      "note": "ages means a very long time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "AGES"
+     ]
+    },
+    "explanation": {
+     "surface": "Late in the winter, gales blow for ages.",
+     "walkthrough": "'storms' looks like a noun for weather but is the verb, rants.",
+     "definitionFit": "To rage is to storm, to shout furiously, so rages fits storms as a verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "storms"
+    }
+   }
   },
   {
    "number": 24,
@@ -423,7 +1662,54 @@
     "text": "Personal assistant entering wrong country",
     "enumeration": "5"
    },
-   "solution": "SPAIN"
+   "solution": "SPAIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPAIN",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "entering means going into, so the first item goes inside the next one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wrong",
+      "gives": "SIN",
+      "note": "a sin is a wrong"
+     },
+     {
+      "clueFragment": "Personal assistant",
+      "gives": "PA",
+      "note": "PA is the abbreviation for personal assistant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PA",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A secretary ends up in the wrong nation.",
+     "definitionFit": "Spain is a country in south-western Europe on the Iberian peninsula."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wrong"
+    }
+   }
   },
   {
    "number": 25,
@@ -437,7 +1723,49 @@
     "text": "Like worshippers having bother with phone",
     "enumeration": "7"
    },
-   "solution": "ADORING"
+   "solution": "ADORING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADORING",
+    "definitions": [
+     {
+      "text": "Like worshippers",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bother",
+      "gives": "ADO",
+      "note": "ado is fuss or trouble"
+     },
+     {
+      "clueFragment": "phone",
+      "gives": "RING",
+      "note": "to ring is to phone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADO",
+      "RING"
+     ]
+    },
+    "explanation": {
+     "surface": "Churchgoers have trouble with a mobile going off during the service.",
+     "definitionFit": "Worshippers adore what they worship, so an adoring look is one like theirs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "phone"
+    }
+   }
   },
   {
    "number": 26,
@@ -451,7 +1779,53 @@
     "text": "Ace group performing in ditch",
     "enumeration": "7"
    },
-   "solution": "ABANDON"
+   "solution": "ABANDON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABANDON",
+    "definitions": [
+     {
+      "text": "ditch",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ace",
+      "gives": "A",
+      "note": "A is the abbreviation for ace in cards"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "BAND",
+      "note": "a band is a group, musical or otherwise"
+     },
+     {
+      "clueFragment": "performing",
+      "gives": "ON",
+      "note": "a performer is on stage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BAND",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A top-notch band plays its set down in a trench.",
+     "walkthrough": "'Ditch' looks like a noun for a trench but is the verb, to discard.",
+     "definitionFit": "To ditch something is to get rid of it or leave it, the same as to abandon it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ditch"
+    }
+   }
   },
   {
    "number": 27,
@@ -465,7 +1839,43 @@
     "text": "Anaesthetics 1, 2, 3, 4 ...?",
     "enumeration": "7"
    },
-   "solution": "NUMBERS"
+   "solution": "NUMBERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NUMBERS",
+    "definitions": [
+     {
+      "text": "Anaesthetics",
+      "at": 0
+     },
+     {
+      "text": "1, 2, 3, 4 ...",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Anaesthetics",
+      "note": "first meaning: things that numb"
+     },
+     {
+      "clueFragment": "1, 2, 3, 4 ...",
+      "note": "second meaning: the counting figures themselves"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first sense splits the word as NUMB-ERS, things that numb, and is pronounced with a silent B.",
+     "definitionFit": "Anaesthetics deaden feeling, so they numb; the sequence 1, 2, 3, 4 is a list of integers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Anaesthetics"
+    }
+   }
   },
   {
    "number": 28,
@@ -479,7 +1889,46 @@
     "text": "Generous ruddy family",
     "enumeration": "7"
    },
-   "solution": "KINDRED"
+   "solution": "KINDRED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KINDRED",
+    "definitions": [
+     {
+      "text": "family",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Generous",
+      "gives": "KIND",
+      "note": "kind means generous in spirit"
+     },
+     {
+      "clueFragment": "ruddy",
+      "gives": "RED",
+      "note": "ruddy means reddish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KIND",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "A big-hearted, red-faced clan.",
+     "definitionFit": "Kindred means one's relatives, a person's kin or blood family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ruddy"
+    }
+   }
   }
  ]
 }
