@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,62 @@
      }
     ]
    },
-   "solution": "FRENCHBEAN"
+   "solution": "FRENCHBEAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "FRENCH BEAN",
+    "definitions": [
+     {
+      "text": "veg",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooking",
+      "for": "anagram",
+      "note": "cooking works ingredients into something new, so the letters are mixed into a fresh order"
+     },
+     {
+      "text": "peeled",
+      "for": "letter_selection",
+      "note": "peeling strips the outer skin, so the word loses its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bern chef",
+      "gives": "BERNCHEF",
+      "note": "taken as written, ready to be mixed"
+     },
+     {
+      "clueFragment": "hand",
+      "gives": "AN",
+      "select": "middle",
+      "note": "hand with its outer letters stripped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BERNCHEFAN",
+       "gives": "FRENCHBEAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chef in Bern is preparing vegetables by hand, peeling them for the pot.",
+     "definitionFit": "A French bean is a green bean eaten as a vegetable, and veg is the casual word for vegetables."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "peeled"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +111,66 @@
     "text": "Cod fish's head put on headless fish a bit like cod",
     "enumeration": "4"
    },
-   "solution": "FAKE"
+   "solution": "FAKE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "FAKE",
+    "definitions": [
+     {
+      "text": "Cod",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "the head of a word is its opening letter"
+     },
+     {
+      "text": "headless",
+      "for": "deletion",
+      "note": "without a head, the next word loses its opening letter"
+     }
+    ],
+    "linkWords": [
+     "put on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish's",
+      "gives": "F",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "fish a bit like cod",
+      "gives": "HAKE",
+      "note": "hake is a food fish of the cod family"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "AKE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cod's head is attached to the body of a similar fish.",
+     "walkthrough": "The first Cod is not the fish: as an adjective it means sham, as in cod philosophy.",
+     "definitionFit": "Cod in British usage means fake or mock, as in a cod accent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cod"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +184,54 @@
     "text": "Mission to force into cove sinking steamship",
     "enumeration": "7"
    },
-   "solution": "EMBASSY"
+   "solution": "EMBASSY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EMBASSY",
+    "definitions": [
+     {
+      "text": "Mission",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sinking",
+      "for": "container",
+      "note": "something sinking goes down into another thing, ending up inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "force into cove",
+      "gives": "EMBAY",
+      "note": "to embay is to drive a ship into a bay"
+     },
+     {
+      "clueFragment": "steamship",
+      "gives": "SS",
+      "note": "SS is the prefix for steamship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMBA",
+      "SS",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A naval operation drives an enemy into a bay and sinks their steamer.",
+     "definitionFit": "An embassy is a diplomatic mission, the official delegation sent to a foreign country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mission"
+    }
+   }
   },
   {
    "number": 3,
@@ -87,7 +251,73 @@
      }
     ]
    },
-   "solution": "CABERNETFRANC"
+   "solution": "CABERNETFRANC",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "deletion"
+    ],
+    "answer": "CABERNET FRANC",
+    "definitions": [
+     {
+      "text": "A red wine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back here means read backwards"
+     },
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one tossed",
+      "gives": "CABER",
+      "note": "a caber is the pole tossed at Highland games"
+     },
+     {
+      "clueFragment": "10",
+      "gives": "TEN",
+      "note": "the number spelt out"
+     },
+     {
+      "clueFragment": "F",
+      "gives": "FRANCS",
+      "note": "F is the abbreviation for francs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CABER",
+      "NET",
+      "FRANC"
+     ],
+     "reversals": [
+      {
+       "from": "TEN",
+       "to": "NET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A glass of red knocked back, and it cost nearly ten francs.",
+     "walkthrough": "10F looks like a cross-reference to 10-across but is ten francs; caber tossing is a Scottish Highland games event.",
+     "definitionFit": "Cabernet Franc is a black grape variety and the red wine made from it, grown in Bordeaux and the Loire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "10F"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +331,63 @@
     "text": "Rolls manufacturer taking on occasionally nerdier travel guide",
     "enumeration": "8"
    },
-   "solution": "BAEDEKER"
+   "solution": "BAEDEKER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BAEDEKER",
+    "definitions": [
+     {
+      "text": "travel guide",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means every so often, so only alternate letters are kept"
+     },
+     {
+      "text": "taking on",
+      "for": "container",
+      "note": "taking on means admitting something within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rolls manufacturer",
+      "gives": "BAKER",
+      "note": "a baker makes bread rolls"
+     },
+     {
+      "clueFragment": "nerdier",
+      "gives": "EDE",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "EDE",
+      "KER"
+     ]
+    },
+    "explanation": {
+     "surface": "A car maker hires some nerdier staff to produce a guidebook.",
+     "walkthrough": "Rolls suggests Rolls-Royce cars, but it is bread rolls.",
+     "definitionFit": "Baedeker guidebooks, first published by Karl Baedeker in Germany, became a byword for a tourist handbook."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Rolls"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +401,57 @@
     "text": "American exhausted after taking time off here in the Rockies",
     "enumeration": "5"
    },
-   "solution": "ASPEN"
+   "solution": "ASPEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ASPEN",
+    "definitions": [
+     {
+      "text": "here in the Rockies",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking time off",
+      "for": "deletion",
+      "note": "taking something off removes it, here the abbreviation for time"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "exhausted",
+      "gives": "SPENT",
+      "note": "spent means worn out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SPEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A tired American takes a holiday in the Rocky Mountains.",
+     "definitionFit": "Aspen is a ski resort town in Colorado, in the Rocky Mountains, so a place found there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +465,59 @@
     "text": "Facile drivel endlessly circulating",
     "enumeration": "4"
    },
-   "solution": "GLIB"
+   "solution": "GLIB",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "GLIB",
+    "definitions": [
+     {
+      "text": "Facile",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without an end, the word drops its final letter"
+     },
+     {
+      "text": "circulating",
+      "for": "reversal",
+      "note": "going round in a circle brings the letters back the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drivel",
+      "gives": "BILGE",
+      "note": "bilge is nonsense or rubbish talk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GLIB"
+     ],
+     "reversals": [
+      {
+       "from": "BILG",
+       "to": "GLIB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Easy nonsense keeps doing the rounds without ever stopping.",
+     "definitionFit": "Glib and facile both describe speech that is fluent but shallow and insincere."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "circulating"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +531,67 @@
     "text": "Mean about poor Jack's reason to visit doctor",
     "enumeration": "7"
    },
-   "solution": "LOCKJAW"
+   "solution": "LOCKJAW",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LOCKJAW",
+    "definitions": [
+     {
+      "text": "reason to visit doctor",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "poor",
+      "for": "anagram",
+      "note": "poor suggests something in bad shape, so the letters are knocked out of order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, placed on either side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mean",
+      "gives": "LOW",
+      "note": "low means base or mean"
+     },
+     {
+      "clueFragment": "Jack's",
+      "gives": "JACK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "CKJA",
+      "W"
+     ],
+     "anagrams": [
+      {
+       "fodder": "JACK",
+       "gives": "CKJA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stingy person complains about poor Jack needing to see a GP.",
+     "walkthrough": "The 's is part of the surface and gives no letter.",
+     "definitionFit": "Lockjaw, a symptom of tetanus that clamps the jaw shut, is a medical condition sending someone to a GP."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Mean"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +605,39 @@
     "text": "One who might pull a bob or two at work?",
     "enumeration": "10"
    },
-   "solution": "BELLRINGER"
+   "solution": "BELLRINGER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BELLRINGER",
+    "definitions": [
+     {
+      "text": "One who might pull a bob or two at work?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pull a bob or two",
+      "note": "surface reading: someone pulling in a few shillings, a bob being an old British coin"
+     },
+     {
+      "clueFragment": "bob",
+      "note": "setter's reading: a bob is a change-ringing method, worked by pulling ropes in a church tower"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A bob was slang for a shilling, so the surface is about earning money; in change ringing a bob is a call that alters the sequence.",
+     "definitionFit": "Church tower ringers pull ropes to ring methods such as Plain Bob."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bob"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +651,60 @@
     "text": "King rejected young pig put on skewer",
     "enumeration": "5"
    },
-   "solution": "KEBAB"
+   "solution": "KEBAB",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "KEBAB",
+    "definitions": [
+     {
+      "text": "put on skewer",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "K",
+      "note": "K is the chess and card abbreviation for king"
+     },
+     {
+      "clueFragment": "young pig",
+      "gives": "BABE",
+      "note": "Babe is the piglet hero of the film, and a babe is a young one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "EBAB"
+     ],
+     "reversals": [
+      {
+       "from": "BABE",
+       "to": "EBAB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A king turns down a piglet that has been roasted on a spit.",
+     "definitionFit": "To kebab something is to thread it on a skewer for cooking, a verb use of the familiar dish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rejected"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +718,55 @@
     "text": "Repaired replica? I'm using knowledge gained by experience",
     "enumeration": "9"
    },
-   "solution": "EMPIRICAL"
+   "solution": "EMPIRICAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EMPIRICAL",
+    "definitions": [
+     {
+      "text": "using knowledge gained by experience",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Repaired",
+      "for": "anagram",
+      "note": "something repaired has been taken apart and put back together, so the letters are reassembled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "replica",
+      "gives": "REPLICA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I'm",
+      "gives": "IM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REPLICAIM",
+       "gives": "EMPIRICAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who fixed up a copy claims to have learned the craft by hands-on practice.",
+     "definitionFit": "Empirical knowledge comes from observation and trial rather than from theory."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Repaired"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +780,77 @@
     "text": "Sellers playing entertaining detective with Yard in a cruel way",
     "enumeration": "13"
    },
-   "solution": "REMORSELESSLY"
+   "solution": "REMORSELESSLY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "REMORSELESSLY",
+    "definitions": [
+     {
+      "text": "in a cruel way",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing about with something rearranges it freely"
+     },
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "to entertain is to host someone, taking them in"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sellers",
+      "gives": "SELLERS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "detective",
+      "gives": "MORSE",
+      "note": "Inspector Morse, the Oxford TV detective"
+     },
+     {
+      "clueFragment": "Yard",
+      "gives": "Y",
+      "note": "Y is the abbreviation for yard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "MORSE",
+      "LESSL",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SELLERS",
+       "gives": "RELESSL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Peter Sellers, cast in a role opposite a Scotland Yard detective, plays it heartlessly.",
+     "walkthrough": "Peter Sellers played Inspector Clouseau, but Sellers here is just letters; Yard hints at Scotland Yard.",
+     "definitionFit": "Remorselessly means without pity or compassion, hence cruelly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Yard"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +870,54 @@
      }
     ]
    },
-   "solution": "SERGEANTMAJOR"
+   "solution": "SERGEANTMAJOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SERGEANT MAJOR",
+    "definitions": [
+     {
+      "text": "Soldier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "given a new order",
+      "for": "anagram",
+      "note": "putting things in a new order rearranges them, so the letters are shuffled"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to James Garner",
+      "gives": "TOJAMESGARNER",
+      "note": "taken as written, all thirteen letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOJAMESGARNER",
+       "gives": "SERGEANTMAJOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier receives fresh orders addressed to the actor James Garner.",
+     "walkthrough": "James Garner was an American actor, here only for his letters.",
+     "definitionFit": "A sergeant major is a senior non-commissioned army rank, so he is a soldier."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +937,66 @@
      }
     ]
    },
-   "solution": "WHISTDRIVE"
+   "solution": "WHISTDRIVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "WHIST DRIVE",
+    "definitions": [
+     {
+      "text": "Where finesse might come into play",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "winding",
+      "for": "anagram",
+      "note": "winding means twisting about, so the letters are turned into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     },
+     {
+      "clueFragment": "this",
+      "gives": "THIS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "DRIVE",
+      "note": "a drive is a road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHIST",
+      "DRIVE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WTHIS",
+       "gives": "WHIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A twisting road demands deft handling.",
+     "walkthrough": "Winding road reads as a phrase, but winding acts on the two words before it.",
+     "definitionFit": "A finesse is a card-play tactic, and a whist drive is a social evening of whist games."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "finesse"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +1016,44 @@
      }
     ]
    },
-   "solution": "HAYFEVER"
+   "solution": "HAYFEVER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HAY FEVER",
+    "definitions": [
+     {
+      "text": "Coward wrote this",
+      "at": 0
+     },
+     {
+      "text": "irritating complaint",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Coward wrote this",
+      "note": "first meaning: a 1925 comedy by the playwright Noel Coward"
+     },
+     {
+      "clueFragment": "irritating complaint",
+      "note": "second meaning: a pollen allergy that inflames eyes and nose"
+     }
+    ],
+    "explanation": {
+     "surface": "A timid person penned something annoying.",
+     "walkthrough": "Coward is not a timid person here but Noel Coward, the English playwright.",
+     "definitionFit": "The title of Coward's play is also the common name for allergic rhinitis, an itchy seasonal ailment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Coward"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +1073,56 @@
      }
     ]
    },
-   "solution": "DRAWIN"
+   "solution": "DRAWIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "DRAW IN",
+    "definitions": [
+     {
+      "text": "contract",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "delaying",
+      "for": "container",
+      "note": "delaying pushes something later, so that letter is taken out and put back further along"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Australian city",
+      "gives": "DARWIN",
+      "note": "Darwin is the capital of Australia's Northern Territory"
+     },
+     {
+      "clueFragment": "atomic",
+      "gives": "A",
+      "note": "A is the abbreviation for atomic, as in A-bomb"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "A",
+      "WIN"
+     ]
+    },
+    "explanation": {
+     "surface": "An Australian city puts off signing a nuclear deal.",
+     "walkthrough": "The A of the city name is moved back two places: DARWIN becomes DRAWIN.",
+     "definitionFit": "To draw in is to shrink or pull inward, as days draw in during autumn, so it means contract."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "contract"
+    }
+   }
   },
   {
    "number": 16,
@@ -299,7 +1142,65 @@
      }
     ]
    },
-   "solution": "FOURTEEN"
+   "solution": "FOURTEEN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "FOURTEEN",
+    "definitions": [
+     {
+      "text": "number",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covers",
+      "for": "container",
+      "note": "covering something means wrapping around it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "newspaper",
+      "gives": "FT",
+      "note": "FT is the Financial Times"
+     },
+     {
+      "clueFragment": "Telegraph's",
+      "gives": "OUR",
+      "note": "this puzzle appears in the Telegraph, which would say our"
+     },
+     {
+      "clueFragment": "even",
+      "gives": "EEN",
+      "note": "e'en is the poetic contraction of even"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "OUR",
+      "T",
+      "EEN"
+     ]
+    },
+    "explanation": {
+     "surface": "The Telegraph's paper reports with an even figure.",
+     "walkthrough": "Even number looks like the definition, but even is wordplay and number alone defines.",
+     "definitionFit": "Fourteen is a whole number, the one after thirteen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "even"
+    }
+   }
   },
   {
    "number": 17,
@@ -319,7 +1220,43 @@
      }
     ]
    },
-   "solution": "SETOFF"
+   "solution": "SETOFF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SET OFF",
+    "definitions": [
+     {
+      "text": "Leave",
+      "at": 0
+     },
+     {
+      "text": "telly on stand-by",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leave",
+      "note": "first meaning: depart on a journey"
+     },
+     {
+      "clueFragment": "telly on stand-by",
+      "note": "second meaning, read cryptically: a television set that is switched off"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the playful second reading: a TV set, not in use. Telly is British slang for television.",
+     "definitionFit": "To set off is to start out or leave, and a set that is off describes an idle telly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "telly"
+    }
+   }
   },
   {
    "number": 18,
@@ -339,7 +1276,56 @@
      }
     ]
    },
-   "solution": "TYNWALD"
+   "solution": "TYNWALD",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "TYNWALD",
+    "definitions": [
+     {
+      "text": "Parliament",
+      "at": 1
+     }
+    ],
+    "indicators": [
+     {
+      "text": "features",
+      "for": "hidden_word",
+      "note": "something featured is included within, so the letters sit inside the words"
+     },
+     {
+      "text": "upcoming",
+      "for": "reversal",
+      "note": "in a down entry, coming up means read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Upheld Law\" – NY Times",
+      "gives": "DLAWNYT",
+      "note": "letters spanning the words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "DLAWNYT",
+       "to": "TYNWALD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper headline reports that parliament upheld a law.",
+     "definitionFit": "Tynwald is the parliament of the Isle of Man, one of the oldest continuous legislatures."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upcoming"
+    }
+   }
   },
   {
    "number": 19,
@@ -359,7 +1345,81 @@
      }
     ]
    },
-   "solution": "BONEIDLE"
+   "solution": "BONEIDLE",
+   "annotation": {
+    "type": [
+     "cycling",
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BONE-IDLE",
+    "definitions": [
+     {
+      "text": "Pitifully lazy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cycles",
+      "for": "cycling",
+      "note": "cycling moves the front letters round to the back while keeping their order"
+     },
+     {
+      "text": "around collecting",
+      "for": "container",
+      "note": "going around and collecting means holding other letters inside"
+     },
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "only the opening letter of the next word is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yasmin",
+      "gives": "LEBON",
+      "note": "the model Yasmin Le Bon, wife of Duran Duran's singer"
+     },
+     {
+      "clueFragment": "evening",
+      "gives": "E",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "papers",
+      "gives": "ID",
+      "note": "ID papers prove who you are"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BON",
+      "E",
+      "ID",
+      "LE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEBON",
+       "gives": "BONLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lazy Yasmin rides her bike about, picking up the evening paper.",
+     "walkthrough": "Yasmin Le Bon is a British model; cycling moves her surname's first two letters to the back, and papers as ID is a crossword staple.",
+     "definitionFit": "Bone-idle means lazy to the bone, extremely and almost pitiably slothful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cycles"
+    }
+   }
   },
   {
    "number": 20,
@@ -373,7 +1433,68 @@
     "text": "Plague George contracted first in Newgate cell",
     "enumeration": "7"
    },
-   "solution": "DUNGEON"
+   "solution": "DUNGEON",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "DUNGEON",
+    "definitions": [
+     {
+      "text": "cell",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contracted",
+      "for": "deletion",
+      "note": "a contracted word is shortened"
+     },
+     {
+      "text": "first in",
+      "for": "letter_selection",
+      "note": "only the opening letter of the next word is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plague",
+      "gives": "DUN",
+      "note": "to dun is to pester for payment"
+     },
+     {
+      "clueFragment": "George",
+      "gives": "GEORGE",
+      "note": "taken as written, then cut short"
+     },
+     {
+      "clueFragment": "Newgate",
+      "gives": "N",
+      "select": "first",
+      "note": "opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUN",
+      "GEO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called George catches the plague in his cell in Newgate Prison.",
+     "walkthrough": "Geo is the standard short form of George; Newgate was a notorious London prison.",
+     "definitionFit": "A dungeon is an underground prison cell, as found beneath castles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Plague"
+    }
+   }
   },
   {
    "number": 21,
@@ -393,7 +1514,39 @@
      }
     ]
    },
-   "solution": "DENTALSURGEON"
+   "solution": "DENTALSURGEON",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DENTAL SURGEON",
+    "definitions": [
+     {
+      "text": "Worker who fills in?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Worker who fills in?",
+      "note": "surface reading: a temp or stand-in who covers for absent staff"
+     },
+     {
+      "clueFragment": "fills in",
+      "note": "setter's reading: someone who puts fillings into teeth"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Filling in suggests deputising; the trade is actually plugging cavities in teeth.",
+     "definitionFit": "A specialist in mouth operations who also does fillings is a professional working on teeth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fills"
+    }
+   }
   },
   {
    "number": 22,
@@ -407,7 +1560,48 @@
     "text": "Restrained one crying half-heartedly",
     "enumeration": "5"
    },
-   "solution": "SOBER"
+   "solution": "SOBER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SOBER",
+    "definitions": [
+     {
+      "text": "Restrained",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half-heartedly",
+      "for": "deletion",
+      "note": "losing half the heart means dropping one of the two middle letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one crying",
+      "gives": "SOBBER",
+      "note": "someone who sobs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "BER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries to hold back tears but only half commits to it.",
+     "definitionFit": "Sober means sedate and restrained in manner, as in a sober suit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "half-heartedly"
+    }
+   }
   },
   {
    "number": 23,
@@ -421,7 +1615,43 @@
     "text": "Clutch bag",
     "enumeration": "4"
    },
-   "solution": "GRIP"
+   "solution": "GRIP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GRIP",
+    "definitions": [
+     {
+      "text": "Clutch",
+      "at": 0
+     },
+     {
+      "text": "bag",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clutch",
+      "note": "first meaning: hold tight"
+     },
+     {
+      "clueFragment": "bag",
+      "note": "second meaning: a travelling bag, an older word for a holdall"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Clutch bag is a real type of handbag, but the words split into two meanings.",
+     "definitionFit": "Grip means to hold firmly, and a grip is also a dated term for a small suitcase or holdall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Clutch"
+    }
+   }
   },
   {
    "number": 24,
@@ -435,7 +1665,69 @@
     "text": "Grumpy, cold and left stuck in Siberia shivering",
     "enumeration": "9"
    },
-   "solution": "IRASCIBLE"
+   "solution": "IRASCIBLE",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "IRASCIBLE",
+    "definitions": [
+     {
+      "text": "Grumpy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuck in",
+      "for": "container",
+      "note": "things stuck in something are placed inside it"
+     },
+     {
+      "text": "shivering",
+      "for": "anagram",
+      "note": "shivering shakes something about, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold on taps"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "Siberia",
+      "gives": "SIBERIA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SIBERIACL",
+       "gives": "IRASCIBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stranded, frozen and abandoned in Siberia is understandably bad-tempered.",
+     "definitionFit": "Irascible describes a person easily angered, a near synonym of grumpy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shivering"
+    }
+   }
   },
   {
    "number": 25,
@@ -449,7 +1741,58 @@
     "text": "Famous champion horse setting out runs good clip",
     "enumeration": "5"
    },
-   "solution": "SHEAR"
+   "solution": "SHEAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SHEAR",
+    "definitions": [
+     {
+      "text": "clip",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "setting out",
+      "for": "deletion",
+      "note": "setting things out means putting them aside, so those letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Famous champion horse",
+      "gives": "SHERGAR",
+      "note": "Shergar won the 1981 Derby and was later kidnapped"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHEAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A famous racehorse heads out at a good speed.",
+     "walkthrough": "Clip is a pace here in the surface, but it is the definition as a verb.",
+     "definitionFit": "To shear is to cut or trim, as fleece is clipped from sheep."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clip"
+    }
+   }
   },
   {
    "number": 26,
@@ -463,7 +1806,51 @@
     "text": "One of Haaland's strengths: commonly narrated Nordic works",
     "enumeration": "4"
    },
-   "solution": "EDDA"
+   "solution": "EDDA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "homophone"
+    ],
+    "answer": "EDDA",
+    "definitions": [
+     {
+      "text": "Nordic works",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "commonly",
+      "for": "deletion",
+      "note": "common speech drops the h at the start of words"
+     },
+     {
+      "text": "narrated",
+      "for": "homophone",
+      "note": "narrated means spoken, so the answer is judged by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One of Haaland's strengths",
+      "gives": "EDDA",
+      "soundsLike": "EADER",
+      "note": "a header, said without its h; Erling Haaland is a Norwegian footballer"
+     }
+    ],
+    "explanation": {
+     "surface": "A list of a striker's strengths is read out in a Scandinavian accent.",
+     "walkthrough": "Haaland, the Manchester City striker, scores with his head; a header said in Cockney style is 'eader.",
+     "definitionFit": "The Edda is a pair of medieval Icelandic collections of Norse myth and poetry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "strengths"
+    }
+   }
   },
   {
    "number": 27,
@@ -483,7 +1870,60 @@
      }
     ]
    },
-   "solution": "BRANDYSNAP"
+   "solution": "BRANDYSNAP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "BRANDY SNAP",
+    "definitions": [
+     {
+      "text": "Biscuit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the wrong way round",
+      "for": "reversal",
+      "note": "facing the wrong way round means the letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "label",
+      "gives": "BRAND",
+      "note": "a brand is a trade label"
+     },
+     {
+      "clueFragment": "bluish-purple",
+      "gives": "PANSY",
+      "note": "pansy is a bluish-purple colour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRAND",
+      "YSNAP"
+     ],
+     "reversals": [
+      {
+       "from": "PANSY",
+       "to": "YSNAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A packaging label printed in purple has been put on upside down.",
+     "definitionFit": "A brandy snap is a thin rolled ginger biscuit, often filled with cream."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "label"
+    }
+   }
   }
  ]
 }
