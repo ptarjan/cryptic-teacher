@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,76 @@
     "text": "Birds on seaside spot to start with, eating what they eat",
     "enumeration": "7"
    },
-   "solution": "OSPREYS"
+   "solution": "OSPREYS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "OSPREYS",
+    "definitions": [
+     {
+      "text": "Birds",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to start with",
+      "for": "letter_selection",
+      "note": "to start with asks for only the opening letter of each of the three words before it"
+     },
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "something eating takes food inside it, so one piece swallows another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "O",
+      "select": "first",
+      "note": "first letter of on"
+     },
+     {
+      "clueFragment": "seaside",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of seaside"
+     },
+     {
+      "clueFragment": "what they eat",
+      "gives": "PREY",
+      "note": "birds of prey eat their prey"
+     },
+     {
+      "clueFragment": "spot",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of spot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "S",
+      "PREY",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Seabirds at a beach spot are tucking into their usual meal.",
+     "walkthrough": "The opening letters O, S, S are split so that PREY sits between the second and third: OS + PREY + S.",
+     "definitionFit": "Ospreys are fish-eating raptors, a kind of bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spot"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +119,54 @@
     "text": "Dog caught in awful menagerie",
     "enumeration": "7"
    },
-   "solution": "SHIHTZU"
+   "solution": "SHIHTZU",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SHIHTZU",
+    "definitions": [
+     {
+      "text": "Dog",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caught",
+      "for": "homophone",
+      "note": "caught in the sense of heard, as when you catch what someone says"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "awful",
+      "gives": "SHIH",
+      "soundsLike": "SHIT",
+      "note": "a vulgar word for something awful"
+     },
+     {
+      "clueFragment": "menagerie",
+      "gives": "TZU",
+      "soundsLike": "ZOO",
+      "note": "a menagerie is a collection of animals, a zoo"
+     }
+    ],
+    "explanation": {
+     "surface": "A dog has been trapped inside a dreadful animal collection.",
+     "walkthrough": "A rude homophone: say 'shit zoo' and you get the breed's name. Chambers allows it as one word.",
+     "definitionFit": "The shih-tzu is a small long-haired toy breed of dog from Tibet and China."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +180,57 @@
     "text": "Realism is lost in this field",
     "enumeration": "5"
    },
-   "solution": "REALM"
+   "solution": "REALM",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "REALM",
+    "definitions": [
+     {
+      "text": "field",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is lost",
+      "for": "deletion",
+      "note": "says the two letters spelling is go missing from the longer word"
+     }
+    ],
+    "linkWords": [
+     "in this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Realism",
+      "gives": "REALISM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written, the part to remove"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REAL",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "Realism has no place in this particular area of art or thought.",
+     "walkthrough": "Removing IS from REALISM leaves REALM.",
+     "definitionFit": "A realm is a domain or sphere of activity, just as a field is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "is"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +254,45 @@
      }
     ]
    },
-   "solution": "YOUANDI"
+   "solution": "YOUANDI",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "YOU AND I",
+    "definitions": [
+     {
+      "text": "We",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "read out",
+      "for": "homophone",
+      "note": "reading something out means voicing it, so the sounds matter rather than the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a couple of letters",
+      "gives": "YOUANDI",
+      "soundsLike": "U AND I",
+      "note": "two letters of the alphabet, U and I, spoken together"
+     }
+    ],
+    "explanation": {
+     "surface": "Two of us recite a pair of letters aloud together.",
+     "walkthrough": "Spoken, the letters U and I sound like the pronouns 'you and I'.",
+     "definitionFit": "We is the pronoun meaning the speaker plus another person, which is you and I."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +306,60 @@
     "text": "Dealing with cake that's seasonal without filling and topping",
     "enumeration": "7"
    },
-   "solution": "SLICING"
+   "solution": "SLICING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SLICING",
+    "definitions": [
+     {
+      "text": "Dealing with cake",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without filling",
+      "for": "letter_selection",
+      "note": "a word without its filling has its middle emptied out, keeping just its outer shell"
+     }
+    ],
+    "linkWords": [
+     "that's",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seasonal",
+      "gives": "SL",
+      "select": "outer",
+      "note": "seasonal with its inside removed"
+     },
+     {
+      "clueFragment": "topping",
+      "gives": "ICING",
+      "note": "the sugary topping on a cake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SL",
+      "ICING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone handles a festive cake that has no filling and no topping.",
+     "walkthrough": "'Filling and topping' reads like two things missing from the cake, but 'and' just joins two separate pieces.",
+     "definitionFit": "Cutting a cake into portions is slicing it, so slicing is what you do when dealing with one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "topping"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +379,40 @@
      }
     ]
    },
-   "solution": "LAIDUP"
+   "solution": "LAIDUP",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LAID UP",
+    "definitions": [
+     {
+      "text": "sick in bed",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Face",
+      "note": "surface: a person's face, lying on a pillow"
+     },
+     {
+      "clueFragment": "Face being sick in bed?",
+      "note": "setter's reading: a face is a clock dial, and that word written upwards in a down light gives the answer's first word"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone's face looks unwell as they lie in bed.",
+     "walkthrough": "A face is a DIAL; in a down entry, DIAL written from the bottom up reads LAID, so it is literally LAID UP.",
+     "definitionFit": "To be laid up is to be confined to bed by illness or injury."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Face"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +436,39 @@
    "group": [
     "7-down",
     "27-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CONTAINER SHIP",
+    "definitions": [
+     {
+      "text": "Vessel",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vessel",
+      "note": "one big boat that carries cargo boxes"
+     },
+     {
+      "clueFragment": "or two",
+      "note": "setter's reading: both halves of the answer are themselves vessels, a receptacle and a boat"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The answer is one vessel, or two vessels written side by side: a container is a vessel in the receptacle sense, and a ship in the nautical one.",
+     "definitionFit": "A container ship is a large cargo vessel built to carry standard shipping containers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "two"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +482,49 @@
     "text": "Whiff of sodium is emerging",
     "enumeration": "7"
    },
-   "solution": "NASCENT"
+   "solution": "NASCENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NASCENT",
+    "definitions": [
+     {
+      "text": "emerging",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sodium",
+      "gives": "NA",
+      "note": "Na is the chemical symbol for sodium"
+     },
+     {
+      "clueFragment": "Whiff",
+      "gives": "SCENT",
+      "note": "a whiff is a smell or scent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NA",
+      "SCENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A faint smell of sodium is starting to appear.",
+     "definitionFit": "Nascent describes something just coming into being, beginning to develop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Whiff"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +544,53 @@
      }
     ]
    },
-   "solution": "NOBELLAUREATE"
+   "solution": "NOBELLAUREATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "NOBEL LAUREATE",
+    "definitions": [
+     {
+      "text": "Like Euler, a notable original!",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "original",
+      "for": "anagram",
+      "note": "original in the sense of novel or inventive, so the letters are freshly rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Euler, a notable",
+      "gives": "EULERANOTABLE",
+      "note": "taken as written: the mathematician's name plus a and notable"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EULERANOTABLE",
+       "gives": "NOBELLAUREATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for the great mathematician Euler as a remarkable, inventive figure.",
+     "walkthrough": "A tongue-in-cheek &lit: Euler (1707-83) died over a century before the first Nobel prizes in 1901, and there is no Nobel for mathematics, hence the exclamation mark.",
+     "definitionFit": "A Nobel laureate is a distinguished prize-winner, the sort of notable original the whole clue describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "original"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +604,53 @@
     "text": "Singer keen to make a comeback",
     "enumeration": "4"
    },
-   "solution": "DIVA"
+   "solution": "DIVA",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "DIVA",
+    "definitions": [
+     {
+      "text": "Singer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to make a comeback",
+      "for": "reversal",
+      "note": "a comeback is a return, so the word travels back the way it came"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "keen",
+      "gives": "AVID",
+      "note": "keen means eager, avid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIVA"
+     ],
+     "reversals": [
+      {
+       "from": "AVID",
+       "to": "DIVA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vocalist is eager to return to the stage.",
+     "definitionFit": "A diva is a celebrated female opera singer, a prima donna."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "comeback"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +664,91 @@
     "text": "To split up and desert over the onset of marriage is an idealised vision",
     "enumeration": "10"
    },
-   "solution": "UTOPIANISM"
+   "solution": "UTOPIANISM",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "UTOPIANISM",
+    "definitions": [
+     {
+      "text": "an idealised vision",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "split",
+      "for": "container",
+      "note": "to split something is to go into the middle of it, dividing it in two"
+     },
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over, so the word is read from the other end"
+     },
+     {
+      "text": "the onset of",
+      "for": "letter_selection",
+      "note": "an onset is a beginning, so only the first letter is wanted"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "To",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "up",
+      "gives": "UP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "desert",
+      "gives": "SINAI",
+      "note": "the Sinai is the desert peninsula of Egypt"
+     },
+     {
+      "clueFragment": "marriage",
+      "gives": "M",
+      "select": "first",
+      "note": "first letter of marriage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "TO",
+      "P",
+      "IANIS",
+      "M"
+     ],
+     "reversals": [
+      {
+       "from": "SINAI",
+       "to": "IANIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Breaking up and abandoning someone at the start of a marriage is a fantasy.",
+     "walkthrough": "'Desert' looks like a verb about walking out; it is the noun, the Sinai.",
+     "definitionFit": "Utopianism is belief in, or pursuit of, an ideal perfect society, an idealised vision of the world."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "desert"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +762,44 @@
     "text": "Testament featuring male member in bloomers",
     "enumeration": "6"
    },
-   "solution": "STAMEN"
+   "solution": "STAMEN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "STAMEN",
+    "definitions": [
+     {
+      "text": "male member in bloomers",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "featuring",
+      "for": "hidden_word",
+      "note": "a word featuring something has it included within itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Testament",
+      "gives": "STAMEN",
+      "note": "sits inside the word, between its first two and last letters"
+     }
+    ],
+    "explanation": {
+     "surface": "A cheeky reference to a man's anatomy in someone's knickers, given as evidence.",
+     "walkthrough": "Bloomers are flowers here, not old-fashioned knickers.",
+     "definitionFit": "The stamen is the pollen-bearing male organ of a flower, and bloomers are flowers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bloomers"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +813,64 @@
     "text": "Followed the example of having dealt poorly with bird",
     "enumeration": "8"
    },
-   "solution": "EMULATED"
+   "solution": "EMULATED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "EMULATED",
+    "definitions": [
+     {
+      "text": "Followed the example of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "poorly",
+      "for": "anagram",
+      "note": "done poorly means badly handled, so the letters end up out of order"
+     }
+    ],
+    "linkWords": [
+     "having",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bird",
+      "gives": "EMU",
+      "note": "the emu is a large flightless Australian bird"
+     },
+     {
+      "clueFragment": "dealt",
+      "gives": "DEALT",
+      "note": "taken as written, the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMU",
+      "LATED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DEALT",
+       "gives": "LATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone copied a card player who had dealt badly with a bird.",
+     "definitionFit": "To emulate is to imitate someone you admire, copying their conduct."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dealt"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +884,66 @@
     "text": "Regular light infantry starts out with one who doesn't belong",
     "enumeration": "9"
    },
-   "solution": "GUERRILLA"
+   "solution": "GUERRILLA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "GUERRILLA",
+    "definitions": [
+     {
+      "text": "one who doesn't belong",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts",
+      "for": "letter_selection",
+      "note": "the starts of words are their opening letters"
+     },
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out in the sense of wrong or disordered, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Regular",
+      "gives": "REGULAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "light infantry",
+      "gives": "LI",
+      "select": "first",
+      "note": "first letters of light and infantry"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REGULARLI",
+       "gives": "GUERRILLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Regular soldiers set out alongside an outsider.",
+     "walkthrough": "'Regular light infantry' reads as one military unit, yet regular is the fodder for its opposite.",
+     "definitionFit": "A guerrilla is an irregular fighter, outside any official army, so does not belong to the regular forces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Regular"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +957,50 @@
     "text": "Bringing back earlier TV production",
     "enumeration": "9"
    },
-   "solution": "RETRIEVAL"
+   "solution": "RETRIEVAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RETRIEVAL",
+    "definitions": [
+     {
+      "text": "Bringing back",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "production",
+      "for": "anagram",
+      "note": "a production is something made or staged, so the letters are reworked into something new"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "earlier TV",
+      "gives": "EARLIERTV",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EARLIERTV",
+       "gives": "RETRIEVAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A channel revives an old television show.",
+     "definitionFit": "Retrieval is the act of fetching something and recovering it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "production"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1014,45 @@
     "text": "Entanglements from speed",
     "enumeration": "5"
    },
-   "solution": "KNOTS"
+   "solution": "KNOTS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KNOTS",
+    "definitions": [
+     {
+      "text": "Entanglements",
+      "at": 0
+     },
+     {
+      "text": "speed",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Entanglements",
+      "note": "first meaning: tangles tied in rope or hair"
+     },
+     {
+      "clueFragment": "speed",
+      "note": "second meaning: units of speed at sea, nautical miles per hour"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Speed is a fair definition because the nautical unit, in the plural, is used to give a rate.",
+     "definitionFit": "Knots are both twisted tangles and the measure of a ship's or aircraft's velocity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "speed"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1066,58 @@
     "text": "Sharp causing laceration in casualty",
     "enumeration": "5"
    },
-   "solution": "ACUTE"
+   "solution": "ACUTE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ACUTE",
+    "definitions": [
+     {
+      "text": "Sharp",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing sitting in another means it is placed inside"
+     }
+    ],
+    "linkWords": [
+     "causing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "casualty",
+      "gives": "AE",
+      "note": "A&E, accident and emergency, is the British hospital casualty department"
+     },
+     {
+      "clueFragment": "laceration",
+      "gives": "CUT",
+      "note": "a laceration is a cut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CUT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A sharp pain from a gash being treated in the emergency ward.",
+     "walkthrough": "In Britain the hospital emergency department is called casualty or A&E.",
+     "definitionFit": "Acute means keen or sharp, as in acute pain or an acute angle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "casualty"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1131,57 @@
     "text": "Wine and tea and endless joy",
     "enumeration": "7"
    },
-   "solution": "CHABLIS"
+   "solution": "CHABLIS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CHABLIS",
+    "definitions": [
+     {
+      "text": "Wine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "with no end, so the final letter is cut off"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea",
+      "gives": "CHA",
+      "note": "cha (or char) is a British slang word for tea"
+     },
+     {
+      "clueFragment": "joy",
+      "gives": "BLISS",
+      "note": "bliss is perfect joy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "BLIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of life's pleasures: wine, a cuppa and boundless happiness.",
+     "definitionFit": "Chablis is a dry white wine from the Burgundy region of France."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "endless"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1201,54 @@
      }
     ]
    },
-   "solution": "HUMANRACE"
+   "solution": "HUMANRACE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HUMAN RACE",
+    "definitions": [
+     {
+      "text": "us",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "activity",
+      "for": "anagram",
+      "note": "activity implies lively movement, so the letters are stirred about"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Much arena",
+      "gives": "MUCHARENA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MUCHARENA",
+       "gives": "HUMANRACE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A busy stadium laid on for our benefit.",
+     "walkthrough": "'Us' looks like a throwaway word but is the whole definition: all of humanity.",
+     "definitionFit": "We people collectively are humankind, so 'us' stands for the whole species."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "us"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1262,65 @@
     "text": "Booze trashed what's within school walls",
     "enumeration": "7"
    },
-   "solution": "ALCOHOL"
+   "solution": "ALCOHOL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ALCOHOL",
+    "definitions": [
+     {
+      "text": "Booze",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "what's within",
+      "for": "letter_selection",
+      "note": "what lies within a word is its interior, without its outermost letters"
+     },
+     {
+      "text": "trashed",
+      "for": "anagram",
+      "note": "something trashed is wrecked, so the letters are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "CHOO",
+      "select": "middle",
+      "note": "school without its first and last letters"
+     },
+     {
+      "clueFragment": "walls",
+      "gives": "ALL",
+      "select": "middle",
+      "note": "walls without its first and last letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHOOALL",
+       "gives": "ALCOHOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drink that got students wrecked inside the school grounds.",
+     "walkthrough": "'Trashed' tempts as slang for drunk alongside booze, but it is the anagram signal; 'school walls' is two words, each losing its ends.",
+     "definitionFit": "Booze is the informal word for alcoholic drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "trashed"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1334,52 @@
     "text": "Covers eyes, we hear, to turn over",
     "enumeration": "7"
    },
-   "solution": "CAPSIZE"
+   "solution": "CAPSIZE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "CAPSIZE",
+    "definitions": [
+     {
+      "text": "turn over",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is the sound of the word rather than how it is spelt"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Covers",
+      "gives": "CAPS",
+      "note": "caps are covers or lids"
+     },
+     {
+      "clueFragment": "eyes",
+      "gives": "IZE",
+      "soundsLike": "EYES",
+      "note": "the word eyes, spoken"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone shields their eyes, apparently, in order to roll over.",
+     "definitionFit": "When a boat capsizes it overturns in the water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Covers"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1393,50 @@
     "text": "Don't start arguments and beatings",
     "enumeration": "6"
    },
-   "solution": "LASHES"
+   "solution": "LASHES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LASHES",
+    "definitions": [
+     {
+      "text": "beatings",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Don't start",
+      "for": "deletion",
+      "note": "an instruction not to begin, so the word's first letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arguments",
+      "gives": "CLASHES",
+      "note": "clashes are arguments or disputes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LASHES"
+     ]
+    },
+    "explanation": {
+     "surface": "A plea to avoid starting rows and fights.",
+     "definitionFit": "Lashes are strokes with a whip, so a flogging is a series of beatings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "start"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1450,40 @@
     "text": "A badge for fooling around?",
     "enumeration": "8"
    },
-   "solution": "BADINAGE"
+   "solution": "BADINAGE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BADINAGE",
+    "definitions": [
+     {
+      "text": "fooling around",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A badge",
+      "note": "surface: a badge or emblem awarded to someone"
+     },
+     {
+      "clueFragment": "A badge for fooling around?",
+      "note": "setter's reading: split the answer as three words and it describes the letters of a badge, with one word sitting inside another"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is awarded a badge for clowning about.",
+     "walkthrough": "A reverse clue: read the answer as BAD IN AGE and you get A BADGE, since BAD sits in AGE.",
+     "definitionFit": "Badinage is playful, teasing banter, a kind of verbal fooling around."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "badge"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1497,46 @@
     "text": "Appetiser is able to simulate",
     "enumeration": "6"
    },
-   "solution": "CANAPE"
+   "solution": "CANAPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CANAPE",
+    "definitions": [
+     {
+      "text": "Appetiser",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is able to",
+      "gives": "CAN",
+      "note": "can means is able to"
+     },
+     {
+      "clueFragment": "simulate",
+      "gives": "APE",
+      "note": "to ape is to mimic or simulate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAN",
+      "APE"
+     ]
+    },
+    "explanation": {
+     "surface": "A starter dish that can pass itself off as something else.",
+     "definitionFit": "A canapé is a small savoury bite served before a meal as an hors d'oeuvre."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "simulate"
+    }
+   }
   },
   {
    "number": 25,
@@ -407,7 +1550,64 @@
     "text": "Finally clean a dirty place that's vile",
     "enumeration": "5"
    },
-   "solution": "NASTY"
+   "solution": "NASTY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NASTY",
+    "definitions": [
+     {
+      "text": "vile",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of the next word"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clean",
+      "gives": "N",
+      "select": "last",
+      "note": "last letter of clean"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dirty place",
+      "gives": "STY",
+      "note": "a pigsty, the classic filthy place"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "A",
+      "STY"
+     ]
+    },
+    "explanation": {
+     "surface": "At last someone cleans up a filthy, repulsive spot.",
+     "definitionFit": "Nasty and vile are synonyms, both meaning thoroughly unpleasant or disgusting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clean"
+    }
+   }
   },
   {
    "number": 26,
@@ -427,7 +1627,73 @@
      }
     ]
    },
-   "solution": "CLOVEHITCH"
+   "solution": "CLOVEHITCH",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CLOVE HITCH",
+    "definitions": [
+     {
+      "text": "One of 16",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcomes",
+      "for": "container",
+      "note": "to welcome someone is to take them in, so one piece goes inside"
+     },
+     {
+      "text": "follows",
+      "for": "charade",
+      "note": "says which piece comes after which in the line"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "churches: the first",
+      "gives": "CH",
+      "note": "CH is the abbreviation for church; this is the first of two"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "LOVE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the second",
+      "gives": "CH",
+      "note": "the second church abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LOVE",
+      "H",
+      "IT",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "Two churches, one embracing love and the other trailing after it.",
+     "walkthrough": "16 across is KNOTS; C(LOVE)H + IT + CH.",
+     "definitionFit": "A clove hitch is a common knot used to fasten a rope to a post."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 27,
@@ -454,7 +1720,44 @@
     "text": "Futile to cut back",
     "enumeration": "7"
    },
-   "solution": "USELESS"
+   "solution": "USELESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "USELESS",
+    "definitions": [
+     {
+      "text": "Futile",
+      "at": 0
+     },
+     {
+      "text": "to cut back",
+      "at": 7,
+      "note": "a verb phrase, read as two words: use less"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Futile",
+      "note": "first meaning: pointless, having no effect"
+     },
+     {
+      "clueFragment": "to cut back",
+      "note": "second meaning: split into two words, to consume a smaller amount"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second meaning only works with a space: to cut back on something is to USE LESS of it.",
+     "definitionFit": "Something futile achieves nothing, so it is of no use at all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 29,
@@ -468,7 +1771,50 @@
     "text": "Drama writer's safe space",
     "enumeration": "7"
    },
-   "solution": "PLAYPEN"
+   "solution": "PLAYPEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLAYPEN",
+    "definitions": [
+     {
+      "text": "safe space",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drama",
+      "gives": "PLAY",
+      "note": "a play is a drama"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "PEN",
+      "note": "a pen is a writing instrument"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLAY",
+      "PEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A playwright's refuge from the world.",
+     "definitionFit": "A playpen is an enclosure where a small child can play in safety."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "writer"
+    }
+   }
   }
  ]
 }
