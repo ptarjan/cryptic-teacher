@@ -875,12 +875,21 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         # one unit back it holds every later one (begun_now only grows), so
         # the gates are read at most once a unit begun, not once a unit due.
         mem_read, cpu_read = {}, {}
+        # Each ledger read once a pass, not once a queued scan: a scan unit
+        # checks its row again before it scans (scan_unit's "current").
+        stands = {}
+
+        def stood(u, stands=stands):
+            paper = fa.FILERS[u["paper"]]
+            if u["paper"] not in stands:
+                stands[u["paper"]] = fa.standing(paper, cache)
+            return fa.scan_stands(paper, u["rel"], cache, stands[u["paper"]])
         for u in first + scans + reads + fetches if any(v > 0 for v in free.values()) else ():
             if not may_start() or free[slot_of(u)] <= 0 or key_of(u) in tried:
                 continue
             if urgent and u["kind"] != "fetch" and u["rank"] >= fa.BLANKET:
                 continue
-            if u["kind"] == "scan" and u["paper"] in fa.FILERS and fa.scan_stands(fa.FILERS[u["paper"]], u["rel"], cache):
+            if u["kind"] == "scan" and u["paper"] in fa.FILERS and stood(u):
                 # Scanned since the plan was made (a kept plan, a read, another queue): its reads may go on.
                 tried.add(key_of(u))
                 scanned.add((u["paper"], u["rel"]))
