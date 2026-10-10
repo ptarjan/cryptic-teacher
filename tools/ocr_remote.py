@@ -13,8 +13,9 @@ verdicts, the puzzles and the crops it cached; any other reader sends one
 already-upscaled crop as PNG and gets the words back as JSON. call() runs
 one of CALLS there: an image PDF's pages searched for grids
 (fetch_archive_org_editions.pdf_pages), a grid search from a clue list
-(reconstruct(), the Trove filer's rebuild) and an edition's scan for its
-headings (scan(), the edition queue's scan units). The desktop
+(reconstruct(), the Trove filer's rebuild), an edition's scan for its
+headings (scan(), the edition queue's scan units) and RapidOCR's text of a
+Trove article's clue zones (tools/trove_clue_ocr.py's read_text). The desktop
 runs the same code (every tracked file under tools/ but UNSHIPPED, shipped
 once into a directory named by their hash, so a running session's files are
 never overwritten), the same reader models and the same Python, Pillow,
@@ -434,9 +435,22 @@ def _pdf_pages_there(data):
     return fetch_archive_org_editions.pdf_pages(data)
 
 
+def _trove_text_there(data, sizes):
+    """tools/trove_clue_ocr.py's read_text of the zone PNGs `data` holds, one after another, `sizes` long."""
+    import io
+
+    import trove_clue_ocr
+    images, at = [], 0
+    for n in sizes:
+        images.append(io.BytesIO(data[at:at + n]))
+        at += n
+    return trove_clue_ocr.read_here(images), b""
+
+
 #: What call() may run there: name -> f(payload bytes, *args, **kwargs)
 #: giving (a JSON-able result, bytes sent back after it).
-CALLS = {"reconstruct": _reconstruct_there, "pdf_pages": _pdf_pages_there, "scan": _scan_there}
+CALLS = {"reconstruct": _reconstruct_there, "pdf_pages": _pdf_pages_there, "scan": _scan_there,
+         "trove_text": _trove_text_there}
 
 
 def serve(priority="idle"):
