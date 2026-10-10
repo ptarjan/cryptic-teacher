@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,63 @@
     "text": "Paris in tatters: end of mortal coil",
     "enumeration": "6"
    },
-   "solution": "SPIRAL"
+   "solution": "SPIRAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SPIRAL",
+    "definitions": [
+     {
+      "text": "coil",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in tatters",
+      "for": "anagram",
+      "note": "something in tatters is torn apart, so the letters are scattered and reassembled"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paris",
+      "gives": "PARIS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mortal",
+      "gives": "L",
+      "select": "last",
+      "note": "the final letter of mortal"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PARISL",
+       "gives": "SPIRAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grim French scene: Paris in ruins as someone shuffles off this mortal coil.",
+     "walkthrough": "'Mortal coil' borrows Hamlet's phrase for life, tempting a reading about death; coil alone is the definition.",
+     "definitionFit": "A coil is a winding series of loops, the same shape as a spiral."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mortal"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +105,61 @@
     "text": "County part of Wales initially? Yes, not English!",
     "enumeration": "5"
    },
-   "solution": "POWYS"
+   "solution": "POWYS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "POWYS",
+    "definitions": [
+     {
+      "text": "County",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the first letter of each word"
+     },
+     {
+      "text": "not English",
+      "for": "deletion",
+      "note": "not means without, so the abbreviation for English is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of Wales",
+      "gives": "POW",
+      "select": "first",
+      "note": "first letters of part, of and Wales"
+     },
+     {
+      "clueFragment": "Yes",
+      "gives": "YS",
+      "note": "yes without its E"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POW",
+      "YS"
+     ]
+    },
+    "explanation": {
+     "surface": "A query whether a county is part of Wales, answered yes, it isn't English.",
+     "walkthrough": "The surface is literally true: Powys is a large county in mid-Wales.",
+     "definitionFit": "Powys is one of the principal areas of Wales, a county in the middle of the country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +173,46 @@
     "text": "Change back chain",
     "enumeration": "9"
    },
-   "solution": "REARRANGE"
+   "solution": "REARRANGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REARRANGE",
+    "definitions": [
+     {
+      "text": "Change",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "back",
+      "gives": "REAR",
+      "note": "the rear is the back"
+     },
+     {
+      "clueFragment": "chain",
+      "gives": "RANGE",
+      "note": "a range is a chain of mountains"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REAR",
+      "RANGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A request to swap the bicycle chain at the back.",
+     "definitionFit": "To rearrange is to put things in a new order, a way of altering them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chain"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +226,53 @@
     "text": "Smallest number oft departing English port",
     "enumeration": "6"
    },
-   "solution": "LOWEST"
+   "solution": "LOWEST",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LOWEST",
+    "definitions": [
+     {
+      "text": "Smallest number",
+      "at": 0,
+      "note": "adjectival phrase: lowest, as in the lowest number"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "departing",
+      "for": "deletion",
+      "note": "something departing leaves, so those letters are taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English port",
+      "gives": "LOWESTOFT",
+      "note": "Lowestoft is a port in Suffolk, eastern England"
+     },
+     {
+      "clueFragment": "oft",
+      "gives": "OFT",
+      "note": "taken as written, the letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOWEST"
+     ]
+    },
+    "explanation": {
+     "surface": "The fewest ships often departing an English port.",
+     "definitionFit": "Lowest means least in amount or value, as the minimum figure in a list."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "oft"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +286,51 @@
     "text": "Interval: time one's wasted",
     "enumeration": "8"
    },
-   "solution": "SEMITONE"
+   "solution": "SEMITONE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEMITONE",
+    "definitions": [
+     {
+      "text": "Interval",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wasted",
+      "for": "anagram",
+      "note": "wasted means ruined or wrecked, so the letters fall into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time one's",
+      "gives": "TIMEONES",
+      "note": "the letters of these two words, apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TIMEONES",
+       "gives": "SEMITONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint about an interval, such as at the theatre, being a waste of one's time.",
+     "walkthrough": "Interval reads as a break in a show; here it is the musical sense, the gap between two notes.",
+     "definitionFit": "In music a semitone is the smallest interval in Western scales, half a whole tone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Interval"
+    }
+   }
   },
   {
    "number": 5,
@@ -108,7 +350,39 @@
      }
     ]
    },
-   "solution": "SURROGATEMOTHER"
+   "solution": "SURROGATEMOTHER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SURROGATE MOTHER",
+    "definitions": [
+     {
+      "text": "Woman expecting to help another couple?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Woman expecting",
+      "note": "surface: a woman who anticipates being of assistance"
+     },
+     {
+      "clueFragment": "expecting to help another couple",
+      "note": "cryptic: a pregnant woman carrying a baby on behalf of other parents"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Expecting reads as anticipating, but it means pregnant.",
+     "definitionFit": "She carries and delivers a child for a couple who cannot have one themselves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "expecting"
+    }
+   }
   },
   {
    "number": 6,
@@ -122,7 +396,51 @@
     "text": "Simplest novel badly written",
     "enumeration": "8"
    },
-   "solution": "MISSPELT"
+   "solution": "MISSPELT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MISSPELT",
+    "definitions": [
+     {
+      "text": "badly written",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new, so the letters take a fresh arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Simplest",
+      "gives": "SIMPLEST",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SIMPLEST",
+       "gives": "MISSPELT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A judgement on a very simple novel that is poorly written.",
+     "walkthrough": "Novel looks like a book; it is the signal to rearrange.",
+     "definitionFit": "A misspelt word has wrong letters, so it has been written incorrectly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 7,
@@ -136,7 +454,48 @@
     "text": "Principle that may come up just the same?",
     "enumeration": "5"
    },
-   "solution": "TENET"
+   "solution": "TENET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TENET",
+    "definitions": [
+     {
+      "text": "Principle",
+      "at": 0
+     },
+     {
+      "text": "that may come up just the same",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Principle",
+      "note": "first meaning: a firmly held belief"
+     },
+     {
+      "clueFragment": "that may come up just the same",
+      "note": "second meaning, cryptic: a word that reads identically when this down light is read upwards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TENET"
+     ]
+    },
+    "explanation": {
+     "surface": "A principle that might reappear unchanged in debate.",
+     "walkthrough": "In a down entry 'come up' means read from bottom to top; the second half describes a word that is a palindrome.",
+     "definitionFit": "A tenet is a doctrine or belief held as true, which is a guiding principle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 8,
@@ -150,7 +509,50 @@
     "text": "Wild maiden not selected",
     "enumeration": "9"
    },
-   "solution": "NOMINATED"
+   "solution": "NOMINATED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NOMINATED",
+    "definitions": [
+     {
+      "text": "selected",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Wild",
+      "for": "anagram",
+      "note": "wild means out of control, so the letters run riot into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "maiden not",
+      "gives": "MAIDENNOT",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MAIDENNOT",
+       "gives": "NOMINATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wild young woman who was not picked.",
+     "definitionFit": "To be nominated is to be put forward or chosen for a role, so picked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "not"
+    }
+   }
   },
   {
    "number": 9,
@@ -170,7 +572,59 @@
      }
     ]
    },
-   "solution": "SWEARWORDS"
+   "solution": "SWEARWORDS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SWEAR-WORDS",
+    "definitions": [
+     {
+      "text": "those offensive",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another sits inside it, so the first word goes within the second"
+     }
+    ],
+    "linkWords": [
+     "are"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weapons",
+      "gives": "SWORDS",
+      "note": "swords are bladed weapons"
+     },
+     {
+      "clueFragment": "Damage",
+      "gives": "WEAR",
+      "note": "wear is damage caused by use"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WEAR",
+      "WORDS"
+     ]
+    },
+    "explanation": {
+     "surface": "A question whether damaged weapons are the offensive kind.",
+     "walkthrough": "Offensive weapons is a legal phrase, which pulls the reader toward arms; the offence here is to the ear, not the body.",
+     "definitionFit": "Swearwords are the rude, offensive terms of the language, so they are those words that offend."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "offensive"
+    }
+   }
   },
   {
    "number": 10,
@@ -184,7 +638,49 @@
     "text": "Title not applicable with subject of autobiography?",
     "enumeration": "4"
    },
-   "solution": "NAME"
+   "solution": "NAME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NAME",
+    "definitions": [
+     {
+      "text": "Title",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not applicable",
+      "gives": "NA",
+      "note": "N/A is the abbreviation for not applicable"
+     },
+     {
+      "clueFragment": "subject of autobiography",
+      "gives": "ME",
+      "note": "an autobiography is about the writer, me"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NA",
+      "ME"
+     ]
+    },
+    "explanation": {
+     "surface": "A form asks for a title, marked not applicable, alongside notes on an autobiography's subject.",
+     "definitionFit": "A title is what something is called, so it serves as its designation or label."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Title"
+    }
+   }
   },
   {
    "number": 11,
@@ -198,7 +694,64 @@
     "text": "Teas oddly unavailable, push zero for coffee",
     "enumeration": "8"
    },
-   "solution": "ESPRESSO"
+   "solution": "ESPRESSO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ESPRESSO",
+    "definitions": [
+     {
+      "text": "coffee",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly unavailable",
+      "for": "letter_selection",
+      "note": "the odd-numbered letters are not available, so only the even ones remain"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Teas",
+      "gives": "ES",
+      "select": "alternate",
+      "note": "second and fourth letters of Teas"
+     },
+     {
+      "clueFragment": "push",
+      "gives": "PRESS",
+      "note": "to press is to push"
+     },
+     {
+      "clueFragment": "zero",
+      "gives": "O",
+      "note": "O looks like the figure zero"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ES",
+      "PRESS",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A café machine has run out of tea, so you push the zero button for coffee instead.",
+     "definitionFit": "Espresso is a strong Italian coffee made by forcing steam through ground beans."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "push"
+    }
+   }
   },
   {
    "number": 12,
@@ -212,7 +765,55 @@
     "text": "Number boarding vessel, strong",
     "enumeration": "6"
    },
-   "solution": "POTENT"
+   "solution": "POTENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "POTENT",
+    "definitions": [
+     {
+      "text": "strong",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boarding",
+      "for": "container",
+      "note": "a passenger boarding a ship goes inside it, so one piece enters the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vessel",
+      "gives": "POT",
+      "note": "a pot is a cooking vessel"
+     },
+     {
+      "clueFragment": "Number",
+      "gives": "TEN",
+      "note": "ten is a number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "TEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A number of passengers boarding a strong ship.",
+     "walkthrough": "Vessel suggests a ship to board; it is a pot.",
+     "definitionFit": "Potent means powerful or having great force, as a potent drink is a strong one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 13,
@@ -226,7 +827,53 @@
     "text": "Revolution goes quickly backwards",
     "enumeration": "4"
    },
-   "solution": "SPIN"
+   "solution": "SPIN",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SPIN",
+    "definitions": [
+     {
+      "text": "Revolution",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backwards",
+      "for": "reversal",
+      "note": "going backwards means the word is read from its end to its start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "goes quickly",
+      "gives": "NIPS",
+      "note": "to nip is to go somewhere quickly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPIN"
+     ],
+     "reversals": [
+      {
+       "from": "NIPS",
+       "to": "SPIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political revolution that rapidly goes into reverse.",
+     "definitionFit": "A spin is one turn of something rotating, which is a revolution in the mechanical sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Revolution"
+    }
+   }
   },
   {
    "number": 14,
@@ -240,7 +887,59 @@
     "text": "Say something perhaps before carriage empties",
     "enumeration": "9"
    },
-   "solution": "PRONOUNCE"
+   "solution": "PRONOUNCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PRONOUNCE",
+    "definitions": [
+     {
+      "text": "Say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empties",
+      "for": "letter_selection",
+      "note": "emptying a word removes its insides, leaving only the outside letters"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "something perhaps",
+      "gives": "PRONOUN",
+      "note": "something is an example of a part of speech that stands in for a noun"
+     },
+     {
+      "clueFragment": "carriage",
+      "gives": "CE",
+      "select": "outer",
+      "note": "the first and last letters of carriage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRONOUN",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "An announcement made before a train carriage empties.",
+     "walkthrough": "'Perhaps' marks something as one example of the class of words like it, he and it.",
+     "definitionFit": "To pronounce is to utter or declare, and so to say something aloud formally."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "something"
+    }
+   }
   },
   {
    "number": 15,
@@ -254,7 +953,76 @@
     "text": "Imbibing last of alcohol, tea and cola sadly set aside",
     "enumeration": "8"
    },
-   "solution": "ALLOCATE"
+   "solution": "ALLOCATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "anagram"
+    ],
+    "answer": "ALLOCATE",
+    "definitions": [
+     {
+      "text": "set aside",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter"
+     },
+     {
+      "text": "Imbibing",
+      "for": "container",
+      "note": "imbibing means drinking in, so the other letters take this one inside"
+     },
+     {
+      "text": "sadly",
+      "for": "anagram",
+      "note": "sadly suggests things have gone wrong, so the letters end up in a jumbled order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea",
+      "gives": "TEA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "alcohol",
+      "gives": "L",
+      "select": "last",
+      "note": "final letter of alcohol"
+     },
+     {
+      "clueFragment": "cola",
+      "gives": "COLA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEALCOLA",
+       "gives": "ALLOCATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sadly sets aside tea and cola to drink alcohol instead.",
+     "definitionFit": "To allocate is to assign or earmark something for a purpose, which means setting it aside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Imbibing"
+    }
+   }
   },
   {
    "number": 16,
@@ -268,7 +1036,47 @@
     "text": "Copper racket unlikely to break?",
     "enumeration": "9"
    },
-   "solution": "CONSTABLE"
+   "solution": "CONSTABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONSTABLE",
+    "definitions": [
+     {
+      "text": "Copper",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "racket",
+      "gives": "CON",
+      "note": "a con is a swindle or racket"
+     },
+     {
+      "clueFragment": "unlikely to break",
+      "gives": "STABLE",
+      "note": "something stable is steady and secure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "STABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sturdy copper tennis racket that won't snap.",
+     "walkthrough": "Copper is British slang for a police officer.",
+     "definitionFit": "A constable is the lowest-ranked police officer in Britain, a copper in slang."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Copper"
+    }
+   }
   },
   {
    "number": 17,
@@ -282,7 +1090,50 @@
     "text": "Actual ban legit, ludicrously",
     "enumeration": "8"
    },
-   "solution": "TANGIBLE"
+   "solution": "TANGIBLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TANGIBLE",
+    "definitions": [
+     {
+      "text": "Actual",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ludicrously",
+      "for": "anagram",
+      "note": "ludicrously means absurdly, so the letters come out in a crazy order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ban legit",
+      "gives": "BANLEGIT",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BANLEGIT",
+       "gives": "TANGIBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A real ban that is, absurdly, legitimate.",
+     "definitionFit": "Tangible means real enough to touch, so concrete or genuine rather than imagined."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "legit"
+    }
+   }
   },
   {
    "number": 18,
@@ -296,7 +1147,54 @@
     "text": "News reports finished in jail",
     "enumeration": "8"
    },
-   "solution": "COVERAGE"
+   "solution": "COVERAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COVERAGE",
+    "definitions": [
+     {
+      "text": "News reports",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in somewhere means being enclosed by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jail",
+      "gives": "CAGE",
+      "note": "a cage is a place of confinement"
+     },
+     {
+      "clueFragment": "finished",
+      "gives": "OVER",
+      "note": "something over has finished"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OVER",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Headlines report on someone who has finished up in jail.",
+     "definitionFit": "Coverage is the reporting given to an event by the media, the body of news reports about it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "finished"
+    }
+   }
   },
   {
    "number": 19,
@@ -310,7 +1208,46 @@
     "text": "Not one detective gestures in agreement",
     "enumeration": "4"
    },
-   "solution": "NODS"
+   "solution": "NODS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NODS",
+    "definitions": [
+     {
+      "text": "gestures in agreement",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not one",
+      "gives": "NO",
+      "note": "no means not one, as in no people"
+     },
+     {
+      "clueFragment": "detective",
+      "gives": "DS",
+      "note": "DS is a Detective Sergeant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "DS"
+     ]
+    },
+    "explanation": {
+     "surface": "A lone detective who refuses to agree while the others signal assent.",
+     "definitionFit": "Nods are bowings of the head, the common signal of yes or approval."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 20,
@@ -330,7 +1267,54 @@
      }
     ]
    },
-   "solution": "LEANTO"
+   "solution": "LEANTO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LEAN-TO",
+    "definitions": [
+     {
+      "text": "shed",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to collect",
+      "for": "container",
+      "note": "collecting something means taking it in, so one piece holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slow",
+      "gives": "LENTO",
+      "note": "lento is the musical direction for slow"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "A",
+      "NTO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone slow to pick up a garden shed.",
+     "definitionFit": "A lean-to is a simple outbuilding propped against a wall, a type of shed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Slow"
+    }
+   }
   },
   {
    "number": 21,
@@ -344,7 +1328,43 @@
     "text": "Making holes like watching paint dry?",
     "enumeration": "6"
    },
-   "solution": "BORING"
+   "solution": "BORING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BORING",
+    "definitions": [
+     {
+      "text": "Making holes",
+      "at": 0
+     },
+     {
+      "text": "like watching paint dry",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Making holes",
+      "note": "first meaning: drilling into something"
+     },
+     {
+      "clueFragment": "like watching paint dry",
+      "note": "second meaning: tedious, as in the idiom for the dullest pastime"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The decorating surface links drilling and paint, but the two halves are separate senses of one word.",
+     "definitionFit": "The word is the present participle of the verb for drilling and also an adjective meaning dull or tedious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "paint"
+    }
+   }
   },
   {
    "number": 22,
@@ -358,7 +1378,46 @@
     "text": "Hidden pub, 'The Queen'",
     "enumeration": "5"
    },
-   "solution": "INNER"
+   "solution": "INNER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INNER",
+    "definitions": [
+     {
+      "text": "Hidden",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "INN",
+      "note": "an inn is a pub"
+     },
+     {
+      "clueFragment": "The Queen",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina, the Queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INN",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A secret pub named The Queen.",
+     "definitionFit": "Inner means inside or private, so concealed from the outside world."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hidden"
+    }
+   }
   },
   {
    "number": 23,
@@ -372,7 +1431,46 @@
     "text": "Up-end open container",
     "enumeration": "8"
    },
-   "solution": "OVERTURN"
+   "solution": "OVERTURN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERTURN",
+    "definitions": [
+     {
+      "text": "Up-end",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "open",
+      "gives": "OVERT",
+      "note": "overt means open, not concealed"
+     },
+     {
+      "clueFragment": "container",
+      "gives": "URN",
+      "note": "an urn is a container, for ashes or tea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVERT",
+      "URN"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to tip over an open container.",
+     "definitionFit": "To overturn is to turn something upside down, the same as tipping it on its end."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "open"
+    }
+   }
   },
   {
    "number": 24,
@@ -386,7 +1484,44 @@
     "text": "Country in Peru rallying",
     "enumeration": "5"
    },
-   "solution": "RURAL"
+   "solution": "RURAL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RURAL",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0,
+      "note": "adjective here: of the countryside"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in tells the solver the letters lie inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Peru rallying",
+      "gives": "RURAL",
+      "note": "last letters of Peru and the start of rallying"
+     }
+    ],
+    "explanation": {
+     "surface": "A nation in Peru, rallying for a cause.",
+     "walkthrough": "Country looks like a nation next to Peru; it is the adjective, as in country life.",
+     "definitionFit": "Rural describes the countryside rather than the town, as in country living."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Country"
+    }
+   }
   },
   {
    "number": 25,
@@ -400,7 +1535,47 @@
     "text": "A denial requiring translation soon",
     "enumeration": "4"
    },
-   "solution": "ANON"
+   "solution": "ANON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANON",
+    "definitions": [
+     {
+      "text": "soon",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "denial requiring translation",
+      "gives": "NON",
+      "note": "non is French for no, a denial that needs translating"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NON"
+     ]
+    },
+    "explanation": {
+     "surface": "A refusal that has to be translated soon.",
+     "walkthrough": "'Requiring translation' tells the solver the denial is in a foreign language, here French.",
+     "definitionFit": "Anon is an old-fashioned word meaning shortly or in a little while."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "translation"
+    }
+   }
   },
   {
    "number": 26,
@@ -420,7 +1595,43 @@
      }
     ]
    },
-   "solution": "BEHINDBARS"
+   "solution": "BEHINDBARS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BEHIND BARS",
+    "definitions": [
+     {
+      "text": "Where landlord might stand",
+      "at": 0
+     },
+     {
+      "text": "in prison",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where landlord might stand",
+      "note": "first meaning: a pub landlord serves from the far side of the counters"
+     },
+     {
+      "clueFragment": "in prison",
+      "note": "second meaning: locked up, as in a cell"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Landlord here is the British keeper of a pub, not someone who rents out property.",
+     "definitionFit": "The phrase literally places someone at the back of a pub counter and idiomatically means jailed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "landlord"
+    }
+   }
   },
   {
    "number": 27,
@@ -440,7 +1651,50 @@
      }
     ]
    },
-   "solution": "HEARHEAR"
+   "solution": "HEARHEAR",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "HEAR HEAR",
+    "definitions": [
+     {
+      "text": "I agree",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to speak",
+      "for": "homophone",
+      "note": "speaking means saying words out loud, so the sound counts, not the spelling"
+     },
+     {
+      "text": "repeatedly",
+      "for": "charade",
+      "note": "repeatedly means the same piece is used again, placed side by side twice"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at this point",
+      "gives": "HEARHEAR",
+      "soundsLike": "HERE HERE",
+      "note": "here means at this point, said twice"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone agrees, saying it is their turn to speak, and then repeats themselves.",
+     "walkthrough": "The cry is used in Parliament and meetings to back a speaker.",
+     "definitionFit": "The exclamation is a traditional British way of showing approval of what a speaker has just said."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 28,
@@ -454,7 +1708,68 @@
     "text": "Too old really, Labour leader admitted",
     "enumeration": "6"
    },
-   "solution": "OVERLY"
+   "solution": "OVERLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "OVERLY",
+    "definitions": [
+     {
+      "text": "Too",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader comes first, so only the opening letter is kept"
+     },
+     {
+      "text": "admitted",
+      "for": "container",
+      "note": "something admitted is let in, so it goes inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is a standard abbreviation for old"
+     },
+     {
+      "clueFragment": "really",
+      "gives": "VERY",
+      "note": "very and really both intensify"
+     },
+     {
+      "clueFragment": "Labour",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter of Labour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "VER",
+      "L",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that the Labour leader is really too old for the job.",
+     "definitionFit": "Overly means excessively, the same as too in a phrase such as too keen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Labour"
+    }
+   }
   }
  ]
 }
