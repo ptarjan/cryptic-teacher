@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,68 @@
     "text": "Risk of former partner sitting on carriage with temperature dropping",
     "enumeration": "8"
    },
-   "solution": "EXPOSURE"
+   "solution": "EXPOSURE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "EXPOSURE",
+    "definitions": [
+     {
+      "text": "Risk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sitting on",
+      "for": "charade",
+      "note": "in a down entry, sitting on means placed above, so the first piece goes on top of the next"
+     },
+     {
+      "text": "dropping",
+      "for": "deletion",
+      "note": "dropping means letting something fall away, so the temperature symbol is lost from the word"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former partner",
+      "gives": "EX",
+      "note": "an ex is a former spouse or partner"
+     },
+     {
+      "clueFragment": "carriage",
+      "gives": "POSTURE",
+      "note": "carriage is the way one holds the body"
+     },
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "T is the abbreviation for temperature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "POSURE"
+     ]
+    },
+    "explanation": {
+     "surface": "An ex-partner perched on a cold carriage, a risky ride as the temperature falls.",
+     "walkthrough": "'Sitting on' places EX above the rest in this down entry; POSTURE loses its T to give POSURE, making EXPOSURE.",
+     "definitionFit": "Exposure is the state of being open to harm or financial loss, a close synonym of risk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "carriage"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +111,68 @@
     "text": "Adult chum Mike finally gets things like sonar and radar",
     "enumeration": "8"
    },
-   "solution": "ACRONYMS"
+   "solution": "ACRONYMS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ACRONYMS",
+    "definitions": [
+     {
+      "text": "things like sonar and radar",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points at the closing letter of the word that follows it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Adult",
+      "gives": "A",
+      "note": "A is the film-classification abbreviation for adult"
+     },
+     {
+      "clueFragment": "chum",
+      "gives": "CRONY",
+      "note": "a crony is a close friend"
+     },
+     {
+      "clueFragment": "Mike",
+      "gives": "M",
+      "note": "Mike is M in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "gets",
+      "gives": "S",
+      "select": "last",
+      "note": "the last letter of gets"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CRONY",
+      "M",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A grown-up and his mate Mike finally get hold of radar and sonar equipment.",
+     "walkthrough": "SONAR (sound navigation and ranging) and RADAR (radio detection and ranging) are both words formed from initials.",
+     "definitionFit": "Acronyms are words built from initial letters, and sonar and radar are classic examples of the category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Mike"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +186,55 @@
     "text": "Cryptically editing & lit?",
     "enumeration": "7"
    },
-   "solution": "IGNITED"
+   "solution": "IGNITED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IGNITED",
+    "definitions": [
+     {
+      "text": "lit",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cryptically",
+      "for": "anagram",
+      "note": "cryptically suggests the letters are disguised and must be decoded into a different order"
+     }
+    ],
+    "linkWords": [
+     "&"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "editing",
+      "gives": "EDITING",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EDITING",
+       "gives": "IGNITED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A self-referential nod to the crossword term '& lit', as if editing one cryptically.",
+     "walkthrough": "The '& lit' looks like crossword jargon for a clue type, but 'lit' is simply the definition, past tense of light.",
+     "definitionFit": "To ignite something is to set it alight, so something ignited has been lit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lit"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +248,63 @@
     "text": "Cack-handed cowboy Oscar ignored by English",
     "enumeration": "6"
    },
-   "solution": "GAUCHE"
+   "solution": "GAUCHE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "GAUCHE",
+    "definitions": [
+     {
+      "text": "Cack-handed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignored",
+      "for": "deletion",
+      "note": "something ignored is left out, so the letter for Oscar is dropped"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cowboy",
+      "gives": "GAUCHO",
+      "note": "a gaucho is a South American cowboy"
+     },
+     {
+      "clueFragment": "Oscar",
+      "gives": "O",
+      "note": "Oscar is O in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAUCH",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A clumsy cowboy named Oscar gets snubbed by the English.",
+     "walkthrough": "GAUCHO drops its final O and English E takes its place at the end. Cack-handed is British slang for clumsy.",
+     "definitionFit": "Gauche means socially or physically awkward, which matches cack-handed in its sense of clumsy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Oscar"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +318,58 @@
     "text": "Keep quiet about cook's dress that hugs the figure",
     "enumeration": "6"
    },
-   "solution": "SHEATH"
+   "solution": "SHEATH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHEATH",
+    "definitions": [
+     {
+      "text": "dress that hugs the figure",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around something, so one piece wraps the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Keep quiet",
+      "gives": "SH",
+      "note": "sh is the call for silence"
+     },
+     {
+      "clueFragment": "cook",
+      "gives": "HEAT",
+      "note": "to heat food is to cook it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HEAT",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to keep quiet about the cook's clingy dress.",
+     "walkthrough": "'cook's' reads as possessive but is 'cook is', joining wordplay to definition: S(HEAT)H.",
+     "definitionFit": "A sheath dress is a close-fitting, straight-cut garment that follows the body's contours."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cook's"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +383,71 @@
     "text": "Oligarch expert taking time off to become Head of Chambers?",
     "enumeration": "13"
    },
-   "solution": "LEXICOGRAPHER"
+   "solution": "LEXICOGRAPHER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "LEXICOGRAPHER",
+    "definitions": [
+     {
+      "text": "Head of Chambers?",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "deletion",
+      "note": "taking a thing off means removing it, so the time letter disappears"
+     },
+     {
+      "text": "off",
+      "for": "deletion",
+      "note": "off completes the phrase for removal, so the time letter is taken out"
+     },
+     {
+      "text": "become",
+      "for": "anagram",
+      "note": "to become something is to change form, so the remaining letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oligarch expert",
+      "gives": "OLIGARCHEXPERT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OLIGARCHEXPER",
+       "gives": "LEXICOGRAPHER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy oligarch's adviser takes a break to become head of a barristers' chambers.",
+     "walkthrough": "Chambers suggests legal chambers, but it is the Chambers Dictionary, so its head is the dictionary's chief compiler.",
+     "definitionFit": "A lexicographer writes and edits dictionaries, and Chambers is a well-known British dictionary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Chambers"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +461,44 @@
     "text": "Grub that's popular with bikers?",
     "enumeration": "13"
    },
-   "solution": "LEATHERJACKET"
+   "solution": "LEATHERJACKET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEATHERJACKET",
+    "definitions": [
+     {
+      "text": "Grub",
+      "at": 0
+     },
+     {
+      "text": "that's popular with bikers?",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grub",
+      "note": "first meaning: the larva of the crane fly, a garden pest"
+     },
+     {
+      "clueFragment": "that's popular with bikers?",
+      "note": "second meaning: the leather coat that motorcyclists favour"
+     }
+    ],
+    "explanation": {
+     "surface": "Bikers' favourite grub, as if asking what food motorcyclists like.",
+     "walkthrough": "Grub suggests food, but it is an insect larva, which shares its name with a biker's garment.",
+     "definitionFit": "The crane fly larva is called by the same name as the leather coat worn by motorcyclists."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Grub"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +526,70 @@
      }
     ]
    },
-   "solution": "RAGANDBONEMAN"
+   "solution": "RAGANDBONEMAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "RAG-AND-BONE-MAN",
+    "definitions": [
+     {
+      "text": "Totter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off with",
+      "for": "deletion",
+      "note": "off with orders a part to be removed, so one word's letters are taken out of another"
+     },
+     {
+      "text": "designed",
+      "for": "anagram",
+      "note": "something designed is newly made up, so the letters are put into a new pattern"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "OLD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "golden",
+      "gives": "GOLDEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bra Madonna",
+      "gives": "BRAMADONNA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAGANDBONEMAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GENBRAMADONNA",
+       "gives": "RAGANDBONEMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Madonna's famous gold cone bra, now old, is wobbling off a stage.",
+     "walkthrough": "Totter looks like a verb for wobbling; in British slang a totter is a rag-and-bone man, a street collector of scrap and old clothes. GOLDEN minus OLD leaves GEN.",
+     "definitionFit": "Totter is a British slang term for a rag-and-bone man, who collects unwanted household junk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Totter"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +603,61 @@
     "text": "Sailor sent back sticky sweet Italian wine",
     "enumeration": "6"
    },
-   "solution": "BAROLO"
+   "solution": "BAROLO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "BAROLO",
+    "definitions": [
+     {
+      "text": "Italian wine",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sent back",
+      "for": "reversal",
+      "note": "sent back means returned the way it came, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailor",
+      "gives": "AB",
+      "note": "AB, able-bodied seaman, is a sailor"
+     },
+     {
+      "clueFragment": "sticky sweet",
+      "gives": "ROLO",
+      "note": "Rolo is a chewy chocolate-covered caramel sweet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "ROLO"
+     ],
+     "reversals": [
+      {
+       "from": "AB",
+       "to": "BA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor sends back an Italian wine because it tastes too sweet and sticky.",
+     "walkthrough": "'Sticky sweet' looks like a tasting note on the wine, but it is a Rolo, a caramel sweet sold in the UK.",
+     "definitionFit": "Barolo is a celebrated red wine from Piedmont in northern Italy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sweet"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +677,46 @@
      }
     ]
    },
-   "solution": "INCHARGE"
+   "solution": "INCHARGE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "IN CHARGE",
+    "definitions": [
+     {
+      "text": "like a head chef",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Take a slice of",
+      "for": "hidden_word",
+      "note": "a slice is a portion cut from within, so the answer is a run of letters inside the words"
+     }
+    ],
+    "linkWords": [
+     "just"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sirloin, char gently",
+      "gives": "INCHARGE",
+      "note": "the letters run across these three words"
+     }
+    ],
+    "explanation": {
+     "surface": "Cooking instructions: cut some sirloin and char it gently, as a head chef would.",
+     "walkthrough": "The kitchen talk makes 'slice' seem literal, but it signals a run of letters spanning sirloIN CHARGEntly.",
+     "definitionFit": "A head chef runs the kitchen and is therefore the person with authority over it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "slice"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +730,47 @@
     "text": "New film score",
     "enumeration": "3"
    },
-   "solution": "NET"
+   "solution": "NET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NET",
+    "definitions": [
+     {
+      "text": "score",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "film",
+      "gives": "ET",
+      "note": "E.T. is Spielberg's film about an alien"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A new film soundtrack has been composed.",
+     "walkthrough": "Score looks like music for a film, but here it is a verb meaning to gain.",
+     "definitionFit": "To net something is to gain or catch it, as in netting a profit or a goal, a synonym of score."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "score"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +784,51 @@
     "text": "Cold and damp herb the compiler picked up",
     "enumeration": "6"
    },
-   "solution": "RHEUMY"
+   "solution": "RHEUMY",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "RHEUMY",
+    "definitions": [
+     {
+      "text": "Cold and damp",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up",
+      "for": "homophone",
+      "note": "picked up describes what a listener catches by ear, so the spelling follows the sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "herb",
+      "gives": "RHEU",
+      "soundsLike": "RUE",
+      "note": "rue is a bitter herb"
+     },
+     {
+      "clueFragment": "the compiler",
+      "gives": "MY",
+      "soundsLike": "ME",
+      "note": "the setter refers to themself as me"
+     }
+    ],
+    "explanation": {
+     "surface": "A cold, wet herb that the crossword setter gathered.",
+     "walkthrough": "Spoken together, rue and me sound like the answer. Setters often refer to themselves as 'the compiler'.",
+     "definitionFit": "Rheumy describes watery eyes or catarrh, and also weather that is damp and chilly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "picked"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +842,39 @@
     "text": "Might this appear pink when pickled in alcohol?",
     "enumeration": "8"
    },
-   "solution": "ELEPHANT"
+   "solution": "ELEPHANT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ELEPHANT",
+    "definitions": [
+     {
+      "text": "Might this appear pink when pickled in alcohol?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Might this appear pink when pickled in alcohol?",
+      "note": "surface reading: something preserved in spirits that turns pink, like a specimen in a jar"
+     },
+     {
+      "clueFragment": "pickled",
+      "note": "setter's reading: pickled means drunk, and drunks proverbially see pink animals with trunks"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Pickled suggests preserving food in vinegar or spirit, but it means drunk; heavy drinkers are said to see pink ones of this animal.",
+     "definitionFit": "Seeing pink elephants is the classic idiom for drunken hallucination, so a drunk person might see this beast in pink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pickled"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +888,68 @@
     "text": "Friend switched light on leaving motorway",
     "enumeration": "3"
    },
-   "solution": "PAL"
+   "solution": "PAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion"
+    ],
+    "answer": "PAL",
+    "definitions": [
+     {
+      "text": "Friend",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "switched",
+      "for": "reversal",
+      "note": "switched means turned the other way round, so the letters are read backwards"
+     },
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "leaving means departing, so the motorway letter goes out"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "light",
+      "gives": "LAMP",
+      "note": "a lamp is a light"
+     },
+     {
+      "clueFragment": "motorway",
+      "gives": "M",
+      "note": "M as in M1, the British motorway prefix"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAL"
+     ],
+     "reversals": [
+      {
+       "from": "LAMP",
+       "to": "PMAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A friend switched the light on as they left the motorway.",
+     "walkthrough": "'Switched light on' reads as turning on a lamp, but 'switched' turns LAMP backwards and M then drops out.",
+     "definitionFit": "A pal is an informal word for a close companion or mate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "switched"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +969,66 @@
      }
     ]
    },
-   "solution": "DRSEUSS"
+   "solution": "DRSEUSS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "DR SEUSS",
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suffering",
+      "for": "anagram",
+      "note": "suffering suggests being twisted out of shape, so the word's letters are disordered"
+     },
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "beginning to points at the opening letter of the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "duress",
+      "gives": "DURESS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "struggle",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of struggle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRSEUS",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DURESS",
+       "gives": "DRSEUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An author under duress begins to struggle with the work.",
+     "definitionFit": "Dr Seuss was the pen name of Theodor Geisel, the American author of The Cat in the Hat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suffering"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1042,48 @@
     "text": "Container damaged by fire uncovered",
     "enumeration": "3"
    },
-   "solution": "URN"
+   "solution": "URN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "URN",
+    "definitions": [
+     {
+      "text": "Container",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uncovered",
+      "for": "deletion",
+      "note": "uncovered means stripped of its outer layer, so the first and last letters go"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "damaged by fire",
+      "gives": "BURNT",
+      "note": "something damaged by fire is burnt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "URN"
+     ]
+    },
+    "explanation": {
+     "surface": "A container was found damaged by fire, with its lid off.",
+     "walkthrough": "'Uncovered' sounds like an open lid on the container, but it strips the outer letters off BURNT.",
+     "definitionFit": "An urn is a vase or vessel, often used to hold ashes or tea, and so a type of container."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "uncovered"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1097,68 @@
     "text": "Stupid person grabbing head of All Black rugby international",
     "enumeration": "7"
    },
-   "solution": "WALLABY"
+   "solution": "WALLABY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "WALLABY",
+    "definitions": [
+     {
+      "text": "rugby international",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "head of points at the first letter of the word that follows"
+     },
+     {
+      "text": "grabbing",
+      "for": "container",
+      "note": "grabbing means seizing and holding, so one piece is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stupid person",
+      "gives": "WALLY",
+      "note": "wally is British slang for a fool"
+     },
+     {
+      "clueFragment": "All",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of All"
+     },
+     {
+      "clueFragment": "Black",
+      "gives": "B",
+      "note": "B is the pencil-grade abbreviation for black"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WALL",
+      "A",
+      "B",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A fool tackles the leader of the All Blacks, New Zealand's rugby team, in a test match.",
+     "walkthrough": "'All Black' suggests New Zealand's team, but the answer is a player for their Australian rivals. WALL(A B)Y.",
+     "definitionFit": "The Wallabies are Australia's national rugby union team, so each player is a Wallaby."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Black"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1172,62 @@
     "text": "A distressed call describing worst hazardous material",
     "enumeration": "8"
    },
-   "solution": "ASBESTOS"
+   "solution": "ASBESTOS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ASBESTOS",
+    "definitions": [
+     {
+      "text": "hazardous material",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "describing",
+      "for": "container",
+      "note": "describing can mean drawing a line around, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "distressed call",
+      "gives": "SOS",
+      "note": "SOS is the international distress signal"
+     },
+     {
+      "clueFragment": "worst",
+      "gives": "BEST",
+      "note": "to worst someone is to defeat them, as is to best them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "S",
+      "BEST",
+      "OS"
+     ]
+    },
+    "explanation": {
+     "surface": "A panicked call describes the worst hazard in a building.",
+     "walkthrough": "'Worst' reads as an adjective but is the verb meaning defeat, so it gives BEST, wrapped in SOS: A + S(BEST)OS.",
+     "definitionFit": "Asbestos is a fibrous mineral once used for insulation, now known to cause lung disease."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worst"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1241,55 @@
     "text": "Chuckles after admitting that's horrible",
     "enumeration": "8"
    },
-   "solution": "LAUGHTER"
+   "solution": "LAUGHTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LAUGHTER",
+    "definitions": [
+     {
+      "text": "Chuckles",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "admitting means letting in, so one piece is placed inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "after",
+      "gives": "LATER",
+      "note": "later means after"
+     },
+     {
+      "clueFragment": "that's horrible",
+      "gives": "UGH",
+      "note": "ugh is an exclamation of disgust"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "UGH",
+      "TER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone chuckles after confessing that something was awful.",
+     "walkthrough": "'Chuckles' looks like the verb, but it is a plural noun standing for the mass noun answer. LA(UGH)TER.",
+     "definitionFit": "Chuckles are quiet laughs, and laughter is the collective sound of laughing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "after"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1303,48 @@
     "text": "Noted Italian court ruling",
     "enumeration": "7"
    },
-   "solution": "VERDICT"
+   "solution": "VERDICT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VERDICT",
+    "definitions": [
+     {
+      "text": "ruling",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Noted Italian",
+      "gives": "VERDI",
+      "note": "Giuseppe Verdi, the Italian composer, who wrote notes"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VERDI",
+      "CT"
+     ]
+    },
+    "explanation": {
+     "surface": "A famous Italian court hands down its ruling.",
+     "walkthrough": "'Noted' reads as famous, but it also hints at a composer of musical notes.",
+     "definitionFit": "A verdict is the decision a jury or judge reaches in a case, a formal ruling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Noted"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1358,48 @@
     "text": "Playful talk unseemly when mature?",
     "enumeration": "8"
    },
-   "solution": "BADINAGE"
+   "solution": "BADINAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BADINAGE",
+    "definitions": [
+     {
+      "text": "Playful talk",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unseemly",
+      "gives": "BAD",
+      "note": "unseemly behaviour is bad"
+     },
+     {
+      "clueFragment": "when mature",
+      "gives": "INAGE",
+      "note": "in age means when grown old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAD",
+      "INAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Is playful chat unbecoming once one is grown up?",
+     "walkthrough": "The answer splits as BAD IN AGE, reading the question 'unseemly when mature?' literally.",
+     "definitionFit": "Badinage is light-hearted, witty banter exchanged between people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "mature"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1413,60 @@
     "text": "Sign for me, leaving opening letters blank",
     "enumeration": "6"
    },
-   "solution": "IGNORE"
+   "solution": "IGNORE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "IGNORE",
+    "definitions": [
+     {
+      "text": "blank",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving opening letters",
+      "for": "deletion",
+      "note": "leaving opening letters says the first letter of each word departs"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sign",
+      "gives": "SIGN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "for",
+      "gives": "FOR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IGN",
+      "OR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A request to sign a document on someone's behalf, leaving the initials empty.",
+     "walkthrough": "'Blank' looks like an empty space for a signature, but it is the verb meaning to snub.",
+     "definitionFit": "To blank someone is to snub them or pretend not to see them, which is to ignore them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "blank"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1480,54 @@
     "text": "Reluctant European states taking the lead",
     "enumeration": "6"
    },
-   "solution": "AVERSE"
+   "solution": "AVERSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AVERSE",
+    "definitions": [
+     {
+      "text": "Reluctant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking the lead",
+      "for": "charade",
+      "note": "taking the lead means going in front, so the verb comes before the abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "states",
+      "gives": "AVERS",
+      "note": "to aver is to state firmly"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVERS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Hesitant European nations let someone else lead.",
+     "walkthrough": "'States' looks like nations, but it is a verb meaning declares, which goes in front.",
+     "definitionFit": "Averse means opposed or disinclined, close in sense to reluctant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "states"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1541,62 @@
     "text": "Stream live boxing over 15",
     "enumeration": "6"
    },
-   "solution": "BOURNE"
+   "solution": "BOURNE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BOURNE",
+    "definitions": [
+     {
+      "text": "Stream",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boxing",
+      "for": "container",
+      "note": "boxing means putting in a box, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "live",
+      "gives": "BE",
+      "note": "to be is to live or exist"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scorecard abbreviation for an over"
+     },
+     {
+      "clueFragment": "15",
+      "gives": "URN",
+      "note": "the answer to 15-down"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "O",
+      "URN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A live stream of a boxing bout that went over fifteen rounds.",
+     "walkthrough": "'Stream' and 'live' suggest broadcasting, but a bourne is a small brook. B(O URN)E.",
+     "definitionFit": "A bourne, or burn, is a small stream, especially one that flows only in winter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "live"
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1610,43 @@
     "text": "Port or whiskey?",
     "enumeration": "3"
    },
-   "solution": "RYE"
+   "solution": "RYE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RYE",
+    "definitions": [
+     {
+      "text": "Port",
+      "at": 0
+     },
+     {
+      "text": "whiskey",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Port",
+      "note": "first meaning: a historic harbour town in East Sussex, England"
+     },
+     {
+      "clueFragment": "whiskey",
+      "note": "second meaning: a whiskey distilled mainly from this grain"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Port looks like the fortified wine, offered as a drink beside whiskey, but it is a Cinque Port town.",
+     "definitionFit": "The town is one of the old Cinque Ports, and the grain gives its name to an American style of whiskey."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Port"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1660,54 @@
     "text": "Person with a number one southern family patriarch?",
     "enumeration": "8"
    },
-   "solution": "SKINHEAD"
+   "solution": "SKINHEAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SKINHEAD",
+    "definitions": [
+     {
+      "text": "Person with a number one",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "southern",
+      "gives": "S",
+      "note": "S is the abbreviation for southern"
+     },
+     {
+      "clueFragment": "family",
+      "gives": "KIN",
+      "note": "kin are one's relatives"
+     },
+     {
+      "clueFragment": "patriarch",
+      "gives": "HEAD",
+      "note": "a patriarch is the head of a family"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "KIN",
+      "HEAD"
+     ]
+    },
+    "explanation": {
+     "surface": "The patriarch of a southern family is asked if he is its number one.",
+     "walkthrough": "A number one is the shortest clipper setting, giving an almost shaved head.",
+     "definitionFit": "Skinheads are known for very closely cropped hair, typically a number one cut."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1721,59 @@
     "text": "Plan succeeded – woman's undergarment is stolen",
     "enumeration": "6"
    },
-   "solution": "SCHEME"
+   "solution": "SCHEME",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SCHEME",
+    "definitions": [
+     {
+      "text": "Plan",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stolen",
+      "for": "deletion",
+      "note": "something stolen is taken away, so those two letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "succeeded",
+      "gives": "S",
+      "note": "S is the abbreviation for succeeded, as in family trees"
+     },
+     {
+      "clueFragment": "woman's undergarment",
+      "gives": "CHEMISE",
+      "note": "a chemise is a woman's loose shift worn under clothes"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CHEME"
+     ]
+    },
+    "explanation": {
+     "surface": "A plan worked: a woman's underwear has been stolen.",
+     "definitionFit": "A scheme is a systematic plan or arrangement for achieving something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "is"
+    }
+   }
   },
   {
    "number": 27,
@@ -437,7 +1787,51 @@
     "text": "Cor! Hen parties when squiffy like a dance!",
     "enumeration": "13"
    },
-   "solution": "TERPSICHOREAN"
+   "solution": "TERPSICHOREAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TERPSICHOREAN",
+    "definitions": [
+     {
+      "text": "like a dance",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when squiffy",
+      "for": "anagram",
+      "note": "squiffy means slightly drunk, and tipsy letters stagger out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cor! Hen parties",
+      "gives": "CORHENPARTIES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CORHENPARTIES",
+       "gives": "TERPSICHOREAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tipsy hen parties (pre-wedding nights out) break into dance.",
+     "walkthrough": "Terpsichore was the Muse of dance in Greek mythology.",
+     "definitionFit": "Terpsichorean means relating to dancing, from Terpsichore, the Greek Muse of dance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "squiffy"
+    }
+   }
   }
  ]
 }
