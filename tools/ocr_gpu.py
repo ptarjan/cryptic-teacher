@@ -44,19 +44,19 @@ sys.path.insert(0, str(TOOLS))
 import ocr_remote
 
 #: The desktop's directory (ocr_remote.HOME); OCR_GPU_HOME in tests.
-HOME = Path(os.environ.get("OCR_GPU_HOME") or ocr_remote.HOME)
-GPU_DIR = HOME / "gpu"
+DESKTOP = Path(os.environ.get("OCR_GPU_HOME") or ocr_remote.HOME)
+GPU_DIR = DESKTOP / "gpu"
 #: Present: no session asks the server (the CPU engine reads everything).
-OFF = HOME / "gpu-off"
+OFF = DESKTOP / "gpu-off"
 #: {"until", "why"}: no session starts the server before `until`.
-HOLD = HOME / "gpu-hold.json"
+HOLD = DESKTOP / "gpu-hold.json"
 HOLD_SECONDS = 600
 #: Touched by the session that starts the server: no other starts one within START_EVERY.
-STARTED = HOME / "gpu-start.stamp"
+STARTED = DESKTOP / "gpu-start.stamp"
 START_EVERY = 60
-LOG = HOME / "gpu.log"
+LOG = DESKTOP / "gpu.log"
 #: Each session's engine calls ({"gpu", "cpu", "busy", "absent", "gpu_cpu_s", "cpu_cpu_s"}), by pid.
-STATS = HOME / "gpu-stats"
+STATS = DESKTOP / "gpu-stats"
 STATS_EVERY = 5
 PORT = 47311
 #: VRAM kept free for the VLM and the desktop, and what the server's engines take.
