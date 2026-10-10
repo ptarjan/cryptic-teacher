@@ -651,19 +651,41 @@ def whole_reads(lts, letters, allowed, printed, numbered, glyphs, models):
     (`letters`) and `allowed` there. A heavy print's letters are rarely each
     read surely, yet its lights are read whole. A `numbered` cell ({cell:
     number}, a grid printing them) left open must have a letter model and
-    match it best (the number makes a D a B: DROWN read as BROWN). Each
-    settled letter counts in its crossing lights, until none settles."""
+    match it best (the number makes a D a B: DROWN read as BROWN), or a
+    crossing light's every read that is an answer() of 4+ letters agreeing
+    with `letters` must give it that letter: the word, not the glyph, is
+    the evidence, so a crossing read of the same spoilt glyph as no word
+    says nothing. Each settled letter counts in its crossing lights, until
+    none settles."""
     letters, out = dict(letters), {}
+    through = {}
+    for key, cells in lts.items():
+        for rc in cells:
+            through.setdefault(rc, []).append(key)
+
+    def agree(key, w):
+        return all(letters.get(rc, ch) == ch and ch in allowed.get(rc, ()) for rc, ch in zip(lts[key], w))
+
+    def words(key):
+        return {w for w in printed.get(key, ()) if len(w) >= 4 and w.lower() in _WORDS and agree(key, w)}
+
+    whole = {}
+
+    def crossed(key, rc, ch):
+        for k in through[rc]:
+            if k not in whole:
+                whole[k] = {w for w in printed.get(k, ()) if len(w) >= 4 and answer(w, printed[k])}
+        return any({w[lts[k].index(rc)] for w in whole[k] if agree(k, w)} == {ch} for k in through[rc] if k != key)
+
     settled = True
     while settled:
         settled = False
         for key, cells in lts.items():
             if all(rc in letters for rc in cells):
                 continue
-            fit = {w for w in printed.get(key, ()) if len(w) >= 4 and w.lower() in _WORDS
-                   and all(letters.get(rc, ch) == ch and ch in allowed.get(rc, ()) for rc, ch in zip(cells, w))
-                   and all(ch in models and best_match(glyphs[rc], models, numbered[rc], ch)
-                           for rc, ch in zip(cells, w) if rc in numbered and rc not in letters)}
+            fit = {w for w in words(key)
+                   if all(ch in models and best_match(glyphs[rc], models, numbered[rc], ch) or crossed(key, rc, ch)
+                          for rc, ch in zip(cells, w) if rc in numbered and rc not in letters)}
             if len(fit) == 1:
                 w = fit.pop()
                 for rc, ch in zip(cells, w):
