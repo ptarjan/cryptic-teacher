@@ -457,6 +457,9 @@ fa._STALE_VERSION[:] = ["other code"]
 fa.load_stale(lr)
 check("verdicts saved under other code are not loaded", not fa._STALE)
 fa._STALE_VERSION.clear()
+empty = tempfile.mkdtemp()
+fa.load_done(empty)
+check("a root with no verdicts leaves no cache file", not fa.stale_cache_path(empty).exists())
 # A plan in a fresh process (a re-exec'd dispatcher, empty _MEMO and _STALE)
 # opens no edition's gzip: they sit on a slow disk, one per done edition.
 for x in ("djvu.xml.gz", "pagetext.json.gz"):

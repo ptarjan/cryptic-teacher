@@ -597,11 +597,15 @@ def load_stale(out):
 
 def save_stale(out, dirs):
     """Write _STALE's verdicts of the edition `dirs` for the next process,
-    atomically; each dir and key once in the file, however many share it."""
+    atomically; each dir and key once in the file, however many share it.
+    With none there is nothing to keep, and no file is left (a test's
+    empty root)."""
     same = {}
     one = lambda x: same.setdefault(x, x)
     keep = {d: ([one(x) for x in hit[0]], [one(k) for k in hit[1]], hit[2])
             for d in dirs if (hit := _STALE.get(d))}
+    if not keep:
+        return
     path = stale_cache_path(out)
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_name(f"{path.name}.{os.getpid()}.part")
@@ -648,7 +652,7 @@ def load_done(out):
                     saved = time.monotonic()
             if not hit[2]:
                 done.add((item, name))
-    if changed or not stale_cache_path(out).exists():
+    if changed:
         save_stale(out, dirs)
     return done
 
