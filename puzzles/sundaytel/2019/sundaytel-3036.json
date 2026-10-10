@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,49 @@
     "text": "Flashing light set or not, beep occurring intermittently",
     "enumeration": "6"
    },
-   "solution": "STROBE"
+   "solution": "STROBE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "STROBE",
+    "definitions": [
+     {
+      "text": "Flashing light",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occurring intermittently",
+      "for": "letter_selection",
+      "note": "something that happens intermittently comes and goes, so only every other letter of the words before it counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "set or not, beep",
+      "gives": "STROBE",
+      "select": "alternate",
+      "note": "the first, third, fifth letters and so on of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STROBE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes a flashing light, whether or not it is switched on, with a beep that sounds now and again.",
+     "walkthrough": "The odd-numbered letters of 'set or not beep' spell STROBE; the punctuation is only there for the surface.",
+     "definitionFit": "A strobe is a lamp that emits rapid bright pulses, the kind of flashing lamp used in clubs and photography."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "intermittently"
+    }
+   }
   },
   {
    "number": 1,
@@ -56,7 +101,54 @@
      }
     ]
    },
-   "solution": "STEPONIT"
+   "solution": "STEPONIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STEP ON IT",
+    "definitions": [
+     {
+      "text": "move!",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "jiggled about",
+      "for": "anagram",
+      "note": "things jiggled about are shaken around, so the letters land in a new order"
+     }
+    ],
+    "linkWords": [
+     "When"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pin set to",
+      "gives": "PINSETTO",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PINSETTO",
+       "gives": "STEPONIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bowling pin, once wobbled, is ready to fall over.",
+     "walkthrough": "'Pin set to move' reads like instructions for a machine; the letters of 'pin set to' make the urging phrase.",
+     "definitionFit": "'Step on it!' is an idiom urging someone to hurry, like 'Get a move on!'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "pin"
+    }
+   }
   },
   {
    "number": 2,
@@ -70,7 +162,43 @@
     "text": "Wobbly old picture",
     "enumeration": "5"
    },
-   "solution": "ROCKY"
+   "solution": "ROCKY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROCKY",
+    "definitions": [
+     {
+      "text": "Wobbly",
+      "at": 0
+     },
+     {
+      "text": "old picture",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wobbly",
+      "note": "first meaning: unsteady, liable to totter"
+     },
+     {
+      "clueFragment": "old picture",
+      "note": "second meaning: the 1976 boxing film starring Sylvester Stallone"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Picture' is the old word for a film, and this one is the famous boxing movie.",
+     "definitionFit": "Rocky is both an adjective for something unsteady and the title of a classic 1970s motion picture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "picture"
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +212,39 @@
     "text": "Baker's mistake?",
     "enumeration": "7"
    },
-   "solution": "BLOOMER"
+   "solution": "BLOOMER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BLOOMER",
+    "definitions": [
+     {
+      "text": "Baker's mistake?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Baker's mistake?",
+      "note": "surface reading: an error made by someone baking bread"
+     },
+     {
+      "clueFragment": "Baker's mistake?",
+      "note": "setter's reading: one word that is both a crusty loaf a baker makes and a slang word for a blunder"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags that the word for the error is also a kind of loaf.",
+     "definitionFit": "In British usage a bloomer is a large crusty loaf and also an embarrassing blunder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mistake"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +258,53 @@
     "text": "Paper supply on time",
     "enumeration": "6"
    },
-   "solution": "TISSUE"
+   "solution": "TISSUE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TISSUE",
+    "definitions": [
+     {
+      "text": "Paper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "one thing put on another is added to it, so the supply word is tacked on after the time letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     },
+     {
+      "clueFragment": "supply",
+      "gives": "ISSUE",
+      "note": "to issue is to supply or hand out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ISSUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A notice about paper stock arriving on schedule.",
+     "definitionFit": "Tissue is a thin soft paper, used for wrapping or for blowing your nose."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "supply"
+    }
+   }
   },
   {
    "number": 5,
@@ -118,7 +324,55 @@
      }
     ]
    },
-   "solution": "INSHORT"
+   "solution": "INSHORT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IN SHORT",
+    "definitions": [
+     {
+      "text": "Briefly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "captured",
+      "for": "container",
+      "note": "something captured is held inside its captor, so this letter goes within the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "visible through lens",
+      "gives": "INSHOT",
+      "note": "anything framed by a camera lens is 'in shot'"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the standard abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INSHO",
+      "R",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A photographer briefly spots a river through the lens and snaps it.",
+     "walkthrough": "'Briefly' looks like an abbreviation signal but is the definition.",
+     "definitionFit": "'In short' is an idiom meaning to sum up concisely, so it equals 'briefly'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Briefly"
+    }
+   }
   },
   {
    "number": 6,
@@ -138,7 +392,63 @@
      }
     ]
    },
-   "solution": "STEELDRUM"
+   "solution": "STEELDRUM",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "STEEL DRUM",
+    "definitions": [
+     {
+      "text": "one of those beaten",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fed",
+      "for": "container",
+      "note": "an animal that is fed takes something into it, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Horse",
+      "gives": "STEED",
+      "note": "a steed is a literary word for a horse"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     },
+     {
+      "clueFragment": "alcoholic drink",
+      "gives": "RUM",
+      "note": "rum is a spirit made from sugar cane"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEE",
+      "L",
+      "D",
+      "RUM"
+     ]
+    },
+    "explanation": {
+     "surface": "A horse is given a big boozy drink, and ends up among the losers.",
+     "walkthrough": "'Those beaten' sounds like losers in a race, but it means instruments that are struck.",
+     "definitionFit": "A steel drum is a Caribbean percussion instrument played by striking it with sticks, so it is one of those things beaten."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "beaten"
+    }
+   }
   },
   {
    "number": 7,
@@ -152,7 +462,43 @@
     "text": "Six out of nine go, I stay – one considers no one else",
     "enumeration": "6"
    },
-   "solution": "EGOIST"
+   "solution": "EGOIST",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EGOIST",
+    "definitions": [
+     {
+      "text": "one considers no one else",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Six out of",
+      "for": "hidden_word",
+      "note": "six letters taken out of a longer run of words, left in their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nine go, I stay",
+      "gives": "EGOIST",
+      "note": "six letters running across these words"
+     }
+    ],
+    "explanation": {
+     "surface": "Of nine people, some leave and I remain, thinking only of myself.",
+     "walkthrough": "'Six out of nine' reads like a count of people; it really says six letters come from 'nine go I stay'.",
+     "definitionFit": "An egoist is a self-centred person who puts their own interests before everybody else's."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Six"
+    }
+   }
   },
   {
    "number": 8,
@@ -172,7 +518,73 @@
      }
     ]
    },
-   "solution": "TEACLOTH"
+   "solution": "TEACLOTH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TEA CLOTH",
+    "definitions": [
+     {
+      "text": "drier",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shut in",
+      "for": "container",
+      "note": "a thing shut in is enclosed inside something else, so one piece goes within another"
+     },
+     {
+      "text": "spinning",
+      "for": "anagram",
+      "note": "spinning sends things whirling round, so the letters of the word it describes get jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "TEH",
+      "note": "the letters of the word 'the', spun into a new order"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fool",
+      "gives": "CLOT",
+      "note": "a clot is a British informal word for an idiot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "ACLOT",
+      "H"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THE",
+       "gives": "TEH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone foolish has been locked inside a tumble drier as it spins.",
+     "walkthrough": "'Spinning drier' suggests a tumble drier, but the definition is a humbler drier: A CLOT goes inside a jumbled THE to make TEA CLOTH.",
+     "definitionFit": "A tea cloth is a towel used for drying washed dishes, so it serves as a drier in the kitchen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spinning"
+    }
+   }
   },
   {
    "number": 9,
@@ -196,7 +608,53 @@
      }
     ]
    },
-   "solution": "HARDANDFAST"
+   "solution": "HARDANDFAST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HARD AND FAST",
+    "definitions": [
+     {
+      "text": "Fixed",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as nails",
+      "gives": "HARD",
+      "note": "'hard as nails' is a common simile, so nails suggest the word for tough"
+     },
+     {
+      "clueFragment": "too",
+      "gives": "AND",
+      "note": "too means also, which is what 'and' adds"
+     },
+     {
+      "clueFragment": "Quickly",
+      "gives": "FAST",
+      "note": "fast means quickly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HARD",
+      "AND",
+      "FAST"
+     ]
+    },
+    "explanation": {
+     "surface": "Something nailed down, and done in a hurry as well.",
+     "walkthrough": "'Hard as nails' is a familiar British simile for tough; the clue's question mark warns that nails only hint at the word.",
+     "definitionFit": "Hard and fast describes rules that are fixed and cannot be altered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nails"
+    }
+   }
   },
   {
    "number": 10,
@@ -216,7 +674,45 @@
      }
     ]
    },
-   "solution": "SEEYOU"
+   "solution": "SEEYOU",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SEE YOU",
+    "definitions": [
+     {
+      "text": "farewell",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said",
+      "for": "homophone",
+      "note": "said means spoken out loud, so we want what the symbol sounds like when voiced"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Copper symbolically",
+      "gives": "SEEYOU",
+      "soundsLike": "CU",
+      "note": "Cu is the chemical symbol for copper; spoken letter by letter it is the answer"
+     }
+    ],
+    "explanation": {
+     "surface": "A police officer said goodbye in some symbolic way.",
+     "walkthrough": "'Copper' looks like a policeman, but it is the metal, whose chemical symbol Cu, read out as two letters, is the parting phrase.",
+     "definitionFit": "'See you' is an everyday parting remark, so it works as a farewell."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Copper"
+    }
+   }
   },
   {
    "number": 11,
@@ -230,7 +726,64 @@
     "text": "Politician: choice of extremes for Trotsky?",
     "enumeration": "4"
    },
-   "solution": "TORY"
+   "solution": "TORY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TORY",
+    "definitions": [
+     {
+      "text": "Politician",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremes",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two end letters, its very first and very last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trotsky",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening extreme of the revolutionary's name"
+     },
+     {
+      "clueFragment": "choice",
+      "gives": "OR",
+      "note": "'or' is the word that offers a choice between two things"
+     },
+     {
+      "clueFragment": "Trotsky",
+      "gives": "Y",
+      "select": "last",
+      "note": "the closing extreme of the revolutionary's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OR",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering whether a Communist like Trotsky would ever choose a political extreme.",
+     "walkthrough": "The extremes of Trotsky are T and Y, and offering a choice between them gives 'T or Y'. Tory is the everyday name for a member of Britain's Conservative Party.",
+     "definitionFit": "A Tory is a Conservative politician in Britain, the opposite pole from Trotsky's Marxism."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "extremes"
+    }
+   }
   },
   {
    "number": 12,
@@ -254,7 +807,66 @@
      }
     ]
    },
-   "solution": "MOREORLESS"
+   "solution": "MOREORLESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "MORE OR LESS",
+    "definitions": [
+     {
+      "text": "about",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter only of the word before it"
+     },
+     {
+      "text": "shifted",
+      "for": "anagram",
+      "note": "letters that are shifted have been moved about into a different order"
+     }
+    ],
+    "linkWords": [
+     "getting involved"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Superstar",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of the word"
+     },
+     {
+      "clueFragment": "some roles",
+      "gives": "SOMEROLES",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RSOMEROLES",
+       "gives": "MOREORLESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A star joins a production and the cast list gets rearranged.",
+     "walkthrough": "The last letter of Superstar joins the letters of 'some roles' and the whole lot is rearranged. 'About' is the definition at the very end, not part of the shifting.",
+     "definitionFit": "'About' meaning approximately is a synonym for 'more or less', as in 'about ten people came'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 13,
@@ -274,7 +886,56 @@
      }
     ]
    },
-   "solution": "PITTERPATTER"
+   "solution": "PITTERPATTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PITTER-PATTER",
+    "definitions": [
+     {
+      "text": "series of minor knocks",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "PM",
+      "gives": "PITT",
+      "note": "William Pitt, father and son, were both British Prime Ministers"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is the standard abbreviation for the Queen"
+     },
+     {
+      "clueFragment": "talk",
+      "gives": "PATTER",
+      "note": "patter is glib, rapid talk, like a salesman's"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PITT",
+      "ER",
+      "PATTER"
+     ]
+    },
+    "explanation": {
+     "surface": "The Prime Minister and the Queen have their weekly chat.",
+     "walkthrough": "PM stands for Prime Minister; Pitt the Younger is the crossword's favourite.",
+     "definitionFit": "Pitter-patter is the sound of rapid light tapping, such as raindrops or small feet, a run of gentle knocks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "knocks"
+    }
+   }
   },
   {
    "number": 14,
@@ -288,7 +949,61 @@
     "text": "Player saw red, one wearing bronze",
     "enumeration": "9"
    },
-   "solution": "TRAGEDIAN"
+   "solution": "TRAGEDIAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TRAGEDIAN",
+    "definitions": [
+     {
+      "text": "Player",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "something being worn is wrapped round the wearer, so these pieces sit inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bronze",
+      "gives": "TAN",
+      "note": "a tan is a bronzed skin colour"
+     },
+     {
+      "clueFragment": "saw red",
+      "gives": "RAGED",
+      "note": "to see red is to become furious"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RAGEDI",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A sports player lost his temper while a bronze medallist looked on.",
+     "walkthrough": "'Player' suggests sport, but it is the old theatrical word for an actor.",
+     "definitionFit": "A tragedian is an actor who specialises in tragic roles, and a player is an old word for actor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Player"
+    }
+   }
   },
   {
    "number": 15,
@@ -302,7 +1017,70 @@
     "text": "Mythical hero being cool in rising water",
     "enumeration": "8"
    },
-   "solution": "ACHILLES"
+   "solution": "ACHILLES",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ACHILLES",
+    "definitions": [
+     {
+      "text": "Mythical hero",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down clue, rising means read from the bottom upward, so the word runs backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it, so these letters go within"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "water",
+      "gives": "SEA",
+      "note": "the sea is a body of water"
+     },
+     {
+      "clueFragment": "cool",
+      "gives": "CHILL",
+      "note": "to chill is to cool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CHILL",
+      "ES"
+     ],
+     "reversals": [
+      {
+       "from": "SEA",
+       "to": "AES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A legendary warrior keeps calm as the water level climbs.",
+     "walkthrough": "Achilles fittingly had a link to water: his mother dipped him in the River Styx.",
+     "definitionFit": "Achilles is the Greek warrior of Homer's Iliad, a hero of legend."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cool"
+    }
+   }
   },
   {
    "number": 16,
@@ -316,7 +1094,53 @@
     "text": "Secondary aim to revise properties of flying objects",
     "enumeration": "12"
    },
-   "solution": "AERODYNAMICS"
+   "solution": "AERODYNAMICS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AERODYNAMICS",
+    "definitions": [
+     {
+      "text": "properties of flying objects",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revise",
+      "for": "anagram",
+      "note": "to revise something is to rework it, so these letters are reworked into a new order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Secondary aim",
+      "gives": "SECONDARYAIM",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SECONDARYAIM",
+       "gives": "AERODYNAMICS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A planner decides to revisit a lesser goal.",
+     "definitionFit": "Aerodynamics is the study of how air moves around a body, which governs how aircraft and other flying things behave."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revise"
+    }
+   }
   },
   {
    "number": 17,
@@ -330,7 +1154,62 @@
     "text": "Solitary type referring to sign welcoming son",
     "enumeration": "7"
    },
-   "solution": "RECLUSE"
+   "solution": "RECLUSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RECLUSE",
+    "definitions": [
+     {
+      "text": "Solitary type",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "to welcome someone is to take them in, so a letter goes inside the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "referring to",
+      "gives": "RE",
+      "note": "re is a short word meaning concerning or about"
+     },
+     {
+      "clueFragment": "sign",
+      "gives": "CLUE",
+      "note": "a clue is a sign pointing towards something"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the standard abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "CLU",
+      "S",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A loner mentions a sign that welcomes his son home.",
+     "walkthrough": "The irony is that a hermit is welcoming anybody at all.",
+     "definitionFit": "A recluse is someone who lives alone and avoids company, a solitary sort of person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sign"
+    }
+   }
   },
   {
    "number": 18,
@@ -344,7 +1223,59 @@
     "text": "Normal insect dropping head on flower",
     "enumeration": "7"
    },
-   "solution": "NATURAL"
+   "solution": "NATURAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "NATURAL",
+    "definitions": [
+     {
+      "text": "Normal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropping head",
+      "for": "deletion",
+      "note": "a word dropping its head loses its first letter"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "insect",
+      "gives": "GNAT",
+      "note": "a gnat is a small biting fly"
+     },
+     {
+      "clueFragment": "flower",
+      "gives": "URAL",
+      "note": "a flower in crosswords is a river, something that flows; the Ural runs through Russia and Kazakhstan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAT",
+      "URAL"
+     ]
+    },
+    "explanation": {
+     "surface": "An everyday sight: an insect swooping down onto a bloom.",
+     "walkthrough": "'Flower' looks like a bloom but is read as 'flow-er', a river. In a down clue, 'on' puts the first part above the second.",
+     "definitionFit": "Natural means normal, in keeping with the ordinary course of things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flower"
+    }
+   }
   },
   {
    "number": 19,
@@ -358,7 +1289,60 @@
     "text": "Down perhaps, reckon needing holiday finally",
     "enumeration": "6"
    },
-   "solution": "COUNTY"
+   "solution": "COUNTY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "COUNTY",
+    "definitions": [
+     {
+      "text": "Down perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter only of the word before it"
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reckon",
+      "gives": "COUNT",
+      "note": "to count is to reckon up"
+     },
+     {
+      "clueFragment": "holiday",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COUNT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone feeling down reckons they need a holiday.",
+     "walkthrough": "'Down' looks like low mood, but it is County Down in Northern Ireland; 'perhaps' marks it as an example.",
+     "definitionFit": "Down is one of the six counties of Northern Ireland, so it is an example of a county."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Down"
+    }
+   }
   },
   {
    "number": 20,
@@ -372,7 +1356,61 @@
     "text": "Roman Catholic in small boat off the Sussex coast? Speedy vessel",
     "enumeration": "10"
    },
-   "solution": "HOVERCRAFT"
+   "solution": "HOVERCRAFT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HOVERCRAFT",
+    "definitions": [
+     {
+      "text": "Speedy vessel",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it, so these letters go into the middle of the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Sussex coast",
+      "gives": "HOVE",
+      "note": "Hove is a seaside town on the Sussex coast in southern England, next to Brighton"
+     },
+     {
+      "clueFragment": "small boat",
+      "gives": "RAFT",
+      "note": "a raft is a simple flat boat"
+     },
+     {
+      "clueFragment": "Roman Catholic",
+      "gives": "RC",
+      "note": "RC is the standard abbreviation for Roman Catholic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOVE",
+      "RC",
+      "RAFT"
+     ]
+    },
+    "explanation": {
+     "surface": "A Catholic bobbing about in a little boat just off the south coast of England.",
+     "walkthrough": "Hovercraft once ran across the Channel from the Sussex and Kent coast, so the place name fits the scene as well as the wordplay.",
+     "definitionFit": "A hovercraft travels fast on a cushion of air over water or land, a quick kind of vessel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 21,
@@ -386,7 +1424,45 @@
     "text": "Servant forced to dictate?",
     "enumeration": "4"
    },
-   "solution": "MAID"
+   "solution": "MAID",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MAID",
+    "definitions": [
+     {
+      "text": "Servant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to dictate",
+      "for": "homophone",
+      "note": "dictating is speaking words for someone to write down, so we want the spoken form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "forced",
+      "gives": "MAID",
+      "soundsLike": "MADE",
+      "note": "to be forced is to be made to do something; spoken, the word matches a domestic worker"
+     }
+    ],
+    "explanation": {
+     "surface": "A servant compelled to take orders, or perhaps to give them.",
+     "walkthrough": "'Dictate' hints at bossing someone about, but here it means saying words out loud.",
+     "definitionFit": "A maid is a female domestic servant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dictate"
+    }
+   }
   },
   {
    "number": 21,
@@ -400,7 +1476,44 @@
     "text": "So-called fundamental state",
     "enumeration": "5"
    },
-   "solution": "MAINE"
+   "solution": "MAINE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MAINE",
+    "definitions": [
+     {
+      "text": "state",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "So-called",
+      "for": "homophone",
+      "note": "so-called points to what a thing is called, a word as people speak it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fundamental",
+      "gives": "MAINE",
+      "soundsLike": "MAIN",
+      "note": "main means chief or fundamental"
+     }
+    ],
+    "explanation": {
+     "surface": "A political commentator describes a principle as basic to the nation.",
+     "walkthrough": "'State' looks like a verb or a condition, but it is a US state.",
+     "definitionFit": "Maine is the northeasternmost state of the USA."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 22,
@@ -420,7 +1533,50 @@
      }
     ]
    },
-   "solution": "INSITU"
+   "solution": "INSITU",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IN SITU",
+    "definitions": [
+     {
+      "text": "correctly installed",
+      "at": 12
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "something new is made afresh, so the letters following are made into a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unit is",
+      "gives": "UNITIS",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UNITIS",
+       "gives": "INSITU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fitter confirms that a new unit has been put in properly.",
+     "definitionFit": "In situ is Latin for 'in position', describing something fitted in its proper or original place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "New"
+    }
+   }
   },
   {
    "number": 23,
@@ -434,7 +1590,56 @@
     "text": "Wrong and bad, a Spanish dish",
     "enumeration": "8"
    },
-   "solution": "TORTILLA"
+   "solution": "TORTILLA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TORTILLA",
+    "definitions": [
+     {
+      "text": "Spanish dish",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wrong",
+      "gives": "TORT",
+      "note": "a tort is a civil wrong in law"
+     },
+     {
+      "clueFragment": "bad",
+      "gives": "ILL",
+      "note": "ill means bad, as in ill effects"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TORT",
+      "ILL",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A diner's verdict: a Spanish dish that is just plain wrong and nasty.",
+     "walkthrough": "TORT is the legal term for a wrong done to someone that is not a crime.",
+     "definitionFit": "A Spanish tortilla is a thick omelette with potato, a classic dish of Spain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Wrong"
+    }
+   }
   },
   {
    "number": 24,
@@ -448,7 +1653,49 @@
     "text": "Twenty to eleven – confirmed the later showing ends there",
     "enumeration": "6"
    },
-   "solution": "YONDER"
+   "solution": "YONDER",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "YONDER",
+    "definitions": [
+     {
+      "text": "there",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "showing ends",
+      "for": "letter_selection",
+      "note": "words showing their ends offer only their final letters to the solver"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Twenty to eleven – confirmed the later",
+      "gives": "YONDER",
+      "select": "last",
+      "note": "the final letter of each of these six words in turn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YONDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A cinema-goer confirms that the later screening starts at twenty to eleven.",
+     "walkthrough": "The time and the screening are all fodder: take the last letter of each word from Twenty through later.",
+     "definitionFit": "Yonder is an old-fashioned word for over there, at a distance within sight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "showing"
+    }
+   }
   },
   {
    "number": 25,
@@ -462,7 +1709,52 @@
     "text": "Tool sellers dropping drink at the front",
     "enumeration": "6"
    },
-   "solution": "PLIERS"
+   "solution": "PLIERS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PLIERS",
+    "definitions": [
+     {
+      "text": "Tool",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropping",
+      "for": "deletion",
+      "note": "dropping something means letting it go, so these letters are taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sellers",
+      "gives": "SUPPLIERS",
+      "note": "suppliers are those who sell goods to others"
+     },
+     {
+      "clueFragment": "drink at the front",
+      "gives": "SUP",
+      "note": "to sup is to drink, and these are the opening letters to lose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLIERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Hardware sellers spill drinks at the front of the shop.",
+     "definitionFit": "Pliers are a gripping hand tool with pincer jaws."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drink"
+    }
+   }
   }
  ]
 }
