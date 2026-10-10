@@ -37,6 +37,9 @@
   "date": "2022-01-16",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -50,7 +53,62 @@
     "text": "Publisher is certainly half confused",
     "enumeration": "6"
    },
-   "solution": "ISSUER"
+   "solution": "ISSUER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ISSUER",
+    "definitions": [
+     {
+      "text": "Publisher",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half confused",
+      "for": "anagram",
+      "note": "only half of the word for certainty is muddled, so just its second pair of letters swaps order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "certainly",
+      "gives": "SURE",
+      "note": "sure! is an affirmation meaning certainly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "SU",
+      "ER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RE",
+       "gives": "ER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A publisher admits to being somewhat muddled.",
+     "walkthrough": "SURE stays half intact: SU keeps its place while RE becomes ER, giving IS + SU + ER.",
+     "definitionFit": "An issuer is one who puts out or publishes something, such as stamps, shares or books."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "half"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +122,65 @@
     "text": "Grievance involving head of shop offering exchange, as before",
     "enumeration": "6"
    },
-   "solution": "SCORSE"
+   "solution": "SCORSE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "SCORSE",
+    "definitions": [
+     {
+      "text": "exchange, as before",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "involving means wrapping round, so the grievance word holds the letter"
+     },
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "head of points to the first letter of the following word"
+     }
+    ],
+    "linkWords": [
+     "offering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grievance",
+      "gives": "SCORE",
+      "note": "a score is a grudge or grievance, as in settling a score"
+     },
+     {
+      "clueFragment": "shop",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of shop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCOR",
+      "S",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint about the shop manager offering exchanges as he used to.",
+     "walkthrough": "The shop's first letter goes just before the final letter of the grievance word. 'as before' marks the definition as archaic.",
+     "definitionFit": "Scorse is an obsolete word for barter or exchange, found in Spenser."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Grievance"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +194,45 @@
     "text": "Predicted what gardener would need picked up?",
     "enumeration": "5"
    },
-   "solution": "SPAED"
+   "solution": "SPAED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SPAED",
+    "definitions": [
+     {
+      "text": "Predicted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up",
+      "for": "homophone",
+      "note": "picked up means heard, so the word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what gardener would need",
+      "gives": "SPAED",
+      "soundsLike": "SPADE",
+      "note": "a gardener needs a spade for digging"
+     }
+    ],
+    "explanation": {
+     "surface": "A forecast of the tool a gardener would need to lift something.",
+     "walkthrough": "Picked up looks like lifting a tool; it is the sound signal. Spae is a Scots word meaning to foretell.",
+     "definitionFit": "To spae is Scots for to prophesy, so spaed means foretold or predicted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "picked"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +246,59 @@
     "text": "Get rid of nuisance finally with old-fashioned V-sign?",
     "enumeration": "5"
    },
-   "solution": "EGEST"
+   "solution": "EGEST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EGEST",
+    "definitions": [
+     {
+      "text": "Get rid of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of the preceding word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nuisance",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of nuisance"
+     },
+     {
+      "clueFragment": "old-fashioned V-sign?",
+      "gives": "GEST",
+      "note": "gest is an archaic word for gesture, and a V-sign is one example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "GEST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sends off a nuisance with a rude two-fingered gesture.",
+     "walkthrough": "A V-sign is a rude British hand gesture; the question mark flags it as one example of a gesture.",
+     "definitionFit": "To egest is to discharge or expel waste from the body, a formal way of getting rid of something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "V-sign"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +312,53 @@
     "text": "Like a bird lying down but not quietly",
     "enumeration": "8"
    },
-   "solution": "ROSTRATE"
+   "solution": "ROSTRATE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ROSTRATE",
+    "definitions": [
+     {
+      "text": "Like a bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but not",
+      "for": "deletion",
+      "note": "but not means except, so the musical soft sign is left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lying down",
+      "gives": "PROSTRATE",
+      "note": "prostrate means lying flat"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p is piano, the musical direction for quietly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROSTRATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Something resembles a bird resting on the ground, but not quietly.",
+     "walkthrough": "Remove P from the front of PROSTRATE.",
+     "definitionFit": "Rostrate means having a beak (rostrum), so it describes being like a bird in that respect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "quietly"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +372,63 @@
     "text": "Put foot down at home, confronting relation without hesitation",
     "enumeration": "6"
    },
-   "solution": "INSIST"
+   "solution": "INSIST",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "INSIST",
+    "definitions": [
+     {
+      "text": "Put foot down",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so the hesitation sound is taken away from the relative"
+     }
+    ],
+    "linkWords": [
+     "confronting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "in means at home"
+     },
+     {
+      "clueFragment": "relation",
+      "gives": "SISTER",
+      "note": "a sister is a relation"
+     },
+     {
+      "clueFragment": "hesitation",
+      "gives": "ER",
+      "note": "er is the sound of hesitation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "SIST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is firm at home when faced with a relative, without dithering.",
+     "walkthrough": "Confronting here just means standing in front of, so the home word comes first.",
+     "definitionFit": "To put your foot down is the idiom for taking a firm stand, which is what you do when you insist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hesitation"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +442,63 @@
     "text": "Knight needing help hugging a female in the water?",
     "enumeration": "5"
    },
-   "solution": "NAIAD"
+   "solution": "NAIAD",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "NAIAD",
+    "definitions": [
+     {
+      "text": "female in the water?",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hugging",
+      "for": "container",
+      "note": "hugging means holding inside, so the help word wraps around the a"
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Knight",
+      "gives": "N",
+      "note": "N is the chess notation for knight"
+     },
+     {
+      "clueFragment": "help",
+      "gives": "AID",
+      "note": "aid means help"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "AIAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A knight comes to rescue a woman in the water.",
+     "walkthrough": "A sits inside AID after its first two letters, then N goes in front: N + AI(A)D.",
+     "definitionFit": "A naiad is a water nymph of Greek myth, a female spirit living in rivers and springs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Knight"
+    }
+   }
   },
   {
    "number": 8,
@@ -154,7 +518,64 @@
      }
     ]
    },
-   "solution": "STARTRAP"
+   "solution": "STARTRAP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "STAR TRAP",
+    "definitions": [
+     {
+      "text": "theatrical device",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversal of",
+      "for": "reversal",
+      "note": "reversal of states plainly that the next word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "as a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Top actor",
+      "gives": "STAR",
+      "note": "a star is a leading actor"
+     },
+     {
+      "clueFragment": "role",
+      "gives": "PART",
+      "note": "a part is a role"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR",
+      "TRAP"
+     ],
+     "reversals": [
+      {
+       "from": "PART",
+       "to": "TRAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A leading actor swaps roles, as a theatrical gimmick.",
+     "definitionFit": "A star trap is a stage trapdoor made of hinged segments, used to shoot an actor up onto the stage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reversal"
+    }
+   }
   },
   {
    "number": 9,
@@ -174,7 +595,58 @@
      }
     ]
    },
-   "solution": "SELLIN"
+   "solution": "SELLIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SELL-IN",
+    "definitions": [
+     {
+      "text": "trade event",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "laid out",
+      "for": "anagram",
+      "note": "laid out means arranged, so these letters are set out in a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fifty",
+      "gives": "L",
+      "note": "L is the Roman numeral for fifty"
+     },
+     {
+      "clueFragment": "lines",
+      "gives": "LINES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LLINES",
+       "gives": "SELLIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fifty lines of text are set out for a trade show.",
+     "definitionFit": "A sell-in is the selling of goods to retailers, typically at a promotional trade launch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lines"
+    }
+   }
   },
   {
    "number": 10,
@@ -188,7 +660,51 @@
     "text": "More than one person on the box lets a secret out",
     "enumeration": "11"
    },
-   "solution": "TELECASTERS"
+   "solution": "TELECASTERS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TELECASTERS",
+    "definitions": [
+     {
+      "text": "More than one person on the box",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out suggests something disordered, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lets a secret",
+      "gives": "LETSASECRET",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LETSASECRET",
+       "gives": "TELECASTERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A television personality blurts out a secret.",
+     "walkthrough": "Lets a secret out reads as a phrase for leaking; out alone is the anagram signal. The box is slang for television.",
+     "definitionFit": "Telecasters are broadcasters on television, people who appear on the box."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 11,
@@ -202,7 +718,51 @@
     "text": "Bawdy oaf for playing in an experimental theatre?",
     "enumeration": "11"
    },
-   "solution": "OFFBROADWAY"
+   "solution": "OFFBROADWAY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OFF-BROADWAY",
+    "definitions": [
+     {
+      "text": "in an experimental theatre?",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing means fooling about, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bawdy oaf for",
+      "gives": "BAWDYOAFFOR",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BAWDYOAFFOR",
+       "gives": "OFFBROADWAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rude lout performing on a fringe stage.",
+     "walkthrough": "Playing looks like acting a part but signals the anagram. Broadway is New York's main theatre district.",
+     "definitionFit": "Off-Broadway describes smaller, often experimental New York theatres away from the main commercial district."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 12,
@@ -216,7 +776,52 @@
     "text": "Peer at a dog spraying big erect plant",
     "enumeration": "10"
    },
-   "solution": "PAGODATREE"
+   "solution": "PAGODATREE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PAGODA TREE",
+    "definitions": [
+     {
+      "text": "big erect plant",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spraying",
+      "for": "anagram",
+      "note": "spraying scatters things about, so these letters are scattered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Peer at a dog",
+      "gives": "PEERATADOG",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PEERATADOG",
+       "gives": "PAGODATREE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone looks at a dog relieving itself against a large upright plant.",
+     "walkthrough": "The dog spraying a tree is the picture; spraying is really the anagram signal.",
+     "definitionFit": "The pagoda tree is a large Asian tree of the pea family, so a big upright plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "spraying"
+    }
+   }
   },
   {
    "number": 13,
@@ -230,7 +835,58 @@
     "text": "Horse and duck in Cornish river",
     "enumeration": "4"
    },
-   "solution": "FOAL"
+   "solution": "FOAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FOAL",
+    "definitions": [
+     {
+      "text": "Horse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the duck inside the river's name"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cornish river",
+      "gives": "FAL",
+      "note": "the Fal is a river in Cornwall, in south-west England"
+     },
+     {
+      "clueFragment": "duck",
+      "gives": "O",
+      "note": "a duck is a score of nought in cricket, so O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "O",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A horse and a duck seen on a river in Cornwall.",
+     "walkthrough": "The duck sits inside the river: FA(O)L.",
+     "definitionFit": "A foal is a young horse, so the general word serves as a definition by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 14,
@@ -244,7 +900,70 @@
     "text": "Observation of failure retrospectively limiting one",
     "enumeration": "6"
    },
-   "solution": "ESPIAL"
+   "solution": "ESPIAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ESPIAL",
+    "definitions": [
+     {
+      "text": "Observation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retrospectively",
+      "for": "reversal",
+      "note": "retrospectively means looking back, so the word for failure is read from its end"
+     },
+     {
+      "text": "limiting",
+      "for": "container",
+      "note": "limiting means bounding, so the failure word encloses the one"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "failure",
+      "gives": "LAPSE",
+      "note": "a lapse is a failure"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESP",
+      "I",
+      "AL"
+     ],
+     "reversals": [
+      {
+       "from": "LAIPSE",
+       "to": "ESPIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A report on a failure looked back on that restricts one person.",
+     "walkthrough": "Observation looks like a remark; here it is the act of watching.",
+     "definitionFit": "Espial is an old word for the act of spying or noticing, that is observation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "limiting"
+    }
+   }
   },
   {
    "number": 15,
@@ -258,7 +977,49 @@
     "text": "Most indecent female has sudden fit of stubbornness",
     "enumeration": "6"
    },
-   "solution": "FREEST"
+   "solution": "FREEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FREEST",
+    "definitions": [
+     {
+      "text": "Most indecent",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "sudden fit of stubbornness",
+      "gives": "REEST",
+      "note": "reest (Scots) is a sudden balking, a fit of stubbornness, as of a horse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "REEST"
+     ]
+    },
+    "explanation": {
+     "surface": "A very rude woman suddenly turns obstinate.",
+     "walkthrough": "REEST is a Scots word found in Chambers, the Mephisto's dictionary.",
+     "definitionFit": "Free can mean unrestrained in speech or conduct, close to risqué, so freest is the superlative of indecent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -272,7 +1033,54 @@
     "text": "Maybe misrepresent the French, following fashion",
     "enumeration": "6"
    },
-   "solution": "GARBLE"
+   "solution": "GARBLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GARBLE",
+    "definitions": [
+     {
+      "text": "Maybe misrepresent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so the French article is placed after the fashion word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fashion",
+      "gives": "GARB",
+      "note": "garb is fashion or style of dress"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GARB",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Perhaps someone gets the French wrong when talking about fashion.",
+     "walkthrough": "'Maybe' marks the definition as one example: to garble is one way to misrepresent.",
+     "definitionFit": "To garble is to distort or mix up a message, which can misrepresent what was said."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fashion"
+    }
+   }
   },
   {
    "number": 17,
@@ -286,7 +1094,43 @@
     "text": "Watery edge that would have stone for butterfly",
     "enumeration": "4"
    },
-   "solution": "BRIM"
+   "solution": "BRIM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BRIM",
+    "definitions": [
+     {
+      "text": "Watery edge",
+      "at": 0
+     },
+     {
+      "text": "that would have stone for butterfly",
+      "at": 12,
+      "note": "describes a word which, with stone added, names a butterfly"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Watery edge",
+      "note": "first meaning: the edge of a body of water"
+     },
+     {
+      "clueFragment": "that would have stone for butterfly",
+      "note": "second meaning: the word that, given stone after it, names a yellow butterfly"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The brimstone is a pale yellow butterfly; add STONE to the answer and you have it.",
+     "definitionFit": "The brim is the edge or margin of a river or pool, and it is the first part of the butterfly brimstone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stone"
+    }
+   }
   },
   {
    "number": 18,
@@ -300,7 +1144,57 @@
     "text": "Industrial processors in plant had nasty pong to start with",
     "enumeration": "8"
    },
-   "solution": "SMELTERS"
+   "solution": "SMELTERS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SMELTERS",
+    "definitions": [
+     {
+      "text": "Industrial processors",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to start with",
+      "for": "charade",
+      "note": "to start with puts the bad-smell word at the front, ahead of the plant"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "had nasty pong",
+      "gives": "SMELT",
+      "note": "smelt is a past tense of smell"
+     },
+     {
+      "clueFragment": "plant",
+      "gives": "ERS",
+      "note": "ers is the bitter vetch, a plant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SMELT",
+      "ERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Workers in a factory had a nasty smell to begin with.",
+     "walkthrough": "Plant looks like a factory; it is ERS, the bitter vetch, a crossword regular.",
+     "definitionFit": "Smelters extract metal from ore by heating, so they are industrial processors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 19,
@@ -314,7 +1208,63 @@
     "text": "Plot needs arsenic dissolved — nothing more",
     "enumeration": "8"
    },
-   "solution": "SCENARIO"
+   "solution": "SCENARIO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SCENARIO",
+    "definitions": [
+     {
+      "text": "Plot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dissolved",
+      "for": "anagram",
+      "note": "something dissolved loses its form, so these letters reform in a new order"
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arsenic",
+      "gives": "ARSENIC",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nothing more",
+      "gives": "O",
+      "note": "nothing is O, and more says it is added"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCENARI",
+      "O"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARSENIC",
+       "gives": "SCENARI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A murder plot requires arsenic dissolved in a drink, and nothing else.",
+     "definitionFit": "A scenario is the outline of a story or film, its plot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Plot"
+    }
+   }
   },
   {
    "number": 20,
@@ -328,7 +1278,59 @@
     "text": "Lots of pieces of paper are put in order — handwritten stuff",
     "enumeration": "5"
    },
-   "solution": "REAMS"
+   "solution": "REAMS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "REAMS",
+    "definitions": [
+     {
+      "text": "Lots of pieces of paper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put in order",
+      "for": "anagram",
+      "note": "putting in order rearranges things, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "are",
+      "gives": "ARE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "handwritten stuff",
+      "gives": "MS",
+      "note": "MS is the abbreviation for manuscript, something written by hand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REA",
+      "MS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARE",
+       "gives": "REA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Many sheets of handwritten paper are being sorted.",
+     "definitionFit": "A ream is a quantity of paper, about 500 sheets, and reams means a great deal of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -342,7 +1344,47 @@
     "text": "One of the old-style war missiles heartlessly lined up",
     "enumeration": "4"
    },
-   "solution": "AROW"
+   "solution": "AROW",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AROW",
+    "definitions": [
+     {
+      "text": "lined up",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartlessly",
+      "for": "deletion",
+      "note": "heartlessly means without a heart, so the middle letter is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One of the old-style war missiles",
+      "gives": "ARROW",
+      "note": "arrows were missiles of old warfare"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AROW"
+     ]
+    },
+    "explanation": {
+     "surface": "An antique weapon of war heartlessly arranged in a line.",
+     "walkthrough": "The middle R of ARROW goes.",
+     "definitionFit": "Arow is an old word meaning in a row, so lined up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -356,7 +1398,49 @@
     "text": "A sort of ridge for mites",
     "enumeration": "7"
    },
-   "solution": "ACARINA"
+   "solution": "ACARINA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACARINA",
+    "definitions": [
+     {
+      "text": "mites",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sort of ridge",
+      "gives": "CARINA",
+      "note": "a carina is a keel-shaped ridge, as on a bird's breastbone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CARINA"
+     ]
+    },
+    "explanation": {
+     "surface": "A kind of ridge suitable for tiny creatures.",
+     "definitionFit": "Acarina is the zoological order containing mites and ticks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ridge"
+    }
+   }
   },
   {
    "number": 23,
@@ -370,7 +1454,56 @@
     "text": "Sheath-like form with ring at front",
     "enumeration": "7"
    },
-   "solution": "OCREATE"
+   "solution": "OCREATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OCREATE",
+    "definitions": [
+     {
+      "text": "Sheath-like",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at front",
+      "for": "charade",
+      "note": "at front says the ring is placed before the other part"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "O is ring-shaped"
+     },
+     {
+      "clueFragment": "form",
+      "gives": "CREATE",
+      "note": "to form is to create"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "CREATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sheath-shaped object is made with a ring fitted at the front.",
+     "definitionFit": "Ocreate is a botanical term for having an ocrea, a sheath around a stem, so sheath-like."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "form"
+    }
+   }
   },
   {
    "number": 24,
@@ -384,7 +1517,48 @@
     "text": "Theatrical turns restricted, cut short",
     "enumeration": "6"
    },
-   "solution": "CHAINE"
+   "solution": "CHAINE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CHAINE",
+    "definitions": [
+     {
+      "text": "Theatrical turns",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut short",
+      "for": "deletion",
+      "note": "cut short means docked at the end, so the last letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "restricted",
+      "gives": "CHAINED",
+      "note": "chained means restricted"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAINE"
+     ]
+    },
+    "explanation": {
+     "surface": "Stage performances limited and shortened.",
+     "walkthrough": "Turns looks like acts in a variety show; it is ballet turns.",
+     "definitionFit": "Chaîné is a ballet term for a series of quick turns along a line, a theatrical dance move."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turns"
+    }
+   }
   },
   {
    "number": 25,
@@ -398,7 +1572,48 @@
     "text": "Presses down to make an impression, first to last",
     "enumeration": "5"
    },
-   "solution": "TAMPS"
+   "solution": "TAMPS",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "TAMPS",
+    "definitions": [
+     {
+      "text": "Presses down",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first to last",
+      "for": "substitution",
+      "note": "first to last tells you to move the opening letter to the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "make an impression",
+      "gives": "STAMP",
+      "note": "to stamp is to make an impression"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAMP",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone presses down hard to leave a mark.",
+     "walkthrough": "The S of STAMP moves to the back.",
+     "definitionFit": "To tamp is to pack something down firmly, as with tobacco in a pipe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -412,7 +1627,67 @@
     "text": "OAPs regathered outside commercial hotel abroad",
     "enumeration": "6"
    },
-   "solution": "POSADA"
+   "solution": "POSADA",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "POSADA",
+    "definitions": [
+     {
+      "text": "hotel abroad",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regathered",
+      "for": "anagram",
+      "note": "regathered means collected again in a fresh arrangement"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside means placed around, so the pensioners surround the commercial"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "OAPs",
+      "gives": "OAPS",
+      "note": "OAPs are old-age pensioners"
+     },
+     {
+      "clueFragment": "commercial",
+      "gives": "AD",
+      "note": "an ad is a commercial"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POS",
+      "AD",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OAPS",
+       "gives": "POSA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pensioners gather again outside a business hotel on holiday.",
+     "walkthrough": "The commercial goes inside the shuffled pensioners, after their third letter.",
+     "definitionFit": "A posada is an inn or hotel in Spanish-speaking countries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "commercial"
+    }
+   }
   },
   {
    "number": 27,
@@ -426,7 +1701,41 @@
     "text": "Old-fashioned colour not entirely distinctive",
     "enumeration": "5"
    },
-   "solution": "TINCT"
+   "solution": "TINCT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TINCT",
+    "definitions": [
+     {
+      "text": "Old-fashioned colour",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not entirely",
+      "for": "hidden_word",
+      "note": "not entirely means only part of the next word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "distinctive",
+      "gives": "TINCT",
+      "note": "letters three to seven of distinctive"
+     }
+    ],
+    "explanation": {
+     "surface": "A dated shade that is only partly distinctive.",
+     "definitionFit": "Tinct is an archaic word for a tint or colour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -440,7 +1749,46 @@
     "text": "Pronounce holy bishop \"inferior\"",
     "enumeration": "5"
    },
-   "solution": "BLESS"
+   "solution": "BLESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLESS",
+    "definitions": [
+     {
+      "text": "Pronounce holy",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess notation for bishop"
+     },
+     {
+      "clueFragment": "inferior",
+      "gives": "LESS",
+      "note": "less means inferior or lower in rank"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A bishop is declared holy, though he is quoted as inferior.",
+     "definitionFit": "To bless is to consecrate, declaring something holy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bishop"
+    }
+   }
   },
   {
    "number": 29,
@@ -454,7 +1802,48 @@
     "text": "Tricked one with old coins",
     "enumeration": "5"
    },
-   "solution": "SOLDI"
+   "solution": "SOLDI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOLDI",
+    "definitions": [
+     {
+      "text": "old coins",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tricked",
+      "gives": "SOLD",
+      "note": "to be sold a pup is to be tricked"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOLD",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cheated a person using antique money.",
+     "definitionFit": "Soldi is the plural of soldo, an old Italian coin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 30,
@@ -468,7 +1857,50 @@
     "text": "Pet bird given restraint",
     "enumeration": "6"
    },
-   "solution": "DAWTIE"
+   "solution": "DAWTIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DAWTIE",
+    "definitions": [
+     {
+      "text": "Pet",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bird",
+      "gives": "DAW",
+      "note": "daw is a jackdaw"
+     },
+     {
+      "clueFragment": "restraint",
+      "gives": "TIE",
+      "note": "a tie is a restraint"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAW",
+      "TIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pet bird is put on a tether.",
+     "walkthrough": "Pet looks like it describes the bird, but it is the definition.",
+     "definitionFit": "Dawtie is a Scots word for a darling or favourite, someone treated as a pet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pet"
+    }
+   }
   },
   {
    "number": 31,
@@ -482,7 +1914,73 @@
     "text": "Sugar in lemonade's bad, putting off men somehow",
     "enumeration": "6"
    },
-   "solution": "ALDOSE"
+   "solution": "ALDOSE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ALDOSE",
+    "definitions": [
+     {
+      "text": "Sugar",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "putting off",
+      "for": "deletion",
+      "note": "putting off means sending away, so some letters are removed from the drink"
+     },
+     {
+      "text": "somehow",
+      "for": "deletion",
+      "note": "somehow warns that the removed letters are not together but scattered through the word"
+     },
+     {
+      "text": "bad",
+      "for": "anagram",
+      "note": "bad suggests something gone wrong, so the remaining letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lemonade's",
+      "gives": "LEMONADES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "MEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALDOSE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOADES",
+       "gives": "ALDOSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sugar in the lemonade has gone off, discouraging the men somehow.",
+     "walkthrough": "Take M, E and N out of LEMONADES to leave LOADES, then rearrange.",
+     "definitionFit": "An aldose is a monosaccharide containing an aldehyde group, such as glucose, so a kind of sugar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "putting"
+    }
+   }
   },
   {
    "number": 32,
@@ -496,7 +1994,46 @@
     "text": "Term of office — time to practise once",
     "enumeration": "6"
    },
-   "solution": "TENURE"
+   "solution": "TENURE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TENURE",
+    "definitions": [
+     {
+      "text": "Term of office",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "to practise once",
+      "gives": "ENURE",
+      "note": "enure is an old spelling of inure, to accustom by practice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ENURE"
+     ]
+    },
+    "explanation": {
+     "surface": "A term of office was once a period for practice.",
+     "walkthrough": "'once' marks ENURE as archaic.",
+     "definitionFit": "Tenure is the period during which someone holds a post or office."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 33,
@@ -510,7 +2047,43 @@
     "text": "Chemical spray on the wing",
     "enumeration": "4"
    },
-   "solution": "ALAR"
+   "solution": "ALAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ALAR",
+    "definitions": [
+     {
+      "text": "Chemical spray",
+      "at": 0
+     },
+     {
+      "text": "on the wing",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chemical spray",
+      "note": "first meaning: a trade name for a growth regulator once sprayed on apples"
+     },
+     {
+      "clueFragment": "on the wing",
+      "note": "second meaning: relating to wings"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "On the wing suggests flight, but here it simply means of the wing.",
+     "definitionFit": "Alar is both the brand name of a plant-growth chemical and an adjective meaning relating to wings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wing"
+    }
+   }
   },
   {
    "number": 34,
@@ -524,7 +2097,51 @@
     "text": "Sedan chair broken, no longer in good order?",
     "enumeration": "10"
    },
-   "solution": "ANARCHISED"
+   "solution": "ANARCHISED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANARCHISED",
+    "definitions": [
+     {
+      "text": "no longer in good order?",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken falls apart, so the letters are reassembled differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sedan chair",
+      "gives": "SEDANCHAIR",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEDANCHAIR",
+       "gives": "ANARCHISED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A broken sedan chair is no longer in working order.",
+     "walkthrough": "The question mark flags a definition by description: the broken chair has been made chaotic too.",
+     "definitionFit": "Anarchised means reduced to anarchy, lawless disorder, so no longer orderly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "broken"
+    }
+   }
   },
   {
    "number": 35,
@@ -538,7 +2155,55 @@
     "text": "Turbulent couple of years involving China etc?",
     "enumeration": "6"
    },
-   "solution": "YEASTY"
+   "solution": "YEASTY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "YEASTY",
+    "definitions": [
+     {
+      "text": "Turbulent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "involving means taking in, so the pair of letters wraps around the region"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "couple of years",
+      "gives": "YY",
+      "note": "Y is the abbreviation for year, so two of them"
+     },
+     {
+      "clueFragment": "China etc?",
+      "gives": "EAST",
+      "note": "China and its neighbours are in the East; the question mark flags definition by example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "EAST",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A troubled two years in Chinese affairs.",
+     "walkthrough": "EAST sits between the two Ys: Y(EAST)Y.",
+     "definitionFit": "Yeasty means frothing like fermenting yeast, hence restless or turbulent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 36,
@@ -552,7 +2217,47 @@
     "text": "Legendary Gaelic poet or knight",
     "enumeration": "6"
    },
-   "solution": "OSSIAN"
+   "solution": "OSSIAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OSSIAN",
+    "definitions": [
+     {
+      "text": "Legendary Gaelic poet",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "or",
+      "gives": "OSSIA",
+      "note": "ossia is the Italian musical term for or, marking an alternative passage"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "N",
+      "note": "N is the chess notation for knight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OSSIA",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A legendary figure is described as either a Gaelic poet or a knight.",
+     "walkthrough": "'or' looks like a link offering a choice, but it is the Italian musical term OSSIA.",
+     "definitionFit": "Ossian is the legendary Irish and Scottish bard, son of Finn, made famous by Macpherson's poems."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "or"
+    }
+   }
   }
  ]
 }
