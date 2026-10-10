@@ -23,6 +23,9 @@
   "date": "2023-08-28",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,68 @@
     "text": "Child with blanket nursing cold beginning to take cough medicine",
     "enumeration": "7"
    },
-   "solution": "LINCTUS"
+   "solution": "LINCTUS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LINCTUS",
+    "definitions": [
+     {
+      "text": "cough medicine",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nursing",
+      "for": "container",
+      "note": "to nurse is to hold close, so the child's name wraps around what follows"
+     },
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Child with blanket",
+      "gives": "LINUS",
+      "note": "Linus is the Peanuts boy who always carries his security blanket"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the tap abbreviation for cold"
+     },
+     {
+      "clueFragment": "take",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of take"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIN",
+      "C",
+      "T",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A child clutching a blanket and suffering a cold is starting on some cough mixture.",
+     "walkthrough": "C and T together sit inside LINUS; 'beginning to' takes just the first letter of 'take'.",
+     "definitionFit": "A linctus is a thick syrupy medicine taken to soothe a cough."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "blanket"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +114,52 @@
     "text": "The French paper that is socialist",
     "enumeration": "6"
    },
-   "solution": "LEFTIE"
+   "solution": "LEFTIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEFTIE",
+    "definitions": [
+     {
+      "text": "socialist",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The French",
+      "gives": "LE",
+      "note": "le is French for the"
+     },
+     {
+      "clueFragment": "paper",
+      "gives": "FT",
+      "note": "the FT is the Financial Times newspaper"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "FT",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "A French newspaper described as socialist.",
+     "definitionFit": "A leftie is an informal term for someone holding left-wing political views."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "paper"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +173,58 @@
     "text": "Feed Canton, having grub to go around",
     "enumeration": "7"
    },
-   "solution": "NOURISH"
+   "solution": "NOURISH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NOURISH",
+    "definitions": [
+     {
+      "text": "Feed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go around",
+      "for": "container",
+      "note": "going around something means enclosing it, so the food word wraps the canton"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grub",
+      "gives": "NOSH",
+      "note": "nosh is British slang for food"
+     },
+     {
+      "clueFragment": "Canton",
+      "gives": "URI",
+      "note": "Uri is one of the cantons of Switzerland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "URI",
+      "SH"
+     ]
+    },
+    "explanation": {
+     "surface": "Feeding the Chinese city of Canton, with takeaway food to go.",
+     "walkthrough": "Canton looks like the old name for Guangzhou; here it is a Swiss canton.",
+     "definitionFit": "To nourish someone is to feed them, providing what they need to grow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Canton"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +238,66 @@
     "text": "Alluring woman exhausted, wasting year cutting hair",
     "enumeration": "9"
    },
-   "solution": "TEMPTRESS"
+   "solution": "TEMPTRESS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TEMPTRESS",
+    "definitions": [
+     {
+      "text": "Alluring woman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wasting",
+      "for": "deletion",
+      "note": "to waste something is to lose it, so the year's letter is dropped"
+     },
+     {
+      "text": "cutting",
+      "for": "container",
+      "note": "something cutting into another goes inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exhausted",
+      "gives": "EMPTY",
+      "note": "an exhausted supply is empty"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "Y is the abbreviation for year"
+     },
+     {
+      "clueFragment": "hair",
+      "gives": "TRESS",
+      "note": "a tress is a lock of hair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "EMPT",
+      "RESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A seductive woman, worn out after a year of hairdressing.",
+     "walkthrough": "'Exhausted' reads as tired, but here it means used up, as an emptied supply is.",
+     "definitionFit": "A temptress is a woman who deliberately entices or seduces others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cutting"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +311,74 @@
     "text": "Key player — oops! — hints carelessly about a vote",
     "enumeration": "11"
    },
-   "solution": "SAXOPHONIST"
+   "solution": "SAXOPHONIST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SAXOPHONIST",
+    "definitions": [
+     {
+      "text": "Key player",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carelessly",
+      "for": "anagram",
+      "note": "something done carelessly ends up jumbled, so these letters are reordered"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the reworked letters go around the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oops! — hints",
+      "gives": "OOPSHINTS",
+      "note": "the letters of both words"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "vote",
+      "gives": "X",
+      "note": "a voter marks a cross, X, on the ballot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "A",
+      "X",
+      "OPHONIST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OOPSHINTS",
+       "gives": "SOPHONIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pianist fumbles, dropping clumsy hints about how to vote.",
+     "walkthrough": "'Key player' suggests an important person or a pianist; a saxophone has keys too.",
+     "definitionFit": "A saxophone is worked by pressing keys, so a saxophonist is a player of a keyed instrument."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Key"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +392,44 @@
     "text": "Ride around we hear to purchase tool for harvest",
     "enumeration": "7"
    },
-   "solution": "BICYCLE"
+   "solution": "BICYCLE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BICYCLE",
+    "definitions": [
+     {
+      "text": "Ride around",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is a sound, so the spoken phrase stands for a word spelt differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to purchase tool for harvest",
+      "gives": "BICYCLE",
+      "soundsLike": "BUY SICKLE",
+      "note": "to purchase is to buy, and a sickle is a curved blade for cutting crops"
+     }
+    ],
+    "explanation": {
+     "surface": "A farmer is told to go out and buy a harvesting tool.",
+     "definitionFit": "As a verb, to bicycle is to travel about on a bike, so it means to ride around."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ride"
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +443,64 @@
     "text": "Party turned up to support British person",
     "enumeration": "3"
    },
-   "solution": "BOD"
+   "solution": "BOD",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "BOD",
+    "definitions": [
+     {
+      "text": "person",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down entry, turned up means read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "to support"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "Party",
+      "gives": "DO",
+      "note": "a do is a party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "OD"
+     ],
+     "reversals": [
+      {
+       "from": "DO",
+       "to": "OD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political party arriving to back a British individual.",
+     "walkthrough": "In a down clue, a piece that supports another sits below it, so B goes on top.",
+     "definitionFit": "Bod is British slang for a person, as in 'an odd bod'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Party"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +514,55 @@
     "text": "Island initially celebrating All Fools' Day",
     "enumeration": "5"
    },
-   "solution": "CAPRI"
+   "solution": "CAPRI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CAPRI",
+    "definitions": [
+     {
+      "text": "Island",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the start, so only the opening letter counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "celebrating",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter"
+     },
+     {
+      "clueFragment": "All Fools' Day",
+      "gives": "APRI",
+      "note": "April Fools' Day is the first of April, APR plus I for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "APRI"
+     ]
+    },
+    "explanation": {
+     "surface": "An island holding an April Fools' Day party.",
+     "definitionFit": "Capri is an island in the Bay of Naples off southern Italy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fools'"
+    }
+   }
   },
   {
    "number": 7,
@@ -148,7 +576,73 @@
     "text": "Deer caught a bone round top of upland",
     "enumeration": "7"
    },
-   "solution": "CARIBOU"
+   "solution": "CARIBOU",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CARIBOU",
+    "definitions": [
+     {
+      "text": "Deer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a down word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bone",
+      "gives": "RIB",
+      "note": "a rib is a bone"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "O is a round shape"
+     },
+     {
+      "clueFragment": "upland",
+      "gives": "U",
+      "select": "first",
+      "note": "the first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "A",
+      "RIB",
+      "O",
+      "U"
+     ]
+    },
+    "explanation": {
+     "surface": "A deer trapped with a bone stuck around the top of a hillside.",
+     "definitionFit": "The caribou is the North American reindeer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 8,
@@ -162,7 +656,50 @@
     "text": "Enter the complex network",
     "enumeration": "8"
    },
-   "solution": "ETHERNET"
+   "solution": "ETHERNET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ETHERNET",
+    "definitions": [
+     {
+      "text": "network",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "complex",
+      "for": "anagram",
+      "note": "something complex is intricate and tangled, so these letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Enter the",
+      "gives": "ENTERTHE",
+      "note": "all eight letters of both words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ENTERTHE",
+       "gives": "ETHERNET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to go into an intricate computer system.",
+     "definitionFit": "Ethernet is the standard technology for wired local computer networks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "complex"
+    }
+   }
   },
   {
    "number": 9,
@@ -176,7 +713,54 @@
     "text": "Bewildered G-man punched by knucklehead",
     "enumeration": "9"
    },
-   "solution": "FLUMMOXED"
+   "solution": "FLUMMOXED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FLUMMOXED",
+    "definitions": [
+     {
+      "text": "Bewildered",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "punched by",
+      "for": "container",
+      "note": "something punched by a fist has that fist driven into it, so one word goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "G-man",
+      "gives": "FED",
+      "note": "a G-man is an FBI agent, a Fed in American slang"
+     },
+     {
+      "clueFragment": "knucklehead",
+      "gives": "LUMMOX",
+      "note": "a lummox is a clumsy, stupid person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LUMMOX",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A government agent is left dazed after being hit by a thug.",
+     "definitionFit": "To be flummoxed is to be baffled or completely confused."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "punched"
+    }
+   }
   },
   {
    "number": 10,
@@ -190,7 +774,43 @@
     "text": "Settle in upper chamber",
     "enumeration": "5"
    },
-   "solution": "PERCH"
+   "solution": "PERCH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PERCH",
+    "definitions": [
+     {
+      "text": "Settle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer sits inside the following words, running across the gap between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "upper chamber",
+      "gives": "PERCH",
+      "note": "the letters run across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone taking up residence in an upstairs room.",
+     "walkthrough": "'Upper chamber' suggests a parliamentary house, but it is just the letters that hide the answer.",
+     "definitionFit": "A bird that settles on a branch perches there, so the two verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chamber"
+    }
+   }
   },
   {
    "number": 11,
@@ -204,7 +824,67 @@
     "text": "One returning to identify Charlie",
     "enumeration": "5"
    },
-   "solution": "IDIOT"
+   "solution": "IDIOT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "IDIOT",
+    "definitions": [
+     {
+      "text": "Charlie",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "something returning comes back the way it went, so the little word is read right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "identify",
+      "gives": "ID",
+      "note": "to ID someone is to identify them"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ID",
+      "I",
+      "OT"
+     ],
+     "reversals": [
+      {
+       "from": "TO",
+       "to": "OT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone coming back to pick out a man named Charlie, perhaps in a line-up.",
+     "walkthrough": "I plus the turned-round 'to' is attached to ID, which ends up at the front.",
+     "definitionFit": "In British slang a charlie is a fool, so it is a synonym for a stupid person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Charlie"
+    }
+   }
   },
   {
    "number": 12,
@@ -224,7 +904,50 @@
      }
     ]
    },
-   "solution": "PUBLICBAR"
+   "solution": "PUBLICBAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PUBLIC BAR",
+    "definitions": [
+     {
+      "text": "local room",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Open",
+      "gives": "PUBLIC",
+      "note": "open to all is public"
+     },
+     {
+      "clueFragment": "shut",
+      "gives": "BAR",
+      "note": "to bar a door is to shut it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUBLIC",
+      "BAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for a room that is opened and then closed again.",
+     "walkthrough": "A local is a British pub; its public bar is the plainer of its rooms.",
+     "definitionFit": "The public bar is one of the rooms in a pub, the 'local' a Briton drinks at."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "local"
+    }
+   }
   },
   {
    "number": 13,
@@ -244,7 +967,71 @@
      }
     ]
    },
-   "solution": "BUFFALOBILL"
+   "solution": "BUFFALOBILL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BUFFALO BILL",
+    "definitions": [
+     {
+      "text": "Western figure",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the two outer words enclose the short letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Expert",
+      "gives": "BUFF",
+      "note": "a buff is an enthusiast or expert"
+     },
+     {
+      "clueFragment": "account",
+      "gives": "BILL",
+      "note": "a bill is an account of money owed"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUFF",
+      "ALO",
+      "BILL"
+     ]
+    },
+    "explanation": {
+     "surface": "An expert's account of some large old cowboy.",
+     "walkthrough": "A buff is a keen enthusiast, as in a film buff; 'about' puts the three short letters between the two words.",
+     "definitionFit": "Buffalo Bill Cody was a famous frontiersman and Wild West showman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "account"
+    }
+   }
   },
   {
    "number": 14,
@@ -268,7 +1055,52 @@
      }
     ]
    },
-   "solution": "WHEELOFFORTUNE"
+   "solution": "WHEELOFFORTUNE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WHEEL OF FORTUNE",
+    "definitions": [
+     {
+      "text": "could be fair game",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Funny",
+      "for": "anagram",
+      "note": "something funny is odd or out of order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "elf, fourteen, who",
+      "gives": "ELFFOURTEENWHO",
+      "note": "all fourteen letters of the three words are used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ELFFOURTEENWHO",
+       "gives": "WHEELOFFORTUNE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A comic elf aged fourteen who might be fair game for teasing.",
+     "walkthrough": "'Fair game' sounds like a legitimate target; read it as a game at a fair.",
+     "definitionFit": "A wheel of fortune is a spinning prize wheel found as a game at funfairs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fair"
+    }
+   }
   },
   {
    "number": 15,
@@ -282,7 +1114,55 @@
     "text": "The cigar's turned to a pile of ash long ago",
     "enumeration": "9"
    },
-   "solution": "REICHSTAG"
+   "solution": "REICHSTAG",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REICHSTAG",
+    "definitions": [
+     {
+      "text": "pile of ash long ago",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned",
+      "for": "anagram",
+      "note": "something turned is changed in form, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The cigar's",
+      "gives": "THECIGARS",
+      "note": "all nine letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THECIGARS",
+       "gives": "REICHSTAG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cigar burning down to a heap of ash.",
+     "walkthrough": "The definition plays on the cigar ash: the German parliament building burned in the 1933 fire.",
+     "definitionFit": "The Reichstag building in Berlin was gutted by fire in 1933, leaving it a ruin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ash"
+    }
+   }
   },
   {
    "number": 16,
@@ -302,7 +1182,59 @@
      }
     ]
    },
-   "solution": "BADLYOFF"
+   "solution": "BADLYOFF",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "BADLY OFF",
+    "definitions": [
+     {
+      "text": "strapped for cash",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "something leaving departs, so that letter comes out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Severe",
+      "gives": "BAD",
+      "note": "a severe cold is a bad one"
+     },
+     {
+      "clueFragment": "redundancy",
+      "gives": "LAYOFF",
+      "note": "a layoff is a dismissal from a job"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAD",
+      "LYOFF"
+     ]
+    },
+    "explanation": {
+     "surface": "Harsh job cuts leave a region short of money.",
+     "definitionFit": "Someone badly off is poor, so short of funds or strapped for cash."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "redundancy"
+    }
+   }
   },
   {
    "number": 17,
@@ -322,7 +1254,66 @@
      }
     ]
    },
-   "solution": "ANNUSMIRABILIS"
+   "solution": "ANNUSMIRABILIS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ANNUS MIRABILIS",
+    "definitions": [
+     {
+      "text": "Wonderful time",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out can mean disordered or wrong, so these letters are reshuffled"
+     },
+     {
+      "text": "visiting",
+      "for": "container",
+      "note": "a visitor goes inside another's home, so this letter is placed within the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in Brasilia — sun",
+      "gives": "INBRASILIASUN",
+      "note": "every letter of the three words is used"
+     },
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "M is the abbreviation for millions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANNUS",
+      "M",
+      "IRABILIS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INBRASILIASUN",
+       "gives": "ANNUSIRABILIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holiday in the Brazilian capital, out in the sun with millions of visitors.",
+     "definitionFit": "Annus mirabilis is Latin for 'year of wonders', a remarkably good period."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 18,
@@ -336,7 +1327,68 @@
     "text": "Northern Irish leaders formula: ultimately a peaceful state",
     "enumeration": "7"
    },
-   "solution": "NIRVANA"
+   "solution": "NIRVANA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "NIRVANA",
+    "definitions": [
+     {
+      "text": "a peaceful state",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the end, so only the final letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Northern",
+      "gives": "N",
+      "note": "N is the abbreviation for Northern"
+     },
+     {
+      "clueFragment": "Irish",
+      "gives": "IR",
+      "note": "Ir is the abbreviation for Irish"
+     },
+     {
+      "clueFragment": "leaders",
+      "gives": "VAN",
+      "note": "the van, short for vanguard, is at the front"
+     },
+     {
+      "clueFragment": "formula",
+      "gives": "A",
+      "select": "last",
+      "note": "the last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "IR",
+      "VAN",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Northern Irish leaders agreeing a formula for peace.",
+     "walkthrough": "The 'a' belongs to the definition: the final letter of 'formula' supplies the A.",
+     "definitionFit": "Nirvana is the Buddhist state of perfect peace, free of desire and suffering."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leaders"
+    }
+   }
   },
   {
    "number": 19,
@@ -356,7 +1408,57 @@
      }
     ]
    },
-   "solution": "ICEDTEA"
+   "solution": "ICEDTEA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ICED TEA",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not all, so the final letter is cut off"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "finished off",
+      "gives": "ICED",
+      "note": "slang for killed"
+     },
+     {
+      "clueFragment": "players",
+      "gives": "TEAM",
+      "note": "a team is a group of players"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICED",
+      "TEA"
+     ]
+    },
+    "explanation": {
+     "surface": "A drink polished off by most of the team.",
+     "definitionFit": "Iced tea is a chilled tea drink served with ice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "finished"
+    }
+   }
   },
   {
    "number": 20,
@@ -376,7 +1478,43 @@
      }
     ]
    },
-   "solution": "FAGEND"
+   "solution": "FAGEND",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "FAG END",
+    "definitions": [
+     {
+      "text": "Butt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uncovered",
+      "for": "hidden_word",
+      "note": "uncovering strips the outer layer away, leaving the inner letters of these words exposed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of agenda",
+      "gives": "FAGEND",
+      "note": "the letters inside the two words, with the outer ones dropped"
+     }
+    ],
+    "explanation": {
+     "surface": "The last item on a meeting's agenda, revealed.",
+     "walkthrough": "'Butt of' looks like the target of a joke, but 'Butt' alone is the definition.",
+     "definitionFit": "A fag end is British slang for a cigarette butt, the stub left after smoking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Butt"
+    }
+   }
   },
   {
    "number": 21,
@@ -390,7 +1528,54 @@
     "text": "Somewhat slowly, Clark uncovered poor sector of the city",
     "enumeration": "9"
    },
-   "solution": "LARGHETTO"
+   "solution": "LARGHETTO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "LARGHETTO",
+    "definitions": [
+     {
+      "text": "Somewhat slowly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uncovered",
+      "for": "deletion",
+      "note": "taking the cover off strips away the outside, so the first and last letters go"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clark",
+      "gives": "CLARK",
+      "note": "the name as written"
+     },
+     {
+      "clueFragment": "poor sector of the city",
+      "gives": "GHETTO",
+      "note": "a ghetto is a deprived, overcrowded urban district"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAR",
+      "GHETTO"
+     ]
+    },
+    "explanation": {
+     "surface": "Clark gets stripped and robbed in a run-down part of town.",
+     "definitionFit": "Larghetto is a musical tempo marking: a little slow, but less so than largo."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uncovered"
+    }
+   }
   },
   {
    "number": 22,
@@ -404,7 +1589,43 @@
     "text": "Reportedly gather an enormous number",
     "enumeration": "5"
    },
-   "solution": "HORDE"
+   "solution": "HORDE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HORDE",
+    "definitions": [
+     {
+      "text": "an enormous number",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "what is reported is spoken, so the word stands for one that is pronounced the same"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gather",
+      "gives": "HORDE",
+      "soundsLike": "HOARD",
+      "note": "to hoard is to gather and store up"
+     }
+    ],
+    "explanation": {
+     "surface": "Word goes round that a huge crowd has assembled.",
+     "definitionFit": "A horde is a vast crowd or multitude of people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gather"
+    }
+   }
   },
   {
    "number": 23,
@@ -418,7 +1639,62 @@
     "text": "Hearts ace banking foreign currency — he could be laughing!",
     "enumeration": "5"
    },
-   "solution": "HYENA"
+   "solution": "HYENA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HYENA",
+    "definitions": [
+     {
+      "text": "he could be laughing!",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "banking",
+      "for": "container",
+      "note": "to bank money is to hold it, so the outer letters enclose the currency"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hearts",
+      "gives": "H",
+      "note": "H is the abbreviation for hearts in card games"
+     },
+     {
+      "clueFragment": "foreign currency",
+      "gives": "YEN",
+      "note": "the yen is Japan's currency"
+     },
+     {
+      "clueFragment": "ace",
+      "gives": "A",
+      "note": "A is the abbreviation for ace"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "YEN",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A card player holding a top heart and foreign cash might well be laughing.",
+     "walkthrough": "H and A together hold YEN between them.",
+     "definitionFit": "The spotted hyena is famous for its call, which sounds like human laughter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "banking"
+    }
+   }
   },
   {
    "number": 24,
@@ -438,7 +1714,52 @@
      }
     ]
    },
-   "solution": "ONAIR"
+   "solution": "ONAIR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ON AIR",
+    "definitions": [
+     {
+      "text": "Broadcasting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "something leaving goes away, so the socialite's short title is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "elegant",
+      "gives": "DEBONAIR",
+      "note": "debonair means stylish and charming"
+     },
+     {
+      "clueFragment": "young socialite",
+      "gives": "DEB",
+      "note": "a deb, or debutante, is a young woman entering society"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONAIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A smart young society girl walking out while a show is live.",
+     "definitionFit": "A programme on air is being broadcast at that moment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "elegant"
+    }
+   }
   },
   {
    "number": 25,
@@ -452,7 +1773,55 @@
     "text": "Notable Greek nobleman talked regularly",
     "enumeration": "9"
    },
-   "solution": "ARISTOTLE"
+   "solution": "ARISTOTLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ARISTOTLE",
+    "definitions": [
+     {
+      "text": "Notable Greek",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nobleman",
+      "gives": "ARISTO",
+      "note": "aristo is short for aristocrat"
+     },
+     {
+      "clueFragment": "talked",
+      "gives": "TLE",
+      "select": "alternate",
+      "note": "the first, third and fifth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARISTO",
+      "TLE"
+     ]
+    },
+    "explanation": {
+     "surface": "An aristocrat from Greece speaking at fixed intervals.",
+     "definitionFit": "Aristotle was the great ancient Greek philosopher, pupil of Plato."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 25,
@@ -466,7 +1835,48 @@
     "text": "Starts to abseil, leaving Patagonian peak",
     "enumeration": "3"
    },
-   "solution": "ALP"
+   "solution": "ALP",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ALP",
+    "definitions": [
+     {
+      "text": "peak",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Starts to",
+      "for": "letter_selection",
+      "note": "the starts of words are their first letters, so only those are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "abseil, leaving Patagonian",
+      "gives": "ALP",
+      "select": "first",
+      "note": "the first letter of each word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALP"
+     ]
+    },
+    "explanation": {
+     "surface": "Climbers abseiling down and leaving a mountain in Patagonia.",
+     "definitionFit": "An alp is a high mountain, especially one in Switzerland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leaving"
+    }
+   }
   },
   {
    "number": 26,
@@ -486,7 +1896,65 @@
      }
     ]
    },
-   "solution": "FLAREUP"
+   "solution": "FLAREUP",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "FLARE-UP",
+    "definitions": [
+     {
+      "text": "Sudden outbreak of anger",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "goes round",
+      "for": "container",
+      "note": "to go round something is to encircle it, so the salesperson surrounds the bend"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Florida",
+      "gives": "FLA",
+      "note": "Fla is the traditional abbreviation for the US state"
+     },
+     {
+      "clueFragment": "salesperson",
+      "gives": "REP",
+      "note": "a rep is a sales representative"
+     },
+     {
+      "clueFragment": "the bend",
+      "gives": "U",
+      "note": "a U-bend, so U stands for a bend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLA",
+      "RE",
+      "U",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A Florida sales rep loses his temper and goes crazy.",
+     "walkthrough": "'Round the bend' means mad, but here REP goes round U.",
+     "definitionFit": "A flare-up is a sudden burst, as of temper or of a fire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bend"
+    }
+   }
   },
   {
    "number": 27,
@@ -500,7 +1968,62 @@
     "text": "Foot-dragging convict and warder missing uniform",
     "enumeration": "7"
    },
-   "solution": "LAGGARD"
+   "solution": "LAGGARD",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "LAGGARD",
+    "definitions": [
+     {
+      "text": "Foot-dragging",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "something missing is absent, so that letter is taken out"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "convict",
+      "gives": "LAG",
+      "note": "lag is British slang for a convict"
+     },
+     {
+      "clueFragment": "warder",
+      "gives": "GUARD",
+      "note": "a prison warder is a guard"
+     },
+     {
+      "clueFragment": "uniform",
+      "gives": "U",
+      "note": "U is Uniform in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAG",
+      "GARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A prisoner and his guard, neither in uniform, shuffling along slowly.",
+     "definitionFit": "Laggard as an adjective means sluggish or slow to act."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "uniform"
+    }
+   }
   }
  ]
 }
