@@ -1387,6 +1387,19 @@ f.run(cache=ed_dir.parent.parent, write=False, ledger=Path(os.environ["TMP"]) / 
       editions=["NewsUK1990UKEnglish/1990-01-01_1"])
 check("--edition scans that edition and the days after it, reads it alone",
       (["1990-01-01_1", "1990-01-02_2"], ["1990-01-01_1"]), (sorted(scanned), read))
+# A run's (and so a read unit's) stale scans are made whole on the desktop
+# when it answers, as a scan unit's are: scan() here only when it does not.
+import ocr_remote
+remote_scanned, _remote_scan = [], ocr_remote.scan
+ocr_remote.scan = lambda d: remote_scanned.append(d.name) or {"puzzles": [{"number": 1, "leaf": 1, "box": None}],
+                                                              "solutions": []}
+scanned.clear(); read.clear()
+f.run(cache=ed_dir.parent.parent, write=False, ledger=Path(os.environ["TMP"]) / "l4r.jsonl",
+      source=Path(os.environ["TMP"]) / "src", out=open(os.devnull, "w"),
+      editions=["NewsUK1990UKEnglish/1990-01-01_1"])
+ocr_remote.scan = _remote_scan
+check("a run's scans are made on the desktop when it answers, none here",
+      (["1990-01-01_1", "1990-01-02_2"], []), (sorted(remote_scanned), scanned))
 # --no-scan scans nothing and reads only the due editions whose read waits
 # on no scan: not 1990-01-01, whose next day (its solution) is unscanned.
 l5 = Path(os.environ["TMP"]) / "l5.jsonl"

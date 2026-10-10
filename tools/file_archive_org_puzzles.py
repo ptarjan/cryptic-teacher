@@ -1663,6 +1663,15 @@ def scan(d):
         return _scan(d)
 
 
+def scan_anywhere(d):
+    """scan(d), made whole on the desktop when it answers (ocr_remote.scan
+    runs _scan there), else here. Not inside scan(): scan_key() hashes what
+    scan() reaches, so an edit there re-scans every edition."""
+    import ocr_remote
+    found = ocr_remote.scan(d)
+    return scan(d) if found is None else found
+
+
 def _scan(d):
     pages = json.loads((d / "pages.json").read_text())
     leaves = {p["leaf"] for p in pages.get("crossword_pages", ())
@@ -3562,13 +3571,7 @@ def scan_unit(paper, rel, cache=CACHE, ledger=None):
         if scan_current(row, fh):
             return "current"
         try:
-            # Made on the desktop when it answers (ocr_remote.scan runs
-            # _scan there). Called here, not in scan(): scan_key() hashes
-            # what scan() reaches, so an edit there re-scans every edition.
-            import ocr_remote
-            found = ocr_remote.scan(d)
-            if found is None:
-                found = scan(d)
+            found = scan_anywhere(d)
         except Exception as e:  # noqa: BLE001 -- as _run: a scan that raises stands as one with no headings
             found = {"puzzles": [], "solutions": [], "failed": scan_queue.failure((rel,), e)}
         progress(f"scanned {rel}: " + (f"failed: {found['failed']}" if "failed" in found
@@ -3667,7 +3670,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
     # A scan that raises stands as one with no headings, kept under this
     # scan_key, so it is not made again until the scan code changes.
     saved = time.monotonic()
-    for (d,), found in scan_queue.parallel([(d,) for d in unscanned], scan, workers,
+    for (d,), found in scan_queue.parallel([(d,) for d in unscanned], scan_anywhere, workers,
                                            failed=lambda item, error: {"puzzles": [], "solutions": [],
                                                                        "failed": error}):
         scans[rels[d]] = found
