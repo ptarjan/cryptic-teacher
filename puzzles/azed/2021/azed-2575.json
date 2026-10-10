@@ -38,6 +38,9 @@
   "date": "2021-10-24",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,60 @@
     "text": "Result of bone fusion – skill hid sores after surgery",
     "enumeration": "11"
    },
-   "solution": "ARTHRODESIS"
+   "solution": "ARTHRODESIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ARTHRODESIS",
+    "definitions": [
+     {
+      "text": "Result of bone fusion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after surgery",
+      "for": "anagram",
+      "note": "surgery cuts things open and rearranges them, so the preceding letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "skill",
+      "gives": "ART",
+      "note": "art is skill, as in the art of persuasion"
+     },
+     {
+      "clueFragment": "hid sores",
+      "gives": "HIDSORES",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ART",
+      "HRODESIS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HIDSORES",
+       "gives": "HRODESIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A patient whose skill at concealment hid their sores until an operation fused the bone.",
+     "definitionFit": "Arthrodesis is the surgical fixing of a joint so that its bones grow together, the stiffened joint being what fusion produces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "surgery"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +121,68 @@
     "text": "Aniseed liquor turned up in tea, an Indian 'fiddle'?",
     "enumeration": "7"
    },
-   "solution": "CHIKARA"
+   "solution": "CHIKARA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "CHIKARA",
+    "definitions": [
+     {
+      "text": "an Indian 'fiddle'",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turned up means read from the bottom upwards, so backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the liquor sits inside the word for tea, which wraps round it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea",
+      "gives": "CHA",
+      "note": "cha is a slang word for tea"
+     },
+     {
+      "clueFragment": "Aniseed liquor",
+      "gives": "RAKI",
+      "note": "raki is an aniseed spirit of Turkey and the Balkans"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "IKAR",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "RAKI",
+       "to": "IKAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone slips spirits into a cup of tea, a fiddle worthy of a swindler.",
+     "walkthrough": "The quotation marks around 'fiddle' warn that it is the musical instrument, not a swindle.",
+     "definitionFit": "The chikara is a bowed stringed instrument of India, so a fiddle in the musical sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fiddle"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +196,61 @@
     "text": "Millions involved in endless festival, a lifesaver",
     "enumeration": "7"
    },
-   "solution": "BELTMAN"
+   "solution": "BELTMAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "BELTMAN",
+    "definitions": [
+     {
+      "text": "a lifesaver",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "with no end, the festival's name loses its final letter"
+     },
+     {
+      "text": "involved in",
+      "for": "container",
+      "note": "to be involved in something is to be taken inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "festival",
+      "gives": "BELTANE",
+      "note": "Beltane is the old Celtic May Day festival"
+     },
+     {
+      "clueFragment": "Millions",
+      "gives": "M",
+      "note": "M is the abbreviation for million"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BELT",
+      "M",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "Huge sums spent on a festival, and somebody turns up to save the day.",
+     "walkthrough": "Beltane, the Celtic May Day, is shortened to BELTAN and then the M is set inside.",
+     "definitionFit": "In Australian surf clubs a beltman is the swimmer who carries the line out to rescue people in trouble."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Millions"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +264,72 @@
     "text": "Intense longing a former athlete held in pulsating chest",
     "enumeration": "9"
    },
-   "solution": "CACOETHES"
+   "solution": "CACOETHES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CACOETHES",
+    "definitions": [
+     {
+      "text": "Intense longing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pulsating",
+      "for": "anagram",
+      "note": "something pulsating throbs and moves, so the letters of the chest are rearranged"
+     },
+     {
+      "text": "held in",
+      "for": "container",
+      "note": "to be held in something is to be enclosed by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pulsating chest",
+      "gives": "CHEST",
+      "note": "the letters to be rearranged, opened up to hold the athlete"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "former athlete",
+      "gives": "COE",
+      "note": "Sebastian Coe, the British middle-distance runner of the 1980s"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "A",
+      "COE",
+      "THES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHEST",
+       "gives": "CTHES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old runner clasped to a heaving chest, with an intense longing to compete again.",
+     "definitionFit": "Cacoethes is a strong, often uncontrollable urge or itch to do something, so an intense longing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pulsating"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +343,61 @@
     "text": "SA bird, rather shy about love's first letter",
     "enumeration": "4"
    },
-   "solution": "COLY"
+   "solution": "COLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "COLY",
+    "definitions": [
+     {
+      "text": "SA bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first letter",
+      "for": "letter_selection",
+      "note": "the first letter of a word means only its opening letter is used"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around, so the shy word wraps the letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rather shy",
+      "gives": "COY",
+      "note": "coy means shy or bashful"
+     },
+     {
+      "clueFragment": "love's",
+      "gives": "L",
+      "select": "first",
+      "note": "the opening letter of love"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "L",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A South African bird, a little timid, wrapped around the start of a love letter.",
+     "definitionFit": "The coly, or mousebird, is a small long-tailed African bird, so a bird of South Africa."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love's"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +411,64 @@
     "text": "Concerning fish at sea caught by strong rope, it's within regulation",
     "enumeration": "12"
    },
-   "solution": "CONTROLLABLE"
+   "solution": "CONTROLLABLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CONTROLLABLE",
+    "definitions": [
+     {
+      "text": "within regulation",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caught by",
+      "for": "container",
+      "note": "something caught by a rope is enclosed by it, so the rope word goes round the rest"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strong rope",
+      "gives": "CABLE",
+      "note": "a cable is a thick, strong rope"
+     },
+     {
+      "clueFragment": "Concerning",
+      "gives": "ON",
+      "note": "on means about or concerning"
+     },
+     {
+      "clueFragment": "fish at sea",
+      "gives": "TROLL",
+      "note": "to troll is to fish by trailing a line behind a boat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ON",
+      "TROLL",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A note about trolling for fish from a boat with a heavy rope, apparently within the rules.",
+     "definitionFit": "Something controllable can be kept in check, that is, brought within the bounds of regulation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fish"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +482,62 @@
     "text": "Foundling home giving many hours with pal for Twist",
     "enumeration": "12"
    },
-   "solution": "ORPHANASYLUM"
+   "solution": "ORPHANASYLUM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ORPHANASYLUM",
+    "definitions": [
+     {
+      "text": "Foundling home",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Twist",
+      "for": "anagram",
+      "note": "to twist something is to bend it out of shape, so the letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "giving",
+     "with",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "many hours",
+      "gives": "MANYHOURS",
+      "note": "taken letter for letter"
+     },
+     {
+      "clueFragment": "pal",
+      "gives": "PAL",
+      "note": "taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MANYHOURSPAL",
+       "gives": "ORPHANASYLUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A foundling home where Oliver Twist puts in long hours alongside a friend.",
+     "walkthrough": "The capital T makes Twist look like Dickens's orphan, apt for the answer, but it is the anagram signal.",
+     "definitionFit": "An orphan asylum was the old name for an institution taking in abandoned or parentless children."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Twist"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +551,55 @@
     "text": "Woman in historical costume? Glance in Shakespeare",
     "enumeration": "5"
    },
-   "solution": "TWIRE"
+   "solution": "TWIRE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TWIRE",
+    "definitions": [
+     {
+      "text": "Glance in Shakespeare",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the woman is placed inside the word for costume"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "historical costume",
+      "gives": "TIRE",
+      "note": "tire is an archaic word for attire or dress"
+     },
+     {
+      "clueFragment": "Woman",
+      "gives": "W",
+      "note": "W is the abbreviation for woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "W",
+      "IRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman dressed in period costume caught a passing glance on stage.",
+     "walkthrough": "'historical' tells you to use the old sense of TIRE, meaning dress.",
+     "definitionFit": "Shakespeare uses twire in Sonnet 28 for twinkling or peeping, so a glance in his vocabulary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "historical"
+    }
+   }
   },
   {
    "number": 8,
@@ -162,7 +612,42 @@
    "clue": {
     "text": "Allow no escape from the mines (5, two words)"
    },
-   "solution": "HEMIN"
+   "solution": "HEMIN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HEM IN",
+    "definitions": [
+     {
+      "text": "Allow no escape",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "from says the letters are taken straight out of the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the mines",
+      "gives": "HEMIN",
+      "note": "the run of letters in the middle of these words"
+     }
+    ],
+    "explanation": {
+     "surface": "Miners trapped underground with no escape from the pits.",
+     "definitionFit": "To hem in is to surround someone so that they cannot get away, leaving them no escape."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mines"
+    }
+   }
   },
   {
    "number": 9,
@@ -176,7 +661,55 @@
     "text": "Editor takes in team – to treat text thus?",
     "enumeration": "5"
    },
-   "solution": "EMEND"
+   "solution": "EMEND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EMEND",
+    "definitions": [
+     {
+      "text": "to treat text thus",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "takes in",
+      "for": "container",
+      "note": "to take something in is to hold it inside, so the editor surrounds the team"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Editor",
+      "gives": "ED",
+      "note": "ED is the abbreviation for editor"
+     },
+     {
+      "clueFragment": "team",
+      "gives": "MEN",
+      "note": "a team is a body of men, as in a side of eleven men"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MEN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "An editor brings a whole team on board, perhaps to fix a manuscript.",
+     "walkthrough": "The definition points back at the editor of the wordplay: correcting text is exactly what one does.",
+     "definitionFit": "To emend is to correct and improve a text, which is the treatment an editor gives it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "team"
+    }
+   }
   },
   {
    "number": 10,
@@ -190,7 +723,64 @@
     "text": "I vary resistance, i.e. record ohm cut in a way",
     "enumeration": "8"
    },
-   "solution": "RHEOCORD"
+   "solution": "RHEOCORD",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "RHEOCORD",
+    "definitions": [
+     {
+      "text": "I vary resistance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "cut means trimmed, so the unit loses its last letter"
+     },
+     {
+      "text": "in a way",
+      "for": "anagram",
+      "note": "arranged in a way means put into some other order"
+     }
+    ],
+    "linkWords": [
+     "i.e."
+    ],
+    "blocks": [
+     {
+      "clueFragment": "record",
+      "gives": "RECORD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ohm",
+      "gives": "OH",
+      "note": "the electrical unit with its final letter trimmed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RECORDOH",
+       "gives": "RHEOCORD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An electrical device describes itself as recording ohms in a fashion.",
+     "definitionFit": "A rheocord is a wire rheostat, an instrument whose job is to adjust the electrical resistance in a circuit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +793,71 @@
    "clue": {
     "text": "Being badly dressed in foreign country for closing dates of short visits? (11, two words)"
    },
-   "solution": "PRESSEDDAYS"
+   "solution": "PRESSEDDAYS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PRESSED DAYS",
+    "definitions": [
+     {
+      "text": "closing dates of short visits?",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "something done badly is messed up, so the letters are jumbled"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the jumbled word is placed inside the foreign word"
+     }
+    ],
+    "linkWords": [
+     "Being",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "foreign country",
+      "gives": "PAYS",
+      "note": "pays is the French for country"
+     },
+     {
+      "clueFragment": "dressed",
+      "gives": "DRESSED",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RESSEDD",
+      "AYS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DRESSED",
+       "gives": "RESSEDD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Turning up poorly dressed abroad on the last days of a brief trip.",
+     "walkthrough": "The question mark flags a playful definition: on a short visit the final days are the ones where time presses.",
+     "definitionFit": "Days that are pressed are hurried and crowded, which describes the last days of a short stay."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "dressed"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +871,56 @@
     "text": "Cultivate last of clay, of boulder type",
     "enumeration": "5"
    },
-   "solution": "TILLY"
+   "solution": "TILLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TILLY",
+    "definitions": [
+     {
+      "text": "of boulder type",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter only"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cultivate",
+      "gives": "TILL",
+      "note": "to till is to cultivate the soil"
+     },
+     {
+      "clueFragment": "clay",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of clay"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TILL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Working ground that ends in heavy clay full of boulders.",
+     "walkthrough": "Till is boulder clay, the unsorted deposit left by glaciers, so TILLY describes ground of that kind.",
+     "definitionFit": "Tilly is the adjective from till, the glacial deposit known as boulder clay, so of boulder-clay type."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clay"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +934,59 @@
     "text": "Old poet, inferior, first of poems written out in exercise book",
     "enumeration": "5"
    },
-   "solution": "RIMER"
+   "solution": "RIMER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "RIMER",
+    "definitions": [
+     {
+      "text": "Old poet, inferior",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter alone"
+     },
+     {
+      "text": "written out in",
+      "for": "deletion",
+      "note": "written out of something means removed from it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exercise book",
+      "gives": "PRIMER",
+      "note": "a primer is an elementary schoolbook"
+     },
+     {
+      "clueFragment": "poems",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter of poems, which is taken away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIMER"
+     ]
+    },
+    "explanation": {
+     "surface": "A second-rate old versifier whose poems ended up in a school exercise book.",
+     "definitionFit": "Rimer is an old spelling of rhymer, a writer of mere rhymes, so a poor or minor poet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exercise"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +1000,49 @@
     "text": "Queen once, suffering her fate? That's fishy",
     "enumeration": "8"
    },
-   "solution": "ATHERINE"
+   "solution": "ATHERINE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ATHERINE",
+    "definitions": [
+     {
+      "text": "That's fishy",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suffering her fate",
+      "for": "deletion",
+      "note": "this queen was beheaded, so the name loses its head, its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Queen once",
+      "gives": "CATHERINE",
+      "note": "Catherine Howard, fifth wife of Henry VIII, who was executed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATHERINE"
+     ]
+    },
+    "explanation": {
+     "surface": "A former queen's grim end, with the suggestion that something about it smells off.",
+     "walkthrough": "Henry VIII had Catherine Howard beheaded, so her name must lose its head too.",
+     "definitionFit": "The atherine is a small silvery fish, the sand smelt, so it is literally fishy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fishy"
+    }
+   }
   },
   {
    "number": 14,
@@ -258,7 +1055,47 @@
    "clue": {
     "text": "A bird making love? (4, two words)"
    },
-   "solution": "ATIT"
+   "solution": "ATIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AT IT",
+    "definitions": [
+     {
+      "text": "making love?",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "TIT",
+      "note": "a tit is a small songbird"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird busy courting.",
+     "definitionFit": "Being at it is a coy colloquial way of saying a couple are having sex, hence the question mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bird"
+    }
+   }
   },
   {
    "number": 15,
@@ -272,7 +1109,56 @@
     "text": "Individual plant penetrating out-of-date market from the east",
     "enumeration": "5"
    },
-   "solution": "RAMET"
+   "solution": "RAMET",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "RAMET",
+    "definitions": [
+     {
+      "text": "Individual plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "penetrating",
+      "for": "hidden_word",
+      "note": "penetrating means sitting inside, so the answer lies within the words that follow"
+     },
+     {
+      "text": "from the east",
+      "for": "reversal",
+      "note": "in an across clue, from the east means read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "date market",
+      "gives": "TEMAR",
+      "note": "the letters spanning the two words, which then run backwards"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "TEMAR",
+       "to": "RAMET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A single plant has spread through an old-fashioned market arriving from the east.",
+     "definitionFit": "In botany a ramet is one physically separate member of a clone, an individual plant grown vegetatively."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "penetrating"
+    }
+   }
   },
   {
    "number": 16,
@@ -286,7 +1172,49 @@
     "text": "Very odd pieces found in sales",
     "enumeration": "5"
    },
-   "solution": "VENDS"
+   "solution": "VENDS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VENDS",
+    "definitions": [
+     {
+      "text": "sales",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "found in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very",
+      "gives": "V",
+      "note": "V is the abbreviation for very"
+     },
+     {
+      "clueFragment": "odd pieces",
+      "gives": "ENDS",
+      "note": "odds and ends are scraps, so ends are odd pieces"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "ENDS"
+     ]
+    },
+    "explanation": {
+     "surface": "Bargain hunters find all sorts of oddments at the sales.",
+     "definitionFit": "Chambers allows vend as a noun meaning a sale, so vends are sales."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "odd"
+    }
+   }
   },
   {
    "number": 17,
@@ -300,7 +1228,62 @@
     "text": "Stole skinned hare trapped by hunter",
     "enumeration": "7"
    },
-   "solution": "ORARION"
+   "solution": "ORARION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ORARION",
+    "definitions": [
+     {
+      "text": "Stole",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "skinned",
+      "for": "deletion",
+      "note": "skinned means with its outer layer removed, so both outer letters go"
+     },
+     {
+      "text": "trapped by",
+      "for": "container",
+      "note": "something trapped is held inside its captor"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hunter",
+      "gives": "ORION",
+      "note": "Orion is the mythical hunter of the constellation"
+     },
+     {
+      "clueFragment": "hare",
+      "gives": "AR",
+      "note": "the word with its first and last letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "AR",
+      "ION"
+     ]
+    },
+    "explanation": {
+     "surface": "A hunter catches a hare and skins it, then takes the pelt.",
+     "walkthrough": "'Stole' looks like a verb about theft, but it is the noun, a vestment.",
+     "definitionFit": "An orarion is the long narrow stole worn over the shoulder by a deacon in the Eastern Church."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stole"
+    }
+   }
   },
   {
    "number": 18,
@@ -314,7 +1297,47 @@
     "text": "This Québecois, non-specified, property-owner is entitled to this",
     "enumeration": "4"
    },
-   "solution": "CENS"
+   "solution": "CENS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CENS",
+    "definitions": [
+     {
+      "text": "property-owner is entitled to this",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This Québecois",
+      "gives": "CE",
+      "note": "ce is French for this, the language of Québec"
+     },
+     {
+      "clueFragment": "non-specified",
+      "gives": "NS",
+      "note": "n.s. is the abbreviation for not specified"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CE",
+      "NS"
+     ]
+    },
+    "explanation": {
+     "surface": "A French Canadian landlord collects what he is owed, details left unstated.",
+     "walkthrough": "Québec suggests French, which is why 'This' gives the French word.",
+     "definitionFit": "The cens was the annual rent paid to the seigneur under Québec's old seigneurial tenure, a due the landowner could claim."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "This"
+    }
+   }
   },
   {
    "number": 19,
@@ -328,7 +1351,43 @@
     "text": "Fields by waterway where (one might assume) gondoliers are found?",
     "enumeration": "4"
    },
-   "solution": "INGS"
+   "solution": "INGS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INGS",
+    "definitions": [
+     {
+      "text": "Fields by waterway",
+      "at": 0
+     },
+     {
+      "text": "where (one might assume) gondoliers are found",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fields by waterway",
+      "note": "first meaning: water meadows beside a river"
+     },
+     {
+      "clueFragment": "where (one might assume) gondoliers are found",
+      "note": "second meaning, read as two words: ..., the Gilbert and Sullivan operas, one of which is The Gondoliers"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half splits the answer as IN G'S: The Gondoliers is a Gilbert and Sullivan opera, so its gondoliers are found in G & S.",
+     "definitionFit": "Ing is a northern English word for a meadow, especially low ground by a river, so ings are riverside fields."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gondoliers"
+    }
+   }
   },
   {
    "number": 20,
@@ -342,7 +1401,66 @@
     "text": "Little old boat, one lacking in nothing, housing a radio transmitter",
     "enumeration": "7"
    },
-   "solution": "NACELLE"
+   "solution": "NACELLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "NACELLE",
+    "definitions": [
+     {
+      "text": "Little old boat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking means without, so the number word loses a letter"
+     },
+     {
+      "text": "housing",
+      "for": "container",
+      "note": "housing means holding inside, so the shortened word goes round the transmitter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing, and is the letter removed"
+     },
+     {
+      "clueFragment": "a radio transmitter",
+      "gives": "ACELL",
+      "note": "a cell, as in a cellphone, which sends radio signals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ACELL",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A small old vessel with nobody missing aboard, carrying a radio set.",
+     "walkthrough": "'one lacking in nothing' means ONE without its O, leaving NE to hold A CELL.",
+     "definitionFit": "Nacelle is an archaic word for a small boat, before it came to mean an engine housing on an aircraft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nothing"
+    }
+   }
   },
   {
    "number": 21,
@@ -356,7 +1474,55 @@
     "text": "Slender girl, ace to play around with",
     "enumeration": "7"
    },
-   "solution": "GRACILE"
+   "solution": "GRACILE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GRACILE",
+    "definitions": [
+     {
+      "text": "Slender",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to play around with",
+      "for": "anagram",
+      "note": "playing around with things moves them about, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "GIRL",
+      "note": "taken letter for letter"
+     },
+     {
+      "clueFragment": "ace",
+      "gives": "ACE",
+      "note": "taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GIRLACE",
+       "gives": "GRACILE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slim girl who is a champion at fooling about.",
+     "definitionFit": "Gracile is a literary or biological word for thin, slight and graceful, matching slender."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 22,
@@ -370,7 +1536,52 @@
     "text": "Pa quitting field of play, once beaten",
     "enumeration": "4"
    },
-   "solution": "DANG"
+   "solution": "DANG",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DANG",
+    "definitions": [
+     {
+      "text": "once beaten",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "quitting",
+      "for": "deletion",
+      "note": "quitting means leaving, so those letters are taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "field of play",
+      "gives": "PADANG",
+      "note": "padang is a Malay word for a playing field"
+     },
+     {
+      "clueFragment": "Pa",
+      "gives": "PA",
+      "note": "taken as written, the letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DANG"
+     ]
+    },
+    "explanation": {
+     "surface": "Father walks off the pitch, defeated in times past.",
+     "definitionFit": "Dang is an obsolete past tense of ding, to strike, so it once meant beaten."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pa"
+    }
+   }
   },
   {
    "number": 23,
@@ -384,7 +1595,55 @@
     "text": "Lenten Sabbath dashed real tea",
     "enumeration": "7"
    },
-   "solution": "LAETARE"
+   "solution": "LAETARE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LAETARE",
+    "definitions": [
+     {
+      "text": "Lenten Sabbath",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dashed",
+      "for": "anagram",
+      "note": "dashed means smashed to pieces, so the letters are scattered and reformed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "real",
+      "gives": "REAL",
+      "note": "taken letter for letter"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "TEA",
+      "note": "taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REALTEA",
+       "gives": "LAETARE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Lenten Sunday ruined when the proper tea was spilled.",
+     "definitionFit": "Laetare Sunday is the fourth Sunday of Lent, named from the first word of its introit, 'Rejoice'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dashed"
+    }
+   }
   },
   {
    "number": 24,
@@ -398,7 +1657,45 @@
     "text": "Taking part in demo, tend to hold back? Far from it",
     "enumeration": "5"
    },
-   "solution": "EMOTE"
+   "solution": "EMOTE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EMOTE",
+    "definitions": [
+     {
+      "text": "hold back? Far from it",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Taking part in",
+      "for": "hidden_word",
+      "note": "taking part means forming a portion, so the answer is a stretch of the words that follow"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "demo, tend",
+      "gives": "EMOTE",
+      "note": "the run of letters crossing the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Protesters at a demonstration tend to keep their feelings in check, or do they?",
+     "definitionFit": "To emote is to display emotion theatrically, the opposite of restraining oneself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "demo"
+    }
+   }
   },
   {
    "number": 25,
@@ -412,7 +1709,59 @@
     "text": "Source of fur, ultimate in affluence – a threatened species?",
     "enumeration": "5"
    },
-   "solution": "MINKE"
+   "solution": "MINKE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MINKE",
+    "definitions": [
+     {
+      "text": "a threatened species?",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimate in",
+      "for": "letter_selection",
+      "note": "the ultimate of a word is its final letter"
+     }
+    ],
+    "linkWords": [
+     "–"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Source of fur",
+      "gives": "MINK",
+      "note": "the mink is farmed and trapped for its fur"
+     },
+     {
+      "clueFragment": "affluence",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of affluence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MINK",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A mink coat, the height of luxury, from an animal under threat.",
+     "walkthrough": "The surface suggests the mink is the endangered one; the answer is a whale.",
+     "definitionFit": "The minke is a small baleen whale, a species long hunted and so a byword for creatures at risk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fur"
+    }
+   }
   },
   {
    "number": 26,
@@ -426,7 +1775,45 @@
     "text": "Several outsiders tossed by rodeo nags in the arena",
     "enumeration": "5"
    },
-   "solution": "ODEON"
+   "solution": "ODEON",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ODEON",
+    "definitions": [
+     {
+      "text": "the arena",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Several outsiders tossed by",
+      "for": "hidden_word",
+      "note": "throwing away the outer letters leaves only the core of the words that follow"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rodeo nags",
+      "gives": "ODEON",
+      "note": "the letters left once the outer ones are discarded"
+     }
+    ],
+    "explanation": {
+     "surface": "Bucking horses at a rodeo throw several riders right out of the ring.",
+     "definitionFit": "An odeon was an ancient Greek building for musical performance, a venue or arena for spectacle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tossed"
+    }
+   }
   },
   {
    "number": 27,
@@ -440,7 +1827,57 @@
     "text": "It gives good shelter from Indian sun, being a long time in Pacific tree",
     "enumeration": "5"
    },
-   "solution": "TERAI"
+   "solution": "TERAI",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TERAI",
+    "definitions": [
+     {
+      "text": "It gives good shelter from Indian sun",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the long time is placed inside the tree's name"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pacific tree",
+      "gives": "TI",
+      "note": "the ti is a palm-like tree of the Pacific islands"
+     },
+     {
+      "clueFragment": "a long time",
+      "gives": "ERA",
+      "note": "an era is a long period of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ERA",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A Pacific tree that has stood for ages offers shade from the tropical sun.",
+     "definitionFit": "A terai is a wide-brimmed double felt hat, named after a region of India, worn against strong sun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "shelter"
+    }
+   }
   },
   {
    "number": 28,
@@ -454,7 +1891,66 @@
     "text": "A din reverberating round constant battery",
     "enumeration": "5"
    },
-   "solution": "NICAD"
+   "solution": "NICAD",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "NICAD",
+    "definitions": [
+     {
+      "text": "battery",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reverberating",
+      "for": "reversal",
+      "note": "a reverberating sound comes back, so the words are read backwards"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means surrounding, so the turned words enclose the constant"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A din",
+      "gives": "ADIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "constant",
+      "gives": "C",
+      "note": "c is the standard symbol for a constant, such as the speed of light"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NI",
+      "C",
+      "AD"
+     ],
+     "reversals": [
+      {
+       "from": "ADIN",
+       "to": "NIDA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A constant racket echoing around, like an alarm whose battery never dies.",
+     "definitionFit": "A nicad is a rechargeable nickel-cadmium battery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "constant"
+    }
+   }
   },
   {
    "number": 29,
@@ -468,7 +1964,55 @@
     "text": "Fish among rocks, proceeding left to right?",
     "enumeration": "8"
    },
-   "solution": "SIDEWAYS"
+   "solution": "SIDEWAYS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SIDEWAYS",
+    "definitions": [
+     {
+      "text": "proceeding left to right?",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "among",
+      "for": "container",
+      "note": "among means placed in the midst of, so the fish goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rocks",
+      "gives": "SWAYS",
+      "note": "to rock is to sway back and forth"
+     },
+     {
+      "clueFragment": "Fish",
+      "gives": "IDE",
+      "note": "the ide is a European freshwater fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IDE",
+      "WAYS"
+     ]
+    },
+    "explanation": {
+     "surface": "A fish darting among rocks, moving from left to right.",
+     "walkthrough": "'rocks' looks like a noun for the fish to hide among, but it is a verb.",
+     "definitionFit": "Moving sideways means travelling crosswise rather than forwards, such as from left to right, like a crab."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rocks"
+    }
+   }
   },
   {
    "number": 30,
@@ -482,7 +2026,48 @@
     "text": "Part of hammer extracting centre from nut?",
     "enumeration": "4"
    },
-   "solution": "PEAN"
+   "solution": "PEAN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PEAN",
+    "definitions": [
+     {
+      "text": "Part of hammer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extracting centre from",
+      "for": "deletion",
+      "note": "extracting the centre means pulling out the middle letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nut",
+      "gives": "PECAN",
+      "note": "the pecan is a North American nut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "Using part of a hammer to crack open a nut and get at its middle.",
+     "definitionFit": "Pean is a variant spelling of peen, the rounded or wedge-shaped end of a hammer head opposite the face."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nut"
+    }
+   }
   },
   {
    "number": 31,
@@ -496,7 +2081,48 @@
     "text": "Geordie, first to last defenceless",
     "enumeration": "5"
    },
-   "solution": "INERM"
+   "solution": "INERM",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "INERM",
+    "definitions": [
+     {
+      "text": "defenceless",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first to last",
+      "for": "cycling",
+      "note": "the opening letter is moved to the end of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Geordie",
+      "gives": "MINER",
+      "note": "Chambers gives geordie as a name for a coal miner in north-east England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INERM"
+     ]
+    },
+    "explanation": {
+     "surface": "A Tynesider who goes from first place to last has no defence.",
+     "walkthrough": "A Geordie is a native of Tyneside, the old coalfield, and Chambers gives the word as a term for a pitman.",
+     "definitionFit": "Inerm is a botanical word for without thorns or prickles, so unarmed and defenceless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Geordie"
+    }
+   }
   },
   {
    "number": 32,
@@ -510,7 +2136,58 @@
     "text": "Trees yielding sticky stuff India disgorged?",
     "enumeration": "5"
    },
-   "solution": "MELIA"
+   "solution": "MELIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MELIA",
+    "definitions": [
+     {
+      "text": "Trees",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disgorged",
+      "for": "letter_selection",
+      "note": "something disgorged has emptied out its insides, leaving just the outside letters"
+     }
+    ],
+    "linkWords": [
+     "yielding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sticky stuff",
+      "gives": "MEL",
+      "note": "mel is honey, the Latin word used in pharmacy"
+     },
+     {
+      "clueFragment": "India",
+      "gives": "IA",
+      "select": "outer",
+      "note": "the word with its middle emptied out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEL",
+      "IA"
+     ]
+    },
+    "explanation": {
+     "surface": "Trees that ooze a sticky resin, perhaps somewhere in India.",
+     "definitionFit": "Melia is the genus of trees including the bead tree and the Persian lilac."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "disgorged"
+    }
+   }
   },
   {
    "number": 33,
@@ -524,7 +2201,62 @@
     "text": "Journey regularly round length on Asian river, more than once?",
     "enumeration": "8"
    },
-   "solution": "PLURALLY"
+   "solution": "PLURALLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PLURALLY",
+    "definitions": [
+     {
+      "text": "more than once?",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means surrounding, so the journey word goes outside the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Journey regularly",
+      "gives": "PLY",
+      "note": "to ply is to travel a route regularly"
+     },
+     {
+      "clueFragment": "length",
+      "gives": "L",
+      "note": "L is the abbreviation for length"
+     },
+     {
+      "clueFragment": "Asian river",
+      "gives": "URAL",
+      "note": "the Ural flows from Russia into the Caspian Sea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "L",
+      "URAL",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller makes regular trips the length of an Asian river, again and again.",
+     "walkthrough": "'on' simply puts the length before the river.",
+     "definitionFit": "Plurally means in the plural, involving more than one, hence the question mark on more than once."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Journey"
+    }
+   }
   },
   {
    "number": 34,
@@ -538,7 +2270,69 @@
     "text": "One of twelve in US showing ermine off among leaders",
     "enumeration": "9"
    },
-   "solution": "VENIREMAN"
+   "solution": "VENIREMAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "VENIREMAN",
+    "definitions": [
+     {
+      "text": "One of twelve in US",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone bad or out of order, so the letters are rearranged"
+     },
+     {
+      "text": "among",
+      "for": "container",
+      "note": "among means placed in the midst, so the reworked letters go inside"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leaders",
+      "gives": "VAN",
+      "note": "the van is the front of an army, its leading part"
+     },
+     {
+      "clueFragment": "ermine",
+      "gives": "ERMINE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "ENIREM",
+      "AN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ERMINE",
+       "gives": "ENIREM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American juror sees the judges' ermine robes removed in front of everyone.",
+     "definitionFit": "A venireman is a person summoned for jury service in the US, a potential member of a jury of twelve."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ermine"
+    }
+   }
   }
  ]
 }
