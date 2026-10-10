@@ -17,6 +17,10 @@
 #     bash tools/gale_read.sh        # log: ~/.cache/gale_read.log when gale_inbox starts it
 # shellcheck disable=SC2034  # read by the sourced nightly_worktree.sh
 CT_SALVAGE_PATHS="puzzles"
+# It files puzzles and stamps no page: it reads no generated file
+# (puzzles/index.*, abbreviations.js), so none is rebuilt for it.
+# shellcheck disable=SC2034
+CT_GENERATED=none
 . "$(dirname "$0")/nightly_worktree.sh"
 cd "$(dirname "$0")/.." || exit 1
 # All of puzzles/: filing a newspaper puzzle can delete the held book file
