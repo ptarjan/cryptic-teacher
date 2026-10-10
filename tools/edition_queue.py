@@ -19,7 +19,10 @@ again every REPLAN seconds, so an edition that lands mid-run (a Gale page
 Paul saved, an archive.org fetch) is started within about a minute. The
 most urgent first (plan's RANKS): Gale pages saved by hand, then never-read
 editions and the re-reads annotation asked for (tools/scan_queue.py), then
-editions whose inputs moved, then the re-reads --reread BEFORE makes due.
+the re-reads that can change what was filed (inputs moved, a fix for a
+refusal cause), then the whole-corpus ones (a scan-code change, --reread
+BEFORE), which start only once nothing more urgent waits in any pool; each
+rank the newest edition first.
 A read waits until the scans it needs (its own, and the SOLUTION_DAYS after
 it, where its solution prints) are made; those scans take the read's rank.
 Scans run whole on the desktop (ocr_remote.scan, its CPU) in SCAN_WORKERS
@@ -291,7 +294,17 @@ def plan(papers, cache=fa.CACHE, reread=None, newer=None, out=None):
             sc = [u for u in sc if u["rel"] in need]
         scans += [(u["rank"], k, n, u) for n, u in enumerate(sc)]
         reads += [(u["rank"], k, n, u) for n, u in enumerate(rd)]
-    return [u for *_, u in sorted(scans, key=lambda t: t[:3])], [u for *_, u in sorted(reads, key=lambda t: t[:3])]
+    return by_urgency(scans), by_urgency(reads)
+
+
+def by_urgency(units):
+    """The units of (rank, paper's place, plan's place, unit) by rank, then
+    the newest edition first ("date") across papers, rank 0 (saved by hand)
+    in its plans' order, then the paper's place and plan's order."""
+    units = sorted(units, key=lambda t: t[1:3])
+    units.sort(key=lambda t: "" if t[0] == 0 else t[3].get("date", ""), reverse=True)
+    units.sort(key=lambda t: t[0])
+    return [u for *_, u in units]
 
 
 #: How often (seconds) the Trove articles are planned again: stat-ing
@@ -731,11 +744,17 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             log(f"desktop-bound: desktop yielding ({yielding}); only fetches start until it is idle "
                 f"({len(running) + len(adopted)} running are left alone)")
         desktop_bound = bool(yielding)
+        # The whole-corpus re-reads (fa.BLANKET) wait until nothing more
+        # urgent is left to start, in any pool: new and fixed work first.
+        urgent = any(u["rank"] < fa.BLANKET and key_of(u) not in tried and pools.get(slot_of(u))
+                     for u in scans + reads)
         # A pass with no free slot starts nothing; and once a gate holds
         # one unit back it holds every later one (begun_now only grows), so
         # the gates are read at most once a unit begun, not once a unit due.
         for u in scans + reads + fetches if any(v > 0 for v in free.values()) else ():
             if not may_start() or free[slot_of(u)] <= 0 or key_of(u) in tried:
+                continue
+            if urgent and u["kind"] != "fetch" and u["rank"] >= fa.BLANKET:
                 continue
             if u["kind"] == "read" and any((u["paper"], r) in scanning for r in u["needs"]):
                 continue
