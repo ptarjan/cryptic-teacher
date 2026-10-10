@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,43 @@
     "text": "Grate pickle",
     "enumeration": "6"
    },
-   "solution": "SCRAPE"
+   "solution": "SCRAPE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCRAPE",
+    "definitions": [
+     {
+      "text": "Grate",
+      "at": 0
+     },
+     {
+      "text": "pickle",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grate",
+      "note": "first meaning: rub harshly against a surface"
+     },
+     {
+      "clueFragment": "pickle",
+      "note": "second meaning: an awkward fix or predicament"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads like a kitchen instruction to shred a gherkin; in fact both words are separate meanings of one word, a verb and a noun.",
+     "definitionFit": "The word is both a verb for rubbing harshly and a noun for a tricky predicament, matching each half of the clue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pickle"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +85,50 @@
     "text": "Wrong dose ain't calming someone down",
     "enumeration": "8"
    },
-   "solution": "SEDATION"
+   "solution": "SEDATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEDATION",
+    "definitions": [
+     {
+      "text": "calming someone down",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Wrong",
+      "for": "anagram",
+      "note": "a wrong arrangement is one out of its proper order, so the letters must be put right"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dose ain't",
+      "gives": "DOSEAINT",
+      "note": "taken as written, apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DOSEAINT",
+       "gives": "SEDATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wrongly measured dose has failed to settle an agitated patient.",
+     "definitionFit": "Sedation is the process of calming a person with drugs, which is what calming someone down describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Wrong"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +142,55 @@
     "text": "What's left in reserve, I expected",
     "enumeration": "7"
    },
-   "solution": "RESIDUE"
+   "solution": "RESIDUE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RESIDUE",
+    "definitions": [
+     {
+      "text": "What's left",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reserve",
+      "gives": "RES",
+      "note": "RES is a standard abbreviation for reserve"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "expected",
+      "gives": "DUE",
+      "note": "something due is expected to arrive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RES",
+      "I",
+      "DUE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone guessed there would be something kept back in reserve.",
+     "definitionFit": "A residue is the remainder of something after the rest has gone, so it is the part still left over."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reserve"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +204,59 @@
     "text": "Maybe he's topping cake with no filling, say",
     "enumeration": "9"
    },
-   "solution": "PRONOUNCE"
+   "solution": "PRONOUNCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PRONOUNCE",
+    "definitions": [
+     {
+      "text": "say",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no filling",
+      "for": "letter_selection",
+      "note": "a word with its filling gone keeps only its outside letters, the middle removed"
+     }
+    ],
+    "linkWords": [
+     "topping"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maybe he's",
+      "gives": "PRONOUN",
+      "note": "he is an example of a part of speech that stands for a noun"
+     },
+     {
+      "clueFragment": "cake",
+      "gives": "CE",
+      "select": "outer",
+      "note": "just the first and last letters of cake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRONOUN",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "Perhaps a man is putting a sponge with no jam or cream on top of something.",
+     "walkthrough": "In a down clue, 'topping' puts the first piece above the second. 'Maybe' signals that he is just one example of the category.",
+     "definitionFit": "To pronounce is to utter or declare, so it is a synonym of the verb say."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "he's"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +270,59 @@
     "text": "Broad smile initially, then visibly upset?",
     "enumeration": "8"
    },
-   "solution": "SWEEPING"
+   "solution": "SWEEPING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SWEEPING",
+    "definitions": [
+     {
+      "text": "Broad",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means only the opening letter of the word before it is taken"
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smile",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of smile"
+     },
+     {
+      "clueFragment": "visibly upset",
+      "gives": "WEEPING",
+      "note": "someone shedding tears is visibly upset"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WEEPING"
+     ]
+    },
+    "explanation": {
+     "surface": "A face that begins with a wide grin and then crumples into tears.",
+     "walkthrough": "'Broad smile' reads as one phrase, but Broad is the definition on its own.",
+     "definitionFit": "A sweeping statement or change is broad and wide-ranging in scope, so the two adjectives are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Broad"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +336,51 @@
     "text": "County doctors were choristers",
     "enumeration": "14"
    },
-   "solution": "WORCESTERSHIRE"
+   "solution": "WORCESTERSHIRE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WORCESTERSHIRE",
+    "definitions": [
+     {
+      "text": "County",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doctors",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "were choristers",
+      "gives": "WERECHORISTERS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WERECHORISTERS",
+       "gives": "WORCESTERSHIRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In some English county, the local doctors used to sing in a church choir.",
+     "walkthrough": "'Doctors' looks like the subject of the sentence, but it is a verb telling you to rework the letters. Worcestershire is a county in the English West Midlands.",
+     "definitionFit": "Worcestershire is one of the historic shire counties of England, so it is an example of a county."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "doctors"
+    }
+   }
   },
   {
    "number": 6,
@@ -122,7 +400,48 @@
      }
     ]
    },
-   "solution": "EATUP"
+   "solution": "EATUP",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EAT UP",
+    "definitions": [
+     {
+      "text": "Polish off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having dispensed with leader",
+      "for": "deletion",
+      "note": "getting rid of the leader means the opening letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attack",
+      "gives": "BEATUP",
+      "note": "to beat up someone is to attack them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EATUP"
+     ]
+    },
+    "explanation": {
+     "surface": "An army finishes off its assault after getting rid of its commander.",
+     "walkthrough": "'Polish' tempts with the nationality, but it is the verb in the phrase polish off.",
+     "definitionFit": "To polish off food is to consume all of it, which is what the phrasal verb means too."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Polish"
+    }
+   }
   },
   {
    "number": 7,
@@ -136,7 +455,54 @@
     "text": "Tick in street, tiny creature",
     "enumeration": "7"
    },
-   "solution": "INSTANT"
+   "solution": "INSTANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INSTANT",
+    "definitions": [
+     {
+      "text": "Tick",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street"
+     },
+     {
+      "clueFragment": "tiny creature",
+      "gives": "ANT",
+      "note": "an ant is a tiny insect"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "ST",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A tick, a small bloodsucker, spotted on the road among other little creatures.",
+     "walkthrough": "Tick suggests the parasite, which fits the tiny creature; here it means a moment, as in 'just a tick'.",
+     "definitionFit": "In British speech a tick is a very short moment of time, the same sense as an instant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tick"
+    }
+   }
   },
   {
    "number": 8,
@@ -150,7 +516,60 @@
     "text": "An article supporting fellow somewhere in South America",
     "enumeration": "6"
    },
-   "solution": "GUYANA"
+   "solution": "GUYANA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GUYANA",
+    "definitions": [
+     {
+      "text": "somewhere in South America",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down clue, what supports something sits beneath it, so the article pair is placed second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fellow",
+      "gives": "GUY",
+      "note": "a guy is a man or fellow"
+     },
+     {
+      "clueFragment": "An",
+      "gives": "AN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUY",
+      "AN",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper piece backing a man who lives somewhere on the South American continent.",
+     "walkthrough": "In a down clue, 'supporting' puts the second part beneath the first, so the fellow goes on top.",
+     "definitionFit": "Guyana is a country on the north-east coast of South America, so it is a place on that continent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 9,
@@ -170,7 +589,39 @@
      }
     ]
    },
-   "solution": "HOUSEMAIDSKNEE"
+   "solution": "HOUSEMAIDSKNEE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HOUSEMAIDS KNEE",
+    "definitions": [
+     {
+      "text": "One floored by cleaner? That's painful",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One floored by cleaner?",
+      "note": "surface reading: someone knocked to the ground by a domestic cleaner"
+     },
+     {
+      "clueFragment": "That's painful",
+      "note": "setter's reading: a sore joint caused by a domestic servant kneeling on the floor to scrub it"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Floored suggests being knocked down, but the cleaner is literally on the floor, kneeling to scrub. The condition named after her is an inflamed knee.",
+     "definitionFit": "This is the common name for prepatellar bursitis, a painful swelling caused by long kneeling, once typical of servants scrubbing floors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "floored"
+    }
+   }
   },
   {
    "number": 10,
@@ -184,7 +635,51 @@
     "text": "Mark joins club with scowl",
     "enumeration": "9"
    },
-   "solution": "DISCOLOUR"
+   "solution": "DISCOLOUR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISCOLOUR",
+    "definitions": [
+     {
+      "text": "Mark",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "joins",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "club",
+      "gives": "DISCO",
+      "note": "a disco is a nightclub for dancing"
+     },
+     {
+      "clueFragment": "scowl",
+      "gives": "LOUR",
+      "note": "to lour is to frown or look sullen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISCO",
+      "LOUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Mark signs up to a club and frowns about it.",
+     "walkthrough": "Mark looks like a man's name; here it is a verb meaning to stain.",
+     "definitionFit": "To discolour something is to stain or blemish it, which is one sense of the verb to mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mark"
+    }
+   }
   },
   {
    "number": 11,
@@ -198,7 +693,62 @@
     "text": "Inviting contempt in the end, a dirty abode",
     "enumeration": "5"
    },
-   "solution": "TASTY"
+   "solution": "TASTY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TASTY",
+    "definitions": [
+     {
+      "text": "Inviting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the end",
+      "for": "letter_selection",
+      "note": "the end of the word is its final letter, the only one that is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "contempt",
+      "gives": "T",
+      "select": "last",
+      "note": "last letter of contempt"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dirty abode",
+      "gives": "STY",
+      "note": "a pigsty is a filthy dwelling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "A",
+      "STY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sneers that a grubby home is asking for scorn.",
+     "walkthrough": "Inviting seems to go with contempt, but it stands alone as the definition, meaning appetising.",
+     "definitionFit": "Tasty food is appealing and appetising, so it is inviting in the sense of tempting the palate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Inviting"
+    }
+   }
   },
   {
    "number": 12,
@@ -212,7 +762,51 @@
     "text": "Uninspired outside right? No!",
     "enumeration": "7"
    },
-   "solution": "TEDIOUS"
+   "solution": "TEDIOUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TEDIOUS",
+    "definitions": [
+     {
+      "text": "Uninspired",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "right? No!",
+      "for": "anagram",
+      "note": "if the letters are not right they are wrong, so they need to be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outside",
+      "gives": "OUTSIDE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OUTSIDE",
+       "gives": "TEDIOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dull football winger, the outside right, is scorned by the crowd.",
+     "walkthrough": "The outside right is an old football position on the right wing; the phrase breaks apart, with 'right? No!' meaning wrong, the letters rearranged.",
+     "definitionFit": "Something tedious is dull and lacking flair, which is what uninspired means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 13,
@@ -226,7 +820,67 @@
     "text": "Justify first of ideas in ditched strategy?",
     "enumeration": "7"
    },
-   "solution": "EXPLAIN"
+   "solution": "EXPLAIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "EXPLAIN",
+    "definitions": [
+     {
+      "text": "Justify",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "first of points to the opening letter alone of the following word"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the following one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ideas",
+      "gives": "I",
+      "select": "first",
+      "note": "first letter of ideas"
+     },
+     {
+      "clueFragment": "ditched",
+      "gives": "EX",
+      "note": "an ex is a former partner, someone ditched"
+     },
+     {
+      "clueFragment": "strategy",
+      "gives": "PLAN",
+      "note": "a plan is a strategy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "PLAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A manager is asked to defend an idea that was part of an abandoned strategy.",
+     "walkthrough": "EX, meaning former or discarded, stands before the strategy, which has the first letter of ideas tucked inside it.",
+     "definitionFit": "To explain an action is to give reasons for it, which is to justify it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ditched"
+    }
+   }
   },
   {
    "number": 14,
@@ -240,7 +894,49 @@
     "text": "Composition being shown in cinema",
     "enumeration": "5"
    },
-   "solution": "ODEON"
+   "solution": "ODEON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ODEON",
+    "definitions": [
+     {
+      "text": "cinema",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Composition",
+      "gives": "ODE",
+      "note": "an ode is a poetic composition"
+     },
+     {
+      "clueFragment": "being shown",
+      "gives": "ON",
+      "note": "a film that is on is being shown"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ODE",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A musical piece is screened at the local picture house.",
+     "definitionFit": "Odeon is a well-known chain of British cinemas, and the name came to stand for a picture house generally."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Composition"
+    }
+   }
   },
   {
    "number": 15,
@@ -254,7 +950,77 @@
     "text": "Change around odd bits of loin, sent back for butcher",
     "enumeration": "8"
    },
-   "solution": "MUTILATE"
+   "solution": "MUTILATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "container"
+    ],
+    "answer": "MUTILATE",
+    "definitions": [
+     {
+      "text": "butcher",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "odd bits of",
+      "for": "letter_selection",
+      "note": "the odd-numbered letters are the first, third and so on, which are the ones kept"
+     },
+     {
+      "text": "sent back",
+      "for": "reversal",
+      "note": "something sent back goes the opposite way, so read the letters right to left"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means the first word wraps itself about the other piece"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Change",
+      "gives": "MUTATE",
+      "note": "to mutate is to change"
+     },
+     {
+      "clueFragment": "loin",
+      "gives": "LI",
+      "select": "alternate",
+      "note": "first and third letters of loin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MUT",
+      "IL",
+      "ATE"
+     ],
+     "reversals": [
+      {
+       "from": "LI",
+       "to": "IL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions on how to prepare a cut of meat: swap bits of the loin around for the butcher.",
+     "walkthrough": "Butcher looks like the person at the shop counter; it is the verb, meaning to hack about.",
+     "definitionFit": "To mutilate is to damage savagely by cutting, which is what butcher means as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "butcher"
+    }
+   }
   },
   {
    "number": 16,
@@ -268,7 +1034,66 @@
     "text": "A strip under bottom of small washer",
     "enumeration": "9"
    },
-   "solution": "LAUNDRESS"
+   "solution": "LAUNDRESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LAUNDRESS",
+    "definitions": [
+     {
+      "text": "washer",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottom of",
+      "for": "letter_selection",
+      "note": "in a down clue the bottom of a word is its final letter, the only one used"
+     }
+    ],
+    "linkWords": [
+     "under"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "L",
+      "select": "last",
+      "note": "last letter of small"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "strip",
+      "gives": "UNDRESS",
+      "note": "to strip is to take off one's clothes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "A",
+      "UNDRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A thin strip of rubber fitted under a small washer, as in plumbing.",
+     "walkthrough": "'Under' sets the strip below the small piece in a down entry. Washer suggests a plumbing ring, but it means a person who washes.",
+     "definitionFit": "A laundress is a woman employed to wash clothes and linen, so she is a washer of laundry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "washer"
+    }
+   }
   },
   {
    "number": 17,
@@ -282,7 +1107,64 @@
     "text": "Private parking north of New Orleans",
     "enumeration": "8"
    },
-   "solution": "PERSONAL"
+   "solution": "PERSONAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "PERSONAL",
+    "definitions": [
+     {
+      "text": "Private",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "something new is made afresh, so the following word is reshaped into another order"
+     }
+    ],
+    "linkWords": [
+     "north of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parking",
+      "gives": "P",
+      "note": "P is the road-sign abbreviation for parking"
+     },
+     {
+      "clueFragment": "Orleans",
+      "gives": "ERSONAL",
+      "note": "letters of Orleans in a new order"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ERSONAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ORLEANS",
+       "gives": "ERSONAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A private parking area just north of the city of New Orleans.",
+     "walkthrough": "New Orleans reads as one city name, but New is split off to rework the letters. 'North of' places the P above in a down clue.",
+     "definitionFit": "Personal matters are private ones, concerning one person rather than the public."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "New"
+    }
+   }
   },
   {
    "number": 18,
@@ -296,7 +1178,61 @@
     "text": "Exciting story embraced by Queen, accommodating type?",
     "enumeration": "8"
    },
-   "solution": "HOTELIER"
+   "solution": "HOTELIER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HOTELIER",
+    "definitions": [
+     {
+      "text": "accommodating type?",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embraced by",
+      "for": "container",
+      "note": "being embraced means being held inside, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Exciting",
+      "gives": "HOT",
+      "note": "a hot story is an exciting one"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "ER",
+      "note": "ER stands for Elizabeth Regina"
+     },
+     {
+      "clueFragment": "story",
+      "gives": "LIE",
+      "note": "a lie is a made-up story"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOT",
+      "ELIER"
+     ]
+    },
+    "explanation": {
+     "surface": "A sensational tale embraced by the monarch, who is being obliging.",
+     "walkthrough": "Accommodating suggests obliging, but the hotel keeper provides accommodation; the question mark flags the pun.",
+     "definitionFit": "A hotelier runs a hotel, providing rooms and lodging for guests, so the pun on accommodation fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "accommodating"
+    }
+   }
   },
   {
    "number": 19,
@@ -310,7 +1246,55 @@
     "text": "Boaters in Ransome novel",
     "enumeration": "7"
    },
-   "solution": "OARSMEN"
+   "solution": "OARSMEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OARSMEN",
+    "definitions": [
+     {
+      "text": "Boaters",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel as an adjective means new, so the name's letters take a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ransome",
+      "gives": "RANSOME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RANSOME",
+       "gives": "OARSMEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Children messing about in boats in an Arthur Ransome book such as Swallows and Amazons.",
+     "walkthrough": "Novel looks like a book by the children's author Arthur Ransome, but it is an adjective signalling the rearrangement. Boaters may suggest straw hats.",
+     "definitionFit": "Oarsmen row boats, so they are boaters in the sense of people who go boating."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 20,
@@ -324,7 +1308,68 @@
     "text": "Relative idiot scratching head having bagged first in Latin",
     "enumeration": "5"
    },
-   "solution": "UNCLE"
+   "solution": "UNCLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "UNCLE",
+    "definitions": [
+     {
+      "text": "Relative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scratching head",
+      "for": "deletion",
+      "note": "scratching out the head removes the opening letter of the word"
+     },
+     {
+      "text": "first in",
+      "for": "letter_selection",
+      "note": "first in means only the opening letter of the next word is used"
+     },
+     {
+      "text": "having bagged",
+      "for": "container",
+      "note": "to bag something is to put it in a bag, so one piece is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "idiot",
+      "gives": "DUNCE",
+      "note": "a dunce is a slow learner, an idiot"
+     },
+     {
+      "clueFragment": "Latin",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter of Latin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNC",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A dim family member scratches their head after scraping through a Latin exam.",
+     "walkthrough": "Once the dunce loses its first letter, what remains wraps around the initial of Latin.",
+     "definitionFit": "An uncle is a family member, a parent's brother, so he is a relative."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "scratching"
+    }
+   }
   },
   {
    "number": 21,
@@ -344,7 +1389,57 @@
      }
     ]
    },
-   "solution": "CHOCICE"
+   "solution": "CHOCICE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHOC ICE",
+    "definitions": [
+     {
+      "text": "Dessert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside means the short piece sits within the longer word"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "superior",
+      "gives": "CHOICE",
+      "note": "choice goods are of superior quality"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold on taps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHO",
+      "C",
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "A posh chilled pudding with a cold centre.",
+     "walkthrough": "A choc ice is a British ice-cream bar coated in chocolate.",
+     "definitionFit": "A choc ice is a frozen sweet eaten after a meal or as a treat, so it is a kind of dessert."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -358,7 +1453,54 @@
     "text": "Powerful businessmen working in pubs",
     "enumeration": "6"
    },
-   "solution": "BARONS"
+   "solution": "BARONS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BARONS",
+    "definitions": [
+     {
+      "text": "Powerful businessmen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pubs",
+      "gives": "BARS",
+      "note": "bars are places to drink, like pubs"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "ON",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Tycoons who do their deals over drinks in the pub.",
+     "definitionFit": "Industrial magnates are often called barons, as in press barons, a figurative use of the noble title."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 23,
@@ -372,7 +1514,49 @@
     "text": "Close, don't open without locks",
     "enumeration": "7"
    },
-   "solution": "AIRLESS"
+   "solution": "AIRLESS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AIRLESS",
+    "definitions": [
+     {
+      "text": "Close",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "don't open",
+      "for": "deletion",
+      "note": "if the word may not open, its opening letter is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "without locks",
+      "gives": "HAIRLESS",
+      "note": "locks are hair, so without them is bald"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIRLESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to shut a door that cannot be opened because it has no locks.",
+     "walkthrough": "Close looks like the verb shut, matching the doors and locks; it is the adjective for muggy weather, pronounced with a soft S.",
+     "definitionFit": "Close weather is humid and stuffy, lacking fresh air, which is exactly what airless means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Close"
+    }
+   }
   },
   {
    "number": 24,
@@ -386,7 +1570,44 @@
     "text": "Located in file, the registration number",
     "enumeration": "5"
    },
-   "solution": "ETHER"
+   "solution": "ETHER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ETHER",
+    "definitions": [
+     {
+      "text": "number",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Located in",
+      "for": "hidden_word",
+      "note": "located in says the word sits inside the run of words that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "file, the registration",
+      "gives": "ETHER",
+      "note": "spans the end of file, all of the, and the start of registration"
+     }
+    ],
+    "explanation": {
+     "surface": "A vehicle's registration number found in a filing record.",
+     "walkthrough": "Number looks like a digit, but read it as 'numb-er': something that numbs.",
+     "definitionFit": "Ether was an early anaesthetic, so it is something that makes people numb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 25,
@@ -400,7 +1621,52 @@
     "text": "Horrible secret locations: time to escape!",
     "enumeration": "7"
    },
-   "solution": "HIDEOUS"
+   "solution": "HIDEOUS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HIDEOUS",
+    "definitions": [
+     {
+      "text": "Horrible",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to escape",
+      "for": "deletion",
+      "note": "a letter that escapes has got out, so it is removed from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secret locations",
+      "gives": "HIDEOUTS",
+      "note": "hideouts are secret places to lie low"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIDEOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "Fugitives in a grim hiding place decide it is time to break out.",
+     "definitionFit": "Something hideous is very ugly or dreadful, which matches horrible as a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "escape"
+    }
+   }
   },
   {
    "number": 26,
@@ -414,7 +1680,54 @@
     "text": "Energy member invested in expression of surprise",
     "enumeration": "5"
    },
-   "solution": "OOMPH"
+   "solution": "OOMPH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OOMPH",
+    "definitions": [
+     {
+      "text": "Energy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "invested in",
+      "for": "container",
+      "note": "invested in means put inside, so one piece goes into the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expression of surprise",
+      "gives": "OOH",
+      "note": "ooh is a cry of surprise"
+     },
+     {
+      "clueFragment": "member",
+      "gives": "MP",
+      "note": "an MP is a Member of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OO",
+      "MP",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A politician puts real drive into a gasp of astonishment.",
+     "definitionFit": "Oomph is an informal word for vigour and zest, so it is a synonym of energy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "invested"
+    }
+   }
   },
   {
    "number": 27,
@@ -428,7 +1741,51 @@
     "text": "European anger now, I suspect",
     "enumeration": "9"
    },
-   "solution": "NORWEGIAN"
+   "solution": "NORWEGIAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NORWEGIAN",
+    "definitions": [
+     {
+      "text": "European",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suspect",
+      "for": "anagram",
+      "note": "something suspect is dubious or unsound, so the letters are not in their proper order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "anger now, I",
+      "gives": "ANGERNOWI",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANGERNOWI",
+       "gives": "NORWEGIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone guesses that a person from Europe is now feeling furious.",
+     "walkthrough": "'I suspect' reads as a hedge; only suspect is the signal, and the I is part of the letters.",
+     "definitionFit": "A Norwegian is a person from Norway, a country in Europe, so is an example of a European."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "suspect"
+    }
+   }
   },
   {
    "number": 28,
@@ -442,7 +1799,55 @@
     "text": "So, perhaps rain wets various things?",
     "enumeration": "8"
    },
-   "solution": "SUNDRIES"
+   "solution": "SUNDRIES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUNDRIES",
+    "definitions": [
+     {
+      "text": "various things",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "So, perhaps",
+      "for": "charade",
+      "note": "a hint that the picture painted is to be flipped, each word swapped for its contrary"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rain",
+      "gives": "SUN",
+      "note": "the opposite kind of weather to rain"
+     },
+     {
+      "clueFragment": "wets",
+      "gives": "DRIES",
+      "note": "the opposite action to wetting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUN",
+      "DRIES"
+     ]
+    },
+    "explanation": {
+     "surface": "A tongue-in-cheek remark that rain dampens all sorts of things.",
+     "walkthrough": "An unusual clue of contraries: swap rain and wets for their opposites and the phrase that results, read as one word, is the answer.",
+     "definitionFit": "Sundries are miscellaneous small items, odds and ends, so they are assorted things of many kinds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rain"
+    }
+   }
   },
   {
    "number": 29,
@@ -462,7 +1867,48 @@
      }
     ]
    },
-   "solution": "ASWELL"
+   "solution": "ASWELL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AS WELL",
+    "definitions": [
+     {
+      "text": "with the other ingredients?",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mushroom",
+      "gives": "SWELL",
+      "note": "to mushroom is to grow rapidly, to swell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SWELL"
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe asks whether a mushroom goes in along with everything else.",
+     "walkthrough": "Mushroom looks like a food among the ingredients; it is a verb meaning grow fast.",
+     "definitionFit": "The phrase means in addition or too, so an item added as well goes in along with the other ingredients."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mushroom"
+    }
+   }
   }
  ]
 }
