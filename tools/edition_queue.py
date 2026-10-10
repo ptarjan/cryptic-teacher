@@ -53,7 +53,8 @@ end, so no run outlives the code it started on by more than a REPLAN.
 Each process loads all its code as it starts (code_reach.modules: lazy
 imports too), under a shared lock on the tree's code (snapshot) that
 tools/durable.sh's tree move takes whole, so none pairs modules of two
-versions of the tree.
+versions of the tree. A scan or read unit loads only its paper's module
+(UNIT_MODULES) and what that may load (load_unit), not the queue's.
 
 With a desktop set (OCR_REMOTE) and not busy, an archive.org or Gale read's
 request is made here as its unit starts (prepare: file_archive_org_puzzles.brief,
@@ -152,6 +153,67 @@ def load_fetcher(source):
     return module
 
 
+#: Each paper's module, whose read_unit (and scan_unit) its units run;
+#: any other paper's is UNIT_MODULES[None], the archive.org and Gale filer.
+UNIT_MODULES = {"trove": "file_trove_puzzles", "listener": "gale_listener", None: "file_archive_org_puzzles"}
+
+
+def unit_module(paper):
+    import importlib
+    return importlib.import_module(UNIT_MODULES.get(paper, UNIT_MODULES[None]))
+
+
+def run_unit(unit, cache, puzzles, reread):
+    """In the unit's process: its outcome (EXITS). A scan's desktop
+    sessions run above the reads' (ocr_remote.PRIORITIES): a read waits on
+    the scans its solution needs, so a starved scan holds up reads too."""
+    if unit["kind"] == "scan":
+        os.environ["OCR_REMOTE_PRIORITY"] = "scan"
+    m = unit_module(unit["paper"])
+    if unit["paper"] == "trove":
+        return m.read_unit(unit["rel"], puzzles=None, reread=reread, force=unit.get("force"))
+    if unit["paper"] == "listener":
+        return m.read_unit(unit["rel"])
+    paper = m.FILERS[unit["paper"]]
+    if unit["kind"] == "scan":
+        return m.scan_unit(paper, unit["rel"], cache)
+    return m.read_unit(paper, unit["rel"], cache, puzzles=puzzles, reread=reread, force=unit.get("force"))
+
+
+def unit_main(spec):
+    """In the unit's own process: run `spec` (CT_EDITION_UNIT: the unit and
+    the queue's cache, puzzles and reread) and return its exit status
+    (EXITS; 1 for an error, logged)."""
+    import scan_queue
+    unit = spec["unit"]
+    return unit_status(unit, lambda: run_unit(unit, Path(spec["cache"]), spec["puzzles"] and Path(spec["puzzles"]),
+                                              scan_queue.when(spec["reread"])))
+
+
+def load_reach(names, reach):
+    """Import `names`, tools/ modules. One whose third-party package is not
+    installed here (fetch_ia_book's requests) is skipped: the path that
+    needs it fails when taken, not every start. A missing module of
+    `reach` (the tree's) raises."""
+    import importlib
+    for name in sorted(names):
+        try:
+            importlib.import_module(name)
+        except ModuleNotFoundError as err:
+            if (err.name or "").partition(".")[0] in reach:
+                raise
+
+
+def load_unit(paper):
+    """Import a scan or read unit of `paper`'s module, every tools/ module
+    it may load (code_reach.modules: lazy imports too) and what unit_main
+    uses: the unit's start, under the code lock. Not the queue's own
+    modules (the other papers' filers, the fetchers)."""
+    import code_reach
+    reach = code_reach.modules(UNIT_MODULES.get(paper, UNIT_MODULES[None]))
+    load_reach(reach | {"edition_commit", "ocr_remote", "scan_queue"}, reach)
+
+
 _snapshot = snapshot() if __name__ == "__main__" else None
 _spec = json.loads(os.environ.get("CT_EDITION_UNIT") or "{}") if sys.argv[1:2] == ["unit"] else {}
 if _spec.get("unit", {}).get("kind") == "fetch":
@@ -178,6 +240,11 @@ if _snapshot is not None and _spec.get("brief"):
         import scan_queue
         scan_queue.failure((_spec["unit"]["rel"],), e)
         sys.exit(1)
+if _spec.get("unit", {}).get("kind") in ("scan", "read"):
+    load_unit(_spec["unit"]["paper"])
+    if _snapshot is not None:
+        os.close(_snapshot)
+    sys.exit(unit_main(_spec))
 import code_reach  # noqa: E402
 import edition_commit  # noqa: E402
 import fetch_archive_org_editions as fetch_ao  # noqa: E402
@@ -190,17 +257,8 @@ import ocr_remote  # noqa: E402
 import scan_queue  # noqa: E402
 
 if _snapshot is not None:
-    import importlib
     _reach = code_reach.modules("edition_queue")
-    for _name in sorted(_reach - {"edition_queue"}):
-        # A tree module whose third-party package is not installed here
-        # (fetch_ia_book's requests) is skipped: the path that needs it
-        # fails when taken, not every start. A missing tree module raises.
-        try:
-            importlib.import_module(_name)
-        except ModuleNotFoundError as err:
-            if (err.name or "").partition(".")[0] in _reach:
-                raise
+    load_reach(_reach - {"edition_queue"}, _reach)
     os.close(_snapshot)
 
 #: The papers in the order a rank's units are taken; "trove" is the
@@ -353,15 +411,6 @@ def unit_argv(unit):
     return [sys.executable, str(UNIT_SCRIPT), "unit", unit["kind"], unit["paper"], unit["rel"]]
 
 
-def unit_main(spec):
-    """In the unit's own process: run `spec` (CT_EDITION_UNIT: the unit and
-    the queue's cache, puzzles and reread) and return its exit status
-    (EXITS; 1 for an error, logged)."""
-    unit = spec["unit"]
-    return unit_status(unit, lambda: run_unit(unit, Path(spec["cache"]), spec["puzzles"] and Path(spec["puzzles"]),
-                                              scan_queue.when(spec["reread"])))
-
-
 def code_files():
     """{path: sha1} of this run's own code: every loaded module under tools/
     and the script it was started as."""
@@ -378,22 +427,6 @@ def digest(path):
         return hashlib.sha1(path.read_bytes()).hexdigest()
     except OSError:
         return None
-
-
-def run_unit(unit, cache, puzzles, reread):
-    """In the unit's process: its outcome (EXITS). A scan's desktop
-    sessions run above the reads' (ocr_remote.PRIORITIES): a read waits on
-    the scans its solution needs, so a starved scan holds up reads too."""
-    if unit["kind"] == "scan":
-        os.environ["OCR_REMOTE_PRIORITY"] = "scan"
-    if unit["paper"] == "trove":
-        return ftp.read_unit(unit["rel"], puzzles=None, reread=reread, force=unit.get("force"))
-    if unit["paper"] == "listener":
-        return gale_listener.read_unit(unit["rel"])
-    paper = fa.FILERS[unit["paper"]]
-    if unit["kind"] == "scan":
-        return fa.scan_unit(paper, unit["rel"], cache)
-    return fa.read_unit(paper, unit["rel"], cache, puzzles=puzzles, reread=reread, force=unit.get("force"))
 
 
 #: Where prepare() leaves each read it made for its unit (edition_commit.load_brief removes it).

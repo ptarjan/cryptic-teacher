@@ -23,13 +23,26 @@ Each definition is hashed as its syntax tree (ast.dump) with docstrings
 dropped, so comments, docstrings and line moves change nothing; any change
 to the code itself does. Modules outside tools/ (the standard library,
 numpy, PIL) are not followed.
+
+modules() and key() keep each answer in STORE under a hash of every
+tools/*.py file's name and bytes, so a process started on code that was
+read before (every unit of a queue between two tree moves) reads the files
+but parses none of them.
 """
 import ast
 import hashlib
+import json
+import os
 import sys
+import tempfile
+import time
 from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
+#: Where modules() and key() answers are kept: <tree hash>.json, one per
+#: version of tools/; a file unused for PRUNE_DAYS is removed.
+STORE = Path(os.environ.get("XDG_CACHE_HOME") or Path.home() / ".cache") / "cryptic-teacher" / "code_reach"
+PRUNE_DAYS = 7
 #: Modules not followed by default: the desktop transport (ocr_remote runs
 #: the same code there) and its busy probe change how a result travels,
 #: never what it is.
@@ -68,9 +81,55 @@ class _Module:
                     self.imports[a.asname or a.name] = (node.module, a.name)
 
 
+def _tree():
+    """A hash of every tools/*.py file's name and bytes."""
+    h = hashlib.sha1()
+    for path in sorted(TOOLS.glob("*.py")):
+        h.update(path.name.encode() + b"\0" + path.read_bytes() + b"\0")
+    return h.hexdigest()
+
+
+def _kept(question, answer):
+    """The answer to `question` (a JSON-able list) kept in STORE for this
+    tree, else answer() kept there; it is kept only when the tree is the
+    same after answer() read it as before."""
+    tree = _tree()
+    path, q = STORE / f"{tree}.json", json.dumps(question)
+    try:
+        kept = json.loads(path.read_text())
+    except (OSError, ValueError):
+        kept = {}
+    if q in kept:
+        try:
+            os.utime(path)
+        except OSError:
+            pass
+        return kept[q]
+    out = answer()
+    if _tree() != tree:
+        return out
+    kept[q] = out
+    try:
+        STORE.mkdir(parents=True, exist_ok=True)
+        fd, tmp = tempfile.mkstemp(dir=STORE, suffix=".tmp")
+        with os.fdopen(fd, "w") as f:
+            json.dump(kept, f)
+        os.replace(tmp, path)
+        for old in STORE.iterdir():
+            if old.stat().st_mtime < time.time() - PRUNE_DAYS * 86400:
+                old.unlink(missing_ok=True)
+    except OSError as e:
+        print(f"code_reach: {path} not written: {e}", file=sys.stderr)
+    return out
+
+
 def modules(name):
     """Every tools/ module `name` may load: those it imports anywhere in its
     code (a function's lazy import too), and theirs, `name` among them."""
+    return set(_kept(["modules", name], lambda: sorted(_modules(name))))
+
+
+def _modules(name):
     seen, todo = set(), [name]
     while todo:
         m = todo.pop()
@@ -201,10 +260,13 @@ def key(module, roots, texts=None, opaque=TRANSPORT):
     """A 16-hex-digit hash of the code `roots` reach from `module` (a module
     object or a tools/ module's name), past no `opaque` module."""
     name = module if isinstance(module, str) else Path(module.__file__).stem
-    h = hashlib.sha256()
-    for k, v in sorted(reach(name, roots, texts, opaque=opaque).items()):
-        h.update(f"{k}\n{v}\n".encode())
-    return h.hexdigest()[:16]
+
+    def answer():
+        h = hashlib.sha256()
+        for k, v in sorted(reach(name, roots, texts, opaque=opaque).items()):
+            h.update(f"{k}\n{v}\n".encode())
+        return h.hexdigest()[:16]
+    return answer() if texts else _kept(["key", name, sorted(roots), sorted(opaque)], answer)
 
 
 if __name__ == "__main__":

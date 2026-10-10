@@ -849,6 +849,40 @@ for src, (name, _) in sorted(eq.FETCH_UNITS.items()):
     got = subprocess.run([sys.executable, "-c", fetch_probe], capture_output=True, text=True,
                          timeout=120).stderr.strip().splitlines()[-1]
     check(f"a {src} fetch unit loads its MODULES, not the queue's, and exits its outcome", f"{eq.EXITS['busy']} True []", got)
+# A scan or read unit loads its paper's module and what that may load
+# (lazy imports too), not the queue's other filers and fetchers.
+for kind, paper, fn in (("scan", "gale", "scan_unit"), ("read", "trove", "read_unit")):
+    name = eq.UNIT_MODULES.get(paper, eq.UNIT_MODULES[None])
+    unit_probe = (f"import importlib, json, os, runpy, sys\n"
+                  f"m = importlib.import_module({name!r}); m.{fn} = lambda *a, **k: 'busy'\n"
+                  f"os.environ['CT_EDITION_UNIT'] = json.dumps({{'unit': {{'kind': {kind!r}, 'paper': {paper!r}, 'rel': 'x'}},"
+                  f" 'cache': '/nonexistent', 'puzzles': None, 'reread': None}})\n"
+                  f"sys.argv = ['edition_queue.py', 'unit', {kind!r}, {paper!r}, 'x']\n"
+                  f"try:\n    runpy.run_path('edition_queue.py', run_name='__main__')\n"
+                  f"except SystemExit as e:\n"
+                  f"    print(e.code, 'puzzle_integrity' in sys.modules,\n"
+                  f"          [n for n in ('fetch_trove', 'gale_listener', 'mem_gate') if n in sys.modules],"
+                  f" file=sys.stderr)")
+    got = subprocess.run([sys.executable, "-c", unit_probe], capture_output=True, text=True,
+                         timeout=120).stderr.strip().splitlines()[-1]
+    check(f"a {kind} {paper} unit loads {name}'s reach, not the queue's, and exits its outcome",
+          f"{eq.EXITS['busy']} True []", got)
+# code_reach keeps its answers per version of tools/: an edit is a new answer.
+saved = code_reach.TOOLS, code_reach.STORE
+code_reach.TOOLS, code_reach.STORE = T / "reach-tools", T / "reach-store"
+code_reach.TOOLS.mkdir()
+(code_reach.TOOLS / "ra.py").write_text("import rb\ndef f():\n    return rb.g()\n")
+(code_reach.TOOLS / "rb.py").write_text("def g():\n    return 1\n")
+first = (code_reach.modules("ra"), code_reach.key("ra", {"f"}))
+again = (code_reach.modules("ra"), code_reach.key("ra", {"f"}), len(list(code_reach.STORE.glob("*.json"))))
+(code_reach.TOOLS / "rb.py").write_text("def g():\n    return 2\n")
+(code_reach.TOOLS / "ra.py").write_text("import rb\ndef f():\n    import rc\n    return rb.g()\n")
+(code_reach.TOOLS / "rc.py").write_text("")
+edited = (code_reach.modules("ra"), code_reach.key("ra", {"f"}))
+check("code_reach answers again from its store, and anew after an edit",
+      ({"ra", "rb"}, True, 1, {"ra", "rb", "rc"}, True),
+      (first[0], again[:2] == first, again[2], edited[0], edited[1] != first[1]))
+code_reach.TOOLS, code_reach.STORE = saved
 lock_path = subprocess.run(["git", "rev-parse", "--path-format=absolute", "--git-path", "code.lock"],
                            capture_output=True, text=True, check=True).stdout.strip()
 with open(lock_path, "a") as lk:
