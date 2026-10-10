@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Part of the UK was invaded by the French",
     "enumeration": "5"
    },
-   "solution": "WALES"
+   "solution": "WALES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WALES",
+    "definitions": [
+     {
+      "text": "Part of the UK",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "invaded by",
+      "for": "container",
+      "note": "a place invaded by a force has that force inside its borders, so one word goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "was",
+      "gives": "WAS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for 'the'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WA",
+      "LE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A history note about a French invasion of part of Britain.",
+     "walkthrough": "The French article sits between the second and third letters of 'was'.",
+     "definitionFit": "Wales is one of the four constituent countries making up the United Kingdom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,62 @@
     "text": "Offender harassed dog owner on end of pier",
     "enumeration": "9"
    },
-   "solution": "WRONGDOER"
+   "solution": "WRONGDOER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "WRONGDOER",
+    "definitions": [
+     {
+      "text": "Offender",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "harassed",
+      "for": "anagram",
+      "note": "something harassed is pushed about and disturbed, so the letters are thrown into a new order"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "end of asks for only the final letter of the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog owner",
+      "gives": "DOGOWNER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pier",
+      "gives": "R",
+      "select": "last",
+      "note": "the last letter of pier"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DOGOWNERR",
+       "gives": "WRONGDOER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at the seaside is charged with pestering a dog walker on a pier.",
+     "definitionFit": "A wrongdoer is a person who commits an offence, a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "harassed"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +173,56 @@
      }
     ]
    },
-   "solution": "LETON"
+   "solution": "LETON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LET ON",
+    "definitions": [
+     {
+      "text": "Tell",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "principal of",
+      "for": "letter_selection",
+      "note": "the principal or head of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Loughborough",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of Loughborough"
+     },
+     {
+      "clueFragment": "College",
+      "gives": "ETON",
+      "note": "Eton College, the famous English public school"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ETON"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to inform the head of a college in Loughborough.",
+     "walkthrough": "'Principal' looks like a college head in the surface, but it selects a first letter.",
+     "definitionFit": "To let on is an idiom meaning to reveal or tell a secret."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "principal"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +236,59 @@
     "text": "Sleeveless shirt - team's leader is after one",
     "enumeration": "7"
    },
-   "solution": "SINGLET"
+   "solution": "SINGLET",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SINGLET",
+    "definitions": [
+     {
+      "text": "Sleeveless shirt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader of a word is the letter at its front"
+     }
+    ],
+    "linkWords": [
+     "is after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "SINGLE",
+      "note": "single means one"
+     },
+     {
+      "clueFragment": "team's",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of team"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SINGLE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A sports kit note: the captain wants a sleeveless top.",
+     "walkthrough": "'Is after' places the team's first letter behind the word for one.",
+     "definitionFit": "A singlet is a vest-like garment without sleeves, worn by athletes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +308,52 @@
      }
     ]
    },
-   "solution": "BYPRODUCT"
+   "solution": "BYPRODUCT",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "BY-PRODUCT",
+    "definitions": [
+     {
+      "text": "a derivative",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the phone",
+      "for": "homophone",
+      "note": "over the phone a word is only heard, so the spelling may be a different word of the same sound"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Purchase",
+      "gives": "BY",
+      "soundsLike": "BUY",
+      "note": "buy means purchase, and sounds the same as the preposition"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "PRODUCT",
+      "note": "a product is a piece of work produced"
+     }
+    ],
+    "explanation": {
+     "surface": "A telephone order placed before starting work, for some derived item.",
+     "definitionFit": "A by-product is something produced incidentally from another process, so it is derived from it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "phone"
+    }
+   }
   },
   {
    "number": 4,
@@ -127,7 +379,51 @@
      }
     ]
    },
-   "solution": "BLOOMSBURYGROUP"
+   "solution": "BLOOMSBURYGROUP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BLOOMSBURY GROUP",
+    "definitions": [
+     {
+      "text": "Literary people",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new, so the letters are made into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blog Rob Roy, sum up",
+      "gives": "BLOGROBROYSUMUP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BLOGROBROYSUMUP",
+       "gives": "BLOOMSBURYGROUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A book blogger is told to review and summarise Scott's novel Rob Roy.",
+     "walkthrough": "'Novel' fits Rob Roy, Walter Scott's book, but here it means new and reshapes the letters.",
+     "definitionFit": "The Bloomsbury Group was a circle of English writers and artists including Virginia Woolf and E. M. Forster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 5,
@@ -155,7 +451,45 @@
      }
     ]
    },
-   "solution": "PUTONESFOOTDOWN"
+   "solution": "PUTONESFOOTDOWN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PUT ONE'S FOOT DOWN",
+    "definitions": [
+     {
+      "text": "Act firmly",
+      "at": 0
+     },
+     {
+      "text": "gain momentum",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Act firmly",
+      "note": "first meaning: insist with authority"
+     },
+     {
+      "clueFragment": "gain momentum",
+      "note": "second meaning: press the accelerator to speed up"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as one instruction about building speed; the phrase has a figurative and a driving sense.",
+     "definitionFit": "The idiom means taking a firm stand, and literally pressing the car's accelerator pedal to go faster."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 6,
@@ -169,7 +503,52 @@
     "text": "More than a couple of pounds altogether",
     "enumeration": "7"
    },
-   "solution": "OVERALL"
+   "solution": "OVERALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERALL",
+    "definitions": [
+     {
+      "text": "altogether",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "More than",
+      "gives": "OVER",
+      "note": "over means more than"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "couple of pounds",
+      "gives": "LL",
+      "note": "L is the abbreviation for pound (librae), so two of them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "A",
+      "LL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone totals up a bill that comes to slightly over two pounds.",
+     "definitionFit": "Overall and altogether are synonyms meaning taking everything into account."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pounds"
+    }
+   }
   },
   {
    "number": 7,
@@ -189,7 +568,54 @@
      }
     ]
    },
-   "solution": "URSAMINOR"
+   "solution": "URSAMINOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "URSA MINOR",
+    "definitions": [
+     {
+      "text": "Constellation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "galaxy",
+      "for": "anagram",
+      "note": "a galaxy is a vast scattering of stars, suggesting these letters are scattered into a new order"
+     }
+    ],
+    "linkWords": [
+     "seen from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mars in our",
+      "gives": "MARSINOUR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MARSINOUR",
+       "gives": "URSAMINOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An astronomer wonders which star pattern would be visible from Mars.",
+     "walkthrough": "The question mark flags the unusual anagram signal; the surface is about stargazing, which makes 'galaxy' look like scenery.",
+     "definitionFit": "Ursa Minor, the Little Bear, is the northern constellation containing the Pole Star."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "galaxy"
+    }
+   }
   },
   {
    "number": 8,
@@ -203,7 +629,62 @@
     "text": "Row about lodge's first doorkeeper",
     "enumeration": "5"
    },
-   "solution": "TILER"
+   "solution": "TILER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TILER",
+    "definitions": [
+     {
+      "text": "doorkeeper",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the first word wraps round what follows"
+     },
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first asks for just the opening letter of the preceding word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Row",
+      "gives": "TIER",
+      "note": "a tier is a row, as of seats"
+     },
+     {
+      "clueFragment": "lodge's",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of lodge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "L",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A dispute over who first guarded the door of a lodge.",
+     "walkthrough": "The lodge in the surface is apt: a tiler is the officer who guards the door of a Freemasons' lodge.",
+     "definitionFit": "In Freemasonry the tiler (or tyler) keeps the outer door of the lodge during meetings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Row"
+    }
+   }
   },
   {
    "number": 9,
@@ -227,7 +708,51 @@
      }
     ]
    },
-   "solution": "OUTANDOUT"
+   "solution": "OUTANDOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUT-AND-OUT",
+    "definitions": [
+     {
+      "text": "Thorough",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "apparently"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Off-target",
+      "gives": "OUT",
+      "note": "a shot off target is out"
+     },
+     {
+      "clueFragment": "twice",
+      "gives": "ANDOUT",
+      "note": "twice means the same word again, joined on with 'and'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "ANDOUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A shooter misses twice and wonders if the analysis was thorough.",
+     "walkthrough": "'Apparently' admits the playful reading: out, and out again.",
+     "definitionFit": "Out-and-out means complete or utter in every way, so thorough as an intensifying adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Off-target"
+    }
+   }
   },
   {
    "number": 10,
@@ -241,7 +766,54 @@
     "text": "Treacherous type losing wife's support",
     "enumeration": "5"
    },
-   "solution": "EASEL"
+   "solution": "EASEL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EASEL",
+    "definitions": [
+     {
+      "text": "support",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing tells us a letter is dropped from the word before"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Treacherous type",
+      "gives": "WEASEL",
+      "note": "a weasel is a sly, treacherous person"
+     },
+     {
+      "clueFragment": "wife's",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EASEL"
+     ]
+    },
+    "explanation": {
+     "surface": "A double-crosser loses the support of his wife.",
+     "walkthrough": "W for wife is a standard abbreviation; it is removed from the front of the animal word.",
+     "definitionFit": "An easel is a stand that supports a painter's canvas or a display board."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 11,
@@ -261,7 +833,53 @@
      }
     ]
    },
-   "solution": "GENTLEMANFARMER"
+   "solution": "GENTLEMANFARMER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GENTLEMAN-FARMER",
+    "definitions": [
+     {
+      "text": "wealthy landowner, perhaps",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "forced",
+      "for": "anagram",
+      "note": "letters that are forced are pushed out of their natural order into a new one"
+     }
+    ],
+    "linkWords": [
+     "out of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fragment Marlene",
+      "gives": "FRAGMENTMARLENE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FRAGMENTMARLENE",
+       "gives": "GENTLEMANFARMER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Marlene is driven out of a rich estate owner's property in pieces.",
+     "definitionFit": "A gentleman farmer owns farmland as a man of means rather than working it for a living, so a wealthy landowner is an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fragment"
+    }
+   }
   },
   {
    "number": 12,
@@ -275,7 +893,42 @@
     "text": "Storming start",
     "enumeration": "5"
    },
-   "solution": "ONSET"
+   "solution": "ONSET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ONSET",
+    "definitions": [
+     {
+      "text": "Storming",
+      "at": 0
+     },
+     {
+      "text": "start",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Storming",
+      "note": "first meaning: an assault or attack"
+     },
+     {
+      "clueFragment": "start",
+      "note": "second meaning: a beginning"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read together it looks like a fast beginning; 'Storming' is a noun here for an assault.",
+     "definitionFit": "Onset means both an attack, especially a military one, and the beginning of something unpleasant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Storming"
+    }
+   }
   },
   {
    "number": 13,
@@ -289,7 +942,50 @@
     "text": "Able to endure stormy weather was theory, unfortunately",
     "enumeration": "9"
    },
-   "solution": "SEAWORTHY"
+   "solution": "SEAWORTHY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEAWORTHY",
+    "definitions": [
+     {
+      "text": "Able to endure stormy weather",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "unfortunately suggests things have gone wrong, so the letters fall out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "was theory",
+      "gives": "WASTHEORY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WASTHEORY",
+       "gives": "SEAWORTHY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boat's design was meant to survive storms, but only in theory.",
+     "definitionFit": "A seaworthy vessel is fit to go to sea and withstand rough conditions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "theory"
+    }
+   }
   },
   {
    "number": 14,
@@ -303,7 +999,51 @@
     "text": "Tennis player, contemptible on passenger ship?",
     "enumeration": "9"
    },
-   "solution": "BASELINER"
+   "solution": "BASELINER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BASELINER",
+    "definitions": [
+     {
+      "text": "Tennis player",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "contemptible",
+      "gives": "BASE",
+      "note": "base means low and contemptible"
+     },
+     {
+      "clueFragment": "passenger ship",
+      "gives": "LINER",
+      "note": "an ocean liner carries passengers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BASE",
+      "LINER"
+     ]
+    },
+    "explanation": {
+     "surface": "A despicable tennis player on a cruise ship.",
+     "walkthrough": "The question mark admits the tennis player is a description, not literally on a liner.",
+     "definitionFit": "A baseliner is a tennis player who stays near the back line and plays from there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "ship"
+    }
+   }
   },
   {
    "number": 15,
@@ -317,7 +1057,55 @@
     "text": "Tries during proper practice session",
     "enumeration": "9"
    },
-   "solution": "REHEARSAL"
+   "solution": "REHEARSAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REHEARSAL",
+    "definitions": [
+     {
+      "text": "practice session",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during means within, so one word sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "proper",
+      "gives": "REAL",
+      "note": "real means proper or genuine"
+     },
+     {
+      "clueFragment": "Tries",
+      "gives": "HEARS",
+      "note": "a judge hears or tries a case"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "HEARS",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "Rugby players score tries during a real training session.",
+     "walkthrough": "'Tries' suggests rugby or attempts, but it is the legal sense of a court hearing a case.",
+     "definitionFit": "A rehearsal is a practice performance before the real event."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tries"
+    }
+   }
   },
   {
    "number": 16,
@@ -341,7 +1129,67 @@
      }
     ]
    },
-   "solution": "ROADTORIO"
+   "solution": "ROADTORIO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ROAD TO RIO",
+    "definitions": [
+     {
+      "text": "Hope film",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "new signals the following word is made over into a fresh arrangement"
+     },
+     {
+      "text": "put in",
+      "for": "container",
+      "note": "put in means placed inside, so a letter is inserted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oratorio",
+      "gives": "ORATORIO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "director's",
+      "gives": "D",
+      "note": "D is the abbreviation for director"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROA",
+      "D",
+      "TORIO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ORATORIO",
+       "gives": "ROATORIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A film director hopes to place a new oratorio in the score.",
+     "walkthrough": "'Hope' is not a wish but Bob Hope, the comedian who starred in the 'Road to' films with Bing Crosby.",
+     "definitionFit": "Road to Rio (1947) is one of the Road comedy films starring Bob Hope and Bing Crosby."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Hope"
+    }
+   }
   },
   {
    "number": 17,
@@ -355,7 +1203,49 @@
     "text": "Incredible bar in European capital",
     "enumeration": "7"
    },
-   "solution": "TALLINN"
+   "solution": "TALLINN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TALLINN",
+    "definitions": [
+     {
+      "text": "European capital",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Incredible",
+      "gives": "TALL",
+      "note": "a tall story is an incredible one"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "INN",
+      "note": "an inn is a place with a bar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TALL",
+      "INN"
+     ]
+    },
+    "explanation": {
+     "surface": "A wonderful bar found in one of Europe's capital cities.",
+     "definitionFit": "Tallinn is the capital city of Estonia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Incredible"
+    }
+   }
   },
   {
    "number": 18,
@@ -369,7 +1259,74 @@
     "text": "Hare off across middle of neutral ground",
     "enumeration": "5"
    },
-   "solution": "EARTH"
+   "solution": "EARTH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "EARTH",
+    "definitions": [
+     {
+      "text": "ground",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone wrong or out of place, so the letters are rearranged"
+     },
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "middle of keeps only the central letter of the word"
+     },
+     {
+      "text": "across",
+      "for": "container",
+      "note": "across means spanning over, so one part straddles the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hare",
+      "gives": "HARE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "neutral",
+      "gives": "T",
+      "select": "middle",
+      "note": "the middle letter of the seven-letter neutral"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAR",
+      "T",
+      "H"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HARE",
+       "gives": "EARH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hare runs off across a no-man's-land between two sides.",
+     "walkthrough": "'Neutral ground' looks like one phrase; only 'ground' is the definition.",
+     "definitionFit": "Earth is a synonym for ground or soil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "neutral"
+    }
+   }
   },
   {
    "number": 18,
@@ -389,7 +1346,56 @@
      }
     ]
    },
-   "solution": "EGOTRIP"
+   "solution": "EGOTRIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EGO TRIP",
+    "definitions": [
+     {
+      "text": "a boost to self-esteem?",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ecstasy",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     },
+     {
+      "clueFragment": "obtained",
+      "gives": "GOT",
+      "note": "got means obtained"
+     },
+     {
+      "clueFragment": "by tearaway",
+      "gives": "RIP",
+      "note": "a rip is a reckless rascal; 'by' places it next to the rest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "GOT",
+      "RIP"
+     ]
+    },
+    "explanation": {
+     "surface": "A young tearaway takes ecstasy to feel better about himself.",
+     "walkthrough": "A rip, short for rapscallion, is an old word for a wild young person.",
+     "definitionFit": "An ego trip is an activity done mainly to make oneself feel important, flattering one's self-regard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Ecstasy"
+    }
+   }
   },
   {
    "number": 19,
@@ -409,7 +1415,39 @@
      }
     ]
    },
-   "solution": "MOONLIGHTSONATA"
+   "solution": "MOONLIGHTSONATA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "MOONLIGHT SONATA",
+    "definitions": [
+     {
+      "text": "Work for a pianist after the day job?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Work for a pianist",
+      "note": "surface reading: a musician's evening job; setter's reading: a composition for piano"
+     },
+     {
+      "clueFragment": "after the day job?",
+      "note": "surface reading: a second job; setter's reading: the moonlighting idea, working at night after a day job"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "To moonlight is to take a second job at night, so the question mark turns Beethoven's famous piano piece into an evening shift.",
+     "definitionFit": "Beethoven's Piano Sonata No. 14 is popularly known by this nickname, making it a work for pianists."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Work"
+    }
+   }
   },
   {
    "number": 19,
@@ -423,7 +1461,60 @@
     "text": "Second suitable upturned design",
     "enumeration": "5"
    },
-   "solution": "MOTIF"
+   "solution": "MOTIF",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MOTIF",
+    "definitions": [
+     {
+      "text": "design",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upturned",
+      "for": "reversal",
+      "note": "in a down clue upturned means the word is turned upside down, reading from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "MO",
+      "note": "a mo is a moment, a second"
+     },
+     {
+      "clueFragment": "suitable",
+      "gives": "FIT",
+      "note": "fit means suitable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "TIF"
+     ],
+     "reversals": [
+      {
+       "from": "FIT",
+       "to": "TIF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A design is rejected and then accepted on second inspection when turned over.",
+     "definitionFit": "A motif is a recurring design or pattern element."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Second"
+    }
+   }
   },
   {
    "number": 20,
@@ -437,7 +1528,56 @@
     "text": "Boy losing book causes alarm",
     "enumeration": "5"
    },
-   "solution": "ALERT"
+   "solution": "ALERT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ALERT",
+    "definitions": [
+     {
+      "text": "alarm",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing tells us a letter is dropped from the name before"
+     }
+    ],
+    "linkWords": [
+     "causes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boy",
+      "gives": "ALBERT",
+      "note": "a boy's name"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "ERT"
+     ]
+    },
+    "explanation": {
+     "surface": "A child loses his book and panics.",
+     "definitionFit": "An alert is a warning signal, the same as an alarm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Boy"
+    }
+   }
   },
   {
    "number": 21,
@@ -451,7 +1591,49 @@
     "text": "Expresses mild disapproval in front of one Bantu tribe member",
     "enumeration": "5"
    },
-   "solution": "TUTSI"
+   "solution": "TUTSI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TUTSI",
+    "definitions": [
+     {
+      "text": "Bantu tribe member",
+      "at": 43
+     }
+    ],
+    "linkWords": [
+     "in front of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Expresses mild disapproval",
+      "gives": "TUTS",
+      "note": "to tut is to click the tongue in mild disapproval"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUTS",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tuts at a member of an African people.",
+     "definitionFit": "The Tutsi are a Bantu-speaking people of Rwanda and Burundi, so a Tutsi is one member."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Expresses"
+    }
+   }
   },
   {
    "number": 22,
@@ -465,7 +1647,54 @@
     "text": "Lourdes so relaxing being free from smell",
     "enumeration": "9"
    },
-   "solution": "ODOURLESS"
+   "solution": "ODOURLESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ODOURLESS",
+    "definitions": [
+     {
+      "text": "free from smell",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "relaxing",
+      "for": "anagram",
+      "note": "relaxing loosens the order of the letters so they can be rearranged"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lourdes so",
+      "gives": "LOURDESSO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LOURDESSO",
+       "gives": "ODOURLESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pilgrim finds Lourdes calming because the air is fresh.",
+     "walkthrough": "Lourdes is the French pilgrimage town; its letters plus 'so' are reshuffled.",
+     "definitionFit": "Odourless means having no smell at all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "relaxing"
+    }
+   }
   },
   {
    "number": 23,
@@ -485,7 +1714,61 @@
      }
     ]
    },
-   "solution": "FRYINGPAN"
+   "solution": "FRYINGPAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FRYING PAN",
+    "definitions": [
+     {
+      "text": "item used by cook",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tiny fish",
+      "gives": "FRY",
+      "note": "fry are young, very small fish"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "bowl",
+      "gives": "PAN",
+      "note": "a pan is a bowl-shaped vessel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRY",
+      "IN",
+      "G",
+      "PAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Little fish served in a nice bowl, something a chef uses.",
+     "definitionFit": "A frying pan is a shallow pan that a cook uses for frying food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bowl"
+    }
+   }
   },
   {
    "number": 24,
@@ -499,7 +1782,64 @@
     "text": "Floral feature has tulip's head in centre of ring",
     "enumeration": "5"
    },
-   "solution": "PETAL"
+   "solution": "PETAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PETAL",
+    "definitions": [
+     {
+      "text": "Floral feature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     },
+     {
+      "text": "in centre of",
+      "for": "container",
+      "note": "placed in the centre of something means set inside it"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ring",
+      "gives": "PEAL",
+      "note": "a peal is a ring of bells"
+     },
+     {
+      "clueFragment": "tulip's",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of tulip"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "T",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A floral display has a tulip at the centre of a ring.",
+     "definitionFit": "A petal is one of the coloured parts of a flower, a feature of any bloom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   }
  ]
 }
