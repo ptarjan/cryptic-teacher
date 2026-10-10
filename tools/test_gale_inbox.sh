@@ -161,6 +161,18 @@ check("never-matched files go first, the oldest download first, not by name",
 check("(mirror) and once matched they are not unread", [], g.unread(inbox, g.MATCHES))
 (inbox / "1999-12-31 page 1.png").unlink()
 (inbox / "1999-12-30 page 1.png").unlink()
+# The budget starts once the desktop's session is up: a slow connect
+# (waiting behind other processes' code ships) spends none of it.
+import time as _tm
+connects = []
+g.desktop_ready = lambda: (connects.append(1), _tm.sleep(0.3))
+Image.new("RGB", (400, 300), "white").save(inbox / "1999-12-29 page 1.png")
+g.stage(inbox, cache, io.StringIO(), un, g.MATCHES, seconds=0.2)
+check("a connect longer than the budget still leaves the budget for matching", (1, "1999-12-29 page 1.png"),
+      (len(connects), order[-1]))
+(inbox / "1999-12-29 page 1.png").unlink()
+g.stage(inbox, cache, io.StringIO(), un, g.MATCHES, seconds=0.2)
+check("(mirror) with nothing to match, no connect", 1, len(connects))
 g.match = saved_match
 g.MATCHER = saved_matcher
 g.stage(inbox, cache, io.StringIO(), un, g.MATCHES)

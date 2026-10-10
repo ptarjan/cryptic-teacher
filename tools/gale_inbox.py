@@ -100,7 +100,10 @@ MATCHER = code_reach.key("gale_inbox", {"match"})[:12]
 #: short. Files never matched go first, the oldest download first, so a
 #: fresh download is never queued behind re-reads; a file not re-read yet
 #: keeps its last match (same name, size and mtime, under the code before).
-#: A tick stages while the inbox holds a file never matched (unread).
+#: A tick stages while the inbox holds a file never matched (unread). The
+#: budget starts once the desktop's session is up (desktop_ready): its
+#: connect can wait minutes behind other processes' handshakes and code
+#: ships, which would otherwise spend the whole budget on no match.
 MATCH_SECONDS = 60
 #: The Downloads files already looked at and found not to be Gale's.
 SEEN = MIRROR.parent / "seen.json"
@@ -500,6 +503,14 @@ def unread(inbox=None, matches=None):
     return sorted((p for p in inbox_files(inbox) if file_ident(p) not in seen), key=lambda p: p.stat().st_mtime)
 
 
+def desktop_ready():
+    """Open this process's desktop session (tools/ocr_remote.py), which
+    match_anywhere then uses; nothing when OCR_REMOTE is unset or the
+    desktop does not answer (the matches then run here)."""
+    import ocr_remote
+    ocr_remote.session()
+
+
 def stage(inbox=MIRROR, cache=CACHE, out=sys.stdout, unmatched=UNMATCHED, matches=MATCHES,
           seconds=MATCH_SECONDS):
     """Lay each date's pages in `inbox` out as one edition directory under
@@ -513,9 +524,11 @@ def stage(inbox=MIRROR, cache=CACHE, out=sys.stdout, unmatched=UNMATCHED, matche
     #: Each file's match under any code, by name, size and mtime.
     stale = {k.split("\t", 1)[1]: v for k, v in known.items()}
     by_date = collections.defaultdict(list)
-    deadline = time.monotonic() + seconds
     deferred = 0
     idents = {p: file_ident(p) for p in files}
+    if seconds > 0 and any(f"{MATCHER}\t{idents[p]}" not in known for p in files):
+        desktop_ready()
+    deadline = time.monotonic() + seconds
     for p in sorted(files, key=lambda p: (idents[p] in stale, int(idents[p].rsplit("\t", 1)[1]))):
         ident = idents[p]
         k = f"{MATCHER}\t{ident}"
