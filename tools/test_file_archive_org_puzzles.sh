@@ -1465,6 +1465,22 @@ check("a numbered first cell takes the one allowed letter making a word read who
       (numbered_case("?UEUE", "BDQ", {"BUEUE", "QUEUE"}), numbered_case("?ARDCOURT", "N", {"NARDCOURT"}),
        numbered_case("?RIER", "BD", {"BRIER", "DRIER"}), numbered_case("?UEUE", "Q", {"BUEUE"}),
        numbered_case("?YNE", "D", {"DYNE"}, cross="?XQZ"), numbered_case("?YNE", "D", {"DYNE"}, cross="?ARE")))
+# whole_reads(): a light read whole as exactly one word takes its letters
+# where the word agrees with every letter settled; not two words (HEADS and
+# MEADS), not against a settled letter, and a numbered cell left open only
+# as its glyph's best match to a letter model (DROWN read as BROWN, 13773).
+def whole_case(printed, settled=None, number=None, drawn="T"):
+    lts = {(1, "across"): [(5, c) for c in range(len(next(iter(printed))))]}
+    gl = {**glyphs, (5, 0): drawn_letter(drawn)}
+    return tso.whole_reads(lts, settled or {}, {rc: set(tso.AZ) for rc in lts[(1, "across")]},
+                           {(1, "across"): set(printed)}, {(5, 0): 1} if number else {}, gl,
+                           tso.letter_models(glyphs, read))
+check("a light read whole as one word takes its open letters, the numbered first one as its glyph's best match",
+      ("SLUMP", {}, {}, "TIDE", {}, {}),
+      ("".join(whole_case({"SLUMP", "SLOMP"}, {(5, 2): "U"}).get((5, c), "U") for c in range(5)),
+       whole_case({"HEADS", "MEADS"}), whole_case({"SLUMP"}, {(5, 2): "O"}),
+       "".join(whole_case({"TIDE"}, number=True)[(5, c)] for c in range(4)),
+       whole_case({"TIDE"}, number=True, drawn="I"), whole_case({"BROWN"}, number=True)))
 
 # read_solution(): the solution grid under its heading, answers keyed as
 # trove_solution_ocr.fill() looks them up, nothing from a grid of other blocks.

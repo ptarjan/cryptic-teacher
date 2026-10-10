@@ -645,6 +645,34 @@ def numbered_letters(lts, letters, numbers, allowed, printed):
     return out
 
 
+def whole_reads(lts, letters, allowed, printed, numbered, glyphs, models):
+    """{cell: letter} for lights a recogniser read whole as exactly one
+    WordNet word of 4+ letters that agrees with every letter read or settled
+    (`letters`) and `allowed` there. A heavy print's letters are rarely each
+    read surely, yet its lights are read whole. A `numbered` cell ({cell:
+    number}, a grid printing them) left open must have a letter model and
+    match it best (the number makes a D a B: DROWN read as BROWN). Each
+    settled letter counts in its crossing lights, until none settles."""
+    letters, out = dict(letters), {}
+    settled = True
+    while settled:
+        settled = False
+        for key, cells in lts.items():
+            if all(rc in letters for rc in cells):
+                continue
+            fit = {w for w in printed.get(key, ()) if len(w) >= 4 and w.lower() in _WORDS
+                   and all(letters.get(rc, ch) == ch and ch in allowed.get(rc, ()) for rc, ch in zip(cells, w))
+                   and all(ch in models and best_match(glyphs[rc], models, numbered[rc], ch)
+                           for rc, ch in zip(cells, w) if rc in numbered and rc not in letters)}
+            if len(fit) == 1:
+                w = fit.pop()
+                for rc, ch in zip(cells, w):
+                    if rc not in letters:
+                        letters[rc] = out[rc] = ch
+                settled = True
+    return out
+
+
 def framings(gray, grid):
     """[(gray, ys, xs)]: the lattices a grid image may lie on: its largest
     patch of ink straightened() and ruled by rules(), and (a crop that is no
@@ -700,7 +728,7 @@ def read_lattice(gray, ys, xs, grid):
     """(accepted, stats, sure letters) for a grid image whose rules lie at
     ys and xs: each light accepted when every cell is read (the
     recogniser's sure letter, or for a cell with a clue number or no sure
-    read, matched_letters, then in a grid printing its numbers
+    read, matched_letters, whole_reads, and in a grid printing its numbers
     numbered_letters) and the word is known()."""
     lts = lights(grid)
     numbers = {cells[0]: n for (n, _), cells in lts.items()}
@@ -739,6 +767,9 @@ def read_lattice(gray, ys, xs, grid):
     printed = {k: full.get(k, set()) | blanked_full.get(k, set()) for k in lts}
     matched = matched_letters(read, glyphs, numbers, lts, allowed, printed, models)
     letters = {**read, **matched}
+    if marked:
+        letters.update(numbered_letters(lts, letters, numbers, allowed, printed))
+    letters.update(whole_reads(lts, letters, allowed, printed, numbers if marked else {}, glyphs, models))
     if marked:
         letters.update(numbered_letters(lts, letters, numbers, allowed, printed))
     # A light read_answers' plain reading accepts (every cell sure, the whole
