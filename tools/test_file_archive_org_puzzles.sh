@@ -906,6 +906,49 @@ check("a Gale page is the Gale run's, never the Times run's, and files as the Ti
       (["1974-05-01_1", "1990-01-02_3", "1974-05-02_2"], ["1987-03-02"], "gale", "times", "filed-gale.jsonl"),
       ([d.name for d in f.edition_dirs(cache)], [d.name for d in f.edition_dirs(cache, f.GALE)],
        f.paper_of(cache / "GaleTimes1987UKEnglish" / "x").key, f.GALE.series, f.LEDGER_NAMES["gale"]))
+# plan() lists a settled dir once (_seen): a replaced file, a new edition or
+# a moved ledger row each make an edition due again; a fresh dir is not kept.
+import scan_queue, time
+f.vlm.reachable = lambda *a, **k: False
+pc = Path(os.environ["TMP"]) / "plancache"
+def settle(*ds):
+    for d in ds:
+        os.utime(d, (time.time() - 600, time.time() - 600))
+e1 = pc / "NewsUK1981UKEnglish" / "1981-02-03_1"
+e1.mkdir(parents=True)
+(e1 / "pages.json").write_text("{}")
+(e1 / "leaf_0001.jpg").write_bytes(b"x")
+settle(e1, e1.parent, pc)
+def settled_row(d):
+    fh, found = f.input_hash(d), {"puzzles": [], "solutions": []}
+    return {"edition": f"{d.parent.name}/{d.name}", "filesHash": fh, "scanKey": f.scan_key(), "scan": found,
+            "inputs": f.inputs_of(fh, found, f.TIMES.series), "solutionsSeen": [], "verdicts": [],
+            "readAt": "2026-01-01T00:00:00+00:00"}
+pl = pc / "filed.jsonl"
+scan_queue.append(pl, [settled_row(e1)])
+settle(pc)
+due = lambda: [(u["kind"], u["rel"].split("/")[1], u["reason"]) for u in sum(f.plan(f.TIMES, pc), [])]
+check("a settled edition whose row is current is due for nothing, and its listing is kept", ([], True),
+      (due(), e1 in f._SEEN))
+old = os.stat(e1).st_mtime_ns
+(e1 / "leaf_0001.tmp").write_bytes(b"xy")
+os.replace(e1 / "leaf_0001.tmp", e1 / "leaf_0001.jpg")
+os.utime(e1, ns=(old, old))
+check("a file replaced under an unmoved mtime makes it due again (the ctime moved)",
+      [("scan", "1981-02-03_1", "scan stale"), ("read", "1981-02-03_1", "scan stale")], due())
+scan_queue.append(pl, [settled_row(e1)])
+e2 = pc / "NewsUK1981UKEnglish" / "1981-05-06_2"
+e2.mkdir()
+(e2 / "pages.json").write_text("{}")
+check("a new edition in a listed item is planned", [("scan", "1981-05-06_2", "never scanned"),
+                                                    ("read", "1981-05-06_2", "never read")], due())
+scan_queue.append(pl, [settled_row(e2), {**settled_row(e1), "inputs": "moved"}])
+check("a moved ledger row makes its edition due again", [("read", "1981-02-03_1", "inputs changed")], due())
+scan_queue.compact(pl, "edition")
+check("a ledger replaced whole (compact) plans the same", [("read", "1981-02-03_1", "inputs changed")], due())
+(e2 / "pages.json").write_text("{\"x\": 1}")
+check("a dir changed within SETTLED is listed afresh, an in-place write seen", (False, "scan stale"),
+      (e2 in f._SEEN, dict((r, why) for _, r, why in due()).get("1981-05-06_2")))
 check("filer_of: each edition to the run that reads it (the 1930 Times the Times run's)",
       ["gale", "times", "times", "ft", None],
       [getattr(f.filer_of(r), "key", None) for r in ("GaleTimes1987UKEnglish/1987-03-02", "NewsUK1990UKEnglish/x",
