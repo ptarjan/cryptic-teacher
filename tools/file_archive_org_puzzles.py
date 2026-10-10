@@ -437,7 +437,7 @@ def ink_box(img, close=0):
     gray = np.asarray(img.convert("L"), dtype=np.uint8)
     ink = gray < trove_grid.otsu(gray)
     if close:
-        import cv2
+        cv2 = ocr_clues.capped_cv2()
         ink = cv2.morphologyEx(ink.astype(np.uint8), cv2.MORPH_CLOSE, np.ones((close, close), np.uint8)) > 0
     return trove_grid.largest_component(ink)
 
@@ -1695,8 +1695,8 @@ TITLE_REACH = 300
 def grids_on(img, step=2, shaped=grid_shaped):
     """[box] of each grid-shaped patch of ink on a page (`shaped`, at least
     GRID_FILL of its box inked), found on a 1/step subsample."""
-    import cv2
     import numpy as np
+    cv2 = ocr_clues.capped_cv2()
     gray = np.asarray(img.convert("L"), dtype=np.uint8)
     ink = (gray < trove_grid.otsu(gray))[::step, ::step].astype(np.uint8)
     _, _, stats, _ = cv2.connectedComponentsWithStats(ink, connectivity=4)
