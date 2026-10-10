@@ -960,8 +960,11 @@ tools/durable.sh                              sourced by a long job that files i
                                               first; nightly_worktree.sh's CT_SALVAGE_PATHS
                                               pushes what a SIGKILL left
 tools/unstage_unparsable.sh                   sourced by durable.sh and nightly_worktree.sh:
-                                              unstages a .json a kill cut off, so no commit
-                                              carries one
+                                              unstages a .json a kill cut off, and a puzzle the
+                                              pre-push would refuse (puzzle_integrity.py
+                                              --refused), held in the tree and named, so no
+                                              commit carries one and one bad puzzle strands no
+                                              checkpoint
 tools/json_merge.py                           git merge driver: the keyed JSON data files
                                               several writers append to merge per key, so a
                                               rebase never stops on a ledger row
@@ -1394,12 +1397,13 @@ tools/test_nightly_worktree.sh                which tree does a scheduled job en
                                               in? checked by running one
 tools/test_durable.sh                         does a long job keep what it filed when left
                                               running, sent SIGTERM, or SIGKILLed and
-                                              restarted, without filing anything twice; does
-                                              corpus_queue.py stop let the pass commit; does
-                                              every long scheduled job use tools/durable.sh,
-                                              committing all of puzzles/ so a book file a
-                                              newspaper write superseded is deleted on origin
-                                              too?
+                                              restarted, without filing anything twice; does a
+                                              checkpoint hold back a puzzle the pre-push would
+                                              refuse and push the rest; does corpus_queue.py
+                                              stop let the pass commit; does every long
+                                              scheduled job use tools/durable.sh, committing
+                                              all of puzzles/ so a book file a newspaper write
+                                              superseded is deleted on origin too?
 tools/data/source_answer_wrong.json           answers a source's key got wrong, keyed puzzle
                                               id/entry id: what it serves, the corrected
                                               letters, the evidence; read as

@@ -260,6 +260,7 @@ for name, p in [("CLEAN", sibling(later)),
                 ("DUPLICATE", sibling(later, same_clues=len(real["entries"])))]:
     path = put(p)
     cli(name)
+    print("REFUSED", name, [Path(k).name for k in pi.refused([str(path)], date.today())])
     path.unlink()
 # The same copy, listed in clue_index.REPRINTS: one puzzle the paper printed twice.
 import clue_index
@@ -275,6 +276,8 @@ same "a later number dated earlier: exit 1, DATE alone" "$(grep '^DATE ' <<<"$ou
 same "all but one clue shared: exit 1, NEARDUP alone" "$(grep '^NEARDUP ' <<<"$out2" | cut -d' ' -f2-)" "1 NEARDUP"
 # A copy shares every clue too, so NEARDUP rides along with DUPLICATE.
 same "the same puzzle under another id: exit 1, DUPLICATE" "$(grep '^DUPLICATE ' <<<"$out2" | cut -d' ' -f2-)" "1 DUPLICATE,NEARDUP"
+same "--refused holds back a clean sibling: no" "$(grep '^REFUSED CLEAN ' <<<"$out2")" "REFUSED CLEAN []"
+same "--refused holds back a sibling dated before its number: yes" "$(grep '^REFUSED DATE ' <<<"$out2")" "REFUSED DATE ['cryptic-24448.json']"
 same "the same puzzle as a listed reprint: exit 0, every tally 0" "$(grep '^REPRINT ' <<<"$out2" | cut -d' ' -f2-)" "0 none"
 
 echo "exactness: a lengthened key must not still match, and dropping one table must not touch the other"

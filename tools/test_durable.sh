@@ -31,6 +31,14 @@ cp tools/durable.sh tools/nightly_worktree.sh tools/unstage_unparsable.sh tools/
 cat >"$M/tools/alert.sh" <<'EOF'
 alert() { echo "$*" >>"$HOME/alerts"; }
 EOF
+# The pre-push's judge, stubbed: it refuses a puzzle that says so.
+cat >"$M/tools/puzzle_integrity.py" <<'EOF'
+import json, sys
+assert sys.argv[1] == "--refused"
+for p in sys.argv[2:]:
+    if json.load(open(p)).get("refuse"):
+        print(f"{p}\tDATE {p}: refused")
+EOF
 echo '{"last": 0}' >"$M/puzzles/a/0.json"
 cat >"$M/tools/fakejob.sh" <<'EOF'
 #!/bin/bash
@@ -127,11 +135,17 @@ cd "$1" || exit 1
 DURABLE_PATHS=(puzzles)
 . tools/durable.sh
 mkdir -p puzzles/b && echo '{"n": 1}' >puzzles/b/1.json
+echo '{"refuse": true}' >puzzles/b/2.json
 durable_checkpoint "solo pass"
 EOF
 out=$(bash "$tmp/solo.sh" "$tmp/solo" 2>&1) || fail "a job sourcing only durable.sh could not checkpoint: $out"
 case "$out" in *"command not found"*) fail "durable.sh calls a function it does not bring: $out" ;; esac
 on_origin puzzles/b/1.json >/dev/null || fail "a job sourcing only durable.sh did not push what it filed: $out"
+# A puzzle the pre-push would refuse is held in the tree and named, so it
+# strands neither its checkpoint nor the ones after it.
+on_origin puzzles/b/2.json >/dev/null && fail "a checkpoint committed a puzzle the pre-push refuses"
+[ -e "$tmp/solo/puzzles/b/2.json" ] || fail "the refused puzzle was dropped from the tree"
+case "$out" in *"held out of the commit"*"puzzles/b/2.json"*) ;; *) fail "the held puzzle was not named: $out" ;; esac
 
 # 5. corpus_queue.py stop gives the pass's leader TERM and waits for it.
 python3 - "$REAL" <<'PY'

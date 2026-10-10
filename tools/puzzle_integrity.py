@@ -6,6 +6,7 @@ Run it:
     python3 tools/puzzle_integrity.py            # every defect, with a per-check tally
     python3 tools/puzzle_integrity.py --quiet     # only the defects; silent when clean
     python3 tools/puzzle_integrity.py --quotes FILE...  # QUOTE alone, on those files
+    python3 tools/puzzle_integrity.py --refused FILE... # those of the files the pre-push would refuse, a line each
 
 Everything else in tools/ checks the work we ADD to a puzzle: validate_annotations.py
 grades the annotation, coverage_report.py counts what each series holds. This
@@ -1639,7 +1640,32 @@ def audit(files, paths, today, only=None):
     return flags + cross, copies
 
 
+def refused(targets, today):
+    """{repo-relative path: [what]} of the puzzle files `targets` that the
+    pre-push audit would refuse: a flag on the file's own puzzle, a DUPLICATE
+    group holding it, or a cross-file finding that names it (DATE's "not after
+    listener-93's"), so a committer can hold those back and commit the rest."""
+    files = listing()
+    paths = published(files)
+    root = puzzle_paths.PUZZLE_DIR.parent
+    only = {puzzle_paths.resolve_puzzle(a).resolve().relative_to(root).as_posix() for a in targets}
+    flags, copies = audit(files, paths, today, only)
+    out = {}
+    for path in sorted(only & set(paths)):
+        pid = json.loads((root / path).read_text(encoding="utf-8")).get("id")
+        own = re.compile(rf"\b{re.escape(str(pid))}\b")
+        why = [f"{flag} {fpid}: {what}" for flag, fpid, what in flags if fpid == pid or own.search(what)]
+        why += ["DUPLICATE of " + ", ".join(i for i in ids if i != pid) for ids in copies if pid in ids]
+        if why:
+            out[path] = why
+    return out
+
+
 def main(argv):
+    if argv[:1] == ["--refused"]:
+        for path, why in refused(argv[1:], datetime.now(timezone.utc).date()).items():
+            print(f"{path}\t{'; '.join(why)}")
+        return 0
     if argv[:1] == ["--quotes"]:
         flags = []
         for path in argv[1:]:
