@@ -57,6 +57,7 @@ import hashlib
 import json
 import os
 import random
+import re
 import select
 import subprocess
 import sys
@@ -779,6 +780,74 @@ def ship(host):
                          input=buf.getvalue(), capture_output=True, timeout=600, check=False)
     if res.returncode:
         raise Unavailable(f"shipping the code failed ({res.returncode}): {res.stderr.decode(errors='replace')[-300:]}")
+    try:
+        prune(host, keep=f"v-{hash_of(files)}")
+    except (Unavailable, OSError, subprocess.TimeoutExpired, ValueError) as e:  # a failed sweep must not fail the ship
+        log(f"pruning old code on {host} failed: {e}")
+
+
+#: Days a v-*/part-* directory must be untouched before prune() may delete it.
+PRUNE_DAYS = 7
+_PRUNABLE = re.compile(r"(v|part)-[0-9a-f]+(-[0-9a-f]+)?")
+
+
+def prunable(dirs, cmdlines, keep, now, days=PRUNE_DAYS):
+    """Names from `dirs` ({name: mtime seconds}) that prune() may delete: a
+    v-*/part-* directory older than `days`, that is not `keep` (the current
+    hash's) and that no process command line in `cmdlines` mentions (a
+    running serve runs from its v-<hash>\\tools)."""
+    low = [c.lower() for c in cmdlines]
+    return sorted(n for n, mtime in dirs.items()
+                  if _PRUNABLE.fullmatch(n) and n != keep and now - mtime > days * 86400
+                  and not any(n.lower() in c for c in low))
+
+
+def _powershell(host, script, timeout=900):
+    """`script`'s stdout run by powershell on `host` (-EncodedCommand: no quoting)."""
+    import base64
+    enc = base64.b64encode(script.encode("utf-16-le")).decode()
+    res = subprocess.run([*SSH, host, f"powershell -NoProfile -NonInteractive -EncodedCommand {enc}"],
+                         capture_output=True, timeout=timeout, check=False)
+    if res.returncode:
+        raise Unavailable(f"powershell failed ({res.returncode}): {res.stderr.decode(errors='replace')[-300:]}")
+    return res.stdout.decode(errors="replace")
+
+
+def prune(host, keep, days=PRUNE_DAYS):
+    """Delete HOME's old v-*/part-* directories (see prunable()). Windows
+    refuses to delete what a process holds open: those stay, counted in the
+    failures. Returns {"deleted": n, "failed": n, "bytes": freed}."""
+    listing = _powershell(host, (
+        "$ErrorActionPreference='SilentlyContinue';"
+        f"Get-ChildItem -LiteralPath '{HOME}' -Directory | Where-Object {{ $_.Name -match '^(v|part)-' }} | "
+        "ForEach-Object { 'D ' + $_.Name + ' ' + [int64](($_.LastWriteTimeUtc - [datetime]'1970-01-01').TotalSeconds) };"
+        "Get-CimInstance Win32_Process | Where-Object { $_.CommandLine } | ForEach-Object { 'P ' + $_.CommandLine }"))
+    dirs, cmds = {}, []
+    for line in listing.splitlines():
+        if line.startswith("D "):
+            _, name, mtime = line.split()
+            dirs[name] = int(mtime)
+        elif line.startswith("P "):
+            cmds.append(line[2:])
+    doomed = prunable(dirs, cmds, keep, time.time(), days)
+    out = {"deleted": 0, "failed": 0, "bytes": 0}
+    if not doomed:
+        return out
+    names = ",".join(f"'{n}'" for n in doomed)
+    res = _powershell(host, (
+        "$ErrorActionPreference='SilentlyContinue';"
+        f"foreach ($n in @({names})) {{ $p = '{HOME}\\' + $n;"
+        "$b = (Get-ChildItem -LiteralPath $p -Recurse -File | Measure-Object Length -Sum).Sum; if (-not $b) { $b = 0 };"
+        "Remove-Item -LiteralPath $p -Recurse -Force;"
+        "if (Test-Path -LiteralPath $p) { 'F ' + $n } else { 'OK ' + $n + ' ' + $b } }"))
+    for line in res.splitlines():
+        if line.startswith("OK "):
+            out["deleted"] += 1
+            out["bytes"] += int(line.split()[2])
+        elif line.startswith("F "):
+            out["failed"] += 1
+    log(f"pruned {host}: {out['deleted']} old directories ({out['bytes'] / 1e9:.2f} GB), {out['failed']} in use")
+    return out
 
 
 def ship_command(code, nonce):
@@ -1212,5 +1281,8 @@ if __name__ == "__main__":
         serve(sys.argv[2] if len(sys.argv) > 2 else "idle")
     elif cmd == "check":
         sys.exit(check())
+    elif cmd == "prune":
+        host = os.environ["OCR_REMOTE"].split(",")[0]
+        print(prune(host, keep=f"v-{hash_of(shipped())}"))
     else:
-        sys.exit(f"unknown command {cmd!r}: serve or check")
+        sys.exit(f"unknown command {cmd!r}: serve, check or prune")

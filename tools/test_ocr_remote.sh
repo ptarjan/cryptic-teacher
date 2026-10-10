@@ -252,6 +252,16 @@ check("serve runs idle unless a scan asks; an unknown ask is idle", ["idle", "sc
       [c.rsplit(" ", 1)[1] for c in started])
 check("idle for reads, below normal (under a game's normal) for scans", {"idle": 0x40, "scan": 0x4000},
       ocr_remote.PRIORITIES)
+# Pruning the desktop's old code: only v-*/part-* directories older than the
+# days, never the current hash's, never one a running process names.
+now = 1_000_000_000
+old, new = now - 30 * 86400, now - 86400
+dirs = {"v-aaa1": old, "v-bbb2": old, "v-cur": old, "v-fresh": new, "part-ccc-1f": old, "part-ddd-2": new,
+        "venv": old, "tess": old, "v-run": old}
+dirs = {k.replace("cur", "c0de").replace("fresh", "f00d").replace("run", "ab12"): v for k, v in dirs.items()}
+cmds = [r"C:\Users\micro\ocrw\venv\Scripts\python.exe C:\Users\micro\ocrw\V-AB12\tools\ocr_remote.py serve idle"]
+check("prune picks old unused v-/part- directories, not current, fresh, running or non-code ones",
+      ["part-ccc-1f", "v-aaa1", "v-bbb2"], ocr_remote.prunable(dirs, cmds, "v-c0de", now))
 sys.exit(1 if fails else 0)
 PY
 )
