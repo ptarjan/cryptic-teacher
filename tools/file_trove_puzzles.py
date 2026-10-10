@@ -1059,15 +1059,27 @@ def input_hash(d):
     (a copy to another disk keeps those, not the nanoseconds) and its clue
     zone images by name: a rerun stats every article but reads only those
     whose hash moved. Inputs only: our own readings cached beside the zones
-    are the read's output."""
+    are the read's output. The files' stats are taken again only when the
+    article dir's dir_key moved: tools/fetch_trove.py writes each by
+    atomic rename, which moves it."""
     h = hashlib.sha256()
-    for name in ("meta.json", "ocr.txt", "grid.jpg"):
-        try:
-            st = os.stat(d / name)
-        except (FileNotFoundError, NotADirectoryError):
-            st = None
-        h.update((f"{name}:{st.st_size}:{int(st.st_mtime)}" if st else f"{name}:-").encode())
-    h.update(" ".join(p.name for p in trove_clue_ocr.zone_images(d.name, clue_zones(d))).encode())
+    try:
+        memo = dir_cache.seen(d)[2]
+    except (FileNotFoundError, NotADirectoryError):
+        memo = {}
+    if "input_stats" not in memo:
+        stats = []
+        for name in ("meta.json", "ocr.txt", "grid.jpg"):
+            try:
+                st = os.stat(d / name)
+            except (FileNotFoundError, NotADirectoryError):
+                st = None
+            stats.append(f"{name}:{st.st_size}:{int(st.st_mtime)}" if st else f"{name}:-")
+        memo["input_stats"] = "".join(stats)
+    h.update(memo["input_stats"].encode())
+    zones = sorted((n for n in dir_cache.listed(clue_zones(d) / d.name) if n.startswith("zone") and n.endswith(".png")),
+                   key=lambda n: int(n[4:-4]))
+    h.update(" ".join(zones).encode())
     return h.hexdigest()[:16]
 
 
