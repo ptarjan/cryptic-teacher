@@ -355,6 +355,56 @@ if [ "$pool" = "True
 True" ]; then echo "ok   the local pool reads in order, and exits on a stall"; else
   echo "FAIL local pool: expected [True True], got [$pool]"; fails=$((fails + 1)); fi
 
+# A desktop connection that goes silent is replaced for the unread puzzles,
+# up to DESKTOP_TRIES; a busy desktop is not retried; either way the rest are
+# read here in fallback_jobs(), and every puzzle comes once, in order.
+retry=$(cd "$REPO/tools" && python3 -c '
+import letter_facts as l
+corpus = [(f"p{i}", "e", "c", "A", {}) for i in range(10)]
+l._puzzle_facts = lambda item: (item[0], {"here": {}})
+l.fallback_jobs = lambda: 1
+def run(script):
+    asked = []
+    def desktop(puzzles):
+        first, why, final = script.pop(0)
+        for n, (pid, _) in enumerate(puzzles):
+            if n == 0:
+                asked.append(pid)
+            if n == first:
+                raise l._Unavailable(why, final)
+            yield pid, {}
+    l._desktop_clues = desktop
+    got = list(l._read_clues(corpus, {}, None))
+    return [p for p, _ in got] == [f"p{i}" for i in range(10)], asked, sum(1 for _, f in got if f)
+print(run([(3, "silent", False), (2, "silent", False), (99, "", False)]))
+print(run([(3, "silent", False), (2, "silent", False), (1, "silent", False)]))
+print(run([(3, "silent", False), (0, "busy", True)]))' 2>/dev/null)
+want="(True, ['p0', 'p3', 'p5'], 0)
+(True, ['p0', 'p3', 'p5'], 4)
+(True, ['p0', 'p3'], 7)"
+if [ "$retry" = "$want" ]; then echo "ok   a silent desktop is reconnected for the rest, a busy one falls back here"; else
+  echo "FAIL desktop retry: expected [$want], got [$retry]"; fails=$((fails + 1)); fi
+
+# The fallback here takes at most FALLBACK_JOBS, fewer when local_jobs has no room.
+fallback=$(cd "$REPO/tools" && python3 -c '
+import letter_facts as l
+l.local_jobs = lambda: 6
+a = l.fallback_jobs()
+l.local_jobs = lambda: 1
+print(a == l.FALLBACK_JOBS, l.fallback_jobs() == 1)')
+if [ "$fallback" = "True True" ]; then echo "ok   the fallback here is a small share of this machine"; else
+  echo "FAIL fallback_jobs: expected [True True], got [$fallback]"; fails=$((fails + 1)); fi
+
+# The desktop's clue workers fit its free memory above SERVE_FLOOR, at most
+# DESKTOP_JOBS and at least one, so none is paged out mid-read.
+serve=$(cd "$REPO/tools" && python3 -c '
+import letter_facts as l
+G = 1 << 30
+print(l.serve_jobs(G, l.SERVE_FLOOR + 3 * G) == 3, l.serve_jobs(G, 1 << 50) == l.DESKTOP_JOBS,
+      l.serve_jobs(G, l.SERVE_FLOOR - G) == 1, l.serve_jobs(0, 1 << 50) == l.DESKTOP_JOBS)')
+if [ "$serve" = "True True True True" ]; then echo "ok   the desktop runs as many clue workers as its free memory holds"; else
+  echo "FAIL serve_jobs: expected all True, got [$serve]"; fails=$((fails + 1)); fi
+
 # The local pool takes the CPUs the load leaves and no more forks of this
 # process than the memory above the floor holds; at least this one process.
 jobs=$(cd "$REPO/tools" && python3 -c '

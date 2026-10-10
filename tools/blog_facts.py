@@ -2372,10 +2372,11 @@ def main():
         STAMP.write_text(digest + "\n")
 
 
-#: While the desktop is busy, a full run (its letter_facts pass reads on every
-#: core here then) waits for it, exiting DEFERRED_RC: daily_update.sh's exit
-#: for a unit that never began (no commit, no alert, retried). Once runs have
-#: been put off for DEFER_HOURS (since the DEFERRED file's time) one runs here.
+#: While the desktop is busy, a full run (its letter_facts pass reads here
+#: then, slowly, in letter_facts.FALLBACK_JOBS processes) waits for it,
+#: exiting DEFERRED_RC: daily_update.sh's exit for a unit that never began (no
+#: commit, no alert, retried). Once runs have been put off for DEFER_HOURS
+#: (since the DEFERRED file's time) one runs here.
 DEFERRED_RC = 75
 DEFER_HOURS = 6
 DEFERRED = Path.home() / ".cache" / "cryptic-blog-facts.deferred"

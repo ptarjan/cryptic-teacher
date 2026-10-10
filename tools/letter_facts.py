@@ -1783,9 +1783,9 @@ def write(corpus, votes, said=None, jobs=None):
     """Rewrite tools/data/blog_facts/ with the inferred fields in, as
     blog_facts.write lays it out, one file at a time. `corpus` is rows() in
     their order, iterable more than once (Packed); `said`, read_leads, joined
-    in here where the rows lack their leads; `jobs`, the processes reading the
-    clues once the lexicons are built (default local_jobs()) and, unset, on the
-    desktop while one answers, the lexicons too. {field: clues it was inferred in}."""
+    in here where the rows lack their leads; `jobs`, the processes building the
+    lexicons and reading the clues here, unset: on the desktop while one
+    answers, else here in fallback_jobs(). {field: clues it was inferred in}."""
     with timed("lexicons built"):
         ilex, both, lex, dlex = _lexicons(corpus, list(annotation_rows()), jobs)
     with timed("lexicons exported"):
@@ -1856,10 +1856,15 @@ _WORKER = {}
 #: OCR_REMOTE (as tools/ocr_remote.py reads it) names others or is empty.
 DESKTOPS = "micro@192.168.1.198,micro@100.68.145.15"
 #: Processes reading the clues on the desktop (it has 28 threads), and the
-#: seconds without a result after which the desktop is given up on and its
-#: remaining clues read here.
+#: seconds without a result after which a connection to it is given up on.
 DESKTOP_JOBS = 20
 DESKTOP_SILENCE = 300
+#: Connections made to the desktop for the clues: one that goes silent or
+#: drops is replaced, for the puzzles still unread, until this many are spent.
+DESKTOP_TRIES = 3
+#: The most processes reading here when the desktop is busy or unreachable:
+#: a small share of this machine, which the other units and the OCR share.
+FALLBACK_JOBS = 2
 #: The desktop priority (ocr_remote.PRIORITIES) the servers run at: below
 #: normal, over the OCR full pass's idle reads, which have no deadline while
 #: this run has its unit's limit (at idle beside them it starves past
@@ -1892,8 +1897,9 @@ def _chunk_facts(items):
 
 def _read_clues(corpus, said, jobs):
     """_puzzle_facts for each of `corpus`'s puzzles, in its order: with `jobs`
-    unset, on the desktop while one answers and is not busy, then the rest
-    here in a pool of `jobs` processes (default local_jobs())."""
+    unset, on the desktop, over up to DESKTOP_TRIES connections while it
+    answers and is not busy, then the rest here in fallback_jobs(); else
+    here in a pool of `jobs` processes."""
     def puzzles(skip=0):
         for pid, rs in itertools.islice(itertools.groupby(corpus, key=lambda r: r[0]), skip, None):
             got = said.get(pid, {})
@@ -1901,15 +1907,19 @@ def _read_clues(corpus, said, jobs):
 
     done = 0
     if jobs is None:
-        try:
-            for got in _desktop_clues(puzzles()):
-                yield got
-                done += 1
-            return
-        except _Unavailable as e:
-            print(f"letter_facts.write: {e}; reading {'the rest of ' if done else ''}the clues here"
-                  f" after {done} puzzles on the desktop", file=sys.stderr)
-    jobs = jobs or local_jobs()
+        for _ in range(DESKTOP_TRIES):
+            try:
+                for got in _desktop_clues(puzzles(done)):
+                    yield got
+                    done += 1
+                return
+            except _Unavailable as e:
+                print(f"letter_facts.write: {e}, after {done} puzzles on the desktop", file=sys.stderr, flush=True)
+                if e.final:
+                    break
+        jobs = fallback_jobs()
+        print(f"letter_facts.write: reading {'the rest of ' if done else ''}the clues here,"
+              f" {jobs} process{'es' if jobs > 1 else ''}", file=sys.stderr, flush=True)
     if jobs == 1:
         yield from map(_puzzle_facts, puzzles(done))
         return
@@ -1938,6 +1948,12 @@ def _orphan_exits(parent):
     threading.Thread(target=watch, daemon=True).start()
 
 
+def fallback_jobs():
+    """The processes to read here when the desktop cannot: FALLBACK_JOBS, or
+    fewer where local_jobs() has no room for them."""
+    return min(FALLBACK_JOBS, local_jobs())
+
+
 def local_jobs(load=None, avail=None, rss=None):
     """The processes to read clues in here: the CPUs no process wants (the
     count less the 1-minute load), and no more forks than the available
@@ -1955,7 +1971,12 @@ def local_jobs(load=None, avail=None, rss=None):
 
 
 class _Unavailable(Exception):
-    """Why the desktop read none or not all of the clues."""
+    """Why the desktop read none or not all of the clues; `final` when it is
+    busy or unreachable, so a new connection would fare no better."""
+
+    def __init__(self, why, final=False):
+        super().__init__(why)
+        self.final = final
 
 
 #: The lexicons write() reads: name -> (class, whether our annotations count too).
@@ -1974,8 +1995,7 @@ def _build_lexicon(name):
 def _lexicons(corpus, ours, jobs):
     """LEXICONS of `corpus` in their order, `ours` (annotation_rows) counted
     where they take it: with `jobs` unset, on the desktop while one answers;
-    else here, one process each, so each step's share of a loaded machine
-    is four processes', not one's, where `jobs` (default local_jobs()) has
+    else here, one process each where `jobs` (unset, fallback_jobs()) has
     room for them, else in this process."""
     if jobs is None:
         try:
@@ -1984,7 +2004,7 @@ def _lexicons(corpus, ours, jobs):
             print(f"letter_facts.write: {e}; building the lexicons here", file=sys.stderr)
     _WORKER.update(corpus=corpus, ours=ours)
     try:
-        if (jobs or local_jobs()) < len(LEXICONS):
+        if (jobs or fallback_jobs()) < len(LEXICONS):
             return tuple(map(_build_lexicon, LEXICONS))
         with multiprocessing.get_context("fork").Pool(len(LEXICONS)) as pool:
             return tuple(pool.map(_build_lexicon, LEXICONS))
@@ -2019,10 +2039,10 @@ def _desktop(flag, request):
     import ocr_remote
     hosts = [h for h in os.environ.get("OCR_REMOTE", DESKTOPS).split(",") if h]
     if not hosts:
-        raise _Unavailable("OCR_REMOTE names no desktop")
+        raise _Unavailable("OCR_REMOTE names no desktop", final=True)
     why = desktop_busy.busy(hosts)
     if why:
-        raise _Unavailable(f"the desktop is busy ({why})")
+        raise _Unavailable(f"the desktop is busy ({why})", final=True)
     reasons = []
     for host in hosts:
         try:
@@ -2031,7 +2051,7 @@ def _desktop(flag, request):
         except (ocr_remote.Unavailable, OSError, subprocess.TimeoutExpired) as e:
             reasons.append(f"{host}: {e}")
     else:
-        raise _Unavailable("no desktop answers (" + "; ".join(reasons) + ")")
+        raise _Unavailable("no desktop answers (" + "; ".join(reasons) + ")", final=True)
     with tempfile.TemporaryFile() as sent, tempfile.TemporaryFile() as err:
         pickle.dump(tuple(sys.version_info[:2]), sent)
         for p in request:
@@ -2048,10 +2068,10 @@ def _desktop(flag, request):
         except (EOFError, pickle.UnpicklingError, OSError) as e:
             proc.kill()
             proc.wait()
-            if watchdog.fired:
-                raise _Unavailable(f"{host} sent nothing in {DESKTOP_SILENCE}s") from None
             err.seek(0)
             tail = err.read().decode(errors="replace").strip()[-300:]
+            if watchdog.fired:
+                raise _Unavailable(f"{host} sent nothing in {DESKTOP_SILENCE}s: {tail or 'no stderr'}") from None
             raise _Unavailable(f"{host} stopped ({type(e).__name__}, ssh exit {proc.returncode}): {tail}") from None
         finally:
             watchdog.cancel()
@@ -2095,11 +2115,63 @@ def serve_clues():
             while (p := pickle.load(inp)) is not None:
                 yield p
 
-        with multiprocessing.get_context("spawn").Pool(DESKTOP_JOBS, _serve_worker, (str(state),)) as pool:
+        before = _private_bytes()
+        loaded = pickle.loads(state.read_bytes())
+        each = _private_bytes() - before
+        del loaded
+        jobs = serve_jobs(each, _free_memory())
+        print(f"serve_clues: {jobs} workers of {each >> 20} MB each", file=sys.stderr, flush=True)
+        with multiprocessing.get_context("spawn").Pool(jobs, _serve_worker, (str(state),)) as pool:
             for got in pool.imap(_puzzle_facts, puzzles(), chunksize=16):
                 pickle.dump(got, out, pickle.HIGHEST_PROTOCOL)
+                out.flush()
         pickle.dump(None, out)
         out.flush()
+
+
+#: Memory (bytes) the desktop keeps free of serve_clues' workers: a worker
+#: paged out stalls its imap past DESKTOP_SILENCE.
+SERVE_FLOOR = 4 << 30
+
+
+def serve_jobs(each, free):
+    """serve_clues' workers: DESKTOP_JOBS, or as many of `each` bytes as the
+    desktop's `free` bytes hold above SERVE_FLOOR; at least 1."""
+    return max(1, min(DESKTOP_JOBS, (free - SERVE_FLOOR) // max(each, 1)))
+
+
+def _private_bytes():
+    """This Windows process's committed private bytes."""
+    import ctypes
+    from ctypes import wintypes
+
+    class Counters(ctypes.Structure):
+        _fields_ = [("cb", wintypes.DWORD), ("PageFaultCount", wintypes.DWORD)] + [
+            (n, ctypes.c_size_t) for n in ("PeakWorkingSetSize", "WorkingSetSize", "QuotaPeakPagedPoolUsage",
+                                           "QuotaPagedPoolUsage", "QuotaPeakNonPagedPoolUsage",
+                                           "QuotaNonPagedPoolUsage", "PagefileUsage", "PeakPagefileUsage",
+                                           "PrivateUsage")]
+    got = Counters(cb=ctypes.sizeof(Counters))
+    k32 = ctypes.windll.kernel32
+    k32.GetCurrentProcess.restype = ctypes.c_void_p
+    k32.K32GetProcessMemoryInfo.argtypes = [ctypes.c_void_p, ctypes.c_void_p, wintypes.DWORD]
+    if not k32.K32GetProcessMemoryInfo(k32.GetCurrentProcess(), ctypes.byref(got), got.cb):
+        raise OSError(ctypes.GetLastError(), "K32GetProcessMemoryInfo failed")
+    return got.PrivateUsage
+
+
+def _free_memory():
+    """The Windows desktop's available physical memory, in bytes."""
+    import ctypes
+
+    class Status(ctypes.Structure):
+        _fields_ = [("dwLength", ctypes.c_ulong), ("dwMemoryLoad", ctypes.c_ulong)] + [
+            (n, ctypes.c_ulonglong) for n in ("ullTotalPhys", "ullAvailPhys", "ullTotalPageFile", "ullAvailPageFile",
+                                              "ullTotalVirtual", "ullAvailVirtual", "ullAvailExtendedVirtual")]
+    got = Status(dwLength=ctypes.sizeof(Status))
+    if not ctypes.windll.kernel32.GlobalMemoryStatusEx(ctypes.byref(got)):
+        raise OSError(ctypes.GetLastError(), "GlobalMemoryStatusEx failed")
+    return got.ullAvailPhys
 
 
 def _served():
@@ -2749,7 +2821,8 @@ def main():
     ap.add_argument("--measure-blockless", type=int, nargs="?", const=4, metavar="SLICE",
                     help="precision of hidden words' carriers, homophones' and spoonerisms' heard blocks,"
                          " and their indicators (default slice %(const)s)")
-    ap.add_argument("--jobs", type=int, help="processes reading the clues for --write (default local_jobs())")
+    ap.add_argument("--jobs", type=int, help="processes reading the clues for --write here"
+                                             " (default the desktop, else fallback_jobs())")
     ap.add_argument("--lexicons", action="store_true",
                     help="write only the combined lexicons, as --write does, to tools/data/lexicons/")
     ap.add_argument("--coverage", action="store_true",
