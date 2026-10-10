@@ -23,6 +23,9 @@
   "date": "2023-05-26",
   "check": "grid rebuilt from the blog's light list (unique after crossings); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,58 @@
     "text": "European PM having a pop at philosophy, briefly",
     "enumeration": "9"
    },
-   "solution": "TAOISEACH"
+   "solution": "TAOISEACH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TAOISEACH",
+    "definitions": [
+     {
+      "text": "European PM",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "something said briefly is cut short, so the word for the philosophy loses its last letter"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "philosophy",
+      "gives": "TAOIS",
+      "note": "Taoism, the Chinese philosophy, without its final letter"
+     },
+     {
+      "clueFragment": "a pop",
+      "gives": "EACH",
+      "note": "'five pounds a pop' means five pounds each"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAOIS",
+      "EACH"
+     ]
+    },
+    "explanation": {
+     "surface": "A European prime minister takes a quick swipe at philosophy.",
+     "walkthrough": "The Taoiseach is the prime minister of Ireland; 'a pop' is the informal 'apiece'.",
+     "definitionFit": "Taoiseach is the Irish title for the head of the government of Ireland, a European country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pop"
+    }
+   }
   },
   {
    "number": 1,
@@ -56,7 +110,44 @@
      }
     ]
    },
-   "solution": "THELAW"
+   "solution": "THELAW",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "THE LAW",
+    "definitions": [
+     {
+      "text": "Old Bill",
+      "at": 0
+     },
+     {
+      "text": "what it is now",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old Bill",
+      "note": "first meaning: British slang for the police"
+     },
+     {
+      "clueFragment": "what it is now",
+      "note": "second meaning: a parliamentary bill from long ago has since been passed into statute"
+     }
+    ],
+    "explanation": {
+     "surface": "A wry question about what has become of the old police force.",
+     "walkthrough": "Old Bill is British slang for the police; read literally, an old bill that was passed is now part of the legal code.",
+     "definitionFit": "The police are colloquially called the law, and an enacted bill becomes binding legislation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bill"
+    }
+   }
   },
   {
    "number": 2,
@@ -70,7 +161,69 @@
     "text": "10 up for disorder, but finally case dismissed at the end of the day?",
     "enumeration": "10"
    },
-   "solution": "OUTPATIENT"
+   "solution": "OUTPATIENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "OUTPATIENT",
+    "definitions": [
+     {
+      "text": "case dismissed at the end of the day",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word but"
+     },
+     {
+      "text": "for disorder",
+      "for": "anagram",
+      "note": "put up for disorder, the letters are jumbled into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "10",
+      "gives": "EATINTO",
+      "note": "the answer to 10 across, EAT INTO"
+     },
+     {
+      "clueFragment": "up",
+      "gives": "UP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "but",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of but"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EATINTOUPT",
+       "gives": "OUTPATIENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A court case dismissed at the end of the day after some disorder.",
+     "walkthrough": "'Case dismissed' sounds legal, but a case here is a medical patient sent home the same day.",
+     "definitionFit": "An outpatient is a hospital case treated without an overnight stay, so sent home by evening."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 3,
@@ -90,7 +243,74 @@
      }
     ]
    },
-   "solution": "SANDTRAP"
+   "solution": "SANDTRAP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "SAND TRAP",
+    "definitions": [
+     {
+      "text": "Hazard",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word guess"
+     },
+     {
+      "text": "reflecting",
+      "for": "reversal",
+      "note": "a reflection shows things the other way round, so the word for some is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guess",
+      "gives": "S",
+      "select": "last",
+      "note": "last letter of guess"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "with and and both mean together with"
+     },
+     {
+      "clueFragment": "some",
+      "gives": "PART",
+      "note": "some of something is part of it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AND",
+      "TRAP"
+     ],
+     "reversals": [
+      {
+       "from": "PART",
+       "to": "TRAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A risky guess is made, with some people reflecting on it.",
+     "walkthrough": "Hazard is a golf term for an obstacle on the course.",
+     "definitionFit": "In golf a bunker filled with sand is one of the hazards a player must avoid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hazard"
+    }
+   }
   },
   {
    "number": 4,
@@ -110,7 +330,67 @@
      }
     ]
    },
-   "solution": "ABOMB"
+   "solution": "ABOMB",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "A-BOMB",
+    "definitions": [
+     {
+      "text": "deadly weapon",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the word is read from bottom to top"
+     },
+     {
+      "text": "holds",
+      "for": "container",
+      "note": "one thing holds another by having it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "muscle",
+      "gives": "AB",
+      "note": "ab is short for an abdominal muscle"
+     },
+     {
+      "clueFragment": "Mafia",
+      "gives": "MOB",
+      "note": "the Mafia is called the mob"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BOM",
+      "B"
+     ],
+     "reversals": [
+      {
+       "from": "MOB",
+       "to": "BOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Mafia heavy holds up someone with a deadly weapon.",
+     "walkthrough": "'Mafia muscle' reads as one thug, but the two words split: the mob and a stomach muscle.",
+     "definitionFit": "An atomic bomb is a nuclear weapon of devastating lethal power."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "muscle"
+    }
+   }
   },
   {
    "number": 5,
@@ -124,7 +404,66 @@
     "text": "Gathered there's a DVD shortly for release",
     "enumeration": "9"
    },
-   "solution": "HARVESTED"
+   "solution": "HARVESTED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "HARVESTED",
+    "definitions": [
+     {
+      "text": "Gathered",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortly",
+      "for": "deletion",
+      "note": "shortly means cut short, so the last letter of the disc abbreviation goes"
+     },
+     {
+      "text": "for release",
+      "for": "anagram",
+      "note": "letters set loose for release can fall into any order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "there's",
+      "gives": "THERES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "DVD",
+      "gives": "DV",
+      "note": "DVD with its final letter dropped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THERESADV",
+       "gives": "HARVESTED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A film is gathered up, as a DVD is about to come out.",
+     "definitionFit": "Harvested crops have been gathered in, so both words mean collected."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "release"
+    }
+   }
   },
   {
    "number": 6,
@@ -138,7 +477,80 @@
     "text": "Royal award back in '91 for rousing chiller",
     "enumeration": "6"
    },
-   "solution": "ICEBOX"
+   "solution": "ICEBOX",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ICEBOX",
+    "definitions": [
+     {
+      "text": "chiller",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means the royal award's letters are read the other way"
+     },
+     {
+      "text": "rousing",
+      "for": "reversal",
+      "note": "rousing means rising up, which in a down clue reads the year from the bottom"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece goes in the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "'91",
+      "gives": "XCI",
+      "note": "91 in Roman numerals"
+     },
+     {
+      "clueFragment": "Royal award",
+      "gives": "OBE",
+      "note": "Order of the British Empire, an honour given by the monarch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IC",
+      "EBO",
+      "X"
+     ],
+     "reversals": [
+      {
+       "from": "OBE",
+       "to": "EBO"
+      },
+      {
+       "from": "XCI",
+       "to": "ICX"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A royal honour handed back in 1991 makes for a stirring thriller.",
+     "walkthrough": "The OBE is a British honour; '91 is turned into Roman numerals.",
+     "definitionFit": "An icebox is a cooler or refrigerator, something that keeps food chilled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "chiller"
+    }
+   }
   },
   {
    "number": 7,
@@ -152,7 +564,54 @@
     "text": "I'm obliged to avoid capture",
     "enumeration": "4"
    },
-   "solution": "KING"
+   "solution": "KING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "and_lit"
+    ],
+    "answer": "KING",
+    "definitions": [
+     {
+      "text": "I'm obliged to avoid capture",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to avoid",
+      "for": "deletion",
+      "note": "to avoid something is to keep away from it, so those letters stay out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "capture",
+      "gives": "TAKING",
+      "note": "capture and taking both mean seizing"
+     },
+     {
+      "clueFragment": "I'm obliged",
+      "gives": "TA",
+      "note": "ta is British informal for thanks, much obliged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone declares they must steer clear of being caught.",
+     "walkthrough": "Removing the thanks from the taking leaves the piece; read whole, the clue is the chess piece speaking.",
+     "definitionFit": "In chess the king is the one piece that may never be left where it could be taken."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "obliged"
+    }
+   }
   },
   {
    "number": 8,
@@ -172,7 +631,47 @@
      }
     ]
    },
-   "solution": "ONELINER"
+   "solution": "ONELINER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ONE-LINER",
+    "definitions": [
+     {
+      "text": "something witty",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "ONE",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "craft",
+      "gives": "LINER",
+      "note": "a liner is a seagoing craft"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONE",
+      "LINER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone boasts of composing a clever remark.",
+     "walkthrough": "'Craft' looks like a verb, but it is a noun: a vessel.",
+     "definitionFit": "A one-liner is a short joke or quip delivered in a single sentence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "craft"
+    }
+   }
   },
   {
    "number": 9,
@@ -186,7 +685,54 @@
     "text": "Where lots go, after warning to move about",
     "enumeration": "7"
    },
-   "solution": "AUCTION"
+   "solution": "AUCTION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AUCTION",
+    "definitions": [
+     {
+      "text": "Where lots go",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to move about",
+      "for": "anagram",
+      "note": "letters that move about change places with one another"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "warning",
+      "gives": "CAUTION",
+      "note": "a caution is a warning"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CAUTION",
+       "gives": "AUCTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lots of people go somewhere after being warned to circulate.",
+     "definitionFit": "Lots are the items offered for sale at an auction, where bidders compete."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lots"
+    }
+   }
   },
   {
    "number": 10,
@@ -206,7 +752,66 @@
      }
     ]
    },
-   "solution": "EATINTO"
+   "solution": "EATINTO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "EAT INTO",
+    "definitions": [
+     {
+      "text": "Use up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for reduction",
+      "for": "deletion",
+      "note": "reduction means a cut, so the word aim loses its last letter"
+     },
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "somehow means in some unspecified way, so the letters are arranged afresh"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ten",
+      "gives": "TEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "aim",
+      "gives": "AI",
+      "note": "aim shortened"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOTENAI",
+       "gives": "EATINTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to spend up to ten while aiming to cut back.",
+     "definitionFit": "To eat into savings is to consume or deplete part of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reduction"
+    }
+   }
   },
   {
    "number": 11,
@@ -220,7 +825,55 @@
     "text": "Roll back voluble Franglais speaker's gift?",
     "enumeration": "5"
    },
-   "solution": "BAGEL"
+   "solution": "BAGEL",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "BAGEL",
+    "definitions": [
+     {
+      "text": "Roll",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back, the phrase is read from its end towards its start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "voluble Franglais speaker's gift",
+      "gives": "LEGAB",
+      "note": "a talker has the gift of the gab; in Franglais, mixing French and English, that is le gab"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAGEL"
+     ],
+     "reversals": [
+      {
+       "from": "LEGAB",
+       "to": "BAGEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rolls out the talent of a chatty speaker of mixed French and English.",
+     "walkthrough": "'Roll' looks like a verb; it is a bread roll.",
+     "definitionFit": "A bagel is a ring-shaped bread roll, boiled and then baked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Roll"
+    }
+   }
   },
   {
    "number": 12,
@@ -234,7 +887,56 @@
     "text": "As an all-rounder, returning towel, bat, pad and gloves",
     "enumeration": "9"
    },
-   "solution": "ADAPTABLE"
+   "solution": "ADAPTABLE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ADAPTABLE",
+    "definitions": [
+     {
+      "text": "As an all-rounder",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gloves",
+      "for": "hidden_word",
+      "note": "gloves is a verb here: the list encloses the answer as a glove encloses a hand"
+     },
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back, so the enclosed letters are read right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "towel, bat, pad and",
+      "gives": "ELBATPADA",
+      "note": "the letters running from the end of towel into the start of and"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ELBATPADA",
+       "to": "ADAPTABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket all-rounder's kit list: towel, bat, pad and gloves.",
+     "definitionFit": "Someone versatile who can turn their hand to anything is adaptable, as an all-rounder is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "gloves"
+    }
+   }
   },
   {
    "number": 13,
@@ -248,7 +950,66 @@
     "text": "Square peg on cross put in wrong",
     "enumeration": "7"
    },
-   "solution": "SIXTEEN"
+   "solution": "SIXTEEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SIXTEEN",
+    "definitions": [
+     {
+      "text": "Square",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put in",
+      "for": "container",
+      "note": "one piece is put in the other, sitting inside it"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue, one thing on another comes after it, so the peg goes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wrong",
+      "gives": "SIN",
+      "note": "a sin is a wrong"
+     },
+     {
+      "clueFragment": "cross",
+      "gives": "X",
+      "note": "X is a cross"
+     },
+     {
+      "clueFragment": "peg",
+      "gives": "TEE",
+      "note": "a tee is a golfer's peg"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "XTEE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A square peg put in the wrong hole, with an angry cross.",
+     "walkthrough": "In an across clue, 'peg on cross' puts the tee after the X.",
+     "definitionFit": "Sixteen is a square number, four times four."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Square"
+    }
+   }
   },
   {
    "number": 14,
@@ -262,7 +1023,63 @@
     "text": "Get to English class with dead snake?",
     "enumeration": "10"
    },
-   "solution": "EXASPERATE"
+   "solution": "EXASPERATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXASPERATE",
+    "definitions": [
+     {
+      "text": "Get to",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dead",
+      "gives": "EX",
+      "note": "ex means former, no longer living"
+     },
+     {
+      "clueFragment": "snake",
+      "gives": "ASP",
+      "note": "an asp is a snake"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is short for English"
+     },
+     {
+      "clueFragment": "class",
+      "gives": "RATE",
+      "note": "a rate is a class, as in first-rate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "ASP",
+      "E",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Reaching English class carrying a dead snake.",
+     "walkthrough": "'Get to' reads as arriving, but it means annoy.",
+     "definitionFit": "Something that gets to you irritates you, and to exasperate is to irritate intensely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Get"
+    }
+   }
   },
   {
    "number": 15,
@@ -276,7 +1093,55 @@
     "text": "Behind award for cycling?",
     "enumeration": "5"
    },
-   "solution": "ABAFT"
+   "solution": "ABAFT",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "ABAFT",
+    "definitions": [
+     {
+      "text": "Behind",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for cycling",
+      "for": "cycling",
+      "note": "cycling round moves the last letter of the award to the front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "award",
+      "gives": "BAFTA",
+      "note": "a British Academy film or television award"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABAFT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BAFTA",
+       "gives": "ABAFT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is behind a prize for bike racing.",
+     "walkthrough": "A BAFTA is the British equivalent of an Oscar; 'abaft' is a nautical word.",
+     "definitionFit": "Abaft is a sailing term meaning towards or at the stern, so behind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cycling"
+    }
+   }
   },
   {
    "number": 16,
@@ -290,7 +1155,60 @@
     "text": "All the same classical things covered by an American writer",
     "enumeration": "9"
    },
-   "solution": "AUTHORESS"
+   "solution": "AUTHORESS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AUTHORESS",
+    "definitions": [
+     {
+      "text": "writer",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covered by",
+      "for": "container",
+      "note": "something covered by another is wrapped inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an American",
+      "gives": "AUS",
+      "note": "A for an, plus US for American"
+     },
+     {
+      "clueFragment": "All the same",
+      "gives": "THO",
+      "note": "tho, short for though, means all the same"
+     },
+     {
+      "clueFragment": "classical things",
+      "gives": "RES",
+      "note": "res is Latin for things"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AU",
+      "THORES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Classical themes all treated alike by a writer from the United States.",
+     "definitionFit": "An authoress is a female author, a now old-fashioned word for a woman writer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "same"
+    }
+   }
   },
   {
    "number": 17,
@@ -304,7 +1222,43 @@
     "text": "Censor page?",
     "enumeration": "5"
    },
-   "solution": "BLEEP"
+   "solution": "BLEEP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BLEEP",
+    "definitions": [
+     {
+      "text": "Censor",
+      "at": 0
+     },
+     {
+      "text": "page",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Censor",
+      "note": "first meaning: to cover a rude word on air with an electronic tone"
+     },
+     {
+      "clueFragment": "page",
+      "note": "second meaning: to summon someone by sending a signal to their pager"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Page' suggests a page of a book that needs censoring; it is the verb meaning summon.",
+     "definitionFit": "The verb covers both muting swear words with a tone and calling someone on a pager device."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "page"
+    }
+   }
   },
   {
    "number": 17,
@@ -324,7 +1278,68 @@
      }
     ]
    },
-   "solution": "BLUEFUNK"
+   "solution": "BLUEFUNK",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BLUE FUNK",
+    "definitions": [
+     {
+      "text": "bottle? Hardly!",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exploding",
+      "for": "anagram",
+      "note": "an explosion blows things apart so the letters land in a new order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nonsense",
+      "gives": "BUNK",
+      "note": "bunk is nonsense"
+     },
+     {
+      "clueFragment": "fuel",
+      "gives": "FUEL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LUEF",
+      "UNK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FUEL",
+       "gives": "LUEF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Talk of fuel bottles exploding is dismissed as nonsense.",
+     "walkthrough": "Bottle is British slang for courage; 'Hardly!' says the answer is its opposite.",
+     "definitionFit": "A blue funk is a state of panic or terror, the very opposite of having bottle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bottle"
+    }
+   }
   },
   {
    "number": 18,
@@ -338,7 +1353,51 @@
     "text": "Third rate musical for a rocker?",
     "enumeration": "5"
    },
-   "solution": "CHAIR"
+   "solution": "CHAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHAIR",
+    "definitions": [
+     {
+      "text": "rocker",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "for a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Third rate",
+      "gives": "C",
+      "note": "the third grade after A and B"
+     },
+     {
+      "clueFragment": "musical",
+      "gives": "HAIR",
+      "note": "Hair is the 1960s rock musical"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HAIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A second-rate musical judged by a rock fan.",
+     "walkthrough": "'Rocker' suggests a rock fan, but it is a rocking chair.",
+     "definitionFit": "A rocker is a chair on curved runners, so the answer is the broader item."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rocker"
+    }
+   }
   },
   {
    "number": 18,
@@ -352,7 +1411,43 @@
     "text": "Refund: respond to \"I'll scratch yours …\"?",
     "enumeration": "8"
    },
-   "solution": "CLAWBACK"
+   "solution": "CLAWBACK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CLAWBACK",
+    "definitions": [
+     {
+      "text": "Refund",
+      "at": 0
+     },
+     {
+      "text": "respond to \"I'll scratch yours …\"",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Refund",
+      "note": "first meaning: a recovery of money already paid out"
+     },
+     {
+      "clueFragment": "respond to \"I'll scratch yours …\"",
+      "note": "second meaning: the saying is you scratch my back and I'll scratch yours, so the reply is to scratch back"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read as two words, the answer is what you do in return for a scratch on the back.",
+     "definitionFit": "A clawback is money recovered by a government or company, especially a benefit taken back."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "scratch"
+    }
+   }
   },
   {
    "number": 19,
@@ -366,7 +1461,62 @@
     "text": "Story briefly spread across papers making waves?",
     "enumeration": "5"
    },
-   "solution": "TIDAL"
+   "solution": "TIDAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TIDAL",
+    "definitions": [
+     {
+      "text": "making waves",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the final letter of the story goes"
+     },
+     {
+      "text": "spread across",
+      "for": "container",
+      "note": "spread across means stretched round the outside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Story",
+      "gives": "TAL",
+      "note": "tale without its last letter"
+     },
+     {
+      "clueFragment": "papers",
+      "gives": "ID",
+      "note": "identity papers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ID",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A story in the papers stirring up controversy.",
+     "walkthrough": "'Making waves' suggests causing trouble; read literally it describes the sea.",
+     "definitionFit": "Tidal describes the rise and fall of the sea caused by the moon, producing waves and tides."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "waves"
+    }
+   }
   },
   {
    "number": 20,
@@ -380,7 +1530,60 @@
     "text": "It's not so acceptable in top class, book being added to wrong set?",
     "enumeration": "7"
    },
-   "solution": "UNTRUTH"
+   "solution": "UNTRUTH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNTRUTH",
+    "definitions": [
+     {
+      "text": "It's not so",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being added to",
+      "for": "charade",
+      "note": "being added to means joined onto the end of what follows, so the book goes last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "acceptable in top class",
+      "gives": "U",
+      "note": "U means upper-class, as in U and non-U usage"
+     },
+     {
+      "clueFragment": "wrong set",
+      "gives": "NT",
+      "note": "the New Testament, a set of books that is the wrong home for an Old Testament book"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "RUTH",
+      "note": "the Book of Ruth is in the Old Testament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "NT",
+      "RUTH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders whether a book added to the wrong set is acceptable among the elite.",
+     "walkthrough": "U is the old British label for upper-class usage. Ruth belongs in the Old Testament, so adding it to the New Testament puts it in the wrong set.",
+     "definitionFit": "An untruth is a statement that is false, something that is not so."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 21,
@@ -394,7 +1597,57 @@
     "text": "Consequence of mounts being placed on piping",
     "enumeration": "6"
    },
-   "solution": "UPSHOT"
+   "solution": "UPSHOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPSHOT",
+    "definitions": [
+     {
+      "text": "Consequence",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being placed on",
+      "for": "charade",
+      "note": "in a down clue, being placed on top means coming first in the column"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mounts",
+      "gives": "UPS",
+      "note": "mounts and goes up both mean rises; ups are rises"
+     },
+     {
+      "clueFragment": "piping",
+      "gives": "HOT",
+      "note": "piping hot means very hot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UPS",
+      "HOT"
+     ]
+    },
+    "explanation": {
+     "surface": "The result of mounting things onto pipes.",
+     "walkthrough": "In a down clue, 'placed on' puts the first piece above the second.",
+     "definitionFit": "The upshot of something is its outcome or final result."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "piping"
+    }
+   }
   },
   {
    "number": 22,
@@ -408,7 +1661,72 @@
     "text": "Was host of children overheard following me around?",
     "enumeration": "6"
    },
-   "solution": "EMCEED"
+   "solution": "EMCEED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "homophone",
+     "charade"
+    ],
+    "answer": "EMCEED",
+    "definitions": [
+     {
+      "text": "Was host",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "turned around, the word me is read backwards"
+     },
+     {
+      "text": "overheard",
+      "for": "homophone",
+      "note": "overheard means caught by ear, so the spelling follows the sound"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so the sound-alike part goes second"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "me",
+      "gives": "EM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "children",
+      "gives": "CEED",
+      "soundsLike": "SEED",
+      "note": "seed means offspring in the Biblical sense"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ME",
+       "to": "EM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hosted children who were heard following them around.",
+     "walkthrough": "'Following' puts the sound-alike after the reversed me.",
+     "definitionFit": "To emcee is to act as master of ceremonies, hosting an event or show."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "children"
+    }
+   }
   },
   {
    "number": 23,
@@ -422,7 +1740,66 @@
     "text": "Swamp ended with tree: crossing hard!",
     "enumeration": "9"
    },
-   "solution": "OVERWHELM"
+   "solution": "OVERWHELM",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OVERWHELM",
+    "definitions": [
+     {
+      "text": "Swamp",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "crossing means straddling, so the pair goes either side of the other letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ended",
+      "gives": "OVER",
+      "note": "something ended is over"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is short for with"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H for hard, as on pencils"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "ELM",
+      "note": "the elm is a tree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "W",
+      "H",
+      "ELM"
+     ]
+    },
+    "explanation": {
+     "surface": "A swamp that finishes with a tree in a hard crossing.",
+     "definitionFit": "To swamp someone is to overwhelm them, burying them in too much."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Swamp"
+    }
+   }
   },
   {
    "number": 24,
@@ -436,7 +1813,61 @@
     "text": "Extract firm replies from the floor, oddly overlooked",
     "enumeration": "5"
    },
-   "solution": "ELEMI"
+   "solution": "ELEMI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "ELEMI",
+    "definitions": [
+     {
+      "text": "Extract",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly overlooked",
+      "for": "letter_selection",
+      "note": "overlooking the odd letters means only the even-placed ones are kept"
+     },
+     {
+      "text": "from the floor",
+      "for": "reversal",
+      "note": "coming up from the floor, in a down clue the letters read bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "firm replies",
+      "gives": "IMELE",
+      "select": "alternate",
+      "note": "the second, fourth, sixth, eighth and tenth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELEMI"
+     ],
+     "reversals": [
+      {
+       "from": "IMELE",
+       "to": "ELEMI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting firm answers from the audience, though some are odd and ignored.",
+     "walkthrough": "'From the floor' suggests audience questions, and 'Extract' a verb; elemi is a resin extracted from trees.",
+     "definitionFit": "Elemi is a fragrant resin obtained from tropical trees, used in varnishes and medicines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Extract"
+    }
+   }
   },
   {
    "number": 25,
@@ -450,7 +1881,49 @@
     "text": "With fluorine, no longer having to clean teeth",
     "enumeration": "5"
    },
-   "solution": "FLOSS"
+   "solution": "FLOSS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLOSS",
+    "definitions": [
+     {
+      "text": "clean teeth",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fluorine",
+      "gives": "F",
+      "note": "F is the chemical symbol for fluorine"
+     },
+     {
+      "clueFragment": "no longer having",
+      "gives": "LOSS",
+      "note": "a loss is a state of no longer having something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LOSS"
+     ]
+    },
+    "explanation": {
+     "surface": "Toothpaste fluorine, gone and no longer needed for cleaning teeth.",
+     "definitionFit": "To floss is to clean between the teeth with thread."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fluorine"
+    }
+   }
   },
   {
    "number": 26,
@@ -464,7 +1937,59 @@
     "text": "Reveals where son's lifted sack?",
     "enumeration": "4"
    },
-   "solution": "OUST"
+   "solution": "OUST",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "OUST",
+    "definitions": [
+     {
+      "text": "sack",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lifted",
+      "for": "deletion",
+      "note": "lifted means picked up and moved higher, here one letter shifts up the column"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reveals",
+      "gives": "OUTS",
+      "note": "outs means reveals, as in outing a secret"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OU",
+      "S",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reveals where a son stole a sack.",
+     "walkthrough": "The son's letter is moved from the end of the word one place higher in the column.",
+     "definitionFit": "To sack someone is to dismiss them, which is to oust them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lifted"
+    }
+   }
   },
   {
    "number": 27,
@@ -478,7 +2003,60 @@
     "text": "Come forth, when expected, by reputation, to retreat",
     "enumeration": "7"
    },
-   "solution": "EMANATE"
+   "solution": "EMANATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EMANATE",
+    "definitions": [
+     {
+      "text": "Come forth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to retreat",
+      "for": "reversal",
+      "note": "retreating means going backwards, so the letters are read in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "when expected",
+      "gives": "ETA",
+      "note": "estimated time of arrival"
+     },
+     {
+      "clueFragment": "reputation",
+      "gives": "NAME",
+      "note": "a good name is a reputation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMAN",
+      "ATE"
+     ],
+     "reversals": [
+      {
+       "from": "ETANAME",
+       "to": "EMANATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone comes forward when expected, then retreats for their reputation's sake.",
+     "definitionFit": "To emanate is to issue or flow out from a source."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retreat"
+    }
+   }
   },
   {
    "number": 28,
@@ -498,7 +2076,55 @@
      }
     ]
    },
-   "solution": "NOSHOWS"
+   "solution": "NOSHOWS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "NO-SHOWS",
+    "definitions": [
+     {
+      "text": "people wasting tickets",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with third deducted",
+      "for": "deletion",
+      "note": "with its third letter deducted, that letter is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fare",
+      "gives": "NOSH",
+      "note": "nosh is slang for food"
+     },
+     {
+      "clueFragment": "has",
+      "gives": "OWS",
+      "note": "owns, with the N removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOSH",
+      "OWS"
+     ]
+    },
+    "explanation": {
+     "surface": "A fare reduced by a third leaves seats unused by ticket holders.",
+     "walkthrough": "'Fare' suggests a ticket price; here it is food, nosh in British slang.",
+     "definitionFit": "No-shows are people who book or buy tickets but never turn up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Fare"
+    }
+   }
   },
   {
    "number": 29,
@@ -518,7 +2144,52 @@
      }
     ]
    },
-   "solution": "STICKYEND"
+   "solution": "STICKYEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STICKY END",
+    "definitions": [
+     {
+      "text": "unpleasant conclusion",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Put up with",
+      "gives": "STICK",
+      "note": "to stick something is to bear it"
+     },
+     {
+      "clueFragment": "long",
+      "gives": "YEN",
+      "note": "to yen for something is to long for it"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D for day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STICK",
+      "YEN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Enduring a long day comes to a grim finish.",
+     "definitionFit": "A sticky end is an unpleasant or violent death, a bad conclusion to someone's story."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "long"
+    }
+   }
   }
  ]
 }
