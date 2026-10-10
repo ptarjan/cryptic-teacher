@@ -608,15 +608,16 @@ class Session:
         """The `n` bytes that follow an answer line."""
         end = time.monotonic() + timeout
         fd = self.proc.stdout.fileno()
-        while len(self.buf) < n:
+        got = bytearray(self.buf)  # grown in place: a pipe read is ~64 KB, a page's PNG MBs
+        while len(got) < n:
             left = end - time.monotonic()
             if left <= 0 or not select.select([fd], [], [], left)[0]:
                 raise Unavailable(f"no answer in {timeout}s")
             chunk = os.read(fd, 1 << 20)
             if not chunk:
                 raise Unavailable("ssh exited mid-answer")
-            self.buf += chunk
-        data, self.buf = self.buf[:n], self.buf[n:]
+            got += chunk
+        data, self.buf = bytes(got[:n]), bytes(got[n:])
         return data
 
     def send(self, head, data):
