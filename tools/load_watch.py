@@ -23,8 +23,12 @@ The message leads with what is waiting: runnable threads and busy cores from
 /proc/stat and the CPU pressure stall share, all three VM-wide like the load average
 itself, then the per-process ranking, which sees only this container.
 
-Quiet by design: one wake per 60 minutes unless the top consumer changed, one jsonl
-line per check in load_watch.jsonl beside the state file.
+A wake asks the room to move the top consumer, so it needs one worth moving: a job
+holding TOP_MIN_CORES or more. Load spread over many smaller jobs (the standing burn,
+reread and OCR units) leaves nothing to move; that check logs "spread" and wakes no one.
+Each job is woken for at most once per REPEAT_SECONDS, however often another job takes
+the top place in between. One jsonl line per check in load_watch.jsonl beside the state
+file.
 """
 import collections
 import json
@@ -41,6 +45,7 @@ CONSECUTIVE = 2
 LOG_KEEP = 1000
 STALL_MIN = 20.0  # % of the last minute some task waited for a CPU
 MIN_CORES = 0.05  # a consumer below this is noise in the ranking
+TOP_MIN_CORES = 1.0  # the top consumer must hold this much to be worth moving
 SHOW = 6
 # Keys that only launch something else; a parent label climbs past them.
 WRAPPERS = {"bash", "sh", "flock", "env", "timeout", "nice", "setsid", "?"}
@@ -237,15 +242,18 @@ def main(proc="/proc", state_dir=STATE_DIR, ncores=None, now=time.time, sleep=ti
         rec.update(top=top, R=s["R"], D=s["D"], total=s["total"], pressure=pressure,
                    busy=s["busy"], runnable=s["runnable"],
                    ranked=s["ranked"][:SHOW])
-        recent = "woke_at" in state and now() - state["woke_at"] < REPEAT_SECONDS
-        if recent and top == state.get("woke_top"):
+        woke = {k: t for k, t in state.get("woke", {}).items() if now() - t < REPEAT_SECONDS}
+        state["woke"] = woke
+        if not s["ranked"] or s["ranked"][0][0] < TOP_MIN_CORES:
+            rec["action"] = "spread"
+        elif top in woke:
             rec["action"] = "quiet"
         elif dry_run:
             rec["action"] = "dry-run"
             print(text)
         elif waker(text):
             rec["action"] = "woke"
-            state.update(woke_at=now(), woke_top=top)
+            woke[top] = now()
         else:
             rec["action"] = "wake-failed"
     state_dir.mkdir(parents=True, exist_ok=True)

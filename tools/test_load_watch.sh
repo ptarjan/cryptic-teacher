@@ -1,6 +1,6 @@
 #!/bin/bash
 # Does load_watch.py rank CPU by job, charge exited children to their parent, and
-# wake only on two high runs in a row, once an hour unless the top consumer changes?
+# wake only on two high runs in a row, for a job holding a core, once an hour per job?
 #
 #     nice -n 19 bash tools/test_load_watch.sh
 #
@@ -191,13 +191,38 @@ lines = (state / "load_watch.jsonl").read_text().splitlines()
 check("one jsonl line per check", 7, len(lines))
 check("log lines are json with an action", True, all("action" in json.loads(l) for l in lines))
 
-# A failed wake is recorded and retried next run (no woke_at saved).
+# Load spread over jobs none of which holds a core leaves nothing to move: no wake.
+# And a job already woken for stays quiet for the hour even after another job held
+# the top place in between (the top flips among the standing jobs every few minutes).
+proc4 = fresh("p4", 15.0, avg60=60.0)
+put(proc4, 70, ["python3", "/x/edition_queue.py", "unit", "read"], state="R")
+put(proc4, 71, ["python3", "/x/blog_facts.py"], state="R")
+st4, woke4, t4 = tmp / "state4", [], [0.0]
+def run4(cores):
+    def sleep(_):
+        for pid, c in cores.items():
+            q = lw.read_proc(proc4, pid)
+            put(proc4, pid, q["argv"], ppid=q["ppid"], state="R", u=q["own"] + int(c * 100))
+    t4[0] += 300
+    return lw.main(proc=proc4, state_dir=st4, ncores=6, now=lambda: t4[0],
+                   waker=lambda text: woke4.append(text) or True, hz=100, seconds=1, sleep=sleep)
+run4({})
+check("spread load: no job holds a core, no wake", ("spread", []), (run4({70: 0.7, 71: 0.6})["action"], woke4))
+check("one job holding a core wakes", "woke", run4({70: 2.0, 71: 0.5})["action"])
+check("another job taking the top wakes for it", "woke", run4({70: 0.5, 71: 1.5})["action"])
+check("the first job back on top inside the hour stays quiet", "quiet", run4({70: 2.0, 71: 0.5})["action"])
+check("two wakes in all", 2, len(woke4))
+
+# A failed wake is recorded and retried next run (the job is not marked woken).
 proc2 = fresh("p2", 20.0, avg60=30.5)
 put(proc2, 50, ["python3", "z.py"], state="R")
 st2 = tmp / "state2"
 failing = lambda text: False
+def burn2(_):
+    q = lw.read_proc(proc2, 50)
+    put(proc2, 50, q["argv"], state="R", u=q["own"] + 200)
 for _ in range(2):
-    rec = lw.main(proc=proc2, state_dir=st2, ncores=6, now=lambda: 5.0, waker=failing, hz=100, seconds=1, sleep=lambda _: None)
+    rec = lw.main(proc=proc2, state_dir=st2, ncores=6, now=lambda: 5.0, waker=failing, hz=100, seconds=1, sleep=burn2)
 check("failed wake is recorded", "wake-failed", rec["action"])
 sys.exit(1 if fails else 0)
 PY
