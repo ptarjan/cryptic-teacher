@@ -38,6 +38,9 @@
   "date": "2019-06-16",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,67 @@
     "text": "Like an Aussie hobo, swallowing extremes of grog in time",
     "enumeration": "5"
    },
-   "solution": "DAGGY"
+   "solution": "DAGGY",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "DAGGY",
+    "definitions": [
+     {
+      "text": "Like an Aussie hobo",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallowing",
+      "for": "container",
+      "note": "to swallow something is to take it inside, so one piece goes within another"
+     },
+     {
+      "text": "extremes of",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two end letters, first and last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in time",
+      "gives": "DA",
+      "note": "first part of DAY, a unit of time"
+     },
+     {
+      "clueFragment": "grog",
+      "gives": "GG",
+      "select": "outer",
+      "note": "first and last letters of grog"
+     },
+     {
+      "clueFragment": "in time",
+      "gives": "Y",
+      "note": "end of DAY, closing round the inserted letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DA",
+      "GG",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An Australian tramp knocking back the ends of his rum ration on schedule.",
+     "walkthrough": "'in' belongs to the cryptic reading 'in time' rather than being a separate signal; the period of time is the one that does the swallowing.",
+     "definitionFit": "Daggy is Australian slang for scruffy or unkempt, the typical look of a swagman or tramp."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "swallowing"
+    }
+   }
   },
   {
    "number": 1,
@@ -65,7 +128,65 @@
     "text": "Big drum that's bashed after noon for Mikado",
     "enumeration": "5"
    },
-   "solution": "DAIKO"
+   "solution": "DAIKO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "DAIKO",
+    "definitions": [
+     {
+      "text": "Big drum",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bashed",
+      "for": "anagram",
+      "note": "something bashed is knocked out of shape, so its letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "that's",
+     "after",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mikado",
+      "gives": "MIKADO",
+      "note": "the Mikado, a title of the emperor of Japan, taken as written"
+     },
+     {
+      "clueFragment": "noon",
+      "gives": "M",
+      "note": "M stands for meridies, Latin for noon; it is the letter set aside"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAIKO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IKADO",
+       "gives": "DAIKO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A large drum is beaten in the afternoon to herald the Mikado's arrival.",
+     "walkthrough": "The wordplay runs backwards: the answer ('that'), bashed and placed after noon's letter, makes MIKADO. Working forwards, take noon's letter off Mikado and bash the rest.",
+     "definitionFit": "A daiko, better known as taiko, is a large Japanese drum beaten with sticks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "noon"
+    }
+   }
   },
   {
    "number": 2,
@@ -78,7 +199,67 @@
    "clue": {
     "text": "A Euro-juju? Lor, that's odd, providing for immediate needs only (12, four words)"
    },
-   "solution": "AUJOURLEJOUR"
+   "solution": "AUJOURLEJOUR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AU JOUR LE JOUR",
+    "definitions": [
+     {
+      "text": "providing for immediate needs only",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that's odd",
+      "for": "anagram",
+      "note": "something odd is strange or out of order, so these letters must be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Euro",
+      "gives": "EURO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "juju",
+      "gives": "JUJU",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Lor",
+      "gives": "LOR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AEUROJUJULOR",
+       "gives": "AUJOURLEJOUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strange exclamation about European magic charms, as if spoken by a startled Cockney.",
+     "walkthrough": "'Lor' is a dialect exclamation, short for Lord; it is all fodder here.",
+     "definitionFit": "The French phrase means 'from day to day', describing a hand-to-mouth existence that meets only present needs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "odd"
+    }
+   }
   },
   {
    "number": 3,
@@ -92,7 +273,50 @@
     "text": "Grand old knight provides assistance for travellers on the road",
     "enumeration": "7"
    },
-   "solution": "GRITTER"
+   "solution": "GRITTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRITTER",
+    "definitions": [
+     {
+      "text": "assistance for travellers on the road",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "provides"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grand",
+      "gives": "G",
+      "note": "G is the standard abbreviation for grand"
+     },
+     {
+      "clueFragment": "old knight",
+      "gives": "RITTER",
+      "note": "ritter is an archaic word for a knight, from German"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RITTER"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly knight of noble rank helps wayfarers along the highway.",
+     "walkthrough": "A gritter is a lorry that spreads grit or salt on icy British roads in winter.",
+     "definitionFit": "By spreading grit on frozen roads the vehicle helps motorists keep traction, a service to road users."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "knight"
+    }
+   }
   },
   {
    "number": 4,
@@ -106,7 +330,67 @@
     "text": "Denizens of the everglades chatter about rising putrescence",
     "enumeration": "6"
    },
-   "solution": "GATORS"
+   "solution": "GATORS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "GATORS",
+    "definitions": [
+     {
+      "text": "Denizens of the everglades",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down clue, rising means read from bottom to top, so backwards"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one word goes round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chatter",
+      "gives": "GAS",
+      "note": "to gas is to chatter idly"
+     },
+     {
+      "clueFragment": "putrescence",
+      "gives": "ROT",
+      "note": "rot is decay or putrescence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GA",
+      "TOR",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "ROT",
+       "to": "TOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Swamp creatures gossip about decay drifting upwards from the marsh.",
+     "walkthrough": "Gas as a verb means to talk at length; in this down clue 'rising' turns the decay word upside down.",
+     "definitionFit": "Gators is the informal short form of alligators, which live in Florida's Everglades swamps."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "chatter"
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +404,62 @@
     "text": "Archetypal rustic, modest fellow? That's about right",
     "enumeration": "7"
    },
-   "solution": "CORYDON"
+   "solution": "CORYDON",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CORYDON",
+    "definitions": [
+     {
+      "text": "Archetypal rustic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the earlier words wrap round the next letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "modest",
+      "gives": "COY",
+      "note": "coy means shy or modest"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the usual abbreviation for right"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "DON",
+      "note": "a don is a university fellow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "R",
+      "Y",
+      "DON"
+     ]
+    },
+    "explanation": {
+     "surface": "A typical country bumpkin is a shy chap, and that's about right.",
+     "walkthrough": "COY DON, 'modest fellow', is wrapped about R: CO(R)Y DON.",
+     "definitionFit": "Corydon is a shepherd in Virgil's Eclogues, and the name became the conventional one for any pastoral swain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fellow"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +473,55 @@
     "text": "Backward kids in school, a failure",
     "enumeration": "6"
    },
-   "solution": "SLIPUP"
+   "solution": "SLIPUP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SLIP-UP",
+    "definitions": [
+     {
+      "text": "a failure",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Backward",
+      "for": "reversal",
+      "note": "backward means read in the opposite direction, from end to start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kids in school",
+      "gives": "PUPILS",
+      "note": "children at school are pupils"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLIPUP"
+     ],
+     "reversals": [
+      {
+       "from": "PUPILS",
+       "to": "SLIPUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Slow learners in a classroom are written off as a failure.",
+     "walkthrough": "'Backward' looks like an unkind description of the kids; it only tells you to read them in reverse.",
+     "definitionFit": "A slip-up is a mistake or minor failure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Backward"
+    }
+   }
   },
   {
    "number": 6,
@@ -148,7 +535,60 @@
     "text": "Deep blue briny around Malta",
     "enumeration": "5"
    },
-   "solution": "SMALT"
+   "solution": "SMALT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SMALT",
+    "definitions": [
+     {
+      "text": "Deep blue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means encircling, so one word goes round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "briny",
+      "gives": "S",
+      "note": "first letter of SALT, as briny means salt"
+     },
+     {
+      "clueFragment": "Malta",
+      "gives": "M",
+      "note": "M is the international vehicle code for Malta"
+     },
+     {
+      "clueFragment": "briny",
+      "gives": "ALT",
+      "note": "rest of SALT, closing round the inserted letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "M",
+      "ALT"
+     ]
+    },
+    "explanation": {
+     "surface": "The deep blue salt sea surrounding the Mediterranean island of Malta.",
+     "walkthrough": "SALT goes round M: S(M)ALT.",
+     "definitionFit": "Smalt is a deep blue pigment made from powdered glass coloured with cobalt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "briny"
+    }
+   }
   },
   {
    "number": 7,
@@ -162,7 +602,60 @@
     "text": "Coarse abuse, son going for college",
     "enumeration": "6"
    },
-   "solution": "INCULT"
+   "solution": "INCULT",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "INCULT",
+    "definitions": [
+     {
+      "text": "Coarse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going for",
+      "for": "substitution",
+      "note": "one letter going for another means it replaces it in the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "abuse",
+      "gives": "INSULT",
+      "note": "to insult someone is to abuse them"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the genealogical abbreviation for son"
+     },
+     {
+      "clueFragment": "college",
+      "gives": "C",
+      "note": "C is an abbreviation for college"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "C",
+      "ULT"
+     ]
+    },
+    "explanation": {
+     "surface": "Crude verbal abuse as a student leaves home for university.",
+     "walkthrough": "In INSULT the S is swapped for C.",
+     "definitionFit": "Incult is a rare word for uncultivated or unrefined, so rough and coarse in manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "son"
+    }
+   }
   },
   {
    "number": 8,
@@ -176,7 +669,53 @@
     "text": "Support king following church rule book",
     "enumeration": "4"
    },
-   "solution": "PIER"
+   "solution": "PIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PIER",
+    "definitions": [
+     {
+      "text": "Support",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following places the king after the book, setting out the order of the parts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church rule book",
+      "gives": "PIE",
+      "note": "the pie or pye was a pre-Reformation book of rules for church services"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R is short for rex, king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Backing the monarch who follows the rules laid down by the church.",
+     "definitionFit": "A pier is a solid pillar or column that supports an arch or bridge span."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "book"
+    }
+   }
   },
   {
    "number": 9,
@@ -190,7 +729,67 @@
     "text": "Classes tucked into tureen's stew, showing no compunction",
     "enumeration": "12"
    },
-   "solution": "UNREGENERATE"
+   "solution": "UNREGENERATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "UNREGENERATE",
+    "definitions": [
+     {
+      "text": "showing no compunction",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tucked into",
+      "for": "container",
+      "note": "something tucked into another is put inside it"
+     },
+     {
+      "text": "stew",
+      "for": "anagram",
+      "note": "a stew is a jumbled mixture, so these letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tureen's",
+      "gives": "TUREEN",
+      "note": "taken as written, the possessive dropped"
+     },
+     {
+      "clueFragment": "Classes",
+      "gives": "GENERA",
+      "note": "genera are classes in biological classification"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNRE",
+      "GENERA",
+      "TE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TUREEN",
+       "gives": "UNRETE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cooking whole categories of food in a tureen's stew with no qualms at all.",
+     "walkthrough": "The 's of tureen's is surface glue; only the six letters of tureen are stewed, and the classes go inside the result.",
+     "definitionFit": "Unregenerate means unrepentant or unreformed, so feeling no remorse or scruple."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Classes"
+    }
+   }
   },
   {
    "number": 10,
@@ -204,7 +803,50 @@
     "text": "State of affairs ragged by troupes",
     "enumeration": "7"
    },
-   "solution": "POSTURE"
+   "solution": "POSTURE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "POSTURE",
+    "definitions": [
+     {
+      "text": "State of affairs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ragged by",
+      "for": "anagram",
+      "note": "to rag is to tease or knock about, so the letters are roughed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "troupes",
+      "gives": "TROUPES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TROUPES",
+       "gives": "POSTURE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A situation being mocked by bands of travelling actors.",
+     "definitionFit": "Posture can mean the current position or state of affairs, as in a country's defence posture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ragged"
+    }
+   }
   },
   {
    "number": 11,
@@ -218,7 +860,58 @@
     "text": "Colour therapy from USA, aroma varied",
     "enumeration": "8"
    },
-   "solution": "AURASOMA"
+   "solution": "AURASOMA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AURASOMA",
+    "definitions": [
+     {
+      "text": "Colour therapy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "varied",
+      "for": "anagram",
+      "note": "varied means altered, so these letters change their order"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "USA",
+      "gives": "USA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "aroma",
+      "gives": "AROMA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "USAAROMA",
+       "gives": "AURASOMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An alternative health treatment imported from America with a changing scent.",
+     "definitionFit": "Aura-Soma is a system of alternative healing using coloured oils in bottles, a form of colour therapy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "varied"
+    }
+   }
   },
   {
    "number": 12,
@@ -232,7 +925,63 @@
     "text": "Opening of public bar, distinguished scientists in jumpers",
     "enumeration": "8"
    },
-   "solution": "PRANCERS"
+   "solution": "PRANCERS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PRANCERS",
+    "definitions": [
+     {
+      "text": "jumpers",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Opening of",
+      "for": "letter_selection",
+      "note": "the opening of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "public",
+      "gives": "P",
+      "select": "first",
+      "note": "first letter of public"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "RANCE",
+      "note": "rance is a Scots word for a bar or prop"
+     },
+     {
+      "clueFragment": "distinguished scientists",
+      "gives": "RS",
+      "note": "RS is the Royal Society, Britain's academy of eminent scientists"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RANCE",
+      "RS"
+     ]
+    },
+    "explanation": {
+     "surface": "At the opening of a pub's bar, eminent scientists appear wearing woolly sweaters.",
+     "walkthrough": "'Jumpers' suggests British sweaters, but it means leaping animals.",
+     "definitionFit": "Prancers are horses that spring and caper, so they are jumpers in the leaping sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "jumpers"
+    }
+   }
   },
   {
    "number": 13,
@@ -246,7 +995,69 @@
     "text": "Bow elaborately played took lead in Weber",
     "enumeration": "5"
    },
-   "solution": "KOTOW"
+   "solution": "KOTOW",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "KOTOW",
+    "definitions": [
+     {
+      "text": "Bow elaborately",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "played",
+      "for": "anagram",
+      "note": "played suggests something performed freely, so these letters are reworked"
+     },
+     {
+      "text": "lead in",
+      "for": "letter_selection",
+      "note": "the lead of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "took",
+      "gives": "KOTO",
+      "note": "the letters of took rearranged"
+     },
+     {
+      "clueFragment": "Weber",
+      "gives": "W",
+      "select": "first",
+      "note": "first letter of Weber"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KOTO",
+      "W"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOOK",
+       "gives": "KOTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician bowed deeply after taking the lead in a piece by the composer Weber.",
+     "walkthrough": "'Bow' and 'played' together suggest a violinist, but bow here is the bending kind.",
+     "definitionFit": "Kotow is a variant of kowtow, the Chinese custom of kneeling and touching the forehead to the ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bow"
+    }
+   }
   },
   {
    "number": 14,
@@ -260,7 +1071,65 @@
     "text": "US tableware? Alas, this cruet we smashed",
     "enumeration": "5"
    },
-   "solution": "BURET"
+   "solution": "BURET",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion"
+    ],
+    "answer": "BURET",
+    "definitions": [
+     {
+      "text": "this cruet",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "smashed",
+      "for": "anagram",
+      "note": "something smashed is broken to pieces, so its letters can be rebuilt in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US tableware",
+      "gives": "USTABLEWARE",
+      "note": "taken as written; it is the result of the broken letters"
+     },
+     {
+      "clueFragment": "Alas",
+      "gives": "ALAS",
+      "note": "taken as written, part of the shuffled set"
+     },
+     {
+      "clueFragment": "we",
+      "gives": "WE",
+      "note": "taken as written, part of the shuffled set"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BURET"
+     ],
+     "anagrams": [
+      {
+       "fodder": "USTABLEWARE",
+       "gives": "ALASBURETWE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sad confession: we broke this American-made condiment cruet at the dinner table.",
+     "walkthrough": "A compositional anagram: ALAS + answer + WE, smashed, gives US TABLEWARE, so taking ALAS and WE out of those letters leaves the answer.",
+     "definitionFit": "Buret is the American spelling of burette, which Chambers also gives as a cruet used for church wine or water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tableware"
+    }
+   }
   },
   {
    "number": 15,
@@ -274,7 +1143,50 @@
     "text": "Fantastic diamonds are topping in rubescence",
     "enumeration": "6"
    },
-   "solution": "OUTRED"
+   "solution": "OUTRED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTRED",
+    "definitions": [
+     {
+      "text": "topping in rubescence",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "are"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fantastic",
+      "gives": "OUTRE",
+      "note": "outré means bizarre or fantastic"
+     },
+     {
+      "clueFragment": "diamonds",
+      "gives": "D",
+      "note": "D is the card abbreviation for diamonds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUTRE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Extraordinary diamonds are the best thing in a blushing red display.",
+     "walkthrough": "'Topping' looks like an adjective for excellent; it is a verb, to top or surpass.",
+     "definitionFit": "To outred is to exceed in redness, and rubescence is the quality of reddening."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "topping"
+    }
+   }
   },
   {
    "number": 16,
@@ -288,7 +1200,63 @@
     "text": "South Indian lute played with kind of viol",
     "enumeration": "6"
    },
-   "solution": "TELUGU"
+   "solution": "TELUGU",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TELUGU",
+    "definitions": [
+     {
+      "text": "South Indian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "played",
+      "for": "anagram",
+      "note": "an instrument played is handled freely, so its letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lute",
+      "gives": "TELU",
+      "note": "the letters of lute rearranged"
+     },
+     {
+      "clueFragment": "kind of viol",
+      "gives": "GU",
+      "note": "the gu or gue is an old Shetland violin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TELU",
+      "GU"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LUTE",
+       "gives": "TELU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician from southern India strums a lute alongside a type of viol.",
+     "definitionFit": "Telugu is a Dravidian language and people of Andhra Pradesh in south-east India."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lute"
+    }
+   }
   },
   {
    "number": 17,
@@ -302,7 +1270,67 @@
     "text": "Specialized artist, scribbled score held in clenched hand",
     "enumeration": "9"
    },
-   "solution": "FRESCOIST"
+   "solution": "FRESCOIST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "FRESCOIST",
+    "definitions": [
+     {
+      "text": "Specialized artist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scribbled",
+      "for": "anagram",
+      "note": "something scribbled is written messily, so the letters come out jumbled"
+     },
+     {
+      "text": "held in",
+      "for": "container",
+      "note": "held in means gripped inside another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "score",
+      "gives": "RESCO",
+      "note": "the letters of score rearranged"
+     },
+     {
+      "clueFragment": "clenched hand",
+      "gives": "FIST",
+      "note": "a fist is a clenched hand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RESCO",
+      "IST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SCORE",
+       "gives": "RESCO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A composer gripping a hastily written musical score in his fist.",
+     "walkthrough": "'Score' sounds like the music the artist holds; it is only the letters to be scribbled.",
+     "definitionFit": "A frescoist is a painter who works in fresco, on wet plaster, a specialised branch of painting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "score"
+    }
+   }
   },
   {
    "number": 17,
@@ -316,7 +1344,61 @@
     "text": "National costume? Trademark's mostly seen in dress",
     "enumeration": "7"
    },
-   "solution": "FILABEG"
+   "solution": "FILABEG",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "FILABEG",
+    "definitions": [
+     {
+      "text": "National costume?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter is dropped"
+     },
+     {
+      "text": "seen in",
+      "for": "container",
+      "note": "seen in means appearing inside another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trademark's",
+      "gives": "LABEL",
+      "note": "a label is a brand or trademark"
+     },
+     {
+      "clueFragment": "dress",
+      "gives": "FIG",
+      "note": "fig means dress or array, as in full fig"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FI",
+      "LABE",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A designer label prominently displayed on a country's traditional outfit.",
+     "walkthrough": "Fig means dress, as in the phrase 'in full fig', meaning in full formal attire.",
+     "definitionFit": "A filabeg is a Highland kilt, the national dress of Scotland; the question mark marks the example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "dress"
+    }
+   }
   },
   {
    "number": 18,
@@ -330,7 +1412,67 @@
     "text": "Fine Shakespearean as part of Sebastian touring Ulster?",
     "enumeration": "7"
    },
-   "solution": "INCONIE"
+   "solution": "INCONIE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "INCONIE",
+    "definitions": [
+     {
+      "text": "Fine Shakespearean",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "touring means going round, so one word encircles the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as part of",
+      "gives": "IN",
+      "note": "in means being part of something"
+     },
+     {
+      "clueFragment": "Sebastian",
+      "gives": "CO",
+      "note": "first part of COE, after Sebastian Coe the British runner"
+     },
+     {
+      "clueFragment": "Ulster",
+      "gives": "NI",
+      "note": "Northern Ireland, often called Ulster"
+     },
+     {
+      "clueFragment": "Sebastian",
+      "gives": "E",
+      "note": "end of COE, closing round the inserted letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "CO",
+      "NI",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A fine Shakespearean actor playing Sebastian on a tour of Northern Ireland.",
+     "walkthrough": "Sebastian Coe is a British Olympic middle-distance champion. IN + CO(NI)E; Sebastian is also a Shakespearean role, which is the misdirection.",
+     "definitionFit": "Inconie, or incony, is a word Shakespeare uses in Love's Labour's Lost meaning fine or delicate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sebastian"
+    }
+   }
   },
   {
    "number": 19,
@@ -344,7 +1486,72 @@
     "text": "Scottish cuckoo? Caught in net it's lacking in value",
     "enumeration": "7"
    },
-   "solution": "GOMERAL"
+   "solution": "GOMERAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "GOMERAL",
+    "definitions": [
+     {
+      "text": "Scottish cuckoo?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking means without, so the named letters are removed"
+     },
+     {
+      "text": "Caught in",
+      "for": "container",
+      "note": "caught in means trapped inside another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "net",
+      "gives": "GO",
+      "note": "first part of GOAL, the net in football"
+     },
+     {
+      "clueFragment": "value",
+      "gives": "MERIT",
+      "note": "merit is worth or value"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written, the letters removed"
+     },
+     {
+      "clueFragment": "net",
+      "gives": "AL",
+      "note": "end of GOAL, closing round the inserted letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "MER",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A Scottish bird trapped in a mist net is of little worth.",
+     "walkthrough": "MERIT without IT is MER, caught in GOAL: GO(MER)AL. 'Cuckoo' means a fool here, not the bird.",
+     "definitionFit": "Gomeral is a Scots word for a fool or simpleton, and cuckoo is slang for a crazy person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cuckoo"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1564,56 @@
    "clue": {
     "text": "Spooner's rabbit call? It can set you tingling (9, two words)"
    },
-   "solution": "FUNNYBONE"
+   "solution": "FUNNYBONE",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "FUNNY BONE",
+    "definitions": [
+     {
+      "text": "It can set you tingling",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner's",
+      "for": "spoonerism",
+      "note": "Spooner swapped the first sounds of words, so the opening sounds are exchanged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rabbit",
+      "gives": "FUNNY",
+      "soundsLike": "BUNNY",
+      "note": "a bunny is a rabbit; its first sound swaps with the next word's"
+     },
+     {
+      "clueFragment": "call",
+      "gives": "BONE",
+      "soundsLike": "PHONE",
+      "note": "to phone is to call; its first sound swaps with the previous word's"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FUNNY",
+      "BONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A rabbit's ringing telephone call could make you tingle with excitement.",
+     "definitionFit": "Knocking the elbow at the funny bone hits the ulnar nerve and sends a tingling jolt down the arm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "call"
+    }
+   }
   },
   {
    "number": 20,
@@ -371,7 +1627,60 @@
     "text": "Turkey kept in fridge (for Laurence) where brothers live",
     "enumeration": "6"
    },
-   "solution": "FRATRY"
+   "solution": "FRATRY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FRATRY",
+    "definitions": [
+     {
+      "text": "where brothers live",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kept in",
+      "for": "container",
+      "note": "kept in means held inside another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fridge (for Laurence)",
+      "gives": "FRA",
+      "note": "first part of FRAY; Laurence Sterne used fridge for fray, to rub"
+     },
+     {
+      "clueFragment": "Turkey",
+      "gives": "TR",
+      "note": "TR is the international vehicle code for Turkey"
+     },
+     {
+      "clueFragment": "fridge (for Laurence)",
+      "gives": "Y",
+      "note": "end of FRAY, closing round the inserted letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRA",
+      "TR",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A turkey stored in the refrigerator of a household of monks.",
+     "walkthrough": "'Fridge' is not the refrigerator but Sterne's word meaning to fray or chafe; FRA(TR)Y.",
+     "definitionFit": "A fratry is a monastery's frater, the house or quarters of a religious brotherhood of friars."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fridge"
+    }
+   }
   },
   {
    "number": 21,
@@ -385,7 +1694,59 @@
     "text": "Sea's holding nothing for a climber",
     "enumeration": "6"
    },
-   "solution": "BRIONY"
+   "solution": "BRIONY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BRIONY",
+    "definitions": [
+     {
+      "text": "a climber",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding means having inside, so one piece is held within another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sea's",
+      "gives": "BRINY",
+      "note": "the briny is a name for the sea"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRI",
+      "O",
+      "NY"
+     ]
+    },
+    "explanation": {
+     "surface": "The ocean contains nothing suitable for a mountaineer.",
+     "walkthrough": "BRINY holds O: BRI(O)NY.",
+     "definitionFit": "Briony, or bryony, is a hedgerow plant that climbs by tendrils."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "climber"
+    }
+   }
   },
   {
    "number": 22,
@@ -398,7 +1759,46 @@
    "clue": {
     "text": "The French jaunt? Give it all you've got (6, two words)"
    },
-   "solution": "LETRIP"
+   "solution": "LETRIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LET RIP",
+    "definitions": [
+     {
+      "text": "Give it all you've got",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The French",
+      "gives": "LE",
+      "note": "le is French for the"
+     },
+     {
+      "clueFragment": "jaunt?",
+      "gives": "TRIP",
+      "note": "a trip is a jaunt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "TRIP"
+     ]
+    },
+    "explanation": {
+     "surface": "Urging a French holiday-maker on their outing to go flat out.",
+     "definitionFit": "To let rip is to act without restraint, putting full energy or force into it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "jaunt"
+    }
+   }
   },
   {
    "number": 23,
@@ -412,7 +1812,63 @@
     "text": "Lowly worker in part following leader of party",
     "enumeration": "5"
    },
-   "solution": "PROLE"
+   "solution": "PROLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PROLE",
+    "definitions": [
+     {
+      "text": "Lowly worker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "the leader of a word is its first letter"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following places one piece after another, setting the order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "P",
+      "select": "first",
+      "note": "first letter of party"
+     },
+     {
+      "clueFragment": "part",
+      "gives": "ROLE",
+      "note": "a role is a part in a play"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ROLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A humble labourer playing a role behind the party leader.",
+     "definitionFit": "Prole, short for proletarian, is an informal word for a working-class labourer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 24,
@@ -426,7 +1882,42 @@
     "text": "Small underground stem, a feature of garlic or melilot",
     "enumeration": "6"
    },
-   "solution": "CORMEL"
+   "solution": "CORMEL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CORMEL",
+    "definitions": [
+     {
+      "text": "Small underground stem",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a feature of",
+      "for": "hidden_word",
+      "note": "a feature of means a part contained within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "garlic or melilot",
+      "gives": "CORMEL",
+      "note": "the letters running across the boundaries of these words"
+     }
+    ],
+    "explanation": {
+     "surface": "A little bulb-like stem that grows on garlic or on sweet clover.",
+     "walkthrough": "Melilot is sweet clover, a fodder plant.",
+     "definitionFit": "A cormel is a small corm budding from a parent corm, and a corm is a swollen underground stem."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -440,7 +1931,85 @@
     "text": "Bait, one left by angler twitching round end of line",
     "enumeration": "5"
    },
-   "solution": "LEGER"
+   "solution": "LEGER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LEGER",
+    "definitions": [
+     {
+      "text": "Bait",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left by",
+      "for": "deletion",
+      "note": "left by means abandoned, so these letters depart from the word"
+     },
+     {
+      "text": "twitching",
+      "for": "anagram",
+      "note": "twitching means jerking about, so the letters move into a new order"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its last letter"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means surrounding, so the shuffled letters go about a single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "angler",
+      "gives": "ANGLER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "AN",
+      "note": "an means one, the indefinite article"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEG",
+      "E",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GLER",
+       "gives": "LEGR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fisherman jerking his rod leaves bait on the hook beside the end of his line.",
+     "walkthrough": "'One' is the article an, not the digit; what the fisherman's word keeps after losing it is shaken up around the line's last letter.",
+     "definitionFit": "Leger bait, or ledger bait, is fishing bait that rests fixed on the bottom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 26,
@@ -454,7 +2023,65 @@
     "text": "Source of oil from Japan, sealed in a pasty",
     "enumeration": "5"
    },
-   "solution": "AJWAN"
+   "solution": "AJWAN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "AJWAN",
+    "definitions": [
+     {
+      "text": "Source of oil",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sealed in",
+      "for": "container",
+      "note": "sealed in means enclosed inside another word"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Japan",
+      "gives": "J",
+      "note": "J is the international vehicle code for Japan"
+     },
+     {
+      "clueFragment": "pasty",
+      "gives": "WAN",
+      "note": "pasty means pale-faced, wan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "J",
+      "WAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Oil extracted from Japan and wrapped inside a pastry.",
+     "walkthrough": "'Pasty' suggests a Cornish pastry, but it is the adjective meaning pale. A + J + WAN.",
+     "definitionFit": "Ajwan is an Indian spice plant whose seeds yield an aromatic essential oil, thymol."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pasty"
+    }
+   }
   },
   {
    "number": 27,
@@ -468,7 +2095,45 @@
     "text": "Short poem? Sounds like a whopper",
     "enumeration": "4"
    },
-   "solution": "WAKA"
+   "solution": "WAKA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WAKA",
+    "definitions": [
+     {
+      "text": "Short poem?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sounds like",
+      "for": "homophone",
+      "note": "sounds like says the answer is pronounced like another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a whopper",
+      "gives": "WAKA",
+      "soundsLike": "WHACKER",
+      "note": "a whacker is a big one, a whopper, said in a non-rhotic British accent"
+     }
+    ],
+    "explanation": {
+     "surface": "Is a brief verse really a whopping great lie?",
+     "walkthrough": "'Whopper' suggests a lie; here it is something huge, a whacker.",
+     "definitionFit": "A waka is a Japanese poem form of thirty-one syllables, short like the tanka it includes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "whopper"
+    }
+   }
   },
   {
    "number": 28,
@@ -482,7 +2147,55 @@
     "text": "Former spouse, violent, not cold inside",
     "enumeration": "5"
    },
-   "solution": "FIERE"
+   "solution": "FIERE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "FIERE",
+    "definitions": [
+     {
+      "text": "Former spouse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means without, so the named letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "violent",
+      "gives": "FIERCE",
+      "note": "fierce means violent"
+     },
+     {
+      "clueFragment": "cold inside",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, here taken from the inside"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIER",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An ex-husband or ex-wife, violent but not cold at heart.",
+     "walkthrough": "'Former' suggests ex; it means old-fashioned, describing the word. FIERCE loses its inner C.",
+     "definitionFit": "Fiere is an old word for a companion or spouse, so former means archaic here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Former"
+    }
+   }
   },
   {
    "number": 29,
@@ -496,7 +2209,68 @@
     "text": "For which Eton is well known, not as rendered discordantly in the WC",
     "enumeration": "8"
    },
-   "solution": "BOATSONG"
+   "solution": "BOATSONG",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BOATSONG",
+    "definitions": [
+     {
+      "text": "For which Eton is well known",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rendered discordantly",
+      "for": "anagram",
+      "note": "rendered discordantly means sung out of tune, so the letters are scrambled"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not as",
+      "gives": "ATSON",
+      "note": "the letters of not as rearranged"
+     },
+     {
+      "clueFragment": "the WC",
+      "gives": "BOG",
+      "note": "bog is British slang for a lavatory"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "ATSON",
+      "G"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOTAS",
+       "gives": "ATSON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something Eton is famous for, though not when sung out of tune in the toilet.",
+     "walkthrough": "The Eton Boating Song is the school's famous anthem; bog is British slang for a lavatory.",
+     "definitionFit": "The Eton Boating Song is a celebrated rowing song of Eton College, the English public school."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "WC"
+    }
+   }
   },
   {
    "number": 30,
@@ -510,7 +2284,56 @@
     "text": "Portman maybe shifts sections with eastern transfer",
     "enumeration": "8"
    },
-   "solution": "ALIENATE"
+   "solution": "ALIENATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALIENATE",
+    "definitions": [
+     {
+      "text": "transfer",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shifts sections",
+      "for": "anagram",
+      "note": "to shift sections is to move parts about, so these letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Portman maybe",
+      "gives": "NATALIE",
+      "note": "Natalie Portman is the American film actress"
+     },
+     {
+      "clueFragment": "eastern",
+      "gives": "E",
+      "note": "E is the abbreviation for eastern"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NATALIEE",
+       "gives": "ALIENATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actress moves scenes about while working in the East.",
+     "walkthrough": "'Maybe' shows Portman is an example: Natalie is one person surnamed Portman.",
+     "definitionFit": "In law, to alienate property is to transfer its ownership to another person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "transfer"
+    }
+   }
   },
   {
    "number": 31,
@@ -524,7 +2347,60 @@
     "text": "W. Indian opener bagging runs, object of quest of old",
     "enumeration": "6"
    },
-   "solution": "GRAYLE"
+   "solution": "GRAYLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GRAYLE",
+    "definitions": [
+     {
+      "text": "object of quest of old",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bagging",
+      "for": "container",
+      "note": "bagging means capturing inside, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "W. Indian opener",
+      "gives": "G",
+      "note": "first part of GAYLE, after Chris Gayle, West Indies opening batsman"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     },
+     {
+      "clueFragment": "W. Indian opener",
+      "gives": "AYLE",
+      "note": "rest of GAYLE, closing round the inserted letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "R",
+      "AYLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A West Indian opening batsman scoring runs, the thing he was after long ago.",
+     "walkthrough": "'Opener' looks like a first-letter signal, but it means an opening batsman in cricket. GAYLE bags R: G(R)AYLE.",
+     "definitionFit": "Grayle is an old spelling of grail, the Holy Grail sought by Arthurian knights."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "opener"
+    }
+   }
   },
   {
    "number": 32,
@@ -538,7 +2414,71 @@
     "text": "Ten's first at start – count backwards – uprising followed me",
     "enumeration": "5"
    },
-   "solution": "TYLER"
+   "solution": "TYLER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "TYLER",
+    "definitions": [
+     {
+      "text": "uprising followed me",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first means the opening letter of the word before it"
+     },
+     {
+      "text": "backwards",
+      "for": "reversal",
+      "note": "backwards means read from end to start"
+     }
+    ],
+    "linkWords": [
+     "at start"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ten's",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of Ten"
+     },
+     {
+      "clueFragment": "count",
+      "gives": "RELY",
+      "note": "to rely is to count, as in count on someone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "YLER"
+     ],
+     "reversals": [
+      {
+       "from": "RELY",
+       "to": "YLER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A countdown from ten heralds a revolt that I led.",
+     "walkthrough": "Wat Tyler led the English Peasants' Revolt of 1381. 'Count backwards' suggests a countdown; it means RELY read backwards.",
+     "definitionFit": "Speaking as Wat Tyler: the Peasants' Revolt was the uprising that followed his leadership."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "count"
+    }
+   }
   }
  ]
 }
