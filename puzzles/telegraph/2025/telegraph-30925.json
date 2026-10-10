@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,80 @@
     "text": "Look amazed initially by fruit covered in pecan nuts",
     "enumeration": "10"
    },
-   "solution": "APPEARANCE"
+   "solution": "APPEARANCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "APPEARANCE",
+    "definitions": [
+     {
+      "text": "Look",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word before it"
+     },
+     {
+      "text": "nuts",
+      "for": "anagram",
+      "note": "nuts means crazy, so the letters of the word before it go haywire"
+     },
+     {
+      "text": "covered in",
+      "for": "container",
+      "note": "something covered in another thing sits inside it, wrapped by the outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "amazed",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter of amazed"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "PEAR",
+      "note": "a pear is a fruit"
+     },
+     {
+      "clueFragment": "pecan",
+      "gives": "PECAN",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "P",
+      "PEAR",
+      "ANCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PECAN",
+       "gives": "PANCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stares in astonishment at a fruit dish smothered in pecans.",
+     "walkthrough": "The mixed-up nut letters split around the fruit, so 'covered in' acts on the rearranged word, not the original.",
+     "definitionFit": "A person's appearance is their look, the outward impression they give."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nuts"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +122,48 @@
     "text": "Ship slowly heading off",
     "enumeration": "4"
    },
-   "solution": "ARGO"
+   "solution": "ARGO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ARGO",
+    "definitions": [
+     {
+      "text": "Ship",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading off",
+      "for": "deletion",
+      "note": "with its heading off, the word loses its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slowly",
+      "gives": "LARGO",
+      "note": "largo is the musical direction for a slow, broad tempo"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARGO"
+     ]
+    },
+    "explanation": {
+     "surface": "A vessel moves off at a gentle pace.",
+     "walkthrough": "Drop the L from LARGO to leave ARGO.",
+     "definitionFit": "The Argo is the legendary vessel in which Jason and the Argonauts sailed for the Golden Fleece."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +177,56 @@
     "text": "Clarity on price is unusual",
     "enumeration": "9"
    },
-   "solution": "PRECISION"
+   "solution": "PRECISION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PRECISION",
+    "definitions": [
+     {
+      "text": "Clarity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusual",
+      "for": "anagram",
+      "note": "unusual suggests the letters appear in an out-of-the-ordinary order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on price",
+      "gives": "ONPRICE",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written, also part of the mix"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONPRICEIS",
+       "gives": "PRECISION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A comment that being clear about costs is rare.",
+     "walkthrough": "'is' looks like the verb joining the parts, but it belongs to the letters being mixed.",
+     "definitionFit": "Precision is exactness and sharpness of expression, which is a kind of clarity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "price"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +240,67 @@
     "text": "Spy cheers up gathering information",
     "enumeration": "5"
    },
-   "solution": "AGENT"
+   "solution": "AGENT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "AGENT",
+    "definitions": [
+     {
+      "text": "Spy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means the word is read from bottom to top"
+     },
+     {
+      "text": "gathering",
+      "for": "container",
+      "note": "gathering means collecting something inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheers",
+      "gives": "TA",
+      "note": "ta is British informal thanks, often given as cheers"
+     },
+     {
+      "clueFragment": "information",
+      "gives": "GEN",
+      "note": "gen is British slang for information"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GEN",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "TA",
+       "to": "AT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spy is pleased after collecting intelligence.",
+     "walkthrough": "TA turned upwards becomes AT, which then holds GEN: A-GEN-T.",
+     "definitionFit": "An agent is someone who works for a secret service gathering intelligence, a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cheers"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +314,69 @@
     "text": "A knight curses, ignoring adult's replies",
     "enumeration": "7"
    },
-   "solution": "ANSWERS"
+   "solution": "ANSWERS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ANSWERS",
+    "definitions": [
+     {
+      "text": "replies",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "ignoring means leaving something out, so a letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "N",
+      "note": "N is the chess notation for a knight"
+     },
+     {
+      "clueFragment": "curses",
+      "gives": "SWEARS",
+      "note": "to curse is to swear"
+     },
+     {
+      "clueFragment": "adult",
+      "gives": "A",
+      "note": "A is the film-rating abbreviation for adult"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "N",
+      "SWERS"
+     ]
+    },
+    "explanation": {
+     "surface": "A knight swears and doesn't respond to the grown-up's answers.",
+     "walkthrough": "'adult' is the A removed from the curses, not added; the first A is the clue's own word.",
+     "definitionFit": "Answers and replies are plain synonyms, both plural nouns for responses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "adult"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +390,55 @@
     "text": "US general enthralling large crowd",
     "enumeration": "7"
    },
-   "solution": "CLUSTER"
+   "solution": "CLUSTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLUSTER",
+    "definitions": [
+     {
+      "text": "crowd",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enthralling",
+      "for": "container",
+      "note": "enthralling means holding captive, so one piece is held inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US general",
+      "gives": "CUSTER",
+      "note": "George Custer was the US cavalry general killed at Little Bighorn"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "L",
+      "USTER"
+     ]
+    },
+    "explanation": {
+     "surface": "An American general captivates a big audience.",
+     "walkthrough": "L goes inside CUSTER: C-L-USTER.",
+     "definitionFit": "A cluster is a close group of people or things gathered together, like a crowd."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "enthralling"
+    }
+   }
   },
   {
    "number": 6,
@@ -116,7 +452,58 @@
     "text": "Painter's year in part of India",
     "enumeration": "4"
    },
-   "solution": "GOYA"
+   "solution": "GOYA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GOYA",
+    "definitions": [
+     {
+      "text": "Painter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "Y is the standard abbreviation for year"
+     },
+     {
+      "clueFragment": "part of India",
+      "gives": "GOA",
+      "note": "Goa is a state on India's west coast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "Y",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist spends a year in a region of India.",
+     "walkthrough": "The 's stands for 'is', linking the painter to the wordplay; Y sits inside GOA.",
+     "definitionFit": "Francisco Goya was the celebrated Spanish painter and printmaker, so the name is an example of a painter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Painter's"
+    }
+   }
   },
   {
    "number": 7,
@@ -130,7 +517,59 @@
     "text": "Undisguised disappointment, finally, after six deliveries",
     "enumeration": "5"
    },
-   "solution": "OVERT"
+   "solution": "OVERT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "OVERT",
+    "definitions": [
+     {
+      "text": "Undisguised",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "six deliveries",
+      "gives": "OVER",
+      "note": "in cricket an over is a set of six balls bowled"
+     },
+     {
+      "clueFragment": "disappointment",
+      "gives": "T",
+      "select": "last",
+      "note": "last letter of disappointment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A bowler's open frustration at the end of a cricket over.",
+     "walkthrough": "'after' puts the T behind OVER. In cricket, the bowler delivers the ball, and six deliveries make an over.",
+     "definitionFit": "Overt means done openly, not hidden, so it matches undisguised."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "disappointment"
+    }
+   }
   },
   {
    "number": 8,
@@ -144,7 +583,55 @@
     "text": "Cleverly swallowing dissolved substance completely",
     "enumeration": "10"
    },
-   "solution": "ABSOLUTELY"
+   "solution": "ABSOLUTELY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ABSOLUTELY",
+    "definitions": [
+     {
+      "text": "completely",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallowing",
+      "for": "container",
+      "note": "swallowing takes something inside, so one piece is enclosed by the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cleverly",
+      "gives": "ABLY",
+      "note": "to act ably is to act skilfully or cleverly"
+     },
+     {
+      "clueFragment": "dissolved substance",
+      "gives": "SOLUTE",
+      "note": "in chemistry the solute is the substance dissolved in a solvent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "SOLUTE",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "A chemist neatly takes up a dissolved substance in full.",
+     "walkthrough": "'dissolved substance' reads as a description, but it is the chemistry term for what dissolves in a solvent.",
+     "definitionFit": "Absolutely means totally or without qualification, a direct synonym of completely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "swallowing"
+    }
+   }
   },
   {
    "number": 9,
@@ -158,7 +645,55 @@
     "text": "Stirring drink disheartened Greek",
     "enumeration": "8"
    },
-   "solution": "DRAMATIC"
+   "solution": "DRAMATIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "DRAMATIC",
+    "definitions": [
+     {
+      "text": "Stirring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disheartened",
+      "for": "deletion",
+      "note": "losing heart means losing the central letter of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "DRAM",
+      "note": "a dram is a small measure of spirits, especially whisky"
+     },
+     {
+      "clueFragment": "Greek",
+      "gives": "ATTIC",
+      "note": "Attic means of Athens or ancient Attica, hence Greek"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRAM",
+      "ATIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A depressed Greek man takes a rousing drink.",
+     "walkthrough": "ATTIC has an even number of letters, so 'heart' here is one of the two middle Ts.",
+     "definitionFit": "Something stirring rouses strong feeling, which is what a dramatic event does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stirring"
+    }
+   }
   },
   {
    "number": 10,
@@ -172,7 +707,59 @@
     "text": "Birds from my shed regularly taking off",
     "enumeration": "5"
    },
-   "solution": "GEESE"
+   "solution": "GEESE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "GEESE",
+    "definitions": [
+     {
+      "text": "Birds",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly taking off",
+      "for": "letter_selection",
+      "note": "removing letters at regular intervals leaves every other one of the word"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "my",
+      "gives": "GEE",
+      "note": "both my! and gee! are exclamations of surprise"
+     },
+     {
+      "clueFragment": "shed",
+      "gives": "SE",
+      "select": "alternate",
+      "note": "first and third letters of shed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEE",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "Birds fly out of the speaker's garden shed at regular intervals.",
+     "walkthrough": "'my' is the exclamation, not the possessive, which the surface hides.",
+     "definitionFit": "Geese are large waterfowl, an example of birds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "my"
+    }
+   }
   },
   {
    "number": 11,
@@ -186,7 +773,44 @@
     "text": "Hides rodents in trees?",
     "enumeration": "9"
    },
-   "solution": "SQUIRRELS"
+   "solution": "SQUIRRELS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SQUIRRELS",
+    "definitions": [
+     {
+      "text": "Hides",
+      "at": 0
+     },
+     {
+      "text": "rodents in trees?",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hides",
+      "note": "first meaning: stores away secretly, as in squirrelling away"
+     },
+     {
+      "clueFragment": "rodents in trees?",
+      "note": "second meaning: bushy-tailed animals that live in trees"
+     }
+    ],
+    "explanation": {
+     "surface": "Pelts of tree-dwelling rodents, or rodents concealing themselves in branches.",
+     "walkthrough": "'Hides' reads as animal skins, but here it is a verb: to hoard something secretly.",
+     "definitionFit": "The word is both a verb for stashing things away for later and the plural noun for the tree-climbing animals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Hides"
+    }
+   }
   },
   {
    "number": 12,
@@ -200,7 +824,70 @@
     "text": "At times, unfortunately welcoming Republican gets abuse",
     "enumeration": "8"
    },
-   "solution": "MISTREAT"
+   "solution": "MISTREAT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MISTREAT",
+    "definitions": [
+     {
+      "text": "abuse",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "unfortunately suggests something went wrong, so the letters end up in a bad order"
+     },
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "welcoming means letting someone in, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "At times",
+      "gives": "ATTIMES",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIST",
+      "R",
+      "EAT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ATTIMES",
+       "gives": "MISTEAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sometimes a Republican who is let in ends up being insulted.",
+     "walkthrough": "The rearranged letters MISTEAT take R into the middle.",
+     "definitionFit": "To mistreat someone is to treat them badly, which matches abuse used as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "welcoming"
+    }
+   }
   },
   {
    "number": 13,
@@ -214,7 +901,63 @@
     "text": "Copper maybe encountered a criminal at last",
     "enumeration": "5"
    },
-   "solution": "METAL"
+   "solution": "METAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "METAL",
+    "definitions": [
+     {
+      "text": "Copper maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the final letter of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "encountered",
+      "gives": "MET",
+      "note": "met is the past tense of meet, to encounter"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "criminal",
+      "gives": "L",
+      "select": "last",
+      "note": "last letter of criminal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MET",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Perhaps a police officer finally ran into a crook.",
+     "walkthrough": "'Copper' looks like a police officer, but it is the element.",
+     "definitionFit": "Copper is one example of a metal, as 'maybe' signals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Copper"
+    }
+   }
   },
   {
    "number": 14,
@@ -228,7 +971,65 @@
     "text": "Engrossed, went without food penning chapter in America",
     "enumeration": "10"
    },
-   "solution": "FASCINATED"
+   "solution": "FASCINATED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FASCINATED",
+    "definitions": [
+     {
+      "text": "Engrossed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "penning",
+      "for": "container",
+      "note": "penning means enclosing, as in a pen, so one piece is held within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "went without food",
+      "gives": "FASTED",
+      "note": "to fast is to go without eating"
+     },
+     {
+      "clueFragment": "chapter",
+      "gives": "C",
+      "note": "C is the abbreviation for chapter"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "A",
+      "note": "A is the abbreviation for America"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAS",
+      "CINA",
+      "TED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone so absorbed in writing a chapter in the US that they forgot to eat.",
+     "walkthrough": "'in' is a literal word inside the enclosed group, not a placement instruction.",
+     "definitionFit": "Fascinated means held completely by interest, so engrossed is a close synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 15,
@@ -242,7 +1043,70 @@
     "text": "An island with flipping savage creatures",
     "enumeration": "7"
    },
-   "solution": "ANIMALS"
+   "solution": "ANIMALS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ANIMALS",
+    "definitions": [
+     {
+      "text": "creatures",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "flipping turns something over, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "An",
+      "gives": "AN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     },
+     {
+      "clueFragment": "savage",
+      "gives": "SLAM",
+      "note": "to savage a work is to slam it with harsh criticism"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "I",
+      "MALS"
+     ],
+     "reversals": [
+      {
+       "from": "SLAM",
+       "to": "MALS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An island populated by furiously wild beasts.",
+     "walkthrough": "'flipping' looks like a mild British expletive qualifying savage; it is the turnaround signal, and savage is a verb meaning criticise harshly.",
+     "definitionFit": "Animals are living creatures, a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "savage"
+    }
+   }
   },
   {
    "number": 16,
@@ -256,7 +1120,78 @@
     "text": "A wife dancing naked keeping European aroused",
     "enumeration": "8"
    },
-   "solution": "AWAKENED"
+   "solution": "AWAKENED",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "AWAKENED",
+    "definitions": [
+     {
+      "text": "aroused",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dancing",
+      "for": "anagram",
+      "note": "dancing moves letters about into new positions"
+     },
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping means holding on to something, so one piece sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     },
+     {
+      "clueFragment": "naked",
+      "gives": "NAKED",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "W",
+      "AKENED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NAKEDE",
+       "gives": "AKENED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wife dances in the nude with a European, and passions are stirred.",
+     "walkthrough": "The European's E joins the mix inside the rearranged NAKED.",
+     "definitionFit": "Awakened means roused from sleep or stirred into activity, matching aroused."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dancing"
+    }
+   }
   },
   {
    "number": 17,
@@ -270,7 +1205,60 @@
     "text": "Withdraw hesitant remark about nurse",
     "enumeration": "7"
    },
-   "solution": "RETREAT"
+   "solution": "RETREAT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "RETREAT",
+    "definitions": [
+     {
+      "text": "Withdraw",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned round, so the short word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hesitant remark",
+      "gives": "ER",
+      "note": "er is the sound of hesitation"
+     },
+     {
+      "clueFragment": "nurse",
+      "gives": "TREAT",
+      "note": "to nurse a patient is to treat them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "TREAT"
+     ],
+     "reversals": [
+      {
+       "from": "ER",
+       "to": "RE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reluctant comment about a nurse prompts someone to back down.",
+     "definitionFit": "To retreat is to pull back or withdraw, especially of an army."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nurse"
+    }
+   }
   },
   {
    "number": 18,
@@ -284,7 +1272,51 @@
     "text": "Build groom his stable",
     "enumeration": "9"
    },
-   "solution": "ESTABLISH"
+   "solution": "ESTABLISH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ESTABLISH",
+    "definitions": [
+     {
+      "text": "Build",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "groom",
+      "for": "anagram",
+      "note": "to groom is to tidy and rearrange, so the following letters are put in new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "his stable",
+      "gives": "HISSTABLE",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HISSTABLE",
+       "gives": "ESTABLISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An order to construct a stable for a groom, or for him to tend his horses.",
+     "walkthrough": "'groom' looks like a stable hand or a verb for brushing horses, but it signals rearranging the letters.",
+     "definitionFit": "To establish something is to set it up or found it, a sense of build."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "groom"
+    }
+   }
   },
   {
    "number": 19,
@@ -298,7 +1330,48 @@
     "text": "Speak to prisoner with sensitivity",
     "enumeration": "7"
    },
-   "solution": "CONTACT"
+   "solution": "CONTACT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONTACT",
+    "definitions": [
+     {
+      "text": "Speak to",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prisoner",
+      "gives": "CON",
+      "note": "a con is short for convict, a prisoner"
+     },
+     {
+      "clueFragment": "sensitivity",
+      "gives": "TACT",
+      "note": "tact is sensitivity in dealing with others"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "TACT"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to address an inmate delicately.",
+     "definitionFit": "To contact someone is to get in touch, to speak to them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -312,7 +1385,48 @@
     "text": "Little perch – something swimming in pond?",
     "enumeration": "7"
    },
-   "solution": "TADPOLE"
+   "solution": "TADPOLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TADPOLE",
+    "definitions": [
+     {
+      "text": "something swimming in pond?",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Little",
+      "gives": "TAD",
+      "note": "a tad is a little bit"
+     },
+     {
+      "clueFragment": "perch",
+      "gives": "POLE",
+      "note": "a perch is an old measure of length, also called a pole or rod"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAD",
+      "POLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A small perch, a fish one might find swimming in a pond.",
+     "walkthrough": "'perch' looks like the fish, but it is the old length unit, equal to a pole.",
+     "definitionFit": "A tadpole is a frog larva, an example of a creature that swims in ponds; the question mark marks the definition by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "perch"
+    }
+   }
   },
   {
    "number": 21,
@@ -326,7 +1440,59 @@
     "text": "Most of quote included in authentic public performance",
     "enumeration": "7"
    },
-   "solution": "RECITAL"
+   "solution": "RECITAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "RECITAL",
+    "definitions": [
+     {
+      "text": "public performance",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Most of",
+      "for": "deletion",
+      "note": "most of means all but one letter, the last being dropped"
+     },
+     {
+      "text": "included in",
+      "for": "container",
+      "note": "included in places one piece inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quote",
+      "gives": "CITE",
+      "note": "to cite is to quote"
+     },
+     {
+      "clueFragment": "authentic",
+      "gives": "REAL",
+      "note": "real means authentic, genuine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "CIT",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "Part of a quotation appears in a genuine live show.",
+     "definitionFit": "A recital is a concert or reading given before an audience, a public performance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -340,7 +1506,42 @@
     "text": "Particular deference",
     "enumeration": "7"
    },
-   "solution": "RESPECT"
+   "solution": "RESPECT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RESPECT",
+    "definitions": [
+     {
+      "text": "Particular",
+      "at": 0
+     },
+     {
+      "text": "deference",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Particular",
+      "note": "first meaning: a detail or point, as in 'in every particular'"
+     },
+     {
+      "clueFragment": "deference",
+      "note": "second meaning: due regard and esteem shown to someone"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Particular' reads as an adjective, as in particular deference; here it is a noun for a detail or point.",
+     "definitionFit": "The word means a detail or aspect of something and also polite esteem shown to someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Particular"
+    }
+   }
   },
   {
    "number": 22,
@@ -354,7 +1555,63 @@
     "text": "Jog with nothing on around centre of Margate",
     "enumeration": "5"
    },
-   "solution": "NUDGE"
+   "solution": "NUDGE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "NUDGE",
+    "definitions": [
+     {
+      "text": "Jog",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so one piece goes about the other"
+     },
+     {
+      "text": "centre of",
+      "for": "letter_selection",
+      "note": "centre of points to the middle letter of the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with nothing on",
+      "gives": "NUDE",
+      "note": "someone wearing nothing is nude"
+     },
+     {
+      "clueFragment": "Margate",
+      "gives": "G",
+      "select": "middle",
+      "note": "middle letter of Margate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUD",
+      "G",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A naked run around the middle of Margate, a seaside town in Kent.",
+     "walkthrough": "'Jog' looks like a run, but here it means a gentle push.",
+     "definitionFit": "To nudge is to give a light push, which is also a sense of jog, as in jogging someone's elbow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Jog"
+    }
+   }
   },
   {
    "number": 23,
@@ -368,7 +1625,55 @@
     "text": "Fear utterly overwhelming Romeo",
     "enumeration": "5"
    },
-   "solution": "DREAD"
+   "solution": "DREAD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DREAD",
+    "definitions": [
+     {
+      "text": "Fear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overwhelming",
+      "for": "container",
+      "note": "overwhelming means engulfing, so one piece is swamped inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "utterly",
+      "gives": "DEAD",
+      "note": "dead means completely, as in dead certain"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "Romeo is R in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "R",
+      "EAD"
+     ]
+    },
+    "explanation": {
+     "surface": "Romeo is completely overcome by fear.",
+     "walkthrough": "R goes inside DEAD: D-R-EAD.",
+     "definitionFit": "Dread is great fear or apprehension, a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Romeo"
+    }
+   }
   },
   {
    "number": 24,
@@ -382,7 +1687,51 @@
     "text": "Give an account of day with English writer",
     "enumeration": "8"
    },
-   "solution": "DESCRIBE"
+   "solution": "DESCRIBE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DESCRIBE",
+    "definitions": [
+     {
+      "text": "Give an account of",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D is the abbreviation for day"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "SCRIBE",
+      "note": "a scribe is a writer or copyist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "E",
+      "SCRIBE"
+     ]
+    },
+    "explanation": {
+     "surface": "A request to report on a day spent with an English author.",
+     "definitionFit": "To describe something is to tell of it in words, giving an account of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -396,7 +1745,58 @@
     "text": "Regret crossing Peru for money",
     "enumeration": "5"
    },
-   "solution": "RUPEE"
+   "solution": "RUPEE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RUPEE",
+    "definitions": [
+     {
+      "text": "money",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "crossing means straddling, so the outer piece spans the inner one"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Regret",
+      "gives": "RUE",
+      "note": "to rue is to regret"
+     },
+     {
+      "clueFragment": "Peru",
+      "gives": "PE",
+      "note": "PE is Peru's two-letter international country code"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "PE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone regrets travelling across Peru just for cash.",
+     "walkthrough": "Peru's two-letter international country code, as used in internet addresses, is PE.",
+     "definitionFit": "The rupee is the currency of India, Pakistan and other countries, an example of money."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crossing"
+    }
+   }
   },
   {
    "number": 26,
@@ -410,7 +1810,48 @@
     "text": "Glance up and down",
     "enumeration": "4"
    },
-   "solution": "PEEP"
+   "solution": "PEEP",
+   "annotation": {
+    "type": [
+     "palindrome"
+    ],
+    "answer": "PEEP",
+    "definitions": [
+     {
+      "text": "Glance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up and down",
+      "for": "palindrome",
+      "note": "a word that reads the same whether taken up or down the grid is the same both ways"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Glance",
+      "gives": "PEEP",
+      "note": "a quick look, a word that reads the same in either direction"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEEP"
+     ]
+    },
+    "explanation": {
+     "surface": "A quick look someone up and down.",
+     "walkthrough": "'up and down' sounds like eyeing a person head to toe, but it says the answer reads identically both ways.",
+     "definitionFit": "A peep is a quick, furtive look, which is a kind of glance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 27,
@@ -424,7 +1865,59 @@
     "text": "So tense at this spot before golfer's shout",
     "enumeration": "9"
    },
-   "solution": "THEREFORE"
+   "solution": "THEREFORE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THEREFORE",
+    "definitions": [
+     {
+      "text": "So",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "before says the earlier pieces come ahead of the next one in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T is the grammatical abbreviation for tense"
+     },
+     {
+      "clueFragment": "at this spot",
+      "gives": "HERE",
+      "note": "here means at this place"
+     },
+     {
+      "clueFragment": "golfer's shout",
+      "gives": "FORE",
+      "note": "fore is the warning a golfer shouts to people ahead"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HERE",
+      "FORE"
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer anxiously waits at this tee before yelling a warning.",
+     "definitionFit": "Therefore and so both mean 'for that reason', introducing a consequence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tense"
+    }
+   }
   },
   {
    "number": 28,
@@ -438,7 +1931,48 @@
     "text": "Parking car in America gives feeling of satisfaction",
     "enumeration": "5"
    },
-   "solution": "PRIDE"
+   "solution": "PRIDE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRIDE",
+    "definitions": [
+     {
+      "text": "feeling of satisfaction",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "gives"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Parking",
+      "gives": "P",
+      "note": "P is the road-sign abbreviation for parking"
+     },
+     {
+      "clueFragment": "car in America",
+      "gives": "RIDE",
+      "note": "ride is American slang for a car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Successfully parking a car in the States makes someone feel good.",
+     "definitionFit": "Pride is the pleasure taken in one's own achievements, a feeling of satisfaction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -452,7 +1986,54 @@
     "text": "Repeatedly follow tailless old bird",
     "enumeration": "4"
    },
-   "solution": "DODO"
+   "solution": "DODO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "DODO",
+    "definitions": [
+     {
+      "text": "old bird",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tailless",
+      "for": "deletion",
+      "note": "without a tail, the word loses its last letter"
+     },
+     {
+      "text": "Repeatedly",
+      "for": "charade",
+      "note": "repeatedly says the same shortened piece is used twice in a row"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "follow",
+      "gives": "DOG",
+      "note": "to dog someone is to follow them closely"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "An old bird keeps trailing someone with no tail.",
+     "definitionFit": "The dodo is an extinct flightless bird of Mauritius, so a bird of old."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tailless"
+    }
+   }
   },
   {
    "number": 30,
@@ -476,7 +2057,43 @@
      }
     ]
    },
-   "solution": "GETTHECHOP"
+   "solution": "GETTHECHOP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GET THE CHOP",
+    "definitions": [
+     {
+      "text": "Do this in the butcher's, maybe",
+      "at": 0
+     },
+     {
+      "text": "be thrown out",
+      "at": 37
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Do this in the butcher's, maybe",
+      "note": "first meaning: literally, to buy a cut of meat from a butcher"
+     },
+     {
+      "clueFragment": "be thrown out",
+      "note": "second meaning: British idiom for being sacked or axed"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Getting the chop is British slang for being dismissed or cancelled; the butcher's suggests a literal pork chop.",
+     "definitionFit": "The phrase literally describes buying a cut of meat and idiomatically means being fired."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "butcher's"
+    }
+   }
   }
  ]
 }
