@@ -24,6 +24,9 @@
   "date": "2024-06-22",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,42 @@
     "text": "Stop eating quickly",
     "enumeration": "4"
    },
-   "solution": "FAST"
+   "solution": "FAST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FAST",
+    "definitions": [
+     {
+      "text": "Stop eating",
+      "at": 0
+     },
+     {
+      "text": "quickly",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stop eating",
+      "note": "first meaning: to go without food, as for a religious observance"
+     },
+     {
+      "clueFragment": "quickly",
+      "note": "second meaning: an adverb for at speed"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as an instruction to slow down at the table, but the two halves are separate meanings of one short word.",
+     "definitionFit": "The word is both a verb for abstaining from food and an adverb meaning rapidly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "quickly"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +89,57 @@
     "text": "In a panic when program interrupts affair",
     "enumeration": "8"
    },
-   "solution": "FLAPPING"
+   "solution": "FLAPPING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FLAPPING",
+    "definitions": [
+     {
+      "text": "In a panic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupts",
+      "for": "container",
+      "note": "to interrupt something is to break into its middle, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "affair",
+      "gives": "FLING",
+      "note": "a fling is a brief affair"
+     },
+     {
+      "clueFragment": "program",
+      "gives": "APP",
+      "note": "an app is a computer program"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FL",
+      "APP",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone panics when a software alert breaks into a romantic liaison.",
+     "definitionFit": "Flapping is informal British for being agitated or flustered, so it fits being in a panic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "affair"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +153,71 @@
     "text": "Also confused over rocks originally from the sun",
     "enumeration": "5"
    },
-   "solution": "SOLAR"
+   "solution": "SOLAR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SOLAR",
+    "definitions": [
+     {
+      "text": "from the sun",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "something confused is muddled, so the letters are mixed up"
+     },
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to the origin of a word, its opening letter"
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Also",
+      "gives": "ALSO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rocks",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of rocks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOLA",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALSO",
+       "gives": "SOLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rocks that came from the sun are also baffling.",
+     "walkthrough": "In a down clue 'over' puts the shuffled word above the single letter.",
+     "definitionFit": "Solar is the adjective for anything relating to or coming from the sun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rocks"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +231,56 @@
     "text": "Curse after the setter gets new clothes",
     "enumeration": "8"
    },
-   "solution": "MENSWEAR"
+   "solution": "MENSWEAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MENSWEAR",
+    "definitions": [
+     {
+      "text": "clothes",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the setter",
+      "gives": "ME",
+      "note": "the setter refers to themself as me"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     },
+     {
+      "clueFragment": "Curse",
+      "gives": "SWEAR",
+      "note": "to curse is to swear"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "N",
+      "SWEAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A frustrated setter swears while buying an outfit.",
+     "walkthrough": "'Curse after' places the word for cursing at the end, behind the setter and the abbreviation for new.",
+     "definitionFit": "Menswear is the retail term for garments made for males, so it is a kind of clothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Curse"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +294,58 @@
     "text": "Last to finish medicine with no cap",
     "enumeration": "6"
    },
-   "solution": "ENDURE"
+   "solution": "ENDURE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ENDURE",
+    "definitions": [
+     {
+      "text": "Last",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no cap",
+      "for": "deletion",
+      "note": "a cap sits on top, and in a down clue the top is the opening letter, so that is dropped"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "finish",
+      "gives": "END",
+      "note": "a finish is an end"
+     },
+     {
+      "clueFragment": "medicine",
+      "gives": "CURE",
+      "note": "a cure is a medicine or remedy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "END",
+      "URE"
+     ]
+    },
+    "explanation": {
+     "surface": "A patient finishes a course of medicine that came without a lid.",
+     "walkthrough": "'Last' is a verb here, meaning to keep going, not the adjective for final.",
+     "definitionFit": "To endure is to last or persist over time, both intransitive verbs of continuing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Last"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +365,51 @@
      }
     ]
    },
-   "solution": "SPEEDDATING"
+   "solution": "SPEEDDATING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPEED DATING",
+    "definitions": [
+     {
+      "text": "method of matchmaking",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fresh",
+      "for": "anagram",
+      "note": "a fresh version is newly made, so the letters are put in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pat designed",
+      "gives": "PATDESIGNED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PATDESIGNED",
+       "gives": "SPEEDDATING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Pat invented a new way to pair up couples.",
+     "walkthrough": "'Designed' looks like the anagram signal, but it is fodder; 'fresh' does the rearranging.",
+     "definitionFit": "Speed dating is an organised event where singles meet many potential partners briefly, a form of matchmaking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "designed"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +423,42 @@
     "text": "Take advantage of bold deed",
     "enumeration": "7"
    },
-   "solution": "EXPLOIT"
+   "solution": "EXPLOIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EXPLOIT",
+    "definitions": [
+     {
+      "text": "Take advantage of",
+      "at": 0
+     },
+     {
+      "text": "bold deed",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Take advantage of",
+      "note": "first meaning: a verb, to use something or someone for gain"
+     },
+     {
+      "clueFragment": "bold deed",
+      "note": "second meaning: a noun, a daring feat"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone seizes the chance offered by a daring act.",
+     "definitionFit": "The word is a verb for making unfair use of something and a noun for a heroic achievement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bold"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +472,54 @@
     "text": "Part of strange lore",
     "enumeration": "4"
    },
-   "solution": "ROLE"
+   "solution": "ROLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROLE",
+    "definitions": [
+     {
+      "text": "Part",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strange",
+      "for": "anagram",
+      "note": "something strange is out of the ordinary, so the letters fall out of order"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lore",
+      "gives": "LORE",
+      "note": "taken as written; the backwards run across the last letter of the word before is a coincidence, as nothing signals reading in reverse"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LORE",
+       "gives": "ROLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor plays a role drawn from some odd folklore.",
+     "walkthrough": "'Part of' suggests lifting letters out, but 'strange' asks for the four letters to be rearranged.",
+     "definitionFit": "A role is an actor's part in a play or film."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Part"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +533,51 @@
     "text": "Totally outstanding? That's permitted!",
     "enumeration": "7"
    },
-   "solution": "ALLOWED"
+   "solution": "ALLOWED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALLOWED",
+    "definitions": [
+     {
+      "text": "permitted",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Totally",
+      "gives": "ALL",
+      "note": "totally means all, completely"
+     },
+     {
+      "clueFragment": "outstanding",
+      "gives": "OWED",
+      "note": "a debt that is outstanding is still owed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "OWED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone exclaims that a brilliant performance is fully within the rules.",
+     "walkthrough": "'Outstanding' suggests excellent, but here it is the unpaid sense.",
+     "definitionFit": "Allowed and permitted are synonyms, both past participles meaning given leave to happen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "outstanding"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +591,46 @@
     "text": "Painting that's sea-blue?",
     "enumeration": "11"
    },
-   "solution": "WATERCOLOUR"
+   "solution": "WATERCOLOUR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WATERCOLOUR",
+    "definitions": [
+     {
+      "text": "Painting",
+      "at": 0
+     },
+     {
+      "text": "sea-blue",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Painting",
+      "note": "first meaning: a picture made with water-based paints"
+     },
+     {
+      "clueFragment": "sea-blue",
+      "note": "second meaning, read literally: the colour of water"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the playful second reading, where the word splits into the colour of the sea's water.",
+     "definitionFit": "A watercolour is a picture done in pigments diluted with water, and split up it names the hue of the ocean."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sea-blue"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +644,61 @@
     "text": "Kick out swimmer holding ten pence",
     "enumeration": "5"
    },
-   "solution": "EXPEL"
+   "solution": "EXPEL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EXPEL",
+    "definitions": [
+     {
+      "text": "Kick out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "something holding another thing keeps it inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "swimmer",
+      "gives": "EEL",
+      "note": "an eel is a fish, a swimmer in crossword terms"
+     },
+     {
+      "clueFragment": "ten",
+      "gives": "X",
+      "note": "X is the Roman numeral for ten"
+     },
+     {
+      "clueFragment": "pence",
+      "gives": "P",
+      "note": "p is the abbreviation for pence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "X",
+      "P",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "A swimmer is thrown out of the pool for carrying a little money.",
+     "walkthrough": "'Swimmer' is a common crossword stand-in for a fish, often the eel.",
+     "definitionFit": "To expel someone is to force them to leave, the same as kicking them out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "swimmer"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +718,60 @@
      }
     ]
    },
-   "solution": "PIRATERADIO"
+   "solution": "PIRATERADIO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PIRATE RADIO",
+    "definitions": [
+     {
+      "text": "Offshore broadcasting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "weirdly",
+      "for": "anagram",
+      "note": "something done weirdly is done in an odd way, so the letters come out in a strange order"
+     }
+    ],
+    "linkWords": [
+     "from",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "airport",
+      "gives": "AIRPORT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "aide",
+      "gives": "AIDE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AIRPORTAIDE",
+       "gives": "PIRATERADIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders at a broadcast coming from an airport assistant.",
+     "walkthrough": "Pirate radio stations, such as Radio Caroline, broadcast from ships moored off the British coast to dodge licensing laws.",
+     "definitionFit": "Unlicensed stations historically transmitted from vessels at sea, so the term describes offshore broadcasting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "airport"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +785,50 @@
     "text": "Money just for soft wool",
     "enumeration": "8"
    },
-   "solution": "CASHMERE"
+   "solution": "CASHMERE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CASHMERE",
+    "definitions": [
+     {
+      "text": "soft wool",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Money",
+      "gives": "CASH",
+      "note": "cash is money"
+     },
+     {
+      "clueFragment": "just",
+      "gives": "MERE",
+      "note": "mere means just or only"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CASH",
+      "MERE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pays a small amount of money for fine wool.",
+     "walkthrough": "'Just' looks like an adverb meaning only, and it is: mere is its adjective twin.",
+     "definitionFit": "Cashmere is the fine, soft fibre from Kashmir goats."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "just"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +842,54 @@
     "text": "Character of new tea urn",
     "enumeration": "6"
    },
-   "solution": "NATURE"
+   "solution": "NATURE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NATURE",
+    "definitions": [
+     {
+      "text": "Character",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "something new has been remade, so the letters take a fresh arrangement"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea urn",
+      "gives": "TEAURN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEAURN",
+       "gives": "NATURE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brand-new tea urn is admired for its character.",
+     "walkthrough": "'New' looks like it describes the urn, but it signals the rearrangement.",
+     "definitionFit": "A person's nature is their basic character or temperament."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "new"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +903,50 @@
     "text": "Extreme weather disturbed hot pony",
     "enumeration": "7"
    },
-   "solution": "TYPHOON"
+   "solution": "TYPHOON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TYPHOON",
+    "definitions": [
+     {
+      "text": "Extreme weather",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disturbed",
+      "for": "anagram",
+      "note": "something disturbed has been upset, so the letters are thrown out of place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hot pony",
+      "gives": "HOTPONY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HOTPONY",
+       "gives": "TYPHOON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Extreme weather upsets an overheated pony.",
+     "definitionFit": "A typhoon is a tropical cyclone of the western Pacific, a violent storm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "disturbed"
+    }
+   }
   },
   {
    "number": 15,
@@ -259,7 +960,43 @@
     "text": "Slogan displayed by Pullman Trains",
     "enumeration": "6"
    },
-   "solution": "MANTRA"
+   "solution": "MANTRA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MANTRA",
+    "definitions": [
+     {
+      "text": "Slogan",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "displayed by",
+      "for": "hidden_word",
+      "note": "the letters are shown within the following words, displayed rather than built"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pullman Trains",
+      "gives": "MANTRA",
+      "note": "the letters run across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "An advertising slogan appears on the side of luxury railway carriages.",
+     "walkthrough": "Pullman trains were luxurious railway services with sleeping and dining cars.",
+     "definitionFit": "A mantra is a phrase repeated often, a sense close to a catchphrase or slogan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "displayed"
+    }
+   }
   },
   {
    "number": 16,
@@ -273,7 +1010,54 @@
     "text": "Frozen dessert hardened around sphere",
     "enumeration": "6"
    },
-   "solution": "SORBET"
+   "solution": "SORBET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SORBET",
+    "definitions": [
+     {
+      "text": "Frozen dessert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "one thing placed around another encloses it, so a piece is put inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hardened",
+      "gives": "SET",
+      "note": "something that has set has hardened"
+     },
+     {
+      "clueFragment": "sphere",
+      "gives": "ORB",
+      "note": "an orb is a sphere"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ORB",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A frozen dessert has hardened around a ball shape.",
+     "definitionFit": "A sorbet is a water ice flavoured with fruit, served frozen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sphere"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1077,39 @@
      }
     ]
    },
-   "solution": "PHOTOFINISH"
+   "solution": "PHOTOFINISH",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PHOTO FINISH",
+    "definitions": [
+     {
+      "text": "Outcome requiring a snap judgement?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Outcome requiring a snap judgement?",
+      "note": "surface reading: a result that has to be decided in a hurry"
+     },
+     {
+      "clueFragment": "snap judgement",
+      "note": "setter's reading: a race so close that a photograph, a snap, decides the winner"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Snap judgement' normally means a hasty decision; here a snap is a camera shot used to judge a race.",
+     "definitionFit": "In a very close race the result is settled by examining a photograph of the line, so the outcome depends on a picture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "snap"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1123,54 @@
     "text": "Picture that is covering magazine",
     "enumeration": "5"
    },
-   "solution": "IMAGE"
+   "solution": "IMAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IMAGE",
+    "definitions": [
+     {
+      "text": "Picture",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "a covering goes round what it covers, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, that is"
+     },
+     {
+      "clueFragment": "magazine",
+      "gives": "MAG",
+      "note": "mag is short for magazine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MAG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A photograph appears on the front of a magazine.",
+     "definitionFit": "An image is a picture or visual representation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "covering"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1184,42 @@
     "text": "Long story captured by profile picture",
     "enumeration": "4"
    },
-   "solution": "EPIC"
+   "solution": "EPIC",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EPIC",
+    "definitions": [
+     {
+      "text": "Long story",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "captured by",
+      "for": "hidden_word",
+      "note": "something captured is held inside, so the letters lie within the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "profile picture",
+      "gives": "EPIC",
+      "note": "the letters straddle the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A long tale is told by someone's social media photo.",
+     "definitionFit": "An epic is a lengthy narrative, traditionally a heroic poem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "captured"
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +1233,50 @@
     "text": "Expert with brief moment to create publicity",
     "enumeration": "5"
    },
-   "solution": "PROMO"
+   "solution": "PROMO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROMO",
+    "definitions": [
+     {
+      "text": "publicity",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "to create"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Expert",
+      "gives": "PRO",
+      "note": "a pro is a professional or expert"
+     },
+     {
+      "clueFragment": "brief moment",
+      "gives": "MO",
+      "note": "mo is short for moment, as in 'half a mo'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "MO"
+     ]
+    },
+    "explanation": {
+     "surface": "A professional needs only a moment to generate publicity.",
+     "walkthrough": "'Brief' is part of the definition of the short word for a moment, not a separate instruction.",
+     "definitionFit": "A promo is a promotional item or campaign, a piece of publicity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brief"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1296,46 @@
      }
     ]
    },
-   "solution": "BIGGAME"
+   "solution": "BIGGAME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BIG GAME",
+    "definitions": [
+     {
+      "text": "Huge fixture",
+      "at": 0
+     },
+     {
+      "text": "Three Lions, say",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Huge fixture",
+      "note": "first meaning: an important match"
+     },
+     {
+      "clueFragment": "Three Lions, say",
+      "note": "second meaning: large animals hunted for sport, such as lions"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Three Lions is the nickname of the England football team, so the surface suggests a major match; read literally, three lions are examples of large hunted animals.",
+     "definitionFit": "The phrase means both a crucial sporting contest and large wild animals pursued by hunters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lions"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1349,50 @@
     "text": "Study island's building material",
     "enumeration": "8"
    },
-   "solution": "CONCRETE"
+   "solution": "CONCRETE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONCRETE",
+    "definitions": [
+     {
+      "text": "building material",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Study",
+      "gives": "CON",
+      "note": "to con is an old word for to study or learn"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "CRETE",
+      "note": "Crete is a Greek island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "CRETE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone researches the materials used in an island's construction.",
+     "walkthrough": "To con, meaning to study closely, survives mostly in crosswords.",
+     "definitionFit": "Concrete is a mix of cement, sand and gravel used in construction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Study"
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1406,47 @@
     "text": "Garden party's destiny announced",
     "enumeration": "4"
    },
-   "solution": "FETE"
+   "solution": "FETE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FETE",
+    "definitions": [
+     {
+      "text": "Garden party",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "announced",
+      "for": "homophone",
+      "note": "something announced is spoken out, so the word is judged by its sound"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "destiny",
+      "gives": "FETE",
+      "soundsLike": "FATE",
+      "note": "destiny is fate, which is said much like the outdoor event"
+     }
+    ],
+    "explanation": {
+     "surface": "A garden party's fate is publicly declared.",
+     "walkthrough": "In British usage a fete is an outdoor fundraising event with stalls and games.",
+     "definitionFit": "A fete is a festive outdoor gathering, often held in a garden or village green."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "destiny"
+    }
+   }
   }
  ]
 }
