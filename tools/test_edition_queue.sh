@@ -537,6 +537,13 @@ for a, title in (("103", "02 Jan 1972 - X"), ("104", "05 Mar 1980 - Y")):
     (tc / a / "meta.json").write_text(json.dumps({"title": title}))
 check("trove plan: a rank's articles newest first", ["104", "103", "101"],
       [u["rel"] for u in ftp.plan(tc) if u["rank"] == 1])
+rk = T / "trove-rekey.jsonl"
+q.append(rk, [{"article": "103", "inputs": "copied", "readAt": "2026-01-01T00:00:00+00:00"},
+              {"article": "104", "inputs": "edited", "readAt": "2026-01-01T00:00:00+00:00"}])
+os.utime(tc / "103" / "meta.json", (1.5e9, 1.5e9))
+check("an article whose files are older than its read is re-keyed, not read again; one edited since is not",
+      (1, {"103": "h", "104": "edited"}),
+      (ftp.rekey_unchanged(rk, tc), {a: r["inputs"] for a, r in q.ledger_rows(rk, "article").items()}))
 for a in ("103", "104"):
     for p_ in (tc / a).iterdir():
         p_.unlink()
