@@ -910,29 +910,36 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                     or (u["reason"] in fa.STALE_SCAN and any((u["paper"], r) in rescanned for r in u["needs"])))
         firsts = {key_of(u) for u in first}
         ready = []
+        heads = {}  # rank: the scans the next full read pool at that rank needs, or None (not full)
 
-        def fed(u, ready=ready, reads=reads, busy=busy, waits=waits):
+        def fed(u, ready=ready, reads=reads, busy=busy, waits=waits, heads=heads):
             """Whether scan `u` only feeds a backlog: the next full read pool
             of ready reads ranked as it or more urgent, in the queue's order,
             are there and none needs it. Then its desktop CPU (scans run above
-            reads there) is the reads' instead."""
+            reads there) is the reads' instead. Worked out once a pass per
+            rank: a pass asks it of every queued scan (~12k)."""
             if not ready:
                 ready.append([v for v in reads if slot_of(v) == "read" and key_of(v) not in tried
                               and key_of(v) not in busy and not waits(v)])
-            nxt = [v for v in ready[0] if v["rank"] <= u["rank"]][:pools["read"]]
-            return len(nxt) >= pools["read"] and not any(v["paper"] == u["paper"] and u["rel"] in v["needs"]
-                                                         for v in nxt)
+            if u["rank"] not in heads:
+                nxt = [v for v in ready[0] if v["rank"] <= u["rank"]][:pools["read"]]
+                heads[u["rank"]] = ({(v["paper"], r) for v in nxt for r in v["needs"]}
+                                    if len(nxt) >= pools["read"] else None)
+            needed = heads[u["rank"]]
+            return needed is not None and (u["paper"], u["rel"]) not in needed
         for u in first + scans + reads + fetches if any(v > 0 for v in free.values()) else ():
             if not may_start() or free[slot_of(u)] <= 0 or key_of(u) in tried:
                 continue
             if urgent and u["kind"] != "fetch" and u["rank"] >= fa.BLANKET:
                 continue
+            # Held before its ledger row is checked: stood() stats the
+            # edition's files, and a held scan is asked again every pass.
+            if u["kind"] == "scan" and key_of(u) not in firsts and fed(u):
+                continue
             if u["kind"] == "scan" and u["paper"] in fa.FILERS and stood(u):
                 # Scanned since the plan was made (a kept plan, a read, another queue): its reads may go on.
                 tried.add(key_of(u))
                 scanned.add((u["paper"], u["rel"]))
-                continue
-            if u["kind"] == "scan" and key_of(u) not in firsts and fed(u):
                 continue
             if u["kind"] == "read" and waits(u):
                 if (u["paper"], u["rel"]) in unscanned and (u["paper"], u["rel"]) in scan_failed:
