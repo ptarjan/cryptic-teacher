@@ -1497,17 +1497,33 @@ check("a sure R is not swapped to an A", {}, swapped("BRLLOON"))
 # numbered_swaps(): a clue number makes its cell's sure read a misread
 # (15839 BVEREAT, 17215 YMPLORE); the one listed word a change of that cell
 # makes is taken, where half the lights crossing it are accepted. A plain
-# cell's change (BEEIZEBUB) is not taken, nor a light in a grid read
-# around it so little that the crop may be another day's (20372 TSQUARE).
-def numbered_swap(word, crossings_accepted):
+# cell's change (BEEIZEBUB) is left to plain_swaps; a light in a grid read
+# around it so little that the crop may be another day's is not taken
+# (20372 TSQUARE).
+def settled(swaps, word, crossings_accepted):
     across = [(1, i) for i in range(len(word))]
     lts = {(2, "across"): across, (1, "down"): [(0, 1), (1, 1)], (3, "down"): [(0, 3), (1, 3)]}
     accepted = {(1, "down"): "A" + word[1]} if crossings_accepted else {}
-    return tso.numbered_swaps(lts, accepted, [{}, dict(zip(across, word))])
+    return swaps(lts, accepted, [{}, dict(zip(across, word))])
 check("a numbered cell's sure misread one letter from the only listed word is that word",
-      {(2, "across"): "OVEREAT"}, numbered_swap("BVEREAT", True))
-check("a plain cell's misread is not swapped", {}, numbered_swap("BEEIZEBUB", True))
-check("a light whose crossings are mostly unread is not swapped", {}, numbered_swap("BVEREAT", False))
+      {(2, "across"): "OVEREAT"}, settled(tso.numbered_swaps, "BVEREAT", True))
+check("a plain cell's misread is not swapped", {}, settled(tso.numbered_swaps, "BEEIZEBUB", True))
+check("a light whose crossings are mostly unread is not swapped", {}, settled(tso.numbered_swaps, "BVEREAT", False))
+# listed_reads(): a sure read that is a listed word stands though its
+# numbered cell's glyph match refused it (16684 MOWGLI, 15870 REALLY), unless
+# another letter in that cell makes a listed word too (16777 BINNER for
+# DINNER, 17469 BOUR for DOUR), or half its crossings are unread.
+check("a sure listed read whose numbered cell no other letter fits stands",
+      {(2, "across"): "MOWGLI"}, settled(tso.listed_reads, "MOWGLI", True))
+check("a sure listed read whose numbered cell another letter makes a word of is unread",
+      {}, settled(tso.listed_reads, "BINNER", True))
+check("a sure listed read whose crossings are mostly unread is unread", {}, settled(tso.listed_reads, "MOWGLI", False))
+# plain_swaps(): a plain cell's sure misread one letter from exactly one
+# listed word is that word (15883 BEEIZEBUB, 19638 AOVENTURE); a second word
+# a letter away (15883 BRANG: BHANG, BRAND) leaves it unread.
+check("a plain cell's sure misread one letter from the only listed word is that word",
+      {(2, "across"): "BEELZEBUB"}, settled(tso.plain_swaps, "BEEIZEBUB", True))
+check("a sure misread a letter from two listed words is unread", {}, settled(tso.plain_swaps, "BRANG", True))
 # crossed_reads(): an unread light's cells take accepted crossings' letters
 # and plain cells' sure reads (Gale 1987: ?MADEUS, ?LEANOR); a numbered
 # cell's own sure read is no letter (DUCKINGSTOOL's D read as a sure B),

@@ -48,9 +48,11 @@ of a page) is read by read_framed instead:
      corpus's own typed answers too. A sure whole read one CONFUSABLE
      letter from the one listed() word a letter's change makes, with no
      crossing saying otherwise, is that word (swapped_reads: PIRSTREFUSAL).
-     So is a sure read whose one listed() word a letter away changes a
-     numbered cell, in a light half whose crossings are accepted
-     (numbered_swaps: BVEREAT).
+     In a light half whose crossings are accepted, so is a sure read whose
+     one listed() word a letter away changes a numbered cell (numbered_swaps:
+     BVEREAT) or any cell (plain_swaps: BEEIZEBUB), and a sure read that is
+     a listed word no other letter in its numbered cells makes another of
+     (listed_reads: MOWGLI, not BINNER).
 
 read_grid_letters reads a Listener report's filled grid the same way, on
 the lattice listener_grid finds and the lights of the puzzle's own grid.
@@ -762,7 +764,10 @@ def read_framed(image, grid):
     for key, word in agreed_reads(lts, reads).items():
         take(key, word)
     accepted.update(crossed_reads(lts, accepted, every))
-    accepted.update(numbered_swaps(lts, accepted, [r[2] for r in reads]))
+    everys = [r[2] for r in reads]
+    accepted.update(numbered_swaps(lts, accepted, everys))
+    accepted.update(listed_reads(lts, accepted, everys))
+    accepted.update(plain_swaps(lts, accepted, everys))
     return accepted, {**stats, "accepted": len(accepted), "lattices": len(reads)}
 
 
@@ -825,43 +830,83 @@ def crossed_reads(lts, accepted, every):
     return out
 
 
-def numbered_swaps(lts, accepted, everys):
+def settled_reads(lts, accepted, everys, pick):
     """{key: word} for lights not `accepted` that a lattice read surely in
-    every cell (`everys`, one {cell: letter} per lattice, surest first)
-    where the one listed() word any single letter's change makes changes a
-    numbered cell: its clue number makes the sure read a misread (OVEREAT
-    read as BVEREAT, IMPLORE as YMPLORE, STADDLESTONE as STABDLESTONE).
-    The word must agree with every accepted light it crosses, and half or
-    more of the lights crossing it must be accepted: a crop of another
-    day's grid, or one cut a row off, reads few lights, and its sure
-    letters a change from some word (TSQUARE, ACTIN). Each light taken
-    counts for its crossings, until none is taken."""
-    numbered = {cells[0] for cells in lts.values()}
+    every cell (`everys`, one {cell: letter} per lattice, surest first),
+    where pick(word, cells, held) (held: the letters accepted lights lay)
+    gives a word. The word must agree with every accepted light it
+    crosses, and half or more of the lights crossing it must be accepted:
+    a crop of another day's grid, or one cut a row off, reads few lights,
+    and its sure letters a change from some word (TSQUARE, ACTIN). Each
+    light taken counts for its crossings, until none is taken."""
     crossing = {key: [k for k, cs in lts.items() if k != key and set(cs) & set(cells)]
                 for key, cells in lts.items()}
     have, out = dict(accepted), {}
     settled = True
     while settled:
         settled = False
-        taken = {rc: ch for key, w in have.items() for rc, ch in zip(lts[key], w)}
+        held = {rc: ch for key, w in have.items() for rc, ch in zip(lts[key], w)}
         for key, cells in lts.items():
             if key in have or 2 * sum(k in have for k in crossing[key]) < len(crossing[key]):
                 continue
             for every in everys:
                 if not all(rc in every for rc in cells):
                     continue
-                word = "".join(every[rc] for rc in cells)
-                near = [word[:i] + new + word[i + 1:] for i, ch in enumerate(word) for new in AZ
-                        if new != ch and listed(word[:i] + new + word[i + 1:])]
-                if len(near) == 1 and not listed(word):
-                    i = next(i for i, (a, b) in enumerate(zip(word, near[0])) if a != b)
-                    if cells[i] in numbered and all(taken.get(rc, ch) == ch for rc, ch in zip(cells, near[0])):
-                        have[key] = out[key] = near[0]
-                        settled = True
-                        break
+                word = pick("".join(every[rc] for rc in cells), cells, held)
+                if word and all(held.get(rc, ch) == ch for rc, ch in zip(cells, word)):
+                    have[key] = out[key] = word
+                    settled = True
+                    break
             if settled:
                 break
     return out
+
+
+def one_change(word):
+    """[(i, word)]: the listed() words one letter's change in `word` makes."""
+    return [(i, word[:i] + new + word[i + 1:]) for i, ch in enumerate(word) for new in AZ
+            if new != ch and listed(word[:i] + new + word[i + 1:])]
+
+
+def numbered_swaps(lts, accepted, everys):
+    """settled_reads where a sure read is no listed() word and the one
+    listed word any single letter's change makes changes a numbered cell:
+    its clue number makes the sure read a misread (OVEREAT read as
+    BVEREAT, IMPLORE as YMPLORE, STADDLESTONE as STABDLESTONE)."""
+    numbered = {cells[0] for cells in lts.values()}
+
+    def pick(word, cells, held):
+        near = one_change(word)
+        if len(near) == 1 and not listed(word) and cells[near[0][0]] in numbered:
+            return near[0][1]
+    return settled_reads(lts, accepted, everys, pick)
+
+
+def listed_reads(lts, accepted, everys):
+    """settled_reads where a sure read is a listed() word and no other
+    letter in a numbered cell no accepted light crosses makes one: with
+    its number a D reads as a sure B, so read_lattice's glyph match vetoes
+    a numbered cell's sure letter (BINNER for DINNER, BOUR for DOUR, TRON
+    for IRON), but a letter no rival word could take there stands (MOWGLI,
+    REALLY, MUDINYOUREYE)."""
+    numbered = {cells[0] for cells in lts.values()}
+
+    def pick(word, cells, held):
+        if listed(word) and not any(cells[i] in numbered and cells[i] not in held
+                                    for i, _ in one_change(word)):
+            return word
+    return settled_reads(lts, accepted, everys, pick)
+
+
+def plain_swaps(lts, accepted, everys):
+    """settled_reads where a sure read is no listed() word and one letter's
+    change, in any cell, makes exactly one listed word: a heavy print's
+    sure misread (BEEIZEBUB, EVERYRODY, AOVENTURE)."""
+    def pick(word, cells, held):
+        near = one_change(word)
+        if len(near) == 1 and not listed(word):
+            return near[0][1]
+    return settled_reads(lts, accepted, everys, pick)
 
 
 def read_lattice(gray, ys, xs, grid):
