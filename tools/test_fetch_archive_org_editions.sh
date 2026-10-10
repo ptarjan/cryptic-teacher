@@ -476,5 +476,52 @@ with open(os.path.join(lr, "done.tsv.tmp"), "w") as f:
     f.write(f"{IT}\t{sibs[0]}\t{fa.DETECTOR_VERSION}\n")
 os.replace(os.path.join(lr, "done.tsv.tmp"), os.path.join(lr, "done.tsv"))
 check("a done.tsv replaced whole is read whole", fa.load_done(lr) == {(IT, sibs[0])})
+# A lone edition's verdict hangs on its near items (near_items), not the out
+# root's key: every item fetched moves the root. Nor on a dir's inode: the
+# Media mount numbers a dir afresh once the kernel forgets it.
+nr = tempfile.mkdtemp()
+def lone_ed(item, hits):
+    fa.write_atomic(os.path.join(nr, item, item, "pages.json"),
+                    json.dumps({"leaves": 26, "crossword_pages": hits}).encode())
+for i, day in enumerate(("02-14", "02-15", "02-18", "02-19")):
+    lone_ed(f"per_times_the-times_1930-{day}_{45437 + 2 * i}", [{"leaf": 6, "headings": title}])
+lone_item = "per_times_the-times_1930-02-17_45439"
+lone_ed(lone_item, [{"leaf": 5, "dense": True}, {"leaf": 25, "prior": True}])
+with open(os.path.join(nr, "done.tsv"), "w") as f:
+    f.write(f"{lone_item}\t{lone_item}\t{fa.DETECTOR_VERSION}\n")
+def settle_all(top):
+    for dirpath, _, _ in os.walk(top):
+        settle(dirpath)
+settle_all(nr)
+lone_dir = os.path.join(nr, lone_item, lone_item)
+check("a lone edition lacking its near items' leaf is stale", fa.load_done(nr) == set() and lone_dir in fa._STALE)
+def counted_stale():
+    seen = []
+    real = fa.stale
+    fa.stale = lambda d: (seen.append(d), real(d))[1]
+    try:
+        fa.load_done(nr)
+    finally:
+        fa.stale = real
+    return seen
+def fetched(item, hits):
+    lone_ed(item, hits)
+    settle(os.path.join(nr, item, item), os.path.join(nr, item), nr)
+fetched("per_times_the-times_1931-09-01_49000", [{"leaf": 6, "headings": title}])
+check("an item far off fetched (the root moved): the lone verdict kept", lone_dir not in counted_stale())
+fetched("per_times_the-times_1930-02-16_45500", [{"leaf": 4, "headings": title}])
+check("mirror: a nearer item fetched: the lone verdict worked out again", lone_dir in counted_stale())
+real_os_stat = fa.dir_cache.os.stat
+class Renumbered:
+    def __init__(self, st): self.st = st
+    def __getattr__(self, k): return self.st.st_ino + 1 if k == "st_ino" else getattr(self.st, k)
+fa.dir_cache.os = type(os)("os_renumbered")
+fa.dir_cache.os.__dict__.update(os.__dict__)
+fa.dir_cache.os.stat = lambda p, *a, **k: Renumbered(real_os_stat(p, *a, **k))
+try:
+    check("every dir renumbered (a new inode, its times unmoved): no verdict worked out again",
+          counted_stale() == [])
+finally:
+    fa.dir_cache.os = os
 sys.exit(1 if fails else 0)
 PY
