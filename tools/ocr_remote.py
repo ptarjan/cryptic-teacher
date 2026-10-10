@@ -12,8 +12,9 @@ cached readings and the series' filed dates, as a tar) and gets back the
 verdicts, the puzzles and the crops it cached; any other reader sends one
 already-upscaled crop as PNG and gets the words back as JSON. call() runs
 one of CALLS there: an image PDF's pages searched for grids
-(fetch_archive_org_editions.pdf_pages) and a grid search from a clue list
-(reconstruct(), the Trove filer's rebuild). The desktop
+(fetch_archive_org_editions.pdf_pages), a grid search from a clue list
+(reconstruct(), the Trove filer's rebuild) and an edition's scan for its
+headings (scan(), the edition queue's scan units). The desktop
 runs the same code (every tracked file under tools/ but UNSHIPPED, shipped
 once into a directory named by their hash, so a running session's files are
 never overwritten), the same reader models and the same Python, Pillow,
@@ -313,9 +314,7 @@ def read_edition_here(req, blob, ask_mac):
         root = Path(tmp)
         with tarfile.open(fileobj=io.BytesIO(blob)) as tar:
             tar.extractall(root, filter="data")
-        crops = root / "crops"
-        crops.mkdir(exist_ok=True)
-        sent = {p: p.read_bytes() for p in crops.rglob("*") if p.is_file()}
+        crops, sent = sent_crops(root)
         held = {series: {int(n): datetime.date.fromisoformat(day) for n, day in dates.items()}
                 for series, dates in req["held"].items()}
         fa.CROPS = crops
@@ -341,12 +340,53 @@ def read_edition_here(req, blob, ask_mac):
         crashed = [v["refused"] for v, _ in results if str(v.get("refused", "")).startswith("crashed")]
         if crashed:
             return {"error": f"a title crashed there: {crashed[0]}"}, b""
-        buf = io.BytesIO()
-        with tarfile.open(fileobj=buf, mode="w") as tar:
-            for p in sorted(crops.rglob("*")):
-                if p.is_file() and sent.get(p) != p.read_bytes():
-                    tar.add(p, arcname=p.relative_to(crops).as_posix())
-        return {"results": results, "vlm": vlm_ok, "decided": decided}, buf.getvalue()
+        return {"results": results, "vlm": vlm_ok, "decided": decided}, changed(crops, sent)
+
+
+def sent_crops(root):
+    """(the crops directory under `root`, {file: bytes} of those the Mac sent)."""
+    crops = root / "crops"
+    crops.mkdir(exist_ok=True)
+    return crops, {p: p.read_bytes() for p in crops.rglob("*") if p.is_file()}
+
+
+def changed(crops, sent):
+    """A tar of the files under `crops` written since `sent`, for the Mac to
+    extract under its CROPS."""
+    import io
+    import tarfile
+    buf = io.BytesIO()
+    with tarfile.open(fileobj=buf, mode="w") as tar:
+        for p in sorted(crops.rglob("*")):
+            if p.is_file() and sent.get(p) != p.read_bytes():
+                tar.add(p, arcname=p.relative_to(crops).as_posix())
+    return buf.getvalue()
+
+
+def _scan_there(data, rel):
+    """(file_archive_org_puzzles._scan of edition `rel`, a tar of the title
+    readings it cached), its files and cached readings in the tar `data`
+    (scan_request); raises when it opened a file it was not sent."""
+    import gc
+    import io
+    import tarfile
+
+    import file_archive_org_puzzles as fa
+    with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmp:
+        root = Path(tmp)
+        with tarfile.open(fileobj=io.BytesIO(data)) as tar:
+            tar.extractall(root, filter="data")
+        crops, sent = sent_crops(root)
+        fa.CROPS = crops
+        _WATCH[:] = [(str(root), str(TOOLS.parent)), []]
+        try:
+            found = fa._scan(root / "ed" / rel)
+        finally:
+            missing, _WATCH[:] = _WATCH[1], [None, []]
+        gc.collect()  # closes the leaves' files, which Windows will not delete open
+        if missing:
+            raise FileNotFoundError("opened files it was not sent: " + ", ".join(sorted(set(missing))[:5]))
+        return found, changed(crops, sent)
 
 
 def decide_here(results, filing, root):
@@ -396,7 +436,7 @@ def _pdf_pages_there(data):
 
 #: What call() may run there: name -> f(payload bytes, *args, **kwargs)
 #: giving (a JSON-able result, bytes sent back after it).
-CALLS = {"reconstruct": _reconstruct_there, "pdf_pages": _pdf_pages_there}
+CALLS = {"reconstruct": _reconstruct_there, "pdf_pages": _pdf_pages_there, "scan": _scan_there}
 
 
 def serve(priority="idle"):
@@ -845,6 +885,53 @@ def edition(d, found, solutions):
     if got.get("decided") is None:
         log(f"{head['edition']}: a title there looked up a file it was not sent, so its filing is decided here")
     return [tuple(r) for r in got["results"]], got["vlm"], got.get("decided")
+
+
+def scan_request(d):
+    """A tar of what file_archive_org_puzzles._scan(d) reads: the edition's
+    pages.json, djvu text and crossword leaves, and the title readings
+    cached for it (its keys: "<item>_<date>_<leaf>" and "<date>_<leaf>")."""
+    import io
+    import tarfile
+
+    import file_archive_org_puzzles as fa
+    rel = f"{d.parent.name}/{d.name}"
+    files = {f"ed/{rel}/{name}": d / name for name in ("pages.json", "djvu.xml.gz")}
+    pages = json.loads((d / "pages.json").read_text())
+    for p in pages.get("crossword_pages", ()):
+        files[f"ed/{rel}/leaf_{p['leaf']:04d}.jpg"] = d / f"leaf_{p['leaf']:04d}.jpg"
+    titles = fa.CROPS / "titles"
+    keys = (f"{d.parent.name}_{d.name}_", f"{d.name}_")
+    for name in os.listdir(titles) if titles.is_dir() else ():
+        if name.startswith(keys):
+            files[f"crops/titles/{name}"] = titles / name
+    buf = io.BytesIO()
+    with tarfile.open(fileobj=buf, mode="w") as tar:
+        for arc, path in files.items():
+            if path.exists():
+                tar.add(path, arcname=arc)
+    return buf.getvalue()
+
+
+def scan(d):
+    """file_archive_org_puzzles._scan(d) run on the desktop (the page
+    decoding, grid search and title OCR), the title readings it cached
+    written under CROPS as a scan here writes them; or None when call()
+    cannot run it there: then the caller scans here."""
+    if not hosts():
+        return None
+    import io
+    import tarfile
+
+    import file_archive_org_puzzles as fa
+    crops = fa.CROPS
+    got = call("scan", f"{d.parent.name}/{d.name}", data=scan_request(d))
+    if got is None:
+        return None
+    found, back = got
+    with tarfile.open(fileobj=io.BytesIO(back)) as t:
+        t.extractall(crops, filter="data")
+    return found
 
 
 def words(crop, which):

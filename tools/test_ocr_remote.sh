@@ -2,7 +2,7 @@
 # Does tools/ocr_remote.py compare every reader model a read can load, send
 # back an edition whose read on the desktop opened a file it was not sent,
 # give the same grids from a search run there (its answer through JSON) as
-# here, wait on a search for as long as the desktop says it is still
+# here, the same headings and cached readings from a scan run there, wait on a search for as long as the desktop says it is still
 # searching, let no more than LOCAL_SLOTS reads run here at once, and does
 # every module the desktop imports import without fcntl (Windows)?
 #
@@ -91,6 +91,28 @@ check("the Mac's files are read there as ASCII, whatever the desktop's default e
       True, (root / "held" / "18184.json").read_bytes().isascii())
 check("a title that opens a file the Mac was not asked about is decided on the Mac",
       None, there([({"number": 99999}, new)], [], {}))
+
+# An edition queue scan runs whole there (ocr_remote.scan): the headings it
+# finds and the title readings it caches are a scan's here. The readers are
+# stubbed: a word per crop, from the crop's size.
+from PIL import Image, ImageDraw
+ed = tmp / "eds" / "GaleTimes1976UKEnglish" / "1976-07-02"
+ed.mkdir(parents=True)
+(ed / "pages.json").write_text(json.dumps({"date": "1976-07-02", "item": "GaleTimes1976UKEnglish",
+                                           "crossword_pages": [{"leaf": 0}]}))
+leaf = Image.new("RGB", (1600, 2000), "white")
+ImageDraw.Draw(leaf).rectangle((400, 600, 1100, 1300), fill="black")
+leaf.save(ed / "leaf_0000.jpg")
+fa.read_words = lambda crop, which: [(5, 5, 300, 40, f"Crossword No {14000 + crop.width % 997:,}")]
+def scanned(crops, how):
+    fa.CROPS = crops
+    found = json.loads(json.dumps(how(ed)))
+    return found, {p.relative_to(crops).as_posix(): p.read_bytes() for p in crops.rglob("*") if p.is_file()}
+here = scanned(tmp / "crops-here", fa._scan)
+check("a scan there gives a scan here's headings and cached readings", here,
+      scanned(tmp / "crops-mac", ocr_remote.scan))
+check("and finds a title and caches its readings (both are in the comparison)", (True, True),
+      (len(here[0]["puzzles"]) > 0, len(here[1]) > 0))
 
 # A search on a busy desktop outlives any fixed answer time while working:
 # the wait is on silence, not on a total. serve() runs here with the search

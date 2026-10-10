@@ -3372,7 +3372,13 @@ def scan_unit(paper, rel, cache=CACHE, ledger=None):
         if scan_current(row, fh):
             return "current"
         try:
-            found = scan(d)
+            # Made on the desktop when it answers (ocr_remote.scan runs
+            # _scan there). Called here, not in scan(): scan_key() hashes
+            # what scan() reaches, so an edit there re-scans every edition.
+            import ocr_remote
+            found = ocr_remote.scan(d)
+            if found is None:
+                found = scan(d)
         except Exception as e:  # noqa: BLE001 -- as _run: a scan that raises stands as one with no headings
             found = {"puzzles": [], "solutions": [], "failed": scan_queue.failure((rel,), e)}
         progress(f"scanned {rel}: " + (f"failed: {found['failed']}" if "failed" in found
