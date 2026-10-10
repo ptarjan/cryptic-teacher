@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,46 @@
     "text": "Shear caught part of body",
     "enumeration": "4"
    },
-   "solution": "CLIP"
+   "solution": "CLIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLIP",
+    "definitions": [
+     {
+      "text": "Shear",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "part of body",
+      "gives": "LIP",
+      "note": "the lip is a part of the face"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LIP"
+     ]
+    },
+    "explanation": {
+     "surface": "A sheep shearer nicks a body part while working.",
+     "definitionFit": "To clip a sheep is to cut its fleece, which is what shearing means, so the two verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +89,51 @@
     "text": "Saint with wound walked slowly",
     "enumeration": "8"
    },
-   "solution": "STROLLED"
+   "solution": "STROLLED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STROLLED",
+    "definitions": [
+     {
+      "text": "walked slowly",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saint",
+      "gives": "ST",
+      "note": "ST is the standard abbreviation for saint"
+     },
+     {
+      "clueFragment": "wound",
+      "gives": "ROLLED",
+      "note": "wound here is the past tense of wind (rhymes with found), as in wound up, so rolled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "ROLLED"
+     ]
+    },
+    "explanation": {
+     "surface": "An injured saint limps along slowly.",
+     "walkthrough": "'Wound' reads as an injury, which fits the slow walking, but it is the past tense of wind.",
+     "definitionFit": "A stroll is a leisurely, unhurried walk, so strolled is a direct synonym for walked slowly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wound"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +147,44 @@
     "text": "Whip round for bobby",
     "enumeration": "4"
    },
-   "solution": "BEAT"
+   "solution": "BEAT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BEAT",
+    "definitions": [
+     {
+      "text": "Whip",
+      "at": 0
+     },
+     {
+      "text": "round for bobby",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Whip",
+      "note": "first meaning: to whisk eggs or cream, or to thrash"
+     },
+     {
+      "clueFragment": "round for bobby",
+      "note": "second meaning: the area a police officer patrols on foot; a bobby is a British policeman"
+     }
+    ],
+    "explanation": {
+     "surface": "Colleagues pass the hat round to collect for a policeman.",
+     "walkthrough": "'Whip round' looks like a collection of money; split it, and whip is one meaning and the policeman's patrol round is the other.",
+     "definitionFit": "The verb means to whisk or thrash, and the noun is the regular route a constable walks on patrol."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +198,53 @@
     "text": "See a grid set out and argue",
     "enumeration": "8"
    },
-   "solution": "DISAGREE"
+   "solution": "DISAGREE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DISAGREE",
+    "definitions": [
+     {
+      "text": "argue",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set out",
+      "for": "anagram",
+      "note": "to set something out is to lay it out afresh, so these letters are arranged anew"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See a grid",
+      "gives": "SEEAGRID",
+      "note": "the letters as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEEAGRID",
+       "gives": "DISAGREE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two solvers look at the same crossword layout and quarrel over it.",
+     "definitionFit": "To disagree is to hold different opinions and dispute them, which is what arguing involves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grid"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +258,62 @@
     "text": "Current second eleven claiming runs",
     "enumeration": "6"
    },
-   "solution": "STREAM"
+   "solution": "STREAM",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "STREAM",
+    "definitions": [
+     {
+      "text": "Current",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "claiming",
+      "for": "container",
+      "note": "to claim something is to take hold of it, so the team word holds the other letter inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "eleven",
+      "gives": "TEAM",
+      "note": "a cricket or football eleven is a team"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "T",
+      "R",
+      "EAM"
+     ]
+    },
+    "explanation": {
+     "surface": "The reserve cricket side of the present day is piling up runs.",
+     "walkthrough": "'Current second eleven' reads as today's reserve side; current is really the noun for a flow of water.",
+     "definitionFit": "A stream is a flow of water moving in one direction, which is what a current is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Current"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +327,63 @@
     "text": "Cook trains cultured chap to be severe",
     "enumeration": "10"
    },
-   "solution": "ASTRINGENT"
+   "solution": "ASTRINGENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ASTRINGENT",
+    "definitions": [
+     {
+      "text": "severe",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cook",
+      "for": "anagram",
+      "note": "to cook is to doctor or falsify, so these letters are tampered into a new order"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trains",
+      "gives": "TRAINS",
+      "note": "the letters as written"
+     },
+     {
+      "clueFragment": "cultured chap",
+      "gives": "GENT",
+      "note": "a gent, short for gentleman, is a refined man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASTRIN",
+      "GENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRAINS",
+       "gives": "ASTRIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chef coaches a refined man to be strict with others.",
+     "definitionFit": "Astringent describes sharply critical, harsh comment or manner, so it is a synonym of severe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cook"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +397,42 @@
     "text": "Aussie statesman has an afternoon nap",
     "enumeration": "6"
    },
-   "solution": "SIESTA"
+   "solution": "SIESTA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SIESTA",
+    "definitions": [
+     {
+      "text": "an afternoon nap",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has",
+      "for": "hidden_word",
+      "note": "what a phrase has it contains, so the result sits inside the run of words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aussie statesman",
+      "gives": "SIESTA",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "An Australian politician takes a post-lunch snooze.",
+     "definitionFit": "A siesta is the Spanish term for a short sleep taken after lunch in hot countries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "has"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +446,45 @@
     "text": "Intend to be average",
     "enumeration": "4"
    },
-   "solution": "MEAN"
+   "solution": "MEAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MEAN",
+    "definitions": [
+     {
+      "text": "Intend",
+      "at": 0
+     },
+     {
+      "text": "average",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Intend",
+      "note": "to have in mind as a purpose"
+     },
+     {
+      "clueFragment": "average",
+      "note": "the arithmetic middle value"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface sounds like a modest ambition; the word is a verb for intending and a noun for the statistical middle.",
+     "definitionFit": "As a verb it means to have a purpose in mind; as a noun it is the mathematical average of a set."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "average"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +498,68 @@
     "text": "Heal doctor outside time machine",
     "enumeration": "5"
    },
-   "solution": "LATHE"
+   "solution": "LATHE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LATHE",
+    "definitions": [
+     {
+      "text": "machine",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doctor",
+      "for": "anagram",
+      "note": "to doctor is to tamper with, so these letters are altered in order"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "the rearranged letters sit outside, wrapping around the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Heal",
+      "gives": "HEAL",
+      "note": "the letters as written"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "T",
+      "HE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HEAL",
+       "gives": "LAHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A healing doctor stands outside a time machine, as in Doctor Who.",
+     "walkthrough": "'Time machine' reads as one unit, the TARDIS; it splits so that time is a letter and machine the definition.",
+     "definitionFit": "A lathe is a workshop machine tool that spins material so it can be shaped."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +573,43 @@
     "text": "In pain? Test in elongated part of gut",
     "enumeration": "9"
    },
-   "solution": "INTESTINE"
+   "solution": "INTESTINE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "INTESTINE",
+    "definitions": [
+     {
+      "text": "part of gut",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "the opening word says the result lies inside the words that follow it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pain? Test in elongated",
+      "gives": "INTESTINE",
+      "note": "the letters run from the end of pain through to the start of elongated"
+     }
+    ],
+    "explanation": {
+     "surface": "A doctor advises a patient in pain to have the long bowel examined.",
+     "walkthrough": "'In pain?' reads as a question to a patient, but In is the signal and the answer sits across the next four words, ignoring the punctuation.",
+     "definitionFit": "The intestine is the long tube of the alimentary canal below the stomach, a major part of the gut."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "In"
+    }
+   }
   },
   {
    "number": 11,
@@ -173,7 +623,65 @@
     "text": "Reduce to helplessness when second strain of MRSA invades gland",
     "enumeration": "9"
    },
-   "solution": "PROSTRATE"
+   "solution": "PROSTRATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PROSTRATE",
+    "definitions": [
+     {
+      "text": "Reduce to helplessness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "second",
+      "for": "letter_selection",
+      "note": "second means the letter in position two of the word that follows"
+     },
+     {
+      "text": "invades",
+      "for": "container",
+      "note": "one thing invading another goes inside it, so the selected letter is placed within"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strain of MRSA",
+      "gives": "R",
+      "select": 2,
+      "note": "the second letter of the abbreviation for the hospital bacterium"
+     },
+     {
+      "clueFragment": "gland",
+      "gives": "PROSTATE",
+      "note": "the prostate is a male gland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROST",
+      "R",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A hospital superbug infection attacks a man's gland and lays him low.",
+     "walkthrough": "MRSA is a drug-resistant hospital bacterium; 'strain of' is surface padding, since only its second letter is used.",
+     "definitionFit": "To prostrate is to overwhelm or lay someone low, leaving them powerless, as illness or grief can."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "strain"
+    }
+   }
   },
   {
    "number": 12,
@@ -187,7 +695,51 @@
     "text": "Sticky stuff produced by soldiers given to lust?",
     "enumeration": "5"
    },
-   "solution": "RESIN"
+   "solution": "RESIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RESIN",
+    "definitions": [
+     {
+      "text": "Sticky stuff",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "produced by",
+     "given to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldiers",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers, a British army corps"
+     },
+     {
+      "clueFragment": "lust",
+      "gives": "SIN",
+      "note": "lust is one of the seven deadly sins"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "SIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A sly question about whether lecherous soldiers leave something sticky behind.",
+     "definitionFit": "Resin is the viscous, gummy substance exuded by trees such as pines, a classic sticky material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lust"
+    }
+   }
   },
   {
    "number": 13,
@@ -201,7 +753,51 @@
     "text": "Declare to be true to mate getting hassle",
     "enumeration": "7"
    },
-   "solution": "PALAVER"
+   "solution": "PALAVER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PALAVER",
+    "definitions": [
+     {
+      "text": "hassle",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "to",
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mate",
+      "gives": "PAL",
+      "note": "a pal is a friend or mate"
+     },
+     {
+      "clueFragment": "Declare to be true",
+      "gives": "AVER",
+      "note": "to aver is to state firmly that something is so"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAL",
+      "AVER"
+     ]
+    },
+    "explanation": {
+     "surface": "Swearing to a friend that something is true leads to trouble.",
+     "walkthrough": "'To mate' places the declaring word after the friend word.",
+     "definitionFit": "A palaver is a tiresome fuss or bother, the same as a hassle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mate"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +811,58 @@
     "text": "Fleshy fruit put on top of pie",
     "enumeration": "5"
    },
-   "solution": "PLUMP"
+   "solution": "PLUMP",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PLUMP",
+    "definitions": [
+     {
+      "text": "Fleshy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a word in a down entry is its first letter"
+     }
+    ],
+    "linkWords": [
+     "put on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fruit",
+      "gives": "PLUM",
+      "note": "a plum is a stone fruit"
+     },
+     {
+      "clueFragment": "pie",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter of pie"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLUM",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A juicy plum is placed on top of a pie.",
+     "definitionFit": "Plump describes someone or something rounded and well-covered with flesh, so it matches fleshy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fleshy"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +876,67 @@
     "text": "Creature found in beer vet brewed — one with a spine!",
     "enumeration": "10"
    },
-   "solution": "VERTEBRATE"
+   "solution": "VERTEBRATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "VERTEBRATE",
+    "definitions": [
+     {
+      "text": "one with a spine",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brewed",
+      "for": "anagram",
+      "note": "brewing mixes ingredients up, so these letters are stirred into a new order"
+     },
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in another lies inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beer vet",
+      "gives": "BEERVET",
+      "note": "the letters as written"
+     },
+     {
+      "clueFragment": "Creature",
+      "gives": "RAT",
+      "note": "a rat is a common creature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VERTEB",
+      "RAT",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BEERVET",
+       "gives": "VERTEBE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rodent turns up in a vet's home-brewed beer, a creature with a backbone.",
+     "definitionFit": "A vertebrate is any animal possessing a backbone, so it is literally one with a spine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Creature"
+    }
+   }
   },
   {
    "number": 15,
@@ -243,7 +950,50 @@
     "text": "Permission to act for another person facing court",
     "enumeration": "7"
    },
-   "solution": "MANDATE"
+   "solution": "MANDATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MANDATE",
+    "definitions": [
+     {
+      "text": "Permission to act for another",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "facing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "person",
+      "gives": "MAN",
+      "note": "a man is a person"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "DATE",
+      "note": "to court someone is to go out with them, to date"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "DATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone facing a court case needs authority to represent another.",
+     "walkthrough": "'Court' suggests a law court; it is the verb meaning to woo. 'Facing' places the person ahead of it.",
+     "definitionFit": "A mandate is an authority given to someone to carry out a task on another's behalf, as with voters and governments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 16,
@@ -257,7 +1007,49 @@
     "text": "50/50 chance of winning number initially going from top to bottom",
     "enumeration": "5"
    },
-   "solution": "EVENS"
+   "solution": "EVENS",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "EVENS",
+    "definitions": [
+     {
+      "text": "50/50 chance of winning",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially going from top to bottom",
+      "for": "cycling",
+      "note": "the opening letter moves from the head of the down entry to its foot"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "number",
+      "gives": "SEVEN",
+      "note": "seven is a number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVEN",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A betting tip about a number moving from the top to the bottom of a list.",
+     "walkthrough": "'Number' is often a numbing agent in crosswords; here it is a plain number whose first letter moves to the end.",
+     "definitionFit": "Evens is the bookmaker's term for odds at which a winning bet doubles the stake, a 50/50 proposition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "initially"
+    }
+   }
   },
   {
    "number": 17,
@@ -271,7 +1063,56 @@
     "text": "Rejected, Fred dutifully holds on to organ with mammary glands",
     "enumeration": "5"
    },
-   "solution": "UDDER"
+   "solution": "UDDER",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "UDDER",
+    "definitions": [
+     {
+      "text": "organ with mammary glands",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holds on to",
+      "for": "hidden_word",
+      "note": "the phrase holds on to the result, keeping it within its letters"
+     },
+     {
+      "text": "Rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the run is read right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fred dutifully",
+      "gives": "REDDU",
+      "note": "the letters straddle the two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "REDDU",
+       "to": "UDDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spurned man called Fred loyally clings to a body part.",
+     "definitionFit": "An udder is the bag-like organ of a cow or goat that contains the milk-producing mammary glands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rejected"
+    }
+   }
   },
   {
    "number": 18,
@@ -285,7 +1126,51 @@
     "text": "Tree found principally in eastern Ligurian Mountains",
     "enumeration": "3"
    },
-   "solution": "ELM"
+   "solution": "ELM",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ELM",
+    "definitions": [
+     {
+      "text": "Tree",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "principally",
+      "for": "letter_selection",
+      "note": "principally means chiefly, pointing at the leading letters of each word"
+     }
+    ],
+    "linkWords": [
+     "found"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eastern Ligurian Mountains",
+      "gives": "ELM",
+      "select": "first",
+      "note": "the first letter of each word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELM"
+     ]
+    },
+    "explanation": {
+     "surface": "A tree grows mainly in the hills of eastern Liguria, in north-west Italy.",
+     "definitionFit": "The elm is a common broadleaved tree, so it is an example of a tree."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "principally"
+    }
+   }
   },
   {
    "number": 19,
@@ -299,7 +1184,70 @@
     "text": "Mediterranean setter with nice new vocation?",
     "enumeration": "8"
    },
-   "solution": "MEDICINE"
+   "solution": "MEDICINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "MEDICINE",
+    "definitions": [
+     {
+      "text": "vocation?",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "making something new means remaking it, so these letters come in a fresh order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mediterranean",
+      "gives": "MED",
+      "note": "the Med is the usual short name for the Mediterranean"
+     },
+     {
+      "clueFragment": "setter",
+      "gives": "I",
+      "note": "the setter refers to themself as I"
+     },
+     {
+      "clueFragment": "nice",
+      "gives": "NICE",
+      "note": "the letters as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MED",
+      "I",
+      "CINE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NICE",
+       "gives": "CINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The crossword setter, holidaying on the Med with Nice nearby, wonders about a new career.",
+     "walkthrough": "Nice is the French Riviera city, but here only its letters are used. The question mark flags that the definition is by example.",
+     "definitionFit": "Medicine is a profession many feel called to, hence an example of a vocation, which the question mark signals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nice"
+    }
+   }
   },
   {
    "number": 20,
@@ -313,7 +1261,47 @@
     "text": "Bird decapitated dog",
     "enumeration": "5"
    },
-   "solution": "EAGLE"
+   "solution": "EAGLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EAGLE",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "decapitated",
+      "for": "deletion",
+      "note": "to decapitate is to cut off the head, so the first letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog",
+      "gives": "BEAGLE",
+      "note": "a beagle is a breed of hound"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAGLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A grim scene of a bird and a dog with its head cut off.",
+     "definitionFit": "The eagle is a large bird of prey, so it is an example of a bird."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "decapitated"
+    }
+   }
   },
   {
    "number": 21,
@@ -327,7 +1315,71 @@
     "text": "Church supports woman in cannon with counselling",
     "enumeration": "8"
    },
-   "solution": "GUIDANCE"
+   "solution": "GUIDANCE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "GUIDANCE",
+    "definitions": [
+     {
+      "text": "counselling",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the woman's name inside the weapon word"
+     },
+     {
+      "text": "supports",
+      "for": "charade",
+      "note": "in a down entry, what supports another piece sits beneath it, so the church letters come last"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cannon",
+      "gives": "GUN",
+      "note": "a cannon is a large gun"
+     },
+     {
+      "clueFragment": "woman",
+      "gives": "IDA",
+      "note": "Ida is a woman's name"
+     },
+     {
+      "clueFragment": "Church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GU",
+      "IDA",
+      "N",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "The church backs a woman who is a human cannonball, and gives her advice.",
+     "walkthrough": "In a down entry, 'supports' puts the church letters underneath, at the end.",
+     "definitionFit": "Guidance is advice or direction given to someone, which is what counselling provides."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "supports"
+    }
+   }
   },
   {
    "number": 22,
@@ -341,7 +1393,59 @@
     "text": "Let sleeping dogs lie, say, when one's restrained by lead",
     "enumeration": "7"
    },
-   "solution": "PROVERB"
+   "solution": "PROVERB",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PROVERB",
+    "definitions": [
+     {
+      "text": "Let sleeping dogs lie, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restrained by",
+      "for": "container",
+      "note": "something restrained by another is held within it"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lead",
+      "gives": "PB",
+      "note": "Pb is the chemical symbol for the metal lead"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "ROVER",
+      "note": "one refers back to the dogs: Rover is a stock name for a dog"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ROVER",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "Leave sleeping dogs alone, especially when one is held on a leash.",
+     "walkthrough": "'Lead' looks like a dog's leash but is the metal. 'One' points back to a dog in the definition, so it is a typical dog's name.",
+     "definitionFit": "Let sleeping dogs lie is a well-known saying, an example of a proverb, as 'say' signals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 23,
@@ -355,7 +1459,73 @@
     "text": "Work not set up to restrict one's choice",
     "enumeration": "6"
    },
-   "solution": "OPTION"
+   "solution": "OPTION",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "OPTION",
+    "definitions": [
+     {
+      "text": "choice",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set up",
+      "for": "reversal",
+      "note": "in a down entry, set up means raised, so the word is read upwards, last letter first"
+     },
+     {
+      "text": "to restrict",
+      "for": "container",
+      "note": "restricting something means hemming it in, so the word goes around the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Work",
+      "gives": "OP",
+      "note": "OP is short for opus, a work"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OP",
+      "T",
+      "I",
+      "ON"
+     ],
+     "reversals": [
+      {
+       "from": "NOT",
+       "to": "TON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Not taking a job restricts one's choices.",
+     "definitionFit": "An option is one of several things that may be chosen, so it is a synonym for choice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Work"
+    }
+   }
   },
   {
    "number": 24,
@@ -369,7 +1539,43 @@
     "text": "Said to take pleasure in language",
     "enumeration": "6"
    },
-   "solution": "BASQUE"
+   "solution": "BASQUE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BASQUE",
+    "definitions": [
+     {
+      "text": "language",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Said",
+      "for": "homophone",
+      "note": "said means spoken, so the word is judged by how it sounds"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "take pleasure in",
+      "gives": "BASQUE",
+      "soundsLike": "BASK",
+      "note": "to bask is to revel in something"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is reported to enjoy speaking a certain language.",
+     "definitionFit": "Basque is the language of the Basque Country, spanning northern Spain and south-west France."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pleasure"
+    }
+   }
   },
   {
    "number": 25,
@@ -383,7 +1589,39 @@
     "text": "Unimportant parts of docks?",
     "enumeration": "7"
    },
-   "solution": "DETAILS"
+   "solution": "DETAILS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DETAILS",
+    "definitions": [
+     {
+      "text": "Unimportant parts of docks?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unimportant parts",
+      "note": "surface reading: minor items, as in sweating the small stuff"
+     },
+     {
+      "clueFragment": "of docks?",
+      "note": "setter's reading: to dock an animal is to cut off its tail, so docking takes the tails off"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Docks suggests harbours, but docking a dog removes its tail; split the answer as DE-TAILS to see the joke.",
+     "definitionFit": "Details are the small, minor particulars of something, so they are unimportant parts in everyday usage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "docks"
+    }
+   }
   },
   {
    "number": 26,
@@ -397,7 +1635,64 @@
     "text": "Put off by animals ingesting source of tuberculosis",
     "enumeration": "5"
    },
-   "solution": "DETER"
+   "solution": "DETER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DETER",
+    "definitions": [
+     {
+      "text": "Put off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "source of",
+      "for": "letter_selection",
+      "note": "the source of a word is where it starts, its first letter"
+     },
+     {
+      "text": "ingesting",
+      "for": "container",
+      "note": "ingesting means swallowing, so the animals word takes the letter inside"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "animals",
+      "gives": "DEER",
+      "note": "deer are animals"
+     },
+     {
+      "clueFragment": "tuberculosis",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of tuberculosis"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "T",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is discouraged by animals that may carry TB, like badgers or deer.",
+     "definitionFit": "To deter is to discourage someone from acting, which is what putting them off means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ingesting"
+    }
+   }
   },
   {
    "number": 26,
@@ -411,7 +1706,42 @@
     "text": "Timber trade",
     "enumeration": "4"
    },
-   "solution": "DEAL"
+   "solution": "DEAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DEAL",
+    "definitions": [
+     {
+      "text": "Timber",
+      "at": 0
+     },
+     {
+      "text": "trade",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Timber",
+      "note": "first meaning: softwood planks of pine or fir"
+     },
+     {
+      "clueFragment": "trade",
+      "note": "second meaning: to buy and sell, or a business transaction"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Timber trade' reads as one industry; it is two separate meanings of one word.",
+     "definitionFit": "The word names fir or pine planking, and also means to do business or an agreement struck in commerce."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trade"
+    }
+   }
   },
   {
    "number": 27,
@@ -425,7 +1755,53 @@
     "text": "Phony acts broadcast by flatterer",
     "enumeration": "9"
    },
-   "solution": "SYCOPHANT"
+   "solution": "SYCOPHANT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SYCOPHANT",
+    "definitions": [
+     {
+      "text": "flatterer",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast means scattered widely, so these letters are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Phony acts",
+      "gives": "PHONYACTS",
+      "note": "the letters as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PHONYACTS",
+       "gives": "SYCOPHANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fake performances are put on air by someone sucking up.",
+     "definitionFit": "A sycophant is a toady who flatters powerful people to gain favour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 28,
@@ -439,7 +1815,43 @@
     "text": "Small glass animal",
     "enumeration": "4"
    },
-   "solution": "PONY"
+   "solution": "PONY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PONY",
+    "definitions": [
+     {
+      "text": "Small glass",
+      "at": 0
+     },
+     {
+      "text": "animal",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small glass",
+      "note": "first meaning: in Britain, a small measure or glass of beer or spirits"
+     },
+     {
+      "clueFragment": "animal",
+      "note": "second meaning: a small horse"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Small glass animal' sounds like an ornament; split it into a small drink and a horse.",
+     "definitionFit": "The word names a small horse and is also a British term for a small measure of drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "glass"
+    }
+   }
   },
   {
    "number": 29,
@@ -453,7 +1865,45 @@
     "text": "Other people are in the money",
     "enumeration": "4"
    },
-   "solution": "THEM"
+   "solution": "THEM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "THEM",
+    "definitions": [
+     {
+      "text": "Other people",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the result sits within the following words, running across both of those"
+     }
+    ],
+    "linkWords": [
+     "are"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the money",
+      "gives": "THEM",
+      "note": "the letters bridge the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A grumble that it is always other people who are rich.",
+     "definitionFit": "The pronoun refers to a group of people other than the speaker, as in 'us and them'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 30,
@@ -473,7 +1923,56 @@
      }
     ]
    },
-   "solution": "ABOUTTURN"
+   "solution": "ABOUTTURN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABOUT TURN",
+    "definitions": [
+     {
+      "text": "complete change of attitude",
+      "at": 44
+     }
+    ],
+    "linkWords": [
+     "leads to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "period of fighting",
+      "gives": "BOUT",
+      "note": "a bout is a round or spell of combat, as in boxing"
+     },
+     {
+      "clueFragment": "short illness",
+      "gives": "TURN",
+      "note": "a turn is a brief spell of feeling ill, as in having a funny turn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BOUT",
+      "TURN"
+     ]
+    },
+    "explanation": {
+     "surface": "A spell of brawling followed by a brief sickness makes someone change their ways.",
+     "walkthrough": "'A turn' in British usage is a sudden brief bout of illness or faintness.",
+     "definitionFit": "An about-turn is a military reversal of direction, used figuratively for a complete reversal of opinion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "illness"
+    }
+   }
   },
   {
    "number": 31,
@@ -487,7 +1986,57 @@
     "text": "Appropriate place for hospital in French city",
     "enumeration": "5"
    },
-   "solution": "NICHE"
+   "solution": "NICHE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NICHE",
+    "definitions": [
+     {
+      "text": "Appropriate place",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one letter inside the name of the city"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French city",
+      "gives": "NICE",
+      "note": "Nice is a city on the French Riviera"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the map abbreviation for hospital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIC",
+      "H",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A suitable site for a hospital in a French city.",
+     "definitionFit": "A niche is a position or role that suits someone exactly, a fitting place for them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Appropriate"
+    }
+   }
   }
  ]
 }
