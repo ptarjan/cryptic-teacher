@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,46 @@
     "text": "Letter or card",
     "enumeration": "9"
    },
-   "solution": "CHARACTER"
+   "solution": "CHARACTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHARACTER",
+    "definitions": [
+     {
+      "text": "Letter",
+      "at": 0
+     },
+     {
+      "text": "card",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Letter",
+      "note": "first meaning: a written symbol such as a letter of the alphabet"
+     },
+     {
+      "clueFragment": "card",
+      "note": "second meaning: a 'card' is an amusing eccentric person, also called a real one of these"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Letter or card' sounds like a choice of things to post; the second meaning is the old slang sense of card as an oddball.",
+     "definitionFit": "The word means both a written symbol and, informally, an eccentric or amusing person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "card"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +89,64 @@
     "text": "Quark cheese, hardly any remaining from the first minute",
     "enumeration": "5"
    },
-   "solution": "CHARM"
+   "solution": "CHARM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CHARM",
+    "definitions": [
+     {
+      "text": "Quark",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hardly any remaining",
+      "for": "deletion",
+      "note": "with hardly any left, most of the middle of the cheese's name is dropped, keeping only its ends"
+     },
+     {
+      "text": "first",
+      "for": "charade",
+      "note": "the first of a word is its opening letter, which is the only part used"
+     }
+    ],
+    "linkWords": [
+     "from the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheese",
+      "gives": "CHEDDAR",
+      "note": "a hard English cheese"
+     },
+     {
+      "clueFragment": "minute",
+      "gives": "M",
+      "note": "the opening letter of minute"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAR",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "Quark, a soft cheese, is nearly all gone within a minute of being served.",
+     "walkthrough": "Quark looks like the soft cheese, which seems to tie it to 'cheese'; it is the particle physicist's quark. Cheddar loses its middle EDD to leave CHAR, then M follows.",
+     "definitionFit": "Charm is one of the six flavours of quark in particle physics, alongside up, down, strange, top and bottom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Quark"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +160,48 @@
     "text": "You had a late dinner we hear, to get thin",
     "enumeration": "9"
    },
-   "solution": "ATTENUATE"
+   "solution": "ATTENUATE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ATTENUATE",
+    "definitions": [
+     {
+      "text": "get thin",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is a spoken phrase, so the letters come from its sound rather than its spelling"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You had a late dinner",
+      "gives": "ATTENUATE",
+      "soundsLike": "AT TEN YOU ATE",
+      "note": "a late dinner is one eaten at ten o'clock"
+     }
+    ],
+    "explanation": {
+     "surface": "A remark that eating dinner late is how someone lost weight.",
+     "walkthrough": "Said quickly, 'at ten you ate' runs together into the answer.",
+     "definitionFit": "To attenuate is to become thinner, weaker or reduced in force."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dinner"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +215,58 @@
     "text": "Ritual performed with zest in battle",
     "enumeration": "10"
    },
-   "solution": "AUSTERLITZ"
+   "solution": "AUSTERLITZ",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AUSTERLITZ",
+    "definitions": [
+     {
+      "text": "battle",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "performed",
+      "for": "anagram",
+      "note": "a ritual that is performed is acted out afresh, so these letters are worked into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ritual",
+      "gives": "RITUAL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "with zest",
+      "gives": "ZEST",
+      "note": "taken as written, 'with' just adding it to the mix"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RITUALZEST",
+       "gives": "AUSTERLITZ"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ceremony carried out with enthusiasm on a battlefield.",
+     "definitionFit": "Austerlitz (1805) is Napoleon's great victory over Austria and Russia, a famous battle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "performed"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +280,43 @@
     "text": "Exposed without a spinner",
     "enumeration": "7"
    },
-   "solution": "TOPLESS"
+   "solution": "TOPLESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TOPLESS",
+    "definitions": [
+     {
+      "text": "Exposed",
+      "at": 0
+     },
+     {
+      "text": "without a spinner",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Exposed",
+      "note": "first meaning: bare-breasted, uncovered above the waist"
+     },
+     {
+      "clueFragment": "without a spinner",
+      "note": "second meaning read literally: lacking a top, the toy that spins"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Spinner' suggests a cricket bowler, but here it is the child's spinning toy, and lacking one makes you top-less.",
+     "definitionFit": "The word means bare above the waist, and split up it also reads as having no spinning toy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spinner"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +330,48 @@
     "text": "For the third time, decorate small screen?",
     "enumeration": "7"
    },
-   "solution": "REREDOS"
+   "solution": "REREDOS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REREDOS",
+    "definitions": [
+     {
+      "text": "screen",
+      "at": 35
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "For the third time, decorate",
+      "gives": "REREDO",
+      "note": "to do up once more after a redo is to re-redo"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REREDO",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Painting a little screen yet again, the third coat.",
+     "walkthrough": "Doing is the first time, redoing the second, so re-redoing is the third.",
+     "definitionFit": "A reredos is an ornamental screen or panel behind a church altar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "screen"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +385,61 @@
     "text": "Polish king receives one Cubist",
     "enumeration": "5"
    },
-   "solution": "RUBIK"
+   "solution": "RUBIK",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RUBIK",
+    "definitions": [
+     {
+      "text": "Cubist",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receives",
+      "for": "container",
+      "note": "something that receives takes another thing inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Polish",
+      "gives": "RUB",
+      "note": "to polish is to rub"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUB",
+      "I",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "A Polish monarch welcomes a painter of the Cubist school.",
+     "walkthrough": "'Polish' with its capital pretends to be the nationality; it is the verb. Likewise 'Cubist' is not an art movement painter but a cube's inventor.",
+     "definitionFit": "Ernő Rubik invented the famous puzzle cube, so he is a cube man in a playful sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Polish"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +453,55 @@
     "text": "Make hasty tour of one archaeological site?",
     "enumeration": "4"
    },
-   "solution": "RUIN"
+   "solution": "RUIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RUIN",
+    "definitions": [
+     {
+      "text": "archaeological site?",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tour of",
+      "for": "container",
+      "note": "a tour goes all the way round something, so one word wraps around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Make hasty",
+      "gives": "RUN",
+      "note": "to make haste is to run"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "I",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Rushing round a dig on a quick sightseeing trip.",
+     "walkthrough": "The question mark admits that ruins are an example of a site rather than a synonym.",
+     "definitionFit": "Ancient remains such as a ruined temple are typical places archaeologists excavate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tour"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +515,55 @@
     "text": "Peer round in store",
     "enumeration": "5"
    },
-   "solution": "BARON"
+   "solution": "BARON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BARON",
+    "definitions": [
+     {
+      "text": "Peer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "store",
+      "gives": "BARN",
+      "note": "a barn is a farm store"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "O is round in shape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "O",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone looks around inside a shop.",
+     "walkthrough": "'Peer' looks like the verb to look closely; it is the noun for a nobleman.",
+     "definitionFit": "A baron is the lowest rank of the British peerage, so he is a noble member of the Lords."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Peer"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +583,50 @@
      }
     ]
    },
-   "solution": "KISSHANDS"
+   "solution": "KISSHANDS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KISS HANDS",
+    "definitions": [
+     {
+      "text": "as some may on entering office",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Show love",
+      "gives": "KISS",
+      "note": "a kiss shows affection"
+     },
+     {
+      "clueFragment": "workers",
+      "gives": "HANDS",
+      "note": "hands are manual workers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KISS",
+      "HANDS"
+     ]
+    },
+    "explanation": {
+     "surface": "A boss is affectionate towards staff, as a new manager might be on their first day.",
+     "walkthrough": "In Britain, new ministers formally kiss hands with the monarch when taking office.",
+     "definitionFit": "Kissing the sovereign's hand is the ceremony by which UK prime ministers and ministers accept appointment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "office"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +640,70 @@
     "text": "Nothing in key signature at first for singers",
     "enumeration": "5"
    },
-   "solution": "ALTOS"
+   "solution": "ALTOS",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "ALTOS",
+    "definitions": [
+     {
+      "text": "singers",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is placed inside it"
+     },
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of the word just before"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "key",
+      "gives": "ALT",
+      "note": "the Alt key on a computer keyboard"
+     },
+     {
+      "clueFragment": "signature",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of signature"
+     },
+     {
+      "clueFragment": "Nothing",
+      "gives": "O",
+      "note": "zero, shaped like the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALT",
+      "O",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A musical score lacking a key signature at the start, meant for a choir.",
+     "walkthrough": "'Key signature' reads as a single musical term, but the words split: a keyboard key, then the opening letter of signature.",
+     "definitionFit": "Altos sing the lower female or high male voice part in a choir."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +723,69 @@
      }
     ]
    },
-   "solution": "PARTIPRIS"
+   "solution": "PARTIPRIS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PARTI PRIS",
+    "definitions": [
+     {
+      "text": "Preconceived view",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "special",
+      "for": "anagram",
+      "note": "a special version of something is made differently, so these letters are rearranged"
+     },
+     {
+      "text": "through",
+      "for": "container",
+      "note": "going through something means being inside it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trip",
+      "gives": "TRIP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "capital",
+      "gives": "PARIS",
+      "note": "the capital of France"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "TIPR",
+      "IS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRIP",
+       "gives": "TIPR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A preconception about a special journey across a capital city.",
+     "definitionFit": "A parti pris, French for 'side taken', is a prejudice or opinion formed in advance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "special"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +799,75 @@
     "text": "Claudio always on time through two days and one more",
     "enumeration": "10"
    },
-   "solution": "MONTEVERDI"
+   "solution": "MONTEVERDI",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MONTEVERDI",
+    "definitions": [
+     {
+      "text": "Claudio",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue one thing on another follows it"
+     },
+     {
+      "text": "through",
+      "for": "container",
+      "note": "something passing through another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two days",
+      "gives": "MOND",
+      "note": "Monday is MON and day is D, the first of the pair split round the rest"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "EVER",
+      "note": "ever means always"
+     },
+     {
+      "clueFragment": "one more",
+      "gives": "I",
+      "note": "the Roman numeral for one, added on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MON",
+      "TEVER",
+      "D",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Claudio is always punctual over a two-day stretch, and one more day after.",
+     "walkthrough": "Claudio sounds like any man's name; it is the composer's first name.",
+     "definitionFit": "Claudio Monteverdi was the Italian composer of early opera such as Orfeo."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Claudio"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +881,43 @@
     "text": "Cross, missing most of bank holiday",
     "enumeration": "4"
    },
-   "solution": "ANKH"
+   "solution": "ANKH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ANKH",
+    "definitions": [
+     {
+      "text": "Cross",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing most of",
+      "for": "hidden_word",
+      "note": "most of the phrase that follows is left out, so only a short run of its letters is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bank holiday",
+      "gives": "ANKH",
+      "note": "the run straddling the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone grumpy at losing most of a public holiday.",
+     "walkthrough": "'Cross' looks like the adjective for annoyed; it is the noun.",
+     "definitionFit": "An ankh is the Egyptian looped cross, a symbol of life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cross"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +931,60 @@
     "text": "General dropping on unprecedented bulletin",
     "enumeration": "10"
    },
-   "solution": "COMMUNIQUE"
+   "solution": "COMMUNIQUE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "COMMUNIQUE",
+    "definitions": [
+     {
+      "text": "bulletin",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropping",
+      "for": "deletion",
+      "note": "dropping something lets it fall away and leaves the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "General",
+      "gives": "COMMON",
+      "note": "general, shared by all"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written, the part removed"
+     },
+     {
+      "clueFragment": "unprecedented",
+      "gives": "UNIQUE",
+      "note": "never seen before"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COMM",
+      "UNIQUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A general drops leaflets over enemy lines in an unprecedented propaganda drive.",
+     "walkthrough": "'General' looks like an army officer; it is the adjective meaning widespread.",
+     "definitionFit": "A communiqué is an official announcement or statement issued to the press."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "General"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +998,69 @@
     "text": "A white child of the upper classes is left behind",
     "enumeration": "7"
    },
-   "solution": "CHABLIS"
+   "solution": "CHABLIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHABLIS",
+    "definitions": [
+     {
+      "text": "A white",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "being behind something means coming after it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "child",
+      "gives": "CH",
+      "note": "ch. is the abbreviation for child"
+     },
+     {
+      "clueFragment": "the upper classes",
+      "gives": "AB",
+      "note": "A and B are the top social grades in British market research"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "AB",
+      "L",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "A pale-skinned posh child is abandoned.",
+     "walkthrough": "In UK marketing, social grades A and B are the upper and middle classes. 'A white' is not a person but a white wine.",
+     "definitionFit": "Chablis is a dry white wine from Burgundy, so it is one example of a white."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "white"
+    }
+   }
   },
   {
    "number": 14,
@@ -279,7 +1084,49 @@
      }
     ]
    },
-   "solution": "CAPINHAND"
+   "solution": "CAPINHAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAP IN HAND",
+    "definitions": [
+     {
+      "text": "humbly",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Better",
+      "gives": "CAP",
+      "note": "to cap is to better or outdo"
+     },
+     {
+      "clueFragment": "being dealt",
+      "gives": "INHAND",
+      "note": "a matter in hand is being dealt with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAP",
+      "INHAND"
+     ]
+    },
+    "explanation": {
+     "surface": "Being dealt a better card in a game, and accepting it modestly.",
+     "definitionFit": "Going with your hat in your hands is to approach someone deferentially, as in begging."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dealt"
+    }
+   }
   },
   {
    "number": 15,
@@ -293,7 +1140,66 @@
     "text": "Irish girl in hospital in Bosnia with convulsions",
     "enumeration": "7"
    },
-   "solution": "SIOBHAN"
+   "solution": "SIOBHAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SIOBHAN",
+    "definitions": [
+     {
+      "text": "Irish girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with convulsions",
+      "for": "anagram",
+      "note": "convulsions are violent jerks, so these letters are thrown into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bosnia",
+      "gives": "BOSNIA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the map abbreviation for hospital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIOB",
+      "H",
+      "AN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BOSNIA",
+       "gives": "SIOBAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Irish girl lies in a Bosnian hospital having fits.",
+     "definitionFit": "Siobhan is a common Irish female first name, the Gaelic form of Joan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "convulsions"
+    }
+   }
   },
   {
    "number": 16,
@@ -313,7 +1219,55 @@
      }
     ]
    },
-   "solution": "HEROICAGE"
+   "solution": "HEROICAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEROIC AGE",
+    "definitions": [
+     {
+      "text": "mythical time",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "sent to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hercules, say",
+      "gives": "HERO",
+      "note": "Hercules is an example of a hero"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "prison",
+      "gives": "CAGE",
+      "note": "a cage confines like a prison"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HERO",
+      "I",
+      "CAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Hercules being jailed in some legendary era.",
+     "definitionFit": "The heroic age is the legendary period of Greek myth when demigods like Hercules lived."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sent"
+    }
+   }
   },
   {
    "number": 17,
@@ -327,7 +1281,59 @@
     "text": "They strum quietly before tragic heroine executed",
     "enumeration": "7"
    },
-   "solution": "PLECTRA"
+   "solution": "PLECTRA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "PLECTRA",
+    "definitions": [
+     {
+      "text": "They strum",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "one thing before another comes first in the answer"
+     },
+     {
+      "text": "executed",
+      "for": "deletion",
+      "note": "execution takes off the head, so the first letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p, piano, is the musical mark for quiet"
+     },
+     {
+      "clueFragment": "tragic heroine",
+      "gives": "ELECTRA",
+      "note": "Electra is the Greek tragic heroine who avenged her father"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LECTRA"
+     ]
+    },
+    "explanation": {
+     "surface": "Musicians play softly before a heroine of tragedy is put to death.",
+     "definitionFit": "Plectra, plural of plectrum, are picks used to pluck guitar strings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "executed"
+    }
+   }
   },
   {
    "number": 18,
@@ -351,7 +1357,46 @@
      }
     ]
    },
-   "solution": "ABUMRAP"
+   "solution": "ABUMRAP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "A BUM RAP",
+    "definitions": [
+     {
+      "text": "A smack on the bottom",
+      "at": 0
+     },
+     {
+      "text": "false charge",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A smack on the bottom",
+      "note": "first meaning taken literally: a slap to the backside"
+     },
+     {
+      "clueFragment": "false charge",
+      "note": "second meaning: an unjust accusation, as in American slang"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Bum is British for backside, so read literally the answer is a slap there; as an idiom it is a wrongful accusation.",
+     "definitionFit": "The idiom means being blamed or convicted unfairly, while its words literally describe a slap on the behind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 19,
@@ -365,7 +1410,62 @@
     "text": "Army section sound busy – I agree to return",
     "enumeration": "7"
    },
-   "solution": "HUMERUS"
+   "solution": "HUMERUS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "HUMERUS",
+    "definitions": [
+     {
+      "text": "Army section",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to return",
+      "for": "reversal",
+      "note": "returning means going back, so the words are read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sound busy",
+      "gives": "HUM",
+      "note": "a busy place or bee hums"
+     },
+     {
+      "clueFragment": "I agree",
+      "gives": "SURE",
+      "note": "sure! means I agree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HUM",
+      "ERUS"
+     ],
+     "reversals": [
+      {
+       "from": "SURE",
+       "to": "ERUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A military unit makes a racket and someone agrees to go back.",
+     "walkthrough": "'Army' means military but is read as arm-y: a section of the arm.",
+     "definitionFit": "The humerus is the long bone of the upper arm, so it is a part of an arm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Army"
+    }
+   }
   },
   {
    "number": 19,
@@ -385,7 +1485,50 @@
      }
     ]
    },
-   "solution": "HOTDATE"
+   "solution": "HOTDATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HOT DATE",
+    "definitions": [
+     {
+      "text": "potentially exciting meeting",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "change",
+      "for": "anagram",
+      "note": "to change something is to alter its form, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hated to",
+      "gives": "HATEDTO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HATEDTO",
+       "gives": "HOTDATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone loathed the idea of altering what might be a thrilling appointment.",
+     "definitionFit": "A hot date is a romantic outing with an attractive person, promising excitement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hated"
+    }
+   }
   },
   {
    "number": 20,
@@ -399,7 +1542,42 @@
     "text": "Apparently noisy food",
     "enumeration": "4"
    },
-   "solution": "NOSH"
+   "solution": "NOSH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOSH",
+    "definitions": [
+     {
+      "text": "food",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Apparently noisy",
+      "gives": "NOSH",
+      "note": "with no call for silence (sh) a place is noisy, read as two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOSH"
+     ]
+    },
+    "explanation": {
+     "surface": "A dish that seems loud.",
+     "walkthrough": "Split it as NO SH: where nobody says 'sh', things are evidently noisy.",
+     "definitionFit": "Nosh is informal British slang for grub or a meal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "noisy"
+    }
+   }
   },
   {
    "number": 21,
@@ -413,7 +1591,59 @@
     "text": "Ancient wood and a little metal in old instrument",
     "enumeration": "5"
    },
-   "solution": "SHAWM"
+   "solution": "SHAWM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SHAWM",
+    "definitions": [
+     {
+      "text": "old instrument",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a little",
+      "for": "letter_selection",
+      "note": "a little of a word is just a small piece of it, here its first letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ancient wood",
+      "gives": "SHAW",
+      "note": "shaw is an archaic word for a thicket or small wood"
+     },
+     {
+      "clueFragment": "metal",
+      "gives": "M",
+      "select": "first",
+      "note": "the opening letter of metal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHAW",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "An antique woodwind instrument with some metal fittings.",
+     "walkthrough": "'Wood' suggests woodwind, fitting the surface, but it is a stand of trees.",
+     "definitionFit": "The shawm is a medieval double-reed woodwind, ancestor of the oboe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wood"
+    }
+   }
   },
   {
    "number": 22,
@@ -437,7 +1667,50 @@
      }
     ]
    },
-   "solution": "JUSTINTIME"
+   "solution": "JUSTINTIME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JUST IN TIME",
+    "definitions": [
+     {
+      "text": "not a moment too soon",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Archbishop",
+      "gives": "JUSTIN",
+      "note": "Justin Welby, former Archbishop of Canterbury"
+     },
+     {
+      "clueFragment": "porridge",
+      "gives": "TIME",
+      "note": "porridge is British slang for a prison sentence, doing time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JUSTIN",
+      "TIME"
+     ]
+    },
+    "explanation": {
+     "surface": "A churchman served a breakfast of oats.",
+     "walkthrough": "Porridge is British slang for time spent in prison, from the sitcom of that name.",
+     "definitionFit": "Just in time means arriving at the last possible moment, as is also the clue's phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "porridge"
+    }
+   }
   },
   {
    "number": 23,
@@ -451,7 +1724,55 @@
     "text": "Making a stand, wife deserts sly type",
     "enumeration": "5"
    },
-   "solution": "EASEL"
+   "solution": "EASEL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EASEL",
+    "definitions": [
+     {
+      "text": "a stand",
+      "at": 7
+     }
+    ],
+    "indicators": [
+     {
+      "text": "deserts",
+      "for": "deletion",
+      "note": "one who deserts leaves, so that letter goes missing"
+     }
+    ],
+    "linkWords": [
+     "Making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     },
+     {
+      "clueFragment": "sly type",
+      "gives": "WEASEL",
+      "note": "a weasel is a sly, sneaky person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EASEL"
+     ]
+    },
+    "explanation": {
+     "surface": "A wife takes a stand and walks out on her sly partner.",
+     "definitionFit": "An easel is a frame or stand holding a painting or board upright."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stand"
+    }
+   }
   },
   {
    "number": 24,
@@ -465,7 +1786,50 @@
     "text": "Cliff is no end frightening",
     "enumeration": "4"
    },
-   "solution": "SCAR"
+   "solution": "SCAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SCAR",
+    "definitions": [
+     {
+      "text": "Cliff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no end",
+      "for": "deletion",
+      "note": "with no end the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "frightening",
+      "gives": "SCARY",
+      "note": "frightening means scary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A precipice that is endlessly terrifying.",
+     "walkthrough": "'Cliff' could be a man's name; it is a rocky face.",
+     "definitionFit": "A scar is a steep rocky outcrop or cliff on a hillside, especially in northern England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -479,7 +1843,39 @@
     "text": "It stumps our cousin: he did you?",
     "enumeration": "9"
    },
-   "solution": "ARAUCARIA"
+   "solution": "ARAUCARIA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ARAUCARIA",
+    "definitions": [
+     {
+      "text": "It stumps our cousin: he did you?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It stumps our cousin",
+      "note": "surface: something that baffles a relative; setter's reading: a tree that puzzles a monkey, our primate cousin"
+     },
+     {
+      "clueFragment": "he did you?",
+      "note": "setter's second reading: a man who puzzled solvers, the famous Guardian setter of this pen-name"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The tree's common name is monkey puzzle, so it stumps a monkey; the same name was used by John Graham, the much-loved Guardian setter, who baffled readers.",
+     "definitionFit": "Araucaria is the botanical genus of the monkey puzzle tree and the pseudonym of a famous Guardian compiler."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stumps"
+    }
+   }
   },
   {
    "number": 26,
@@ -493,7 +1889,42 @@
     "text": "Courts large family all at once",
     "enumeration": "5"
    },
-   "solution": "QUADS"
+   "solution": "QUADS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "QUADS",
+    "definitions": [
+     {
+      "text": "Courts",
+      "at": 0
+     },
+     {
+      "text": "large family all at once",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Courts",
+      "note": "first meaning: quadrangles, college courtyards"
+     },
+     {
+      "clueFragment": "large family all at once",
+      "note": "second meaning: quadruplets, four children born together"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Courts' suggests law courts or wooing, but it is courtyards.",
+     "definitionFit": "The short form stands both for quadrangles enclosed by buildings and for quadruplets born at one birth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Courts"
+    }
+   }
   },
   {
    "number": 27,
@@ -507,7 +1938,47 @@
     "text": "Not quite sober, show dissent",
     "enumeration": "5"
    },
-   "solution": "DEMUR"
+   "solution": "DEMUR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DEMUR",
+    "definitions": [
+     {
+      "text": "show dissent",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not quite",
+      "for": "deletion",
+      "note": "not quite all of a word means its last letter is cut"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sober",
+      "gives": "DEMURE",
+      "note": "demure means sober and modest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEMUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker, a little tipsy, protests.",
+     "definitionFit": "To demur is to raise an objection or express reluctance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sober"
+    }
+   }
   },
   {
    "number": 28,
@@ -521,7 +1992,50 @@
     "text": "Sandwich and more substantial fare, a bit at a time",
     "enumeration": "9"
    },
-   "solution": "PIECEMEAL"
+   "solution": "PIECEMEAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PIECEMEAL",
+    "definitions": [
+     {
+      "text": "a bit at a time",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sandwich",
+      "gives": "PIECE",
+      "note": "piece is Scottish and northern English for a sandwich"
+     },
+     {
+      "clueFragment": "more substantial fare",
+      "gives": "MEAL",
+      "note": "a full meal is bigger than a snack"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIECE",
+      "MEAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Eating a snack and then a full dinner, gradually.",
+     "walkthrough": "In Scotland a piece is a sandwich or packed lunch.",
+     "definitionFit": "Piecemeal means done gradually, in stages rather than all together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sandwich"
+    }
+   }
   }
  ]
 }
