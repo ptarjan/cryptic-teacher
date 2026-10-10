@@ -38,6 +38,9 @@
   "date": "2019-12-22",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -50,7 +53,50 @@
    "clue": {
     "text": "Where things are fitted together, boss helps Amy getting sorted out (12, two words)"
    },
-   "solution": "ASSEMBLYSHOP"
+   "solution": "ASSEMBLYSHOP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASSEMBLYSHOP",
+    "definitions": [
+     {
+      "text": "Where things are fitted together",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting sorted out",
+      "for": "anagram",
+      "note": "things being sorted out are put into a new order, so the letters before it are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boss helps Amy",
+      "gives": "BOSSHELPSAMY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BOSSHELPSAMY",
+       "gives": "ASSEMBLYSHOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A workplace where the manager pitches in to help a worker called Amy get organised.",
+     "definitionFit": "An assembly shop is the part of a factory where components are put together into finished products."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "boss"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +110,58 @@
     "text": "Sidewalks fringing legendary mount and woodland shrub",
     "enumeration": "10"
    },
-   "solution": "PARKLEAVES"
+   "solution": "PARKLEAVES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PARKLEAVES",
+    "definitions": [
+     {
+      "text": "woodland shrub",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fringing",
+      "for": "container",
+      "note": "a fringe runs round the edge of something, so one word surrounds the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sidewalks",
+      "gives": "PAVES",
+      "note": "paves taken as pavements, the pedestrian walkways beside a road"
+     },
+     {
+      "clueFragment": "legendary mount",
+      "gives": "ARKLE",
+      "note": "Arkle was a celebrated Irish steeplechaser of the 1960s"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ARKLE",
+      "AVES"
+     ]
+    },
+    "explanation": {
+     "surface": "Pavements bordering a statue of some famous horse, with some shrubbery nearby.",
+     "walkthrough": "Arkle, the legendary racehorse, sits inside PAVES after its first letter.",
+     "definitionFit": "Park-leaves is a name for tutsan, a St John's wort shrub that grows in woods and hedgerows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mount"
+    }
+   }
   },
   {
    "number": 2,
@@ -78,7 +175,62 @@
     "text": "Bit of butter on some bread cut for scout",
     "enumeration": "6"
    },
-   "solution": "PATROL"
+   "solution": "PATROL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "PATROL",
+    "definitions": [
+     {
+      "text": "scout",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "something cut is trimmed short, so the bread word loses its final letter"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue one thing on another sits above it, so this piece is written first"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bit of butter",
+      "gives": "PAT",
+      "note": "a pat is a small shaped piece of butter"
+     },
+     {
+      "clueFragment": "some bread",
+      "gives": "ROLL",
+      "note": "a roll is a small loaf of bread"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAT",
+      "ROL"
+     ]
+    },
+    "explanation": {
+     "surface": "A breakfast instruction to put a dab of butter on a bit of trimmed bread for a young scout.",
+     "definitionFit": "To scout is to reconnoitre, and a patrol goes out to do exactly that, so the verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scout"
+    }
+   }
   },
   {
    "number": 3,
@@ -91,7 +243,62 @@
    "clue": {
     "text": "Contrarily heading for exposure in pergolas? (8, two words)"
    },
-   "solution": "AREBOURS"
+   "solution": "AREBOURS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AREBOURS",
+    "definitions": [
+     {
+      "text": "Contrarily",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading for",
+      "for": "letter_selection",
+      "note": "the heading of a word is its opening letter, so only that is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the word that follows it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pergolas",
+      "gives": "ARBOURS",
+      "note": "arbours are leafy garden shelters much like pergolas"
+     },
+     {
+      "clueFragment": "exposure",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter of exposure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "E",
+      "BOURS"
+     ]
+    },
+    "explanation": {
+     "surface": "Perversely aiming to sunbathe inside garden pergolas.",
+     "walkthrough": "A rebours is a French phrase taken into English; the question mark flags pergolas as an example of the garden shelters meant.",
+     "definitionFit": "A rebours means against the grain or the wrong way round, which is acting contrarily."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exposure"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +312,54 @@
     "text": "Traveller from Indonesia going round ME sultanate",
     "enumeration": "6"
    },
-   "solution": "ROMANI"
+   "solution": "ROMANI",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ROMANI",
+    "definitions": [
+     {
+      "text": "Traveller",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going round",
+      "for": "container",
+      "note": "going round something encircles it, so the first piece wraps the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Indonesia",
+      "gives": "RI",
+      "note": "RI is the international vehicle code for the Republic of Indonesia"
+     },
+     {
+      "clueFragment": "ME sultanate",
+      "gives": "OMAN",
+      "note": "Oman is a sultanate in the Middle East, ME"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "OMAN",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A voyager from Indonesia touring an Arabian sultanate.",
+     "definitionFit": "Romani people are the Roma, historically a travelling people, and the word also names a member of that group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Traveller"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +373,66 @@
     "text": "Titled chap holding everything up, an idle fellow",
     "enumeration": "7"
    },
-   "solution": "LOLLARD"
+   "solution": "LOLLARD",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "LOLLARD",
+    "definitions": [
+     {
+      "text": "an idle fellow",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue going up means reading from the bottom, so the word is turned backwards"
+     },
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding something keeps it inside, so one word encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Titled chap",
+      "gives": "LORD",
+      "note": "a lord is a man with a title"
+     },
+     {
+      "clueFragment": "everything",
+      "gives": "ALL",
+      "note": "all means everything"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "LLA",
+      "RD"
+     ],
+     "reversals": [
+      {
+       "from": "ALL",
+       "to": "LLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nobleman supporting the whole lot, though he is a layabout.",
+     "definitionFit": "Chambers records lollard as a variant of loller, an idler, alongside its sense of a follower of Wycliffe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "holding"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +446,66 @@
     "text": "Snake climbing, right inside tree",
     "enumeration": "5"
    },
-   "solution": "ARGAN"
+   "solution": "ARGAN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ARGAN",
+    "definitions": [
+     {
+      "text": "tree",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "climbing in a down clue goes from bottom to top, so the word is read backwards"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside puts one piece within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Snake",
+      "gives": "NAGA",
+      "note": "a naga is a snake, especially a cobra in Indian myth"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "GAN"
+     ],
+     "reversals": [
+      {
+       "from": "NAGA",
+       "to": "AGAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snake slithers up a tree, right into its branches.",
+     "definitionFit": "The argan is a Moroccan tree whose kernels yield argan oil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Snake"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +519,51 @@
     "text": "Go left for The Falconers' Band",
     "enumeration": "6"
    },
-   "solution": "VERVEL"
+   "solution": "VERVEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VERVEL",
+    "definitions": [
+     {
+      "text": "The Falconers' Band",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go",
+      "gives": "VERVE",
+      "note": "go in the sense of energy and dash"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VERVE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to leave, as if heading off to see a band called The Falconers.",
+     "walkthrough": "The capitals make The Falconers' Band look like a music group; it is a ring on a hawk's leg.",
+     "definitionFit": "A vervel is a small ring fixed to a hawk's leg, bearing the owner's name, used in falconry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Band"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +577,43 @@
     "text": "Diet no longer, getting stuck into Easter venison",
     "enumeration": "6"
    },
-   "solution": "STERVE"
+   "solution": "STERVE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "STERVE",
+    "definitions": [
+     {
+      "text": "Diet no longer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting stuck into",
+      "for": "hidden_word",
+      "note": "something stuck into a phrase is buried inside it, so the letters are found running within those words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Easter venison",
+      "gives": "STERVE",
+      "note": "the run of letters inside these two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Abandoning a diet to tuck into venison at Easter.",
+     "walkthrough": "No longer marks an obsolete word: sterve is an old form of starve.",
+     "definitionFit": "Sterve is an archaic spelling of starve, going without food, an extreme kind of dieting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stuck"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +627,55 @@
     "text": "Opposed to team bar? Careful thought formerly required",
     "enumeration": "12"
    },
-   "solution": "CONSIDERANCE"
+   "solution": "CONSIDERANCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONSIDERANCE",
+    "definitions": [
+     {
+      "text": "Careful thought formerly",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "required"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Opposed",
+      "gives": "CON",
+      "note": "con means against, as in pros and cons"
+     },
+     {
+      "clueFragment": "team",
+      "gives": "SIDE",
+      "note": "a side is a team"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "RANCE",
+      "note": "rance is a Scots word for a bar or prop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "SIDE",
+      "RANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A query about whether one is against having a team bar, which needs some reflection.",
+     "definitionFit": "Considerance is an obsolete word for consideration, careful reflection on a matter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +689,66 @@
     "text": "E.g a this, when played … does raga perhaps",
     "enumeration": "5"
    },
-   "solution": "SAROD"
+   "solution": "SAROD",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "and_lit"
+    ],
+    "answer": "SAROD",
+    "definitions": [
+     {
+      "text": "E.g a this, when played … does raga perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when played",
+      "for": "anagram",
+      "note": "an instrument when played produces something new, so these combined letters are rearranged into the phrase that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "E.g",
+      "gives": "EG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "does raga",
+      "gives": "DOESRAGA",
+      "note": "taken as written, the full set of letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAROD"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DOESRAGA",
+       "gives": "SARODEGA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician's note that this instrument, when played, performs a raga, for example.",
+     "walkthrough": "A composite anagram: this stands for the answer, and the answer plus E.G. A rearranges into DOES RAGA. Take EGA away from those letters and SAROD is left.",
+     "definitionFit": "The sarod is a fretless lute of Indian classical music, the kind of instrument on which a raga is played."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "played"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +762,57 @@
     "text": "All ready (one assumes) for anti-mozzy stuff",
     "enumeration": "4"
    },
-   "solution": "DEET"
+   "solution": "DEET",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "DEET",
+    "definitions": [
+     {
+      "text": "anti-mozzy stuff",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "(one assumes)",
+      "for": "reversal",
+      "note": "the setter supplies no direction word, so solvers must assume the down entry is read upwards from the bottom"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "All ready",
+      "gives": "TEED",
+      "note": "teed up, as a golf ball placed ready to strike"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEET"
+     ],
+     "reversals": [
+      {
+       "from": "TEED",
+       "to": "DEET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Everything prepared, it seems, for repelling mosquitoes.",
+     "walkthrough": "Mozzy is Australian and British slang for a mosquito.",
+     "definitionFit": "DEET is the standard chemical insect repellent used against mosquitoes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ready"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +826,48 @@
     "text": "Take against second half of spread",
     "enumeration": "5"
    },
-   "solution": "RECTO"
+   "solution": "RECTO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RECTO",
+    "definitions": [
+     {
+      "text": "second half of spread",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Take",
+      "gives": "REC",
+      "note": "rec. abbreviates recipe, the Latin for take used on prescriptions"
+     },
+     {
+      "clueFragment": "against",
+      "gives": "TO",
+      "note": "to in the sense of against, as in pressed ear to wall"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REC",
+      "TO"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to oppose the latter part of some spread, perhaps of food.",
+     "walkthrough": "Spread here is two facing pages of an open book, not food.",
+     "definitionFit": "A recto is the right-hand page of an open book, so it forms the second half of a two-page spread."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spread"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +881,51 @@
     "text": "Timber support back to front in places of worship",
     "enumeration": "7"
    },
-   "solution": "STEMPLE"
+   "solution": "STEMPLE",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "STEMPLE",
+    "definitions": [
+     {
+      "text": "Timber support",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back to front",
+      "for": "cycling",
+      "note": "back to front here means the rear letter is carried round to the front"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "places of worship",
+      "gives": "TEMPLES",
+      "note": "temples are places of worship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TEMPLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A wooden beam fitted the wrong way round in a church.",
+     "definitionFit": "A stemple is a crossbeam of timber used as a support or step in a mine shaft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +939,45 @@
     "text": "Meagre encouragement – only a bit of it – making one sick-looking",
     "enumeration": "5"
    },
-   "solution": "GREEN"
+   "solution": "GREEN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GREEN",
+    "definitions": [
+     {
+      "text": "sick-looking",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "only a bit of it",
+      "for": "hidden_word",
+      "note": "only a bit of the phrase is used, so the letters lie within its words"
+     }
+    ],
+    "linkWords": [
+     "making one"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Meagre encouragement",
+      "gives": "GREEN",
+      "note": "the run of letters spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Faint praise, even a little of it, leaves one feeling queasy.",
+     "definitionFit": "Green describes the pale, nauseous complexion of someone about to be ill."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sick-looking"
+    }
+   }
   },
   {
    "number": 15,
@@ -259,7 +991,42 @@
     "text": "Instruments for cutting clinging weed",
     "enumeration": "8"
    },
-   "solution": "CLEAVERS"
+   "solution": "CLEAVERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CLEAVERS",
+    "definitions": [
+     {
+      "text": "Instruments for cutting",
+      "at": 0
+     },
+     {
+      "text": "clinging weed",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Instruments for cutting",
+      "note": "first meaning: heavy butchers' choppers"
+     },
+     {
+      "clueFragment": "clinging weed",
+      "note": "second meaning: goosegrass, a sticky hedgerow plant"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second meaning is a weed whose hooked bristles cling to clothing.",
+     "definitionFit": "Butchers' choppers are cleavers, and the plant goosegrass is also called cleavers because it cleaves, or sticks, to things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clinging"
+    }
+   }
   },
   {
    "number": 16,
@@ -272,7 +1039,66 @@
    "clue": {
     "text": "Nocturnal mammal ran amok in former meeting-place (7, two words)"
    },
-   "solution": "MOONRAT"
+   "solution": "MOONRAT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MOONRAT",
+    "definitions": [
+     {
+      "text": "Nocturnal mammal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "amok",
+      "for": "anagram",
+      "note": "running amok is wild and disordered movement, so the letters are scrambled"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the scrambled letters within the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former meeting-place",
+      "gives": "MOOT",
+      "note": "a moot was an assembly or meeting place in Anglo-Saxon England"
+     },
+     {
+      "clueFragment": "ran",
+      "gives": "RAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOO",
+      "NRA",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAN",
+       "gives": "NRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A night creature went berserk in an old assembly hall.",
+     "definitionFit": "The moonrat is a Southeast Asian gymnure, a hedgehog relative that forages at night."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ran"
+    }
+   }
   },
   {
    "number": 17,
@@ -286,7 +1112,66 @@
     "text": "I'm anything but grand – with hole in it the pantie needs mending",
     "enumeration": "8"
    },
-   "solution": "PIANETTE"
+   "solution": "PIANETTE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "PIANETTE",
+    "definitions": [
+     {
+      "text": "I'm anything but grand",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with hole in it",
+      "for": "deletion",
+      "note": "a hole in the middle of a word means its centre letter is missing"
+     },
+     {
+      "text": "needs mending",
+      "for": "anagram",
+      "note": "something that needs mending is broken, so its letters must be put back together differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "TE",
+      "note": "the with its middle letter gone"
+     },
+     {
+      "clueFragment": "pantie",
+      "gives": "PANTIE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIANETTE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEPANTIE",
+       "gives": "PIANETTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shabby pair of knickers with a hole in them needing repair.",
+     "walkthrough": "Grand is a grand piano; the answer speaks as a small piano.",
+     "definitionFit": "A pianette is a small upright piano, about as far from a concert grand as a piano gets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "grand"
+    }
+   }
   },
   {
    "number": 18,
@@ -300,7 +1185,62 @@
     "text": "Macbeth's recurrent theme? His heart leads us into drama initially",
     "enumeration": "5"
    },
-   "solution": "BLUID"
+   "solution": "BLUID",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BLUID",
+    "definitions": [
+     {
+      "text": "Macbeth's recurrent theme?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "His heart",
+      "for": "letter_selection",
+      "note": "his refers back to the Scottish king, and his heart is the central letter of that name"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means the opening letter of each of the following words is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Macbeth",
+      "gives": "B",
+      "select": "middle",
+      "note": "the central letter of the seven-letter name"
+     },
+     {
+      "clueFragment": "leads us into drama",
+      "gives": "LUID",
+      "select": "first",
+      "note": "first letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LUID"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about the theme that keeps returning in Shakespeare's Scottish play.",
+     "walkthrough": "BLUID is Scots for blood, fitting the Scottish king's play, where blood recurs in image after image.",
+     "definitionFit": "Blood is the recurring image of Macbeth, and bluid is the Scots spelling, apt for a Scottish tragedy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "leads"
+    }
+   }
   },
   {
    "number": 19,
@@ -314,7 +1254,52 @@
     "text": "Recline where one often does? It's declared to be false",
     "enumeration": "6"
    },
-   "solution": "BELIED"
+   "solution": "BELIED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BELIED",
+    "definitions": [
+     {
+      "text": "declared to be false",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "where one often does",
+      "gives": "BED",
+      "note": "a bed is where one usually lies down"
+     },
+     {
+      "clueFragment": "Recline",
+      "gives": "LIE",
+      "note": "to lie is to recline"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "LIE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A riddle about lying down, then a statement that something is untrue.",
+     "walkthrough": "No word signals the insertion: where one often reclines is in bed, so the setter leaves the solver to put one inside the other.",
+     "definitionFit": "Belied means shown or represented as untrue, contradicted, close to being pronounced false."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Recline"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1312,48 @@
    "clue": {
     "text": "Bash maybe to flog tickets at inflated prices (7, two words)"
    },
-   "solution": "BEATOUT"
+   "solution": "BEATOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEATOUT",
+    "definitions": [
+     {
+      "text": "Bash maybe",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "BE",
+      "note": "the infinitive to signals the verb be"
+     },
+     {
+      "clueFragment": "flog tickets at inflated prices",
+      "gives": "ATOUT",
+      "note": "a tout resells tickets at a mark-up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "ATOUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A party, perhaps, where someone sells overpriced tickets.",
+     "walkthrough": "A tout is a British word for a ticket scalper; to do the job is to be a tout. Bash is a verb here, not a party.",
+     "definitionFit": "To bash something out is to hammer it out, and beat out is the same, so bash is an example of beating out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bash"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1367,67 @@
     "text": "Youngster devouring red bananas stuffed with bacon?",
     "enumeration": "6"
    },
-   "solution": "LARDED"
+   "solution": "LARDED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LARDED",
+    "definitions": [
+     {
+      "text": "stuffed with bacon?",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bananas",
+      "for": "anagram",
+      "note": "bananas is slang for crazy, so these letters go wild and are rearranged"
+     },
+     {
+      "text": "devouring",
+      "for": "container",
+      "note": "devouring takes something inside, so one piece swallows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Youngster",
+      "gives": "LAD",
+      "note": "a lad is a boy"
+     },
+     {
+      "clueFragment": "red",
+      "gives": "RED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "RDE",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RED",
+       "gives": "RDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boy wolfing down red bananas filled with bacon.",
+     "definitionFit": "Larding meat means threading it with strips of bacon fat, so larded meat is stuffed with bacon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "bananas"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1441,65 @@
     "text": "Noun phrase: shortened form of it occurs in a peculiar talk",
     "enumeration": "6"
    },
-   "solution": "ACTANT"
+   "solution": "ACTANT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ACTANT",
+    "definitions": [
+     {
+      "text": "Noun phrase",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortened form of",
+      "for": "deletion",
+      "note": "a shortened form loses part of the word, here its first letter, as in poetic contraction"
+     },
+     {
+      "text": "occurs in",
+      "for": "container",
+      "note": "occurs in means appears within the next phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "peculiar talk",
+      "gives": "CANT",
+      "note": "cant is the jargon peculiar to a group"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "T",
+      "note": "it shortened to 't, as in 'twas"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "T",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A grammar note about where an abbreviation turns up in odd speech.",
+     "definitionFit": "In linguistics an actant is a noun phrase that takes part in the action expressed by a verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "peculiar"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1513,61 @@
     "text": "Repugnance I displayed in endless deference",
     "enumeration": "6"
    },
-   "solution": "DEGOUT"
+   "solution": "DEGOUT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "DEGOUT",
+    "definitions": [
+     {
+      "text": "Repugnance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "endless means the final letter is cut off"
+     },
+     {
+      "text": "displayed in",
+      "for": "container",
+      "note": "displayed in places one thing on show inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deference",
+      "gives": "DUTY",
+      "note": "duty is respect owed, deference"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "EGO",
+      "note": "the ego is the I, the self"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "EGO",
+      "UT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone showing distaste through constant, excessive respect.",
+     "walkthrough": "DÉGOÛT is a French word for disgust used in English.",
+     "definitionFit": "Degout is distaste or disgust, a near synonym of repugnance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "I"
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1581,57 @@
     "text": "Green mineral: it's taken from mine to level",
     "enumeration": "5"
    },
-   "solution": "PRASE"
+   "solution": "PRASE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "PRASE",
+    "definitions": [
+     {
+      "text": "Green mineral",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "it's taken from",
+      "for": "deletion",
+      "note": "taken from removes the word it from the following word"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mine",
+      "gives": "PIT",
+      "note": "a pit is a coal mine"
+     },
+     {
+      "clueFragment": "level",
+      "gives": "RASE",
+      "note": "rase is a variant of raze, to level to the ground"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RASE"
+     ]
+    },
+    "explanation": {
+     "surface": "A miner's note that a green stone is dug out to level ground.",
+     "definitionFit": "Prase is a leek-green variety of quartz, a green mineral."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "level"
+    }
+   }
   },
   {
    "number": 24,
@@ -397,7 +1645,55 @@
     "text": "Fortified retreat, separate, to leave when Queen's gone",
     "enumeration": "6"
    },
-   "solution": "REDUIT"
+   "solution": "REDUIT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "REDUIT",
+    "definitions": [
+     {
+      "text": "Fortified retreat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when Queen's gone",
+      "for": "deletion",
+      "note": "with the queen gone her chess letter is removed from the word before"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "separate",
+      "gives": "RED",
+      "note": "red, or redd, is an old word for separating or sorting"
+     },
+     {
+      "clueFragment": "to leave",
+      "gives": "QUIT",
+      "note": "to quit is to leave"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RED",
+      "UIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A defended stronghold to split up and leave once the monarch has gone.",
+     "walkthrough": "Q is the standard abbreviation for Queen.",
+     "definitionFit": "A reduit is a keep or inner stronghold into which a garrison can retreat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Queen's"
+    }
+   }
   },
   {
    "number": 25,
@@ -411,7 +1707,54 @@
     "text": "Geological formation is scorching – I kept inside",
     "enumeration": "6"
    },
-   "solution": "SERIES"
+   "solution": "SERIES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SERIES",
+    "definitions": [
+     {
+      "text": "Geological formation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kept inside",
+      "for": "container",
+      "note": "kept inside means enclosed within the preceding word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is scorching",
+      "gives": "SERES",
+      "note": "sere is a variant of sear, to scorch, so it seres"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SER",
+      "I",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "A rock structure is red-hot, and I am stuck inside it.",
+     "definitionFit": "In stratigraphy a series is a group of rock strata formed during one geological epoch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "scorching"
+    }
+   }
   },
   {
    "number": 26,
@@ -425,7 +1768,60 @@
     "text": "Cocktail ingredient man gives me when this",
     "enumeration": "5"
    },
-   "solution": "ANISE"
+   "solution": "ANISE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "ANISE",
+    "definitions": [
+     {
+      "text": "Cocktail ingredient",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gives",
+      "for": "substitution",
+      "note": "gives here means turns into, one word changing into another by swapping some letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man",
+      "gives": "AN",
+      "note": "the part of man that changes"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "E",
+      "note": "the part of me it changes into"
+     },
+     {
+      "clueFragment": "when this",
+      "gives": "ANISE",
+      "note": "this is the answer, so the clue reads as a condition the answer states"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "IS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A bartender's note that some ingredient will turn a man into me.",
+     "walkthrough": "MAN becomes ME exactly when AN is E, and that condition read as words is AN IS E.",
+     "definitionFit": "Anise is an aniseed flavouring found in drinks such as pastis, ouzo and absinthe cocktails."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "man"
+    }
+   }
   },
   {
    "number": 27,
@@ -439,7 +1835,58 @@
     "text": "We'll be roused with naker for reveille?",
     "enumeration": "7"
    },
-   "solution": "WAKENER"
+   "solution": "WAKENER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WAKENER",
+    "definitions": [
+     {
+      "text": "reveille",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'ll be roused",
+      "for": "anagram",
+      "note": "will be roused means stirred up, so the letters are stirred into new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "We",
+      "gives": "WE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "naker",
+      "gives": "NAKER",
+      "note": "taken as written; a naker is an old kettledrum"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WENAKER",
+       "gives": "WAKENER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers expect to be woken by a kettledrum at the morning call.",
+     "definitionFit": "Reveille is the morning signal that wakes troops, so it is literally a wakener."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "naker"
+    }
+   }
   },
   {
    "number": 27,
@@ -453,7 +1900,42 @@
     "text": "Snow goose, like a whitecap?",
     "enumeration": "4"
    },
-   "solution": "WAVY"
+   "solution": "WAVY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WAVY",
+    "definitions": [
+     {
+      "text": "Snow goose",
+      "at": 0
+     },
+     {
+      "text": "like a whitecap?",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Snow goose",
+      "note": "first meaning: a North American name for the snow goose"
+     },
+     {
+      "clueFragment": "like a whitecap?",
+      "note": "second meaning: undulating, as a breaking wave is"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A whitecap is a wave with a foaming crest; the question mark admits the stretch.",
+     "definitionFit": "Wavy, or wavey, is a Canadian name for the snow goose, and a whitecap is a wave, so it is wave-like."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "whitecap"
+    }
+   }
   },
   {
    "number": 28,
@@ -467,7 +1949,69 @@
     "text": "Food stuffed with strong flavour about to turn foul",
     "enumeration": "8"
    },
-   "solution": "STAGNATE"
+   "solution": "STAGNATE",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "STAGNATE",
+    "definitions": [
+     {
+      "text": "turn foul",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuffed with",
+      "for": "container",
+      "note": "stuffed with means filled with, so the second piece goes inside the first"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned round, so the whole combination is read backwards"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Food",
+      "gives": "EATS",
+      "note": "eats is informal for food"
+     },
+     {
+      "clueFragment": "strong flavour",
+      "gives": "TANG",
+      "note": "a tang is a sharp taste"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STA",
+      "GNAT",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "ETANGATS",
+       "to": "STAGNATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dish stuffed with something pungent is on the verge of going off.",
+     "definitionFit": "Stagnant water goes bad and smells, so to stagnate is to become foul through lack of movement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Food"
+    }
+   }
   },
   {
    "number": 29,
@@ -481,7 +2025,75 @@
     "text": "Reversal for monastic centre following end of faith in Asian capital",
     "enumeration": "5"
    },
-   "solution": "HANOI"
+   "solution": "HANOI",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HANOI",
+    "definitions": [
+     {
+      "text": "Asian capital",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reversal for",
+      "for": "reversal",
+      "note": "the word reversal plainly orders the next item turned backwards"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "end of keeps just the last letter of the word"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following places one piece after the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "faith",
+      "gives": "H",
+      "select": "last",
+      "note": "last letter of faith"
+     },
+     {
+      "clueFragment": "monastic centre",
+      "gives": "IONA",
+      "note": "Iona is the Hebridean island where St Columba founded his monastery"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ANOI"
+     ],
+     "reversals": [
+      {
+       "from": "IONA",
+       "to": "ANOI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A religious community moving its base to follow a faith into an Asian city.",
+     "definitionFit": "Hanoi is the capital city of Vietnam."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Reversal"
+    }
+   }
   },
   {
    "number": 30,
@@ -495,7 +2107,68 @@
     "text": "Cell may include this lout after breaking wine bottles",
     "enumeration": "7"
    },
-   "solution": "VOLUTIN"
+   "solution": "VOLUTIN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "VOLUTIN",
+    "definitions": [
+     {
+      "text": "Cell may include this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after breaking",
+      "for": "anagram",
+      "note": "after breaking means once it is broken up, so its letters are rearranged"
+     },
+     {
+      "text": "bottles",
+      "for": "container",
+      "note": "bottles here is a verb, the word for wine holding the jumbled letters inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wine",
+      "gives": "VIN",
+      "note": "vin is French for wine"
+     },
+     {
+      "clueFragment": "lout",
+      "gives": "LOUT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "OLUT",
+      "IN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOUT",
+       "gives": "OLUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prison cell could hold this hooligan after he smashes wine bottles.",
+     "walkthrough": "Cell is a biological cell, not a prison one.",
+     "definitionFit": "Volutin is a granular phosphate substance found in the cytoplasm of many cells."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cell"
+    }
+   }
   },
   {
    "number": 31,
@@ -509,7 +2182,57 @@
     "text": "Having clubs in charge, not good for the Aussies",
     "enumeration": "5"
    },
-   "solution": "ONCUS"
+   "solution": "ONCUS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ONCUS",
+    "definitions": [
+     {
+      "text": "not good for the Aussies",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece within the other"
+     }
+    ],
+    "linkWords": [
+     "Having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "charge",
+      "gives": "ONUS",
+      "note": "an onus is a burden or charge"
+     },
+     {
+      "clueFragment": "clubs",
+      "gives": "C",
+      "note": "C is the card abbreviation for clubs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "C",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A card player in Australia complains about being lumbered with the clubs.",
+     "definitionFit": "Oncus, or onkus, is Australian slang meaning bad, disorganised or no good."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clubs"
+    }
+   }
   },
   {
    "number": 32,
@@ -523,7 +2246,50 @@
     "text": "I etch transfers using industrial equipment",
     "enumeration": "5"
    },
-   "solution": "HITEC"
+   "solution": "HITEC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HITEC",
+    "definitions": [
+     {
+      "text": "using industrial equipment",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "transfers",
+      "for": "anagram",
+      "note": "transfers suggests letters moved to new places, so they are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I etch",
+      "gives": "IETCH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IETCH",
+       "gives": "HITEC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An engraver explains how designs are copied with factory machinery.",
+     "definitionFit": "Hi-tec is a variant of hi-tech, describing an interior style built with industrial fittings and equipment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "transfers"
+    }
+   }
   },
   {
    "number": 33,
@@ -537,7 +2303,73 @@
     "text": "French season in gallery put back private interviews",
     "enumeration": "10"
    },
-   "solution": "TETEATETES"
+   "solution": "TETEATETES",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal",
+     "charade"
+    ],
+    "answer": "TETEATETES",
+    "definitions": [
+     {
+      "text": "private interviews",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the season word within the gallery word"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gallery",
+      "gives": "TATE",
+      "note": "the Tate is the London art gallery"
+     },
+     {
+      "clueFragment": "French season",
+      "gives": "ETE",
+      "note": "été is French for summer"
+     },
+     {
+      "clueFragment": "put",
+      "gives": "SET",
+      "note": "to set is to put"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ETE",
+      "ATE",
+      "TES"
+     ],
+     "reversals": [
+      {
+       "from": "SET",
+       "to": "TES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French summer show at an art gallery has been postponed.",
+     "definitionFit": "A tête-à-tête is a private conversation between two people, literally head to head."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "put"
+    }
+   }
   }
  ]
 }
