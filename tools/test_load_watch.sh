@@ -156,9 +156,18 @@ rec = run(proc, state, sleep=burn({30: 1260}))  # 12.6 s of CPU in a 10 s window
 check("second high run wakes", "woke", rec["action"])
 check("top consumer", "fetch_puzzle.py --reindex", rec["top"])
 check("message is ranked and carries the work", True,
-      "load 15 on 6 cores: 1.3 cores fetch_puzzle.py --reindex (parent gale_read.sh)" in woke[0]
-      and "desktop CPU" in woke[0] and "1 in D-state" in woke[0] and "avg60 2.25%" in woke[0])
+      woke[0].startswith("load 15 on 6 cores: tasks stalled waiting for CPU 2.25% of the last minute")
+      and "Top consumers: 1.3 cores fetch_puzzle.py --reindex (parent gale_read.sh)" in woke[0]
+      and "desktop CPU" in woke[0] and "1 in D-state" in woke[0])
 check("running count excludes the sampler itself", 0, rec["R"])
+(Path(proc) / "stat").write_text("cpu  100 0 50 800 50 0 0 0 0 0\ncpu0 1 1 1 1\nprocs_running 9\n")
+check("whole-VM busy ticks leave out idle and iowait", {"busy": 150, "running": 9}, lw.read_stat(proc))
+check("message leads with the runnable threads", True, lw.message(
+    11.4, 6, {"runnable": 8, "busy": 5.9, "total": 3.2, "R": 4, "D": 0, "ranked": []},
+    {"avg60": 17.3}).startswith("load 11.4 on 6 cores: 8 threads runnable for 6 cores; "
+                                "tasks stalled waiting for CPU 17.3% of the last minute; "
+                                "the VM used 5.9 cores, our processes 3.2"))
+(Path(proc) / "stat").unlink()
 clock[0] += 300
 check("same top inside the hour stays quiet", "quiet", run(proc, state, sleep=burn({30: 1000}))["action"])
 check("still one wake", 1, len(woke))
