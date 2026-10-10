@@ -270,6 +270,22 @@ starts = [float(line.split()[0]) for line in log.read_text().splitlines() if lin
 check("a slow replan does not hold up starts from the plan before it", (3, True),
       (len(starts), max(starts) - starts[0] < 2.5))
 log.unlink()
+kept_ho = Path(os.environ["TMP"]) / "kept-handoff.json"
+eq.plan = units([], [("k1", []), ("k2", [])])
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=2, replan=0.1, handoff=kept_ho)
+log.unlink()
+def stalled(papers, cache=None, reread=None, newer=None, out=None):
+    time.sleep(3)
+    return [], []
+eq.plan = stalled
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    t0 = time.monotonic()
+    eq.dispatch(["times"], cache, workers=2, replan=0.1, handoff=kept_ho)
+starts = [(float(line.split()[0]), line.split()[3]) for line in log.read_text().splitlines() if line.split()[1] == "start"]
+check("the next run starts the kept plan's units before its own plan is made", (["k1", "k2"], True),
+      (sorted(r for _, r in starts), all(t - t0 < 2 for t, _ in starts)))
+log.unlink()
 fake(sleep={"slow": 30})
 eq.plan = units([], [(f"r{k}", []) for k in range(6)])
 out = io.StringIO()
